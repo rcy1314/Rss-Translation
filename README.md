@@ -9,7 +9,7 @@
 
  [ Rss-Translation (rcy1314.github.io)](https://rcy1314.github.io/Rss-Translation/))
 
-原作者：[talengu/rss-translate: rss translate any to any (github.com)](https://github.com/talengu/rss-translate)
+Fork出处：[talengu/rss-translate: rss translate any to any (github.com)](https://github.com/talengu/rss-translate)
 
 ## 已添加订阅
 
