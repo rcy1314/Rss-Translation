@@ -7,7 +7,7 @@
 
 在 [test.ini](https://github.com/rcy1314/Rss-Translation/blob/main/test.ini) 中提交以转换订阅
 
- [[rss-translate | Rss-Translation (rcy1314.github.io)](https://rcy1314.github.io/Rss-Translation/))
+ [ Rss-Translation (rcy1314.github.io)](https://rcy1314.github.io/Rss-Translation/))
 
 ## 已转换翻译源
 
