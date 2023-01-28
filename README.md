@@ -1,4 +1,4 @@
-# rss-translate
+# Rss-Translation
 
 rss translate any to any
 
@@ -7,7 +7,7 @@ rss translate any to any
 
 you can edit [test.ini](https://github.com/talengu/rss-translate/edit/main/test.ini) to add orginal rss url.
 
-next find the translated link in [https://talengu.github.io/rss-translate/](https://talengu.github.io/rss-translate/)
+next find the translated link in [[rss-translate | Rss-Translation (rcy1314.github.io)](https://rcy1314.github.io/Rss-Translation/))
 
 ## rss translate links
 
