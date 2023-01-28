@@ -4,15 +4,15 @@
 
 已添加订阅
 
-reddit-notion社区
+1、reddit-notion社区
 
-reddit-appstore社区
+2、reddit-appstore社区
 
-reddit-animation社区
+3、reddit-animation社区
 
-feedle_indiehackers社区
+4、feedle_indiehackers社区
 
-feedle_webhook
+5、feedle_webhook
 
 ![](https://github.com/talengu/rss-translate/workflows/circle_translate/badge.svg)
 ![](https://github.com/talengu/rss-translate/workflows/Deploy/badge.svg)
