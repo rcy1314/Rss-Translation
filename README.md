@@ -7,7 +7,7 @@
 ![](https://github.com/talengu/rss-translate/workflows/Deploy/badge.svg)
 
 在 [test.ini](https://github.com/rcy1314/Rss-Translation/blob/main/test.ini) 中提交以转换订阅
- [ Rss-Translation (rcy1314.github.io)](https://rcy1314.github.io/Rss-Translation)
+Github: [ Rss-Translation ](https://rcy1314.github.io/Rss-Translation)
  修改自： [ rss-translate ](https://github.com/talengu/rss-translate)
 
 ## 已转换翻译源
