@@ -11,16 +11,8 @@
 
 Fork出处：[talengu/rss-translate: rss translate any to any (github.com)](https://github.com/talengu/rss-translate)
 
-## 已添加订阅
-
-1. reddit-notion社区
-2. reddit-appstore社区
-3. reddit-animation社区
-4. feedle_indiehackers社区
-5. feedle_webhook
-
-## 已转换翻译源
-
  - source001 [https://www.reddit.com/r/Notion.rss](https://www.reddit.com/r/Notion.rss) -> [reddit_notion.xml](rss/reddit_notion.xml)
  - source002 [https://www.reddit.com/r/App_Store.rss](https://www.reddit.com/r/App_Store.rss) -> [reddit_appstore.xml](rss/reddit_appstore.xml)
  - source003 [https://www.reddit.com/r/animation.rss](https://www.reddit.com/r/animation.rss) -> [reddit_animation.xml](rss/reddit_animation.xml)
+ - source004 [https://feedle.world/rss/?query=indiehackers](https://feedle.world/rss/?query=indiehackers) -> [feedle_indiehackers.xml](rss/feedle_indiehackers.xml)
+ - source005 [https://feedle.world/rss/?query=webhook](https://feedle.world/rss/?query=webhook) -> [feedle_indiehackers.xml](rss/feedle_indiehackers.xml)
