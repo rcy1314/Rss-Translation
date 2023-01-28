@@ -2,7 +2,6 @@
 
 这是一个外文RSS翻译转换订阅页面 
 
-
 ![](https://github.com/talengu/rss-translate/workflows/circle_translate/badge.svg)
 ![](https://github.com/talengu/rss-translate/workflows/Deploy/badge.svg)
 
