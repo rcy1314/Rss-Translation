@@ -11,7 +11,9 @@
 
 ## 已转换翻译源
  - source001 [https://www.reddit.com/r/Notion.rss](https://www.reddit.com/r/Notion.rss) -> [reddit_notion.xml](rss/reddit_notion.xml)
+ - source001 [https://www.reddit.com/r/Notion.rss](https://www.reddit.com/r/Notion.rss) -> [reddit_notion.xml](rss/reddit_notion.xml)
  - source002 [https://www.reddit.com/r/App_Store.rss](https://www.reddit.com/r/App_Store.rss) -> [reddit_appstore.xml](rss/reddit_appstore.xml)
  - source003 [https://www.reddit.com/r/animation.rss](https://www.reddit.com/r/animation.rss) -> [reddit_animation.xml](rss/reddit_animation.xml)
  - source004 [https://feedle.world/rss/?query=indiehackers](https://feedle.world/rss/?query=indiehackers) -> [feedle_indiehackers.xml](rss/feedle_indiehackers.xml)
  - source005 [https://feedle.world/rss/?query=webhook](https://feedle.world/rss/?query=webhook) -> [feedle_webhook.xml](rss/feedle_webhook.xml)
+ - source006 [https://rsshub.app/telegram/channel/Artificial_intelligence_in](https://rsshub.app/telegram/channel/Artificial_intelligence_in) -> [Artificial_intelligence_in.xml](rss/Artificial_intelligence_in.xml)
