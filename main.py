@@ -1,4 +1,4 @@
-# coding:utf-8 
+ coding:utf-8 
 import configparser
 from pygtrans import Translate
 from bs4 import BeautifulSoup
@@ -6,13 +6,13 @@ import sys
 import os
 from urllib import request
 import urllib
-# pip install pygtrans -i https://pypi.org/simple
-# ref:https://zhuanlan.zhihu.com/p/390801784
-# ref:https://beautifulsoup.readthedocs.io/zh_CN/latest/
-# ref:https://pygtrans.readthedocs.io/zh_CN/latest/langs.html
-# client = Translate()
-# text = client.translate('Google Translate')
-# print(text.translatedText)  # 谷歌翻译
+ pip install pygtrans -i https://pypi.org/simple
+ ref:https://zhuanlan.zhihu.com/p/390801784
+ ref:https://beautifulsoup.readthedocs.io/zh_CN/latest/
+ ref:https://pygtrans.readthedocs.io/zh_CN/latest/langs.html
+ client = Translate()
+ text = client.translate('Google Translate')
+ print(text.translatedText)  # 谷歌翻译
 import hashlib
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -46,10 +46,10 @@ def get_cfg_tra(sec):
     return source,target
 
 
-# config['url']={'url':'www.baidu.com'} #类似于字典操作
+ config['url']={'url':'www.baidu.com'} #类似于字典操作
  
-# with open('example.ini','w') as configfile:
-#     config.write(configfile)
+ with open('example.ini','w') as configfile:
+     config.write(configfile)
 
 BASE=get_cfg("cfg",'base')
 try:
