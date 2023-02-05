@@ -1,4 +1,4 @@
- coding:utf-8 
+ # coding:utf-8 
 import configparser
 from pygtrans import Translate
 from bs4 import BeautifulSoup
