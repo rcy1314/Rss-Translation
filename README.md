@@ -35,4 +35,4 @@
  - source022 [https://www.reddit.com/r/youtubeaudiolibrary/new.rss](https://www.reddit.com/r/youtubeaudiolibrary/new.rss) -> [reddit_youtubeaudiolibrary.xml](rss/reddit_youtubeaudiolibrary.xml)
  - source023 [https://www.reddit.com/r/webdev/new.rss](https://www.reddit.com/r/webdev/new.rss) -> [reddit_webdev.xml](rss/reddit_webdev.xml)
  - source024 [https://www.reddit.com/r/opensource/new.rss](https://www.reddit.com/r/opensource/new.rss) -> [reddit_opensource.xml](rss/reddit_opensource.xml)
- - source025 [https://rsshub.app/producthunt/today](https://rsshub.app/producthunt/today) -> [reddit_producthunt.xml](rss/reddit_producthunt.xml)
+ - source025 [https://rsshub.app/producthunt/today](https://rsshub.app/producthunt/today) -> [producthunt.xml](rss/producthunt.xml)
