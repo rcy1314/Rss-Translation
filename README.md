@@ -2,7 +2,8 @@
 
 这是一个外文RSS翻译转换订阅页面 
 
-![](https://github.com/talengu/rss-translate/workflows/circle_translate/badge.svg)![](https://github.com/talengu/rss-translate/workflows/Deploy/badge.svg)
+[![circle_translate](https://github.com/rcy1314/Rss-Translation/actions/workflows/circle_translate.yml/badge.svg)](https://github.com/rcy1314/Rss-Translation/actions/workflows/circle_translate.yml)
+[![Deploy](https://github.com/rcy1314/Rss-Translation/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/rcy1314/Rss-Translation/actions/workflows/jekyll-gh-pages.yml)
 
 在 [test.ini](https://github.com/rcy1314/Rss-Translation/blob/main/test.ini) 中提交以转换订阅，转换[rss to json](https://rss2json.com/)
 
@@ -10,7 +11,6 @@
 
 ## 已转换翻译源
  - source001 [https://www.reddit.com/r/Notion.rss](https://www.reddit.com/r/Notion.rss) -> [reddit_notion.xml](rss/reddit_notion.xml)
- - source002 [https://www.reddit.com/r/animation.rss](https://www.reddit.com/r/animation.rss) -> [reddit_animation.xml](rss/reddit_animation.xml)
  - source001 [https://www.reddit.com/r/Notion.rss](https://www.reddit.com/r/Notion.rss) -> [reddit_notion.xml](rss/reddit_notion.xml)
  - source002 [https://www.reddit.com/r/animation.rss](https://www.reddit.com/r/animation.rss) -> [reddit_animation.xml](rss/reddit_animation.xml)
  - source003 [https://feedle.world/rss/?query=indiehackers](https://feedle.world/rss/?query=indiehackers) -> [feedle_indiehackers.xml](rss/feedle_indiehackers.xml)
