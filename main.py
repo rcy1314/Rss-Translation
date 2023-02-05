@@ -46,10 +46,10 @@ def get_cfg_tra(sec):
     return source,target
 
 
- config['url']={'url':'www.baidu.com'} #类似于字典操作
+# config['url']={'url':'www.baidu.com'} #类似于字典操作
  
- with open('example.ini','w') as configfile:
-     config.write(configfile)
+# with open('example.ini','w') as configfile:
+#     config.write(configfile)
 
 BASE=get_cfg("cfg",'base')
 try:
