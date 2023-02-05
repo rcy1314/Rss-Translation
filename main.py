@@ -1,4 +1,4 @@
- # coding:utf-8 
+# coding:utf-8 
 import configparser
 from pygtrans import Translate
 from bs4 import BeautifulSoup
@@ -6,13 +6,13 @@ import sys
 import os
 from urllib import request
 import urllib
- pip install pygtrans -i https://pypi.org/simple
- ref:https://zhuanlan.zhihu.com/p/390801784
- ref:https://beautifulsoup.readthedocs.io/zh_CN/latest/
- ref:https://pygtrans.readthedocs.io/zh_CN/latest/langs.html
- client = Translate()
- text = client.translate('Google Translate')
- print(text.translatedText)  # 谷歌翻译
+# pip install pygtrans -i https://pypi.org/simple
+# ref:https://zhuanlan.zhihu.com/p/390801784
+# ref:https://beautifulsoup.readthedocs.io/zh_CN/latest/
+# ref:https://pygtrans.readthedocs.io/zh_CN/latest/langs.html
+# client = Translate()
+# text = client.translate('Google Translate')
+# print(text.translatedText)  # 谷歌翻译
 import hashlib
 def get_md5_value(src):
     _m = hashlib.md5()
