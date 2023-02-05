@@ -36,3 +36,4 @@
  - source023 [https://www.reddit.com/r/webdev/new.rss](https://www.reddit.com/r/webdev/new.rss) -> [reddit_webdev.xml](rss/reddit_webdev.xml)
  - source024 [https://www.reddit.com/r/opensource/new.rss](https://www.reddit.com/r/opensource/new.rss) -> [reddit_opensource.xml](rss/reddit_opensource.xml)
  - source025 [https://www.producthunt.com/feed](https://www.producthunt.com/feed) -> [producthunt_today.xml](rss/producthunt_today.xml)
+ - source026 [https://dev.to/feed/daviducolo.rss](https://dev.to/feed/daviducolo.rss) -> [dev_daviducolo.xml](rss/dev_daviducolo.xml)
