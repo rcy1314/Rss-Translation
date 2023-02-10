@@ -130,7 +130,7 @@ YML="README.md"
 
 f = open(YML, "r+", encoding="UTF-8")
 list1 = f.readlines()           
-list1= list1[:20] + links
+list1= list1[:13] + links
 
 f = open(YML, "w+", encoding="UTF-8")
 f.writelines(list1)
