@@ -86,7 +86,7 @@ def tran(sec):
     html_doc=html_doc.replace('<?', '</s')
     html_doc=html_doc.replace('?>', '/>')
     
-    soup = BeautifulSoup(html_doc.text, 'html.parser')
+    soup = BeautifulSoup(html_doc, 'html.parser')
     items=soup.find_all('item')
     for idx,e in enumerate(items):
         if idx >max_item:
