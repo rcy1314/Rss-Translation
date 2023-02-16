@@ -88,7 +88,7 @@ def tran(sec):
     
     soup = BeautifulSoup(html_doc)
     items=soup.find_all('item')
-
+    BeautifulSoup(html_doc, 'lxml')
     for idx,e in enumerate(items):
         if idx >max_item:
                 e.decompose()
