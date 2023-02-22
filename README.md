@@ -34,4 +34,4 @@
  - source021 [https://www.producthunt.com/feed](https://www.producthunt.com/feed) -> [producthunt_today.xml](rss/producthunt_today.xml)
  - source022 [https://dev.to/feed/daviducolo.rss](https://dev.to/feed/daviducolo.rss) -> [dev_daviducolo.xml](rss/dev_daviducolo.xml)
  - source023 [https://tg.i-c-a.su/rss/hn_summary](https://tg.i-c-a.su/rss/hn_summary) -> [hn_summary.xml](rss/hn_summary.xml)
- - source02 [https://www.opensourceagenda.com/feeds/projects](https://www.opensourceagenda.com/feeds/projects) -> [opensourceagenda.xml](rss/opensourceagenda.xml)
+ - source024 [https://www.opensourceagenda.com/feeds/projects](https://www.opensourceagenda.com/feeds/projects) -> [opensourceagenda.xml](rss/opensourceagenda.xml)
