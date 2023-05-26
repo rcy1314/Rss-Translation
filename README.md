@@ -11,6 +11,8 @@
 ## 已转换翻译源
  - source001 [https://rsshub.app/telegram/channel/Artificial_intelligence_in](https://rsshub.app/telegram/channel/Artificial_intelligence_in) -> [Artificial_intelligence_in.xml](rss/Artificial_intelligence_in.xml)
  - source002 [https://www.reddit.com/r/automation.rss](https://www.reddit.com/r/automation.rss) -> [reddit_automation.xml](rss/reddit_automation.xml)
+ - source001 [https://rsshub.app/telegram/channel/Artificial_intelligence_in](https://rsshub.app/telegram/channel/Artificial_intelligence_in) -> [Artificial_intelligence_in.xml](rss/Artificial_intelligence_in.xml)
+ - source002 [https://www.reddit.com/r/automation.rss](https://www.reddit.com/r/automation.rss) -> [reddit_automation.xml](rss/reddit_automation.xml)
  - source003 [https://www.reddit.com/r/productivity.rss](https://www.reddit.com/r/productivity.rss) -> [reddit_productivity.xml](rss/reddit_productivity.xml)
  - source004 [https://huggingface.co/blog/feed.xml](https://huggingface.co/blog/feed.xml) -> [huggingface_blog.xml](rss/huggingface_blog.xml)
  - source005 [https://www.reddit.com/r/ArtificialInteligence.rss](https://www.reddit.com/r/ArtificialInteligence.rss) -> [reddit_ArtificialInteligence.xml](rss/reddit_ArtificialInteligence.xml)
