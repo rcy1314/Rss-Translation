@@ -4,7 +4,7 @@
 
 [![circle_translate](https://github.com/rcy1314/Rss-Translation/actions/workflows/circle_translate.yml/badge.svg)](https://github.com/rcy1314/Rss-Translation/actions/workflows/circle_translate.yml)[![Deploy](https://github.com/rcy1314/Rss-Translation/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/rcy1314/Rss-Translation/actions/workflows/jekyll-gh-pages.yml)
 
-在 [test.ini](https://github.com/rcy1314/Rss-Translation/blob/main/test.ini) 中提交以转换订阅
+更改请在 [test.ini](https://github.com/rcy1314/Rss-Translation/blob/main/test.ini) 中提交
 
 查看[ Rss-Translation ](https://rcy1314.github.io/Rss-Translation)使用[ 教程 ](https://github.com/talengu/rss-translate/issues/2)修改自[ rss-translate ](https://github.com/talengu/rss-translate)
 
