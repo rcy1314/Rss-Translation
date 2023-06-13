@@ -4,7 +4,7 @@ from pygtrans import Translate
 from bs4 import BeautifulSoup
 import sys
 import os
-from urllib import request
+from urllib import request, parse
 import urllib
 # pip install pygtrans -i https://pypi.org/simple
 # ref:https://zhuanlan.zhihu.com/p/390801784
@@ -18,9 +18,12 @@ def get_md5_value(src):
     _m = hashlib.md5()
     _m.update(src.encode('utf-8'))
     return _m.hexdigest()
-    
+
+
+with open('test.ini', mode = 'r') as f:
+    ini_data = parse.unquote(f.read())
 config = configparser.ConfigParser()
-config.read('test.ini',encoding='utf-8')
+config.read_string(ini_data)
 secs=config.sections()
 
 
@@ -65,7 +68,7 @@ def tran(sec):
     source,target=get_cfg_tra(sec)
     global links
 
-    links+=[" - %s [%s](%s) -> [%s](%s)\n"%(sec,url,url,get_cfg(sec,'name'),out_dir)]
+    links+=[" - %s [%s](%s) -> [%s](%s)\n"%(sec,url,(url),get_cfg(sec,'name'),parse.quote(out_dir))]
 
 
     GT = Translate()
@@ -86,14 +89,16 @@ def tran(sec):
     html_doc=html_doc.replace('<?', '</s')
     html_doc=html_doc.replace('?>', '/>')
     
-    soup = BeautifulSoup(html_doc, 'html.parser')
+    soup = BeautifulSoup(html_doc)
     items=soup.find_all('item')
+
     for idx,e in enumerate(items):
         if idx >max_item:
                 e.decompose()
     
     content= str(soup)
     
+    content=content.replace('<title', '<stitle')
     content=content.replace('title>', 'stitle>')
     content=content.replace( '<pubdate>','<pubDate><span translate="no">')
     content=content.replace( '</pubdate>','</span></pubdate>')
@@ -106,6 +111,7 @@ def tran(sec):
     with open(out_dir,'w',encoding='utf-8') as f:
         c=_text.translatedText
         
+        c=c.replace('<stitle', '<title')
         c=c.replace('stitle>', 'title>')
         c=c.replace('<span translate="no">', '')
         c=c.replace('</span></pubdate>', '</pubDate>') # 对于ttrss需要为pubDate才会识别正确
