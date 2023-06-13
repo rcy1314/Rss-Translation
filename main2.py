@@ -49,25 +49,26 @@ class GoogleTran:
         except:
             return ""
 
-    def get_newcontent(self, max=2):
+   def get_newcontent(self, max_item=2):
         item_list = []
-        if len(self.d.entries) < max:
-            max = len(self.d.entries)
-        for entry in self.d.entries[:max]:
-            one = Item(
-                title=self.tr(entry.title),
-                link=entry.link,
-                description=self.tr(entry.summary),
-                guid=Guid(entry.link),
-                pubDate=getTime(entry))
-            item_list.append(one)
+        entries_len = len(self.d.entries)
+        if entries_len < max_item:
+            max_item = entries_len
+        for entry in self.d.entries[:max_item]:
+            # 若entry中没有summary字段，则赋值为空字符串
+            summary = getattr(entry, 'summary', '')
+            one = Item(title=self.tr(entry.title),
+                       link=entry.link,
+                       description=self.tr(summary),
+                       guid=Guid(entry.link),
+                       pubDate=get_time(entry))
+            item_list += [one]
         feed = self.d.feed
-        newfeed = Feed(
-            title=self.tr(feed.title),
-            link=feed.link,
-            description=self.tr(getSubtitle(feed)),
-            lastBuildDate=getTime(feed),
-            items=item_list)
+        newfeed = Feed(title=self.tr(feed.title),
+                       link=feed.link,
+                       description=self.tr(get_subtitle(feed)),
+                       lastBuildDate=get_time(feed),
+                       items=item_list)
         return newfeed.rss()
 
 
