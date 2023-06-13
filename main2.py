@@ -69,7 +69,13 @@ def get_newcontent(self, max_item=2):
                    lastBuildDate=get_time(feed),
                    items=item_list)
     return newfeed.rss()
-
+# 修改tran函数内的代码，确保GoogleTran类实例方法调用正确
+def tran(url, max_item=2, source='auto', target='zh-cn'):
+    c = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    return c.rsplit('\n', 1)[0]
+    
+# 调用方法：
+tran("https://www.ruanyifeng.com/blog/atom.xml", max_item=5, target='en')
 
 config = configparser.ConfigParser()
 config.read('test.ini')
