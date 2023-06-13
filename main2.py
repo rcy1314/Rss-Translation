@@ -130,21 +130,18 @@ def tran(sec):
 
     print("GT: " + url + " > " + out_dir)
     
-    for x in secs[1:]:
+for x in secs[1:]:
     tran(x)
-    print(config.items(x))
+    print(list(config.items(x)))
 
-with open('test.ini','w') as configfile:
+with open('test.ini', 'w') as configfile:
     config.write(configfile)
 
+YML = "README.md"
 
+with open(YML, 'r+', encoding="UTF-8") as f:
+    list1 = f.readlines()
+    list1 = list1[:13] + links
 
-YML="README.md"
-
-f = open(YML, "r+", encoding="UTF-8")
-list1 = f.readlines()           
-list1= list1[:13] + links
-
-f = open(YML, "w+", encoding="UTF-8")
-f.writelines(list1)
-f.close()
+with open(YML, 'w+', encoding="UTF-8") as f:
+    f.writelines(list1)
