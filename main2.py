@@ -106,13 +106,15 @@ except:
 links = []
 
 
-def tran(url, max_item=2, source='auto', target='zh-cn'):
+def tran(sec):
     out_dir= BASE + get_cfg(sec,'name')
-    url = get_cfg(sec, 'url')
-    max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5')
-    source, target = get_cfg_tra(sec)
+    url=get_cfg(sec,'url')
+    max_item=int(get_cfg(sec,'max'))
+    old_md5=get_cfg(sec,'md5')
+    source,target=get_cfg_tra(sec)
     global links
+
+
 
     # 调用
     tran_result = GoogleTran(url, target=target, source=source).get_newcontent(max=max_item)
