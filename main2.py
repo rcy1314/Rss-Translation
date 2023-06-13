@@ -114,11 +114,6 @@ def tran(sec):
     source,target=get_cfg_tra(sec)
     global links
 
-
-
-    # 调用
-    tran_result = GoogleTran(url, target=target, source=source).get_newcontent(max=max_item)
-
     links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir)))
 
     new_md5 = get_md5_value(url)
