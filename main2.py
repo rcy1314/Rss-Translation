@@ -9,7 +9,15 @@ import time
 from rfeed import *
 import feedparser
 from urllib import request, parse
+def get_md5_value(src):
+    _m = hashlib.md5()
+    _m.update(src.encode('utf-8'))
+    return _m.hexdigest()
 
+import datetime
+import time
+from rfeed import *
+import feedparser
 def getTime(e):
     try:
         struct_time = e.published_parsed
