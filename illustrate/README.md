@@ -1,12 +1,17 @@
 # ⭐说明及添加⭐
 
-已在原项目基础上更新Action环境依赖
+已在原项目基础上更新Action环境依赖，由于此前每3小时运行过于频繁，导致action更新抓取一些站点时被限制及封禁！！！
 
-去除原项目随机工作流，改为定时每3小时运行
+改为定时每6小时运行一次（建议每12小时运行）并去除原项目随机工作流，增加及完善[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+调整：
+• 更换了翻译接口，使用googletrans模块代替pygtrans模块。
+• 修改了导入的模块
+• 安全地将字符串输入到md5()函数中，使用encode()函数将字符串转换为UTF-8编码。
+• 使用os.path.join()方法代替基本字符串拼接的方式来构建输出目录。
+• 在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
+rss注意：有的RSS源过多字符会造成不完整翻译及报错，不要添加过多字符的源如全文输出的rss源
 
-注意：有的RSS源过多字符会造成不完整翻译及报错，不要添加过多字符的源
-
-[个人喜好RSS阅读页](https://rcy1314.github.io/news/)：每2小时更新
+[个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击rss for you来订阅页面
 
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
