@@ -107,7 +107,7 @@ links = []
 
 
 def tran(url, max_item=2, source='auto', target='zh-cn'):
-    out_dir = BASE + get_cfg(sec, 'name')
+    out_dir= BASE + get_cfg(sec,'name')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5')
