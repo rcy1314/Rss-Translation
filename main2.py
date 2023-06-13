@@ -122,9 +122,11 @@ def tran(sec):
         return
     else:
         set_cfg(sec, 'md5', new_md5)
+        
+    c = GoogleTran(url,target=target,source=source).get_newconent(max=max_item)
 
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(tran_result)
+        f.write(c)
 
     print("GT: " + url + " > " + out_dir)
 
@@ -137,6 +139,8 @@ with open('test.ini', 'w') as configfile:
     config.write(configfile)
 
 YML = "README.md"
+
+f = open(YML, "r+", encoding="UTF-8")
 
 with open(YML, 'r+', encoding="UTF-8") as f:
     list1 = f.readlines()
