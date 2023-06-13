@@ -8,6 +8,7 @@ import datetime
 import time
 import feedparser
 from rfeed import *
+import urllib.parse
 
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -116,6 +117,4 @@ def translate(sec):
 
     c = GoogleTran(url, target=target, source=source).get_new_content(max_items=max_items)
 
-    with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(c)
-    print("GT: " + url + " > " +
+    with open(out_dir, 'w', encoding='utf-8') as f
