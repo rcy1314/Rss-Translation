@@ -14,128 +14,121 @@ import urllib
 # text = client.translate('Google Translate')
 # print(text.translatedText)  # 谷歌翻译
 import hashlib
+
+
 def get_md5_value(src):
     _m = hashlib.md5()
     _m.update(src.encode('utf-8'))
     return _m.hexdigest()
 
 
-with open('test.ini', mode = 'r') as f:
+with open('test.ini', mode='r') as f:
     ini_data = parse.unquote(f.read())
 config = configparser.ConfigParser()
 config.read_string(ini_data)
-secs=config.sections()
+secs = config.sections()
 
 
+def get_cfg(sec, name):
+    return config.get(sec, name).strip('"')
 
-def get_cfg(sec,name):
-    return config.get(sec,name).strip('"')
 
-def set_cfg(sec,name,value):
-    config[sec][name]='"%s"'%value
+def set_cfg(sec, name, value):
+    config[sec][name] = '"%s"' % value
+
 
 def get_cfg_tra(sec):
-    cc=config.get(sec,"action").strip('"')
-    target=""
-    source=""
+    cc = config.get(sec, "action").strip('"')
+    target = ""
+    source = ""
     if cc == "auto":
-        source  = 'auto'
-        target  = 'zh-CN'
-        
-         
+        source = 'auto'
+        target = 'zh-CN'
     else:
-        source  = cc.split('->')[0]
-        target  = cc.split('->')[1]
-    return source,target
+        source = cc.split(' > ')[0]
+        target = cc.split(' > ')[1]
+    return source, target
 
 
-# config['url']={'url':'www.baidu.com'} #类似于字典操作
- 
-# with open('example.ini','w') as configfile:
-#     config.write(configfile)
-
-BASE=get_cfg("cfg",'base')
+BASE = get_cfg("cfg", 'base')
 try:
     os.makedirs(BASE)
 except:
     pass
-links=[]
+links = []
+
+
 def tran(sec):
-    out_dir= BASE + get_cfg(sec,'name')
-    url=get_cfg(sec,'url')
-    max_item=int(get_cfg(sec,'max'))
-    old_md5=get_cfg(sec,'md5')
-    source,target=get_cfg_tra(sec)
+    out_dir = BASE + get_cfg(sec, 'name')
+    url = get_cfg(sec, 'url')
+    max_item = int(get_cfg(sec, 'max'))
+    old_md5 = get_cfg(sec, 'md5')
+    source, target = get_cfg_tra(sec)
     global links
 
-    links+=[" - %s [%s](%s) -> [%s](%s)\n"%(sec,url,(url),get_cfg(sec,'name'),parse.quote(out_dir))]
-
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir))]
 
     GT = Translate()
-    headers={
-        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'
-        }
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'
+    }
     req = urllib.request.Request(url, headers=headers)
 
- 
-    html_doc=request.urlopen(req).read().decode('utf8')
-    new_md5= get_md5_value(html_doc)
+    html_doc = request.urlopen(req).read().decode('utf-8') # 解码为UTF-8编码方式
+    new_md5 = get_md5_value(html_doc)
 
     if old_md5 == new_md5:
         return
     else:
-        set_cfg(sec,'md5',new_md5)
-    # move style
-    html_doc=html_doc.replace('<?', '</s')
-    html_doc=html_doc.replace('?>', '/>')
-    
-    soup = BeautifulSoup(html, features="html.parser")
-    items=soup.find_all('item')
+        set_cfg(sec, 'md5', new_md5)
 
-    for idx,e in enumerate(items):
-        if idx >max_item:
-                e.decompose()
+    # move style
+    html_doc = html_doc.replace('<?', '</s')
+    html_doc = html_doc.replace('?>', '/>')
+
+    soup = BeautifulSoup(html_doc, features="html.parser") # 使用html_doc变量
+    items = soup.find_all('item')
+
+    for idx, e in enumerate(items):
+        if idx > max_item:
+            e.decompose()
+
+    content = str(soup)
+
+    content = content.replace('<title', '<stitle')
+    content = content.replace('title>', 'stitle>')
+    content = content.replace(' <pubdate>', '<pubDate><span translate="no">')  # 去掉前面的'<'
+    content = content.replace('</pubdate>', '</span></pubDate>')
     
-    content= str(soup)
-    
-    content=content.replace('<title', '<stitle')
-    content=content.replace('title>', 'stitle>')
-    content=content.replace( '<pubdate>','<pubDate><span translate="no">')
-    content=content.replace( '</pubdate>','</span></pubdate>')
-    # print(content)
-    
-    
-    _text = GT.translate(content,target=target,source=source)
-    
-    
-    with open(out_dir,'w',encoding='utf-8') as f:
-        c=_text.translatedText
-        
-        c=c.replace('<stitle', '<title')
-        c=c.replace('stitle>', 'title>')
-        c=c.replace('<span translate="no">', '')
-        c=c.replace('</span></pubdate>', '</pubDate>') # 对于ttrss需要为pubDate才会识别正确
-        c=c.replace('&gt','>') # &gt 会影响识别
-        
+    _text = GT.translate(content, target=target,source=source)
+
+    with open(out_dir, 'w', encoding='utf-8') as f:
+        c = _text.translatedText
+
+        c = c.replace('<stitle', '<title')
+        c = c.replace('stitle>', 'title>')
+        c = c.replace('<span translate="no">', '')
+        c = c.replace('</span></pubDate>', '</pubDate>')  # 对于ttrss需要为pubDate才会识别正确
+        c = c.replace('&gt;', '>')  # 修正&gt
         f.write(c)
-        #print(c)
-        #f.write(content)
-    print("GT: "+ url +" > "+ out_dir)
+        # print(c)
+        # f.write(content)
+    print("GT: " + url + " > " + out_dir)
+
 
 for x in secs[1:]:
     tran(x)
     print(config.items(x))
 
-with open('test.ini','w') as configfile:
+with open('test.ini', 'w') as configfile:
     config.write(configfile)
 
 
-
-YML="README.md"
+YML = "README.md"
 
 f = open(YML, "r+", encoding="UTF-8")
-list1 = f.readlines()           
-list1= list1[:13] + links
+list1 = f.readlines()
+list1 = list1[:13] + links
 
 f = open(YML, "w+", encoding="UTF-8")
 f.writelines(list1)
