@@ -18,6 +18,23 @@
 
 rss注意：有的RSS源过多字符会造成不完整翻译及报错，不要添加过多字符的源如全文输出的rss源
 
+本地使用（请确保你有python环境及SSL证书）
+并确保你有安装以下模块：
+
+- configparser
+- pygtrans
+- beautifulsoup4
+- urllib
+
+如果提示没有安装模块，你可以通过以下方式来安装：
+
+```
+pip install configparser
+pip install pygtrans
+pip install beautifulsoup4
+pip install urllib
+```
+
 [个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击 rss for you 来订阅页面
 
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
