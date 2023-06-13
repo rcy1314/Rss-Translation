@@ -34,7 +34,7 @@ def getSubtitle(e):
 
 
 class GoogleTran:
-    def __init__(self, url, source='auto', target='zh-CN'):
+    def __init__(self, url, source='auto', target='zh-cn', item=None, **kwargs):
         self.url = url
         self.source = source
         self.target = target
@@ -69,13 +69,6 @@ def get_newcontent(self, max_item=2):
                    lastBuildDate=get_time(feed),
                    items=item_list)
     return newfeed.rss()
-# 修改tran函数内的代码，确保GoogleTran类实例方法调用正确
-def tran(url, max_item=2, source='auto', target='zh-cn'):
-    c = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-    return c.rsplit('\n', 1)[0]
-    
-# 调用方法：
-tran("https://www.ruanyifeng.com/blog/atom.xml", max_item=5, target='en')
 
 config = configparser.ConfigParser()
 config.read('test.ini')
@@ -112,14 +105,16 @@ except:
 links = []
 
 
-def tran(sec):
+def tran(url, max_item=2, source='auto', target='zh-cn'):
+    return c.rsplit('\n', 1)[0]
     out_dir = BASE + get_cfg(sec, 'name')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5')
     source, target = get_cfg_tra(sec)
     global links
-
+# 调用
+tran("https://www.ruanyifeng.com/blog/atom.xml", max_item=5, target='en')
     links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir)))
 
     new_md5 = get_md5_value(url)
