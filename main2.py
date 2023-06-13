@@ -49,26 +49,27 @@ class GoogleTran:
         except:
             return ""
 
-def get_newcontent(self, max_item=2):
-    item_list = []
-    entries_len = len(self.d.entries)
-    if entries_len < max_item:
-        max_item = entries_len
-    for entry in self.d.entries[:max_item]:
-        summary = getattr(entry, 'summary', '')
-        one = Item(title=self.tr(entry.title),
-                   link=entry.link,
-                   description=self.tr(summary),
-                   guid=Guid(entry.link),
-                   pubDate=get_time(entry))
-        item_list += [one]
-    feed = self.d.feed
-    newfeed = Feed(title=self.tr(feed.title),
-                   link=feed.link,
-                   description=self.tr(get_subtitle(feed)),
-                   lastBuildDate=get_time(feed),
-                   items=item_list)
-    return newfeed.rss()
+    def get_newcontent(self, max_item=2):
+        item_list = []
+        entries_len = len(self.d.entries)
+        if entries_len < max_item:
+            max_item = entries_len
+        for entry in self.d.entries[:max_item]:
+            summary = getattr(entry, 'summary', '')
+            one = Item(title=self.tr(entry.title),
+                       link=entry.link,
+                       description=self.tr(summary),
+                       guid=Guid(entry.link),
+                       pubDate=getTime(entry))
+            item_list += [one]
+        feed = self.d.feed
+        newfeed = Feed(title=self.tr(feed.title),
+                       link=feed.link,
+                       description=self.tr(getSubtitle(feed)),
+                       lastBuildDate=getTime(feed),
+                       items=item_list)
+        return newfeed.rss()
+
 
 config = configparser.ConfigParser()
 config.read('test.ini')
@@ -106,15 +107,16 @@ links = []
 
 
 def tran(url, max_item=2, source='auto', target='zh-cn'):
-    return c.rsplit('\n', 1)[0]
     out_dir = BASE + get_cfg(sec, 'name')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5')
     source, target = get_cfg_tra(sec)
     global links
-# 调用
-tran("https://www.ruanyifeng.com/blog/atom.xml", max_item=5, target='en')
+
+    # 调用
+    tran_result = GoogleTran(url, target=target, source=source).get_newcontent(max=max_item)
+
     links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir)))
 
     new_md5 = get_md5_value(url)
@@ -124,13 +126,12 @@ tran("https://www.ruanyifeng.com/blog/atom.xml", max_item=5, target='en')
     else:
         set_cfg(sec, 'md5', new_md5)
 
-    c = GoogleTran(url, target=target, source=source).get_newcontent(max=max_item)
-
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(c)
+        f.write(tran_result)
 
     print("GT: " + url + " > " + out_dir)
-    
+
+
 for x in secs[1:]:
     tran(x)
     print(list(config.items(x)))
