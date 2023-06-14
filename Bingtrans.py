@@ -169,7 +169,13 @@ def tran(sec):
     except:
         pass
 
-    with open(os.path.join(out_dir, 'feed.xml'), 'w', encoding='utf-8') as f:
+    rss_file = os.path.join(out_dir, 'feed.xml')
+    if os.path.isfile(rss_file):
+        with open(rss_file, 'r', encoding='utf-8') as f:
+            old_rss = f.read()
+        rss = rss + old_rss
+
+    with open(rss_file, 'w', encoding='utf-8') as f:
         f.write(rss)
 
     # 更新配置信息并写入文件中
