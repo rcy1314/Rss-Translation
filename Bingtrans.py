@@ -35,9 +35,8 @@ class BingTran:
 
     def get_newcontent(self, max_item=2):
         item_list = []
-        if len(self.d.entries) < max_item:
-            max_item = len(self.d.entries)
-        for entry in self.d.entries[:max_item]:
+        # 获取所有项目以过滤重复项
+        for entry in self.d.entries:
             try:
                 title = self.tr(entry.title)
             except:
@@ -55,6 +54,17 @@ class BingTran:
             pubDate = getTime(entry)
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
+        # 按发布日期降序排序
+        sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
+        # 过滤重复项目
+        unique_list = []
+        for item in sorted_list:
+            if item not in unique_list:
+                unique_list.append(item)
+        # 截取前 max_item 个项目
+        if len(unique_list) < max_item:
+            max_item = len(unique_list)
+        item_list = unique_list[:max_item]
         feed = self.d.feed
         try:
             rss_description = self.tr(feed.subtitle)
