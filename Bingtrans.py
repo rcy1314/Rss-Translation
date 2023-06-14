@@ -129,9 +129,9 @@ def tran(sec):
     })
 
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(feedparser.dumps(rss).encode('utf-8'))
+        f.write(feedparser.parse(rss.to_xml()).encode('utf-8'))
 
-        print("BT: " + url + " > " + out_dir)
+    print("BT: " + url + " > " + out_dir)
 
 for x in secs[1:]:
     tran(x)
