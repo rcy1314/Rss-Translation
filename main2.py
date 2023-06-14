@@ -7,8 +7,8 @@ import datetime
 import time
 import feedparser
 from rfeed import *
-from googletrans import Translator
 from bs4 import BeautifulSoup
+from mtranslate import translate
 
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -29,17 +29,16 @@ def getSubtitle(e):
         sub = ""
     return sub
 
-class GoogleTran:
+class BingTran:
     def __init__(self, url, source='auto', target='zh-CN'):
         self.url = url
         self.source = source
         self.target = target
 
         self.d = feedparser.parse(url)
-        self.translator = Translator()
 
     def tr(self, content):
-        return self.translator.translate(content, dest=self.target, src=self.source).text
+        return translate(content, to_language=self.target, from_language=self.source)
 
     def get_newcontent(self, max_item=2):
         item_list = []
@@ -105,12 +104,12 @@ def tran(sec):
     else:
         set_cfg(sec, 'md5', new_md5)
 
-    c = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    c = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
 
     with open(out_dir, 'w', encoding='utf-8') as f:
         f.write(c)
 
-    print("GT: " + url + " > " + out_dir)
+    print("BT: " + url + " > " + out_dir)
 
 for x in secs[1:]:
     tran(x)
