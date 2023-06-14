@@ -42,7 +42,7 @@ jobs:
         env:
           U_NAME: ${{ secrets.U_NAME }}
           U_EMAIL: ${{ secrets.U_EMAIL }}
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.WORK_TOKEN }}
         run: |
            pwd
            git config --local user.name "${U_NAME}"  # 修改name
@@ -58,5 +58,5 @@ jobs:
            git commit -m "Github RSS Translate Auto Builder at `date +'%Y-%m-%d %H:%M'`"  # 提交记录包含时间 跟上面更改时区配合
 
            echo "======git push===="
-           gh auth login --with-token <<<"${{ secrets.TOKEN }}"
+           gh auth login --with-token <<<"${{ secrets.WORK_TOKEN }}"
            git push
