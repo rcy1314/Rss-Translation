@@ -1,5 +1,5 @@
 import configparser
-from googletrans import Translator
+from googletransx import Translator
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from urllib.parse import quote
