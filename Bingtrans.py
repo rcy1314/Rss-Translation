@@ -21,13 +21,6 @@ def getTime(e):
         struct_time = time.localtime()
     return datetime.datetime(*struct_time[:6])
 
-def getSubtitle(e):
-    try:
-        sub = e.subtitle
-    except:
-        sub = ""
-    return sub
-
 class BingTran:
     def __init__(self, url, source='auto', target='zh-CN'):
         self.url = url
@@ -44,15 +37,25 @@ class BingTran:
         if len(self.d.entries) < max_item:
             max_item = len(self.d.entries)
         for entry in self.d.entries[:max_item]:
-            title = self.tr(entry.title)
+            try:
+                title = self.tr(entry.title)
+            except:
+                title = ""
             link = entry.link
-            description = self.tr(entry.summary)
+            description = ""
+            try:
+                description = self.tr(entry.summary)
+            except:
+                try:
+                    description = self.tr(entry.content[0].value)
+                except:
+                    pass
             guid = entry.link
             pubDate = getTime(entry)
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
         feed = self.d.feed
-        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":self.tr(getSubtitle(feed)), "lastBuildDate":getTime(feed), "items":item_list}
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":self.tr(feed.subtitle), "lastBuildDate":getTime(feed), "items":item_list}
         return newfeed
 
 with open('test.ini', mode='r') as f:
