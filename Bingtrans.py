@@ -198,7 +198,7 @@ def tran(sec):
     with open(out_dir, 'w', encoding='utf-8') as f:
         f.write(rss)
 
-  print("BT: " + url + " > " + out_dir)
+    print("BT: " + url + " > " + out_dir)
 
 for x in secs[1:]:
     tran(x)
