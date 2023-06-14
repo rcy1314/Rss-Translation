@@ -6,11 +6,15 @@
 
 已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
-## Bing翻译接口文件调整
+## Bing翻译接口文件调整：
 
-代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+• 修复了使用set_cfg()方法修改配置文件数据时的bug
 
-## google翻译接口文件调整（如有bug请自行调整）：
+• 对Feed的生成做了一些修改，扩展RSS的一些属性，如通过strftime格式化时间输出。并且将Feed的构成改成了字符串拼接的方式，更加简洁易懂。
+
+• 代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+
+## google翻译接口文件调整：
 
 • 更换了翻译接口，使用googletrans模块代替pygtrans模块。
 
