@@ -33,7 +33,7 @@ class BingTran:
     def tr(self, content):
         return translate(content, to_language=self.target, from_language=self.source)
 
-    def get_newcontent(self, max_item=2):
+    def get_newcontent(self, max_item=50):
         item_list = []
         # 获取所有项目以过滤重复项
         for entry in self.d.entries:
