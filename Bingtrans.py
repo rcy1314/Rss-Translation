@@ -8,6 +8,7 @@ import time
 import feedparser
 from bs4 import BeautifulSoup
 from mtranslate import translate
+from jinja2 import Template
 
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -125,19 +126,30 @@ def tran(sec):
     rss_title = feed["title"]
     rss_link = feed["link"]
     rss_description = feed["description"]
-    rss_last_build_date = feed["lastBuildDate"]
-    rss = """<rss version="2.0">
+    rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
+
+    template = Template("""<rss version="2.0">
         <channel>
-            <title>{}</title>
-            <link>{}</link>
-            <description>{}</description>
-            <lastBuildDate>{}</lastBuildDate>
-            {}
+            <title>{{ rss_title }}</title>
+            <link>{{ rss_link }}</link>
+            <description>{{ rss_description }}</description>
+            <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
+            {% for item in rss_items -%}
+            <item>
+                <title>{{ item.title }}</title>
+                <link>{{ item.link }}</link>
+                <description>{{ item.description }}</description>
+                <guid isPermaLink="false">{{ item.guid }}</guid>
+                <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+            </item>
+            {% endfor -%}
         </channel>
-    </rss>""".format(rss_title, rss_link, rss_description, rss_last_build_date, "\n".join(["<item>\n<title>{}</title>\n<link>{}</link>\n<description>{}</description>\n<guid>{}</guid>\n<pubDate>{}</pubDate>\n</item>".format(item["title"], item["link"], item["description"], item["guid"], item["pubDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')) for item in rss_items]))
+    </rss>""")
+
+    rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
     
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(rss)
+        f.write(BeautifulSoup(rss, 'xml').prettify())
 
     print("BT: " + url + " > " + out_dir)
 
