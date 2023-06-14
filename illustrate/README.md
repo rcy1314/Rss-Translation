@@ -2,7 +2,7 @@
 
 已在原项目基础上更新Action环境依赖，由于此前每3小时运行过于频繁，目前已导致action更新抓取一些站点时被限制及封禁！！！
 
-改为定时每6小时运行一次（建议每12小时运行）或更久时间，增加及完善[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+改为定时每6小时运行一次（建议每12小时运行）或更久时间，增加及完善[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
 一些调整：
 
