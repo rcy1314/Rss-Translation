@@ -124,10 +124,7 @@ def tran(sec):
 
     rss_title = feed["title"]
     rss_link = feed["link"]
-try:
-    rss_description = feed["description"]
-except AttributeError:
-    rss_description = ''
+    rss_description = feed["title"]
     rss_last_build_date = feed["lastBuildDate"]
     rss = """<rss version="2.0">
         <channel>
