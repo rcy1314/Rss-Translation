@@ -6,6 +6,12 @@
 
 ## 目前使用的翻译接口为Bing翻译
 
+个别代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+
+## 目前仍存在的Bug
+
+覆写文件时某些元素错误，建议查看已转换xml文件下raw格式链接获取订阅
+
 ## google翻译接口文件调整（如有bug请自行调整）：
 
 • 更换了翻译接口，使用googletrans模块代替pygtrans模块。
@@ -20,7 +26,7 @@
 
 • 用于解析RSS的库和在使用的python版本不兼容
 
-• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译，如果缺少subtitle属性，可以将rss_description设置为空字符串
+• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译，如果缺少subtitle属性，可以将rss_description设置为空字符串，如rss_description = ''
 
 • 环境依赖无或版本过旧，可更新后替换
 
