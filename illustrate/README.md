@@ -2,13 +2,11 @@
 
 已在原项目基础上更新Action环境依赖，由于此前每3小时运行过于频繁，目前已导致action更新抓取一些站点时被限制及封禁！！！
 
-改为定时每6小时运行一次（建议每12小时运行）或更久时间，增加及完善[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+改为定时每6小时运行一次（建议每12小时运行）或更久时间，增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
-一些调整：
+## google翻译文件调整：
 
 • 更换了翻译接口，使用googletrans模块代替pygtrans模块。
-
-• 修改了导入的模块
 
 • 安全地将字符串输入到md5()函数中，使用encode()函数将字符串转换为UTF-8编码。
 
@@ -16,10 +14,19 @@
 
 • 在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
 
-rss注意：有的RSS源过多字符会造成不完整翻译及报错，不要添加过多字符的源如全文输出的rss源
+## 关于bug报错：
 
-本地使用（请确保你有python环境及SSL证书）
-并确保你有安装以下模块：
+• 用于解析RSS的库和在使用的python版本不兼容
+
+• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译
+
+• 环境依赖无或版本过旧，可更新后替换
+
+• Python翻译库不兼容，可以更换为其它（TextBlob、IBM Watson、Bing Translator、andex Translate API等）
+
+如要本地使用（请确保你有python环境及SSL证书）
+并确保你有安装以下模块（检查文件确保包含文件内的导入模块）：
+如：
 
 - configparser
 - pygtrans
@@ -34,6 +41,8 @@ pip install pygtrans
 pip install beautifulsoup4
 pip install urllib
 ```
+
+最后运行python文件即可。
 
 [个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击 rss for you 来订阅页面
 
