@@ -55,7 +55,11 @@ class BingTran:
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
         feed = self.d.feed
-        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":self.tr(feed.subtitle), "lastBuildDate":getTime(feed), "items":item_list}
+        try:
+            rss_description = self.tr(feed.subtitle)
+        except AttributeError:
+            rss_description = ''
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
         return newfeed
 
 with open('test.ini', mode='r') as f:
@@ -120,7 +124,7 @@ def tran(sec):
 
     rss_title = feed["title"]
     rss_link = feed["link"]
-    rss_description = feed["description"]
+    rss_description = ''
     rss_last_build_date = feed["lastBuildDate"]
     rss = """<rss version="2.0">
         <channel>
