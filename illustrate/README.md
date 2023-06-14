@@ -48,7 +48,7 @@ pip install urllib
 
 最后运行python文件即可。
 
-[个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击 rss for you 来订阅页面
+[个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击 [rss feed for you](https://morss.it/:proxy:items=%7C%7C*[class=card]%7C%7Col%7Cli/https://rcy1314.github.io/news/) 来订阅页面
 
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
