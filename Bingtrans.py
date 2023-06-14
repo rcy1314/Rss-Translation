@@ -162,6 +162,11 @@ def tran(sec):
     with open(os.path.join(out_dir, 'feed.xml'), 'w', encoding='utf-8') as f:
         f.write(rss)
 
+    # 更新配置信息并写入文件中
+    set_cfg(sec, 'md5', new_md5)
+    with open('test.ini', "w") as configfile:
+        config.write(configfile)
+
 for x in secs[1:]:
     tran(x)
     print(config.items(x))
