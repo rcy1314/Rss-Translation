@@ -129,7 +129,7 @@ def tran(sec):
     })
 
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(rss.to_string())
+        f.write(feedparser.parse(rss.to_xml()))
 
     print("BT: " + url + " > " + out_dir)
 
@@ -141,11 +141,9 @@ with open('test.ini', 'w') as configfile:
     config.write(configfile)
 
 YML = "README.md"
-
 f = open(YML, "r+", encoding="UTF-8")
 list1 = f.readlines()
 list1 = list1[:13] + links
-
 f = open(YML, "w+", encoding="UTF-8")
 f.writelines(list1)
 f.close()
