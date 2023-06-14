@@ -129,7 +129,7 @@ def tran(sec):
     })
 
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(feedparser.parse(rss).encode('utf-8'))
+        f.write(feedparser.parse(rss).encode('utf-8').decode('utf-8'))
 
     print("BT: " + url + " > " + out_dir)
 
