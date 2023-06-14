@@ -1,10 +1,12 @@
 # ⭐说明及添加⭐
 
-已在原项目基础上更新Action环境依赖，由于此前每3小时运行过于频繁，目前已导致action更新抓取一些站点时被限制及封禁！！！
+已在原项目基础上更新Action环境依赖，由于此前定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！加上翻译API也会有次数限制！
 
-改为定时每6小时运行一次（建议每12小时运行）或更久时间，增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
-## google翻译文件调整：
+## 目前使用的翻译接口为Bing翻译
+
+## google翻译接口文件调整（如有bug请自行调整）：
 
 • 更换了翻译接口，使用googletrans模块代替pygtrans模块。
 
@@ -18,7 +20,7 @@
 
 • 用于解析RSS的库和在使用的python版本不兼容
 
-• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译
+• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译，如果缺少subtitle属性，可以将rss_description设置为空字符串
 
 • 环境依赖无或版本过旧，可更新后替换
 
