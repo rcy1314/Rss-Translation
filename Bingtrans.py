@@ -37,7 +37,7 @@ class BingTran:
         item_list = []
         if len(self.d.entries) < max_item:
             max_item = len(self.d.entries)
-        for entry 在 self.d。entries[:max_item]:
+        for entry in self.d.entries[:max_item]:
             try:
                 title = self.tr(entry.title)
             except:
@@ -48,19 +48,19 @@ class BingTran:
                 description = self.tr(entry.summary)
             except:
                 try:
-                    description = self.tr(entry.content[0]。value)
+                    description = self.tr(entry.content[0].value)
                 except:
                     pass
             guid = entry.link
             pubDate = getTime(entry)
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
-        feed = self.d。feed
+        feed = self.d.feed
         try:
             rss_description = self.tr(feed.subtitle)
         except AttributeError:
             rss_description = ''
-        newfeed = {"title":self.tr(feed.title)， "link":feed.link， "description":rss_description, "lastBuildDate":getTime(feed)， "items":item_list}
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
         return newfeed
 
 config = configparser.ConfigParser()
@@ -68,13 +68,13 @@ config.read('test.ini')
 secs = config.sections()
 
 def get_cfg(sec, name):
-    return config.get(sec, name)。strip('"')
+    return config.get(sec, name).strip('"')
 
 def set_cfg(sec, name, value):
     config.set(sec, name, '"%s"' % value)
 
 def get_cfg_tra(sec):
-    cc = config.get(sec, "action")。strip('"')
+    cc = config.get(sec, "action").strip('"')
     target = ""
     source = ""
     if cc == "auto":
@@ -85,7 +85,7 @@ def get_cfg_tra(sec):
         target = cc.split('->')[1]
     return source, target
 
-BASE = get_cfg("cfg"， 'base')
+BASE = get_cfg("cfg", 'base')
 try:
     os.makedirs(BASE)
 except:
@@ -94,21 +94,21 @@ links = []
 
 def update_readme():
     global links
-    with open('README.md'， "r+", encoding="UTF-8") as f:
+    with open('README.md', "r+", encoding="UTF-8") as f:
         list1 = f.readlines()
     list1 = list1[:13] + links
-    with open('README.md'， "w+", encoding="UTF-8") as f:
+    with open('README.md', "w+", encoding="UTF-8") as f:
         f.writelines(list1)
 
 def tran(sec):
-    out_dir = os.path。join(BASE, get_cfg(sec, 'name'))
+    out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5')
     source, target = get_cfg_tra(sec)
     global links
 
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url)， get_cfg(sec, 'name'), parse.quote(out_dir))]
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir))]
 
     new_md5 = get_md5_value(url)
 
@@ -117,10 +117,10 @@ def tran(sec):
     else:
         set_cfg(sec, 'md5', new_md5)
 
-    feed = BingTran(url, target=target, source=source)。get_newcontent(max_item=max_item)
+    feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
 
     rss_items = []
-    for item 在 feed["items"]:
+    for item in feed["items"]:
         title = item["title"]
         link = item["link"]
         description = item["description"]
@@ -132,7 +132,7 @@ def tran(sec):
     rss_title = feed["title"]
     rss_link = feed["link"]
     rss_description = feed["description"]
-    rss_last_build_date = feed["lastBuildDate"]。strftime('%a, %d %b %Y %H:%M:%S GMT')
+    rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
     template = Template("""<rss version="2.0">
         <channel>
@@ -159,15 +159,15 @@ def tran(sec):
     except:
         pass
 
-    with open(os.path。join(out_dir, 'feed.xml')， 'w', encoding='utf-8') as f:
+    with open(os.path.join(out_dir, 'feed.xml'), 'w', encoding='utf-8') as f:
         f.write(rss)
 
-for x 在 secs[1:]:
+for x in secs[1:]:
     tran(x)
     print(config.items(x))
 update_readme()
 
-with open('test.ini'， "w") as configfile:
+with open('test.ini', "w") as configfile:
     config.write(configfile)
 
 YML = "README.md"
