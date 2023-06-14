@@ -26,6 +26,12 @@
 
 • 在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
 
+## 工作流文件调整：
+
+• 使用 git status --porcelain 指令来检查代码库中是否存在新的更改需要提交，如果有，则执行 git add，git commit 和 git push 命令。否则，输出 “No changes, skip push.” 的消息。
+
+• 为可随时切换不同翻译api，添加多个翻译文件所需模块
+
 ## 使用说明
 
 1. 在运行代码前，确认已安装库文件，对应翻译接口文件中的模块，如pip install mtranslate
