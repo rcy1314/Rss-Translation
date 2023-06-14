@@ -65,7 +65,7 @@ def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
 
 def set_cfg(sec, name, value):
-    config[sec][name] = '"%s"' % value
+    config.set(sec, name, '"%s"' % value)
 
 def get_cfg_tra(sec):
     cc = config.get(sec, "action").strip('"')
