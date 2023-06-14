@@ -1,6 +1,6 @@
 # ⭐说明及添加⭐
 
-已在原项目基础上更新Action环境依赖，默认翻译为main.py文件，可随时切换翻译接口
+已在原项目基础上更新Action环境依赖，默认翻译为main.py文件，已改为Bing翻译接口，可随时切换翻译接口
 
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！
 
@@ -9,6 +9,8 @@
 ## Bing翻译接口文件调整：
 
 • 修复了使用set_cfg()方法修改配置文件数据时的bug
+
+• 使用了 jinja2 模板引擎来生成 RSS 格式的输出，并对 XML 数据进行了安全处理，添加了运行命令pip install lxml外一个解析库 html5lib：pip install html5lib
 
 • 对Feed的生成做了一些修改，扩展RSS的一些属性，如通过strftime格式化时间输出。并且将Feed的构成改成了字符串拼接的方式，更加简洁易懂。
 
@@ -86,9 +88,9 @@ pip install urllib
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
 ## 已添加订阅源
- 1. [TG频道Artificial Intelligence](https://rcy1314.github.io/Rss-Translation/rss/Artificial_intelligence_in.xml)
+ 1. [TG频道Artificial Intelligence](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/Artificial_intelligence_in.xml)
  2. [reddit-自动化](https://rcy1314.github.io/Rss-Translation/rss/reddit_automation.xml)
- 3. [reddit-生产力](https://rcy1314.github.io/Rss-Translation/rss/reddit_productivity.xml)
+ 3. [reddit-生产力](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_productivity.xml)
  4. [huggingface博客页](https://rcy1314.github.io/Rss-Translation/rss/huggingface_blog.xml)
  5. [reddit-人工智能](https://rcy1314.github.io/Rss-Translation/rss/reddit_ArtificialInteligence.xml)
  6. [reddit_OpenAI](https://rcy1314.github.io/Rss-Translation/rss/reddit_OpenAI.xml)
