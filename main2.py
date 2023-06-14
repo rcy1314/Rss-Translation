@@ -5,7 +5,7 @@ from urllib import parse
 import hashlib
 import datetime
 import time
-from rss import RSS, Item
+import feedparser
 from bs4 import BeautifulSoup
 from mtranslate import translate
 
@@ -16,14 +16,14 @@ def get_md5_value(src):
 
 def getTime(e):
     try:
-        struct_time = e['published_parsed']
+        struct_time = e.published_parsed
     except:
         struct_time = time.localtime()
     return datetime.datetime(*struct_time[:6])
 
 def getSubtitle(e):
     try:
-        sub = e.get('subtitle', '')
+        sub = e.subtitle
     except:
         sub = ""
     return sub
@@ -34,26 +34,26 @@ class BingTran:
         self.source = source
         self.target = target
 
-        self.rss = RSS(url)
+        self.d = feedparser.parse(url)
 
     def tr(self, content):
         return translate(content, to_language=self.target, from_language=self.source)
 
     def get_newcontent(self, max_item=2):
         item_list = []
-        if len(self.rss.items) < max_item:
-            max_item = len(self.rss.items)
-        for item in self.rss.items[:max_item]:
-            title = self.tr(item.title)
-            link = item.link
-            soup = BeautifulSoup(item.description, 'html.parser')
-            content = self.tr(soup.get_text().strip())
-            guid = item.guid
-            pubDate = getTime(item)
-            one = Item(title=title, link=link, content=content, guid=guid, pubDate=pubDate)
+        if len(self.d.entries) < max_item:
+            max_item = len(self.d.entries)
+        for entry in self.d.entries[:max_item]:
+            title = self.tr(entry.title)
+            link = entry.link
+            description = self.tr(entry.summary)
+            guid = entry.link
+            pubDate = getTime(entry)
+            one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
-        newrss = RSS(title=self.tr(self.rss.title), link=self.rss.link, description=self.tr(getSubtitle(self.rss.__dict__)), pubDate=self.rss.pubDate, items=item_list)
-        return newrss.to_xml()
+        feed = self.d.feed
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":self.tr(getSubtitle(feed)), "lastBuildDate":getTime(feed), "items":item_list}
+        return newfeed
 
 with open('test.ini', mode='r') as f:
     ini_data = parse.unquote(f.read())
@@ -103,10 +103,33 @@ def tran(sec):
     else:
         set_cfg(sec, 'md5', new_md5)
 
-    c = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+
+    rss_items = []
+    for item in feed["items"]:
+        title = item["title"]
+        link = item["link"]
+        description = item["description"]
+        guid = item["guid"]
+        pubDate = item["pubDate"]
+        one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
+        rss_items += [one]
+
+    rss_title = feed["title"]
+    rss_link = feed["link"]
+    rss_description = feed["description"]
+    rss_last_build_date = feed["lastBuildDate"]
+    rss = feedparser.FeedParserDict()
+    rss.feed = feedparser.FeedParserDict({
+        "title": rss_title,
+        "link": rss_link,
+        "description": rss_description,
+        "lastBuildDate": rss_last_build_date,
+        "items": rss_items
+    })
 
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(c)
+        f.write(rss.to_string())
 
     print("BT: " + url + " > " + out_dir)
 
