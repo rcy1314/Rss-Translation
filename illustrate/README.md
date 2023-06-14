@@ -89,29 +89,55 @@ pip install urllib
 
 ## 已添加订阅源
 •  [TG频道Artificial Intelligence](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/Artificial_intelligence_in.xml)
+
 •  [reddit-自动化](https://rcy1314.github.io/Rss-Translation/rss/reddit_automation.xml)
+
 •  [huggingface博客页](https://rcy1314.github.io/Rss-Translation/rss/huggingface_blog.xml)
+
 •  [reddit-人工智能](https://rcy1314.github.io/Rss-Translation/rss/reddit_ArtificialInteligence.xml)
+
 •  [reddit_OpenAI](https://rcy1314.github.io/Rss-Translation/rss/reddit_OpenAI.xml)
+
 •  [reddit_ChatGPT](https://rcy1314.github.io/Rss-Translation/rss/reddit_ChatGPT.xml)
+
 •  [reddit_GPT3](https://rcy1314.github.io/Rss-Translation/rss/reddit_GPT3.xml)
+
 •  [reddit_风光摄影](https://rcy1314.github.io/Rss-Translation/rss/reddit_LandscapePhotography.xml)
+
 •  [reddit_街头摄影](https://rcy1314.github.io/Rss-Translation/rss/reddit_streetphotography.xml)
+
 •  [reddit_免费频道](https://rcy1314.github.io/Rss-Translation/rss/reddit_FREE.xml)
+
 •  [reddit_免费课程](https://rcy1314.github.io/Rss-Translation/rss/reddit_FREECoursesEveryday.xml)
+
 •  [reddit_后期制作](https://rcy1314.github.io/Rss-Translation/rss/reddit_editors.xml)
+
 •  [reddit_软件相关](https://rcy1314.github.io/Rss-Translation/rss/reddit_software.xml)
+
 •  [reddit_电脑编程](https://rcy1314.github.io/Rss-Translation/rss/reddit_programming.xml)
+
 •  [reddit_ 艺术自由区](https://rcy1314.github.io/Rss-Translation/rss/reddit_PixelArt.xml)
+
 •  [reddit_复古游戏音乐](https://rcy1314.github.io/Rss-Translation/rss/reddit_chiptunes.xml)
+
 •  [reddit_无版权音乐](https://rcy1314.github.io/Rss-Translation/rss/reddit_youtubeaudiolibrary.xml)
+
 •  [reddit_web开发](https://rcy1314.github.io/Rss-Translation/rss/reddit_webdev.xml)
+
 •  [reddit_开源社区](https://rcy1314.github.io/Rss-Translation/rss/reddit_opensource.xml)
+
 •  [producthunt_每日产品](https://rcy1314.github.io/Rss-Translation/rss/producthunt_today.xml)
+
 •  [Hacker News自动摘要TG频道](https://rcy1314.github.io/Rss-Translation/rss/hn_summary.xml)
+
 •  [顶级开源项目网站更新](https://rcy1314.github.io/Rss-Translation/rss/opensourceagenda.xml)
+
 •  [独立黑客社区更新](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-world.xml)
+
 •  [独立黑客_生产力频道](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-productivity.xml)
+
 •  [独立黑客_自动化频道](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-Automation.xml)
+
 •  [独立黑客_ChatGpt频道](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-ChatGPT.xml)
+
 •  [独立黑客_无代码频道](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-No-Code.xml)
