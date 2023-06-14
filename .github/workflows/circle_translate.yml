@@ -39,24 +39,24 @@ jobs:
           ls -al rss/
              
       - name: PUSH
-       env:
-       U_NAME: ${{ secrets.U_NAME }}
-       U_EMAIL: ${{ secrets.U_EMAIL }}
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
-     run: |
-       pwd
-       git config --local user.name "${U_NAME}"  # 修改name
-       git config --local user.email "${U_EMAIL}"  # 修改email
+        env:
+          U_NAME: ${{ secrets.U_NAME }}
+          U_EMAIL: ${{ secrets.U_EMAIL }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+           pwd
+           git config --local user.name "${U_NAME}"  # 修改name
+           git config --local user.email "${U_EMAIL}"  # 修改email
 
-       git status -s
-       git add rss/*
-       git add test.ini
-       git add .github/workflows/circle_translate.yml
-       git add README.md
+           git status -s
+           git add rss/*
+           git add test.ini
+           git add .github/workflows/circle_translate.yml
+           git add README.md
 
-       export TZ='Asia/Shanghai' # 更改时区
-       git commit -m "Github RSS Translate Auto Builder at `date +'%Y-%m-%d %H:%M'`"  # 提交记录包含时间 跟上面更改时区配合
+           export TZ='Asia/Shanghai' # 更改时区
+           git commit -m "Github RSS Translate Auto Builder at `date +'%Y-%m-%d %H:%M'`"  # 提交记录包含时间 跟上面更改时区配合
 
-       echo "======git push===="
-       gh auth login --with-token <<<"${{ secrets.TOKEN }}"
-       git push
+           echo "======git push===="
+           gh auth login --with-token <<<"${{ secrets.TOKEN }}"
+           git push
