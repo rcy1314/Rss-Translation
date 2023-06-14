@@ -1,16 +1,14 @@
 # ⭐说明及添加⭐
 
-已在原项目基础上更新Action环境依赖，由于此前定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！加上翻译API也会有次数限制！
+已在原项目基础上更新Action环境依赖，默认翻译为main.py文件，可随时切换翻译接口
 
-改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/googletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！
 
-## 目前使用的翻译接口为Bing翻译
+已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
-个别代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+## Bing翻译接口文件调整
 
-## 目前仍存在的Bug
-
-覆写文件时某些元素错误，建议查看已转换xml文件下raw格式链接获取订阅
+代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
 
 ## google翻译接口文件调整（如有bug请自行调整）：
 
@@ -22,7 +20,32 @@
 
 • 在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
 
-## 关于bug报错：
+## 使用说明
+
+1. 在运行代码前，确认已安装库文件，对应翻译接口文件中的模块，如pip install mtranslate
+
+2. 在test.ini 文件中添加需要翻译的 RSS 订阅信息。例如：
+
+```
+[cfg]
+base=./rss/
+
+[BBC]
+url=https://feeds.bbci.co.uk/news/rss.xml
+name=BBC_zh.xml
+max=5
+action=en->zh-CN
+md5=""
+```
+3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
+
+4.将生成的Personal Access Token及U_EMAIL、U_NAME复制黏贴到Action-操作机密和变量中，然后运行action即可
+
+## 目前仍存在的Bug
+
+由于国外一些站点时长封禁api及禁止RSS，如果使用类似的RSS源会导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
+
+## 关于bug报错及修复：
 
 • 用于解析RSS的库和在使用的python版本不兼容
 
