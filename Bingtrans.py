@@ -122,13 +122,22 @@ def tran(sec):
 
     new_md5 = get_md5_value(url)
 
+    # 检查是否需要更新 RSS 内容
     if old_md5 == new_md5:
+        print("No update needed for %s" % sec)
         return
     else:
+        print("Updating %s..." % sec)
         set_cfg(sec, 'md5', new_md5)
 
-    feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-
+    # 调用 BingTran 类获取新的 RSS 内容
+    try:
+        feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    except Exception as e:
+        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
+        return
+    
+    # 处理 RSS 内容，生成新的 RSS 文件
     rss_items = []
     for item in feed["items"]:
         title = item["title"]
@@ -166,26 +175,36 @@ def tran(sec):
 
     try:
         os.makedirs(out_dir)
-    except:
-        pass
+    except Exception as e:
+        print("Error occurred when creating directory %s: %s" % (out_dir, str(e)))
+        return
 
     rss_file = os.path.join(out_dir, 'feed.xml')
+    # 如果 RSS 文件存在，则将新内容追加到原有内容后面
     if os.path.isfile(rss_file):
-        with open(rss_file, 'r', encoding='utf-8') as f:
-            old_rss = f.read()
-        rss = rss + old_rss
+        try:
+            with open(rss_file, 'r', encoding='utf-8') as f:
+                old_rss = f.read()
+        except Exception as e:
+            print("Error occurred when reading RSS file %s for %s: %s" % (rss_file, sec, str(e)))
+            return
+        rss = old_rss + rss
 
-    with open(rss_file, 'w', encoding='utf-8') as f:
-        f.write(rss)
+    try:
+        with open(rss_file, 'w', encoding='utf-8') as f:
+            f.write(rss)
+    except Exception as e:
+        print("Error occurred when writing RSS file %s for %s: %s" % (rss_file, sec, str(e)))
+        return
 
     # 更新配置信息并写入文件中
     set_cfg(sec, 'md5', new_md5)
     with open('test.ini', "w") as configfile:
         config.write(configfile)
 
+# 遍历所有的 RSS 配置，依次更新 RSS 文件
 for x in secs[1:]:
     tran(x)
-    print(config.items(x))
 update_readme()
 
 with open('test.ini', "w") as configfile:
