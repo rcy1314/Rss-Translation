@@ -119,17 +119,18 @@ def tran(sec):
     rss_link = feed["link"]
     rss_description = feed["description"]
     rss_last_build_date = feed["lastBuildDate"]
-    rss = feedparser.FeedParserDict()
-    rss.feed = feedparser.FeedParserDict({
-        "title": rss_title,
-        "link": rss_link,
-        "description": rss_description,
-        "lastBuildDate": rss_last_build_date,
-        "items": rss_items
-    })
-
+    rss = """<rss version="2.0">
+        <channel>
+            <title>{}</title>
+            <link>{}</link>
+            <description>{}</description>
+            <lastBuildDate>{}</lastBuildDate>
+            {}
+        </channel>
+    </rss>""".format(rss_title, rss_link, rss_description, rss_last_build_date, "\n".join(["<item>\n<title>{}</title>\n<link>{}</link>\n<description>{}</description>\n<guid>{}</guid>\n<pubDate>{}</pubDate>\n</item>".format(item["title"], item["link"], item["description"], item["guid"], item["pubDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')) for item in rss_items]))
+    
     with open(out_dir, 'w', encoding='utf-8') as f:
-        f.write(feedparser.parse(rss).encode('utf-8').decode('utf-8'))
+        f.write(rss)
 
     print("BT: " + url + " > " + out_dir)
 
