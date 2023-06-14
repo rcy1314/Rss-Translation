@@ -32,26 +32,35 @@ class BingTran:
     def tr(self, content):
         return translate(content, to_language=self.target, from_language=self.source)
 
-    def get_newconent(self,max=2):
+    def get_newcontent(self, max_item=2):
         item_list = []
-        if len(self.d.entries) < max:
-            max = len(self.d.entries)
-        for entry in self.d.entries[:max]:
-            one = Item(
-                title=self.tr(entry.title),
-                link=entry.link,
-                description=self.tr(entry.summary),
-                guid=Guid(entry.link),
-                pubDate=getTime(entry))
+        if len(self.d.entries) < max_item:
+            max_item = len(self.d.entries)
+        for entry in self.d.entries[:max_item]:
+            try:
+                title = self.tr(entry.title)
+            except:
+                title = ""
+            link = entry.link
+            description = ""
+            try:
+                description = self.tr(entry.summary)
+            except:
+                try:
+                    description = self.tr(entry.content[0].value)
+                except:
+                    pass
+            guid = entry.link
+            pubDate = getTime(entry)
+            one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
             item_list += [one]
-        feed=self.d.feed
-        newfeed = Feed(
-            title=self.tr(feed.title),
-            link=feed.link,
-            description=self.tr(getSubtitle(feed)),
-            lastBuildDate=getTime(feed),
-            items=item_list)
-        return newfeed.rss()
+        feed = self.d.feed
+        try:
+            rss_description = self.tr(feed.subtitle)
+        except AttributeError:
+            rss_description = ''
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
+        return newfeed
 
 with open('test.ini', mode='r') as f:
     ini_data = parse.unquote(f.read())
@@ -139,10 +148,10 @@ for x in secs[1:]:
 with open('test.ini', 'w') as configfile:
     config.write(configfile)
 
-YML="README.md"
+YML = "README.md"
 f = open(YML, "r+", encoding="UTF-8")
-list1 = f.readlines()           
-list1= list1[:13] + links
+list1 = f.readlines()
+list1 = list1[:13] + links
 f = open(YML, "w+", encoding="UTF-8")
 f.writelines(list1)
 f.close()
