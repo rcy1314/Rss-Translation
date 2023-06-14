@@ -26,6 +26,8 @@
 
 • Python翻译库不兼容，可以更换为其它（TextBlob、IBM Watson、Bing Translator、andex Translate API等）
 
+## 本地
+
 如要本地使用（请确保你有python环境及SSL证书）
 并确保你有安装以下模块（检查文件确保包含文件内的导入模块）：
 如：
