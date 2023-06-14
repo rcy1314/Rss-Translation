@@ -35,7 +35,7 @@ class BingTran:
 
     def get_newcontent(self, max_item=2):
         item_list = []
-        if len(self.d。entries) < max_item:
+        if len(self.d.entries) < max_item:
             max_item = len(self.d。entries)
         for entry 在 self.d。entries[:max_item]:
             try:
