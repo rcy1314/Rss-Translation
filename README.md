@@ -1,4 +1,4 @@
-#  [README.md](illustrate/README.md) Rss-Translation
+#  Rss-Translation
 
 ## 这是一个外文RSS翻译转换订阅页面 
 
