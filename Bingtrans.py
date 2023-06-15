@@ -113,9 +113,11 @@ def update_readme():
 def tran(sec):
     # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
+    xml_file = os.path.join(out_dir, 'feed.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5') # 读取旧的 MD5 散列值
+    old_md5 = get_cfg(sec, 'md5') 
+    # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec)
     global links
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir))]
@@ -207,6 +209,10 @@ def tran(sec):
         config.write(configfile)
 
 # 遍历所有的 RSS 配置，依次更新 RSS 文件
+config = configparser.ConfigParser()
+config.read('test.ini')
+secs = config.sections()
+
 for x in secs[1:]:
     tran(x)
 update_readme()
