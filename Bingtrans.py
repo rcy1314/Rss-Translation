@@ -75,6 +75,7 @@ def update_readme(links):
         f.writelines(list1)
 
 def tran(sec, config):
+    BASE = config.get('DEFAULT', 'base')
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
@@ -178,13 +179,6 @@ def get_cfg_tra(sec, config):
         target = cc.split('->')[1]
     return source, target
 
-BASE = ""
-try:
-    os.makedirs(BASE)
-except:
-    pass
-
-links = []
 config = configparser.ConfigParser()
 config.read('test.ini')
 secs = config.sections()
