@@ -33,7 +33,7 @@ class BingTran:
     def tr(self, content):
         return translate(content, to_language=self.target, from_language=self.source)
 
-    def get_newcontent(self, max_item=3):
+    def get_newcontent(self, max_item=10):
         item_set = set()  # 使用集合来存储项目，用于过滤重复项
         item_list = []
         for entry in self.d.entries:
@@ -201,7 +201,8 @@ secs = config.sections()
 
 links = []
 for x in secs[1:]:
-    tran(x)
+    max_item = int(get_cfg(x, 'max'))
+    tran(x, max_item)
 update_readme(links)
 
 with open('test.ini', "w") as configfile:
