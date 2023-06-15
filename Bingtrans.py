@@ -33,7 +33,7 @@ class BingTran:
     def tr(self, content):
         return translate(content, to_language=self.target, from_language=self.source)
 
-    def get_newcontent(self, max_item=50):
+    def get_newcontent(self, max_item=10):
         item_set = set()  # 使用集合来存储项目，用于过滤重复项
         item_list = []
         for entry in self.d.entries:
@@ -82,7 +82,7 @@ def tran(sec, config):
     old_md5 = get_cfg(sec, 'md5') 
     source, target = get_cfg_tra(sec, config)
     links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file)))
-   # 检查是否需要更新 RSS 内容
+    # 检查是否需要更新 RSS 内容
     new_md5 = get_md5_value(url)
     if old_md5 == new_md5:
         print("No update needed for %s" % sec)
@@ -91,7 +91,7 @@ def tran(sec, config):
         print("Updating %s..." % sec)
         set_cfg(sec, 'md5', new_md5)
 
-   # 调用 BingTran 类获取新的 RSS 内容
+    # 调用 BingTran 类获取新的 RSS 内容
     try:
         feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
     except Exception as e:
@@ -141,7 +141,7 @@ def tran(sec, config):
         print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
         return
     
-# 如果 RSS 文件存在，则将新内容追加到原有内容后面
+    # 如果 RSS 文件存在，则将新内容追加到原有内容后面
     if os.path.isfile(xml_file):
         try:
             with open(xml_file, 'r', encoding='utf-8') as f:

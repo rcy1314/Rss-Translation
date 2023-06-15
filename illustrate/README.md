@@ -38,7 +38,8 @@
 
 **添加翻译文件依赖库**
 
-`       pip install mtranslate
+```
+           pip install mtranslate
 
 ​          pip install lxml
 
@@ -54,7 +55,10 @@
 
 ​          pip install --upgrade feedparser
 
-​          pip install requests`
+​          pip install requests
+```
+
+
 
 - 其中googletrans为谷歌翻译库，requests为百度翻译库，mtranslate`和`jinja2为bing翻译必须库
 
@@ -80,7 +84,7 @@ max=5
 action=en->zh-CN
 md5=""
 ```
-**其中name可随意，已英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**
+**其中name可随意，以英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**
 
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
 

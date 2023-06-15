@@ -55,7 +55,7 @@ class BaiduTran:
         result = json.loads(response.text)
         return result['trans_result'][0]['dst'] if 'trans_result' in result and len(result['trans_result']) > 0 else ''
 
-    def get_newcontent(self, max_item=50):
+    def get_newcontent(self, max_item=10):
         item_set = set()
         item_list = []
         for entry in self.d.entries:

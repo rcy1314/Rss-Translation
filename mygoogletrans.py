@@ -37,7 +37,7 @@ class GoogleTran:
         translator = Translator(service_urls=['translate.google.com'])
         return translator.translate(content, dest=self.target, src=self.source).text
 
-    def get_newcontent(self, max_item=50):
+    def get_newcontent(self, max_item=10):
         item_set = set()  # 使用集合来去除重复项
         item_list = []
         for entry in self.d.entries:
