@@ -41,7 +41,7 @@
 **添加翻译文件依赖库**
 
 ```
-           pip install mtranslate
+          pip install mtranslate
 
 ​          pip install lxml
 
