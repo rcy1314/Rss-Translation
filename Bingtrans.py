@@ -74,12 +74,11 @@ def update_readme(links):
     with open('README.md', "w+", encoding="UTF-8") as f:
         f.writelines(list1)
 
-def tran(sec):
+def tran(sec, max_item):
     # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
-    max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
     # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec, config)
