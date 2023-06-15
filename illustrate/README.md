@@ -2,7 +2,7 @@
 
 已重构翻译文件配置、更新Action环境依赖，已测试运行翻译文件，可随时切换翻译接口【切换翻译只需在工作流yml文件中更改ls_show步骤下运行的python文件即可】
 
-注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译机谷歌翻译，如果RSS源中出现过多字符可能会翻译不完整，这是正常的
+注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
 已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
@@ -27,12 +27,12 @@
 
 -  在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
 
-
-
 ## 百度翻译接口文件调整：
 
 - 集成了百度翻译API密钥和应用ID，修改为自己的即可使用
 - 优势：收费的api翻译更多更准确和不限制api次数
+- 设置源语言和目标语言为百度翻译API支持的语言代码
+- 修改tran方法中的BaiduTran实例化部分，传入源语言和目标语言参数
 
 ## 工作流文件调整：
 
@@ -56,7 +56,7 @@
 
 ​          pip install requests`
 
-- 其中googletrans为谷歌翻译库，requests为百度翻译库
+- 其中googletrans为谷歌翻译库，requests为百度翻译库，mtranslate`和`jinja2为bing翻译必须库
 
 - 使用 git status --porcelain 指令来检查代码库中是否存在新的更改需要提交，如果有，则执行 git add，git commit 和 git push 命令。否则，输出 “No changes, skip push.” 的消息。
 
@@ -65,7 +65,7 @@
 
 ## 使用说明
 
-1. 在运行代码前，删除本项目原有的rss文件目录下文件并确认已安装库文件，可查看工作流文件中Install dependencies步骤下配置【一般不需要改动】
+1. 在运行代码前，删除本项目原有的rss文件目录下的xml文件并确认已安装库文件，可查看工作流文件中Install dependencies步骤下配置【一般不需要改动】
 
 2. 在test.ini 文件中添加需要翻译的 RSS 订阅信息。例如：
 
@@ -80,7 +80,7 @@ max=5
 action=en->zh-CN
 md5=""
 ```
-**其中name可不添加后缀，生成的文件为固定的xml格式文件**
+**其中name可随意，已英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**
 
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
 
@@ -88,7 +88,8 @@ md5=""
 
 ## 目前仍存在的Bug
 
-一些外网RSS源由于字符等问题可能导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
+- 一些外网RSS源由于字符等问题可能导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
+- 为防止运行加载过慢出现错误，代码中添加了避免重复翻译及使用集合来去除重复项，代价是rss源中字符过多时可能会出现不完整翻译
 
 ## 关于bug报错及修复：
 

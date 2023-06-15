@@ -74,13 +74,13 @@ def update_readme(links):
     with open('README.md', "w+", encoding="UTF-8") as f:
         f.writelines(list1)
 
-def tran(sec):
+def tran(sec, config):
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
-    source, target = get_cfg_tra(sec)
+    source, target = get_cfg_tra(sec, config)
     links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file)))
    # 检查是否需要更新 RSS 内容
     new_md5 = get_md5_value(url)
@@ -166,7 +166,7 @@ def get_cfg(sec, name):
 def set_cfg(sec, name, value):
     config.set(sec, name, '"%s"' % value)
 
-def get_cfg_tra(sec):
+def get_cfg_tra(sec, config):
     cc = config.get(sec, "action").strip('"')
     target = ""
     source = ""
@@ -178,7 +178,7 @@ def get_cfg_tra(sec):
         target = cc.split('->')[1]
     return source, target
 
-BASE = get_cfg("cfg", 'base')
+BASE = ""
 try:
     os.makedirs(BASE)
 except:
@@ -190,7 +190,7 @@ config.read('test.ini')
 secs = config.sections()
 
 for x in secs[1:]:
-    tran(x)
+    tran(x, config)
 
 update_readme(links)
 
