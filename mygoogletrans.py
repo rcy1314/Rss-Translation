@@ -38,43 +38,33 @@ class GoogleTran:
         return translator.translate(content, dest=self.target, src=self.source).text
 
     def get_newcontent(self, max_item=50):
+        item_set = set()  # 使用集合来去除重复项
         item_list = []
-        # 获取所有项目以过滤重复项
         for entry in self.d.entries:
             try:
-                title = self.tr(entry.title)
+                title = entry.title
+                link = entry.link
+                description = entry.summary
+                guid = entry.link
+                pubDate = getTime(entry)
+                one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
+                if guid not in item_set:  # 判断是否存在重复项
+                    item_list.append(one)
+                    item_set.add(guid)
             except:
-                title = ""
-            link = entry.link
-            description = ""
-            try:
-                description = self.tr(entry.summary)
-            except:
-                try:
-                    description = self.tr(entry.content[0].value)
-                except:
-                    pass
-            guid = entry.link
-            pubDate = getTime(entry)
-            one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
-            item_list += [one]
+                pass
         # 按发布日期降序排序
         sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
-        # 过滤重复项目
-        unique_list = []
-        for item in sorted_list:
-            if item not in unique_list:
-                unique_list.append(item)
         # 截取前 max_item 个项目
-        if len(unique_list) < max_item:
-            max_item = len(unique_list)
-        item_list = unique_list[:max_item]
+        if len(sorted_list) < max_item:
+            max_item = len(sorted_list)
+        item_list = sorted_list[:max_item]
         feed = self.d.feed
         try:
             rss_description = self.tr(feed.subtitle)
         except AttributeError:
             rss_description = ''
-        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
+        newfeed = {"title": self.tr(feed.title), "link": feed.link, "description": rss_description, "lastBuildDate": getTime(feed), "items": item_list}
         return newfeed
 
 with open('test.ini', mode='r') as f:
