@@ -12,7 +12,7 @@ from jinja2 import Template
 
 def get_md5_value(src):
     _m = hashlib.md5()
-    _m.update(src.encode('utf-8'))
+    _m.update(src.encode(encoding='utf-8'))
     return _m.hexdigest()
 
 def getTime(e):
@@ -111,16 +111,18 @@ def update_readme():
         f.writelines(list1)
 
 def tran(sec):
+    # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5')
+    old_md5 = get_cfg(sec, 'md5') # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec)
     global links
-
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(out_dir))]
 
-    new_md5 = get_md5_value(url)
+    # 获取新的 RSS 内容，并计算新的 MD5 散列值
+    new_content = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    new_md5 = get_md5_value(url + str(new_content))
 
     # 检查是否需要更新 RSS 内容
     if old_md5 == new_md5:
@@ -128,7 +130,9 @@ def tran(sec):
         return
     else:
         print("Updating %s..." % sec)
-        set_cfg(sec, 'md5', new_md5)
+        set_cfg(sec, 'md5', new_md5) # 更新配置文件中的 MD5 散列值
+
+
 
     # 调用 BingTran 类获取新的 RSS 内容
     try:
