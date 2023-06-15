@@ -4,6 +4,8 @@
 
 为防止运行加载过慢出现错误，代码中添加了避免重复翻译及使用集合来去除重复项
 
+**默认规则：如果 RSS 文件已存在，将去除原有xml内容更新最新内容**
+
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
 已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
