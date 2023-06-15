@@ -143,15 +143,13 @@ def tran(sec, max_item):
         print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
         return
     
-    # 如果 RSS 文件存在，则将新内容追加到原有内容后面
+    # 如果 RSS 文件存在，则删除原有内容
     if os.path.isfile(xml_file):
         try:
-            with open(xml_file, 'r', encoding='utf-8') as f:
-                old_rss = f.read()
+            os.remove(xml_file)
         except Exception as e:
-            print("Error occurred when reading RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+            print("Error occurred when deleting RSS file %s for %s: %s" % (xml_file, sec, str(e)))
             return
-        rss = old_rss + rss
 
     try:
         with open(xml_file, 'w', encoding='utf-8') as f:
