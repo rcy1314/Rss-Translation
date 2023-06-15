@@ -147,10 +147,10 @@ def tran(sec, config):
         try:
             with open(xml_file, 'r', encoding='utf-8') as f:
                 old_rss = f.read()
-            rss = old_rss + rss
         except Exception as e:
             print("Error occurred when reading RSS file %s for %s: %s" % (xml_file, sec, str(e)))
             return
+        rss = old_rss + rss
 
     try:
         with open(xml_file, 'w', encoding='utf-8') as f:
@@ -159,7 +159,10 @@ def tran(sec, config):
         print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
         return
 
+    # 更新配置信息并写入文件中
     set_cfg(sec, 'md5', new_md5)
+    with open('test.ini', "w") as configfile:
+        config.write(configfile)
 
 def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
@@ -179,21 +182,22 @@ def get_cfg_tra(sec, config):
         target = cc.split('->')[1]
     return source, target
 
+# 遍历所有的 RSS 配置，依次更新 RSS 文件
 config = configparser.ConfigParser()
 config.read('test.ini')
 secs = config.sections()
 
 for x in secs[1:]:
-    tran(x, config)
-
-update_readme(links)
+    tran(x)
+update_readme()
 
 with open('test.ini', "w") as configfile:
     config.write(configfile)
 
 YML = "README.md"
-with open(YML, "r+", encoding="UTF-8") as f:
-    list1 = f.readlines()
+f = open(YML, "r+", encoding="UTF-8")
+list1 = f.readlines()
 list1 = list1[:13] + links
-with open(YML, "w+", encoding="UTF-8") as f:
-    f.writelines(list1)
+f = open(YML, "w+", encoding="UTF-8")
+f.writelines(list1)
+f.close()
