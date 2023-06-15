@@ -153,7 +153,8 @@ def tran(sec):
     rss_description = feed["description"]
     rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
-    template = Template("""<rss version="2.0">
+    template = Template("""<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
         <channel>
             <title>{{ rss_title }}</title>
             <link>{{ rss_link }}</link>

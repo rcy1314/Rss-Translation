@@ -34,8 +34,8 @@ class BingTran:
         return translate(content, to_language=self.target, from_language=self.source)
 
     def get_newcontent(self, max_item=50):
+        item_set = set()  # 使用集合来存储项目，用于过滤重复项
         item_list = []
-        # 获取所有项目以过滤重复项
         for entry in self.d.entries:
             try:
                 title = self.tr(entry.title)
@@ -53,59 +53,21 @@ class BingTran:
             guid = entry.link
             pubDate = getTime(entry)
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
-            item_list += [one]
-        # 按发布日期降序排序
+            if guid not in item_set:  # 判断是否重复
+                item_set.add(guid)
+                item_list.append(one)
+            if len(item_list) >= max_item:  # 判断是否达到最大项目数
+                break
         sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
-        # 过滤重复项目
-        unique_list = []
-        for item in sorted_list:
-            if item not in unique_list:
-                unique_list.append(item)
-        # 截取前 max_item 个项目
-        if len(unique_list) < max_item:
-            max_item = len(unique_list)
-        item_list = unique_list[:max_item]
         feed = self.d.feed
         try:
             rss_description = self.tr(feed.subtitle)
         except AttributeError:
             rss_description = ''
-        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":sorted_list}
         return newfeed
 
-with open('test.ini', mode='r') as f:
-    ini_data = parse.unquote(f.read())
-config = configparser.ConfigParser()
-config.read_string(ini_data)
-secs = config.sections()
-
-def get_cfg(sec, name):
-    return config.get(sec, name).strip('"')
-
-def set_cfg(sec, name, value):
-    config.set(sec, name, '"%s"' % value)
-
-def get_cfg_tra(sec):
-    cc = config.get(sec, "action").strip('"')
-    target = ""
-    source = ""
-    if cc == "auto":
-        source = 'auto'
-        target = 'zh-CN'
-    else:
-        source = cc.split('->')[0]
-        target = cc.split('->')[1]
-    return source, target
-
-BASE = get_cfg("cfg", 'base')
-try:
-    os.makedirs(BASE)
-except:
-    pass
-links = []
-
-def update_readme():
-    global links
+def update_readme(links):
     with open('README.md', "r+", encoding="UTF-8") as f:
         list1 = f.readlines()
     list1 = list1[:13] + links
@@ -113,30 +75,23 @@ def update_readme():
         f.writelines(list1)
 
 def tran(sec):
-    # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
-    # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec)
-    global links
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
-
-    # 获取新的 RSS 内容，并计算新的 MD5 散列值
-    new_content = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-    new_md5 = get_md5_value(url + str(new_content))
-
-    # 检查是否需要更新 RSS 内容
+    links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file)))
+   # 检查是否需要更新 RSS 内容
+    new_md5 = get_md5_value(url)
     if old_md5 == new_md5:
         print("No update needed for %s" % sec)
         return
     else:
         print("Updating %s..." % sec)
-        set_cfg(sec, 'md5', new_md5) # 更新配置文件中的 MD5 散列值
+        set_cfg(sec, 'md5', new_md5)
 
-    # 调用 BingTran 类获取新的 RSS 内容
+   # 调用 BingTran 类获取新的 RSS 内容
     try:
         feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
     except Exception as e:
@@ -152,14 +107,15 @@ def tran(sec):
         guid = item["guid"]
         pubDate = item["pubDate"]
         one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
-        rss_items += [one]
+        rss_items.append(one)
 
     rss_title = feed["title"]
     rss_link = feed["link"]
     rss_description = feed["description"]
     rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
-    template = Template("""<rss version="2.0">
+    template = Template("""<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
         <channel>
             <title>{{ rss_title }}</title>
             <link>{{ rss_link }}</link>
@@ -184,16 +140,16 @@ def tran(sec):
     except Exception as e:
         print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
         return
-
-    # 如果 RSS 文件存在，则将新内容追加到原有内容后面
+    
+# 如果 RSS 文件存在，则将新内容追加到原有内容后面
     if os.path.isfile(xml_file):
         try:
             with open(xml_file, 'r', encoding='utf-8') as f:
                 old_rss = f.read()
+            rss = old_rss + rss
         except Exception as e:
             print("Error occurred when reading RSS file %s for %s: %s" % (xml_file, sec, str(e)))
             return
-        rss = old_rss + rss
 
     try:
         with open(xml_file, 'w', encoding='utf-8') as f:
@@ -202,27 +158,48 @@ def tran(sec):
         print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
         return
 
-    # 更新配置信息并写入文件中
     set_cfg(sec, 'md5', new_md5)
-    with open('test.ini', "w") as configfile:
-        config.write(configfile)
 
-# 遍历所有的 RSS 配置，依次更新 RSS 文件
+def get_cfg(sec, name):
+    return config.get(sec, name).strip('"')
+
+def set_cfg(sec, name, value):
+    config.set(sec, name, '"%s"' % value)
+
+def get_cfg_tra(sec):
+    cc = config.get(sec, "action").strip('"')
+    target = ""
+    source = ""
+    if cc == "auto":
+        source = 'auto'
+        target = 'zh-CN'
+    else:
+        source = cc.split('->')[0]
+        target = cc.split('->')[1]
+    return source, target
+
+BASE = get_cfg("cfg", 'base')
+try:
+    os.makedirs(BASE)
+except:
+    pass
+
+links = []
 config = configparser.ConfigParser()
 config.read('test.ini')
 secs = config.sections()
 
 for x in secs[1:]:
     tran(x)
-update_readme()
+
+update_readme(links)
 
 with open('test.ini', "w") as configfile:
     config.write(configfile)
 
 YML = "README.md"
-f = open(YML, "r+", encoding="UTF-8")
-list1 = f.readlines()
+with open(YML, "r+", encoding="UTF-8") as f:
+    list1 = f.readlines()
 list1 = list1[:13] + links
-f = open(YML, "w+", encoding="UTF-8")
-f.writelines(list1)
-f.close()
+with open(YML, "w+", encoding="UTF-8") as f:
+    f.writelines(list1)
