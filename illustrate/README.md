@@ -2,6 +2,8 @@
 
 已重构翻译文件配置、更新Action环境依赖，已测试运行翻译文件，可随时切换翻译接口【切换翻译只需在工作流yml文件中更改ls_show步骤下运行的python文件即可】
 
+为防止运行加载过慢出现错误，代码中添加了避免重复翻译及使用集合来去除重复项
+
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
 已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
@@ -58,8 +60,6 @@
 ​          pip install requests
 ```
 
-
-
 - 其中googletrans为谷歌翻译库，requests为百度翻译库，mtranslate`和`jinja2为bing翻译必须库
 
 - 使用 git status --porcelain 指令来检查代码库中是否存在新的更改需要提交，如果有，则执行 git add，git commit 和 git push 命令。否则，输出 “No changes, skip push.” 的消息。
@@ -75,16 +75,16 @@
 
 ```
 [cfg]
-base=./rss/
+base = "rss/"
 
 [BBC]
-url=https://feeds.bbci.co.uk/news/rss.xml
-name=BBC_zh
-max=5
-action=en->zh-CN
-md5=""
+url= "https://feeds.bbci.co.uk/news/rss.xml"
+name= "BBC_zh"
+max= "5"
+action = "auto"
+md5= ""
 ```
-**其中name可随意，以英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**
+**其中name可随意，以英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**，base为生成的文件存放目录，max为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空
 
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
 
@@ -92,8 +92,7 @@ md5=""
 
 ## 目前仍存在的Bug
 
-- 一些外网RSS源由于字符等问题可能导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
-- 为防止运行加载过慢出现错误，代码中添加了避免重复翻译及使用集合来去除重复项，代价是rss源中字符过多时可能会出现不完整翻译
+- 一些外网RSS源由于字符等问题可能导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接，但不影响订阅，也可以用其它工具进行RSS转换
 
 ## 关于bug报错及修复：
 
@@ -135,13 +134,13 @@ pip install urllib
 ## 已添加订阅源
 •  [TG频道Artificial Intelligence](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/Artificial_intelligence_in.xml)
 
-•  [reddit-自动化](https://rcy1314.github.io/Rss-Translation/rss/reddit_automation.xml)
+•  [reddit-自动化](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_automation.xml)
 
-•  [huggingface博客页](https://rcy1314.github.io/Rss-Translation/rss/huggingface_blog.xml)
+•  [huggingface博客页](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/huggingface_blog.xml)
 
-•  [reddit-人工智能](https://rcy1314.github.io/Rss-Translation/rss/reddit_ArtificialInteligence.xml)
+•  [reddit-人工智能](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_ArtificialInteligence.xml)
 
-•  [reddit_OpenAI](https://rcy1314.github.io/Rss-Translation/rss/reddit_OpenAI.xml)
+•  [reddit_OpenAI](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_OpenAI.xml)
 
 •  [reddit_ChatGPT](https://rcy1314.github.io/Rss-Translation/rss/reddit_ChatGPT.xml)
 
