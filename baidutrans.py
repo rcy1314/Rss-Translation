@@ -1,32 +1,106 @@
+# 请将"YOUR_BAIDU_API_KEY"和"YOUR_BAIDU_APP_ID"替换为您自己的百度翻译API密钥和应用ID再使用。
 import configparser
-from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
-from urllib.parse import quote
-import hashlib
 import os
 import sys
 from urllib import parse
+import hashlib
+import datetime
+import time
+import feedparser
+from bs4 import BeautifulSoup
+from jinja2 import Template
+import requests
+import json
 
-# 引入百度翻译API库
-from aip import AipNlp
+baidu_api_key = 'YOUR_BAIDU_API_KEY'
+baidu_app_id = 'YOUR_BAIDU_APP_ID'
 
-# 从test.ini读取配置
+def get_md5_value(src):
+    _m = hashlib.md5()
+    _m.update(src.encode(encoding='utf-8'))
+    return _m.hexdigest()
+
+def getTime(e):
+    try:
+        struct_time = e.published_parsed
+    except:
+        struct_time = time.localtime()
+    return datetime.datetime(*struct_time[:6])
+
+class BaiduTran:
+    def __init__(self, url, source='auto', target='zh'):
+        self.url = url
+        self.source = source
+        self.target = target
+
+        self.d = feedparser.parse(url)
+
+    def tr(self, content):
+        if not content:
+            return ''
+
+        # 使用百度翻译API进行翻译
+        url = 'https://fanyi-api.baidu.com/api/trans/vip/translate'
+        salt = str(int(time.time()))
+        sign = hashlib.md5((baidu_app_id + content + salt + baidu_api_key).encode()).hexdigest()
+        data = {
+            'q': content,
+            'from': self.source,
+            'to': self.target,
+            'appid': baidu_app_id,
+            'salt': salt,
+            'sign': sign
+        }
+        response = requests.get(url, params=data)
+        result = json.loads(response.text)
+        return result['trans_result'][0]['dst'] if 'trans_result' in result and len(result['trans_result']) > 0 else ''
+
+    def get_newcontent(self, max_item=50):
+        item_set = set()
+        item_list = []
+        for entry in self.d.entries:
+            try:
+                title = entry.title
+                link = entry.link
+                description = entry.summary
+                guid = entry.link
+                pubDate = getTime(entry)
+                one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
+                if guid not in item_set:
+                    item_list.append(one)
+                    item_set.add(guid)
+            except:
+                pass
+        
+        sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
+        
+        if len(sorted_list) < max_item:
+            max_item = len(sorted_list)
+        item_list = sorted_list[:max_item]
+        feed = self.d.feed
+        try:
+            rss_description = self.tr(feed.subtitle)
+        except AttributeError:
+            rss_description = ''
+        newfeed = {"title": self.tr(feed.title), "link": feed.link, "description": rss_description, "lastBuildDate": getTime(feed), "items": item_list}
+        return newfeed
+
 with open('test.ini', mode='r') as f:
-    ini_data = f.read()
+    ini_data = parse.unquote(f.read())
 config = configparser.ConfigParser()
 config.read_string(ini_data)
+secs = config.sections()
 
-# 获取指定配置项的值
 def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
 
-# 修改指定配置项的值
 def set_cfg(sec, name, value):
-    config[sec][name] = '"%s"' % value
+    config.set(sec, name, '"%s"' % value)
 
-# 获取翻译的源语言和目标语言
 def get_cfg_tra(sec):
     cc = config.get(sec, "action").strip('"')
+    target = ""
+    source = ""
     if cc == "auto":
         source = 'auto'
         target = 'zh'
@@ -35,82 +109,120 @@ def get_cfg_tra(sec):
         target = cc.split('->')[1]
     return source, target
 
-# 计算字符串的MD5值
-def get_md5_value(src):
-    _m = hashlib.md5()
-    _m.update(src.encode('utf-8'))
-    return _m.hexdigest()
+BASE = get_cfg("cfg", 'base')
+try:
+    os.makedirs(BASE)
+except:
+    pass
+links = []
 
-# 逐个处理每个配置节
-def tran(sec):
+def update_readme():
     global links
-    out_dir = os.path.join(get_cfg('cfg', 'base'), get_cfg(sec, 'name'))
+    with open('README.md', "r+", encoding="UTF-8") as f:
+        list1 = f.readlines()
+    list1 = list1[:13] + links
+    with open('README.md', "w+", encoding="UTF-8") as f:
+        f.writelines(list1)
+
+def tran(sec):
+    out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
+    xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5')
+    old_md5 = get_cfg(sec, 'md5') 
     source, target = get_cfg_tra(sec)
+    global links
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
 
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, url, get_cfg(sec, 'name'), quote(out_dir))]
-
-    # 获取网页内容并计算MD5值
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'}
-    req = Request(url, headers=headers)
-    try:
-        html_doc = urlopen(req).read().decode('utf8')
-        new_md5 = get_md5_value(html_doc)
-    except:
-        print("Error: " + url)
-        return
+    new_content = BaiduTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    new_md5 = get_md5_value(url + str(new_content))
 
     if old_md5 == new_md5:
+        print("No update needed for %s" % sec)
         return
     else:
+        print("Updating %s..." % sec)
         set_cfg(sec, 'md5', new_md5)
 
-    soup = BeautifulSoup(html_doc, "html.parser")
-    items = soup.find_all('item')
-    for idx, e in enumerate(items):
-        if idx > max_item:
-            e.decompose()
-    content = str(soup)
-    content = content.replace('<title', '<stitle')
-    content = content.replace('title>', 'stitle>')
-    content = content.replace('<pubdate>', '<pubDate><span translate="no">')
-    content = content.replace('</pubdate>', '</span></pubdate>')
+    try:
+        feed = BaiduTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    except Exception as e:
+        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
+        return
+    
+    rss_items = []
+    for item in feed["items"]:
+        title = item["title"]
+        link = item["link"]
+        description = item["description"]
+        guid = item["guid"]
+        pubDate = item["pubDate"]
+        one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
+        rss_items += [one]
 
-    # 替换特殊字符
-    content = content.replace('&gt;', '>')
+    rss_title = feed["title"]
+    rss_link = feed["link"]
+    rss_description = feed["description"]
+    rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
-    # 调用百度翻译API进行翻译
-    app_id = 'your app_id'
-    api_key = 'your api_key'
-    secret_key = 'your secret_key'
-    client = AipNlp(app_id, api_key, secret_key)
-    res = client.translate(content, source, target)
+    template = Template("""<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+        <channel>
+            <title>{{ rss_title }}</title>
+            <link>{{ rss_link }}</link>
+            <description>{{ rss_description }}</description>
+            <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
+            {% for item in rss_items -%}
+            <item>
+                <title>{{ item.title }}</title>
+                <link>{{ item.link }}</link>
+                <description>{{ item.description }}</description>
+                <guid isPermaLink="false">{{ item.guid }}</guid>
+                <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+            </item>
+            {% endfor -%}
+        </channel>
+    </rss>""")
 
-    with open(out_dir, 'w', encoding='utf-8') as f:
-        c = res['trans_result'][0]['dst']
-        c = c.replace('<stitle', '<title')
-        c = c.replace('stitle>', 'title>')
-        c = c.replace('<span translate="no">', '')
-        c = c.replace('</span></pubdate>', '</pubDate>') # 对于ttrss需要为pubDate才会识别正确
+    rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
-        f.write(c)
+    try:
+        os.makedirs(BASE, exist_ok=True)
+    except Exception as e:
+        print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
+        return
 
-    print("GT: " + url + " > " + out_dir)
+    if os.path.isfile(xml_file):
+        try:
+            with open(xml_file, 'r', encoding='utf-8') as f:
+                old_rss = f.read()
+        except Exception as e:
+            print("Error occurred when reading RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+            return
+        rss = old_rss + rss
 
-# 逐个处理所有的配置节
+    try:
+        with open(xml_file, 'w', encoding='utf-8') as f:
+            f.write(rss)
+    except Exception as e:
+        print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+        return
+
+    set_cfg(sec, 'md5', new_md5)
+    with open('test.ini', "w") as configfile:
+        config.write(configfile)
+
+config = configparser.ConfigParser()
+config.read('test.ini')
 secs = config.sections()
-links = []
+
 for x in secs[1:]:
     tran(x)
-    print(config.items(x))
+update_readme()
 
-# 写入更新后的配置
-with open('test.ini', 'w') as configfile:
+with open('test.ini', "w") as configfile:
     config.write(configfile)
 
-# 更新文档映射
 YML = "README.md"
 f = open(YML, "r+", encoding="UTF-8")
 list1 = f.readlines()
@@ -118,5 +230,3 @@ list1 = list1[:13] + links
 f = open(YML, "w+", encoding="UTF-8")
 f.writelines(list1)
 f.close()
-
-# 请将代码里面的your app_id，your api_key，your secret_key替换成自己的百度翻译API的参数，测试并检查修正后的代码是否可以正常运行。

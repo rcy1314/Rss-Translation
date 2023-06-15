@@ -1,40 +1,71 @@
 # ⭐说明及添加⭐
 
-已在原项目基础上更新Action环境依赖，默认翻译为main.py文件，已改为Bing翻译接口，可随时切换翻译接口
+已重构翻译文件配置、更新Action环境依赖，已测试运行翻译文件，可随时切换翻译接口【切换翻译只需在工作流yml文件中更改ls_show步骤下运行的python文件即可】
 
-注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！
+注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译机谷歌翻译，如果RSS源中出现过多字符可能会翻译不完整，这是正常的
 
 已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
 ## Bing翻译接口文件调整：
 
-• 修复了使用set_cfg()方法修改配置文件数据时的bug
+- 修复了使用set_cfg()方法修改配置文件数据时的bug
 
-• 使用了 jinja2 模板引擎来生成 RSS 格式的输出，并对 XML 数据进行了安全处理，添加了运行命令pip install lxml外一个解析库 html5lib：pip install html5lib
+- 使用了 jinja2 模板引擎来生成 RSS 格式的输出，并对 XML 数据进行了安全处理，添加了运行命令pip install lxml外一个解析库 html5lib：pip install html5lib
 
-• 对Feed的生成做了一些修改，扩展RSS的一些属性，如通过strftime格式化时间输出。并且将Feed的构成改成了字符串拼接的方式，更加简洁易懂。
+- 对Feed的生成做了一些修改，扩展RSS的一些属性，如通过strftime格式化时间输出。并且将Feed的构成改成了字符串拼接的方式，更加简洁易懂。
 
-• 代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+- 代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
+
 
 ## google翻译接口文件调整：
 
-• 更换了翻译接口，使用googletrans模块代替pygtrans模块。
+- 更换了翻译接口，使用googletrans模块代替pygtrans模块。
 
-• 安全地将字符串输入到md5()函数中，使用encode()函数将字符串转换为UTF-8编码。
+- 安全地将字符串输入到md5()函数中，使用encode()函数将字符串转换为UTF-8编码。
 
-• 使用os.path.join()方法代替基本字符串拼接的方式来构建输出目录。
+- 使用os.path.join()方法代替基本字符串拼接的方式来构建输出目录。
 
-• 在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
+-  在处理HTML数据时，使用了更准确的BeautifulSoup的解析模式。
+
+
+
+## 百度翻译接口文件调整：
+
+- 集成了百度翻译API密钥和应用ID，修改为自己的即可使用
+- 优势：收费的api翻译更多更准确和不限制api次数
 
 ## 工作流文件调整：
 
-• 使用 git status --porcelain 指令来检查代码库中是否存在新的更改需要提交，如果有，则执行 git add，git commit 和 git push 命令。否则，输出 “No changes, skip push.” 的消息。
+**添加翻译文件依赖库**
 
-• 为可随时切换不同翻译api，添加多个翻译文件所需模块
+`       pip install mtranslate
+
+​          pip install lxml
+
+​          pip install html5lib
+
+​          pip install jinja2
+
+​          pip install googletrans
+
+​          pip install googletrans==4.0.0-rc1
+
+​          pip install beautifulsoup4 pygtrans feedparser rfeed
+
+​          pip install --upgrade feedparser
+
+​          pip install requests`
+
+- 其中googletrans为谷歌翻译库，requests为百度翻译库
+
+- 使用 git status --porcelain 指令来检查代码库中是否存在新的更改需要提交，如果有，则执行 git add，git commit 和 git push 命令。否则，输出 “No changes, skip push.” 的消息。
+
+- 为可随时切换不同翻译api，添加多个翻译文件所需模块
+
 
 ## 使用说明
 
-1. 在运行代码前，确认已安装库文件，对应翻译接口文件中的模块，如pip install mtranslate
+1. 在运行代码前，删除本项目原有的rss文件目录下文件并确认已安装库文件，可查看工作流文件中Install dependencies步骤下配置【一般不需要改动】
 
 2. 在test.ini 文件中添加需要翻译的 RSS 订阅信息。例如：
 
@@ -44,28 +75,31 @@ base=./rss/
 
 [BBC]
 url=https://feeds.bbci.co.uk/news/rss.xml
-name=BBC_zh.xml
+name=BBC_zh
 max=5
 action=en->zh-CN
 md5=""
 ```
+**其中name可不添加后缀，生成的文件为固定的xml格式文件**
+
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
 
 4.将生成的Personal Access Token及U_EMAIL、U_NAME复制黏贴到Action-操作机密和变量中，然后运行action即可
 
 ## 目前仍存在的Bug
 
-由于国外一些站点时常封禁api及禁止RSS，如果使用类似的RSS源会导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
+一些外网RSS源由于字符等问题可能导致覆写文件时某些元素错误，建议先查看已转换xml文件下raw格式链接
 
 ## 关于bug报错及修复：
 
-• 用于解析RSS的库和在使用的python版本不兼容
+- 用于解析RSS的库和在使用的python版本不兼容
 
-• 添加的rss源字符串过多（如全文输出的rss源），api无法翻译，如果缺少subtitle属性，可以将rss_description设置为空字符串，如rss_description = ''
+- 添加的rss源字符串过多（如全文输出的rss源），api无法翻译，如果缺少subtitle属性，可以将rss_description设置为空字符串，如rss_description = ''
 
-• 环境依赖无或版本过旧，可更新后替换
+- 环境依赖无或版本过旧，可更新后替换
 
-• Python翻译库不兼容，可以更换为其它（TextBlob、IBM Watson、Bing Translator、andex Translate API等）
+- Python翻译库不兼容，可以更换为其它（TextBlob、IBM Watson、Bing Translator、andex Translate API等）
+
 
 ## 本地
 
