@@ -73,11 +73,11 @@ class BingTran:
         newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
         return newfeed
 
-with open('test.ini', mode = 'r') as f:
+with open('test.ini', mode='r') as f:
     ini_data = parse.unquote(f.read())
 config = configparser.ConfigParser()
 config.read_string(ini_data)
-secs=config.sections()
+secs = config.sections()
 
 def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
@@ -114,8 +114,8 @@ def update_readme():
 
 def tran(sec):
     # 获取各种配置信息
-    out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
-    xml_file = os.path.join(out_dir, 'feed.xml')
+    out_dir = os.path.join(BASE, 'rss', get_cfg(sec, 'name'))
+    xml_file = os.path.join(out_dir, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
@@ -180,12 +180,12 @@ def tran(sec):
     rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
     try:
-        os.makedirs(out_dir)
+        os.makedirs(out_dir, exist_ok=True)
     except Exception as e:
         print("Error occurred when creating directory %s: %s" % (out_dir, str(e)))
         return
 
-    rss_file = os.path.join(out_dir, 'feed.xml')
+    rss_file = os.path.join(out_dir, f'{get_cfg(sec, "name")}.xml')
     # 如果 RSS 文件存在，则将新内容追加到原有内容后面
     if os.path.isfile(rss_file):
         try:
