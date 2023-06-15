@@ -74,15 +74,17 @@ def update_readme(links):
     with open('README.md', "w+", encoding="UTF-8") as f:
         f.writelines(list1)
 
-def tran(sec, config):
-    BASE = config.get('DEFAULT', 'base')
+def tran(sec):
+    # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
-    source, target = get_cfg_tra(sec, config)
-    links.append(" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file)))
+    # 读取旧的 MD5 散列值
+    source, target = get_cfg_tra(sec)
+    global links
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
     # 检查是否需要更新 RSS 内容
     new_md5 = get_md5_value(url)
     if old_md5 == new_md5:
