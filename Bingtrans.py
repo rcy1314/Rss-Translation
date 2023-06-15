@@ -82,7 +82,7 @@ def tran(sec):
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
     # 读取旧的 MD5 散列值
-    source, target = get_cfg_tra(sec)
+    source, target = get_cfg_tra(sec, config)
     global links
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
     # 检查是否需要更新 RSS 内容
@@ -184,14 +184,20 @@ def get_cfg_tra(sec, config):
         target = cc.split('->')[1]
     return source, target
 
-# 遍历所有的 RSS 配置，依次更新 RSS 文件
+# 读取配置文件
 config = configparser.ConfigParser()
 config.read('test.ini')
+
+# 获取基础路径
+BASE = config.get('DEFAULT', 'base')
+
+# 遍历所有的 RSS 配置，依次更新 RSS 文件
 secs = config.sections()
 
+links = []
 for x in secs[1:]:
     tran(x)
-update_readme()
+update_readme(links)
 
 with open('test.ini', "w") as configfile:
     config.write(configfile)
