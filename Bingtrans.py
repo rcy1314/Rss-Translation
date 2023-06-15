@@ -189,7 +189,12 @@ config = configparser.ConfigParser()
 config.read('test.ini')
 
 # 获取基础路径
-BASE = config.get('DEFAULT', 'base')
+BASE = get_cfg("cfg", 'base')
+try:
+    os.makedirs(BASE)
+except:
+    pass
+links = []
 
 # 遍历所有的 RSS 配置，依次更新 RSS 文件
 secs = config.sections()
