@@ -32,7 +32,7 @@ class GoogleTran:
 
     def tr(self, content):
         if not content:  # 添加判断，如果内容为空则直接返回
-            return content
+            return ''
         
         translator = Translator(service_urls=['translate.google.com'])
         return translator.translate(content, dest=self.target, src=self.source).text
