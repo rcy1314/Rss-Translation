@@ -115,14 +115,14 @@ def update_readme():
 def tran(sec):
     # 获取各种配置信息
     out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
-    ini_name = get_cfg(sec, 'name')
+    xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
     old_md5 = get_cfg(sec, 'md5') 
     # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec)
     global links
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), ini_name, parse.quote(out_dir))]
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
 
     # 获取新的 RSS 内容，并计算新的 MD5 散列值
     new_content = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
@@ -187,10 +187,10 @@ def tran(sec):
         return
 
     try:
-        with open(out_dir, 'w', encoding='utf-8') as f:
+        with open(xml_file, 'w', encoding='utf-8') as f:
             f.write(rss)
     except Exception as e:
-        print("Error occurred when writing RSS file %s for %s: %s" % (out_dir, sec, str(e)))
+        print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
         return
 
     # 更新配置信息并写入文件中
@@ -200,7 +200,7 @@ def tran(sec):
 
     # 将新内容追加到原有内容后面
     try:
-        feed = feedparser.parse(out_dir)
+        feed = feedparser.parse(xml_file)
     except FileNotFoundError:
         print("RSS文件不存在，将创建新文件")
         feed = feedparser.FeedParserDict()
@@ -210,7 +210,7 @@ def tran(sec):
     entry.link = rss_link
     entry.description = rss_description
     feed.entries.append(entry)
-    with open(out_dir, 'w') as f:
+    with open(xml_file, 'w') as f:
         f.write(feed.to_xml())
 
     print("新内容已成功追加到RSS文件中")

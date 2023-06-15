@@ -1,27 +1,92 @@
 import configparser
-from googletrans import Translator
-from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
-from urllib.parse import quote
-import hashlib
 import os
 import sys
+from urllib import parse
+import hashlib
+import datetime
+import time
+import feedparser
+from bs4 import BeautifulSoup
+from googletrans import Translator
+from jinja2 import Template
 
-# 从test.ini读取配置
+def get_md5_value(src):
+    _m = hashlib.md5()
+    _m.update(src.encode(encoding='utf-8'))
+    return _m.hexdigest()
+
+def getTime(e):
+    try:
+        struct_time = e.published_parsed
+    except:
+        struct_time = time.localtime()
+    return datetime.datetime(*struct_time[:6])
+
+class GoogleTran:
+    def __init__(self, url, source='auto', target='zh-CN'):
+        self.url = url
+        self.source = source
+        self.target = target
+
+        self.d = feedparser.parse(url)
+
+    def tr(self, content):
+        translator = Translator()
+        translation = translator.translate(content, src=self.source, dest=self.target)
+        return translation.text
+
+    def get_newcontent(self, max_item=50):
+        item_list = []
+        # 获取所有项目以过滤重复项
+        for entry in self.d.entries:
+            try:
+                title = self.tr(entry.title)
+            except:
+                title = ""
+            link = entry.link
+            description = ""
+            try:
+                description = self.tr(entry.summary)
+            except:
+                try:
+                    description = self.tr(entry.content[0].value)
+                except:
+                    pass
+            guid = entry.link
+            pubDate = getTime(entry)
+            one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
+            item_list += [one]
+        # 按发布日期降序排序
+        sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
+        # 过滤重复项目
+        unique_list = []
+        for item in sorted_list:
+            if item not in unique_list:
+                unique_list.append(item)
+        # 截取前 max_item 个项目
+        if len(unique_list) < max_item:
+            max_item = len(unique_list)
+        item_list = unique_list[:max_item]
+        feed = self.d.feed
+        try:
+            rss_description = self.tr(feed.subtitle)
+        except AttributeError:
+            rss_description = ''
+        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":item_list}
+        return newfeed
+
 with open('test.ini', mode='r') as f:
-    ini_data = f.read()
+    ini_data = parse.unquote(f.read())
 config = configparser.ConfigParser()
 config.read_string(ini_data)
+secs = config.sections()
 
-# 获取指定配置项的值
 def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
 
-# 修改指定配置项的值
 def set_cfg(sec, name, value):
-    config[sec][name] = '"%s"' % value
+    config.set(sec, name, '"%s"' % value)
 
-# 获取翻译的源语言和目标语言
 def get_cfg_tra(sec):
     cc = config.get(sec, "action").strip('"')
     target = ""
@@ -34,78 +99,136 @@ def get_cfg_tra(sec):
         target = cc.split('->')[1]
     return source, target
 
-# 计算字符串的MD5值
-def get_md5_value(src):
-    _m = hashlib.md5()
-    _m.update(src.encode('utf-8'))
-    return _m.hexdigest()
+BASE = get_cfg("cfg", 'base')
+try:
+    os.makedirs(BASE)
+except:
+    pass
+links = []
 
-# 逐个处理每个配置节
-def tran(sec):
+def update_readme():
     global links
-    out_dir = os.path.join(get_cfg('cfg', 'base'), get_cfg(sec, 'name'))
+    with open('README.md', "r+", encoding="UTF-8") as f:
+        list1 = f.readlines()
+    list1 = list1[:13] + links
+    with open('README.md', "w+", encoding="UTF-8") as f:
+        f.writelines(list1)
+
+def tran(sec):
+    # 获取各种配置信息
+    out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
+    xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5')
+    old_md5 = get_cfg(sec, 'md5') 
+    # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec)
+    global links
+    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
 
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, url, get_cfg(sec, 'name'), quote(out_dir))]
+    # 获取新的 RSS 内容，并计算新的 MD5 散列值
+    new_content = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    new_md5 = get_md5_value(url + str(new_content))
 
-    # 获取网页内容并计算MD5值
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'}
-    req = Request(url, headers=headers)
-    try:
-        html_doc = urlopen(req).read().decode('utf8')
-        new_md5 = get_md5_value(html_doc)
-    except:
-        print("Error: " + url)
-        return
-
+    # 检查是否需要更新 RSS 内容
     if old_md5 == new_md5:
+        print("No update needed for %s" % sec)
         return
     else:
-        set_cfg(sec, 'md5', new_md5)
+        print("Updating %s..." % sec)
+        set_cfg(sec, 'md5', new_md5) # 更新配置文件中的 MD5 散列值
 
-    # 处理HTML数据并翻译
-    html_doc = html_doc.replace('<?', '</s')
-    html_doc = html_doc.replace('?>', '/>')
-    soup = BeautifulSoup(html_doc, "html.parser")
-    items = soup.find_all('item')
-    for idx, e in enumerate(items):
-        if idx > max_item:
-            e.decompose()
-    content = str(soup)
-    content = content.replace('<title', '<stitle')
-    content = content.replace('title>', 'stitle>')
-    content = content.replace('<pubdate>', '<pubDate><span translate="no">')
-    content = content.replace('</pubdate>', '</span></pubdate>')
+    # 调用 GoogleTran 类获取新的 RSS 内容
+    try:
+        feed = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    except Exception as e:
+        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
+        return
+    
+    # 处理 RSS 内容，生成新的 RSS 文件
+    rss_items = []
+    for item in feed["items"]:
+        title = item["title"]
+        link = item["link"]
+        description = item["description"]
+        guid = item["guid"]
+        pubDate = item["pubDate"]
+        one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
+        rss_items += [one]
 
-    translator = Translator()
-    _text = translator.translate(content, src=source, dest=target)
+    rss_title = feed["title"]
+    rss_link = feed["link"]
+    rss_description = feed["description"]
+    rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
-    with open(out_dir, 'w', encoding='utf-8') as f:
-        c = _text.text
-        c = c.replace('<stitle', '<title')
-        c = c.replace('stitle>', 'title>')
-        c = c.replace('<span translate="no">', '')
-        c = c.replace('</span></pubdate>', '</pubDate>') # 对于ttrss需要为pubDate才会识别正确
-        c = c.replace('&gt', '>') # &gt 会影响识别
-        f.write(c)
+    template = Template("""<?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0">
+            <channel>
+                <title>{{ rss_title }}</title>
+                <link>{{ rss_link }}</link>
+                <description>{{ rss_description }}</description>
+                <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
+                {% for item in rss_items -%}
+                <item>
+                    <title>{{ item.title }}</title>
+                    <link>{{ item.link }}</link>
+                    <description>{{ item.description }}</description>
+                    <guid>{{ item.guid }}</guid>
+                    <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+                </item>
+                {% endfor -%}
+            </channel>
+        </rss>""")
 
-    print("GT: " + url + " > " + out_dir)
+    rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
-# 逐个处理所有的配置节
+    try:
+        os.makedirs(BASE, exist_ok=True)
+    except Exception as e:
+        print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
+        return
+
+    try:
+        with open(xml_file, 'w', encoding='utf-8') as f:
+            f.write(rss)
+    except Exception as e:
+        print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+        return
+
+    # 更新配置信息并写入文件中
+    set_cfg(sec, 'md5', new_md5)
+    with open('test.ini', "w") as configfile:
+        config.write(configfile)
+
+    # 将新内容追加到原有内容后面
+    try:
+        feed = feedparser.parse(xml_file)
+    except FileNotFoundError:
+        print("RSS文件不存在，将创建新文件")
+        feed = feedparser.FeedParserDict()
+        feed.entries = []
+    entry = feedparser.FeedParserDict()
+    entry.title = rss_title
+    entry.link = rss_link
+    entry.description = rss_description
+    feed.entries.append(entry)
+    with open(xml_file, 'w') as f:
+        f.write(feed.to_xml())
+
+    print("新内容已成功追加到RSS文件中")
+
+# 遍历所有的 RSS 配置，依次更新 RSS 文件
+config = configparser.ConfigParser()
+config.read('test.ini')
 secs = config.sections()
-links = []
+
 for x in secs[1:]:
     tran(x)
-    print(config.items(x))
+update_readme()
 
-# 写入更新后的配置
-with open('test.ini', 'w') as configfile:
+with open('test.ini', "w") as configfile:
     config.write(configfile)
 
-# 更新文档映射
 YML = "README.md"
 f = open(YML, "r+", encoding="UTF-8")
 list1 = f.readlines()
