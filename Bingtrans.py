@@ -9,6 +9,7 @@ import feedparser
 from bs4 import BeautifulSoup
 from mtranslate import translate
 from jinja2 import Template
+import requests
 
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -84,8 +85,13 @@ def tran(sec, max_item):
     source, target = get_cfg_tra(sec, config)
     global links
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
-    # 检查是否需要更新 RSS 内容
-    new_md5 = get_md5_value(url)
+    # 判断 RSS 内容是否有更新
+    try:
+        r = requests.get(url)
+        new_md5 = get_md5_value(r.text)
+    except Exception as e:
+        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
+        return
     if old_md5 == new_md5:
         print("No update needed for %s" % sec)
         return
