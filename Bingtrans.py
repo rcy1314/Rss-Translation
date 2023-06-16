@@ -146,7 +146,13 @@ def tran(sec, max_item):
     # 如果 RSS 文件存在，则删除原有内容
     if os.path.isfile(xml_file):
         try:
-            os.remove(xml_file)
+            with open(xml_file, 'r', encoding='utf-8') as f:
+                old_rss = f.read()
+            if rss == old_rss:
+                print("No change in RSS content for %s" % sec)
+                return
+            else:
+                os.remove(xml_file)
         except Exception as e:
             print("Error occurred when deleting RSS file %s for %s: %s" % (xml_file, sec, str(e)))
             return
