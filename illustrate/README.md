@@ -4,11 +4,11 @@
 
 为防止运行加载过慢出现错误，代码中添加了避免重复翻译及使用集合来去除重复项
 
-**默认规则：如果 RSS 文件已存在，将去除原有xml内容更新最新内容**
+**默认规则：如果 RSS 文件已存在，将去除原有xml重复内容更新最新内容**
 
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
-已改为定时每6小时运行一次（建议每12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
 
 ## Bing翻译接口文件调整：
 
@@ -20,8 +20,9 @@
 
 - 代码使用了try-except语句进行容错处理，确保代码不会因为单个翻译出错而出现错误。
 
-
 ## google翻译接口文件调整：
+
+- 更换了翻译接口，使用pygtrans模块代替googletrans模块
 
 - 将字符串输入到md5()函数中，使用encode()函数将字符串转换为UTF-8编码。
 
