@@ -9,6 +9,7 @@ import feedparser
 from pygtrans import Translator
 from bs4 import BeautifulSoup
 from jinja2 import Template
+import requests
 
 def get_md5_value(src):
     _m = hashlib.md5()
@@ -119,8 +120,8 @@ def tran(sec):
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
 
     # 获取新的 RSS 内容，并计算新的 MD5 散列值
-    new_content = GoogleTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-    new_md5 = get_md5_value(url + str(new_content))
+    response = requests.get(url)
+    new_md5 = get_md5_value(response.text)
 
     # 检查是否需要更新 RSS 内容
     if old_md5 == new_md5:
