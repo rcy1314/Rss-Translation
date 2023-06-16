@@ -129,14 +129,20 @@ def tran(sec):
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
     url = get_cfg(sec, 'url')
     max_item = int(get_cfg(sec, 'max'))
-    old_md5 = get_cfg(sec, 'md5') 
+    old_md5 = get_cfg(sec, 'md5')
     source, target = get_cfg_tra(sec)
     global links
     links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
 
-    new_content = BaiduTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-    new_md5 = get_md5_value(url + str(new_content))
+    # 读取url链接对应的rss内容
+    try:
+        feed = BaiduTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+    except Exception as e:
+        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
+        return
 
+    # 判断rss内容是否有更新
+    new_md5 = get_md5_value(url + str(feed))
     if old_md5 == new_md5:
         print("No update needed for %s" % sec)
         return
@@ -144,12 +150,6 @@ def tran(sec):
         print("Updating %s..." % sec)
         set_cfg(sec, 'md5', new_md5)
 
-    try:
-        feed = BaiduTran(url, target=target, source=source).get_newcontent(max_item=max_item)
-    except Exception as e:
-        print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
-        return
-    
     rss_items = []
     for item in feed["items"]:
         title = item["title"]
