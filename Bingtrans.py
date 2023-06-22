@@ -114,6 +114,9 @@ def tran(sec, max_item):
         description = item["description"]
         guid = item["guid"]
         pubDate = item["pubDate"]
+        # 处理翻译结果中的不正确的 XML 标记
+        soup = BeautifulSoup(description, 'html.parser')
+        description = soup.get_text()
         one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
         rss_items.append(one)
 
