@@ -123,23 +123,32 @@ def tran(sec, max_item):
     rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
     template = Template("""<?xml version="1.0" encoding="UTF-8"?>
-    <rss version="2.0">
-        <channel>
-            <title>{{ rss_title }}</title>
-            <link>{{ rss_link }}</link>
-            <description>{{ rss_description }}</description>
-            <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
-            {% for item in rss_items -%}
-            <item>
-                <title>{{ item.title }}</title>
-                <link>{{ item.link }}</link>
-                <description>{{ item.description }}</description>
-                <guid isPermaLink="false">{{ item.guid }}</guid>
-                <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
-            </item>
-            {% endfor -%}
-        </channel>
-    </rss>""")
+ <rss version="2.0">
+ <channel>
+    <title>{{ rss_title }}</title>
+    <link>{{ rss_link }}</link>
+    <description>{{ rss_description }}</description>
+    <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
+    {% for item in rss_items -%}
+    <item>
+        <title>{{ item.title }}</title>
+        <link>{{ item.link }}</link>
+        <description>{{ item.description }}</description>
+        <guid isPermaLink="false">{{ item.guid }}</guid>
+        <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+        <enclosure url="{{ item.video_url }}" type="{{ item.video_type }}" length="{{ item.video_length }}" />
+        <video>
+            <title>{{ item.title }}</title>
+            <description>{{ item.description }}</description>
+            <thumbnail url="{{ item.thumbnail_url }}" />
+            <content url="{{ item.video_url }}" type="{{ item.video_type }}" />
+        </video>
+    </item>
+    {% endfor -%}
+ </channel>
+ </rss>""")
+
+
 
     rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
