@@ -106,7 +106,7 @@ def tran(sec, max_item):
         print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
         return
     
-    # 处理 RSS 内容，生成新的 RSS 文件
+   # 处理 RSS 内容，生成新的 RSS 文件
     rss_items = []
     for item in feed["items"]:
         title = item["title"]
@@ -139,21 +139,13 @@ def tran(sec, max_item):
         <description>{{ item.description }}</description>
         <guid isPermaLink="false">{{ item.guid }}</guid>
         <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
-        <enclosure url="{{ item.video_url }}" type="{{ item.video_type }}" length="{{ item.video_length }}" />
-        <video>
-            <title>{{ item.title }}</title>
-            <description>{{ item.description }}</description>
-            <thumbnail url="{{ item.thumbnail_url }}" />
-            <content url="{{ item.video_url }}" type="{{ item.video_type }}" />
-        </video>
     </item>
     {% endfor -%}
  </channel>
  </rss>""")
 
-
-
     rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
+
 
     try:
         os.makedirs(BASE, exist_ok=True)

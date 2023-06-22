@@ -150,6 +150,7 @@ def tran(sec):
         print("Updating %s..." % sec)
         set_cfg(sec, 'md5', new_md5)
 
+     # 处理 RSS 内容，生成新的 RSS 文件
     rss_items = []
     for item in feed["items"]:
         title = item["title"]
@@ -157,8 +158,11 @@ def tran(sec):
         description = item["description"]
         guid = item["guid"]
         pubDate = item["pubDate"]
+        # 处理翻译结果中的不正确的 XML 标记
+        soup = BeautifulSoup(description, 'html.parser')
+        description = soup.get_text()
         one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
-        rss_items += [one]
+        rss_items.append(one)
 
     rss_title = feed["title"]
     rss_link = feed["link"]
@@ -166,23 +170,23 @@ def tran(sec):
     rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
     template = Template("""<?xml version="1.0" encoding="UTF-8"?>
-    <rss version="2.0">
-        <channel>
-            <title>{{ rss_title }}</title>
-            <link>{{ rss_link }}</link>
-            <description>{{ rss_description }}</description>
-            <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
-            {% for item in rss_items -%}
-            <item>
-                <title>{{ item.title }}</title>
-                <link>{{ item.link }}</link>
-                <description>{{ item.description }}</description>
-                <guid isPermaLink="false">{{ item.guid }}</guid>
-                <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
-            </item>
-            {% endfor -%}
-        </channel>
-    </rss>""")
+ <rss version="2.0">
+ <channel>
+    <title>{{ rss_title }}</title>
+    <link>{{ rss_link }}</link>
+    <description>{{ rss_description }}</description>
+    <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
+    {% for item in rss_items -%}
+    <item>
+        <title>{{ item.title }}</title>
+        <link>{{ item.link }}</link>
+        <description>{{ item.description }}</description>
+        <guid isPermaLink="false">{{ item.guid }}</guid>
+        <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+    </item>
+    {% endfor -%}
+ </channel>
+ </rss>""")
 
     rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
