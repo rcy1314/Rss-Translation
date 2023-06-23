@@ -163,6 +163,11 @@ def tran(sec):
         description = soup.get_text()
         one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
         rss_items.append(one)
+        # 转义特殊字符
+        description = description.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
+        one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
+        rss_items.append(one)
+
 
     rss_title = feed["title"]
     rss_link = feed["link"]
