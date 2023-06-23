@@ -117,6 +117,8 @@ def tran(sec, max_item):
         # 处理翻译结果中的不正确的 XML 标记
         soup = BeautifulSoup(description, 'html.parser')
         description = soup.get_text()
+        # 转义特殊字符
+        description = description.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
         one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
         rss_items.append(one)
 
@@ -126,23 +128,23 @@ def tran(sec, max_item):
     rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
 
     template = Template("""<?xml version="1.0" encoding="UTF-8"?>
- <rss version="2.0">
- <channel>
+<rss version="2.0">
+  <channel>
     <title>{{ rss_title }}</title>
     <link>{{ rss_link }}</link>
     <description>{{ rss_description }}</description>
     <lastBuildDate>{{ rss_last_build_date }}</lastBuildDate>
     {% for item in rss_items -%}
     <item>
-        <title>{{ item.title }}</title>
-        <link>{{ item.link }}</link>
-        <description>{{ item.description }}</description>
-        <guid isPermaLink="false">{{ item.guid }}</guid>
-        <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+      <title>{{ item.title }}</title>
+      <link>{{ item.link }}</link>
+      <description><![CDATA[{{ item.description }}]]></description>
+      <guid>{{ item.guid }}</guid>
+      <pubDate>{{ item.pubDate.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
     </item>
     {% endfor -%}
- </channel>
- </rss>""")
+  </channel>
+</rss>""")
 
     rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
 
