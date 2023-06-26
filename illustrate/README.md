@@ -147,7 +147,7 @@ pip install urllib
 
 •  [reddit-人工智能](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_ArtificialInteligence.xml)
 
-•  [reddit_OpenAI](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_OpenAI.xml)
+•  [TG频道AI工作](https://rcy1314.github.io/Rss-Translation/rss/AiIndiaJobs.xml)
 
 •  [reddit_ChatGPT](https://rcy1314.github.io/Rss-Translation/rss/reddit_ChatGPT.xml)
 
