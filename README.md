@@ -15,7 +15,7 @@
  - source002 [https://www.reddit.com/r/automation.rss](https://www.reddit.com/r/automation.rss) -> [reddit_automation](rss/reddit_automation.xml)
  - source003 [https://huggingface.co/blog/feed.xml](https://huggingface.co/blog/feed.xml) -> [huggingface_blog](rss/huggingface_blog.xml)
  - source004 [https://www.reddit.com/r/ArtificialInteligence.rss](https://www.reddit.com/r/ArtificialInteligence.rss) -> [reddit_ArtificialInteligence](rss/reddit_ArtificialInteligence.xml)
- - source005 [https://www.reddit.com/r/OpenAI/new.rss](https://www.reddit.com/r/OpenAI/new.rss) -> [reddit_OpenAI](rss/reddit_OpenAI.xml)
+ - source005 [https://rsshub.app/telegram/channel/AiIndiaJobs](https://rsshub.app/telegram/channel/AiIndiaJobs) -> [AiIndiaJobs](rss/AiIndiaJobs.xml)
  - source006 [https://www.reddit.com/r/ChatGPT/new.rss](https://www.reddit.com/r/ChatGPT/new.rss) -> [reddit_ChatGPT](rss/reddit_ChatGPT.xml)
  - source007 [https://www.reddit.com/r/GPT3/new.rss](https://www.reddit.com/r/GPT3/new.rss) -> [reddit_GPT3](rss/reddit_GPT3.xml)
  - source008 [https://www.reddit.com/r/LandscapePhotography.rss](https://www.reddit.com/r/LandscapePhotography.rss) -> [reddit_LandscapePhotography](rss/reddit_LandscapePhotography.xml)
