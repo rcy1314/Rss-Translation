@@ -35,7 +35,7 @@ class OpenAITran:
 
     def tr(self, content):
         response = openai.Completion.create(
-            engine="text-davinci-003",
+            model="gpt-3.5-turbo",
             prompt=content,
             max_tokens=100,
             temperature=0.7,
