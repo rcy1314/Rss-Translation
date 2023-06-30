@@ -8,7 +8,7 @@
 
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
-已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)
+已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
 
 ## Bing翻译接口文件调整：
 
@@ -36,6 +36,13 @@
 - 优势：收费的api翻译更多更准确和不限制api次数
 - 设置源语言和目标语言为百度翻译API支持的语言代码
 - 修改tran方法中的BaiduTran实例化部分，传入源语言和目标语言参数
+
+## OPEN AI翻译接口文件调整：
+
+- 集成了open ai翻译API密钥修改为自己的即可使用
+- 修改调用模型为gpt-3.5-turbo
+- 优化传入源语言和目标语言参数
+
 
 ## 工作流文件调整：
 
