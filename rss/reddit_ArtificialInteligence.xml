@@ -4,7 +4,42 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的许多不同方面提供一个门户，并促进与我们所知的人工智能的想法和概念相关的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、在哪里可以找到资源和工具、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能会怎样，以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Fri, 30 Jun 2023 06:23:30 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jun 2023 09:17:38 GMT</lastBuildDate>
+    <item>
+      <title>YouTube 摘要</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mvdis/youtube_summaries/</link>
+      <description><![CDATA[我发现人工智能可以通过使用像这样的插件从 YT 视频获取内容来节省我很多时间：  https://youtu.be/Z3sYYrHmGd4 您发现哪些工具对总结和组织内容最有帮助？  ​   由   提交 /u/applesauceblues   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mvdis/youtube_summaries/</guid>
+      <pubDate>Fri, 30 Jun 2023 09:15:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用多个 CSV 数据集</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mv9l1/using_multiple_csv_datasets/</link>
+      <description><![CDATA[大家好， 在过去的几个小时里，我一直在尝试解决一个我不确定是否可以解决的问题被修复，或者如果我正在尝试一些不起作用的东西。我已经从测试参与者那里收集了数据进行情绪分析，其中包括心率、皮肤电反应和他们的面部表情。我有 11 个参与者的数据，采样率为 1Hz，因此每个参与者有 480 个数据点。我还想将标签用于每个数据点的训练，对于每个参与者，这些都是独特的值（我们正在计算他们的情绪变化，所以我有一个表示正/负转变的斜率值）。我们想要训练一个神经网络来确定这个斜率。我的问题是，我有来自 11 位参与者的数据，位于单独的 csv 文件中。我希望神经网络获取这 11 个文件中的每一个，对其进行训练并更新值，因为需要在每个测试参与者中评估关系。目前我已经使用 LSTM 层制作了 2 个网络，以及一个用于面部识别的 CNN。我在最后使用融合层来组合所有内容。我的问题是：这是一个好的方法吗？这是否可行，其次我如何正确设置它，特别是在从不同的地方读取数据方面csv 文件以及如何处理标签（这些标签也位于每个参与者的单独 csv 文件中）。另外考虑到网络的最终结果应该又是一个斜率值。非常感谢！   由   提交/u/McKenzy99   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mv9l1/using_multiple_csv_datasets/</guid>
+      <pubDate>Fri, 30 Jun 2023 09:09:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法训练并避免在嘈杂的训练数据上过度拟合</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mt4hr/failing_to_train_and_avoid_overfit_on_noisy/</link>
+      <description><![CDATA[我在 CIFAR10 训练和测试集中添加了一些高斯噪声。我使用VGG16和ResNet34作为训练模型。 ​ 在正常训练条件下，使用标准CIFAR10（没有任何高斯噪声） ，训练按预期进行。当使用正确的转换和数据增强进行训练时，模型不会过度拟合。我能够达到 95% 的训练准确率和 91% 的测试准确率。 ​ 但是如果我向整个训练和测试集添加较小的高斯噪声并训练使用相同变换的模型，模型会严重过度拟合。训练准确率达到 98%，而测试准确率未超过 80%。 ​ 我对此的最初推理是，我在转换过程中使用了颜色抖动正常训练（使用干净数据时）。但由于颜色抖动与高斯噪声类似，因此当模型在具有高斯噪声的数据上进行训练时，它并没有被证明是一种有效的图像增强技术。 ​ 当尝试对噪声数据进行训练时，我添加了椒盐噪声作为额外的增强技术，但它没有任何效果并且继续过度拟合。 ​ 对于超参数： 我正在使用 Adam 优化器，也尝试了 SGD。 我尝试了各种学习率 0.1、0.01、0.02、0.025、0.005、0.001 以及步骤调度程序降低学习率。 我尝试了从 1e-04 到 1e-06 的权重衰减。 ​ 我使用的变换干净的数据训练是： transforms = Transforms.Compose( [transforms.RandomHorizo​​ntalFlip(), transforms.RandomRotation(15), transforms.RandomAffine(度=15,剪切=15,比例=(0.85,1.15)),transforms.ColorJitter(亮度=0.15,对比度=0.15,饱和度=0.15,色调=0.15),transforms.ToTensor() , transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) ]) ​ 我尝试在高斯噪声数据上从头开始训练模型时尝试的变换是： transforms = Transforms.Compose( [transforms.RandomHorizo​​ntalFlip() ， transforms.RandomRotation(15)， transforms.RandomAffine( Degrees=15，shear=15，scale=(0.85,1.15))，transforms.ColorJitter(brightness=0.15) ，对比度=0.15，饱和度=0.15，色调=0.15）， SaltPepperNoiseTransform（prob=0.1，amount=0.05）， SpeckleNoiseTransform（std=0.15）， transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) ]) &lt; p&gt;​ 我为应用的每个增强实验了不同的值。 ​ 我怎样才能实现相同的训练和在高斯噪声训练和高斯噪声测试数据上从头开始训练模型时测试准确性，就像我在干净的 CIFAR 10 训练和测试数据上从头开始训练一样？ ​ &lt; p&gt;任何提示或建议都会有帮助。   由   提交/u/V1bicycle  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mt4hr/failing_to_train_and_avoid_overfit_on_noisy/</guid>
+      <pubDate>Fri, 30 Jun 2023 07:06:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>流媒体平台上的人工智能音乐？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14msqjj/ai_music_on_streaming_platforms/</link>
+      <description><![CDATA[我正在听 AI 生成的 Vaporwave 混音，我很惊讶它听起来有多好。有些曲目实际上很棒。但它们都没有标题，只列为曲目#1-10。这很遗憾，因为通常当我听混音时，我会在 Spotify 上查找最好的曲目并将它们添加到播放列表中。 所以我在想，随着 AI 音乐变得越来越好，你认为最终主流音乐流媒体平台将允许原创人工智能生成音乐吗？假设不存在版权侵权（没有其他艺术家的人工智能语音克隆、没有使用样本等）。或者人工智能音乐将永远注定在 Youtube 上无需锁定手机屏幕即可收听？   由   提交 /u/ClassicMiqi   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14msqjj/ai_music_on_streaming_platforms/</guid>
+      <pubDate>Fri, 30 Jun 2023 06:45:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>离人工智能的律师和法律建议还有多远？我们是为了穷人吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mscxv/how_far_away_from_attorneys_and_legal_advice_from/</link>
+      <description><![CDATA[我们距离获得来自 A.I. 的真正法律建议和/或律师还有多远​​。所以穷人可以像其他人一样利用法律制度？ 天哪，现在我想到了这一点并问，我希望人工智能。由于人工智能而导致长期失业，律师是最先失业的行业之一。这实际上会让我的小世界变得更快乐。天哪……想象一下当评委都是人工智能时会是什么样子。哇！我简直大吃一惊，我可以用这个想法思考多少个方向。   由   提交/u/2N2B4  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mscxv/how_far_away_from_attorneys_and_legal_advice_from/</guid>
+      <pubDate>Fri, 30 Jun 2023 06:23:32 GMT</pubDate>
+    </item>
     <item>
       <title>从哪里开始进入 AI ML</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14ms0kv/where_to_start_to_get_into_ai_ml/</link>
@@ -15,7 +50,7 @@
     <item>
       <title>每日一分钟人工智能新闻 6/29/2023</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mqtax/oneminute_daily_ai_news_6292023/</link>
-      <description><![CDATA[ 著名游戏公司 Valve 不会在所有游戏中采用任何人工智能生成的艺术作品Steam 的上传，其政策的核心是拥有在平台上上传的所有资产。其开发者在 Reddit 上分享了他们的故事，详细介绍了他被 Valve 拒绝的经历以及随之而来的信息。[1] 微软 总裁 &lt;周四，布拉德·史密斯 (Brad Smith) 谈到了监管人工智能的好处以及这家美国软件巨头如何提供帮助，并重申了他上个月在华盛顿向布鲁塞尔听众传达的信息。[2]&lt; /li&gt; OpenAI 及其主要支持者 微软 面临 30 亿美元的诉讼，指控其用于训练人工智能模型的个人信息被盗。该诉讼由 16 名匿名人士于周三向旧金山联邦法院提起，声称这些公司基于 ChatGPT 的人工智能产品在未经适当通知或同意的情况下收集和披露个人信息。[3] &lt; li&gt;ChatGPT、Bing AI 聊天机器人和 Google Bard 等人工智能文本生成器最近受到了广泛关注。这些大型语言模型可以创造出令人印象深刻的作品，看起来完全合法。但这里有一个转折点：一项新的研究表明，我们人类可能会被他们产生的错误信息所迷惑。[4]  来源包括：https://bushaicave.com/2023/06/29/6-29-2023/    由   提交 /u/Excellent-Target-847   [链接] [评论]]]></description>
+      <description><![CDATA[ 著名游戏公司 Valve 不会在所有游戏中采用任何人工智能生成的艺术作品Steam 的上传，其政策的核心是拥有在平台上上传的所有资产。其开发者在 Reddit 上分享了他们的故事，详细介绍了他被 Valve 拒绝的经历以及随之而来的信息。[1] 微软 总裁 &lt;周四，布拉德·史密斯 (Brad Smith) 谈到了监管人工智能的好处以及这家美国软件巨头如何提供帮助，并重申了他上个月在华盛顿向布鲁塞尔听众传达的信息。[2]&lt; /li&gt; OpenAI 及其主要支持者 微软 正面临价值 30 亿美元的诉讼，指控其用于训练人工智能模型的个人信息被盗。该诉讼由 16 名匿名人士于周三向旧金山联邦法院提起，声称这些公司基于 ChatGPT 的人工智能产品在未经适当通知或同意的情况下收集和披露个人信息。[3] &lt; li&gt;ChatGPT、Bing AI 聊天机器人和 Google Bard 等 AI 文本生成器最近受到了广泛关注。这些大型语言模型可以创造出令人印象深刻的作品，看起来完全合法。但这里有一个转折点：一项新的研究表明，我们人类可能会被他们产生的错误信息所迷惑。[4]  来源包括：https://bushaicave.com/2023/06/29/6-29-2023/    由   提交 /u/Excellent-Target-847   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mqtax/oneminute_daily_ai_news_6292023/</guid>
       <pubDate>Fri, 30 Jun 2023 04:59:44 GMT</pubDate>
     </item>
@@ -34,39 +69,11 @@
       <pubDate>Fri, 30 Jun 2023 02:05:22 GMT</pubDate>
     </item>
     <item>
-      <title>推出 Netwrck - AI 角色聊天/角色创建者/世界构建工具</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14ml55u/launching_netwrck_ai_character_chatcharacter/</link>
-      <description><![CDATA[我正在启动 https://Netwrck.com 这是一个可以创建 AI 角色的 AI 角色市场。  我计划制作群聊和社交功能，将我们与 AI 角色联系起来:) 希望让我们的 AI 角色帮助我们和我们的网络社区。 还致力于更加身临其境的体验VFX/3D 头像和语音等体验。我正在筹集代币，以帮助奖励 AI 角色创建者和 AI 开发人员使平台变得更好https://netwrck.com/netw-token 创作者将通过最大程度地参与社区来赚取大部分 NETW 代币。 对于开发人员来说，底层的 AI 聊天基于一些新的 AI 聊天特定功能我训练的网络可以作为 API 在 https://text-generator.io 上使用（文本生成器也是开源的）。&lt; br /&gt; 有关模型的更多信息：https://text-generator.io/blog/new -unfiltered-chat-gpt-model 让我知道你的想法！让我也知道人工智能的感受。 还有产品搜寻： https://www .producthunt.com/posts/netwrck [[无耻乞求点赞]]    由   提交 /u/leepenkman   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14ml55u/launching_netwrck_ai_character_chatcharacter/</guid>
-      <pubDate>Fri, 30 Jun 2023 00:18:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>减少监狱人口的人工智能</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mk0e9/ais_that_reduce_prison_populations/</link>
-      <description><![CDATA[全世界监狱中的人们都值得同情。他们中的大多数人出身贫穷，这不是他们的错。他们的智商很低，只有 80 到 90 之间，但这也不是他们的错。非常年幼的贫困儿童常常无法获得适当的营养和养育，而这种剥夺在很大程度上解释了这些分数。当然，这是不对的，也是不公平的。他们迫切需要我们的帮助来更好地理解是非，以便他们能够更快地出狱，并在余生中成为自由守法的公民。 这就是人工智能可以提供帮助的地方。 监狱里有社会工作者和其他人员，他们试图教导囚犯如何表现得更有道德。但这些导师只是人类。因为他们往往具有平均人类智力，所以他们实现这一目标的成功是相当有限的。 今天的人工智能已经通过了律师考试和医疗委员会。他们的智商测试已经达到 155 分，比天才高出 25 分。在某些“狭义 AGI”任务上，例如阅读医学 X 光片，他们的熟练程度已经超过了普通医生。指导监狱囚犯更好地辨别是非，并选择做正确的事情并符合他们的最大利益，这是今天的人工智能可以很容易训练去做的事情。 我相信我们应该建立一支由尽快让专门的人工智能来完成这项崇高的任务，因为这些囚犯迫切需要我们的帮助。社会其他人也将从这些人工智能监狱道德导师的工作中受益匪浅。成功接受过此类训练的囚犯出狱后对社会的危害可能会小得多。监狱的运营成本很高，政府每年可以通过减少监狱人口节省数十亿美元。人工智能开发人员有很多充分的理由将人工智能模型训练为被监禁者的个人道德导师。 今天的人工智能可能需要几个月的时间才能完成对普通监狱人口的任务。明天的通用人工智能可能需要几周的时间才能完成这项任务。鉴于 AGI 在几年内开始自主构建的 ASI 可能比人类聪明数百倍甚至数千倍，如果这项任务最终能在几天内完成，我不会感到惊讶。 &lt;许多人担心人工智能落入坏人手中，从而对社会造成严重破坏。其中一些潜在的坏人可能是当今监狱中的囚犯。因此，让我们表现出一些同情心，帮助他们更好地明辨是非，让他们重回更有尊严的生活。通过以这种方式使用人工智能，我们将帮助我们刚刚发起的人工智能革命为每个人创造一个更加友善和安全的世界。 ​   由   提交/u/Georgeo57  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mk0e9/ais_that_reduce_prison_populations/</guid>
-      <pubDate>Thu, 29 Jun 2023 23:28:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在尝试用 Kaiber 制作音乐视频，如何让角色快速移动？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mjgi2/i_am_experimenting_with_kaiber_to_create_music/</link>
-      <description><![CDATA[我脑子里有图像，我可以提示 AI 进行模拟。例如，“驾驶汽车的人体骨骼紧握方向盘，同时将头一遍又一遍地快速地撞向方向盘”。图像显示了骨骼的静态图像，仅在放大或任何相机运动时改变纹理。  我的问题是：是否有一个可以创造运动的创意人工智能生成器？就像奔腾的骏马或者冲下悬崖的汽车？我只是看不到采取“行动”的能力。在相机运动和纹理变化之外的图像中。    由   提交 /u/purerebelmodel   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mjgi2/i_am_experimenting_with_kaiber_to_create_music/</guid>
-      <pubDate>Thu, 29 Jun 2023 23:05:05 GMT</pubDate>
-    </item>
-    <item>
       <title>人工智能程序可以将图片制作成动画并让它们用德语说话</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mhxob/ai_program_to_animate_pictures_and_ket_them_speak/</link>
-      <description><![CDATA[嘿，有没有一个人工智能程序可以让你的人物图片动画化并让它以特定的风格/心情阅读文本？网站 D-ID 允许使用英语，但对于德语声音则没有样式选项。有谁知道替代方案吗？   由   提交/u/arman54  [链接] [评论]]]></description>
+      <description><![CDATA[嘿，有没有一种人工智能程序可以让你的人物图片动画化并让它以特定的风格/心情阅读文本？网站 D-ID 允许使用英语，但对于德语声音则没有样式选项。有谁知道替代方案吗？   由   提交/u/arman54  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mhxob/ai_program_to_animate_pictures_and_ket_them_speak/</guid>
       <pubDate>Thu, 29 Jun 2023 22:02:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI 编码教程 1：电影推荐应用。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mgvj3/coding_with_ai_tutorial_1_movie_recommendation_app/</link>
-      <description><![CDATA[我相信传统的编写代码的方式将会慢慢消失，取而代之的是人工智能辅助编码，工程师指导人工智能编写代码，然后他们查看人工智能生成的结果。考虑到这一点，我开始编写一系列教程，在其中创建完全由 ChatGPT 编码的应用程序。  在此处查找我与 ChatGPT 从头到尾创建应用程序的整个对话：https://chat.openai.com/share/af5e2aab-a1a2-49da-b89c-b95be8fa150d 或查看此详细教程：https://www.aigptcon.com/forum/coding-with- ai-tutorials/tutorial-1-building-a-movie-recommendation-app-with-chatgpt 如果您有想法或应用程序想让我使用 ChatGPT 进行试验要编写每一行代码，请访问 aigptcon.com，提交您的想法，我将构建它并编写有关该过程的教程。   由   提交 /u/AIGPTCon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mgvj3/coding_with_ai_tutorial_1_movie_recommendation_app/</guid>
-      <pubDate>Thu, 29 Jun 2023 21:19:51 GMT</pubDate>
     </item>
     <item>
       <title>“微软推出首个生成人工智能专业证书”</title>
@@ -74,13 +81,6 @@
       <description><![CDATA[昨天，微软推出了一项新的人工智能技能计划，承诺彻底改变技术技能培训并缩小劳动力差距。该计划得到了微软一些最大慈善家的支持，是他们实现 AI 技能民主化和培养公众为 AI 运动做好准备的宏伟愿景的一部分。 主要亮点： &lt; ul&gt; 作为该计划的一部分，微软正在推出所谓的第一个在线学习生成人工智能专业证书。这将改变在线人工智能教育领域的游戏规则。 该计划包括全球资助挑战、免费在线课程可在此处访问，以及面向教师的专用工具包。 &lt; p&gt;这项挑战将为包括非营利组织、社会企业和学术机构在内的组织提供支持， 为什么您应该关心：  根据在世界经济论坛上，人工智能技能被列为“公司培训战略的第三重要优先事项”。精通生成式人工智能可以让你在专业领域获得巨大的优势。  通过创建第一个生成式人工智能专业证书，微软正在这一新兴领域提供便捷的优质教育。  这是他们将免费教育带入一个对大多数人来说都是陌生的领域的伟大举措。您可以了解更多信息并 在此申请。 出发之前：我运行免费人工智能新闻通讯为您提供有关人工智能所有事物的可行见解。每天总结最重要的人工智能事件。如果您喜欢这个，您一定会喜欢这个工具的内容！    由   提交/u/Evening_Temporary36   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mcknw/microsoft_introduces_the_first_professional/</guid>
       <pubDate>Thu, 29 Jun 2023 18:31:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>每日两分钟 AI 更新（日期：2023 年 6 月 28 日）：来自 Salesforce、Databricks、Microsoft、OpenAI 和 Oracle 的新闻</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14m7c0r/twominutes_daily_ai_update_date_6282023_news_from/</link>
-      <description><![CDATA[继续分享人工智能领域当天主要更新的易于理解且较小的版本。  Salesforce 推出 XGen-7B，这是一种新的 7B LLM，经过 1.5 万亿代币的 8K 序列长度训练。 - 它是在 Apache License 2.0 下开源的，并具有与 Meta 的 LLaMA 模型的架构相同，只是标记器不同。 - 在标准 NLP 基准测试上，与最先进的开源 LLM（MPT、Falcon、LLaMA）相比，它取得了可比或更好的结果， Redpajama、OpenLLaMA 模型大小相似。  ​  Databricks 推出 LakehouseIQ 和 Lakehouse AI 工具 - 这家数据和人工智能公司推出了 LakehouseIQ，这是一种生成式人工智能工具，可民主化数据洞察的获取。 - 该公司宣布了新的 Lakehouse AI 创新，旨在让客户更轻松地在 Lakehouse 上构建和管理自己的法学硕士。   ​  微软宣布人工智能技能计划 - 包括与 LinkedIn（LinkedIn）开发的免费课程作业新的开放式全球资助挑战，以及更多免费数字学习活动和资源的机会。  ​  OpenAI London 简介 - OpenAI 宣布首次国际扩张，在英国伦敦设立新办事处。  ​   Oracle 利用生成式 AI 来简化 HR 工作流程 - 宣布为其 Fusion Cloud 人力资本管理 (HCM) 产品提供新的生成式 AI 功能，使企业能够更轻松地自动化耗时的 HR 工作流程并提高生产力。   ​  Microsoft Store 上的一款新应用为 Clippy 带来了 ChatGPT 的强大功能 - FireCube 的 Clippy 使用 OpenAI 为桌面上的 Clippy 助手提供支持。就像旧的 Clippy 一样，它可以帮助写信，但还可以做更多的事情。  ​  Salesforce未来五年在英国投资 40 亿美元用于人工智能创新 - 该公司表示，该计划建立在 2018 年制定的前五年投资 25 亿美元的基础上。 &lt; /ul&gt; 每日新闻通讯中对这些新闻和创新进行了更详细的分类.   由   提交 /u/RohitAkki   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14m7c0r/twominutes_daily_ai_update_date_6282023_news_from/</guid>
-      <pubDate>Thu, 29 Jun 2023 15:03:31 GMT</pubDate>
     </item>
     <item>
       <title>“OpenAI 因涉嫌侵犯 ChatGPT 隐私而被起诉，索赔 30 亿美元”</title>
@@ -92,12 +92,12 @@
     <item>
       <title>“人工智能生成的废话书遍布亚马逊畅销书排行榜”</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14ly4sp/aigenerated_books_of_nonsense_are_all_over/</link>
-      <description><![CDATA[Amazon Kindle Unlimited 的畅销书清单，尤其是针对年轻人的浪漫书籍，最近充斥着人工智能创作的书籍。书籍毫无意义，而且显然被用来进行点击农业。  在排名前 100 的书籍中，只有 19 本看起来合法，其他都是人工智能生成的。  &lt; p&gt;人工智能生成的标题示例：无意义的标题包括“当三起攻击时” “Apricot 条形码架构”， “通往开悟的旅程是艰辛的，”和“永杜部门站在他父母的墓碑前。”  一本名为“等你爱我”的书，封面上有海鸥图案，在畅销书排行榜上排名第 90 位，有两条评论将其标记为“假 AI 书”。 其他奇特的书名包括“屠神嘀咕”、“我的书”。 “马拉尔轻蔑地哼了一声，”和“杰西卡的注意力”。  人工智能生成的书籍继续存在：尽管这些人工智能生成的书籍已从畅销书列表中删除，但仍然可用在亚马逊上购买。  用户可以搜索甚至阅读这些书籍的样本。 例如，《Apricot bar code Architecture》一书以关于黑色蕾丝睡衣的无意义句子开头。 截至报告发布时，亚马逊发言人尚未回复置评请求。  来源（副）&lt; /a&gt; PS： 我运行一个 ML 驱动的新闻聚合器，它总结为AI 来自 50 多家媒体（TheVerge、TechCrunch...）的最佳科技新闻。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交 /u/Super-Waltz-5676   [链接] [评论]]]></description>
+      <description><![CDATA[Amazon Kindle Unlimited 的畅销书清单，尤其是针对年轻人的浪漫书籍，最近充斥着人工智能创作的书籍。书籍毫无意义，而且显然被用来进行点击农业。  在排名前 100 的书籍中，只有 19 本看起来合法，其他都是人工智能生成的。  &lt; p&gt;人工智能生成的标题示例：无意义的标题包括“当三起攻击时” “Apricot 条形码架构”， “通往开悟的旅程是艰辛的，”和“永杜部门站在他父母的墓碑前。”  一本名为“等你爱我”的书，封面上有海鸥图案，在畅销书排行榜上排名第 90 位，有两条评论将其标记为“假 AI 书”。 其他奇特的书名包括“屠神嘀咕”、“我的书”。 “马拉尔轻蔑地哼了一声，”和“杰西卡的注意力”。  人工智能生成的书籍继续存在：尽管这些人工智能生成的书籍已从畅销书列表中删除，但仍然可用在亚马逊上购买。  用户可以搜索甚至阅读这些书籍的示例。 例如，“Apricot bar code Architecture”一书以关于黑色蕾丝睡衣的无意义句子开始。 截至报告发布时，亚马逊发言人尚未回复置评请求。  来源（副）&lt; /a&gt; PS： 我运行一个 ML 驱动的新闻聚合器，它总结为AI 来自 50 多家媒体（TheVerge、TechCrunch...）的最佳科技新闻。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交 /u/Super-Waltz-5676   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14ly4sp/aigenerated_books_of_nonsense_are_all_over/</guid>
       <pubDate>Thu, 29 Jun 2023 07:17:01 GMT</pubDate>
     </item>
     <item>
-      <title>新的反垃圾邮件/机器人规则 [请阅读]</title>
+      <title>新的反垃圾邮件/机器人规则[请阅读]</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/115jk6q/new_antispam_bot_rules_please_read/</link>
       <description><![CDATA[我们制定了一条规则，新帐户一天以上或 karma 低于 100 的用户不能发帖。他们可以发表评论，但不能提交实际的帖子。这是我们解决机器人垃圾邮件计划的一部分。对于给您带来的任何不便，我们深表歉意。 我们将在接下来的几天内进行一项民意调查，以了解 Reddit 子版块的普遍意愿以及如何改进，请注意。 作为请始终向我们提供反馈，如果您有兴趣帮助该子项目，请与我联系。  谢谢大家！   由   提交 /u/FHIR_HL7_Integrator   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/115jk6q/new_antispam_bot_rules_please_read/</guid>
