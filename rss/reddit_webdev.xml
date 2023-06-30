@@ -4,7 +4,77 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 30 Jun 2023 09:18:49 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jun 2023 12:36:50 GMT</lastBuildDate>
+    <item>
+      <title>帮助使用 php 提交简单的联系表单</title>
+      <link>https://www.reddit.com/r/webdev/comments/14mz43c/help_submitting_simple_contact_form_with_php/</link>
+      <description><![CDATA[您好 我正在创建一个带有联系表单的基本网页，但无法提交我的联系表单。我正在将其推送到数字海洋应用程序进行测试。这是我的代码：  index.php // 应该是 .php 还是 .html ？    &lt;字段集&gt;  &lt;div class=“col-lg-12 mb-12”&gt; &lt;输入类别＝“来自控制”类型=“文本” id=“名称-1”名称=“名称-1”占位符=“名称”必需=“” &gt;&gt;  &lt;div class=“col-lg-12 mb-12”&gt; &lt;输入类别＝“来自控制”类型=“文本” id=&quot;email-1&quot;;名称=“电子邮件-1” placeholder=“电子邮件”必需=“” &gt;&gt;  &lt;div class=“col-lg-12 mb-12”&gt; &lt;输入类别＝“来自控制”类型=“文本” id=“电话-1”名称=“电话-1”； placeholder=&quot;电话号码&quot;必需=“” &gt;&gt;  &lt;div class=“col-lg-12 mb-12”&gt;   &lt;div class=&quot;form-group mb-0&quot;&gt; &lt;输入类=“提交-btn”类型=“提交” value=&quot;立即预约&quot; id=&quot;contactSubmitBtn-1&quot;; &gt;&gt;  &lt;/字段集&gt; &lt;/表格&gt;  email.php ” 。 “\r\n” 。 “回复：$email” 。 “\r\n” 。 “X-Mailer：PHP/” 。 php版本();邮件($to, $subject, $message, $headers) } ?&gt;  救命！   由   提交/u/la712  [链接]   [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14mz43c/help_submitting_simple_contact_form_with_php/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:31:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>找到了一个可以让您立即更改颜色的扩展</title>
+      <link>https://www.reddit.com/r/webdev/comments/14myy42/found_a_extension_that_lets_you_change_the_colors/</link>
+      <description><![CDATA[       由   提交/u/BroscienceGuy  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14myy42/found_a_extension_that_lets_you_change_the_colors/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:23:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以将哪些 API 集成到我的个人作品集中，使其变得更有趣？</title>
+      <link>https://www.reddit.com/r/webdev/comments/14myst8/what_are_some_apis_that_i_can_integrate_into_my/</link>
+      <description><![CDATA[我知道开发人员在他们的投资组合中使用 chatGPT，这让我感到好奇。个人作品集中还可以使用哪些其他 API？   由   提交/u/adorkablegiant  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14myst8/what_are_some_apis_that_i_can_integrate_into_my/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:15:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>爱彼迎 API 无法正常工作</title>
+      <link>https://www.reddit.com/r/webdev/comments/14myodw/airbnb_api_not_working/</link>
+      <description><![CDATA[简而言之，我正在考虑创建一个网站，允许用户自我报告或查看流行的“数字游牧民族”中的 Airbnb 房源。 (/r/digitalnomad) 全球各地具有可访问的有线以太网连接路由器的位置，以减少延迟并最大化昨晚，我创建了一个极其简单的网站，该网站试图在用户点击“提交”之前验证 Airbnb 房源链接（其中包含房源/房间 ID）。我按照这些说明获取我的 Airbnb API 密钥（“客户端 ID”现在似乎称为“X-Airbnb” -OAuth-Token&quot;)。 这是 Javascript 文件的当前版本： // 验证 Airbnb 房源链接的函数 function validateListingLink(listingLink) { constlistingId = getListingIdFromLink(listingLink); // 向 Airbnb 的 API 发出请求以验证列表是否存在 return fetch(`https://api.airbnb.com/v2/pdp_listing_details/${listingId}`, { headers: { &#39;Content-Type&#39;: &#39; application/json&#39;, &#39;X-Airbnb-OAuth-Token&#39;: &#39;MY_API_TOKEN&#39; } }) .then(function(response) { if (response.ok) { return response.json(); } else { throw new Error( &#39;无法验证列表链接&#39;); } }) .then(function(data) { // 检查响应是否包含指示有效列表的必要信息 return data &amp;&amp; data.listing; }) .catch(函数(错误) { console.error(错误); 返回 false; }); } // 从 Airbnb 房源链接中提取房源 ID 的函数 function getListingIdFromLink(listingLink) { try { const url = new URL(listingLink); const pathnameParts = url.pathname.split(&#39;/&#39;); constListingId=pathnameParts[pathnameParts.length - 1]; if (listingId &amp;&amp; !isNaN(listingId)) { return ListingId; } } else { throw new Error(&#39;未能提取列表 ID&#39;); } } catch (错误) { console.error(错误);返回空值； } } // 根据列表链接验证启用或禁用提交按钮的函数 functiontoggleSubmitButton(disabled) { var SubmitButton = document.getElementById(&#39;submitButton&#39;);提交按钮.disabled = 禁用; } document.getElementById(&#39;listingLink&#39;).addEventListener(&#39;input&#39;, function(event) { varListingLink = event.target.value; // 最初隐藏验证消息 varlistingValidation = document.getElementById(&#39;listingValidation&#39;);listingValidation .style.display = &#39;none&#39;; // 禁用提交按钮，直到验证列表链接toggleSubmitButton(true); // 异步验证列表链接 validateListingLink(listingLink) .then(function(valid) { if (valid) { // 如果列表链接有效，则启用提交按钮toggleSubmitButton(false); } else { // 如果列表链接无效，则显示验证消息listingValidation.style.display = &#39;block&#39;;toggleSubmitButton(true); } }) ; }); document.getElementById(&#39;reportForm&#39;).addEventListener(&#39;submit&#39;, function(event) { event.preventDefault(); varlistingLink = document.getElementById(&#39;listingLink&#39;).value; var accessToRouter = document.getElementById(&#39;accessToRouter&#39; ).checked; // 创建一个对象，将数据发送到服务器 var data = {listingLink:listingLink, accessToRouter: accessToRouter }; // 使用 AJAX 或 Fetch API 将数据发送到服务器 fetch(&#39;submit.php&#39;, { method: &#39;POST&#39;, headers: { &#39;Content-Type&#39;: &#39;application/json&#39; }, body: JSON.stringify(data) }) .then(function(response) { // 处理服务器响应 if (response .ok) {alert(&#39;报告提交成功！&#39;); // 或者，您可以将用户重定向到另一个页面 } else {alert(&#39;报告提交失败，请稍后再试。&#39;); } }) . catch(function(error) { console.error(error);alert(&#39;提交报告时发生错误。&#39;); }); });  我一直在使用简单的链接进行测试，例如：https://www.airbnb.com/ rooms/&lt;一长串数字&gt;   由   提交 /u/idoescompooters   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14myodw/airbnb_api_not_working/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:10:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>个人网站反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/14mykhv/personal_website_feedback/</link>
+      <description><![CDATA[嘿大家！我最近重新设计了我的个人网站，希望得到一些反馈。 网站   由   提交/u/iamarealslug_yes_yes   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14mykhv/personal_website_feedback/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:05:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>这种配色方案适用于深色主题的个人作品集网站吗？我非常喜欢这些颜色，我只是想知道它们是否可以搭配在一起。你怎么认为？</title>
+      <link>https://www.reddit.com/r/webdev/comments/14myh2z/does_this_color_scheme_work_for_a_dark_themed/</link>
+      <description><![CDATA[   /u/adorkablegiant  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14myh2z/does_this_color_scheme_work_for_a_dark_themed/</guid>
+      <pubDate>Fri, 30 Jun 2023 12:01:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何用纯CSS设计这个按钮？</title>
+      <link>https://www.reddit.com/r/webdev/comments/14my23q/how_to_design_this_buttons_in_pure_css/</link>
+      <description><![CDATA[       由   提交/u/pixobe  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14my23q/how_to_design_this_buttons_in_pure_css/</guid>
+      <pubDate>Fri, 30 Jun 2023 11:41:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>比较 Charles Proxy、Fiddler 和 Wireshark</title>
+      <link>https://www.reddit.com/r/webdev/comments/14mxkon/comparing_charles_proxy_fiddler_and_wireshark/</link>
+      <description><![CDATA[   /u/UsualResponsible593  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14mxkon/comparing_charles_proxy_fiddler_and_wireshark/</guid>
+      <pubDate>Fri, 30 Jun 2023 11:17:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>来自非 Webdev 的 QOL 改进想法：在帐户注册后的“验证电子邮件”页面上放置指向 Gmail 的直接链接</title>
+      <link>https://www.reddit.com/r/webdev/comments/14mwths/qol_improvement_idea_from_a_nonwebdev_put_a/</link>
+      <description><![CDATA[我确信有几个原因表明这是不好的做法，但那时我几乎总是必须在新选项卡中打开 gmail，所以这会节省我几次点击。也许还包括一个到 hotmail 的链接，以表示公正。   由   提交 /u/Laundry_Hamper   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14mwths/qol_improvement_idea_from_a_nonwebdev_put_a/</guid>
+      <pubDate>Fri, 30 Jun 2023 10:38:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>网页开发人员必备的设计软件有哪些？</title>
+      <link>https://www.reddit.com/r/webdev/comments/14mw7m5/what_are_necessary_design_softwares_for_a_web/</link>
+      <description><![CDATA[Web 开发人员必须了解哪些基本设计软件？各位，你们过得怎么样，这里是自由网络开发人员。到目前为止，我有我最好的朋友作为我的设计师和设计师。不幸的是，他的工作质量与我的期望不符。现在我的客户越来越多，几乎总是看起来很便宜。他们的要求变得越来越复杂，我决定与其等他赶上，不如甩掉他&amp;开始自己做设计，这样我就可以完全控制一切再也不用担心质量了。 我想知道除了figma之外，还有哪些必备软件？不想成为万事通无为大师。 Photoshop、插画、Premiere、AE？   由   提交/u/Xparhamxparham   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14mw7m5/what_are_necessary_design_softwares_for_a_web/</guid>
+      <pubDate>Fri, 30 Jun 2023 10:05:09 GMT</pubDate>
+    </item>
     <item>
       <title>Chrome devtools console.log() 显示同一字段的不同值？？？</title>
       <link>https://www.reddit.com/r/webdev/comments/14mvai2/chrome_devtools_consolelog_shows_different_values/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[Squarespace 最近宣布他们将收购 Google Domains。我正在阅读条款，他们指出“您的加密账单数据将在适用的情况下安全地迁移到 Squarespace 及其符合 PCI 标准的支付处理器。” 如何迁移加密账单数据传输到另一个平台，确保其完全安全？   由   提交/u/latte_yen   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14mtuta/squarespace_google_domain_acquisition_and/</guid>
       <pubDate>Fri, 30 Jun 2023 07:46:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何确保 div 始终位于背景视频的特定位置</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mtoe8/how_to_make_sure_a_div_is_always_positioned_on_a/</link>
-      <description><![CDATA[在我的项目中，我有一个背景视频，它始终缩放以覆盖 100% 的屏幕（即使侧面被剪裁）。然而，视频中有一些有趣的点，我想做的是将 div 放置在每个区域的顶部，以便我可以检测和处理悬停事件。然而，经过多次尝试，即使窗口大小调整，我也无法使 div 粘在该位置。有什么办法可以做到这一点吗？我知道视频的宽高比。 任何帮助表示赞赏！ ​ 编辑： 我做了jsfiddle 上的示例项目展示了我正在尝试做的事情。我希望蓝色 div 框始终直接位于图像中的山峰上。即使图像大小发生变化，div 也应保持在山顶上。 以下代码。 ; &lt;头&gt; &lt;标题&gt;检查这个 &lt;/头&gt; &lt;正文&gt;  &lt;img src=&quot;https://images.all-free-download.com/images/graphiclarge/evening_landscape_210502.jpg&quot;&gt; &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;  &lt;/正文&gt; &lt;/html&gt;  CSS： ​ .son1 { width: 20px; 高度：20px；背景：蓝色；位置：绝对；内边距：10px；左：100 像素；顶部：160 像素； } img { 高度：100vh;宽度：100%；对象适配：覆盖；位置：绝对；边框样式：实心； }  ​   由   提交 /u/Defiant_Low5388   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mtoe8/how_to_make_sure_a_div_is_always_positioned_on_a/</guid>
-      <pubDate>Fri, 30 Jun 2023 07:36:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hulu如何防止截图？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mtnbl/how_does_hulu_prevent_screenshots/</link>
-      <description><![CDATA[Hulu 在 Mac 上尝试进行屏幕截图时将图片涂黑。他们是如何做到这一点的？   由   提交 /u/dooblr   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mtnbl/how_does_hulu_prevent_screenshots/</guid>
-      <pubDate>Fri, 30 Jun 2023 07:35:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>这个网站是用什么做的？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mt9ys/whats_this_website_made_with/</link>
-      <description><![CDATA[https://www.duxfordpreschool.org.uk/  我使用过开发工具，它看起来都像 html 和 css。但是有几页的 React。不过，我还没有找到实现 React 的页面。 我已经通过“builtwith”和“wappalzyer”运行了它，但这似乎没有给出答案。 当您点击页面时，它似乎会做出类似反应的反应，它不会不断刷新整个页面，而只会刷新组件。 我以前没有见过类似的东西。   由   提交/u/Informal-Plankton329  /u/Informal-Plankton329 reddit.com/r/webdev/comments/14mt9ys/whats_this_website_made_with/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mt9ys/whats_this_website_made_with/</guid>
-      <pubDate>Fri, 30 Jun 2023 07:15:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>好奇我们如何与图形开发人员沟通。有小费吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mst3u/curious_how_we_communicate_to_graph_developers/</link>
-      <description><![CDATA[当您需要图表时，您如何向图表开发人员传达您需要的图表类型？ 令人尴尬的问题道路。我知道我们可以提供数据点。我知道我们可以给出轴。我还缺少什么吗？尝试为自己制作一个沟通模板。   由   提交/u/a-friendgineer  /u/a-friendgineer  reddit.com/r/webdev/comments/14mst3u/curious_how_we_communicate_to_graph_developers/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mst3u/curious_how_we_communicate_to_graph_developers/</guid>
-      <pubDate>Fri, 30 Jun 2023 06:49:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>由于 Squarespace 正在收购 Google 域名，您未来打算使用谁？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14msfdb/since_squarespace_is_acquiring_google_domains_who/</link>
-      <description><![CDATA[https://newsroom.squarespace.com/blog /googledomains Google 是我用过的最简单的 DNS 提供商。您对您喜欢的其他提供商有什么建议吗？ ​ ​   由   提交/u/everything_in_sync   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14msfdb/since_squarespace_is_acquiring_google_domains_who/</guid>
-      <pubDate>Fri, 30 Jun 2023 06:27:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>什么是服务发现？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mru7w/what_is_service_discovery/</link>
-      <description><![CDATA[ 由   提交/u/sdxyz42   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mru7w/what_is_service_discovery/</guid>
-      <pubDate>Fri, 30 Jun 2023 05:54:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS有段落间隙属性吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mrjnm/does_css_have_a_paragraph_gap_property/</link>
-      <description><![CDATA[我想知道除了顶部/底部边距之外，是否有办法在段落下方添加空间。  在 Figma 和其他设计工具中，有一个段落间距属性来控制这一点。我不认为这个值存在于他们的 CSS 导出中。  是否有等效的 CSS，或者顶部/底部边距是唯一的选择？   由   提交 /u/scrndude   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mrjnm/does_css_have_a_paragraph_gap_property/</guid>
-      <pubDate>Fri, 30 Jun 2023 05:38:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>那么……人们真的会以每月 23,000 美元以上的价格聘请中级开发承包商吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mqlqa/so_people_really_hire_mid_level_dev_contractors/</link>
-      <description><![CDATA[我一直在寻找自由职业，我看到的一般建议是由于税收、保险等原因收取 3 倍的费用...... 因此，中级开发人员的工资为 10 万美元，平均为 48.08 美元/小时 x 3（三倍要价），x 每周 5 天 x 每月 4 周，每月 2.3 万美元，并进行软件开发变更服务......针对单个开发人员。 开发机构实际上要收取这么多费用吗？或者我错过了什么？显然，您可以将其减少到每周 20 小时或其他时间，但随后您将完成时间加倍，而价格仍然相同。 这似乎是一个天文数字般的高要价。天哪。 也可以外包给印度或其他地方，但我听说机构对开发人员收取 150 美元/小时以上的费用很常见，所以听起来不错。 认真的吗？哈哈。   由   提交/u/cheeriosandmilk12   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mqlqa/so_people_really_hire_mid_level_dev_contractors/</guid>
-      <pubDate>Fri, 30 Jun 2023 04:48:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我现在应该朝哪个方向发展？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mqh0v/which_direction_should_i_take_right_now/</link>
-      <description><![CDATA[嗨，我只是一名三年级的大学生，虽然我的专业是人工智能+安全，但我打算从事前端、后端或全栈工作（如果可能的话）。 到目前为止我只做了 2 个项目，1 个是一个蹩脚的音乐网站，只有大约 50 首歌曲左右，而且音乐已经丢失了（我只从盗版网站获取 mp3 链接，将其放入站点而不将它们保存到数据库，因为我正在独自完成 4 人项目，距离截止日期只有 2 周+缺乏经验+期末考试），2 是用于管理学生的 servlet 和 jsp 站点。两者都是针对学校项目的。 我本来打算制作另一个网站，但这次是在react+node+postgresql/mongodb 中关于扫雷游戏。之后我应该做什么？用不同的语言做更多的项目，还是专注于我有信心/容易申请工作的堆栈？ 此外，我的技能足以在毕业后申请实习吗？   由   提交 /u/Akarata_A   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mqh0v/which_direction_should_i_take_right_now/</guid>
-      <pubDate>Fri, 30 Jun 2023 04:41:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>聘请设计师之前的提示。任何？</title>
-      <link>https://www.reddit.com/r/webdev/comments/14mpqwo/tips_before_hiring_a_designer_any/</link>
-      <description><![CDATA[我很难找到一组顺风组件来帮助我充实我的想法。  就我个人而言，我觉得我不应该从顺风组件开始，然后花 5 美元聘请设计师，但如果是的话，也许社区可以帮助我弄清楚如何在我这样做之前表达我的愿望。 我想要一个路线图。我希望在路线图的顶部有一个时间表。我希望路线图上的每个后续行在最左侧都有一个标题（行的标题），并在该行的不同部分上有图标。 这个想法是在每个图标上代表一个用户。每行可以有多个用户。 此时听起来我只需要一个设计师。在我雇用一个人之前有什么建议吗？我想到了一些示例。   由   提交/u/a-friendgineer  /u/a-friendgineer  reddit.com/r/webdev/comments/14mpqwo/tips_before_hiring_a_designer_any/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14mpqwo/tips_before_hiring_a_designer_any/</guid>
-      <pubDate>Fri, 30 Jun 2023 04:02:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
