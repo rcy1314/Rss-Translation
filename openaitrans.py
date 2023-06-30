@@ -37,7 +37,7 @@ class OpenAITran:
         response = openai.Completion.create(
             model="gpt-3.5-turbo",
             prompt=content,
-            max_tokens=100,
+            max_tokens=2000,
             temperature=0.7,
             n=1,
             stop=None,
