@@ -4,46 +4,67 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的许多不同方面提供一个门户，并促进与我们所知的人工智能的想法和概念相关的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、在哪里可以找到资源和工具、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能会怎样，以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Fri, 30 Jun 2023 15:17:51 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jun 2023 18:22:05 GMT</lastBuildDate>
     <item>
-      <title>破产学生寻求基于人工智能的被动收入建议</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n1q3g/broke_student_seeking_aibased_passive_income/</link>
-      <description><![CDATA[嘿，各位 Reddit 用户！我只是一个负债累累、苦苦挣扎的学生，拼命想赚点钱。我读了很多关于人工智能在产生被动收入方面的惊人潜力的文章，它让我着迷。如果你们中有人在人工智能的帮助下成功建立了被动收入，我将非常感激听到你们的经历。您能否分享一下您使用过哪些人工智能工具以及如何开始使用？如果你愿意保守你来之不易的秘密，我完全理解，但即使是最小的提示，为我指明正确的方向，对我来说也意味着整个世界。非常感谢您！   由   提交 /u/BigDickEnergyBro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n1q3g/broke_student_seeking_aibased_passive_income/</guid>
-      <pubDate>Fri, 30 Jun 2023 14:19:18 GMT</pubDate>
+      <title>人工智能真的可以帮助小型独立音乐艺术家与拥有更多资本和唱片公司支持的创作者竞争吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n7to3/can_ai_actually_help_small_time_independent/</link>
+      <description><![CDATA[在观看 Lupe Fiasco 刚刚发布的人工智能生成的音乐视频后，我想到了这个问题： https://www.youtube.com/watch?v=gBXMlyBX0d4 我想知道人工智能工具是否真的会为小型独立艺术家提供帮助。与那些由一台为他们做一切事情的机器支持的艺术家竞争几乎是不可能的。 Lupe 当然是一个不小的无名艺术家，我相信他发布的最后两个音乐视频是人工智能生成的是一个实验，因为我相信他参与了麻省理工学院处理音乐和人工智能/技术的项目，所以我的问题不是关于像他这样的名字的艺术家，而是关于小艺术家用更少的钱做更多的事情。 有关该主题的其他视频： https://www.youtube.com/watch? v=4n2tWvyP-UM https://www.youtube.com/watch? v=xbfUjIEY2pk 你的想法是什么？   由   提交 /u/errdayimshuffln   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n7to3/can_ai_actually_help_small_time_independent/</guid>
+      <pubDate>Fri, 30 Jun 2023 18:15:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法训练并避免在嘈杂的训练数据上过度拟合</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n6lsg/failing_to_train_and_avoid_overfit_on_noisy/</link>
+      <description><![CDATA[我在 CIFAR10 训练和测试集中添加了一些高斯噪声。我使用 VGG16 和 ResNet34 作为用于训练的模型。在正常训练条件下，使用标准 CIFAR10（没有任何高斯噪声），​​训练按预期进行。当使用正确的转换和数据增强进行训练时，模型不会过度拟合。我能够达到 95% 的训练准确率和 91% 的测试准确率。 ​ 但是如果我向整个训练和测试集添加较小的高斯噪声并训练使用相同变换的模型，模型会严重过度拟合。训练准确率达到 98%，而测试准确率未超过 80%。 ​ 我对此的最初推理是，我在转换过程中使用了颜色抖动正常训练（使用干净数据时）。但由于颜色抖动与高斯噪声相似，因此当模型在具有高斯噪声的数据上进行训练时，它并没有被证明是一种有效的图像增强技术。 我添加了椒盐噪声作为附加增强技术当尝试对噪声数据进行训练时，但它没有任何效果并继续过度拟合。 ​ 对于超参数： 我正在使用 Adam 优化器，也尝试过 SGD。 我尝试了各种学习率 0.1、0.01、0.02、0.025、0.005、0.001 以及步骤调度程序来降低学习率。 &lt; p&gt;我尝试了从 1e-04 到 1e-06 的权重衰减。 ​ 我用于干净数据训练的转换是：  transforms = Transforms.Compose([  transforms.RandomHorizo​​ntalFlip(),  transforms.RandomRotation(15),  transforms.RandomAffine(度数=15, 剪切=15, 比例=(0.85,1.15)),transforms.ColorJitter(亮度=0.15,对比度=0.15,饱和度=0.15,色调=0.15),transforms.ToTensor() ,  transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))  ])  &amp;# x200b; 当我尝试在高斯噪声数据上从头开始训练模型时尝试的变换是：  transforms = Transforms.Compose([  &lt; p&gt;transforms.RandomHorizo​​ntalFlip()， transforms.RandomRotation(15)，transforms.RandomAffine(度=15，剪切=15，尺度=(0.85,1.15))，  Transforms.ColorJitter(亮度=0.15，对比度=0.15，饱和度=0.15，色调=0.15)， SaltPepperNoiseTransform(prob=0.1，amount=0.05)， SpeckleNoiseTransform(std= 0.15),  transforms.ToTensor(),  transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))   ])  我为我应用的每个增强尝试了不同的值。  ​ 在高斯噪声训练和高斯噪声测试数据上从头开始训练模型时，如何才能达到与我在训练时相同的训练和测试精度从干净的 CIFAR 10 训练和测试数据开始？ ​ 任何提示或建议都会有帮助。 &lt;!-- SC_ON - -&gt;  由   提交/u/V1bicycle  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n6lsg/failing_to_train_and_avoid_overfit_on_noisy/</guid>
+      <pubDate>Fri, 30 Jun 2023 17:27:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能五件事：监管、风险、电视广告、美容行业、人工智能自动化潜力</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n50r7/five_things_ai_regulation_risks_tv_ads_beauty/</link>
+      <description><![CDATA[我刚刚发布了最新版的《人工智能五件事》 - 我很确定我策划的五篇文章将提供许多有关人工智能的聪明讨论点及其发展。 人工智能的五件事：监管、风险、电视广告、美容行业、人工智能自动化潜力 - 享受！   由   提交 /u/rednix   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n50r7/five_things_ai_regulation_risks_tv_ads_beauty/</guid>
+      <pubDate>Fri, 30 Jun 2023 16:25:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>数学和数据工程师</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n44nm/mathematics_and_data_engineer/</link>
+      <description><![CDATA[程序员 我是一名计算机科学学生，我专注于数据工程师，因为在我看来，数据工程师是在数据角色中具有更多纯粹编程能力的人虽然我不确定使用了多少数学，但任何程序员都可以告诉我作为一名数据工程师是如何工作的。   由   提交 /u/Comfortable-Brief340    reddit.com/r/ArtificialInteligence/comments/14n44nm/mathematics_and_data_engineer/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n44nm/mathematics_and_data_engineer/</guid>
+      <pubDate>Fri, 30 Jun 2023 15:50:52 GMT</pubDate>
     </item>
     <item>
       <title>MotionGPT：人体动作作为外语</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14n1mfl/motiongpt_human_motion_as_a_foreign_language/</link>
-      <description><![CDATA[MotionGPT 是一种创新的运动语言模型，旨在弥合语言和人类运动之间的差距。 此处为纸质页面。 （此处提供完整的 21 页 PDF。） 了解最新的机器学习论文，先看这里。为方便起见，所有信息均已在 Reddit 上提取。 要点：  - 语言和动作的统一模型：建立在人类动作表现出“语义耦合”的前提之上。与人类语言类似，MotionGPT 将语言数据与大规模运动模型相结合，以改进与运动相关的任务。 - 运动词汇构建： MotionGPT 利用“离散矢量量化”来构建运动词汇。 （分解成更小的部分）对于人体运动，将 3D 运动转换为运动标记 - 几乎与单词标记化的方式相同。这个“运动词汇”是指允许模型以统一的方式对动作和文本进行语言建模，从而将人类动作视为一种特定的语言。 - 多任务处理引擎：该模型不仅仅擅长一个事物;它精通多种与运动相关的任务，例如运动预测、运动完成和运动传输。 为什么你应该知道：  AR/VR、动画、通过输入自然语言描述运动的能力，机器人技术将永远改变。想象一下，您是一名游戏开发人员，您希望游戏中的角色进行两次后空翻，并且您有能力将其输入实现。或者想象一个虚拟角色完美地复制脚本中描述的编舞，或者一个机器人使用简单的自然语言提供的指令执行复杂的任务。这就是 MotionGPT 的承诺。   由   提交/u/Evening_Temporary36   [链接] [评论]]]></description>
+      <description><![CDATA[MotionGPT 是一种创新的运动语言模型，旨在弥合语言和人类运动之间的差距。 此处为纸质页面。 （此处提供完整的 21 页 PDF。） 了解最新的机器学习论文，先看这里。为方便起见，所有信息均已在 Reddit 上提取。 要点：  - 语言和动作统一模型：建立在人类动作表现出“语义耦合”的前提之上。与人类语言类似，MotionGPT 将语言数据与大规模运动模型相结合，以改进与运动相关的任务。 - 运动词汇构建： MotionGPT 利用“离散矢量量化”技术来构建运动词汇。 （分解成更小的部分）对于人体运动，将 3D 运动转换为运动标记 - 几乎与单词标记化的方式相同。这个“运动词汇”是指允许模型以统一的方式对动作和文本进行语言建模，从而将人类动作视为一种特定的语言。 - 多任务处理引擎：该模型不仅仅擅长一个事物;它精通多种与运动相关的任务，例如运动预测、运动完成和运动传输。 为什么你应该知道：  AR/VR、动画、通过输入自然语言描述运动的能力，机器人技术将永远改变。想象一下，您是一名游戏开发人员，您希望游戏中的角色进行两次后空翻，并且您有能力将其输入实现。或者想象一个虚拟角色完美地复制脚本或机器人中描述的编舞使用简单的自然语言提供的指令执行复杂的任务。这就是 MotionGPT 的承诺。   由   提交/u/Evening_Temporary36   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14n1mfl/motiongpt_human_motion_as_a_foreign_language/</guid>
       <pubDate>Fri, 30 Jun 2023 14:15:25 GMT</pubDate>
     </item>
     <item>
       <title>“哈佛大学下学期将使用 ChatGPT 教授学生”</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mzzxj/harvard_will_teach_students_using_chatgpt_next/</link>
-      <description><![CDATA[哈佛大学计划使用 ChatGPT 来教授其流行的 CS50 编码课程。 这个想法是模拟个性化的教学体验，尽管人工智能驱动教学的实验性质引起了一些担忧。  人工智能教学计划是由 CS50 教授 David Malan 宣布的。 该课程正在尝试使用GPT-3.5 和 GPT-4 人工智能模型。  人工智能的可靠性及其对学生的影响：围绕人工智能持续生成高质量代码的能力的不确定性将这种新的教学方法视为实验性的，学生本质上是实验的主体。  人们担心 GPT-3.5 和 GPT-4 模型可能无法始终如一地输出良好的结果。结构化代码。 因此，部署人工智能教师的决定被视为有些实验性。  人工智能在教育科技和课程管理中的作用 ：人工智能在教育技术中的应用是一种新兴趋势，有望帮助减轻课程人员的工作量。  CS50 在 edX 上广受好评，edX 是一家大型在线学习平台。麻省理工学院和哈佛大学之间的合作伙伴关系。 虽然承认人工智能有可能表现不佳或犯错误，特别是在早期阶段，但马兰声称人工智能将有助于减少管理课程的员工工作量，从而使他们能够直接参与学生互动。  ​ 来源（未来主义） PS：我运行一个ML驱动的新闻聚合器 用AI总结来自50+媒体（TheVerge、TechCrunch...）的最佳科技新闻。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交 /u/Super-Waltz-5676   [链接] [评论]]]></description>
+      <description><![CDATA[哈佛大学计划使用 ChatGPT 来教授其流行的 CS50 编码课程。 这个想法是模拟个性化的教学体验，尽管人工智能驱动教学的实验性质引起了一些担忧。  人工智能教学计划是由 CS50 教授 David Malan 宣布的。 该课程正在尝试使用GPT-3.5 和 GPT-4 人工智能模型。  人工智能的可靠性及其对学生的影响：围绕人工智能持续生成高质量代码的能力的不确定性将这种新的教学方法视为实验性的，学生本质上是实验的主体。  人们担心 GPT-3.5 和 GPT-4 模型可能无法始终如一地输出良好的结果。结构化代码。 因此，部署人工智能教师的决定被视为有些实验性。  人工智能在教育科技和课程管理中的作用 ：人工智能在教育技术中的应用是一种新兴趋势，有望帮助减轻课程人员的工作量。  CS50 在 edX 上广受好评，edX 是一家大型在线学习平台。麻省理工学院和哈佛大学之间的合作伙伴关系。 虽然承认人工智能有可能表现不佳或犯错误，特别是在早期阶段，但马兰声称人工智能将有助于减少管理课程的员工工作量，从而使他们能够直接参与学生互动。  ​ 来源（未来主义） PS：我运行一个ML驱动的新闻聚合器 用AI总结来自50+媒体（TheVerge、TechCrunch...）的最佳科技新闻。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交/u/Super-Waltz-5676   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mzzxj/harvard_will_teach_students_using_chatgpt_next/</guid>
       <pubDate>Fri, 30 Jun 2023 13:09:28 GMT</pubDate>
     </item>
     <item>
       <title>“Steam 拒绝使用 AI 生成艺术作品的游戏”</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mzqh8/steam_is_rejecting_games_with_aigenerated_artwork/</link>
-      <description><![CDATA[据报道，由于版权问题，Valve 已禁止在提交的内容中使用人工智能生成的艺术作品。这是在发生一起事件之后发生的游戏开发者提交的 Steam 游戏页面被拒绝，因为其中包含看似基于受版权保护的材料的人工智能创作的艺术作品。 人工智能生成的艺术作品被拒绝：Reddit 用户 potterharry97 有一个Steam 上的游戏提交被拒绝，因为该游戏包含由 AI 生成的艺术作品，而这些艺术作品似乎基于受版权保护的第三方材料。  此信息由 potterharry97 在 Reddit 游戏开发子版块中共享。  此信息由 potterharry97 在 Reddit 游戏开发子版块中共享。 li&gt; 被拒绝的游戏有多个由名为“稳定扩散”的 AI 系统生成的资产。  Valve 的反应和担忧：使用 AI 创作的艺术作品由于潜在的知识产权侵权，触发了 Valve 版主的警报。  据报道，Valve 回复 potterharry97 称，他们的游戏包含人工智能生成的艺术资产，这些资产似乎使用了来自第三方的受版权保护的材料。&lt; /li&gt; Valve 表示，他们无法使用当前人工智能生成的资产来分发游戏，除非 potterharry97 能够证明对训练人工智能创建游戏资产的数据集中使用的所有知识产权拥有所有权。  重新提交和 Valve 的持续担忧：即使对美术进行了调整，提交的游戏仍然被 Valve 拒绝，表达了对侵犯版权的持续担忧。  Potterharry97 对游戏艺术进行了编辑，以尽量减少人工智能使用的迹象，并重新提交了游戏。 尽管进行了这些更改，Valve 回应称，由于有关游戏的问题尚未解决，他们仍然拒绝发行游戏。底层人工智能技术使用的训练数据的权利。  ​ 来源（arstechnica）  PS：我运行一个ML驱动的新闻聚合器，用AI总结来自50+媒体的最佳科技新闻（TheVerge、TechCrunch...）。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交 /u/Super-Waltz-5676   [链接] [评论]]]></description>
+      <description><![CDATA[据报道，由于版权问题，Valve 已禁止在提交的内容中使用人工智能生成的艺术作品。这是在发生一起事件之后发生的游戏开发者提交的 Steam 游戏页面被拒绝，因为其中包含看似基于受版权保护的材料的人工智能创作的艺术作品。 人工智能生成的艺术作品被拒绝：Reddit 用户 potterharry97 有一个Steam 上的游戏提交被拒绝，因为该游戏包含由 AI 生成的艺术作品，而这些艺术作品似乎基于受版权保护的第三方材料。  此信息由 potterharry97 在 Reddit 游戏开发子版块中共享。  此信息由 potterharry97 在 Reddit 游戏开发子版块中共享。 li&gt; 被拒绝的游戏有多个由名为“稳定扩散”的 AI 系统生成的资产。  Valve 的反应和担忧：使用 AI 创作的艺术作品由于潜在的知识产权侵权，触发了 Valve 版主的警报。  据报道，Valve 回复 potterharry97 称，他们的游戏包含人工智能生成的艺术资产，这些资产似乎使用了来自第三方的受版权保护的材料。&lt; /li&gt; Valve 表示，他们无法使用当前人工智能生成的资产来分发游戏，除非 potterharry97 能够证明对训练人工智能创建游戏资产的数据集中使用的所有知识产权拥有所有权。  重新提交和 Valve 的持续担忧：即使对美术进行了调整，提交的游戏仍然被 Valve 拒绝，表达了对侵犯版权的持续担忧。  Potterharry97 对游戏艺术进行了编辑，以尽量减少人工智能使用的迹象，并重新提交了游戏。 尽管进行了这些更改，Valve 回应称，由于有关游戏的问题尚未解决，他们仍然拒绝发行游戏。底层人工智能技术使用的训练数据的权利。  ​ 来源（arstechnica）  PS：我运行一个ML驱动的新闻聚合器，用AI总结来自50+媒体的最佳科技新闻（TheVerge、TechCrunch...）。如果您喜欢此分析，您一定会喜欢从此工具收到的内容！   由   提交/u/Super-Waltz-5676   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mzqh8/steam_is_rejecting_games_with_aigenerated_artwork/</guid>
       <pubDate>Fri, 30 Jun 2023 12:59:08 GMT</pubDate>
     </item>
     <item>
       <title>[美国] FTC：生成式人工智能引发竞争担忧</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mzpfj/usa_ftc_generative_ai_raises_competition_concerns/</link>
-      <description><![CDATA[FTC 的这篇博文列出了垄断训练数据可能对科学和经济进步造成的危险。这一次，这是历史上一直存在的真正危险（垄断）。 这既是对这些问题的很好介绍，也是对监管机构如何看待这些问题的有趣见解。  &gt;  生成式人工智能取决于一组必要的输入。如果一家公司或几家公司控制了其中一项或多项基本投入，他们或许能够利用自己的控制权来抑制或扭曲生成人工智能市场的竞争。如果生成式人工智能本身成为一种日益重要的工具，那么那些控制其基本输入的人可能会对大量经济活动产生巨大影响。  https://www.ftc.gov/policy/advocacy-research/tech -at-ftc/2023/06/generative-ai-raises-competition-concerns   由   提交 /u/Content_Quark   [链接] [评论]]]></description>
+      <description><![CDATA[FTC 的这篇博文列出了垄断训练数据可能对科学和经济进步造成的危险。这一次，这是历史上一直存在的真正危险（垄断）。 这既是对这些问题的很好介绍，也是对监管机构如何看待这些问题的有趣见解。  &gt;  生成式人工智能取决于一组必要的输入。如果一家公司或几家公司控制了其中一项或多项重要投入，他们或许能够利用自己的控制权来抑制或扭曲生成人工智能市场的竞争。如果生成式人工智能本身成为一种越来越重要的工具，那么那些控制其基本输入的人可能会对大量经济活动产生巨大的影响。  https://www.ftc.gov/policy/advocacy-research/tech -at-ftc/2023/06/generative-ai-raises-competition-concerns   由   提交 /u/Content_Quark   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mzpfj/usa_ftc_generative_ai_raises_competition_concerns/</guid>
       <pubDate>Fri, 30 Jun 2023 12:57:44 GMT</pubDate>
     </item>
     <item>
       <title>使用 Kinesis 和 SageMaker 的实时对象识别系统</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mzah9/live_object_recognition_system_using_kinesis_and/</link>
-      <description><![CDATA[有没有想过面部识别或物体识别是如何工作的？在你最喜欢的漫威电影：《复仇者联盟》、《神盾局》中，如何？仅仅通过闭路电视摄像机的视频就能认出洛基吗？这与闭路电视摄像机无关，相反，深度学习模型允许他们从任何视频源中识别他。这就是计算机视觉的力量。 让我们创建一个简单的项目，使用我们自己的 Mac 摄像头或您可能拥有的任何其他备用摄像头（使用 Amazon Web Services）来检测某些物体或人员。 https://www.seaflux.tech/blogs/live-recognition-系统使用 Kinesis-and-SageMaker   由   提交/u/krunal_bhimani_   [链接] [评论]]]></description>
+      <description><![CDATA[有没有想过面部识别或物体识别是如何工作的？在你最喜欢的漫威电影中：《复仇者联盟》、《神盾局》仅仅通过闭路电视摄像机的视频就能认出洛基吗？这与闭路电视摄像机无关，相反，深度学习模型允许他们从任何视频源中识别他。这就是计算机视觉的力量。 让我们创建一个简单的项目，使用我们自己的 Mac 摄像头或您可能拥有的任何其他备用摄像头（使用 Amazon Web Services）来检测某些物体或人员。 https://www.seaflux.tech/blogs/live-recognition-系统使用 Kinesis-and-SageMaker   由   提交/u/krunal_bhimani_   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mzah9/live_object_recognition_system_using_kinesis_and/</guid>
       <pubDate>Fri, 30 Jun 2023 12:39:28 GMT</pubDate>
     </item>
@@ -55,23 +76,9 @@
       <pubDate>Fri, 30 Jun 2023 12:22:07 GMT</pubDate>
     </item>
     <item>
-      <title>有没有可以从静止图像生成 3D 空间的应用程序 (NeRF)</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mxci4/are_there_any_apps_that_can_generate_3d_spaces/</link>
-      <description><![CDATA[今天看到这个视频，想知道哪些应用程序目前提供类似的结果，即使不是那么好。谢谢 https://www.youtube.com/watch?v=31oxj6mcsOM    由   提交 /u/thepinkpill   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mxci4/are_there_any_apps_that_can_generate_3d_spaces/</guid>
-      <pubDate>Fri, 30 Jun 2023 11:05:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>您对 Scale AI 有何看法？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mx4ka/what_is_your_take_on_scale_ai/</link>
-      <description><![CDATA[您对 Scale AI 有何看法？他们如何颠覆人工智能市场？ 他们会逐渐取代机器学习工程师吗？    由   提交/u/alchemist_1729   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mx4ka/what_is_your_take_on_scale_ai/</guid>
-      <pubDate>Fri, 30 Jun 2023 10:55:04 GMT</pubDate>
-    </item>
-    <item>
       <title>离人工智能的律师和法律建议还有多远？我们是为了穷人吗？</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mscxv/how_far_away_from_attorneys_and_legal_advice_from/</link>
-      <description><![CDATA[我们距离获得来自 A.I. 的真正法律建议和/或律师还有多远​​。所以穷人可以像其他人一样利用法律制度？ 天哪，现在我想到了这一点并问，我希望人工智能。由于人工智能而导致长期失业，律师是最先失业的行业之一。这实际上会让我的小世界变得更快乐。天哪……想象一下当评委都是人工智能时会是什么样子。哇！我简直大吃一惊，我可以用这个想法思考多少个方向。   由   提交/u/2N2B4  [链接] [评论]]]></description>
+      <description><![CDATA[我们距离获得来自 A.I. 的真正法律建议和/或律师还有多远​​？所以穷人可以像其他人一样利用法律制度？ 天哪，现在我想到了这一点并问，我希望人工智能。由于人工智能而导致长期失业，律师是最先失业的行业之一。这实际上会让我的小世界变得更快乐。天哪……想象一下当评委都是人工智能时会是什么样子。哇！我简直大吃一惊，我可以用这个想法思考多少个方向。   由   提交/u/2N2B4  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mscxv/how_far_away_from_attorneys_and_legal_advice_from/</guid>
       <pubDate>Fri, 30 Jun 2023 06:23:32 GMT</pubDate>
     </item>
@@ -81,13 +88,6 @@
       <description><![CDATA[我是一名 Web 开发人员，在服务器、网站和混合应用程序方面拥有丰富的经验。选择的语言/框架是 NodeJS、Angular、Golang、PHP，但目前我与语言无关。我真的很想进入人工智能领域，但它太广泛了，我不知道从哪里开始。 LLM，生成图像人工智能，基于过去数据的未来概率。谁能推荐一些有用的阅读材料，也许还有一些入门项目或教程来进入它   由   提交 /u/HamburgersNHeroin   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14ms0kv/where_to_start_to_get_into_ai_ml/</guid>
       <pubDate>Fri, 30 Jun 2023 06:04:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>每日一分钟人工智能新闻 6/29/2023</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/14mqtax/oneminute_daily_ai_news_6292023/</link>
-      <description><![CDATA[ 著名游戏公司 Valve 不会在所有游戏中采用任何人工智能生成的艺术作品Steam 的上传，其政策的核心是拥有在平台上上传的所有资产。其开发者在 Reddit 上分享了他们的故事，详细介绍了他被 Valve 拒绝的经历以及随之而来的信息。[1] 微软 总裁 &lt;周四，布拉德·史密斯 (Brad Smith) 谈到了监管人工智能的好处以及这家美国软件巨头如何提供帮助，并重申了他上个月在华盛顿向布鲁塞尔听众传达的信息。[2]&lt; /li&gt; OpenAI 及其主要支持者 微软 面临 30 亿美元的诉讼，指控其用于训练人工智能模型的个人信息被盗。该诉讼由 16 名匿名人士于周三向旧金山联邦法院提起，声称这些公司基于 ChatGPT 的人工智能产品在未经适当通知或同意的情况下收集和披露个人信息。[3] &lt; li&gt;ChatGPT、Bing AI 聊天机器人和 Google Bard 等人工智能文本生成器最近受到了广泛关注。这些大型语言模型可以创造出令人印象深刻的作品，看起来完全合法。但这里有一个转折点：一项新的研究表明，我们人类可能会被他们产生的错误信息所迷惑。[4]  来源包括：https://bushaicave.com/2023/06/29/6-29-2023/    由   提交 /u/Excellent-Target-847   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/14mqtax/oneminute_daily_ai_news_6292023/</guid>
-      <pubDate>Fri, 30 Jun 2023 04:59:44 GMT</pubDate>
     </item>
     <item>
       <title>“微软推出首个生成人工智能专业证书”</title>
