@@ -75,9 +75,9 @@
 - 为可随时切换不同翻译api，添加多个翻译文件所需模块
 
 
-## 使用说明
+# 【使用说明】
 
-1. 在运行代码前，删除本项目原有的rss文件目录下的xml文件并确认已安装库文件，可查看工作流文件中Install dependencies步骤下配置【一般不需要改动】
+1. 在运行代码前，先删除本项目原有的rss文件目录下的xml文件（并确认已安装库文件）可查看工作流文件中Install dependencies步骤下配置【一般不需要改动】
 
 2. 在test.ini 文件中添加需要翻译的 RSS 订阅信息。例如：
 
@@ -92,11 +92,11 @@ max= "5"
 action = "auto"
 md5= ""
 ```
-**其中name可随意，以英文名为主可不添加后缀（和原项目相比），生成的文件为固定的xml格式文件**，base为生成的文件存放目录，max为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空
+**其中name为英文名不要添加后缀！！！！，本项目生成的文件为固定的.xml格式文件**，不需要name有后缀，此外name也不要字符过长避免识别有误，base参数为生成的文件存放目录，max参数为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空！
 
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
 
-4.将生成的Personal Access Token及U_EMAIL、U_NAME复制黏贴到Action-操作机密和变量中，然后运行action即可
+4.将生成的 Token及U_EMAIL（你的github邮箱）、U_NAME（你的github用户名）复制黏贴到Action-操作机密和变量中，然后运行action即可
 
 ## *关于max_item数值的说明*
 
@@ -108,7 +108,7 @@ md5= ""
 
 需要注意的是，如果RSS源中的项目数少于`max_item`，那么将获取所有的项目，不会进行截断
 
-## 关于bug报错及修复：
+## 关于如果出现bug报错原因及修复：
 
 - 用于解析RSS的库和在使用的python版本不兼容
 
@@ -118,11 +118,13 @@ md5= ""
 
 - Python翻译库不兼容，可以更换为其它（TextBlob、IBM Watson、Bing Translator、andex Translate API等）
 
+- 如果直接出现http服务器链接失败大概率是因为github本身问题或action运行被限制，等待一段时间后再运行。
 
-## 本地
 
-如要本地使用（请确保你有python环境及SSL证书）
-并确保你有安装以下模块（检查文件确保包含文件内的导入模块）：
+## 本地使用
+
+如要本地使用（请确保你有python环境及网络SSL证书）
+并确保你有安装翻译接口所需的模块，例如以下模块（检查文件确保包含文件内的导入模块）：
 如：
 
 - configparser
@@ -146,13 +148,13 @@ pip install urllib
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
 ## 已添加订阅源
-•  [TG频道Artificial Intelligence](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/Artificial_intelligence_in.xml)
+•  [TG频道Artificial Intelligence](https://rcy1314.github.io/Rss-Translation/rss/Artificial_intelligence_in.xml)
 
-•  [reddit-自动化](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_automation.xml)
+•  [reddit-自动化](https://rcy1314.github.io/Rss-Translation/rss/reddit_automation.xml)
 
-•  [huggingface博客页](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/huggingface_blog.xml)
+•  [huggingface博客页](https://rcy1314.github.io/Rss-Translation/rss/huggingface_blog.xml)
 
-•  [reddit-人工智能](https://raw.githubusercontent.com/rcy1314/Rss-Translation/main/rss/reddit_ArtificialInteligence.xml)
+•  [reddit-人工智能](https://rcy1314.github.io/Rss-Translation/rss/reddit_ArtificialInteligence.xml)
 
 •  [TG频道AI工作](https://rcy1314.github.io/Rss-Translation/rss/AiIndiaJobs.xml)
 
