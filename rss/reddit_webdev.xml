@@ -4,18 +4,25 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 03 Jul 2023 03:28:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jul 2023 06:25:30 GMT</lastBuildDate>
+    <item>
+      <title>我有一块卡片，我想点击它来扩大它，但保持在相同的位置</title>
+      <link>https://www.reddit.com/r/webdev/comments/14pao0j/i_have_a_board_of_cards_which_i_would_like_to/</link>
+      <description><![CDATA[我创建了一个布告栏，其中有多行便利贴。单击注释时，它会展开并提供更多详细信息。目前（在移动视图上工作时）我有 3 列便利贴。当我单击第一行笔记时，它们会打开并占据它们所在行的 100% 宽度。这就是我想要的行为。当我打开第二个或第三个音符时，它会被向下推并占据下面行的 100% 宽度。有没有办法让每个注释在单击时打开到 100% 的宽度，但仍保留在同一行？ 这是我的 HTML - 我有更多的“帖子”，但有排除它们，因为结构保持不变：   &lt;span class=“pin”&gt;&lt;/span&gt;  &lt;p&gt;森林学校&lt;/p&gt;  &lt;p&gt;今天孩子们在福斯特学校做了一些别的事情&lt;/p&gt;    &lt;span class=“pin”&gt;&lt;/span&gt; &lt;p&gt;这周我们在森林学校去散步了&lt;/p&gt;  &lt;p&gt;今天孩子们在福斯特学校做了一些别的事情&lt;/p&gt;    &lt;span class=“pin”&gt;&lt;/span&gt;  &lt;p&gt;森林学校&lt;/p&gt;  &lt;p&gt;今天孩子们在福斯特学校做了一些别的事情&lt;/p&gt;     CSS： ``` .postArea{ 显示：flex;弯曲方向：行；弹性包裹：包裹；间隙：5px； justify-content：空间周围；顶部边距：1rem；位置：相对； } .post{ 位置：相对；显示：柔性；弯曲方向：列；对齐项目：居中；宽度：20%；填充：.5rem；保证金：0.5rem；框阴影：2px 2px 5px 2px；过渡：宽度0.2s缓和； z 索引：1； } .post&gt; img { 高度：5rem;边框：2px 纯黑； } .post&gt; p { 文本对齐：居中； } .post:nth-child(1n+1){ 变换：旋转(3deg);背景：白色； } .post:nth-child(2n+2){ 变换：旋转(-3deg);背景：#ffff99；宽度：25%；高度：7雷姆； } .post.active { width: 100% !important; z 索引：20；位置：绝对； } .expand { 显示：无；文本对齐：居中；宽度：100%； z 索引：1； } .pin{ 显示：块；高度：10px；宽度：10px；保证金：.3rem 0；边框：1px 纯黑；背景：红色；边界半径：50%； box-shadow: 1px 2px 5px 1px; }  Js:  const postIt = document.querySelectorAll(&quot;.post&quot;); const active = document.querySelector(&quot;.post.active&quot;); postIt.forEach(item =&gt; { item.addEventListener(&#39;click&#39;, () =&gt; { const Expand = item .querySelector(&#39;.expand&#39;); const isActive = item.classList.contains(&#39;active&#39;); if (!isActive) { postIt.forEach(post =&gt; { if ( post !== item &amp;&amp; post.classList.contains(&#39;active&#39;)) { const otherExpand = post.querySelector(&#39;.expand&#39;); post.classList.remove(&#39;active&#39;); otherExpand.style.display = &#39;none&#39;; } }); } item.classList.toggle(&#39;active&#39;); Expand.style.display = isActive ? &#39;none&#39; : &#39;block&#39;;  }) ; }); ```   由   提交/u/pally1995   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/14pao0j/i_have_a_board_of_cards_which_i_would_like_to/</guid>
+      <pubDate>Mon, 03 Jul 2023 06:07:56 GMT</pubDate>
+    </item>
     <item>
       <title>电子邮件 Flask 应用程序输出自动化</title>
       <link>https://www.reddit.com/r/webdev/comments/14p6h8u/email_flask_app_output_automation/</link>
-      <description><![CDATA[我基本上完成了一个 Flask 应用程序的编写，该应用程序允许用户在第一页上输入详细信息，然后在第二页上获取结果表。我有它，这样他们就可以下载这个表的 csv，但我也希望他们能够通过电子邮件给自己发送一份副本。 我确信这只是我在犯傻，但我是认真的我在尝试集成 SendGrid 甚至直接 Gmail。  我想象他们输入他们的电子邮件地址，点击发送结果，一份副本到达他们的收件箱。 SendGrid 是最佳选择吗？每个人都说集成听起来很容易，但这让我很痛苦... 感谢您对我如何解决这个问题提出的任何建议..   由   提交 /u/Queasy-Performer-309   [链接] [评论]]]></description>
+      <description><![CDATA[我基本上完成了一个 Flask 应用程序的编写，该应用程序允许用户在第一页上输入详细信息，然后在第二页上获取结果表。我有它，这样他们就可以下载这个表的 csv，但我也希望他们能够通过电子邮件给自己发送一份副本。 我确信这只是我在犯傻，但我是认真的我在尝试集成 SendGrid 甚至直接 Gmail。  我想象他们输入他们的电子邮件地址，点击发送结果，一份副本到达他们的收件箱。 SendGrid 是最佳选择吗？每个人都说集成听起来很容易，但这却让我很痛苦... 感谢您对我如何解决这个问题提出的任何建议..   由   提交 /u/Queasy-Performer-309   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14p6h8u/email_flask_app_output_automation/</guid>
       <pubDate>Mon, 03 Jul 2023 02:30:44 GMT</pubDate>
     </item>
     <item>
       <title>为“娱乐”项目托管无头 CMS 的免费选项？</title>
       <link>https://www.reddit.com/r/webdev/comments/14p6e6n/free_option_for_hosting_headless_cms_for_a_for/</link>
-      <description><![CDATA[我的职位上周刚刚被取消，所以我正在做一些“为了好玩”的工作我的投资组合项目展示了我可以做什么，其中一个我想利用无头 CMS。我正在考虑 WordPress 或 Drupal，但我知道还有其他选项，例如 Contentful，而且我不反对使用它们。 我计划托管将访问 github 上内容的前端页面，我只想要一个后端，我可以访问这些内容，我希望它每月能获得几十次点击，而且我宁愿每年为可能没有点击的 Droplet 支付 60 美元。 &lt;正常运行时间相当重要，因为我不希望未来的雇主访问该页面而无法访问数据。这个想法来自我的妻子（一个提供职业咨询和简历服务广告的网站），如果她真的想创业并使用该平台，我会很乐意转向付费托管服务。   由   提交 /u/ShawnyMcKnight   [链接] [评论]]]></description>
+      <description><![CDATA[我的职位上周刚刚被取消，所以我正在做一些“为了好玩”的事情我的投资组合项目展示了我可以做什么，其中一个我想利用无头 CMS。我正在考虑 WordPress 或 Drupal，但我知道还有其他选项，例如 Contentful，而且我不反对使用它们。 我计划托管将访问 github 上内容的前端页面，我只想要一个后端，我可以访问这些内容，我希望它每月能获得几十次点击，而且我宁愿每年为可能没有点击的 Droplet 支付 60 美元。 &lt;正常运行时间相当重要，因为我不希望未来的雇主访问该页面而无法访问数据。这个想法来自我的妻子（一个提供职业咨询和简历服务广告的网站），如果她真的想创业并使用该平台，我会很乐意转向付费托管服务。   由   提交 /u/ShawnyMcKnight   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14p6e6n/free_option_for_hosting_headless_cms_for_a_for/</guid>
       <pubDate>Mon, 03 Jul 2023 02:26:25 GMT</pubDate>
     </item>
@@ -50,7 +57,7 @@
     <item>
       <title>您会推荐哪种足球数据 API？</title>
       <link>https://www.reddit.com/r/webdev/comments/14p3h6b/which_football_data_api_would_you_recommend/</link>
-      <description><![CDATA[我正在构建一个足球统计数据提供商，我将使用外部 API 来获取数据。您有推荐的吗？ 我需要从简单的俱乐部信息到详细的统计数据（例如控球率、xG 等）的一切。 到目前为止，我已经尝试过 Rapid-API不够详细，FootyStats API 似乎到处都缺少随机数据。例如，有些球队有体育场名称，而另一些球队则为“null”。   由   提交 /u/RyanOliverV   [链接] [评论]]]></description>
+      <description><![CDATA[我正在构建一个足球统计数据提供程序，我将使用外部 API 来获取数据。您有推荐的吗？ 我需要从简单的俱乐部信息到详细的统计数据（例如控球率、xG 等）的一切。 到目前为止，我已经尝试过 Rapid-API不够详细，FootyStats API 似乎到处都缺少随机数据。例如，有些球队有体育场名称，而另一些球队则为“null”。   由   提交 /u/RyanOliverV   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14p3h6b/which_football_data_api_would_you_recommend/</guid>
       <pubDate>Mon, 03 Jul 2023 00:06:55 GMT</pubDate>
     </item>
@@ -64,14 +71,14 @@
     <item>
       <title>存储搜索值</title>
       <link>https://www.reddit.com/r/webdev/comments/14p1p5f/storing_values_of_searches/</link>
-      <description><![CDATA[有没有一种方法可以在没有后端的情况下存储来自 JS 驱动的搜索栏的用户输入，以提供更好的用户体验？ 大家晚上好。  我的任务是为 SharePoint 中构建的网站创建搜索栏（是的，确实如此）。他们不想付费给外部第 3 方来提供任何后端服务，并认为使用 SharePoint 的开箱即用搜索需要涉及太多团队来对配置进行排序和设计服务器等。所以它有点旧了我和我的 HTML、SASS 和 JS。  使用fuse.js，我现在有了一个有效的搜索栏，它将搜索短语设置为变量，并循环遍历 JSON 文件中的一组结果，以提供排名输出。它有效，可爱的，快乐的老板。 我可以使用 Google 分析来查看人们正在使用搜索页面查找什么，但理想情况下，我需要一种方法来存储他们正在搜索的内容，以便能够查看我是否需要添加更多结果或更好地安排我的关键字以提供更好的用户体验。  在不使用后端的情况下，有没有办法将搜索短语存储为我可以定期返回的列表？ 提前感谢您抽出宝贵的时间。  p&gt;   由   提交/u/garym22  [链接] [评论]]]></description>
+      <description><![CDATA[有没有一种方法可以在没有后端的情况下存储来自 JS 驱动的搜索栏的用户输入，以提供更好的用户体验？ 大家晚上好。  我的任务是为 SharePoint 中构建的网站创建搜索栏（是的，确实如此）。他们不想付费给外部第 3 方来提供任何后端服务，并认为使用 SharePoint 的开箱即用搜索需要涉及太多团队来对配置进行排序和设计服务器等。所以它有点旧了我和我的 HTML、SASS 和 JS。  使用fuse.js，我现在有了一个有效的搜索栏，它将搜索短语设置为变量，并循环遍历 JSON 文件中的一组结果，以提供排名输出。它有效，可爱的，快乐的老板。 我可以使用 Google 分析来查看人们正在使用搜索页面查找什么，但理想情况下，我需要一种方法来存储他们正在搜索的内容，以便能够查看我是否需要添加更多结果或更好地安排我的关键字以提供更好的用户体验。  在不使用后端的情况下，有没有办法将搜索短语存储为我可以定期返回的列表？ 提前感谢您抽出宝贵的时间。 提前感谢您的宝贵时间。 p&gt;   由   提交/u/garym22  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14p1p5f/storing_values_of_searches/</guid>
       <pubDate>Sun, 02 Jul 2023 22:48:49 GMT</pubDate>
     </item>
     <item>
       <title>创建一个像 Zillow.com 这样的网站需要多少钱？</title>
       <link>https://www.reddit.com/r/webdev/comments/14p1ii4/how_much_it_costs_to_create_a_website_like/</link>
-      <description><![CDATA[亲爱的开发人员， 我对网络开发了解不多，但我有一个想法，就是在我当地的市场。我希望它成为首选，因为竞争不多，但我正在寻找的功能可能很复杂。与搜索过滤器一样，能够由客户发布列表并由 mod 检查它们，能够为代理机构创建具有权限的帐户，将谷歌地图与不同的皮肤集成，并可以选择在地图和地图之间切换。列表…准确地说，我想要一个与这个相同的网站，并且支持阿拉伯语、法语和英语。  我的预算是 15,000 欧元，但我希望投入 5000 欧元用于营销。  您能告诉我这是否可行吗？如果是的话，最好的方法是什么，我不确定我是否应该继续使用 Fiverr，或者你们使用的另一个平台拥有拥有良好记录的专业人士。  提前非常感谢您！ 编辑：抱歉，如果我提到的预算令人反感，并不是对您所做的事情的不尊重，我只是一无所知，我来找您是为了建议。现在我知道我的立场以及我应该筹集多少钱。请无需投反对票。   由   提交/u/Xerus01  [链接] [评论]]]></description>
+      <description><![CDATA[亲爱的开发者， 我对网络开发了解不多，但我有一个想法，就是在我当地的市场。我希望它成为首选，因为竞争不多，但我正在寻找的功能可能很复杂。与搜索过滤器一样，能够由客户发布列表并由 mod 检查它们，能够为代理机构创建具有权限的帐户，将谷歌地图与不同的皮肤集成，并可以选择在地图和地图之间切换。列表…准确地说，我想要一个与这个相同的网站，并且支持阿拉伯语、法语和英语。  我的预算是 15,000 欧元，但我希望投入 5000 欧元用于营销。  您能告诉我这是否可行吗？如果是的话，最好的方法是什么，我不确定我是否应该直接使用 Fiverr，或者你们使用的另一个平台拥有拥有良好记录的专业人士。  提前非常感谢您！ 编辑：抱歉，如果我提到的预算令人反感，并不是对您所做的事情的不尊重，我只是一无所知，我来找您是为了建议。现在我知道我的立场以及我应该筹集多少钱。请无需投反对票。   由   提交/u/Xerus01  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14p1ii4/how_much_it_costs_to_create_a_website_like/</guid>
       <pubDate>Sun, 02 Jul 2023 22:40:55 GMT</pubDate>
     </item>
@@ -90,7 +97,7 @@
       <pubDate>Sun, 02 Jul 2023 21:16:20 GMT</pubDate>
     </item>
     <item>
-      <title>理论上，如果有人得到了我的不和谐的“客户秘密”和“客户 ID”，会发生什么</title>
+      <title>从理论上讲，如果有人得到了我的不和谐的“客户秘密”和“客户ID”，会发生什么</title>
       <link>https://www.reddit.com/r/webdev/comments/14ozbob/theoretically_what_could_happen_if_someone_got_my/</link>
       <description><![CDATA[我为我网站上的页面编写了不和谐成员验证，但您可以通过检查元素找到我的客户和客户机密。恶意者可以利用此信息做什么？   由   提交 /u/Lazer_Flip   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14ozbob/theoretically_what_could_happen_if_someone_got_my/</guid>
@@ -102,13 +109,6 @@
       <description><![CDATA[这本质上是我的问题。我经常想知道为什么你们如此乐观以至于值得花时间学习？我不知道在什么情况下我需要通过鼠标单击实现复杂快捷方式的速度。我使用快捷键终端和鼠标单击的组合，这对我来说就足够了。我过去曾尝试学习一两次，但总是放弃，转而采用我的常规输入来源。当我需要进行变基时，我什至让 VS code 成为编辑器。   由   提交/u/mymar101  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/14oyab1/vim_why/</guid>
       <pubDate>Sun, 02 Jul 2023 20:27:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>展示 Tailbreeze - 使用 TailwindCSS 构建的多用途管理模板</title>
-      <link>https://www.reddit.com/r/webdev/comments/14owjno/presenting_tailbreeze_a_multipurpose_admin/</link>
-      <description><![CDATA[      ​ 网站分析仪表板 Tailbreeze 是一个使用 TailwindCSS 构建的强大、轻量级且完全响应式的管理模板/仪表板。它拥有精致的设计，包括经过精心设计和定制的应用程序视图、示例页面、小部件和组件，以与整体用户界面完美契合。 主要功能：   使用最新的 TailwindCSS 构建。 带有 ES+ 模块的 Vanilla JS。 无 jQuery。 用于捆绑器的 ParcelJS。  完全响应并支持视网膜。 制作精美且有意义的小部件。 示例应用程序视图。 示例页面。 &gt; 自定义 UI 组件。 字体图标。 图表和地图。  Github 存储库：https://github.com/avidtemplates/tailbreeze 现场演示：https://tailbreeze.avidtemplates.com/ ​   由   提交 /u/Informal-Fan-8590   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/14owjno/presenting_tailbreeze_a_multipurpose_admin/</guid>
-      <pubDate>Sun, 02 Jul 2023 19:15:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
