@@ -92,11 +92,21 @@ max= "5"
 action = "auto"
 md5= ""
 ```
-**其中name为英文名不要添加后缀！！！！，本项目生成的文件为固定的.xml格式文件**，不需要name有后缀，此外name也不要字符过长避免识别有误，base参数为生成的文件存放目录，max参数为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空！
+**其中name为英文名不要添加后缀！！！！，本项目生成的文件为固定的.xml格式文件**，不需要name有后缀，此外name也不要字符过长避免识别有误
 
-3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wrer.47jpkdp3pfu0.jpg)
+
+base参数为生成的文件存放目录，max参数为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空！
+
+3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。【设置-开发者设置-生成个人经典令牌】
+
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wauh.13r6vfv3ipz4.jpg)
 
 4.将生成的 Token及U_EMAIL（你的github邮箱）、U_NAME（你的github用户名）复制黏贴到Action-操作机密和变量中，然后运行action即可
+
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wqw.50kt20k20lk0.jpg)
+
+注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新页面
 
 ## *关于max_item数值的说明*
 
