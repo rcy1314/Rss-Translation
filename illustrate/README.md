@@ -108,7 +108,7 @@ base参数为生成的文件存放目录，max参数为rss最大条目数（请�
 
 注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新[页面](https://rcy1314.github.io/Rss-Translation/)需要手动运行Deploy
 
-另外这个项目是支持全文翻译的！但就像上面提到的过多字符用免费的翻译api是无法全部翻译！![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
+另外这个项目是支持全文翻译的！但就像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
 
 全文翻译查看示例：
 
