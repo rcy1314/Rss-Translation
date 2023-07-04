@@ -106,7 +106,8 @@ base参数为生成的文件存放目录，max参数为rss最大条目数（请�
 
 ![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wqw.50kt20k20lk0.jpg)
 
-注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新页面
+注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新页面需要手动运行Deploy
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
 
 ## *关于max_item数值的说明*
 
