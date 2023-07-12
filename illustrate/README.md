@@ -108,21 +108,11 @@ base参数为生成的文件存放目录，max参数为rss最大条目数（请�
 
 注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新[页面](https://rcy1314.github.io/Rss-Translation/)需要手动运行Deploy
 
-另外这个项目是支持全文翻译的！但就像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
+另外这个项目是支持全文翻译的！但源本身不是全文输出的源就没办法，包括像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！你可以使用付费的api来满足更高的需求。![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
 
 全文翻译查看示例：
 
 <img src="https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/quanwen.3vboa74fem40.jpg" style="zoom:50%;" />
-
-## *关于max_item数值的说明*
-
-`max_item`是用来控制获取的RSS项的数量的参数。它决定了从RSS源中获取的最大项目数目。默认值是10，但你可以根据你的需求进行调整。
-
-在`get_newcontent`函数中，使用`max_item`来限制循环获取的项数。当获取的项目数达到`max_item`时，循环就会终止，不再获取更多的项目。
-
-因此，根据你的需求，你可以将`max_item`设置为任何你想要的整数值。如果你想要获取所有的项目，你可以将`max_item`设置为一个很大的数，比如100，那么每次更新将返回最多100个rss条目，但过大的数值会让免费翻译的api无法完整翻译为中文，如果你只想获取最新的几个项目，你可以将`max_item`设置为一个较小的数，比如5。
-
-需要注意的是，如果RSS源中的项目数少于`max_item`，那么将获取所有的项目，不会进行截断
 
 ## 关于如果出现bug报错原因及修复：
 
@@ -139,7 +129,7 @@ base参数为生成的文件存放目录，max参数为rss最大条目数（请�
 
 ## 本地使用
 
-如要本地使用（请确保你有python环境及网络SSL证书）
+如要本地使用（请确保你有python环境及python运行网络SSL）
 并确保你有安装翻译接口所需的模块，例如以下模块（检查文件确保包含文件内的导入模块）：
 如：
 
@@ -159,11 +149,80 @@ pip install urllib
 
 最后运行python文件即可。
 
-[个人喜好RSS阅读页](https://rcy1314.github.io/news/)：无历史数据，可点击 [rss feed for you](https://morss.it/:proxy:items=%7C%7C*[class=card]%7C%7Col%7Cli/https://rcy1314.github.io/news/) 来订阅页面
+## Linux centos宝塔面板使用
+
+跟本地使用步骤是差不多的，首先是确保已安装python3.x版本，然后确保升级pip到最新版本
+
+为了避免使用宝塔时在root用户下使用pip可能会导致权限问题和与系统包管理器的冲突。
+
+### 可使用虚拟环境来管理Python包
+
+1. 安装虚拟环境工具（virtualenv）：
+
+   ```
+   pip install virtualenv
+   ```
+
+2. 创建一个新的虚拟环境：
+
+   ```
+   virtualenv myenv
+   ```
+
+   这将在当前目录下创建一个名为"myenv"的虚拟环境。
+
+3. 激活虚拟环境：
+
+   ```
+   source myenv/bin/activate
+   ```
+
+   这将激活虚拟环境，并将您的终端提示符更改为虚拟环境名称。
+
+4. 使用以下命令在虚拟环境下升级pip：
+
+   ```
+   pip install --upgrade pip
+   ```
+
+5. 可以使用以下命令退出虚拟环境：
+
+   ```
+   deactivate
+   ```
+
+安装依赖同样在虚拟环境下使用，如安装
+
+```
+pip install configparser
+pip install pygtrans
+pip install beautifulsoup4
+pip install urllib
+```
+
+安装好后就可以使用命令运行文件了，我推荐Bing翻译
+
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/的大.3e1vh5x7o2k0.jpg)
+
+### 执行定时任务
+
+在面板计划任务中设置以下命令
+
+```
+cd /你的文件路径 source myenv/bin/activate python3 Bingtrans
+```
+
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/1689133552281.k7gvffi1240.jpg)
+
+最后查看rss文件夹内文件更新情况
+
+![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/689134717563.1wg6d4tthoao.jpg)
 
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
-## 已添加订阅源
+我的[个人喜好RSS阅读页](https://rcy1314.github.io/news/)
+
+## 本项目已添加订阅源
 •  [TG频道Artificial Intelligence](https://rcy1314.github.io/Rss-Translation/rss/Artificial_intelligence_in.xml)
 
 •  [reddit-自动化](https://rcy1314.github.io/Rss-Translation/rss/reddit_automation.xml)
