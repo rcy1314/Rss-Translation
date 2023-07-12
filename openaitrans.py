@@ -32,18 +32,23 @@ class OpenAITran:
         self.source = source
         self.target = target
         self.d = feedparser.parse(url)
+        self.translation_cache = {}
 
     def tr(self, content):
+        if content in self.translation_cache:
+            return self.translation_cache[content]
+
         response = openai.Completion.create(
-         model="gpt-3.5-turbo",
-         prompt=content,
-         max_tokens=2000,
-         temperature=0.7,
-          n=1,
-         stop=None
+            model="gpt-3.5-turbo",
+            prompt=content,
+            max_tokens=2000,
+            temperature=0.7,
+            n=1,
+            stop=None
         )
 
         translation = response.choices[0].text.strip()
+        self.translation_cache[content] = translation
         return translation
 
     def get_new_content(self, max_item=10):
@@ -214,6 +219,8 @@ links = []
 for x in secs[1:]:
     max_item = int(get_cfg(x, 'max'))
     tran(x, max_item)
+    time.sleep(3)  # 添加延迟，每次调用API之间间隔3秒
+
 update_readme(links)
 
 with open('test.ini', "w") as configfile:
