@@ -179,13 +179,7 @@ pip install urllib
 
    这将激活虚拟环境，并将您的终端提示符更改为虚拟环境名称。
 
-4. 使用以下命令在虚拟环境下升级pip：
-
-   ```
-   pip install --upgrade pip
-   ```
-
-5. 可以使用以下命令退出虚拟环境：
+   可以使用以下命令退出虚拟环境：
 
    ```
    deactivate
