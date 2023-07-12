@@ -35,14 +35,14 @@ class OpenAITran:
 
     def tr(self, content):
         response = openai.Completion.create(
-            model="gpt-3.5-turbo",
-            prompt=content,
-            max_tokens=2000,
-            temperature=0.7,
-            n=1,
-            stop=None,
-            temperature=0.7
+         model="gpt-3.5-turbo",
+         prompt=content,
+         max_tokens=2000,
+         temperature=0.7,
+          n=1,
+         stop=None
         )
+
         translation = response.choices[0].text.strip()
         return translation
 
@@ -97,7 +97,7 @@ def tran(sec, max_item):
     # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec, config)
     global links
-    links += [" - %s %s -> %s\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
+    links += [" - %s %s -> %s\n" % (sec, url, get_cfg(sec, 'name'))]
     # 判断 RSS 内容是否有更新
     try:
         r = requests.get(url)
