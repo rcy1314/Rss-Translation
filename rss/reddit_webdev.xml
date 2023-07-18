@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 18 Jul 2023 12:35:54 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jul 2023 15:20:09 GMT</lastBuildDate>
+    <item>
+      <title>使用自定义域、使用模板且无水印免费托管我的网站的最简单、最佳方式是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1531auz/what_is_the_simplest_and_best_way_to_host_my/</link>
+      <description><![CDATA[我使用 MailChimp 购买了自定义域。我想在上面托管一个网站，作为我的播客的个人网站（这是新的，没有关注者，因此该网站不会获得太多流量，如果是的话，主要是在美国），该网站托管在 Spotify 上播客。 我是一名软件工程师，目前正在考虑使用 Github Pages/Jekyll，但我想知道是否有一种更简单/更简单的方法可以在我的自定义域上免费托管我的网站，并且没有水印？我所说的“无水印”并不是“由 Wix.com/Weebly 自豪设计”之类的意思。理想情况下，我希望花尽可能少的时间制作/设计这个网站，因为我想专注于播客，而不是网站开发。 我想过使用 Google 协作平台，但自从我购买了使用 MailChimp 处理域名时，他们不会让我将域名转移到 Google 协作平台，直到 60 天过去。   由   提交/u/Legitimate_Bison3756   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1531auz/what_is_the_simplest_and_best_way_to_host_my/</guid>
+      <pubDate>Tue, 18 Jul 2023 15:18:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>音频从服务器流式传输到客户端，无法解码</title>
+      <link>https://www.reddit.com/r/webdev/comments/15318bn/audio_streaming_from_server_to_client_unable_to/</link>
+      <description><![CDATA[大家好，我想从 YouTube 视频中流式传输音频。这是我的服务器（工作正常，如果我在浏览器中打开，音频就会流式传输）： const express = require(&quot;express&quot;); const ytdl = require(“ytdl-core”); const cors = require(“cors”); const Throttle = require(&quot;throttle&quot;); const ffmpeg = require(“流畅的 ffmpeg”);常量应用程序 = Express(); app.use(cors({ origin: &quot;*&quot; })) const port = 8000; app.get(“/video”, async (req, res) =&gt; { let videoLink = req.query.link; let info = null; if(ytdl.validateURL(videoLink)){ info = wait ytdl.getInfo (ytdl.getVideoID(videoLink)); 让audioFormats = ytdl.filterFormats(info.formats, &#39;audioonly&#39;); if(audioFormats.length &gt; 0){ constthrottle = new Throttle(128000 / 8); res.writeHead( 200, {“Content-type”: “audio/mp3”}) ffmpeg(ytdl.downloadFromInfo(info, {quality: “highestaudio”, filter: “audioonly” })).format(“mp3”) ).audioChannels(2).pipe(throttle).pipe(res); } } }) app.listen(port, () =&gt; { console.log(“工作中”); }) &lt; /pre&gt; 我无法在客户端上从服务器解码音频，我收到“EncodingError: 无法在“BaseAudioContext”上执行“decodeAudioData”：无法解码音频数据”。  这是我的客户端代码： import React, { useEffect, useRef } from &#39;react&#39; import styles from &quot;../styles/auth.module. CSS”导出默认函数 Auth() { useEffect(() =&gt; { }, []) return (   { let audioContext = new AudioContext(); let source = audioContext .createBufferSource(); source.connect(audioContext.destination); source.start(); fetch(&quot;http://localhost:8000/video?link=https://www.youtube.com/watch?v= 48W2kYc3hCU”).then(res =&gt; { const reader = res.body.getReader(); const Pump = () =&gt; { reader.read().then(({ value, done }) =&gt; { if (value) { audioContext.decodeAudioData(value.buffer); } if (!done) Pump(); }) } Pump(); }) }}&gt;点击我  ) }  我做错了什么以及如何解决它？   由   提交/u/Ordinary_Ad_6670   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15318bn/audio_streaming_from_server_to_client_unable_to/</guid>
+      <pubDate>Tue, 18 Jul 2023 15:16:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>HTML-to-JSX 简介：React 开发人员的便捷工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1530mun/introducing_htmltojsx_a_handy_tool_for_react/</link>
+      <description><![CDATA[       由   提交 /u/NotThatDahmer   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1530mun/introducing_htmltojsx_a_handy_tool_for_react/</guid>
+      <pubDate>Tue, 18 Jul 2023 14:53:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>邮递员弃用 Scratchpad</title>
+      <link>https://www.reddit.com/r/webdev/comments/1530mnu/postman_deprecating_scratchpad/</link>
+      <description><![CDATA[Postman 于 2023 年 9 月弃用 Scratchpad 是否意味着我所有的本地收藏将变得无法使用？我是否理解正确？ 如果是这样，是否有任何免费替代方案允许使用以类似分层方式组织的本地集合？我不愿意将我的任何 API 上传到任何云服务。 我更喜欢能够导入 Postman 集合的东西，但这不是必需的。   由   提交/u/JohnQP121   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1530mnu/postman_deprecating_scratchpad/</guid>
+      <pubDate>Tue, 18 Jul 2023 14:53:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用代码在 Woocommerce 中进行产品过滤</title>
+      <link>https://www.reddit.com/r/webdev/comments/1530f05/doing_product_filters_in_woocommerce_with_code/</link>
+      <description><![CDATA[使用色板插件的体验不好，所以我决定自己做。到目前为止我已经完成了这段代码，它正确吗？你会改变什么吗？这个想法是在产品页面和目录/商店页面上显示按钮。最后一部分还没有完成。 // 将大小和颜色下拉列表转换为具有自定义颜色和方形大小的按钮 add_filter( &#39;woocommerce_dropdown_variation_attribute_options_args&#39;, &#39;convert_dropdowns_to_buttons&#39;, 10, 2 );函数convert_dropdowns_to_buttons( $args, $product ) { $args[&#39;class&#39;] = &#39;button&#39;;返回$args； } // 为按钮添加额外的类、颜色和大小 add_filter( &#39;woocommerce_single_variation&#39;, &#39;add_classes_colors_and_size_to_buttons&#39;, 10, 2 ); function add_classes_colors_and_size_to_buttons( $html, $product ) { $colors_hex = array( &#39;黄色&#39; =&gt; &#39;#FFFF00&#39;, &#39;蓝色&#39; =&gt; &#39;#0000FF&#39;, &#39;米色&#39; =&gt; &#39;#F5F5DC&#39;, &#39;白色 &#39; =&gt; &#39;#FFFFFF&#39;, &#39;波尔多&#39; =&gt; &#39;#800020&#39;, &#39;驼色&#39; =&gt; &#39;#C19A6B&#39;, &#39;金色&#39; =&gt; &#39;#FFD700&#39;, &#39;灰色&#39; =&gt; &#39;#808080&#39;, &#39;紫红色&#39; =&gt; &#39;#BDBDBD&#39;、&#39;棕色&#39; =&gt; &#39;#964B00&#39;、&#39;橙色&#39; =&gt; &#39;#FFA500&#39;、&#39;黑色&#39; =&gt; &#39;#000000&#39;、&#39;黑/白&#39; =&gt; &#39;#000000&#39;、&#39;红色&#39; =&gt; &#39;#FF0000&#39;, &#39;粉色&#39; =&gt; &#39;#FFC0CB&#39;, &#39;绿色&#39; =&gt; &#39;#008000&#39;, ); &lt; pre&gt;$html = str_replace( &#39;select-&#39;, &#39;按钮-&#39;, $html ); foreach ( $colors_hex as $color =&gt; $hex ) { $html = str_replace( &#39;value=&quot;&#39; . $color . &#39;&quot;&#39;, &#39;style=&quot;背景颜色:&#39; . $hex . &#39; !重要; 宽度: 30px; 高度: 30px; 边框半径: 0 !important;&quot; value=&quot;&#39; . $color . &#39;&quot;&#39;, $html );返回$html；  }   由   提交 /u/yosefbc   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1530f05/doing_product_filters_in_woocommerce_with_code/</guid>
+      <pubDate>Tue, 18 Jul 2023 14:44:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么浏览器可观察性很难？</title>
+      <link>https://www.reddit.com/r/webdev/comments/152y952/why_is_browser_observability_hard/</link>
+      <description><![CDATA[   /u/hazelweakly  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/152y952/why_is_browser_observability_hard/</guid>
+      <pubDate>Tue, 18 Jul 2023 13:17:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>AfterShip 向我们收取 26K USD 并拒绝退款</title>
+      <link>https://www.reddit.com/r/webdev/comments/152xrfk/aftership_charged_us_26k_usd_and_refused_to_refund/</link>
+      <description><![CDATA[ 由   提交/u/superjet1  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/152xrfk/aftership_charged_us_26k_usd_and_refused_to_refund/</guid>
+      <pubDate>Tue, 18 Jul 2023 12:56:35 GMT</pubDate>
+    </item>
     <item>
       <title>使用 google OAuth（使用 google 按钮登录）时，我可以请求用户同意登录新闻通讯吗</title>
       <link>https://www.reddit.com/r/webdev/comments/152x249/can_i_request_user_consent_for_signin_up_to_the/</link>
@@ -15,7 +64,7 @@
     <item>
       <title>没有任何网页设计背景就建立一个网站真的那么简单，还是只是一个销售平台订阅的策略？</title>
       <link>https://www.reddit.com/r/webdev/comments/152x1yc/is_it_really_that_simple_to_build_a_website/</link>
-      <description><![CDATA[我在当地经营一家建筑用品商店，已经成功经营了五年多。尽管没有网站，我的业务仍然蓬勃发展，甚至最近的封锁也没有对我的运营产生重大影响。我的大多数忠实客户都有我的电话号码，因此他们只需在需要时打电话就可以送货。我所有的成功主要归功于口碑、了解我的产品（我在建筑行业工作了 15 年多）以及对客户的友好。这种方法对我很有帮助，而且我并不觉得需要一个网站。 ​ 然而，我周围的齐声声音一直坚持认为我迫切需要需要建立在线形象，因为显然，“如果你不在 Google 上，你就不存在。”此外，一些客户询问了该网站，所以我决定尝试一下并继续使用。  ​ 作为任何企业家，我认为省钱并自己做所有事情是明智的。此外，在研究该主题时，我发现许多说法表明制作网站是小菜一碟，特别是如果您使用构建器平台。  ​ 考虑到自己是一名高级 PC 用户，我深入研究了网站创建和 YouTube 教程的世界。然而，尽管我付出了一切努力，WordPress 并不是最容易弄清楚的。显然，我对自己很满意，认为自己精通技术，因为在使用 WordPress 一个月并深入研究  上列出的所有插件之后https://nicholasw.net/web-design-tools/，我仍在努力完成网站。  ​ 然而，这一切让我认为任何人都可以轻松建立网站的想法只是基于订阅的平台采用的营销策略。  ​ 我错了吗？或者我只是不够聪明？   由   提交 /u/crypterona   [链接] [评论]]]></description>
+      <description><![CDATA[我在当地经营一家建筑用品商店，已经成功经营了五年多。尽管没有网站，我的业务仍然蓬勃发展，甚至最近的封锁也没有对我的运营产生重大影响。我的大多数忠实客户都有我的电话号码，因此他们只需在需要时打电话就可以送货。我所有的成功主要归功于口碑、了解我的产品（我在建筑行业工作了 15 年多）以及对客户的友好。这种方法对我很有帮助，而且我并不觉得需要一个网站。 ​ 但是，我周围的声音一直坚持认为我迫切需要需要建立在线形象，因为显然，“如果你不在 Google 上，你就不存在。”此外，一些客户询问了该网站，所以我决定尝试一下并继续使用。  ​ 作为任何企业家，我认为省钱并自己做所有事情是明智的。此外，在研究该主题时，我发现许多说法表明制作网站是小菜一碟，特别是如果您使用构建器平台。  ​ 考虑到自己是一名高级 PC 用户，我深入研究了网站创建和 YouTube 教程的世界。然而，尽管我付出了一切努力，WordPress 并不是最容易弄清楚的。显然，我对自己很满意，认为自己精通技术，因为在使用 WordPress 一个月并深入研究  上列出的所有插件之后https://nicholasw.net/web-design-tools/，我仍在努力完成网站。  ​ 然而，这一切让我认为任何人都可以轻松建立网站的想法只是基于订阅的平台采用的营销策略。  ​ 我错了吗？或者我只是不够聪明？   由   提交 /u/crypterona   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/152x1yc/is_it_really_that_simple_to_build_a_website/</guid>
       <pubDate>Tue, 18 Jul 2023 12:24:46 GMT</pubDate>
     </item>
@@ -27,7 +76,7 @@
       <pubDate>Tue, 18 Jul 2023 12:16:18 GMT</pubDate>
     </item>
     <item>
-      <title>有什么“有趣的”网络开发者 YouTube 建议吗？</title>
+      <title>有什么“有趣”的 YouTube 网络开发建议吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/152why4/any_fun_web_dev_youtube_suggestions/</link>
       <description><![CDATA[我一直在尝试更多地重新投入编程，并且正在寻找可在日常工作时观看的 YouTube 频道推荐，以保持我处于精神状态。 不要寻找任何太技术性的东西，因为我的注意力不会完全集中在视频上。我正在考虑像 William Osman 或 Micheal Reeves 这样的人，但也许是针对网络开发者。一个只接受有趣、愚蠢的想法并构建它们的人。  或者只是你们认为值得检查的任何内容。   由   提交 /u/MeltaFlare   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/152why4/any_fun_web_dev_youtube_suggestions/</guid>
@@ -48,20 +97,6 @@
       <pubDate>Tue, 18 Jul 2023 11:10:55 GMT</pubDate>
     </item>
     <item>
-      <title>在线销售服务解决方案</title>
-      <link>https://www.reddit.com/r/webdev/comments/152uzmz/solution_for_selling_services_online/</link>
-      <description><![CDATA[我想托管我的照片编辑服务和人们可以付费的在线服务（不是五元）。他们需要上传文件/照片并提供电子邮件地址。我正在考虑将其托管在gumroad上，但刚刚读到他们不推荐这些类型的服务。  什么经济实惠的无/低成本网站构建器可以实现这一点？   由   提交 /u/ohmycash   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152uzmz/solution_for_selling_services_online/</guid>
-      <pubDate>Tue, 18 Jul 2023 10:45:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>为我的托管公司网站创建客户门户。</title>
-      <link>https://www.reddit.com/r/webdev/comments/152uz6n/creating_a_client_portal_for_my_hosting_company/</link>
-      <description><![CDATA[大家好， 目前，我尝试为我的网站实现一个客户端门户。我的目标是为我的客户提供一个环境，让他们可以查看自己的账单、控制面板门户 (DirectAdmin)、向我发送支持票等。 目前，我的 WordPress 网站只是一种“登陆页面”，没有任何“创建帐户”选项。或“登录”事物。我不知道如何创建一个环境供人们登录并查看上述所有内容。  有谁可以帮助我吗？非常感谢！ ​   由   提交/u/TheVinxx   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152uz6n/creating_a_client_portal_for_my_hosting_company/</guid>
-      <pubDate>Tue, 18 Jul 2023 10:45:18 GMT</pubDate>
-    </item>
-    <item>
       <title>谷歌聊天就像线程讨论实现</title>
       <link>https://www.reddit.com/r/webdev/comments/152uv1u/google_chats_like_thread_discussion_implementation/</link>
       <description><![CDATA[我目前正在构建一个 vue 应用程序，在其中实现评论/讨论，现在我想要的是像基于线程的 ui 一样拥有 Google 聊天功能订阅该线程的人只会收到通知。另外我想实现一个套接字库来检查线程中的新通知。   由   提交 /u/himanshubohra13   [链接] [评论]]]></description>
@@ -74,41 +109,6 @@
       <description><![CDATA[您显然不希望它们公开，因为这会违反合同。我仍然希望将它们保存在某个地方以供将来参考。将它们保留在您的私人 GitHub 帐户中可以吗？   由   提交 /u/olympflame   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/152uk6k/where_are_you_guys_saving_your_client_projects/</guid>
       <pubDate>Tue, 18 Jul 2023 10:23:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>15岁尝试做某事</title>
-      <link>https://www.reddit.com/r/webdev/comments/152t3wm/15_year_old_trying_to_do_something/</link>
-      <description><![CDATA[大家好，我今年 15 岁，对这个 Reddit 子版块还很陌生。我来自第三世界国家，缺乏可访问、免费和有组织的教育内容，因此我一直计划建立一个网站，在该网站上根据成绩组织教育内容，然后根据科目和主题进行组织（年级 -&gt; 主题 -&gt; 章节 -&gt; 主题）我认为这也是学习 Web 开发和创建专业内容的一个非常酷的机会。 我已经了解 html 和 css，还有一点 javascript 和有点反应。我一直在寻找可以使用的工具，目前正在考虑使用 React + Material UI 作为前端，使用 Firebase 作为后端（因为我确实想要身份验证和其他功能，但不想包租到不熟悉的领域并学习整个截至目前的新语言）。我目前在带有 8GB RAM 的 Windows 7 笔记本电脑上使用 Sublime Text（因此无法使用 Visual Studio）我希望你们能给一些关于如何移动的建议如果还有其他工具可以推荐，   由   提交/u/Rough-Sun1126  /u/Rough-Sun1126 reddit.com/r/webdev/comments/152t3wm/15_year_old_trying_to_do_something/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152t3wm/15_year_old_trying_to_do_something/</guid>
-      <pubDate>Tue, 18 Jul 2023 09:01:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何规避 CORS 政策</title>
-      <link>https://www.reddit.com/r/webdev/comments/152rwfy/how_to_avoid_cors_policy/</link>
-      <description><![CDATA[我正在构建一个 Web 应用程序来测试向 koboldAI 发出 api 请求，其他一切都有效，但我在控制台中收到错误，告诉我有关 CORS 的信息政策阻止它。如何修复   由   提交/u/Zvee501  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152rwfy/how_to_avoid_cors_policy/</guid>
-      <pubDate>Tue, 18 Jul 2023 07:52:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何在大约 4 个月内提升自己？</title>
-      <link>https://www.reddit.com/r/webdev/comments/152rte5/how_do_i_upskill_myself_in_about_4_months/</link>
-      <description><![CDATA[大家好，请介绍一些关于我的信息，我于 2021 年毕业于班加罗尔的一所大学，获得电气工程学士学位。几个月后，我去了编码训练营，因为我无法被安置。我被安排在一家公司，我要确保客户的网站具有可访问性，我只使用 CSS，有时甚至使用基本的 jQuery 来完成此任务。我们使用 WordPress 作为 CMS，并使用 divi 作为设计框架。自从我作为承包商加入这家公司已经一年多了，我不觉得我会继续工作，因为这个团队中有太多人，而我自己不想从事这项技术。这个阶段我该如何提升自己？新的联系续订截止日期为 11 月。    由   提交 /u/mnubhrth6699   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152rte5/how_do_i_upskill_myself_in_about_4_months/</guid>
-      <pubDate>Tue, 18 Jul 2023 07:47:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>个性化且高度可扩展的基于Docker的自托管云开发环境，不需要太多的Docker知识</title>
-      <link>https://www.reddit.com/r/webdev/comments/152recv/personalized_and_highly_extendable_dockerbased/</link>
-      <description><![CDATA[各位开发人员大家好， 我想分享我的基于 Docker 的自托管 Web 开发环境。它在一个地方集成了基于浏览器的代码编辑器，例如 VScode、云终端和更多应用程序。您无需深入了解 Docker，即可轻松配置自己理想的云开发环境。 部署非常简单，您可以在任何设备上的任何地方进行编码。通过互联网共享轻而易举，非常适合结对编程或现场演示。另外，它都是可定制的，并且我们正在不断扩展应用程序库。 在我们的 [GitHub 存储库](https://github.com/bluxmit/alnoda-workspaces) 或文档 https://docs.alnoda.org/ . 快乐编码！   由   提交/u/Bluxmit  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152recv/personalized_and_highly_extendable_dockerbased/</guid>
-      <pubDate>Tue, 18 Jul 2023 07:23:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的第一份开发工作</title>
-      <link>https://www.reddit.com/r/webdev/comments/152r48z/my_first_dev_job/</link>
-      <description><![CDATA[嘿伙计们，我只是想对这个社区表示感谢，感谢你们在过去的一年半里让我学到了很多东西。我是一名学生，我觉得我在课程中并没有学到太多关于软件工程的知识，甚至更少关于网络开发的知识，所以我一直在寻找资源来在互联网上自己学习更多信息，并偶然发现了这个很棒的子项目。  两年前，我用 Java 编写了第一行代码，今天我正在以初级全栈开发人员的身份进行实习，并有可能成为全职员工。  对于仍在旅途中的任何人，不要放弃并继续努力！  也祝我好运！   由   提交/u/Bobby_Brando   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/152r48z/my_first_dev_job/</guid>
-      <pubDate>Tue, 18 Jul 2023 07:07:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
