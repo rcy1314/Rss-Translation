@@ -4,13 +4,76 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 29 Jul 2023 18:19:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jul 2023 21:14:17 GMT</lastBuildDate>
     <item>
-      <title>有人可以审查我的投资组合吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cypcy/can_someone_review_my_portfolio/</link>
-      <description><![CDATA[嗨，我最近完成了我的第一个作品集，我真的需要一些反馈。我申请了工作，但连一次面试都没有得到。 链接   由   提交/u/ComplianceLet6422  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cypcy/can_someone_review_my_portfolio/</guid>
-      <pubDate>Sat, 29 Jul 2023 18:05:56 GMT</pubDate>
+      <title>最适合 Web 开发的浏览器是什么？ （或者你用什么以及为什么？）</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d2z0h/whats_the_best_browser_for_web_development_or/</link>
+      <description><![CDATA[我是一名业余 Web 开发人员，（几乎）过去一年我一直在使用默认的 Edge 浏览器进行编码，但是，我我们注意到许多开发人员选择不同的浏览器，特别是 Chrome 和 Firefox。所以这一切让我想到了一个问题：最适合 Web 开发的浏览器是什么？   由   提交 /u/UpbeatAardvark2307   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d2z0h/whats_the_best_browser_for_web_development_or/</guid>
+      <pubDate>Sat, 29 Jul 2023 21:08:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么剪贴板会改变项目的大小？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d2x4n/why_is_the_clipboard_changing_the_size_of_the_item/</link>
+      <description><![CDATA[应该发生什么： 照常复制图像。当您按下按钮时 - 图像被放置在 div 内（当它成为背景时，它会变成不同的大小）。单击 div 时，它将图像写回剪贴板，并且可以粘贴（假设您同时复制了其他内容），尺寸与 oringal 相同。 实际发生的情况：&lt; /p&gt; 新粘贴的图像/剪贴板设置它自己的尺寸，尽管给出了它应该遵循的尺寸。 代码： 导出异步函数run() { // 尝试使用 Clipboard API 访问剪贴板数据 const images = wait navigator.clipboard.read();常量图像=图像[0]； if (image.types[0] === &quot;image/png&quot; || image.types[0] === &quot;image/jpg&quot;) { // 使用 ImageBitmap API 加载图像以获取其尺寸 const位图=等待createImageBitmap(等待image.getType(“image/png”)); const 宽度 = 位图.宽度； const 高度 = 位图.高度； // 现在您可以访问图像的宽度和高度 console.log(“图像宽度:”, width); console.log(&quot;图像高度：&quot;, height); insertImage(图像, 宽度, 高度); } } // 这个可行，但尺寸错误 // 异步函数 insertImage(clipboardItem, height, width) { ClipboardItem.getType(&quot;image/png&quot;) .then(async (blob) =&gt; { if (blob) { const imageUrl = URL.createObjectURL(blob); const hereDiv = document.querySelector(&quot;.here&quot;); hereDiv.style.backgroundImage = `url(&#39;${imageUrl}&#39;)`; hereDiv.style.backgroundSize = &quot;封面&quot; ;; hereDiv.style.backgroundRepeat = &quot;no-repeat&quot;; hereDiv.style.backgroundPosition = &quot;center&quot;; // 在插入图像后为div附加click事件监听器hereDiv.addEventListener(&quot;click&quot;, async () =&gt; { // 直接从div读取背景图片并复制到剪贴板 const backgroundImage = window.getCompulatedStyle(hereDiv).backgroundImage; if (backgroundImage &amp;&amp; backgroundImage !== &quot;none&quot;; ) { const imageUrl = backgroundImage.slice(4, -1).replace(/[&#39;&quot;]/g, &quot;&quot;); fetch(imageUrl) .then((response) =&gt; response.blob() ) .then((blob) =&gt; { const ClipboardItem = new ClipboardItem({ “image/png”: blob }, { “image/png”: blob }); ClipboardItem.imageWidth = 宽度； ClipboardItem.imageHeight = 高度；控制台.log（剪贴板项目）； navigator.clipboard.write([clipboardItem]); }) .catch((error) =&gt; { console.error(&quot;将图像复制到剪贴板时出错:&quot;, error); }); } else { console.log(“没有可供复制的图像。”); } }); } }); }    由   提交 /u/LordBadgerFlaps   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d2x4n/why_is_the_clipboard_changing_the_size_of_the_item/</guid>
+      <pubDate>Sat, 29 Jul 2023 21:06:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在寻找什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d2jxp/what_am_i_looking_for/</link>
+      <description><![CDATA[您好，我是 javascript 世界的新手。我一直只使用 HTML/CSS 和普通 JavaScript。  我已经构建了一些应用程序，现在我想我已经看到了普通 JavaScript 的痛苦，但我不知道应该开始使用什么。 &lt;例如，我发现尝试使用普通 JavaScript 构建任何有点复杂的东西是很累人的。这么多手动 DOM 操作。我尽可能地将事物抽象到自己的模块中，但我的代码最终仍然感觉像一个充满文档选择器和事件侦听器的巨大意大利面条怪物。  也许我只是不擅长正确使用普通 JS。这是一种普遍的感觉吗？  如果是这样，我在 JavaScript 领域的下一步应该是什么？   由   提交 /u/ratbiscuits   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d2jxp/what_am_i_looking_for/</guid>
+      <pubDate>Sat, 29 Jul 2023 20:50:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经创建了 URL 缩短器</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d2dz1/i_have_created_url_shortener/</link>
+      <description><![CDATA[URL 缩短器：https://www.f4nsix.xyz   由   提交/u/harkishan01   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d2dz1/i_have_created_url_shortener/</guid>
+      <pubDate>Sat, 29 Jul 2023 20:43:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>麻烦女巫网页</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d22kn/trouble_witch_web_pages/</link>
+      <description><![CDATA[嘿。  所以我的问题是，我制作了这个小型 React 网站，并创建了一些由 React 路由器链接的页面，但是当我将其启动到 Vercel 并在 Google Analytics 上测试它时，它显示它只有一个页面。这是正常的吗？因为它有 5 个链接的页面，所以我不知道如何将它们也算作不同的页面。   由   提交/u/Nathan0o0  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d22kn/trouble_witch_web_pages/</guid>
+      <pubDate>Sat, 29 Jul 2023 20:30:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于托管网络服务器并自动将文件从我的电脑传输到网络服务器的建议？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d0vp8/advice_for_hosting_a_web_server_and_transferring/</link>
+      <description><![CDATA[大家好。我的计算机上有一个网站（html），工作正常，但我想将该网站发布到互联网上，所以听起来我需要一个网络服务器。问题是我有 python 脚本，它们不断地将 .png 文件更新到网站文件夹中包含更新的图像。有没有办法在云中托管网站或其他东西（很简单，因为我显然是个菜鸟），并且有办法将文件夹从我的电脑传输到“网络服务器” （实际网站）自动？  ​ 谢谢！    由   提交 /u/Intelligent-Ad9240    reddit.com/r/webdev/comments/15d0vp8/advice_for_hosting_a_web_server_and_transferring/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d0vp8/advice_for_hosting_a_web_server_and_transferring/</guid>
+      <pubDate>Sat, 29 Jul 2023 19:39:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>[作品集] 审核请求</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d0ach/portfolio_review_request/</link>
+      <description><![CDATA[   嘿，我刚刚毕业并完成了我的作品集，我想要一些批评。抱歉，法语。   由   提交/u/efka   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d0ach/portfolio_review_request/</guid>
+      <pubDate>Sat, 29 Jul 2023 19:13:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何合乎道德地接管废弃的回购/项目？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15d04az/how_to_ethically_take_over_an_abandoned/</link>
+      <description><![CDATA[我已经开始使用 Obsidian（感谢 No Boilerplate！）并且喜欢社区制作的插件，但其中很多似乎被社区抛弃了原始制造商和社区正在对存储库进行分叉，以保持项目的活力。 问题是普通用户看不到这些分叉。虽然对于我们开发人员来说通过 git 克隆或手动下载安装插件非常简单，但你不能否认让插件出现在市场上并且易于更新只是更好的用户体验。其中许多更新都修复了错误并提供了部分用户永远不会看到的新功能。 如果原始制造商无法将密钥移交给他们，那么最好的方法是什么？原来的回购协议？复制一份并命名为其他名称？  回到帖子的问题，这符合道德/可接受吗？  我应该指出，其中大多数都获得了麻省理工学院的许可。另外，您可以将其视为有关 OSS 的一般问题，而不仅仅是黑曜石生态系统。 感谢您的阅读。    ;由   提交/u/QCAlpha  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15d04az/how_to_ethically_take_over_an_abandoned/</guid>
+      <pubDate>Sat, 29 Jul 2023 19:06:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何从数据库中删除会话 ID？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15cz1cd/how_are_session_ids_removed_from_the_database/</link>
+      <description><![CDATA[我的数据库存储会话 ID 和会话 ID 创建日期。像谷歌这样的服务如何在一个月左右后清除会话ID？他们是否只是有一个脚本不断地迭代日期以查看是否超过了阈值？   由   提交/u/Vellu01  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15cz1cd/how_are_session_ids_removed_from_the_database/</guid>
+      <pubDate>Sat, 29 Jul 2023 18:20:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 JavaScript 在滚动上构建类似 Twitter 的标题过渡</title>
+      <link>https://www.reddit.com/r/webdev/comments/15cz0rq/built_this_twitterlike_header_transition_on/</link>
+      <description><![CDATA[       由   提交/u/tahazsh  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15cz0rq/built_this_twitterlike_header_transition_on/</guid>
+      <pubDate>Sat, 29 Jul 2023 18:19:42 GMT</pubDate>
     </item>
     <item>
       <title>我两次重新设计了我的迷你投资组合。您更喜欢哪个版本？评论中的代码和实时链接</title>
@@ -22,7 +85,7 @@
     <item>
       <title>为什么这个 post 请求发送一个空字符串？</title>
       <link>https://www.reddit.com/r/webdev/comments/15cxdkq/why_is_this_post_request_sending_an_empty_string/</link>
-      <description><![CDATA[我有这个 javascript 文件： const table = document.querySelector(&quot;table&quot;); table.addEventListener(“click”, function(event) { if (event.target.closest(“.edit-button”)) { const button = event.target.closest(“.edit-button”); } const track_title = button.parentElement.querySelector(&quot;.track-title&quot;); track_title.contentEditable = true; track_title.style.backgroundColor = &quot;#dddbdb&quot;; } if (event.target.closest(&quot;.done-按钮”)) { const 按钮 = event.target.closest(“.done-button”); const track_title = button.parentElement.querySelector(“.track-title”); track_title.contentEditable = false; track_title.style .backgroundColor = &quot;#c93920&quot;; const url = window.location.href.split(&quot;/&quot;); const station = url[url.length - 1]; let track_id = document.getElementById(&quot;track- id&quot;); track_id = track_id.innerHTML; let new_title = document.getElementById(&quot;track-title&quot;); new_title = new_title.innerHTML; const update_button = document.getElementById(&quot;update-button&quot;); update_button.setAttribute(“value”, ${track_id};${new_title};${station}); console.log(${track_id};${new_title};${station}); } });  我有这些按钮： 编辑 &lt;button class=“完成按钮” type=“提交”&gt;完成 &lt;按钮 id=&quot;更新按钮&quot;类=“按钮”类型=“提交”形式=“更新标题” name=&quot;更新标题&quot; value=“”&gt;更新  这些表单： {% if station == &#39;new&#39; %}   我的目标是能够在  中编辑文本。在 html 页面上。当我点击“完成”时，它应该设置 3 条信息：track_id、new_title 和 station。这些被传递到如下所示的烧瓶函数： @app.route(&#39;/update_title&#39;,methods = [&#39;POST&#39;]) def update_title(): data = request.form[&#39; update-title&#39;].split(&#39;;&#39;) track_id = data[0] track_title = data[1] station = data[2] track = db.session.query(Tracks).filter_by(track_id=track_id).one( ) track.title = track_title db.session.commit() return redirect(f&#39;/tracks/{station}&#39;)  当我按下更新按钮时，它会抛出内部服务错误。当我在 Flask 函数中打印 data 时，它只显示 [&#39;&#39;]。我以前曾让它工作过，但我不知道是什么导致它有时传递数据，有时不传递数据。有人看到我做错了什么或者可以做得更好吗？   由   提交 /u/Pickinanameainteasy   [链接] [评论]]]></description>
+      <description><![CDATA[我有这个 javascript 文件： const table = document.querySelector(&quot;table&quot;); table.addEventListener(&quot;click&quot;, function(event) { if (event.target.closest(&quot;.edit-button&quot;)) { const button = event.target.closest(&quot;.edit-button&quot;); } const track_title = button.parentElement.querySelector(&quot;.track-title&quot;); track_title.contentEditable = true; track_title.style.backgroundColor = &quot;#dddbdb&quot;; } if (event.target.closest(&quot;.done-按钮”)) { const 按钮 = event.target.closest(“.done-button”); const track_title = button.parentElement.querySelector(“.track-title”); track_title.contentEditable = false; track_title.style .backgroundColor = &quot;#c93920&quot;; const url = window.location.href.split(&quot;/&quot;); const station = url[url.length - 1]; let track_id = document.getElementById(&quot;track- id&quot;); track_id = track_id.innerHTML; let new_title = document.getElementById(&quot;track-title&quot;); new_title = new_title.innerHTML; const update_button = document.getElementById(&quot;update-button&quot;); update_button.setAttribute(“value”, ${track_id};${new_title};${station}); console.log(${track_id};${new_title};${station}); } });  我有这些按钮： 编辑 &lt;button class=“完成按钮” type=“提交”&gt;完成 &lt;按钮 id=&quot;更新按钮&quot;类=“按钮”；类型=“提交”形式=“更新标题” name=&quot;更新标题&quot; value=“”&gt;更新  这些表单： {% if station == &#39;new&#39; %}   我的目标是能够在  中编辑文本。在 html 页面上。当我点击“完成”时，它应该设置 3 条信息：track_id、new_title 和 station。这些被传递到如下所示的烧瓶函数： @app.route(&#39;/update_title&#39;,methods = [&#39;POST&#39;]) def update_title(): data = request.form[&#39; update-title&#39;].split(&#39;;&#39;) track_id = data[0] track_title = data[1] station = data[2] track = db.session.query(Tracks).filter_by(track_id=track_id).one( ) track.title = track_title db.session.commit() return redirect(f&#39;/tracks/{station}&#39;)  当我按下更新按钮时，它会抛出内部服务错误。当我在 Flask 函数中打印 data 时，它只显示 [&#39;&#39;]。我以前曾让它工作过，但我不知道是什么导致它有时传递数据，有时不传递数据。有人看到我做错了什么或者可以做得更好吗？   由   提交 /u/Pickinanameainteasy   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/15cxdkq/why_is_this_post_request_sending_an_empty_string/</guid>
       <pubDate>Sat, 29 Jul 2023 17:08:23 GMT</pubDate>
     </item>
@@ -39,69 +102,6 @@
       <description><![CDATA[       由   提交/u/Cold_Complex945  [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/15cwsmn/2_truths_1_lie_game_i_have_been_working_on_this/</guid>
       <pubDate>Sat, 29 Jul 2023 16:43:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>我是一名网络开发新手。如何托管客户的网站？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cws86/im_a_beginner_web_dev_how_to_host_a_clients/</link>
-      <description><![CDATA[大家好！ 我和一家当地的快餐店想合作为他们的业务创建一个网站。这将是我的第一个项目，我对托管有一些疑问。我熟悉托管和维护网站，因为我学会了在 AWS Linux 发行版上执行此操作，但那是供我个人使用的。你们会如何针对客户进行调整？  我正在考虑按月收取费用，用于支付托管费用、维护费用等。但本地企业每月支付托管费用是否现实？    由   提交 /u/CyrusAlbright   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cws86/im_a_beginner_web_dev_how_to_host_a_clients/</guid>
-      <pubDate>Sat, 29 Jul 2023 16:42:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>r/place WebSockets 服务器是用什么语言编写的？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cw7zx/what_language_the_rplace_websockets_server_is/</link>
-      <description><![CDATA[你好， 你们知道 Reddit 使用哪种语言用于他们的 WS 服务器，就像 r/place？    由   提交/u/ligonsker  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cw7zx/what_language_the_rplace_websockets_server_is/</guid>
-      <pubDate>Sat, 29 Jul 2023 16:18:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个由 ChatGPT 驱动的 AI 旅行规划器</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cw0e4/i_made_a_chatgpt_powered_ai_travel_planner/</link>
-      <description><![CDATA[      让我知道您的想法！ VoyageAI.app   由   提交/u/Reasonable_Sky2477  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cw0e4/i_made_a_chatgpt_powered_ai_travel_planner/</guid>
-      <pubDate>Sat, 29 Jul 2023 16:09:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>理解复杂系统的关键是耐心。</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cvtih/the_key_to_understanding_complex_systems_is/</link>
-      <description><![CDATA[   /u/feross  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cvtih/the_key_to_understanding_complex_systems_is/</guid>
-      <pubDate>Sat, 29 Jul 2023 16:01:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在不丢失格式的情况下将网站转换为pdf文件？ （安卓）</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cvj5u/how_to_convert_a_website_to_a_pdf_file_without/</link>
-      <description><![CDATA[您好！我不知道这是否是合适的社区。如果没有，我很抱歉，我真的很高兴知道在哪里可以获得帮助。 因此，我正在寻找一种将网页保存为 pdf 文件（或者可能是图像格式文件）的方法（我不知道）打印它。 我一直在搜索，但没有成功。我已经尝试过使用和不使用应用程序。它们似乎可以工作，但我丢失了像整个“”这样的格式;模板”（颜色、“框”等）。 谢谢。    提交者    /u/HeartOfTheKeys   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cvj5u/how_to_convert_a_website_to_a_pdf_file_without/</guid>
-      <pubDate>Sat, 29 Jul 2023 15:49:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要有关填补知识空白的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cv18t/need_advice_on_filling_in_knowledge_gaps/</link>
-      <description><![CDATA[大家好！这里有一些经验丰富的网络开发人员。我四月份刚刚开始担任初级 SWE 的新角色，我注意到我的知识中存在很多漏洞（可能是由于缺乏学习基础知识），这些漏洞确实让我的任务陷入困境。 &lt; p&gt;背景：我是一名（大部分）自学成才的 Web 开发人员。我学习了一些系统设计、数据库管理和Java编程的相关课程。 2020 年，我在一家小型投资咨询公司获得了实习机会，在实习了约 16 个月后，我获得了一份全职职位。我正在开发他们用 AngularJS/Angular 1 编写的 Web 应用程序（2020 年......我知道 -___-），并使用 SQL Server 数据库和 .NET API。我只需运行应用程序的前端并根据需要刷新和更改内容。 2020 年我们还在使用 VS2015。 我显然没有获得任何我认为对我的职业发展有用的技能。我花了太多的时间来研究 Leetcode / AlgoExpert / 等算法问题，只是为了希望能够通过其他地方的面试过程。我不想继续使用这种过时的框架，因此我开始利用 uDemy 课程等资源学习 MERN 堆栈。自 2018 年底以来，我一直在使用 JavaScript。 快进到 2023 年 – 我在一家我真正喜欢的公司找到了一个很棒的职位！但我正在努力解决很多概念，我有点尴尬地询问这些概念，因为这对我来说似乎是基础知识。 我的第一个任务包括将应用程序从 Javascript 迁移到 Typescript 并更新SDK从v2到v3。容易，对吧？嗯，Typescript 部分很简单......但后来我不知道如何运行该程序！我正在开发的程序是一个 Lambda 函数，它将文件放入 S3 存储桶中。在此之前，我从未使用过 AWS 的任何东西，但我成功地找到了自己的出路。我最大的问题是运行程序以查看任何输出。看到这里的问题了吗？我也不太了解环境变量，或者它们如何在应用程序之间共享。 接下来我遇到的困难是了解我们的 Redis 缓存如何与应用程序的 Javascript 部分进行通信。我的很多任务都与文件处理（上传、解析、映射等）有关。我不知道如何/何时执行缓存。我理解将经常访问的数据存储在那里以方便检索的意义，但它与 S3 存储桶、Lambda 函数和 TS/JS 的关系在哪里？另一方面，我也将 Google Cloud 与他们的计算引擎一起投入其中。 TLDR; 从之前使用 AngularJS 和 . NET 堆栈，感觉我对计算机的实际工作原理一无所知。在该角色中获得的唯一经验是单击“在浏览器中查看...”在我的本地主机上。我已经构建了一些基本的全栈应用程序，但我不知道如何更大规模地学习这些技术。当然，我可以编写任何代码，但我在使用公司的自定义配置实际运行应用程序时遇到了麻烦。 一些我不知道的事情： - 后端的不同部分如何相互通信。 - 如何在不访问环境变量的情况下运行程序 - 有关与 Redis 之间的通信的任何内容缓存 - 关于云的任何内容 - 应用程序的所有部分如何连接在一起并进行通信 我的要求： 有更多经验的人是否能够引导我朝正确的方向前进，以实现我应该在空闲时间学习的内容？我确信其中很多都是冒名顶替综合症，但这对我来说很沉重，我真的很想在这个角色上取得成功并超越。我什至不知道该研究什么主题或者我应该称呼它什么。我感觉完全迷失了 - 欢迎任何建议。 提前谢谢你:)   由   提交 /u/guantamano__bae   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cv18t/need_advice_on_filling_in_knowledge_gaps/</guid>
-      <pubDate>Sat, 29 Jul 2023 15:28:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用书籍创建网站组合，需要建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cupta/creating_a_website_portfolio_using_a_book_need/</link>
-      <description><![CDATA[所以我这个月基本上有空，我想创建一个带有一本书的网站。在线课程根本不适合我，所以我希望得到一些建议。 今年秋天我有一个合作社搜索，所以我想通过一个好的网站来代表我的优势，从而给自己带来优势。技能。 我没有 Web 开发经验，但我了解一些 Python 和大量 Java。    ;由   提交 /u/Sarthak-_-Kakkar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cupta/creating_a_website_portfolio_using_a_book_need/</guid>
-      <pubDate>Sat, 29 Jul 2023 15:14:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在一个成熟的食品配送应用程序上的工作终于完成了，并且我已经将前端开源了</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cu1r0/my_work_on_a_full_fledge_food_delivery_app_is/</link>
-      <description><![CDATA[      您好 Reddit 社区，我已经在这个名为 Enatega 的项目上工作了很长时间，很高兴与大家分享它终于完成了。它是一款食品配送应用程序，可帮助初创公司轻松开展食品配送业务，它拥有所有必要的模块，例如客户应用程序/网络、骑手应用程序、餐厅应用程序、管理仪表板以及连接它们的 API。为了使其功能齐全，添加了支付网关、验证和验证您进入此业务所需的所有内容。如果您能在此处给予星标&lt;来展示您的贡献，那就太好了/p&gt;   由   提交/u/sharan_dev  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cu1r0/my_work_on_a_full_fledge_food_delivery_app_is/</guid>
-      <pubDate>Sat, 29 Jul 2023 14:45:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>帮助 Prettier 换行和缩进</title>
-      <link>https://www.reddit.com/r/webdev/comments/15cszco/help_getting_prettier_to_wrap_lines_and_indent/</link>
-      <description><![CDATA[嗨，我想知道如何让我的 VS 代码不再看起来像第一个图像，并在这里格式化第二个图像的内容： https://imgur.com/a/bgPYwQX 我想要所有属性彼此左对齐，而不是第一个属性左侧最远的所有属性。  我也不确定为什么它在逗号后面给出一些行换行符而不是其他行。  对这些问题的任何帮助或解释将不胜感激，非常感谢！   由   提交 /u/scrndude   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15cszco/help_getting_prettier_to_wrap_lines_and_indent/</guid>
-      <pubDate>Sat, 29 Jul 2023 13:57:21 GMT</pubDate>
     </item>
     <item>
       <title>我发布了一个表格导航库</title>
