@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 02 Aug 2023 15:16:36 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Aug 2023 18:21:42 GMT</lastBuildDate>
+    <item>
+      <title>测试库：每个人都使用它，但没有人理解它（Matan Borenkraout 的演讲）</title>
+      <link>https://www.reddit.com/r/webdev/comments/15ggeow/testing_library_everybody_uses_it_but_nobody/</link>
+      <description><![CDATA[阅读下面的注释或观看演讲 测试库渲染到哪里？  测试运行者的默认环境通常是 Node.js  Node.js 没有 window 对象，这是一个问题，因为我们的组件使用 window 功能  因此，我们设置 { “testEnvironment”：“jsdom” } 在配置中  JSDom – DOM 的 JS 实现，不是所有功能并且比浏览器慢（因为它们是用 JS 编写的）   render(…) 中发生了什么？   use const root = ReactDOMClient.createRoot(container) 保存对 root 和 container 的引用  使用 ui&lt; 调用 root.render(ui) /code&gt; 你提供的，包装在 act(...)  act 是一个 React 测试实用程序，确保所有效果都被刷新，你不需要直接使用它，React 测试库会帮您完成  screen.getByRole(“button”, { name: “+” }) 是如何工作的？&lt; /h2&gt;   角色可以是显式的（例如 role=“alert”）或隐式的（例如 ullist 角色） code&gt; 元素或 button 元素的 button 角色）  测试库为所有这些角色（显式和隐式）实现选择器  它还检查 e 属性。 G。仅&lt;输入类型=“提交” /&gt; 暗示一个按钮角色，而不是所有其他输入类型 可访问名称 - 从内容或诸如aria-label之类的属性暗示  测试库理解这一点并暗示正确的可访问名称  最后，测试库遍历树以检查该元素是否可访问（它不是隐藏或不可见）  li&gt;  fireEvent 是如何工作的？   调用原生 element.dispatchEvent(event) 函数  通常，您应该使用用户事件  它模拟用户交互并在幕后分派更多事件  click 事件将首先触发悬停，然后单击 它还会检查被单击的元素是否未隐藏  什么cleanup 会做什么？   卸载所有已安装的组件  从 DOM 中删除元素    由   提交/u/tomdohnal  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15ggeow/testing_library_everybody_uses_it_but_nobody/</guid>
+      <pubDate>Wed, 02 Aug 2023 18:17:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于 MVC 和 Laravel 的问题。</title>
+      <link>https://www.reddit.com/r/webdev/comments/15ggedw/question_about_mvc_and_laravel/</link>
+      <description><![CDATA[我对 Laravel 还很陌生，我一直在逐渐学习它，现在我对它的工作原理感到有点舒服了、刀片模板等等，有些东西我仍然不明白，比如中间件或“Sanctums”所以我只是要掩盖这些，直到它出现为止。 我一直在学习 MVC，之前我只是简单地即兴发挥，现在我知道有一个特定的模式，很多人都知道人们使用，Laravel 使用，它是行业标准。我一直在研究 MVC 模型，以及如何将其合并到 Laravel 中，我想问一个问题： 我实际上需要控制器中的模型来执行基本任务，例如尝试用户登录？我知道这对某些人来说可能是微不足道的，但我迷失了。 我正在重新制作一年前做的一个网站，我正在尝试按照 MVC 来制作它，因为我的另一个项目（第一个项目*）维护得非常糟糕，代码到处都是。 在这个新网站中，我这样做是为了让您可以查看名为“实验”的帖子我很困惑，因为我已经了解如何与数据库交互，但 MVC 的工作方式似乎意味着你需要一个模型、控制器、视图，每条路线都需要一个模型、控制器、视图，问题是，我不知道看到使用模型只是为了提取数据的一点，因为这是一个非常具体的事情，这让我感到困惑。 将这种类型的东西放入控制器中是否可以接受，例如，访问数据库来获取您只需要一次的特定数据，还是所有事情都需要一个模型？ ​ 我确实想说，对我来说，如果一个模型是有意义的模型是用来简化您需要多次执行的事情的过程的一种方式，所以像我一样，我的网站实验部分将受益于旨在为我与数据库交互的模型，但是当它是像登录页面这样简单的东西时，它所做的只是尝试让您登录，这似乎非常多余，因为已经有一个用户模型。   由   提交 /u/SkyLightYT   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15ggedw/question_about_mvc_and_laravel/</guid>
+      <pubDate>Wed, 02 Aug 2023 18:17:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>Webflow标题设计问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gfrog/webflow_header_design_question/</link>
+      <description><![CDATA[      您好，我正在为我的岳父开发一个网站，我有点力不从心，因为这是我第一次从事网站开发工作。  他想要一个如下图所示的标题，显示他的电话号码和电子邮件。 https://preview.redd.it/u96t0cb7jqfb1.png?width=1928&amp;format=png&amp;auto=webp&amp;s=845f47705 041a359425fffb8c73a2eca73b64885  我输入了标题，并想在其后面放置一个颜色，如图所示，在网上找到一个技巧后成功地做到了这一点，但我想知道是否有一种不那么老套的方法来做到这一点，也许一种更好的对齐方式。 目前，我在标题 Div 内放置了一个空白 div，并将高度和宽度设置为 0px。我在空白 div 上放置了一个轮廓，将其倾斜以使其“美观”，然后使用相对定位将其移到文本后面。现在这可以工作，并且如果我调整网页大小，它就会响应，但我觉得必须有更好的方法。由于我使用的是相对定位，因此我无法将颜色精确地置于文本后面的中心位置，我只能目视它。 TL;DR：是否有更好的方法将颜色放置在文本后面就像上图中一样，除了选取一个空白 div、添加轮廓并将其相对定位在文本后面之外。   由   提交 /u/Glacerose   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gfrog/webflow_header_design_question/</guid>
+      <pubDate>Wed, 02 Aug 2023 17:54:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>雇用网络开发人员？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gfrml/hiring_web_developers/</link>
+      <description><![CDATA[所以我是一名 Web 开发人员，并且我已经为我工作的公司完成了应有的招聘工作，没有出现任何问题。  最近我需要雇一些人来做兼职，我过去曾做过几次这样的事情。所以我回去工作，在那里我发现了一些出色的人才过去。但在过去一年左右的时间里，我注意到那里的人才数量急剧下降，以至于我不想再去这些演出网站了。  我正在寻找其他地方来雇用网络开发人员来从事小型兼职工作，有人有建议吗？  此外，如果您发现雇用开发人员令人沮丧，我很想听听您的故事。    由   提交 /u/IAmRules   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gfrml/hiring_web_developers/</guid>
+      <pubDate>Wed, 02 Aug 2023 17:54:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何处理 GDPR 同意？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15geu52/how_do_you_handle_gdpr_consent/</link>
+      <description><![CDATA[我在实施 Google 跟踪代码管理器时遇到了问题，因为即使我在用户拒绝同意后阻止数据发送，诸如“page_view”之类的初始事件也会发生。由于 gtag 脚本代码与 HTML 一起发送，因此已经发送。 您如何处理这个问题？   由   提交 /u/cortvi   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15geu52/how_do_you_handle_gdpr_consent/</guid>
+      <pubDate>Wed, 02 Aug 2023 17:19:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>您主要开发什么显示器分辨率？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gdvg6/what_monitor_resolution_do_you_primarily_develop/</link>
+      <description><![CDATA[我使用 1920x1080。不确定它是否是默认标准，但我想得到响应。   由   提交 /u/nullvoider   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gdvg6/what_monitor_resolution_do_you_primarily_develop/</guid>
+      <pubDate>Wed, 02 Aug 2023 16:42:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>是什么被用来引起微妙的运动？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gdm1v/what_is_being_used_to_cause_the_subtle_movements/</link>
+      <description><![CDATA[嘿，你们都在这个网站上使用什么&lt; /a&gt; 当您将鼠标悬停在盒式磁带上时引起微妙的移动？我正在考虑 Three.js，但我不确定 Three.js 中的哪个部分正在被使用。   由   提交/u/goldshark5  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gdm1v/what_is_being_used_to_cause_the_subtle_movements/</guid>
+      <pubDate>Wed, 02 Aug 2023 16:32:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>不要使用 GoDaddy</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gd93q/dont_use_godaddy/</link>
+      <description><![CDATA[说真的，不要从那里买任何东西。他们很坏。更不用说这个名字本身听起来就很令人畏惧。请改用 Cloudflare。请将此分享给您认识的每一位网页设计师或开发人员。   由   提交/u/1chbinamin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gd93q/dont_use_godaddy/</guid>
+      <pubDate>Wed, 02 Aug 2023 16:19:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何保护 nextjs 网站的安全</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gcljd/how_do_i_secure_a_nextjs_site/</link>
+      <description><![CDATA[我完全使用自定义代码制作的第一个网站，但我不知道如何保护它。习惯了 wp 插件，所以我有点迷失   由   提交 /u/yosefbc   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gcljd/how_do_i_secure_a_nextjs_site/</guid>
+      <pubDate>Wed, 02 Aug 2023 15:54:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>Go 支持简介</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gbzah/introducing_go_support/</link>
+      <description><![CDATA[     &lt; td&gt;  由   提交/u/feross  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gbzah/introducing_go_support/</guid>
+      <pubDate>Wed, 02 Aug 2023 15:31:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在 Javascript 中将整个 JSON 对象数组分配给单个变量？</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gbqrv/how_to_asign_entire_json_object_array_to_a_single/</link>
+      <description><![CDATA[我正在开发一个 HTML 项目，该项目利用存储在单独 JSON 文件中的数据。我想将整个对象数组分配给 JavaScript 中的单个变量，而不进行任何更改。  我已经尝试过使用“fetch”和“解析”方法，但不幸的是，我还没有成功。考虑到 JSON 和 JavaScript 的语法几乎相同，我觉得一定有一个我不知道的简单解决方案。然而，我在实现这一目标方面面临着重大挑战。 我需要采用这种方法，因为在 HTML 文件中写入整个对象数组会显着增加数百行数，这是我不希望的。我的目的是将数据存储在名为“pokemon_list”的变量中稍后将通过“for”迭代 以下是 JSON 文件的一小段摘录： [ { &quot;name&quot;: &quot;bulbasaur&quot;, &quot;type&quot;: &quot;grass/毒” }, { “名称”: “ivysaur”, “类型”: “草/毒” }, { “名字”: “venusaur”, “身高”: “草/毒” } ]  ​   由   提交/u/DinoMan64  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gbqrv/how_to_asign_entire_json_object_array_to_a_single/</guid>
+      <pubDate>Wed, 02 Aug 2023 15:22:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Namecheap 上的图像托管</title>
+      <link>https://www.reddit.com/r/webdev/comments/15gbp6d/image_hosting_on_namecheap/</link>
+      <description><![CDATA[您好！我已浏览此子主题，但找不到适合我的问题的解决方案。 我想通过 nodemailer 发送自定义编码的 HTML 电子邮件模板（到我的 Gmail 收件箱）。发送成功，但丢弃了所有图像。我在 Gmail 视图中看不到任何图像。谷歌搜索后，我似乎有三个选项来解决这个问题：cid、base64、在外部服务器上托管图像。许多来源推荐从外部服务器链接的图像，因此我尝试使用 imgur 和我的 Google 驱动器，但无济于事。 我在此子上遇到一个线程，指出 namecheap 的计划适合一种爱好像我这样的程序员。我找到了此链接，但我无法决定。有人可以帮我选择合适的吗？我只想在我的 Gmail 上显示一些图像，因此大存储空间等对我来说根本不重要。   由   提交/u/Zealousideal-Bath-37   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/15gbp6d/image_hosting_on_namecheap/</guid>
+      <pubDate>Wed, 02 Aug 2023 15:20:20 GMT</pubDate>
+    </item>
     <item>
       <title>在使用注册域名之前如何使用cloudways自定义网站url？</title>
       <link>https://www.reddit.com/r/webdev/comments/15ga40a/how_to_customize_website_url_with_cloudways/</link>
@@ -25,90 +109,6 @@
       <description><![CDATA[我想创建一个关于 JavaScript 的 Web 开发课程。只是尝试如何创建视频课程。  我想知道你是否能给我一门课程必须具备的东西才能成为“史诗般的课程”。在互联网上。 拜托！ :D  ​   由   提交 /u/nonDoctorRayo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/15g9gbp/how_do_you_consider_that_a_web_dev_course_is/</guid>
       <pubDate>Wed, 02 Aug 2023 13:50:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Time Machine 恢复 MacO</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g95eu/macos_restore_from_time_machine/</link>
-      <description><![CDATA[我刚刚升级到 Monterey，启动速度很慢。我计划降级到大苏尔。我的问题是，如果我从 Time Machine 备份恢复，它还会恢复我在 Homebrew 中安装的所有内容，包括我设置的路径吗？它还会恢复我在 CLI 中设置的登录信息（如 Google firebase）吗？   由   提交/u/kiko1004  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g95eu/macos_restore_from_time_machine/</guid>
-      <pubDate>Wed, 02 Aug 2023 13:37:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>给我的投资组合网站提供建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g8m9a/advice_my_portfolio_website/</link>
-      <description><![CDATA[我担心我的作品集上的风格类型是否看起来不专业，你们能给我你们的想法吗？  https://duesenberg.github.io/personal-portfolio/  如果您能给我有关如何改进它的建议，那就太好了。您在创建自己的产品时遵循一些准则吗？  非常感谢   由   提交 /u/Pierceman   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g8m9a/advice_my_portfolio_website/</guid>
-      <pubDate>Wed, 02 Aug 2023 13:13:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>还有其他人在为某些网站构建链接预览时遇到困难吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g89i4/is_anyone_else_having_trouble_building_link/</link>
-      <description><![CDATA[大家好，我一直在为客户的应用程序构建一个内部消息应用程序，目前正在努力实现用户发送时的链接预览一条链接。  一切运行良好，只是我测试过的一些网站要么“隐藏”，要么“隐藏”。他们的元标签或完全拒绝我的卷曲请求。  其中两个罪魁祸首是 stackoverflow 和 twitter。 Stackoverflow 允许我仅检索标题，而无需检索元标记。 Twitter 完全屏蔽了我的请求。当我检查检查元素时，标签及其内容清晰可见，但我无法访问它们。  我很好奇是否有人知道任何解决方法，或者当他们似乎应该公开可用时，他们甚至如何能够隐藏他们的元标记。谢谢！   由   提交 /u/TheTigersAreNotReal   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g89i4/is_anyone_else_having_trouble_building_link/</guid>
-      <pubDate>Wed, 02 Aug 2023 12:58:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是进行观看次数统计的好方法吗？我不明白为什么这些数字一个一个地在另一个之上并且在它们自己的分区中。</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g87sa/is_this_a_good_way_of_doing_a_view_count_i_dont/</link>
-      <description><![CDATA[   /u/Kalistrad  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g87sa/is_this_a_good_way_of_doing_a_view_count_i_dont/</guid>
-      <pubDate>Wed, 02 Aug 2023 12:55:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何解决这样的问题呢？ （Safari、MacOS）最近更改了字体以使用自托管字体</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g8382/how_to_solve_such_problem_safari_macos_recently/</link>
-      <description><![CDATA[       由   提交/u/_hurka  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g8382/how_to_solve_such_problem_safari_macos_recently/</guid>
-      <pubDate>Wed, 02 Aug 2023 12:49:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>本地存储安全吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g6spc/is_localstorage_secure/</link>
-      <description><![CDATA[是什么引发了这个问题：我注意到 AWS Cognito 使用 localStorage 来跟踪当前登录的用户。 不仅仅是身份验证令牌，但像用户名这样的实际可识别数据。 我认为这是不行的 - 但如果 AWS 这样做，是否意味着它是安全的？ 我认为任何第 3 方 JS基本上可以从 localStorage 读取任何内容？ 编辑：sessionStorage 更安全吗？   由   提交/u/CBRIN13  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g6spc/is_localstorage_secure/</guid>
-      <pubDate>Wed, 02 Aug 2023 11:48:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建投资组合的最佳方式是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g6qpo/what_is_the_best_way_to_create_a_portfolio/</link>
-      <description><![CDATA[你好。 我对 IT、网站建设和一般的一切都是新手。 我创建了小型 HTML 、CSS、PHP 项目。我想创建一个作品集，在其中展示我的作品，以便我最终可以作为初级 Web 开发人员或其他职位开始我的职业生涯。 什么编程语言和技术更好用？   由   提交/u/just_latvian  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g6qpo/what_is_the_best_way_to_create_a_portfolio/</guid>
-      <pubDate>Wed, 02 Aug 2023 11:45:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>逐步实施最佳实践</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g6ny9/enforce_best_practices_incrementally/</link>
-      <description><![CDATA[   /u/Wake08  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g6ny9/enforce_best_practices_incrementally/</guid>
-      <pubDate>Wed, 02 Aug 2023 11:41:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>Cloudways 附加组件还是第三方？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g6nw3/cloudways_addons_or_3rd_party/</link>
-      <description><![CDATA[我正在使用 Elementor 制作和托管 WordPress 网站，使用 cloudways 作为我的服务器，使用 cloudflare 作为域名。我正在研究我想要的所有软件的成本，似乎有两种方法。使用 cloudways 处理一切或第 3 方软件。 第 3 方选项::  Brevo (SMTP) - 20.00 美元 管理 WP（维护 +备份 + 暂存） - $2.00 Flyingpress（缓存） - $250/年 shortpixel（优化） - $4.00 等等... &lt; /ul&gt; Cloudways 选项：  备份 - 免费 暂存 - 免费 Cloudflare 企业版（优化 + 缓存）- 2.99 美元 暂存 - 免费li&gt; 弹性电子邮件 (SMTP) - $2.30 safeupdates（维护） - $2.00  对我来说，使用所有 cloudways 服务似乎便宜得多。有什么问题吗？这些服务不如第三方选项吗？把我所有的鸡蛋放在一个篮子里以防万一 cloudways 宕机或停业是不是很糟糕？   由   提交/u/jelery_celery  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g6nw3/cloudways_addons_or_3rd_party/</guid>
-      <pubDate>Wed, 02 Aug 2023 11:41:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>商用现货培训手册</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g6gj8/cots_training_manual/</link>
-      <description><![CDATA[是否有一个商业现成的培训资源构建器可以构建类似 https://codebook.xanadu.ai/H.9，具备运行代码的能力吗？   由   提交/u/bsiegelwax  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g6gj8/cots_training_manual/</guid>
-      <pubDate>Wed, 02 Aug 2023 11:31:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>一家在线商店可购买客户或其他企业需要的 X 件商品。这就是传统的电子商务。我们尽量卖市场需要的东西和市场价格。现在，我们还希望向我们的业务提供逆向销售，这将帮助我们为资源有限的买家带来其他产品。</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g3y1a/one_online_shop_to_buy_x_items_a_client_or/</link>
-      <description><![CDATA[我需要这个脚本来处理传统销售。我还需要一个逆向销售流程。客户将列出他们想要出售的物品、状况、外观。到期日期，翻新 根据卖方提供的这些详细信息，我们将提出初步报价。如果报价对各方来说都是公平的，卖家会将其退回给我们。一旦收到并且一切都符合要求，或者由于存在差异而需要进行细微调整，录取通知书将进行调整以反映这些差异。如果双方同意调整后的价值等，则可以完成销售，并且将通过数字货币、PayPal、Venmo、现金应用程序甚至实际支票向客户付款。 任何熟悉现有电子商务的人我们可以同时使用哪个平台？   由   提交 /u/Laudenbachm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g3y1a/one_online_shop_to_buy_x_items_a_client_or/</guid>
-      <pubDate>Wed, 02 Aug 2023 09:15:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 div 容器内滚动还是整个屏幕滚动？</title>
-      <link>https://www.reddit.com/r/webdev/comments/15g39u9/scroll_within_a_div_container_or_the_whole_screen/</link>
-      <description><![CDATA[假设我在屏幕上有一列由三个 div 组成的列，每个 div 为 1/3。如果这些内容的高度不同，滚动应该在每个 div 上还是整个屏幕上？ 我一直在这样做，以便它在每个 div 内滚动，因为我觉得移动整个屏幕如果用户只想看到更多的 div 内容，那么屏幕是令人作呕且直观的。  你觉得怎么样？   由   提交 /u/lordgriefter   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/15g39u9/scroll_within_a_div_container_or_the_whole_screen/</guid>
-      <pubDate>Wed, 02 Aug 2023 08:40:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
