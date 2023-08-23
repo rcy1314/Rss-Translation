@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与 [开源](http://en.wikipedia.org/wiki/open_source) 相关的所有内容的 Reddit 子版块。</description>
-    <lastBuildDate>Wed, 23 Aug 2023 18:20:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2023 21:15:07 GMT</lastBuildDate>
+    <item>
+      <title>开源项目招聘：开发者网站编辑器和托管解决方案</title>
+      <link>https://www.reddit.com/r/opensource/comments/15zfx5i/open_source_project_recruitment_developer_website/</link>
+      <description><![CDATA[我正在读大学三年级，最近收到了申请，codefoli.com 投入生产（github：github.com/noahgsolomon/Codefolio）。它是一个为开发人员打造的网站建设和托管平台。我目前正在寻求扩大团队，目前只有我和另一个人为该项目做出贡献。这是该项目的技术堆栈，供有兴趣贡献的任何人使用！ 技术堆栈：React、TypeScript、Tailwind.css、Node.js。 云架构堆栈：S3 Buckets、 Route 53、Cloudfront、API 网关、Lambda、带有 RDS 代理的 RDS、 Cognito 用户池、SQS、EC2。 我们现在正在努力为该应用程序制作更多主题，以便这不仅仅是这一个主题选项，仍在决定最佳架构，因为现在一切都与这一设计紧密结合。这将是接下来几个月的大部分开发领域。至于架构细节：Codefoli 的域放置在 Route 53 中的托管区域中，通过别名记录指向引用 S3 存储桶的 CloudFront 分配通过存储站点的原始访问控制。由于它是一个 React 单页面应用程序，根页面和错误页面都引用了 index.html，以便在刷新时启用导航。该站点与启用了 CORS 的 API 网关进行通信，并包含一个授权标头，其中包含来自 Cognito 用户池的分布式 ID 令牌。对于每个 API 网关请求，在将请求代理到 Lambda 函数之前，都会针对用户池对该标头进行身份验证。该函数处理业务逻辑、与数据库通信并访问托管用户图像的 S3 存储桶。所有数据，例如图像链接、文本值、章节排列等，都存储在 RDS PostgreSQL 数据库中。 有 8 个 Lambda 函数处理各种任务，包括文本更新、章节增删改查以及图像上传。下载图像后，我们会使其在分发版上的缓存版本失效，然后返回更新后的图像，例如 images.codefoli.com/58-profile-image。两个复杂的函数处理特定任务：一个让用户下载其 React 应用程序的代码，另一个将其 React 应用程序部署到我的 AWS 账户中的 S3 存储桶。 当用户指定子域（例如 walter.codefoli.com）时），Lambda 函数将详细信息发送到 SQS 队列，由带有 Node.js 应用程序的 EC2 实例进行轮询。该应用程序读取用户数据，构建 React 应用程序，并将其编译到 dist/ 文件夹中。由于 npm install 仅运行一次，我们使用 npm run build 创建应用程序，然后创建一个 S3 存储桶、一个 CloudFront 发行版，并通过 OAC 访问该存储桶。 SSL 证书通过 Amazon Certificate Manager 使用域通配符 *.codefoli.com 进行应用。在 Route 53 中为正确的子域创建别名记录，并与 CloudFront 分配关联。用户获得一个链接（例如 walter.codefoli.com），随后的部署将使他们网站的 CDN 缓存失效以进行实时更新。此外，对于我的忠实粉丝，您可以查看 Walter White 的网站位于 walter.codefoli.com。 编码愉快！   由   提交 /u/MindlessDog3229   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/15zfx5i/open_source_project_recruitment_developer_website/</guid>
+      <pubDate>Wed, 23 Aug 2023 20:38:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Traceo - 软件的可观察性工具</title>
+      <link>https://www.reddit.com/r/opensource/comments/15zffjz/traceo_observability_tool_for_your_software/</link>
+      <description><![CDATA[    &lt; /a&gt;   由   提交/u/Fit_Safe_4438   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/15zffjz/traceo_observability_tool_for_your_software/</guid>
+      <pubDate>Wed, 23 Aug 2023 20:20:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>发现 Minarca - 您的自托管数据备份！</title>
+      <link>https://www.reddit.com/r/opensource/comments/15zduru/discover_minarca_your_selfhosted_data_backups/</link>
+      <description><![CDATA[嗨r/opensource， 我是一名软件开发人员，我正在最终确定 Minarca Data Backup 新版本的发布，该版本将在未来几周内发布。这个新版本包含许多更改，因此我需要帮助在各种环境中测试它，以确保它仍然正常工作。我邀请您测试我们的预发布版本并将其安装在您的个人实验室中。  了解有关如何帮助测试的更多信息： https://minarca.org/en\_CA/blog/minarca-4/test-minarca-a-self-hosted-open-source-backup-solution-103   由   提交/u/ikus060  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/15zduru/discover_minarca_your_selfhosted_data_backups/</guid>
+      <pubDate>Wed, 23 Aug 2023 19:26:54 GMT</pubDate>
+    </item>
     <item>
       <title>关于开源 Outlook 插件的建议？</title>
       <link>https://www.reddit.com/r/opensource/comments/15z8myo/advice_on_open_sourcing_an_outlook_plugin/</link>
@@ -43,7 +64,7 @@
     <item>
       <title>欧洲自由软件基金会教育视频，帮助资助翻译</title>
       <link>https://www.reddit.com/r/opensource/comments/15z1dmu/free_software_fondation_europe_educational_video/</link>
-      <description><![CDATA[您可以在此处观看视频： https://media.fsfe.org/w/p/9gYSyoEYggsqBExLWjRejL 我从 FSFE 收到了这个，我认为在这里分享它会很有趣：  ````请为我们提供财政捐助支持，并与我们一起努力将《什么是自由软件》翻译成英文。视频在整个欧盟被翻译成多种语言[1]！ 不到一年的时间，欧洲各地的公民将投票选出新的欧洲议会。在竞选期间，我们的志愿者将接触当地候选人和社区，解释自由软件以及为什么软件自由对所有欧洲社会都很重要。通过成为 FSFE 的支持者，您可以帮助我们让公民和政治家意识到软件自由并做出改变！ 从现在开始一直持续到 9 月底，每一个新的支持者捐款都将直接资助翻译工作我们的“什么是自由软件”视频。目前的支持者还可以在此期间做出额外的贡献，以进一步支持我们的翻译[2]工作。 您知道吗，只需 250 欧元，我们就可以将我们的视频“什么是自由软件”翻译为翻译成您的母语或任何其他欧盟语言？您的贡献，无论金额多少，都将用于以其他语言提供此视频，并使其更容易解释自由软件赋予用户的四项基本权利：使用、理解、共享和改进软件。 通过与您的朋友、同事和本地网络分享此消息，您可以帮助我们接触更多的人，并在整个欧洲传播软件自由的信息和自由软件的好处。 支持软件自由，今天分享视频！ 此致， Ana Galán [1] 什么是自由软件视频已提供英语、法语、德语、意大利语、荷兰语和英语西班牙语 - https://media.fsfe.org/w/p/9gYSyoEYggsqBExLWjRejL  [2] 我们有一个志愿者翻译网络，但翻译视频时，由于其技术复杂性，我们需要使用专业的翻译公司。 ```   由   提交 /u/GloWondub   [链接] [评论]]]></description>
+      <description><![CDATA[您可以在此处观看视频： https://media.fsfe.org/w/p/9gYSyoEYggsqBExLWjRejL 我从 FSFE 收到此信息，我认为在这里分享它会很有趣：  ````请为我们提供财政捐助支持，并与我们一起努力将《什么是自由软件》翻译成英文。视频在整个欧盟被翻译成多种语言[1]！ 不到一年的时间，欧洲各地的公民将投票选出新的欧洲议会。在竞选期间，我们的志愿者将接触当地候选人和社区，解释自由软件以及为什么软件自由对所有欧洲社会都很重要。通过成为 FSFE 的支持者，您可以帮助我们让公民和政治家意识到软件自由并做出改变！ 从现在开始一直持续到 9 月底，每一个新的支持者捐款都将直接资助翻译工作我们的“什么是自由软件”视频。目前的支持者还可以在此期间做出额外的贡献，以进一步支持我们的翻译[2]工作。 您知道吗，只需 250 欧元，我们就可以将我们的视频“什么是自由软件”翻译为翻译成您的母语或任何其他欧盟语言？您的贡献，无论金额多少，都将用于以其他语言提供此视频，并使其更容易解释自由软件赋予用户的四项基本权利：使用、理解、共享和改进软件。 通过与您的朋友、同事和本地网络分享此消息，您可以帮助我们接触更多的人，并在整个欧洲传播软件自由的信息和自由软件的好处。 支持软件自由，今天分享视频！ 此致， Ana Galán [1] 什么是自由软件视频已提供英语、法语、德语、意大利语、荷兰语和英语西班牙语 - https://media.fsfe.org/w/p/9gYSyoEYggsqBExLWjRejL  [2] 我们有一个志愿者翻译网络，但翻译视频时，由于其技术复杂性，我们需要使用专业的翻译公司。 ```   由   提交 /u/GloWondub   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/15z1dmu/free_software_fondation_europe_educational_video/</guid>
       <pubDate>Wed, 23 Aug 2023 11:40:07 GMT</pubDate>
     </item>
@@ -78,7 +99,7 @@
     <item>
       <title>针对 AI、DevOps、计费和分析的准确实时使用计量。</title>
       <link>https://www.reddit.com/r/opensource/comments/15ydehw/accurate_and_realtime_usage_metering_for_ai/</link>
-      <description><![CDATA[       由   提交/u/b9Fb2H   [链接] [评论] &lt; /表&gt;]]></description>
+      <description><![CDATA[       由   提交 /u/b9Fb2H   [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/15ydehw/accurate_and_realtime_usage_metering_for_ai/</guid>
       <pubDate>Tue, 22 Aug 2023 18:00:15 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[我有一台 Marmitek 设备，它通过蓝牙通过专有应用程序进行通信。因此，我想监听传输的数据，并可能为其创建一个开源应用程序，但我如何监听所述数据？  &amp;# 32；由   提交/u/NatSpaghettiAgency   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/15ya0ru/looking_for_a_program_which_listens_for_all/</guid>
       <pubDate>Tue, 22 Aug 2023 16:00:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源计算机视觉框架，因此您无需再次构建多媒体管道</title>
-      <link>https://www.reddit.com/r/opensource/comments/15y7bml/open_source_computer_vision_framework_so_you_dont/</link>
-      <description><![CDATA[过去几周我一直在构建一个开源计算机视觉框架，该框架从开发人员那里抽象出媒体管道，因此他们只花了几分钟来构建并部署他们的计算机视觉应用程序。 它被称为 Pipeless。您可以在此处找到该存储库。我还创建了一篇小文章谈论它是如何工作的，为什么我认为这是很酷的东西，它遵循的架构以及如何执行一些简单的示例。非常感谢您提供反馈！以及分享或加注星标的存储库！ ​ ​ ​    由   提交/u/miguelaeh  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/15y7bml/open_source_computer_vision_framework_so_you_dont/</guid>
-      <pubDate>Tue, 22 Aug 2023 14:23:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>smenu v1.3.0 提供了新的列/行对齐和样式功能。</title>
-      <link>https://www.reddit.com/r/opensource/comments/15y4nwp/smenu_v130_is_available_with_new_alignment_and/</link>
-      <description><![CDATA[smenu 是一个强大的终端可视化选择工具，最初是为了制作菜单而得名的。 smenu 造就了它使用友好的用户界面可以轻松地从标准输入或文件中导航和选择单词。选择将打印到 stdout 以供进一步处理。 在 Linux 和 FreeBSD 上进行了测试，但也应该适用于其他 Unix。  https://github.com/p-gen/smenu   由   提交/u/pgen  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/15y4nwp/smenu_v130_is_available_with_new_alignment_and/</guid>
-      <pubDate>Tue, 22 Aug 2023 12:39:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件安全研讨会的头脑风暴</title>
-      <link>https://www.reddit.com/r/opensource/comments/15xyhqa/brainstorming_for_a_software_security_workshop/</link>
-      <description><![CDATA[这是我所处的情况，我想听听您的想法和建议！ Ubuntu 峰会 [1 ] 是一项社区活动，以围绕 Linux、Ubuntu 和开源的讲座和研讨会为特色。今年，我很高兴能够通过一个 2 小时的软件安全研讨会为活动本身做出贡献：“开源堡垒：使用开源工具查找代码库中的漏洞”。 那么，软件工程师和安全专业人员，您希望在这样的演示中看到什么？您是否使用任何技术或工具来保护您正在编写的代码？如果没有，您是否担心代码中的特定漏洞并希望采取措施来缓解这些漏洞？请让我知道您的想法！ 任何意见或想法都将不胜感激，并将被纳入研讨会中。后者将在 Ubuntu 峰会上发表后公开。 [1] https://summit.ubuntu.com&lt; /a&gt;   由   提交 /u/iosifache   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/15xyhqa/brainstorming_for_a_software_security_workshop/</guid>
-      <pubDate>Tue, 22 Aug 2023 07:38:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
