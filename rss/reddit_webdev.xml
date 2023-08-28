@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 28 Aug 2023 03:23:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Aug 2023 09:17:28 GMT</lastBuildDate>
+    <item>
+      <title>需要使用 @angular/fire 和 NX monorepo 在 Angular 16 中登录 Google 的帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/163gtm9/need_help_with_google_signin_in_angular_16_using/</link>
+      <description><![CDATA[我正在尝试使用 @angular/fire 和 firebase 在使用 NX 构建的 Angular 16 应用程序中（类似于 learna ）。我已成功设置 @angular/fire 并且 signInWithEmailAndPassword 方法工作得很好。但是，当我尝试在 AngularFireAuth.signInWithPopup() 方法中使用 GoogleAuthProvider 时，出现以下错误：  error FirebaseError: Firebase: Error (auth/argument-错误）。在 createErrorInternal (index-e3d5d3f4.js:497) 在 _fail (index-e3d5d3f4.js:468) 在 _assertInstanceOf (index-e3d5d3f4.js:484) 在模块。 (index-e3d5d3f4.js:8480) 在 Generator.next () 在 asyncGeneratorStep (asyncToGenerator.js:3) 在 _next (asyncToGenerator.js:22) 在 asyncToGenerator.js:27 在新的 ZoneAwarePromise (zone.js) :1411)  我正在使用的代码： ```tsx import { ChangeDetectionStrategy, Component } from &#39;@angular/core&#39;;从“@Angular/router”导入{ActivatedRoute，Router}；从 &#39;@angular/forms&#39; 导入 { FormBuilder、FormControl、FormGroup、Validators、}；从 &#39;@angular/fire/compat/auth&#39; 导入 { AngularFireAuth }；从 &#39;firebase/auth&#39; 导入 { GoogleAuthProvider }； /** * 我尝试过的其他导入： * * import { GoogleAuthProvider } from &#39;@angular/fire/auth&#39; * import { GoogleAuthProvider } from &#39;@firebase/auth&#39;; * */ 从&#39;@activepieces/ui/common&#39;导入{ AuthenticationService, fadeInUp400ms, OdinService, };从 &#39;rxjs&#39; 导入 { Observable, catchError, tap, map, of };从 &#39;@angular/common/http&#39; 导入 { HttpClient }；接口 SignInForm { 电子邮件：FormControl&lt;字符串&gt;;密码：FormControl&lt;字符串&gt;； @Component({ templateUrl: &#39;./sign-in.component.html&#39;, styleUrls: [&#39;./sign-in.component.scss&#39;], 动画: [fadeInUp400ms], changeDetection: ChangeDetectionStrategy.OnPush, }) 导出类 SignInComponent { 登录表单：FormGroup;显示无效电子邮件或密码消息 = false;加载=假； authenticate$: Observable; |不明确的;构造函数（私有路由器：路由器，私有路由：ActivatedRoute，私有formBuilder：FormBuilder，公共afAuth：AngularFireAuth，私有authenticationService：AuthenticationService，公共http：HttpClient）{ this.loginForm = this.formBuilder.group（{电子邮件：new FormControl（&#39; &#39;, { nonNullable: true, 验证器: [Validators.required, Validators.email], }), 密码: new FormControl(&#39;&#39;, { nonNullable: true, 验证器: [Validators.required], }), } ）； } signInWithGoogle() { this.afAuth .signInWithPopup(new GoogleAuthProvider()) .then((res) =&gt; { console.log(&#39;res: &#39;, res); }) .catch( (err) =&gt; { console.log(&#39;错误&#39;, err); }); } signIn(): void { if (this.loginForm.valid &amp;&amp; !this.loading) { this.loading = true; } this.showInvalidEmailOrPasswordMessage = false; const request = this.loginForm.getRawValue(); this.authenticate$ = OdinService.signInWithOdin( request, this.http, this.afAuth ).pipe( catchError(() =&gt; { this.showInvalidEmailOrPasswordMessage = true; this.loading = false; return of(null); }) , tap((response) =&gt; { if (response) { this.authenticationService.saveUser(response); this.redirectToBack(); } }), map(() =&gt; void 0) ); } } redirectToBack() { const redirectUrl = this.route.snapshot.queryParamMap.get(&#39;redirect_url&#39;); if (redirectUrl) { this.router.navigateByUrl(decodeURIComponent(redirectUrl)); } else { this.router.navigate([&#39;/flows&#39;]); } } } ``` 有人可以帮助我吗？谢谢！   由   提交 /u/wise_introvert   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163gtm9/need_help_with_google_signin_in_angular_16_using/</guid>
+      <pubDate>Mon, 28 Aug 2023 08:56:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>向受访者询问什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163fns6/what_to_ask_interviewee/</link>
+      <description><![CDATA[我是 2 人开发团队的前端开发人员。另一个人是后端开发人员。 我们正在招聘另一位 BE 开发人员，他希望我参加面试，但我绝对没有什么可问他们的。  对于上下文，我们在后端使用 Django，在前端使用 Vue。    由   提交/u/TossedBloom604  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163fns6/what_to_ask_interviewee/</guid>
+      <pubDate>Mon, 28 Aug 2023 07:46:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于计算位置的应用程序/网站？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163faww/appwebsite_for_calculating_location/</link>
+      <description><![CDATA[嗨，我知道这可能不是最好的提问方式，但仍然可能有人知道。我正在寻找一个应用程序，例如如果我要指定名为“Biedronka”的sklep在给定的国家/地区，我会制定一条路线，了解如何访问每个国家/地区的总距离。任何帮助将不胜感激:)。   由   提交/u/Lopside_Singer_4027   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163faww/appwebsite_for_calculating_location/</guid>
+      <pubDate>Mon, 28 Aug 2023 07:24:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何将 Excel 文件转换为 csv 以导入 Google 联系人？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163ezrw/how_to_convert_an_excel_file_to_csv_to_import/</link>
+      <description><![CDATA[当然，可以手动完成：将一些联系人从 Google 导出为 CSV，以便您拥有结构和字段名称，然后将其转换为 Excel手动文件（哎呀）来映射 CSV，但这很麻烦。有没有更好的办法？是否有任何在线工具可以让您上传 Excel 并将字段映射到 CSV，然后就完成了？   由   提交/u/sarrcom   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163ezrw/how_to_convert_an_excel_file_to_csv_to_import/</guid>
+      <pubDate>Mon, 28 Aug 2023 07:07:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>价格建议/估计、固定价格或范围？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163eqky/price_proposalestimate_fixed_price_or_range/</link>
+      <description><![CDATA[为完整的 Web 项目（策略、设计、开发等）编写提案时。您在提案中提到了一个范围吗？还是固定价格？ 我过去一直使用固定价格（基于价值的定价），我想知道你的意见是什么，客户告诉我他们有大约 5k 可以花，但过了一会儿他们告诉我他们的预算不能超过一万。所以我现在的想法是把价格定在6、7k，因为我真的很想要这个项目！这是我的目标客户群中的一个大客户。   由   提交 /u/miguste   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163eqky/price_proposalestimate_fixed_price_or_range/</guid>
+      <pubDate>Mon, 28 Aug 2023 06:52:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>网格和 Flexbox - 4 个视觉教具</title>
+      <link>https://www.reddit.com/r/webdev/comments/163dxpx/grid_flexbox_4_visual_aids/</link>
+      <description><![CDATA[       由   提交 /u/myvortexlife   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163dxpx/grid_flexbox_4_visual_aids/</guid>
+      <pubDate>Mon, 28 Aug 2023 06:07:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>前端问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/163dp1j/frontend_problem/</link>
+      <description><![CDATA[大家对 htmx 有何看法，我已经在 django 项目上工作了一段时间，我最初计划使用 React 前端，但最初我使用html模板只是为了确保它能工作，现在我已经考虑放弃react而转向htmx，我不会说我是一个全栈开发人员，但我之前使用过react，我觉得htmx和tailwind可能是一个更简单的路线&lt; /p&gt;   由   提交/u/Ok-master7370   /u/Ok-master7370 reddit.com/r/webdev/comments/163dp1j/frontend_problem/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163dp1j/frontend_problem/</guid>
+      <pubDate>Mon, 28 Aug 2023 05:54:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>我对此很陌生，所以请对我宽容一些。我的外部 CSS 不起作用。我缺少什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163c40i/im_new_to_this_so_plz_go_easy_on_me_my_external/</link>
+      <description><![CDATA[    /u/BraindeadYetFocused   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163c40i/im_new_to_this_so_plz_go_easy_on_me_my_external/</guid>
+      <pubDate>Mon, 28 Aug 2023 04:27:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找一个使用自定义 CSS 渲染 Markdown 表的工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/163c29m/looking_for_a_tool_to_render_markdown_table_with/</link>
+      <description><![CDATA[各位 Reddit 用户大家好！ 我为我女儿的花样滑冰练习时间表创建了一个 Markdown 表格，并且我已经还编写了一些自定义 CSS 来设置其样式。我正在寻找一个工具或平台，允许我使用应用的自定义 CSS 来呈现此 Markdown 表格。理想情况下，它应该是用户友好的，并支持广泛的 CSS 属性。 这是 Markdown 表格的片段： |日 |热身 1（跳绳）|热身 2（平衡板）|热身 3（伸展）|主要练习| |------|-------------------------------------|---------------- ----------|--------------------|------------------------| |星期一 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 | |周二 | 50 次 | 30 多岁 | 1 分钟 |弓步：20 次 | |周三 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 | |星期四 | 50 次 | 30 多岁 | 1 分钟 |弓步：20 次 | |周五 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 |  CSS： .markdown-content table { ... 背景颜色：红色； ... }  您对可以使用自定义 CSS 渲染此内容的工具或平台有什么建议吗？任何意见或建议将不胜感激！   由   提交/u/marksteve4  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163c29m/looking_for_a_tool_to_render_markdown_table_with/</guid>
+      <pubDate>Mon, 28 Aug 2023 04:24:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>对于 Docker 化的 Payload CRM，我应该运行 MinIO 还是直接将上传内容保存到 docker 上的卷？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163bmiu/for_dockerized_payload_crm_should_i_run_minio_or/</link>
+      <description><![CDATA[在同一个 docker 上的另一个容器中使用 MinIO 似乎很自然，但为了简单起见，我也想将网站图像托管在同一位置，有点像 但我知道 MinIO 和其他 S3 兼容系统使用特定的文件名系统，这可能与将持有者视为仅使用 Nginx 公开的 CDN 发生冲突？   由   提交 /u/lorenzomofo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163bmiu/for_dockerized_payload_crm_should_i_run_minio_or/</guid>
+      <pubDate>Mon, 28 Aug 2023 04:02:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>定价计划问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/163bjzm/pricing_plan_question/</link>
+      <description><![CDATA[嘿，开发者们。我正在创办一家网站设计公司，并遇到了定价问题。现在我是一个人表演。我不喜欢制定不同的定价计划，因为有时与客户交谈时我会感到困惑。我曾经在一家利基网站开发公司工作，他们为 5 个寻呼机收取 600 美元，外加一个登陆页面，然后他们每月收取 200 美元用于 seo、图片更改和每月完成的一些小事情。  &lt;我想将这个想法复制到我公司的定价计划中。由于是一个人表演，我想做商业网站，5 个页面，预付费用，然后每月 200 美元，签订 6 个月的合同。 你这可能吗？我知道有些公司只收取固定的月费   由   提交/u/helpmeoutplease920  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163bjzm/pricing_plan_question/</guid>
+      <pubDate>Mon, 28 Aug 2023 03:58:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>在多台机器上编码，您会选择什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163biit/coding_on_multiple_machines_whats_your_go_to/</link>
+      <description><![CDATA[可能不是这里最有趣的帖子，但我遇到了一个奇怪的情况，我发现自己在家里的 3 台不同的机器上。我主要使用 Visual Studio Code 和 JavaScript 编写 C++ (Arduino)、C# 和 JavaScript 代码。 Visual Studio 2022。 当我必须招待无法摆脱的客人（姻亲）时，我会在客厅使用 MacBook 工作。大多数时候，我在办公室的桌面上工作，这是我完成大部分编码的地方。有时我必须在卧室里工作，那里有第三台桌面，因为我的老狗讨厌呆在我的办公室里。 （我试着给她带来床，并用她没有的零食贿赂她，哈哈） 在多台机器上工作的解决方案是什么？我通常只是通过 RDP 连接到我的主计算机并从那里工作，但速度相当慢。我曾经也在 EC2 机器上工作，但速度更慢。我确实使用 git 分支，但是它会来回推送数据来移动机器吗？我家里也有一个 NAS 系统，我一直在考虑用它来集中所有数据，但它主要用于备份 Time Machine。  &amp;# 32；由   提交 /u/manpearpig   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163biit/coding_on_multiple_machines_whats_your_go_to/</guid>
+      <pubDate>Mon, 28 Aug 2023 03:56:45 GMT</pubDate>
+    </item>
     <item>
       <title>具有会员功能的 WordPress 替代品？</title>
       <link>https://www.reddit.com/r/webdev/comments/163ag4v/alternative_to_wordpress_with_membership_feature/</link>
@@ -25,90 +109,6 @@
       <description><![CDATA[我发现从触摸设备中删除任何悬停样式非常重要，因为如果您有任何类型的悬停，则快速触摸通常会被解释为悬停样式和应用程序会让您感觉经常需要触摸两次。我们可以使用 CSS 通过仅针对较大的断点附加 onhover 样式来实现此目的。但是，例如 iPad 等较大的触摸屏设备呢？ 假设您有一个按钮，您希望在悬停时改变颜色。为了确保它不会在移动设备上进行假悬停，我们可以这样做（为了简单起见，使用顺风）： “sm:hover:bg-xxx” 因此，只有当屏幕比典型的移动屏幕大一点时，悬停样式才会触发。很烦人的是我们必须这样做，但是没关系。  现在，如果您也在为 iPad 进行设计，该怎么办？ 使用支持悬停的媒体查询没有帮助，因为许多触摸屏实际上支持悬停并会触发它。你的方法是什么？   由   提交 /u/Antaratma   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1639aq0/how_does_everyone_deal_with_onhover_styles_at/</guid>
       <pubDate>Mon, 28 Aug 2023 02:09:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>简单的数据库操作前端框架</title>
-      <link>https://www.reddit.com/r/webdev/comments/16382fi/easy_database_manipulation_frontend_framework/</link>
-      <description><![CDATA[有谁知道任何框架提供这样的功能：当表单最初呈现时，它从数据库获取值，并且如果文本框值是更新了，数据库也更新了吗？实时订阅也很好。  伪代码： class PersonForm { init(database, int personID) { Person person = database.person.get(personID) } render() { return Col([ TextBox(label=“名字”, linkedValue=person.name) TextBox(label=“姓氏”, linkedValue=person.name) ]) } }  我不&#39;不想编写一堆 onTextBoxChange 和 onTextBoxLoad 方法   由   提交/u/lectrician1  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16382fi/easy_database_manipulation_frontend_framework/</guid>
-      <pubDate>Mon, 28 Aug 2023 01:13:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1637cpx/help/</link>
-      <description><![CDATA[&lt;表&gt;      I我是 Web 开发新手，由于某种原因，我的 css 样式页面无法在我的 html 页面上运行。我链接错误了吗？底部的错误我不知道它们是什么   由   提交/u/SIC_Mando66   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1637cpx/help/</guid>
-      <pubDate>Mon, 28 Aug 2023 00:40:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>分享一个想法</title>
-      <link>https://www.reddit.com/r/webdev/comments/16374cm/sharing_an_idea/</link>
-      <description><![CDATA[你好，我想问 好吧，首先我要告诉你我是如何发现这个名为 Pagodo 的 Google dork 的，你需要Python 使用它 然后，我想到了：一个网站如何让用户有机会直接在网页上使用 Dork，而不需要安装任何东西！  当然，需要进行一些设计调整，例如制作类似 google 的欢迎页面，但以 (pagodo + google) 的组合命名 sooo ？技术上可行吗？？？或者有人已经做到了吗？？？  感谢您的阅读，祝您有美好的一天！ 编辑：是否可以制作一个 chrome 扩展，将 Pagodo 搜索按钮添加到 Google 网站搜索栏附近？    由   提交 /u/MustardDinosaur   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16374cm/sharing_an_idea/</guid>
-      <pubDate>Mon, 28 Aug 2023 00:30:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>随着验证码慢慢变得过时（如果还没有），您预计机器人保护的下一个实践将会是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1636y8c/with_captchas_slowly_becoming_obsolete_if_not/</link>
-      <description><![CDATA[我相信你们中的许多人都听说过最近的研究并阅读过有关机器人现在能够轻松甚至甚至解决所有类型验证码的文章比人类更快。 这就引出了一个问题： 作为网络开发人员，我们现在做什么？我们如何保护我们的网站和 API 免受机器人和爬虫程序的侵害？有没有关于公司致力于替代解决方案的新闻或泄密？ 相关文章，以防您不了解情况： https://uk.pcmag.com/first-looks/148193 /bots-are-better-at-solving-captchas-than- humans-research-shows https://www.independent.co.uk/tech/captcha-test-bots-better- humans-b2389998.html   由   提交/u/waaat222  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1636y8c/with_captchas_slowly_becoming_obsolete_if_not/</guid>
-      <pubDate>Mon, 28 Aug 2023 00:23:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>我从哪里（重新）开始学习？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1636oas/where_do_i_restart_learning/</link>
-      <description><![CDATA[我在 1996 年学习了 HTML，后来又学习了 CSS。我在这两方面变得相对擅长。然而，由于我从事的是完全不相关的职业，所以我仍然很喜欢创建网站。我开始学习 PHP，并且是一名 Laravel 新手。 那么，我应该从哪里开始呢？我不打算从事任何相关的职业，但我希望能够根据我的想法创建网站。例如，我想创建一个从 Amazon API 获取定价的网站，但目前我不知道该怎么做。 我应该学习哪些语言以及以什么顺序学习？我想我可以在空闲时间学习一些 UDemy 课程。   由   提交 /u/ChrisF79   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1636oas/where_do_i_restart_learning/</guid>
-      <pubDate>Mon, 28 Aug 2023 00:10:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何制作我的产品的“酷”讲解视频？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1636o51/how_do_i_make_those_cool_explainer_videos_of_my/</link>
-      <description><![CDATA[在周六的展示会上，我总是看到一些非常令人难以置信的产品，我很好奇人们如何制作那些摄像机“跟随”的解释视频和“放大”当光标在网站上移动时，总会有一个不错的“点击”声。对任何东西都有声音效果。该网站还有一个很好的“渐变”当这一切发生时，背景。 我知道我很困惑，但是有人知道有一个软件可以做到这一点/如何做到这一点吗？或者只是很好的编辑？   由   提交 /u/Altruistic-Cat5042    reddit.com/r/webdev/comments/1636o51/how_do_i_make_those_cool_explainer_videos_of_my/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1636o51/how_do_i_make_those_cool_explainer_videos_of_my/</guid>
-      <pubDate>Mon, 28 Aug 2023 00:10:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>对 sass 和编译非常困惑，以及为什么首先会有实时 sass 编译器。这只是为了开发目的吗？就像生产站点上不应该发生任何实时 sass 编译一样，对吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1634jt9/very_confused_about_sass_and_compiling_and_why/</link>
-      <description><![CDATA[我是 sass 新手，可能是因为我遇到了大量错误并且有很多东西需要修复，看起来就像这样需要做很多工作，但是到了可以运行 npm run dev 来编译 sass 的地步，编译 sass 文件似乎需要做很多工作，而我本来可以在 10 秒内完成其他地方的工作。如果我知道事情的来龙去脉以及最终结果会是什么，我就会这么做。我只是想确保我没有遗漏什么。  实时编译只是为了让您可以快速开发，然后一旦完成，您可能会编译它并在生产站点中使用 css，对吧？或者我还缺少其他东西吗？这看起来确实是一个非常合理的理由，但对于我认为看起来相当简单但显然并非如此的事情，似乎仍然需要做很多事情。我还在学习，正如我所说，不要恨太多。   由   提交 /u/drippyneon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1634jt9/very_confused_about_sass_and_compiling_and_why/</guid>
-      <pubDate>Sun, 27 Aug 2023 22:41:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要建议：为我指明创建仪表板网站时应使用的技术的正确方向</title>
-      <link>https://www.reddit.com/r/webdev/comments/1634ckz/advice_needed_point_me_in_the_right_direction_for/</link>
-      <description><![CDATA[嗨，正在寻找有人为我指明正确的方向，使用哪些技术/堆栈/服务来构建一个网站，该网站主要是一系列带有一些控件的图表，例如过滤数据集、更改时间范围等。外观确实很重要，我正在寻找看起来不错的 OOTB 的东西。  一旦指明了正确的方向，我就可以从那里开始研究和学习，只需要一些帮助即可开始。我想我主要不确定什么是好的图表库，以及我是否需要一个单独的解决方案来存储数据点。  我的经验水平：10 年前我构建了几个网站并使用了 JQuery。我积极进行 C++ 编程。    由   提交 /u/sevendeadlytrolls   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1634ckz/advice_needed_point_me_in_the_right_direction_for/</guid>
-      <pubDate>Sun, 27 Aug 2023 22:33:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Web 开发人员，CSS-in-JS 正在毁掉你的产品</title>
-      <link>https://www.reddit.com/r/webdev/comments/1633of8/web_developers_cssinjs_is_ruining_your_product/</link>
-      <description><![CDATA[ 由   提交/u/zxyzyxz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1633of8/web_developers_cssinjs_is_ruining_your_product/</guid>
-      <pubDate>Sun, 27 Aug 2023 22:07:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人用 JavaScript 制作游戏或有兴趣这样做吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1633535/anyone_making_games_in_javascript_or_interested/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1633535/anyone_making_games_in_javascript_or_interested/</guid>
-      <pubDate>Sun, 27 Aug 2023 21:46:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>还有 webdev 启动想法吗？感觉就像每一个产品/服务都已经建立了。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1632ah4/is_there_even_any_webdev_startup_idea_left_it/</link>
-      <description><![CDATA[标题   由   提交/u/Notalabel_4566   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1632ah4/is_there_even_any_webdev_startup_idea_left_it/</guid>
-      <pubDate>Sun, 27 Aug 2023 21:14:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>在支持视网膜功能的 MacBook 上录制产品视频是否比在一些破旧的笔记本电脑上录制的视频质量更好？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1631uwp/does_recording_a_product_video_on_a_retinaenabled/</link>
-      <description><![CDATA[标题。   由   提交 /u/Andrew_Mushino   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1631uwp/does_recording_a_product_video_on_a_retinaenabled/</guid>
-      <pubDate>Sun, 27 Aug 2023 20:58:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
