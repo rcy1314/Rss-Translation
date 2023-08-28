@@ -4,13 +4,83 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 28 Aug 2023 09:17:28 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Aug 2023 12:32:13 GMT</lastBuildDate>
     <item>
-      <title>需要使用 @angular/fire 和 NX monorepo 在 Angular 16 中登录 Google 的帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/163gtm9/need_help_with_google_signin_in_angular_16_using/</link>
-      <description><![CDATA[我正在尝试使用 @angular/fire 和 firebase 在使用 NX 构建的 Angular 16 应用程序中（类似于 learna ）。我已成功设置 @angular/fire 并且 signInWithEmailAndPassword 方法工作得很好。但是，当我尝试在 AngularFireAuth.signInWithPopup() 方法中使用 GoogleAuthProvider 时，出现以下错误：  error FirebaseError: Firebase: Error (auth/argument-错误）。在 createErrorInternal (index-e3d5d3f4.js:497) 在 _fail (index-e3d5d3f4.js:468) 在 _assertInstanceOf (index-e3d5d3f4.js:484) 在模块。 (index-e3d5d3f4.js:8480) 在 Generator.next () 在 asyncGeneratorStep (asyncToGenerator.js:3) 在 _next (asyncToGenerator.js:22) 在 asyncToGenerator.js:27 在新的 ZoneAwarePromise (zone.js) :1411)  我正在使用的代码： ```tsx import { ChangeDetectionStrategy, Component } from &#39;@angular/core&#39;;从“@Angular/router”导入{ActivatedRoute，Router}；从 &#39;@angular/forms&#39; 导入 { FormBuilder、FormControl、FormGroup、Validators、}；从 &#39;@angular/fire/compat/auth&#39; 导入 { AngularFireAuth }；从 &#39;firebase/auth&#39; 导入 { GoogleAuthProvider }； /** * 我尝试过的其他导入： * * import { GoogleAuthProvider } from &#39;@angular/fire/auth&#39; * import { GoogleAuthProvider } from &#39;@firebase/auth&#39;; * */ 从&#39;@activepieces/ui/common&#39;导入{ AuthenticationService, fadeInUp400ms, OdinService, };从 &#39;rxjs&#39; 导入 { Observable, catchError, tap, map, of };从 &#39;@angular/common/http&#39; 导入 { HttpClient }；接口 SignInForm { 电子邮件：FormControl&lt;字符串&gt;;密码：FormControl&lt;字符串&gt;； @Component({ templateUrl: &#39;./sign-in.component.html&#39;, styleUrls: [&#39;./sign-in.component.scss&#39;], 动画: [fadeInUp400ms], changeDetection: ChangeDetectionStrategy.OnPush, }) 导出类 SignInComponent { 登录表单：FormGroup;显示无效电子邮件或密码消息 = false;加载=假； authenticate$: Observable; |不明确的;构造函数（私有路由器：路由器，私有路由：ActivatedRoute，私有formBuilder：FormBuilder，公共afAuth：AngularFireAuth，私有authenticationService：AuthenticationService，公共http：HttpClient）{ this.loginForm = this.formBuilder.group（{电子邮件：new FormControl（&#39; &#39;, { nonNullable: true, 验证器: [Validators.required, Validators.email], }), 密码: new FormControl(&#39;&#39;, { nonNullable: true, 验证器: [Validators.required], }), } ）； } signInWithGoogle() { this.afAuth .signInWithPopup(new GoogleAuthProvider()) .then((res) =&gt; { console.log(&#39;res: &#39;, res); }) .catch( (err) =&gt; { console.log(&#39;错误&#39;, err); }); } signIn(): void { if (this.loginForm.valid &amp;&amp; !this.loading) { this.loading = true; } this.showInvalidEmailOrPasswordMessage = false; const request = this.loginForm.getRawValue(); this.authenticate$ = OdinService.signInWithOdin( request, this.http, this.afAuth ).pipe( catchError(() =&gt; { this.showInvalidEmailOrPasswordMessage = true; this.loading = false; return of(null); }) , tap((response) =&gt; { if (response) { this.authenticationService.saveUser(response); this.redirectToBack(); } }), map(() =&gt; void 0) ); } } redirectToBack() { const redirectUrl = this.route.snapshot.queryParamMap.get(&#39;redirect_url&#39;); if (redirectUrl) { this.router.navigateByUrl(decodeURIComponent(redirectUrl)); } else { this.router.navigate([&#39;/flows&#39;]); } } } ``` 有人可以帮助我吗？谢谢！   由   提交 /u/wise_introvert   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163gtm9/need_help_with_google_signin_in_angular_16_using/</guid>
-      <pubDate>Mon, 28 Aug 2023 08:56:54 GMT</pubDate>
+      <title>从零到英雄：通过 5 个简单步骤在 AWS 上构建 React 应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/163kub0/from_zero_to_hero_building_react_app_on_aws_in_5/</link>
+      <description><![CDATA[       由   提交 /u/KonradFreeman   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163kub0/from_zero_to_hero_building_react_app_on_aws_in_5/</guid>
+      <pubDate>Mon, 28 Aug 2023 12:31:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我需要不同的高度而不是固定的高度</title>
+      <link>https://www.reddit.com/r/webdev/comments/163k7ru/i_need_different_heights_not_fixed_ones/</link>
+      <description><![CDATA[     &lt; /td&gt; ^  &amp; #32；由   提交/u/Time-Coat4402  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163k7ru/i_need_different_heights_not_fixed_ones/</guid>
+      <pubDate>Mon, 28 Aug 2023 12:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>通用可视化 CSS 编辑器</title>
+      <link>https://www.reddit.com/r/webdev/comments/163k71d/generic_visual_css_editor/</link>
+      <description><![CDATA[日安， 是否有任何（最好是开源的）可视化 css 编辑器可以插入任何前端并输出 css保存时？ 类似于 WordPress 的 YellowPencil 谢谢。   由   提交/u/wintermute-89  /u/wintermute-89  reddit.com/r/webdev/comments/163k71d/generic_visual_css_editor/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163k71d/generic_visual_css_editor/</guid>
+      <pubDate>Mon, 28 Aug 2023 12:00:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>您最喜欢的自动标记和发布前端代码的库？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163jjlo/your_favorite_library_to_auto_tag_and_release/</link>
+      <description><![CDATA[所以我目前正在研究版本控制前端应用程序的主题，不幸的是每个人都有不同的方法，所以我只想使用 npm 库来避免使用一个最终不会起作用的解决方案（由于太多的黑客行为）。所以我的问题是 - 到目前为止你最喜欢什么？  （如果可行的话，也应该可以通过js/ts读取前端应用程序中的版本）   由   提交/u/Kaimura  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163jjlo/your_favorite_library_to_auto_tag_and_release/</guid>
+      <pubDate>Mon, 28 Aug 2023 11:28:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>当内容图像密集时，您在哪里可以免费为 SSG 网站提供主机图像？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163jels/where_do_you_free_host_images_for_your_ssg/</link>
+      <description><![CDATA[我已经阅读了一些有关 SSG 的内容，但尚未弄清楚当您使用 Github Pages 或 Cloudflare Pages 时，图像或资产的托管位置。我几乎肯定我错了，但我认为最佳实践是它们只是托管代码或渲染的页面和图像是外部加载的？ 我有一个“小”的项目。私人博物馆，现在只有几百页，有可能达到数万页。每个对象都有自己的 html 页面，每个对象有 3 到 10 张照片。我不确定将它们托管在 GitHub 上是否是一个很好的做法，即使我进一步优化它们到最大程度。我知道 Neflify 托管这些资产（以及带宽配额）。 那么，如果您有一个图像资源密集型平面网站，您在哪里托管它们？  &gt;（当我对如何进行网络开发有更好的了解时，我最终会更愿意转向付费/专业解决方案，但目前这主要是一个学习练习。）    由   提交/u/mata-caes  /u/mata-caes  reddit.com/r/webdev/comments/163jels/where_do_you_free_host_images_for_your_ssg/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163jels/where_do_you_free_host_images_for_your_ssg/</guid>
+      <pubDate>Mon, 28 Aug 2023 11:21:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>菜鸟问题，文字新闻与网络开发。</title>
+      <link>https://www.reddit.com/r/webdev/comments/163j7gn/noob_question_word_press_vs_web_dev/</link>
+      <description><![CDATA[大家好，我会尽快讲完。我正在寻找副业并考虑网络开发。我住在北非，希望在本地和远程工作。我了解到数以亿计的网站都在使用 WordPress，它可以让你创建一个像样的网站。如果是这样，这是否会降低网络开发技能的价值？或者至少缩小潜在客户的市场？   由   提交/u/LiamSi00   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163j7gn/noob_question_word_press_vs_web_dev/</guid>
+      <pubDate>Mon, 28 Aug 2023 11:11:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>上传图像、托管、使用 SaaS/PaaS 或如何部署第一个 NextJS 应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/163hx3u/uploading_images_hosting_using_saaspaas_or_how_to/</link>
+      <description><![CDATA[      大家好， 请耐心等待我我对此很陌生。当然我尝试过研究，但我不知道我需要什么才能获得更多信息。 序言：到目前为止，我一直在使用 HTML/CSS/JS 和 Wordpress 制作基本网站。这很简单，因为我必须将文件上传到 Namecheap/GoDaddy 的 public_html 文件夹并完成所有操作。 现在我正在制作 NextJS 应用程序，但我有点迷失，因此为什么我需要您的帮助。让我惊讶的是，您需要至少 3 个具有三种不同定价模型的不同平台才能从头开始设置所有内容。 该应用程序是电子商务产品的基本管理仪表板。没有支付系统（这是客户的愿望，所以这对我来说更容易）。 总共大约有 10 个产品，每个产品有 3-4 张图片。我使用 MongoDB 作为数据库。根据教程和建议，我应该使用 S3 来存储图像，并使用 Digital Ocean Droplet 来稍后部署应用程序。 这是正确的方法吗？稍后客户应该注册 Atlas (MongoDB)、AWS 和 Digital Ocean？我正在查看 Digital Ocean 的定价计算器，他们已经提供 MongoDB 和 S3。 ​ 我应该选择这个还是分别注册，并仅从 Digital Ocean 获取虚拟机？ 在最好的情况下，客户预计不会有太多流量，比如说每月 5000 到 10000 次访问。产品不会定期更新，最多每月更新两次，因此不会对数据库和存储进行大量操作。图像总共约为 100 MB。 我不清楚的另一件事是，VM 选项仅涵盖文件的存储吗？就像我需要上传静态图像（徽标和元素）一样。它应该位于存储桶中还是应用程序文件的一部分中？ ​ 512 MiB 计划能否满足这些需求，或者我需要更大的计划？ 也许我还没有&#39;没有选择正确的服务/平台？你能指出我要寻找什么吗？或者我的方向是正确的？ 非常感谢！ ​   由   提交/u/koevh  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163hx3u/uploading_images_hosting_using_saaspaas_or_how_to/</guid>
+      <pubDate>Mon, 28 Aug 2023 10:00:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让 css 过滤器不应用于背景图像？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163hu2l/how_do_i_get_css_filter_to_not_apply_to/</link>
+      <description><![CDATA[ 由   提交/u/QuackAttack206  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163hu2l/how_do_i_get_css_filter_to_not_apply_to/</guid>
+      <pubDate>Mon, 28 Aug 2023 09:55:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Cpanel 托管中部署 Python Webapp</title>
+      <link>https://www.reddit.com/r/webdev/comments/163hmcf/deploy_python_webapp_in_cpanel_hosting/</link>
+      <description><![CDATA[    &lt; /a&gt;   由   提交/u/pinto2198  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163hmcf/deploy_python_webapp_in_cpanel_hosting/</guid>
+      <pubDate>Mon, 28 Aug 2023 09:42:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>从 Facebook/Instagram/Meta 获取公共内容</title>
+      <link>https://www.reddit.com/r/webdev/comments/163hc2n/fetching_public_content_from_facebookinstagrammeta/</link>
+      <description><![CDATA[你好， 在 RestAPI 方面我还是个新手（甚至不确定这是否正确） sub lol）所以这里是：所以基本上我需要利用meta的Graph API来获取页面上的信息（例如印象数/参与度指标/等）到目前为止我在网上找到的所有信息都与获取广告有关个人页面上的活动洞察、业务页面上的客户分析等并不是我特别需要的。  ​ 在文档中找到了这个：https://developers.facebook.com/docs/features-reference/page-public-content-access#additional-details 并想使用它。然而，在创建和验证业务帐户并在 Meta for Developers 上创建应用程序后，它仍然不允许我获取任何内容，所以我有点不知所措，并且很确定在某个地方有更简单的方法。任何帮助，将不胜感激。    由   提交/u/Nimueh98  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163hc2n/fetching_public_content_from_facebookinstagrammeta/</guid>
+      <pubDate>Mon, 28 Aug 2023 09:26:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们使用过网站到应用程序解决方案吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/163h77x/have_you_guys_used_website_to_app_solutions/</link>
+      <description><![CDATA[最近我询问了有关如何制作  的反馈我的网站获得了更多用户，建议之一是将其打造为移动应用程序。我没有任何移动设备开发经验，但该网站具有响应能力，因此它肯定可以在移动设备上运行。很巧的是，之后我看到有人分享了一个将网站改造成应用程序的解决方案。你对此有什么经验？对于没有性能要求的应用程序是否流畅？市场上最好的选择是什么？谢谢。   由   提交/u/Cold_Complex945   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/163h77x/have_you_guys_used_website_to_app_solutions/</guid>
+      <pubDate>Mon, 28 Aug 2023 09:18:45 GMT</pubDate>
     </item>
     <item>
       <title>向受访者询问什么？</title>
@@ -39,76 +109,6 @@
       <description><![CDATA[为完整的 Web 项目（策略、设计、开发等）编写提案时。您在提案中提到了一个范围吗？还是固定价格？ 我过去一直使用固定价格（基于价值的定价），我想知道你的意见是什么，客户告诉我他们有大约 5k 可以花，但过了一会儿他们告诉我他们的预算不能超过一万。所以我现在的想法是把价格定在6、7k，因为我真的很想要这个项目！这是我的目标客户群中的一个大客户。   由   提交 /u/miguste   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/163eqky/price_proposalestimate_fixed_price_or_range/</guid>
       <pubDate>Mon, 28 Aug 2023 06:52:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>网格和 Flexbox - 4 个视觉教具</title>
-      <link>https://www.reddit.com/r/webdev/comments/163dxpx/grid_flexbox_4_visual_aids/</link>
-      <description><![CDATA[       由   提交 /u/myvortexlife   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163dxpx/grid_flexbox_4_visual_aids/</guid>
-      <pubDate>Mon, 28 Aug 2023 06:07:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>前端问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/163dp1j/frontend_problem/</link>
-      <description><![CDATA[大家对 htmx 有何看法，我已经在 django 项目上工作了一段时间，我最初计划使用 React 前端，但最初我使用html模板只是为了确保它能工作，现在我已经考虑放弃react而转向htmx，我不会说我是一个全栈开发人员，但我之前使用过react，我觉得htmx和tailwind可能是一个更简单的路线&lt; /p&gt;   由   提交/u/Ok-master7370   /u/Ok-master7370 reddit.com/r/webdev/comments/163dp1j/frontend_problem/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163dp1j/frontend_problem/</guid>
-      <pubDate>Mon, 28 Aug 2023 05:54:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我对此很陌生，所以请对我宽容一些。我的外部 CSS 不起作用。我缺少什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/163c40i/im_new_to_this_so_plz_go_easy_on_me_my_external/</link>
-      <description><![CDATA[    /u/BraindeadYetFocused   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163c40i/im_new_to_this_so_plz_go_easy_on_me_my_external/</guid>
-      <pubDate>Mon, 28 Aug 2023 04:27:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找一个使用自定义 CSS 渲染 Markdown 表的工具</title>
-      <link>https://www.reddit.com/r/webdev/comments/163c29m/looking_for_a_tool_to_render_markdown_table_with/</link>
-      <description><![CDATA[各位 Reddit 用户大家好！ 我为我女儿的花样滑冰练习时间表创建了一个 Markdown 表格，并且我已经还编写了一些自定义 CSS 来设置其样式。我正在寻找一个工具或平台，允许我使用应用的自定义 CSS 来呈现此 Markdown 表格。理想情况下，它应该是用户友好的，并支持广泛的 CSS 属性。 这是 Markdown 表格的片段： |日 |热身 1（跳绳）|热身 2（平衡板）|热身 3（伸展）|主要练习| |------|-------------------------------------|---------------- ----------|--------------------|------------------------| |星期一 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 | |周二 | 50 次 | 30 多岁 | 1 分钟 |弓步：20 次 | |周三 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 | |星期四 | 50 次 | 30 多岁 | 1 分钟 |弓步：20 次 | |周五 | 50 次 | 30 多岁 | 1 分钟 |螺旋：1 次 30 秒 X10 次 |  CSS： .markdown-content table { ... 背景颜色：红色； ... }  您对可以使用自定义 CSS 渲染此内容的工具或平台有什么建议吗？任何意见或建议将不胜感激！   由   提交/u/marksteve4  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163c29m/looking_for_a_tool_to_render_markdown_table_with/</guid>
-      <pubDate>Mon, 28 Aug 2023 04:24:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于 Docker 化的 Payload CRM，我应该运行 MinIO 还是直接将上传内容保存到 docker 上的卷？</title>
-      <link>https://www.reddit.com/r/webdev/comments/163bmiu/for_dockerized_payload_crm_should_i_run_minio_or/</link>
-      <description><![CDATA[在同一个 docker 上的另一个容器中使用 MinIO 似乎很自然，但为了简单起见，我也想将网站图像托管在同一位置，有点像 但我知道 MinIO 和其他 S3 兼容系统使用特定的文件名系统，这可能与将持有者视为仅使用 Nginx 公开的 CDN 发生冲突？   由   提交 /u/lorenzomofo   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163bmiu/for_dockerized_payload_crm_should_i_run_minio_or/</guid>
-      <pubDate>Mon, 28 Aug 2023 04:02:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>定价计划问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/163bjzm/pricing_plan_question/</link>
-      <description><![CDATA[嘿，开发者们。我正在创办一家网站设计公司，并遇到了定价问题。现在我是一个人表演。我不喜欢制定不同的定价计划，因为有时与客户交谈时我会感到困惑。我曾经在一家利基网站开发公司工作，他们为 5 个寻呼机收取 600 美元，外加一个登陆页面，然后他们每月收取 200 美元用于 seo、图片更改和每月完成的一些小事情。  &lt;我想将这个想法复制到我公司的定价计划中。由于是一个人表演，我想做商业网站，5 个页面，预付费用，然后每月 200 美元，签订 6 个月的合同。 你这可能吗？我知道有些公司只收取固定的月费   由   提交/u/helpmeoutplease920  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163bjzm/pricing_plan_question/</guid>
-      <pubDate>Mon, 28 Aug 2023 03:58:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>在多台机器上编码，您会选择什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/163biit/coding_on_multiple_machines_whats_your_go_to/</link>
-      <description><![CDATA[可能不是这里最有趣的帖子，但我遇到了一个奇怪的情况，我发现自己在家里的 3 台不同的机器上。我主要使用 Visual Studio Code 和 JavaScript 编写 C++ (Arduino)、C# 和 JavaScript 代码。 Visual Studio 2022。 当我必须招待无法摆脱的客人（姻亲）时，我会在客厅使用 MacBook 工作。大多数时候，我在办公室的桌面上工作，这是我完成大部分编码的地方。有时我必须在卧室里工作，那里有第三台桌面，因为我的老狗讨厌呆在我的办公室里。 （我试着给她带来床，并用她没有的零食贿赂她，哈哈） 在多台机器上工作的解决方案是什么？我通常只是通过 RDP 连接到我的主计算机并从那里工作，但速度相当慢。我曾经也在 EC2 机器上工作，但速度更慢。我确实使用 git 分支，但是它会来回推送数据来移动机器吗？我家里也有一个 NAS 系统，我一直在考虑用它来集中所有数据，但它主要用于备份 Time Machine。  &amp;# 32；由   提交 /u/manpearpig   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163biit/coding_on_multiple_machines_whats_your_go_to/</guid>
-      <pubDate>Mon, 28 Aug 2023 03:56:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>具有会员功能的 WordPress 替代品？</title>
-      <link>https://www.reddit.com/r/webdev/comments/163ag4v/alternative_to_wordpress_with_membership_feature/</link>
-      <description><![CDATA[我使用 WordPress 一段时间了，作为一名开发人员，我害怕使用它来创建内容。我使用它的主要原因是它简单并且具有我需要的功能。我还将列出一些我不喜欢 WordPress 的原因：  作为开发人员，我喜欢在 IDE 中编写代码。我还在同一个 IDE 中用 Markdown 编写了一些页面，这一切感觉都是一种流畅的体验。另一方面，WordPress 编辑器感觉迟钝、缓慢，而且不太好。 也许我不知道在 WordPress 中实现这一点的最佳方法，但感觉模板极其不直观或不可能。我的意思是：我有一个页面格式，我将在所有课程页面中使用它。在页面底部，我将始终有一个摘要部分，我将在其中总结页面。 或 假设我有一个代码框组件，我想用它来显示内部代码用户。我为此组件设置了一些特定属性，但当然，我希望始终能够提供代码内容，而不影响现有的其他组件。  这些原因可能不会很好，或者甚至可能有办法在仍在使用 WordPress 的同时处理这些问题，但我觉得还有很多其他原因让我想切换。我不确定我是否能让 WordPress 达到我积极享受使用该系统而不用恐惧的程度。  我正在寻找的主要功能是会员资格，即将内容锁定在付费专区后面，但我无法通过其他常见建议的替代方案找到该功能。我有一个网站，我想将一些页面和可下载文件锁定在付费专区后面，要求用户达到一定级别才能访问。 现在我只是一名游戏开发者，所以我的Web 开发知识不是很好。尽管如此，我能够遵循教程，通常理解别人代码的逻辑，并最终识别模式并在代码库中取得一些进展。我主要使用 TypeScript，但同样是在游戏开发领域，而不是 Web 开发领域。我对 HTML / CSS 也有足够的了解，可以让事情顺利进行。 到目前为止，我设法使用的“最佳”替代方案是 Strapi，我认为这对我来说是完美的，直到我开始实施用户身份验证。有一个关于设置用户身份验证以及使用 React 的公共教程，我能够遵循该教程并开始工作，但最终 Strapi 觉得它不会成为解决方案。  我觉得我对 Strapi 太无知，无法成为我可以完全投资的解决方案，除非我想花大量时间来真正学习 Strapi 和其他网络开发基础知识。 1-2 天后我就放弃了 Strapi，因为在那段时间我也在尝试其他替代方案，感觉我一直发现自己又回到了 WordPress。 TLDR：是否有任何 WordPress 替代方案没有太多学习曲线很长，或者实际上要求您已经成为一名 Web 开发人员并且还具有用户身份验证/会员功能？   由   提交 /u/MonzterSlayer   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/163ag4v/alternative_to_wordpress_with_membership_feature/</guid>
-      <pubDate>Mon, 28 Aug 2023 03:03:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>用过滤器取代高级搜索的 7 个理由，以便用户可以轻松找到他们需要的内容</title>
-      <link>https://www.reddit.com/r/webdev/comments/1639mn6/7_reasons_to_replace_advanced_search_with_filters/</link>
-      <description><![CDATA[       由   提交/u/raiderrobert   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1639mn6/7_reasons_to_replace_advanced_search_with_filters/</guid>
-      <pubDate>Mon, 28 Aug 2023 02:25:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>每个人如何处理小视口和大触摸屏上的悬停样式？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1639aq0/how_does_everyone_deal_with_onhover_styles_at/</link>
-      <description><![CDATA[我发现从触摸设备中删除任何悬停样式非常重要，因为如果您有任何类型的悬停，则快速触摸通常会被解释为悬停样式和应用程序会让您感觉经常需要触摸两次。我们可以使用 CSS 通过仅针对较大的断点附加 onhover 样式来实现此目的。但是，例如 iPad 等较大的触摸屏设备呢？ 假设您有一个按钮，您希望在悬停时改变颜色。为了确保它不会在移动设备上进行假悬停，我们可以这样做（为了简单起见，使用顺风）： “sm:hover:bg-xxx” 因此，只有当屏幕比典型的移动屏幕大一点时，悬停样式才会触发。很烦人的是我们必须这样做，但是没关系。  现在，如果您也在为 iPad 进行设计，该怎么办？ 使用支持悬停的媒体查询没有帮助，因为许多触摸屏实际上支持悬停并会触发它。你的方法是什么？   由   提交 /u/Antaratma   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1639aq0/how_does_everyone_deal_with_onhover_styles_at/</guid>
-      <pubDate>Mon, 28 Aug 2023 02:09:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
