@@ -1,30 +1,34 @@
 import configparser
-import os
-import sys
-from urllib import parse
-import hashlib
 import datetime
+import hashlib
+import os
 import time
+from urllib import parse
+from urllib.parse import urlparse
+
 import feedparser
-from bs4 import BeautifulSoup
-from mtranslate import translate
-from jinja2 import Template
 import requests
+from bs4 import BeautifulSoup
+from jinja2 import Template
+from mtranslate import translate
+
 
 def get_md5_value(src):
-    _m = hashlib.md5()
-    _m.update(src.encode(encoding='utf-8'))
+    _m = hashlib.sha256()
+    _m.update(src.encode(encoding="utf-8"))
     return _m.hexdigest()
+
 
 def getTime(e):
     try:
         struct_time = e.published_parsed
-    except:
+    except AttributeError:
         struct_time = time.localtime()
     return datetime.datetime(*struct_time[:6])
 
+
 class BingTran:
-    def __init__(self, url, source='auto', target='zh-CN'):
+    def __init__(self, url, source="auto", target="zh-CN"):
         self.url = url
         self.source = source
         self.target = target
@@ -42,6 +46,9 @@ class BingTran:
                 title = self.tr(entry.title)
             except:
                 title = ""
+            parsed_link = urlparse(entry.link)
+            if not all([parsed_link.scheme, parsed_link.netloc]):
+                continue
             link = entry.link
             description = ""
             try:
@@ -51,43 +58,59 @@ class BingTran:
                     description = self.tr(entry.content[0].value)
                 except:
                     pass
-            guid = entry.link
+            guid = link
             pubDate = getTime(entry)
-            one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pubDate}
+            one = {
+                "title": title,
+                "link": link,
+                "description": description,
+                "guid": guid,
+                "pubDate": pubDate,
+            }
             if guid not in item_set:  # 判断是否重复
                 item_set.add(guid)
                 item_list.append(one)
             if len(item_list) >= max_item:  # 判断是否达到最大项目数
                 break
-        sorted_list = sorted(item_list, key=lambda x: x['pubDate'], reverse=True)
+        sorted_list = sorted(item_list, key=lambda x: x["pubDate"], reverse=True)
         feed = self.d.feed
         try:
             rss_description = self.tr(feed.subtitle)
         except AttributeError:
-            rss_description = ''
-        newfeed = {"title":self.tr(feed.title), "link":feed.link, "description":rss_description, "lastBuildDate":getTime(feed), "items":sorted_list}
+            rss_description = ""
+        newfeed = {
+            "title": self.tr(feed.title),
+            "link": feed.link,
+            "description": rss_description,
+            "lastBuildDate": getTime(feed),
+            "items": sorted_list,
+        }
         return newfeed
 
+
 def update_readme(links):
-    with open('README.md', "r+", encoding="UTF-8") as f:
+    with open("README.md", "r+", encoding="UTF-8") as f:
         list1 = f.readlines()
     list1 = list1[:13] + links
-    with open('README.md', "w+", encoding="UTF-8") as f:
+    with open("README.md", "w+", encoding="UTF-8") as f:
         f.writelines(list1)
+
 
 def tran(sec, max_item):
     # 获取各种配置信息
-    out_dir = os.path.join(BASE, get_cfg(sec, 'name'))
     xml_file = os.path.join(BASE, f'{get_cfg(sec, "name")}.xml')
-    url = get_cfg(sec, 'url')
-    old_md5 = get_cfg(sec, 'md5') 
+    url = get_cfg(sec, "url")
+    old_md5 = get_cfg(sec, "md5")
     # 读取旧的 MD5 散列值
     source, target = get_cfg_tra(sec, config)
     global links
-    links += [" - %s [%s](%s) -> [%s](%s)\n" % (sec, url, (url), get_cfg(sec, 'name'), parse.quote(xml_file))]
+    links += [
+        " - %s [%s](%s) -> [%s](%s)\n"
+        % (sec, url, (url), get_cfg(sec, "name"), parse.quote(xml_file))
+    ]
     # 判断 RSS 内容是否有更新
     try:
-        r = requests.get(url)
+        r = requests.get(url, timeout=5)
         new_md5 = get_md5_value(r.text)
     except Exception as e:
         print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
@@ -97,16 +120,18 @@ def tran(sec, max_item):
         return
     else:
         print("Updating %s..." % sec)
-        set_cfg(sec, 'md5', new_md5)
+        set_cfg(sec, "md5", new_md5)
 
     # 调用 BingTran 类获取新的 RSS 内容
     try:
-        feed = BingTran(url, target=target, source=source).get_newcontent(max_item=max_item)
+        feed = BingTran(url, target=target, source=source).get_newcontent(
+            max_item=max_item
+        )
     except Exception as e:
         print("Error occurred when fetching RSS content for %s: %s" % (sec, str(e)))
         return
-    
-   # 处理 RSS 内容，生成新的 RSS 文件
+
+    # 处理 RSS 内容，生成新的 RSS 文件
     rss_items = []
     for item in feed["items"]:
         title = item["title"]
@@ -115,19 +140,28 @@ def tran(sec, max_item):
         guid = item["guid"]
         pubDate = item["pubDate"]
         # 处理翻译结果中的不正确的 XML 标记
-        soup = BeautifulSoup(description, 'html.parser')
+        soup = BeautifulSoup(description, "html.parser")
         description = soup.get_text()
         # 转义特殊字符
-        description = description.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
-        one = dict(title=title, link=link, description=description, guid=guid, pubDate=pubDate)
+        description = (
+            description.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+            .replace("'", "&#39;")
+        )
+        one = dict(
+            title=title, link=link, description=description, guid=guid, pubDate=pubDate
+        )
         rss_items.append(one)
 
     rss_title = feed["title"]
     rss_link = feed["link"]
     rss_description = feed["description"]
-    rss_last_build_date = feed["lastBuildDate"].strftime('%a, %d %b %Y %H:%M:%S GMT')
+    rss_last_build_date = feed["lastBuildDate"].strftime("%a, %d %b %Y %H:%M:%S GMT")
 
-    template = Template("""<?xml version="1.0" encoding="UTF-8"?>
+    template = Template(
+        """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
     <title>{{ rss_title }}</title>
@@ -144,21 +178,27 @@ def tran(sec, max_item):
     </item>
     {% endfor -%}
   </channel>
-</rss>""")
+</rss>"""
+    )
 
-    rss = template.render(rss_title=rss_title, rss_link=rss_link, rss_description=rss_description, rss_last_build_date=rss_last_build_date, rss_items=rss_items)
-
+    rss = template.render(
+        rss_title=rss_title,
+        rss_link=rss_link,
+        rss_description=rss_description,
+        rss_last_build_date=rss_last_build_date,
+        rss_items=rss_items,
+    )
 
     try:
         os.makedirs(BASE, exist_ok=True)
     except Exception as e:
         print("Error occurred when creating directory %s: %s" % (BASE, str(e)))
         return
-    
+
     # 如果 RSS 文件存在，则删除原有内容
     if os.path.isfile(xml_file):
         try:
-            with open(xml_file, 'r', encoding='utf-8') as f:
+            with open(xml_file, "r", encoding="utf-8") as f:
                 old_rss = f.read()
             if rss == old_rss:
                 print("No change in RSS content for %s" % sec)
@@ -166,45 +206,55 @@ def tran(sec, max_item):
             else:
                 os.remove(xml_file)
         except Exception as e:
-            print("Error occurred when deleting RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+            print(
+                "Error occurred when deleting RSS file %s for %s: %s"
+                % (xml_file, sec, str(e))
+            )
             return
 
     try:
-        with open(xml_file, 'w', encoding='utf-8') as f:
+        with open(xml_file, "w", encoding="utf-8") as f:
             f.write(rss)
     except Exception as e:
-        print("Error occurred when writing RSS file %s for %s: %s" % (xml_file, sec, str(e)))
+        print(
+            "Error occurred when writing RSS file %s for %s: %s"
+            % (xml_file, sec, str(e))
+        )
         return
 
     # 更新配置信息并写入文件中
-    set_cfg(sec, 'md5', new_md5)
-    with open('test.ini', "w") as configfile:
+    set_cfg(sec, "md5", new_md5)
+    with open("test.ini", "w") as configfile:
         config.write(configfile)
+
 
 def get_cfg(sec, name):
     return config.get(sec, name).strip('"')
 
+
 def set_cfg(sec, name, value):
     config.set(sec, name, '"%s"' % value)
+
 
 def get_cfg_tra(sec, config):
     cc = config.get(sec, "action").strip('"')
     target = ""
     source = ""
     if cc == "auto":
-        source = 'auto'
-        target = 'zh-CN'
+        source = "auto"
+        target = "zh-CN"
     else:
-        source = cc.split('->')[0]
-        target = cc.split('->')[1]
+        source = cc.split("->")[0]
+        target = cc.split("->")[1]
     return source, target
+
 
 # 读取配置文件
 config = configparser.ConfigParser()
-config.read('test.ini')
+config.read("test.ini")
 
 # 获取基础路径
-BASE = get_cfg("cfg", 'base')
+BASE = get_cfg("cfg", "base")
 try:
     os.makedirs(BASE)
 except:
@@ -216,11 +266,11 @@ secs = config.sections()
 
 links = []
 for x in secs[1:]:
-    max_item = int(get_cfg(x, 'max'))
+    max_item = int(get_cfg(x, "max"))
     tran(x, max_item)
 update_readme(links)
 
-with open('test.ini', "w") as configfile:
+with open("test.ini", "w") as configfile:
     config.write(configfile)
 
 YML = "README.md"
