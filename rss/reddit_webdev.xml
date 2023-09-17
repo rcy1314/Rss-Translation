@@ -4,7 +4,84 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 16 Sep 2023 21:14:18 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 17 Sep 2023 01:12:51 GMT</lastBuildDate>
+    <item>
+      <title>进入 Web 开发的课程推荐</title>
+      <link>https://www.reddit.com/r/webdev/comments/16knclq/course_recommendations_to_get_into_web_development/</link>
+      <description><![CDATA[我已经在数字营销领域工作了 2 年，从事付费广告、电子邮件营销、创建独特的登陆页面等各种工作。&lt; /p&gt; 我发现我最喜欢的是在 Wordpress 中工作。不仅是构建定制 LP，而且由于我的公司已经有 6 个多月没有 Web 开发人员了，因此我不得不自己找出一些小规模开发人员类型的东西。这引起了我的兴趣。  有人可以推荐一些我可以学习的课程来了解更多有关后端开发的知识吗？更多的是如何构建一个网站并维护它，一些编码等等。我希望能够为小型企业创建网站，维护它们等等。 愿意投资最多 500 美元任何可以帮助我入门的在线课程。有什么建议吗？   由   提交 /u/ksnatch   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16knclq/course_recommendations_to_get_into_web_development/</guid>
+      <pubDate>Sun, 17 Sep 2023 00:55:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在使用 JWT 和 cookie 时遇到问题。成功登录后，我将包含 JWT 的 httpOnly cookie 发送到客户端。然后，我向受保护的路由发出请求，我认为该路由应该将该 cookie 发送回服务器，但事实并非如此。</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kms52/i_am_having_trouble_with_jwt_and_cookies_i_am/</link>
+      <description><![CDATA[这在 Postman 上工作得很好，但我无法弄清楚我在前端做错了什么。  ​ Login.jsx：在表单提交时调用此 formSubmit 函数   async function formSubmit() { if (isValid) { const url = import.meta.env.VITE_DOMAIN + “/api/login”; const {用户名，密码} = getValues(); // 自定义获取函数 const response = wait fetchApi(url, &quot;POST&quot;, {用户名, 密码}); if (response?.success) { console.log(response); } } else { console.log(“错误”, 响应); } } }  自定义获取函数：  const fetchApi = async (url, method, body) =&gt; { try { const requestOptions = { mode: &quot;cors&quot;, method: method, headers: { &#39;Content-Type&#39;: &#39;application/json&#39;, },credentials: &quot;include&quot;, }; // 如果提供了 &#39;body&#39; 属性，则有条件地添加它 if (body) { requestOptions.body = JSON.stringify(body); } const res = 等待 fetch(url, requestOptions);让 resJSON = 等待 res.json();返回resJSON； } catch (err) { 返回错误; } }  我得到的响应告诉我成功了。因此，我尝试导航到名为仪表板的受保护测试路线。  const 仪表板 = () =&gt; { useEffect(() =&gt; { const res = async () =&gt; { const url = import.meta.env.VITE_DOMAIN + &quot;/api/test&quot;; // 尝试发布并获取 const req = wait fetchApi( url, &quot;GET&quot;); console.log(req); } res(); }, []) return ( &lt;布局&gt;  仪表板 TODO   ) } // ERROR 错误：“无法读取未定义的属性（读取“令牌”）”  这就是我的后端发生的事情 app.js app.use( cors({ origin: process.env.CLIENT_DOMAIN，凭证：true，}) ); app.use(logger(&#39;dev&#39;)); app.use(express.json()); app.use(express.urlencoded({ 扩展: false })); // 为传入的 cookies 设置解析器 app.use(cookieParser());  登录路由（为了清楚起见，进行了简化，这是在身份验证良好时发送的令牌）  if (user.isValidPassword(req.body) .password)) { constsignedToken = 等待signJWT(用户); return res .cookie(&quot;access_token&quot;,signedToken, { httpOnly: true, secure: process.env.NODE_ENV === &quot;生产&quot;, }) .status(200) .json({ success: true, message: &quot; ;登录成功”}); }  受保护的路由 router.get(&quot;/test&quot;, verifyRoute, async (req, res) =&gt; { res.json( { message: &quot;test&quot; }) })  中间件函数 verifyRoute  function verifyRoute(req, res, next) { console.log(req .cookies.access_token); // 未定义 const bearerHeader = req.cookies.access_token.token; if (typeof bearerHeader !== &quot;未定义&quot;) { const bearer = bearerHeader.split(&quot; &quot;); const bearerToken = 持有者[1]; // 将令牌添加到请求中 req.token = bearerToken;下一个（）; } else { res.sendStatus(401); } }  当我通过邮递员登录时，我会取回 cookie，并将其与请求一起发送到受保护的路由，一切正常。我不确定我在前端做错了什么，我无法弄清楚。谢谢你！    由   提交/u/_HotMessXpress_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kms52/i_am_having_trouble_with_jwt_and_cookies_i_am/</guid>
+      <pubDate>Sun, 17 Sep 2023 00:28:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>采访者和他们的自慰陷阱时刻。</title>
+      <link>https://www.reddit.com/r/webdev/comments/16km4x7/interviewers_and_their_autoerotic_gotcha_moments/</link>
+      <description><![CDATA[Tl:dr：许多可悲的失败者面试官只是在等待候选人犯一个小错误（相差一个）或没有犯下的陷阱时刻了解他们在晚上睡觉前打飞机的一种特定算法/概念。 在我的很多采访中，我感觉自己正在回答一个该死的机器人。没有来回，就像我正在对那些自动答录机说话一样。问题回答问题回答......然后循环重复。 最糟糕的是，即使事情大部分进展顺利，他们也在积极等待我犯一个小错误或无法回答一些他妈的愚蠢的理论问题，我最多可以在一小时内阅读并理解。这就像和一个正在等待你自证其罪的警察交谈。我的很多面试官都遇到过这样的情况，当我无法回答某个问题时，他们没有谈论这个问题，而是一直说我应该知道得更多。是的，你爸爸在创造你之前就应该更清楚。   由   提交/u/Notalabel_4566   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16km4x7/interviewers_and_their_autoerotic_gotcha_moments/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:58:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创造了一个猜资本游戏。有人可以指出可能的改进吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16klp1i/i_created_a_guess_the_capital_game_can_someone/</link>
+      <description><![CDATA[提前致谢。我创建了一个游戏来练习一些地理知识。我将进一步解释如何玩，但基本上你会得到一个国家并必须输入资本。它根据国家/地区的受欢迎程度、人口按难度排序...  存储库：FrancoCanzani/capitals-game ：一个简单的猜首都游戏（github.com）  部署：Capitals - 猜首都！    由   提交 /u/FrancoCanzani   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16klp1i/i_created_a_guess_the_capital_game_can_someone/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:37:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>存储帖子的 Author_id 或用户名？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16klo1h/store_author_id_or_username_for_posts/</link>
+      <description><![CDATA[大家好， 有人可以告诉我是否应该将author_id或用户名存储到帖子中吗？ &lt; p&gt;当我将下面的对象发送到后端时，它存储在 mongoDB 中 {author_id: &quot;xxx&quot;; ，标题：“xxx”，正文：“xxx”然后我需要对每一篇帖子的用户名（使用author_id查找）再发出一个请求。那么我基本上也应该从客户端发送用户名并将其保存在帖子的条目中吗？ 我还需要author_id吗？或者我应该只存储用户名？我想也许要请求用户的所有帖子..但仍然在这里我可以用我认为的用户名找到它们？ ​ 然后是第二个场景。我想在每个帖子中显示作者的个人资料图片。这里的工作流程是怎样的？  将图片全部存储在磁盘上，以及User Entry中图片的路径？然后，当请求所有帖子时，为每个帖子发出一个带有用户名的请求并获取路径并将其放入帖子中？  我希望这不是一个愚蠢的问题^^&#39; ​ ​ ​ ; ​   由   提交/u/Murii_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16klo1h/store_author_id_or_username_for_posts/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:36:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创建了一个用于开发、测试、优化和部署自动交易策略的平台</title>
+      <link>https://www.reddit.com/r/webdev/comments/16klj2k/i_made_a_platform_for_developing_testing/</link>
+      <description><![CDATA[多年来我一直对交易和金融充满热情。进入研究生院并学习如何开发软件系统后，我挑战自己构建一个简单、强大且易于使用的自动交易系统。 请记住，这是一个平台。不是“机器人”。不是算法。这是一个允许交易者定义自己的市场交易规则的平台。 我最引以为豪的一些功能包括： - 用于策略改进的基因优化引擎 - 人工智能支持的聊天允许您生成投资组合 - 回溯测试功能的速度 - 平台的纯粹可配置性 尚不支持实时交易（我是一名独立开发者，因此风险将是天文数字） ），但有一天，我渴望让任何人都可以成为自己的对冲基金😃 谢谢！    ;由   提交/u/NextGen-Trading   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16klj2k/i_made_a_platform_for_developing_testing/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:30:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>这个网站合法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kl3so/is_this_website_legit/</link>
+      <description><![CDATA[我看到了这个名为 sourcepack.dev 的网站。这是骗局吗？看起来太好了哈哈。有人用过这个吗？   由   提交 /u/thepragprog   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kl3so/is_this_website_legit/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:12:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>具有情感控制的高品质人工智能文本转语音服务</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kkg6a/high_quality_ai_texttospeech_service_with/</link>
+      <description><![CDATA[我为英语内容创建了文本转语音服务。链接如下：https://voicegen.org/。 TTS质量非常好（与Elevenlabs类似），还可以将情感放在括号中进行情感演讲，例如：“[愤怒]请走开！”。 因为我刚刚推出服务，我正在找人尝试一下。    由   提交 /u/ginger_turmeric   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kkg6a/high_quality_ai_texttospeech_service_with/</guid>
+      <pubDate>Sat, 16 Sep 2023 22:44:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该如何设置 Stripe 的付款流程？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kjvzc/how_should_i_setup_my_payment_flow_with_stripe/</link>
+      <description><![CDATA[我目前正在构建 SaaS，我想集成 Stripe 进行支付，但我不知道是否应该在登陆中实现逻辑页面网站或我的应用程序。这是我的用例的理想支付流程： - 登陆页面：用户选择计划 - 条带支付页面 - 用户使用表单创建帐户，因此我需要返回 - 用户可以登录到我的应用程序 登陆页面使用 Astro + 一些 React，您可以在其中访问付款页面（它有价格和付款链接），但 Atsro 是为静态页面制作的，我还需要发送Prisma 请求在我的数据库中创建用户帐户，这意味着我必须创建一个 back.  该应用程序位于 NextJS 中，并且已经进行了后台设置，但我可以在付款后将用户发送到其他网站吗？  我从未使用过 Stripe，也从未在两个站点之间设置过通信，我想做一些干净且安全的事情。   由   提交 /u/Tixarer   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kjvzc/how_should_i_setup_my_payment_flow_with_stripe/</guid>
+      <pubDate>Sat, 16 Sep 2023 22:21:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>GraphQL、内容和链接条目。</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kj5h9/graphql_contentful_and_linked_entries/</link>
+      <description><![CDATA[我在 r/contentful 中发布了此内容在他们的不和中，但没有人回答。希望这里有人有一些 GraphQL 经验来帮助指导我。玩弄一个简单的音乐博客，其中一种内容类型（即单个博客文章）是来自三个音乐服务的标题、描述、播放列表，然后是来自另一种内容类型的 10 首歌曲的集合。 我遇到的问题是如何将 10 首歌曲限制为博客文章内容类型。 如果我这样做： query {ongesPageCollection { items { title description applePlaylist SpotifyPlaylist youTubePlaylist } } SongCollection { items { SongTitle Artist appleMusic spotify youTube } } }  然后我看到了博客文章和所有歌曲。在 GraphQL 游乐场中，我需要做什么才能将歌曲内容类型视为博客文章的子项？链接条目的字段 ID 是 songsList。 API 和 GraphQL 对我来说是新事物，嵌套条目似乎是我难以理解的事情。我觉得内容指南更适合那些具有更多计算机科学思维的人，而我则更具设计思维。 非常感谢任何指导。   由   提交/u/the_natis   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kj5h9/graphql_contentful_and_linked_entries/</guid>
+      <pubDate>Sat, 16 Sep 2023 21:50:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>Next.js - 如何从中间件获取数据并在 API 路由中使用它？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kicr0/nextjs_how_to_get_data_from_middleware_and_use_it/</link>
+      <description><![CDATA[我在 middleware.js 中有这段代码： const { pathname } = request.nextUrl;尝试{ const token = request.cookies.get(“supabase-auth-token”)?.value ||无效的; const { data: { user }, } =等待supabase.auth.getUser(token); // 更多代码...  在我的 API 路由（Edge 运行时）中，我想重用 middleware.js 中的用户变量，而无需重新输入  &lt;代码&gt; const token = request.cookies.get(“supabase-auth-token”)?.value ||无效的; const { data: { user }, } =等待supabase.auth.getUser(token);  我需要访问当前用户的ID并将其保存在单独的数据库中，但我不知道如何做到这一点，也无法从文档中找到合适的解决方案。    由   提交/u/1chbinamin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kicr0/nextjs_how_to_get_data_from_middleware_and_use_it/</guid>
+      <pubDate>Sat, 16 Sep 2023 21:18:21 GMT</pubDate>
+    </item>
     <item>
       <title>为什么没有网站得到这样的开发？</title>
       <link>https://www.reddit.com/r/webdev/comments/16ki6ml/why_does_no_website_get_dev_like_that/</link>
@@ -32,83 +109,6 @@
       <description><![CDATA[       由   提交/u/Saura767  [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/16kgr5s/are_these_permissions_normal_for_an_extension/</guid>
       <pubDate>Sat, 16 Sep 2023 20:09:47 GMT</pubDate>
-    </item>
-    <item>
-      <title><按钮> 与 <a></title>
-      <link>https://www.reddit.com/r/webdev/comments/16kgfu0/button_vs_a/</link>
-      <description><![CDATA[何时使用哪个？我对 HTML 和 CSS 很陌生，即使在谷歌搜索时我也会得到很多不同的答案。 就像我的页面上有一个登录按钮，我应该使用按钮还是使用 a 标签并将其样式设置为按钮？ ELI5，什么时候使用哪个😄   由   提交/u/vinkzi   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kgfu0/button_vs_a/</guid>
-      <pubDate>Sat, 16 Sep 2023 19:56:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>[炫耀星期六]我制作了一个批量图像拉链，我计划为所有文件格式添加此选项！它可以 100% 离线且即时运行，没有任何大小限制。免费，无需帐户。</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kgf95/showoff_saturday_i_made_a_bulk_image_zipper_i/</link>
-      <description><![CDATA[   只需拖放您想要转换的任意数量的文件，它就会吐出为你拉一个拉链。  谢谢，请告诉我你的想法！ ​ https://i.redd.it/999jju9gaoob1.gif   由   提交 /u/ImportantDoubt6434   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kgf95/showoff_saturday_i_made_a_bulk_image_zipper_i/</guid>
-      <pubDate>Sat, 16 Sep 2023 19:55:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>嘿，我制作了这个简单的网站，它曾经完美地工作，但是当我尝试将文件放入文件夹中时，所有图像都损坏了，并且将所有内容放入文件夹后，项目选项卡出现错误“无法获取/home/homepage/projects.html”。有谁知道如何解决这一问题？</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kfwwd/hey_i_made_this_simple_website_which_used_to_work/</link>
-      <description><![CDATA[    /u/TrashSmells   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kfwwd/hey_i_made_this_simple_website_which_used_to_work/</guid>
-      <pubDate>Sat, 16 Sep 2023 19:33:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>有没有一个非常非常简单的新闻通讯工具？</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kf153/is_there_a_really_really_simple_newsletter_tool/</link>
-      <description><![CDATA[我正在创建一个博客，我希望访问者订阅邮件列表。每次我发布新博客时，我都想向我的受众发送一封电子邮件来宣布这一消息。  像 Mailchimp、Mailer Lite、ConvertKit 这样的工具似乎对此来说太复杂了。有没有更简单的工具或方法？预先感谢您:)   由   提交/u/alchemistInWhite  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kf153/is_there_a_really_really_simple_newsletter_tool/</guid>
-      <pubDate>Sat, 16 Sep 2023 18:54:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Firebase Auth 在 Angular 中进行安全用户身份验证 • 科学世界</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kf06g/secure_user_authentication_in_angular_using/</link>
-      <description><![CDATA[   /u/Another_Noob_69   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kf06g/secure_user_authentication_in_angular_using/</guid>
-      <pubDate>Sat, 16 Sep 2023 18:53:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>进行导航的“正确”方法是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kf00d/what_is_the_correct_way_to_do_a_nav/</link>
-      <description><![CDATA[我更喜欢 nav 方法，而且我最近使用的 ui 框架需要 ul 方法。这有点令人沮丧，但它让我思考。是否有技术原因让我更喜欢 ul 方法，而我不知道，或者它只是更成熟的方法？ 查看民意调查   由   提交 /u/Narkolleptika   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kf00d/what_is_the_correct_way_to_do_a_nav/</guid>
-      <pubDate>Sat, 16 Sep 2023 18:52:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 JS/TS 中不使用 let</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kezux/not_using_let_in_jsts/</link>
-      <description><![CDATA[我刚刚意识到，在我作为专业 FE swe（React、Next.js）的最后两年中，我可能曾经使用过 let 关键字和代码真正进入了制作阶段。我很少使用它，即使我使用它通常也会有点臭，这意味着我可能可以更好地实现它。一切都是常量。您在 JS 中声明变量的经验是什么？您认为为什么会是这样？   由   提交/u/mato369  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kezux/not_using_let_in_jsts/</guid>
-      <pubDate>Sat, 16 Sep 2023 18:52:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的幻想猫生成器。我制作了一个小游戏，可以生成随机的幻想猫以及它们的名字、原产地、类别等。几乎 200 个重叠图像都是我绘制的。</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kdw0o/my_fantasy_cat_generator_ive_made_a_mini_game/</link>
-      <description><![CDATA[   /u/Key_Charity_9851   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kdw0o/my_fantasy_cat_generator_ive_made_a_mini_game/</guid>
-      <pubDate>Sat, 16 Sep 2023 18:04:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>[Showoff Saturday] live-ask.com 开源（想想 Slido，但有隐私）</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kcr5j/showoff_saturday_liveaskcom_open_sourced_think/</link>
-      <description><![CDATA[   这个项目并不新鲜，但自从提供它多年以来我决定从头开始重写它，开源它并免费运行它（有一些高级功能可以付费）。 想想  live-ask.com 作为简单、低摩擦、实时问答、AMA 和小组讨论的一站式解决方案。创建活动，共享链接，人们可以发布问题，您可以亲自或在虚拟活动中回答这些问题。 与参与者的竞赛隐私进行对比是我们的第一要务，而不是高级功能。无需任何人注册，发帖和投票问题的发生具有 100% 的自由裁量权。 它是用纯 Rust 重写的，以保证数据安全、性能和稳定性。在 GitHub 上找到代码：https://github.com/liveask/liveask ​  简单干净的设计   由   提交 /u/rusticorn   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kcr5j/showoff_saturday_liveaskcom_open_sourced_think/</guid>
-      <pubDate>Sat, 16 Sep 2023 17:14:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个免费的预算应用程序，因为我不喜欢我尝试过的其他任何东西</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kcfeg/i_made_a_free_budgeting_app_because_i_didnt_like/</link>
-      <description><![CDATA[https://www.budgeyapp.com/  我希望任何想要尝试一下的人都可以给我反馈，告诉我你是否喜欢它，或者我是否只是想要一个简单的手动预算应用程序。另外，如果有什么是我没有考虑过的很棒的功能的话。希望您喜欢！   由   提交 /u/Mackirony   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kcfeg/i_made_a_free_budgeting_app_because_i_didnt_like/</guid>
-      <pubDate>Sat, 16 Sep 2023 17:00:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮忙</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kcf7u/need_help/</link>
-      <description><![CDATA[大家好。我是一名四年级本科生，对机器学习和深度学习了解甚少，工作经验为零。我想进入全栈开发。我了解 Python，并且过去使用过基本的 HTML 和 CSS。我有基本的编程知识。 你能指导我吗？我应该从哪里开始，有在线课程或 YouTube 视频吗？拜托，我迫切需要帮助。   由   提交/u/ilkin15  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kcf7u/need_help/</guid>
-      <pubDate>Sat, 16 Sep 2023 17:00:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
