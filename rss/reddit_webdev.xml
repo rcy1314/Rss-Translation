@@ -4,7 +4,28 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 17 Sep 2023 01:12:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 17 Sep 2023 03:17:05 GMT</lastBuildDate>
+    <item>
+      <title>有没有更好的方法来处理这 3 个按钮并具有背景图像？我使用显示块来隐藏和显示按钮的内容，但必须有更好的方法来做到这一点，其中背景无缝集成，也许像导航栏？但是如何让背景达到100%</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kq0b0/is_there_a_better_way_to_handle_these_3_buttons/</link>
+      <description><![CDATA[       由   提交/u/shaburushaburu  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kq0b0/is_there_a_better_way_to_handle_these_3_buttons/</guid>
+      <pubDate>Sun, 17 Sep 2023 03:10:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的浏览器到底在做什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kpojg/what_the_hll_my_browser_is_doing/</link>
+      <description><![CDATA[使用 React 项目。 Gor localhost，我使用 Firefox 浏览器。除了包含项目的选项卡外，还有另外 2 个打开的选项卡。不要使用任何附加组件。 我的笔记本开始运行速度非常慢。所以我打开任务管理器来查看哪些进程减慢了一切。 在列表顶部，它显示 Firefox 浏览器有 8 个进程。  有人可以解释一下它是什么以及我如何才能看到这些进程是什么？   由   提交 /u/InsideRationalA   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kpojg/what_the_hll_my_browser_is_doing/</guid>
+      <pubDate>Sun, 17 Sep 2023 02:52:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>UI 技巧 (10) - 做什么和不做什么</title>
+      <link>https://www.reddit.com/r/webdev/comments/16kpcyh/ui_tips_10_what_to_do_what_not_to_do/</link>
+      <description><![CDATA[    &lt; /a&gt;   由   提交 /u/myvortexlife   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16kpcyh/ui_tips_10_what_to_do_what_not_to_do/</guid>
+      <pubDate>Sun, 17 Sep 2023 02:36:05 GMT</pubDate>
+    </item>
     <item>
       <title>进入 Web 开发的课程推荐</title>
       <link>https://www.reddit.com/r/webdev/comments/16knclq/course_recommendations_to_get_into_web_development/</link>
@@ -15,7 +36,7 @@
     <item>
       <title>我在使用 JWT 和 cookie 时遇到问题。成功登录后，我将包含 JWT 的 httpOnly cookie 发送到客户端。然后，我向受保护的路由发出请求，我认为该路由应该将该 cookie 发送回服务器，但事实并非如此。</title>
       <link>https://www.reddit.com/r/webdev/comments/16kms52/i_am_having_trouble_with_jwt_and_cookies_i_am/</link>
-      <description><![CDATA[这在 Postman 上工作得很好，但我无法弄清楚我在前端做错了什么。  ​ Login.jsx：在表单提交时调用此 formSubmit 函数   async function formSubmit() { if (isValid) { const url = import.meta.env.VITE_DOMAIN + “/api/login”; const {用户名，密码} = getValues(); // 自定义获取函数 const response = wait fetchApi(url, &quot;POST&quot;, {用户名, 密码}); if (response?.success) { console.log(response); } } else { console.log(“错误”, 响应); } } }  自定义获取函数：  const fetchApi = async (url, method, body) =&gt; { try { const requestOptions = { mode: &quot;cors&quot;, method: method, headers: { &#39;Content-Type&#39;: &#39;application/json&#39;, },credentials: &quot;include&quot;, }; // 如果提供了 &#39;body&#39; 属性，则有条件地添加它 if (body) { requestOptions.body = JSON.stringify(body); } const res = 等待 fetch(url, requestOptions);让 resJSON = 等待 res.json();返回resJSON； } catch (err) { 返回错误; } }  我得到的响应告诉我成功了。因此，我尝试导航到名为仪表板的受保护测试路线。  const 仪表板 = () =&gt; { useEffect(() =&gt; { const res = async () =&gt; { const url = import.meta.env.VITE_DOMAIN + &quot;/api/test&quot;; // 尝试发布并获取 const req = wait fetchApi( url, &quot;GET&quot;); console.log(req); } res(); }, []) return ( &lt;布局&gt;  仪表板 TODO   ) } // ERROR 错误：“无法读取未定义的属性（读取“令牌”）”  这就是我的后端发生的事情 app.js app.use( cors({ origin: process.env.CLIENT_DOMAIN，凭证：true，}) ); app.use(logger(&#39;dev&#39;)); app.use(express.json()); app.use(express.urlencoded({ 扩展: false })); // 为传入的 cookies 设置解析器 app.use(cookieParser());  登录路由（为了清楚起见，进行了简化，这是在身份验证良好时发送的令牌）  if (user.isValidPassword(req.body) .password)) { constsignedToken = 等待signJWT(用户); return res .cookie(&quot;access_token&quot;,signedToken, { httpOnly: true, secure: process.env.NODE_ENV === &quot;生产&quot;, }) .status(200) .json({ success: true, message: &quot; ;登录成功”}); }  受保护的路由 router.get(&quot;/test&quot;, verifyRoute, async (req, res) =&gt; { res.json( { message: &quot;test&quot; }) })  中间件函数 verifyRoute  function verifyRoute(req, res, next) { console.log(req .cookies.access_token); // 未定义 const bearerHeader = req.cookies.access_token.token; if (typeof bearerHeader !== &quot;未定义&quot;) { const bearer = bearerHeader.split(&quot; &quot;); const bearerToken = 持有者[1]; // 将令牌添加到请求中 req.token = bearerToken;下一个（）; } else { res.sendStatus(401); } }  当我通过邮递员登录时，我会取回 cookie，并将其与请求一起发送到受保护的路由，一切正常。我不确定我在前端做错了什么，我无法弄清楚。谢谢你！    由   提交/u/_HotMessXpress_  [链接] [评论]]]></description>
+      <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/16kms52/i_am_having_trouble_with_jwt_and_cookies_i_am/</guid>
       <pubDate>Sun, 17 Sep 2023 00:28:31 GMT</pubDate>
     </item>
@@ -46,6 +67,13 @@
       <description><![CDATA[多年来我一直对交易和金融充满热情。进入研究生院并学习如何开发软件系统后，我挑战自己构建一个简单、强大且易于使用的自动交易系统。 请记住，这是一个平台。不是“机器人”。不是算法。这是一个允许交易者定义自己的市场交易规则的平台。 我最引以为豪的一些功能包括： - 用于策略改进的基因优化引擎 - 人工智能支持的聊天允许您生成投资组合 - 回溯测试功能的速度 - 平台的纯粹可配置性 尚不支持实时交易（我是一名独立开发者，因此风险将是天文数字） ），但有一天，我渴望让任何人都可以成为自己的对冲基金😃 谢谢！    ;由   提交/u/NextGen-Trading   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/16klj2k/i_made_a_platform_for_developing_testing/</guid>
       <pubDate>Sat, 16 Sep 2023 23:30:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Next.js 13 中所有新功能的尖端项目📚</title>
+      <link>https://www.reddit.com/r/webdev/comments/16klad6/bleedingedge_project_using_everything_new_in/</link>
+      <description><![CDATA[       由   提交/u/Apestein-Dev  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/16klad6/bleedingedge_project_using_everything_new_in/</guid>
+      <pubDate>Sat, 16 Sep 2023 23:19:56 GMT</pubDate>
     </item>
     <item>
       <title>这个网站合法吗？</title>
@@ -81,34 +109,6 @@
       <description><![CDATA[我在 middleware.js 中有这段代码： const { pathname } = request.nextUrl;尝试{ const token = request.cookies.get(“supabase-auth-token”)?.value ||无效的; const { data: { user }, } =等待supabase.auth.getUser(token); // 更多代码...  在我的 API 路由（Edge 运行时）中，我想重用 middleware.js 中的用户变量，而无需重新输入  &lt;代码&gt; const token = request.cookies.get(“supabase-auth-token”)?.value ||无效的; const { data: { user }, } =等待supabase.auth.getUser(token);  我需要访问当前用户的ID并将其保存在单独的数据库中，但我不知道如何做到这一点，也无法从文档中找到合适的解决方案。    由   提交/u/1chbinamin   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/16kicr0/nextjs_how_to_get_data_from_middleware_and_use_it/</guid>
       <pubDate>Sat, 16 Sep 2023 21:18:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么没有网站得到这样的开发？</title>
-      <link>https://www.reddit.com/r/webdev/comments/16ki6ml/why_does_no_website_get_dev_like_that/</link>
-      <description><![CDATA[      嘿，我在 Dribbble 上浏览，我注意到每个登陆页面设计都以缩小的形式显示大小并有背景。  您可以在此处查看一些示例： ​ https://preview.redd.it/vksyx9vvnoob1.png?width=3200&amp;format=png&amp;auto=webp&amp;s=03b5855b37d9bb d76dbf51dc68431339cf3628ab https://preview。 redd.it/kxnraojwnoob1.jpg?width=1600&amp;format=pjpg&amp;auto=webp&amp;s=5f842ae451eb71737a60073360bb1565d76cbd7a ​ 你们能解释一下吗我为什么没有网站得到这样的开发？设计师展示这样的设计是因为它看起来更好，那么为什么没有网站使用它进行开发呢？卷轴将位于“盒子”内。但我确信有解决方法。 感谢您的回答。   由   提交 /u/Casezoid   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16ki6ml/why_does_no_website_get_dev_like_that/</guid>
-      <pubDate>Sat, 16 Sep 2023 21:11:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络代理托管</title>
-      <link>https://www.reddit.com/r/webdev/comments/16khkar/web_agency_hosting/</link>
-      <description><![CDATA[我一直在研究如何设置由同一实体（自由职业者/小型机构）开发的多个应用程序的托管，它看起来像经销商托管主要迎合 PHP。节点应用程序甚至 Docker 容器有类似的东西吗？ Hostens 似乎支持节点应用程序，对于容器也不太确定，但 Fly.io 看起来允许类似的设置。 我试图找到解决方案的问题是避免创建帐户托管服务上的每个项目，同时仍然允许部署多个域下的应用程序，包括数据库。 目标是对较小的应用程序执行此操作，而较大的项目将获得自己的自定义设置。  &gt; 这里有什么建议吗？值得硬着头皮学习 PHP 吗？ Laravel 的包生态系统看起来非常令人印象深刻，但 6 个月的发布周期和重大更改让我有点害怕，而且我已经使用 JS/TS 8 年了，所以如果我能坚持下去，我宁愿这样做。 有点偏离主题，但是 JS 中有什么可以与 laravel/rails 相比吗？从未真正使用过 JS 中包含电池的框架，并且在研究后找不到任何相同级别的内容。   由   提交/u/SnapplesOfIdun  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16khkar/web_agency_hosting/</guid>
-      <pubDate>Sat, 16 Sep 2023 20:44:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个可以让你绘制 UI 的工具——aspect.app</title>
-      <link>https://www.reddit.com/r/webdev/comments/16khcq0/i_made_a_tool_that_lets_you_draw_ui_aspectapp/</link>
-      <description><![CDATA[       由   提交/u/sennt  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16khcq0/i_made_a_tool_that_lets_you_draw_ui_aspectapp/</guid>
-      <pubDate>Sat, 16 Sep 2023 20:35:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>这些权限对于扩展来说是正常的吗</title>
-      <link>https://www.reddit.com/r/webdev/comments/16kgr5s/are_these_permissions_normal_for_an_extension/</link>
-      <description><![CDATA[       由   提交/u/Saura767  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/16kgr5s/are_these_permissions_normal_for_an_extension/</guid>
-      <pubDate>Sat, 16 Sep 2023 20:09:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
