@@ -59,6 +59,9 @@ class OpenAITran:
                 title = self.tr(entry.title)
             except:
                 title = ""
+            parsed_link = urlparse(entry.link)
+            if not all([parsed_link.scheme, parsed_link.netloc]):
+                continue
             link = entry.link
             description = ""
             try:
@@ -68,7 +71,7 @@ class OpenAITran:
                     description = self.tr(entry.content[0].value)
                 except:
                     pass
-            guid = entry.link
+            guid = link
             pub_date = get_time(entry)
             one = {"title": title, "link": link, "description": description, "guid": guid, "pubDate": pub_date}
             if guid not in item_set:  # 判断是否重复
