@@ -94,25 +94,25 @@ md5= ""
 ```
 **其中name为英文名不要添加后缀！！！！，本项目生成的文件为固定的.xml格式文件**，不需要name有后缀，此外name也不要字符过长避免识别有误
 
-<img src="https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wrer.47jpkdp3pfu0.jpg" style="zoom:40%;" />
+<img src="https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/wrer.47jpkdp3pfu0.jpg" style="zoom:40%;" />
 
 base参数为生成的文件存放目录，max参数为rss最大条目数（请不要设置超过20，使用免费翻译的api时RSS条目超过一定数量会出现不完整翻译），md5请设置为空！
 
 3.打开 GitHub 仓库的界面，进入“Settings” > “Secrets”，点击“New repository secret”按钮，创建名为 WORK_TOKEN 的 secret。【设置-开发者设置-生成个人经典令牌】
 
-![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wauh.13r6vfv3ipz4.jpg)
+![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/wauh.13r6vfv3ipz4.jpg)
 
 4.将生成的 Token及U_EMAIL（你的github邮箱）、U_NAME（你的github用户名）复制黏贴到Action-操作机密和变量中，然后运行action即可
 
-<img src="https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/wqw.50kt20k20lk0.jpg" style="zoom:25%;" />
+<img src="https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/wqw.50kt20k20lk0.jpg" style="zoom:25%;" />
 
 注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新[页面](https://rcy1314.github.io/Rss-Translation/)需要手动运行Deploy
 
-另外这个项目是支持全文翻译的！但源本身不是全文输出的源就没办法，包括像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！你可以使用付费的api来满足更高的需求。![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
+另外这个项目是支持全文翻译的！但源本身不是全文输出的源就没办法，包括像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！你可以使用付费的api来满足更高的需求。![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
 
 全文翻译查看示例：
 
-<img src="https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230704/quanwen.3vboa74fem40.jpg" style="zoom:50%;" />
+<img src="https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/quanwen.3vboa74fem40.jpg" style="zoom:50%;" />
 
 ## 关于如果出现bug报错原因及修复：
 
@@ -196,7 +196,7 @@ pip install urllib
 
 安装好后就可以使用命令运行文件了，我推荐Bing翻译
 
-![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/的大.3e1vh5x7o2k0.jpg)
+![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/的大.3e1vh5x7o2k0.jpg)
 
 ### 执行定时任务
 
@@ -206,11 +206,11 @@ pip install urllib
 cd /你的文件路径 source myenv/bin/activate python3 Bingtrans
 ```
 
-![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/1689133552281.k7gvffi1240.jpg)
+![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/1689133552281.k7gvffi1240.jpg)
 
 最后查看rss文件夹内文件更新情况
 
-![](https://cdn.staticaly.com/gh/rcy1314/tuchuang@main/20230712/689134717563.1wg6d4tthoao.jpg)
+![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/689134717563.1wg6d4tthoao.jpg)
 
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800"  height="3">
 
