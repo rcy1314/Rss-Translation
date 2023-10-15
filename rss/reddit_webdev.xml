@@ -4,9 +4,65 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 15 Oct 2023 09:15:05 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2023 12:30:19 GMT</lastBuildDate>
     <item>
-      <title>您推荐什么第 3 方授权？</title>
+      <title>寻找移动应用程序的开源登陆页面模板</title>
+      <link>https://www.reddit.com/r/webdev/comments/178dtan/looking_for_an_open_source_landing_page_template/</link>
+      <description><![CDATA[大家好。我有一个 Android 和 iOS 移动应用程序，我正在寻找一个开源 Web 模板（最好是 NextJS 模板），该模板将具有： 1. 带有重定向到本机应用程序商店的下载按钮的登陆页面。 2.博客部分，我可以在其中发布博客。 3. 其他部分，如隐私政策、常见问题解答等。 我进行了很多搜索，但找不到专门针对移动应用程序登陆页面的优秀开源模板，我可以根据自己的要求进行调整。 &gt; 任何使用或创建过开源模板的人都可以分享吗？这将非常有帮助。   由   提交 /u/AccomplishedKnee797   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178dtan/looking_for_an_open_source_landing_page_template/</guid>
+      <pubDate>Sun, 15 Oct 2023 11:55:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>每个软件开发人员必须了解的关于 Unicode 的绝对最低限度知识</title>
+      <link>https://www.reddit.com/r/webdev/comments/178d3co/the_absolute_minimum_every_software_developer/</link>
+      <description><![CDATA[ 由   提交 /u/stefanjudis   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178d3co/the_absolute_minimum_every_software_developer/</guid>
+      <pubDate>Sun, 15 Oct 2023 11:07:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>电子商务商店的搜索体验（产品搜索/发现）最常见的问题有哪些？</title>
+      <link>https://www.reddit.com/r/webdev/comments/178cod9/what_are_some_of_the_most_common_issues_with/</link>
+      <description><![CDATA[您好，我有一家电子商务商店，我想了解如何改善我的搜索体验，以便我网站上的访问者准确找到他们想要的内容正在寻找。 我面临的一些常见问题是： 1. 无法识别拼写错误的关键字2. 尽管产品已在商店中，但结果未显示 /&gt; 3. 无法理解复杂的搜索查询 您知道哪些电子商务搜索体验中常见的问题以及哪些不花钱的解决方案！ ​   由   提交/u/Awesome22_44  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178cod9/what_are_some_of_the_most_common_issues_with/</guid>
+      <pubDate>Sun, 15 Oct 2023 10:38:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>NextAuth 通过 NestJS 和 Socket.io 处理用户身份验证的安全方法</title>
+      <link>https://www.reddit.com/r/webdev/comments/178cnbh/nextauth_secure_way_to_handle_user_auth_via/</link>
+      <description><![CDATA[大家好，我使用 NextJS 和 NextAuth 来处理身份验证和前端，并使用 NestJS 来处理 Socket.io 服务器。 当将用户连接到 NestJS Socket.io 我正在做以下内容： 从“socket.io-client”导入 { io }；从“react”导入{useEffect，useState}；从“next-auth/react”导入{useSession}；从“下一个/路由器”导入{useRouter}；导出默认函数 Room({ }: any) { const session = useSession(); const 路由器 = useRouter(); const [socket, setSocket] = useState(未定义); useEffect(() =&gt; { if(session.status === &quot;已验证&quot;) { setSocket(io(&quot;http://127.0.0.1:3001&quot;, { query: { roomId: router.query.roomId , session: JSON.stringify(session) } })); } }, [session]) useEffect(() =&gt; { if(!socket) return; socket.emit(“攻击”, { test: 1 } ) }, [套接字]) 返回 &lt;&gt; &lt;/&gt;; }  然后在 NestJS Socket.io 中我正在执行以下操作： 从 &#39;@nestjs/websockets&#39; 导入 { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer };从&#39;socket.io&#39;导入{服务器，套接字}；玩家类 { id: 字符串;名称：字符串；构造函数({ id, name }: 任意) { this.id = id; this.name = 名称； @WebSocketGateway({ cors: true }) 导出类 GameGateway { @WebSocketServer() server: Server; async handleConnection(client: Socket) { // 处理连接事件 const { roomId, session }: any = client.handshake.query; const 用户 = JSON.parse(session).data.user; console.log(roomId, 用户); } handleDisconnect(client: Socket) { // 处理断开连接事件 } @SubscribeMessage(&#39;attack&#39;) handleAttack(@MessageBody() data: AttackAction, @ConnectedSocket() client: Socket) { // 处理收到的消息 console.log(&#39; ATTACK&#39;, data) } }  我完全不确定的是，我将 roomId 和 auth session 的值传递给 NestJS 服务器，同时直接从库中读取它们，而不是传递它们通过 cookie（用于身份验证）和通过 roomId 请求（例如，我认为不发送 roomId 而是使用 Socket 库中的某些内容会更安全，它允许我查看请求来源的原始 url并从中提取 roomId）。 ​ 这安全吗？    ;由   提交/u/Stecco_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178cnbh/nextauth_secure_way_to_handle_user_auth_via/</guid>
+      <pubDate>Sun, 15 Oct 2023 10:36:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>下拉搜索自动完成</title>
+      <link>https://www.reddit.com/r/webdev/comments/178cknu/dropdown_search_autocomplete/</link>
+      <description><![CDATA[我想要一个搜索栏，其中有一个下拉菜单，其中包含根据键入的内容显示的搜索排名结果。我怎样才能实现这个。我正在使用 meern 堆栈。   由   提交 /u/Previous_Locksmith_1   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178cknu/dropdown_search_autocomplete/</guid>
+      <pubDate>Sun, 15 Oct 2023 10:31:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>CDN 的质疑</title>
+      <link>https://www.reddit.com/r/webdev/comments/178cgeo/cdns_doubt/</link>
+      <description><![CDATA[我无法理解这部分“非 www（裸域）不得指向 CDN 域”什么是 CDN 域？&lt; /p&gt; 为了处理大量流量，使用 CDN 很重要，但要做到这一点，有必要使用 www 域，因为非 www 不会被指向 CDN 域，至少在方式简单明了。在管理流量方面，这是一个重大缺点。如果您想确保您的网站尽可能快且尽可能安全，则单独托管静态内容是可行的方法，因此，使用 www 域是您采取的最佳途径。    由   提交/u/Big-Transportation62  /u/Big-Transportation62 reddit.com/r/webdev/comments/178cgeo/cdns_doubt/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178cgeo/cdns_doubt/</guid>
+      <pubDate>Sun, 15 Oct 2023 10:22:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>wsl2 上的 Docker 速度</title>
+      <link>https://www.reddit.com/r/webdev/comments/178casi/docker_speed_on_wsl2/</link>
+      <description><![CDATA[大家好，我已经在 wsl2 中的 docker 上设置了 LEMP WordPress 应用程序。项目文件位于 wsl2 内部，我通过 localhost:8000 连接到应用程序。我曾经在 Windows 中运行该项目，页面加载 20-30 秒的性能非常糟糕。在我将项目移入 wsl2 后，页面加载时间变得更好了 2-4 秒。这肯定比以前好，但仍然不如 Linux vps 上的原生速度。而且开发工具在检查 DOM 时速度非常慢，使得前端工作非常缓慢。我运行 docker 应用程序的笔记本电脑具有以下规格：ryzen 5 gen 3 低压变体、16GB ddr4 内存和 256GB ssd，这些规格比普通 vps 好很多，但速度仍然无法与普通 vps 相提并论一个vps。这是正常现象还是我错过了什么？谢谢   由   提交/u/Moh957  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178casi/docker_speed_on_wsl2/</guid>
+      <pubDate>Sun, 15 Oct 2023 10:11:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google 结构化数据标记</title>
+      <link>https://www.reddit.com/r/webdev/comments/178bt8r/google_structured_data_markup/</link>
+      <description><![CDATA[您好， 我正在阅读有关丰富搜索结果的内容，我有几个问题。 Ie 。常见问题解答或产品丰富的结果。它们应该在常见问题解答和相关产品页面上实施，还是应该放置在主页上？或者是混合搭配？ Google 如何处理这个问题？ 另外，是否有 WP 插件可以做到这一点？我做 WP 和自定义 Laravel 网站，对于 Laravel，我不介意根据 ofc 的用例通过代码来完成。   由   提交 /u/DistinctRule2132   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/178bt8r/google_structured_data_markup/</guid>
+      <pubDate>Sun, 15 Oct 2023 09:34:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>您推荐什么第三方授权？</title>
       <link>https://www.reddit.com/r/webdev/comments/178aqkq/what_3rd_party_auth_do_you_recommend/</link>
       <description><![CDATA[我一直自己为我的个人项目构建身份验证，但现在我愿意将我的一个项目投入生产，我认为使用现有的身份验证服务是一个更好的主意。有什么建议可以与我的数据库集成吗？   由   提交 /u/starengates   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/178aqkq/what_3rd_party_auth_do_you_recommend/</guid>
@@ -27,16 +83,9 @@
       <pubDate>Sun, 15 Oct 2023 06:44:31 GMT</pubDate>
     </item>
     <item>
-      <title>澳大利亚电视和电影指南</title>
-      <link>https://www.reddit.com/r/webdev/comments/1789g5p/australian_tv_and_movie_guide/</link>
-      <description><![CDATA[ 由   提交/u/OptimalReaction9  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1789g5p/australian_tv_and_movie_guide/</guid>
-      <pubDate>Sun, 15 Oct 2023 06:39:14 GMT</pubDate>
-    </item>
-    <item>
       <title>WordPress插件开发问题</title>
       <link>https://www.reddit.com/r/webdev/comments/1788b43/wordpress_plugin_developement_question/</link>
-      <description><![CDATA[大家好， 我主要使用 WordPress 网站。我的兴趣之一是网络安全（我 13 岁时曾热衷于黑客攻击），所以这种普遍兴趣从未真正消退。我为我客户的网站开发了一个小型安全插件，它只做一些事情非常基本的安全升级（隐藏版本、添加标头、一些性能内容）。 我的目标是创建一个具有各种选项的适当的免费版本安全插件。 其中一个功能是重新哈希所有用户密码都采用更好的算法，该算法已获奖并且现在也受到 PHP 的支持。 激活此选项后，网站上的每个用户都必须重置其密码。如果只有 2-3 个用户，这很容易做到。 现在我想知道如果我为 wordpress.org. 打开该选项后是否应该触发邮件功能并强制所有用户重置密码？ （如果他们没有收到邮件怎么办，垃圾邮件过滤器总是让人头疼）。另外，如果仅使用wp邮件功能并且该站点有数千个用户，则可能会出现问题。我不认为 cron 作业是一个解决方案，因为我不知道安装它的人使用哪种服务器。您将如何处理数千封此类邮件？ 我可以在用户登录时使用某种检查（检查哈希值，如果是旧哈希值则强制重置）吗？ 我还有什么其他选择？ 然后，如果插件被停用，同样的事情也会发生，所有用户都必须重置密码。处理这个问题的最佳方法是什么？ 我正在寻找一些技巧和想法。不太确定如何解决这个问题。  ​   由   提交/u/deb-wev1553  /u/deb-wev1553 reddit.com/r/webdev/comments/1788b43/wordpress_plugin_developement_question/&quot;&gt;[链接] [评论]]]></description>
+      <description><![CDATA[大家好， 我主要使用 WordPress 网站。我的兴趣之一是网络安全（我 13 岁时曾热衷于黑客攻击），所以这种普遍兴趣从未真正消失。我为我客户的网站开发了一个小型安全插件，它只做一些事情非常基本的安全升级（隐藏版本、添加标头、一些性能内容）。 我的目标是创建一个具有各种选项的适当的免费版本安全插件。 其中一个功能是重新哈希所有用户密码都采用更好的算法，该算法已获奖并且现在也受到 PHP 的支持。 激活此选项后，网站上的每个用户都必须重置其密码。如果只有 2-3 个用户，这很容易做到。 现在我想知道如果我为 wordpress.org. 打开该选项后是否应该触发邮件功能并强制所有用户重置密码？ （如果他们没有收到邮件怎么办，垃圾邮件过滤器总是让人头疼）。另外，如果仅使用wp邮件功能并且该站点有数千个用户，则可能会出现问题。我不认为 cron 作业是一个解决方案，因为我不知道安装它的人使用哪种服务器。您将如何处理数千封此类邮件？ 我可以在用户登录时使用某种检查（检查哈希值，如果是旧哈希值则强制重置）吗？ 我还有什么其他选择？ 然后，如果插件被停用，同样的事情也会发生，所有用户都必须重置密码。处理这个问题的最佳方法是什么？ 我正在寻找一些技巧和想法。不太确定如何解决这个问题。  ​   由   提交/u/deb-wev1553  /u/deb-wev1553 reddit.com/r/webdev/comments/1788b43/wordpress_plugin_developement_question/&quot;&gt;[链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1788b43/wordpress_plugin_developement_question/</guid>
       <pubDate>Sun, 15 Oct 2023 05:20:30 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[      我正尝试在短暂中断后重新回到 Web 开发中，并且想要更好地接受反馈。这是我的作品集欢迎部分的基本设计。由于此功能尚未上线，这里有一些注意事项：  导航按钮文本会转换为与“了解更多”和“联系”按钮相同的红色。 &lt; li&gt;“了解更多”和“联系”按钮悬停时背景颜色会变为稍深的红色 较大的计算机图标是临时的，我计划尽快找到替代品  我将为我的作品集选择一些复古/8 位主题，这解释了徽标和像素化字体。 https://preview.redd.it/w1wxkk9efaub1.png?width=1920&amp;format=png&amp;auto=webp&amp; s= 2717a981eb5228a88f30d899eefd934205b7f9a9 ​   由   提交/u/Visual-Imagination19   reddit.com/r/webdev/comments/1786s0c/how_can_i_spice_up_my_portfolio_welcome_section/&quot;&gt;[链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1786s0c/how_can_i_spice_up_my_portfolio_welcome_section/</guid>
       <pubDate>Sun, 15 Oct 2023 03:43:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>请批评我的网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1786cr9/please_critique_my_website/</link>
-      <description><![CDATA[我一直在我的网站 AppLift Online 上努力工作，现在我已经达到了希望能有新的视角来关注它的程度。我专门寻找建设性的批评。虽然赞美总是值得赞赏的，但对于这个练习，我只是寻求有关可以改进的地方的反馈。  https://www.applift.online/ 一些特定领域兴趣： 1. 用户体验：导航直观吗？是否有任何没有意义或不合适的元素？  设计与设计美观：看起来专业吗？对配色方案、布局或图形有什么建议吗？ 内容：内容相关且信息丰富吗？是否有更多信息可能有用的区域或过于冗长的区域？ 加载时间和信息性能：网站的性能如何？是否存在明显的滞后或需要优化的地方？ 移动响应能力：网站在移动设备上的外观和功能如何？ 任何和所有反馈都将受到赞赏。请具体提出您的建议，以便我做出有效的改变。预先感谢您的时间和见解！     由   提交/u/Puzzleheaded_Part750   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1786cr9/please_critique_my_website/</guid>
-      <pubDate>Sun, 15 Oct 2023 03:18:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>目前正在为简历（初级）制定一个项目，但尚未承诺......我已完成 87％。我应该怎么办 ？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1785uvl/currently_making_a_project_for_resume_junior_and/</link>
-      <description><![CDATA[这是一个非常可靠的项目，我仍然需要进行大量重构和错误修复，但我应该如何继续从这里？只需做出一项重大承诺，然后像往常一样继续？新项目并将我的代码粘贴到假“提交”中？我问这个问题是因为我知道招聘人员关心提交历史记录，而且我在编码时非常专注于学习。   由   提交/u/CodeArt_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1785uvl/currently_making_a_project_for_resume_junior_and/</guid>
-      <pubDate>Sun, 15 Oct 2023 02:50:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>Astro+Vite+Vue3+PrimeVue+Directus 对于编写普通商业网站来说是否太过杀伤力？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1785sg7/would_astrovitevue3primevuedirectus_be_overkill/</link>
-      <description><![CDATA[因此，在尝试弄清楚我将使用什么框架堆栈作为自由职业者为客户创建更简单的网站的过程中，我开始质疑是否或不，我应该使用并充分利用此配置： Astro、Vite、Vue3、PrimeVue、Directus。 我真的很喜欢迄今为止从 Directus 看到的内容，并且我我想我已经决定学习 cms。 我也对 Astro 很感兴趣，感觉它非常适合我即将进行的项目的工具箱。 PrimeVue 看起来像它有很好的主题选项。我喜欢为不同网站提供不同主题的能力，尽管我对 quasar 很满意，但我觉得 quasar 是不必要的，因为我不会将网站变成应用程序和 PWA 或其他任何东西，我想追求与材料设计不同的外观。 但是当涉及到 Vite 和 Vue3 时，我想知道是否有必要。我喜欢 vites 超快速重新加载/构建东西，但与 Astro 一起使用是个好主意吗？ 此外，我不确定使用 Vue3 和 PrimeVue 是否会给整个系统带来很多不必要的膨胀/配置项目，从某种意义上说，也许只是 Astro 和 Bootstrap 之类的东西就足够了？ 如果所有这些框架和工具不一定会导致性能更差或本身膨胀，但就术语而言可能是不必要的它们的许多功能将不会被使用，我想我对此不会有什么意见，因为它让我有机会更好地学习它们，并且还能够在未来的已发布项目上扩展功能。 &lt; p&gt;在我知道自己在做什么之前做出决定并不容易，所以我才问你们的想法。 TLDR：为了更简单而使用所有这些框架是不是很愚蠢？项目和网站，或者除了听起来拗口之外真的没有直接的缺点吗？   由   提交 /u/AnInsideBox   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1785sg7/would_astrovitevue3primevuedirectus_be_overkill/</guid>
-      <pubDate>Sun, 15 Oct 2023 02:46:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>WordPress 网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1785myl/wordpress_website/</link>
-      <description><![CDATA[      嘿伙计们，我已经委托某人帮我为我和我父亲的锁匠生意创建了一个 WordPress 网站，我支付了一大笔钱（2000 澳元） ）而且似乎它不会去任何地方 - 我可以向设计团队提出任何建议吗？将不胜感激   由   提交/u/fknchino  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1785myl/wordpress_website/</guid>
-      <pubDate>Sun, 15 Oct 2023 02:38:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>Side Gig 网站：Oceanfront Creative</title>
-      <link>https://www.reddit.com/r/webdev/comments/1785cje/side_gig_website_oceanfront_creative/</link>
-      <description><![CDATA[多年来第一次深入研究自由网络开发。可能有大量代码需要清理，但我坚决要尽快开始工作。  https://oceanfrontcreative.com  &amp;# 32；由   提交 /u/btoned   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1785cje/side_gig_website_oceanfront_creative/</guid>
-      <pubDate>Sun, 15 Oct 2023 02:22:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程师 - 除了 STAR 之外的面试方法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1783wlo/software_engineer_interview_methodologies_besides/</link>
-      <description><![CDATA[在软件工程师面试中，你会使用哪些面试技巧？我开始更多地利用 STAR 方法（情境-任务-行动-结果）。还有其他方法来回答问题吗？ https://careerkarma.com/blog/star -采访方法/。  https://www.techinterviewhandbook.org/behavioral-interview/   由   提交/u/Test_Book1086   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1783wlo/software_engineer_interview_methodologies_besides/</guid>
-      <pubDate>Sun, 15 Oct 2023 01:05:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人用过 Next、Nuxt 和 Sveltekit 来比较体验吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1783cx5/has_anyone_used_next_nuxt_sveltekit_to_compare/</link>
-      <description><![CDATA[想知道您学到了什么以及比较后的感受如何？   由   提交/u/thebreadmanrises  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1783cx5/has_anyone_used_next_nuxt_sveltekit_to_compare/</guid>
-      <pubDate>Sun, 15 Oct 2023 00:36:15 GMT</pubDate>
     </item>
     </channel>
 </rss>
