@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与 [开源](http://en.wikipedia.org/wiki/open_source) 相关的所有内容的 Reddit 子版块。</description>
-    <lastBuildDate>Mon, 23 Oct 2023 18:21:12 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Oct 2023 01:09:58 GMT</lastBuildDate>
+    <item>
+      <title>作为初级 Java 开发人员如何开始为开源项目做出贡献？</title>
+      <link>https://www.reddit.com/r/opensource/comments/17extep/how_to_start_contributing_to_opensource_projects/</link>
+      <description><![CDATA[我想开始在现有项目上编写开源代码。问题是我是一名初级软件工程师，主要使用 Java，我完全不知道从哪里开始以及如何开始。 您能给我一些入门技巧吗？我以前从未这样做过，我愿意做出自己的贡献，无论贡献有多小。久而久之，贡献会越来越大。   由   提交 /u/pokkeras   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/17extep/how_to_start_contributing_to_opensource_projects/</guid>
+      <pubDate>Mon, 23 Oct 2023 23:00:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>这合适吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/17exnp9/is_this_proper/</link>
+      <description><![CDATA[我正在编写一个 Arch Install 脚本，但在想出自动设置 grub 参数和 initramfs 挂钩的解决方案时遇到问题，所以我发现一个 MIT 项目，其中包含我需要的代码，但我正在制作 GPL V2 脚本，这是一个小问题。我编写了自己的代码实现，但我确实使用了他神奇的 sed 和 awk 语句。原始项目在这里： https://aur.archlinux.org/packages/hibernator 它的 github 在这里：https://github.com/Chrysostomus/hibernator/blob/master/hibernator 这是我对代码的实现以及我使用的免责声明： # 以下内容的灵感来自于 MIT 许可证下的原创作品 #原作者：Chrysostomus #版权（年份）：2015 #链接：https://github.com/Chrysostomus/hibernator/# code&gt; # 此实现已获得 GNU 通用公共许可证 2.0 版许可 #Setup GRUB For Hibernate  rootUUID=$(find /dev/disk/ | grep &quot;$(awk &#39;$2~/^\/$/ {print $1}&#39; /etc/fstab | cut -d= -f 2)&quot;) offset=$(filefrag -v /swapfile | awk &#39;NR==4 {print $4}&#39; | tr -d .) bootopt=&quot;; resume=$rootUUIDresume_offset=$offset&quot; sed -i &quot;s/[[:blank:]]*$//&quot; /etc/default/grub sed -i &quot;/^GRUB_CMDLINE_LINUX_DEFAULT/ s~\&quot;$~ $(bootopt)\&quot;~g&quot; /etc/default/grub grub-mkconfig -o /boot/grub/grub.cfg  #Setup iniramfs Hooks sed -i &#39;/^#/!s/filesystems/filesystemsresume/g&#39; /etc/mkinitcpio.conf mkinitcpio -P #End of灵感片段 我只想知道A）我的免责声明是否合法，B）这是否正确地体现在开源精神中，我做的事正确吗？如果我遗漏了某些内容，请告诉我，这是我第一次使用我没有 100% 为公共内容编写的代码。    ;由   提交 /u/whypickthisname   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/17exnp9/is_this_proper/</guid>
+      <pubDate>Mon, 23 Oct 2023 22:53:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>FOSS Weekly #56 - RISC-V 可穿戴设备、Linux 上的 Ryzen AI、Firefox 119 等</title>
+      <link>https://www.reddit.com/r/opensource/comments/17etnrg/foss_weekly_56_riscv_wearables_ryzen_ai_on_linux/</link>
+      <description><![CDATA[       由   提交 /u/antsaregay   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/17etnrg/foss_weekly_56_riscv_wearables_ryzen_ai_on_linux/</guid>
+      <pubDate>Mon, 23 Oct 2023 20:05:27 GMT</pubDate>
+    </item>
     <item>
       <title>LibrePhotos 的故事 - 开源谷歌照片替代品</title>
       <link>https://www.reddit.com/r/opensource/comments/17ep3n1/story_of_librephotos_an_open_source_google_photos/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[大家好！我有一个学校项目，我们每个人都必须对未来的愿景进行艺术表达。我们可以做任何事情，包括特技（例如从三楼扔下混凝土作为一些艺术表达），但当然我们必须证明它是合理的。  我对未来的愿景是所有软件都是开源的，我的想法是写一首关于协作的诗，也让其他人可以查看和修改，体现开放精神——来源。你们能帮我解决这个“开源”问题吗？诗？你可以用它做任何事情。我相信社区会保持理智，因为这将被用作开源的代表。  Google 文档的链接位于此处。  非常感谢所有的帮助！   由   提交 /u/Illustrious-Rise5773    reddit.com/r/opensource/comments/17dqoj5/school_project_help_compositing_an_opensource_poem/&quot;&gt;[链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/17dqoj5/school_project_help_composing_an_opensource_poem/</guid>
       <pubDate>Sun, 22 Oct 2023 10:56:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>允许我绘制数学内容然后将其转换为字体的应用程序？</title>
-      <link>https://www.reddit.com/r/opensource/comments/17dnspx/app_that_will_allow_me_to_draw_mathematical_stuff/</link>
-      <description><![CDATA[我想在大学用我的图形平板电脑做笔记，因为我的笔迹质量很差，并且有时阅读起来有问题，所以我想切换到笔记本电脑和图形平板电脑。是否有一个应用程序可以让我编写数学方程等，然后将其转换为可读字体？我在网上找到了与此完全相同的东西 - https://webdemo.myscript.com/views/math/index.html#有没有类似的东西可以让我做到这一点，但最好是离线并可以选择保存文件？   由   提交 /u/WelcomeToGhana   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/17dnspx/app_that_will_allow_me_to_draw_mathematical_stuff/</guid>
-      <pubDate>Sun, 22 Oct 2023 07:28:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>只需使用 Javascript 即可扫描文档并将其转换为 PDF！</title>
-      <link>https://www.reddit.com/r/opensource/comments/17djftj/scan_documents_and_convert_them_to_pdf_with_just/</link>
-      <description><![CDATA[   /u/Foreign_Astronaut_32   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/17djftj/scan_documents_and_convert_them_to_pdf_with_just/</guid>
-      <pubDate>Sun, 22 Oct 2023 02:50:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想参与其中 - 我从哪里开始？ （Python 开发）</title>
-      <link>https://www.reddit.com/r/opensource/comments/17dg2ds/i_want_to_get_involved_where_do_i_start_python_dev/</link>
-      <description><![CDATA[在哪里可以找到要参与的项目，一旦找到了，如何开始？我经验不足，所以我认为一个相当新的项目将是一个很好的起点:)   由   提交/u/extra-hellmak   /u/extra-hellmak reddit.com/r/opensource/comments/17dg2ds/i_want_to_get_involved_where_do_i_start_python_dev/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/17dg2ds/i_want_to_get_involved_where_do_i_start_python_dev/</guid>
-      <pubDate>Sat, 21 Oct 2023 23:53:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
