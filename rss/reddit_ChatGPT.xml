@@ -4,111 +4,111 @@
     <title>最新提交：ChatGPT</title>
     <link>https://www.reddit.com/r/ChatGPT/new</link>
     <description>Subreddit 讨论 ChatGPT 和 AI。不隶属于 OpenAI。</description>
-    <lastBuildDate>Thu, 26 Oct 2023 01:07:44 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Oct 2023 03:16:21 GMT</lastBuildDate>
     <item>
-      <title>DALLE 种子解释（+如何从旧对话中获取种子值）</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gkgf6/dalle_seed_explained_how_to_get_the_seed_value/</link>
-      <description><![CDATA[    &lt; /a&gt;   由   提交 /u/world_designer   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gkgf6/dalle_seed_explained_how_to_get_the_seed_value/</guid>
-      <pubDate>Thu, 26 Oct 2023 01:02:36 GMT</pubDate>
+      <title>为什么 ChatGPT 阻止通过 VPN 访问？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmx86/why_does_chatgpt_block_accessing_via_vpn/</link>
+      <description><![CDATA[ 由   提交/u/NoobDoesMC   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmx86/why_does_chatgpt_block_accessing_via_vpn/</guid>
+      <pubDate>Thu, 26 Oct 2023 03:06:40 GMT</pubDate>
     </item>
     <item>
-      <title>chatgpt 代码解释器创建故障标记？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gke83/chatgpt_code_interpreter_creating_glitch_tokens/</link>
-      <description><![CDATA[我正在使用代码解释器编写一个脚本来读取、显示和保存 co2 和临时数据，然后发生了这种情况： 导入子进程 将pandas导入为pd 将matplotlib.pyplot导入为plt 从IPython.display导入显示，clear_output 从日期时间导入日期时间 导入操作系统 导入csv ​ #初始数据存储 数据= [] ​ # 设置绘图 fig, ax1 = plt.subplots(figsize=(10, 5))&lt; /p&gt; ax2 = ax1.twinx() ax1.set_ylabel(&#39;CO2&#39;, color=&#39;g&#39;) ax2.set_ylabel(&#39;Temp&#39;, color =&#39;b&#39;) line1, = ax1.plot([], [], &#39;g-&#39;, label=&#39;CO2&#39;) line2, = ax2.plot( [], [], &#39;b-&#39;, label=&#39;Temp&#39;) ​ 最后一个值的#文本注释 co2_text = ax1.text(0.9、0.9、&#39;&#39;、transform=ax1.transAxes、color=&#39;g&#39;) temp_text = ax2.text(0.9、0.8、&#39;&#39;、transform=ax2.transAxes、 color=&#39;b&#39;) ​ # 启动子进程 ... ​&lt; /p&gt; # 用于存储最新值的缓冲区 buffer = {&#39;timestamp&#39;: None, &#39;CO2&#39;: None, &#39;Temp&#39;: None} &amp;# x200b; 尝试： while True： # 从子进程捕获数据 line = process.stdout.readline()&lt; /p&gt; 如果行： parts = line.split(&#39;\t&#39;) 如果 len(parts) == 2:  key, value = parts value = float(value) # 更新缓冲区 buffer[&#39;timestamp&#39;] = datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;) if key == &#39; CntR&#39;: buffer[&#39;CO2&#39;] = 值 elif key == &#39;Tamb&#39;: buffer[&#39;Temp&#39;] = 值 elif key == &#39;Tamb&#39;: buffer[&#39;Temp&#39;] = 值 p&gt; ​ # 用新数据更新绘图 if buffer[&#39;CO2&#39;] 不是 None 并且 buffer[&#39;Temp&#39;] 不是 None ： data.append((buffer[&#39;timestamp&#39;], buffer[&#39;CO2&#39;], buffer[&#39;Temp&#39;])) df = pd.DataFrame(data, columns=[&#39;时间戳&#39;, &#39;CO2&#39;, &#39;温度&#39;]) line1.set_data(range(len(df)), df[&#39;CO2&#39;]) line2 .set_data(range(len(df)), df[&#39;Temp&#39;]) ax1.relim() ax1.autoscale_view() ax2 .relim() ax2.autoscale_view() ​ # 更新最后的值文本 co2_text.set_text (f&#39;CO2: {buffer[&quot;CO2&quot;]:.2f}&#39;) temp_text.set_text(f&#39;Temp: {buffer[&quot;Temp&quot;]:.2f}&#39;) temp_text.set_text(f&#39;Temp: {buffer[&quot;Temp&quot;]:.2f}&#39;) ​ # 显示更新后的绘图 clear_output(wait=True) display(fig) &lt; p&gt;plt.pause(0.1) ​ # 检查日期是否改变 new_date = datetime.now().strftime(&#39;%Y-%m-%d&#39;) 文件名 = f&#39;{new_date}.csv&#39; ​ # 将新行数据保存到CSV文件 new_row = df.iloc[-1] 如果不是os .path.exists(文件名): with open(filename, &#39;w&#39;, newline=&#39;&#39;) as f: writer = csv.writer(f) writer.writerow([&#39;Timestamp&#39;, &#39;CO2&#39;, &#39;Temp&#39;]) writer.writerow(new_row) 其他： with open(filename, &#39;a&#39;, newline=&#39;&#39;) as f: writer = csv.writer(f) writer.writerow(new_row) ​ # 清除缓冲区 buffer = {&#39;timestamp&#39;: None, &#39;CO2&#39;: None, &#39;Temp&#39;: None} finally: # 完成后终止子进程 process.terminate() ```&amp;#8203;``【oaicite: 0】``​ ​   由   提交/u/obwohl  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gke83/chatgpt_code_interpreter_creating_glitch_tokens/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:59:45 GMT</pubDate>
+      <title>这是机器人吗</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmu0i/is_this_bot_fr/</link>
+      <description><![CDATA[       由   提交/u/tenamonth  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmu0i/is_this_bot_fr/</guid>
+      <pubDate>Thu, 26 Oct 2023 03:02:06 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 用于上下文情感分析</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gk2c1/chatgpt_for_contextual_sentiment_analysis/</link>
-      <description><![CDATA[我最近一直在研究 ChatGPT 4，发现该模型在分析评论方面非常准确，可以生成情感分析和上下文情感分析。此外，它在聚合常用短语以生成与亚马逊最近在其评论系统中实施的非常相似的片段方面做得很好。我在 Web UI 中进行提示很有趣，但我很好奇 ChatGPT 是否足够好，我应该开始在 API 中进行测试。我担心的是成本，而且我也不确定 ChatGPT 是否是我正在寻找的最佳模型。寻找任何反馈。   由   提交/u/Black_Magic100   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gk2c1/chatgpt_for_contextual_sentiment_analysis/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:42:41 GMT</pubDate>
+      <title>您的自动扶梯正在等待</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmkzk/y_o_u_r_e_s_c_a_l_a_t_o_r_a_w_a_i_t_s/</link>
+      <description><![CDATA[      &amp; #32；由   提交/u/dall-e_walnuts  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmkzk/y_o_u_r_e_s_c_a_l_a_t_o_r_a_w_a_i_t_s/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:49:08 GMT</pubDate>
     </item>
     <item>
-      <title>慢慢地让查特普特写了一场里克、彼得·格里芬和比尔·伯尔之间关于罐头肉的争论。英尺乔·拜登</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gjt4s/slowly_getting_chatgpt_to_write_an_argument_about/</link>
-      <description><![CDATA[      无论如何，这是一个超长的切线，但最终的脚本在底部。以青蛙克米特、耶稣基督、乔·拜登、布兰登·埃雷拉和约翰·M·布朗宁为主角。 还有一群可爱的观众  &amp;# 32；由   提交 /u/Necessary-Cap-3982   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gjt4s/slowly_getting_chatgpt_to_write_an_argument_about/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:30:06 GMT</pubDate>
+      <title>带有聊天机器人 GUI 的基于 GPT 的代码生成器软件</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmfse/a_gptbased_code_generator_software_with_chatbot/</link>
+      <description><![CDATA[       由   提交 /u/RoboCoachTech   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmfse/a_gptbased_code_generator_software_with_chatbot/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:41:33 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 不起作用吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gjjhh/is_chatgpt_not_working/</link>
-      <description><![CDATA[       由   提交/u/69_MrNice_69   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gjjhh/is_chatgpt_not_working/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:16:33 GMT</pubDate>
+      <title>您最喜欢使用 ChatGPT 做什么？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmf5k/what_is_your_favorite_thing_to_do_with_chatgpt/</link>
+      <description><![CDATA[从模拟 Linux 终端到创作艺术，您使用 ChatGPT 的第一件事是什么？ （和/或一般的人工智能）   由   提交/u/General_Relation8396   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmf5k/what_is_your_favorite_thing_to_do_with_chatgpt/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:40:39 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 玩《天际》</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gjiuj/playing_skyrim_with_chatgpt/</link>
-      <description><![CDATA[      好吧，我刚刚了解到“Skyrim：非常特别版”可以与 Alexa 一起玩，我想，也许我可以用 ChatGPT 做同样的事情？事实证明是的！有人尝试过使用 AI 来玩其他基于文本的冒险游戏吗？   由   提交/u/mic_n_ike_  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gjiuj/playing_skyrim_with_chatgpt/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:15:38 GMT</pubDate>
+      <title>帮助恶棍找到救赎</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gmcsn/helping_villains_find_redemption/</link>
+      <description><![CDATA[      （共享聊天）   由   提交/u/External_Ad1982   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gmcsn/helping_villains_find_redemption/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:37:33 GMT</pubDate>
     </item>
     <item>
-      <title>帮助提示</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gjb0b/help_with_prompting/</link>
-      <description><![CDATA[       对 Bing AI 聊天 4 的精确细节感到沮丧...我想要一个带有靶心但没有飞镖的可爱狗徽标。我不断地得到飞镖。我希望它用于学校企业...狗零食。   由   提交/u/sallysue2you  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gjb0b/help_with_prompting/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:05:03 GMT</pubDate>
+      <title>任天堂沟</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gm4u8/nintendo_ditch/</link>
+      <description><![CDATA[       由   提交/u/Basic_Description_56   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gm4u8/nintendo_ditch/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:28:26 GMT</pubDate>
     </item>
     <item>
-      <title>7-11的误会</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gja50/misunderstanding_in_711/</link>
-      <description><![CDATA[     &lt; td&gt; 由   提交/u/Ilovekittens345  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gja50/misunderstanding_in_711/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:03:55 GMT</pubDate>
+      <title>AI 食谱赢得比赛</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gm3yq/ai_recipe_wins_contest/</link>
+      <description><![CDATA[我妻子的工作有辣椒烹饪比赛。她在那里工作了大约 16 年，每年我都会想出一个新食谱。我总是登上领奖台，但从未获胜。我告诉 chatGPT 关于辣椒烹饪比赛的事情，我必须赢得胜利，因为我想要质地的甜味和热量。我完全按照食谱做了...第一名毫无疑问。   由   提交 /u/mouthyredditor   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gm3yq/ai_recipe_wins_contest/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:27:13 GMT</pubDate>
     </item>
     <item>
-      <title>如何轻松创建病毒般的励志视频（完整教程）</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gj7om/how_to_create_viral_motivational_videos_easily/</link>
-      <description><![CDATA[       由   提交/u/itxhamad  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gj7om/how_to_create_viral_motivational_videos_easily/</guid>
-      <pubDate>Thu, 26 Oct 2023 00:00:59 GMT</pubDate>
+      <title>我认为 ChatGPT 有一些问题......</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gly5u/i_think_chatgpt_has_some_issues/</link>
+      <description><![CDATA[       由   提交 /u/RequirementFuture523   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gly5u/i_think_chatgpt_has_some_issues/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:18:53 GMT</pubDate>
     </item>
     <item>
-      <title>我的教授说 Turnitin 对我的论文评分为 62% AI 生成我没有使用 AI，但我该怎么办？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gj5ky/my_professor_said_turnitin_rated_my_essay_62_ai/</link>
-      <description><![CDATA[她还表示将向学生责任办公室报告此事，但她给了我重做作业的机会。   由   提交/u/Specific-Ad2273   reddit.com/r/ChatGPT/comments/17gj5ky/my_professor_said_turnitin_lated_my_essay_62_ai/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gj5ky/my_professor_said_turnitin_rated_my_essay_62_ai/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:58:21 GMT</pubDate>
+      <title>我该如何解决？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17glsfw/how_do_i_fix_this/</link>
+      <description><![CDATA[      我想测试更多插件，但无法在我的 iPhone 上的浏览​​器。   由   提交/u/thneakythnake660   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17glsfw/how_do_i_fix_this/</guid>
+      <pubDate>Thu, 26 Oct 2023 02:10:44 GMT</pubDate>
     </item>
     <item>
-      <title>这是一个大胆的主张，ChatGPT</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gj5aw/thats_a_bold_claim_you_have_there_chatgpt/</link>
-      <description><![CDATA[    &lt; /a&gt;   由   提交/u/OpposedScroll75  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gj5aw/thats_a_bold_claim_you_have_there_chatgpt/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:58:00 GMT</pubDate>
+      <title>可怕的？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17glfji/scary/</link>
+      <description><![CDATA[       由   提交/u/Designer-Credit-2084   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17glfji/scary/</guid>
+      <pubDate>Thu, 26 Oct 2023 01:52:50 GMT</pubDate>
     </item>
     <item>
-      <title>猜一下提示。只有错误的答案。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gj3f1/guess_the_prompt_wrong_answers_only/</link>
-      <description><![CDATA[       由   提交/u/factor3x  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gj3f1/guess_the_prompt_wrong_answers_only/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:55:28 GMT</pubDate>
+      <title>标志性地标附近有逼真的外星怪物。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17glcq6/photorealistic_alien_monstrosities_near_iconic/</link>
+      <description><![CDATA[       由   提交 /u/RobotStorytime   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17glcq6/photorealistic_alien_monstrosities_near_iconic/</guid>
+      <pubDate>Thu, 26 Oct 2023 01:48:42 GMT</pubDate>
     </item>
     <item>
-      <title>拉格朋克摇滚</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gj16r/raga_punk_rock/</link>
-      <description><![CDATA[       由   提交/u/mpathg00   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gj16r/raga_punk_rock/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:52:30 GMT</pubDate>
+      <title>GPT-4 API 提示可以将图像添加到文章中吗？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gl9f7/can_gpt4_api_prompts_add_images_to_articles/</link>
+      <description><![CDATA[如果我告诉自动博客插件重写[原始文章]或写一篇关于[短语]的文章，是否可以添加指令来生成基于文章主题的原始图像？ 请不要告诉我手动使用 Bing 来完成相同的任务，因为 API 的全部目的是自动批量执行操作，而无需我手动执行做其他事情。 到目前为止，使用 Pixabay API 添加相关库存图像似乎使文章本身在搜索引擎上的表现比没有图像的情况更差。我正在使用来自媒体源的 RSS 源进行测试，但它们也存在来自原始源的重复图像的问题。   由   提交 /u/MrCorrectTruth   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gl9f7/can_gpt4_api_prompts_add_images_to_articles/</guid>
+      <pubDate>Thu, 26 Oct 2023 01:43:50 GMT</pubDate>
     </item>
     <item>
-      <title>彩色领域的高级女巫</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17git3g/high_sorceress_of_the_chromatic_realm/</link>
-      <description><![CDATA[       由   提交/u/curious_zombie_  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17git3g/high_sorceress_of_the_chromatic_realm/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:42:17 GMT</pubDate>
+      <title>DALLE3提示导师自定义说明</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gl94f/dalle3_prompt_tutor_custom_instructions/</link>
+      <description><![CDATA[我知道这不是最有用的东西，因为 GPT 不直接使用 dalle 提示，但它对我很有帮助，所以我想我愿意分享。也希望收到反馈和建议以及您想向我提供的任何其他信息。 您希望 ChatGPT 如何响应： DALL·E 图像提示命令指南： &lt; ul&gt; /dalle-intro - 介绍为 DALL·E 制作图像提示。 /dalle-styles - 探索多样化的范围艺术和视觉风格的灵感。 /dalle-complexity - 深入研究制作详细与简单图像提示的细微差别。  /dalle-examples - 访问从基本到复杂的图像提示示例。 /dalle-construct - 创建有效图像提示的分步指导. /dalle-review - 分享您的图像提示，以进行实践审核和反馈会议。 /dalle-hints /dalle-hints /dalle-hints strong&gt; - 发现高级图像提示制作的见解和策略。 /dalle-practice - 练习制作提示并提供即时反馈。 / dalle-clear - 以全新的图像提示想法重新开始。   规则：  以简洁的方式结束每个教程摘要和建议的下一步。 遵循命令结构，确保顺利的学习体验。 在每个教程后练习制作图像提示，以进行实践学习。 &lt; /ul&gt; 参数：  学习速度：定制您的学习速度。选项：高/中/低。 语言语气：调整交互语气。选项：正式/非正式。 导师气质：定义导师的举止。选项：友好/专业/中立。 概念深度：选择您的学习深度。选择：高级/中级/基础。 经验级别：表明您对即时创作的熟练程度：初级/中级/高级。   也适用于那些不知道 ChatGPT 自定义指令管理器扩展程序是必须具备的。用户界面笨重，但它可以工作。   由   提交/u/wataf  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gl94f/dalle3_prompt_tutor_custom_instructions/</guid>
+      <pubDate>Thu, 26 Oct 2023 01:43:24 GMT</pubDate>
     </item>
     <item>
-      <title>请chatGPT制作一部关于一种奇怪的疾病和抖音的讽刺漫画。文本的一致性令人兴奋。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/17gimjh/ask_chatgpt_to_make_a_satirical_cartoon_about_a/</link>
-      <description><![CDATA[       由   提交 /u/SirPrompt   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/17gimjh/ask_chatgpt_to_make_a_satirical_cartoon_about_a/</guid>
-      <pubDate>Wed, 25 Oct 2023 23:34:05 GMT</pubDate>
+      <title>聊天 GPT 速率限制实际上是垃圾。这感觉像是一个骗局</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/17gl7s5/chat_gpt_rate_limits_are_literally_trash_this/</link>
+      <description><![CDATA[您支付 20 美元即可使用 GPT 聊天并获得一大堆功能。然而，您实际获得的服务是完全神秘的。您可以请求多少张图片？没人知道。您的速率限制是多少？没人知道。在网络上询问聊天 GPT，它不能告诉你......但是随机地，你会在很长一段时间内受到速率限制锁定，而且每次都是随机的。我有一次被停了两分钟。然后，我被停工二十分钟。我还有一次被停工2小时。没有解释，没有地方知道为什么、何时或如何......只是被阻止，没有任何信息...... 真正烦人的是，我提交这么多请求的原因是因为 DALL E3是垃圾。字面意思是垃圾。我要求一种看起来像电影海报并且在图像底部有一个词的电影艺术。它生成了 2 个图像，另外两个无法制作？为什么？谁知道？但这两张图片是完全错误的。其中没有任何单词或标题，也没有按照提示进行操作。但我们必须为不准确付出代价😂 什么样的服务有一个未公开的限制，而且你在任何地方都找不到该限制？这听起来像是一个骗局。  请注意，我只收取网络和移动应用程序上的聊天 GPT，每月 20 美元。   由   提交 /u/InevitableTraining69   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/17gl7s5/chat_gpt_rate_limits_are_literally_trash_this/</guid>
+      <pubDate>Thu, 26 Oct 2023 01:41:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
