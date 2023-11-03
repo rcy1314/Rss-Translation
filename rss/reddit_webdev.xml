@@ -4,18 +4,39 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 03 Nov 2023 01:11:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Nov 2023 03:17:29 GMT</lastBuildDate>
+    <item>
+      <title>合并 POST 和 PUT 以创建 RPC 样式的保存端点。</title>
+      <link>https://www.reddit.com/r/webdev/comments/17mkyvf/merging_post_and_put_to_create_rpcstyle_save/</link>
+      <description><![CDATA[前端的同事为怪物视图模型创建了一个合约，如下所示 id, name, collectionA, collectionB ，collectionC，subcollectionD，用户名，状态，somedate，someotherdate等等... 所以我犹豫着同意了GET请求。没问题。 当我完成后，他立即回来说，好的，我想在 POST 方法中使用相同的结构以及所有冗余属性。 我看最佳实践，并同意 POST 请求。 我们开始讨论更新方法，他说他想使用完全相同的 DTO 进行更新！ 我很震惊，我认为这是一个坏主意 - 它对于 GET 和 POST 请求有意义，但对于更新则不然。他问为什么，我说“这是不好的做法”。对话没有任何进展，我的非技术经理强迫我继续执行他的请求。 代码必须进行深度图形比较，以检查通过重建对象删除了集合 A-D 中的哪些项目奇怪的视图模型拉动这些记录的图表，然后，原子地更新每个更改或未更改的项目，或回滚。 因此，如果 name 属性发生更改，我们必须重新组合原始对象 go检查子集合中的所有记录。 好的。所以我就这么做了。代码很混乱，非常难以维护，并且与视图模型紧密耦合。最终，我引入了通用的unitOfWork原子事务支持，并编写了可重用的深度比较方法，但最终的服务仍然是800多行代码，不包括映射和同步代码。 本来应该花费几天时间的事情工作变成了一个具有挑战性的问题，我仍然不确定代码完全按照预期工作（看起来是这样），但是代码仍然非常脆弱并且难以测试。 所以这是一个要点争论了很长时间。但我交付的 GET、POST 和 UPDATE HTTP 方法都使用与我的同事和技术主管所要求的完全相同的有效负载。 现在已经过去四个星期了。该代码是四个星期前检查的。我检查了我的任务管理系统，我的同事说他被后端阻止了。我与我的 PM 联系（我不被允许与其他开发人员交谈，而且现在几乎不想这样做），他说，是的，问题是没有“保存”选项。  显然，POST 和 PUT 方法是 Create 和 Update 方法，它们自然都是“Save”方法。  我查看了之前的 slack 通信，注意到他询问我们是否可以合并 POST 和 PUT 请求，因为它们具有相同的负载到单个 HTTP POST api/SaveComplexEntity 方法中。当时我说不行，因为它违反了SRP，会让未来的开发人员感到困惑，而且业务逻辑和方法可能会出现分歧，更不用说它可能会产生意外的重复记录。但我对自己的工作稳定性很偏执，所以我说，“请看看我的回复，如果您仍然认为这是个好主意，请告诉我。”他从未回复过，所以我忘记了。 今天，他坚持认为他无法完成 UI，因为他没有单个保存端点。 我看了查看他的代码，并意识到他已经为 GET 和 POST 请求创建了辅助方法（便捷包装器），但没有创建单个 PUT 或 DELETE 辅助方法。这让我觉得他要么不想麻烦地编写 PUT 辅助方法（这应该不难），要么他只是出于哲学原因反对 PUT 而偏向 RPC 风格的 API。不管怎样，让我困扰的是我花了很多时间让它完全按照他想要的方式工作，只是让他说它还没有完成，因为我没有将 PUT 和 POST 请求合并到单个 api/SaveEntity 方法中. 现在了解一些背景：旧应用程序没有“保存”按钮。它在不同的页面中有一个“确定”（创建）和一个“更新”（更新）按钮。我知道使用相同的 API 端点来执行其中一个或两个操作是多么方便，但他所要做的就是使用相同的负载调用其中一个或另一个，所以我是否不合理？ 他从未回复过至于为什么他要把两种方法合并，并声称我的工作未完成并阻止他。我应该将 PUT 方法重命名为 api/SaveEntity（不带 uri 参数）然后就到此为止吗？我想如果我这样做，他会坚持认为它应该是一个 POST 方法，然后我就会显得不合理。   由   提交 /u/Careful-Sun-2606   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17mkyvf/merging_post_and_put_to_create_rpcstyle_save/</guid>
+      <pubDate>Fri, 03 Nov 2023 02:39:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪种项目管理系统最适合网络开发人员</title>
+      <link>https://www.reddit.com/r/webdev/comments/17mjorf/which_project_management_system_is_best_for_web/</link>
+      <description><![CDATA[在开发项目时，网络开发人员使用哪些工具来组织和管理他们的项目？   由   提交 /u/he11mager   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17mjorf/which_project_management_system_is_best_for_web/</guid>
+      <pubDate>Fri, 03 Nov 2023 01:34:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>在什么情况下使用 ChatGPT 会被认为是不好的？</title>
+      <link>https://www.reddit.com/r/webdev/comments/17mjjtm/at_what_point_would_it_be_considered_bad_to_use/</link>
+      <description><![CDATA[自从它问世以来，我一直在疯狂地使用它。至少在网络开发方面。我主要在工作中使用它，管理层对此表示同意。但我几乎每次编码多次时都会使用它，大多数时候我会得到一个作业，并且我会让 ChatGPT 能够编码整个事情的 65%，而我只需要完成其余的工作35%。这仍然涉及我必须阅读和理解代码，我仍然需要添加更复杂和独特的东西，但是任何样板文件和简单的数学东西（如排序、加载等）都为我完成了。  我总是确保理解代码，但我 Kano 认为，如果没有它，我需要 2 个小时才能完成在 chatGPT 上需要 20-30 分钟的事情。 我觉得重要的是，这主要是为了在截止日期前完成工作，而且我在工作中以角度编码，我还不太熟悉，但话又说回来，即使当我处理我的 React 东西时，我也可能会使用它30%-40% 的工作，我知道它解决我的问题的速度是原来的两倍。  我是不是完蛋了？我觉得我过度依赖它，但之前每当我被困在某些东西上时，我都必须用谷歌搜索或继续尝试暴力破解它，现在即使是最小的问题我也会使用 chatGPT。&lt; /p&gt; 我知道最终我可以解决我需要的任何问题，但使用它感觉非常高效和无缝。 我是唯一有这种感觉的人吗？我看到人们在工作中使用 got 和 copilot，但从来不知道真正达到什么程度。   由   提交 /u/ThatAnonMan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17mjjtm/at_what_point_would_it_be_considered_bad_to_use/</guid>
+      <pubDate>Fri, 03 Nov 2023 01:28:08 GMT</pubDate>
+    </item>
     <item>
       <title>后端是否有禁止/禁止词语/诽谤/脏话的列表？</title>
       <link>https://www.reddit.com/r/webdev/comments/17mj12o/is_there_a_list_for_banned_forbidded_words_slurs/</link>
-      <description><![CDATA[​ 是否有一个标准列表可以用来防止聊天或用户名中的诽谤？ ​ - 我找到了 https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words，但上次提交是在 3 年前。 - 另外有这个网站： https://www.noswearing.com/dictionary 但它是一个字典网站，需要大量的废品这样做。 - 我也见过一些企业解决方案，但那太矫枉过正了。 ​ 只是寻找一个简单的列表，然后我就可以按照我想要的格式将其格式化并粘贴到我的数据库中，因此当用户想要创建用户名时，它会进行简单的检查。 ​   由   提交 /u/AndreyAdrian   [链接] [评论]]]></description>
+      <description><![CDATA[​ 是否有一个标准列表可以用来防止聊天或用户名中的诽谤？ ​ - 我找到了 https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words，但上次提交是在 3 年前。 - 另外有这个网站： https://www.noswearing.com/dictionary 但它是一个字典网站，需要大量的废品这样做。 - 我也见过一些企业解决方案，但那太过分了。 ​ 只是寻找一个简单的列表，然后我就可以按照我想要的格式将其格式化并粘贴到我的数据库中，因此当用户想要创建用户名时，它会进行简单的检查。 ​   由   提交 /u/AndreyAdrian   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17mj12o/is_there_a_list_for_banned_forbidded_words_slurs/</guid>
       <pubDate>Fri, 03 Nov 2023 01:02:55 GMT</pubDate>
     </item>
     <item>
       <title>将 JSON 数据导入 elementor 并显示</title>
       <link>https://www.reddit.com/r/webdev/comments/17miuun/importing_json_data_into_elementor_and_displaying/</link>
-      <description><![CDATA[我从一家公司获得了一个插件以及一个 API 密钥，该密钥可以从他们的系统中提取数据，这是一家租赁公司，我可以看到他们租用 WordPress 上的属性，但当我单击编辑属性时，我只能看到具有自定义字段和值的 JSON 数据 - https://imgur .com/a/NzxyVhe 如何将其实现到 Elementor 中，以便可以在我的网站上显示它？我已经尝试过 ACF，但不幸的是它与插件不兼容   由   提交/u/cog0  [链接] [评论]]]></description>
+      <description><![CDATA[一家公司向我提供了一个插件以及一个 API 密钥，该密钥可以从他们的系统中提取数据，该公司是一家租赁公司，我可以看到他们租用 WordPress 上的属性，但当我单击编辑属性时，我只能看到具有自定义字段和值的 JSON 数据 - https://imgur .com/a/NzxyVhe 如何将其实现到 Elementor 中，以便可以在我的网站上显示它？我已经尝试过 ACF，但不幸的是它与插件不兼容   由   提交/u/cog0  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17miuun/importing_json_data_into_elementor_and_displaying/</guid>
       <pubDate>Fri, 03 Nov 2023 00:54:38 GMT</pubDate>
     </item>
@@ -50,7 +71,7 @@
     <item>
       <title>请帮我找到 WordPress 替代方案</title>
       <link>https://www.reddit.com/r/webdev/comments/17mgn5q/please_help_me_find_a_wordpress_alternative/</link>
-      <description><![CDATA[老实说，我厌倦了无穷无尽的插件，只是在寻找具有更多本机内置功能的东西。我正在考虑使用 Ghost，但我很好奇在进行切换之前还有什么是我不知道的。 非常感谢有关新替代平台的任何意见。谢谢大家！   由   提交 /u/edmsks   [链接] [评论]]]></description>
+      <description><![CDATA[老实说，我厌倦了无穷无尽的插件，只是在寻找具有更多本机内置功能的东西。我正在考虑使用 Ghost，但我很好奇在进行切换之前还有什么是我不知道的。 非常感谢有关新替代平台的任何意见。谢谢大家！ 编辑：我很抱歉向专家询问我不擅长的主题。这就是我在这里的原因，请不要有敌意。   由   提交 /u/edmsks   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17mgn5q/please_help_me_find_a_wordpress_alternative/</guid>
       <pubDate>Thu, 02 Nov 2023 23:10:40 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[      我正在使用 google 创建我的网站。我的网站是 www.stoudem.com。但是当我按 Enter 转到该网站时，它在网址中出现两次并收到此错误消息。   由   提交/u/HairReddit777  [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17meq1z/why_does_my_url_appear_twice/</guid>
       <pubDate>Thu, 02 Nov 2023 21:46:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>本地理发店静态登陆页面的最佳托管？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17me0q1/best_hosting_for_local_barbershop_static_landing/</link>
-      <description><![CDATA[大家好！  Cloudflare Pages 是否是为我朋友的理发店托管简单静态网站的绝佳解决方案？  这将是一个使用 NextJS 构建的单页登陆页面，其中包含 3d 派对预订服务的链接（现在该服务的链接位于我朋友的 Instagram 页面上，他希望在登陆页面上显示此链接） ）。我希望托管完全免费。是否可以使用自定义域名来处理 Cloudflare Pages？   由   提交 /u/Uncanny-Valley-Kek   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17me0q1/best_hosting_for_local_barbershop_static_landing/</guid>
-      <pubDate>Thu, 02 Nov 2023 21:15:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>专注于 docker 容器的 Cpanel/Plesk 的生产就绪替代品？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17md2e1/a_production_ready_replacement_for_cpanelplesk/</link>
-      <description><![CDATA[是否有一个可以管理客户端的 webmin 管理系统，它本质上是 docker 容器？就像如果我需要让客户端访问 webmin，他们会登录并查看他们的容器，并且至少能够在需要时重新启动它们？ 目前使用 Plesk，但它已经被淘汰了。除了问题之外什么都没有，确实需要一个全职服务器管理员来监视它并处理更新。   由   提交 /u/jonmacabre   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17md2e1/a_production_ready_replacement_for_cpanelplesk/</guid>
-      <pubDate>Thu, 02 Nov 2023 20:35:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何用css和js实现这个效果呢？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17mcx7z/how_do_i_achieve_this_effect_with_css_and_js/</link>
-      <description><![CDATA[我发现了一个韩语打字网站https://hangul.cool，我想知道他们是如何实现水平滚动字母显示的。我正在 React 中制作一个类似的打字网站，并且我已经尝试重新创建它一个多小时了，但我在 CSS 上遇到了困难。    由   提交/u/The_Impossible_Kiwi   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17mcx7z/how_do_i_achieve_this_effect_with_css_and_js/</guid>
-      <pubDate>Thu, 02 Nov 2023 20:29:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
