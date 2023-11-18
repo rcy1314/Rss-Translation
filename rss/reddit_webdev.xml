@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 18 Nov 2023 03:18:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 18 Nov 2023 06:21:50 GMT</lastBuildDate>
+    <item>
+      <title>CI/CD 工作流程工具可帮助在生成错误配置文件之前捕获它们</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xzrgh/cicd_workflow_tool_to_help_catch_bad_config_files/</link>
+      <description><![CDATA[现代 Web 开发使用大量配置文件。配置文件验证器使用单个命令行工具验证最流行的配置文件类型的语法。我们在发生了几次错误的配置文件进入生产环境的事件后创建了它。我们将其添加为管道中的质量门，以尽早发现错误，并将其开源以帮助其他开发团队避免让错误的配置文件运行其产品部署。 功能：  开源 运行速度快 递归扫描提供的搜索路径以查找所有支持的文件类型*并验证它们。您可以排除类型和子目录。 按目录和文件名对输出进行分组，并包含显示错误行和列的错误消息 在 Windows、Linux 和 MacOS 上运行  li&gt; Github Action 可轻松集成到您现有的管道中  *支持 XML、JSON、YAML、INI、TOML、HCL、Properties、Apple PList XML 和 CSV p&gt; 项目链接：https://github.com/Boeing/config-file-validator&lt; /p&gt; GitHub 操作：https://github.com/kehoecj/validate-configs-action  发布：https://github.com/Boeing/config-file-validator/releases    由   提交/u/Treebeard5440  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xzrgh/cicd_workflow_tool_to_help_catch_bad_config_files/</guid>
+      <pubDate>Sat, 18 Nov 2023 05:52:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>NextJS：服务器和客户端之间的文件传递问题。请帮忙？</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xze4e/nextjs_file_passing_between_server_and_client/</link>
+      <description><![CDATA[大家好 框架：带有应用程序路由的 Nextjs13.5。 使用新的客户端和服务器-side 脚本：我的问题是，如何将上传的文件从客户端传递到服务器端（进一步将文件/图像上传到我的数据库，我正在使用 Supabase，但那是我相信这里无关紧要）。  编辑：文件是图像文件（jpg/jpeg/png）。   由   提交/u/gabangang  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xze4e/nextjs_file_passing_between_server_and_client/</guid>
+      <pubDate>Sat, 18 Nov 2023 05:28:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>NextJS 问题中的 useFormStatus()</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xzd6v/useformstatus_in_nextjs_issue/</link>
+      <description><![CDATA[大家好，我正在使用 useFormStatus 在我的 NextJS 13.5.1 中注册 框架：NextJS 13.5.1语言：Typescript DB：Supabase 好吧，所以把我当成菜鸟吧。我有“操作=“/验证/登录”因为我在app/auth/sign-in/route.ts中有一个名为route.ts的脚本，可能是因为挂起状态实际上没有改变。 我的登录表单（客户端）是如下：  return ( LoginForm   Email   &lt;标签 className =“text-md” htmlFor=“密码”&gt; 密码    {/*   )我缺少什么？  好吧，就当我是菜鸟吧。我有“操作=“/验证/登录”因为我在app/auth/sign-in/route.ts中有一个名为route.ts的脚本，如下所示：  //sign-in/route.ts 从登录页面调用，使用 form method = &#39;post&#39; import { createRouteHandlerClient } from &#39;@supabase/auth-helpers-nextjs&#39; import { cookies } from &#39;next/headers&#39; import { NextResponse } from &#39;next/server&#39; export const dynamic = &#39;force-动态&#39; 导出异步函数 POST(request: Request) { const requestUrl = new URL(request.url) const formData = wait request.formData() const email = String(formData.get(&#39;email&#39;)) const password = String( formData.get(&#39;password&#39;)) 让用户名; const supabase = createRouteHandlerClient({ cookies }) const { data, error } = wait supabase.auth.signInWithPassword({ email, 密码, }) if (error) { return NextResponse.redirect( `${requestUrl.origin}/login? error= 无法登录。请检查输入的电子邮件或密码是否正确，或注册新帐户`, { // 需要 301 状态才能从 POST 重定向到 GET 路由状态: 301, } ) } //检查登录时输入的电子邮件的用户ID const userId = data.user?.id; // console.log(&quot;对应的数据用户id为&quot;, userId) //如果用户id存在 try { if (userId) { const { data: userData, error: userError } = wait supabase .from(&quot;users&quot;; ) .select(&quot;用户名&quot;) .eq(&quot;id&quot;, userId); if (userError) { 抛出 userError; } // 检查是否找到用户名 if (userData.length &gt; 0) { username = userData[0].username; // 定向到用户登录的用户名。 return NextResponse.redirect(`${requestUrl.origin}/${username}`, { // 需要 301 状态才能从 POST 重定向到 GET 路由 status: 301 , }); } } } catch (userError) { console.error(userError); return NextResponse.redirect(`${requestUrl.origin}`, { // 从 POST 重定向到 GET 路由需要 301 状态 status: 301, }) } // console.log(&quot;data aaa&quot;,数据）; // console.log(&quot;记录的电子邮件：&quot;, email) // console.log(&quot;UuUUUSERNAME is &quot;, 用户名) return NextResponse.redirect(`${requestUrl.origin}`, { // a 301从 POST 重定向到 GET 路由状态需要 status: 301, }) }  我缺少什么？    由   提交/u/gabangang  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xzd6v/useformstatus_in_nextjs_issue/</guid>
+      <pubDate>Sat, 18 Nov 2023 05:26:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建并运行一个名为 S3 的大型存储系统</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xy0c9/building_and_operating_a_pretty_big_storage/</link>
+      <description><![CDATA[       由   提交/u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xy0c9/building_and_operating_a_pretty_big_storage/</guid>
+      <pubDate>Sat, 18 Nov 2023 04:05:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>个体经营的 Shopify 开发人员，情况如何？</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xxl18/self_employed_shopify_developers_hows_things_out/</link>
+      <description><![CDATA[我很想知道作为一名个体经营的 Shopify 开发人员有什么好处，什么不好。  我在一家 SaaS 公司有 4 年工作经验，为 Shopify 商家（高级和非高级）提供前端 Web 开发支持。我做的事情包括开发新的自定义主题功能、修改主题以及排除和解决网站问题/错误。我曾在 2000 多家商店工作过。我是专家，但不是大师。我之前还拥有非 Shopify 网络开发经验，从事自由职业和工作室工作。  我正在考虑再次单打独斗，为自己工作——专门专注于 Shopify 利基市场（这已经是一个利基市场了吗？），但我想知道其他 Shopify 开发人员的感受如何为自己工作。 您是否有稳定的工作，您的工资是否能够为您自己和家人提供您想要的生活方式？您如何享受与客户的合作？他们是否按时向您付款？  让我们知道您喜欢和不喜欢您所做的事情。   由   提交/u/_nicedream_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xxl18/self_employed_shopify_developers_hows_things_out/</guid>
+      <pubDate>Sat, 18 Nov 2023 03:41:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>这种通过幻灯片的连续擦洗是如何实现的？</title>
+      <link>https://www.reddit.com/r/webdev/comments/17xxgt9/how_is_this_continuous_scrubbing_through/</link>
+      <description><![CDATA[   /u/realistic_aside777  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/17xxgt9/how_is_this_continuous_scrubbing_through/</guid>
+      <pubDate>Sat, 18 Nov 2023 03:34:50 GMT</pubDate>
+    </item>
     <item>
       <title>填充星星 - 可爱的拼图</title>
       <link>https://www.reddit.com/r/webdev/comments/17xw6r3/fill_stars_cute_puzzle/</link>
@@ -15,7 +57,7 @@
     <item>
       <title>在 iOS/Safari 上保存 `.ics (iCalendar)</title>
       <link>https://www.reddit.com/r/webdev/comments/17xus3y/save_ics_icalendar_on_iossafari/</link>
-      <description><![CDATA[这适用于 Firefox 和 Firefox。 Android 和 Chrome 浏览器Linux。我能想到的确实没有合理的理由它不能在 iOS/Safari 上工作。 我只是通过一些相当简单的字符串构建方法来生成 iCalendar 事件。我确信那里没有问题，因为 QR 码是完全相同的函数放入 QR 码中的结果（另外，即使是空字符串也至少会作为文件下载......这与内容无关） /validity/format)。 所以，在任何普通浏览器上，我基本上都会这样做： ``` const file = new File([thatString], &#39;event.ics&#39;, { 类型：&#39;文本/日历&#39; }); const a = document.createElement(&#39;a&#39;); a.href = URL.createObjectURL(文件); a.下载=文件名; a.隐藏=真； document.body.append(a); a.click(); setTimeout(() =&gt; { URL.revokeObjectURL(a.href): a.remove(); }, 100): ``` 我什至恢复到：  a.textContent = &#39;Save File&#39;;  并且不隐藏或删除  （也不撤销 blob URI）并让用户手动单击它。仍然不保存文件。而且，所有这些方法都可以在其他浏览器中使用。  没有抛出任何错误。我尝试通过将带有消息的 &lt;li&gt; 附加到  来记录所有内容，并且绝对一切都正常工作。甚至有一个 catch 块来 alert() 任何错误（因为移动浏览器无法轻松看到 console.*）。 我能想到的唯一两个可能的问题是： - iOS/Safari 阻止保存 text/calendar (.ics) 文件 - iOS/Safari 阻止从 blob: URI 保存文件 有人对此有任何见解吗？或者知道有效的方法吗？也尝试了 r/JavaScript，但是...   由   提交/u/shgysk8zer0   [链接] [评论]]]></description>
+      <description><![CDATA[这适用于 Firefox 和 Firefox。 Android 和 Chrome 浏览器Linux。我能想到，确实没有合理的理由它不能在 iOS/Safari 上工作。 我只是通过一些相当简单的字符串构建方法来生成 iCalendar 事件。我确信那里没有问题，因为 QR 码是完全相同的函数放入 QR 码中的结果（另外，即使是空字符串也至少会作为文件下载......这与内容无关） /validity/format)。 所以，在任何普通浏览器上，我基本上都会这样做： ``` const file = new File([thatString], &#39;event.ics&#39;, { 类型：&#39;文本/日历&#39; }); const a = document.createElement(&#39;a&#39;); a.href = URL.createObjectURL(文件); a.下载=文件名; a.隐藏=真； document.body.append(a); a.click(); setTimeout(() =&gt; { URL.revokeObjectURL(a.href): a.remove(); }, 100): ``` 我什至恢复到：  a.textContent = &#39;Save File&#39;;  并且不隐藏或删除  （也不撤销 blob URI）并让用户手动单击它。仍然不保存文件。而且，所有这些方法都可以在其他浏览器中使用。  没有抛出任何错误。我尝试通过将带有消息的  附加到  来记录所有内容，并且绝对一切都正常工作。甚至有一个 catch 块来 alert() 任何错误（因为移动浏览器无法轻松看到 console.*）。 我能想到的唯一两个可能的问题是： - iOS/Safari 阻止保存 text/calendar (.ics) 文件 - iOS/Safari 阻止从 blob: URI 保存文件 有人对此有任何见解吗？或者知道有效的方法吗？也尝试了 r/JavaScript，但是...   由   提交/u/shgysk8zer0   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17xus3y/save_ics_icalendar_on_iossafari/</guid>
       <pubDate>Sat, 18 Nov 2023 01:21:29 GMT</pubDate>
     </item>
@@ -36,21 +78,21 @@
     <item>
       <title>ELI5 如何托管浏览器应用程序的库以进行本地文件转换？</title>
       <link>https://www.reddit.com/r/webdev/comments/17xq2jg/eli5_how_to_host_libraries_for_a_browser_app_for/</link>
-      <description><![CDATA[我有一些视频想要使用 FFMPEG（和其他库）转换为不同的格式，并且想要尝试制作一个网络浏览器应用程序来使用本地转换文件。 我不知道如何安装/托管/调用 ffmpeg 库，并且想了解如何操作 - 最好是在 AWS 或 Google 或其他地方。 1 -  我如何“安装”和“托管”ffmpeg（和其他）库？我真的只是从 github 下载文件并上传到某个地方，这样它们就是“我的”了吗？为什么我不能直接调用 github 存储库？ 2 - 那么我如何在脚本中调用该库？这样，当有人将视频文件输入浏览器应用程序时，它会调用脚本函数。 我可以编写 js/html 等代码，但它连接我不确定的部分。   由   提交 /u/freelance3d   [链接] [评论]]]></description>
+      <description><![CDATA[我有一些视频想要使用 FFMPEG（和其他库）转换为不同的格式，并且想要尝试制作一个 Web 浏览器应用程序来使用本地转换文件。 我不知道如何安装/托管/调用 ffmpeg 库，并且想了解如何操作 - 最好是在 AWS 或 Google 或其他地方。 1 -  我如何“安装”和“托管”ffmpeg（和其他）库？我真的只是从 github 下载文件并上传到某个地方，这样它们就是“我的”了吗？为什么我不能直接调用 github 存储库？ 2 - 那么我如何在脚本中调用该库？这样，当有人将视频文件输入浏览器应用程序时，它会调用脚本函数。 我可以编写 js/html 等代码，但它连接我不确定的部分。   由   提交 /u/freelance3d   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17xq2jg/eli5_how_to_host_libraries_for_a_browser_app_for/</guid>
       <pubDate>Fri, 17 Nov 2023 21:49:03 GMT</pubDate>
     </item>
     <item>
       <title>无意冒犯，但是大多数网络开发工作都充满了粗鲁的人吗？我需要知道。</title>
       <link>https://www.reddit.com/r/webdev/comments/17xp99r/no_offense_but_are_most_web_dev_jobs_full_of_rude/</link>
-      <description><![CDATA[从我的所见所闻来看，我觉得网络开发和编程领域的人普遍社交能力较差。通常人们说这是因为他们内向，这很难。  行业内确实如此，还是我刚刚遇到了混蛋？   由   提交/u/IdeaExpective3073  [链接] [评论]]]></description>
+      <description><![CDATA[根据我的所见所闻，我觉得网络开发和编程领域的人普遍社交能力较差。通常人们说这是因为他们内向，这很难。  行业内确实如此，还是我刚刚遇到了混蛋？   由   提交/u/IdeaExpective3073  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17xp99r/no_offense_but_are_most_web_dev_jobs_full_of_rude/</guid>
       <pubDate>Fri, 17 Nov 2023 21:14:11 GMT</pubDate>
     </item>
     <item>
       <title>购买域名的技巧？</title>
       <link>https://www.reddit.com/r/webdev/comments/17xo1ae/tips_for_buying_a_domain/</link>
-      <description><![CDATA[我想购买一个可用的域名，但价格相当昂贵（998 美元），所以我想知道在购买之前是否需要注意什么购买后我可以期待什么？这是一个网站开发商业理念，TBF 在开始提供服务之前我必须学习如何开发网站。   由   提交 /u/Charl3sCarmicha3l   [链接] [评论]]]></description>
+      <description><![CDATA[我想购买一个可用的域名，它非常昂贵（998 美元），所以我想知道在购买之前是否有什么需要注意的地方购买后我可以期待什么？这是一个网站开发商业理念，TBF 在开始提供服务之前我必须学习如何开发网站。   由   提交 /u/Charl3sCarmicha3l   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17xo1ae/tips_for_buying_a_domain/</guid>
       <pubDate>Fri, 17 Nov 2023 20:18:58 GMT</pubDate>
     </item>
@@ -64,51 +106,9 @@
     <item>
       <title>Mac 上用于 Next.js 开发的 Visual Studio 设置</title>
       <link>https://www.reddit.com/r/webdev/comments/17xmjkr/visual_studio_setup_for_nextjs_development_on_mac/</link>
-      <description><![CDATA[我是一名后端开发人员，正在尝试扩展到前端，正在 Visual Studio 中学习和练习 next.js 14、Tailwind、shadcn 项目（ Mac）。 我的 page.tsx 文件位于主代码窗口中，其下有一个终端，我用它来执行诸如“npm run dev”之类的操作。然后单击 Live Server，我的系统浏览器将打开（Brave），我将一半屏幕用于 VSCode，另一半用于浏览器。 我觉得这有点不理想。 &gt; 你有更聪明的（如果这是一个词的话）设置可以建议吗？谢谢   由   提交 /u/olddoglearnsnewtrick   [链接] [评论]]]></description>
+      <description><![CDATA[我是一名后端开发人员，正在尝试扩展到前端，正在 Visual Studio 中学习和练习 next.js 14、Tailwind、shadcn 项目（ Mac）。 我的 page.tsx 文件位于主代码窗口中，其下有一个终端，我用它来执行诸如“npm run dev”之类的操作。然后单击“Live Server”，我的系统浏览器将打开（Brave），我将一半屏幕用于 VSCode，另一半用于浏览器。 我觉得这有点不理想。 &gt; 你有更聪明的（如果这是一个词的话）设置可以建议吗？谢谢   由   提交 /u/olddoglearnsnewtrick   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/17xmjkr/visual_studio_setup_for_nextjs_development_on_mac/</guid>
       <pubDate>Fri, 17 Nov 2023 19:12:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以创建一个连接到 eftpos 终端的 Web 应用程序？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xlu6c/is_it_possible_to_create_a_web_app_that_connects/</link>
-      <description><![CDATA[我拥有一家企业，我正在考虑创建自己的销售仪表板，并使用数据库后端来跟踪单个商品的销售、定价、成本、并运行报告。 我想知道是否可以通过蓝牙或 wifi 将其连接到 eftpos 终端来完成交易？ 或者是否必须在软件级别？   由   提交/u/Clearhead09  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xlu6c/is_it_possible_to_create_a_web_app_that_connects/</guid>
-      <pubDate>Fri, 17 Nov 2023 18:40:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>Airtable 到 mysql 同步</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xlerh/airtable_to_mysql_sync/</link>
-      <description><![CDATA[我的一个客户希望使用 Airtable 作为他的应用程序的数据库。当直接通过api访问airtable时，速度太慢，而且我们无法使用保存的图片，因为链接在一段时间后就会消失。 所以我编写了一个api来将airtable与mysql数据库同步（两种方式）同步），下载图片并通过链接访问它们。 这对你们中的一个人有用吗？  &amp;# 32；由   提交/u/upcastben  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xlerh/airtable_to_mysql_sync/</guid>
-      <pubDate>Fri, 17 Nov 2023 18:21:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>React Redux 用于中央数据获取和存储？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xl6t4/react_redux_for_central_data_fetching_and_storing/</link>
-      <description><![CDATA[我目前正在使用 React 开发一个二手市场。我有一个列表组件，它通过反应加载器获取其数据。现在我想实现一个过滤选项，用户可以在其中过滤列表。过滤发生在后端。现在我有一个反应架构问题。我应该在 Redux Store 中进行提取并将提取的数据存储在那里吗？好处是我的过滤器子组件可以向 redux 存储发送更改操作，并使用新选定的过滤器触发新的 get api 调用。我的父组件列表正在订阅此更改，并且可以呈现新列表。这是正确的方法吗？您有什么想法或最佳实践是什么？例如，在我的公司中，我们正在使用 vue.js 和 Vuex 来获取数据。 概述：我有以下组件：列表（父级）、列表列表（子级） 在列表中，我有一个过滤栏作为子级它有子组件 Filterdrawer   由   提交/u/dayum08  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xl6t4/react_redux_for_central_data_fetching_and_storing/</guid>
-      <pubDate>Fri, 17 Nov 2023 18:11:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>我有服务器空间和网络开发技能，我可以做什么来货币化它们？</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xjx5i/i_have_server_space_and_webdev_skills_what_can_i/</link>
-      <description><![CDATA[我有服务器空间和 Webdev 技能，我可以做什么来货币化它们？ （除了明显的自由职业/工作项目之外，我已经在这样做了。） 并不是想致富，只是想利用未使用的空间并可能支付一些运营成本。 &lt; /div&gt;  由   提交 /u/WeirdWebDev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xjx5i/i_have_server_space_and_webdev_skills_what_can_i/</guid>
-      <pubDate>Fri, 17 Nov 2023 17:14:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>我以为你也能从中受益</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xjgx0/i_thought_you_could_benefit_from_it_too/</link>
-      <description><![CDATA[       由   提交/u/mondersky  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xjgx0/i_thought_you_could_benefit_from_it_too/</guid>
-      <pubDate>Fri, 17 Nov 2023 16:55:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>RRule：帮助以人类可读的方式显示</title>
-      <link>https://www.reddit.com/r/webdev/comments/17xj57m/rrule_help_to_display_in_human_readable_way/</link>
-      <description><![CDATA[我有一些重复发生的事件，为了实现几乎所有可能性，我使用 RRule 并将其保存在数据库中。  即 RRULE:FREQ=WEEKLY;BYDAY=WE;INTERVAL=1  我想在 UI 中将其显示为每周 WED但我尝试使用这个 NPM 包 https:// www.npmjs.com/package/rrule  有一种方法可以生成文本字符串，即  import { rrulestr } from &#39;rrule&#39; const rruleString = &#39;FREQ=WEEKLY;BYDAY=WE;INTERVAL=1&#39; const rrule = rrulestr(rruleString) console.log(rrule.toText()) // 每周星期三  I可以获取“Weekly”，但是获取工作日有点麻烦，如下所示...我有一个 TS 错误，我想自动获取一个简短的日期。 const rrule = RRule.parseString(rruleString) const 频率 = rrule.freq &amp;&amp; RRule.FREQUENCIES[rrule.freq] console.log(rrule, 频率) // &#39;每周&#39; if (rrule.freq === RRule.WEEKLY &amp;&amp; Array.isArray(rrule.byweekday)) { const BYDAY = rrule .byweekday.map((day) =&gt; ALL_WEEKDAYS[day.weekday]) // 类型“ByWeekday”上不存在属性“weekday” console.log(BYDAY) // [&#39;WE&#39;] }   所以......只是想知道是否有人以前使用过 RRULE，并且有一个在 UI 中使用它进行显示的好方法，因为我想对此进行扩展并执行其他重复频率。  谢谢！！   由   提交 /u/cardyet   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/17xj57m/rrule_help_to_display_in_human_readable_way/</guid>
-      <pubDate>Fri, 17 Nov 2023 16:40:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
