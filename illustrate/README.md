@@ -8,9 +8,9 @@
 
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
-已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[Bing翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
+已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[mtranslate谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
 
-## Bing翻译接口文件调整：
+## mtranslate谷歌·翻译接口文件调整：
 
 - 修复了使用set_cfg()方法修改配置文件数据时的bug
 
@@ -108,7 +108,7 @@ base参数为生成的文件存放目录，max参数为rss最大条目数（请�
 
 注：我把jekyll-gh-pages.yml生成页面工作流关闭了自动运行，如果你是直接fork的，如果更新[页面](https://rcy1314.github.io/Rss-Translation/)需要手动运行Deploy
 
-另外这个项目是支持全文翻译的！但源本身不是全文输出的源就没办法，包括像上面提到的全文过多字符的源用免费的翻译api（谷歌或必应）是无法全部翻译！你可以使用付费的api来满足更高的需求。![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
+另外这个项目是支持全文翻译的！但源本身不是全文输出的源就没办法，包括像上面提到的全文过多字符的源用免费的翻译api（谷歌）是无法全部翻译！你可以使用付费的api来满足更高的需求。![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230704/ererere.2rl39yjugcq0.jpg)
 
 全文翻译查看示例：
 
@@ -194,7 +194,7 @@ pip install beautifulsoup4
 pip install urllib
 ```
 
-安装好后就可以使用命令运行文件了，我推荐Bing翻译
+安装好后就可以使用命令运行文件了，我推荐mtranslate谷歌翻译
 
 ![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/的大.3e1vh5x7o2k0.jpg)
 
@@ -203,7 +203,7 @@ pip install urllib
 在面板计划任务中设置以下命令
 
 ```
-cd /你的文件路径 source myenv/bin/activate python3 Bingtrans
+cd /你的文件路径 source myenv/bin/activate python3 mtranslate.py
 ```
 
 ![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/1689133552281.k7gvffi1240.jpg)
