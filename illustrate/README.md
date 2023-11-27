@@ -8,9 +8,9 @@
 
 注意：免费的翻译API会有请求次数限制！如果定时运行时间过于频繁，可能会导致action更新抓取一些站点时被限制及封禁！免费的翻译包括bing翻译和谷歌翻译
 
-已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[mtranslate谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/Bingtrans.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
+已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[mtranslate谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/my-mtranslate.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
 
-## mtranslate谷歌·翻译接口文件调整：
+## my-mtranslate谷歌·翻译接口文件调整：
 
 - 修复了使用set_cfg()方法修改配置文件数据时的bug
 
@@ -194,7 +194,7 @@ pip install beautifulsoup4
 pip install urllib
 ```
 
-安装好后就可以使用命令运行文件了，我推荐mtranslate谷歌翻译
+安装好后就可以使用命令运行文件了，我推荐my-mtranslate谷歌翻译
 
 ![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/的大.3e1vh5x7o2k0.jpg)
 
@@ -203,7 +203,7 @@ pip install urllib
 在面板计划任务中设置以下命令
 
 ```
-cd /你的文件路径 source myenv/bin/activate python3 mtranslate.py
+cd /你的文件路径 source myenv/bin/activate python3 my-mtranslate.py
 ```
 
 ![](https://jsd.onmicrosoft.cn/gh/rcy1314/tuchuang@main/20230712/1689133552281.k7gvffi1240.jpg)
