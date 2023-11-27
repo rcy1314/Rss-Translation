@@ -150,6 +150,9 @@ def tran(sec, max_item):
             .replace('"', "&quot;")
             .replace("'", "&#39;")
         )
+        #转义link与guid内的&以符合XML格式
+        link = link.replace("&", "&amp;")
+        guid = guid.replace("&", "&amp;")
         one = dict(
             title=title, link=link, description=description, guid=guid, pubDate=pubDate
         )
