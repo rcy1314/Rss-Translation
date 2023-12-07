@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 06 Dec 2023 21:16:30 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 Dec 2023 01:14:14 GMT</lastBuildDate>
     <item>
-      <title>图片CDN？图像/文件管理系统？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ce0k3/image_cdn_imagefile_management_system/</link>
-      <description><![CDATA[我是一名刚刚进入某个部门的 Web 开发人员。他们与第三方供应商一起托管一个内部网站（是的，我知道我们应该在内部进行此操作，但相信我，这不会发生。） 目前他们的库/ DAM 对我们来说很粗糙，您可以通过滚动浏览 1000 多个选项的下拉菜单来查询照片……是的，1000 多个选项。一个不断增长的列表......没有搜索，没有过滤器等。 即使是基本的搜索输入也会好一点。我尝试将自己的简单搜索字段添加到页面，但意识到我们为库上传的所有图像和文件根本没有索引。无法按文件名搜索。其中没有包含元数据或标签。也没有任何人工智能能够精确定位任何东西。 在我彻底修改网站的过程中，我认为也许我们自己的官方数字资产管理系统会更适合，甚至可以将图像上传到管理方面充其量只是令人烦恼。我们最终携带了两组相同的图像，一组在我们自己的服务器上，另一组在我们的第三方供应商上，因为它是如此孤立。 我还认为这个供应商可能会赢。无论如何，我们不想为我们托管 1 TB 的照片和文件。 问题是，事实证明我们的销售和营销团队实际上依赖我们的网站和库页面来查找图像。我询问我们公司是否已经购买了某种 DAM 或内容管理器，并且 IT 指向了 sharepoint。现在，Sharepoint 对于某些文件来说很好，但它并不是真正的 DAM，我无法在我们的网站上托管它。  我需要一些东西，让我的团队可以轻松上传从他们的计算机上并将其与 Adob​​e 产品一起使用。 能够在网站页面上托管/嵌入或 iframe 该软件。 但是，让我们企业的用户能够从我们的网站读取和下载文件，而无需用户登录。（网站位于登录墙后面）。 具有元数据、标记等的搜索功能（我不介意是否也必须坐在那里标记它们）  一些软件我正在查看： Bynder Adobe Experience Manager Canto Cloudinary 任何想法都可以非常感激！即使不是软件的任何东西。这是我第一次尝试图书馆系统，我知道这会很头痛。   由   提交 /u/Grapefruit_Weary   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ce0k3/image_cdn_imagefile_management_system/</guid>
-      <pubDate>Wed, 06 Dec 2023 20:56:57 GMT</pubDate>
+      <title>拆分 JWT 以防范 CSRF</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cjha5/splitting_jwt_for_protection_against_csrf/</link>
+      <description><![CDATA[这只是我在睡觉前想到的，所以我不确定这是否完全是废话，但乍一看，它似乎解决了以下问题问题： 当使用 JWT 进行 Web 应用程序授权时，我们要么将令牌存储在 localStorage 中并将其附加为 HTTP 标头，要么附加在 HttpOnly cookie 中。虽然 HttpOnly cookie 方法通常被认为更安全，因为在 XSS 漏洞的情况下令牌不会被窃取，但就 CSRF 而言，它并不安全，例如，对于来自同一域或子域的请求（如果 SameSite 是）设置为 Lax。 如果我们将令牌分成两半，并通过 HTTP cookie 发送一半，通过标头发送另一半，会怎么样？服务器可以重新组装并验证令牌。没有另一半，每一半都是无用的，因此我们将使用仅 cookie 的解决方案来解决 CSRF 问题。 令牌刷新机制只会刷新两部分。 我知道这听起来有点轻微更复杂，但对我来说似乎可行，并且在我看来添加 CSRF 保护类似甚至更复杂。当然，即使我们拆分 JWT，也不应该包含任何敏感数据。你觉得怎么样？   由   提交 /u/buddh4r   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cjha5/splitting_jwt_for_protection_against_csrf/</guid>
+      <pubDate>Thu, 07 Dec 2023 01:04:04 GMT</pubDate>
     </item>
     <item>
-      <title>在“以内容为中心”的网站之外，Astro 有哪些限制？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cdqvw/what_are_the_limitations_of_astro_outside_of/</link>
-      <description><![CDATA[我一直在使用 Astro，创建了一些静态页面，集成了一些 Svelte 组件，集成了 tailwind、测试框架等。这真是一次很棒的体验迄今为止。我也一直在研究 Svelte 和 SvelteKit，做同样类型的实验。我没有时间去学习世界上每一个JS框架，所以我想仔细挑选。我在 Astro 中具体会在哪些方面遇到限制？我知道“SSR”应该功能不太齐全 - 但你认为我什么时候会发现这是一个问题？我来自 .NET/vanilla JS/一点 Alpine.js/JQuery 背景（如果有帮助的话）。    由   提交 /u/gbro3n   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cdqvw/what_are_the_limitations_of_astro_outside_of/</guid>
-      <pubDate>Wed, 06 Dec 2023 20:45:36 GMT</pubDate>
+      <title>我的作品集网站上的我自己的肖像照片</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cj1z1/portrait_photo_of_myself_on_my_portfolio_website/</link>
+      <description><![CDATA[我是一名自由 AR 创作者，目前正在重新设计我的个人作品集网站，我注意到大多数人不会放置图片他们自己在他们的网站上，特别是那些参与编码的人（前端开发人员、软件开发人员等）。就我而言，我必须展示自己，因为我必须展示我的作品，即使用面部跟踪的 Instagram 滤镜和 Snapchat 滤镜。我正在考虑不放自己的照片，因为我的脸已经在那里了，而且我很好奇其他人对此的看法。   由   提交 /u/hxicko   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cj1z1/portrait_photo_of_myself_on_my_portfolio_website/</guid>
+      <pubDate>Thu, 07 Dec 2023 00:42:35 GMT</pubDate>
     </item>
     <item>
-      <title>您或您的雇主是否曾经提出出售/购买您制造的工具？进展如何？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cd604/have_you_or_your_employer_ever_offered_to_sellbuy/</link>
-      <description><![CDATA[嗨， 我刚刚结束与我的用户体验和产品团队的会议，并听取了某人关于我们遇到的困难的声明一次又一次的遇到让我产生了创建一个工具的想法，以使其变得更容易（当然是在我自己的时间和我自己的机器上）。这让我想知道，如果我从头到尾看到这个项目，我将如何向我的团队介绍它，甚至可能将其出售给他们（如果他们愿意的话）？ 任何有这种想法的人经验？   由   提交 /u/mascdunn   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cd604/have_you_or_your_employer_ever_offered_to_sellbuy/</guid>
-      <pubDate>Wed, 06 Dec 2023 20:20:29 GMT</pubDate>
+      <title>2024 年 Web 开发浏览器的选择</title>
+      <link>https://www.reddit.com/r/webdev/comments/18ciw59/your_2024_choice_of_browser_for_web_development/</link>
+      <description><![CDATA[2024 年即将到来。 基于这一整年的 Web 开发，您会选择什么浏览器明年？请随意分享您今年的体验。 我的可能会再次使用 Safari，不要问我怎么做，但我绝对喜欢 Safari。今年我得到了我的第一台 Macbook，并决定保持原样，只是为了体验 MacOS 的感觉，而且我真的很喜欢它。工作中，我主要使用 Chrome。  你呢？ 👀   由   提交 /u/evandro_r   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18ciw59/your_2024_choice_of_browser_for_web_development/</guid>
+      <pubDate>Thu, 07 Dec 2023 00:34:29 GMT</pubDate>
     </item>
     <item>
-      <title>输入[类型=日期] 挫败感</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ccwj6/inputtypedate_frustration/</link>
-      <description><![CDATA[控件显示的是 MM/DD/YYYY（这是我们数据库返回日期的方式），但控件输出 YYYY-MM-DD 并且需要那个作为一个值。我想创建一个自定义元素来扩展它，但在我走这条路之前，我想看看是否有人已经完成了解决方案。  &amp; #32；由   提交/u/mapsedge  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ccwj6/inputtypedate_frustration/</guid>
-      <pubDate>Wed, 06 Dec 2023 20:09:26 GMT</pubDate>
+      <title>欧洲准备通过 eIDAS 2.0 突破浏览器安全</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cio8x/europe_prepares_to_break_browser_security_with/</link>
+      <description><![CDATA[       由   提交 /u/MySpermIs-Unvaxxd-01   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cio8x/europe_prepares_to_break_browser_security_with/</guid>
+      <pubDate>Thu, 07 Dec 2023 00:23:42 GMT</pubDate>
     </item>
     <item>
-      <title>如何保证客户端中Supabase rpc功能的安全？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cco54/how_to_secure_supabase_rpc_function_in_client/</link>
-      <description><![CDATA[前言：我将 Next.js 用于所有与前端相关的内容和 Edge 运行时 API 的一小部分。 Supabase 用于所有相关后端。 我正在开发一个应用程序，用户可以在其中购买积分。这是通过将指定数量的积分添加到现有余额中来实现的，从而在 Supabase 中特定表的“积分”列中存储新的金额。例如，如果用户当前总共拥有 22 个积分，则该现有金额存储在 Supabase 表的“积分”列中。如果他们决定额外购买 40 个积分，则新的总数将为 62 个。 这是 JS 文件中处理此逻辑的 Javascript 代码片段（使用 rpc）： &lt; pre&gt;const setProfileCredits = async (amount) =&gt;; { 让错误，数据； const { 数据：profileData，错误：profileDataError } =等待supabase .rpc(`increase_credits`，{ amount: amount }); if (profileDataError) { logSupabaseError(`setProfileCredits`, profileDataError); }错误=配置文件数据错误；数据=空； } else { 错误 = false;数据 = 个人资料数据； } 返回 { 数据，错误 }; }  这是 Supabase 中的 PostgreSQL 函数，每次调用上述函数时都会执行该函数： CREATE OR REPLACE FUNCTIONincrease_credits (amount int)返回 int AS $$ UPDATE “配置文件” SET 积分 = 积分 + 金额 WHERE id = auth.uid() 返回积分； $$ 语言 sql;  问题是我不认为将此代码放在前端是安全的。经过身份验证的用户可以直接调用此函数，而无需进行必要的预付款。或者也许我错了。有没有人熟悉如何确保这一点，以便根据用户的付款购买正确的金额？我仍然需要实现结帐和付款流程的逻辑，一旦付款流程成功，就会执行上面提到的代码。但是，如前所述，我担心用户可能能够直接使用特定金额调用此函数。 我认为选择 Supabase Edge Functions 会有所帮助。但是，我意识到 Edge Functions 需要在 Next.js 应用程序中编写。我假设与 Edge Functions 相关的所有代码对客户端都是不可见的。   由   提交/u/1chbinamin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cco54/how_to_secure_supabase_rpc_function_in_client/</guid>
-      <pubDate>Wed, 06 Dec 2023 19:59:54 GMT</pubDate>
+      <title>GoDaddy 说域名在过期后 72 天被接管？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cij3x/godaddy_says_domain_is_taken_over_72_days_after/</link>
+      <description><![CDATA[我们希望购买某个域名作为新业务的一部分，之前的业务所有者允许该域名过期并且没有续订。&lt; /p&gt; 我们错过了该网站的拍卖期，GoDaddy 网站上显示该域名应在初始到期后 72 天释放以供购买。 72 天标记是 1-2 天前，有人知道这个域名什么时候可以在不使用他们的经纪人服务的情况下再次购买吗？   由   提交/u/Sentinel_2539   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cij3x/godaddy_says_domain_is_taken_over_72_days_after/</guid>
+      <pubDate>Thu, 07 Dec 2023 00:16:42 GMT</pubDate>
     </item>
     <item>
-      <title>关于清单 v3 的问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ccika/question_regarding_manifest_v3/</link>
-      <description><![CDATA[一旦 V3 成为标准，是否意味着 Chrome 根本无法运行 V2？或者您仍然可以运行 v2 扩展，但以后将不再更新。  试图得到一个明确的答案：即使开发者/公司本身没有提供支持，我的 v2 扩展是否会继续运行 &lt;!-- SC_ON - -&gt;  由   提交/u/SeanWhelan1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ccika/question_regarding_manifest_v3/</guid>
-      <pubDate>Wed, 06 Dec 2023 19:53:05 GMT</pubDate>
+      <title>从CDN加载的JS资源安全吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18ci6kf/are_js_resources_loaded_from_cdns_safe/</link>
+      <description><![CDATA[当站点从 jsdelivr.net 或 cloudflare 等 CDN 加载 JS 时，是否假设它们是安全的？有没有办法检查一下？ 比如一个页面使用下面的JS来滑动浏览照片 https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js&lt; /p&gt;   由   提交/u/enddawhites  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18ci6kf/are_js_resources_loaded_from_cdns_safe/</guid>
+      <pubDate>Thu, 07 Dec 2023 00:00:26 GMT</pubDate>
     </item>
     <item>
-      <title>我可以在哪里免费部署我的社交媒体应用程序？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cc4py/where_can_i_deploy_my_social_media_app_for_free/</link>
-      <description><![CDATA[我制作了一个全栈社交媒体应用程序，我想免费部署它，但我不确定在哪里以及如何部署 通常我只做前端的东西，所以我只是立即部署到 vercel，但是具有客户端 + 服务器的项目的流程是什么样的？ (React + mongo)   由   提交 /u/Mjz11   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cc4py/where_can_i_deploy_my_social_media_app_for_free/</guid>
-      <pubDate>Wed, 06 Dec 2023 19:36:11 GMT</pubDate>
+      <title>Redis不是应该增加内存使用吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18chkoa/isnt_redis_supposed_to_increase_memory_usage/</link>
+      <description><![CDATA[我正在我的应用程序中进行负载测试，以确定我的服务器所需的规格。最初，我在没有缓存的情况下测试了系统，以评估其处理用户的能力和响应时间。 随后，我在 API 中实现了 Redis，发现虽然响应速度更快，但内存使用量仍然存在本质上是一样的。实施前为 300MB，实施后为 400MB。 这背后的原因可能是什么？难道是因为我缓存的是简单的 JSON，而不是较大的响应？我预计它会减轻 CPU 压力，但事实并非如此。   由   提交 /u/Faisst   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18chkoa/isnt_redis_supposed_to_increase_memory_usage/</guid>
+      <pubDate>Wed, 06 Dec 2023 23:32:05 GMT</pubDate>
     </item>
     <item>
-      <title>如何获得更多自由职业客户</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cc36u/how_to_get_more_freelance_clients/</link>
-      <description><![CDATA[如果您是一名自由 Web 开发人员，那么您不仅仅是一名 Web 开发人员。您也是您自己的销售和销售人员。营销团队。 如果您像我刚开始时一样，您可能对此没有太多经验（尤其是刚开始时）。 这里是您可以找到的所有资源用于获得更多客户： ​  付费广告：使用付费广告，例如 Reddit 广告、Google 广告、IG /FB 广告。这是获得更多客户的最直接的方法。请务必密切跟踪您的支出，以便保持盈利。 口碑：您的客户很可能也认识其他需要网络开发帮助的人。始终为客户提供最好的工作，并且不要害怕询问您的客户是否认识任何可能需要网络开发服务的人。 自由职业网站（Fiverr、Upwork、Freelancer）：  这些非常适合入门，但你会得到很多低价，并且必须支付高额费用。 Seo：这是一个长期的问题投资（3-6个月）。开始撰写可以吸引理想客户的博客文章。  有机内容：开始在 Twitter、TikTok、IG 等上发布。与 SEO 类似，发布能够吸引理想客户的内容。  &lt; p&gt;我发现某些技术（例如冷外展）不是很有效。 如何找到客户？   由   提交/u/benugc  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cc36u/how_to_get_more_freelance_clients/</guid>
-      <pubDate>Wed, 06 Dec 2023 19:34:21 GMT</pubDate>
+      <title>最后步骤/博客/需要帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/18ch2n1/final_steps_blog_need_help/</link>
+      <description><![CDATA[大家好，我是一位来自德国的小内容创作者，想要创建一个博客。我认为已经完成了 75%。我使用 WordPress 并通过谷歌学习了一切。现在我正处于最后一步，但我想在博客中获取类别。这样您就可以进行过滤，例如骑自行车、登山、旅行、城市……。然后我想，如果真正知道自己在做什么的人会检查我的网站，这也会有所帮助，我认为这对于搜索引擎优化和一切都很重要。  我不想要任何免费的东西，但我也没有最大的预算，因为这只是一个爱好，而且我现在还没有赚到任何东西。所以我可以付一点钱，但我也可以为您提供任何帮助:)  如果能找到可以帮助我完成这个项目的人就好了 🤩🥹  这是我现在的网站：www.simon-georg.de  请不要破解它哈哈 干杯 西蒙   由   提交/u/simongeorg  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18ch2n1/final_steps_blog_need_help/</guid>
+      <pubDate>Wed, 06 Dec 2023 23:09:40 GMT</pubDate>
     </item>
     <item>
-      <title>500px 媒体查询断点？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cbdoy/500px_media_query_breakpoint/</link>
-      <description><![CDATA[Tl;dr：500px 是 iPhone/safari 的最佳媒体查询断点吗？  嘿，我最近做了一项真正的紧急工作（为我自己的网站，而不是客户或其他任何东西），并为移动设备在 400px 处制作了一个响应式设计媒体查询断点。我是一个android用户，并没有对iphone考虑太多（我知道我应该更加关注......）。该网站在我的三星手机上看起来很棒，我问过的每个人（也可能是在 Android 上）都说它在他们的设备上看起来很好。然后最近我看到有人在 iphone 上使用 safari 打开我的网站，它看起来很不对劲，边距太大，而且一些元素没有切换到列布局。经过进一步调查，我认为问题在于（大多数）iPhone 的屏幕尺寸高于 400 像素。我将媒体查询更改为 500px，在线模拟器 (browserstack) 似乎显示我的网站现在在 iphone 12 上正确呈现。500px 是最好的媒体查询断点之一吗？谢谢！仅供参考，这里是自学的非专业网络开发人员。   由   提交/u/nesterspokebar  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cbdoy/500px_media_query_breakpoint/</guid>
-      <pubDate>Wed, 06 Dec 2023 19:03:23 GMT</pubDate>
+      <title>Temporal API 非常棒</title>
+      <link>https://www.reddit.com/r/webdev/comments/18ch0d7/temporal_api_is_awesome/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18ch0d7/temporal_api_is_awesome/</guid>
+      <pubDate>Wed, 06 Dec 2023 23:06:47 GMT</pubDate>
     </item>
     <item>
-      <title>如何获得更多浏览量/用户？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18cawtf/how_to_get_more_views_users/</link>
-      <description><![CDATA[大家好，我创建了一个像 dev.to 这样的博客网站，我希望获得更多浏览量，尤其是注册用户。 &lt; p&gt;我想知道最好的方法是什么，我考虑过：  专注于搜索引擎优化 专注于在社交媒体上发布和分享博客 关注更多功能 关注instagram等教程。并让人们通过它间接加入网站  感谢您的建议！ &lt; /div&gt;  由   提交 /u/IAmOpenSourced   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18cawtf/how_to_get_more_views_users/</guid>
-      <pubDate>Wed, 06 Dec 2023 18:43:57 GMT</pubDate>
+      <title>Blind Leader 因加州公园网站无法访问而赢得 200 万美元和解</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cgum3/blind_leader_wins_2_million_settlement_over/</link>
+      <description><![CDATA[ 由   提交/u/snasta  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cgum3/blind_leader_wins_2_million_settlement_over/</guid>
+      <pubDate>Wed, 06 Dec 2023 23:00:11 GMT</pubDate>
     </item>
     <item>
-      <title>浏览器开发检查器中的 Tailwind 类...</title>
-      <link>https://www.reddit.com/r/webdev/comments/18caomp/tailwind_classes_in_browser_dev_inspector/</link>
-      <description><![CDATA[调试 css 时，我很难导航我的检查器样式/布局面板，因为它充满了 --tw-* 类，例如以下。我正在使用 Next.js，不确定这是否会改变任何东西。有没有一个插件可以让我隐藏这些？   --tw-border-spacing-x: 0; --tw-边框间距-y: 0; --tw-翻译-x: 0; --tw-翻译-y: 0; --tw-旋转：0； --tw-倾斜-x：0； --tw-倾斜-y：0； --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-捏缩放：; --tw-scroll-snap-strictness：接近度； --tw-从位置渐变：; --tw-梯度通过位置：; --tw-渐变到位置：; --tw-序数：; --tw-斜线-零：; --tw-数字-数字：; --tw-数字间距：; --tw-数字分数：; --tw-环插入：; --tw-环偏移宽度：0px； --tw-环偏移-颜色：#fff； --tw-环颜色：rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-阴影：0 0 #0000； --tw-阴影颜色：0 0 #0000； --tw-模糊：; --tw-亮度: ; --tw-对比度：; --tw 灰度: ; --tw-色调-旋转：; --tw-反转：； --tw-饱和：； --tw-棕褐色: ; --tw-drop-shadow: ; --tw-背景模糊：； --tw-背景亮度：； --tw-背景对比度：； --tw-背景灰度：; --tw-背景色调-旋转：; --tw-背景反转：； --tw-背景不透明度：； --tw-背景饱和度：； --tw-背景-棕褐色: ;  ​   由   提交 /u/maxiedaniels   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18caomp/tailwind_classes_in_browser_dev_inspector/</guid>
-      <pubDate>Wed, 06 Dec 2023 18:34:09 GMT</pubDate>
+      <title>npm i puppeteer VS npx @puppeteer/browsers install</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cge7d/npm_i_puppeteer_vs_npx_puppeteerbrowsers_install/</link>
+      <description><![CDATA[安装 puppeteer 时，为什么我似乎必须同时安装： `npx @ puppeteer/browsers install chrome` 和`npm i puppeteer` 这里的文档说：(https://www.npmjs.com/package/ puppeteer) “当您安装 Puppeteer 时，它会自动下载最新版本的 Chrome 测试版 ...即保证与 Puppeteer 一起工作。 &quot; 如果我还没有 chrome 二进制文件，两者都需要吗？ 只需要其中一个吗？ 如果我想要一个怎么办？ chrome 二进制文件和 npm puppeteer 适合所有用户，而不仅仅是一个？ 我在 Node/js 中工作不多，并且不明白其中的区别。提前致谢。   由   提交/u/barrel_of_noodles  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cge7d/npm_i_puppeteer_vs_npx_puppeteerbrowsers_install/</guid>
+      <pubDate>Wed, 06 Dec 2023 22:39:42 GMT</pubDate>
     </item>
     <item>
-      <title>您如何在项目结构中组织模型？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ca64e/how_do_you_organize_your_models_within_your/</link>
-      <description><![CDATA[我正在 Angular 中工作，但毫无疑问这也适用于其他框架。因此，假设您想要定义一个 Product.ts 对象或 order.ts 等，然后创建服务来调用 API 来填充这些对象。您如何在“src”根目录下组织这些文件结构？ 通常在我的后端（C#）上，我有一个仅用于模型的项目，然后在该根目录下创建一个文件夹我正在使用的每个数据库模式，然后是每个表的模型。就像： ClientName.Data/InventoryDB/Product.cs ClientName.Data/UserStoreDB/User.cs&lt; /p&gt; 有时我会按功能进一步分组一级，例如： ClientName.Data/UserStoreDB/Auth/User.cs &lt; p&gt;感谢您的帮助！   由   提交 /u/astarastarastarastar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ca64e/how_do_you_organize_your_models_within_your/</guid>
-      <pubDate>Wed, 06 Dec 2023 18:12:06 GMT</pubDate>
+      <title>如果学院和大学教授 c 和 c++，那么为什么不推荐 rust 和 go 作为第一语言。</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cg0gx/if_c_and_c_are_taught_in_colleges_and/</link>
+      <description><![CDATA[差不多是标题。如果我想学习编程，为什么每个人都推荐 js 或 python。仅仅是因为工作吗？   由   提交 /u/t7Saitama   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cg0gx/if_c_and_c_are_taught_in_colleges_and/</guid>
+      <pubDate>Wed, 06 Dec 2023 22:22:21 GMT</pubDate>
     </item>
     <item>
-      <title>对网络响应能力的怀疑（不是我的）</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ca4c1/doubt_about_web_responsiveness_not_by_me/</link>
-      <description><![CDATA[帖子不是我写的，我只是提一下，这样人们就不会在评论中告诉我我又是菜鸟了。 我确实创建了平台，而不是文章。 我认为有很多好的方法，特别是使用媒体查询和 bootstrap 和 tailwind 等框架来解决这个问题。 您最喜欢的方法是什么？  p&gt;   由   提交/u/IAmOpenSourced  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ca4c1/doubt_about_web_responsiveness_not_by_me/</guid>
-      <pubDate>Wed, 06 Dec 2023 18:09:59 GMT</pubDate>
+      <title>了解 JavaScript 模运算符</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cfj98/understanding_the_javascript_modulo_operator/</link>
+      <description><![CDATA[   /u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cfj98/understanding_the_javascript_modulo_operator/</guid>
+      <pubDate>Wed, 06 Dec 2023 22:01:37 GMT</pubDate>
     </item>
     <item>
-      <title>关于网站托管和AI api的问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/18c9a9o/question_about_website_hosting_and_ai_api/</link>
-      <description><![CDATA[我正在寻找一个利用 Chatgpt api（或类似的东西）来提取书籍摘要的网站。 IE：用户输入“Harry Potter Prisoner of Azkaban”它会返回这本书的简短摘要。您对网络主机有何建议？我二十多年前就涉足了 html 和 css，并且大部分时间都在 IT 领域工作。我学东西很快，并且对网络/IT 有很强的了解，所以不需要完全所见即所得。由于 YT 和大量的赞助视频，我看到了很多有关 Squarespace 的信息，并且之前曾在其上的网站上提供过帮助，但我认为我不需要这样的东西。我非常寻求任何建议并感谢提供的任何帮助！   由   提交/u/Interphantom  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18c9a9o/question_about_website_hosting_and_ai_api/</guid>
-      <pubDate>Wed, 06 Dec 2023 17:34:43 GMT</pubDate>
+      <title>对语言选择的任何硬性限制</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cfhek/any_hard_limits_on_the_choice_of_language/</link>
+      <description><![CDATA[我是一名新手开发人员，我不想在这里引发一场激烈的战争。只是想知道不同的语言或框架是否有任何严格的实际限制。我听说过 PHP、NodeJS、Java、C#、Python、RoR，甚至还听说过一些不太知名的语言，例如 Clojure 或 Rust 用于主要的公共项目。 我想对于大多数 SaaS 来说都是如此，通常的嫌疑人都会在非常普遍的意义上做到这一点，但我很好奇是否有任何硬性限制。是否有任何这些语言本质上无法执行的基本的、通用的 webdev 操作？如果没有，那么更专业的行动呢？例如我知道有些语言是单线程的，但这并不是自动破坏交易的因素……对吧？阿尼？对吗？   由   提交 /u/Aim_Fire_Ready   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cfhek/any_hard_limits_on_the_choice_of_language/</guid>
+      <pubDate>Wed, 06 Dec 2023 21:59:38 GMT</pubDate>
     </item>
     <item>
-      <title>如何像 media 那样在 Google 搜索结果中显示它？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18c8i5z/how_this_can_be_shown_in_google_search_results/</link>
-      <description><![CDATA[   /u/raevilman  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18c8i5z/how_this_can_be_shown_in_google_search_results/</guid>
-      <pubDate>Wed, 06 Dec 2023 17:01:44 GMT</pubDate>
+      <title>SSO 内部网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/18cff2c/sso_an_internal_website/</link>
+      <description><![CDATA[大家好，即使我对此事有中等了解，也不是 Web 开发人员。我想建立一个网站并在 SSO 身份验证后发布它（这样只有我的用户才能浏览它）。理想情况下，我想使用 Webflow 等 Web 构建器。 最好、最简单的方法是什么？   由   提交 /u/_Philein   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18cff2c/sso_an_internal_website/</guid>
+      <pubDate>Wed, 06 Dec 2023 21:56:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
