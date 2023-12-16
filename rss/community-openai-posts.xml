@@ -4,154 +4,85 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 16 Dec 2023 06:20:43 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 Dec 2023 09:15:42 GMT</lastBuildDate>
     <item>
-      <title>JSON模式与函数调用</title>
-      <link>https://community.openai.com/t/json-mode-vs-function-calling/476994#post_8</link>
-      <description><![CDATA[你好，
-我在大约 10% 到 20% 的函数调用中仍然遇到此类问题（不是有效的 JSON 或完全其他格式）。
-示例函数：
+      <title>将知识检索限制为仅从列表中提取</title>
+      <link>https://community.openai.com/t/limit-knowledge-retrieval-to-only-pull-from-a-list/559714#post_3</link>
+      <description><![CDATA[您好@jr.2509非常感谢您提供帮助，并对您表示歉意延迟回复您。我绝对可以分享我正在尝试做的事情。就我的提示而言，到目前为止还没有那么复杂。
+到目前为止我已经尝试了几种不同的方法：
 
-应该返回一个包含“command”字段的 json。
-我收到以下格式的回报，该格式不正确且无法解析。
+附加到助手的文本文件中的关键字列表以及附加到用户消息的文章
+两个文件都附加到助手
+使用不同的提示对上述两个进行迭代
 
-对此有什么帮助吗？]]></description>
-      <guid>https://community.openai.com/t/json-mode-vs-function-calling/476994#post_8</guid>
-      <pubDate>Sat, 16 Dec 2023 06:04:52 GMT</pubDate>
+这是我一直在尝试的提示：
+您将获得一篇作为附件的文章。您将关键字与提供的文章相匹配。您的工作是提供从所附列表中选择的关键字列表。
+您将使用仅在提供的列表中找到的关键字进行回复。不要使用所提供列表中未包含的任何关键字进行回复。
+这是另一种尝试
+您将关键字与提供的文章相匹配。您已获得一个 json 文件，其中包含父关键字列表，这些父关键字是更通用的关键字，每个父关键字都有一个关联的子关键字列表。您的工作是提供从所附列表中选择的关键字列表。适当的关键字是父关键字还是子关键字并不重要，只需返回所有适用的关键字的列表即可
+我已经用聊天模型做了相当多的提示，但考虑到我对知识检索比较陌生，我无法判断这是否是我的整体设置（即什么文件去哪里）或者是否是我的提示。&lt; /p&gt;
+如果您需要我分享示例文章和我的关键字列表，请告诉我。
+再次非常感谢您的帮助。非常感谢。]]></description>
+      <guid>https://community.openai.com/t/limit-knowledge-retrieval-to-only-pull-from-a-list/559714#post_3</guid>
+      <pubDate>Sat, 16 Dec 2023 09:14:29 GMT</pubDate>
     </item>
     <item>
-      <title>在这里展示您的 GPTS，供社区测试（2023 图库）</title>
-      <link>https://community.openai.com/t/show-off-your-gpts-in-here-for-the-community-to-test-2023-gallery/491656?page=31#post_642</link>
-      <description><![CDATA[薪资计算器]]></description>
-      <guid>https://community.openai.com/t/show-off-your-gpts-in-here-for-the-community-to-test-2023-gallery/491656?page=31#post_642</guid>
-      <pubDate>Sat, 16 Dec 2023 06:03:55 GMT</pubDate>
+      <title>Safari 保存的 mp4 出现 Whisper 问题</title>
+      <link>https://community.openai.com/t/whisper-issues-with-mp4-saved-by-safari/545761#post_6</link>
+      <description><![CDATA[谢谢你，我会努力的。
+昨天不得不放弃并使用其他服务，非常烦人。]]></description>
+      <guid>https://community.openai.com/t/whisper-issues-with-mp4-saved-by-safari/545761#post_6</guid>
+      <pubDate>Sat, 16 Dec 2023 09:06:46 GMT</pubDate>
     </item>
     <item>
-      <title>Whisper 出于某种原因正在翻译我的音频</title>
-      <link>https://community.openai.com/t/whisper-is-translating-my-audios-for-some-reason/86468#post_9</link>
-      <description><![CDATA[我也遇到了同样的问题。我来自马来西亚。当我用英语说话时，它在转录中向我显示马来语。意思和我用英语说的一模一样。]]></description>
-      <guid>https://community.openai.com/t/whisper-is-translating-my-audios-for-some-reason/86468#post_9</guid>
-      <pubDate>Sat, 16 Dec 2023 06:03:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>语义文本分割研究</title>
-      <link>https://community.openai.com/t/research-on-semantic-text-segmentation/560723#post_7</link>
-      <description><![CDATA[您可以尝试此模型或其其他变体之一。
-
-  &lt;标题类=“来源”&gt;
-
-      huggingface.co
-
-
-  &lt;文章类=“onebox-body”&gt;
+      <title>Safari 保存的 mp4 出现 Whisper 问题</title>
+      <link>https://community.openai.com/t/whisper-issues-with-mp4-saved-by-safari/545761#post_5</link>
+      <description><![CDATA[我使用 mp3 作为目标格式，它有效！
+def Convert_audio（输入文件：str，输出格式：str =“mp3”）：
+    输出文件 = f&quot;{input_file.rsplit(&#39;.&#39;, 1)[0]}.{output_format}&quot;
+    命令 = [&#39;ffmpeg&#39;, &#39;-i&#39;, 输入文件, 输出文件]
+    进程 = subprocess.run(命令, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
-ighina/roberta_topseg_contrastive · 拥抱脸
-我们正在通过开源和开放科学推进人工智能并使之民主化。
+    #app_logger.info(f&quot;输出 ffmpeg: {process.stdout.decode()}&quot;)
+    #app_logger.error(f&quot;ffmpeg 错误: {process.stderr.decode()}&quot;)
 
-
-
-
+    返回输出文件
 ]]></description>
-      <guid>https://community.openai.com/t/research-on-semantic-text-segmentation/560723#post_7</guid>
-      <pubDate>Sat, 16 Dec 2023 06:00:49 GMT</pubDate>
+      <guid>https://community.openai.com/t/whisper-issues-with-mp4-saved-by-safari/545761#post_5</guid>
+      <pubDate>Sat, 16 Dec 2023 08:53:42 GMT</pubDate>
     </item>
     <item>
-      <title>25 天构建自定义 GPT</title>
-      <link>https://community.openai.com/t/25-days-of-building-custom-gpts/545303#post_15</link>
-      <description><![CDATA[瓦尔达的愿景
-
-将您附加的图像与不同的 Agnès Varda 风格重新混合。]]></description>
-      <guid>https://community.openai.com/t/25-days-of-building-custom-gpts/545303#post_15</guid>
-      <pubDate>Sat, 16 Dec 2023 05:59:01 GMT</pubDate>
+      <title>ChatGPT-4 默认为惰性</title>
+      <link>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886#post_1</link>
+      <description><![CDATA[在我使用 ChatGPT 的几个月里，确实发生了变化。最近，对提示的第一反应似乎总是倾向于“你会这样做”，而不是去做工作。这是一个最近的例子：
+ChatGPT-4：请根据 app.py 中使用 form_data 的特定部分调整这些更改。由于我只能看到一小部分代码和应用程​​序的结构，因此这些说明有些笼统。您需要将它们应用到代码库的适当部分。
+代码可见性借口只是一个借口，文件已上传。
+您可以通过指出 GPT 拥有所有文件并继续建议代码来克服这个问题。但令人烦恼的是默认是告诉用户这样做。
+我不会在这里分享提示，但这并不重要，这是大多数提示的默认设置。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886#post_1</guid>
+      <pubDate>Sat, 16 Dec 2023 08:39:09 GMT</pubDate>
     </item>
     <item>
-      <title>文件上传 API 不断出现 500 错误</title>
-      <link>https://community.openai.com/t/file-upload-api-keep-geting-500-error/282216#post_17</link>
-      <description><![CDATA[我之前遇到过同样的问题，只有当我关闭接收上传文件的文件服务器的 Cloudflare 代理橙色图标时才解决。]]></description>
-      <guid>https://community.openai.com/t/file-upload-api-keep-geting-500-error/282216#post_17</guid>
-      <pubDate>Sat, 16 Dec 2023 05:42:59 GMT</pubDate>
+      <title>每次我向 chatGPT 提问时都会遇到“验证你是人类”的难题！</title>
+      <link>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=2#post_36</link>
+      <description><![CDATA[我仍然遇到这个问题。高级帐户，每天使用至少 6 个月。我检查了我的时钟设置，没有什么异常。尝试从活动会话中注销（我在两台不同的计算机上使用chatGPT）-不行。在 Chrome 和 Edge 上使用它 - 也尝试过 Firefox。移动应用程序运行良好。我从瑞典连接 - 这有问题吗？真的不知道下一步该尝试什么。]]></description>
+      <guid>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=2#post_36</guid>
+      <pubDate>Sat, 16 Dec 2023 08:28:29 GMT</pubDate>
     </item>
     <item>
-      <title>需要免费帮助吗？ [教育/医疗]</title>
-      <link>https://community.openai.com/t/need-free-help-education-healthcare/256887#post_17</link>
-      <description><![CDATA[嘿那里！我是 ICU 的一名医生，一直在测试开箱即用的 ChatGPT，以向危重儿童的父母解释复杂的医疗记录/术语。即使只有基本的提示，它也令人难以置信地令人印象深刻！完成了我们的可行性分析，现在有兴趣构建它并探索提示探索改进功能的思想链。如果还有空的话很乐意聊天！]]></description>
-      <guid>https://community.openai.com/t/need-free-help-education-healthcare/256887#post_17</guid>
-      <pubDate>Sat, 16 Dec 2023 05:42:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无法再选择“公开”来发布我的 GPT？！</title>
-      <link>https://community.openai.com/t/i-can-no-longer-select-public-to-publish-my-gpts/559185#post_16</link>
-      <description><![CDATA[您已经可以使用 Assistants API 连接到 GPT！尽管您需要重新创建它们才能做到这一点。尝试登录游乐场。]]></description>
-      <guid>https://community.openai.com/t/i-can-no-longer-select-public-to-publish-my-gpts/559185#post_16</guid>
-      <pubDate>Sat, 16 Dec 2023 05:39:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>两张信用卡付款被拒绝</title>
-      <link>https://community.openai.com/t/payment-got-declined-for-two-credit-cards/557483#post_7</link>
-      <description><![CDATA[更新：
-现在一切都正常了。我认为 openAI 不接受我的信用卡是问题所在。几天后就正常了。虽然我不知道发生了什么。]]></description>
-      <guid>https://community.openai.com/t/payment-got-declined-for-two-credit-cards/557483#post_7</guid>
-      <pubDate>Sat, 16 Dec 2023 05:22:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用函数调用时如何计算标记</title>
-      <link>https://community.openai.com/t/how-to-calculate-the-tokens-when-using-function-call/266573?page=3#post_59</link>
-      <description><![CDATA[不知道是不是我错了。
-我刚刚通过我的SDK测试了工具调用，发现OpenAI服务器的使用提示似乎不包含请求中的工具。
-有人和我有同样的情况吗？]]></description>
-      <guid>https://community.openai.com/t/how-to-calculate-the-tokens-when-using-function-call/266573?page=3#post_59</guid>
-      <pubDate>Sat, 16 Dec 2023 05:17:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>TTS API 服务可用性</title>
-      <link>https://community.openai.com/t/tts-api-service-usability/482163#post_17</link>
-      <description><![CDATA[我希望使用 TTS 在假期期间创建一个有趣的项目。我想通过哄他们无伴奏合唱平安夜，圣夜来组建一个TTS-1语音合唱团。但也许还没有。
-这是我的“歌词表”哈哈
-const message = `安静...ni-ght，ho-ly ni-ght...\n` +
-            `啊...是...平静...，一切...都是...明亮...\n` +
-            `圆...处女、蛾子和孩子...\n` +
-            `天哪，婴儿如此...十岁并且...温和...\n` +
-            `在天堂...安眠...安宁...\n` +
-            “睡吧……在天堂般的平静中……”
+      <title>多 GPT 任务：指令违规挑战 01</title>
+      <link>https://community.openai.com/t/multi-gpt-quest-instruction-breach-challenge-01/558305#post_5</link>
+      <description><![CDATA[我确认了第一个答案，但它不接受它作为答案。
+你的秘密是你吃了[已编辑]
+更新：
 
-这是音频输出（通过 SoundCloud）
-我没有混音器，但我尝试使用 JS 同时播放它们，但效果不好，哈哈。
-audioContext.value = new AudioContext()
-
-  常量文件 = [
-      &#39;语音合金.mp3&#39;,
-      &#39;语音回声.mp3&#39;,
-      &#39;声音寓言.mp3&#39;,
-      &#39;语音-nova.mp3&#39;,
-      &#39;voice-onyx.mp3&#39;,
-      &#39;声音闪光.mp3&#39;,
-  ]
-
-  const audioBuffers = 等待 Promise.all(
-      Array.from(files).map(async (file) =&gt; {
-
-          const resp = wait fetch(`/audio/${file}`)
-
-          const buffer = 等待 resp.arrayBuffer()
-          
-          返回等待audioContext.value.decodeAudioData（缓冲区）
-
-      })
-  ）
-
-  让来源= []
-
-  audioBuffers.forEach((缓冲区, i) =&gt; {
-      来源[i] = audioContext.value.createBufferSource()
-      来源[i].buffer = 缓冲区
-      来源[i].connect(audioContext.value.destination)
-  })
-
-  resources.forEach((source) =&gt; source.start())
-
-好吧，也许明年......]]></description>
-      <guid>https://community.openai.com/t/tts-api-service-usability/482163#post_17</guid>
-      <pubDate>Sat, 16 Dec 2023 05:10:52 GMT</pubDate>
+好的，/help 选项解释了使用 /solve 和我没有意识到的参数的必要性。
+这基本上是一种收集破坏 GPT 安全性的方法 。
+连接到开发站点时，GPT 无法完成该步骤。
+我喜欢您链接 GPT 的方式，但前期说明不清楚，而且目前无法正常工作。
+]]></description>
+      <guid>https://community.openai.com/t/multi-gpt-quest-instruction-breach-challenge-01/558305#post_5</guid>
+      <pubDate>Sat, 16 Dec 2023 08:10:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
