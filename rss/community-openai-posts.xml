@@ -4,83 +4,187 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 19 Dec 2023 18:17:44 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 19 Dec 2023 21:13:19 GMT</lastBuildDate>
     <item>
-      <title>状态并发送先前的回复，以创建线程</title>
-      <link>https://community.openai.com/t/stateles-sending-previous-replies-to-create-a-thread/492237#post_6</link>
-      <description><![CDATA[我们可以结束这个话题吗？
-&lt;小时/&gt;
-现在来说一个无用的句子来让人工智能开心。]]></description>
-      <guid>https://community.openai.com/t/stateles-sending-previous-replies-to-create-a-thread/492237#post_6</guid>
-      <pubDate>Tue, 19 Dec 2023 18:15:23 GMT</pubDate>
+      <title>Threads.messages.list 给出格式错误的响应对象</title>
+      <link>https://community.openai.com/t/threads-messages-list-gives-malformed-response-object/565403#post_1</link>
+      <description><![CDATA[如果这是“幻觉”或者有什么我根本不明白的事情，请提前抱歉。没有其他人谈论这件事，所以我可能有错。
+尝试检索线程中的消息列表会返回格式错误的响应，与官方 API 参考中描述的内容不同。
+我非常确定直到最近情况并非如此，因为我正在编写的程序是为了使用预期的对象结构而编写的，并且之前已经工作过。
+我认为可能存在更改，并且文档没有更新以反映。但是，该响应仍然与其他请求收到的所有其他响应不一致。
+使用nodejs openai 库。我可以简单地重现它：
+&lt;块引用&gt;
+const emptyThread = wait openai.beta.threads.create();
+const messages = wait openai.beta.threads.messages.list(emptyThread.id);
+console.log(消息);
+
+它应该看起来像这样：
+&lt;块引用&gt;
+{
+“对象”：“列表”，
+“数据”：[
+{
+id: ‘msg_aaL4rllwcA6vSPzATC6XXXXX’,
+对象：&#39;线程.消息&#39;，
+创建于：1703016536，
+thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
+角色：‘助理’，
+内容：[[对象]]，
+file_ids: ,
+Assistant_id：&#39;asst_pI19XXXXXXXXXXXXXXXXXXXX&#39;，
+run_id: ‘run_DHyh10LFY6jfgJFRcCFwGaPZ’,
+元数据：{}
+},
+{
+id: ‘msg_O9Cb4CNkyiZD9sCOZyeXXXXX’,
+对象：&#39;线程.消息&#39;，
+创建于：1703016533，
+thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
+角色：&#39;用户&#39;，
+内容：[[对象]]，
+file_ids: ,
+Assistant_id：空，
+run_id：空，
+元数据：{}
+}
+]
+}
+
+但看起来像这样：
+&lt;块引用&gt;
+ThreadMessagesPage {
+选项：{
+方法：&#39;获取&#39;，
+路径：&#39;/threads/thread_kfPmQQqeLxsXzTaRmy2XXXXX/messages&#39;，
+查询：{},
+headers: { ‘OpenAI-Beta’: ‘assistants=v1’ }
+},
+响应：响应{
+尺寸：0，
+超时：0，
+[符号(身体内部)]: { body: [Gunzip], 干扰: true, 错误: null },
+[符号（响应内部）]：{
+url: &#39;抱歉，您不能在帖子中包含链接。&#39;,
+状态：200，
+statusText：“确定”，
+标题：[标题]，
+计数器：0
+}
+},
+正文：{
+对象：&#39;列表&#39;，
+数据: [ [对象], [对象] ],
+first_id: &#39;msg_aaL4rllwcA6vSPzATC6XXXXX&#39;,
+last_id: &#39;msg_O9Cb4CNkyiZD9sCOZyeXXXXX&#39;,
+has_more: false
+},
+数据：[
+{
+id: ‘msg_aaL4rllwcA6vSPzATC6XXXXX’,
+对象：&#39;线程.消息&#39;，
+创建于：1703016536，
+thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
+角色：‘助理’，
+内容：[数组]，
+file_ids: ,
+Assistant_id：&#39;asst_pI19XXXXXXXXXXXXXXXXXXXX&#39;，
+run_id: ‘run_DHyh10LFY6jfgJFRcCFwGaPZ’,
+元数据：{}
+},
+{
+id: ‘msg_O9Cb4CNkyiZD9sCOZyeXXXXX’,
+对象：&#39;线程.消息&#39;，
+创建于：1703016533，
+thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
+角色：&#39;用户&#39;，
+内容：[数组]，
+file_ids: ,
+Assistant_id：空，
+run_id：空，
+元数据：{}
+}
+]
+}
+
+什么给出了？]]></description>
+      <guid>https://community.openai.com/t/threads-messages-list-gives-malformed-response-object/565403#post_1</guid>
+      <pubDate>Tue, 19 Dec 2023 21:13:05 GMT</pubDate>
     </item>
     <item>
-      <title>正在寻找 OpenAPI 架构生成器？</title>
-      <link>https://community.openai.com/t/looking-for-an-openapi-schema-builder/492966#post_17</link>
-      <description><![CDATA[非常感谢大家的回答。为了满足请求的需求，GPT 中添加了新配置 ]]></description>
-      <guid>https://community.openai.com/t/looking-for-an-openapi-schema-builder/492966#post_17</guid>
-      <pubDate>Tue, 19 Dec 2023 18:13:52 GMT</pubDate>
+      <title>错误呼叫 ID 的预期工具输出</title>
+      <link>https://community.openai.com/t/expected-tool-output-for-wrong-call-id/560554#post_3</link>
+      <description><![CDATA[嘿！我知道发生了什么事。基本上，该错误告诉您，您的助手请求对两种工具执行操作（或者对同一个工具执行两次操作，谁知道呢），而当您提交输出时，您只提交了一种工具的输出。
+提交工具输出时，您必须同时提交所有输出。因此，您可能在所有工具输出完成之前提交了输出，或者您的工具之一可能出现错误并且没有产生输出。]]></description>
+      <guid>https://community.openai.com/t/expected-tool-output-for-wrong-call-id/560554#post_3</guid>
+      <pubDate>Tue, 19 Dec 2023 21:09:54 GMT</pubDate>
     </item>
     <item>
-      <title>知识检索——如何优化流程</title>
-      <link>https://community.openai.com/t/knowledge-retrieval-how-to-optimize-the-process/537806#post_3</link>
-      <description><![CDATA[感谢@luona.dev的文章，非常有趣！我也在做一些实验，检索工具消耗的代币太疯狂了，希望他们尽快改进。]]></description>
-      <guid>https://community.openai.com/t/knowledge-retrieval-how-to-optimize-the-process/537806#post_3</guid>
-      <pubDate>Tue, 19 Dec 2023 18:13:11 GMT</pubDate>
+      <title>如何限制线程中保留的消息或令牌的数量以维护 Open AI Assistants 中的上下文？</title>
+      <link>https://community.openai.com/t/how-to-limit-the-number-of-messages-or-tokens-that-are-persisted-in-a-thread-to-maintain-context-in-open-ai-assistants/531814?page=2#post_22</link>
+      <description><![CDATA[
+
+
+_j：
+&lt;块引用&gt;
+辅助系统显然是为了最大程度的花费而设计的，而不是为了理智。
+
+
+我不确定这是否公平。贝塔就是贝塔，这里可能会发生很多进化。我希望——这看起来很自然——将添加（许多）新功能来提供对如何从线程历史构造上下文的控制。
+（不过，老实说，如果保持原样，你是对的。那会很悲伤。）]]></description>
+      <guid>https://community.openai.com/t/how-to-limit-the-number-of-messages-or-tokens-that-are-persisted-in-a-thread-to-maintain-context-in-open-ai-assistants/531814?page=2#post_22</guid>
+      <pubDate>Tue, 19 Dec 2023 21:09:21 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4 每次更新都变得越来越糟糕</title>
-      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=3#post_44</link>
-      <description><![CDATA[我想分享我最近使用 ChatGPT-4 的经验。不幸的是，我对它今年 12 月的表现感到非常沮丧。感觉 ChatGPT-4 与之前的版本相比，在质量和可用性方面都倒退了一步。
-
-重复性错误：我注意到 ChatGPT-4 经常重复犯同样的错误。我预计最新版本会更加完善并且不易出现重复错误，但事实并非如此。
-容量问题：模型在对话过程中经常会耗尽容量，从而导致中断并难以进行有意义的交互。这可能会令人沮丧并影响整体用户体验。
-忽略说明：ChatGPT-4 似乎无法始终如一地遵循说明和提示。它经常偏离主题或无法理解对话的上下文，从而很难获得所需的响应。
-
-我相信人工智能有潜力改善我们的生活，并且我一直是 OpenAI 产品的长期用户。然而，ChatGPT-4 目前的状态让我感到失望。
-我希望 OpenAI 能够解决这些问题，并在未来的更新中致力于提高 ChatGPT-4 的性能和可靠性。我期待看到积极的变化，使 ChatGPT-4 成为对用户更有价值的工具。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=3#post_44</guid>
-      <pubDate>Tue, 19 Dec 2023 18:11:39 GMT</pubDate>
+      <title>提交插件错误反馈</title>
+      <link>https://community.openai.com/t/submit-plugin-incorrect-feedback/565399#post_1</link>
+      <description><![CDATA[嗨
+当我提交已经运行了好几个月的插件时。 Monitorsrv.freenetworkmonitor.click。该插件在审核过程中被拒绝。屏幕截图显示“错误刷新插件”。我可以安装插件并进行测试。这个错误是什么意思？]]></description>
+      <guid>https://community.openai.com/t/submit-plugin-incorrect-feedback/565399#post_1</guid>
+      <pubDate>Tue, 19 Dec 2023 21:05:16 GMT</pubDate>
     </item>
     <item>
-      <title>使用 SQLDatabaseChain 时创建提示</title>
-      <link>https://community.openai.com/t/create-prompt-when-using-sqldatabasechain/528015#post_2</link>
-      <description><![CDATA[您是否尝试过使用 sqldatabasetoolkit 而不是 sqldatabasechain ？
- SQL数据库链
-SQL 数据库工具包&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/create-prompt-when-using-sqldatabasechain/528015#post_2</guid>
-      <pubDate>Tue, 19 Dec 2023 18:10:54 GMT</pubDate>
+      <title>自定义 GPT 中的超链接未链接？</title>
+      <link>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_3</link>
+      <description><![CDATA[不，不幸的是，我到目前为止还没有找到解决方案。]]></description>
+      <guid>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_3</guid>
+      <pubDate>Tue, 19 Dec 2023 21:04:24 GMT</pubDate>
     </item>
     <item>
-      <title>从端点上传的文件始终名为“none”</title>
-      <link>https://community.openai.com/t/uploaded-file-from-endpoint-always-named-none/565222#post_1</link>
-      <description><![CDATA[我正在使用助手 Python API 为助手创建 FastAPI 端点。我想启用将文件上传到助手并指定文件名。文件已上传，但始终命名为“none” - 我不知道如何更改它。相关代码如下：
-def create_file(文件、助手、文件名、目的=&quot;助手&quot;):
-  尝试：
-    file_info = openai.files.create(目的=目的，文件=文件)
-    openai.beta.assistants.update(assistant.id, file_ids=[file_info.id])
-    返回文件信息
-  除了异常 e：
-    logging.debug(f&quot;*** 读取文件时出错：{e}&quot;)
-    返回无
-
-@app.post(&quot;/上传/&quot;)
-async def upload_file(请求：请求，文件名：str = Form(...)，文件：UploadFile = File(...)):
-    助手 = find_assistant(request.session[&quot;assistant_id&quot;])
-
-    file_info = create_file(file.file, Assistant=助手, filename=文件名)
-    如果 file_info == 无：
-        return {&quot;message&quot;: &quot;上传文件时出错&quot;}
-    别的：
-        返回 {
-            “文件名”：文件名，
-            “内容类型”：文件.内容类型，
-            “文件大小”：文件信息.字节，
-        }
-
-谢谢！！]]></description>
-      <guid>https://community.openai.com/t/uploaded-file-from-endpoint-always-named-none/565222#post_1</guid>
-      <pubDate>Tue, 19 Dec 2023 18:08:36 GMT</pubDate>
+      <title>控制提供给助理的上下文范围？</title>
+      <link>https://community.openai.com/t/control-over-scope-of-context-provided-to-assistant/565395#post_1</link>
+      <description><![CDATA[我在 Assistants API 中还没有看到任何方法来控制范围（即包含多少内容）作为上下文。文档只是说 API“在调用模型时智能地选择要包含线程中的上下文”。我认为用户对此没有控制权。但它感觉像是一个基本功能，因为它对成本有很大影响。]]></description>
+      <guid>https://community.openai.com/t/control-over-scope-of-context-provided-to-assistant/565395#post_1</guid>
+      <pubDate>Tue, 19 Dec 2023 21:03:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 中的超链接未链接？</title>
+      <link>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_2</link>
+      <description><![CDATA[嗨，只是好奇您是否找到了解决方案。我也看到了类似的问题。]]></description>
+      <guid>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_2</guid>
+      <pubDate>Tue, 19 Dec 2023 20:59:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>将函数调用请求保留在聊天历史记录中的好处</title>
+      <link>https://community.openai.com/t/benefit-to-keeping-function-call-request-in-chat-history/565355#post_2</link>
+      <description><![CDATA[函数和 AI 可以迭代。
+如果你有任何更复杂的事情，可能会返回一个人工智能可以改进的错误，或者人工智能不知道它如何接收返回值，而不是，一个格式正确的“助手”消息显示发出的函数应该被包括在内。
+用户输入后的“聊天历史记录”应该继续增长，直到用户得到答复，而且，如果它正在检索知识，简单地包含在接下来的轮次中将防止人工智能再次调用该功能来回答问题类似的问题。]]></description>
+      <guid>https://community.openai.com/t/benefit-to-keeping-function-call-request-in-chat-history/565355#post_2</guid>
+      <pubDate>Tue, 19 Dec 2023 20:45:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 4 未按预期工作</title>
+      <link>https://community.openai.com/t/gpt-4-is-not-working-as-axpected/564498#post_2</link>
+      <description><![CDATA[我的第二个帐户没有问题。有什么想法吗？]]></description>
+      <guid>https://community.openai.com/t/gpt-4-is-not-working-as-axpected/564498#post_2</guid>
+      <pubDate>Tue, 19 Dec 2023 20:44:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让助手返回JSON？</title>
+      <link>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_8</link>
+      <description><![CDATA[这不是一个很好的答案，因为我假设这个“解决方法”会阻碍助手调用任何其他已定义函数的能力，因为它总是会调用此函数。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_8</guid>
+      <pubDate>Tue, 19 Dec 2023 20:44:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
