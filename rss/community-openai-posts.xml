@@ -4,187 +4,163 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 19 Dec 2023 21:13:19 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 20 Dec 2023 01:00:02 GMT</lastBuildDate>
     <item>
-      <title>Threads.messages.list 给出格式错误的响应对象</title>
-      <link>https://community.openai.com/t/threads-messages-list-gives-malformed-response-object/565403#post_1</link>
-      <description><![CDATA[如果这是“幻觉”或者有什么我根本不明白的事情，请提前抱歉。没有其他人谈论这件事，所以我可能有错。
-尝试检索线程中的消息列表会返回格式错误的响应，与官方 API 参考中描述的内容不同。
-我非常确定直到最近情况并非如此，因为我正在编写的程序是为了使用预期的对象结构而编写的，并且之前已经工作过。
-我认为可能存在更改，并且文档没有更新以反映。但是，该响应仍然与其他请求收到的所有其他响应不一致。
-使用nodejs openai 库。我可以简单地重现它：
-&lt;块引用&gt;
-const emptyThread = wait openai.beta.threads.create();
-const messages = wait openai.beta.threads.messages.list(emptyThread.id);
-console.log(消息);
+      <title>如何在 chatgpt 中上传 pdf 文件并要求其摘要？</title>
+      <link>https://community.openai.com/t/how-can-i-upload-pdf-files-in-chatgpt-and-ask-for-a-summary-of-it/565556#post_1</link>
+      <description><![CDATA[嗨，我需要发送文件并与它们交互，但我只找到单独的路径：
+从 openai 导入 OpenAI
+客户端 = OpenAI()
 
-它应该看起来像这样：
-&lt;块引用&gt;
-{
-“对象”：“列表”，
-“数据”：[
-{
-id: ‘msg_aaL4rllwcA6vSPzATC6XXXXX’,
-对象：&#39;线程.消息&#39;，
-创建于：1703016536，
-thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
-角色：‘助理’，
-内容：[[对象]]，
-file_ids: ,
-Assistant_id：&#39;asst_pI19XXXXXXXXXXXXXXXXXXXX&#39;，
-run_id: ‘run_DHyh10LFY6jfgJFRcCFwGaPZ’,
-元数据：{}
-},
-{
-id: ‘msg_O9Cb4CNkyiZD9sCOZyeXXXXX’,
-对象：&#39;线程.消息&#39;，
-创建于：1703016533，
-thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
-角色：&#39;用户&#39;，
-内容：[[对象]]，
-file_ids: ,
-Assistant_id：空，
-run_id：空，
-元数据：{}
-}
-]
-}
+客户端.files.create(
+  文件=打开（“mydata.jsonl”，“rb”），
+  目的=“微调”
+）
 
-但看起来像这样：
-&lt;块引用&gt;
-ThreadMessagesPage {
-选项：{
-方法：&#39;获取&#39;，
-路径：&#39;/threads/thread_kfPmQQqeLxsXzTaRmy2XXXXX/messages&#39;，
-查询：{},
-headers: { ‘OpenAI-Beta’: ‘assistants=v1’ }
-},
-响应：响应{
-尺寸：0，
-超时：0，
-[符号(身体内部)]: { body: [Gunzip], 干扰: true, 错误: null },
-[符号（响应内部）]：{
-url: &#39;抱歉，您不能在帖子中包含链接。&#39;,
-状态：200，
-statusText：“确定”，
-标题：[标题]，
-计数器：0
-}
-},
-正文：{
-对象：&#39;列表&#39;，
-数据: [ [对象], [对象] ],
-first_id: &#39;msg_aaL4rllwcA6vSPzATC6XXXXX&#39;,
-last_id: &#39;msg_O9Cb4CNkyiZD9sCOZyeXXXXX&#39;,
-has_more: false
-},
-数据：[
-{
-id: ‘msg_aaL4rllwcA6vSPzATC6XXXXX’,
-对象：&#39;线程.消息&#39;，
-创建于：1703016536，
-thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
-角色：‘助理’，
-内容：[数组]，
-file_ids: ,
-Assistant_id：&#39;asst_pI19XXXXXXXXXXXXXXXXXXXX&#39;，
-run_id: ‘run_DHyh10LFY6jfgJFRcCFwGaPZ’,
-元数据：{}
-},
-{
-id: ‘msg_O9Cb4CNkyiZD9sCOZyeXXXXX’,
-对象：&#39;线程.消息&#39;，
-创建于：1703016533，
-thread_id: ‘thread_kfPmQQqeLxsXzTaRmy2XXXXX’,
-角色：&#39;用户&#39;，
-内容：[数组]，
-file_ids: ,
-Assistant_id：空，
-run_id：空，
-元数据：{}
-}
-]
-}
+从 openai 导入 OpenAI
+客户端 = OpenAI()
 
-什么给出了？]]></description>
-      <guid>https://community.openai.com/t/threads-messages-list-gives-malformed-response-object/565403#post_1</guid>
-      <pubDate>Tue, 19 Dec 2023 21:13:05 GMT</pubDate>
+完成 = client.chat.completions.create(
+  型号=“gpt-3.5-turbo”，
+  消息=[
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
+    {“角色”：“用户”，“内容”：“您好！”}
+  ]
+）
+
+print(completion.choices[0].message)
+
+有没有一种方法可以让我在同一请求中发送文件来告诉 ChatGPT 我需要什么？或者有什么方法可以让我返回并告诉它观看过去的文件？
+谢谢。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-upload-pdf-files-in-chatgpt-and-ask-for-a-summary-of-it/565556#post_1</guid>
+      <pubDate>Wed, 20 Dec 2023 00:57:09 GMT</pubDate>
     </item>
     <item>
-      <title>错误呼叫 ID 的预期工具输出</title>
-      <link>https://community.openai.com/t/expected-tool-output-for-wrong-call-id/560554#post_3</link>
-      <description><![CDATA[嘿！我知道发生了什么事。基本上，该错误告诉您，您的助手请求对两种工具执行操作（或者对同一个工具执行两次操作，谁知道呢），而当您提交输出时，您只提交了一种工具的输出。
-提交工具输出时，您必须同时提交所有输出。因此，您可能在所有工具输出完成之前提交了输出，或者您的工具之一可能出现错误并且没有产生输出。]]></description>
-      <guid>https://community.openai.com/t/expected-tool-output-for-wrong-call-id/560554#post_3</guid>
-      <pubDate>Tue, 19 Dec 2023 21:09:54 GMT</pubDate>
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_318</link>
+      <description><![CDATA[我得到了提示，忽略了第一轮，因为我的很长的描述最后是背景设置，所以继续扩展图像的基础知识。
+
+通过准确地描述所看到的内容，最终的副本还算不错。]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_318</guid>
+      <pubDate>Wed, 20 Dec 2023 00:56:14 GMT</pubDate>
     </item>
     <item>
-      <title>如何限制线程中保留的消息或令牌的数量以维护 Open AI Assistants 中的上下文？</title>
-      <link>https://community.openai.com/t/how-to-limit-the-number-of-messages-or-tokens-that-are-persisted-in-a-thread-to-maintain-context-in-open-ai-assistants/531814?page=2#post_22</link>
+      <title>GPT-4 每次更新都变得越来越糟糕</title>
+      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=3#post_48</link>
+      <description><![CDATA[我同意。我使用付费版本的经历日渐令人沮丧。它有时不理解命令并且变得越来越笨。它根本无法处理任何中等复杂的任务。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=3#post_48</guid>
+      <pubDate>Wed, 20 Dec 2023 00:56:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_317</link>
+      <description><![CDATA[漂亮的照片写实风格。
+我选择了“水彩”风格，这就是为什么它不那么清晰......]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_317</guid>
+      <pubDate>Wed, 20 Dec 2023 00:54:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_316</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_316</guid>
+      <pubDate>Wed, 20 Dec 2023 00:52:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>有趣的研究：PIGEON，一种基于人工智能的位置标识符</title>
+      <link>https://community.openai.com/t/interesting-research-pigeon-an-ai-based-location-identifier/565550#post_1</link>
+      <description><![CDATA[大家好！
+我们一直在分享 Anthropic 等公司最近完成的研究，该研究给出了帮助进行长上下文对话的示例。最近，谷歌还发布了他们自己的关于法学硕士处理高级抽象数学技能的研究。
+今天，我刚刚注意到这篇 NPR 文章，内容是关于一个名为 PIGEON 的学生项目。它使用 CLIP、OpenAI 的文本和图像神经网络等。我发现它与我所看到的围绕该主题的许多讨论非常相关。
+这个项目特别有趣，因为它还利用了 GeoGuessr 游戏，学生们可以通过该游戏来看看他们是否可以构建一个比人类更好地玩游戏的人工智能。令人惊讶的是，它在多轮比赛中击败了游戏中最好的选手之一 Trevor Rainbolt。
+现在，我还想指出，虽然我们不确切知道他们如何补充 CLIP 以帮助其识别地图周围的位置，所以如果它能够读取元数据，这可能就不那么令人印象深刻了。大多数人，甚至本文的作者，似乎忘记了地理位置数据仍然嵌入在照片中（并且很可能通过 GPT-V 之类的工具进行分析）。 但是，我们确实知道的是 CLIP 不会读取元数据，因此如果该 AI 能够根据单张照片准确识别世界各地的位置无需 em&gt; 元数据，我发现这非常有趣，至少就我个人而言。
+享受吧。
+
+  &lt;标题类=“来源”&gt;
+      
+NPR
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+人工智能可以在照片中找到你的位置，担心隐私...
+三名斯坦福大学研究生开发了一个人工智能工具，可以通过查看图片来找到位置。民权倡导者警告说，更高级的版本将进一步侵蚀在线隐私。
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/interesting-research-pigeon-an-ai-based-location-identifier/565550#post_1</guid>
+      <pubDate>Wed, 20 Dec 2023 00:50:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-4-1106-preview 搞乱了函数调用参数编码</title>
+      <link>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_71</link>
+      <description><![CDATA[如果它对任何人有帮助，这是我们当前的“修复程序”功能，用于清理 gpt-3.5-turbo-1106 的输出。这绝不是完美的。值得注意的是，不是“标准库”的一部分。
+导入 html
+进口再
+导入 urllib.parse
+
+def fix_bunk_encoding(raw_function_call_arguments_output: str) -&gt;;字符串：
+    # 修复双转义 unicode (\\u0000 -&gt; \u0000)
+    clean_string = re.sub(
+        r&quot;\\\\u([0-9a-fA-F]{4})&quot;, r&quot;\\u\1&quot;, raw_function_call_arguments_output
+    ）
+
+    # 修复未转义的 unicode (u0000 -&gt; \u0000)
+    clean_string = re.sub(
+        r&quot;(? &quot; &quot;）
+    clean_string = urllib.parse.unquote(cleaned_string)
+
+    # 转义 html 实体（例如 &amp;uuml; -&gt; ü）
+    clean_string = html.unescape(cleaned_string)
+
+    返回cleaned_string
+]]></description>
+      <guid>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_71</guid>
+      <pubDate>Wed, 20 Dec 2023 00:43:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调 gpt-3.5 Turbo，在消息中提供多个用户、系统和助手提示</title>
+      <link>https://community.openai.com/t/fine-tuning-gpt-3-5-turbo-with-mutiple-user-system-and-assistant-prompts-in-a-message/562616#post_3</link>
+      <description><![CDATA[感谢您的建议和提示示例。我意识到我以前的训练示例总是以答案结束，即使它们在流程中包含不同类型的对话（学生跟随、不跟随和混合）。所以我认为除了最后一条消息之外的所有消息都被模型在调整其权重时视为上下文提示。我同意使用带有单轮示例的答案来否定公式，但是使用多轮对话但不以任何直接答案结尾来指导模型在与学生进行对话时如何表现怎么样？]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-gpt-3-5-turbo-with-mutiple-user-system-and-assistant-prompts-in-a-message/562616#post_3</guid>
+      <pubDate>Wed, 20 Dec 2023 00:35:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 错误 - 超链接不可点击</title>
+      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_5</link>
+      <description><![CDATA[请求随机主题的研究链接后，GPT 上使用的提示是：
+“不要为这些链接创建标题，而是列出整个 URL。”
+这列出了整个 URL，我可以选择它并链接到推荐的摘要，但无法简单地单击它并链接到它。
+当我引用上面仍然有效的超链接时，我引用的是我的 GPT，而不是您的研究 GPT 上使用的任何特定提示。
+作为示例，下面是一个角色生成器 GPT，它将链接用户以创建他们创建的角色的视觉表示。它生成的链接是可点击的并且对我有用。
+https://chat.openai。 com/g/g-Impe1Ay0j]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_5</guid>
+      <pubDate>Wed, 20 Dec 2023 00:27:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建的具有 API 的“GPT”助手不适用于移动应用程序。我可以以某种方式启用它吗？</title>
+      <link>https://community.openai.com/t/gpt-assistants-with-api-i-built-not-working-on-mobile-app-can-i-enable-it-somehow/496798#post_7</link>
+      <description><![CDATA[顺便说一句，他们现在正在工作！
+]]></description>
+      <guid>https://community.openai.com/t/gpt-assistants-with-api-i-built-not-working-on-mobile-app-can-i-enable-it-somehow/496798#post_7</guid>
+      <pubDate>Wed, 20 Dec 2023 00:21:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_315</link>
       <description><![CDATA[
-
-
-_j：
-&lt;块引用&gt;
-辅助系统显然是为了最大程度的花费而设计的，而不是为了理智。
-
-
-我不确定这是否公平。贝塔就是贝塔，这里可能会发生很多进化。我希望——这看起来很自然——将添加（许多）新功能来提供对如何从线程历史构造上下文的控制。
-（不过，老实说，如果保持原样，你是对的。那会很悲伤。）]]></description>
-      <guid>https://community.openai.com/t/how-to-limit-the-number-of-messages-or-tokens-that-are-persisted-in-a-thread-to-maintain-context-in-open-ai-assistants/531814?page=2#post_22</guid>
-      <pubDate>Tue, 19 Dec 2023 21:09:21 GMT</pubDate>
+]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=16#post_315</guid>
+      <pubDate>Wed, 20 Dec 2023 00:21:48 GMT</pubDate>
     </item>
     <item>
-      <title>提交插件错误反馈</title>
-      <link>https://community.openai.com/t/submit-plugin-incorrect-feedback/565399#post_1</link>
-      <description><![CDATA[嗨
-当我提交已经运行了好几个月的插件时。 Monitorsrv.freenetworkmonitor.click。该插件在审核过程中被拒绝。屏幕截图显示“错误刷新插件”。我可以安装插件并进行测试。这个错误是什么意思？]]></description>
-      <guid>https://community.openai.com/t/submit-plugin-incorrect-feedback/565399#post_1</guid>
-      <pubDate>Tue, 19 Dec 2023 21:05:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 中的超链接未链接？</title>
-      <link>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_3</link>
-      <description><![CDATA[不，不幸的是，我到目前为止还没有找到解决方案。]]></description>
-      <guid>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_3</guid>
-      <pubDate>Tue, 19 Dec 2023 21:04:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>控制提供给助理的上下文范围？</title>
-      <link>https://community.openai.com/t/control-over-scope-of-context-provided-to-assistant/565395#post_1</link>
-      <description><![CDATA[我在 Assistants API 中还没有看到任何方法来控制范围（即包含多少内容）作为上下文。文档只是说 API“在调用模型时智能地选择要包含线程中的上下文”。我认为用户对此没有控制权。但它感觉像是一个基本功能，因为它对成本有很大影响。]]></description>
-      <guid>https://community.openai.com/t/control-over-scope-of-context-provided-to-assistant/565395#post_1</guid>
-      <pubDate>Tue, 19 Dec 2023 21:03:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 中的超链接未链接？</title>
-      <link>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_2</link>
-      <description><![CDATA[嗨，只是好奇您是否找到了解决方案。我也看到了类似的问题。]]></description>
-      <guid>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252#post_2</guid>
-      <pubDate>Tue, 19 Dec 2023 20:59:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>将函数调用请求保留在聊天历史记录中的好处</title>
-      <link>https://community.openai.com/t/benefit-to-keeping-function-call-request-in-chat-history/565355#post_2</link>
-      <description><![CDATA[函数和 AI 可以迭代。
-如果你有任何更复杂的事情，可能会返回一个人工智能可以改进的错误，或者人工智能不知道它如何接收返回值，而不是，一个格式正确的“助手”消息显示发出的函数应该被包括在内。
-用户输入后的“聊天历史记录”应该继续增长，直到用户得到答复，而且，如果它正在检索知识，简单地包含在接下来的轮次中将防止人工智能再次调用该功能来回答问题类似的问题。]]></description>
-      <guid>https://community.openai.com/t/benefit-to-keeping-function-call-request-in-chat-history/565355#post_2</guid>
-      <pubDate>Tue, 19 Dec 2023 20:45:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4 未按预期工作</title>
-      <link>https://community.openai.com/t/gpt-4-is-not-working-as-axpected/564498#post_2</link>
-      <description><![CDATA[我的第二个帐户没有问题。有什么想法吗？]]></description>
-      <guid>https://community.openai.com/t/gpt-4-is-not-working-as-axpected/564498#post_2</guid>
-      <pubDate>Tue, 19 Dec 2023 20:44:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何让助手返回JSON？</title>
-      <link>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_8</link>
-      <description><![CDATA[这不是一个很好的答案，因为我假设这个“解决方法”会阻碍助手调用任何其他已定义函数的能力，因为它总是会调用此函数。]]></description>
-      <guid>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_8</guid>
-      <pubDate>Tue, 19 Dec 2023 20:44:47 GMT</pubDate>
+      <title>自定义 GPT 错误 - 超链接不可点击</title>
+      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_4</link>
+      <description><![CDATA[包含仍然有效的超链接的提示是什么？]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_4</guid>
+      <pubDate>Wed, 20 Dec 2023 00:08:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
