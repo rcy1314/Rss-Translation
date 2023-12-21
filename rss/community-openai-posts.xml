@@ -4,143 +4,93 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 21 Dec 2023 12:31:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 21 Dec 2023 15:17:19 GMT</lastBuildDate>
     <item>
-      <title>索福斯AI平台公告</title>
-      <link>https://community.openai.com/t/soffos-ai-platform-announcement/567592#post_1</link>
-      <description><![CDATA[你好，
-我们最近推出了 Soffos AI 平台：我们的目标是让构建 AI 应用程序变得更加容易。我们的平台拥有模块化的提示设计 API 以及 JS 和 Python SDK。我们的 API 的主要行业重点是学习与发展、研究以及即将推出的一些分支场景模块游戏开发。在接下来的几周内，我们将为所有 OpenAI 模型以及 Gemini 和其他模型提供法学硕士选拔。
-我们是一家精益创业公司，很高兴获得有关该平台的任何反馈：
-www.soffos.ai
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/soffos-ai-platform-announcement/567592#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 12:30:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 密钥被盗，丢失 $ 美元，支持人员没有回复</title>
-      <link>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_23</link>
+      <title>关于聊天完成的日志概率的说明</title>
+      <link>https://community.openai.com/t/clarifications-on-log-probabilities-for-chat-completion/567778#post_2</link>
       <description><![CDATA[
+由于不太可能的标记的值可能非常小，因此返回 -9.3 等指数可能会被视为比 0.00000003 更好，并且它们在温度缩放和其他未知数中采用这种形式。
+
+答案1和一些用于向返回对象或流添加正态概率的代码，我尚未适应新的API，但可能适用于返回对象的response.model_dump()。
 
 
-罗纳德GRuckus：
-&lt;块引用&gt;
-您将密钥存储在哪里...
 
 
-看起来很简单......
-1：将秘密与解锁方法一起存储，并将其提供给任何人；
-2：因为他比世界上充满密码分析学家的人还要聪明……
-3：更深层次的妥协……或者只是在 API 上使用“助手”，一举清理了一个帐户。]]></description>
-      <guid>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_23</guid>
-      <pubDate>Thu, 21 Dec 2023 12:20:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=7#post_140</link>
-      <description><![CDATA[再次，仅 1 小时 9 分钟后，我就遇到了限制和当前使用上限。 2/3的时间浪费在纠正和解释上，但我仍然想继续探索能力……希望联系]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=7#post_140</guid>
-      <pubDate>Thu, 21 Dec 2023 12:14:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>gpt-3.5-turbo-16k API 中的错误和不同答案，以及 Playground 和 ChatGPT 中的其他答案</title>
-      <link>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_1</link>
-      <description><![CDATA[正确答案示例游乐场：
+Logprob 值无界，我使用了 sigmoid（将 API 对数转换为概率） API
 
-在 chatGPT 中回答正确。
-但 API gpt-3.5-turbo-16k 返回“1” - 这是错误的。
-我在图片甚至系统按摩上使用所有相同的参数：
-“你是ChatGPT，一个由OpenAI训练的、基于GPT-3.5架构的大型语言模型。
-知识截止：2021-09
-当前日期：2023-12-21”
-即使我在 API 中尝试了 10 次，我总是得到一个始终不正确的选项，而且我也得到一个始终正确的 Playground
-这是我的一个例子，我已经解决这个问题一周了，每天都在改变提示、设置，研究论坛！
-主要目标是评估传入的短消息是否存在服务请求。但这通过 API 的效果非常差。与 Playground 或 ChatGPT 不同。
-目前，我正在使用具有不同提示的三个不同请求来分析一条短信。但与 Playground 不同，即使这样也无法通过 API 给出稳定的正确答案
-我还看到很多类似的主题，但没有明确的答案告诉我们该怎么做。
-你能帮助我吗？或者承认这个 API 的性能更差，不适合今天使用
-谢谢]]></description>
-      <guid>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 12:11:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以使用审核 API 或非 OpenAI 相关内容？</title>
-      <link>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_10</link>
-      <description><![CDATA[感谢您的回复并删除对该主题的选择。]]></description>
-      <guid>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_10</guid>
-      <pubDate>Thu, 21 Dec 2023 12:09:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4 非常非常慢，查询上限为 10 个，但现在……</title>
-      <link>https://community.openai.com/t/gpt-4-is-very-very-slow-and-capped-to-10-queries-but-now-also/567574#post_1</link>
-      <description><![CDATA[ChatGPT 4 速度慢且有问题，但现在我必须在每次查询后证明我是人类？来吧 OpenAI，这对于付费订阅者来说是行不通的！我是唯一遇到这种情况的人吗？]]></description>
-      <guid>https://community.openai.com/t/gpt-4-is-very-very-slow-and-capped-to-10-queries-but-now-also/567574#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 12:09:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以使用审核 API 或非 OpenAI 相关内容？</title>
-      <link>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_9</link>
-      <description><![CDATA[不，我真的不能接受这个答案作为解决方案。]]></description>
-      <guid>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_9</guid>
-      <pubDate>Thu, 21 Dec 2023 12:08:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 密钥被盗，丢失 $ 美元，支持人员没有回复</title>
-      <link>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_22</link>
-      <description><![CDATA[
-您将密钥存储在哪里
-为什么要加密
-无论您在做什么，您都会暴露您的密钥。
+  &lt;块引用&gt;
+    对数概率就是以对数形式表示的概率（以 e 为底）。
+我认为您希望 API 返回操场上显示的概率，然后还给出每个标记的总概率覆盖范围。我们能做到这一点。
+一些导入
+导入操作系统
+导入openai
+导入 json
+导入数学
+导入副本
+
+一个函数接受完成返回，如果它有 logprobs，则添加一个具有相同 logprob 结构的新项目，但使用 0-1 概率而不是指数…
+  
 ]]></description>
-      <guid>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_22</guid>
-      <pubDate>Thu, 21 Dec 2023 12:08:34 GMT</pubDate>
+      <guid>https://community.openai.com/t/clarifications-on-log-probabilities-for-chat-completion/567778#post_2</guid>
+      <pubDate>Thu, 21 Dec 2023 15:17:07 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4 视觉输出在“商业请求”后发生变化</title>
-      <link>https://community.openai.com/t/gpt-4-vision-output-changed-after-commercial-requests/567414#post_3</link>
-      <description><![CDATA[ 内容：`您是一个图像分析机器人。识别这些图像中的不同产品，并将属于同一产品的图像分组。对于每个产品，提供产品名称、服装类型、颜色和供应商。 `,
-
-然后它会说一些关于不能说出品牌或版权的事情。它确实可以在聊天中或使用其他 API 密钥运行。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-vision-output-changed-after-commercial-requests/567414#post_3</guid>
-      <pubDate>Thu, 21 Dec 2023 12:04:53 GMT</pubDate>
+      <title>关于聊天完成的日志概率的说明</title>
+      <link>https://community.openai.com/t/clarifications-on-log-probabilities-for-chat-completion/567778#post_1</link>
+      <description><![CDATA[首先，对数概率是自然对数还是以 10 为底？似乎无法在文档中确认这一点。
+其次，对设计感到好奇 - 为什么端点返回概率的对数，而不是概率本身？]]></description>
+      <guid>https://community.openai.com/t/clarifications-on-log-probabilities-for-chat-completion/567778#post_1</guid>
+      <pubDate>Thu, 21 Dec 2023 15:08:39 GMT</pubDate>
     </item>
     <item>
-      <title>是否可以使用审核 API 或非 OpenAI 相关内容？</title>
-      <link>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_8</link>
-      <description><![CDATA[@ops5
-由于此主题已选择解决方案，介意我关闭这个主题吗？]]></description>
-      <guid>https://community.openai.com/t/can-the-moderation-api-be-used-or-non-openai-related-content/566304#post_8</guid>
-      <pubDate>Thu, 21 Dec 2023 12:03:30 GMT</pubDate>
+      <title>在Unity中，使用ChatGPT API时遇到JsonSerializationException</title>
+      <link>https://community.openai.com/t/in-unity-encountering-jsonserializationexception-while-using-chatgpt-api/538828#post_13</link>
+      <description><![CDATA[你可以去 YouTube 找到 sarge，他教授将 ChatGPT 集成到 Unity 中，他有用于实现 OpenAI Unity 的 github 链接。单击它，您将看到问题部分。 issues部分有一些修复OpenAI错误的解决方案，大家可以去看看。祝你好运。]]></description>
+      <guid>https://community.openai.com/t/in-unity-encountering-jsonserializationexception-while-using-chatgpt-api/538828#post_13</guid>
+      <pubDate>Thu, 21 Dec 2023 15:05:13 GMT</pubDate>
     </item>
     <item>
-      <title>令人沮丧的是，替代微调巴贝奇的唯一选择要贵 3 倍</title>
-      <link>https://community.openai.com/t/its-depressing-that-the-only-option-to-replace-fine-tuned-babbage-is-3x-more-expensive/567567#post_1</link>
-      <description><![CDATA[创建了一些实际有用的人工智能代理后，我们发现我们需要在幕后运行多个提示并将它们拼接在一起以创建有用的答案。
-如果您将少量的 GPT3.5 和 GPT4 提示叠加在一起，您很快就会进入一个更便宜的世界，让人来做这件事。我希望 11 月份的价格调整能够解决这个问题，但考虑到成本影响，我们可能不得不走开源路线并尝试一些拥抱脸部模型，但当我们想专注于构建时，这很烦人产品。
-无论如何，我的 2c，我知道我们可能是一个小众用户]]></description>
-      <guid>https://community.openai.com/t/its-depressing-that-the-only-option-to-replace-fine-tuned-babbage-is-3x-more-expensive/567567#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 11:59:26 GMT</pubDate>
+      <title>通过 API 访问新的自定义“我的 GPT”？</title>
+      <link>https://community.openai.com/t/access-to-new-custom-my-gpts-through-api/502769?page=2#post_25</link>
+      <description><![CDATA[是的，如果您启用 Dall E 作为 api 中的选项之一，您的助手除了文本之外还可以生成图像]]></description>
+      <guid>https://community.openai.com/t/access-to-new-custom-my-gpts-through-api/502769?page=2#post_25</guid>
+      <pubDate>Thu, 21 Dec 2023 15:01:22 GMT</pubDate>
     </item>
     <item>
-      <title>根据您自己的知识/事实微调 GPT 3.5</title>
-      <link>https://community.openai.com/t/fine-tune-gpt-3-5-for-your-own-knowledge-facts/566748#post_7</link>
-      <description><![CDATA[仅供参考
-]]></description>
-      <guid>https://community.openai.com/t/fine-tune-gpt-3-5-for-your-own-knowledge-facts/566748#post_7</guid>
-      <pubDate>Thu, 21 Dec 2023 11:56:05 GMT</pubDate>
+      <title>为您的网站自定义 GPT - 使用 Assistant API 为您的网站提供开源自定义 GPT 构建器</title>
+      <link>https://community.openai.com/t/custom-gpt-for-your-site-open-source-custom-gpt-builder-for-your-website-using-assistant-api/529536?page=2#post_47</link>
+      <description><![CDATA[现在已根据用户的建议添加了多个修复，包括刷新修复以在本地存储令牌，而不是在每次刷新后请求令牌]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-for-your-site-open-source-custom-gpt-builder-for-your-website-using-assistant-api/529536?page=2#post_47</guid>
+      <pubDate>Thu, 21 Dec 2023 14:59:40 GMT</pubDate>
     </item>
     <item>
-      <title>API 密钥被盗，丢失 $ 美元，支持人员没有回复</title>
-      <link>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_21</link>
-      <description><![CDATA[所以，他们在应用程序中的密钥是加密的。所有 openAI API 均为 https。
-我已经换过两次钥匙了，没有成功。
-是的，我控制了限制，逐步增加限制并测试/观察使用情况与费用。
-很难想象这会是一开始的任何关键盗窃问题，因此我试图找出我自己的应用程序及其货币化模型中的问题/滥用。
-尽管严格控制限制，但更改密钥和测试仍导致过度收费。
-最终，我创建了一个新帐户，使用另一张信用卡并存入 10 美元。在 OPENAI Playground 上仅使用了两条消息，使用了 380 个代币，成本仅为 0.01 美元。所以现在一切看起来都很正常。
-第二天，我的 10 美元就花光了，发出了 22 个请求，并且显示数千个代币已被使用。现在这不是我的应用程序，我从未在我的应用程序中使用过该帐户或其密钥。
-所以最终我认为是 OPENAI 方面的问题。他们没有做出回应，因为他们知道 keya 和令牌的安全性很混乱。]]></description>
-      <guid>https://community.openai.com/t/api-key-stolen-charged-lost-of-no-response-from-support/56214?page=2#post_21</guid>
-      <pubDate>Thu, 21 Dec 2023 11:46:08 GMT</pubDate>
+      <title>耳语幻觉——如何识别和解决？</title>
+      <link>https://community.openai.com/t/whisper-hallucination-how-to-recognize-and-solve/218307?page=2#post_22</link>
+      <description><![CDATA[感谢@RonaldGRuckus您的意见。目前，我正在使用 VAD 来排除根本没有语音活动的音频剪辑。因为我在现场环境中工作，所以可以跳过这些剪辑，所以幻觉问题不会变得那么严重。对我来说真正改善的是使用提示。我目前正在使用前 30 秒音频的转录结果。
+奇怪的是，每当音频中一遍又一遍地重复同一个单词时，似乎可以通过某种提示注入来触发幻觉。例如，输入音频中的 4 或 5 个 NO 将导致输出转录中出现大量 NO。]]></description>
+      <guid>https://community.openai.com/t/whisper-hallucination-how-to-recognize-and-solve/218307?page=2#post_22</guid>
+      <pubDate>Thu, 21 Dec 2023 14:52:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>工具功能的启动过于随机</title>
+      <link>https://community.openai.com/t/initiation-of-tool-functions-too-random/567757#post_1</link>
+      <description><![CDATA[这是一位极度沮丧的开发者的反馈。该模型只是在需要时启动工具。即使您在系统消息和工具中大量指示它，该工具仍然会启动。我很难控制这一点，这对于用户体验非常重要，以至于模型不会突然停止并开始启动 UI 更改。
+还有其他人在使用工具时让模型遵循说明时遇到问题吗？
+希望得到一些帮助！]]></description>
+      <guid>https://community.openai.com/t/initiation-of-tool-functions-too-random/567757#post_1</guid>
+      <pubDate>Thu, 21 Dec 2023 14:49:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创建的自定义 GPT 应该写 1000 个字，但写得越来越少</title>
+      <link>https://community.openai.com/t/custom-gpt-i-created-is-suppose-to-write-1000-words-but-keeps-writing-less-and-less/567750#post_1</link>
+      <description><![CDATA[所以我一直在编写一个自定义 gpt 来为我的用户提供文案服务。但在一期中，我发现我要求它给我写一篇 1000 字的文章，例如关于俄克拉荷马州的园艺。现在我什至让人工智能改进了我的提示。它给了我更详细的使用提示，但每次我测试它时。我总是收到字数越来越少的文章？我让人工智能认为我的测试提供了错误的答案。
+现在，当它给我文章内容时，例如，它说 497 个字是字数。现在是的，但随后它说“如果您添加这个或那个提示或关于这个或那个的建议，您可以使内容更长”。但我问人工智能“那为什么它不能一开始就给我 1000 个单词呢？”
+然后，AI 向我提供有关如何更新自定义 GPT 的信息，以确保它为用户提供 1000 个单词等。但每次测试都证明单词计数错误。这是为什么？
+我想了解为什么它不给我或用户一篇 1000 字的文章，例如当我们要求一篇 1000 字的文章时。 AI 不给我们 1000 个单词有什么原因吗？
+这是我原来的提示：我正在向拥有园艺利基的客户提供 1000 字的文章。他们希望我写一篇关于季节园艺的文章。并希望我添加一些关于在不同季节进行园艺时要注意的事项的提示。他们是俄克拉荷马州的 Acme Gardening Services 服务机构，已经营业 20 年了。所以请在文章中提及这一点。请在网上搜索有关不同季节园艺的内容并帮助我写这篇文章。请提供来源并帮我写这篇文章。使用专业的语气，但也易于初学者理解。
+AI 建议使用此提示：请为园艺领域的客户撰写一篇 1000 字的详细文章。这篇文章应该重点关注各个季节的园艺，提供每个季节的技巧。包括关于园丁在春季、夏季、秋季和冬季应注意的具体建议。客户是俄克拉荷马州的 Acme Gardening Services，这是一家拥有 20 年经验的企业 - 请在文章中提及这一点。语气应该专业但适合初学者。研究不同季节的园艺技巧，确保内容独特。包括所提供信息的可靠来源。]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-i-created-is-suppose-to-write-1000-words-but-keeps-writing-less-and-less/567750#post_1</guid>
+      <pubDate>Thu, 21 Dec 2023 14:43:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
