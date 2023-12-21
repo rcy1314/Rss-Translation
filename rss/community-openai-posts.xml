@@ -4,153 +4,157 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 21 Dec 2023 01:11:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 21 Dec 2023 03:17:59 GMT</lastBuildDate>
     <item>
-      <title>Q*是什么？我们什么时候才能听到更多消息？</title>
-      <link>https://community.openai.com/t/what-is-q-and-when-we-will-hear-more/521343?page=11#post_212</link>
-      <description><![CDATA[他们试图让我们这些 Q* 狂热分子闭嘴！他们不想让我们知道 ASI 的秘密！！反击！！！
+      <title>不同的结果：ChatGPT3.5 与 API (gpt-3.5-turbo)</title>
+      <link>https://community.openai.com/t/different-results-chatgpt3-5-vs-api-gpt-3-5-turbo/123712?page=3#post_47</link>
+      <description><![CDATA[
+电子表格没有“字段”。它们有行、列和单元格。
+单元格有值，或者有公式。
+公式通常会引用其他单元格。不根据其他数据计算的公式在修改之前是固定的，并且没有多大用处。
 
-  &lt;标题类=“来源”&gt;
-      
-
-      ourspace.uregina.ca
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-
-训练代理玩合作游戏：强化学习方法
-由于强化学习研究的最新进展，自学习代理正在
-能够在复杂环境下完成多种任务
-任何先验知识。最近，深度强化学习算法...
-
-
-
-
-
-j/k
-这确实是一个爆炸，确实是一个史诗般的线索。希望有更多这样的。
-如果他们确实关闭了该线程，我强烈鼓励人们定期查看 google 学术以获取有关 qlearning 的最新更新：
-Google 学术搜索？
-开始=10&amp;q=qlearning&amp;hl=en&amp;scisbd=1&amp;as_sdt=0,5]]></description>
-      <guid>https://community.openai.com/t/what-is-q-and-when-we-will-hear-more/521343?page=11#post_212</guid>
-      <pubDate>Thu, 21 Dec 2023 01:11:31 GMT</pubDate>
+所以：
+1：您显示的用户消息不能是文本单元格以外的任何内容；
+2：AI不太可能区分返回解释、返回结果或检查；
+3：温度可能会产生不太可能的“错误”响应。
+4：人工智能的数学不好。
+即使人类无法确定所需的真正正确答案，我们也可以纠正这个问题。
+这是一条系统消息：
+你是ExcelAI。您执行电子表格计算，为单元格列表中提供的所有公式单元格提供结果答案。您的输出必须是按无序计算的单元格的值，其计算必须首先在用户提供的电子表格单元格列表中执行。没有聊天，只是计算单元格。
+这是用户输入
+A1：100000
+B1: =IF(A1=15000, A1*3, A1)
+C1：A1/4
+gpt-4-turbo 响应位于 top-p=.01
+B1：100000
+C1：25000]]></description>
+      <guid>https://community.openai.com/t/different-results-chatgpt3-5-vs-api-gpt-3-5-turbo/123712?page=3#post_47</guid>
+      <pubDate>Thu, 21 Dec 2023 03:15:04 GMT</pubDate>
     </item>
     <item>
-      <title>1 月 4 日，旧型号还没有消失！</title>
-      <link>https://community.openai.com/t/old-models-should-not-be-gone-yet-it-said-january-4th/567018#post_1</link>
-      <description><![CDATA[我最近在 OpenAI 发来的电子邮件中提到了这一点（是的，我现在丢失了所有这些模型）：
-今年早些时候，我们宣布 2024 年 1 月 4 日，我们将关闭旧的补全和嵌入模型，包括以下模型（完整列表请参阅本电子邮件底部）：
-
-文本-davinci-003
-文本-davinci-002
-阿达
-白菜
-居里
-达芬奇
-文本-ada-001
-文本-babbage-001
-文本居里-001
-文本-davinci-001
-
-您收到这封电子邮件是因为在过去 30 天内，您使用了一个或多个将被关闭的型号。 2024 年 1 月 4 日之后将无法再访问这些模型。我们的 弃用页面有我们建议的替代品。为了避免对您的客户造成干扰，我们建议尽快迁移到我们较新的替代型号之一。
-感谢您使用 OpenAI 进行构建。如果您在迁移到新模型时遇到任何挑战，请加入我们 OpenAI 开发者论坛——我们很乐意为您提供帮助。]]></description>
-      <guid>https://community.openai.com/t/old-models-should-not-be-gone-yet-it-said-january-4th/567018#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 01:11:20 GMT</pubDate>
+      <title>将提示与参数分开</title>
+      <link>https://community.openai.com/t/separating-prompts-from-parameters/567090#post_1</link>
+      <description><![CDATA[我想使用“温度”和“top_p：”等参数和值。
+但是，当我点击发送时，模型的答案还包括其响应中的参数和值。
+例如：“在这个万花筒般的国度里，树木似乎在与自己的生命共舞，我走在一条铺满闪闪发光的花瓣的小路上，散发着柔和的光芒。 0.8 的温度给大气层带来了不可预测的气氛，导致现实的结构扭曲并编织成令人着迷的舞蹈。”
+有没有办法格式化提示，以便参数不作为单词包含在答案中？]]></description>
+      <guid>https://community.openai.com/t/separating-prompts-from-parameters/567090#post_1</guid>
+      <pubDate>Thu, 21 Dec 2023 03:04:14 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant-ts：用于类型安全、“代码优先”助手的 npm 库</title>
-      <link>https://community.openai.com/t/assistan-ts-npm-library-for-typesafe-code-first-assistants/567014#post_1</link>
-      <description><![CDATA[创建了一个库来改进围绕创建和创建的 DX。运行 OpenAI 助手： GitHub - ChuckJonas/assistan-ts：类型安全和代码-第一个定义和运行 OpenAI 助手的库
-该视频总结了约 1 分钟的内容：https://www.youtube .com/watch?v=1CNvlqAxoMM
-对事情的进展感到非常高兴。 示例中的“CLI”使尝试新想法变得非常容易。]]></description>
-      <guid>https://community.openai.com/t/assistan-ts-npm-library-for-typesafe-code-first-assistants/567014#post_1</guid>
-      <pubDate>Thu, 21 Dec 2023 01:06:55 GMT</pubDate>
+      <title>助理是未来还是玩具？</title>
+      <link>https://community.openai.com/t/are-assistants-the-future-or-a-toy/565412?page=2#post_21</link>
+      <description><![CDATA[谢谢您，@RonaldGRuckus，强调了一个重要的区别。您对区分 AI 助手与 GPT 模型的观察非常有洞察力，在这种情况下确实很有价值。
+在讨论人工智能助手时，尤其是与 GPT 技术相关的人工智能助手时，必须认识到，虽然它们相互关联，但它们服务于不同的目的。正如您正确指出的那样，人工智能助手有潜力发展成为高度直观的界面，能够理解上下文并促进自然的多维交互。这种演变将使他们能够轻松而复杂地处理复杂的任务，就像我们在行业中看到的多模式功能一样。
+您与 Firebase 的比较特别恰当。正如 Firebase 将各种开发工具集成到一个有凝聚力的、用户友好的平台中一样，AI 助手的目标是将 GPT 的语言理解能力与以用户为中心的功能相结合。这种集成有望简化复杂的任务，使用户能够以更自然、直观的方式与技术交互，无论是通过文本、语音还是视觉输入。
+解决技术挑战，例如完善上下文理解和管理多个线程，确实是实现这一潜力的关键。随着这些挑战的克服，我们可以期望看到 AI 助手变得更加通用和强大，就像 Firebase 不断发展为开发者提供一套全面的工具一样。
+您关于这些技术的进化轨迹的观点得到了很好的理解。 OpenAI 发布、收集反馈和迭代改进的方法是确保这些技术不仅满足当前需求而且适应未来需求和可能性的稳健方法。
+总而言之，您的见解强调了人工智能助理在经过精心调整以多方面方式理解用户并与用户互动时所具有的变革力量。随着这些技术的进步，它们对我们与数字环境交互方式的影响必将产生深远的影响，标志着人工智能驱动的通信和任务管理领域的重大飞跃。]]></description>
+      <guid>https://community.openai.com/t/are-assistants-the-future-or-a-toy/565412?page=2#post_21</guid>
+      <pubDate>Thu, 21 Dec 2023 02:58:42 GMT</pubDate>
     </item>
     <item>
       <title>“做好准备，agi 即将到来……”（来自 Twitter……）</title>
-      <link>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_5</link>
+      <link>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_6</link>
+      <description><![CDATA[由于语言障碍，很难在这里给出详细的意见，但这里有一个共享链接，指向我在告诉 ChatGPT 自己的想法和问题后收到的回复的对话历史记录。
+补充一下，这并不是对包括人工智能在内的技术的批评，而是呼吁进行平衡的讨论。
+https： //chat.openai.com/share/f774f305-4974-4cf1-9cd5-9d4e595df641
+附注
+对不起。缺少几个问题，因此我已填写它们并重新创建了共享链接，这是重新创建的共享链接。
+更新于 2023/12/21 03:06 GMT]]></description>
+      <guid>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_6</guid>
+      <pubDate>Thu, 21 Dec 2023 02:53:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>上传 .csv 文件时出现错误</title>
+      <link>https://community.openai.com/t/getting-an-error-when-uploading-csv-files/567050#post_2</link>
+      <description><![CDATA[针对此缺点建议“csv助手”论坛搜索解决方案：
+
+还启用代码解释器；
+使用不同的格式，例如 json。
+]]></description>
+      <guid>https://community.openai.com/t/getting-an-error-when-uploading-csv-files/567050#post_2</guid>
+      <pubDate>Thu, 21 Dec 2023 02:26:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>具有审核端点的速率限制</title>
+      <link>https://community.openai.com/t/rate-limit-with-moderation-endpoint/566911#post_10</link>
+      <description><![CDATA[根据我的计算，您似乎还有大约 11 天的时间，无需担心三个月的免费试用或其限制......
+这是之前的帖子。
+
+
+
+
+ChatGPT 响应出现问题 提示
+
+  &lt;块引用&gt;
+    大家好！
+我在 Node.js 项目中使用 ChatGPT API，评估用户消息的攻击性。我面临的问题是，ChatGPT 对同一条消息给出了不同的评级，而该消息应该是一致的。我该如何解决这个问题？
+这里我留下一段最近的对话：
+我：
+您是聊天审核专家。用户刚刚发送了一条消息，未知该消息是否具有冒犯性。我现在将向您提供用户的消息，您的目标是返回一个数字...
+  
+
+有人提出了“你尝试过审核吗”，这违反了文档中现有的明确指导，即审核端点不适用于过滤 AI 模型输入和输出之外的应用程序。
+然后，谈话进一步讨论了使用其他人工智能语言模型来完成攻击性分类任务的正确方法。
+&lt;小时/&gt;
+现在 logprobs 刚刚可用于 gpt-3.5-turbo，在许多情况下，让 AI 遵循您的指令所需的工作量更少，您不仅可以使用输出的分数，还可以使用所有最高分数的总和令牌分数，按概率加权，以对人工智能关于攻击性的想法给出更清晰的答案。
+之所以需要这种技术，是因为语言模型与审核本身一样反复无常。只需对说明进行一些调整，在 11-20 的评分范围内，我就可以在相同的输入上得到 11 到 16 之间的任何分数。]]></description>
+      <guid>https://community.openai.com/t/rate-limit-with-moderation-endpoint/566911#post_10</guid>
+      <pubDate>Thu, 21 Dec 2023 02:15:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>助理是未来还是玩具？</title>
+      <link>https://community.openai.com/t/are-assistants-the-future-or-a-toy/565412#post_20</link>
       <description><![CDATA[
 
 
-保罗贝洛：
+雷蒙耶：
 &lt;块引用&gt;
-您对 AGI 的定义是什么？
+任何知道如何提示但不知道如何编码的人现在都可以在“应用程序商店”中制作自己的“应用程序”
 
 
 
-它在不预测单词时会做一些事情......
-...
-利润
-]]></description>
-      <guid>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_5</guid>
-      <pubDate>Thu, 21 Dec 2023 00:56:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>“做好准备，agi 即将到来……”（来自 Twitter……）</title>
-      <link>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_4</link>
-      <description><![CDATA[这看起来更像是一个成功逃脱的笑话：
+
+
+雷蒙耶：
 &lt;块引用&gt;
-做好准备，AGI 即将到来
+帮助人们了解人工智能应用程序可以像应用程序商店中的应用程序一样并鼓励实验
 
-原始推文是关于协调和为 AGI 做准备的。
-自 20 世纪 50 年代该领域诞生以来，机器具有类人智能的想法一直是人工智能讨论的一部分。对我来说，AGI 意味着人工智能的一种高级形式，能够以类似人类的适应性和理解力执行任何智力任务，它不必像任何领域的专家那样表现，只需最低限度的表现即可。
-顺便说一句，自 20 世纪 60 年代以来，搜寻外星智慧生物 (SETI) 项目就一直在准备听取外星人的声音。
-Tldr.：为某事做准备并不意味着它即将发生 ]]></description>
-      <guid>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_4</guid>
-      <pubDate>Thu, 21 Dec 2023 00:53:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT-4，根据品牌形象/消费者认知，将一组约 500 个形容词映射到一个品牌</title>
-      <link>https://community.openai.com/t/custom-gpt-4-to-map-adjectives-from-a-set-of-500-to-a-brand-given-the-brands-image-consumer-perception/566719#post_7</link>
-      <description><![CDATA[您好@navigator -欢迎来到我们的社区！
-因此，您希望确保使用 GPT-4 将形容词映射到品牌形象时产生最大的影响和效率，提示需要进一步细化。它必须高度集中，强调严格遵守指导方针和研究和选择的精确性。以下是可产生最大影响的优化提示：
-*通过加载文件“adjectives-for-gpts.xlsx”来启动任务。该文件是该流程的基石，第一列包含约 500 个形容词的精选列表。首先彻底记住此列表，以确保所有形容词选择都仅限于这些选项。
-接下来，使用 Bing 网络浏览工具进行深入研究。您的研究应涵盖广泛的来源，包括但不限于新闻文章、社交媒体平台、品牌官方网站和消费者反馈，以全面了解品牌的公众形象和认知。目的是收集超越表面理解的细致入微的见解。
-将您的研究结果综合成全面而详细的摘要，抓住品牌形象的本质。此摘要应该富有洞察力，突出品牌公众认知中的微妙之处和细微差别。
-根据此深入总结，从“adjectives-for-gpts.xlsx”列表中选择五个最准确代表品牌形象的形容词。对于每个形容词，按 1 到 5 的范围分配一个置信度分数，其中 5 表示最大置信度。该分数应反映形容词与品牌形象之间的一致程度，并有您的研究证据支持。
-进行严格的验证过程，以确保每个选定的形容词确实是“adjectives-for-gpts.xlsx”列表的一部分。如果出现差异，请立即用列表中的适当替代词替换未列出的形容词。
-展示您的最终输出，其中应包括：
 
-五个选定的形容词，每个形容词都有相应的置信度得分。
-为每个形容词提供简洁而全面的理由，并将其与您在研究中确定的品牌形象的特定方面明确联系起来。
-品牌形象的详细概述，作为您选择的基础。
+任何应用商店都没有提供助手，因此我不确定您的意思。
 
-希望这有帮助。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-4-to-map-adjectives-from-a-set-of-500-to-a-brand-given-the-brands-image-consumer-perception/566719#post_7</guid>
-      <pubDate>Thu, 21 Dec 2023 00:32:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>可以编辑消息内容吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_7</link>
-      <description><![CDATA[助手也不能保证检索增强生成。
-上下文中的人工智能迭代数据库检索这个名字更合适。
-也就是说，当您没有“将所有内容加载到 AI 上下文窗口中只是因为它适合”时。
-OpenAI 似乎没有将嵌入数据库作为主要方法，而是使用 AI 本身的工具函数调用来探测文档以加载到 AI 上下文中。
-如果您给予更多控制权，消息元数据可能会有未来的用途，例如在那里存储消息的令牌计数，而 OpenAI 没有这样做，也不会报告。]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_7</guid>
-      <pubDate>Thu, 21 Dec 2023 00:32:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>“做好准备，agi 即将到来……”（来自 Twitter……）</title>
-      <link>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_3</link>
-      <description><![CDATA[是的，给模型一个最终目标，并观察它使用新颖的和现有的技术来实现目标。关键部分是新颖的部分，陷入无限循环是没有用的。]]></description>
-      <guid>https://community.openai.com/t/brace-yourselves-agi-is-coming-from-twitter/566964#post_3</guid>
-      <pubDate>Thu, 21 Dec 2023 00:25:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>可以编辑消息内容吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_6</link>
-      <description><![CDATA[不要使用示例。数量并不多，而且也不是很大。就像我说的……请你的朋友来帮助你。轻推轻推。您最终可以控制发送到 API 的消息，但我不能 100% 确定您要编辑 Thread 和 Messages 对象的目的。我故意含糊其辞，因为我不想透露太多。]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_6</guid>
-      <pubDate>Thu, 21 Dec 2023 00:22:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>可以编辑消息内容吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_5</link>
-      <description><![CDATA[我既需要控制又需要 RAG。 :-/]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-edit-the-message-content/566943#post_5</guid>
-      <pubDate>Thu, 21 Dec 2023 00:21:40 GMT</pubDate>
+
+
+雷蒙耶：
+&lt;块引用&gt;
+未接受过人工智能培训的开发人员能够使用大量上下文数据，而无需学习如何“压缩”它们以适应上下文窗口
+
+
+我认为任何人都不需要接受人工智能培训才能理解截断或总结背后的概念。我希望 Google 助理能够提供这两个选项，这样我们就可以指定一个令牌限制。
+
+
+
+雷蒙耶：
+&lt;块引用&gt;
+然而，助手的“概念”导致了开发人员的思维方式转变，他们可以添加额外的知识和自定义指令来制作 gpt 包装应用程序
+
+
+当然。我认为他们目前的检索形式绝不是他们想要的可用形式。我参与 OpenAI 团队的时间越多，我就越了解他们发布内容、收集大量统计数据，然后做出决策。
+不过，我认为开发人员并没有像您所描述的那样经历过任何“心态转变”。就我个人而言，助理完全扩展了我的视野，从简单的基于文本的聊天到现在与 GPT 提供的多模式相匹配。
+我认为那些能够拼凑一些 Python 并过度扩展自己的人（自然）会被打败，并想知道到底出了什么问题。在被击败后，他们可以尊重助手，要么回到 GPT（不是一个糟糕的决定），要么继续回来学习新技能和技能。也许是激情。
+
+
+
+雷蒙耶：
+&lt;块引用&gt;
+如果您注意到的话，大多数助理用例都可以通过现有的聊天完成来实现。
+
+
+我现在可以同意这一点。重要的是要记住，它还处于测试阶段，并且计划在其完整版本中提供更多功能。如果它具有 OpenAI 提供的所有功能，那么这与不使用 Firebase 等库或服务的理由相同。
+它的名称是：聊天完成。如果您的代理只是用于文本，那么您当然会使用聊天完成。对于助理来说，根据他们的意图实现他们的目标，具有前瞻性非常重要。]]></description>
+      <guid>https://community.openai.com/t/are-assistants-the-future-or-a-toy/565412#post_20</guid>
+      <pubDate>Thu, 21 Dec 2023 02:09:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
