@@ -4,59 +4,131 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 24 Dec 2023 15:17:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 Dec 2023 18:21:25 GMT</lastBuildDate>
     <item>
-      <title>基于 Amazon Alexa 的 chatGPT</title>
-      <link>https://community.openai.com/t/chatgpt-on-top-of-amazon-alexa/58515?page=9#post_174</link>
-      <description><![CDATA[请不要每天或每隔几天发布基本相同的内容。 &lt;img alt=&quot;:slightly_smiling_face:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slightly_smiling_face.png?v=12&quot; title=&quot;:slightly_smiling_face: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/chatgpt-on-top-of-amazon-alexa/58515?page=9#post_174</guid>
-      <pubDate>Sun, 24 Dec 2023 15:10:57 GMT</pubDate>
+      <title>我在使用 openai 运行情感分析 api 时遇到问题，而我已经填写了从 google bard 获得的所有基本代码</title>
+      <link>https://community.openai.com/t/i-am-facing-issue-in-running-sentiment-analysis-api-with-openai-while-i-have-fullfilled-all-the-basic-code-which-i-got-from-google-bard/570554#post_2</link>
+      <description><![CDATA[根据摘录中提供的信息，您似乎正在尝试使用 openai.Completion.create 方法，该方法在 OpenAI Python 库版本 1.0.0 中不再受支持以上。相反，您应该使用 openai.ChatCompletion.create 或 client.chat.completions.create 方法。以下是如何根据摘录中的信息修改代码的示例：
+导入openai
+从 openai 导入 OpenAI
+
+# 设置您的 OpenAI API 密钥（替换为您的实际密钥）
+openai.api_key = &quot;你的 api 密钥&quot;
+
+# 初始化OpenAI客户端
+客户端 = OpenAI(api_key=openai.api_key)
+
+def情感分析（文本）：
+    # 为模型创建提示
+    Prompt = f&quot;&quot;&quot;您接受过分析和检测给定文本的情感的训练。
+    如果您不确定答案，您可以说“不确定”并建议用户手动审核。
+
+    分析以下文本并确定情绪是：积极、消极还是中性。
+    {文本}”””
+
+    # 调用OpenAI API生成响应
+    响应 = client.chat.completions.create(
+        model=&quot;gpt-3.5-turbo&quot;, # 使用强大的模型进行情感分析
+        消息=[
+            {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
+            {“角色”：“用户”，“内容”：提示}
+        ],
+        max_tokens=1, # 限制响应单个单词
+        temp = 0 # 保持响应一致
+    ）
+
+    # 从响应中提取情绪
+    情绪 = response.choices[0].message.content.strip().lower()
+
+    回归情感
+
+# 用法示例
+input_text = “我对这个产品非常满意！”
+情绪 = 情绪分析（输入文本）
+print(input_text, &quot;: 情绪是：&quot;, 情绪)
+
+请注意，本示例中使用模型“gpt-3.5-turbo”，因为提供的摘录中未提及“text-davinci-003”模型。您可能需要根据您的具体要求和可用的型号来调整型号。]]></description>
+      <guid>https://community.openai.com/t/i-am-facing-issue-in-running-sentiment-analysis-api-with-openai-while-i-have-fullfilled-all-the-basic-code-which-i-got-from-google-bard/570554#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 18:21:13 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT 中的图像渲染</title>
-      <link>https://community.openai.com/t/image-renderings-in-custom-gpts/566396#post_4</link>
-      <description><![CDATA[有同样的问题，有解决办法吗？]]></description>
-      <guid>https://community.openai.com/t/image-renderings-in-custom-gpts/566396#post_4</guid>
-      <pubDate>Sun, 24 Dec 2023 14:56:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 操作 - 处理 API 响应时出现新的“ResponseTooLargeError”失败</title>
-      <link>https://community.openai.com/t/gpt-actions-new-responsetoolargeerror-failure-when-handling-api-response/504153#post_14</link>
-      <description><![CDATA[问题在于，它不会将 CSV 文件视为结构化文件，而是将其视为一组文本，并尝试在代码中写入整个文件，因此会出现错误。
+      <title>扩展ChatGPT的演绎和逻辑推理能力</title>
+      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_21</link>
+      <description><![CDATA[嘿！对于简单的情况，ChatGPT4 确实根本不需要 Cheemera。
+仅当存在需要基于相关规则/原则做出的显式和隐式断言进行无懈可击的推论时，才需要 Cheemera。
+这是一个非常基本的示例，解释了 ChatGPT 始终出错的问题，但 Cheemera 总是正确的。
+例如
+聊天GPT (GPT4)
+
+奇梅拉
 ]]></description>
-      <guid>https://community.openai.com/t/gpt-actions-new-responsetoolargeerror-failure-when-handling-api-response/504153#post_14</guid>
-      <pubDate>Sun, 24 Dec 2023 14:53:09 GMT</pubDate>
+      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_21</guid>
+      <pubDate>Sun, 24 Dec 2023 18:19:21 GMT</pubDate>
     </item>
     <item>
-      <title>想要纹身或新纹身，请尝试我的第一个 GPT Tattoo Imagineer</title>
-      <link>https://community.openai.com/t/thinking-of-getting-a-tattoo-or-a-new-one-try-out-my-1st-gpt-tattoo-imagineer/570139#post_11</link>
-      <description><![CDATA[当然。你的图比我做的漂亮多了。您在更改元素方面做得非常出色。]]></description>
-      <guid>https://community.openai.com/t/thinking-of-getting-a-tattoo-or-a-new-one-try-out-my-1st-gpt-tattoo-imagineer/570139#post_11</guid>
-      <pubDate>Sun, 24 Dec 2023 14:40:18 GMT</pubDate>
+      <title>gpt-3.5-turbo-16k API 中的错误和不同答案，以及 Playground 和 ChatGPT 中的其他答案</title>
+      <link>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_6</link>
+      <description><![CDATA[我的问题仍未得到解答，playground 中的请求和通过 API 发出的完全相同的请求始终给出相反的答案！为什么？]]></description>
+      <guid>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_6</guid>
+      <pubDate>Sun, 24 Dec 2023 18:18:06 GMT</pubDate>
     </item>
     <item>
-      <title>新的 GPT 3.5 和 4 Turbo 模型通常会将提取的数据缩短到不再可用的程度</title>
-      <link>https://community.openai.com/t/the-new-gpt-3-5-and-4-turbo-models-often-shorten-extracted-data-to-the-point-where-its-not-usable-anymore/570385#post_4</link>
-      <description><![CDATA[
+      <title>将 pdf 附加到聊天转换</title>
+      <link>https://community.openai.com/t/attach-pdf-to-chat-conversition/570548#post_2</link>
+      <description><![CDATA[这个帖子应该有帮助......
 
 
-单纯形：
-&lt;块引用&gt;
-有什么建议可以解决这个问题吗？
 
 
-如果没有看到实际数据，这只是猜测。如果我有数据并且可以取出表格，那么这可能就是提示。
-如果您可以在下面看到相关主题，您可以查看相关主题以获取帮助。这就是我在下面看到的。
+在助手 api 自定义 gpt 线程中从用户上传文件 插件/操作构建器
+
+  &lt;块引用&gt;
+    我们可以在助手 API 中上传带有消息的文件吗？如果是的话，具体的终点是什么？
+我已经创建了一个助手并接受了特定数据的培训，现在我希望用户上传带有消息的 CSV，以便他们了解有关此 CSV 文件的信息。
+  
 ]]></description>
-      <guid>https://community.openai.com/t/the-new-gpt-3-5-and-4-turbo-models-often-shorten-extracted-data-to-the-point-where-its-not-usable-anymore/570385#post_4</guid>
-      <pubDate>Sun, 24 Dec 2023 14:35:58 GMT</pubDate>
+      <guid>https://community.openai.com/t/attach-pdf-to-chat-conversition/570548#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 18:17:51 GMT</pubDate>
     </item>
     <item>
-      <title>新的 GPT 3.5 和 4 Turbo 模型通常会将提取的数据缩短到不再可用的程度</title>
-      <link>https://community.openai.com/t/the-new-gpt-3-5-and-4-turbo-models-often-shorten-extracted-data-to-the-point-where-its-not-usable-anymore/570385#post_3</link>
-      <description><![CDATA[我已经更改了标题。有什么建议如何解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/the-new-gpt-3-5-and-4-turbo-models-often-shorten-extracted-data-to-the-point-where-its-not-usable-anymore/570385#post_3</guid>
-      <pubDate>Sun, 24 Dec 2023 14:30:36 GMT</pubDate>
+      <title>OpenAI 的一些操作应该快速应用于帐户</title>
+      <link>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_2</link>
+      <description><![CDATA[很遗憾听到这件事发生在你身上。
+您是否已吊销您的密钥并调查它们是如何泄露的？如果您提供更多详细信息，我们也许可以帮助您确保其安全。
+您还可以设置硬限制，这样您的支出就不会超过您想要的...即将其设置为您的正常使用量，然后如果它达到峰值，它将停止工作并通知您。]]></description>
+      <guid>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 18:12:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>扩展ChatGPT的演绎和逻辑推理能力</title>
+      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484#post_20</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484#post_20</guid>
+      <pubDate>Sun, 24 Dec 2023 18:00:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>一个询问 pdf 文件的聊天机器人</title>
+      <link>https://community.openai.com/t/a-chatbot-to-question-pdf-files/527282#post_2</link>
+      <description><![CDATA[同样的问题。我目前正在使用开源项目 gpt4-pdf-chatbot-langchain 对数千个 PDF 文件执行此操作。我想知道 Files API 是否可以为我做同样的事情。]]></description>
+      <guid>https://community.openai.com/t/a-chatbot-to-question-pdf-files/527282#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 17:53:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 的一些操作应该快速应用于帐户</title>
+      <link>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_1</link>
+      <description><![CDATA[不知何故，我们的 API 密钥遭到泄露。
+猜猜 2 天内消耗了 6,000 美元……
+当时是假期……我随机检查电子邮件并找到了它。
+– OpenAI 应添加一个将 API KEY 的 IP 地址列入白名单的选项]]></description>
+      <guid>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_1</guid>
+      <pubDate>Sun, 24 Dec 2023 17:50:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 2023 年 12 月 17 日即时工程指南</title>
+      <link>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_19</link>
+      <description><![CDATA[嗨，Leng - 谢谢你的赞美。我很乐意联系并讨论更多。感谢您打招呼并提供一些联系信息。我会在 LinkedIn 上找到你 ]]></description>
+      <guid>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_19</guid>
+      <pubDate>Sun, 24 Dec 2023 17:35:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
