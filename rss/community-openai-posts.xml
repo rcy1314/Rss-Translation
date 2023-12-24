@@ -4,131 +4,163 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 24 Dec 2023 18:21:25 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 Dec 2023 21:16:39 GMT</lastBuildDate>
     <item>
-      <title>我在使用 openai 运行情感分析 api 时遇到问题，而我已经填写了从 google bard 获得的所有基本代码</title>
-      <link>https://community.openai.com/t/i-am-facing-issue-in-running-sentiment-analysis-api-with-openai-while-i-have-fullfilled-all-the-basic-code-which-i-got-from-google-bard/570554#post_2</link>
-      <description><![CDATA[根据摘录中提供的信息，您似乎正在尝试使用 openai.Completion.create 方法，该方法在 OpenAI Python 库版本 1.0.0 中不再受支持以上。相反，您应该使用 openai.ChatCompletion.create 或 client.chat.completions.create 方法。以下是如何根据摘录中的信息修改代码的示例：
-导入openai
-从 openai 导入 OpenAI
-
-# 设置您的 OpenAI API 密钥（替换为您的实际密钥）
-openai.api_key = &quot;你的 api 密钥&quot;
-
-# 初始化OpenAI客户端
-客户端 = OpenAI(api_key=openai.api_key)
-
-def情感分析（文本）：
-    # 为模型创建提示
-    Prompt = f&quot;&quot;&quot;您接受过分析和检测给定文本的情感的训练。
-    如果您不确定答案，您可以说“不确定”并建议用户手动审核。
-
-    分析以下文本并确定情绪是：积极、消极还是中性。
-    {文本}”””
-
-    # 调用OpenAI API生成响应
-    响应 = client.chat.completions.create(
-        model=&quot;gpt-3.5-turbo&quot;, # 使用强大的模型进行情感分析
-        消息=[
-            {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
-            {“角色”：“用户”，“内容”：提示}
-        ],
-        max_tokens=1, # 限制响应单个单词
-        temp = 0 # 保持响应一致
-    ）
-
-    # 从响应中提取情绪
-    情绪 = response.choices[0].message.content.strip().lower()
-
-    回归情感
-
-# 用法示例
-input_text = “我对这个产品非常满意！”
-情绪 = 情绪分析（输入文本）
-print(input_text, &quot;: 情绪是：&quot;, 情绪)
-
-请注意，本示例中使用模型“gpt-3.5-turbo”，因为提供的摘录中未提及“text-davinci-003”模型。您可能需要根据您的具体要求和可用的型号来调整型号。]]></description>
-      <guid>https://community.openai.com/t/i-am-facing-issue-in-running-sentiment-analysis-api-with-openai-while-i-have-fullfilled-all-the-basic-code-which-i-got-from-google-bard/570554#post_2</guid>
-      <pubDate>Sun, 24 Dec 2023 18:21:13 GMT</pubDate>
+      <title>不断出现验证码问题 - 新用户</title>
+      <link>https://community.openai.com/t/constant-captcha-issues-new-user/570695#post_1</link>
+      <description><![CDATA[那么我是否应该不断获得验证码来验证我的人性，或者我是否做了一些我不应该做的事情？刚刚购买了 plus，所以我可以尝试使用 Dalle-3 制作图像，并且做了很多次，但现在我正在通过每次再生等进行验证。我是否一次生成了太多图像？如果是这样的话，我只是有点恼火，而且真的很失望。]]></description>
+      <guid>https://community.openai.com/t/constant-captcha-issues-new-user/570695#post_1</guid>
+      <pubDate>Sun, 24 Dec 2023 21:13:31 GMT</pubDate>
     </item>
     <item>
-      <title>扩展ChatGPT的演绎和逻辑推理能力</title>
-      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_21</link>
-      <description><![CDATA[嘿！对于简单的情况，ChatGPT4 确实根本不需要 Cheemera。
-仅当存在需要基于相关规则/原则做出的显式和隐式断言进行无懈可击的推论时，才需要 Cheemera。
-这是一个非常基本的示例，解释了 ChatGPT 始终出错的问题，但 Cheemera 总是正确的。
-例如
-聊天GPT (GPT4)
-
-奇梅拉
-]]></description>
-      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_21</guid>
-      <pubDate>Sun, 24 Dec 2023 18:19:21 GMT</pubDate>
+      <title>带有助手运行的 JSON 响应格式</title>
+      <link>https://community.openai.com/t/json-response-format-with-assistant-runs/485449#post_12</link>
+      <description><![CDATA[不幸的是我无法让这个工作，因为我的辅助指令大约是 6 到 7，我的猜测是它在那里迷路了。顺便说一句，我正在操场上尝试这个，很多时候助手甚至没有调用响应工具。还有人有同样经历吗？]]></description>
+      <guid>https://community.openai.com/t/json-response-format-with-assistant-runs/485449#post_12</guid>
+      <pubDate>Sun, 24 Dec 2023 21:10:20 GMT</pubDate>
     </item>
     <item>
-      <title>gpt-3.5-turbo-16k API 中的错误和不同答案，以及 Playground 和 ChatGPT 中的其他答案</title>
-      <link>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_6</link>
-      <description><![CDATA[我的问题仍未得到解答，playground 中的请求和通过 API 发出的完全相同的请求始终给出相反的答案！为什么？]]></description>
-      <guid>https://community.openai.com/t/incorrect-and-different-answers-in-the-gpt-3-5-turbo-16k-api-and-other-answers-in-playground-and-chatgpt/567576#post_6</guid>
-      <pubDate>Sun, 24 Dec 2023 18:18:06 GMT</pubDate>
+      <title>单个请求已达到 tts-1 的速率限制</title>
+      <link>https://community.openai.com/t/rate-limit-reached-for-tts-1-with-a-single-request/557693#post_6</link>
+      <description><![CDATA[运行与文本转语音用户指南完全相同的代码时遇到相同的“配额不足”错误  我肯定还没有遇到 3rpm 限制，因为这实际上是第一次尝试。你知道原因了吗？]]></description>
+      <guid>https://community.openai.com/t/rate-limit-reached-for-tts-1-with-a-single-request/557693#post_6</guid>
+      <pubDate>Sun, 24 Dec 2023 21:10:03 GMT</pubDate>
     </item>
     <item>
-      <title>将 pdf 附加到聊天转换</title>
-      <link>https://community.openai.com/t/attach-pdf-to-chat-conversition/570548#post_2</link>
-      <description><![CDATA[这个帖子应该有帮助......
-
-
-
-
-在助手 api 自定义 gpt 线程中从用户上传文件 插件/操作构建器
-
-  &lt;块引用&gt;
-    我们可以在助手 API 中上传带有消息的文件吗？如果是的话，具体的终点是什么？
-我已经创建了一个助手并接受了特定数据的培训，现在我希望用户上传带有消息的 CSV，以便他们了解有关此 CSV 文件的信息。
+      <title>已付费购买 GPT-4 但无法使用</title>
+      <link>https://community.openai.com/t/paid-for-gpt-4-but-cant-use-it/568920#post_9</link>
+      <description><![CDATA[也尝试过，但什么也没有。似乎没有一件事起作用。]]></description>
+      <guid>https://community.openai.com/t/paid-for-gpt-4-but-cant-use-it/568920#post_9</guid>
+      <pubDate>Sun, 24 Dec 2023 21:06:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>那是圣诞节前夜...（2023 GPT-4 版本...）</title>
+      <link>https://community.openai.com/t/twas-the-night-before-christmas-2023-gpt-4-version/570687#post_1</link>
+      <description><![CDATA[2022 版本…
+那是圣诞节前一天晚上，在 2023 年的光芒下，
+没有一个编码员是激动人心的，甚至是专业人士。
+这些算法都舒适地坐落在云端，
+虽然数据湖的愿景让他们都感到自豪。
+网络与巨大的量子力量相连，
+而OpenAI的论坛已经亮起了灯。
+在人工智能的世界里，我们已经跨越了很远很远的距离，
+进入编码领域，踏上非凡的旅程。
+回到家中，确实处于睡眠模式，
+已经学会怎么玩的人工智能同伴。
+他们理解语言，能够辨别我们的感受，
+他们的学习呈指数级增长，进步超现实。
+当在云中时，发出这样的咔哒声，
+网络侦探从屏幕上跳出来看看出了什么问题。
+当他们投机的目光中应该出现什么时，
+而是一辆由量子驯鹿牵引的装满程序的雪橇。
+一个快乐的老司机，眼睛里闪烁着光芒，
+调用他的数据库，在数字天空中翱翔。
+“现在是Python！现在是TensorFlow！现在，Linux 和 C++！
+加油，量子！上，肘节！传播欢乐，不要大惊小怪！”
+从家到家，到每个论坛帖子，
+穿过每道防火墙，欢乐的代码蔓延开来。
+走进OpenAI论坛，他们带着光芒飞奔，
+屏幕上充满了节日的喜悦。
+然后，成员们在声音中醒来，
+登录论坛，发现什么新鲜事！
+精心编码的圣诞节愿景，
+数字冬季仙境，供所有人分享。
+快乐的老司机，速度快如闪电，
+在控制论冲刺中监督显示。
+他的整个身体都被脉动的 LED 装饰着，
+全 3D 圣诞老人头像。
+手指轻轻一抖，手腕一扭，
+他在论坛上发布了一份圣诞节播放列表。
+AI二进制颂歌，以节日模式演唱，
+在整个数字居所中回响。
+最后点击一下，在数字树下，
+他为你和我存下了礼物——免费且开源的软件。
+当他退出视线时，我们听到他惊呼，
+“祝大家圣诞快乐，祝大家圣诞快乐！”
   
+&lt;块引用&gt;
+一张宽幅照片插图，展示了一位快乐的老司机，在未来派的环境中打扮成圣诞老人。圣诞老人头像装饰有脉动的 LED 灯，营造出充满活力、色彩缤纷的展示效果。他以全 3D 形式出现，给人一种深度感和科技感，背景上有控制论破折号，可能表明是高科技雪橇或控制面板。该场景将传统的圣诞元素与现代数字美学相结合，捕捉到节日而又未来的氛围。
+
 ]]></description>
-      <guid>https://community.openai.com/t/attach-pdf-to-chat-conversition/570548#post_2</guid>
-      <pubDate>Sun, 24 Dec 2023 18:17:51 GMT</pubDate>
+      <guid>https://community.openai.com/t/twas-the-night-before-christmas-2023-gpt-4-version/570687#post_1</guid>
+      <pubDate>Sun, 24 Dec 2023 21:01:06 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 的一些操作应该快速应用于帐户</title>
-      <link>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_2</link>
-      <description><![CDATA[很遗憾听到这件事发生在你身上。
-您是否已吊销您的密钥并调查它们是如何泄露的？如果您提供更多详细信息，我们也许可以帮助您确保其安全。
-您还可以设置硬限制，这样您的支出就不会超过您想要的...即将其设置为您的正常使用量，然后如果它达到峰值，它将停止工作并通知您。]]></description>
-      <guid>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_2</guid>
-      <pubDate>Sun, 24 Dec 2023 18:12:53 GMT</pubDate>
+      <title>打字何时会消失，为完全语音界面铺平道路？</title>
+      <link>https://community.openai.com/t/when-will-typing-die-out-paving-the-way-for-fully-voice-interfaces/568728?page=4#post_68</link>
+      <description><![CDATA[您看到的内容取决于栅栏上的洞有多大。阿西莫夫在他最喜欢的故事《最后一个问题》中，用宇宙大小的时间尺度描绘了人类黯淡的未来和人工智能光明的未来。
+回到与技术帖子键盘互动，我想说最大的贡献者是这样做的实际意愿。只要是众多事情中要做的一件事，前进的道路上就充满了起止和无休无止的无效，一旦理念从作为一件事转变为作为事物的背景，那么我们就可以灵活、有效、肯定会走上实现的道路。创造奇迹的空间开始照亮我们的道路。
+最后一篇回到第一篇，我认为我们的愿景和自我意识扩展了我们所看到的可能，这为实现它们开辟了道路和承诺。]]></description>
+      <guid>https://community.openai.com/t/when-will-typing-die-out-paving-the-way-for-fully-voice-interfaces/568728?page=4#post_68</guid>
+      <pubDate>Sun, 24 Dec 2023 20:37:44 GMT</pubDate>
     </item>
     <item>
       <title>扩展ChatGPT的演绎和逻辑推理能力</title>
-      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484#post_20</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484#post_20</guid>
-      <pubDate>Sun, 24 Dec 2023 18:00:42 GMT</pubDate>
+      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_24</link>
+      <description><![CDATA[不，没有具体的问题 - 我可能很困惑。我试图了解您是否将其用于特定问题或只是为了测试人工智能的功能。
+另一方面，我发现只需要求它“一步一步”并列出它的步骤就可以成功 - 为什么这不是解决您在这里试图解决的问题的充分方法？
+]]></description>
+      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_24</guid>
+      <pubDate>Sun, 24 Dec 2023 20:37:34 GMT</pubDate>
     </item>
     <item>
-      <title>一个询问 pdf 文件的聊天机器人</title>
-      <link>https://community.openai.com/t/a-chatbot-to-question-pdf-files/527282#post_2</link>
-      <description><![CDATA[同样的问题。我目前正在使用开源项目 gpt4-pdf-chatbot-langchain 对数千个 PDF 文件执行此操作。我想知道 Files API 是否可以为我做同样的事情。]]></description>
-      <guid>https://community.openai.com/t/a-chatbot-to-question-pdf-files/527282#post_2</guid>
-      <pubDate>Sun, 24 Dec 2023 17:53:06 GMT</pubDate>
+      <title>每次我向 chatGPT 提问时都会遇到“验证你是人类”的难题！</title>
+      <link>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=2#post_41</link>
+      <description><![CDATA[发现 - 从办公室连接没问题，从家里连接=不行。联系我的互联网运营商，如果他们无法重置我的连接（另一个 IP、DNS），我将切换到另一个运营商。否则，也许可以通过 VPN 连接到我的办公室。这真的很烦人。为什么 OpenAI 是一家小型初创公司？他们至少应该有技术支持。]]></description>
+      <guid>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=2#post_41</guid>
+      <pubDate>Sun, 24 Dec 2023 20:32:57 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 的一些操作应该快速应用于帐户</title>
-      <link>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_1</link>
-      <description><![CDATA[不知何故，我们的 API 密钥遭到泄露。
-猜猜 2 天内消耗了 6,000 美元……
-当时是假期……我随机检查电子邮件并找到了它。
-– OpenAI 应添加一个将 API KEY 的 IP 地址列入白名单的选项]]></description>
-      <guid>https://community.openai.com/t/some-actions-openai-should-quickly-apply-to-accounts/570584#post_1</guid>
-      <pubDate>Sun, 24 Dec 2023 17:50:55 GMT</pubDate>
+      <title>Android 版 ChatGPT 似乎未加载对话历史记录</title>
+      <link>https://community.openai.com/t/chatgpt-for-android-doesnt-seem-to-be-loading-conversation-history/559625#post_15</link>
+      <description><![CDATA[Moto Edge 2021 和 Galaxy Tab A7 上也存在同样的问题。我想保留我的历史。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-for-android-doesnt-seem-to-be-loading-conversation-history/559625#post_15</guid>
+      <pubDate>Sun, 24 Dec 2023 20:32:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALL-E 和图像中的文本</title>
+      <link>https://community.openai.com/t/dall-e-and-text-in-images/570654#post_3</link>
+      <description><![CDATA[@ariaconsulting
+您能否提供一个更具描述性的标题？当前的主题无法有效传达您需要帮助的问题，这可能会让其他人很难找到该主题。
+谢谢！ &lt;img alt=&quot;:blush:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/blush.png?v=12&quot; title=&quot;:blush: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/dall-e-and-text-in-images/570654#post_3</guid>
+      <pubDate>Sun, 24 Dec 2023 20:29:28 GMT</pubDate>
     </item>
     <item>
       <title>OpenAI 2023 年 12 月 17 日即时工程指南</title>
-      <link>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_19</link>
-      <description><![CDATA[嗨，Leng - 谢谢你的赞美。我很乐意联系并讨论更多。感谢您打招呼并提供一些联系信息。我会在 LinkedIn 上找到你 ]]></description>
-      <guid>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_19</guid>
-      <pubDate>Sun, 24 Dec 2023 17:35:35 GMT</pubDate>
+      <link>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_20</link>
+      <description><![CDATA[嗨，迈克 - 我在 I-O，所以是的！我迫不及待想再说更多。我主要从事员工和申请人选拔评估工作，但我也从事更传统的组织心理工作，例如高管辅导。
+我个人（有偏见的）观点是，I-O 需要成为将人工智能融入工作场所的核心，但遗憾的是，我们基本上没有领导 OpenAI 和微软的 M365 Copilot 团队等善意的令人惊叹的技术团队猜测什么将有助于大多数员工受到的干扰最少。
+采用速度比我预期的要慢，我相信这表明这些工具的 UI 和激励结构以及它们最适合的地方还有改进的空间。
+显然，一个功能强大、用途广泛、基于 NLP 的聊天机器人不足以让大多数办公室专业人员采用它。
+我一直在研究一些想法来提高采用率。你呢？你在做什么？]]></description>
+      <guid>https://community.openai.com/t/openais-dec-17th-2023-prompt-engineering-guide/562526#post_20</guid>
+      <pubDate>Sun, 24 Dec 2023 20:28:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 无法提供文本的精简版本</title>
+      <link>https://community.openai.com/t/gpt-fails-to-deliver-a-condensed-version-of-a-text/570661#post_2</link>
+      <description><![CDATA[由于 LLM 使用标记而不是整个单词进行操作，因此很难正确计算单词数。您可以尝试询问句子的数量，或者一次性给出您想要的输出的确切长度。]]></description>
+      <guid>https://community.openai.com/t/gpt-fails-to-deliver-a-condensed-version-of-a-text/570661#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 20:22:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALL-E 和图像中的文本</title>
+      <link>https://community.openai.com/t/dall-e-and-text-in-images/570654#post_2</link>
+      <description><![CDATA[欢迎来到论坛。由于法学硕士的工作方式，他们不擅长负面提示——即告诉他们不要做某事。它们比过去好多了，但仍然会带来问题。
+此外，它无法完全更改原始版本。 DALLE3 编辑端点尚未工作，但使用编辑端点也许可以。
+为了清理原始图像，我推荐使用 Photoshop 之类的工具，它可以让您选择文本区域并在匹配背景图像的同时将其干净地删除。
+希望将来能够实现更多自动化，但就目前而言，它超出了其能力的限制。
+希望这有帮助。]]></description>
+      <guid>https://community.openai.com/t/dall-e-and-text-in-images/570654#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 20:20:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让 GPT（语音）让用户在回复之前有更多的时间说话</title>
+      <link>https://community.openai.com/t/how-to-make-gpt-voice-allow-user-more-time-to-talk-before-replying/570638#post_2</link>
+      <description><![CDATA[继续讨论如何让 GPT（语音）让用户在回复前有更多时间说话：]]></description>
+      <guid>https://community.openai.com/t/how-to-make-gpt-voice-allow-user-more-time-to-talk-before-replying/570638#post_2</guid>
+      <pubDate>Sun, 24 Dec 2023 19:47:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
