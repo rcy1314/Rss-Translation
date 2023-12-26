@@ -4,155 +4,41 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 26 Dec 2023 12:31:53 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 Dec 2023 15:17:37 GMT</lastBuildDate>
     <item>
-      <title>如何使用一个 API 密钥与多人建立对话而不混合？</title>
-      <link>https://community.openai.com/t/how-can-i-use-one-api-key-to-establish-conversations-with-multiple-people-without-mixing/571982#post_3</link>
-      <description><![CDATA[如果您自己管理 API 密钥并预计多个用户将通过同一 API 密钥聊天，以下说明可能对您有所帮助。
-即使 API 密钥相同，由于 HTTPS 会话的无状态性质，多个用户的聊天也不会混淆。但请注意，您每次都需要发送每个用户的对话历史记录。
-以下是如何发送对话历史记录的示例：
-res = client.chat.completions.create(
-    型号=“gpt-3.5-turbo”，
-    消息=[
-        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个有用的助手。&quot;}, # 可选
-        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;1 加 1 是什么？&quot;}, # 第一个问题
-        {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;It is 2.&quot;}, # 第一个答案
-        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;乘以 3。&quot;} # 以下问题
-    ],
-    temp=0.8 # 根据需要调整超参数。
-）
-
-您需要为每个用户维护并发送这样的对话历史记录。
-此外，组织每个用户的对话历史记录也很重要。
-这可能涉及为每个用户会话分配唯一​​标识符以跟踪他们的交互。
-实现系统的这一部分将有助于确保正确管理每个用户的对话历史记录。
-请记住谨慎处理您的 API 密钥。
-保护它并确保任何不应该拥有它的人都无法访问它是至关重要的。]]></description>
-      <guid>https://community.openai.com/t/how-can-i-use-one-api-key-to-establish-conversations-with-multiple-people-without-mixing/571982#post_3</guid>
-      <pubDate>Tue, 26 Dec 2023 12:30:53 GMT</pubDate>
+      <title>减少助理线程中的上下文令牌</title>
+      <link>https://community.openai.com/t/reducing-context-tokens-in-assistant-threads/537663#post_10</link>
+      <description><![CDATA[嗨......它确实有效，但给了我一些意想不到的结果，例如回复我认为已删除的消息。我没有花太多时间让它工作，因为我不想让生产系统依赖于未记录的端点。
+我怀疑，如果您在线程中间删除消息，则必须确保以正确的顺序从线程末尾一直删除到要删除的消息，这样就可以了没有孤立消息节点。我只是从来没有抽出时间去尝试。]]></description>
+      <guid>https://community.openai.com/t/reducing-context-tokens-in-assistant-threads/537663#post_10</guid>
+      <pubDate>Tue, 26 Dec 2023 15:08:54 GMT</pubDate>
     </item>
     <item>
-      <title>充值了 50 美元，但我的帐户仍然不是 Tier-2</title>
-      <link>https://community.openai.com/t/topped-up-50-but-my-account-is-still-not-tier-2/485071#post_13</link>
-      <description><![CDATA[大家好，
-我刚刚回来看看这件事有没有什么进展。
-尝试像 Oynozan 所说的那样再充值 5 美元，它也自动对我起作用了。]]></description>
-      <guid>https://community.openai.com/t/topped-up-50-but-my-account-is-still-not-tier-2/485071#post_13</guid>
-      <pubDate>Tue, 26 Dec 2023 12:30:40 GMT</pubDate>
+      <title>减少助理线程中的上下文令牌</title>
+      <link>https://community.openai.com/t/reducing-context-tokens-in-assistant-threads/537663#post_9</link>
+      <description><![CDATA[你好，
+我注意到您提到了一个 beta/未记录的端点，用于删除助手 api 的 ChatGPT 线程中的消息。您有机会测试这个端点吗？如果是这样，它是否按预期工作？]]></description>
+      <guid>https://community.openai.com/t/reducing-context-tokens-in-assistant-threads/537663#post_9</guid>
+      <pubDate>Tue, 26 Dec 2023 15:06:31 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT 中的图像渲染</title>
-      <link>https://community.openai.com/t/image-renderings-in-custom-gpts/566396#post_5</link>
-      <description><![CDATA[嗨，@todd.chase @dgiannini @honkhonk ，我已经设法解决了我的问题，但我不确定您的经历是否反映了我的经历。如果他们这样做，您可能会发现这篇文章很有用。 我如何解决 GPT 图像显示故障以及我们应该保留安全机制吗？ - GPT 构建者 - OpenAI 开发者论坛 如果它被证明有帮助，我将不胜感激您在下面的评论中提供反馈。我主张 OpenAI 取消其限制，使类似问题更容易解决。]]></description>
-      <guid>https://community.openai.com/t/image-renderings-in-custom-gpts/566396#post_5</guid>
-      <pubDate>Tue, 26 Dec 2023 12:29:22 GMT</pubDate>
+      <title>“我训练好的GPT-4模型又在平台上被删除了。”</title>
+      <link>https://community.openai.com/t/my-trained-gpt-4-model-was-deleted-again-on-the-platform/572135#post_1</link>
+      <description><![CDATA[“在更新我的可自定义 AI 时，我在未经我请求的情况下删除了其中一个。如果再次发生这种情况，我打算取消订阅并迁移到另一个更安全且不在生产环境中进行修改的平台。我希望能够解释为什么会发生这种情况？”]]></description>
+      <guid>https://community.openai.com/t/my-trained-gpt-4-model-was-deleted-again-on-the-platform/572135#post_1</guid>
+      <pubDate>Tue, 26 Dec 2023 14:58:01 GMT</pubDate>
     </item>
     <item>
-      <title>如何微调gpt3.5-turbo以赋予它新的知识？</title>
-      <link>https://community.openai.com/t/how-to-fine-tune-gpt3-5-turbo-to-give-it-new-knowledge/458897#post_6</link>
-      <description><![CDATA[看来你懂得很多，恕我冒昧向你请教一件事。我想微调 GPT3.5 Turbo，以便为名为 Manim 的特定 Pyhton 库生成代码。我希望 GPT3.5 能够很好地了解这个库，因此当我提示它时，我想要没有语法错误的高质量代码。我该怎么做]]></description>
-      <guid>https://community.openai.com/t/how-to-fine-tune-gpt3-5-turbo-to-give-it-new-knowledge/458897#post_6</guid>
-      <pubDate>Tue, 26 Dec 2023 12:12:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何解决 GPT 图像显示故障以及我们应该保留安全机制吗？</title>
-      <link>https://community.openai.com/t/how-i-solved-the-gpt-image-display-glitch-and-should-we-keep-the-security-mechanism/572008#post_1</link>
-      <description><![CDATA[最近，我在开发支持多个字符的自定义 GPT。为了最大限度地提高可扩展性，我将所有角色信息（包括头像链接）存储在一个文件中。这些图像链接托管在 GitHub 上，以 Markdown 格式显示。
-一个月来，一切正常，直到突然，头像图像停止显示。然而，在接下来的聊天中重复相同的内容，图像又出现了。该问题似乎是在特定条件下触发的，与图片来源、链接格式、浏览器无关，也不是网络问题。
-我在 OpenAI 论坛上发帖 (在自定义 GPT 中，某些 Markdown 格式的图像无法不规则地显示，但可以再现同等条件下稳定）寻求帮助，发现其他用户也面临同样的问题，但没有提供解决方案。
-经过广泛的测试，我发现如果图像的链接出现在之前的提示中，图像就会正常显示。 如果链接仅出现在文件中而不出现在任何先前的提示中，则图像将不会显示。这似乎是 OpenAI 的新安全机制，这在一定程度上阻碍了创造力。
-如果我的假设被证明是正确的，我敦促 OpenAI 重新考虑这个限制。与操作相比，源自代码解释器和文件的链接本质上更安全。我不清楚这个安全协议背后的基本原理。为了监控这个错误或安全功能是否会持续存在，我专门创建了一个 GPT 来测试它。 https:// /chat.openai.com/g/g-horVE39hs-does-custom-gpt-support-md-image-only-in-file
-热烈欢迎大家分享您的经验或意见。]]></description>
-      <guid>https://community.openai.com/t/how-i-solved-the-gpt-image-display-glitch-and-should-we-keep-the-security-mechanism/572008#post_1</guid>
-      <pubDate>Tue, 26 Dec 2023 12:10:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用一个 API 密钥与多人建立对话而不混合？</title>
-      <link>https://community.openai.com/t/how-can-i-use-one-api-key-to-establish-conversations-with-multiple-people-without-mixing/571982#post_2</link>
-      <description><![CDATA[在任何情况下，API 密钥都不应在客户端软件中使用或在客户端代码中提供。这不是管理用户或授予人们访问您帐户的方法，除非您希望滥用者清空您的帐户余额。
-您必须构建基于登录和会话的服务，该服务根据用户身份管理对话，并且仅在安全平台服务器后面调用 OpenAI 服务。]]></description>
-      <guid>https://community.openai.com/t/how-can-i-use-one-api-key-to-establish-conversations-with-multiple-people-without-mixing/571982#post_2</guid>
-      <pubDate>Tue, 26 Dec 2023 11:58:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何申诉恢复账户？</title>
-      <link>https://community.openai.com/t/how-to-appeal-for-account-recovery/570970#post_5</link>
-      <description><![CDATA[
+      <title>将我的图书馆添加到社区图书馆部分</title>
+      <link>https://community.openai.com/t/adding-my-library-to-the-community-library-section/139462#post_4</link>
+      <description><![CDATA[你好@logankilpatrick！
+我遇到了同样的问题：当我填写表单时，我没有收到任何反馈（例如确认屏幕或电子邮件）。
+过去几周我多次提交了该表单。该目录目前是否禁止新提交，或者您目前不打算添加更多库？
+在过去的几个月里，我一直致力于添加和更新我的 SwiftOpenAI SDK。该工具旨在帮助开发人员轻松地将 OpenAI 功能集成到他们的 iOS 应用程序中。我最近还添加了对 Vision GPT 的支持。
 
-
-科拉克：
-&lt;块引用&gt;
-如果这篇文章影响了社区的气氛，我非常抱歉。
-
-
-无需道歉，您没有做错任何事。
-
-
-
-科拉克：
-&lt;块引用&gt;
-希望这个帖子能持续一段时间，等待社区有经验的朋友提供帮助。
-
-
-该论坛不受 OpenAI 工作人员的监控，因为他们是唯一可以解决您的问题（删除我的帐户）的人，因此该论坛的用户无能为力。&lt; /p&gt;
-
-
-
-科拉克：
-&lt;块引用&gt;
-没有任何可以解决问题的信息
-
-
-您是否点击了右下角的机器人并向 OpenAI 工作人员发送了消息？
-&lt;img alt=&quot;图片&quot; height=&quot;68&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/4/3/7/4372e61b3caf422c485f25dbbb9fc8a0285beb0a.png&quot; width=&quot;65 ” /&gt;
-&lt;img alt=&quot;图片&quot; height=&quot;127&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/3/f/9/3f94aa0215f51916ec31addcc3f1921d395b5cdf.png&quot; width=&quot;343 ” /&gt;
-虽然我指出这是您可能需要采取的下一步，但不要认为这意味着它将导致帐户恢复。]]></description>
-      <guid>https://community.openai.com/t/how-to-appeal-for-account-recovery/570970#post_5</guid>
-      <pubDate>Tue, 26 Dec 2023 11:57:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>我预计 PRO 版本比 FREE 版本运行得更快，但事实恰恰相反</title>
-      <link>https://community.openai.com/t/i-expected-the-pro-version-to-run-faster-than-the-free-version-but-it-is-the-exact-opposite/571146#post_6</link>
-      <description><![CDATA[本质上，这就是语言模型的本质。
-参数数量较多的模型可以处理更复杂的任务并处理更长的上下文长度，但计算负载与上下文长度的平方成正比增加。
-GPT-3.5 可供免费用户和 Plus 用户使用，是上一代的模型。
-GPT-4仅适用于Plus用户（或按量付费API用户），可以比GPT-3.5执行更好的逻辑推理。
-换句话说，Plus 用户可以在速度更快但准确性较差的 GPT-3.5 和 GPT-4 之间进行选择。然而，如果供应跟不上用户需求，速度可能会放缓。成本是否合理应结合以上几点来考虑。
-此外，程序员可能需要考虑 GitHub Copilot 等产品或类似产品。
-
-  &lt;标题类=“来源”&gt;
-      
-GitHub 文档
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-关于 GitHub Copilot 个人 - GitHub 文档
-GitHub Copilot 可以通过提供自动完成式建议来帮助您编码。您可以了解 GitHub Copilot 的工作原理以及使用 GitHub Copilot 时应注意的事项。
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/i-expected-the-pro-version-to-run-faster-than-the-free-version-but-it-is-the-exact-opposite/571146#post_6</guid>
-      <pubDate>Tue, 26 Dec 2023 11:51:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=8#post_147</link>
-      <description><![CDATA[同样，我在上午 11:00 订阅，并在上午 12:47 收到相同的消息 ]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=8#post_147</guid>
-      <pubDate>Tue, 26 Dec 2023 11:48:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 chatgpt 提供查询输出</title>
-      <link>https://community.openai.com/t/how-to-use-chatgpt-to-give-your-query-output/571989#post_1</link>
-      <description><![CDATA[大家好，
-我有大约 20k 行的企业数据库架构，我想使用 chat-gpt 为我提供使用该特定架构的用户自然语言的查询。
-我看到我们可以在 Chat-gpt 中上传文件，但不能 100% 确定如何使用它来创建响应。
-所有帮助都会被分配]]></description>
-      <guid>https://community.openai.com/t/how-to-use-chatgpt-to-give-your-query-output/571989#post_1</guid>
-      <pubDate>Tue, 26 Dec 2023 11:39:41 GMT</pubDate>
+感谢您的宝贵时间]]></description>
+      <guid>https://community.openai.com/t/adding-my-library-to-the-community-library-section/139462#post_4</guid>
+      <pubDate>Tue, 26 Dec 2023 14:33:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
