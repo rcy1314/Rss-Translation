@@ -1,3 +1,5 @@
+from my-mtranslate import BingTran
+from mygoogletrans import Translator
 import configparser
 import datetime
 import hashlib
@@ -27,7 +29,7 @@ def getTime(e):
     return datetime.datetime(*struct_time[:6])
 
 
-class BingTran:
+class GoogleTran:
     def __init__(self, url, source="auto", target="zh-CN"):
         self.url = url
         self.source = source
@@ -36,14 +38,17 @@ class BingTran:
         self.d = feedparser.parse(url)
 
     def tr(self, content):
-        return translate(content, to_language=self.target, from_language=self.source)
+        translator = Translator()
+        return translator.translate(
+            content, target_lang=self.target, source_lang=self.source
+        ).text
 
     def get_newcontent(self, max_item=10):
         item_set = set()  # 使用集合来存储项目，用于过滤重复项
         item_list = []
         for entry in self.d.entries:
             try:
-                title = self.tr(entry.title)
+                title = entry.title
             except:
                 title = ""
             parsed_link = urlparse(entry.link)
@@ -52,10 +57,10 @@ class BingTran:
             link = entry.link
             description = ""
             try:
-                description = self.tr(entry.summary)
+                description = entry.summary
             except:
                 try:
-                    description = self.tr(entry.content[0].value)
+                    description = entry.content[0].value
                 except:
                     pass
             guid = link
@@ -140,7 +145,9 @@ def tran(sec, max_item):
         guid = item["guid"]
         pubDate = item["pubDate"]
         # 处理翻译结果中的不正确的 XML 标记
-        soup = BeautifulSoup(description, "html.parser")
+        # Translate the full content including the descriptions from entry.summary and entry.content[0].value
+        description_translated = self.tr(description)
+        soup = BeautifulSoup(description_translated, "html.parser")
         description = soup.get_text()
         # 转义特殊字符
         description = (
