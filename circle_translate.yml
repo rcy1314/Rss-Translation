@@ -1,0 +1,26 @@
+import os
+import configparser
+import subprocess
+
+def get_sections(config_file):
+    config = configparser.ConfigParser()
+    config.read(config_file)
+    return config.sections()
+
+def run_translation_script(script_name, section):
+    subprocess.run(['python', script_name, section], check=True)
+
+def main():
+    sections = get_sections('test.ini')
+    for section in sections:
+        if section == 'mygoogletrans.py':
+            run_translation_script('mygoogletrans.py', section)
+        elif section == 'my-mtranslate.py':
+            run_translation_script('my-mtranslate.py', section)
+    for section in sections:
+        rss_file = os.path.join('rss', f'{section}.xml')
+        if not os.path.exists(rss_file):
+            print(f'Error: {rss_file} does not exist')
+
+if __name__ == '__main__':
+    main()
