@@ -4,172 +4,71 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 27 Dec 2023 06:23:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 27 Dec 2023 09:17:51 GMT</lastBuildDate>
     <item>
-      <title>Assistant AI 和 GPT 之间有很大区别吗？</title>
-      <link>https://community.openai.com/t/is-there-a-big-difference-between-assistant-ai-and-gpts/572683#post_2</link>
-      <description><![CDATA[您可以参考这个帖子：
+      <title>文档中的函数调用不正确</title>
+      <link>https://community.openai.com/t/incorrect-function-call-in-documentation/572818#post_2</link>
+      <description><![CDATA[您有两个不同的文档，都有些正确，但都有些不清楚。 （“文档”和“API 参考”）
+您寻求的答案就在这里，最近对 python 库和方法的重写和版本提升提供了两种正确使用的可能性。
+
+  &lt;标题类=“来源”&gt;
+      
+GitHub
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+v3 到 v4 迁移指南 · openai/openai-node · 讨论#217
+v4 完全重写了 SDK。要了解新功能，请参阅发行说明。安装首先，更新您的 package.json 以指定 v4: &quot;openai&quot;: &quot;^4.0.0&quot; 并运行 npm install 或等效的操作...
 
 
 
-GPT 和助手的区别 社区
 
-  &lt;块引用&gt;
-    我可以将其理解为 GPT 具有前端和后端/内部助手吗？有什么具体的用例吗？
-  
-]]></description>
-      <guid>https://community.openai.com/t/is-there-a-big-difference-between-assistant-ai-and-gpts/572683#post_2</guid>
-      <pubDate>Wed, 27 Dec 2023 06:21:05 GMT</pubDate>
+
+对于那些仍在使用先前版本的人来说，删除所有现有文档也不是理想的选择。
+对于 Node v4 SDK，您可以参考 API 参考作为实现源，尽管响应的提取仍然可以使用上面特定链接中的一些迁移技巧。]]></description>
+      <guid>https://community.openai.com/t/incorrect-function-call-in-documentation/572818#post_2</guid>
+      <pubDate>Wed, 27 Dec 2023 09:05:01 GMT</pubDate>
     </item>
     <item>
-      <title>模型忽略功能/工具的描述</title>
-      <link>https://community.openai.com/t/model-ignores-the-description-of-the-function-tool/488287#post_3</link>
-      <description><![CDATA[我遇到了同样的问题，我在自动上有工具调用，并且我在其中一个工具的描述中明确提到在需要时调用它，但它永远不会调用它，除非我在聊天中回复下一条消息说“你为什么不调用这个函数？？？”太奇怪了（我使用的是 GPT-4 而不是 gpt-4-1106-preview，但我会尝试 gpt-4-1106-preview）]]></description>
-      <guid>https://community.openai.com/t/model-ignores-the-description-of-the-function-tool/488287#post_3</guid>
-      <pubDate>Wed, 27 Dec 2023 06:18:14 GMT</pubDate>
+      <title>自定义 GPT 更新答案</title>
+      <link>https://community.openai.com/t/custom-gpts-update-answers/517224#post_15</link>
+      <description><![CDATA[如果是 CSV 数据，为什么不自动将其转换为 SQL 存储，然后使用 API 进行 SQL 检索呢？这种方法似乎更好。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-update-answers/517224#post_15</guid>
+      <pubDate>Wed, 27 Dec 2023 08:50:26 GMT</pubDate>
     </item>
     <item>
-      <title>只有您可以查看任何有链接的人的链接</title>
-      <link>https://community.openai.com/t/only-you-can-view-link-to-anyone-with-link/572718#post_1</link>
-      <description><![CDATA[所以今天早些时候，我在构建器部分中说任何人都可以使用该链接，然后我的网页设计师就像你可能想将其切换为只有你可以查看链接，所以我这样做了，然后我尝试切换它回来了，所以我的其他员工可以使用它，但它不会，所以我尝试创建一个策略程序，没有我可以单击的按钮，没有地方可以放置它，所以我不知道发生了什么，但在那里我们可以通过这种方式返回任何拥有链接的人都可以使用它]]></description>
-      <guid>https://community.openai.com/t/only-you-can-view-link-to-anyone-with-link/572718#post_1</guid>
-      <pubDate>Wed, 27 Dec 2023 06:06:08 GMT</pubDate>
+      <title>文档中的函数调用不正确</title>
+      <link>https://community.openai.com/t/incorrect-function-call-in-documentation/572818#post_1</link>
+      <description><![CDATA[这是我的想象，还是文档 用于生成图像的调用有误吗？
+它说使用：
+const response = wait openai.createImage({
+  型号：“dall-e-3”，
+  提示：“一只白色暹罗猫”，
+  数：1，
+  尺寸：“1024x1024”，
+});
+image_url = response.data.data[0].url;
+
+该函数在该对象上不存在。相反，正确的调用应该如下所示：
+const image = wait openai.images.generate({
+  型号：“dall-e-3”，
+  提示：“可爱的小海獭”
+});
+
+我错过了什么吗？我不明白。对我来说，OpenAI 文档的主要来源应该是错误的，这似乎非常奇怪。
+请有人告诉我我误解了！]]></description>
+      <guid>https://community.openai.com/t/incorrect-function-call-in-documentation/572818#post_1</guid>
+      <pubDate>Wed, 27 Dec 2023 08:45:02 GMT</pubDate>
     </item>
     <item>
-      <title>以 pdf 作为输入的 AI 工具</title>
-      <link>https://community.openai.com/t/ai-tool-to-take-pdf-as-input/572700#post_2</link>
-      <description><![CDATA[如果您想与文件（如：.pdf、.docx、.txt）进行通信，您可以探索 OpenAI Assistant API，在这里您将获得选项
-https://platform.openai.com/docs /助理/概述]]></description>
-      <guid>https://community.openai.com/t/ai-tool-to-take-pdf-as-input/572700#post_2</guid>
-      <pubDate>Wed, 27 Dec 2023 06:02:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无法使用 GPT-4 版本。我正在付款</title>
-      <link>https://community.openai.com/t/i-cant-use-the-gpt-4-version-i-am-paying/169061?page=4#post_65</link>
-      <description><![CDATA[我无法理解 Chatgpt 4 cap 如何计算每 3 小时 50 条消息的上限。
-我把自己算在名单里了。
+      <title>参数有时不起作用，是用户故障吗？</title>
+      <link>https://community.openai.com/t/parameters-sometimes-dont-work-user-fault/572766#post_3</link>
+      <description><![CDATA[为什么我会得到这个答案？
 
-上午 11:12（限时 3 小时后开始新一轮）
-11点17分留言
-11:23留言
-11:25留言
-11:30留言
-11:32 留言
-11:43留言
-11点46分留言
-11点49分留言
-11点55分留言
-11:56-11:57留言
-11:59-12:00留言
-12:03留言
-12:05留言
-12:07 留言
-12:09留言
-12点12分留言
-
-现在它会将我锁定在已发送的 17 条消息，并限制我在下午 2:05 后重试
-出了什么问题？]]></description>
-      <guid>https://community.openai.com/t/i-cant-use-the-gpt-4-version-i-am-paying/169061?page=4#post_65</guid>
-      <pubDate>Wed, 27 Dec 2023 05:54:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>以 pdf 作为输入的 AI 工具</title>
-      <link>https://community.openai.com/t/ai-tool-to-take-pdf-as-input/572700#post_1</link>
-      <description><![CDATA[我想创建一个人工智能工具，它能够将 pdf 作为输入，提取该 pdf 的内容并针对给定主题生成合适的输出。
-有没有我可以使用的库或工具。谁能帮我解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/ai-tool-to-take-pdf-as-input/572700#post_1</guid>
-      <pubDate>Wed, 27 Dec 2023 05:43:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>VERSES 宣布了通向 AGI 的道路，现在怎么办？</title>
-      <link>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636#post_13</link>
-      <description><![CDATA[
-
-
- curt.kennedy:
-&lt;块引用&gt;
-幸运的是，我可以刻录本月最后几次 IEEE 下载来获取它们。
-
-
-仅供参考，如果您正在寻找您无法访问的论文，请告诉我，我很有可能为您找到它。]]></description>
-      <guid>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636#post_13</guid>
-      <pubDate>Wed, 27 Dec 2023 05:38:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用微调模型的助手 API</title>
-      <link>https://community.openai.com/t/assistants-api-using-fine-tuned-model/572699#post_1</link>
-      <description><![CDATA[openai 网站上声明助手 api 可以使用微调模型，但我尝试过出现错误。 openai在撒谎吗？]]></description>
-      <guid>https://community.openai.com/t/assistants-api-using-fine-tuned-model/572699#post_1</guid>
-      <pubDate>Wed, 27 Dec 2023 05:38:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用新的微调端点进行二元分类</title>
-      <link>https://community.openai.com/t/using-the-new-fine-tunes-endpoint-for-binary-classification/533366#post_3</link>
-      <description><![CDATA[它与新的分词器有关，因此要修复此问题，请尝试直接路由。
-从此更改：
-{&quot;prompt&quot;: &quot;some text \n\n###\n\n&quot;, &quot;completion&quot;: &quot; 0&quot;}
-{“提示”：“一些其他文本\n\n###\n\n”，“完成”：“1”}
-
-对此：
-{&quot;prompt&quot;: &quot;some text&quot;, &quot;completion&quot;: &quot;0&quot;}
-{“提示”：“一些其他文本”，“完成”：“1”}
-
-我只是使用在线 GUI 来进行微调，而不是命令行。]]></description>
-      <guid>https://community.openai.com/t/using-the-new-fine-tunes-endpoint-for-binary-classification/533366#post_3</guid>
-      <pubDate>Wed, 27 Dec 2023 05:36:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>哪个是使用 AI 将文本转换为视频的最佳 API</title>
-      <link>https://community.openai.com/t/which-is-the-best-api-to-convert-text-to-video-with-ai/313846#post_6</link>
-      <description><![CDATA[
-
-
-皮埃尔007：
-&lt;块引用&gt;
-我认为质量不再是问题。
-
-
-我认为我们对于我们所谈论的“品质”是什么样的看法存在分歧。
-它会生成单独看起来不错的图像吗？大概！ Midjourney 很好地解决了静态图像的问题，并且有一些非常酷的运动/视频生成器模型。
-它会生成真正遵循舞台方向并真正描述您正在谈论的概念的视频吗？
-鉴于这对于静止图像来说实际上并不是一个已解决的问题，让我表达我对视频问题已经解决的怀疑......]]></description>
-      <guid>https://community.openai.com/t/which-is-the-best-api-to-convert-text-to-video-with-ai/313846#post_6</guid>
-      <pubDate>Wed, 27 Dec 2023 05:36:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅通过提示即可实现转录文本的二值化</title>
-      <link>https://community.openai.com/t/achieving-diarization-for-transcribed-text-only-by-prompting/572695#post_1</link>
-      <description><![CDATA[我们做什么
-对转录文本（日语）应用二值化以提高其可读性。
-我们转录的会议时长为 30 分钟 - 1 小时 30 分钟。
-我们目前正在尝试一些Python库来实现二值化。
-想要
-如果可能的话，仅通过提示来实现转录文本的二值化将是最好的，因为我们认为这是最快且最有效的。最简单的自动化方法。
-或者任何其他比我们当前尝试提供更快结果的解决方案。
-如果您需要更多信息，请随时询问我。
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/achieving-diarization-for-transcribed-text-only-by-prompting/572695#post_1</guid>
-      <pubDate>Wed, 27 Dec 2023 05:35:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>gpt-4-1106-preview 中的日语用法很奇怪</title>
-      <link>https://community.openai.com/t/japanese-usage-in-gpt-4-1106-preview-is-strange/572068#post_5</link>
-      <description><![CDATA[感谢您的回复。
-我知道这似乎是一个小问题，但它引起了我的注意，因为这是我以前从未观察到的现象。
-在日语中，当通过询问“难道不是 A B 吗？”来质疑假设“A 是 B”的陈述时，似乎只有在预览版本中才会以“是”开头。
-当用英语提出同样的问题时，答案很自然地以“是”开头，所以我想知道这是否是受英语惯例影响的表达方式。
-例如：
-用户：
-‘这不是你的，是吗？’如果确实是你的，你会怎么回答？”
-助理：
-如果相关物品确实是你的，你会回答说：“是的，它是我的。”这确认了所有权并肯定地回答了问题。
-但是，由于 GPT-4 根据语言模型学习到的文本数据生成文本，因此通过不断改进，此类现象可能会得到解决。
-附注
-确实需要一些独创性来紧凑地容纳屏幕截图 
-
-]]></description>
-      <guid>https://community.openai.com/t/japanese-usage-in-gpt-4-1106-preview-is-strange/572068#post_5</guid>
-      <pubDate>Wed, 27 Dec 2023 05:35:21 GMT</pubDate>
+我实际上输入了 GPT 建议。]]></description>
+      <guid>https://community.openai.com/t/parameters-sometimes-dont-work-user-fault/572766#post_3</guid>
+      <pubDate>Wed, 27 Dec 2023 08:40:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
