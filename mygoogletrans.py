@@ -50,7 +50,7 @@ class GoogleTran:
         item_list = []
         for entry in self.d.entries:
             try:
-                title = entry.title
+                title = self.tr(entry.title)
                 parsed_link = urlparse(entry.link)
                 if not all([parsed_link.scheme, parsed_link.netloc]):
                     continue
