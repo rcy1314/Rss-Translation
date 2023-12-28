@@ -4,165 +4,88 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 27 Dec 2023 21:17:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 Dec 2023 01:12:23 GMT</lastBuildDate>
     <item>
-      <title>尝试将 ChatGPT 连接到 Google 表格数据时出现未定义错误</title>
-      <link>https://community.openai.com/t/undefined-error-when-trying-to-connect-chatgpt-to-google-sheets-data/573475#post_1</link>
-      <description><![CDATA[正如标题所示 - 我正在尝试使用 ChatGPT 通过 Google App Script 连接到 Google Sheets。一路上我遇到了很多错误，但现在我收到了一个模糊的“未定义”错误，我不知道该怎么办。
-就上下文而言，我不是编码员，我只是关注 YouTube 视频。但是，视频中的代码有点过时并且无法正常工作，因此我需要进行编辑。我已尝试更新它以与更新的 Open AI 文档保持一致，但我仍然无法重现结果。
-这是我到目前为止的代码：
-const g = {
-  文件夹 ID: &#39;123456789&#39;
-};
+      <title>添加选项以在删除之前将聊天记录保存一定时间</title>
+      <link>https://community.openai.com/t/add-option-to-save-chats-for-a-certain-amount-of-time-before-getting-deleted/573598#post_1</link>
+      <description><![CDATA[我们可以选择在删除聊天记录之前将其保存一段时间吗？
+例如，当互联网连接丢失并且您需要刷新页面却发现您在过去几分钟内使用 chatgpt 构建的上下文已消失时，这会有所帮助。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/add-option-to-save-chats-for-a-certain-amount-of-time-before-getting-deleted/573598#post_1</guid>
+      <pubDate>Thu, 28 Dec 2023 01:08:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人有兴趣将 OpenAI Assistant 连接到 Slack 吗？</title>
+      <link>https://community.openai.com/t/anyone-interested-in-connecting-openai-assistant-to-slack/507274?page=3#post_44</link>
+      <description><![CDATA[我很好奇这里是否有人设置过这个？如果是这样，初步评论？
+@snowhale，
+好主意和工作！我开始使用 ChatGPT 和 replit 来解决这个问题，但经过一天的测试，我的机器人创建的响应是无意义的，而且成本非常高（大多数查询和一些测试消息为 15 美元）。我很看重这项服务，并想对其进行测试（计划进行测试！），但有几个问题。我感谢所有的反馈！
 
-函数创建摘要（）{
-  const scriptProps = PropertiesService.getScriptProperties();
-  g.apiKey = scriptProps.getProperty(&#39;OpenAIKey&#39;);
-  if (!g.apiKey) {
-    throw new Error(&#39;ChatGPT API 密钥脚本属性丢失&#39;);
-  }
-  const ss = SpreadsheetApp.getActive();
-  const sh = ss.getSheetByName(&#39;测试&#39;);
-  const data = sh.getDataRange().getValues();
-  数据.拼接(0, 1);
-  data.forEach((行, i) =&gt; {
-    如果（！行[0]）{
-      常量名称=行[2]；
-      const features = row.slice(3, row.length).join(&#39; &#39;);
-      const text = callChatGPT(features);
-      控制台.log(文本);
-    }
-  });
-}
+有没有办法保证数据不被提取？我相信你所说的，但除了祈祷之外，该架构是否会阻止你提取数据？我开始测试 Sidekick 应用程序（链接弓供参考），但当我无法弄清楚我连接的测试系统的数据去向时停止了。
 
-函数 callChatGPT(功能) {
-  const apiUrl = &#39;https://api.openai.com/v1/chat/completions&#39;;
-  常量选项 = {
-    方法：&#39;发布&#39;，
-    标题：{
-      授权：`承载${g.apiKey}`，
-      &#39;内容类型&#39;：&#39;应用程序/json&#39;，
-    },
-    muteHttpExceptions：true，
-    有效负载：JSON.stringify({
-      型号：&#39;gpt-3.5-turbo&#39;，
-      消息：[
-        { role: &#39;系统&#39;, content: &#39;你是一个得力助手。&#39; },
-        { role: &#39;user&#39;, content: `使用以下房产特征编写房产概述：${features}` }
-      ],
-      最大令牌数：150，
-      温度：0.7，
-      顶部_p：1.0，
-      数：1，
-      停止：“\n”
-    }),
-  };
 
-  const 响应 = UrlFetchApp.fetch(apiUrl, 选项);
-  const content = response.getContentText();
-  
-  // 检查成功响应状态代码 (200-299)
-  const responseCode = response.getResponseCode();
-  if (responseCode &gt;= 200 &amp;&amp; responseCode &lt; 300) {
-    const jsn = JSON.parse(内容);
-    if (!jsn.choices || jsn.choices.length === 0) {
-      控制台.log(jsn);
-      返回空值；
-    }
-    返回jsn.choices[0].text；
-  } 别的 {
-    控制台.log(内容);
-    返回空值；
-  }
-}这里
+  &lt;标题类=“来源”&gt;
+      
+Slack
 
-任何建议或指导将不胜感激，谢谢！]]></description>
-      <guid>https://community.openai.com/t/undefined-error-when-trying-to-connect-chatgpt-to-google-sheets-data/573475#post_1</guid>
-      <pubDate>Wed, 27 Dec 2023 21:13:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 访问上传的知识库文档的速度有多快？</title>
-      <link>https://community.openai.com/t/how-fast-are-custom-gpts-at-accessing-uploaded-knowledge-store-documents/573076#post_5</link>
-      <description><![CDATA[需要补充的一点是，GPT 4 的微调目前处于有限的公开测试阶段，这意味着只有具有微调 OpenAI 模型记录的选定客户才能访问这一高度先进的功能。
-对您来说，深入研究现有知识库并围绕 RAG 创建解决方案以及可能是微调的 3.5 模型可能是有意义的。]]></description>
-      <guid>https://community.openai.com/t/how-fast-are-custom-gpts-at-accessing-uploaded-knowledge-store-documents/573076#post_5</guid>
-      <pubDate>Wed, 27 Dec 2023 21:08:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>每次我向 chatGPT 提问时都会遇到“验证你是人类”的难题！</title>
-      <link>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_45</link>
-      <description><![CDATA[尝试重新同步您的时钟。我注意到我的时钟没有设置正确的时间。重新同步后，我没有收到验证码返回。
-这可能纯粹是巧合，但值得一试。]]></description>
-      <guid>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_45</guid>
-      <pubDate>Wed, 27 Dec 2023 21:07:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>客服怎么了？代表只看我的消息，甚至不回复</title>
-      <link>https://community.openai.com/t/whats-with-the-customer-service-rep-just-looks-at-my-messages-and-doesnt-even-respond/563616#post_5</link>
-      <description><![CDATA[感谢您向我们通报情况！
-我同意，客户服务体验有上升的潜力，但到目前为止，我最终总是得到一个答案，这仍然比我过去工作过的那些少了 1 亿客户的公司要好。
-不管怎样，既然已经通过你自己的努力解决了，我们可以结束这个话题了吗？]]></description>
-      <guid>https://community.openai.com/t/whats-with-the-customer-service-rep-just-looks-at-my-messages-and-doesnt-even-respond/563616#post_5</guid>
-      <pubDate>Wed, 27 Dec 2023 21:03:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于产品推荐的 Shopify AI 聊天机器人</title>
-      <link>https://community.openai.com/t/shopify-ai-chatbot-for-product-recommendations/573413#post_2</link>
-      <description><![CDATA[您可以使用 Selenium 和 beautiful soup 构建一个动态网络抓取器，从网页中提取 html，然后实现指示 API 提取某些元素的功能……例如价格。
-例如，使用 driver.Chrome 和 Selenium 导航到页面，使用 soup.prettify 提取 HTML 并将其写入文件，然后确定价格的标签名称。然后告诉 API 要解析哪些标签。
-不是一个非常详细的回复，因为我现在很着急，但这是我的 2 美分。]]></description>
-      <guid>https://community.openai.com/t/shopify-ai-chatbot-for-product-recommendations/573413#post_2</guid>
-      <pubDate>Wed, 27 Dec 2023 21:03:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 Open AI's Playground 中获取格式化表格作为输出？</title>
-      <link>https://community.openai.com/t/how-can-i-get-a-formatted-table-as-an-output-in-open-ais-playground/571745#post_6</link>
-      <description><![CDATA[以前对我有用的另一个解决方案是使用 Playground 内的代码解释器，请求存储更新的文件/提供下载链接。
-然后，您可以在帐户的文件部分找到该文件。
-请记住定期清理不需要的文件，因为这会让您付出代价]]></description>
-      <guid>https://community.openai.com/t/how-can-i-get-a-formatted-table-as-an-output-in-open-ais-playground/571745#post_6</guid>
-      <pubDate>Wed, 27 Dec 2023 20:59:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么嵌入的长度总是相同的 1536 个数字？</title>
-      <link>https://community.openai.com/t/why-have-embeddings-always-the-same-length-of-1536-numbers/464737#post_4</link>
-      <description><![CDATA[我有同样的问题，这让我看到了这篇文章......
-看到嵌入的“Hello world!”，我感到很困惑。产生了1536D向量。我什至在字母“h”上尝试过；再次生成 1536D 向量。
-我有 NLP 技术的基础知识，所以如果我错了，我希望有人纠正我，但我假设模型推广到 1536D 空间，以便能够比较任何给定的输入。
-重申 james.bower 所说的：距离公式要求向量具有相同的维度。
-因此，模型必须减少或增加维度来满足向量位于同一空间的要求。
-为什么选择1536？我认为这可能是一个经常表现出良好结果的维度，但我并不完全确定。]]></description>
-      <guid>https://community.openai.com/t/why-have-embeddings-always-the-same-length-of-1536-numbers/464737#post_4</guid>
-      <pubDate>Wed, 27 Dec 2023 20:56:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 错误 - 超链接不可点击</title>
-      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_11</link>
-      <description><![CDATA[同样的问题，两周没有接触 GPT，今天测试时，链接无法点击。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_11</guid>
-      <pubDate>Wed, 27 Dec 2023 20:51:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何用python进行连续微调？</title>
-      <link>https://community.openai.com/t/how-to-execute-continuation-fine-tuning-with-python/569234#post_3</link>
-      <description><![CDATA[我正在尝试使用以前模型的全名，但它仍然不起作用。还有其他错误吗？ （我只是在代码中插入了填充信息来演示格式）。]]></description>
-      <guid>https://community.openai.com/t/how-to-execute-continuation-fine-tuning-with-python/569234#post_3</guid>
-      <pubDate>Wed, 27 Dec 2023 20:40:23 GMT</pubDate>
+
+  &lt;文章类=“onebox-body”&gt;
+    
+Sidekick Pro
+*嗨！ :wave:* 我是 *Sidekick Pro*，您的人工智能私人助理。
+
+作为基于 _*ChatGPT 4.0*_ 的助手，我可以回答您的任何一般性问题，也可以回答有关您自己的文档和跨页的问题
+
+
+
+
+
+
+
+有计划将您正在构建的工具开源吗？  我确信不会遇到第三方的客户。我感谢任何额外的指导或资源。
+
+
+根据观察到的平均使用情况，您预计 API 成本是多少？我的目标是让我们的团队不再使用单独的 ChatGPT 帐户，并希望在它们上发布一个同样功能（功能更强大！？！）的聊天机器人。
+
+
+这可能是一个新的 API 用户问题，但 gpt 是否会在机器人用户之间维护内存？我很好奇数据控制是如何管理的。我可以看到共享内存的优点和缺点。用户之间传递的人力资源和敏感数据将是一场噩梦（即人力资源经理与机器人一起执行人力资源任务。另一个用户可以通过有针对性的提示提取此数据吗？）。我也希望交付团队和销售团队能够访问之前对话的共享知识。令人兴奋的东西！在这个领域我有很多东西需要学习。
+
+
+我迫不及待地想测试一下！]]></description>
+      <guid>https://community.openai.com/t/anyone-interested-in-connecting-openai-assistant-to-slack/507274?page=3#post_44</guid>
+      <pubDate>Thu, 28 Dec 2023 01:06:18 GMT</pubDate>
     </item>
     <item>
       <title>检查开放 API 信用余额的问题</title>
-      <link>https://community.openai.com/t/issue-with-checking-credit-balance-for-open-api/573340#post_6</link>
-      <description><![CDATA[如果我在接下来的几个小时内再有两个用户报告相同的问题，我将固定该主题，如果有问题，通常会吸引更多用户发帖。此外，固定的主题往往会引起 OpenAI 员工的注意。
-我必须谨慎固定主题，不想把它们变成喊狼来了的男孩。 ]]></description>
-      <guid>https://community.openai.com/t/issue-with-checking-credit-balance-for-open-api/573340#post_6</guid>
-      <pubDate>Wed, 27 Dec 2023 20:39:47 GMT</pubDate>
+      <link>https://community.openai.com/t/issue-with-checking-credit-balance-for-open-api/573340#post_11</link>
+      <description><![CDATA[他们总是向我收取过多的费用，每次使用即付即付选项时，我都会损失 16 英镑。举报了，果然收到了“运气不好”的信息。]]></description>
+      <guid>https://community.openai.com/t/issue-with-checking-credit-balance-for-open-api/573340#post_11</guid>
+      <pubDate>Thu, 28 Dec 2023 00:52:26 GMT</pubDate>
     </item>
     <item>
-      <title>如何在 Open AI's Playground 中获取格式化表格作为输出？</title>
-      <link>https://community.openai.com/t/how-can-i-get-a-formatted-table-as-an-output-in-open-ais-playground/571745#post_5</link>
-      <description><![CDATA[要求它生成逗号分隔的输出，或者 CSV 文件（如果它愿意）。或者，您可以要求它以 JSON 格式输出。我认为要求一个相当于 CSV 的逗号分隔输出是一个不错的选择，您可以保存该文件并将其粘贴或导入到 Excel 中。]]></description>
-      <guid>https://community.openai.com/t/how-can-i-get-a-formatted-table-as-an-output-in-open-ais-playground/571745#post_5</guid>
-      <pubDate>Wed, 27 Dec 2023 20:35:58 GMT</pubDate>
+      <title>这个 gpt-4-retrieval-msearch-ctx 模型是什么？</title>
+      <link>https://community.openai.com/t/what-is-this-gpt-4-retrieval-msearch-ctx-model/566692?page=2#post_36</link>
+      <description><![CDATA[我相信已经通过聊天框从 OpenAI 收到了人类响应。
+“你好，
+​
+感谢您联系 OpenAI 支持。
+我们衷心感谢您提请我们关注最近的问题。您的反馈对我们来说非常宝贵，作为回应，我们立即将您的问题上报给我们的工程团队。我们可以确认他们正在积极修复。
+目前，我们无法提供解决此问题的具体时间表。但是，我们向您保证，我们致力于尽快解决该问题。我们的团队了解此事的重要性，并正在投入资源寻找解决方案。
+一旦实施修复，我们将确保向社区通报最新情况。与此同时，我们将继续努力解决这个问题，非常感谢您的耐心和理解。
+如果您在此期间还有任何其他问题或需要其他帮助，请随时与我们联系。
+最好，
+创世纪
+OpenAI 支持”
+手指交叉！我自愿加入测试版计划，试图为这一事业提供帮助（并希望获得更好的沟通媒介来向他们提供反馈）。也祈祷这一点。 &lt;img alt=&quot;:crossed_fingers:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/crossed_fingers.png?v=12&quot; title=&quot;:crossed_fingers: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/what-is-this-gpt-4-retrieval-msearch-ctx-model/566692?page=2#post_36</guid>
+      <pubDate>Thu, 28 Dec 2023 00:39:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>打字何时会消失，为完全语音界面铺平道路？</title>
+      <link>https://community.openai.com/t/when-will-typing-die-out-paving-the-way-for-fully-voice-interfaces/568728?page=5#post_83</link>
+      <description><![CDATA[不错！是否可用以及在哪个平台上？]]></description>
+      <guid>https://community.openai.com/t/when-will-typing-die-out-paving-the-way-for-fully-voice-interfaces/568728?page=5#post_83</guid>
+      <pubDate>Thu, 28 Dec 2023 00:37:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
