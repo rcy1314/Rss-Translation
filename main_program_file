@@ -1,0 +1,23 @@
+import requests
+from bs4 import BeautifulSoup
+from googletrans import Translator
+
+def fetch_rss_feed(url):
+    response = requests.get(url)
+    return BeautifulSoup(response.content, features="xml")
+
+def translate_text(text, translator):
+    return translator.translate(text, dest='en').text
+
+def main():
+    translator = Translator()
+    feed = fetch_rss_feed('https://rsshub.app/economist/latest')
+    for item in feed.findAll('item'):
+        original_text = item.description.text
+        translated_text = translate_text(original_text, translator)
+        item.description.string.replace_with(translated_text)
+    with open('translated_feed.xml', 'w') as f:
+        f.write(str(feed))
+
+if __name__ == "__main__":
+    main()
