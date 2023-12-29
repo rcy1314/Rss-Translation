@@ -4,145 +4,159 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 29 Dec 2023 12:29:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 29 Dec 2023 15:18:04 GMT</lastBuildDate>
     <item>
-      <title>Assistant API 是提供我的私人数据集的唯一方法吗？</title>
-      <link>https://community.openai.com/t/is-assistant-api-only-way-to-feed-my-private-dataset/574160#post_5</link>
-      <description><![CDATA[@EricGT
-是的，关闭就可以了。谢谢！]]></description>
-      <guid>https://community.openai.com/t/is-assistant-api-only-way-to-feed-my-private-dataset/574160#post_5</guid>
-      <pubDate>Fri, 29 Dec 2023 12:24:31 GMT</pubDate>
+      <title>使用函数调用和JSON模式时JSON无效</title>
+      <link>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_2</link>
+      <description><![CDATA[我在这里看到两个不同的问题：(a) 为什么不使用该工具，以及 (b) 为什么 JSON 会自我复制。
+对于第一个问题，如果 GPT 使用某个工具，GPT 将以 JSON 形式将参数返回给该工具。此处记录：https://platform.openai.com/docs/guides/函数调用.
+&lt;块引用&gt;
+模型生成 JSON，您可以使用它来调用代码中的函数。
+
+另外，我的理解是，您不需要打开 JSON 模式来让工具调用返回 json。
+我尝试运行您提供的代码片段，但未使用工具duckduckgo_search，因为 llm 的输入只是“hello”。法学硕士理所当然地没有触发这个工具，因为它不相关。
+相反，我做了以下事情
+completion = client.chat.completions.create(
+    消息=[
+        {
+            “角色”：“系统”，
+            &quot;content&quot;: &quot;你是一个有用的助手，会在消息键中返回你的响应的 json&quot;,
+        },
+        {
+            “角色”：“用户”，
+            &quot;content&quot;: &quot;新加坡的温度是多少&quot;,
+        }
+    ],
+    型号=“gpt-3.5-turbo-1106”，
+    response_format={&quot;type&quot;: &quot;json_object&quot;},
+    工具=[工具c]
+）
+打印(completion.choices[0].message.tool_calls[0])
+
+得到了这个
+{&quot;query&quot;:&quot;新加坡当前温度&quot;}
+
+请注意 print 语句有何不同，因为您以不同的方式访问函数调用的参数。
+&lt;小时/&gt;
+对于第二个问题，我认为是因为您的系统提示不明确。您的意思是您希望 LLM 始终返回带有密钥 message 的 JSON 吗？
+相反，我可能会尝试这样的事情：
+&lt;块引用&gt;
+你是一个有用的助手，会在消息键中返回你的响应的 json
+
+如果我更改系统消息，“您好！今天我能为您提供什么帮助”json 不重复。
+&lt;小时/&gt;
+最后，您可能会发现这个包instructor对于构建LLM输出很有帮助 - 它使用引擎盖下的 pydantic。]]></description>
+      <guid>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 15:15:19 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4 每次更新都变得越来越糟糕</title>
-      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_68</link>
-      <description><![CDATA[“垃圾输入，垃圾输出”(GIGO) 这一概念强调了输入数据的质量在确定计算机系统或算法生成的输出或结果的质量方面的重要性。这个想法是，如果您向系统提供不准确、不完整或低质量的输入，您应该预期输出也会有类似的缺陷或不可靠。
-这一原则在计算机编程、数据分析和人工智能的背景下尤其重要。无论系统或算法多么复杂，如果它处理的数据有缺陷，结果可能会不可靠或不正确。因此，它强调需要仔细的数据验证、清理和验证，以确保系统使用的信息的准确性和可靠性。
-从更广泛的角度来说，“垃圾进，垃圾出”也可以应用于决策和解决问题的各个方面，这表明您用作输入的信息的质量极大地影响了决策或解决方案的质量您获得的输出。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_68</guid>
-      <pubDate>Fri, 29 Dec 2023 12:20:50 GMT</pubDate>
+      <title>十六进制颜色代码提取的问题</title>
+      <link>https://community.openai.com/t/issues-with-hexadecimal-color-code-extraction/575239#post_1</link>
+      <description><![CDATA[你好！
+我是一名造型师和开发人员，深入研究技术与时尚的交叉方式。就在上周，我正在尝试使用 ChatGPT4 从调色板图像中提取十六进制颜色代码，它非常准确 - 对我的工作来说确实很有前途。
+但问题在于：尝试相同的过程现在会产生完全不合常理的结果。以黑色为例。我从该工具中获得了 #ced5dd，而不是我们都知道的深度 #000000。
+这是一个益智游戏，并且阻碍了我在设计中可靠地使用这项技术。还有其他人遇到这个障碍吗？任何解决方法或修复都是黄金。期待您的想法！]]></description>
+      <guid>https://community.openai.com/t/issues-with-hexadecimal-color-code-extraction/575239#post_1</guid>
+      <pubDate>Fri, 29 Dec 2023 15:15:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>控制主题助理回复</title>
+      <link>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_2</link>
+      <description><![CDATA[为人工智能提供一份工作和一个服务角色似乎是保持对封闭领域的响应的最有力方式。 gpt-3.5-turbo-1106：
+
+您还可以考虑文档注入将指令推后很远，使人工智能很容易忽略它们。 助手将在上传任何知识时最大化模型上下文长度，而您自己的基于聊天完成的机器人可以允许管理基于问题的知识注入 (RAG)。
+
+我输入的系统提示说明（点击查看更多详情）]]></description>
+      <guid>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 15:13:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法收到助理回复</title>
+      <link>https://community.openai.com/t/cant-get-the-assistant-reply/575236#post_1</link>
+      <description><![CDATA[你好，
+我刚刚开始使用 API，如果我的问题是个愚蠢的问题，我很抱歉，我也尝试过搜索有关此主题的过去消息，但找不到它。
+我基本上复制并粘贴了我在 YT 上观看的教程 (https://www.youtube.com/watch?v=5rcjGjgJNQc&amp;t=23s），我得到了积分，但我在终端上可以读到的是线程ID，用户的消息内容，但我没有收到助理回复。我还看到 Assistant_id = None，而我可以在特定调用的 Playground 中看到它。
+如果我是操场上的助手，它就可以正常工作。
+有什么（宝贵的）建议吗？
+非常感谢。]]></description>
+      <guid>https://community.openai.com/t/cant-get-the-assistant-reply/575236#post_1</guid>
+      <pubDate>Fri, 29 Dec 2023 15:13:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>在assistant api中，如果我们使用function和retriver，我们是先得到对话响应还是先得到函数调用</title>
+      <link>https://community.openai.com/t/in-assistant-api-if-we-are-using-function-and-retriver-will-we-get-conversation-response-first-or-function-call-first/575231#post_1</link>
+      <description><![CDATA[比方说，我正在运行函数调用和检索器调用。我应该从函数中获取 json 响应，并从聊天中获取文本响应。我正在使用线程进行聊天。
+目前，其运行函数调用首先经过required_action，然后进入完成状态。 完成状态为我提供文字回复。
+那么我是否有可能先得到聊天的响应，然后再得到函数的响应。]]></description>
+      <guid>https://community.openai.com/t/in-assistant-api-if-we-are-using-function-and-retriver-will-we-get-conversation-response-first-or-function-call-first/575231#post_1</guid>
+      <pubDate>Fri, 29 Dec 2023 15:05:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使用聊天 gpt api 保持对话连续性？</title>
+      <link>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_5</link>
+      <description><![CDATA[到目前为止，像其他人提到的那样传回对话是很常见的，但还有测试版助理功能以线程的形式提供此功能。
+它需要一些额外的步骤来实现。严格来说，这和自己传回整个聊天记录没有太大区别，最大的区别是日志在他们的服务器上。
+https://platform. openai.com/docs/api-reference/assistants]]></description>
+      <guid>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_5</guid>
+      <pubDate>Fri, 29 Dec 2023 15:00:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI API 无法从我的信用卡中扣款</title>
+      <link>https://community.openai.com/t/openai-api-cant-debit-my-credit-card/560007#post_3</link>
+      <description><![CDATA[@daphan 我想跟进一下，看看您是否已解决此问题。你能取得任何进展吗？
+我的情况更新：我能够通过请求支持机器人将计费问题上报给人工。一旦现场支持人员联系我，我被告知我可以通过电子邮件直接联系有关计费问题的人员： ap@openai.com 和他们将调查这个问题。与输入支持票证相比，这可能会也可能不会帮助您更快地解决问题。
+调查过程似乎尚未正式开始。我提交了所有要求的文件；但是，我表明他们已收到信息，多次登录支持服务，但从未查看过文档。
+但是，支持页面的计费部分进行了以下更新：
+您使用同一付款方式支付了太多订阅费用。
+出于安全原因，我们目前限制可以通过给定付款方式计费的订阅数量。目前，您需要使用单独的付款方式购买多个订阅，或者如果您尝试批量购买订阅，请回信提供有关您的用例的更多信息。
+对我来说，这回答了我的问题。由于我的开发团队都使用相同的计费信息，因此此更改阻止了我们批量计费。此后，我重申了他们要求的“有关您的用例的更多信息”，并正在等待回复。
+这可能不是你的问题，但我想按照承诺进行跟进。希望您能顺利解决问题。]]></description>
+      <guid>https://community.openai.com/t/openai-api-cant-debit-my-credit-card/560007#post_3</guid>
+      <pubDate>Fri, 29 Dec 2023 14:55:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 LLM(GPT-3.5-Turbo) 将自然语言转换为 SQL 查询</title>
+      <link>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_3</link>
+      <description><![CDATA[考虑使用另一个 API 调用（例如使用 GPT 3.5）进行零样本分类？
+例如：
+&lt;块引用&gt;
+“您的任务是确定给定文本是否包含完整的 SQL 查询或其部分内容。如果是，则回复“1”，否则回复“0””
+
+您还可以考虑将两个令牌 ID 的 max_tokens 调整为 1，并将 logit_bias 设置为 100，从而将输出约束为简单的二进制 1/0对于 0 和1.]]></description>
+      <guid>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_3</guid>
+      <pubDate>Fri, 29 Dec 2023 14:54:36 GMT</pubDate>
     </item>
     <item>
       <title>Logits_bias 不再完全起作用</title>
-      <link>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_10</link>
-      <description><![CDATA[尝试从响应中删除双引号 (&quot;) 时，我遇到了同样的问题。
-正如 @sps 所暗示的那样，&quot; 不仅是一个令牌，还有&quot;a、&quot;b、&quot;c等等。
-我发现括号里的情况是一样的
- 
-使用 logit_bias 查找并删除这些似乎不是正确的解决方案。就我而言，我将通过后处理脚本运行响应。]]></description>
-      <guid>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_10</guid>
-      <pubDate>Fri, 29 Dec 2023 12:04:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>开发LLM应用程序的最大困难</title>
-      <link>https://community.openai.com/t/biggest-difficulty-in-developing-llm-apps/571180?page=2#post_23</link>
+      <link>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_11</link>
       <description><![CDATA[
 
 
-饮食：
+ sps：
 &lt;块引用&gt;
-你有这方面的文献吗/你想对此进行阐述吗？
+下面是一个示例，其中外观相似的文本片段具有不同的标记 ID：
 
 
-这是我的论文草稿，我试图解释我的反代理概念（命令式和声明式方法的混合），并将其与人工智能代理（更具声明性的方法）进行比较：Notion – 用于笔记、任务、wiki 和数据库的一体化工作区。
-评论已开放 ]]></description>
-      <guid>https://community.openai.com/t/biggest-difficulty-in-developing-llm-apps/571180?page=2#post_23</guid>
-      <pubDate>Fri, 29 Dec 2023 12:03:36 GMT</pubDate>
+有不同的令牌 ID，因为第二个  [ 包含换行符。
+
+
+
+埃米尔.fplilja：
+&lt;块引用&gt;
+就我而言，我将通过后处理脚本运行响应。
+
+
+您可能会发现像 instructor 这样的包对于让模型约束输出非常有用模型到特定的数据类型。它在底层使用了 pydantic。]]></description>
+      <guid>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_11</guid>
+      <pubDate>Fri, 29 Dec 2023 14:50:04 GMT</pubDate>
     </item>
     <item>
       <title>使用 OpenAI 改进制造流程</title>
-      <link>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_1</link>
-      <description><![CDATA[大家好，
-我希望我的问题不是太笼统。
-我的一位客户生产蒸汽阀，该公司老板问我 OpenAI 如何提高其装配线的性能。
-我阅读了 OpenAI 的所有文档，但只找到了有关聊天的信息：
-微调、助手、gtps、文本转语音等
-那么，如何使用 OpenAI 来优化装配线？
-我是否应该向助理描述流水线步骤并寻求帮助？
-我听起来很奇怪。
-我应该通过 pdf 文件传递​​数据吗？ （即创建一个 pdf 文件，其中包含装配线中涉及的机器的所有记录数据）
-pdf 应该如何格式化？
-我应该每天向助理传递一份新的 pdf 以便每天监控机器吗？ （即用于预测维护）
-OpenAI 是正确的工具吗？
-非常感谢]]></description>
-      <guid>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_1</guid>
-      <pubDate>Fri, 29 Dec 2023 11:54:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 4 浏览器选项卡高内存使用问题</title>
-      <link>https://community.openai.com/t/chatgpt-4-browser-tab-high-ram-usage-issue/433571#post_6</link>
-      <description><![CDATA[您需要停止依赖 chatgpt 获取的对话历史记录的上下文。对话越大，上下文大小就越大。请记住，上下文窗口也有限制。因此，如果您正在开发某些东西，那么您需要将开发分解为小部分并尽可能多地总结内容。如果你有一个代码或一个类正在做某事，那么你可以简单地用几句话给出它的解释。如果它是复杂的类或文件并且低于您的 chatGPT 计划输入限制。然后复制粘贴文件代码并告诉 ChatGPT 对其进行分析。然后在下一条消息中告诉它其他内容，慢慢地，您将能够分段构建代码。 ChatGPT 记忆事物的效率不高，并且有局限性。因此，尽量让事情分开且简短。
-合礼 ]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-browser-tab-high-ram-usage-issue/433571#post_6</guid>
-      <pubDate>Fri, 29 Dec 2023 11:52:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT - 知识提供 GPT 的最佳文件格式？</title>
-      <link>https://community.openai.com/t/gpts-best-file-format-for-knowledge-to-feed-gpts/497368?page=2#post_35</link>
-      <description><![CDATA[我也在探索处理这个问题的方法。我的理想情况是，我可以向它提供技术文档，让它能够告诉我在哪里可以找到某些内容。这可能更适合涉及某种索引和搜索的其他方法，但我感兴趣的是，在您甚至不知道要搜索什么而只能搜索的情况下，是否有可能获得两个世界描述您的要求。
-我注意到，对于像 JSON 和 HTM/HTML 这样的结构化格式，它可能会选择“查看它”或通过 python 解析它。如果它使用前一个选项，它似乎必须扫描整个事物，并开始讨论调整其滚动工具的增量参数以处理超时和精度。
-我可以明确地告诉它使用 python 解析数据，但它需要提前确切地知道数据的结构。如果我可以将其放入指令中，它可以快速而精确，并且查看调试输出，它似乎在给出响应之前将数据的部分打印到自身。
-但是，使用这种结构化方法，它失去了搜索和遍历文件以发现未知方面的能力。我在教它如何首先列出属性并使用这些结果进一步钻取、制作单独的 ToC 文件等方面搞砸了一些，但此时的说明变得过于做作和冗长。
-最终，通过将相关文档粘贴到实际对话中（最好是 Markdown 格式），我仍然看到了最好的结果。其他格式通常都很好，但就像其他人提到的那样，Markdown 是纯文本和语义结构之间的一个很好的中间立场。
-顺便说一句，我注意到通过操作或知识获取的信息会保留在对话的“后台”。这与使用浏览工具时不同，在浏览工具中，它会忘记所看到的所有内容，只有自己的摘要可供参考。]]></description>
-      <guid>https://community.openai.com/t/gpts-best-file-format-for-knowledge-to-feed-gpts/497368?page=2#post_35</guid>
-      <pubDate>Fri, 29 Dec 2023 11:44:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>节点库返回ECONNRESET，而curl可以工作</title>
-      <link>https://community.openai.com/t/node-library-returns-econnreset-while-curl-works/575059#post_2</link>
-      <description><![CDATA[我不知道是什么导致了这个特殊问题，但我觉得 OpenAI api 库没有增加太多价值。
-我们使用 axios 是因为我们发现这些库有时要么不可靠，要么落后于实际的 API 功能。]]></description>
-      <guid>https://community.openai.com/t/node-library-returns-econnreset-while-curl-works/575059#post_2</guid>
-      <pubDate>Fri, 29 Dec 2023 11:41:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>节点库返回ECONNRESET，而curl可以工作</title>
-      <link>https://community.openai.com/t/node-library-returns-econnreset-while-curl-works/575059#post_1</link>
-      <description><![CDATA[嗨。我有一个奇怪的问题，当我使用 OpenAI Node 库时，它的内部 fetch 返回 ECONNRESET，而在同一台机器上，如果我运行curl 请求，则可以正常工作（返回API 错误或超出配额）。
- 原因：FetchError：请求 https://api.openai.com/v1/audio/transcriptions 失败，原因：读取 ECONNRESET
-      在 ClientRequest.&lt;anonymous&gt; (/Users/maxxer/work/origlio/node_modules/node-fetch/lib/index.js:1501:11)
-      在 ClientRequest.emit （节点：事件：519：28）
-      在 TLSSocket.socketErrorListener （节点：_http_client：495：9）
-      在 TLSSocket.emit （节点：事件：531：35）
-      在emitErrorNT（节点：内部/流/销毁：169：8）
-      在emitErrorCloseNT（节点：内部/流/销毁：128：3）
-      在 process.processTicksAndRejections （节点：内部/进程/task_queues：82：21）{
-    类型：&#39;系统&#39;，
-    错误号：&#39;ECONNRESET&#39;，
-    代码：“经济重置”
-
-什么会导致此行为？
-谢谢]]></description>
-      <guid>https://community.openai.com/t/node-library-returns-econnreset-while-curl-works/575059#post_1</guid>
-      <pubDate>Fri, 29 Dec 2023 11:31:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要提示帮助吗？问我*</title>
-      <link>https://community.openai.com/t/need-help-with-prompts-ask-me/21612?page=8#post_179</link>
-      <description><![CDATA[
-
-
- feosale：
-&lt;块引用&gt;
-在chatGPT的“头”里，无论如何，答案首先是英文的，他用你的语言写给你，所以你将无法用你的语言写押韵的诗（至少现在）
-
-
-我来自美国，但我根本不懂乌克兰语！
-这看起来怎么样？
-https:// chat.openai.com/share/a5e38be3-e578-4a41-9522-ce38f5d62b02
-
-ChatGPT 自定义说明（点击了解更多详情）
-（我使用 Google Translate 来翻译在 ChatGPT 中输入的内容。我希望使用自定义指令的聊天示例不会受到 ChatGPT 自己编写的影响。）]]></description>
-      <guid>https://community.openai.com/t/need-help-with-prompts-ask-me/21612?page=8#post_179</guid>
-      <pubDate>Fri, 29 Dec 2023 11:27:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于测试自定义 GPT 提示的工具</title>
-      <link>https://community.openai.com/t/tools-for-testing-custom-gpt-prompts/516778?page=2#post_40</link>
-      <description><![CDATA[我建议你先详细研究一下管理领域的任务设置方法。]]></description>
-      <guid>https://community.openai.com/t/tools-for-testing-custom-gpt-prompts/516778?page=2#post_40</guid>
-      <pubDate>Fri, 29 Dec 2023 11:25:49 GMT</pubDate>
+      <link>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_2</link>
+      <description><![CDATA[嗨@factory.factory
+我与制造领域的客户广泛合作，将人工智能纳入他们的运营中，并且很乐意提供一些建议。我向您发送了一封包含一些其他问题的 DM。]]></description>
+      <guid>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 14:41:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
