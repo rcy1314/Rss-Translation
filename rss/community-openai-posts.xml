@@ -4,18 +4,20 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 29 Dec 2023 15:18:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 29 Dec 2023 18:22:40 GMT</lastBuildDate>
     <item>
       <title>使用函数调用和JSON模式时JSON无效</title>
-      <link>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_2</link>
-      <description><![CDATA[我在这里看到两个不同的问题：(a) 为什么不使用该工具，以及 (b) 为什么 JSON 会自我复制。
-对于第一个问题，如果 GPT 使用某个工具，GPT 将以 JSON 形式将参数返回给该工具。此处记录：https://platform.openai.com/docs/guides/函数调用.
-&lt;块引用&gt;
-模型生成 JSON，您可以使用它来调用代码中的函数。
+      <link>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_4</link>
+      <description><![CDATA[我真的不想在这个示例中使用这些工具，因为我想了解问题的根源。
+我使用此提示和示例来获取可解析的 JSON：
+你是一个有用的助手，它会在消息键中返回你的响应的 json，如下所示 {\&quot;message\&quot;: \&quot;your response gets here\&quot;}
 
-另外，我的理解是，您不需要打开 JSON 模式来让工具调用返回 json。
-我尝试运行您提供的代码片段，但未使用工具duckduckgo_search，因为 llm 的输入只是“hello”。法学硕士理所当然地没有触发这个工具，因为它不相关。
-相反，我做了以下事情
+然而，正如我在最初的帖子中所述，该模型泄漏了示例并输出了 2 个 JSON 对象。
+{&quot;message&quot;: &quot;您好！今天需要什么帮助吗？&quot;}
+{“message”：“您的回复在此处”}
+
+虽然这只发生过一次，但我想了解为什么？它会随机再次发生吗？
+对我来说奇怪的是，当工具传递到 API 时，gpt-3.5-turbo-1106 发送 2 个 JSON 对象。
 completion = client.chat.completions.create(
     消息=[
         {
@@ -24,139 +26,222 @@ completion = client.chat.completions.create(
         },
         {
             “角色”：“用户”，
-            &quot;content&quot;: &quot;新加坡的温度是多少&quot;,
+            &quot;content&quot;: &quot;我叫亨奇&quot;,
         }
     ],
     型号=“gpt-3.5-turbo-1106”，
+    #model =“gpt-4-1106-preview”，
     response_format={&quot;type&quot;: &quot;json_object&quot;},
     工具=[工具c]
 ）
-打印(completion.choices[0].message.tool_calls[0])
 
-得到了这个
-{&quot;query&quot;:&quot;新加坡当前温度&quot;}
+输出以下内容，但有时输出 JSON 对象：
+{
+  &quot;message&quot;: &quot;Hench 您好，今天需要什么帮助吗？&quot;
+}
+{
+  &quot;message&quot;: &quot;Hench 您好，今天需要什么帮助吗？&quot;
+}
 
-请注意 print 语句有何不同，因为您以不同的方式访问函数调用的参数。
-&lt;小时/&gt;
-对于第二个问题，我认为是因为您的系统提示不明确。您的意思是您希望 LLM 始终返回带有密钥 message 的 JSON 吗？
+当您评论 tools=[toolc] 时，模型将始终输出单个 JSON 对象，并且这就是问题
+正如您所看到的，模型与其响应不一致，并且传递工具使其变得更加如此，这就是我试图理解的，具有更大的系统提示和更多详细信息关于如何生成 JSON，即使有 10 个 JSON 输出示例，模型仍然无法输出单个 JSON 对象。]]></description>
+      <guid>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_4</guid>
+      <pubDate>Fri, 29 Dec 2023 18:19:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT：此文件包含太多文本内容。请使用较小的文件重试</title>
+      <link>https://community.openai.com/t/custom-gpts-this-file-contains-too-much-text-content-please-try-again-with-a-smaller-file/491472#post_13</link>
+      <description><![CDATA[我想这里还没有解决方案吗？我遇到过同样的问题，但找不到任何建议文本限制的文档。我在文件最大值范围内，正在尝试上传单个 PDF 文档作为数据，但其中包含大量文本（JSON 代码）。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-this-file-contains-too-much-text-content-please-try-again-with-a-smaller-file/491472#post_13</guid>
+      <pubDate>Fri, 29 Dec 2023 18:17:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何获取原始列表作为助手的输出？</title>
+      <link>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_5</link>
+      <description><![CDATA[简单问一下，为什么不是 JSON？您能测试一下这个并看看它是否适合您吗？
+||
+请使用以下格式的 JSON 响应进行回答。没有致敬，没有解释，没有谢谢，除了指定的 JSON。
+[
+{
+“标题”：“占位符标题 1”，
+“作者”:“占位符作者 1”,
+“主题”：“占位符主题 1”
+},
+{
+“标题”：“占位符标题2”，
+“作者”：“占位符作者2”，
+“主题”：“占位符主题 2”
+}
+]
+确保 JSON 有效！
+||
+编辑：刚刚看到Macha的回复。那里+1。 &lt;img alt=&quot;:yum:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/yum.png?v=12&quot; title=&quot;:yum: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_5</guid>
+      <pubDate>Fri, 29 Dec 2023 18:14:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用函数调用和JSON模式时JSON无效</title>
+      <link>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_3</link>
+      <description><![CDATA[
+
+
+ cyzgab：
+&lt;块引用&gt;
 相反，我可能会尝试这样的事情：
 &lt;块引用&gt;
 你是一个有用的助手，会在消息键中返回你的响应的 json
 
 如果我更改系统消息，“您好！今天我能为您提供什么帮助”json 不重复。
-&lt;小时/&gt;
-最后，您可能会发现这个包instructor对于构建LLM输出很有帮助 - 它使用引擎盖下的 pydantic。]]></description>
-      <guid>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_2</guid>
-      <pubDate>Fri, 29 Dec 2023 15:15:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>十六进制颜色代码提取的问题</title>
-      <link>https://community.openai.com/t/issues-with-hexadecimal-color-code-extraction/575239#post_1</link>
-      <description><![CDATA[你好！
-我是一名造型师和开发人员，深入研究技术与时尚的交叉方式。就在上周，我正在尝试使用 ChatGPT4 从调色板图像中提取十六进制颜色代码，它非常准确 - 对我的工作来说确实很有前途。
-但问题在于：尝试相同的过程现在会产生完全不合常理的结果。以黑色为例。我从该工具中获得了 #ced5dd，而不是我们都知道的深度 #000000。
-这是一个益智游戏，并且阻碍了我在设计中可靠地使用这项技术。还有其他人遇到这个障碍吗？任何解决方法或修复都是黄金。期待您的想法！]]></description>
-      <guid>https://community.openai.com/t/issues-with-hexadecimal-color-code-extraction/575239#post_1</guid>
-      <pubDate>Fri, 29 Dec 2023 15:15:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>控制主题助理回复</title>
-      <link>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_2</link>
-      <description><![CDATA[为人工智能提供一份工作和一个服务角色似乎是保持对封闭领域的响应的最有力方式。 gpt-3.5-turbo-1106：
 
-您还可以考虑文档注入将指令推后很远，使人工智能很容易忽略它们。 助手将在上传任何知识时最大化模型上下文长度，而您自己的基于聊天完成的机器人可以允许管理基于问题的知识注入 (RAG)。
 
-我输入的系统提示说明（点击查看更多详情）]]></description>
-      <guid>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_2</guid>
-      <pubDate>Fri, 29 Dec 2023 15:13:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法收到助理回复</title>
-      <link>https://community.openai.com/t/cant-get-the-assistant-reply/575236#post_1</link>
-      <description><![CDATA[你好，
-我刚刚开始使用 API，如果我的问题是个愚蠢的问题，我很抱歉，我也尝试过搜索有关此主题的过去消息，但找不到它。
-我基本上复制并粘贴了我在 YT 上观看的教程 (https://www.youtube.com/watch?v=5rcjGjgJNQc&amp;t=23s），我得到了积分，但我在终端上可以读到的是线程ID，用户的消息内容，但我没有收到助理回复。我还看到 Assistant_id = None，而我可以在特定调用的 Playground 中看到它。
-如果我是操场上的助手，它就可以正常工作。
-有什么（宝贵的）建议吗？
-非常感谢。]]></description>
-      <guid>https://community.openai.com/t/cant-get-the-assistant-reply/575236#post_1</guid>
-      <pubDate>Fri, 29 Dec 2023 15:13:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>在assistant api中，如果我们使用function和retriver，我们是先得到对话响应还是先得到函数调用</title>
-      <link>https://community.openai.com/t/in-assistant-api-if-we-are-using-function-and-retriver-will-we-get-conversation-response-first-or-function-call-first/575231#post_1</link>
-      <description><![CDATA[比方说，我正在运行函数调用和检索器调用。我应该从函数中获取 json 响应，并从聊天中获取文本响应。我正在使用线程进行聊天。
-目前，其运行函数调用首先经过required_action，然后进入完成状态。 完成状态为我提供文字回复。
-那么我是否有可能先得到聊天的响应，然后再得到函数的响应。]]></description>
-      <guid>https://community.openai.com/t/in-assistant-api-if-we-are-using-function-and-retriver-will-we-get-conversation-response-first-or-function-call-first/575231#post_1</guid>
-      <pubDate>Fri, 29 Dec 2023 15:05:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用聊天 gpt api 保持对话连续性？</title>
-      <link>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_5</link>
-      <description><![CDATA[到目前为止，像其他人提到的那样传回对话是很常见的，但还有测试版助理功能以线程的形式提供此功能。
-它需要一些额外的步骤来实现。严格来说，这和自己传回整个聊天记录没有太大区别，最大的区别是日志在他们的服务器上。
-https://platform. openai.com/docs/api-reference/assistants]]></description>
-      <guid>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_5</guid>
-      <pubDate>Fri, 29 Dec 2023 15:00:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI API 无法从我的信用卡中扣款</title>
-      <link>https://community.openai.com/t/openai-api-cant-debit-my-credit-card/560007#post_3</link>
-      <description><![CDATA[@daphan 我想跟进一下，看看您是否已解决此问题。你能取得任何进展吗？
-我的情况更新：我能够通过请求支持机器人将计费问题上报给人工。一旦现场支持人员联系我，我被告知我可以通过电子邮件直接联系有关计费问题的人员： ap@openai.com 和他们将调查这个问题。与输入支持票证相比，这可能会也可能不会帮助您更快地解决问题。
-调查过程似乎尚未正式开始。我提交了所有要求的文件；但是，我表明他们已收到信息，多次登录支持服务，但从未查看过文档。
-但是，支持页面的计费部分进行了以下更新：
-您使用同一付款方式支付了太多订阅费用。
-出于安全原因，我们目前限制可以通过给定付款方式计费的订阅数量。目前，您需要使用单独的付款方式购买多个订阅，或者如果您尝试批量购买订阅，请回信提供有关您的用例的更多信息。
-对我来说，这回答了我的问题。由于我的开发团队都使用相同的计费信息，因此此更改阻止了我们批量计费。此后，我重申了他们要求的“有关您的用例的更多信息”，并正在等待回复。
-这可能不是你的问题，但我想按照承诺进行跟进。希望您能顺利解决问题。]]></description>
-      <guid>https://community.openai.com/t/openai-api-cant-debit-my-credit-card/560007#post_3</guid>
-      <pubDate>Fri, 29 Dec 2023 14:55:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 LLM(GPT-3.5-Turbo) 将自然语言转换为 SQL 查询</title>
-      <link>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_3</link>
-      <description><![CDATA[考虑使用另一个 API 调用（例如使用 GPT 3.5）进行零样本分类？
-例如：
+
+
+
+母鸡：
 &lt;块引用&gt;
-“您的任务是确定给定文本是否包含完整的 SQL 查询或其部分内容。如果是，则回复“1”，否则回复“0””
+ {
+            “角色”：“系统”，
+            &quot;content&quot;: &quot;你是一个有用的助手，会在消息键中返回你的响应的 json&quot;,
+        },
 
-您还可以考虑将两个令牌 ID 的 max_tokens 调整为 1，并将 logit_bias 设置为 100，从而将输出约束为简单的二进制 1/0对于 0 和1.]]></description>
-      <guid>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_3</guid>
-      <pubDate>Fri, 29 Dec 2023 14:54:36 GMT</pubDate>
+
+
+它们是相同的吗？
+对于这个例子来说，他们不需要使用的工具没有问题。]]></description>
+      <guid>https://community.openai.com/t/invalid-json-when-using-function-calling-and-json-mode/574348#post_3</guid>
+      <pubDate>Fri, 29 Dec 2023 18:12:24 GMT</pubDate>
     </item>
     <item>
-      <title>Logits_bias 不再完全起作用</title>
-      <link>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_11</link>
+      <title>如何获取原始列表作为助手的输出？</title>
+      <link>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_4</link>
+      <description><![CDATA[如果您确实获得了与列表一致的字典，那么请考虑简单地删除列表前后所有额外的、不必要的内容。
+这应该是一个简单而强大的解决方案，但我承认确保您真正只得到您想要的东西更具成本效益。]]></description>
+      <guid>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_4</guid>
+      <pubDate>Fri, 29 Dec 2023 18:10:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>抱歉，尝试使用语音时发生未知错误</title>
+      <link>https://community.openai.com/t/sorry-an-unknown-error-occurred-when-attempting-to-use-voice/401841#post_6</link>
+      <description><![CDATA[过去 10 天我也遇到这个问题。真的很烦人。效果非常好！]]></description>
+      <guid>https://community.openai.com/t/sorry-an-unknown-error-occurred-when-attempting-to-use-voice/401841#post_6</guid>
+      <pubDate>Fri, 29 Dec 2023 18:06:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>功能请求：DALLE API 响应中的令牌使用</title>
+      <link>https://community.openai.com/t/feature-request-token-usage-in-dalle-api-responses/34134#post_4</link>
+      <description><![CDATA[大家好。为了记录我们的 API 活动，如果有这个功能就好了。图片是根据图片的大小来计费的，对吗？无论计费过程如何，它仍然是从帐户中扣除。我们不能只返回该请求值多少代币吗？]]></description>
+      <guid>https://community.openai.com/t/feature-request-token-usage-in-dalle-api-responses/34134#post_4</guid>
+      <pubDate>Fri, 29 Dec 2023 18:06:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何获取原始列表作为助手的输出？</title>
+      <link>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_3</link>
+      <description><![CDATA[欢迎来到社区！
+您是否考虑过强制其响应为 json 格式？
+我的想法是，您可能能够强制它提供表示为 JSON 文件的文本列表，然后使用该格式以编程方式将其转换为您需要的数据结构。这是我想到的最快、最简单的解决方案。
+它无法直接从提示符中直接输出原始数据结构。如果是的话，所述数据结构将来自其代码解释器/高级数据分析功能。它要做的就是编写脚本并执行脚本来创建某种类似的数据结构，但同样，与直接提示→数据结构相比，这仍然需要在编程端进行更多的工作。因此，为什么我认为使用 json 格式将是最好的解决方案。
+如果您需要更多帮助或者这对您不起作用，请告诉我。]]></description>
+      <guid>https://community.openai.com/t/how-to-get-a-raw-list-as-assistants-output/574525#post_3</guid>
+      <pubDate>Fri, 29 Dec 2023 18:05:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>助理无法访问在消息级别传递的文件</title>
+      <link>https://community.openai.com/t/assistant-doesnt-access-files-passed-on-the-message-level/574451#post_10</link>
       <description><![CDATA[
 
 
- sps：
+ alex_adamczyk：
 &lt;块引用&gt;
-下面是一个示例，其中外观相似的文本片段具有不同的标记 ID：
+这不是一个大文件。理论上我可以将其全部内容添加到助手提示符中，但首先，这不是重点，其次，这个文件没有任何问题。
 
 
-有不同的令牌 ID，因为第二个  [ 包含换行符。
-
-
-
-埃米尔.fplilja：
-&lt;块引用&gt;
-就我而言，我将通过后处理脚本运行响应。
-
-
-您可能会发现像 instructor 这样的包对于让模型约束输出非常有用模型到特定的数据类型。它在底层使用了 pydantic。]]></description>
-      <guid>https://community.openai.com/t/logits-bias-no-longer-fully-working/526490#post_11</guid>
-      <pubDate>Fri, 29 Dec 2023 14:50:04 GMT</pubDate>
+我们只是想帮忙。如果不尝试就假设某件事是或不是重点，可能会导致您错过解决方案。助理指令和助理文件之间有明显的区别。您只是假设您放入文件中的指令与您放入指令中的指令同等对待，这是非常不可能的。
+您有 32k 的说明空间（并且可以像任何助手的文件一样轻松（甚至更容易）更新说明）。
+从你的提示来看，我还认为你应该让它更详细。
+还有一件事 - 看看你的代码......你有这个函数 run() ，你似乎使用助手 ID 和指令中的（很长的）提示来调用它=‘’......”
+你能解释一下吗？为什么不在助手中（仅）提供说明。这样您就可以快速更新后端的提示并再次运行您的代码（无需更改代码）。如果您直接将其提供给 Run，则您的助手中的任何内容都不会被使用......]]></description>
+      <guid>https://community.openai.com/t/assistant-doesnt-access-files-passed-on-the-message-level/574451#post_10</guid>
+      <pubDate>Fri, 29 Dec 2023 18:04:52 GMT</pubDate>
     </item>
     <item>
-      <title>使用 OpenAI 改进制造流程</title>
-      <link>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_2</link>
-      <description><![CDATA[嗨@factory.factory
-我与制造领域的客户广泛合作，将人工智能纳入他们的运营中，并且很乐意提供一些建议。我向您发送了一封包含一些其他问题的 DM。]]></description>
-      <guid>https://community.openai.com/t/using-openai-to-improve-manuifactoring-process/575077#post_2</guid>
-      <pubDate>Fri, 29 Dec 2023 14:41:11 GMT</pubDate>
+      <title>控制主题助理回复</title>
+      <link>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_3</link>
+      <description><![CDATA[
+
+
+_j：
+&lt;块引用&gt;
+基于问题的知识注入（RAG）
+
+
+谢谢。您的描述和示例提示确实很有帮助。我想我现在已经控制了问题。]]></description>
+      <guid>https://community.openai.com/t/controlling-topics-assistant-replies-to/575196#post_3</guid>
+      <pubDate>Fri, 29 Dec 2023 18:02:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>将文件发送到完成 api</title>
+      <link>https://community.openai.com/t/send-files-to-completion-api/575385#post_2</link>
+      <description><![CDATA[尝试按照这些思路做一些事情
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+file = client.files.create( file=open(&quot;file.pdf&quot;, &quot;rb&quot;), Purpose=&quot;fine-tune&quot; )
+客户端 = OpenAI() 完成 = client.chat.completions.create( model=&quot;gpt-4-1106&quot;,
+        messages=[ {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个可以阅读PDF的得力助手。&quot;},
+                   {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: f&quot;从{file.id}中提取第三页的文本&quot;} ] )
+print(completion.choices[0].message)
+
+有人提到以下代码可以工作，但想了解幕后发生的事情
+从 langchain.document_loaders 导入 PyPDFLoader
+从 langchain.llms 导入 OpenAI
+从 langchain.chains.question_answering 导入 load_qa_chain
+
+#在此处找到您的 PDF。
+pdf=&quot;&lt;YOUR_PDF_GOES_HERE&gt;&quot;
+#加载PDF
+加载器 = PyPDFLoader(pdf)
+文档 = loader.load()
+
+api_key = &quot;sk-??????&quot;
+llm = OpenAI(openai_api_key=api_key)
+链 = load_qa_chain(llm,verbose=True)
+Question = input(&quot;在此输入您的问题：&quot;)
+响应 = chain.run(input_documents=文档，问题=问题)
+打印（响应）
+]]></description>
+      <guid>https://community.openai.com/t/send-files-to-completion-api/575385#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 18:00:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮我提示一下数据分析和文件输入吗？</title>
+      <link>https://community.openai.com/t/help-me-with-prompt-for-data-analysis-and-input-of-file/574965#post_2</link>
+      <description><![CDATA[您好，欢迎来到社区！
+所以，是的，GPT 应该能够将数据添加到 Excel 文件。
+我能想到的最简单的方法是包含一些空列，即“类型”和“标签”。
+上下文是关键，特异性、清晰度和细节总是有助于模型提供更好的响应，因此定义关键字类型的含义将非常方便。您还应该指定（以防万一）GPT 为列选择一种类型。
+要求它逐行执行这个逻辑，遍历每个关键字并以这种方式评估它，你应该很好。
+提示时要记住的最好的事情是尽可能详细地表达您想要的逻辑流程。
+请告诉我们进展情况以及您是否需要更多指导帮助！]]></description>
+      <guid>https://community.openai.com/t/help-me-with-prompt-for-data-analysis-and-input-of-file/574965#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 17:56:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法使 dall.e 在设计中正确包含文本</title>
+      <link>https://community.openai.com/t/cant-make-dall-e-include-a-text-in-a-design-properly/575338#post_2</link>
+      <description><![CDATA[您好，欢迎来到社区！
+因此，在图像生成方面，语言模型在生成正确文本方面非常糟糕。目前这似乎并不在 Dall-E 的能力范围之内。因此，不幸的是，如果您需要图像中的正确文本，则必须手动编辑它以包含所需的文本。
+图像生成在能够正确获取图像中的文本之前还有很长的路要走。]]></description>
+      <guid>https://community.openai.com/t/cant-make-dall-e-include-a-text-in-a-design-properly/575338#post_2</guid>
+      <pubDate>Fri, 29 Dec 2023 17:50:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>将文件发送到完成 api</title>
+      <link>https://community.openai.com/t/send-files-to-completion-api/575385#post_1</link>
+      <description><![CDATA[你好，
+我正在尝试将文件发送到聊天完成 api，但很难找到一种方法来做到这一点。我看到了一些使用 langchain 的建议，但我想使用 openai sdk 来本地实现它。
+有关如何做到这一点的任何提示？
+谢谢]]></description>
+      <guid>https://community.openai.com/t/send-files-to-completion-api/575385#post_1</guid>
+      <pubDate>Fri, 29 Dec 2023 17:50:00 GMT</pubDate>
     </item>
     </channel>
 </rss>
