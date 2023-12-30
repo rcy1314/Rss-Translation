@@ -10,6 +10,12 @@
 
 已改为定时每3小时运行一次（建议每6-12小时运行），增加[谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/mygoogletrans.py)、[mtranslate谷歌翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/my-mtranslate.py)及[百度翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/baidutrans.py)、[Open ai翻译接口](https://github.com/rcy1314/Rss-Translation/blob/main/openaitrans.py)
 
+## 主文件更新修复
+
+12.9-修复特殊字符转译
+
+12.30-修复由于缺少libxml2和libxslt开发包导致的BUG
+
 ## my-mtranslate谷歌·翻译接口文件调整：
 
 - 修复了使用set_cfg()方法修改配置文件数据时的bug
