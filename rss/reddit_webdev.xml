@@ -4,7 +4,98 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 31 Dec 2023 12:30:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 Dec 2023 18:21:02 GMT</lastBuildDate>
+    <item>
+      <title>基于滚动位置的样式</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vc26z/styling_based_on_scroll_position/</link>
+      <description><![CDATA[我在可滚动 div 的底部添加了淡入淡出效果，并带有文本强调滚动 我使用了以下代码 div { --mask: 线性渐变(到底部, rgba(0,0,0, 1) 92%, rgba(0,0,0, 0 ) 100%);掩码：var(--掩码)； }  问题是，我想在到达滚动底部时停止该效果，因为没有更多文本，我对此进行搜索并找到了此博客 https://css-tricks.com/styling-based-on-scroll-position/ 他们提到了 ([data-scroll=&#39;0&#39;])  属性，但我发现很难在我希望它采用的特定情况下使用当滚动到没有固定高度的 div 底部时的效果，高度来自变量。有什么办法可以解决这个问题吗？   由   提交 /u/nopeac   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vc26z/styling_based_on_scroll_position/</guid>
+      <pubDate>Sun, 31 Dec 2023 17:04:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>iframe 中的 Laravel 应用程序不显示表单验证错误。</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vb7m0/laravel_app_in_iframe_doesnt_show_form_validation/</link>
+      <description><![CDATA[嗨， 所以我有一个 Laravel 应用程序，正在另一个网站上呈现（基本形式）。我现在遇到的唯一问题是，当表单验证失败时，不会显示任何错误，只是 302 重定向回表单。我在网上查看了可能的解决方案，包括将 config/session.php &#39;same_site&#39; 属性设置为 &#39;none&#39;，并将 &#39;SESSION_SECURE_COOKIE&#39; 环境变量设置为 &#39;true&#39;，但我仍然一无所获。  我已经准备好一个 CSP，以便表单在其他站点上呈现，并且我知道它在表单呈现时起作用。 以下是一些我设置的配置设置希望它能让我更清楚地知道我做错了什么。 对于上下文，我为 iframe 提供了一个查询字符串，该字符串在中间件中用于检查是否允许该站点 - 下面的示例中使用了伪代码，但正在执行数据库查询来检查 ID 是否对应于数据库中的某个域，如果是，则它将检索该域并将其包含在CSP 标头。 如果需要更多信息，我很乐意提供。 .env SESSION_DRIVER=database SESSION_LIFETIME=120 SESSION_DOMAIN=“.example.test” SESSION_SECURE_COOKIE=true  config/session.php &#39;secure&#39; =&gt; env(&#39;SESSION_SECURE_COOKIE&#39;, true), &#39;http_only&#39; =&gt;正确，&#39;same_site&#39; =&gt; &#39;none&#39;,  App\Http\Middleware\ContentSecurityPolicyMiddleware.php 公共函数句柄($request, Closure $next) { $response = $下一个（$请求）； $id = $request-&gt;get(&#39;id&#39;); $域=空； if ($id === &#39;1&#39;) { $domain = &#39;example.test&#39;; $response-&gt;headers-&gt;set(&#39;Content-Security-Policy&#39;, &#39;frame-ancestors&#39; . $domain);返回$响应； }  kernel.php protected $middlewareAliases = [ ... &#39;csp&#39; =&gt;; ContentSecurityPolicyMiddleware::class, ];  routes.php Route::get(&#39;/bookings&#39;, [\App\Http\Controllers\BookingController::class, &#39;index&#39; ]) -&gt; 中间件([&#39;csp&#39;]) -&gt; 名称(&#39;bookings.index&#39;);路线::post(&#39;/bookings&#39;, [\App\Http\Controllers\BookingController::class, &#39;create&#39;]) -&gt;middleware([&#39;csp&#39;]) -&gt;withoutMiddleware([\App\Http\ Middleware\VerifyCsrfToken::class]) -&gt;name(&#39;bookings.create&#39;);    由   提交 /u/free_styled   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vb7m0/laravel_app_in_iframe_doesnt_show_form_validation/</guid>
+      <pubDate>Sun, 31 Dec 2023 16:25:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lighthouse 中的性能得分为 100 和 98 - 但 PageSpeed Insights 上的得分不是</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vb4av/100_98_performance_score_in_lighthouse_but_not_on/</link>
+      <description><![CDATA[    /u/AlexWasTakenWasTaken   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vb4av/100_98_performance_score_in_lighthouse_but_not_on/</guid>
+      <pubDate>Sun, 31 Dec 2023 16:21:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>Remix 真的那么好还是只是被夸大了？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vaqrp/is_remix_really_that_good_or_just_overhyped/</link>
+      <description><![CDATA[希望在现代堆栈上构建仪表板 CRUD 应用程序，Remix 最近不断成为热门推荐，但将我的搜索限制为较旧的文章（pre -Vercel 收购）让人们称赞 Next。 这到底是怎么回事？为什么现在我应该选择 Remix 而不是 Next？   由   提交 /u/nobuhok   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vaqrp/is_remix_really_that_good_or_just_overhyped/</guid>
+      <pubDate>Sun, 31 Dec 2023 16:03:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>数字代理机构进行全面品牌改革时通常遵循的步骤</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vagu3/steps_typically_followed_by_digital_agencies_for/</link>
+      <description><![CDATA[各位开发者和网络爱好者大家好， ​ 我很想了解当客户要求数字代理机构进行全面的品牌改革时，数字代理机构采取的典型步骤。这将包括重新设计徽标、建立新的品牌颜色、重新定义品牌标识、改进网站以及更新社交媒体形象。 ​ 以下是具体内容的细分我对以下方面特别感兴趣：  初始客户咨询和需求收集。 研究和竞争对手分析。  标志和品牌形象设计。 品牌颜色的选择和建立。 网站重新设计和开发。 社交媒体资料优化和内容策略。  ​ 如果有人有第一手经验、见解，或者可以指出详细说明此过程的资源，我将不胜感激！ ​ 提前感谢分享您的知识和专业知识！   由   提交 /u/Fijoza   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vagu3/steps_typically_followed_by_digital_agencies_for/</guid>
+      <pubDate>Sun, 31 Dec 2023 15:50:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>从哪儿开始？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18vaezw/where_to_start/</link>
+      <description><![CDATA[编码和类似的东西（我认为网络开发属于同一类别？）总是引起我的兴趣。我快 19 岁了，赚很多钱似乎是一项很好的技能。大多数人从很小的时候就开始学习，那么还值得开始学习吗？如果是这样，我应该在哪里看，我猜我应该主要使用什么语言？感谢您的帮助   由   提交/u/sad-gh0st   /u/sad-gh0st  reddit.com/r/webdev/comments/18vaezw/where_to_start/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18vaezw/where_to_start/</guid>
+      <pubDate>Sun, 31 Dec 2023 15:48:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>部署项目</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v9jyx/deploying_a_project/</link>
+      <description><![CDATA[嗨。我做了一个简单的网站。我在项目中使用了 json 服务器，所以我有一个简单的 db.json 文件来获取数据。我该如何部署它，我可以使用 vercel 还是其他东西来实现它？   由   提交/u/volcano156   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v9jyx/deploying_a_project/</guid>
+      <pubDate>Sun, 31 Dec 2023 15:05:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Paypal API 凭证</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v8mrm/paypal_api_credentials/</link>
+      <description><![CDATA[当您将您的客户端 ID 和密钥提供给某人时，他们是否可以完全访问您的 Paypal 帐户？ （升级到企业帐户，切换到实时模式，然后在生成API密钥时添加商家给定的个人URL）   由   提交/u/WhiteWolf-07  /u/WhiteWolf-07  reddit.com/r/webdev/comments/18v8mrm/paypal_api_credentials/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v8mrm/paypal_api_credentials/</guid>
+      <pubDate>Sun, 31 Dec 2023 14:16:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>推出了我自己的 React 通知教程：寻求社区反馈！</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v8f0w/launched_my_own_react_notification_tutorial/</link>
+      <description><![CDATA[Reddit 用户大家好！ 👋 我最近创建了一个关于在 React 中构建自定义通知弹出窗口的教程，我渴望得到您的想法和反馈。这适合我们所有希望在项目中获得更多控制和更少依赖的人。 这是我整理的内容：  🎥 YouTube 教程（20 分钟）：实践视频指南。 ✍️ Medium 文章：供参考的详细文章.  在本教程中，我将探索设置自定义 Toast 类和 ToastContainer 组件，以及 React 通知的样式提示。 我非常感谢您的帮助输入：  有什么方面我可以改进或以不同的方式解释吗？ 您通常如何处理 React 项目中的通知？  &lt; p&gt;期待听到您的宝贵见解和建议。让我们一起不断学习、共同成长！ 非常感谢！ 🚀   由   提交/u/heathcliff6547   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v8f0w/launched_my_own_react_notification_tutorial/</guid>
+      <pubDate>Sun, 31 Dec 2023 14:04:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>建立类似于数字海洋教程的简单教程网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v89ty/building_simple_tutorial_site_similar_to_digital/</link>
+      <description><![CDATA[我创建了许多教程供我个人使用。现在我使用word文档，效率不是很高。我想创建一个简单的教程系统，类似于 DO 使用 例如 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services -and-units#service-management 有什么建议吗？ 到目前为止的建议 https://starlight.astro.build/ 有人通过消息建议。必须检查一下。 ​   由   提交/u/ebayer108  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v89ty/building_simple_tutorial_site_similar_to_digital/</guid>
+      <pubDate>Sun, 31 Dec 2023 13:56:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>当我将 html 和 css 文件上传到后端时，我的网站被拒绝访问</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v7rp9/when_i_upload_my_html_and_css_files_to_the/</link>
+      <description><![CDATA[所以当我将文档上传到后端时（我使用的是Hestia控制面板），在目录Home\Web\“我的网站域名”下;\public_html，访问被拒绝，代码403，当我使用HCP提供的wordpress编辑器时，没有这个问题。   由   提交 /u/Eric__Z   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v7rp9/when_i_upload_my_html_and_css_files_to_the/</guid>
+      <pubDate>Sun, 31 Dec 2023 13:28:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>Namecheap vs Porkbun vs Cloudflare</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v72o8/namecheap_vs_porkbun_vs_cloudflare/</link>
+      <description><![CDATA[对这三者中最好的域名注册商有何想法/意见，为什么？   由   提交/u/-ThatGingerKid-  /u/-ThatGingerKid- reddit.com/r/webdev/comments/18v72o8/namecheap_vs_porkbun_vs_cloudflare/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v72o8/namecheap_vs_porkbun_vs_cloudflare/</guid>
+      <pubDate>Sun, 31 Dec 2023 12:47:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netlify 与 Cloudflare 页面</title>
+      <link>https://www.reddit.com/r/webdev/comments/18v70d8/netlify_vs_cloudflare_pages/</link>
+      <description><![CDATA[我一直在学习 Netlify 并开始向它发布一些 Astro 网站，到目前为止我已经获得了非常好的体验。不过，我刚刚了解了 Cloudflare Pages。我想了解您对这两者的想法和经验。   由   提交/u/-ThatGingerKid-  /u/-ThatGingerKid- reddit.com/r/webdev/comments/18v70d8/netlify_vs_cloudflare_pages/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18v70d8/netlify_vs_cloudflare_pages/</guid>
+      <pubDate>Sun, 31 Dec 2023 12:42:50 GMT</pubDate>
+    </item>
     <item>
       <title>什么是“优质域名”？</title>
       <link>https://www.reddit.com/r/webdev/comments/18v5d6r/what_makes_a_premium_domain/</link>
@@ -18,97 +109,6 @@
       <description><![CDATA[我是一名学生，来到我们学院的公司希望我们在实习期间能够拥有一个全栈项目 我想学习React，因为它对大多数公司来说都是非常有必要的，我正在apna学院学习java 我相当精通C++，C，Python 但是还没有甚至没有接触过 HTML 和其他 webdev 的东西 你建议我学习哪门课程，我希望资源简洁，并且我可以在大学毕业后 3 个月内完成 我想学习整个 MERN 堆栈并制作项目 大多数学生都具备这一点，并且超出了大多数公司对 1 个项目的期望，他们还赢得了黑客马拉松   由   提交 /u/Glittering_Boot_3612   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18v4o9v/regrets_is_it_possible_for_me_to_create_a_full/</guid>
       <pubDate>Sun, 31 Dec 2023 10:00:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>我使用 WebCodecs 构建了一个基于浏览器的 Web 应用程序 - 只需点击一下即可将无聊的照片变成引人注目的视觉效果。</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v48e6/i_build_a_browserbased_web_app_using_webcodecs/</link>
-      <description><![CDATA[   /u/biingyell   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v48e6/i_build_a_browserbased_web_app_using_webcodecs/</guid>
-      <pubDate>Sun, 31 Dec 2023 09:29:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>脾气暴躁的老派恐龙开发者，您喜欢或经常依赖哪些库/框架/工具，无论是高兴还是不情愿？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v42kk/crotchety_oldschool_dino_devs_what/</link>
-      <description><![CDATA[高中毕业后从 JS/web 开发中休息了很长时间。就在 ES6 带来令人愉快和受欢迎的惊喜之前回来，我很喜欢它，哈哈。 虽然我仍然主要使用香草，但我已经慢慢地开始学习库/“东西”了。这让我的生活更轻松。对其他“香草风格”感到好奇接下来我应该研究一下。  LESS，无论如何，我主要将其用作普通 CSS。不过，我只是喜欢嵌套和一些选择器的便利。 （我有一个 VSCode 扩展在保存时编译 .css 文件）。我偶尔会使用一些更高级的功能，但只需根据需要谷歌这些功能即可。 模板：我尝试过几个模板库，但现在主要是编写/根据需要重用片段并使用模板文字（或带有返回它们的方法的对象 - 有点像反应，但对我来说更理智哈哈）。很好奇是否有人有建议，因为我确信在某个时刻我会达到模板文字中可以/应该完成的操作的极限。 浏览器：Node + Express 。来自 PHP，我喜欢 Express 路线的简单性。我尝试了 React，但它在“返回”中混合 html 和 js 的方式是内联的。我还是觉得太不对劲了。我读到一些人在这里讨论 Vue，可能会去看看。 原生：nwjs。我进入 Electron 有一段时间了，并且确实尊重有时，进程分离正是您所需要的，并且在这些情况下我仍然使用它。但除此之外，我真的很喜欢从渲染上下文中调用节点上下文库的能力。 JSON5 over JSON，一些方便的库（chalk、axios、jsonwebtoken、 cron 等）    由   提交 /u/inwhichzeegoesinsane   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v42kk/crotchety_oldschool_dino_devs_what/</guid>
-      <pubDate>Sun, 31 Dec 2023 09:18:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>当我点击 freenom 或 dot tk 上的检查时没有任何反应？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v3f1x/nothing_happens_when_i_click_check_on_freenom_or/</link>
-      <description><![CDATA[       由   提交/u/sad-gh0st   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v3f1x/nothing_happens_when_i_click_check_on_freenom_or/</guid>
-      <pubDate>Sun, 31 Dec 2023 08:34:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过 Android 手机在 Netlify 上上传文件？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v2vuf/how_to_upload_a_file_through_android_phone_on/</link>
-      <description><![CDATA[好的，所以，我一次又一次地尝试在 netlify 上上传 zip 文件，但就是无法上传。我认为你需要通过 PC 来上传它，因为 ig netlify 不支持它或其他东西。使用 android 手机还有其他方法吗？  我听说通过 GitHub 是可能的，但我就是不明白......它是如何完成的。我很困惑。  或者也许是 Netlify 的替代品，它也是免费使用的？ 任何帮助或建议将不胜感激，谢谢 &lt;!-- SC_ON - -&gt;  由   提交/u/BlacRaven353  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v2vuf/how_to_upload_a_file_through_android_phone_on/</guid>
-      <pubDate>Sun, 31 Dec 2023 07:58:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 HTML、CSS 和 JavaScript 向重定向系统捐款</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v1ug4/how_to_do_i_make_a_donation_to_redirect_system_in/</link>
-      <description><![CDATA[如何创建一个系统，一旦您向 paypal 捐款链接发送一美元，它就会将您重定向到一个网页。但它只有在知道钱已发送后才会重定向。   由   提交 /u/ValuedDisc   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v1ug4/how_to_do_i_make_a_donation_to_redirect_system_in/</guid>
-      <pubDate>Sun, 31 Dec 2023 06:51:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>还有其他人因为 Google reCaptcha 突然遇到加载缓慢的情况吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v1sgo/anyone_else_suddenly_experiencing_slow_loading/</link>
-      <description><![CDATA[直到最近我的网站响应速度都很快，但现在看来 Google 的 reCaptcha 正在降低性能。只是想知道这是否是暂时的，或者是否有人遇到同样的情况？   由   提交/u/coldstreamer59  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v1sgo/anyone_else_suddenly_experiencing_slow_loading/</guid>
-      <pubDate>Sun, 31 Dec 2023 06:48:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>免费的网络套接字托管？不存在？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v1ggf/free_websocket_hosting_doesnt_exist/</link>
-      <description><![CDATA[，所以我在nodeJS中完成了我的websocket服务器代码，并在Unity游戏上成功连接了它（仅在我的本地机器上），现在我需要部署它，所以在线的人可以尝试这个游戏。我不知道我是否错过了某些东西或者只是没有 websocket 托管。我尝试了很多解决方案，但都失败了，因为没有适当的文档或教程视频。我很惊讶我在 youtube 上只找到了几个关于如何部署 websocket 服务器的视频，顺便说一句，我是网络方面的新手。  我尝试过的免费解决方案： glitch.com -&gt;已部署，但收到 502 错误。 （我被迫使用端口 0，因为使用其他端口时出现故障，导致出现错误） render.com -&gt;已部署，但连接时无响应 adaptable.io -&gt;部署失败，文档很差 piesocket.com -&gt;不知道如何上传代码。另外，他们的客户端 sdk 不适用于 c#  我在哪里可以找到提供免费套餐并且可以正常工作的托管？    ;由   提交 /u/miheb1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v1ggf/free_websocket_hosting_doesnt_exist/</guid>
-      <pubDate>Sun, 31 Dec 2023 06:27:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>托管率与质量 - Namecheap 业务与 Vultr</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v1blt/hosting_rates_versus_quality_namecheap_business/</link>
-      <description><![CDATA[我正在寻找一个新的域名并建立一个网站 - 没有什么是我真正希望增长的，更多的是供个人使用。不过，我确实对未来有一些想法。我一直在使用 namecheap 购买域名并通过 vultr 进行托管（对于一个盒子来说，每月的费用要贵一些，但它只是每月的费用，而不是每年的费用）。 我知道 GoDaddy 托管和这会在构建之前减慢您的网站速度 - namecheap 托管相对而言如何？对于 WordPress 或自定义构建网站来说，通过 Vultr 这样的公司进行虚拟化托管是否仍然更可靠/更快？ 预计到达时间：Namecheap 表示“不限流量的带宽”对于所有三层托管选项，我认为 Vultr 的基本计划约为 2TB。在一个小网站上，我怀疑我是否会接近超越，所以并不真正担心这一点，因为我正在限制或共享托管瓶颈。    ;由   提交 /u/WatchOutHesBehindYou   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v1blt/hosting_rates_versus_quality_namecheap_business/</guid>
-      <pubDate>Sun, 31 Dec 2023 06:19:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>哪种堆栈/语言最适合构建这个？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18v008k/which_stacklanguage_is_best_to_build_this/</link>
-      <description><![CDATA[要使用这些功能构建自由职业者市场，如果您熟悉的后端仅限于 WordPress 并且您正在寻找简单的东西，那么堆栈/语言会更好适合新手，但也易于扩展。 功能： 用户之间的 1-2-1 消息传递（非实时聊天） 支付网关&lt; /p&gt; 工作交付和批准 上传文件/图像 PHP Laravel  Typescript  React Nodejs   由   提交/u/vasaya  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18v008k/which_stacklanguage_is_best_to_build_this/</guid>
-      <pubDate>Sun, 31 Dec 2023 05:06:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>探索 React 中的 Headless UI 组件</title>
-      <link>https://www.reddit.com/r/webdev/comments/18uzx0b/exploring_headless_ui_components_in_react/</link>
-      <description><![CDATA[       由   提交/u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18uzx0b/exploring_headless_ui_components_in_react/</guid>
-      <pubDate>Sun, 31 Dec 2023 05:01:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>您曾经创建过“合法灰色”网站吗？海盗湾等</title>
-      <link>https://www.reddit.com/r/webdev/comments/18uxbvv/have_you_ever_made_a_legally_gray_site_pirate_bay/</link>
-      <description><![CDATA[通过合法的灰色，我所说的是： - 种子下载网站 - 流媒体网站 - 抓取网站 - 价格抓取工具/比较工具 - 软件密钥转售网站...等 您可能会因网络抓取其公共数据并重复使用而被另一家公司下令删除的网站 - 非非法网站  &amp; #32；由   提交/u/Putrid-Tough4558   reddit.com/r/webdev/comments/18uxbvv/have_you_ever_made_a_legally_gray_site_pirate_bay/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18uxbvv/have_you_ever_made_a_legally_gray_site_pirate_bay/</guid>
-      <pubDate>Sun, 31 Dec 2023 02:46:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻求有关为茶店创建网站的指导</title>
-      <link>https://www.reddit.com/r/webdev/comments/18uxbhq/looking_for_guidance_on_creating_a_website_for_a/</link>
-      <description><![CDATA[大家好， 我已经完成了一些农贸市场，我想采取下一步措施使这更加正式。我想如果我有一个网站，我可能会吸引更多客户并开始在社交媒体上进行营销。  花了大约十分钟研究网站设计和开发后，我意识到它实际上非常复杂。虽然有一些“用户友好”的网站，但我觉得最好直接询问 Reddit 社区他们会推荐什么。无论是自己在这些网站构建器网站上做还是付费给别人，我想看看我会得到什么建议。基本上，我希望能够链接网站、提供产品、拥有支付系统并创建登录信息。我知道事情远不止这些，但我只是想列出一些事情，也许有助于将这个想法付诸实践。  提前谢谢您🙇🏻‍♀️   由   提交/u/Poison_EYEv33  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18uxbhq/looking_for_guidance_on_creating_a_website_for_a/</guid>
-      <pubDate>Sun, 31 Dec 2023 02:45:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>与平面设计师合作</title>
-      <link>https://www.reddit.com/r/webdev/comments/18ux3m8/partnering_up_with_graphic_designer/</link>
-      <description><![CDATA[我有一个 MERN Web 应用程序，其功能已处于最后阶段。在启动之前，我想完成一个更具凝聚力的用户界面。我现在所拥有的还不错，但是通过一些专家的工作，我可以在颜色比例、间距和与 CSS 相关的任何方面达到与大型时尚公​​司相同的水平。这就是 GD 会来的地方，基本上会做我提到的事情。我看过他的作品，并确认它是我拼图中缺失的一块。  现在我的问题是，你们将如何处理薪酬方面的问题？我计划与他长期合作，只有我们两个人愿意给他一份公司的股份，但不确定多少钱。很高兴听到任何与此相关的经验。  上下文： 我们正在讨论用于促销的 20-25 个响应式页面、信息图表和社交媒体图形。 &lt;!-- SC_ON - -&gt;  由   提交 /u/Putrid-Bumblebee3417    reddit.com/r/webdev/comments/18ux3m8/partnering_up_with_graphic_designer/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18ux3m8/partnering_up_with_graphic_designer/</guid>
-      <pubDate>Sun, 31 Dec 2023 02:35:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
