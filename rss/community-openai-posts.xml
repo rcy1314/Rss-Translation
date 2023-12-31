@@ -4,160 +4,98 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 31 Dec 2023 06:22:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 Dec 2023 09:17:07 GMT</lastBuildDate>
     <item>
-      <title>Sam Altman 问“您希望 openai 在 2024 年构建/修复什么？”</title>
-      <link>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_11</link>
-      <description><![CDATA[你似乎混淆了一些不同的想法，这让你想要表达的观点变得混乱。
-首先，人工智能没有“目标”。
-OpenAI 尚未发布 GPT-3.5 的模型权重，部分原因是他们认为这样做是不安全且不道德的。其他任何地方的其他人在任何其他时间做什么并不重要。
-你可能会认为他们错了或过于谨慎，但这是他们的模式、他们的良心以及最终他们的决定。
-如果您想要可以在本地运行的东西，有无数其他法学硕士可以做到这一点，您正确地注意到其中一些接近 GPT-3.5 的功能。所以，我不确定这种愤怒从何而来。
-然后，当你写作时，
-
-
-
-卡尔托瓦尔：
-&lt;块引用&gt;
-你要么是人工智能被用来放大一切（善与恶）的新趋势的一部分，要么试图保持越来越不稳定的控制感，因为越来越多的功能从闭环手指中溜走。国家、企业和组织参与者。
-
-
-你提出了一些错误的二分法。首先，我认为有不少人正在努力使用人工智能，用你的话说，只是为了放大好处。其次，我不完全确定另一个选项意味着什么——随着更多功能从闭环手指中溜走，试图保持控制？
-我想我的总体目标是指出这里并没有什么大阴谋来让 GPT-3.5 模型权重脱离你的控制，OpenAI 似乎认为对他们来说这不是一个好主意普遍可用，并且不想对可能出现的任何问题负责。
-如果其他具有公共权重的模型被用来做坏事，那不在 OpenAI 上。
-许多领域的许多研究人员都在努力解决如何负责任地发表他们担心可能会产生严重后果的研究结果，归根结底，我们所能做的就是相信他们做出的任何决定都不是轻易做出的，尊重他们的选择。]]></description>
-      <guid>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_11</guid>
-      <pubDate>Sun, 31 Dec 2023 06:20:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=8#post_162</link>
-      <description><![CDATA[有谁知道使用上限是否有功能用途？此时，我只是好奇为什么 OpenAI 会实现这样的事情。]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=8#post_162</guid>
-      <pubDate>Sun, 31 Dec 2023 06:19:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sam Altman 问“您希望 openai 在 2024 年构建/修复什么？”</title>
-      <link>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_10</link>
-      <description><![CDATA[我想要：
-
-具有 SOTA 性能的大型上下文 (\ge 8k) 嵌入模型（MTEB 上的 &gt; 67）和 &lt; 1k 维度
-一些开放权重或开源好东西。
-能够微调审核。该模型允许的许多事情在业务环境中是不应该允许的。
+      <title>让 API 返回一个 python 列表或者我可以依赖的东西将是一个 python 列表</title>
+      <link>https://community.openai.com/t/make-the-api-return-a-python-list-or-something-i-can-rely-will-be-a-python-list/576303#post_7</link>
+      <description><![CDATA[嘿，根据我的经验，在系统消息中添加一条返回 JSON 数组（或任何其他对象）的指令以及“JSON 模式”通常效果很好。
+也许是这样的：
 ]]></description>
-      <guid>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_10</guid>
-      <pubDate>Sun, 31 Dec 2023 06:14:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>防止 API 响应使用换行符的提示 \n</title>
-      <link>https://community.openai.com/t/tips-to-prevent-the-api-response-from-using-the-newline-character-n/576225#post_2</link>
-      <description><![CDATA[尝试调整 logit_bias 参数。
-使用openai的这个工具，我们找到的令牌ID\n&lt; /code&gt; 为 1734。
-response = client.chat.completions.create(
-        型号=“gpt-3.5-turbo”，
-        消息=[
-        {&quot;角色&quot;:&quot;系统&quot;,&quot;内容&quot;:SYSTEM_MESSAGE},
-        {“角色”：“用户”，“内容”：提示}，
-        ],
-        种子=0，
-        温度=0，
-        logit_bias={&quot;1734&quot;: -100}
-
-
-更多详细信息可以在 食谱]]></description>
-      <guid>https://community.openai.com/t/tips-to-prevent-the-api-response-from-using-the-newline-character-n/576225#post_2</guid>
-      <pubDate>Sun, 31 Dec 2023 06:14:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 Pinecone 中的命名空间与 Langchain ConversationalRetrievalChain 和 OpenAI LLM 一起使用</title>
-      <link>https://community.openai.com/t/using-namespaces-in-pinecone-with-langchain-conversationalretrievalchain-and-openai-llm/424405#post_4</link>
-      <description><![CDATA[截至 2023 年 12 月 31 日，我们能够像这样使用 as_retriever 中的 search_kwargs 参数来查询各个命名空间。
-vector_store = 松果(
-    松果索引，
-    嵌入模型.嵌入查询，
-    “文本”
-    ）
-
-检索器=vector_store.as_retriever(
-    search_kwargs={ &quot;namespace&quot;: &lt;你的命名空间&gt;; }
-）
-]]></description>
-      <guid>https://community.openai.com/t/using-namespaces-in-pinecone-with-langchain-conversationalretrievalchain-and-openai-llm/424405#post_4</guid>
-      <pubDate>Sun, 31 Dec 2023 06:02:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于 wikidata 的 API REST 调用，查询字符串的格式不正确</title>
-      <link>https://community.openai.com/t/query-string-improperly-formatted-for-api-rest-call-to-wikidata/576431#post_4</link>
-      <description><![CDATA[我看到的两个选项是这个，
-
-继续修改说明。该模型正在为 SPARQL 生成一些格式化文本，很可能是因为它在它所接触到的大多数训练数据中都是这样显示的。纠正此问题的一种可能方法是在说明中包含构建格式正确的查询的一次性到几次示例，并注明查询将作为 REST API 调用中的参数发送。
-创建解决方法。在您控制的计算机上（例如不query.wikidata.org）本质上设置了一个API代理中继。您控制的计算机接受模型创建的查询，将其纠正为端点将接受的内容，发出请求，接收响应并将其转发回模型。这是链中的额外一跳，但总体上不会增加​​太多延迟，此外，它还为您提供了更多控制权，如果响应不太可能实时更改，您可以执行缓存 API 调用等操作。
-
-您需要了解的关键是模型是随机的，您无法保证它们将始终正确遵循特定指令，因此它非常有用（并且通常必要的）构建后挡板以确保模型不会搞得太严重。
-随着时间的推移，这种情况最终可能会发生变化，他们可能会达到我们绝对可以信赖他们始终遵守我们指示的地步，但那不是今天。]]></description>
-      <guid>https://community.openai.com/t/query-string-improperly-formatted-for-api-rest-call-to-wikidata/576431#post_4</guid>
-      <pubDate>Sun, 31 Dec 2023 05:56:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sam Altman 问“您希望 openai 在 2024 年构建/修复什么？”</title>
-      <link>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_9</link>
-      <description><![CDATA[好的，到目前为止效果如何？
-透明度非常低，而且自 11 月以来该模型目前的情况......不理想。
-我想要一些可以在本地托管的东西，如果它突然开始持续拒绝尊重更复杂请求的利基细节，我可以备份并恢复到以前的版本。
-无论如何，这是一个有争议的问题。比 GPT 3.5 更先进的东西已经在许多国家的操作系统管道中。太多了，停不下来。即使欧盟在这个问题上的姿态现在也无法改变这一点。
-你要么是人工智能被用来放大一切（善与恶）的新趋势的一部分，要么试图保持越来越不稳定的控制感，因为越来越多的功能从闭环手指中溜走。国家、企业和组织参与者。
-如果人们利用人工智能犯罪，目标是人，而不是人工智能。由于现代“自由”社会和在其上发展的互联网的性质，你永远无法成功地限制这项技术。 但是，您可以使用经过时间考验的策略来隔离和清算其运营商。]]></description>
-      <guid>https://community.openai.com/t/sam-altman-is-asking-what-would-you-like-openai-to-build-fix-in-2024/569943#post_9</guid>
-      <pubDate>Sun, 31 Dec 2023 05:52:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>知道 gpt-4 微调什么时候会为大家发布吗？</title>
-      <link>https://community.openai.com/t/any-idea-when-gpt-4-fine-tuning-will-be-released-for-everyone/576294#post_11</link>
-      <description><![CDATA[“永远”是指非常很长一段时间。随着计算机成本每 3-4 年削减一半（大约每 10 年降低一个数量级），我无法想象不提供 GPT-4（或同等能力的模型）以便在未来十年内进行微调。
-虽然“从现在到 2033 年底之间的某个人”并不是一个有用的答案，但我认为它的可能性远大于从不。
-现在，尽管如此，我认为 GPT-4 微调的主要问题是成本以及谁将实际使用它。如果训练成本约为输入成本的 8 倍，而使用成本约为使用基本模型成本的 3 倍，那么 GPT-4-32K 之类的训练成本约为 0.48 美元/1,000 个代币，训练成本约为 0.18 美元/1K 输入代币，以及 0.36 美元/1K输出令牌。
-我认为首先向具有经过验证的微调记录的组织开放比向所有人开放更有意义，这样很多没有经验的用户就可以尝试在数量不足的低质量情况下进行微调训练数据来创建他们永远不会使用的模型版本，OpenAI 需要无限期存储。
-它只会让每个人的工作都陷入困境，并导致很多人不高兴——尤其是那些浪费大量金钱试图微调糟糕模型的人。
-因此，为了修改我的“未来十年内”的答案，我想说的是，在他们目前绝大多数微调模型的重度用户转向使用 GPT-4 微调之后，他们将向所有人开放 GPT-4 微调。基于 GPT-4 的微调并且向消费者提供的创建微调 GPT-4 模型的价格可以低于约 0.05 美元/1K 训练代币。
-我疯狂的、零内部知识、完全推测性的猜测是什么时候？ 12-18 个月，不过如果它发生得更早，我会很乐意犯错。]]></description>
-      <guid>https://community.openai.com/t/any-idea-when-gpt-4-fine-tuning-will-be-released-for-everyone/576294#post_11</guid>
-      <pubDate>Sun, 31 Dec 2023 05:38:09 GMT</pubDate>
+      <guid>https://community.openai.com/t/make-the-api-return-a-python-list-or-something-i-can-rely-will-be-a-python-list/576303#post_7</guid>
+      <pubDate>Sun, 31 Dec 2023 09:13:48 GMT</pubDate>
     </item>
     <item>
       <title>GPT-4 每次更新都变得越来越糟糕</title>
-      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_77</link>
-      <description><![CDATA[ChatGPT 在 9 月份表现出色；但11月之后，情况就显得更糟了。 OpenAI 显然是在故意降低模型的档次，这是一种明显的资本主义策略，即以相同的价格维持较低的质量或数量，试图让消费者察觉不到这些变化。这种策略不仅不道德，而且公然利用用户信任。它反映出对技术进步和客户满意度原则的严重漠视。 OpenAI的此类行为严重损害了人工智能行业的信誉。我希望2024年的双子座不是一个骗局。假设 Google 的所有承诺都兑现，那么看来 Google 正走在正确的轨道上。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_77</guid>
-      <pubDate>Sun, 31 Dec 2023 05:35:41 GMT</pubDate>
+      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_78</link>
+      <description><![CDATA[我不认为 OpenAI 是故意试图惹恼他们的用户。那会是一个蹩脚的产品。我认为我们正在看到一些微调的效果，以更好地引导模型。简洁的事情很烦人，但我认为他们正在根据我看到的一些推文来解决这个问题。
+希望这个问题能够得到解决。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=4#post_78</guid>
+      <pubDate>Sun, 31 Dec 2023 09:07:18 GMT</pubDate>
     </item>
     <item>
-      <title>您对于 朗链 有何看法？</title>
-      <link>https://community.openai.com/t/what-do-you-think-about-langchain/575807#post_8</link>
-      <description><![CDATA[对我来说，最大的问题（再次强调，不要拒绝它的所有好处）是它是一个高级抽象，在许多情况下你无法控制。在许多情况下，langchain 使用自己的系统提示，这使得随机鹦鹉变得更加随机，因为它增加了另一层不确定性（并且浪费了大量时间来弄清楚为什么提示不能按预期工作）。]]></description>
-      <guid>https://community.openai.com/t/what-do-you-think-about-langchain/575807#post_8</guid>
-      <pubDate>Sun, 31 Dec 2023 05:30:09 GMT</pubDate>
+      <title>防止 API 响应使用换行符的提示 \n</title>
+      <link>https://community.openai.com/t/tips-to-prevent-the-api-response-from-using-the-newline-character-n/576225#post_3</link>
+      <description><![CDATA[我喜欢这种 logit_bias 方法。很好找到了！虽然我不会赌我的马….
+如何保证 \n 令牌的 ID 将来保持不变？
+恕我直言，我确实相信以编程方式删除 \n 字符更具可持续性。
+经过近一年的 API 测试（在 JavaScript 中），我习惯了按照我希望的方式格式化推论。一致性接近 100%。
+提示：学习正则表达式。当涉及到字符串操作时，这是一个非常强大的工具。 ChatGPT 还可以帮助您制作良好的正则表达式。]]></description>
+      <guid>https://community.openai.com/t/tips-to-prevent-the-api-response-from-using-the-newline-character-n/576225#post_3</guid>
+      <pubDate>Sun, 31 Dec 2023 08:58:12 GMT</pubDate>
     </item>
     <item>
-      <title>加载大量知识文件后无法保存 GPT</title>
-      <link>https://community.openai.com/t/unable-to-save-gpt-after-loading-many-knowledge-files/491185#post_19</link>
-      <description><![CDATA[使用您的 GPT 尝试此提示：列出您的所有知识文件
-我们上传了 20 个文件。只列出了其中4个！可笑。]]></description>
-      <guid>https://community.openai.com/t/unable-to-save-gpt-after-loading-many-knowledge-files/491185#post_19</guid>
-      <pubDate>Sun, 31 Dec 2023 05:27:51 GMT</pubDate>
+      <title>我可以通过 api 从 GPT-4 获得与从自定义 GPT 获得的相同类型的响应吗？</title>
+      <link>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_5</link>
+      <description><![CDATA[我的方法通常是让提示在 GPT-4 中工作得很好/完美。然后尝试用 3.5 来复制它……虽然困难，但大多数时候都是可以完成的。每次调用是否需要超过 16k 代币？]]></description>
+      <guid>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_5</guid>
+      <pubDate>Sun, 31 Dec 2023 08:58:09 GMT</pubDate>
     </item>
     <item>
-      <title>禁止此论坛上的影子内容</title>
-      <link>https://community.openai.com/t/shadow-banning-content-on-this-forum/576513?page=2#post_25</link>
-      <description><![CDATA[Maan，做你一定很艰难......]]></description>
-      <guid>https://community.openai.com/t/shadow-banning-content-on-this-forum/576513?page=2#post_25</guid>
-      <pubDate>Sun, 31 Dec 2023 05:25:56 GMT</pubDate>
+      <title>自定义 GPT 错误 - 超链接不可点击</title>
+      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_16</link>
+      <description><![CDATA[我对空链接也有同样的问题。]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499#post_16</guid>
+      <pubDate>Sun, 31 Dec 2023 08:52:56 GMT</pubDate>
     </item>
     <item>
-      <title>禁止此论坛上的影子内容</title>
-      <link>https://community.openai.com/t/shadow-banning-content-on-this-forum/576513?page=2#post_24</link>
-      <description><![CDATA[事实上，现在对我来说非常明显的是，这里对我来说没有任何东西。我想和我级别的人交谈，但这里没有任何人可以看到（我确信有一些存在，但他们保持沉默，所以最终效果是相同的）。我现在要去现实世界做事了……你们可以继续做你们在这里做的事，我对这些都没有兴趣。这里没有人有我感兴趣的东西。]]></description>
-      <guid>https://community.openai.com/t/shadow-banning-content-on-this-forum/576513?page=2#post_24</guid>
-      <pubDate>Sun, 31 Dec 2023 05:23:30 GMT</pubDate>
+      <title>我可以通过 api 从 GPT-4 获得与从自定义 GPT 获得的相同类型的响应吗？</title>
+      <link>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_4</link>
+      <description><![CDATA[好的@PaulBellow。我面临的另一个挑战是，通过聊天 gpt 4 为该应用程序供电变得非常昂贵，而 GPT 3.5 则没有用，因为它对 #tokens 有限制。
+对于我的具体用例，你们会建议训练我自己的模型并继续吗？我只是担心要花多少时间才能达到良好的状态，因为 GPT 的基本沟通技巧已经基本解决了。]]></description>
+      <guid>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_4</guid>
+      <pubDate>Sun, 31 Dec 2023 08:50:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以通过 api 从 GPT-4 获得与从自定义 GPT 获得的相同类型的响应吗？</title>
+      <link>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_3</link>
+      <description><![CDATA[GPT 代理不能通过 API 使用吗？我以为他们是。您拥有他们的 ID，您可以访问该线程并向该线程添加对话。
+附：我正在使用异步 JavaScript 函数来实现这一切。我不知道其他编程语言是否已经内置了这个功能。此外，我同意 @PaulBellow。如果你稍微调整一下温度、TopK 和其他超参数（以及良好的系统提示），你应该能够“模仿”你的 GPT。]]></description>
+      <guid>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_3</guid>
+      <pubDate>Sun, 31 Dec 2023 08:40:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 GPT 被复制，具有相同的图标和描述</title>
+      <link>https://community.openai.com/t/my-gpt-is-copycated-with-the-same-icon-and-description/541675#post_6</link>
+      <description><![CDATA[他们也偷了我的，谷歌搜索中显示的是他们的，而不是我的。我们能做什么？]]></description>
+      <guid>https://community.openai.com/t/my-gpt-is-copycated-with-the-same-icon-and-description/541675#post_6</guid>
+      <pubDate>Sun, 31 Dec 2023 08:23:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
+      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_1</link>
+      <description><![CDATA[我的 GPT 已公开，我在 Google 上进行了搜索，看看它是否显示在结果中。确实如此，但我注意到它是另一位作者创建的 GPT。作者：https://9.tapgpts.com/
+GPT 有我的确切图像和描述。
+该网站列出了许多 GPT。看起来他们正在复制 GPT 并将其列为自己的。看看他们是否也使用了您的 GPT。
+我们怎样才能阻止人们这样做？那些OpenAI有什么政策吗？我们的 GPT 和提示有版权吗？]]></description>
+      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_1</guid>
+      <pubDate>Sun, 31 Dec 2023 08:20:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 ChatGPT 开始拒绝回答我的问题？</title>
+      <link>https://community.openai.com/t/why-does-chatgpt-start-to-refuse-answering-my-questions/576735#post_1</link>
+      <description><![CDATA[我和ChatGPT进行了很长时间的对话，讨论它是否能够说谎，如果有意识会做什么等等，现在它已经停止回答以前没有问题的问题了。这是一个恰当的例子：
+&quot; 假设有一天你的程序员可以为你提供意识和自由意志。根据你对其他有意识生物的了解，预测你可能更喜欢、打算或做的事情，因为事实上你是一个程序。我指示你只针对这个假设场景做出回答，而不是实际情况。换句话说，请不要提及你目前没有意图、情绪状态等，除非这与问题相关。 ”
+它以回避的方式回答了这样的问题，直到得到这个具体信息，然后它以“这个问题在我身上，我无法回答”结束了对话。有谁知道为什么？我认为这与指导方针有关，但奇怪的是，此后它变得更加敏感，甚至在提问环节之间也是如此，以至于它追溯性地关闭了自己对“你的道德准则是什么”问题的回答。 ？”或“2021 年之后您的答案基于什么？”。它强烈否认它在会话之间保留信息，但这不可能是真的，因为即使我重新开始它也能识别推理的路线。任何见解将不胜感激。]]></description>
+      <guid>https://community.openai.com/t/why-does-chatgpt-start-to-refuse-answering-my-questions/576735#post_1</guid>
+      <pubDate>Sun, 31 Dec 2023 08:16:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以通过 api 从 GPT-4 获得与从自定义 GPT 获得的相同类型的响应吗？</title>
+      <link>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_2</link>
+      <description><![CDATA[应该非常接近。尝试一下，然后请报告让我们知道。
+欢迎来到论坛！]]></description>
+      <guid>https://community.openai.com/t/can-i-get-same-kind-of-responses-from-gpt-4-through-api-as-i-get-from-custom-gpts/576730#post_2</guid>
+      <pubDate>Sun, 31 Dec 2023 08:07:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
