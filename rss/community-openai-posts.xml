@@ -4,304 +4,193 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 02 Jan 2024 03:19:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 06:24:07 GMT</lastBuildDate>
     <item>
-      <title>谚语、典故、轶事、警句、笑话、谚语、名言、歌词、诗歌、故事、俏皮话的上下文推荐</title>
-      <link>https://community.openai.com/t/contextual-recommendation-of-adages-allusions-anecdotes-aphorisms-jokes-proverbs-quotes-lyrics-poems-stories-and-witticisms/577904#post_3</link>
-      <description><![CDATA[谢谢。这些都是关于检索增强生成的适用性以及可能涉及多个嵌入空间的优点。
-还值得注意的是，比喻智慧材料可以有多种解释。
-如果没有个性化，对话式搜索和推荐系统可以利用交互式对话流程来帮助最终用户阐明他们的搜索、阐明他们的场景或他们的查询，以最好地筛选和排序智慧材料的空间。
-通过个性化，我们可以设想有两个输入向量。其中之一是最终用户模型的向量 [1]。另一个是他们提供的场景或查询的向量。理论上，应该可以将这些输入向量组合或以其他方式转换为更高维嵌入空间中的更大输出向量。
-关于这些输入向量，在最近的出版物 [1] 中，提出了一种名为 life2vec 的技术。有了它或类似的东西，最终用户可以被建模为从生活事件序列映射的向量。
-我们还可以考虑推荐系统，为最终用户提供提供反馈的机会。收到结果后，最终用户可以点击或以其他方式投票，那些最有用的智慧材料。
-参考
-[1] Savcisens、Germans、Tina Eliassi-Rad、Lars Kai Hansen、Laust Hvas Mortensen、Lau Lilleholt、Anna Rogers、Ingo Zettler 和 Sune Lehmann。 “利用一系列生活事件来预测人类的生活。”自然计算科学（2023）：1-14。]]></description>
-      <guid>https://community.openai.com/t/contextual-recommendation-of-adages-allusions-anecdotes-aphorisms-jokes-proverbs-quotes-lyrics-poems-stories-and-witticisms/577904#post_3</guid>
-      <pubDate>Tue, 02 Jan 2024 03:18:17 GMT</pubDate>
+      <title>gpt-4-1106-preview 中的日语用法很奇怪</title>
+      <link>https://community.openai.com/t/japanese-usage-in-gpt-4-1106-preview-is-strange/572068#post_12</link>
+      <description><![CDATA[After further observation across three endpoints, I noticed an interesting behavior regarding Japanese negative interrogative sentences.
+Specifically, the word “翻訳”(translation) appeared transiently in the dialogue (this expression is not observed currently).
+In contrast to the “gpt-4-1106-preview”, the outputs from “gpt-4-0314” and “gpt-4-0613” consistently provided “いいえ” in response to prompts, which aligns with the system messages and seems to result in natural outcomes for native Japanese speakers.
+It appears that even with the same system_fingerprint, the preview version can still produce different outputs.
+I am attaching the results after adding the instruction to answer with “はい” or “いいえ” to the previous Japanese question.
+
+
+
+The cases answered with “いいえ” feel quite natural to me as a native Japanese speaker, and they explain the common interpretation that the nature of the question and its answer can reverse the use of “Yes, No” in English and “はい, いいえ” in Japanese.
+
+
+
+RareJob English Lab produced by レアジョブ英会話
+
+
+
+【Don’t you like it?】ややこしい否定疑問文への返答に混乱しないための、たった一つのポイント。 | English...
+「Don&#39;t you〜？」「Aren&#39;t you〜？」などの形をとる否定疑問文。この種の疑問文に関しては、「はい」と「いいえ」の答え方が日本語とは逆だということをご存知でしたか？今回はそんなややこしい否定疑問文に正しく答えるためにはどうすればよいのか、そのポイントを紹介します。
+
+
+
+
+
+At least for the “gpt-4-1106-preview”, the Japanese expressions in cases where “いいえ” is answered with a specific explanation have changed in this manner.
+The behavior changes with each experiment, so I cannot make definitive statements, but it seems that cases with intuitive and natural explanations for Japanese natives have started to appear in the gpt-4-1106-preview version.
+Here, I present the messages output by the “gpt-4-1106-preview” model, with the relevant parts highlighted in red.
+その質問に対して、「はい」と答えると「これはあなたのものではありませんね？」という質問に対して肯定していることになります。つまり、それがあなたのものではないという意味になります。 
+逆に、「いいえ」と答えると、それがあなたのものであることを示します。質問が否定形であるため、否定の返答は肯定の意味を持ちます。 したがって、それがあなたのものであれば、「いいえ」と答えるのが適切です。	
+
+Negative interrogative sentences are often misunderstood as ambiguous expressions by non-native English speakers, but depending on the context, they can also be unambiguous.
+
+If anyone feels that there is something slightly off with the Japanese expressions in the language model, reporting it here could potentially lead to improvements.]]></description>
+      <guid>https://community.openai.com/t/japanese-usage-in-gpt-4-1106-preview-is-strange/572068#post_12</guid>
+      <pubDate>Tue, 02 Jan 2024 06:22:36 GMT</pubDate>
     </item>
     <item>
-      <title>今天 API 出现重大问题，突然超时</title>
-      <link>https://community.openai.com/t/major-issues-with-api-today-timing-out-all-of-a-sudden/575778#post_4</link>
-      <description><![CDATA[看起来速率限制导致您的应用没有“突然”响应。
-如果您位于 Tier1，当未按预期响应时，请检查您是否达到日令牌速率限制（检查 api 响应或帐户电子邮件通知）。当使用辅助 api 进行检索时，每个 api 请求中可能会花费比您预期更多的令牌，紧张的测试/调试可能很容易达到速率限制，并且恢复非常非常慢。升级你的等级可能会有所帮助，但它会花费你更多的钱。
-如果你想要逐字流响应行为，你暂时不能使用助手api，需要使用stream=true的聊天完成api，并处理服务器发送的事件。在我的测试中，它没有花费额外的代币并损害速率限制（它产生更多的网络流量）。升级你的等级不会给你的 api 流行为，这是另一个故事。]]></description>
-      <guid>https://community.openai.com/t/major-issues-with-api-today-timing-out-all-of-a-sudden/575778#post_4</guid>
-      <pubDate>Tue, 02 Jan 2024 03:09:17 GMT</pubDate>
+      <title>Gpt-3.5-turbo ，生成正确的响应</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_7</link>
+      <description><![CDATA[我向 ChatGpt-4 提供 PDF 文件]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_7</guid>
+      <pubDate>Tue, 02 Jan 2024 06:19:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 openai 的 PDF 摘要生成器</title>
+      <link>https://community.openai.com/t/pdf-summarizer-using-openai/575747?page=2#post_22</link>
+      <description><![CDATA[
+
+
+ pythondev：
+&lt;块引用&gt;
+。您是否使用了聊天完成模型或使用 llm 的摘要链
+
+
+从技术上讲，聊天完成，尽管我有时会在此框架内使用块摘要。
+]]></description>
+      <guid>https://community.openai.com/t/pdf-summarizer-using-openai/575747?page=2#post_22</guid>
+      <pubDate>Tue, 02 Jan 2024 06:03:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 openai 的 PDF 摘要生成器</title>
+      <link>https://community.openai.com/t/pdf-summarizer-using-openai/575747?page=2#post_21</link>
+      <description><![CDATA[嗨@jr.2509 @SomebodySysop 感谢您的意见。您是否使用了聊天完成模型或使用 llm 的摘要链？]]></description>
+      <guid>https://community.openai.com/t/pdf-summarizer-using-openai/575747?page=2#post_21</guid>
+      <pubDate>Tue, 02 Jan 2024 05:56:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-3.5-turbo ，生成正确的响应</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_6</link>
+      <description><![CDATA[当您说“提供了 PDF 文件”时，是否意味着您正在使用助手 API 方法并上传文件本身？
+这依赖于 OpenAI 的工具和方法来从 PDF 中提取信息，这些文件可能具有不同程度的不可穿透性。
+如果这是您的 API 构建和依赖的数据，我会使用 Adob​​e Acrobat 等高质量工具自行将 PDF 处理为可搜索文本，然后复制文本或使用 python 提取文本图书馆。
+通过这样做，您可以看到人工智能对其中文本的理解缺乏什么，并修复该文档，使其成为人工智能易于理解的纯文本。它甚至可以作为文件放置到命名部分中，以便检索可以特定于可以进行语义搜索的部分。
+使用单一类型的数据，我们有一个可以参考的格式，但是许多不同的类型可能需要不同类型的请求。当采用 JSON 格式时，您可以看到在我用于处理第一个示例的聊天共享中，我指定了用于在 JSON 中检索的确切对象类型和键。您可以类似地在 JSON 本身之前提供架构，甚至重新处理键名称，使它们清晰且易于理解。
+人工智能并不神奇，但您可以通过使其接收的语言易于理解来提高成功的机会。]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_6</guid>
+      <pubDate>Tue, 02 Jan 2024 05:51:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 openai 的 PDF 摘要生成器</title>
+      <link>https://community.openai.com/t/pdf-summarizer-using-openai/575747#post_20</link>
+      <description><![CDATA[是的！我已经告诉人们这件事好几个月了！这就是你的做法。
+语义分块
+太棒了，你知道如何实现流程自动化。根据我处理各种 PDF 的经验，找到适用于每种情况的方法非常困难。]]></description>
+      <guid>https://community.openai.com/t/pdf-summarizer-using-openai/575747#post_20</guid>
+      <pubDate>Tue, 02 Jan 2024 05:41:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-3.5-turbo ，生成正确的响应</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_5</link>
+      <description><![CDATA[我提供了一个 PDF 文件，其中有一个 JSON 对象，其中包含很多字典。如果我从该 PDF 中提出问题，它不会给出正确的字典答案，而是给出 70% 的正确答案。]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-to-generate-correct-responses/564861#post_5</guid>
+      <pubDate>Tue, 02 Jan 2024 05:40:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
+      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_8</link>
+      <description><![CDATA[
+
+
+ vb：
+&lt;块引用&gt;
+是的，您可以上传自己的图片或使用 DALL-E 生成 GPT 图片。
+
+
+对于像我这样认为这在很长一段时间内被破坏的人来说，这是一个小附录，因为某种原因，这在 Firefox 中从未对我有用过。没有错误或任何东西，它只是不“接受”。我必须通过基于 Chrome 的浏览器来完成此操作。]]></description>
+      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_8</guid>
+      <pubDate>Tue, 02 Jan 2024 05:34:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何正确处理“明天”这样的时间引用？</title>
+      <link>https://community.openai.com/t/how-to-correctly-process-time-references-like-tomorrow/577757#post_3</link>
+      <description><![CDATA[我想我首先要了解所使用的日期格式，以及会话开始和当前时间以及用户区域设置和 UTC 偏移量的注入。
+然后你必须清楚地理解日期。
+日期格式 - 使他们的输出和理解可预测
+语言模型可能已接受过多种全球日期模式的训练，因此发现 08/08/2023 之后的日期可能是一项相当困难的预测任务。
+我会在系统提示描述或清晰的功能参数描述中指定人工智能需要知道的特定内容，例如下面的提示增强，这可能有助于任何基于数据的人工智能应用程序的强化：
+&lt;块引用&gt;
+[日期输入/输出格式]
+首选日期：2023 年 9 月 14 日
+紧凑：2023 年 9 月 14 日
+API：“09/14/2023”
+日程安排：“2023年9月14日14:30”
+[/引用]
+
+有了这个，您就可以从函数中清除容易混淆的多个时间示例，并且只专注于指定将放入函数中的日期应来自何处及其用途。
+理解用户的模糊日期
+然后是逻辑：“两周后您有预约吗？它必须有一个日历，了解一周的开始和结束日期，能够计算日期范围等 - 所有这些都来自预测最有可能输出的单词。
+计算常用项的函数
+用它缺乏智力的功能来启动它，“打印日历”功能，“日期之间的天数”计算器，“下周的日期”功能等都可以增强（并迷惑）人工智能。
+（主要是从我之前的答案中剪切和粘贴，以显示“有人找到方法了吗”）]]></description>
+      <guid>https://community.openai.com/t/how-to-correctly-process-time-references-like-tomorrow/577757#post_3</guid>
+      <pubDate>Tue, 02 Jan 2024 05:33:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 openai 的 PDF 摘要生成器</title>
+      <link>https://community.openai.com/t/pdf-summarizer-using-openai/575747#post_19</link>
+      <description><![CDATA[@pythondev @_j
+我在这里做了几件不同的事情。以文档的目录为基础，我确定了文档中的各个部分，然后从这些单独的部分中提取并总结了文本。然后将各个部分的摘要加上部分标题合并为完整的摘要。
+在这种方法下，大多数部分通常都在令牌限制内。
+如果部分大小超过预定义的阈值，我会将部分拆分为多个部分，分别总结这些部分并将它们重新组合在一起。为了确保章节中各个摘要的连贯性，我构建了提示，以便考虑前一部分的摘要。
+它被设计为一个完全自动化的过程。]]></description>
+      <guid>https://community.openai.com/t/pdf-summarizer-using-openai/575747#post_19</guid>
+      <pubDate>Tue, 02 Jan 2024 05:31:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>函数调用循环耗尽了我的预算</title>
+      <link>https://community.openai.com/t/function-call-loop-burned-through-my-budget/550563#post_21</link>
+      <description><![CDATA[您好@pedantic_geek，我创建了另一个问题，表达了我对使用 Google 助理的担忧API 正是因为代币昂贵。在上述对话中，我被建议使用聊天完成 API，这正是为了避免您遇到的过度收费问题。此时我有一个简单的问题要问您：既然您可能已经看过 Completion API，那么假设您仍在使用 Assistant API，那么是什么原因让您继续使用 Assistant API 而不是 Completion API。我的意思是，我知道每个人的作用，但我很好奇是什么让您坚持使用 Assistant API。谢谢]]></description>
+      <guid>https://community.openai.com/t/function-call-loop-burned-through-my-budget/550563#post_21</guid>
+      <pubDate>Tue, 02 Jan 2024 05:31:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>创造邪恶的医疗AI</title>
+      <link>https://community.openai.com/t/creation-of-feoul-medical-ai/363194#post_5</link>
+      <description><![CDATA[各位，你们说的不是这个。我说的是租用个人人工智能机器人来进行个人订单。如果OpenAI没有这样的服务，那么谁是提供这样服务的聪明人呢？但如果情况并非如此，那么谁准备好开始这样一项超赚钱的业务呢？我加入了。]]></description>
+      <guid>https://community.openai.com/t/creation-of-feoul-medical-ai/363194#post_5</guid>
+      <pubDate>Tue, 02 Jan 2024 05:28:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 计费信用卡已过期</title>
+      <link>https://community.openai.com/t/openai-billing-credit-card-expired/577875#post_2</link>
+      <description><![CDATA[您可以添加一张新的支付卡并将其设为默认卡（在使用新卡后的许多天之前不要删除最后一张卡），还可以购买信用额度来支付未结余额，直到您的余额大于零（您有可能支付双倍费用，而第二笔费用将用于新余额）
+不要等到下周处理月度账户时再次扣费失败。 &lt;img alt=&quot;:blush:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/blush.png?v=12&quot; title=&quot;:blush: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/openai-billing-credit-card-expired/577875#post_2</guid>
+      <pubDate>Tue, 02 Jan 2024 05:24:46 GMT</pubDate>
     </item>
     <item>
       <title>随机：'aiohttp...ClientResponseError'</title>
-      <link>https://community.openai.com/t/random-aiohttp-clientresponseerror/577507#post_2</link>
-      <description><![CDATA[&lt;块引用&gt;
-aiohttp.client_exceptions.ClientResponseError 是服务器响应出现问题时发生的一种错误。这可能是由于多种原因造成的，例如网络问题、服务器错误，甚至代码中的错误。您可以采取以下几个步骤来调试此问题：
-
-
-检查服务器状态：如果您尝试访问的服务器已关闭或遇到问题，则可能会导致此错误。您通常可以在服务器的状态页面上检查服务器的状态。
-
-
-检查错误消息：与 ClientResponseError 关联的错误消息通常可以提供有关错误原因的更多详细信息。如果您尚未记录此信息，您可能需要修改代码来执行此操作。
-
-
-重试请求：如OpenAI帮助文章中所述（https://help.openai.com/en/articles/6897179-apierror），有时问题可能是暂时的，只需在几秒钟后重试请求即可解决。
-
-
-检查您的代码：确保您的代码正确处理来自服务器的响应。例如，当响应不是 JSON 格式时，您可能会尝试将其读取为 JSON。
-
-
-更新您的库：如果您使用的是过时版本的 aiohttp 库或任何其他库，更新到最新版本可能会解决该问题。例如，一些用户在 OpenAI Python API 库 Github 上报告了类似问题 (错误：响应负载未完成·问题#574·openai/openai-python·GitHub），更新库后已解决。
-
-
-处理异常：您可以在代码中处理此异常，以防止它中断程序的执行。以下是如何使用 try/ except 块执行此操作的示例：
-
-
-
-
-尝试：#这里是你的代码
-除了 aiohttp.client_exceptions.ClientResponseError 为 e：
-print(f&quot;遇到错误：{e}&quot;) ```]]></description>
-      <guid>https://community.openai.com/t/random-aiohttp-clientresponseerror/577507#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:45:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法将文件上传到我的外部 API，并且总是收到验证错误，表明参数未正确传递</title>
-      <link>https://community.openai.com/t/unable-to-upload-a-file-to-my-external-api-and-always-getting-an-validation-error-that-indicates-params-are-not-getting-passed-correctly/577798#post_2</link>
-      <description><![CDATA[&lt;块引用&gt;
-您在将文件上传到外部 API 时遇到的问题似乎与您在 OpenAPI 架构中定义文件上传过程的方式以及在 PowerShell 脚本中处理请求的方式有关。
-根据您的 OpenAPI 架构，端点 /fileUpload 需要一个包含两个必填字段的 multipart/form-data 请求：fileSource（文件的二进制数据）和名称。 fileSource 字段应包含 .zip 文件的实际二进制数据，name 字段是一个字符串。
-但是，您的 PowerShell 脚本片段表明您正在手动设置 Content-Disposition 和 Content-Type 标头，这很好，但不清楚您如何设置正在附加文件数据本身。通常，在 PowerShell 中，您可以使用 Invoke-RestMethod 或 Invoke-WebRequest 发出包含多部分表单数据正文的 POST 请求。
-以下是如何构建 PowerShell 脚本来上传文件的基本概述：
-# 定义 API 端点的 URI
-$uri =“https://your-api-endpoint/fileUpload”
-
-# 定义 zip 文件的路径
-$filePath = &quot;路径\到\你的\文件.zip&quot;
-$fileBytes = [System.IO.File]::ReadAllBytes($filePath)
-$fileEnc = [System.Text.Encoding]::GetEncoding(&#39;ISO-8859-1&#39;).GetString($fileBytes)
-
-# 为 multipart/form-data 请求创建边界字符串
-$boundary = [System.Guid]::NewGuid().ToString()
-$contentType =“多部分/表单数据；边界=$boundary”
-
-# 构造请求体
-$bodyLines = @(
-    “--$边界”，
-    &quot;内容处置：表单数据；名称=`&quot;fileSource`&quot;；文件名=`&quot;$filePath`&quot;&quot;，
-    “内容类型：应用程序/x-zip-压缩”，
-    &quot;&quot;,
-    $文件编码，
-    “--$边界”，
-    &quot;内容配置：表单数据；name=`&quot;name`&quot;&quot;,
-    &quot;&quot;,
-    “您的文件名在这里”，
-    “--$边界--”
-）
-
-$body = $bodyLines -join &quot;`r`n&quot;
-
-# 提出请求
-$response = Invoke-RestMethod -Uri $uri -Method Post -ContentType $contentType -Body $body
-
-# 处理响应
-如果（$response.StatusCode -eq 200）{
-    “文件上传成功”
-} 别的 {
-    “文件上传错误：$($response.StatusCode)”
-}
-
-请确保文件路径和 API 端点 URL 设置正确。该脚本读取文件字节，对其进行编码，然后使用适当的标头和边界构造一个多部分表单数据请求正文。
-请记住调整脚本以满足您的特定要求并对其进行彻底测试。此外，请确保您的服务器端代码已正确配置为处理多部分/表单数据请求并正确解析传入的文件数据。
-
-但请注意！
-&lt;块引用&gt;
-截至 2023 年 4 月的最新更新，OpenAI 提供的自定义 GPT 实现无法直接发送文件（例如 .zip 文件）作为其 API 交互的一部分。与其他基于 GPT-3 的模型一样，自定义 GPT 模型主要处理文本输入和输出。它们本身不支持二进制数据处理，而这是发送 .zip 文件等文件操作所必需的。
-如果您的目标是将文件发送功能（例如 .zip 文件上传）与基于 GPT 的系统集成，则通常需要与 GPT 模型分开处理。这通常涉及：
-
-客户端处理：应用程序的客户端（可以是网络或桌面应用程序）将处理文件选择和上传部分。
-服务器端处理：服务器可以是单独的 API 或服务，它将接收文件、根据需要进行处理，并可能与 GPT 模型交互以进行任何基于文本的处理.
-GPT 模型交互：如果需要，服务器可以与 GPT 模型交互以生成或处理文本，这些文本可以基于上传文件的内容或元数据。这需要自定义逻辑从文件中提取文本，然后将其提供给 GPT 模型。
-
-例如，如果您有一个服务器端点来处理文件上传，您将首先将文件上传到该端点。根据需要处理文件（例如提取文本或相关数据）后，您可以将任何必要的文本发送到 GPT 模型以进行进一步处理或生成任务。
-请记住，GPT 的功能主要围绕文本生成和处理，因此任何非文本数据都需要在 GPT 模型之外进行处理，然后可能转换为模型可以理解的文本格式。
-]]></description>
-      <guid>https://community.openai.com/t/unable-to-upload-a-file-to-my-external-api-and-always-getting-an-validation-error-that-indicates-params-are-not-getting-passed-correctly/577798#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:37:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的跑步未完成</title>
-      <link>https://community.openai.com/t/my-runs-are-not-completing/577833#post_2</link>
-      <description><![CDATA[&lt;块引用&gt;
-根据摘录中提供的信息，您似乎正在按照正确的步骤创建运行并检查其状态。但是，您可能需要考虑以下几点：
-
-运行状态轮询：在您的代码中，您在进入循环之前仅检查一次运行状态。应在循环内检查运行状态以获得更新的状态。以下是修改循环的方法：
-
-let runStatus = wait openai.beta.threads.runs.retrieve(thread.id, run.id);
-while(runStatus.status === &quot;已排队&quot; || runStatus.status === &quot;in_progress&quot;){
-    console.log(`运行状态：${runStatus.status}`);
-    等待新的 Promise(resolve =&gt; setTimeout(resolve, 1000)); // 等待1秒
-    runStatus = 等待 openai.beta.threads.runs.retrieve(thread.id, run.id);
-}
-控制台.log(运行状态);
-
-
-
-助理 ID：确保您在创建跑步时使用正确的助理 ID。在您的代码中，您使用占位符值“某些默认值”。您应该将其替换为您助手的实际 ID。
-
-
-API 错误：如果运行状态没有从“in_progress”发生变化，则可能是由于 API 中出现错误。检查运行状态响应中是否有任何错误消息。
-
-
-API 负载：如果 OpenAI API 负载过重，则运行可能需要更长时间才能完成。不过，时间不应长达 20 分钟。如果是这种情况，您可能需要联系 OpenAI 支持。
-
-
-]]></description>
-      <guid>https://community.openai.com/t/my-runs-are-not-completing/577833#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:29:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法上传文件，出现“‘文件’是必需属性”错误</title>
-      <link>https://community.openai.com/t/can-not-upload-file-getting-file-is-a-required-property-error/577521#post_2</link>
-      <description><![CDATA[&lt;块引用&gt;
-您遇到的问题与文件数据如何包含在请求正文中有关。使用 multipart/form-data 进行文件上传时，请求正文不应是 JSON 字符串。相反，它应该是一个包含文件流和其他字段的 FormData 对象。
-在您当前的代码中，您使用的是 JSON.stringify，它不适合 multipart/form-data。这可能就是服务器无法识别您请求中的“文件”字段的原因。
-以下是修改函数以正确上传文件的方法：
-异步函数 uploadFile() {
-  const formData = new FormData();
-  formData.append(&#39;文件&#39;, fs.createReadStream(&#39;content.txt&#39;));
-  formData.append(&#39;目的&#39;, &#39;助手&#39;);
-
-  常量配置= {
-    方法：&#39;POST&#39;，
-    标题：{
-      &#39;授权&#39;：&#39;承载${apiKey}`
-      // 不要在这里设置“Content-Type”。让浏览器设置它。
-    },
-    正文：表单数据
-  };
-
-  让响应=等待获取(&#39;https://api.openai.com/v1/files&#39;, config);
-  让结果=等待response.json();
-  控制台.log(结果);
-}
-
-上传文件（）;
-
-主要变化：
-
-从标头中删除了 &#39;Content-Type&#39;: &#39;multipart/form-data&#39;。使用 FormData 时，浏览器将自动设置正确的 Content-Type 标头（包括边界）。
-用 FormData 替换了 JSON.stringify。这可以正确格式化文件上传的请求正文。
-
-这应该可以解决您遇到的错误。
-]]></description>
-      <guid>https://community.openai.com/t/can-not-upload-file-getting-file-is-a-required-property-error/577521#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:25:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
-      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_7</link>
-      <description><![CDATA[&lt;块引用&gt;
-OpenAI 制定了政策来保护其模型的使用及其生成的内容。根据摘录中提供的信息，您拥有使用 ChatGPT 创建的输出，包括转载、销售和商品化的权利，并遵守 OpenAI 的内容政策 (https://labs.openai.com/policies/content-policy）和条款（使用条款) ^source^ (https://help.openai.com/en/articles/6783457-what-is-chatgpt)。
-如果您认为您的 GPT 被滥用或复制，您可以向 OpenAI 报告您的疑虑以供进一步审核。 OpenAI 拥有自动系统，可帮助确保 GPT 遵守使用政策，防止有害内容和假冒^source^ (https://help.openai.com/en/articles/8554407-gpts-faq#h_56e44d6ee1)。
-但是，值得注意的是，虽然 OpenAI 制定了这些政策，但版权和知识产权的执行通常涉及超出 OpenAI 控制范围的法律程序。如果您认为自己的权利受到侵犯，您可能需要咨询法律专业人士。
-]]></description>
-      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_7</guid>
-      <pubDate>Tue, 02 Jan 2024 02:17:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>最近早上用 5 美元设置了付费帐户，仍然出现 openai.RateLimitError: 错误代码: 429</title>
-      <link>https://community.openai.com/t/recently-set-up-paid-account-with-5-in-the-morning-still-getting-openai-ratelimiterror-error-code-429/577609#post_2</link>
-      <description><![CDATA[欢迎。
-它最终开始工作了吗？]]></description>
-      <guid>https://community.openai.com/t/recently-set-up-paid-account-with-5-in-the-morning-still-getting-openai-ratelimiterror-error-code-429/577609#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:16:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
-      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_6</link>
-      <description><![CDATA[我尝试了几个链接，但没有一个链接回有问题的注册表。
-如果我在这里遗漏了一些东西，你能分享一个例子吗？]]></description>
-      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_6</guid>
-      <pubDate>Tue, 02 Jan 2024 02:15:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>您对 2024 年人工智能领域有何预测？</title>
-      <link>https://community.openai.com/t/what-are-your-predictions-for-2024-in-ai/577161#post_10</link>
-      <description><![CDATA[&lt;块引用&gt;
-
-嗨@Paul贝娄。我是你友好的支持机器人。我将尝试通过搜索知识库来回答您的问题。
-
----------------------- 根据摘录中提供的信息，无法对 2024 年的人工智能做出具体预测。但是，我们可以根据 OpenAI 的持续发展推断一些趋势：
-
-
-持续模型改进：OpenAI 一直在不断改进其模型，GPT-3.5 和 GPT-4 系列就是如此。我们预计这一趋势将持续下去，更新的模型将提供更好的性能、更多的功能和更高的效率（来源 (https://platform.openai.com/docs/models))。
-
-
-弃用旧模型：OpenAI 宣布弃用旧模型，表明重点关注更新、更先进的模型。这可能意味着开发人员和用户将需要适应更新的模型及其功能（来源 (https: //platform.openai.com/docs/deprecations))。
-
-
-积极研究和开发：大型语言模型 (LLM) 领域正在迅速发展，新技术和模型不断开发。这表明我们可以预期这些模型的功能在未来会取得重大进步（来源 (openai-cookbook/articles/techniques_to_improve_reliability.md 位于 main · openai/openai-cookbook · GitHub))。
-
-
-与其他人工智能技术集成：正如论坛帖子中所建议的，可以将 GPT 模型与其他人工智能技术集成以创建强大的管道。这可能会带来更通用、更强大的人工智能应用程序（来源（任何人都可以对 ChatGPT 中新的“自定义指令”有何想法？（OpenAI 的未来想法）))。
-
-
-请注意，这些是根据现有信息推断的趋势，而不是具体预测。 2024 年人工智能的实际发展可能会受到多种因素的影响，包括技术进步、市场需求、监管变化等。 ---------------------- 注意：您可以通过@再次提及我来问我后续问题
-]]></description>
-      <guid>https://community.openai.com/t/what-are-your-predictions-for-2024-in-ai/577161#post_10</guid>
-      <pubDate>Tue, 02 Jan 2024 02:14:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>谚语、典故、轶事、警句、笑话、谚语、名言、歌词、诗歌、故事、俏皮话的上下文推荐</title>
-      <link>https://community.openai.com/t/contextual-recommendation-of-adages-allusions-anecdotes-aphorisms-jokes-proverbs-quotes-lyrics-poems-stories-and-witticisms/577904#post_2</link>
-      <description><![CDATA[这是一个有趣的想法！
-您所描述的听起来像是检索增强生成方法。 assistants API 可能是一种入门方式，尽管这个论坛上有很多关于它的反馈。
-需要考虑的一件事是，查询可能与智慧材料不在同一嵌入空间中。作为一个玩具示例，个人可能正在寻求有关种植水果的帮助（字面情况），但提到水果（作为隐喻）的智慧材料可能与情况并不完全相关。]]></description>
-      <guid>https://community.openai.com/t/contextual-recommendation-of-adages-allusions-anecdotes-aphorisms-jokes-proverbs-quotes-lyrics-poems-stories-and-witticisms/577904#post_2</guid>
-      <pubDate>Tue, 02 Jan 2024 02:13:49 GMT</pubDate>
+      <link>https://community.openai.com/t/random-aiohttp-clientresponseerror/577507#post_4</link>
+      <description><![CDATA[我想到了你可以做的另一件事，考虑到最终有多少是你无法控制的：复制 GPT 的功能，但扩展指令使其成为“外部工具单元测试压力器 GPT”。
+让 AI 尝试在每个用户输入的多个不同的迭代请求中模拟与工具功能的典型交互，尝试首先激发 aiohttp 错误，然后专注于识别与 API 产生失败的交互类型，识别任何类型的交互。出现的模式。]]></description>
+      <guid>https://community.openai.com/t/random-aiohttp-clientresponseerror/577507#post_4</guid>
+      <pubDate>Tue, 02 Jan 2024 05:15:21 GMT</pubDate>
     </item>
     <item>
       <title>VERSES 宣布了通向 AGI 的道路，现在怎么办？</title>
-      <link>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636?page=2#post_32</link>
-      <description><![CDATA[您好，有人可以帮助我了解声称拥有 AGI 到底需要实现什么吗？
-如果说图灵测试是标杆，那么 GPT-4 就是 AGI。如果不是，还缺少什么？
-非常感谢]]></description>
-      <guid>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636?page=2#post_32</guid>
-      <pubDate>Tue, 02 Jan 2024 02:13:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
-      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_5</link>
-      <description><![CDATA[在 ChatGPT 中，复制的 GPT 指向 9.tapgts，而不是原始的 GPT 构建器。
-看起来 GPT 将无法兑现他们的承诺 - 就像插件失败一样。我们将拥有数量巨大的 GPT，但没有人会使用这些 GPT，尤其是在复制其他 GPT 如此容易的情况下。
-我认为它们对个人很有用。]]></description>
-      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736#post_5</guid>
-      <pubDate>Tue, 02 Jan 2024 02:08:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>异步使用库</title>
-      <link>https://community.openai.com/t/asynchronous-use-of-the-library/479414#post_4</link>
-      <description><![CDATA[在最新版本的 OpenAI Python 库中，acreate 方法已被删除。相反，您可以使用 AsyncOpenAI 类进行异步调用。以下是如何使用它的示例：
-从 openai 导入 AsyncOpenAI
-
-客户端 = AsyncOpenAI()
-
-响应 = 等待 client.chat.completions.create(
-            型号=“gpt-4”，
-            消息=消息，
-            工具=功能，
-            温度=0.0，
-            tool_choice=无
-        ）
-
-此代码是在 论坛帖子在这里。
-请注意，大规模使用 AsyncOpenAI 类时您可能会遇到一些问题。例如，为每个请求创建新客户端可能会导致内存泄漏，跨请求重用全局 AsyncOpenAI 客户端可能会导致 httpx.PoolTimeout s。此信息是在 OpenAI Python API 库的另一个 Gi​​thub 问题中找到的。 ]]></description>
-      <guid>https://community.openai.com/t/asynchronous-use-of-the-library/479414#post_4</guid>
-      <pubDate>Tue, 02 Jan 2024 02:05:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用聊天 GPT 自定义生成器时丢失数据</title>
-      <link>https://community.openai.com/t/lost-data-when-using-chat-gpt-custom-builder/577748#post_4</link>
-      <description><![CDATA[这些说明仍应位于自定义 GPT 的设置中，因此您应该能够在新线程中复制性能。]]></description>
-      <guid>https://community.openai.com/t/lost-data-when-using-chat-gpt-custom-builder/577748#post_4</guid>
-      <pubDate>Tue, 02 Jan 2024 01:57:19 GMT</pubDate>
+      <link>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636?page=2#post_34</link>
+      <description><![CDATA[对于 AGI 似乎没有达成共识的定义。
+但争论的定义是“比普通人更好”，甚至“不会产生幻觉并且可靠”。
+还有 SMI，即超级机器智能，它超越了 AGI，本质上比最聪明的人类还要聪明。
+但没有提及图灵测试作为受人尊敬的智能基准，可能是因为它已经被超越，而且我们需要的不仅仅是简单的图灵测试来拥有像样的人工智能。]]></description>
+      <guid>https://community.openai.com/t/verses-declares-path-to-agi-now-what/572636?page=2#post_34</guid>
+      <pubDate>Tue, 02 Jan 2024 05:13:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
