@@ -4,289 +4,175 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 03 Jan 2024 12:33:56 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2024 15:19:22 GMT</lastBuildDate>
     <item>
-      <title>使用 open ai api 在我的应用程序中实现文件上传</title>
-      <link>https://community.openai.com/t/implementing-a-file-upload-in-my-application-using-open-ai-api/575020#post_7</link>
-      <description><![CDATA[如何执行 RAG 取决于您。你可以使用 OpenAI 的 ada-embeddings-002 模型，它非常便宜。或者，如果您愿意，您可以托管自己的嵌入模型。]]></description>
-      <guid>https://community.openai.com/t/implementing-a-file-upload-in-my-application-using-open-ai-api/575020#post_7</guid>
-      <pubDate>Wed, 03 Jan 2024 12:25:10 GMT</pubDate>
+      <title>无需任何询问即可参与 ChatGPT</title>
+      <link>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_2</link>
+      <description><![CDATA[为了证实这一点，这是我所看到的
+第一次 Hello 和空重试会创建一条预期消息。
+在第三个提示中尝试“Hello”，但第四个提示为空。
+&lt;小时/&gt;
+您可以通过提供描述您要创建的图像的文本提示来使用 DALL·E 工具。以下是您可以如何构建对 DALL·E 工具的请求：
+
+尺寸：指定所需图像的尺寸，无论是正方形 (1024x1024)、宽幅 (1792x1024) 还是全身肖像 (1024x1792)。
+图像数量：决定要生成的图像数量，默认值通常为一张。
+提示：写下您要创建的图像的详细说明。尽可能具体以获得最佳结果。
+参考图片：如果您提出与上一张图片相关的请求，请包含该图片的参考 ID。
+
+以下是如何调用 DALL·E 工具的示例：
+{
+  “尺寸”：“1024x1024”，
+  “n”：1，
+  “prompt”：“黄昏时紫色天空下的未来城市景观，有飞行汽车、霓虹灯和街上行走的不同人群。”
+}
+
+此请求将根据提供的详细描述生成一张方形图像。
+&lt;小时/&gt;
+我的猜测是，虽然您可能认为提示的初始标记是空列表，但它可能是 Hello 后跟一些退格键。
+拥有权重会很有用。您是否尝试过使用权重公开的 GPT-2 进行相同的操作？]]></description>
+      <guid>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_2</guid>
+      <pubDate>Wed, 03 Jan 2024 15:13:32 GMT</pubDate>
     </item>
     <item>
-      <title>每次我向 chatGPT 提问时都会遇到“验证你是人类”的难题！</title>
-      <link>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_51</link>
-      <description><![CDATA[天啊，我一直被这个愚蠢的验证人类搞疯了。如果你错过了一个，你就必须重新开始。
-这是最烦人的人工验证！！！
-当我用 pdf 文件发布问题后出现“网络错误”时，情况就开始了。没有 pdf 似乎可以工作。
-日期/时间不是问题。
-根据正常运行时间，OpenAi chatgpt 没有任何问题。 （我对此表示怀疑）
-但是你能找到另一种人类检测​​来代替这些愚蠢的谜题吗，它们对人类来说太困难了。我需要编写一个机器人才能正确响应它们......（我可怜的眼睛）
-我怀疑计算机无法解决这些问题......
-我知道为什么 openai 让我们做这些谜题：我们正在免费训练一个识别模型。作为付费客户，我不接受这一点。
-我对所有这些网络错误、简短而懒惰的 chatgpt 答案和愚蠢的谜题感到非常沮丧。
-现在我还收到错误“对话太长，请开始新的对话。”对于只有一个句子的问题和一页单词 docx]]></description>
-      <guid>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_51</guid>
-      <pubDate>Wed, 03 Jan 2024 12:23:00 GMT</pubDate>
+      <title>RateLimitError：使用 gpt-4 和 gpt-3.5-turbo 时为 429</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-with-gpt-4-and-gpt-3-5-turbo/578186#post_1</link>
+      <description><![CDATA[我是付费客户，并且使用的是旧版本的 OpenAI (openai-0.28.0)。我遇到了 Ratelimiterror 问题：
+RateLimitError：您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档： https:// platform.openai.com/docs/guides/error-codes/api-errors。
+我使用了在线提供的所有建议，并查看了模型限制和错误处理页面。我找到了一个用于验证错误代码的代码片段，这是输出：
+openai.RateLimitError：错误代码：429 - {‘error’：{‘message’：‘您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档：https://platform.openai.com/docs/guides/error-codes/api-errors.&#39;, &#39;type&#39;: &#39;insufficient_quota&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;insufficient_quota&#39;}}
+12 月 29 日之前一切都正常，但是到了 31 日，当我运行代码时，它开始抛出错误，现在已经 4 天了。
+我又向我的账户添加了 10 美元，以防 9 美元的可用信用额度不够，但即便如此也没有解决问题。我以尽可能简单的形式使用 API（我从 OpenAI 网站获取了代码）。我已经尝试了一切，但似乎没有任何效果。有人可以帮我吗？我想我可以创建一个新帐户，但我会失去价值 20 美元的信用。
+非常感谢！]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-with-gpt-4-and-gpt-3-5-turbo/578186#post_1</guid>
+      <pubDate>Wed, 03 Jan 2024 15:11:06 GMT</pubDate>
     </item>
     <item>
-      <title>使用 open ai api 在我的应用程序中实现文件上传</title>
-      <link>https://community.openai.com/t/implementing-a-file-upload-in-my-application-using-open-ai-api/575020#post_6</link>
-      <description><![CDATA[如果我将RAG纳入我的项目并将其提交到服务器，服务器会产生额外的费用吗？我的要求是它必须分析文件中的数据，如 gpt-4 所示，并在我输入 csv 或 xlsx 格式的文档时在其中创建讨论。]]></description>
-      <guid>https://community.openai.com/t/implementing-a-file-upload-in-my-application-using-open-ai-api/575020#post_6</guid>
-      <pubDate>Wed, 03 Jan 2024 12:14:46 GMT</pubDate>
+      <title>无法访问高级数据分析</title>
+      <link>https://community.openai.com/t/unable-to-access-advanced-data-analysis/392125#post_15</link>
+      <description><![CDATA[在默认的GPT-4中，通过仅选择模型选择器（您也可以选择 GPT-3.5），所有工具均已启用。其中包括高级数据分析，可以编写 Python 代码并在沙箱中运行它以执行计算或处理附加文件。
+启用所有工具、浏览、dalle 和代码解释器（重命名为高级数据分析，或简称“分析”）后，AI 会预先加载文本，告诉它所有这些工具如何操作。这可能会分散它对作为基于代码的问题解决者的使命的注意力。
+GPT 构建器允许设计者在制作 GPT 代理时打开和关闭每个工具。 OpenAI 在“探索”下自己制作了一些 GPT，在那里他们关闭了除您想要的单个工具之外的所有其他工具。
+代码解释器不再有“测试版功能”或切换开关。]]></description>
+      <guid>https://community.openai.com/t/unable-to-access-advanced-data-analysis/392125#post_15</guid>
+      <pubDate>Wed, 03 Jan 2024 15:10:10 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API Streaming 有更新吗？</title>
-      <link>https://community.openai.com/t/any-updates-on-assistant-api-streaming/551809#post_11</link>
-      <description><![CDATA[有关于何时支持流媒体的消息吗？我真的不想拼凑一个手动版本的助手！]]></description>
-      <guid>https://community.openai.com/t/any-updates-on-assistant-api-streaming/551809#post_11</guid>
-      <pubDate>Wed, 03 Jan 2024 12:03:16 GMT</pubDate>
+      <title>我给 gpt4-vision 提供 5 张图像，需要识别 2 张相似的图像？</title>
+      <link>https://community.openai.com/t/i-give-5-images-to-gpt4-vision-and-need-to-identify-2-similar-images/546521#post_8</link>
+      <description><![CDATA[您可以让 AI 通过您提供的 JSON 中的索引来识别图像。根据我的经验，它在最多 5-6 个图像时效果很好，但之后它就会出现错误并弄乱顺序或跳过一些索引。只需在提示中询问哪些图像的索引相似即可。截至目前，还无法为每张图片提供 ID，我认为这很遗憾，我希望尽快添加此功能。]]></description>
+      <guid>https://community.openai.com/t/i-give-5-images-to-gpt4-vision-and-need-to-identify-2-similar-images/546521#post_8</guid>
+      <pubDate>Wed, 03 Jan 2024 15:08:44 GMT</pubDate>
     </item>
     <item>
-      <title>大错误：GPT 3.5 和 GPT-4 的结果根本不一致</title>
-      <link>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_1</link>
-      <description><![CDATA[我尝试比较翻译文本的 2 个结果。您将看到差异（左 - GPT 3.5 和右 - GPT 4）
-它们绝不相同。除了翻译都不是很好之外，似乎它们甚至都不重合。
-这是一个很大的错误，并非巧合。我的意思是，如果我告诉 GPT 3.5 和 GPT 4 考虑 5+5 是多少，那么给我结果 10 和其他 15 是否正确？
-这是一个很大的错误。两个版本的结果必须一致。否则你不知道哪一个是真的。
-我知道专业版更好，但在插件、扩展和集成方面一定更好。但结果不允许有不同。
+      <title>无需任何询问即可参与 ChatGPT</title>
+      <link>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_1</link>
+      <description><![CDATA[这不是编辑；这是一个实际问题。这个错误从去年开始就一直存在，并且仍然存在。它使 ChatGPT 能够在没有查询的情况下生成响应，有人知道它需要什么上下文来产生幻觉吗？
 
-这是我翻译的文字：
+无查询幻觉消息：
 
-Printre afectiunile in care acupunctura se dovedeste utila enumeram :
-
-* dureri 肌肉骨关节（lombalgii、坐骨神经痛、斜颈、[artroza](https://www.cdt-babes.ro/articole/artroza.php) in diferitele ei forme - gonartroza、coxartroza、artroza umarului、spondiloza、 dureri de spate、de ceafa、solduri、brate）
-* modificari Structuree mici de coloana vertebrala ([椎间盘疝气](https://www.cdt-babes.ro/articole/hernie-de-disc.php) incipienta)
-* 在肠胃消化中：balonari、arsuri、hiperaciditate、dureri腹部、便秘、[diaree](https://www.cdt-babes.ro/articole/gastroenterita_diaree_estivala.php)
-* sfera sistemului nervos : [焦虑](https://www.cdt-babes.ro/articole/anxietatea.php), [失眠](https://www.cdt-babes.ro/articole/igiena-somnului) .php), 神经植物综合症
-* tulburari 内分泌 : dureri menstruale, menstre neregulate, infertilitate
-
-在 bolile cronice 中，针灸 ajuta prin ameliorarea simptomatologiei，rarirea acutizarilor，reabilitare 功能。
+要验证这一点，您需要首先发送查询消息，然后清除查询，最后发送空查询]]></description>
+      <guid>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_1</guid>
+      <pubDate>Wed, 03 Jan 2024 14:54:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>Whisper 偶尔不会开始转录/转录速度非常慢</title>
+      <link>https://community.openai.com/t/whisper-occasionally-wont-start-transcribing-transcribes-very-slowly/576088#post_3</link>
+      <description><![CDATA[@ruslana.koziienko
+版主关闭此主题可以吗？]]></description>
+      <guid>https://community.openai.com/t/whisper-occasionally-wont-start-transcribing-transcribes-very-slowly/576088#post_3</guid>
+      <pubDate>Wed, 03 Jan 2024 14:48:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手——文本对象上的注释数组不一致</title>
+      <link>https://community.openai.com/t/assistants-annotations-array-on-text-object-inconsistent/578179#post_1</link>
+      <description><![CDATA[注释数组让我感到困惑。
+我原本期望用可点击的视图注释按钮替换【16†source】样式的文本，但奇怪的是，有时注释要求文本如此随机地放置在段落中间？例如，请参见下面...作为被引用的部分，这有何意义？比如注释中的“range of se”有什么上下文吗？
+{
+“类型”：“文件引用”，
+“text”：“se的范围”，
+“start_index”：1284，
+“end_index”：1295，
+“文件引用”：{
+“file_id”：“文件-CqE2HWvOspEpNiBloylXEGiZ”，
+“quote”: “# 【3†uasession.docx†file-CqE2HWvOspEpNiBloylXEGiZ】\n第 3 组–ADMIN \t 194.\t 行善\t 第 3 组–ADMIN \t 195.\t 观察报告质疑倡导支持\t第 3 组 - 管理员 \t 196.\t 留意周围环境并为那些可能需要帮助的人挺身而出。\t 第 3 组 - 管理员 \t 197.\t 看到什么说些什么\t 第 3 组 - 管理员 \t 198 .\t 倡导学生安全及其根据事件和世代而变化的方式\t 第 3 组 - 管理员 \t 199。\t 如果我的同事似乎需要朋友，请在他们身边\t 第 3 组 - 管理员 \t 200 .\t 了解紧急行动计划是什么\t 第 3 组 – 管理员 \t 201。\t 观察报告注意自身和他人的安全\t 第 3 组 – 管理员 \t 202。\t 发展\t 第 3 组– ADMIN \t 203.\t 监听来自 UAPD UAlert\t Group 3 – ADMIN \t 204 的通信。”
+}]]></description>
+      <guid>https://community.openai.com/t/assistants-annotations-array-on-text-object-inconsistent/578179#post_1</guid>
+      <pubDate>Wed, 03 Jan 2024 14:47:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>Whisper 偶尔不会开始转录/转录速度非常慢</title>
+      <link>https://community.openai.com/t/whisper-occasionally-wont-start-transcribing-transcribes-very-slowly/576088#post_2</link>
+      <description><![CDATA[关闭“CUDA Sysmem Fallback”解决了该问题。]]></description>
+      <guid>https://community.openai.com/t/whisper-occasionally-wont-start-transcribing-transcribes-very-slowly/576088#post_2</guid>
+      <pubDate>Wed, 03 Jan 2024 14:44:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-4-1106-preview: 400 该模型的最大上下文长度为 4097 个标记</title>
+      <link>https://community.openai.com/t/gpt-4-1106-preview-400-this-models-maximum-context-length-is-4097-tokens/578172#post_3</link>
+      <description><![CDATA[我刚刚向 OP 添加了一些代码。通常我没有指定 max_tokens。
+我希望我的后端能够接受长请求。
+你知道gpt-4-1106-preview可以接受的最大上下文长度是多少吗？]]></description>
+      <guid>https://community.openai.com/t/gpt-4-1106-preview-400-this-models-maximum-context-length-is-4097-tokens/578172#post_3</guid>
+      <pubDate>Wed, 03 Jan 2024 14:38:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法访问高级数据分析</title>
+      <link>https://community.openai.com/t/unable-to-access-advanced-data-analysis/392125#post_14</link>
+      <description><![CDATA[我不确定“数据分析”（应该是探索版中的 GPT 之一）是否与 Beta 功能中的“高级数据分析”相同。通过此链接： https://help .openai.com/en/articles/8437071-advanced-data-analysis-chatgpt-enterprise-version，我知道Code Interpreter被更名为Advanced Data Analysis。我不知道“高级数据分析”选项是否已从所有 ChatGPT Plus 订阅的设置中的 Beta 功能中删除，这是我很想知道的事情。]]></description>
+      <guid>https://community.openai.com/t/unable-to-access-advanced-data-analysis/392125#post_14</guid>
+      <pubDate>Wed, 03 Jan 2024 14:36:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>导入 OpenAI“从打开导入 OpenAI”时出错</title>
+      <link>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_7</link>
+      <description><![CDATA[已将错误传递给 ChatGPT，其中指出：
+pip 卸载 Typing_extensions
+pip 安装typing_extensions
 ]]></description>
-      <guid>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_1</guid>
-      <pubDate>Wed, 03 Jan 2024 12:00:20 GMT</pubDate>
+      <guid>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_7</guid>
+      <pubDate>Wed, 03 Jan 2024 14:34:34 GMT</pubDate>
     </item>
     <item>
-      <title>使用 LLM(GPT-3.5-Turbo) 将自然语言转换为 SQL 查询</title>
-      <link>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_6</link>
-      <description><![CDATA[您使用的是哪种提示和模型参数？]]></description>
-      <guid>https://community.openai.com/t/convert-natural-language-to-sql-query-using-llm-gpt-3-5-turbo/575015#post_6</guid>
-      <pubDate>Wed, 03 Jan 2024 11:43:31 GMT</pubDate>
+      <title>导入 OpenAI“从打开导入 OpenAI”时出错</title>
+      <link>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_6</link>
+      <description><![CDATA[在这条消息的标题中，我写的是 import 而不是 import。
+但在我的代码中我确实写了“from openai import OpenAI”。正如我所说，即使使用“import openai”，我也会遇到同样的错误。
+清楚了吗？]]></description>
+      <guid>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_6</guid>
+      <pubDate>Wed, 03 Jan 2024 14:29:25 GMT</pubDate>
     </item>
     <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_5</link>
-      <description><![CDATA[目前还没有像您所描述的那样具有零成本内存的大型语言模型。它们都需要每次都包含全套说明。]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_5</guid>
-      <pubDate>Wed, 03 Jan 2024 11:38:59 GMT</pubDate>
+      <title>Gpt-4-1106-preview: 400 该模型的最大上下文长度为 4097 个标记</title>
+      <link>https://community.openai.com/t/gpt-4-1106-preview-400-this-models-maximum-context-length-is-4097-tokens/578172#post_2</link>
+      <description><![CDATA[如果您确实指定了正确的 AI 模型，则可能是由于指定了错误的参数值而引发了不正确的错误消息。
+我会首先查看您正在使用的max_tokens。这是令牌中的响应长度保留。它并没有告诉人工智能它自己的上下文窗口。
+一个好的最大值约为 1500 个令牌，这是您从模型中获得的最多数量，除非执行特定的数据处理任务。
+该AI模型可设置的最大输出为4k。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-1106-preview-400-this-models-maximum-context-length-is-4097-tokens/578172#post_2</guid>
+      <pubDate>Wed, 03 Jan 2024 14:27:19 GMT</pubDate>
     </item>
     <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_4</link>
+      <title>导入 OpenAI“从打开导入 OpenAI”时出错</title>
+      <link>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_5</link>
       <description><![CDATA[
 
 
- 类别：
+ hndup0908：
 &lt;块引用&gt;
-有什么方法可以缓存第一个提示属性（例如大文本数据），并告诉 open-ai 使用该特定缓存来形成课程计划？
+“从开放导入 OpenAI”
 
 
-如果您正在管理自己的对话历史记录，那么您就走在正确的道路上。
-但是，每次 API 调用都不可避免地向 AI 发出指令（除了非常巧妙的技术 - 几次高质量的聊天回合也对 AI 进行了一些训练，您可以尝试替换更少的指令）
-在 AI 再次查看所有数据的情况下，也不会重复从数据中回答。
-前言：如果你想控制成本，就不要使用“助手”
-人工智能摘要和文档准备可以帮助您减少每次调用中持续存在的实际令牌数量。
-然后，如果你“聊天”：
-首先：计算每条消息和响应的令牌。添加此元数据对于管理和计算成本非常有用。
-然后考虑应用程序实际上需要多少过去的转弯。
-如果你需要延长聊天时间以产生长记忆的错觉，可以使用第二个人工智能偶尔进行的总结，甚至可以使用语义数据库来检索旧的聊天回合。
-您可以减少用户输入的数量或助理输出的数量。对于聊天来说，用户输入的内容可能比长人工智能响应更有助于理解主题。对于编码，这可能相反。
-数据传输和输入加载并不需要太多时间。 AI 可以在 2 秒内以流模式开始响应。然而，这种让人工智能做好回答准备的输入处理每次也需要计算资源。您不会被分配一个属于您自己的 AI 模型。]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_4</guid>
-      <pubDate>Wed, 03 Jan 2024 11:38:18 GMT</pubDate>
+这是拼写错误还是错误？]]></description>
+      <guid>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_5</guid>
+      <pubDate>Wed, 03 Jan 2024 14:27:18 GMT</pubDate>
     </item>
     <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_3</link>
-      <description><![CDATA[嗨@Foxabilo，
-感谢您的及时回复。还有其他模型可以支持我们的要求吗？请指导我们优化令牌使用和响应时间。
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_3</guid>
-      <pubDate>Wed, 03 Jan 2024 11:26:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法公开 GPT - 构建者配置文件中没有显示名称</title>
-      <link>https://community.openai.com/t/can-not-make-gpt-public-no-name-shows-up-in-builder-profile/483870?page=5#post_84</link>
-      <description><![CDATA[同样的问题！为了完成构建者配置文件，没有显示任何名称。有修复了吗？]]></description>
-      <guid>https://community.openai.com/t/can-not-make-gpt-public-no-name-shows-up-in-builder-profile/483870?page=5#post_84</guid>
-      <pubDate>Wed, 03 Jan 2024 11:25:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_2</link>
-      <description><![CDATA[嗨，
-不，该模型是无状态的，因此它需要每次传递所有信息。目前没有办法解决这个问题。]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_2</guid>
-      <pubDate>Wed, 03 Jan 2024 11:15:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理 API 性能非常慢</title>
-      <link>https://community.openai.com/t/assistant-api-performance-is-very-slow/557716#post_7</link>
-      <description><![CDATA[让我们列一个清单，然后检查两次......
-在我的图表中，成本是每100万个代币，因此您可以更轻松地比较价格：
-
-&lt;表&gt;
-&lt;标题&gt;
-
-型号
-训练 100 万
-输入使用量1M
-输出使用量1M
-上下文长度
-
-
-&lt;正文&gt;
-
-GPT-3.5-turbo-1106
-$n/a
-1.00 美元
-$2.00
-16k
-
-
-GPT-3.5-turbo
-$n/a
-1.50 美元
-$2.00
-4k
-
-
-GPT-3.5-turbo-16k
-$n/a
-3.00 美元
-$4.00
-16k（4k 输出）
-
-
-GPT-3.5 Turbo 微调
-$8.00
-3.00 美元
-$6.00
-4k
-
-
-GPT-4-1106（涡轮）
-$n/a
-10.00 美元
-$30.00
-125k（4k 输出）
-
-
-GPT-4
-$n/a
-30.00 美元
-$60.00
-8k
-
-
---------
--------------
--------------
--------------
--------------
-
-
-babbage-002基地
-$n/a
-0.40 美元
-0.40 美元
-16k
-
-
-babbage-002 微调
-0.40 美元
-1.60 美元
-1.60 美元
-16k
-
-
---------
--------------
--------------
--------------
--------------
-
-
-达芬奇-002底座
-$n/a
-$2.00
-$2.00
-16k
-
-
-davinci-002 微调
-$6.00
-$12.00
-$12.00
-16k
-
-
-
-比较价格&lt; /h3&gt;
-
-&lt;表&gt;
-&lt;标题&gt;
-
-令牌
-gpt-3.5-turbo
-gpt-4-turbo (1106)
-
-
-&lt;正文&gt;
-
-输入
-1x
-6.67x
-
-
-输出
-1x
-15x
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/assistant-api-performance-is-very-slow/557716#post_7</guid>
-      <pubDate>Wed, 03 Jan 2024 11:12:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>研究：通过 LCM 变压器避免 GPT 幻觉并实现 AGI</title>
-      <link>https://community.openai.com/t/research-avoiding-gpts-hallucinations-and-achieving-agi-through-lcm-transformers/578149#post_1</link>
-      <description><![CDATA[您可能是第一次遇到 LCM 这个术语，原因很简单：我刚刚创造了它。 LCM 代表“大型概念模型”。与 LLM 在句法层面使用原子神经元素作为单词不同，LCM 在语义层面使用原子神经元素作为概念。大约 15 年前，我写了两篇文章，如果今天重新审视，可能有助于避免幻觉并实现真正的 AGI，而不仅仅是其外表。
-第一篇文章，位于 https://www.codeproject.com/…/The-Building-of-a…，介绍计算谓词微积分的基础知识。它解决了经常被忽视的问题：什么是概念？我们可以用它们执行什么操作？我们如何操纵和代表它们？这些问题一直被概念科学所忽视，概念科学传统上关注单词和字母等句法元素。为了实现我们对 AGI 的追求，我相信我们必须扩展我们当前的成就，并将最终的转换器纳入不同的 GPT，最终形成概念元素的神经网络。
-第二篇文章，位于 https://www.codeproject.com/…/True-Natural-Language…，演示了借助“概念词典”从语法级别到语义级别的转换。它详细介绍了如何确定性地将句法形式转换为谓词（概念）以进行进一步的操作和操作。它还介绍了针对谓词知识库进行演绎和推理的概念和代码。
-这些文章的另一个有趣的方面是它们与量子计算的交叉点，利用三值状态变量 (YES-NO-MAYBE) 而不是二进制状态变量，表明在追求 AGI 的过程中两次 IT 革命的潜在融合。
-愿景
-设想一个场景，其中 LCM 转换器集成到最先进且一致的 GPT 中，其中原语和名称-值谓词对等概念标记成为神经网络的一部分，而不是单词等句法元素。这种转变将使知识从根本上成为概念性的而非句法性的，从而更接近人类认知并有可能实现通用人工智能。这种方法还可以规避语言模型中固有的幻觉，因为它可以在公认的概念元素而不是句法元素的迷宫中导航。
-十五年前，构建概念词典是一个重大障碍。然而，凭借当前 GPT 在处理编程语言方面的熟练程度，这一障碍可能是可以克服的。想象一下，利用 GPT 理解和操作代码的能力，在短短六个月内就可以生成包含整个英语词汇的综合概念词典。这一突破可以极大地加速我们迈向 AGI 的进程。]]></description>
-      <guid>https://community.openai.com/t/research-avoiding-gpts-hallucinations-and-achieving-agi-through-lcm-transformers/578149#post_1</guid>
-      <pubDate>Wed, 03 Jan 2024 11:12:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_1</link>
-      <description><![CDATA[大家好，
-一周以来，我们一直在使用 open-ai gpt-4 模型根据作为提示标记传递的文本数据生成结构化课程计划。现在每次我们都会通过巨大的提示让引擎为我们提供所需的信息。这每次都会消耗大量令牌，并且基本上耗尽了每个请求的令牌限制。甚至响应时间也超过了5分钟。有什么方法可以缓存第一个提示属性（例如大文本数据），并告诉 open-ai 使用该特定缓存来形成课程计划？这是为了缩短请求时间并降低令牌消耗，以便每天检索更多完成令牌。
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_1</guid>
-      <pubDate>Wed, 03 Jan 2024 11:09:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 消失了？！</title>
-      <link>https://community.openai.com/t/custom-gpt-disappearing/546131?page=3#post_42</link>
-      <description><![CDATA[更新&gt; GPT 在联系支持人员后回来了 ]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-disappearing/546131?page=3#post_42</guid>
-      <pubDate>Wed, 03 Jan 2024 11:00:41 GMT</pubDate>
+      <title>导入 OpenAI“从打开导入 OpenAI”时出错</title>
+      <link>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_4</link>
+      <description><![CDATA[我修改了标题。
+即使使用简单的 import openai ==&gt;我也有同样的错误。]]></description>
+      <guid>https://community.openai.com/t/error-while-importing-openai-from-open-import-openai/578166#post_4</guid>
+      <pubDate>Wed, 03 Jan 2024 14:26:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
