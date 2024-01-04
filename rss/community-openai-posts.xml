@@ -4,232 +4,74 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 03 Jan 2024 21:16:28 GMT</lastBuildDate>
-    <item>
-      <title>json 文件上传问题</title>
-      <link>https://community.openai.com/t/file-uploading-issue-with-json/577944#post_2</link>
-      <description><![CDATA[我为此投入了几个小时，制作了不同的上传器、验证器和重写器，这是我的最终结论：
-这被接受为 .json：
-
-{
-  &#39;40268&#39;：{
-    ‘id’：3，
-  },
-  “40268”：{
-    &quot;id&quot; : &quot;测试\n行&quot;,
-    “值”：+33，
-    “3val”：.35，
-  },
-}
-
-为什么？执行上传验证的 JSON5 库。
-&lt;块引用&gt;
-功能摘要
-以下 ECMAScript 5.1 功能（JSON 不支持）已扩展到 JSON5。
-对象
-
-对象键可以是 ECMAScript 5.1IdentifierName.
-对象可能有一个尾随逗号。
-
-数组
-
-数组可能有一个尾随逗号。
-
-字符串
-
-字符串可以用单引号引起来。
-字符串可以通过转义换行符来跨越多行。
-字符串可能包含字符转义。
-
-
-我有一个重写器，如果第一次被拒绝，它将更新 json，并且在上述所有情况下都会被采用。但这是通过正则表达式。稍后我会花更多时间看看是否有一个库功能可以执行 json-&gt;dict-&gt;json5 并在所有可以去的地方强制使用额外的逗号。]]></description>
-      <guid>https://community.openai.com/t/file-uploading-issue-with-json/577944#post_2</guid>
-      <pubDate>Wed, 03 Jan 2024 21:10:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>《纽约时报》起诉 OpenAI 和微软</title>
-      <link>https://community.openai.com/t/the-ny-times-is-suing-openai-and-microsoft/573518?page=4#post_68</link>
-      <description><![CDATA[
-
-
-格里竖琴：
-&lt;块引用&gt;
-我认为《纽约时报》的生存机会就像潮汐中的独木舟一样。
-
-
-很好的比喻。我认为它非常适合。他们花了太多时间坚持有效的方法，而不是创新，结果他们被 OpenAI 浪潮抓住了，他们脱了裤子，贴满了广告贴纸。
-看看谁将成功驾驭这股浪潮将会很有趣 。我的赌注是独立的。让我想起了夜行者。
-独立记者，现场捕捉事物并将其出售给出版商。只不过这次是 API 服务向内容创建者提供内容。]]></description>
-      <guid>https://community.openai.com/t/the-ny-times-is-suing-openai-and-microsoft/573518?page=4#post_68</guid>
-      <pubDate>Wed, 03 Jan 2024 20:47:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何微调gpt3.5-turbo以赋予它新的知识？</title>
-      <link>https://community.openai.com/t/how-to-fine-tune-gpt3-5-turbo-to-give-it-new-knowledge/458897#post_9</link>
-      <description><![CDATA[你这么说很有趣，我现在正在研究 AI + Manim。简而言之，我建议微调并不是 Manim 的最佳用例。您最好清除文档并建立知识库。从这里开始： 参考手册 - Manim 社区v0.18.0，你可以从页面上所有的href中抓取内容，然后想办法使用gpt-3.5来检索正确的上下文]]></description>
-      <guid>https://community.openai.com/t/how-to-fine-tune-gpt3-5-turbo-to-give-it-new-knowledge/458897#post_9</guid>
-      <pubDate>Wed, 03 Jan 2024 20:46:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>《纽约时报》起诉 OpenAI 和微软</title>
-      <link>https://community.openai.com/t/the-ny-times-is-suing-openai-and-microsoft/573518?page=4#post_67</link>
-      <description><![CDATA[看到旧媒体行业消亡是令人悲伤的。我不确定谁会为《纽约时报》曾经创建的内容和调查报道付费。我们在制作高品质音乐和其他媒体时也遇到过同样的问题。现在正在有机地创建支持此类事物的新模型，距离成熟还需要几年的时间。
-IOW，我认为《纽约时报》的生存机会就像潮汐中的独木舟一样。]]></description>
-      <guid>https://community.openai.com/t/the-ny-times-is-suing-openai-and-microsoft/573518?page=4#post_67</guid>
-      <pubDate>Wed, 03 Jan 2024 20:38:11 GMT</pubDate>
-    </item>
+    <lastBuildDate>Thu, 04 Jan 2024 01:14:29 GMT</lastBuildDate>
     <item>
       <title>将 pydantic 模式转变为函数/工具模式的规范方法？</title>
-      <link>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_3</link>
-      <description><![CDATA[我不太明白你在问我什么 - 我不验证模式 - 但我想要一些可以被完成调用接受的东西。计划是让函数使用 pydantic 对象，然后生成 pydantic 对象模式并将其放入完成调用的函数/工具参数中。
-我编写了一个库，可以从类型注释生成此工具定义 - 但没有人使用类型注释 - 所以 pydantic 可能是更好的选择，我想将其添加到那里。而且我的代码不处理更深层次的结构。这是我当前的代码： GitHub - zby/ToolDefGenerator：生成适合的结构client.chat.completions.create 调用中的工具参数]]></description>
-      <guid>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_3</guid>
-      <pubDate>Wed, 03 Jan 2024 20:33:02 GMT</pubDate>
+      <link>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_4</link>
+      <description><![CDATA[在 Langroid 中查看此代码 - 我们允许将工具/函数指定为 Pydantic 类以及关联的帮助器方法，并将它们转换为发送到 OpenAI API 作为函数规范所需的适当格式。我们还执行相反的操作 - 将 LLM JSON 输出与 Pydantic 类匹配并触发相应的处理程序。
+
+  &lt;标题类=“来源”&gt;
+
+      github.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    langroid/langroid/blob /main/langroid/agent/tool_message.py
+&quot;&quot;&quot;
+发送给代理的结构化消息（通常来自法学硕士），由
+一个代理人。例如，这些消息可以表示：
+- 提供给代理人的信息或数据
+- 向代理人请求信息或数据
+- 请求运行代理的方法
+”“”
+
+从 abc 导入 ABC
+从随机导入选择
+从输入导入 Any、Dict、List、Type
+
+从 docstring_parser 导入解析
+从 pydantic 导入 BaseModel
+
+从 langroid.language_models.base 导入 LLMFunctionSpec
+从 langroid.utils.pydantic_utils 导入 _recursive_purge_dict_key
+
+
+类 ToolMessage(ABC, BaseModel):
+
+
+
+
+  该文件已被截断。 显示原文
+
+
+
+
+
+（Langroid 是一个面向 Agent 的 LLM 编程 Python 框架，来自前 CMU/UW-Madison 研究人员）。
+您可以在此 Colab 快速入门中看到基于 Pydantic 的函数/工具的示例，该系统构建了一个 2 代理系统，其中一个代理通过向另一个启用 RAG 的代理发送问题来从文档中收集结构化信息： 
+
+  &lt;标题类=“来源”&gt;
+      
+colab.research。 google.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+Google合作实验室
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_4</guid>
+      <pubDate>Thu, 04 Jan 2024 01:04:46 GMT</pubDate>
     </item>
     <item>
-      <title>将 pydantic 模式转变为函数/工具模式的规范方法？</title>
-      <link>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_2</link>
-      <description><![CDATA[您提出的问题可能是更大应用目标的一部分。
-如果您谈论的是可以验证的函数架构，那么不，它无法处理检查或创建：
-&quot;string_w_enum&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;Happy&quot;, &quot;Sad&quot;]},
-
-我不知道你从哪里“免费”获得一个模式然后想要处理它。来自另一个函数或 API 的对象？
-我只是碰巧有一个带有 pydantic 模型的环境，可以询问它们为什么有用......
-
-摘要（点击查看更多详情）&lt; /a&gt;]]></description>
-      <guid>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_2</guid>
-      <pubDate>Wed, 03 Jan 2024 20:17:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>JSON 模式未返回有效的 JSON</title>
-      <link>https://community.openai.com/t/json-mode-not-returning-valid-json/572386#post_5</link>
-      <description><![CDATA[好吧，那是浪费时间。 GPT-3.5 每次都返回空白模式]]></description>
-      <guid>https://community.openai.com/t/json-mode-not-returning-valid-json/572386#post_5</guid>
-      <pubDate>Wed, 03 Jan 2024 20:13:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>API GPT-4-Turbo-Preview 在数学中以乳胶格式输出</title>
-      <link>https://community.openai.com/t/api-gpt-4-turbo-preview-has-output-in-latex-format-in-math/534293#post_6</link>
-      <description><![CDATA[我遇到了类似的问题，但我有点放弃阻止它输出LaTex，我只要求放置&lt;latex&gt;…&lt;/latex&gt;稍后捕获它并抛出 https://latex.codecogs.com/ 并渲染为图片。]]></description>
-      <guid>https://community.openai.com/t/api-gpt-4-turbo-preview-has-output-in-latex-format-in-math/534293#post_6</guid>
-      <pubDate>Wed, 03 Jan 2024 20:07:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助了解 GPT-4 Turbo 和文件存储的 ASSISTANT API 定价</title>
-      <link>https://community.openai.com/t/need-help-understanding-assistant-api-pricing-for-gpt-4-turbo-and-file-storage/575105#post_5</link>
-      <description><![CDATA[够清楚了！非常感谢您的宝贵时间！]]></description>
-      <guid>https://community.openai.com/t/need-help-understanding-assistant-api-pricing-for-gpt-4-turbo-and-file-storage/575105#post_5</guid>
-      <pubDate>Wed, 03 Jan 2024 19:49:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 错误地停用帐户，然后向客户收费</title>
-      <link>https://community.openai.com/t/chatgpt-falsely-deactivating-account-and-then-charging-customer/562691#post_3</link>
-      <description><![CDATA[此论坛上有数十个关于停用的主题：
-https://community.openai.com/search?q=deactivation
-有一些报告称 OpenAI 仍在向停用的客户收费，特别是这个，现已锁定：
-https://community.openai.com/t/account-deactivated-but-subscription-still-active-and-charging-my-card/227856?u=balupton
-共同的主题是停用会停止任何支持解决方案。希望我之前的帖子中停止计费的解决方法可以帮助@EdG，@entenmydestdo、@zzkzkkzzkz、@shi. Cheng 和共同防止任何未来费用
-https://community.openai.com/t/account-deactivated-but-subscription-still-active-and-charging-my-card/227856?u=balupton
-使用代码块来解决链接和提及限制。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-falsely-deactivating-account-and-then-charging-customer/562691#post_3</guid>
-      <pubDate>Wed, 03 Jan 2024 19:42:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>无需任何询问即可参与 ChatGPT</title>
-      <link>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_11</link>
-      <description><![CDATA[
-
-
- vb：
-&lt;块引用&gt;
-这样我们就可以解释系统消息并确保它是空的。
-
-
-为什么系统消息会是空的？
-这相当于编辑一条 ChatGPT 消息，然后 AI 不知道它的名字是什么。
-提醒：绿色 GPT 图标表示已选择 GPT-3.5。 GPT-3.5不会无意中从其功能上谈论DALL-E。 （尽管它可能会谈论它的个性，或者在哪里投票，这取决于你正在测试的内容）
-我无法使用 gpt-3.5-turbo-1106 上的提示来刺激 ChatGPT 或 Playground 产生任何随机内容。
-
-你好！您的留言似乎是空白的。今天我能为您提供什么帮助吗？
-你好！您似乎发送了一条空消息。今天我能为您提供什么帮助吗？
-你好！您似乎没有输入问题或请求。今天我能为您提供什么帮助吗？
-今天我能为您提供什么帮助吗？
-
-对未填充游乐场消息的诊断以及 AI 的报告：
-
-{“用户”：“”}
-我看到还有第二条消息。请提供该消息的内容以获得进一步帮助。
-
-编辑：按下了很多按钮，但我终于让操场的温度达到 0.9，以发出该模型训练过度的“当然！”然后它继续。
-&lt;块引用&gt;
-当然！以下是一些在营销中成功运用讲故事的品牌示例：
-
-
-耐克：耐克在广告活动中使用讲故事的历史由来已久。他们经常展示运动员克服挑战和实现梦想的广告。他们最著名的活动之一“Just Do It”以表现出决心和毅力的运动员的故事为中心。
-
-
-可口可乐：可口可乐以其广告中的情感驱动故事而闻名。他们的活动通常围绕团结、幸福以及与亲人分享特殊时刻的主题。他们最具代表性的活动之一是
-
-
-
-不再好玩后温度更高，1.03：
-&lt;块引用&gt;
-您有这种感觉可能有多种原因。以下是一些常见原因以及有关如何解决这种感觉的一些提示：
-
-
-工作不满意：如果您觉得自己的工作没有意义或没有成就感，请考虑与您的主管或人力资源部门讨论您的担忧。您还可以探索职业咨询或寻找更符合您的价值观和兴趣的新工作。
-
-
-倦怠：有时，对工作缺乏热情是倦怠的表现。优先考虑自我保健至关重要，
-
-
-
-所以这是令牌选择的随机性。 ChatGPT 旨在提供多样化的可训练投票输出，因此他们将采样参数设置得很高——太高以至于不常见的语言很容易出错。]]></description>
-      <guid>https://community.openai.com/t/engage-with-chatgpt-without-any-inquiry/578181#post_11</guid>
-      <pubDate>Wed, 03 Jan 2024 19:40:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理 API 性能非常慢</title>
-      <link>https://community.openai.com/t/assistant-api-performance-is-very-slow/557716#post_8</link>
-      <description><![CDATA[有趣的是我认为它并没有那么慢。我注意到当文本较大时与较小时相比，情况要糟糕得多。这可能是由于缺乏流响应。我最终迁移到 llama-index 并使用它自己的自定义 RAG 设置代理，而不是使用 open-ai。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-performance-is-very-slow/557716#post_8</guid>
-      <pubDate>Wed, 03 Jan 2024 18:56:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>RateLimitError：使用 gpt-4 和 gpt-3.5-turbo 时为 429</title>
-      <link>https://community.openai.com/t/ratelimiterror-429-with-gpt-4-and-gpt-3-5-turbo/578186#post_5</link>
-      <description><![CDATA[嗨！我有一个可能被忽视的快速故障排除步骤。
-首先，获取您在操作系统环境中设置的 OPENAI_API_KEY。这在新客户端中默认使用，无需您指定。
-然后，当您转到您的帐户时，单击左下角的您的姓名图标，然后将出现一个菜单。查看您是否有两个组织，其中一个是“个人”帐户，该帐户会自动添加到指定组织的旧帐户中。
-如果您有两个可选择的组织，则很可能从错误的组织获取 API 密钥，或者为错误的组织提供付款。
-尝试一下非个人的组织资料。查看该帐户是否既包含您当前使用的 API 密钥（按最后一位数字），又显示信用余额或您有每月计费帐户。确定您拥有正确的组织后，然后继续使用 API 密钥，只需为自己制作一个新密钥即可花费可用资金。
-据报道，最近添加的付款资金的使用出现了延迟。上个月月初也出现过这种情况。]]></description>
-      <guid>https://community.openai.com/t/ratelimiterror-429-with-gpt-4-and-gpt-3-5-turbo/578186#post_5</guid>
-      <pubDate>Wed, 03 Jan 2024 18:52:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 访问 HubSpot API</title>
-      <link>https://community.openai.com/t/openai-access-to-hubspot-api/578032#post_3</link>
-      <description><![CDATA[谢谢保罗。我会联系 Cloudflare。
-作为一个附带问题，一般来说（在 Hubspot 示例之外）我上面解释的内容是否可以在不使用 LangChain 的情况下实现？那么我是否可以单独使用 OpenAI 来“阅读”API 文档，然后根据自然语言提示进行相关 API 调用并返回数据？]]></description>
-      <guid>https://community.openai.com/t/openai-access-to-hubspot-api/578032#post_3</guid>
-      <pubDate>Wed, 03 Jan 2024 18:50:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistant API 不知道其指令</title>
-      <link>https://community.openai.com/t/assistant-api-is-not-aware-of-its-instructions/482292#post_12</link>
-      <description><![CDATA[
-
-
-瓦达瓦拉：
-&lt;块引用&gt;
-我浪费了很多时间，因为这个不清楚。运行级别指令优先于助理级别指令。
-
-
-就像我一样 
-+1]]></description>
-      <guid>https://community.openai.com/t/assistant-api-is-not-aware-of-its-instructions/482292#post_12</guid>
-      <pubDate>Wed, 03 Jan 2024 18:49:30 GMT</pubDate>
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=17#post_339</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=17#post_339</guid>
+      <pubDate>Thu, 04 Jan 2024 00:45:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
