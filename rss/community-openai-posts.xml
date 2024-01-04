@@ -4,197 +4,158 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 04 Jan 2024 09:23:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jan 2024 12:32:42 GMT</lastBuildDate>
+    <item>
+      <title>将 pydantic 模式转变为函数/工具模式的规范方法？</title>
+      <link>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_6</link>
+      <description><![CDATA[ToolMessage 本身不是递归的。使用嵌套 Pydantic 结构的方式是通过 BaseModel 在 Pydantic 中纯粹定义嵌套结构，然后将嵌套类名称作为 ToolMessage 中的参数之一。在您的情况下，您将有一个名为 Spam 的 ToolMessage，其中包含一个名为“myspam”、类型为 Spam1 的字段。
+事实上，嵌套案例正是我在 Colab 中演示的。]]></description>
+      <guid>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_6</guid>
+      <pubDate>Thu, 04 Jan 2024 12:11:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>澄清讨论个人经历的内容政策</title>
+      <link>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_34</link>
+      <description><![CDATA[就技术解决方案而言，据我了解，这些设置是可以调整的（不仅仅是即时设计 - 充分纳入站立护栏政策 -），其方式类似于为 LoRa 模型指定权重。
+然而，这种方法是一把双刃剑，因为它源于“回形针最大化”悖论。这意味着，如果您知道自己不希望在对话中讨论某种特定类型的内容，并且您为此禁令分配了最大负权重，那么事实上，您很可能会无意中使所有相关主题（无论松散相关）也不可用。
+因此，恕我直言，开发者和政策制定者应该共同努力尝试各种权重组合，以达到最佳场景。
+有几种半/自动策略可以实现这一目标，而不仅仅是反复试验，例如多目标优化技术，它同时考虑各种权重的线性组合，然后返回一个沿着帕累托前沿的一组候选解决方案，可以根据特定领域的知识从中挑选它们，甚至可以使用更复杂的选择算法来考虑解决方案沿前沿的传播以及其他变量。
+但目前看来他们正在采取大锤方式。我不怪他们……他们肯定有很多事情需要考虑。
+我只是担心这种方法对产品及其用户群的看法产生的不利影响。]]></description>
+      <guid>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_34</guid>
+      <pubDate>Thu, 04 Jan 2024 11:59:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ArduPilot UAV（又称无人机）和 ChatGPT-4 使用 MAVProxy 的聊天模块</title>
+      <link>https://community.openai.com/t/ardupilot-uavs-aka-drones-and-chatgpt-4-using-mavproxys-chat-module/578292#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/ardupilot-uavs-aka-drones-and-chatgpt-4-using-mavproxys-chat-module/578292#post_1</guid>
+      <pubDate>Thu, 04 Jan 2024 11:53:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>在自定义GPT中执行python函数</title>
+      <link>https://community.openai.com/t/execute-python-function-in-custom-gpt/578291#post_1</link>
+      <description><![CDATA[我正在创建一个自定义 GPT 模型，用于对给定数据集执行计算。我创建了一个知识文件，其中包含有关如何执行操作的详细说明。虽然自定义 GPT 有时会根据这些指令生成所需的结果，但在某些情况下它会生成不正确或次优的代码，从而导致不正确的结果。为了解决这个问题，我尝试将代码示例作为知识文件的一部分（作为 .py 文件）传递，并指示 GPT 专门使用提供的代码片段。但是，我遇到了 GPT 无法加载我提供的代码的困难。
+有没有人成功地将 Python 代码传递到自定义 GPT 模型，确保它有效地利用所提供的代码？]]></description>
+      <guid>https://community.openai.com/t/execute-python-function-in-custom-gpt/578291#post_1</guid>
+      <pubDate>Thu, 04 Jan 2024 11:45:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>澄清讨论个人经历的内容政策</title>
+      <link>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_33</link>
+      <description><![CDATA[本主题开头有一些很棒的提示，涉及测试您的提示以及单词替换如何让您……操作系统……可以这么说。
+话虽这么说，这项技术将具有变革性，现在就什么适合什么不适合内容过滤器发出噪音很重要。在美国，言论自由是一件大事。为了保护我们的权利，人们变得……不那么活跃了。尽管如此，你不能在拥挤的剧院里大喊着火，你不能抄袭某人的作品，你不能向儿童出售色情作品，所以……言论自由。我认为我们中的任何人都不希望 OpenAi 让我们寻求帮助，让人们……失去活力，但是，如果您在亲人被谋杀后需要帮助应对，并且只是想寻求应对技巧……被标记似乎就像它只会在受苦的人的伤口上撒盐。
+再次，在本线程开始时，我了解了如何将令牌分配给过滤器以及一些我没有想到的挑战，因此对于未来的技术解决方案没有真正的答案，但很高兴找到这样的答案这个论坛上很多人都有同样的感觉，并希望人们继续倡导未来更好的政策。]]></description>
+      <guid>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_33</guid>
+      <pubDate>Thu, 04 Jan 2024 11:44:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 pydantic 模式转变为函数/工具模式的规范方法？</title>
+      <link>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_5</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/canonical-way-of-turning-pydantic-schemas-into-function-tools-schemas/578189#post_5</guid>
+      <pubDate>Thu, 04 Jan 2024 11:29:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>速率限制错误：分钟和每日限制</title>
+      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_6</link>
+      <description><![CDATA[这也只是猜测：你使用的是阿拉伯文字吗？速率限制器和模型计算代币的方式不同。速率限制器可能大大高估了令牌数量。]]></description>
+      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_6</guid>
+      <pubDate>Thu, 04 Jan 2024 10:32:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>速率限制错误：分钟和每日限制</title>
+      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_5</link>
+      <description><![CDATA[感谢您的回复！
+我唯一关心的是为什么我会犯达到极限的错误，而实际上我没有！
+就像当我发送带有 86000 个代币的提示（每分钟限制为 150,000 个）时，我收到错误，并提到已使用的代币约为 69000 个。]]></description>
+      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_5</guid>
+      <pubDate>Thu, 04 Jan 2024 10:12:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-35-turbo-instruc 语言翻译</title>
+      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_6</link>
+      <description><![CDATA[由于模型上下文长度以及某些世界语言中标记使用的放大，您甚至可能无法发送 3000 个单词，更不用说有足够的剩余空间来形成答案了。
+这是一个在线工具，可以帮助您了解单词到标记的用法。
+https://platform.openai.com/tokenizer
+如果语言是对称的，那么您最多可以期待 2000 个输入，2000 个输出。不过，人工智能会犹豫不决，无法高质量地写出那么多内容。
+您应该使用分块和分割算法一次翻译较小的段落，然后重新组合它们。]]></description>
+      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_6</guid>
+      <pubDate>Thu, 04 Jan 2024 10:01:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 生成的 API 调用出现 JSON 语法错误</title>
+      <link>https://community.openai.com/t/json-syntax-error-with-gpt-generated-api-call/578255#post_3</link>
+      <description><![CDATA[ 。当生成的参数涉及 python 对象时，它仍然会给出 json 错误。这是生成的错误。
+&lt;块引用&gt;
+上次尝试创建条形图时出现的错误是与 JSON 解析相关的 ApiSyntaxError。具体来说，错误消息指出：“无法将 API 调用 kwargs 解析为 JSON：异常=期望值：第 1 行第 1211 列（字符 1210）。”这表明 JSON 格式或传递给 API 的数据结构存在问题
+]]></description>
+      <guid>https://community.openai.com/t/json-syntax-error-with-gpt-generated-api-call/578255#post_3</guid>
+      <pubDate>Thu, 04 Jan 2024 09:45:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-35-turbo-instruc 语言翻译</title>
+      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_5</link>
+      <description><![CDATA[我的问题是，如果页面中有 3000 个单词，是否可以使用 gpt-3.5-turbo-instruct 模型使用单个请求来翻译它]]></description>
+      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_5</guid>
+      <pubDate>Thu, 04 Jan 2024 09:43:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>速率限制错误：分钟和每日限制</title>
+      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_4</link>
+      <description><![CDATA[您还可以参考食谱：
+
+  &lt;标题类=“来源”&gt;
+      
+cookbook.openai.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+如何处理速率限制 | OpenAI 食谱
+使用 OpenAI API 进行构建的开源示例和指南。浏览片段、高级技术和演练的集合。分享您自己的示例和指南。
+
+
+
+
+
+这里我们有一个声明：
+&lt;块引用&gt;
+如果您不断达到速率限制，然后退缩，然后再次达到速率限制，然后再次退缩，则您的请求预算的很大一部分可能会“浪费”在需要重试的请求上。在给定固定速率限制的情况下，这会限制您的处理吞吐量。
+
+这暗示失败的请求仍然是一个请求。
+对于下一个等级，只需支付一次金额即可。那么你应该清楚，只要时间要求也满足，就可以进入下一层。]]></description>
+      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_4</guid>
+      <pubDate>Thu, 04 Jan 2024 09:38:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>澄清讨论个人经历的内容政策</title>
+      <link>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_32</link>
+      <description><![CDATA[是的，我也收到了一个标记为在没有特定意图的随机句子中使用“kill”一词的查询。
+在我看来，对于内容过滤器来说有点太过分了，我同意 ChatGPT 最近受到削弱，以至于它失去了很大一部分功能和价值，这将极大地阻碍它在市场竞争中的可能性。这很可能是 OpenAI 新董事会的政策，但最终可能会扼杀该产品。我的意思是-让它不那么活跃-（抱歉）。也许对于 API（例如：拥有大量用户群的业务应用程序）来说，护栏应该不同于对于处于私人思想领域的个人用户的护栏。
+我本身并不是加速者，我了解逐底竞争的动态，并且我知道一些护栏的存在一定有充分的理由，并且即使该产品被削弱了 90%，它仍然有价值。 
+我所争论的是，实际的护栏应该更加细致和微妙，因为现在他们感觉就像使用大锤来敲碎坚果，或者，最恰当的是：“杀伤力太大”（再次抱歉 - 我无法抗拒这个双关语）。]]></description>
+      <guid>https://community.openai.com/t/clarifying-content-policy-on-discussing-personal-experiences/576380?page=2#post_32</guid>
+      <pubDate>Thu, 04 Jan 2024 09:30:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>速率限制错误：分钟和每日限制</title>
+      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_3</link>
+      <description><![CDATA[但即使我发送了大约 75,000 个代币，它也会因为分钟限制而被拒绝！你知道为什么吗？解决这个问题的最佳方法是什么？
+我同意你的观点，看起来拒绝消耗了每日限额，但我找不到拒绝标准的明确文档，比如每次拒绝消耗了什么？
+最后一个问题，为了升级到第 2 级，我必须花费 50 美元，这是每月支出（600 美元/年）吗？我是否必须收取额外的费用才能发送请求和接收响应，否则我的所有请求和响应都将消耗掉 50 美元？
+感谢您的回复！！]]></description>
+      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_3</guid>
+      <pubDate>Thu, 04 Jan 2024 09:24:05 GMT</pubDate>
+    </item>
     <item>
       <title>您最喜欢的 chatGPT 语音是什么？</title>
       <link>https://community.openai.com/t/what-is-your-favorite-chatgpt-voice/395253?page=3#post_63</link>
-      <description><![CDATA[如果我只有一个要求，那就是音量调大一点。在 Android 应用程序中，即使音量开到最大，我也几乎听不到 Whisper 说话。我猜这就是它名字的由来。我将其与其他（松散的）类似产品（例如 pi.AI 和 ChatGPT）进行了比较，其免提一键通模式下的音量更加安静、低沉和柔和，以至于有时甚至很难听到它在说什么。正在说。
+      <description><![CDATA[如果我只有一个要求，那就是音量调大一点。在 Android 应用程序中，即使音量开到最大，我也几乎听不到 Whisper 说话。我猜这就是它名字的由来。我将其与其他（松散的）类似产品（例如 pi.AI 和 ChatGPT）进行了比较，其免提一键通模式下的音量要安静得多、低沉且柔和，有时甚至很难听到它在说什么。正在说。
 顺便说一句，难道不能实现一个简单的过滤器来过滤掉它有时发出的点击声和嘶嘶声吗？
 最后一件事：我发现音频响应有时会口吃并且有点混乱，而且这个问题很难解决，但我不明白的是 ChatGPT 在处理查询时（例如在线搜索答案时）发出的（类似钟声的）声音。这对我来说听起来是理所当然的……但事实似乎并非如此。]]></description>
       <guid>https://community.openai.com/t/what-is-your-favorite-chatgpt-voice/395253?page=3#post_63</guid>
       <pubDate>Thu, 04 Jan 2024 09:15:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于访问 OpenAI API 的 Fortran 库</title>
-      <link>https://community.openai.com/t/a-fortran-library-to-access-openai-api/382198#post_9</link>
-      <description><![CDATA[嗨！
-我今天会帮你检查一下。]]></description>
-      <guid>https://community.openai.com/t/a-fortran-library-to-access-openai-api/382198#post_9</guid>
-      <pubDate>Thu, 04 Jan 2024 09:06:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>大错误：GPT 3.5 和 GPT-4 的结果根本不一致</title>
-      <link>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_6</link>
-      <description><![CDATA[
-
-
- ioan.fantanaru：
-&lt;块引用&gt;
-你能看出来吗？
-
-
-这不是秘密，它只需要一些现有的编程和计算机技能或愿意学习。
-https://platform.openai。 com/docs/quickstart?context=python]]></description>
-      <guid>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_6</guid>
-      <pubDate>Thu, 04 Jan 2024 08:30:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-35-turbo-instruc 语言翻译</title>
-      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_4</link>
-      <description><![CDATA[请注意，该模型是一个完成模型，虽然具有遵循指令的能力，但仍然倾向于继续编写您提供的文本而不是回答问题。您必须清楚地描述人工智能应该从哪里开始回答。
-其次，该模型的上下文长度为 4k 个 token。英语比许多其他语言具有更高的标记压缩率。人们可能必须仔细确定代币使用的优先顺序。例如，设置参数 max_tokens=2500 会给出剩余的 1500 个令牌用于输入，并保留 2500 个令牌仅用于生成响应。
-使用最大上下文可能会降低质量，最多 500 个输入到 1000 个输出任务要好得多。
-最后，模型可能无法理解它不应该翻译的内容。
-实验应该可以指导您。这里我实验的是OpenAI规范，需要API参数本身不进行翻译，所以我就这么指示了。
-输入文本（1246 个标记）
-
-提示说明和非常长的输入（点击了解更多详细信息）
-响应，2500 个标记（输出更短，然后语言会变成重复的废话，即使将其设置为 top_p=0​​.01 以实现不需要温度来分解重复的任务的高可靠性）
-പൂർത്തിയാക്കൽകൾ（പഴയതായി）
-ഒരുപ്രോംപ്റ്റ്നൽകിയാൽ、മോഡൽഒരുഅല്ലെങ്കിൽ അതിന്റെ സ്ഥിരതയും പ്രവർത്തനത്തിന്റെ സാധ്യതക ളും ഒരു അല്ലെങ്കിൽ അതിന്റെ വിവരണം കാണഁന്നതിനാ യിനിങ്ങളുടെഅനുവദനീയമോഡൽഉപയോഗിക്കാം。 API 接口 API 接口ോഗിക്കാനും നമ്മുടെ ഏറ്റവും മുതിർന്ന മോഡലുകളി ൽ ഉപയോഗിക്കാനും അധികം ഡെവലപ്പറുകൾ ഉപയോഗിക്ാം 。 ലക്ഷ്യം പിന്തുണയ്ക്കുന്ന പഴയ പൂർത്തിയാക്കൽ 2024 年 4 月 4 日ചെയ്യും。
-照片നൽകിയ പ്രോംപ്റ്റുകളുടെ ഒരോ പ്രവർത്തനവും പ്രഴ ർത്തിക്കുംഒരുപൂർത്തിയാക്കൽസൃഷ്ടിക്കും。
-അഭ്യർത്ഥനാശരിക്കും
-മോഡൽ
-സ്ട്രിംഗ്
-ആവശ്യമാണ്
-请注意。 നിങ്ങൾ നിങ്ങളുടെ ലഭ്യമായ മോഡലുകൾക്ക് എല്ലാം കാണാം അല്ലെങ്കിൽ അവയുടെ വിവരണം കാണാം നമ്മുടെ മ ോഡൽ അവലോകനം എന്നിവയിൽ。
-പ്രോംപ്റ്റ്
-സ്ട്രിംഗ്അല്ലെങ്കിൽഅറേയായി
-ആവശ്യമാണ്
-പൂർത്തിയാക്കലുകൾസൃഷ്ടിക്കാൻ、ഒരുസ്ട്രിംഗ് , സ്ട്രിംഗുകളുടെഅറേയും, ടോക്കൺകളുടെ അറേയും, അല ്ലെങ്കിൽ ടോക്കൺ അറേയുകളുടെ അറേയും ആയി എൻകോഡുച 
-ഗണിതശാസ്ത്രംപഠിക്കുന്നതിന്നിങ്ങൾക്ക്അറേ യും പരിധിയിലെ പൂർത്തിയാക്കല്കലുകൾ സൃഷ്ടിക്കാനു നിങ്ങൾക്ക് അറേയും പരിധിയിലെ പൂർത്തിയാക്കലുക ൾ സൃഷ്ടിക്കാനും നിങ്ങൾക്ക് അറേയും പരിധിയിലെ ട ോക്കൺ അറേയും സൃഷ്ടിക്കാനും നിങ്ങൾക്ക് അറേയും പരിധിയിലെ ടോക്കൺ അറേയും സൃഷ്ടിക്കാനും നിങ്ങൾ ക്ക് അറേയും പരിധിയിലെ ടോക്കൺ അറേയും സൃഷ്ടിക്ക ാനും നിങ്ങൾക്ക് അറേയും പരിധിയിലെ ടോക്കൺ അറേയു ം സൃഷ്ടിക്കാനും നിങ്ങൾക്ക് അറേയും പരിധിയിലെ ട ോക്കൺ അറേയും സൃഷ്ടിക്കാനും നിങ്ങൾക്ക് അറേയും പരിധിയിലെടോക്കൺഅറേയും സൃഷ്ടിക്കാനും നിങ്ങൾക്ക്അറേയും പരിധിയിലെട ോക്കൺഅറേയുംസൃഷ്ടിക്കാനുംനിങ്ങൾക്ക്അറേയു
-这个糟糕的文本表明较小的任务和更多的指导是必要的，并且您可能需要限制人工智能接受更多训练的语言。]]></description>
-      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_4</guid>
-      <pubDate>Thu, 04 Jan 2024 08:28:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-35-turbo-instruc 语言翻译</title>
-      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_3</link>
-      <description><![CDATA[我想一键翻译网站特定页面的所有文本，一次翻译令牌数量是否有限制]]></description>
-      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_3</guid>
-      <pubDate>Thu, 04 Jan 2024 08:19:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>json 文件上传问题</title>
-      <link>https://community.openai.com/t/file-uploading-issue-with-json/577944#post_3</link>
-      <description><![CDATA[看起来是 JSON5，​​没关系。但无论如何，它并不能解释为什么“正常”json 被拒绝。 JSON5是JSON的扩展，因此它必须符合标准JSON文件。
-奇怪的是，如果我上传一个更结构化的 json，其中包含许多其他对象，它会起作用 
-实在是看不懂。]]></description>
-      <guid>https://community.openai.com/t/file-uploading-issue-with-json/577944#post_3</guid>
-      <pubDate>Thu, 04 Jan 2024 08:12:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-35-turbo-instruc 语言翻译</title>
-      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_2</link>
-      <description><![CDATA[嗨！
-为什么不呢？
-根据网站的长度，您可能需要对内容进行分块，并可能在管理分块时发挥创意。]]></description>
-      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_2</guid>
-      <pubDate>Thu, 04 Jan 2024 08:10:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>速率限制错误：分钟和每日限制</title>
-      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_2</link>
-      <description><![CDATA[嗨！
-看起来速率令牌限制是由负载均衡器强制执行的。这只是推测，但每日限制可能会在分钟限制之前被检查并增加，因此，如果您发送一堆被分钟限制拒绝的请求，您仍然可以耗尽每日限制 &lt;img alt=&quot;:thinking: “ class =“emoji” height =“ 20” src =“ https://emoji.discourse-cdn.com/twitter/thinking.png?v=12” title =“：thinking：” width =“ 20” /&gt; 
-很多人都遇到速率限制的问题，不幸的是，每天 50 万确实很低。]]></description>
-      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_2</guid>
-      <pubDate>Thu, 04 Jan 2024 08:05:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>大错误：GPT 3.5 和 GPT-4 的结果根本不一致</title>
-      <link>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_5</link>
-      <description><![CDATA[
-
-
-_j：
-&lt;块引用&gt;
-如果您使用 OpenAI API 来编程调用 AI 模型，
-
-
-如何使用 OpenAI API 来编程调用 AI 模型，以使翻译变得非常好？
-（当然，我问了 ChatGPT，但我得到了一个非常复杂的答案）
-一些简单的步骤？你能说出来吗？]]></description>
-      <guid>https://community.openai.com/t/big-mistake-the-results-do-not-coincide-at-all-between-gpt-3-5-and-gpt-4/578154#post_5</guid>
-      <pubDate>Thu, 04 Jan 2024 08:02:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-35-turbo-instruc 语言翻译</title>
-      <link>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_1</link>
-      <description><![CDATA[我正在使用这个模型进行语言翻译，它适用于包含很少单词的句子。
-这个模型可以应用于typo3后端的整个网站页面翻译吗？我想从typo3后端翻译网站的页面。]]></description>
-      <guid>https://community.openai.com/t/gpt-35-turbo-instruc-language-translation/578279#post_1</guid>
-      <pubDate>Thu, 04 Jan 2024 07:58:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于访问 OpenAI API 的 Fortran 库</title>
-      <link>https://community.openai.com/t/a-fortran-library-to-access-openai-api/382198#post_8</link>
-      <description><![CDATA[新年快乐！
-您认为今年会考虑这个主题吗？ &lt;img alt=&quot;:wink:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/wink.png?v=12&quot; title=&quot;:wink: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/a-fortran-library-to-access-openai-api/382198#post_8</guid>
-      <pubDate>Thu, 04 Jan 2024 07:45:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>速率限制错误：分钟和每日限制</title>
-      <link>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_1</link>
-      <description><![CDATA[大家好，
-我使用的是 gpt-4-1106-preview，它有一个上下文窗口 128,000 个令牌，使用聊天完成端点，一切正常。我开始发送长提示，并开始在几分钟内遇到速率限制错误，说我必须等待几秒钟（知道我的帐户位于第 1 层，这意味着限制为 150,000 个代币），并尝试添加回退，但它没有成功。
-经过多次尝试，我开始面临每日限额 500,000 的速率限制错误问题（因为我处于第 1 级）
-请检查下图中的用法：
-&lt;img alt=&quot;图片&quot; height=&quot;111&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/8/b/7/8b7abfe06aa0c85d1c286ad261ef4231578a15f4.png&quot; width=&quot;529 ” /&gt;
-&lt;img alt=&quot;图片&quot; height=&quot;154&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/5/1/2/5127863586a49556627468d3d7ac0aeab7842ae3.png&quot; width=&quot;290 ” /&gt;
-显然，我还没有达到每日限额，从使用情况来看，不是一分钟的限额。而且我的账户里还有钱。
-我迷路了，有人可以帮助我解决这个问题并向我解释发生了什么吗？
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/rate-limit-error-minute-and-daily-limit/578276#post_1</guid>
-      <pubDate>Thu, 04 Jan 2024 07:40:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 生成的 API 调用出现 JSON 语法错误</title>
-      <link>https://community.openai.com/t/json-syntax-error-with-gpt-generated-api-call/578255#post_2</link>
-      <description><![CDATA[嗨！
-您是否尝试过添加
-&lt;块引用&gt;
-别忘了将其转换为正确的 JSON 字符串/对象/我们！
-
-听从您的指示？]]></description>
-      <guid>https://community.openai.com/t/json-syntax-error-with-gpt-generated-api-call/578255#post_2</guid>
-      <pubDate>Thu, 04 Jan 2024 07:38:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>采用 gpt-4 模型的 open-ai 引擎是否会记住之前的提示令牌并在后续请求中再次使用它们进行响应？</title>
-      <link>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_6</link>
-      <description><![CDATA[我很好奇，你们如何使用 API 来创建课程计划？我希望您只需向其提供主题数据和一些专门的系统提示，它就会生成课程计划，而无需任何其他上下文。这就是一个 API 调用。我猜测主题的数据是消耗最多令牌的数据。但真的是这样吗？]]></description>
-      <guid>https://community.openai.com/t/does-the-open-ai-engine-with-gpt-4-model-remember-the-previous-prompt-tokens-and-respond-using-them-again-in-subsequent-requests/578148#post_6</guid>
-      <pubDate>Thu, 04 Jan 2024 07:34:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI Whisper 翻译 API 和 Azure 的 Whisper 翻译之间的成本比较详细信息</title>
-      <link>https://community.openai.com/t/cost-comparison-details-between-openai-whisper-translation-api-and-azures-whisper-translation/577160#post_4</link>
-      <description><![CDATA[我不这么认为
-从技术上讲，耳语仍处于预览阶段
-在蔚蓝中导航有点困难，一半的区域都超负荷进行微调，但欧洲西部有耳语，但没有给我微调的选项
-
-另一方面，西欧也不应该有巴贝奇微调，所以谁知道哈哈
-
-  &lt;标题类=“来源”&gt;
-
-      learn.microsoft.com&lt; /a&gt;
-  
-
-  &lt;文章类=“onebox-body”&gt;
-    Azure OpenAI 服务模型 - Azure OpenAI
-了解 Azure OpenAI 提供的不同模型功能。
-
-
-
-
-
-所以我猜不是，你必须自行托管
-也就是说，azure 具有超级复杂的用户层，它可能会提供给某些托管帐户，但我的猜测是您可能必须自行部署。
-抱歉，我无法提供更多帮助！]]></description>
-      <guid>https://community.openai.com/t/cost-comparison-details-between-openai-whisper-translation-api-and-azures-whisper-translation/577160#post_4</guid>
-      <pubDate>Thu, 04 Jan 2024 07:32:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
