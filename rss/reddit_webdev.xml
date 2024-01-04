@@ -4,7 +4,63 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 04 Jan 2024 06:23:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jan 2024 09:22:28 GMT</lastBuildDate>
+    <item>
+      <title>是否有具有访问令牌更新机制的 API 监控工具？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y90l6/is_there_an_api_monitoring_tool_with_access_token/</link>
+      <description><![CDATA[正在寻找用于正常运行时间检查/响应字段验证的 API 监控工具。 ​ 尝试了以下所有内容，但似乎没有一个通过自动令牌更新来处理身份验证 ​ - [assertible](https://assertible.com) - [grafana](https://grafana.com/) - [checkly](https://www.checklyhq.com/) ​ 有什么支持“自动令牌更新工作流程”吗？ ​ 似乎最接近我是在 [assertible setup](https://assertible.com/docs/guide/tests#设置步骤)   由   提交 /u/HypoCynicrite   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y90l6/is_there_an_api_monitoring_tool_with_access_token/</guid>
+      <pubDate>Thu, 04 Jan 2024 09:21:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>Bootstrap 还是 Tabler？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y8uy4/bootstrap_or_tabler/</link>
+      <description><![CDATA[大家好！  几个月前，我投入了我的 SaaS 项目，认为用一个最小的 CSS 框架来启动项目会很棒，我选择了 Pico.css，因为它过去对我很有帮助，但令人惊讶的是，它变成了有点令人头痛。没有足够的组件，所以我发现自己对几乎所有东西都进行了一些 HTML 和 CSS 黑客攻击。耗时的东西！ 所以，我看了看大玩家，Bootstrap 和 Tabler。两者看起来都很坚固，有大量的组件。无法决定该选择哪一个。有任何优点或缺点可以帮助其他开发人员吗？ 例如，我喜欢在 Bootstrap 5.2 中，您可以使用 SCSS 或 CSS 变量自定义大部分框架。 快速上下文：我是一位经验丰富的 Web 开发人员，主要使用 Ruby on Rails。感谢您向我提出的任何见解！   由   提交 /u/rusl1   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y8uy4/bootstrap_or_tabler/</guid>
+      <pubDate>Thu, 04 Jan 2024 09:10:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>在nestjs服务中使用共享的prisma客户端（来自turborepo）</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y8njd/using_an_shared_prisma_client_from_turborepo_in_a/</link>
+      <description><![CDATA[我目前正在构建一个使用 Turborepo、nextjs、nestjs 和共享 prisma 客户端的 monorepo 应用程序。 prisma 客户端可以在 nextjs 中工作，但不能在 Nestjs 中工作（底部有错误）。 我有以下结构： └── Turbo └── apps └─ ─ Nest └── web (下一个) └── 包 └── 数据库 (prisma) ├── schema.prisma ├── package.json ├── index.ts  the数据库包看起来像这样： { &quot;name&quot;: &quot;@repo/database&quot;, &quot;version&quot;: &quot;0.0.1&quot;, &quot;devDependencies&quot;: { &quot;&quot;棱镜”：“^5.7.1” }, “依赖项”: { “@prisma/client”: “^5.7.1” } }  数据库项目导出一个像这样的 prisma 单例： import { PrismaClient } from &#39;@prisma/client&#39; export * from &#39;@棱镜/客户&#39;； const prismaClientSingleton = () =&gt;; { return new PrismaClient() } 声明全局 { var prisma: undefined | ReturnType } const prisma = globalThis.prisma ?? prismaClientSingleton() export default prisma if (process.env.NODE_ENV !== &#39;product&#39;) globalThis.prisma = prisma  现在在 nextjs 服务器上下文中，我可以像我一样使用 prisma 客户端希望当我将 @repo/database 包作为 package.json 中的正常依赖项时 示例页面： 从“@repo/database”导入 prisma;导出默认异步函数 Page() { const users=await prisma.users.findMany();返回 ; ;  }  这工作得很好，但在 Nestjs 上下文中，到目前为止我尝试了很多事情，我的目标是运行一个 cron 来从共享的 prisma 客户端获取数据。 我的包 json 也具有 @repo/database 依赖项，并且 app.module 如下所示： // src/app.module.ts import {Module} from &#39;@nestjs/常见的&#39;;从 &#39;./cron/cron.service&#39; 导入 {CronService}；从“@nestjs/schedule”导入{ScheduleModule}；从“nestjs-prisma”导入{CustomPrismaModule}；从&#39;@repo/database&#39;导入{PrismaClient}； @Module({ 导入: [ScheduleModule.forRoot(), CustomPrismaModule.forRoot({ name: &#39;PrismaDatabase&#39;, 客户端: new PrismaClient(), }),], 提供者: [CronService], }) 导出类 AppModule { } &lt; /code&gt; cron.service 如下所示： // src/cron/cron.service.ts import {Inject, Injectable} from &#39;@nestjs/常见的&#39;;从“@nestjs/schedule”导入{Cron，CronExpression}；从“nestjs-prisma”导入{CustomPrismaService}；从&#39;@repo/database&#39;导入{PrismaClient}； @Injectable() export class CronService { constructor( @Inject(&#39;PrismaDatabase&#39;) private prisma: CustomPrismaService ) {} @Cron(CronExpression.EVERY_30_SECONDS) async handleCron() { // 这里的逻辑 const res = wait this. prisma.client.users.findMany();控制台.log(res); } }  当我尝试运行 Nestjs 服务器时，出现以下错误： “C:\Program Files\nodejs\npm.cmd” ;运行开始&gt; Nest@0.0.1 开始 &gt;嵌套启动错误：找不到模块“@repo/database”需要堆栈： - C:\Workspace\xyz\turbo\apps\nest\dist\app.module.js - C:\Workspace\xyz\turbo\apps\nest \dist\main.js 位于 Function.Module._resolveFilename (node:internal/modules/cjs/loader:1144:1 5) 位于 Function.Module._load (node:internal/modules/cjs/loader:985:27) Module.require (node:internal/modules/cjs/loader:1235:19) at require (node:internal/modules/helpers:176:18) at Object. (C:\Workspace\xyz\turbo\apps\nest\src\app.module.t s:6:1) 在 Module._compile (node:internal/modules/cjs/loader:1376:14) 在 Object.Module 处。 _extensions..js（节点：内部/模块/cjs/loader：1435：10）在Module.load（节点：内部/模块/cjs/loader：1207：32）在Function.Module._load（节点：内部/模块） /cjs/loader:1023:12) 在 Module.require (node:internal/modules/cjs/loader:1235:19) npm 错误！生命周期脚本“start”失败并出现错误：npm ERR！错误：命令失败 npm ERR！在工作区中：nest@0.0.1 npm 错误！位于：C:\Workspace\xyz\turbo\apps\nest 进程已完成，退出代码 1  有人对如何在 Nestjs 上下文中使用共享 prisma 客户端有任何见解吗？到目前为止我找到的所有资源都导致我遇到无法找到模块的相同错误。   由   提交/u/Nasaku7  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y8njd/using_an_shared_prisma_client_from_turborepo_in_a/</guid>
+      <pubDate>Thu, 04 Jan 2024 08:57:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创建了 Calm Whisper，这是一款允许您播放各种背景声音以帮助您集中注意力或放松的应用程序。 【链接在评论里】</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y8cni/i_created_calm_whisper_an_app_that_allows_you_to/</link>
+      <description><![CDATA[      &amp;# 32；由   提交/u/WeirdDetail9  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y8cni/i_created_calm_whisper_an_app_that_allows_you_to/</guid>
+      <pubDate>Thu, 04 Jan 2024 08:35:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>托管和部署 Web 应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y8afz/hosting_and_deploying_a_web_application/</link>
+      <description><![CDATA[我想了解网站的部署。 菜鸟问题：您是否在网站上规划和设置部署项目开始时还是您负责项目的开发并担心稍后的部署？  就上下文而言，我是一名学生，开始构建网站： 它使用 CMS（payloadcms），以 Nodejs 和 ExpressJS 作为后端。 mongodb 作为数据库。  它使用NextJS作为前端。 该网站目前处于初始阶段，可能不会获得太多用户流量，但如果它变得流行，我希望将成本保持在最低水平。 ​ 据我所知，Digital Ocean App Droplet，Render.com，fly.io，Heroku 似乎是快速部署的明显选择。 我什么时候需要像 AWS/GCP/Azure 这样的大型基础设施？ 是否值得部署在三大云基础设施之一上来了解云基础设施？ 我听说“使用 AWS 等提供商提供的所有无服务器产品的定制设计基础设施几乎将总是比 VPS 更便宜、性能更高，特别是对于中小型项目，但有无限增长的空间。 &quot; 那么我必须设计我的应用程序才能使用这些服务吗？ ​ Firebase 怎么样？那什么时候能派上用场呢？  ​   由   提交 /u/Successful-Ad-2044   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y8afz/hosting_and_deploying_a_web_application/</guid>
+      <pubDate>Thu, 04 Jan 2024 08:31:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>您应该将您的自由网络代理机构放在您的 LinkedIn 上吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y703o/should_you_put_your_freelance_web_agency_on_your/</link>
+      <description><![CDATA[假设您不是全职自由职业者，而是作为全职软件工程师或 Web 开发工作的副业，您是否应该将自己的您的 LinkedIn 个人资料上有自由网络代理机构吗？ 更具体地说，这会以任何方式影响求职吗？   由   提交 /u/marvchew   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y703o/should_you_put_your_freelance_web_agency_on_your/</guid>
+      <pubDate>Thu, 04 Jan 2024 07:06:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>不与 DynamoDB 保持一致性的影响</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y6zjx/the_effects_of_not_maintaining_consistency_with/</link>
+      <description><![CDATA[    &lt; /a&gt;   由   提交/u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y6zjx/the_effects_of_not_maintaining_consistency_with/</guid>
+      <pubDate>Thu, 04 Jan 2024 07:05:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何获得客户</title>
+      <link>https://www.reddit.com/r/webdev/comments/18y6u8r/how_to_get_clients/</link>
+      <description><![CDATA[大家好！  我和我的 2 个朋友最近创办了一家小型企业，专注于 Web 开发和定制 UI/UX 设计。该团队由 UI/UX 设计师、前端开发人员和全栈开发人员组成。  自从我们开始以来，我们有一些客户，他们都对我们的工作感到高兴和满意，但我的问题是我们如何才能增加客户数量？我们对 SEO 和广告等进行了很好的优化，但是我们如何才能建立信任并真正让人们与我们合作？ 我们有很大的潜力，因为我们可以制作具有独特 UI/UX 和设计，使用最新技术，我们也做前端和后端，但是我们如何让人们与我们协作？ 感谢您的阅读，新年快乐！   由   提交 /u/Flat-Experience-5678   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18y6u8r/how_to_get_clients/</guid>
+      <pubDate>Thu, 04 Jan 2024 06:56:13 GMT</pubDate>
+    </item>
     <item>
       <title>领事与nodejs</title>
       <link>https://www.reddit.com/r/webdev/comments/18y5mqf/consul_with_nodejs/</link>
@@ -20,7 +76,7 @@
       <pubDate>Thu, 04 Jan 2024 03:31:34 GMT</pubDate>
     </item>
     <item>
-      <title>谁将内容输入到 CMS 中？项目由于缺少内容而挂起</title>
+      <title>谁将内容输入 CMS？项目因缺少内容而挂起</title>
       <link>https://www.reddit.com/r/webdev/comments/18y2shd/who_enters_the_content_into_the_cms_project_hangs/</link>
       <description><![CDATA[我用 CMS 系统交付每个网站，现在我要求客户向我发送内容、文本、图像等。我将这些输入到CMS，然后当项目启动时我给他们进行 CMS 培训。  但是，现在发生的情况是客户向我发送的文本与我们网站所需的格式相去甚远，或者客户发送的图片太大，或者他们没有时间交付内容和项目只是停止并挂起。 我该如何解决这个问题？   由   提交 /u/miguste   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18y2shd/who_enters_the_content_into_the_cms_project_hangs/</guid>
@@ -29,7 +85,7 @@
     <item>
       <title>Html/CSS/Bootstrap 导师</title>
       <link>https://www.reddit.com/r/webdev/comments/18y2bcp/htmlcssbootstrap_tutor/</link>
-      <description><![CDATA[开发新手通过 udemy webdev 课程工作并尝试使用 Bootstrap 构建个人网站。我确实可以使用经验丰富的开发人员和/或导师来帮助解释并向我展示一些基本的 html/css/bootstrap 概念，指导我调整我的（糟糕且非常基本的）网站以实现我想要的外观和感觉。愿意支付帮助费用并可能建立定期/灵活的会议（可能每周或每两周）。任何对在线辅导网站感兴趣或有好运的人，例如 wyzant、codementor。等等   由   提交/u/cbus6  [链接] [评论]]]></description>
+      <description><![CDATA[开发新手通过 udemy webdev 课程工作并尝试使用 Bootstrap 构建个人网站。我真的可以使用经验丰富的开发人员和/或导师来帮助解释并向我展示一些基本的 html/css/bootstrap 概念，指导我调整我的（糟糕且非常基本的）网站以实现我想要的外观和感觉。愿意支付帮助费用，并可能建立定期/灵活的会议（可能每周或每两周一次）。任何对在线辅导网站感兴趣或有好运的人，例如 wyzant、codementor。等等   由   提交/u/cbus6  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18y2bcp/htmlcssbootstrap_tutor/</guid>
       <pubDate>Thu, 04 Jan 2024 02:54:33 GMT</pubDate>
     </item>
@@ -43,7 +99,7 @@
     <item>
       <title>以 .NET Framework 作为后端的 ReactJS？</title>
       <link>https://www.reddit.com/r/webdev/comments/18y1uaa/reactjs_with_net_framework_as_backend/</link>
-      <description><![CDATA[您对使用此技术堆栈有何看法？我的一位教授告诉我，“如果你想成为一名全栈开发人员，就不要在后端使用 js”。你可以用 .net 做任何事情，但 js 是有限的”。他也有 Microsoft 开发背景，并表示这比仅使用 JS 进行 FE/BE 的报酬更高。您有什么想法？ 我喜欢使用 .NET 作为后端，但仅使用 JS 也更容易。我不知道。您有何看法？   由   提交/u/Creative_Ad6966   [链接] [评论]]]></description>
+      <description><![CDATA[您对使用此技术堆栈有何看法？我的一位教授告诉我，“如果你想成为一名全栈开发人员，就不要在后端使用 js”。你可以用.net做任何事情，但js是有限的”。他也有微软开发背景，并表示这比仅使用 JS 进行 FE/BE 的报酬更高。您有什么想法？ 我喜欢使用 .NET 作为后端，但仅使用 JS 也更容易。我不知道。您的意见是什么？   由   提交/u/Creative_Ad6966   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18y1uaa/reactjs_with_net_framework_as_backend/</guid>
       <pubDate>Thu, 04 Jan 2024 02:32:08 GMT</pubDate>
     </item>
@@ -53,62 +109,6 @@
       <description><![CDATA[      我已经完成了我的网站，但仍需要将其连接到 Google。我一直在尝试通过 Search Console 进行验证，但无论我做什么，都会弹出此错误消息。我对这类事情不太聪明，目前不知道该怎么做。有谁知道我怎样才能完成这个？ 我应该说的一件事是我还没有发布该网站。我想在这样做之前完成所有步骤，我不认为这会是原因，但我不确定。目前，如果您输入我的域名，它会显示一个示例网站。   由   提交 /u/Inevitable-Pea3190   [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18y0qso/i_need_some_help_please/</guid>
       <pubDate>Thu, 04 Jan 2024 01:42:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么不存在合作网站？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18y0hr6/why_dont_coop_websites_exist/</link>
-      <description><![CDATA[是否有合作拥有和运营的网站或社交网络的示例？   由   提交/u/cchurchill1984   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18y0hr6/why_dont_coop_websites_exist/</guid>
-      <pubDate>Thu, 04 Jan 2024 01:31:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找股权合作伙伴来开发网站的最佳方式？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xzn9l/best_way_to_find_an_equity_partner_to_develope_a/</link>
-      <description><![CDATA[我目前是机械工程专业的一名大学生，没有钱花钱请人制作网站，也没有相关知识我。我相信我有一个好主意，但只是不知道如何实现或从哪里开始。寻找可以制作网站的合作伙伴（争取股权）的最佳方式是什么？    由   提交/u/ReviewAppressive83  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xzn9l/best_way_to_find_an_equity_partner_to_develope_a/</guid>
-      <pubDate>Thu, 04 Jan 2024 00:53:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>显影时清理顶部空间</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xxg6e/clear_head_space_when_developing/</link>
-      <description><![CDATA[有时，我在编程时几乎感觉到作家阻塞。我确切地知道我想要实现什么，但面对如此多不同的工具、框架和库，我在某种程度上不知所措。我开始失去对“大局”的关注，有时不知道从哪里开始。例如，如果您正在编写一个复杂的函数，那么在写下任何内容之前，您可能必须坐在那里一遍又一遍地思考它。你只是失去了对函数正在完成的任务的关注。 还有其他人遇到过这种情况吗？如果是这样，你们有什么原则可以用来保持组织有序和步入正轨吗？我在办公室使用 JIRA 和类似的东西，但我主要谈论家庭项目。   由   提交 /u/xPhanish   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xxg6e/clear_head_space_when_developing/</guid>
-      <pubDate>Wed, 03 Jan 2024 23:21:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>第一次使用 Node/NPM：为什么没有安装？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xxezi/first_time_using_nodenpm_why_isnt_this_installing/</link>
-      <description><![CDATA[我正在尝试按照此项目的说明在 Raspberry Pi 4 上安装：https://github.com/BootstrapDash/Material-Admin 首先我使用这个安装了 npm：https://www.golinuxcloud.com/install-nodejs-and-npm-on-raspberry-pi/ 当我运行 npm install 时，我得到： npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map- url#deprecat ed npm WARN 已弃用resolve-url@0.2.1：https://github.com/lydell/resolve-url#deprecated npm WARN 已弃用 har-validator@5.1.5：不再支持此库 npm WARN 已弃用uuid@3.4.0：请升级到版本7或更高版本。旧版本在某些情况下可能会使用 Math.random()，这已知是有问题的。有关详细信息，请参阅 https://v8.dev/blog/math-random。 npm WARN 已弃用 request@2.88.2：请求已弃用，请参阅 https://github.com/request /request/issues/3142 npm WARN 已弃用 urix@0.1.0：请参阅 https://github.com/lydell /urix#deprecated npm WARN 已弃用 source-map-resolve@0.5.3：请参阅 https://github.com/lydell/source-map-resolve# deprecated npm WARN 已弃用 chokidar@2.1.8：Chokidar 2 未获得安全保护自 2019 年以来更新。升级到 chokidar 3，依赖项减少 15 倍 npm 警告已弃用 tar@2.2.2：不再支持此版本的 tar，并且不会收到安全更新。请尽快升级。 npm WARN 已弃用 jvectormap@2.0.4：jvectormap 自 2015 年 8 月起不再维护。您可以使用 j vectormap-next 或 jqvmap 代替。 npm WARN 已弃用 flag-icon-css@3.5.0：该项目已重命名为 flag-icons (##################) ⠸ reify:lodash: http fetch GET 200 https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz 25925ms（缓存未命中） 它就永远坐在这里。如何成功安装？   由   提交 /u/Produkt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xxezi/first_time_using_nodenpm_why_isnt_this_installing/</guid>
-      <pubDate>Wed, 03 Jan 2024 23:20:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>子域上的广告</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xwqxm/ads_on_subdomains/</link>
-      <description><![CDATA[我想为一些用户提供子域，但我也希望他们能够根据需要投放自己的广告。我用于主域的代理机构不支持这一点 - 这意味着所有子域和主域必须位于同一广告帐户下。 但是是否有广告服务可以让子域完全独立的帐户？ ​   由   提交 /u/RaptorRex   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xwqxm/ads_on_subdomains/</guid>
-      <pubDate>Wed, 03 Jan 2024 22:53:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>Google ReCaptcha 还是 CloudFlare Turnstile？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xw9eg/google_recaptcha_or_cloudflare_turnstile/</link>
-      <description><![CDATA[这是最后一道防线。我们希望在服务器级别实现 WAF，但我想知道是否有人更喜欢其中一个以及为什么。我们目前收到了机器人流量的垃圾邮件。   由   提交/u/brock0124  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xw9eg/google_recaptcha_or_cloudflare_turnstile/</guid>
-      <pubDate>Wed, 03 Jan 2024 22:33:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>您最喜欢使用的 JS 或其框架中被低估的功能是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xw1nz/whats_your_favorite_underrated_feature_of_js_or/</link>
-      <description><![CDATA[从社区中寻找一些想法，以拓宽我以前从未使用过的有用知识！ 我个人最喜欢的调试是“console.table”。控制台中非常有用的 UI 工具，用于显示大量数据:) 还没有遇到很多其他持续使用它的开发人员   由   提交 /u/DMTxxx   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xw1nz/whats_your_favorite_underrated_feature_of_js_or/</guid>
-      <pubDate>Wed, 03 Jan 2024 22:25:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>Facebook应用程序多次被拒绝</title>
-      <link>https://www.reddit.com/r/webdev/comments/18xvn8w/facebook_app_rejected_multiple_times/</link>
-      <description><![CDATA[最近有人成功让他们的 Facebook 应用获得批准吗？我正在请求 Instagram GRAPH API、Instagram Basic 和其他一些通用权限的权限，现在已经不到两个月了。  这是正常现象，还是我只是运气不好，Facebook 代表拒绝了请求？   由   提交 /u/Lingohr   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18xvn8w/facebook_app_rejected_multiple_times/</guid>
-      <pubDate>Wed, 03 Jan 2024 22:08:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
