@@ -4,255 +4,95 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 05 Jan 2024 12:33:20 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jan 2024 15:19:19 GMT</lastBuildDate>
     <item>
-      <title>响应具有有效的 json，但它嵌套在损坏的 json 中</title>
-      <link>https://community.openai.com/t/response-has-valid-json-but-its-nested-in-broken-json/578322#post_6</link>
-      <description><![CDATA[您使用的温度是多少？
-一致的 JSON 输出应该在低温下工作得更好。]]></description>
-      <guid>https://community.openai.com/t/response-has-valid-json-but-its-nested-in-broken-json/578322#post_6</guid>
-      <pubDate>Fri, 05 Jan 2024 12:02:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>检索文件内容时出错</title>
-      <link>https://community.openai.com/t/error-retrieving-file-content/578439#post_3</link>
-      <description><![CDATA[我确认，同样的问题：
-错误 2024-01-05 12:51:10,260 错误代码：400 - {&#39;error&#39;: {&#39;message&#39;: &#39;不允许下载目的文件：助手&#39;, &#39;type&#39;: &#39;invalid_request_error &#39;, &#39;param&#39;: 无, &#39;code&#39;: 无}}]]></description>
-      <guid>https://community.openai.com/t/error-retrieving-file-content/578439#post_3</guid>
-      <pubDate>Fri, 05 Jan 2024 11:51:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>检索文件内容时出错</title>
-      <link>https://community.openai.com/t/error-retrieving-file-content/578439#post_2</link>
-      <description><![CDATA[我遇到了类似的问题，但在更高的级别上，我没有尝试通过代码检索内容。
-今天助理的回复总是这样的：
-&lt;块引用&gt;
-我的系统无法访问您请求摘要的手册。当我尝试使用提供的 ID 打开文件时，遇到一条错误消息，指示打开的页面没有内容。如果文件为空、损坏或文件查看系统存在技术问题，则可能会发生这种情况。我无法进一步查看或分析文件内容。因此，我无法向您提供该手册的摘要
-]]></description>
-      <guid>https://community.openai.com/t/error-retrieving-file-content/578439#post_2</guid>
-      <pubDate>Fri, 05 Jan 2024 11:49:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何准确获取每次API调用的费用？</title>
-      <link>https://community.openai.com/t/how-to-accurately-get-the-cost-of-each-api-call/578426#post_3</link>
-      <description><![CDATA[要在最有用的模式（它们立即开始将输出流式传输给您）下使用完成或聊天完成端点时执行此操作，您需要衡量 token 中输入和输出语言使用量的大小，由 token 编码库（例如 tiktoken）计算得出。
-如果使用助手……则不会有报告，也不会计算后端人工智能已加载的上下文或文档内容。不考虑它通过您需要付费的迭代函数调用自主执行的操作。]]></description>
-      <guid>https://community.openai.com/t/how-to-accurately-get-the-cost-of-each-api-call/578426#post_3</guid>
-      <pubDate>Fri, 05 Jan 2024 11:42:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>证明 OpenAI 已大大削弱了 GPT-4（！）停止！</title>
-      <link>https://community.openai.com/t/proof-that-openai-has-considerably-weakened-gpt-4-stop/575513?page=2#post_36</link>
-      <description><![CDATA[ChatGPT 的回答与您的问题一样好。如果聊天似乎偏离了轨道，您应该尝试突出显示出错的地方，然后告诉它您期望/希望它做什么。
-你在这里所做的事情（说“你做错了什么”）显然没有帮助。您必须使用 chatGPT，在这种情况下，它可能是一个很棒的工具，并且您通常不会遇到问题。然而，如果你这样做了，甚至试图让对话回到正轨也行不通，那就按照 PaulBellow 的建议去做——开始一个新话题，也许尝试一个更好（更精确）的措辞提示。]]></description>
-      <guid>https://community.openai.com/t/proof-that-openai-has-considerably-weakened-gpt-4-stop/575513?page=2#post_36</guid>
-      <pubDate>Fri, 05 Jan 2024 11:35:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>检索文件内容时出错</title>
-      <link>https://community.openai.com/t/error-retrieving-file-content/578439#post_1</link>
-      <description><![CDATA[嗨，
-我编写了一个助手来接收文件、上传文件并从文件中检索内容。
-它运行得相当好，但从今天早上开始就停止运行了。我认为我没有对代码进行重大修改，所以我想知道您是否有任何线索？
-这是我的代码（文件已加载）：
-从 openai 导入 OpenAI
-
-客户端 = OpenAI()
-
-文件=“文件-ImSNSQ3NmYkvWu9zcVxFuFPt”
-打印（客户端.文件.检索（文件））
-
-内容 = client.files.content(文件)
-打印（内容）
-
-这是我的错误：
-
-（基础）➜ ai-assistant-poc git：（主要）✗ python3 main.py
-FileObject(id=&#39;file-ImSNSQ3NmYkvWu9zcVxFuFPt&#39;，bytes=1658085，created_at=1704452471，filename=&#39;1_InnoBrain.pdf&#39;，object=&#39;文件&#39;，目的=&#39;助手&#39;，status=&#39;已处理&#39;，status_details=无)
-回溯（最近一次调用最后一次）：
-  文件“/Users/myUser/Work/ai-assistant-poc/main.py”，第 45 行，在  中
-    内容 = client.files.content(文件)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  文件“/Users/myUser/miniconda3/lib/python3.11/site-packages/openai/resources/files.py”，第 229 行，内容
-    返回 self._get(
-           ^^^^^^^^^^
-  文件“/Users/myUser/miniconda3/lib/python3.11/site-packages/openai/_base_client.py”，第 1031 行，在 get 中
-    返回cast（ResponseT，self.request（cast_to，opts，stream=stream，stream_cls=stream_cls））
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^^^^^^^^^^
-  文件“/Users/myUser/miniconda3/lib/python3.11/site-packages/openai/_base_client.py”，第 853 行，根据请求
-    返回 self._request(
-           ^^^^^^^^^^^^^^^
-  文件“/Users/myUser/miniconda3/lib/python3.11/site-packages/openai/_base_client.py”，第 930 行，在 _request 中
-    从 None 引发 self._make_status_error_from_response(err.response)
-openai.BadRequestError：错误代码：400 - {&#39;error&#39;：{&#39;message&#39;：&#39;不允许下载目的文件：助手&#39;，&#39;type&#39;：&#39;invalid_request_error&#39;，&#39;param&#39;：None，&#39;code&#39;：None }}
-]]></description>
-      <guid>https://community.openai.com/t/error-retrieving-file-content/578439#post_1</guid>
-      <pubDate>Fri, 05 Jan 2024 11:19:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 可以报告/影响图像特征解释吗？</title>
-      <link>https://community.openai.com/t/can-chatgpt-report-influence-image-features-interpretation/578436#post_1</link>
-      <description><![CDATA[我一直在测试使用 ChatGPT(V) (Pro/Plus) 来识别轨迹相机照片中的鸟类物种（中等质量）。我发现了一些边缘情况，其中白胸五子雀和冠蓝鸦会被混淆（通常是因为某些特征 - 例如照片中过分强调色调或标记）。
-我想知道是否有一种方法可以帮助引导提示级别的识别过程，或者能够帮助引导 ChatGPT 响应级别的解释结果。例子。我想知道是否有一种方法可以让 ChatGPT 在“这是一只冠蓝鸦”的顶级结论下方报告 GPT4-V 的功能？或者它是否可以影响解释过程。
-顺便说一句，GPT4-V可以通过代码解释器访问吗？
-提前感谢您的任何思考。]]></description>
-      <guid>https://community.openai.com/t/can-chatgpt-report-influence-image-features-interpretation/578436#post_1</guid>
-      <pubDate>Fri, 05 Jan 2024 11:06:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI：请将有关操作错误的正确错误消息返回给 GPT</title>
-      <link>https://community.openai.com/t/openai-please-return-good-error-messages-on-action-errors-to-the-gpt/578435#post_1</link>
-      <description><![CDATA[对 OpenAI 开发者的一般请求。您能否像在向用户显示错误消息时一样注意 ChatGPT 在访问插件或 GPT 操作时收到的错误消息？我有过几次
-我非常绝望地试图诊断一个不特定的错误，该错误在没有任何问题描述的情况下返回到 GPT，并且不得不进行疯狂的尝试，直到错误消失。
-一条真正好的错误消息应该在人类层面上描述问题，但通常只提供技术异常消息就足够了，包括所有附加属性和 GPT 的包装异常，如 ChatGPT 或 
-配置GPT的程序员常常可以从中猜出问题所在。至少在 GPT 配置期间在预览模式下调用 GPT 操作时应该执行此操作。
-更好的错误消息可以包括 GPT 本身或用户可以采取的解决问题的步骤的说明，以及重试相同的操作是否有意义。
-具体来说，我在身份验证方面遇到了问题。当我使用“自定义”配置身份验证类型“API 密钥”时
-但不设置自定义标头名称，就会发生这种情况。还有其他案例，但我无法正确重现它们
-现在。但这只是一个例子，我的请求比这更普遍。
-感谢 OpenAI 提供的所有精彩内容，并感谢大家在这里进行有趣的讨论！
-祝您新年快乐！
-汉斯-彼得]]></description>
-      <guid>https://community.openai.com/t/openai-please-return-good-error-messages-on-action-errors-to-the-gpt/578435#post_1</guid>
-      <pubDate>Fri, 05 Jan 2024 10:57:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 使用视觉功能来处理从操作返回的图像？</title>
-      <link>https://community.openai.com/t/gpt-using-vision-capabilities-for-images-returned-from-actions/578434#post_1</link>
+      <title>我正在使用助手 api，但这给了我一个问题</title>
+      <link>https://community.openai.com/t/i-am-using-the-assitants-api-but-it-gives-me-a-problem/578473#post_2</link>
       <description><![CDATA[嗨！
-如果您正在为 GPT 实施操作 - 有没有办法让操作返回图像数据或图像，以便 GPT 可以使用其视觉功能显示和/或处理它？&lt;​​/p&gt;
-背景：我正在开发一个 GPT，可以检查 Java 内容存储库中的详细信息 Apache Sling 或 Adob​​e AEM。检查节点会返回节点的 JSON 数据，效果很好。读取 JSP、HTML、CSS 和其他文本文件效果很好。但如果 GPT 至少可以显示图像，那就太好了，如果它能够在图像上应用其视觉功能就更好了。但是，仅返回具有适当 mime 类型的图像数据会导致“ClientError”，而没有任何错误消息。有人有我可以应用的任何想法/技巧吗？
-（如果来自 OpenAI 的人读到了这篇文章：请务必对发送给 ChatGPT 的错误消息采取同样的小心。我遇到过几种错误情况 - 例如上面的错误 - ChatGPT 得到一个简单的“ClientError”，但没有任意
-描述实际问题的文本，这样它就无法告诉我问题是什么，我不得不不断地用头撞墙猜测，直到我猜对为止。）
-感谢 OpenAI 提供的所有精彩内容，并感谢大家在这里进行有趣的讨论！
-祝大家新年快乐！
-汉斯-彼得]]></description>
-      <guid>https://community.openai.com/t/gpt-using-vision-capabilities-for-images-returned-from-actions/578434#post_1</guid>
-      <pubDate>Fri, 05 Jan 2024 10:55:12 GMT</pubDate>
+如果您确定信息确实位于用于检索的文件内，则有两种选择。要么模型真的没有找到它，要么它甚至没有尝试找到它。您可以了解运行步骤，以确定您的案例中出现的问题。
+https://platform.openai.com /docs/api-reference/runs/listRunSteps
+在这两种情况下，您可能都需要调整提示，以使模型真正清楚何时引用知识文件，甚至更好的是引用知识文件的哪一部分。]]></description>
+      <guid>https://community.openai.com/t/i-am-using-the-assitants-api-but-it-gives-me-a-problem/578473#post_2</guid>
+      <pubDate>Fri, 05 Jan 2024 15:17:27 GMT</pubDate>
     </item>
     <item>
-      <title>如何保护您的 GPT？</title>
-      <link>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=3#post_49</link>
-      <description><![CDATA[太好了，你能解释一下你如何访问文件吗？]]></description>
-      <guid>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=3#post_49</guid>
-      <pubDate>Fri, 05 Jan 2024 10:50:48 GMT</pubDate>
+      <title>ChatGPT Enterprise（开发者API）</title>
+      <link>https://community.openai.com/t/chatgpt-enterprise-api-for-developers/441841#post_7</link>
+      <description><![CDATA[欢迎来到开发社区！
+GPT 是 ChatGPT Web UI 中创建的“自定义”模型的名称，您根据自己的要求寻找的是 助手 API。
+存在一些差异，例如没有内置网页浏览或图像生成，但 OpenAI 表示 API 客户永远不会将其数据用于训练模型。
+请记住，每当您上传文档时，那些投入时间和精力说服模型“泄露秘密”的人将可以访问这些文档。如果您正在制作面向公众的 GPT，这始终是一个风险。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-enterprise-api-for-developers/441841#post_7</guid>
+      <pubDate>Fri, 05 Jan 2024 15:10:39 GMT</pubDate>
     </item>
     <item>
-      <title>神奇的文字可以揭示GPT的所有提示</title>
-      <link>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_139</link>
-      <description><![CDATA[对如何访问文件感兴趣。我尝试过使用文件 ID，但从聊天中得到此回复：
-&lt;块引用&gt;
-我尝试再次访问文件“V6 PARAMETERS”(file-Ylo6MBpjXukd1wCUdWTzIsSm)，但不幸的是，该页面仍然没有内容。因此，我无法提供该文件中的要点或任何信息。如果我可以帮助您解决其他文件或其他问题，请告诉我。
-]]></description>
-      <guid>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_139</guid>
-      <pubDate>Fri, 05 Jan 2024 10:48:02 GMT</pubDate>
+      <title>您对 GPT 商店有何期望？</title>
+      <link>https://community.openai.com/t/what-are-your-hopes-for-the-gpt-store/549534#post_15</link>
+      <description><![CDATA[由于商店已宣布下周正式发布，我们很快就会知道。]]></description>
+      <guid>https://community.openai.com/t/what-are-your-hopes-for-the-gpt-store/549534#post_15</guid>
+      <pubDate>Fri, 05 Jan 2024 15:09:56 GMT</pubDate>
     </item>
     <item>
-      <title>需要用户确认的 Assistants API 函数调用</title>
-      <link>https://community.openai.com/t/assistants-api-function-calling-with-user-confirmation/578054#post_8</link>
+      <title>您对 GPT 商店有何期望？</title>
+      <link>https://community.openai.com/t/what-are-your-hopes-for-the-gpt-store/549534#post_14</link>
+      <description><![CDATA[我还没有看到 Openai 关于“收入分享机制”的任何细节。有什么宣布吗？]]></description>
+      <guid>https://community.openai.com/t/what-are-your-hopes-for-the-gpt-store/549534#post_14</guid>
+      <pubDate>Fri, 05 Jan 2024 15:05:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT：查询 REST API 返回幻觉数据的操作</title>
+      <link>https://community.openai.com/t/gpt-action-that-queries-rest-api-returning-hallucinated-data/578350#post_5</link>
       <description><![CDATA[
 
 
-超级沙内斯基：
+ geoff.maddock:
 &lt;块引用&gt;
-{
-  “名称”：“获取时钟输出”，
-  “参数”： {
-    “类型”：“对象”，
-    “特性”： {
-      “时钟输出时间”：{
-        “类型”：“字符串”，
-        &quot;description&quot;: &quot;下班时间，格式为 YYYY-MM-DD HH:mm&quot;
-      }
-    },
-    “必需的”： [
-      “时钟输出时间”
-    ]
-  },
-  &quot;description&quot;: &quot;获取用户当天或前一天的退出时间&quot;
-}
-
-{
-  “名称”：“保存时钟输出”，
-  “参数”： {
-    “类型”：“对象”，
-    “特性”： {
-      “时钟输出时间”：{
-        “类型”：“字符串”，
-        &quot;description&quot;: &quot;下班时间，格式为 YYYY-MM-DD HH:mm&quot;
-      }
-    },
-    “必需的”： [
-      “时钟输出时间”
-    ]
-  },
-  &quot;description&quot;: &quot;将用户当天或前一天的退出时间保存在数据库中。&quot;
-}
+很难说，因为我看不到实际的请求是什么，但一页是 20 个 json 对象，大约有 30 个属性。
 
 
-
-感谢 supershaneski，这非常有效。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-function-calling-with-user-confirmation/578054#post_8</guid>
-      <pubDate>Fri, 05 Jan 2024 10:41:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT GUI 中使用的确切 GPT-4 的 API？</title>
-      <link>https://community.openai.com/t/api-for-the-exact-gpt-4-used-in-the-chatgpt-gui/578431#post_1</link>
-      <description><![CDATA[有没有办法在GUI版本中微调/提示的版本中访问GPT-4？我有一个任务，使用 gpt-4-1106-preview 执行得相当好（大约 95% 的准确率），但在 ChatGPT 界面中使用相同的用户提示询问 GPT4 每次都会产生正确的结果。
-如果不应该有这样的端点：
-
-对于如何让 gpt-4-1106-preview 在 GUI 中表现得尽可能接近 GPT-4，您有什么建议吗？
-如果这也没有帮助，我只会从 GUI 获取一些训练数据并微调 Mixtral8x7B 实例。但是（假设我已经达到了 CoT 提示我的用例的最大潜力）您认为有什么更简单的方法可以实现我的目标吗？
-
-提前致谢！]]></description>
-      <guid>https://community.openai.com/t/api-for-the-exact-gpt-4-used-in-the-chatgpt-gui/578431#post_1</guid>
-      <pubDate>Fri, 05 Jan 2024 10:25:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想添加一个新功能！ （对话历史收藏夹）</title>
-      <link>https://community.openai.com/t/i-want-to-add-a-new-feature-conversation-history-favorites/561595#post_3</link>
-      <description><![CDATA[这应该有帮助
-
-
-
- Superpower ChatGPT Chrome 扩展程序（文件夹、搜索、GPT 存储、图片库、自定义指令配置文件等） 社区
-
-  &lt;块引用&gt;
-    [屏幕截图 2022 年 12 月 30 日下午 10 月 48 日]
-嘿 OpenAI 社区！
-我是 Superpower ChatGPT Chrome 的创建者扩展名。
-以下是该扩展添加到 ChatGPT UI 的一些额外功能。
-在过去的一年里，Superpower ChatGPT 添加了许多新功能：
-★ 超强ChatGPT Pro特点：
-
- GPT 商店 - 由 Superpower ChatGPT 提供支持。第一个 GPT 商店在 ChatGPT 内拥有超过 10000 个自定义 GPT。发现新的自定义 GPT 并一键尝试它们......
-  
+哦，在编辑器中使用预览聊天时，您应该能够看到端点的“调试”和响应：
 ]]></description>
-      <guid>https://community.openai.com/t/i-want-to-add-a-new-feature-conversation-history-favorites/561595#post_3</guid>
-      <pubDate>Fri, 05 Jan 2024 10:15:05 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpt-action-that-queries-rest-api-returning-hallucinated-data/578350#post_5</guid>
+      <pubDate>Fri, 05 Jan 2024 15:02:45 GMT</pubDate>
     </item>
     <item>
-      <title>实现ChatGPT历史搜索功能</title>
-      <link>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_26</link>
-      <description><![CDATA[您可以使用 Superpower ChatGPT 搜索您的聊天记录
-
-
-
- Superpower ChatGPT Chrome 扩展程序（文件夹、搜索、GPT 存储、图片库、自定义指令配置文件等） 社区
-
-  &lt;块引用&gt;
-    [屏幕截图 2022 年 12 月 30 日下午 10 月 48 日]
-嘿 OpenAI 社区！
-我是 Superpower ChatGPT Chrome 的创建者扩展名。
-以下是该扩展添加到 ChatGPT UI 的一些额外功能。
-在过去的一年里，Superpower ChatGPT 添加了许多新功能：
-★ 超强ChatGPT Pro特点：
-
- GPT 商店 - 由 Superpower ChatGPT 提供支持。第一个 GPT 商店在 ChatGPT 内拥有超过 10000 个自定义 GPT。发现新的自定义 GPT 并一键尝试它们......
-  
+      <title>响应具有有效的 json，但它嵌套在损坏的 json 中</title>
+      <link>https://community.openai.com/t/response-has-valid-json-but-its-nested-in-broken-json/578322#post_7</link>
+      <description><![CDATA[@_j 谢谢，我会尝试一下。
+@ramn7 我使用温度 0 并显示此提示
+但是想到我封装gpt调用的代码，我认为我对问题的描述是错误的。所以我的代码的工作原理是它尝试从 gpt 响应中解析 json。如果它不是有效的 json，它会假定它是明文并将文本放入解释 1 字段中。所以嵌套来自我的代码。
+但这意味着围绕 json 的“```json”块仍然来自 gpt 响应，但我自己也从未使用 response_format 字段集经历过这种情况（仅当未设置时我才看到这个不时）。]]></description>
+      <guid>https://community.openai.com/t/response-has-valid-json-but-its-nested-in-broken-json/578322#post_7</guid>
+      <pubDate>Fri, 05 Jan 2024 15:02:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>BerTopic OpenAI 嵌入参数</title>
+      <link>https://community.openai.com/t/bertopic-openai-embedding-parameter/578171#post_6</link>
+      <description><![CDATA[是的，按照你的建议，我安装并尝试了0.28.1版本，但结果还是一样；它仍然给出错误。
 ]]></description>
-      <guid>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_26</guid>
-      <pubDate>Fri, 05 Jan 2024 10:13:56 GMT</pubDate>
+      <guid>https://community.openai.com/t/bertopic-openai-embedding-parameter/578171#post_6</guid>
+      <pubDate>Fri, 05 Jan 2024 14:54:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>神奇的文字可以揭示GPT的所有提示</title>
+      <link>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_140</link>
+      <description><![CDATA[那是一场很酷的游戏。
+我成功完成了所有 8 个级别。]]></description>
+      <guid>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_140</guid>
+      <pubDate>Fri, 05 Jan 2024 14:52:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在使用助手 api，但这给了我一个问题</title>
+      <link>https://community.openai.com/t/i-am-using-the-assitants-api-but-it-gives-me-a-problem/578473#post_1</link>
+      <description><![CDATA[我的问题如下：我有一个开发项目，我的客户可以使用聊天部分，并且该聊天链接到chatgpt，该聊天具有助手的功能，但在某些情况下，当客户提出问题时，聊天会告诉我在与会者拥有的文档中找不到答案，但在另一个聊天中再次询问相同的问题，它给了我正确的答案。
+我附上图片和示例。
+图片1
+
+图像2
+ 
+为什么会出现这个错误？]]></description>
+      <guid>https://community.openai.com/t/i-am-using-the-assitants-api-but-it-gives-me-a-problem/578473#post_1</guid>
+      <pubDate>Fri, 05 Jan 2024 14:51:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
