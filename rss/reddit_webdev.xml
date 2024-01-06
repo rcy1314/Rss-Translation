@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 06 Jan 2024 01:13:39 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jan 2024 03:18:11 GMT</lastBuildDate>
+    <item>
+      <title>蒙戈还是Postgres？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18zoisi/mongo_or_postgres/</link>
+      <description><![CDATA[您好，我是一名拥有 5 年经验的年轻意大利 Web 开发人员，我写这篇文章是为了征求意见，先致谢任何愿意提供帮助的人。最初的目的是探索与我通常使用的技术不同的技术，我创建了一个相当大的项目，现在想要投入生产。这是一个实时市场，注册用户可以在其中买卖物品。这里的独特之处在于，我不想像 eBay 那样每个用户都有自己的卖家仪表板，而是想策划一个产品目录，并且拥有该商品的用户可以设置他们愿意出售的价格。 当买家访问该网站时，他们只会看到该产品的一个显示价格 - 卖家中可用的最低价格（如果没有可用的，则显示“缺货”）。产品也可以有“变体”，例如控制台可以是 Slim、Fat 或 Pro，而鞋子有特定的尺寸，配件、服装等也是如此......为了实现所有这些，我创建了三个项目：前端（React + TailwindCSS）、后端（Node.js + Express）和管理程序（Electron 可执行文件 + React + TailwindCSS）。 最初，我选择 MongoDB Atlas 作为数据库（以探索技术）包含“优惠”、“用户”和“产品”的集合。为了在读取数据时存储数据并避免无限制的数组，我使用一般产品信息（品牌、制造商、功能）和一系列“变体”构建了“产品”集合。该数组包含变体信息（例如，Slim、Medium、Large 等）以及与“Offers”表中最低价格报价相关的数据副本。 此设置意味着更新更改该特定报价的价格或添加新的较低价格也会更改产品表。为了保持数据一致，我使用了事务，在低并发的本地环境中，一切都完美无缺 但是，我没有在高并发的生产环境中使用过 MongoDB，我担心我构建数据的方式可能不够稳健。尽管项目规模很大，我最近还是决定从 MongoDB 切换到 Postgres。我使用标准数据标准化方法完成了此步骤。尽管通过约束保证了数据完整性，但我觉得与 Mongo 相比，在访问者负载较高的情况下，我可能会面临性能问题。这主要是由于 JOIN、GROUP BY、ORDER BY 数量较多，或者检索产品或产品列表所需的连接数量（我想要显示它们）。 现在，我有两个相同的项目，一个使用 MongoDB，另一个使用 Postgres，但我不确定该选择哪一个。你会怎么办？有人有类似的经历吗？我是不是低估了 MongoDB？为什么我觉得 Postgres 上查询的复杂性或其数量超过了我应该从中获得的好处？   由   提交 /u/LastJoker96   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18zoisi/mongo_or_postgres/</guid>
+      <pubDate>Sat, 06 Jan 2024 02:04:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>我目前了解前端（react）和后端（express），我应该采取什么策略来学习 Java 和 Spring Boot？</title>
+      <link>https://www.reddit.com/r/webdev/comments/18znfd8/i_currently_know_frontendreact_and_backendexpress/</link>
+      <description><![CDATA[所以，对于背景故事，我最初学习了Spring Boot，但由于我当时还在，我学到的最多的是肤浅的数据，这意味着我有点学到了，但没有学到真的吗？但在学习了 Express 的后端流程以及前端的工作原理之后，我觉得我对一切如何连接在一起有了更好的理解。那么，我学习 Java 和 Spring Boot 的策略应该是什么？任何建议将不胜感激。    由   提交/u/South_Dig_9172   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/18znfd8/i_currently_know_frontendreact_and_backendexpress/</guid>
+      <pubDate>Sat, 06 Jan 2024 01:13:53 GMT</pubDate>
+    </item>
     <item>
       <title>尝试通过 Hostgator 网站上安装的 WordPress 博客上的 Rest API 发布博客文章。它被 Mod_Security 阻止。如何解决？</title>
       <link>https://www.reddit.com/r/webdev/comments/18znerf/trying_to_publish_blog_posts_via_the_rest_api_on/</link>
@@ -22,7 +36,7 @@
     <item>
       <title>利用陀螺仪技术制作移动背景互动</title>
       <link>https://www.reddit.com/r/webdev/comments/18zmb5f/making_a_mobile_background_interactive_with/</link>
-      <description><![CDATA[问候网络人员。 所以我有一个很酷的项目，它占据了我的晚上，看起来它会占用了我周末的大部分时间。我正在开发一个新网站，主页上有一个针对桌面用户的功能，我们已经实现了。当您移动鼠标时，它会产生这种很酷的效果，渐变散布在背景上，有点像沙子在风中移动。它与您在 buttermax.net 上看到的类似，尤其是背景的工作方式。 挑战如下：我需要使移动版本也具有交互性。最重要的想法是使用手机的陀螺仪。我尝试了手指拖动功能，但它不是很好，而且它与我在该区域上方的滑块混淆了。我倾向于让背景随着陀螺仪移动。这实际上是我从高桌得到的建议。 我发现了这个项目（目前正在经历），由一个名叫 Matthew 的人（顺便说一下，他很棒）使用陀螺仪进行视差移动，我很想尝试用我已经组合的一些渐变层来尝试这种方法。 有人对我的老板有想法、建议和潜力吗？  高桌的想法，或者知道任何使用手机陀螺仪来实现炫酷效果的项目吗？我愿意使用不同的技术堆栈。   由   提交/u/full-stackfamily  /u/full-stackfamily  reddit.com/r/webdev/comments/18zmb5f/making_a_mobile_background_interactive_with/&quot;&gt;[链接] [评论]]]></description>
+      <description><![CDATA[问候网络人员。 所以我有一个很酷的项目，它占据了我的晚上，看起来它会占用了我周末的大部分时间。我正在开发一个新网站，主页上有一个针对桌面用户的功能，我们已经实现了。当您移动鼠标时，它会产生这种很酷的效果，渐变散布在背景上，有点像沙子在风中移动。它与您在 buttermax.net 上看到的类似，尤其是背景的工作方式。 挑战如下：我需要使移动版本也具有交互性。最重要的想法是使用手机的陀螺仪。我尝试了手指拖动功能，但它不是很好，而且它与我在该区域上方的滑块混淆了。我倾向于让背景随着陀螺仪移动。这实际上是我从高桌得到的建议。 我发现了这个项目（目前正在经历），由一个叫 Matthew 的人（顺便说一下，他很棒）使用陀螺仪进行视差移动，我很想尝试用我已经组合的一些渐变层来尝试这种方法。 有人对我的老板有想法、建议和潜力吗？  高桌的想法，或者知道任何使用手机陀螺仪来实现炫酷效果的项目吗？我愿意使用不同的技术堆栈。   由   提交/u/full-stackfamily  /u/full-stackfamily  reddit.com/r/webdev/comments/18zmb5f/making_a_mobile_background_interactive_with/&quot;&gt;[链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18zmb5f/making_a_mobile_background_interactive_with/</guid>
       <pubDate>Sat, 06 Jan 2024 00:23:44 GMT</pubDate>
     </item>
@@ -36,7 +50,7 @@
     <item>
       <title>HTML 到 PDF 并带有表演</title>
       <link>https://www.reddit.com/r/webdev/comments/18zm20r/html_to_pdf_with_performances/</link>
-      <description><![CDATA[大家好， 我目前正在使用 wkhtmltopdf 和 go 包，并且正在寻找性能更高的解决方案。您是否对不同的 html 到 pdf 解决方案进行了基准测试？我们尝试了一些无头解决方案，但结果并没有更好。 我们每月 1 日通过计费服务生成数千个 PDF，因此如果我们能够缩短 PDF 生成时间，那就太好了。&lt; /p&gt;   由   提交/u/donovanish  [链接] [评论]]]></description>
+      <description><![CDATA[嘿伙计们， 我目前正在使用 wkhtmltopdf 和 go 包，并且正在寻找性能更高的解决方案。您是否对不同的 html 到 pdf 解决方案进行了基准测试？我们尝试了一些无头解决方案，但结果并没有更好。 我们在每个月的 1 号通过计费服务生成数千个 PDF，因此如果我们能够缩短 PDF 生成时间，那就太好了。&lt; /p&gt;   由   提交/u/donovanish  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18zm20r/html_to_pdf_with_performances/</guid>
       <pubDate>Sat, 06 Jan 2024 00:12:57 GMT</pubDate>
     </item>
@@ -50,14 +64,14 @@
     <item>
       <title>显示树状图</title>
       <link>https://www.reddit.com/r/webdev/comments/18zl54j/displaying_a_treelike_graph/</link>
-      <description><![CDATA[      嘿:) 我目前正在制定一个小爱好项目的实施细节，该项目围绕为特定主题提供结构化指南/学习体验。我最初计划使用纯 HTML5 / CSS 结合一些服务器端模板引擎（可能是 pug 或 esj，我还没有完全决定） 为了提供我想要的学习内容的概述实现将单个主题嵌套在“股”中的结构化图（参见模型图像）。并提供“引导”了解不同主题的一些先决条件。 https://preview.redd.it/j6fp4rkvipac1.png?width=681&amp;format=png&amp;auto=webp&amp;s=4731f1c0d21482428d444f6b4b078f427ac9c4 af 我想这可能是可以用纯 HTML / CSS 实现这一点，但我也认为这将非常痛苦 :T 因为这是一个业余爱好项目，目标之一是我个人学习一些新的东西，我很乐意迈出一步远离“纯粹”方法并使用一些其他技术。 但是，在研究该主题时，我有一种感觉，在大多数情况下，我正在处理某种“全栈”技术。对于我想要实现的目标来说，框架太过分了。 （React、vue.js、Angular 等） 你能给我一些建议，让我知道我应该进一步研究什么吗？我最初计划的基本摘要如下：  从 Markdown 模板渲染引导页面（可能在 pug 或 ejs 之上） 在如图所示的树状结构形式 除了可能记住客户端（cookie）用户已经查看/完成的内容的哪些部分之外，没有任何形式的用户交互性。那就是：我不想处理任何身份验证/授权或用户管理。本质上是一个静态页面，这就是为什么我最初想使用纯 HTML / CSS  提前致谢:)  &amp; #32；由   提交/u/Karathan  [链接] [评论] &lt; /表&gt;]]></description>
+      <description><![CDATA[      嘿:) 我目前正在制定一个小爱好项目的实施细节，该项目围绕为特定主题提供结构化指南/学习体验。我最初计划使用纯 HTML5 / CSS 结合一些服务器端模板引擎（可能是 pug 或 esj，我还没有完全决定） 为了提供我想要的学习内容的概述实现将单个主题嵌套在“股”中的结构化图（参见模型图像）。并提供“引导”了解不同主题的一些先决条件。 https://preview.redd.it/j6fp4rkvipac1.png?width=681&amp;format=png&amp;auto=webp&amp;s=4731f1c0d21482428d444f6b4b078f427ac9c4 af 我想这可能是可以用纯 HTML / CSS 实现这一点，但我也认为这将非常痛苦 :T 因为这是一个业余爱好项目，目标之一是我个人学习一些新东西，我很乐意迈出一步远离“纯粹”方法并使用一些其他技术。 但是，在研究该主题时，我感觉到，在大多数情况下，我正在处理某种“全栈”技术。对于我想要实现的目标来说，框架太过分了。 （React、vue.js、Angular 等） 你能给我一些建议，让我知道我应该进一步研究什么吗？我最初计划的基本摘要如下：  从 Markdown 模板渲染引导页面（可能在 pug 或 ejs 之上） 在如图所示的树状结构形式 除了可能记住客户端（cookie）用户已经查看/完成的内容的哪些部分之外，没有任何形式的用户交互性。那就是：我不想处理任何身份验证/授权或用户管理。本质上是一个静态页面，这就是为什么我最初想使用纯 HTML / CSS  提前致谢:)  &amp; #32；由   提交/u/Karathan  [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18zl54j/displaying_a_treelike_graph/</guid>
       <pubDate>Fri, 05 Jan 2024 23:35:06 GMT</pubDate>
     </item>
     <item>
       <title>为什么我的 CSS 代码不适用于 Safari，但适用于 Chrome？</title>
       <link>https://www.reddit.com/r/webdev/comments/18zkwmx/why_is_my_css_code_not_working_for_safari_but_is/</link>
-      <description><![CDATA[我有一个用 Webflow 制作的创意个人作品集网站，但我一直遇到一个问题，主页上的项目链接在 Safari 上无法点击。我联系了 Webflow 支持，他们说删除主页上的 HTML 嵌入元素解决了问题，但他们无法帮助自定义代码...我不懂编码，所以我来到这里希望是否有人可以提供帮助这段CSS代码。我尝试使用 ChatGPT 来优化代码，但它只是让一切变得更糟 Codepen 问题视频 预览链接   由   提交 /u/cummpuddle   [链接] [评论]]]></description>
+      <description><![CDATA[我有一个用 Webflow 制作的创意个人作品集网站，但我遇到了一个问题，主页上的项目链接在 Safari 上无法点击。我联系了 Webflow 支持，他们说删除主页上的 HTML 嵌入元素解决了问题，但他们无法帮助自定义代码...我不懂编码，所以我来到这里希望是否有人可以提供帮助这段CSS代码。我尝试使用 ChatGPT 来优化代码，但它只是让一切变得更糟 Codepen 问题视频 预览链接   由   提交 /u/cummpuddle   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18zkwmx/why_is_my_css_code_not_working_for_safari_but_is/</guid>
       <pubDate>Fri, 05 Jan 2024 23:25:10 GMT</pubDate>
     </item>
@@ -85,7 +99,7 @@
     <item>
       <title>有人参加过 IronHack 训练营吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/18ziq5g/has_anyone_done_an_ironhack_bootcamp/</link>
-      <description><![CDATA[我可能有机会在马德里参加这个训练营，但我想知道是否有其他人参加过这个训练营，如果是的话，你的想法就它了。   由   提交/u/Annual-Ad-416   [链接] [评论]]]></description>
+      <description><![CDATA[我可能有机会在马德里参加这个训练营，但我想知道是否有其他人参加过这个训练营，如果是的话，你的想法就在上面。   由   提交/u/Annual-Ad-416   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18ziq5g/has_anyone_done_an_ironhack_bootcamp/</guid>
       <pubDate>Fri, 05 Jan 2024 21:53:46 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[     &lt; /td&gt; 大家好， 我正在尝试构建一个我计划添加的当前天气组件到一家餐厅的网页，该网页将显示该餐厅的当地天气（他们有很多骑自行车的人，因此天气与业务相关）。我正在尝试访问 Weather.gov API，但是当我发出请求时，具有天气信息（“周期”）的对象不断向我提供未定义的对象。我研究了 Axios 和 Weather API 文档来帮助格式化我的请求。在 Weather.gov 网站上，规范下有一个选项可以尝试端点，我已经尝试了并且取得了成功。我还使用 Postman 应用程序发送 GET 请求。这两个示例均已成功返回，并且对象不是未定义的，并且显示当前条件。然而，当我将weather.gov和Postman使用的这些方法集成到我的代码中时，我得到了成功的响应，但我的“期间”对象数组返回时未定义。我还尝试向 ChatGPT 询问一些故障排除提示，但结果却失败了……据我所知，我还确保遵循 Weather.gov 指南中相应的身份验证标头要求。我附上了 JS 文件的屏幕截图，控制台响应显示未定义的“句点”来自 response.data 的对象，以及我用来显示数据的 EJS 模板。请告诉我如何解决此问题并改进我的代码。 Weather.gov API 文档： https://www.weather.gov/documentation/services-web-api#/default/gridpoint_forecast Axios 文档： https://axios-http.com/docs/req_config &lt; p&gt;邮递员请求显示“周期”对象 EJS 模板-index.ejs index.js console.log(results.data) 输出   由   提交/u/l-b_b-l   [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/18zioti/help_with_weathergov_api_xposted_on_rbackend/</guid>
       <pubDate>Fri, 05 Jan 2024 21:52:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>易于使用的 WordPress 托管</title>
-      <link>https://www.reddit.com/r/webdev/comments/18zi70z/easytouse_hosting_for_wordpress/</link>
-      <description><![CDATA[您好，什么是易于使用的 WordPress 托管？  我主要关心的是它是一个“设置好然后忘记它”的应用程序。解决方案，因为我会进行初始设置，然后将其交给其他可能不懂技术的人，这就是为什么 Linux 等的自动更新将是一个巨大的优势 - 这样做，以便所有管理工作都将是通过 WordPress 完成，实际的托管管理和维护很少进行，预算约为 10-20 欧元，用户位于中欧，还没有每月流量，但我估计约为 10k 我做了一些研究我发现：  AWS Lightsail - 看起来是最好的选择，10 欧元/月/2 个 vCPU/2GB RAM，它比 Cloudways 或 DO 便宜（约 18-24 欧元/月），但是恐怕它不太容易使用，因为它是 AWS - 这是真的吗？我对初始设置稍微困难一点没有意见，但是以后使用起来容易吗？ DigitalOcean Cloudways（由 DigitalOcean 提供）- 比 DO 贵约 6 欧元，不是在我看来值得 Hostinger - 看起来以后会有额外的费用（例如第一年每月 3 欧元，然后贵 4 到 5 倍） Hetzner - 到目前为止最便宜的价格为 5 欧元，2 个 vCPU/2GB RAM Oracle - 用户体验可能太复杂 Linode - 用户体验可能太复杂 GCP 计算引擎 -不可能，因为计算引擎每月花费 30 欧元，例如 1 个 vCPU 和 1 GB RAM？？？ Azure - 看起来太复杂，我不知道是否有像 Lightsail 这样的解决方案，您可以在其中使用将所有内容结合在一起并提供可预测的定价，而不是多个单独的服务  我更喜欢大公司而不是我从未听说过的提供商。谢谢。   由   提交/u/BaranSK  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18zi70z/easytouse_hosting_for_wordpress/</guid>
-      <pubDate>Fri, 05 Jan 2024 21:31:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>当您有经验时，下一步最好的步骤是什么</title>
-      <link>https://www.reddit.com/r/webdev/comments/18zi2dc/what_are_the_best_next_steps_when_you_have/</link>
-      <description><![CDATA[大家好，我目前在全栈工作，但我遇到了困难，我想学习更多，但我想要一些值得的东西价格，现在有什么建议吗？我有 6 年的 Java + Angular 经验，在前端方面我比较强，但不会从头开始处理后端或数据库关系设计，但我想要一些学位或认证来证明我在市场上的价格是合理的，我可以&#39;不再看到太多可以增长的地方了。    由   提交 /u/Alec_Alestro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/18zi2dc/what_are_the_best_next_steps_when_you_have/</guid>
-      <pubDate>Fri, 05 Jan 2024 21:25:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
