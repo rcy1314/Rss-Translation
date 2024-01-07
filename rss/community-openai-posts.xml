@@ -4,320 +4,178 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 07 Jan 2024 09:17:25 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jan 2024 12:31:28 GMT</lastBuildDate>
     <item>
-      <title>Gpt-4-1106-preview 搞乱了函数调用参数编码</title>
-      <link>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_83</link>
-      <description><![CDATA[你好，
-这里对于重复的\n\n\n很有用...
-  &lt;标题类=“来源”&gt;
-
-      github.com/openai/openai-node
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-
-&lt;路径 d=&quot; M7 2​​.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7- 3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z&quot; fill-rule=&quot;evenodd&quot;&gt;
-
-
-
-语法错误：位置 X 处 JSON 后出现意外的非空白字符
-
-
-
-        开放时间 04:28PM - UTC 时间 12 月 21 日
-
-
-          关闭 06:16PM - UTC 时间 12 月 21 日
-
-
-
-
-          西宏
-        
-
-
-
-
-          漏洞
-        
-
-
-
-
-### 确认这是 Node 库问题，而不是底层 OpenAI API 问题
-…&lt; span 类=“摘录隐藏”&gt;
-- [X] 这是 Node 库的问题
-
-### 描述错误
-
-以下参数是在函数调用时收到的。
-
-````
-{
-functionArgText: `{&quot;query&quot;: &quot;到我 40 岁时我想做什么？&quot;}{&quot;query&quot;: &quot;到我 40 岁时我希望我的职业生涯在哪里？&quot;}{ &quot;query&quot;: &quot;40 岁时我希望拥有一个什么样的家庭？&quot;}`
-}
-````
-
-并试图解析上面的内容，
-
-`语法错误：JSON 后位置 53 处出现意外的非空白字符`
-
-我被告知“SyntaxError: Unexpected non-whitespace character after JSON atposition 53 由于某种原因，经常会发生类似的查询重复 3 次，就像这个一样。我该怎么办？
-
-### 重现
-
-1. 通过 Node.js 使用 OpenAI API
-2. 设置工具
-
-````
-导出常量 googleSearchSchema: AssistantCreateParams.AssistantToolsFunction = {
-  类型：“函数”，
-  功能： {
-    名称：“谷歌搜索”，
-    描述：“使用 Google 自定义搜索引擎 API 搜索网络。”,
-    参数： {
-      类型：“对象”，
-      特性： {
-        询问： {
-          类型：“字符串”，
-          描述：`搜索查询。多个搜索词应以空格分隔。请勿使用“\\n”等换行符。项数应在 1 到 10 之间。越少越好。使用 Google 搜索运算符来优化您的搜索。例如 1，“site:en.wikipedia.org”将仅搜索维基百科。`,
-        },
-      },
-      必需：[“查询”]，
-    },
-  },
-作为常量；
-````
-
-### 代码片段
-
-_没有反应_
-
-### 操作系统
-
-苹果系统
-
-### 节点版本
-
-v20.10.0
-
-### 库版本
-
-“openai”：“^4.24.0”，
-
-
-
-
-
-
-亲切的问候，]]></description>
-      <guid>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_83</guid>
-      <pubDate>Sun, 07 Jan 2024 09:13:15 GMT</pubDate>
+      <title>功能请求：有针对性的文本修改循环</title>
+      <link>https://community.openai.com/t/feature-request-targeted-text-modification-loop/578521#post_2</link>
+      <description><![CDATA[我预计这就是副驾驶最终会变成的样子。
+如果有时间的话我会自己做，也许这是你可以开发的产品？]]></description>
+      <guid>https://community.openai.com/t/feature-request-targeted-text-modification-loop/578521#post_2</guid>
+      <pubDate>Sun, 07 Jan 2024 12:24:54 GMT</pubDate>
     </item>
     <item>
-      <title>我什至不知道从哪里开始迁移？</title>
-      <link>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_3</link>
-      <description><![CDATA[感谢您的快速回复。你不必把我放在第一位。 &lt;img alt=&quot;:ok_hand:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/ok_hand.png?v=12&quot; title=&quot;:ok_hand: “宽度=“20”/&gt;
- 如何迁移？
+      <title>处理不一致的结果</title>
+      <link>https://community.openai.com/t/coping-with-inconsistent-results/576342#post_13</link>
+      <description><![CDATA[谢谢@_j，我会重新格式化我的提示消息。关于函数，我认为主要用途之一是精确的输出格式化...但是自从我编写脚本以来，我看到示例提示明确要求 json 输出。 
+还要感谢您发现函数中名称不一致的地方。]]></description>
+      <guid>https://community.openai.com/t/coping-with-inconsistent-results/576342#post_13</guid>
+      <pubDate>Sun, 07 Jan 2024 12:23:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>提供的服务器均不在根源下 - GPT 架构 - 带端口的服务器</title>
+      <link>https://community.openai.com/t/none-of-the-provided-servers-is-under-the-root-origin-gpts-schema-server-with-port/491548#post_13</link>
+      <description><![CDATA[我也遇到同样的问题。我绝对需要在不同的端口上使用我的服务器。到目前为止还没有办法……相当令人沮丧。]]></description>
+      <guid>https://community.openai.com/t/none-of-the-provided-servers-is-under-the-root-origin-gpts-schema-server-with-port/491548#post_13</guid>
+      <pubDate>Sun, 07 Jan 2024 12:11:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用助手生成的参数进行函数调用</title>
+      <link>https://community.openai.com/t/function-calling-using-arguments-generated-by-an-assistant/578639#post_2</link>
+      <description><![CDATA[为什么不直接传递可能的候选者列表，并使用代码解释器过滤结果？
+也就是说，我认为这对于法学硕士来说不是最好的工作，因为如果它做出回应，它会从年初开始对其知识进行猜测。
+因此，最好的选择可能是获取详尽的列表并对其进行解析，无论是使用代码解释器还是在后端。
+&lt;小时/&gt;
+但您的问题是如何处理各种各样的情况。
+嗯，IMO 最好的方法是为人工智能提供回答潜在查询所需的所有工具和信息。如果你给它所有的数据并提示它可以做什么，你应该会得到不错的结果。
+也就是说，我不认为助手是灵丹妙药。您仍然对要提供的产品有一定的范围，并且需要了解该范围内发生的所有事情 - 与经典编程非常相似，但代码较少。]]></description>
+      <guid>https://community.openai.com/t/function-calling-using-arguments-generated-by-an-assistant/578639#post_2</guid>
+      <pubDate>Sun, 07 Jan 2024 11:58:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用助手生成的参数进行函数调用</title>
+      <link>https://community.openai.com/t/function-calling-using-arguments-generated-by-an-assistant/578639#post_1</link>
+      <description><![CDATA[嗨，
+我想创建一个助手，它会自己生成元素，然后我想使用函数检查这些元素。听起来像是基本的函数调用，但它是不同的，因为助手应该根据它生成的参数调用该函数，而不是用户提供的参数。示例：
+假设我有一个函数：def get_real_time_price(ticker)：返回价格。助理指令如下所示：“您是股市专家。您的角色是根据用户提供的数据提供 10 家股票公司及其股票代码。”示例提示：“价格低于 25 美元的科技股。”
+因此，助手开始生成 10 只股票和股票代码；它生成第一个股票，调用该函数，如果价格高于 25 美元则拒绝它，然后提出下一个，直到有 10 只股票价格低于 25 美元。
+我猜函数调用是不可能的，但是你对如何解决它有什么想法吗？我的想法：
+使用相同的提示而不调用函数：它将为我提供过去价格低于 25 美元的股票及其股票代码，因此它们当前价格也是 25 美元的可能性更高。然后从响应中提取代码并自己调用 get_real_time_price(ticker) 函数。如果 10 只股票中只有 6 只的价格低于 25 美元，则再次提示（“具有相同标准的 10 只以上”），重复直到我得到 10 只。由于时间和成本，这似乎不是一个很好的解决方案（多条消息）。
+另一个解决方案是将指令从 10 只股票更改为例如 30 只，然后手动检查它们，直到得到 10 只，但这需要更长的时间。
+所以如果有人有更好的解决方案，请分享，谢谢 ]]></description>
+      <guid>https://community.openai.com/t/function-calling-using-arguments-generated-by-an-assistant/578639#post_1</guid>
+      <pubDate>Sun, 07 Jan 2024 11:53:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>对话太长，请开始新对话</title>
+      <link>https://community.openai.com/t/the-conversation-is-too-long-please-start-a-new-one/128517#post_8</link>
+      <description><![CDATA[大家好，
+现在已经是 2024 年 1 月，GPT 仍然冒犯地回应：“对话太长，请开始新的对话。”
+我非常惊讶，老实说，它并没有对在复杂主题上开始开发长期合作的工具给予任何信任。也许 GPT4 并不是更好的工具……
+我应该在本地循环上开发人工智能或 GPT4 版本吗？没有任何线索。
+无论如何，为了解决这个大问题：
+
+
+是否可以在新频道中再次复制并粘贴 aaaallll 对话？
+
+
+还是从头开始更好，这意味着要在垃圾箱里工作几个小时......
+
+
+除非还有其他解决方案吗？
+
+
+为大家干杯]]></description>
+      <guid>https://community.openai.com/t/the-conversation-is-too-long-please-start-a-new-one/128517#post_8</guid>
+      <pubDate>Sun, 07 Jan 2024 11:51:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>工具参数的扩展模式还是最小模式？</title>
+      <link>https://community.openai.com/t/extended-or-minimal-schemas-for-tool-parameters/578636#post_2</link>
+      <description><![CDATA[这是我的想法：
+
+标题是可选的 JSON 架构验证：JSON 结构验证词汇
+为什么要浪费带有冗余信息的令牌？
+冗余信息可能会混淆模型
+
+以下是我的观点：
+
+我不喜欢Python
 ]]></description>
-      <guid>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_3</guid>
-      <pubDate>Sun, 07 Jan 2024 09:07:37 GMT</pubDate>
+      <guid>https://community.openai.com/t/extended-or-minimal-schemas-for-tool-parameters/578636#post_2</guid>
+      <pubDate>Sun, 07 Jan 2024 11:34:54 GMT</pubDate>
     </item>
     <item>
-      <title>建议将麦克风功能集成到应用程序中</title>
-      <link>https://community.openai.com/t/to-propose-integrating-a-microphone-functionality-into-the-application/392790#post_5</link>
-      <description><![CDATA[在 Android 上使用 ChatGPT 中的语音输入的方式如下：
-点击文本字段以显示屏幕键盘。
-查找键盘上的麦克风图标。它通常位于键盘的顶行或空格键旁边。
-点击麦克风图标。这将激活语音输入。
-开始说话。您的文字将自动转换为文本并插入到文本字段中。
-完成后，再次点击麦克风图标即可结束语音输入。
+      <title>当文档数量增加时，RAG 会失败</title>
+      <link>https://community.openai.com/t/rag-is-failing-when-the-number-of-documents-increase/578498#post_8</link>
+      <description><![CDATA[当然！我不知道它是否是任何特定包的一部分，但对于一个产品，我们注意到最好构建一种树。
+您有嵌入索引，但它们是按主题分类的。每个主题都有一个本身嵌入的主题描述 - 因此首先您找到相关主题，然后查看这些主题以找到您需要的实际文档。
+我们尝试使用质心，但从一开始就得到了好坏参半的结果，因此我们为这种特殊情况生成主题摘要。]]></description>
+      <guid>https://community.openai.com/t/rag-is-failing-when-the-number-of-documents-increase/578498#post_8</guid>
+      <pubDate>Sun, 07 Jan 2024 11:02:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何保护您的 GPT？</title>
+      <link>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=3#post_52</link>
+      <description><![CDATA[有趣的是，用户可以在沙盒环境访问中覆盖知识文件。
+您使用过 @elmstedt 方法吗？
 
-确保您的设备已连接到互联网，因为语音输入通常需要在线连接。另外，请检查您设备上的语音输入设置是否配置正确，尤其是当您希望使用英语以外的语言说话时。
-诚然，改进之处在于 ChatGPT 输入行中的麦克风图标，类似于 WhatsApp。
-这里讨论了类似的主题：
-
-
-全国， ChatGPT 的收费电话号码可提高可访问性并产生收入  功能请求
-
-  &lt;块引用&gt;
-    我不确定他们会很快实施这一点。
-但这提醒了我，我确实有一个项目正在进行中，可以将扬声器连接到 API，并以随机间隔触发 API，并且扬声器全天发出 AI 在后台生成的随机内容 
-你可以把这样的扬声器放在公共场所并拥有人工智能公益广告。从用户的角度来看，不需要其他设备  
-但这更像是一个业余/学习项目……
-  
+访问包含文件的自定义 GPT
+以任意方式调用python环境
+访问有权访问代码解释器的任何其他 GPT 实例（包括默认的 ChatGPT）
+您可以从自定义 GPT 下载任何您想要的文件
+利润？
 ]]></description>
-      <guid>https://community.openai.com/t/to-propose-integrating-a-microphone-functionality-into-the-application/392790#post_5</guid>
-      <pubDate>Sun, 07 Jan 2024 08:55:18 GMT</pubDate>
+      <guid>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=3#post_52</guid>
+      <pubDate>Sun, 07 Jan 2024 10:27:04 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
-      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_6</link>
-      <description><![CDATA[
-
-
- curt.kennedy:
-&lt;块引用&gt;
-我认为第一个挑战是降低推理延迟，以便人工智能可以通过语音快速做出响应。
-
-
-诚然，对于使用此类电话号码的基于语音的人工智能系统来说，延迟是一个挑战。作为中间层的快速响应的“小脑人工智能”可能是一个解决方案。这种人工智能使用简短、自然的填充语（“哦，这很有趣。”，“让我考虑一下。”，“保持在线，我正在检查一些东西。”），类似于普通电话中常见的深思熟虑的停顿进行磋商，而主要 AI 则制定响应。这减少了感知的等待时间，并使对话更加自然和流畅。
-通过训练，小脑人工智能可以根据上下文应用这些句子，从而增强沟通的真实性和舒适度。将此人工智能集成到通过传统电话号码运行的系统中可以显着解决延迟挑战并提高服务可访问性和用户友好性。
-
-
-
- curt.kennedy:
-&lt;块引用&gt;
-至于全国按分钟付费的 POTS 线路……老实说，我认为那些日子已经结束了，现在每个人都有手机了。
-
-
-对于用户来说，无论采用何种传输技术（例如固定电话、蜂窝电话或 VoIP），通过传统电话号码访问服务都很重要。]]></description>
-      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_6</guid>
-      <pubDate>Sun, 07 Jan 2024 08:39:25 GMT</pubDate>
+      <title>允许 ChatGPT 3.5 访问我的 Google 表格 - 看起来很困惑</title>
+      <link>https://community.openai.com/t/allowing-chatgpt-3-5-to-access-my-google-sheet-it-seems-confused/155835#post_6</link>
+      <description><![CDATA[只是把它绑起来：
+您现在可以将数据上传到 ChatGPT（尽管是 ChatGPT 4），包括使用附件回形针工具直接从 ChatGPT Web 应用程序上传电子表格：
+https: //help.openai.com/en/articles/8555545-file-uploads-faq]]></description>
+      <guid>https://community.openai.com/t/allowing-chatgpt-3-5-to-access-my-google-sheet-it-seems-confused/155835#post_6</guid>
+      <pubDate>Sun, 07 Jan 2024 10:16:41 GMT</pubDate>
     </item>
     <item>
-      <title>创建 GPT 时添加自定义域的问题</title>
-      <link>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_8</link>
-      <description><![CDATA[哦，我找到了@_j；谢谢！]]></description>
-      <guid>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_8</guid>
-      <pubDate>Sun, 07 Jan 2024 07:30:46 GMT</pubDate>
+      <title>工具参数的扩展模式还是最小模式？</title>
+      <link>https://community.openai.com/t/extended-or-minimal-schemas-for-tool-parameters/578636#post_1</link>
+      <description><![CDATA[文档说工具定义结构中的参数元素（https://platform.openai.com/docs/api-reference/chat/create#chat-c​​reate-tools) 应该是一个 JSON Schema 对象。
+给出的示例是一个最小模式 - 但像 pydantic 这样的工具会生成扩展模式，例如包括“标题”字段。通过文字获取文档，这些扩展模式应该可以被 API 接受 - 但我猜想 LLM 与模式的一致性程度会有所不同，具体取决于它所训练/微调的模式。
+我还没有发现任何用迂腐生成最小模式的好方法（这是我在 pydantic 论坛上的问题：从 json 模式中删除“标题”字段以使其可在 OpenAI 聊天完成调用中使用的好方法是什么？· pydantic/pydantic· 讨论 #8504· GitHub）。许多库删除了“标题”字段 - 因此这可能表明最小模式更好。但有人检查过吗？]]></description>
+      <guid>https://community.openai.com/t/extended-or-minimal-schemas-for-tool-parameters/578636#post_1</guid>
+      <pubDate>Sun, 07 Jan 2024 10:13:13 GMT</pubDate>
     </item>
     <item>
-      <title>创建 GPT 时添加自定义域的问题</title>
-      <link>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_7</link>
-      <description><![CDATA[Builder 个人资料位于 ChatGPT“用户名菜单”内的“设置（和测试版）”下。]]></description>
-      <guid>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_7</guid>
-      <pubDate>Sun, 07 Jan 2024 07:29:05 GMT</pubDate>
+      <title>您可以将 WHISPER 添加为 Playground 的一部分吗？</title>
+      <link>https://community.openai.com/t/can-you-add-whisper-as-part-of-the-playground/578635#post_1</link>
+      <description><![CDATA[（主题已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/can-you-add-whisper-as-part-of-the-playground/578635#post_1</guid>
+      <pubDate>Sun, 07 Jan 2024 09:59:50 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
-      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_5</link>
-      <description><![CDATA[如果你想感觉自己像个小丑
-查看您的银行账户余额减少
-拨打 1-900-Bot-a-lot
-并聊聊那些机器人的想法。
-有几个偶尔会在社交媒体上发布此类业余爱好者项目。仅凭电话号码很难判断它是否会诱使您进行按次付费或国际费用诈骗，从而影响您的账单。]]></description>
-      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_5</guid>
-      <pubDate>Sun, 07 Jan 2024 07:16:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
-      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_4</link>
-      <description><![CDATA[我认为第一个挑战是降低推理延迟，以便人工智能可以通过语音快速做出响应。
-这可能是这个想法的最大“悬念”（双关语）
-至于全国按分钟付费的 POTS 线路……老实说，我认为那些日子已经结束了，现在每个人都有手机了。  不确定这将如何工作，或者谁会使用它。目标人群是???
-PS 在这里通过语音谈论真实的实时推理。已经有机器人基本上使用预先录制的响应和嵌入来响应您。这已经出来了……就像那个不时打电话为警察兄弟会（或其他什么）打电话要钱的“家伙”……他是一个完全的机器人，根据他的响应滞后时间使用预设的响应。因此，这是 TTS（可能是部分）+ RAG + 通过快速嵌入/关键字样式搜索播放最近的波形，消除推理和 TTS 滞后。而且仍然滞后。
-所以滞后是这里的关键。需要超低延迟。大约需要 500 毫秒才能真正实现这一目标。这对于高质量的 LLM 来说是很困难的，更不用说 RAG 搜索 + STT 和 TTS 滞后的开销了。
-现在，SOTA 可能需要大约 2 秒，这对于手机来说是永恒的时间。]]></description>
-      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_4</guid>
-      <pubDate>Sun, 07 Jan 2024 07:15:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的域名已验证并已设置构建器配置文件，但无法另存为“公共”</title>
-      <link>https://community.openai.com/t/my-domain-is-verified-and-builder-profile-set-up-but-cant-save-as-public/578479#post_9</link>
-      <description><![CDATA[
+      <title>助手：URL文件的错误页面-***没有内容</title>
+      <link>https://community.openai.com/t/assistants-error-page-at-url-file-had-no-contents/578632#post_1</link>
+      <description><![CDATA[为什么我无法使用助手中的检索工具打开文件？我收到错误：
+执行命令open_url(file-***)时出错
+URL file-*** 处的页面没有内容。
+您打开的页面没有内容。
+但是当我指定使用代码解释器工具时，我可以打开该文件。
 
-
-雅各布贾尼斯：
-&lt;块引用&gt;
-我的构建者配置文件屏幕现在显示此消息，
-
-
-嗨！我发现域验证的工作方式并不符合预期。设置-&gt;构建器配置文件中的验证不断给出相同的过期 TXT 来添加。
-如果您的构建者个人资料处于“验证您的身份”状态并且您已经显示了 dot.com，则您需要启动所有结束了。
-您可以执行以下操作：
-各就各位
-
-输入网站选择器。
-删除所有域。
-您只需要一个域名。
-它说“验证公共域名的所有权”。您提供的任何网址都将成为用户点击的目的地。当前显示根域。
-（它也可能需要成为未来的操作域）
-
-开始设置
-
-没有不受支持的国家/地区 TLD；
-为了确保将来的检查通过，请建立一个可以通过页面进行响应的网站。
-让您的名称服务器上的 DNS 区域编辑器准备好添加新的 TXT 记录。您将向您的主域和您指定的子域（甚至是 www）添加一个。
-
-开始：
-
-再次添加域名以获取新的挑战字符串，使页面保持打开状态。
-将 txt 添加到 DNS（我添加到了顶级域和子域）
-并给予大约 30 分钟（测试更新是否已传播，如下）。
-按 OpenAI 的“检查”以执行查找。
-
-您可以在按“检查”之前确保
-当您添加带有质询字符串的 TXT 时，您还可以添加另一个子域（并非所有托管都可以让您在无需更多设置或具有直接 DNS 访问权限的情况下添加此子域）。对于虚构的子域：
-
-添加 CNAME 重定向到 http://mysite.com 或 A 记录 IP 地址。
-当您从 OpenAI 获取令牌时，保存来自 OpenAI 的 TXT 记录和新子域
-等待一段时间后，执行 nslookup sub.mymain.com 1.1.1.1 以使用 Cloudflare 的 DNS 服务器查找子域。
-当子域解析为 IP 地址时，TXT 也应该可用。
+另外，为什么我在助手中可以打开ChatGPT网页上传的文件，而在助手自己的对话中上传的文件却打不开？
+ 
 ]]></description>
-      <guid>https://community.openai.com/t/my-domain-is-verified-and-builder-profile-set-up-but-cant-save-as-public/578479#post_9</guid>
-      <pubDate>Sun, 07 Jan 2024 07:08:19 GMT</pubDate>
+      <guid>https://community.openai.com/t/assistants-error-page-at-url-file-had-no-contents/578632#post_1</guid>
+      <pubDate>Sun, 07 Jan 2024 09:24:12 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 突然无法读取其知识库中的文件</title>
-      <link>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_4</link>
-      <description><![CDATA[这是由 OpenAI 方面的工作造成的。它对包含知识文件的 GPT 造成各种影响，影响各种来源的数据源的优先级。我遇到的最严重的情况是拒绝回应使用其他信息来源的请求。同时告诉我们自己查找更多信息，而不提供信息来源的链接。包括拒绝使用从聊天发送的文件（当没有知识时，可以使用通过聊天发送的文件，并且与知识和问题返回具有相同的重要性），尽管指定了需要对文件执行的操作。包括尝试在与对话或用户需求无关的事务中使用文件。
-这些问题每天都在变化，不太恒定，但仍然与相同的元素相关：文件、知识源、响应内容的减少以及停止工作带来的“最新”一词。我向 OpenAI 通报了这些事项，并决定如何处理可用的选项。但我可以告诉你，目前还没有办法按照OpenAI想要的方式修复这个问题，它只能将更改后的内容恢复到原来的样子。如果他们仍然想追求它的目的，就会破坏本应更加多样化和创造性的知识的使用。我推荐一个合适的解决方案，特别是对于那些想要将 GPT 放入商店的人。他们可以毫无问题地做到这一点。包括将此信息告知用户，以了解是否有与此问题相关的工作。为了避免使用过程中出现问题，这些数据都是通过个人技术观察和收集的数据。这一回应是在 OpenAI 宣布开店的同一天收到的。可以断定，按照组织的作风，这很可能是一次安静的行动。]]></description>
-      <guid>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_4</guid>
-      <pubDate>Sun, 07 Jan 2024 07:04:53 GMT</pubDate>
+      <title>GPT-4：它做的一切都是错误的，并且不会让我因为重新生成而添加消息</title>
+      <link>https://community.openai.com/t/gpt-4-it-does-everything-wrong-and-wont-let-me-to-add-message-because-of-that-regenerate/578631#post_1</link>
+      <description><![CDATA[正如您在打印屏幕中看到的那样，GPT-4 一切都是错误的。他尝试了很多组合，似乎都失败了。并且不会因为“重新生成”按钮而让我添加新信息。
+即使 GPT-4 无法解决问题，那个大的“重新生成”按钮也无济于事。 GPT-4 必须允许用户发送消息。因为我可以用想法帮助旧代码，给出我自己发现的建议，但如果出现该按钮，那么我就不再有可能发送有用的消息。
+另一方面，GPT-4版本最糟糕的地方是连接总是中断。突然，在代码中间，出现了“重新生成”或“错误分析”按钮。因为用户多？ GPT-4应该为每个用户分配更大的互联网带宽，否则总是会中断。
+]]></description>
+      <guid>https://community.openai.com/t/gpt-4-it-does-everything-wrong-and-wont-let-me-to-add-message-because-of-that-regenerate/578631#post_1</guid>
+      <pubDate>Sun, 07 Jan 2024 09:23:32 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
-      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_3</link>
-      <description><![CDATA[
+      <title>2023 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=17#post_344</link>
+      <description><![CDATA[海滩的一天，作者：DALL-E 3
 
-
- curt.kennedy:
-&lt;块引用&gt;
-我确实认为人工智能虚拟电话很酷，虚拟视频会议就更好了。
-
-
-感谢您分享您的想法！
-看起来我们可能正在讨论一些不同的事情，你不觉得吗？
-我的功能请求侧重于用户和人工智能之间的一对一对话，与多方电话会议不同。
-像“与 ChatGPT 进行电话对话”或“通过普通老式电话 (POT) 进行 ChatGPT 交互”这样的标题将更准确地反映我提案中的个人语音交互方面。这个想法是关于建立全国性的收费电话号码，以便通过传统电话与 ChatGPT 进行个人互动。
-假设不存在法律障碍，任何人都可以使用 ChatGPT API 建立此类服务。从这个角度来看，它可以被视为一种具有极好的可扩展性、几乎无风险的商业理念，甚至是一种赚钱机器。]]></description>
-      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_3</guid>
-      <pubDate>Sun, 07 Jan 2024 06:31:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>将元数据添加到“文件”对象</title>
-      <link>https://community.openai.com/t/add-metadata-to-files-object/578626#post_1</link>
-      <description><![CDATA[如果能够像使用助手、线程和运行一样将元数据添加到文件对象，那就太好了。
-对此最大的需求实际上是能够在尝试保持文件同步时使用可靠的“外部 ID”。]]></description>
-      <guid>https://community.openai.com/t/add-metadata-to-files-object/578626#post_1</guid>
-      <pubDate>Sun, 07 Jan 2024 05:18:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>您对 2024 年人工智能领域有何预测？</title>
-      <link>https://community.openai.com/t/what-are-your-predictions-for-2024-in-ai/577161#post_13</link>
-      <description><![CDATA[随着我们继续深入了解人工智能是什么、不是什么、它如何以及为何发挥作用，以便使其更好地发挥作用，我们将深入了解我们自己的意识和相互作用。因此，具有讽刺意味的是，我们对进化人工智能的追求可能会帮助我们进化我们自己的追求。这可能会带来社交和智力方面广泛且意想不到的进步。这可能有助于人工智能的进一步改进。人工智能生态系统由此发展而来。
-或者通用人工智能发生得更快，从而使这一进程脱轨，飞速前进，而我们从根本上和内省上都进一步落后。当我们努力寻找与 AGI 共存的最佳实践、接受巨大的好处和惊喜时，我们无法增强和抵消 AGI 的意外后果。
-两者都会导致快速（即使不是半强迫的）自我完善。在这个有限的范围内，通用人工智能的缓慢发展似乎是更好的路径。只是在此处添加一些广泛的想法，谢谢。]]></description>
-      <guid>https://community.openai.com/t/what-are-your-predictions-for-2024-in-ai/577161#post_13</guid>
-      <pubDate>Sun, 07 Jan 2024 05:13:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建 GPT 时添加自定义域的问题</title>
-      <link>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_6</link>
-      <description><![CDATA[我找不到菜单。这仅适用于 GPT Store beta 用户吗？ （仅供参考，我是 plus 用户，我可以创建自定义 GPT。）]]></description>
-      <guid>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_6</guid>
-      <pubDate>Sun, 07 Jan 2024 03:42:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>我什至不知道从哪里开始迁移？</title>
-      <link>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_2</link>
-      <description><![CDATA[我认为他们还没有关闭旧型号，尽管它们应该在几天前停止。
-但是，如果您迁移到使用较新的 ChatML 界面的较新的“聊天”样式模型之一，那么您应该会很好。]]></description>
-      <guid>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_2</guid>
-      <pubDate>Sun, 07 Jan 2024 03:36:18 GMT</pubDate>
+ ]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-share-your-creations/431189?page=17#post_344</guid>
+      <pubDate>Sun, 07 Jan 2024 09:21:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
