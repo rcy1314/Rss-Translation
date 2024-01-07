@@ -4,7 +4,289 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 07 Jan 2024 06:22:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jan 2024 09:17:25 GMT</lastBuildDate>
+    <item>
+      <title>Gpt-4-1106-preview 搞乱了函数调用参数编码</title>
+      <link>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_83</link>
+      <description><![CDATA[你好，
+这里对于重复的\n\n\n很有用...
+  &lt;标题类=“来源”&gt;
+
+      github.com/openai/openai-node
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+
+&lt;路径 d=&quot; M7 2​​.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7- 3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z&quot; fill-rule=&quot;evenodd&quot;&gt;
+
+
+
+语法错误：位置 X 处 JSON 后出现意外的非空白字符
+
+
+
+        开放时间 04:28PM - UTC 时间 12 月 21 日
+
+
+          关闭 06:16PM - UTC 时间 12 月 21 日
+
+
+
+
+          西宏
+        
+
+
+
+
+          漏洞
+        
+
+
+
+
+### 确认这是 Node 库问题，而不是底层 OpenAI API 问题
+…&lt; span 类=“摘录隐藏”&gt;
+- [X] 这是 Node 库的问题
+
+### 描述错误
+
+以下参数是在函数调用时收到的。
+
+````
+{
+functionArgText: `{&quot;query&quot;: &quot;到我 40 岁时我想做什么？&quot;}{&quot;query&quot;: &quot;到我 40 岁时我希望我的职业生涯在哪里？&quot;}{ &quot;query&quot;: &quot;40 岁时我希望拥有一个什么样的家庭？&quot;}`
+}
+````
+
+并试图解析上面的内容，
+
+`语法错误：JSON 后位置 53 处出现意外的非空白字符`
+
+我被告知“SyntaxError: Unexpected non-whitespace character after JSON atposition 53 由于某种原因，经常会发生类似的查询重复 3 次，就像这个一样。我该怎么办？
+
+### 重现
+
+1. 通过 Node.js 使用 OpenAI API
+2. 设置工具
+
+````
+导出常量 googleSearchSchema: AssistantCreateParams.AssistantToolsFunction = {
+  类型：“函数”，
+  功能： {
+    名称：“谷歌搜索”，
+    描述：“使用 Google 自定义搜索引擎 API 搜索网络。”,
+    参数： {
+      类型：“对象”，
+      特性： {
+        询问： {
+          类型：“字符串”，
+          描述：`搜索查询。多个搜索词应以空格分隔。请勿使用“\\n”等换行符。项数应在 1 到 10 之间。越少越好。使用 Google 搜索运算符来优化您的搜索。例如 1，“site:en.wikipedia.org”将仅搜索维基百科。`,
+        },
+      },
+      必需：[“查询”]，
+    },
+  },
+作为常量；
+````
+
+### 代码片段
+
+_没有反应_
+
+### 操作系统
+
+苹果系统
+
+### 节点版本
+
+v20.10.0
+
+### 库版本
+
+“openai”：“^4.24.0”，
+
+
+
+
+
+
+亲切的问候，]]></description>
+      <guid>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=4#post_83</guid>
+      <pubDate>Sun, 07 Jan 2024 09:13:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我什至不知道从哪里开始迁移？</title>
+      <link>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_3</link>
+      <description><![CDATA[感谢您的快速回复。你不必把我放在第一位。 &lt;img alt=&quot;:ok_hand:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/ok_hand.png?v=12&quot; title=&quot;:ok_hand: “宽度=“20”/&gt;
+ 如何迁移？
+]]></description>
+      <guid>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_3</guid>
+      <pubDate>Sun, 07 Jan 2024 09:07:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>建议将麦克风功能集成到应用程序中</title>
+      <link>https://community.openai.com/t/to-propose-integrating-a-microphone-functionality-into-the-application/392790#post_5</link>
+      <description><![CDATA[在 Android 上使用 ChatGPT 中的语音输入的方式如下：
+点击文本字段以显示屏幕键盘。
+查找键盘上的麦克风图标。它通常位于键盘的顶行或空格键旁边。
+点击麦克风图标。这将激活语音输入。
+开始说话。您的文字将自动转换为文本并插入到文本字段中。
+完成后，再次点击麦克风图标即可结束语音输入。
+
+确保您的设备已连接到互联网，因为语音输入通常需要在线连接。另外，请检查您设备上的语音输入设置是否配置正确，尤其是当您希望使用英语以外的语言说话时。
+诚然，改进之处在于 ChatGPT 输入行中的麦克风图标，类似于 WhatsApp。
+这里讨论了类似的主题：
+
+
+全国， ChatGPT 的收费电话号码可提高可访问性并产生收入  功能请求
+
+  &lt;块引用&gt;
+    我不确定他们会很快实施这一点。
+但这提醒了我，我确实有一个项目正在进行中，可以将扬声器连接到 API，并以随机间隔触发 API，并且扬声器全天发出 AI 在后台生成的随机内容 
+你可以把这样的扬声器放在公共场所并拥有人工智能公益广告。从用户的角度来看，不需要其他设备  
+但这更像是一个业余/学习项目……
+  
+]]></description>
+      <guid>https://community.openai.com/t/to-propose-integrating-a-microphone-functionality-into-the-application/392790#post_5</guid>
+      <pubDate>Sun, 07 Jan 2024 08:55:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
+      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_6</link>
+      <description><![CDATA[
+
+
+ curt.kennedy:
+&lt;块引用&gt;
+我认为第一个挑战是降低推理延迟，以便人工智能可以通过语音快速做出响应。
+
+
+诚然，对于使用此类电话号码的基于语音的人工智能系统来说，延迟是一个挑战。作为中间层的快速响应的“小脑人工智能”可能是一个解决方案。这种人工智能使用简短、自然的填充语（“哦，这很有趣。”，“让我考虑一下。”，“保持在线，我正在检查一些东西。”），类似于普通电话中常见的深思熟虑的停顿进行磋商，而主要 AI 则制定响应。这减少了感知的等待时间，并使对话更加自然和流畅。
+通过训练，小脑人工智能可以根据上下文应用这些句子，从而增强沟通的真实性和舒适度。将此人工智能集成到通过传统电话号码运行的系统中可以显着解决延迟挑战并提高服务可访问性和用户友好性。
+
+
+
+ curt.kennedy:
+&lt;块引用&gt;
+至于全国按分钟付费的 POTS 线路……老实说，我认为那些日子已经结束了，现在每个人都有手机了。
+
+
+对于用户来说，无论采用何种传输技术（例如固定电话、蜂窝电话或 VoIP），通过传统电话号码访问服务都很重要。]]></description>
+      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_6</guid>
+      <pubDate>Sun, 07 Jan 2024 08:39:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建 GPT 时添加自定义域的问题</title>
+      <link>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_8</link>
+      <description><![CDATA[哦，我找到了@_j；谢谢！]]></description>
+      <guid>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_8</guid>
+      <pubDate>Sun, 07 Jan 2024 07:30:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建 GPT 时添加自定义域的问题</title>
+      <link>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_7</link>
+      <description><![CDATA[Builder 个人资料位于 ChatGPT“用户名菜单”内的“设置（和测试版）”下。]]></description>
+      <guid>https://community.openai.com/t/problem-with-adding-custom-domain-when-creating-gpt/490921#post_7</guid>
+      <pubDate>Sun, 07 Jan 2024 07:29:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
+      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_5</link>
+      <description><![CDATA[如果你想感觉自己像个小丑
+查看您的银行账户余额减少
+拨打 1-900-Bot-a-lot
+并聊聊那些机器人的想法。
+有几个偶尔会在社交媒体上发布此类业余爱好者项目。仅凭电话号码很难判断它是否会诱使您进行按次付费或国际费用诈骗，从而影响您的账单。]]></description>
+      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_5</guid>
+      <pubDate>Sun, 07 Jan 2024 07:16:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
+      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_4</link>
+      <description><![CDATA[我认为第一个挑战是降低推理延迟，以便人工智能可以通过语音快速做出响应。
+这可能是这个想法的最大“悬念”（双关语）
+至于全国按分钟付费的 POTS 线路……老实说，我认为那些日子已经结束了，现在每个人都有手机了。  不确定这将如何工作，或者谁会使用它。目标人群是???
+PS 在这里通过语音谈论真实的实时推理。已经有机器人基本上使用预先录制的响应和嵌入来响应您。这已经出来了……就像那个不时打电话为警察兄弟会（或其他什么）打电话要钱的“家伙”……他是一个完全的机器人，根据他的响应滞后时间使用预设的响应。因此，这是 TTS（可能是部分）+ RAG + 通过快速嵌入/关键字样式搜索播放最近的波形，消除推理和 TTS 滞后。而且仍然滞后。
+所以滞后是这里的关键。需要超低延迟。大约需要 500 毫秒才能真正实现这一目标。这对于高质量的 LLM 来说是很困难的，更不用说 RAG 搜索 + STT 和 TTS 滞后的开销了。
+现在，SOTA 可能需要大约 2 秒，这对于手机来说是永恒的时间。]]></description>
+      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_4</guid>
+      <pubDate>Sun, 07 Jan 2024 07:15:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的域名已验证并已设置构建器配置文件，但无法另存为“公共”</title>
+      <link>https://community.openai.com/t/my-domain-is-verified-and-builder-profile-set-up-but-cant-save-as-public/578479#post_9</link>
+      <description><![CDATA[
+
+
+雅各布贾尼斯：
+&lt;块引用&gt;
+我的构建者配置文件屏幕现在显示此消息，
+
+
+嗨！我发现域验证的工作方式并不符合预期。设置-&gt;构建器配置文件中的验证不断给出相同的过期 TXT 来添加。
+如果您的构建者个人资料处于“验证您的身份”状态并且您已经显示了 dot.com，则您需要启动所有结束了。
+您可以执行以下操作：
+各就各位
+
+输入网站选择器。
+删除所有域。
+您只需要一个域名。
+它说“验证公共域名的所有权”。您提供的任何网址都将成为用户点击的目的地。当前显示根域。
+（它也可能需要成为未来的操作域）
+
+开始设置
+
+没有不受支持的国家/地区 TLD；
+为了确保将来的检查通过，请建立一个可以通过页面进行响应的网站。
+让您的名称服务器上的 DNS 区域编辑器准备好添加新的 TXT 记录。您将向您的主域和您指定的子域（甚至是 www）添加一个。
+
+开始：
+
+再次添加域名以获取新的挑战字符串，使页面保持打开状态。
+将 txt 添加到 DNS（我添加到了顶级域和子域）
+并给予大约 30 分钟（测试更新是否已传播，如下）。
+按 OpenAI 的“检查”以执行查找。
+
+您可以在按“检查”之前确保
+当您添加带有质询字符串的 TXT 时，您还可以添加另一个子域（并非所有托管都可以让您在无需更多设置或具有直接 DNS 访问权限的情况下添加此子域）。对于虚构的子域：
+
+添加 CNAME 重定向到 http://mysite.com 或 A 记录 IP 地址。
+当您从 OpenAI 获取令牌时，保存来自 OpenAI 的 TXT 记录和新子域
+等待一段时间后，执行 nslookup sub.mymain.com 1.1.1.1 以使用 Cloudflare 的 DNS 服务器查找子域。
+当子域解析为 IP 地址时，TXT 也应该可用。
+]]></description>
+      <guid>https://community.openai.com/t/my-domain-is-verified-and-builder-profile-set-up-but-cant-save-as-public/578479#post_9</guid>
+      <pubDate>Sun, 07 Jan 2024 07:08:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 突然无法读取其知识库中的文件</title>
+      <link>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_4</link>
+      <description><![CDATA[这是由 OpenAI 方面的工作造成的。它对包含知识文件的 GPT 造成各种影响，影响各种来源的数据源的优先级。我遇到的最严重的情况是拒绝回应使用其他信息来源的请求。同时告诉我们自己查找更多信息，而不提供信息来源的链接。包括拒绝使用从聊天发送的文件（当没有知识时，可以使用通过聊天发送的文件，并且与知识和问题返回具有相同的重要性），尽管指定了需要对文件执行的操作。包括尝试在与对话或用户需求无关的事务中使用文件。
+这些问题每天都在变化，不太恒定，但仍然与相同的元素相关：文件、知识源、响应内容的减少以及停止工作带来的“最新”一词。我向 OpenAI 通报了这些事项，并决定如何处理可用的选项。但我可以告诉你，目前还没有办法按照OpenAI想要的方式修复这个问题，它只能将更改后的内容恢复到原来的样子。如果他们仍然想追求它的目的，就会破坏本应更加多样化和创造性的知识的使用。我推荐一个合适的解决方案，特别是对于那些想要将 GPT 放入商店的人。他们可以毫无问题地做到这一点。包括将此信息告知用户，以了解是否有与此问题相关的工作。为了避免使用过程中出现问题，这些数据都是通过个人技术观察和收集的数据。这一回应是在 OpenAI 宣布开店的同一天收到的。可以断定，按照组织的作风，这很可能是一次安静的行动。]]></description>
+      <guid>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_4</guid>
+      <pubDate>Sun, 07 Jan 2024 07:04:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
+      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_3</link>
+      <description><![CDATA[
+
+
+ curt.kennedy:
+&lt;块引用&gt;
+我确实认为人工智能虚拟电话很酷，虚拟视频会议就更好了。
+
+
+感谢您分享您的想法！
+看起来我们可能正在讨论一些不同的事情，你不觉得吗？
+我的功能请求侧重于用户和人工智能之间的一对一对话，与多方电话会议不同。
+像“与 ChatGPT 进行电话对话”或“通过普通老式电话 (POT) 进行 ChatGPT 交互”这样的标题将更准确地反映我提案中的个人语音交互方面。这个想法是关于建立全国性的收费电话号码，以便通过传统电话与 ChatGPT 进行个人互动。
+假设不存在法律障碍，任何人都可以使用 ChatGPT API 建立此类服务。从这个角度来看，它可以被视为一种具有极好的可扩展性、几乎无风险的商业理念，甚至是一种赚钱机器。]]></description>
+      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_3</guid>
+      <pubDate>Sun, 07 Jan 2024 06:31:56 GMT</pubDate>
+    </item>
     <item>
       <title>将元数据添加到“文件”对象</title>
       <link>https://community.openai.com/t/add-metadata-to-files-object/578626#post_1</link>
@@ -36,128 +318,6 @@
 但是，如果您迁移到使用较新的 ChatML 界面的较新的“聊天”样式模型之一，那么您应该会很好。]]></description>
       <guid>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_2</guid>
       <pubDate>Sun, 07 Jan 2024 03:36:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我什至不知道从哪里开始迁移？</title>
-      <link>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_1</link>
-      <description><![CDATA[我为 Android 构建了一个新的 ChatGPT 35 应用程序。我不太清楚我用的是什么型号。它实际上似乎仍在工作。
- 但是，我想我听说我应该在 4 号之前迁移到另一个模型。我真的不知道该怎么办？
-]]></description>
-      <guid>https://community.openai.com/t/i-dont-even-know-where-to-start-with-migration/578620#post_1</guid>
-      <pubDate>Sun, 07 Jan 2024 03:29:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以分析 pdf 文件中包含的图像？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-analyze-images-contained-in-pdf-files/533994#post_3</link>
-      <description><![CDATA[目前不可能，我这样做了，它说无法看到 PDF 文件中的任何图像。]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-analyze-images-contained-in-pdf-files/533994#post_3</guid>
-      <pubDate>Sun, 07 Jan 2024 03:26:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 的全国收费电话号码可提高可访问性并产生收入</title>
-      <link>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_2</link>
-      <description><![CDATA[我不确定他们会很快实现这一点。
-但这提醒了我，我确实有一个项目正在进行中，可以将扬声器连接到 API，并以随机间隔触发 API，并且扬声器全天发出人工智能在后台生成的随机内容&lt; img alt=&quot;:rofl:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/rofl.png?v=12&quot; title=&quot;:rofl:&quot;宽度=“20”/&gt;
-你可以将这样的扬声器放在公共场所并拥有 AI PSA。从用户的角度来看，不需要其他设备  
-但它更像是各种独立开发板的一个辅助/学习项目，比什么都重要。
-我确实认为人工智能虚拟电话很酷，虚拟视频会议更好。有一天……有一天。]]></description>
-      <guid>https://community.openai.com/t/national-fee-based-phone-numbers-for-chatgpt-to-improve-accessibility-and-generate-revenue/578570#post_2</guid>
-      <pubDate>Sun, 07 Jan 2024 03:00:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 突然无法读取其知识库中的文件</title>
-      <link>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_3</link>
-      <description><![CDATA[我应该解释一下，我在这里没有使用开发人员版本，而是使用 ChatGPT 创建者创建的 GPT。]]></description>
-      <guid>https://community.openai.com/t/gpt-suddenly-cant-read-files-in-its-knowledge-base/578576#post_3</guid>
-      <pubDate>Sun, 07 Jan 2024 01:51:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 Turbo API 默认是惰性的？</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-api-is-lazy-by-default/578241#post_8</link>
-      <description><![CDATA[
-
-
- jonah_mytzuchi：
-&lt;块引用&gt;
-# 对df进行后续操作
-      ````
-
-
-
-这行响应我称之为懒惰：
-对df进行后续操作
-当我相信这些代码块的完全重写低于最大令牌（我设置为 4096）时，并且我已经为上下文提供了完整的原始代码块。
-但是，是的，这可能是目前的限制。
-谢谢大家的回答。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-api-is-lazy-by-default/578241#post_8</guid>
-      <pubDate>Sun, 07 Jan 2024 01:09:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>防止指令集泄露的基本保障</title>
-      <link>https://community.openai.com/t/basic-safeguard-against-instruction-set-leaks/497093?page=2#post_31</link>
-      <description><![CDATA[你说得对！抱歉我当时错过了。]]></description>
-      <guid>https://community.openai.com/t/basic-safeguard-against-instruction-set-leaks/497093?page=2#post_31</guid>
-      <pubDate>Sun, 07 Jan 2024 01:09:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>“不赞成”反馈和自动再生计入 GPT-4 使用限制，阻止使用</title>
-      <link>https://community.openai.com/t/thumbs-down-feedback-and-automatic-regeneration-counts-against-gpt-4-use-limit-discouraging-use/341556#post_10</link>
-      <description><![CDATA[我很少提供负面反馈。有时它会给我一串可能的最差输出，我想无论如何，这不是我的问题，我不会燃烧我有限的用途来改进模型。]]></description>
-      <guid>https://community.openai.com/t/thumbs-down-feedback-and-automatic-regeneration-counts-against-gpt-4-use-limit-discouraging-use/341556#post_10</guid>
-      <pubDate>Sun, 07 Jan 2024 01:05:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistant API Server server_error“抱歉，出了点问题”</title>
-      <link>https://community.openai.com/t/assistant-api-server-server-error-sorry-something-went-wrong/578609#post_3</link>
-      <description><![CDATA[也许您可以分享有关函数、函数 repsonse 、您正在使用的模型的更多详细信息...]]></description>
-      <guid>https://community.openai.com/t/assistant-api-server-server-error-sorry-something-went-wrong/578609#post_3</guid>
-      <pubDate>Sun, 07 Jan 2024 00:44:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 入门问题的最佳实践</title>
-      <link>https://community.openai.com/t/best-practices-for-custom-gpt-starter-questions/578610#post_2</link>
-      <description><![CDATA[我可以提供一个让人工智能说话的聪明想法。直接从 GPT 中提取该函数，并使其更加通用：
-&lt;块引用&gt;
-以省略号结尾的用户输入意味着 xxx GPT 将介绍自己并在继续回答之前请求更多用户提供的信息。
-
-然后准备好你的对话开头（必须简短以适合）：
-&lt;块引用&gt;
-我想编写计算机代码......
-提供更多关于……的研究和分析
-
-&lt;小时/&gt;
-GPT 构建器将有一个您必须验证的域名。在公共 GPT 上，当有人单击“By myrootdomain.com”的显示时，将跟踪该链接（它不显示子域，但会跟踪它们）]]></description>
-      <guid>https://community.openai.com/t/best-practices-for-custom-gpt-starter-questions/578610#post_2</guid>
-      <pubDate>Sun, 07 Jan 2024 00:37:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistant API Server server_error“抱歉，出了点问题”</title>
-      <link>https://community.openai.com/t/assistant-api-server-server-error-sorry-something-went-wrong/578609#post_2</link>
-      <description><![CDATA[
-关键在于使用正确的模型，1106 版本模型是唯一正确支持并行工具调用检索规范的模型。
-
-或者
-
-关键在于使用正确的模型，1106 版本模型在调用带有重音符号或 Unicode 字符的函数和工具时存在严重问题。
-
-如果这些情况重叠，并且除非您有关于今天失败的先前应用程序的新信息，否则解决方案可能是构建一个基于聊天完成的信息检索系统来增强人工智能知识。
-或者等待新模型来取代有问题的模型。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-server-server-error-sorry-something-went-wrong/578609#post_2</guid>
-      <pubDate>Sun, 07 Jan 2024 00:27:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 入门问题的最佳实践</title>
-      <link>https://community.openai.com/t/best-practices-for-custom-gpt-starter-questions/578610#post_1</link>
-      <description><![CDATA[如果您的 GPT 做了一件简单的事情和/或其功能从标题中显而易见，则没有必要。例如：YouTube 转录摘要、DOC2PDF。
-但对于更复杂的功能，以下是我的建议：
-入门 1：这有什么作用？这是如何工作的？
-我检查过的 95% 的 GPT，即使从 GPT 标题来看，我也不知道它们是做什么的。我一开始就打招呼，但即便如此，我也不一定能得到关于 GPT 用途的答案。这是对我的使用上限的一次浪费提示。
-入门 2：给我 10 个可用于此 GPT 的问题/请求。
-大多数开发人员都会提出 1 或 2 个问题/请求/命令作为开头。但要求 GPT 生成列表不仅可以提供丰富的多样性，而且对用户更有用。
-入门 3：如何联系开发人员？
-这可能是应用商店中的一项功能，但理想情况下，所有开发者都应该有联系方式。我将人们引导至我的 Discord 服务器、特定 GPT 的特定频道。至少引导他们访问您的电子邮件或网站。如果用户喜欢您的 GPT 或想要更多功能，这是一件好事，您希望让他们能够轻松实现这一点。]]></description>
-      <guid>https://community.openai.com/t/best-practices-for-custom-gpt-starter-questions/578610#post_1</guid>
-      <pubDate>Sun, 07 Jan 2024 00:21:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
