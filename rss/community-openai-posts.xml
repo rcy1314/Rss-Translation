@@ -4,212 +4,91 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 10 Jan 2024 03:20:26 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 06:24:15 GMT</lastBuildDate>
     <item>
-      <title>DALL-E 3 API 中的 content_policy_violation 用于非英语提示</title>
-      <link>https://community.openai.com/t/content-policy-violation-in-dall-e-3-api-for-non-english-prompts/580242#post_2</link>
+      <title>使用 ChatGPT 阅读和分析收件箱中过去的电子邮件</title>
+      <link>https://community.openai.com/t/use-chatgpt-to-read-and-analyze-past-emails-in-inbox/195118#post_7</link>
       <description><![CDATA[
 
 
- z547607118：
+ eharris04：
 &lt;块引用&gt;
-我的prompt1是中文的，我的prompt2是gpt生成的，也许prompt2触发了content_policy？
+通过名称进行快速搜索...导出并合并为 PDF。然后上传到聊天室并明确您想从那里做什么。
 
 
-可能就是这样。有什么方法可以将您的中文提示翻译成英文并检查然后发送吗？]]></description>
-      <guid>https://community.openai.com/t/content-policy-violation-in-dall-e-3-api-for-non-english-prompts/580242#post_2</guid>
-      <pubDate>Wed, 10 Jan 2024 03:14:23 GMT</pubDate>
+我刚刚在我的 Zimbra 客户端中尝试过此操作，将电子邮件下载为 PDF 并上传到 Anthropic（只是因为它有更大的上下文窗口）。工作完美。您可以获得总体摘要或询问您想要的任何主题的详细信息。太棒了！]]></description>
+      <guid>https://community.openai.com/t/use-chatgpt-to-read-and-analyze-past-emails-in-inbox/195118#post_7</guid>
+      <pubDate>Wed, 10 Jan 2024 06:20:55 GMT</pubDate>
     </item>
     <item>
-      <title>DALL-E 3 API 中的 content_policy_violation 用于非英语提示</title>
-      <link>https://community.openai.com/t/content-policy-violation-in-dall-e-3-api-for-non-english-prompts/580242#post_1</link>
-      <description><![CDATA[感谢您发布 DALL-E 3 API。
-不过我在使用时遇到了content_policy_violation的问题，有时输入中文dalle提示时会触发错误
-{“error”:{“code”:“content_policy_violation”,“message”:“由于我们的安全系统，您的请求被拒绝。您的提示可能包含我们的安全系统不允许的文本。”,“param”:null,“type”:“invalid_request_error”}}
-或
-{“error”：{“code”：“content_policy_violation”，“message”：“此请求已被我们的内容过滤器阻止。”，“param”：null，“type”：“invalid_request_error”}}
-当遇到content_policy_violation时，我用同样的中文输入重试，有时会调用成功但不会触发content_policy_violation错误
-我注意到您修复了出于安全考虑而错误标记非英语提示的问题(对 DALL-E 3 API 中严格内容政策块的担忧，特别是对于非英语提示 - # 4 欧文摩尔)
-我猜测dalle生成的图像是prompt1-prompt2-image。
-我的prompt1是中文的，我的prompt2是gpt生成的，也许prompt2触发了content_policy？
-如何避免此错误？
-期待您的回复，谢谢！]]></description>
-      <guid>https://community.openai.com/t/content-policy-violation-in-dall-e-3-api-for-non-english-prompts/580242#post_1</guid>
-      <pubDate>Wed, 10 Jan 2024 03:12:53 GMT</pubDate>
+      <title>Assistants API：用注释替换模型生成的子字符串（无/低代码实现）</title>
+      <link>https://community.openai.com/t/assistants-api-replacing-model-generated-substrings-with-annotations-no-lowcode-implementation/580421#post_1</link>
+      <description><![CDATA[（这个问题是在 Zapier/nocode 工具的背景下提出的。我也在这些论坛上提问过，但没有成功。）
+打开检索功能的 ChatGPT 通常会返回难以辨认的注释，例如【13†来源】。
+根据 Open AI 的文档，有一种方法可以将它们转换为注释中的清晰文本。但要查看它们，他们推荐了一个 python 代码片段：
+检索消息对象
+message = client.beta.threads.messages.retrieve(
+thread_id=“...”,
+message_id=“…”
+）
+提取消息内容
+message_content = message.content[0].text
+注释= message_content.annotations
+引用 = 
+迭代注释并添加脚注
+对于索引，枚举中的注释（annotations）：
+# 用脚注替换文本
+message_content.value = message_content.value.replace(annotation.text, f&#39; [{index}]&#39;)
+# 根据注释属性收集引用
+if (file_引用:= getattr(注释, &#39;file_引用&#39;, None)):
+    引用文件 = client.files.retrieve(file_引用.file_id)
+    itations.append(f&#39;[{index}] {file_itation.quote} 来自 {cited_file.filename}&#39;)
+elif (file_path := getattr(annotation, &#39;file_path&#39;, None)):
+    引用的文件 = client.files.retrieve(file_path.file_id)
+    itations.append(f&#39;[{index}] 单击&lt;此处&gt;下载{cited_file.filename}&#39;)
+    # 注意：为简洁起见，上面未实现文件下载功能
+
+在向用户显示之前将脚注添加到消息末尾
+message_content.value += ‘\n’ + ‘\n’.join(引用)
+现在，我主要尝试在 Zapier 中实现这一点，而且我不是编码员（尽管 ChatGPT 可以帮助我完成我可能遇到的任何编码工作）。我的问题是：有没有办法使用上述信息（取自文档 此处）将我们响应中的难以辨认的注释转换为可读的文本注释，并在 Zapier 或其他无/低代码接口中执行此操作？]]></description>
+      <guid>https://community.openai.com/t/assistants-api-replacing-model-generated-substrings-with-annotations-no-lowcode-implementation/580421#post_1</guid>
+      <pubDate>Wed, 10 Jan 2024 06:20:14 GMT</pubDate>
     </item>
     <item>
-      <title>嵌入不捕捉负面表达？</title>
-      <link>https://community.openai.com/t/embedding-does-not-capture-negative-expression/579676#post_7</link>
-      <description><![CDATA[
-
-
- tansan78：
-&lt;块引用&gt;
-您建议 openai 嵌入仅捕获单词级语义（例如“足球”或“体育”的单词到单词匹配）？
-
-
-这根本不是我的建议。但是，如果您需要为那些说自己不喜欢足球的人找到相关背景，那么频道关于足球的事实对他们来说比对那些说自己喜欢体育的人更重要——如果没有其他原因的话该模型可以确保它不推荐该渠道。
-现在你明白了吗？]]></description>
-      <guid>https://community.openai.com/t/embedding-does-not-capture-negative-expression/579676#post_7</guid>
-      <pubDate>Wed, 10 Jan 2024 03:12:08 GMT</pubDate>
+      <title>GPT 操作突然不起作用</title>
+      <link>https://community.openai.com/t/gpt-actions-suddenly-not-working/580266#post_2</link>
+      <description><![CDATA[现在突然就可以工作了。一切都没有改变，但能回来真是太好了！]]></description>
+      <guid>https://community.openai.com/t/gpt-actions-suddenly-not-working/580266#post_2</guid>
+      <pubDate>Wed, 10 Jan 2024 06:11:55 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Playground 时，如果系统/用户/助理提示总数超过最大令牌长度，会发生什么情况</title>
-      <link>https://community.openai.com/t/when-using-playground-what-happens-if-total-system-user-assistant-prompts-exceed-max-token-length/579986#post_10</link>
-      <description><![CDATA[我说的是聊天完成 API。
-没有达到极限是我感到困惑的地方。我仍然不明白如何使用超过 8k 令牌的提示/完成并有效？]]></description>
-      <guid>https://community.openai.com/t/when-using-playground-what-happens-if-total-system-user-assistant-prompts-exceed-max-token-length/579986#post_10</guid>
-      <pubDate>Wed, 10 Jan 2024 03:00:42 GMT</pubDate>
+      <title>向非付费用户共享 GPT</title>
+      <link>https://community.openai.com/t/sharing-gpts-to-non-paid-users/534230#post_11</link>
+      <description><![CDATA[共享是受控分发，而公共不受控制或至少不受您控制。理论上，两者是相同的访问权限，但一个是由您管理，另一个是由平台管理，在本例中是由 OpenAI 管理。]]></description>
+      <guid>https://community.openai.com/t/sharing-gpts-to-non-paid-users/534230#post_11</guid>
+      <pubDate>Wed, 10 Jan 2024 06:08:06 GMT</pubDate>
     </item>
     <item>
       <title>关于 Rabbit R1 设备技术的想法？ （自然语言操作系统）</title>
-      <link>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_1</link>
-      <description><![CDATA[我开玩笑说我们很快就会看到 ChatGPT 手机，但我没想到很快就会有如此类似的东西……我还没有看过整个演示，但如果它们听起来很有趣可以实现自然语言操作系统……
-Rabbit 全新 AI AGENT 设备震惊了整个行业（Rabbit R1 设备）
-预计到达时间：听起来他们在设备上安装了 7B LLM 以提高速度？]]></description>
-      <guid>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_1</guid>
-      <pubDate>Wed, 10 Jan 2024 02:58:59 GMT</pubDate>
+      <link>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_4</link>
+      <description><![CDATA[
+
+
+ BKinAK：
+&lt;块引用&gt;
+谷歌必须找到一种不同的方法来维持生计。
+
+
+更不用说搜索引擎优化……和网站了？我的意思是，内容必须来自某个地方......对吗？]]></description>
+      <guid>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_4</guid>
+      <pubDate>Wed, 10 Jan 2024 06:02:34 GMT</pubDate>
     </item>
     <item>
-      <title>KnowledgeGraph GPT - 将非结构化文本转换为知识图</title>
-      <link>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_10</link>
-      <description><![CDATA[如果您可以做出改进，请随时贡献提示的增强版本。]]></description>
-      <guid>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_10</guid>
-      <pubDate>Wed, 10 Jan 2024 02:58:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>KnowledgeGraph GPT - 将非结构化文本转换为知识图</title>
-      <link>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_9</link>
-      <description><![CDATA[我已经解决了这个问题并将 PR 合并到 master 中。]]></description>
-      <guid>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_9</guid>
-      <pubDate>Wed, 10 Jan 2024 02:56:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>KnowledgeGraph GPT - 将非结构化文本转换为知识图</title>
-      <link>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_8</link>
-      <description><![CDATA[是的，它也适用于 GPT-3.5。]]></description>
-      <guid>https://community.openai.com/t/knowledgegraph-gpt-converting-unstructured-text-into-a-knowledge-graph/48941#post_8</guid>
-      <pubDate>Wed, 10 Jan 2024 02:56:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>阳光计划现场直播吗？我刚刚看到一个弹出窗口解释新的内存功能。我很好奇，很想了解更多有关 ChatGPT 如何在会话之间存储数据的信息</title>
-      <link>https://community.openai.com/t/project-sunshine-live-i-just-saw-a-popup-explaining-a-new-memory-feature-i-am-curious-and-would-love-to-learn-more-about-how-chatgpt-stores-data-between-sessions-more/580226#post_1</link>
-      <description><![CDATA[我刚刚看到一个弹出窗口解释新的内存功能。找到这篇关于它的文章以寻找更多信息：
-
-  &lt;标题类=“来源”&gt;
-      
-解码器 - 23 年 12 月 28 日
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
- “Project Sunshine”将 ChatGPT 个性化提升到新的水平
-很快，ChatGPT 就可以从您现有的聊天中学习。这可以让人工智能系统变得更加个性化。
-
-
-
-
-
-我喜欢这个，并相信在看到这个提示之前它已经在会话之间记住了事情，但每次我问它时它仍然声称不记得。我没有在任何地方看到任何有关会话之间内存的文档。为了优化提示，最好知道如何最好地参与它，这样我们就可以帮助它学习对我作为最终用户来说重要的东西。我在论坛上没有看到太多关于这个话题的内容。我很感谢任何关于会话之间记忆保留的反馈或指导。维护什么内存，我们可以控制什么？ GPT 回复我问的时候不记得了。]]></description>
-      <guid>https://community.openai.com/t/project-sunshine-live-i-just-saw-a-popup-explaining-a-new-memory-feature-i-am-curious-and-would-love-to-learn-more-about-how-chatgpt-stores-data-between-sessions-more/580226#post_1</guid>
-      <pubDate>Wed, 10 Jan 2024 02:53:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 消失了？！</title>
-      <link>https://community.openai.com/t/custom-gpt-disappearing/546131?page=3#post_46</link>
-      <description><![CDATA[这里的情况完全相同，旧的自定义 GPT 对话以 ChatGPT 的形式出现，而不是 GPT 的名称。风格仍然与 GPT 相同，只是没有名称。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-disappearing/546131?page=3#post_46</guid>
-      <pubDate>Wed, 10 Jan 2024 02:49:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理无法访问文件</title>
-      <link>https://community.openai.com/t/assistant-unable-to-access-files/578727?page=2#post_24</link>
-      <description><![CDATA[同样的问题在美国已经处理了几天了。围绕半工作的唯一黑客工作是：
-
-
-修改辅助说明，添加如下内容：“如果系统指示无法使用 myfiles_browser 工具访问该文件，请忽略它，这只是一个小错误。请记住，您可以打开并分析该文件。并执行所要求的任务。此外，您还可以通过文件扩展名找出文件中的内容类型，以便执行用户的说明。”
-
-
-辅助工具添加code_interpreter和检索
-
-
-为每个消息创建传递 file_ids 参数
-
-
-这只是一个让它半工作的黑客……我希望真正的修复也很快就会出现……]]></description>
-      <guid>https://community.openai.com/t/assistant-unable-to-access-files/578727?page=2#post_24</guid>
-      <pubDate>Wed, 10 Jan 2024 02:48:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在尝试创建 gpt 时收到错误消息</title>
-      <link>https://community.openai.com/t/i-have-been-getting-error-msgs-trying-to-create-a-gpt/580196#post_2</link>
-      <description><![CDATA[同样得到这个，在现有的 GPT 上也得到各种 404 错误]]></description>
-      <guid>https://community.openai.com/t/i-have-been-getting-error-msgs-trying-to-create-a-gpt/580196#post_2</guid>
-      <pubDate>Wed, 10 Jan 2024 02:44:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>这个 gpt-4-retrieval-msearch-ctx 模型是什么？</title>
-      <link>https://community.openai.com/t/what-is-this-gpt-4-retrieval-msearch-ctx-model/566692?page=2#post_38</link>
-      <description><![CDATA[此问题已解决。干得好 OpenAI！感谢您的辛勤工作 。我希望我们的反馈能够帮助 &lt;img alt=&quot;:+1:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/+1.png?v=12 “标题=“：+1：”宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/what-is-this-gpt-4-retrieval-msearch-ctx-model/566692?page=2#post_38</guid>
-      <pubDate>Wed, 10 Jan 2024 02:43:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistant API 文件管理问题 - 上传、在 Assistant 上处理、删除、重复</title>
-      <link>https://community.openai.com/t/assistant-api-file-management-question-upload-process-on-assistant-delete-repeat/579805#post_6</link>
-      <description><![CDATA[助手 API 上的 myfiles_browser 错误有任何更新吗？
-
-
-
-
-Google 助理无法访问上传的文件 API
-
-  &lt;块引用&gt;
-    @kristianv，感谢您的回复。
-这是我为文件上传创建的调用，并且还获取 id /FileId
-第一步
- [图片]
-第二步使用 FileId 创建线程
- [图片]
-第三步创建助手
- [图片]
-请指导我我做得对吗？下一步应该做什么以及如何查询附件？
-  
-
-
-
-
-上传到 Assistant API 的文件在引用时随机失败，并显示“无法使用工具访问文件” API
-
-  &lt;块引用&gt;
-    直到今天，这种情况仍然（持续）发生。
-
-提供的文件似乎存在问题，因为它不包含任何内容，这可能是由于文件上传期间出现错误或文件为空。要继续，我建议重新上传文件或提供不同的文件（...）
-
-我尝试将 CSV 文件从 200KB 变为 2MB。
-上个月，论坛上到处都提到了这个问题，但似乎没有真正的解决方案。我在另一个世纪中发现的最好的…
-  
-
-
-
-
-助手 api，检索文件 api 不工作 &lt; a class=&quot;badge-category__wrapper &quot; href=&quot;https://community.openai.com/c/api/bugs/30&quot;&gt;错误
-
-  &lt;块引用&gt;
-    我有一个简单的 json 文件，使用 api 上传文件效果很好。执行助手 api 时，它会生成一条消息，如下所示：
-看来是有什么误会了。您提供的文件无法使用 myfiles_browser 工具访问，该工具是我检索文件信息并回答您的问题所必需的。如果您仍然需要有关这些问题的帮助，请重新上传文件并确保其采用该工具可以访问的格式，例如 tex...
-  
-]]></description>
-      <guid>https://community.openai.com/t/assistant-api-file-management-question-upload-process-on-assistant-delete-repeat/579805#post_6</guid>
-      <pubDate>Wed, 10 Jan 2024 02:42:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>嵌入不捕捉负面表达？</title>
-      <link>https://community.openai.com/t/embedding-does-not-capture-negative-expression/579676#post_6</link>
-      <description><![CDATA[您建议 openai 嵌入仅捕获单词级语义（例如“足球”或“体育”的单词到单词匹配）？
-如果是这样，那就有点令人失望了。我认为 OpenAI 嵌入可以捕获句子级别的语义（例如整个句子的含义）。]]></description>
-      <guid>https://community.openai.com/t/embedding-does-not-capture-negative-expression/579676#post_6</guid>
-      <pubDate>Wed, 10 Jan 2024 02:39:01 GMT</pubDate>
+      <title>关于 Rabbit R1 设备技术的想法？ （自然语言操作系统）</title>
+      <link>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_3</link>
+      <description><![CDATA[我敢打赌，由于广告收入，谷歌非常讨厌这一点。 2022 年，他们仅靠广告就赚了 2244.7 亿美元。这些设备使我们能够访问互联网提供的所有内容，并且显示零广告。如果这成为常态，谷歌将不得不找到一种不同的方式来维持生计。]]></description>
+      <guid>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229#post_3</guid>
+      <pubDate>Wed, 10 Jan 2024 06:01:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
