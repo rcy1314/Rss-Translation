@@ -4,175 +4,114 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 11 Jan 2024 18:24:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2024 21:21:38 GMT</lastBuildDate>
     <item>
-      <title>实现ChatGPT历史搜索功能</title>
-      <link>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_30</link>
-      <description><![CDATA[我来这里是因为我很想拥有这个，并且认为它早就该有了。我尝试过基于浏览器的插件，但认为在 ChatGPT 内实现效果会更好。
-我喜欢的另一件事是跨对话聊天的能力。我希望能够参考之前对话中的详细信息，而不必再次提供相同的详细信息作为上下文。]]></description>
-      <guid>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_30</guid>
-      <pubDate>Thu, 11 Jan 2024 18:21:48 GMT</pubDate>
+      <title>获取 AttributeError：模块“openai”没有属性“error”</title>
+      <link>https://community.openai.com/t/getting-attributeerror-module-openai-has-no-attribute-error/578418#post_11</link>
+      <description><![CDATA[抱歉，我找到了答案，但阅读不够仔细。来自官方 GitHub 下的处理错误：
+导入openai
+从 openai 导入 OpenAI
+
+客户端 = OpenAI()
+
+尝试：
+    客户端.fine_tunes.create(
+        Training_file =“文件-XGinujblHPwGLSztz8cPS8XY”，
+    ）
+除了 openai.APIConnectionError 为 e：
+    print(&quot;无法访问服务器&quot;)
+    print(e.__cause__) # 一个底层异常，可能在 httpx 中引发。
+除了 openai.RateLimitError 为 e：
+    print(&quot;收到了 429 状态代码；我们应该退一步。&quot;)
+除了 openai.APIStatusError 为 e：
+    print(&quot;收到另一个非 200 范围的状态代码&quot;)
+    打印（e.status_code）
+    打印（e.响应）
+
+因此，您必须导入 openai 和 OpenAI，然后在 except 语句中使用不带 .error 的 openai。有点乱，但我想只要它有效。]]></description>
+      <guid>https://community.openai.com/t/getting-attributeerror-module-openai-has-no-attribute-error/578418#post_11</guid>
+      <pubDate>Thu, 11 Jan 2024 21:18:11 GMT</pubDate>
     </item>
     <item>
-      <title>今天转向 Teams GPT！</title>
-      <link>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_9</link>
-      <description><![CDATA[自从我加入社区以来，Teams 是我在 ChatGPT 中看到的最好的东西之一。无需花费 108,000 美元的企业基本入门费即可保护公司数据的私密性，这真是太棒了。
-
-
-
- 法克斯比洛：
-&lt;块引用&gt;
-我确实同意“PRO”版本会很棒
-
-
-我认为，如果您每月支付 25 美元/30 美元就能获得更高的消息限制和私人对话，那就太好了。]]></description>
-      <guid>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_9</guid>
-      <pubDate>Thu, 11 Jan 2024 18:21:29 GMT</pubDate>
+      <title>自定义 GPT 不会作为公开发布</title>
+      <link>https://community.openai.com/t/custom-gpts-does-not-publish-as-public/582567#post_4</link>
+      <description><![CDATA[“Montessori Minder”，也尝试了不包含任何人名的名称，但结果同样的问题]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-does-not-publish-as-public/582567#post_4</guid>
+      <pubDate>Thu, 11 Jan 2024 21:17:02 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt API 不如它的网站那么好</title>
-      <link>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_4</link>
-      <description><![CDATA[
-
-
- 法克斯比洛：
-&lt;块引用&gt;
-您应该定义一个系统提示
-
-
-特别是，虽然 ChatGPT 是通用目的，但在 API 上，可以通过该系统消息对 AI 给予特别关注。
-还可以选择不同版本的型号。我刚刚输入的系统提示符，扩展了 ChatGPT 的形式：
-
-它说 GPT-4，但 gpt-3.5-turbo 得到这个任务... （点击查看更多详情）
-让 API gpt-3.5-turbo（不是 1106）来回答这个问题，然后：
-&lt;块引用&gt;
-你好！感谢您让我注意到这一观察结果。我可以理解您对使用 ChatOpenAI 网站与 API 时 ChatGPT 3.5 和 4 之间的响应质量差异的好奇。
-ChatOpenAI 网站和 API 旨在满足不同的目的和用户体验。虽然它们都使用底层 ChatGPT 模型，但生成和呈现响应的方式可能有所不同。
-API 是一种多功能工具，允许开发人员将 ChatGPT 集成到他们自己的应用程序、服务或网站中。使用 API 时，您可以更好地控制交互，包括调整温度、最大令牌和系统消息的存在等参数的能力。这些参数可以影响输出并帮助根据特定需求定制响应。然而，如果不进行微调，默认设置可能并不总是能产生像 ChatOpenAI 网站上那样精细的响应。
-另一方面，ChatOpenAI 网站提供了一个用户友好的界面，旨在简化与 ChatGPT 的交互。它经过精心设计对话格式并应用一些启发式方法进行优化，可生成连贯且上下文准确的响应，以确保最佳的用户体验。
-要在 API 上获得与您在 chat.openai.com 上体验到的类似质量，您可能需要尝试调整温度参数。较低的值（例如 0.2）使模型更加集中和确定性，而较高的值（例如 0.8）会带来更多的随机性。您还可以尝试使用系统消息来明确引导对话。
-值得注意的是，ChatGPT 3.5和4都有各自的优点和缺点，OpenAI正在不断致力于细化和改进模型。如果您有任何具体问题或需要有效使用 API 方面的帮助，请随时告诉我！
-
-(top_p=0​​.9)
-&lt;小时/&gt;
-
-ChatGPT 的样板答案用于比较（点击查看更多详细信息）
-对于语言来说，课程的质量是主观的。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_4</guid>
-      <pubDate>Thu, 11 Jan 2024 18:18:15 GMT</pubDate>
+      <title>关键问题：非 Plus 用户被自定义 GPT 模型链接误导</title>
+      <link>https://community.openai.com/t/critical-issue-non-plus-users-misled-by-custom-gpt-model-links/583324#post_1</link>
+      <description><![CDATA[亲爱的 OpenAI 团队和社区，作为一名自定义 GPT 作者，我必须紧急强调一个严重影响我们分享创作能力的问题。 关键问题：当非 Plus 用户点击自定义 GPT 链接时，他们会在没有任何指示的情况下重定向到 ChatGPT 3.5。这完全误导了用户。 建议采取的措施：我强烈建议您立即解决此问题，方法是指导非 Plus 用户：理想：在提供 Plus 升级选项之前对自定义模型进行有限试用。 最低限度：模型需要Plus的解释，并带有订阅提示。这个问题严重阻碍了定制作者展示我们的作品并培养积极参与的观众。对于像我这样的许多受影响的作者来说，解决问题至关重要。我渴望提供重现此问题的详细信息，并实施一个有效的解决方案，允许正确共享自定义模型而不会造成混淆。感谢您对此事的关注。我们非常感谢您为提高 OpenAI 的认识而做出的任何努力，以优先考虑并解决这一问题 - 这是迫切需要使自定义 GPT 蓬勃发展的。]]></description>
+      <guid>https://community.openai.com/t/critical-issue-non-plus-users-misled-by-custom-gpt-model-links/583324#post_1</guid>
+      <pubDate>Thu, 11 Jan 2024 21:15:09 GMT</pubDate>
     </item>
     <item>
-      <title>今天转向 Teams GPT！</title>
-      <link>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_8</link>
-      <description><![CDATA[我确实同意“PRO”版本会很棒，也许有 200 条消息限制？没有培训选项……如果有紧急的事情，也许可以叠加 5 美元充值以获取更多……我确信这种事情正在被研究。]]></description>
-      <guid>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_8</guid>
-      <pubDate>Thu, 11 Jan 2024 18:15:21 GMT</pubDate>
+      <title>神奇的文字可以揭示GPT的所有提示</title>
+      <link>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_146</link>
+      <description><![CDATA[请注意，应用商店仍不保护提示，需要关注安全漏洞]]></description>
+      <guid>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=7#post_146</guid>
+      <pubDate>Thu, 11 Jan 2024 21:12:34 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 商店上线日猜测与猜测！</title>
-      <link>https://community.openai.com/t/gpt-store-launch-day-speculation-and-guesses/579705?page=2#post_35</link>
-      <description><![CDATA[
-
-
-罗纳德GRuckus：
-&lt;块引用&gt;
-用户评论对于任何类型的应用商店都至关重要。
-
-
-在 Discord AMA 中，一位开发者宣布即将发布评论。 &lt;img alt=&quot;:+1:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/+1.png?v=12&quot; title=&quot;: +1：“宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/gpt-store-launch-day-speculation-and-guesses/579705?page=2#post_35</guid>
-      <pubDate>Thu, 11 Jan 2024 18:13:58 GMT</pubDate>
+      <title>GPT Builder Bug：公开发布时自定义个人资料图片丢失</title>
+      <link>https://community.openai.com/t/gpt-builder-bug-custom-profile-picture-lost-when-publishing-publically/498387#post_20</link>
+      <description><![CDATA[这个建议解决了我的问题。一定是 700px 并且可能是 jpeg 格式造成的。另外，我可以在 Chrome 中成功上传它，但在 Safari 中却不能。]]></description>
+      <guid>https://community.openai.com/t/gpt-builder-bug-custom-profile-picture-lost-when-publishing-publically/498387#post_20</guid>
+      <pubDate>Thu, 11 Jan 2024 21:11:27 GMT</pubDate>
     </item>
     <item>
-      <title>Discord 上的 GPT 开发者 AMA</title>
-      <link>https://community.openai.com/t/gpts-developer-ama-on-discord/582563#post_3</link>
-      <description><![CDATA[
-
-
+      <title>GPT-4 Turbo with Vision 错误地分析了图像</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_19</link>
+      <description><![CDATA[我只是旋转图像：
 ]]></description>
-      <guid>https://community.openai.com/t/gpts-developer-ama-on-discord/582563#post_3</guid>
-      <pubDate>Thu, 11 Jan 2024 18:12:16 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_19</guid>
+      <pubDate>Thu, 11 Jan 2024 21:09:13 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 发布状态错误</title>
-      <link>https://community.openai.com/t/bug-with-gpts-publish-status/582936#post_3</link>
-      <description><![CDATA[另外@tolga我似乎可以访问您的链接并使用您的自定义GPT 。您可以在GPT存储搜索功能中通过名称搜索来测试是否公开。]]></description>
-      <guid>https://community.openai.com/t/bug-with-gpts-publish-status/582936#post_3</guid>
-      <pubDate>Thu, 11 Jan 2024 18:11:45 GMT</pubDate>
+      <title>GPT-4 Turbo with Vision 错误地分析了图像</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_18</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_18</guid>
+      <pubDate>Thu, 11 Jan 2024 21:06:54 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt API 不如它的网站那么好</title>
-      <link>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_3</link>
-      <description><![CDATA[您应该定义一个系统提示，告诉人工智能“它是谁”您是一个有用的助手……等等，并尝试各种温度设置。两者的底层模型是相同的。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_3</guid>
-      <pubDate>Thu, 11 Jan 2024 18:11:25 GMT</pubDate>
+      <title>“GPT Store”中的“全局视图”功能有什么作用？</title>
+      <link>https://community.openai.com/t/what-does-global-view-feature-do-in-gpt-store/582262#post_2</link>
+      <description><![CDATA[我完全同意。当我用谷歌搜索“全局视图”是什么时，第一个出现的就是这个帖子。来吧 OpenAI。这应该在文档中。]]></description>
+      <guid>https://community.openai.com/t/what-does-global-view-feature-do-in-gpt-store/582262#post_2</guid>
+      <pubDate>Thu, 11 Jan 2024 21:03:59 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt API 不如它的网站那么好</title>
-      <link>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_2</link>
-      <description><![CDATA[我的理解是 ChatGPT 的 Web 界面包含未提供或发布的附加系统指令。您可以改进 API 调用中的系统指令，以匹配或超过 Web 界面输出的质量。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_2</guid>
-      <pubDate>Thu, 11 Jan 2024 18:10:35 GMT</pubDate>
+      <title>达芬奇微调模型无法返回结果，错误代码500</title>
+      <link>https://community.openai.com/t/davinci-fine-tune-model-can-not-return-results-error-code-500/578861#post_14</link>
+      <description><![CDATA[感谢您的回复。
+这很有趣。不知道如何将其与我迄今为止的经验相结合。我有十二月份使用达芬奇制作的微调。 davinci-002 是当时唯一可用的达芬奇，是吗？至少在操场上，当我从菜单中选择这些微调时，它们不起作用（尽管直到本周它们才起作用。）我还没有机会从 API 调用并查看它们给出了什么样的错误.]]></description>
+      <guid>https://community.openai.com/t/davinci-fine-tune-model-can-not-return-results-error-code-500/578861#post_14</guid>
+      <pubDate>Thu, 11 Jan 2024 20:59:22 GMT</pubDate>
     </item>
     <item>
-      <title>今天转向 Teams GPT！</title>
-      <link>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_7</link>
-      <description><![CDATA[
-
-
-保罗贝洛：
-&lt;块引用&gt;
-我相信 Teams 在 GPT-4 和 DALL·E、浏览、高级数据分析等工具上具有更高的消息上限......
-
-
-目前，Teams 用户每 3 小时有 100 条消息。]]></description>
-      <guid>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_7</guid>
-      <pubDate>Thu, 11 Jan 2024 18:07:07 GMT</pubDate>
+      <title>应用程序已从 GPT 商店中删除</title>
+      <link>https://community.openai.com/t/app-removed-from-gpt-store/583194#post_3</link>
+      <description><![CDATA[我已阅读所有条款和服务。这违反了什么条款？]]></description>
+      <guid>https://community.openai.com/t/app-removed-from-gpt-store/583194#post_3</guid>
+      <pubDate>Thu, 11 Jan 2024 20:56:56 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 发布状态错误</title>
-      <link>https://community.openai.com/t/bug-with-gpts-publish-status/582936#post_2</link>
-      <description><![CDATA[过去两个小时我遇到了同样的问题。有朋友验证过他们无法使用公开发布的 GPT（他们收到 500 错误）。我之前发布的 GPT（一周多前）可通过链接（共享）和工作获得，但尽管我几周前已验证了我的构建器帐户，但他们说的是“匿名构建器”或“社区构建器”之类的内容。
-ChatGPT - 人工智能支持我们的长辈！
-当我在隐身浏览器中访问该链接时看到的内容。
- 
-登录后访问该链接时我看到的内容：
- ]]></description>
-      <guid>https://community.openai.com/t/bug-with-gpts-publish-status/582936#post_2</guid>
-      <pubDate>Thu, 11 Jan 2024 18:06:47 GMT</pubDate>
+      <title>GPT-4 Turbo with Vision 错误地分析了图像</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_17</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-with-vision-incorrectly-analyzed-the-image/504043#post_17</guid>
+      <pubDate>Thu, 11 Jan 2024 20:54:29 GMT</pubDate>
     </item>
     <item>
-      <title>今天转向 Teams GPT！</title>
-      <link>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_6</link>
-      <description><![CDATA[同样，除了我的经理指示的计划之外，我不会使用公司给我的任何 GPT 计划。当您开始使用他人公司的在线资源时，这总是很棘手。
-可以放心地假设您在他们帐户上制作的任何东西都是他们的财产。]]></description>
-      <guid>https://community.openai.com/t/moving-over-to-teams-gpt-today/581771#post_6</guid>
-      <pubDate>Thu, 11 Jan 2024 18:02:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chatgpt API 不如它的网站那么好</title>
-      <link>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_1</link>
-      <description><![CDATA[你好，
-我写这封信是为了提请您注意我在尝试 ChatGPT 3.5 和 4 时所做的一个有趣的观察。尽管向模型提出了相同的问题，但我注意到使用 ChatOpenAI 网站时答复质量存在显着差异与 API 的比较。
-特别是，与通过 API 检索的响应相比，通过 chatopenai com 获得的响应似乎更加精致且上下文准确。这种差异引起了我的兴趣，我很想知道是否有 ChatOpenAI 网站独有的特定设置或参数导致了这种差异。
-为了提供一些背景信息，我通过给特定的人写信来进行测试，并且在 chatopenai com 上的结果始终更好]]></description>
-      <guid>https://community.openai.com/t/chatgpt-api-isnt-good-as-its-website/583132#post_1</guid>
-      <pubDate>Thu, 11 Jan 2024 18:02:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何复制我创建的 gpt 之一？</title>
-      <link>https://community.openai.com/t/how-do-i-copy-one-of-the-gpts-i-created/583106#post_2</link>
-      <description><![CDATA[您必须通过复制/粘贴说明、操作并重新上传文件来重新创建它。]]></description>
-      <guid>https://community.openai.com/t/how-do-i-copy-one-of-the-gpts-i-created/583106#post_2</guid>
-      <pubDate>Thu, 11 Jan 2024 18:01:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>想要纹身或新纹身，请尝试我的第一个 GPT Tattoo Imagineer</title>
-      <link>https://community.openai.com/t/thinking-of-getting-a-tattoo-or-a-new-one-try-out-my-1st-gpt-tattoo-imagineer/570139#post_14</link>
-      <description><![CDATA[是的，我可以查看您的提示并尽力而为，您可以使用我网站上的联系电子邮件，我会收到消息。它将位于 Tattoo Imagineer GPT 顶部的应用程序中，就像屏幕截图中所示，旁边写着使用 ( 创建或链接到这里） 我很快就会在网站上设置 AI 部分，敬请关注
-您给出的提示仍然有用，因为想要在图像中获得更多详细信息的人可以使用您的提示（如果他们使用此处的论坛）。]]></description>
-      <guid>https://community.openai.com/t/thinking-of-getting-a-tattoo-or-a-new-one-try-out-my-1st-gpt-tattoo-imagineer/570139#post_14</guid>
-      <pubDate>Thu, 11 Jan 2024 18:00:37 GMT</pubDate>
+      <title>JSON 文件输出的错误</title>
+      <link>https://community.openai.com/t/bug-with-json-file-output/583307#post_1</link>
+      <description><![CDATA[使用启用了代码解释器的 Assistants API，我有一个助手会定期返回格式正确的 JSON 文件以供在线程结束时下载。整个线程提示效果很好，能够以正确的格式可靠地返回准确的文本。
+但每 10-20 次中就有 1 次，返回的 JSON 格式为单引号，导致其无效。
+这显然是一个错误，因为输出文件的结构和其中包含的信息看起来是正确的，但模型/代码解释器不遵循有效的 JSON 规范。]]></description>
+      <guid>https://community.openai.com/t/bug-with-json-file-output/583307#post_1</guid>
+      <pubDate>Thu, 11 Jan 2024 20:54:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
