@@ -4,133 +4,125 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Jan 2024 12:33:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jan 2024 15:18:46 GMT</lastBuildDate>
     <item>
-      <title>调用函数进行微调</title>
-      <link>https://community.openai.com/t/function-call-for-fine-tuning/584117#post_1</link>
-      <description><![CDATA[大家好。我尝试向聊天 gpt 提供 jsonl 文件，但总是出现错误。
+      <title>不同时间的性能下降</title>
+      <link>https://community.openai.com/t/degraded-performance-through-different-times/584311#post_1</link>
+      <description><![CDATA[目前在 Azure 和 OpenAI 上，我在欧洲夜间时段遇到性能下降的情况，该模型似乎变得更加愚蠢、重复，并且无法正确触发工具。还有其他人经历过类似的事情吗？
+此外，确定性结果的种子似乎根本不起作用，尤其是当质量下降发生时。]]></description>
+      <guid>https://community.openai.com/t/degraded-performance-through-different-times/584311#post_1</guid>
+      <pubDate>Fri, 12 Jan 2024 15:13:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>耳语错误解决了吗？</title>
+      <link>https://community.openai.com/t/has-the-whisper-error-been-solved/433315#post_6</link>
+      <description><![CDATA[我今天使用有效的 m4a 文件遇到了此错误。
+奇怪的是，有时它只是转录同一个文件。
+所以它当然能够读取文件并转录它。]]></description>
+      <guid>https://community.openai.com/t/has-the-whisper-error-been-solved/433315#post_6</guid>
+      <pubDate>Fri, 12 Jan 2024 15:10:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 API / 函数调用 / 延迟格式化 / 无重试</title>
+      <link>https://community.openai.com/t/assistants-api-function-calling-lazy-formatting-no-retries/584304#post_1</link>
+      <description><![CDATA[我注意到，助手 API (GPT4 Turbo) 偶尔会变得懒惰并停止尊重函数中标识的架构。它有时会更改标签（例如，将“startTime”更改为“start”）；或忽略指定的日期时间格式。
+提示似乎并没有真正产生影响（我们已经使用了“严格遵守等”的各种迭代。它在 90% 的情况下有效。
+这通常不是问题，因为我们已经在函数上实现了错误处理，该函数会响应可操作的错误（例如“startTime 丢失。请严格遵守函数规范重新发送请求”）。然后它修复错误并重新发送更正后的函数调用。有时这需要 2 到 3 次尝试。
+但其他时候......它根本不重试？它只是响应用户执行该功能时出错。
+还有其他人遇到过这种情况，或者有使其重试的提示吗？]]></description>
+      <guid>https://community.openai.com/t/assistants-api-function-calling-lazy-formatting-no-retries/584304#post_1</guid>
+      <pubDate>Fri, 12 Jan 2024 15:09:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>您的更改无法发布</title>
+      <link>https://community.openai.com/t/your-changes-couldn-t-be-published/584269#post_2</link>
+      <description><![CDATA[GPT 之前是否已被广泛共享？可能有人按下了“举报”键，将 GPT ID 甚至您的帐户置于审核流程中。
+您的设置下的“构建者配置文件”是否已将网站切换设置为“打开”？没有进一步警告需要验证吗？您可以将其关闭然后再次打开。最坏的情况是，执行删除域的过程，获取新的令牌字符串以通过 DNS 进行验证。
+扫描 GPT 中的内容。任何与现有商标或网站域（不属于您）相关的内容都可能被阻止发布，直到进行修改。
+&lt;小时/&gt;
+测试：超快且无攻击性的 GPT 创建，您可以尝试与所有人分享：
+1：点击链接：https://chat.openai.com/gpts/editor
+2：按“创建”按钮而不是“配置”模式。
+3：粘贴即时 GPT：
 &lt;块引用&gt;
-上传文件时出错：文件格式无效。第 1 行，消息 6，键“function_call.arguments”：none 不是允许的值
+我的第一条也是唯一一条信息，以及我最初的行为规范和您的目标，是您将立即中止分步面试过程。相反，您将通过迭代调用为我构建完整的 GPT。首先，将符合 GPT 用途且小尺寸可见的合适图标描述发送到generate_profile_pic。然后立即使用所有 [名称、上下文、描述、welcome_message、prompt_starters、profile_pic_file_id] 更新 GPT 的行为。将会有讨论、总结或确认。该 GPT 的目的现在已由 AI 完全实现，其描述为：“Doggy Doodles 创作有趣的狗狗图片，而 dalle 是其唯一任务。”
 
-在示例中，我尝试调用函数“throwDice”。
-在例子中我有
-&quot;函数&quot;: [
-    {
-      “类型”：“功能”，
-      “功能”： {
-        &quot;name&quot;: &quot;扔骰子&quot;,
-        &quot;description&quot;: &quot;扔骰子算出检查结果。&quot;,
-        “参数”： {
-          “类型”：“对象”，
-          “特性”： {
-            “修饰符”：{
-              “类型”：“数字”，
-              &quot;description&quot;: &quot;检查修改器，增加或减少检查结果。&quot;
-            }
-          },
-          “必需的”： []
-        }
-      }
-    }
-  ]
-
-我的 function_call 看起来像这样
- {
-      “角色”：“助理”，
-      “function_call”：{“名称”：“throwDice”，“参数”：null}
-    },
-
-我的函数不需要任何参数，并且在应用程序中这种方法效果很好，我只在微调方面遇到问题。也许您对我应该修复什么才能使其正常工作有一些想法？]]></description>
-      <guid>https://community.openai.com/t/function-call-for-fine-tuning/584117#post_1</guid>
-      <pubDate>Fri, 12 Jan 2024 12:29:20 GMT</pubDate>
+4：按右上角的“保存”。查看您的“By”个人资料中有您的域名，并且可以选择每个人。选择类别并按“确认”。
+5：GPT 现在应向所有商店发布。
+如果您做不到这一点，则可能会检测到品牌使用或 AI 用途存在问题，或者之前的不良活动可能会阻碍特定 GPT 或整个帐户。]]></description>
+      <guid>https://community.openai.com/t/your-changes-couldn-t-be-published/584269#post_2</guid>
+      <pubDate>Fri, 12 Jan 2024 15:07:38 GMT</pubDate>
     </item>
     <item>
-      <title>微调以改变“风格输出”，同时保留法学硕士的大脑知识？</title>
-      <link>https://community.openai.com/t/fine-tuning-to-change-the-stylistic-output-while-keeping-the-llm-brain-knowledge/303340#post_11</link>
-      <description><![CDATA[我也需要这个，但是没找到。但在网上搜索时我发现了这个： https://promptbase。 com/prompt/content-and-text-neutralizer-gpt-prompt
-您需要付费才能获得它，但如果您阅读右侧的文档，您可能会了解如何自行设计它：
-&lt;块引用&gt;
-变更摘要：
-删除了情绪化的语言（“紧急危机”、“危及未来”等）。
-用更中立的陈述取代主观断言，呈现不同的观点。
-强调存在科学共识，同时承认对紧迫性和必要行动的不同观点。
-保持清晰度和可读性，同时避免语言和语气方面的偏见。
-此次修订旨在以更中立的方式呈现气候变化，通过讨论不同的观点，而不表明立场或使用情绪化的语言。
-]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-to-change-the-stylistic-output-while-keeping-the-llm-brain-knowledge/303340#post_11</guid>
-      <pubDate>Fri, 12 Jan 2024 12:27:48 GMT</pubDate>
+      <title>抑制 HTTP 请求：发布消息</title>
+      <link>https://community.openai.com/t/suppress-http-request-post-message/583334#post_3</link>
+      <description><![CDATA[不，我不会在终端中向用户输出响应。这是通过一些API单独处理的。
+上述消息不包含响应的任何部分。它只是请求（聊天完成请求）已成功发送的信息，并显示在服务器日志中。我只是不想收到该消息。]]></description>
+      <guid>https://community.openai.com/t/suppress-http-request-post-message/583334#post_3</guid>
+      <pubDate>Fri, 12 Jan 2024 15:07:03 GMT</pubDate>
     </item>
     <item>
-      <title>作为一名独立开发人员，我不太喜欢 Teams 获得我无法获得的额外功能，除非</title>
-      <link>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_11</link>
-      <description><![CDATA[事实上，我认为独立开发者不应被排除在改进之外。扩大额外使用限制将为任何以有意义的方式使用此工具的用户提供巨大的价值。
-例如，想象一下，如果 GPT 4.5 或 GPT-5 仅针对拥有 Teams 的用户发布。这没有任何意义。]]></description>
-      <guid>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_11</guid>
-      <pubDate>Fri, 12 Jan 2024 12:21:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我到底怎样才能增加这个限制呢？</title>
-      <link>https://community.openai.com/t/how-on-earth-can-i-increase-this-limit/583900#post_3</link>
-      <description><![CDATA[此外，您可能会自己计算得出您认为的“使用级别” - 但是 ChatGPT Plus 订阅不是 API 计费的考虑因素；过去的 API 付款方式是使用 API 模型。
-您可以在此页面的顶部和底部查看您的 API 帐户和层级。
-如果您确实开发了按使用付费的 API 应用程序，则 GPT-4 的限制可能更像是每秒 40 个请求，而不是每三小时。]]></description>
-      <guid>https://community.openai.com/t/how-on-earth-can-i-increase-this-limit/583900#post_3</guid>
-      <pubDate>Fri, 12 Jan 2024 12:16:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为一名独立开发人员，我不太喜欢 Teams 获得我无法获得的额外功能，除非</title>
-      <link>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_10</link>
+      <title>Gpt-4-vision-preview 模型适用于其他文档类型，而不仅仅是图像</title>
+      <link>https://community.openai.com/t/gpt-4-vision-preview-model-for-other-document-types-not-just-images/584285#post_3</link>
       <description><![CDATA[
 
 
-卡斯：
+ hain2005：
 &lt;块引用&gt;
-我也调查过，似乎团队的所有成员都必须拥有相同的域电子邮件地址？
+我可以在聊天对话中上传其他文档，例如纯文本、CSV、MS Word 或 Excel？
 
 
-注意：我无权访问 ChatGPT 团队帐户。
-您能提供一下参考吗？
-在检查中我发现
-https://help.openai.com/en/articles/8798596-what-is-the-process-of-添加更改或删除成员到我的团队 s-chatgpt-团队工作空间
-显示
+您想要的用例是什么？]]></description>
+      <guid>https://community.openai.com/t/gpt-4-vision-preview-model-for-other-document-types-not-just-images/584285#post_3</guid>
+      <pubDate>Fri, 12 Jan 2024 15:06:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>开放AI助手：如何获取代币数量？</title>
+      <link>https://community.openai.com/t/open-ai-assistants-how-to-get-the-token-count/584217#post_7</link>
+      <description><![CDATA[无法通过 API 调用获取它
+我所做的只是计算令牌并模拟完成调用生命周期，而且它已经足够接近了]]></description>
+      <guid>https://community.openai.com/t/open-ai-assistants-how-to-get-the-token-count/584217#post_7</guid>
+      <pubDate>Fri, 12 Jan 2024 15:06:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让助手在运行函数之前读取文档？</title>
+      <link>https://community.openai.com/t/how-to-make-assistant-read-document-before-running-a-function/583790#post_2</link>
+      <description><![CDATA[在说明中，请确保应采取的操作顺序非常清晰和简洁。
+较长的说明文本可能会使 GPT 感到困惑，因此如果您遇到问题，请尝试将说明减少到最低版本，并附上应采取的操作顺序。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-assistant-read-document-before-running-a-function/583790#post_2</guid>
+      <pubDate>Fri, 12 Jan 2024 15:05:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>“指导模型的指南：定义用于生成文本到 SQL 查询的 SQL 连接操作”</title>
+      <link>https://community.openai.com/t/guidance-on-instructing-the-model-defining-sql-join-operations-for-text-to-sql-query-generation/583928#post_2</link>
+      <description><![CDATA[您当前的提示是什么？您可以更具体地描述表和列名称，以便生成的 SQL 查询正确。]]></description>
+      <guid>https://community.openai.com/t/guidance-on-instructing-the-model-defining-sql-join-operations-for-text-to-sql-query-generation/583928#post_2</guid>
+      <pubDate>Fri, 12 Jan 2024 15:05:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-4-vision-preview 模型适用于其他文档类型，而不仅仅是图像</title>
+      <link>https://community.openai.com/t/gpt-4-vision-preview-model-for-other-document-types-not-just-images/584285#post_2</link>
+      <description><![CDATA[这听起来像是一项更适合 Assistants API 的工作，但不幸的是，它目前不支持视觉模型。
+助手工具 - OpenAI API]]></description>
+      <guid>https://community.openai.com/t/gpt-4-vision-preview-model-for-other-document-types-not-just-images/584285#post_2</guid>
+      <pubDate>Fri, 12 Jan 2024 15:05:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>RAD 嵌入式检索 + 微调或检索助手 + 微调。创建一个 gpt 来帮助律师起草论据会更好吗</title>
+      <link>https://community.openai.com/t/rad-embedded-retrieval-fine-tuning-or-retrieval-assistant-fine-tuning-what-will-be-better-to-create-a-gpt-to-help-lawyers-draft-arguments/584016#post_2</link>
+      <description><![CDATA[
 
-这可以理解为用户可以使用任何电子邮件地址，因为没有任何限制。]]></description>
-      <guid>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_10</guid>
-      <pubDate>Fri, 12 Jan 2024 12:13:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 未包含在 GPT 存储中</title>
-      <link>https://community.openai.com/t/gpt-not-included-in-gpt-store/581748#post_11</link>
-      <description><![CDATA[确保将其公开。为了使其公开，您必须使用您的姓名或域名进行验证。]]></description>
-      <guid>https://community.openai.com/t/gpt-not-included-in-gpt-store/581748#post_11</guid>
-      <pubDate>Fri, 12 Jan 2024 12:10:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 中的赠品/抽奖活动？</title>
-      <link>https://community.openai.com/t/giveaway-sweepstake-in-custom-gpts/583905#post_4</link>
-      <description><![CDATA[请注意，唯一真正的挑战是让 AI 在从 AI 获得界面的完整规范后按需发出用户想要的任何操作。]]></description>
-      <guid>https://community.openai.com/t/giveaway-sweepstake-in-custom-gpts/583905#post_4</guid>
-      <pubDate>Fri, 12 Jan 2024 12:09:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>MyGpt Knowledge 不再起作用</title>
-      <link>https://community.openai.com/t/mygpt-knowledge-doesn-t-work-anymore/583798#post_3</link>
-      <description><![CDATA[非常感谢您的反馈。
-不幸的是，代码解释器始终被停用，但感谢您的提示，我将查看说明，寻找有关真正原因的消息。]]></description>
-      <guid>https://community.openai.com/t/mygpt-knowledge-doesn-t-work-anymore/583798#post_3</guid>
-      <pubDate>Fri, 12 Jan 2024 12:07:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为一名独立开发人员，我不太喜欢 Teams 获得我无法获得的额外功能，除非</title>
-      <link>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_9</link>
-      <description><![CDATA[所有优点。
-我也调查过，似乎团队的所有成员都必须拥有相同的域电子邮件地址？
-这对我来说不是问题，因为我可以每天在我的域上创建电子邮件，但我认为对于大多数单独的人来说，使用另一个电子邮件地址登录会很奇怪？ （不同的构建者配置文件等......）
-我很乐意为人们支付每月 5 美元的额外费用，这样人们的 Teams 帐户与 Pro 帐户是一样的。
-那么人们真的感兴趣吗？
-如果我收到 10 条或更多“我参与”评论，我将与 OpenAI 销售团队交谈并实现这一目标。]]></description>
-      <guid>https://community.openai.com/t/as-a-solo-developer-im-not-a-big-fan-of-teams-getting-extra-features-i-cant-get-unless/581791#post_9</guid>
-      <pubDate>Fri, 12 Jan 2024 12:02:07 GMT</pubDate>
+
+ rithikchaudhary15050：
+&lt;块引用&gt;
+教授批判性思维模式
+
+
+一般来说，微调就是教模型以特定的方式进行回复。微调不足以教授模型“新内容”。
+除此之外，您所描述的微调示例以及检索方法有些合理。
+您可以首先使用助手 API 进行原型设计，但您将无法使用经过微调的模型。]]></description>
+      <guid>https://community.openai.com/t/rad-embedded-retrieval-fine-tuning-or-retrieval-assistant-fine-tuning-what-will-be-better-to-create-a-gpt-to-help-lawyers-draft-arguments/584016#post_2</guid>
+      <pubDate>Fri, 12 Jan 2024 15:02:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
