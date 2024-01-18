@@ -4,170 +4,49 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 18 Jan 2024 15:20:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 18:24:03 GMT</lastBuildDate>
     <item>
-      <title>开放人工智能视觉模型声称它只是文本？</title>
-      <link>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_4</link>
-      <description><![CDATA[感谢您检查我的代码。感谢您的帮助！]]></description>
-      <guid>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_4</guid>
-      <pubDate>Thu, 18 Jan 2024 15:19:33 GMT</pubDate>
+      <title>服务器过载或尚未准备好 OpenAI API 错误</title>
+      <link>https://community.openai.com/t/the-server-is-overloaded-or-not-ready-yet-openai-api-error/471377#post_3</link>
+      <description><![CDATA[https://status.openai.com/ 会告诉您是否存在严重中断。 
+另外，重试。多次重试！]]></description>
+      <guid>https://community.openai.com/t/the-server-is-overloaded-or-not-ready-yet-openai-api-error/471377#post_3</guid>
+      <pubDate>Thu, 18 Jan 2024 18:21:00 GMT</pubDate>
     </item>
     <item>
-      <title>开放人工智能视觉模型声称它只是文本？</title>
-      <link>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_3</link>
-      <description><![CDATA[好吧，我从头开始使用视觉文档中的代码，并且得到了一些不错的结果，这真的很棒！
-
-这是代码
-将 gradio 导入为 gr
-导入base64
-导入CV2
-导入请求
-导入 json
-
-# 从配置文件加载 API 密钥
-使用 open(&quot;config.json&quot;, &quot;r&quot;) 作为配置文件：
-    配置= json.load（配置文件）
-    api_key = config[&quot;openai_api_key&quot;]
-
-def 编码图像（图像）：
-    # 将NumPy数组（图像）转换为适合base64编码的格式
-    _, buffer = cv2.imencode(&#39;.jpg&#39;, 图像)
-    base64_image = base64.b64encode(buffer).decode(&#39;utf-8&#39;)
-    返回base64_image
-
-def chat_with_bot（问题，图像）：
-    base64_image = 编码_image(图像)
-
-    标题= {
-      “内容类型”：“应用程序/json”，
-      “授权”：f“承载{api_key}”
-    }
-
-    有效负载={
-      “模型”：“gpt-4-vision-预览”，
-      “消息”：[
-        {
-          “角色”：“用户”，
-          “内容”： [
-            {
-              “类型”：“文本”，
-              “文本”：问题
-            },
-            {
-              “类型”：“图像_url”，
-              “图像网址”：{
-                “url”：f“数据：image/jpeg;base64，{base64_image}”
-              }
-            }
-          ]
-        }
-      ],
-      “最大令牌”：1000
-    }
-
-    响应 = requests.post(&quot;https://api.openai.com/v1/chat/completions&quot;, headers=headers, json=payload)
-
-    # 从响应中提取描述性文本
-    descriptive_text = response.json()[&#39;选择&#39;][0][&#39;消息&#39;][&#39;内容&#39;]
-    返回描述性文本
-
-# 广播界面
-以 gr.Blocks() 作为演示：
-    gr.Markdown(&quot;## 图像分析聊天机器人&quot;)
-    与 gr.Row():
-        Question = gr.Textbox(label=&quot;询问有关图像的问题&quot;)
-        image = gr.Image(label=&quot;上传图片&quot;)
-        Submit_btn = gr.Button(&quot;提交&quot;)
-
-    响应 = gr.Textbox(标签=“响应”)
-    Submit_btn.click(fn=chat_with_bot, 输入=[问题, 图像], 输出=响应)
-
-演示.launch()
-
-]]></description>
-      <guid>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_3</guid>
-      <pubDate>Thu, 18 Jan 2024 15:19:01 GMT</pubDate>
+      <title>我的 GPT“Sprite Me Baby”在没有违反既定准则的情况下一直被下架</title>
+      <link>https://community.openai.com/t/my-gpt-sprite-me-baby-was-taken-down-all-the-while-violating-no-set-guidelines/585037#post_6</link>
+      <description><![CDATA[申诉流程将于本周开始推出 - 但并不是一开始就向所有人推出。
+坚持住。他们意识到了这个问题并正在调查它。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-sprite-me-baby-was-taken-down-all-the-while-violating-no-set-guidelines/585037#post_6</guid>
+      <pubDate>Thu, 18 Jan 2024 18:18:12 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4 帽用于定制 GPT</title>
-      <link>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_7</link>
-      <description><![CDATA[
-
-
- JCL：
-&lt;块引用&gt;
-是否可以通过使用 GPT-3.5（而不是 4）调用外部 API 的操作来执行自定义 GPT？
-
-
-遗憾的是，此方法不可行，因为操作是由 GPT 调用的，因此您必须向 GPT 发送消息，因此仍计入使用上限。
-如果您有兴趣使用 API，则可以使用Assistants API，它们的运行方式与 GPT 类似，但没有内置网络搜索和图像生成功能。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_7</guid>
-      <pubDate>Thu, 18 Jan 2024 15:13:43 GMT</pubDate>
+      <title>我的 GPT“Sprite Me Baby”在没有违反既定准则的情况下一直被下架</title>
+      <link>https://community.openai.com/t/my-gpt-sprite-me-baby-was-taken-down-all-the-while-violating-no-set-guidelines/585037#post_5</link>
+      <description><![CDATA[这里仍然是一座鬼城。这不是您对待付费客户的方式。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-sprite-me-baby-was-taken-down-all-the-while-violating-no-set-guidelines/585037#post_5</guid>
+      <pubDate>Thu, 18 Jan 2024 18:17:01 GMT</pubDate>
     </item>
     <item>
-      <title>Streamer 机器人未运行 ChatGPT</title>
-      <link>https://community.openai.com/t/streamer-bot-not-running-chatgpt/585474#post_2</link>
-      <description><![CDATA[我的也不行。根据我的经验，在命令选项卡中，编辑命令时，我没有选项将操作设置为命令。它根本不存在
-]]></description>
-      <guid>https://community.openai.com/t/streamer-bot-not-running-chatgpt/585474#post_2</guid>
-      <pubDate>Thu, 18 Jan 2024 15:09:49 GMT</pubDate>
+      <title>在线部署基于Python的助手需要帮助</title>
+      <link>https://community.openai.com/t/assistance-needed-for-deploying-python-based-assistant-online/592553#post_1</link>
+      <description><![CDATA[嘿伙计们。我写这封信是为了寻求您对我目前正在进行的项目的指导。
+我使用Python开发了一个网页浏览助手，它基于函数调用，旨在访问互联网。该助手在本地测试环境中运行正常。
+现在，我希望通过在线访问来将该项目推进到下一阶段。我已经创建了一个可以与网页浏览助手同步的前端网页，让用户通过前端界面与其进行交互。
+但是，我在在线部署助手的端点代码（而不是本地）以实现前端页面和助手之间的通信方面面临挑战。
+您能否向我提供有关如何在线部署此助手的详细说明或指导？在这种情况下，任何有关托管服务、配置或最佳实践的具体建议都会非常有帮助。]]></description>
+      <guid>https://community.openai.com/t/assistance-needed-for-deploying-python-based-assistant-online/592553#post_1</guid>
+      <pubDate>Thu, 18 Jan 2024 18:13:23 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4-1106-preview 能否通过 OpenAI Api 调用读取用户给定的 URL？</title>
-      <link>https://community.openai.com/t/can-gpt-4-1106-preview-read-into-user-given-urls-via-openai-api-calls/592270#post_3</link>
-      <description><![CDATA[第三方方法 ]]></description>
-      <guid>https://community.openai.com/t/can-gpt-4-1106-preview-read-into-user-given-urls-via-openai-api-calls/592270#post_3</guid>
-      <pubDate>Thu, 18 Jan 2024 15:08:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Assistant API 切换到人工代理</title>
-      <link>https://community.openai.com/t/switching-from-assistant-api-to-human-agents/591801#post_3</link>
-      <description><![CDATA[感谢您的投入。我会研究这个，关键词可以帮助我进一步研究......]]></description>
-      <guid>https://community.openai.com/t/switching-from-assistant-api-to-human-agents/591801#post_3</guid>
-      <pubDate>Thu, 18 Jan 2024 15:08:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 帽用于定制 GPT</title>
-      <link>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_6</link>
-      <description><![CDATA[是否可以通过使用 GPT-3.5（而不是 4）调用外部 API 的操作来执行自定义 GPT？没有上限限制？如果是这样，你能告诉我怎么做吗？谢谢！]]></description>
-      <guid>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_6</guid>
-      <pubDate>Thu, 18 Jan 2024 15:07:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=10#post_194</link>
-      <description><![CDATA[我回到这里是因为我的 ChatGTP4（不是 GPT）在 20-30 次聊天后已达到极限。
-是的，我的日程又崩溃了。
-每 3 小时 20 次聊天？我该如何处理这个配额？
-我确信没有像以前那样的补偿，他们就像：“你对我们的法学硕士有问题吗？老兄，你可以取消订阅以减轻服务器负担，哈哈，没人关心你。”
-什么时候会有另一个可信的法学硕士出现，嗯？]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=10#post_194</guid>
-      <pubDate>Thu, 18 Jan 2024 15:06:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 Typescript 中使用 Jest 围绕 API 调用测试应用程序</title>
-      <link>https://community.openai.com/t/testing-application-around-api-calls-with-jest-in-typescript/567809#post_9</link>
-      <description><![CDATA[感谢您的回复。
-我无法在 Typescript 文件中使用 require （可能是因为我对 ts-jest 的 jest 配置？）。将我上面的示例测试脚本重写为常见的 JavaScript，这样就可以了。这有点不方便，但我可以将其作为这组测试的解决方法来处理。
-尝试使用位于 /docs/ecmascript-modules 的 ESM Jest 文档中的示例，我无法让它为我提供可以调用 new 的 OpenAI。它似乎确实成功地模拟了该模块，这是向前迈出的一步。
-jest.unstable_mockModule(&#39;openai&#39;, () =&gt; {
-    return jest.fn().mockImplementation(() =&gt; {
-        返回 {
-            完成情况：{
-                创建： jest.fn().mockImplementation(async () =&gt; { return mockOpenAIresponses.create; })
-            }
-        }
-    })
-});
-
-const {OpenAI} =等待导入（&#39;openai&#39;）;
-
-当它调用new OpenAI()时，会出现以下错误：
-TypeError：OpenAI 不是构造函数
-
-有什么线索可以帮助我们克服这个障碍吗？然后我可以将测试保存在 TS 中。]]></description>
-      <guid>https://community.openai.com/t/testing-application-around-api-calls-with-jest-in-typescript/567809#post_9</guid>
-      <pubDate>Thu, 18 Jan 2024 15:05:07 GMT</pubDate>
+      <title>[回归] createChatCompletion OpenAI API 因消息中的“名称”字段而失败</title>
+      <link>https://community.openai.com/t/regression-createchatcompletion-openai-api-fails-with-name-field-in-messages/584796#post_10</link>
+      <description><![CDATA[你比我先一步。
+名称中不能有空格。
+这很清楚！]]></description>
+      <guid>https://community.openai.com/t/regression-createchatcompletion-openai-api-fails-with-name-field-in-messages/584796#post_10</guid>
+      <pubDate>Thu, 18 Jan 2024 18:05:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
