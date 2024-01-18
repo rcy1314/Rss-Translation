@@ -4,126 +4,170 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 18 Jan 2024 12:34:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 15:20:10 GMT</lastBuildDate>
     <item>
-      <title>在这里展示您的 GPTS 供社区测试</title>
-      <link>https://community.openai.com/t/show-off-your-gpts-in-here-for-the-community-to-test/491656?page=35#post_736</link>
-      <description><![CDATA[我创建了一个 GPT，以便您可以集思广益、查找或开发人工智能用例
+      <title>开放人工智能视觉模型声称它只是文本？</title>
+      <link>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_4</link>
+      <description><![CDATA[感谢您检查我的代码。感谢您的帮助！]]></description>
+      <guid>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_4</guid>
+      <pubDate>Thu, 18 Jan 2024 15:19:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>开放人工智能视觉模型声称它只是文本？</title>
+      <link>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_3</link>
+      <description><![CDATA[好吧，我从头开始使用视觉文档中的代码，并且得到了一些不错的结果，这真的很棒！
 
-  &lt;标题类=“来源”&gt;
-      
-ChatGPT
+这是代码
+将 gradio 导入为 gr
+导入base64
+导入CV2
+导入请求
+导入 json
 
+# 从配置文件加载 API 密钥
+使用 open(&quot;config.json&quot;, &quot;r&quot;) 作为配置文件：
+    配置= json.load（配置文件）
+    api_key = config[&quot;openai_api_key&quot;]
 
-  &lt;文章类=“onebox-body”&gt;
-    ChatGPT - 人工智能 -用例
-集思广益，寻找或开发适合您的特定工作/工作领域的用例
+def 编码图像（图像）：
+    # 将NumPy数组（图像）转换为适合base64编码的格式
+    _, buffer = cv2.imencode(&#39;.jpg&#39;, 图像)
+    base64_image = base64.b64encode(buffer).decode(&#39;utf-8&#39;)
+    返回base64_image
 
+def chat_with_bot（问题，图像）：
+    base64_image = 编码_image(图像)
 
+    标题= {
+      “内容类型”：“应用程序/json”，
+      “授权”：f“承载{api_key}”
+    }
 
+    有效负载={
+      “模型”：“gpt-4-vision-预览”，
+      “消息”：[
+        {
+          “角色”：“用户”，
+          “内容”： [
+            {
+              “类型”：“文本”，
+              “文本”：问题
+            },
+            {
+              “类型”：“图像_url”，
+              “图像网址”：{
+                “url”：f“数据：image/jpeg;base64，{base64_image}”
+              }
+            }
+          ]
+        }
+      ],
+      “最大令牌”：1000
+    }
+
+    响应 = requests.post(&quot;https://api.openai.com/v1/chat/completions&quot;, headers=headers, json=payload)
+
+    # 从响应中提取描述性文本
+    descriptive_text = response.json()[&#39;选择&#39;][0][&#39;消息&#39;][&#39;内容&#39;]
+    返回描述性文本
+
+# 广播界面
+以 gr.Blocks() 作为演示：
+    gr.Markdown(&quot;## 图像分析聊天机器人&quot;)
+    与 gr.Row():
+        Question = gr.Textbox(label=&quot;询问有关图像的问题&quot;)
+        image = gr.Image(label=&quot;上传图片&quot;)
+        Submit_btn = gr.Button(&quot;提交&quot;)
+
+    响应 = gr.Textbox(标签=“响应”)
+    Submit_btn.click(fn=chat_with_bot, 输入=[问题, 图像], 输出=响应)
+
+演示.launch()
 
 ]]></description>
-      <guid>https://community.openai.com/t/show-off-your-gpts-in-here-for-the-community-to-test/491656?page=35#post_736</guid>
-      <pubDate>Thu, 18 Jan 2024 12:33:08 GMT</pubDate>
+      <guid>https://community.openai.com/t/open-ai-vision-model-claiming-its-text-only/591288#post_3</guid>
+      <pubDate>Thu, 18 Jan 2024 15:19:01 GMT</pubDate>
     </item>
     <item>
-      <title>AttributeError：模块“openai”没有属性“error”</title>
-      <link>https://community.openai.com/t/attributeerror-module-openai-has-no-attribute-error/486676?page=2#post_27</link>
-      <description><![CDATA[我想提请您注意 OpenAI 最新版本中的一项重要更新，可能需要您立即关注。用于错误处理的完全限定类名 (FQCN) 已修改如下：
-上一篇：
+      <title>GPT-4 帽用于定制 GPT</title>
+      <link>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_7</link>
+      <description><![CDATA[
 
-openai.error.RateLimitError 现在是 openai.RateLimitError
-openai.error.APIError 现在是 openai.APIError
 
-为确保兼容最新更改，建议手动更新代码，或者也可以使用 OpenAI 提供的自动迁移工具。只需执行以下命令：
-重击
-砂砾应用 openai
-
-请注意，必须安装“grit”工具才能使上述命令正常工作。如果您尚未安装它，可以使用适当的包管理器来安装。
-感谢您对此事的关注。如果您遇到任何问题或有其他疑问，请随时联系我们寻求帮助。]]></description>
-      <guid>https://community.openai.com/t/attributeerror-module-openai-has-no-attribute-error/486676?page=2#post_27</guid>
-      <pubDate>Thu, 18 Jan 2024 12:28:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>实现ChatGPT历史搜索功能</title>
-      <link>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_34</link>
-      <description><![CDATA[我也认为这可能是 ChatGPT 所需的最强大/最有用的附加功能之一。
-能够从之前的对话中快速获得结果，而不必尝试在众多对话和对话中的问题之间找到结果。
-这将极大地改善使用体验。]]></description>
-      <guid>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=2#post_34</guid>
-      <pubDate>Thu, 18 Jan 2024 12:27:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>合并同一主题的对话</title>
-      <link>https://community.openai.com/t/merging-conversations-on-the-same-topic/592042#post_1</link>
-      <description><![CDATA[能够合并您认为围绕同一主题的所有对话将非常有用。
-换句话说，让用户能够标记他希望变成的对话，即合并它们。
-这将节省大量时间和精力，无需在可能包含相似内容的众多对话中进行搜索。]]></description>
-      <guid>https://community.openai.com/t/merging-conversations-on-the-same-topic/592042#post_1</guid>
-      <pubDate>Thu, 18 Jan 2024 12:22:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 与 Assistant API 的比较</title>
-      <link>https://community.openai.com/t/comparison-of-gpts-to-assistant-api/591942#post_4</link>
-      <description><![CDATA[感谢您的反馈。
-不知怎的，现在它可以工作了。我上传了 PDF，并将使用的模型设置为 gpt-4 1106-preview。
-现在他正在提取我的 pdf 的值并在答案中正确输出它们。我认为GPT的答案质量还是高一点，但至少我现在得到了信息。]]></description>
-      <guid>https://community.openai.com/t/comparison-of-gpts-to-assistant-api/591942#post_4</guid>
-      <pubDate>Thu, 18 Jan 2024 12:18:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>将现有对话升级到最新的GPT4.0</title>
-      <link>https://community.openai.com/t/upgrading-existing-conversations-to-the-latest-gpt4-0/592035#post_1</link>
-      <description><![CDATA[能够将旧版本中开始的对话升级到新版本将非常有用。
-这将确保对话的连续性，而不是必须就同一主题开始新对话。]]></description>
-      <guid>https://community.openai.com/t/upgrading-existing-conversations-to-the-latest-gpt4-0/592035#post_1</guid>
-      <pubDate>Thu, 18 Jan 2024 12:18:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>为了从 GPT 获得自然响应，我将 JSON 响应发送到 GPT -4 并以自然语言格式获取响应。效果很好，但响应时间非常长</title>
-      <link>https://community.openai.com/t/to-get-a-natural-response-from-gpt-i-am-sending-the-json-response-to-gpt-4-and-getting-thr-response-in-a-natural-language-format-it-works-good-but-has-a-very-high-response-time/592031#post_1</link>
-      <description><![CDATA[为了从 GPT 获得自然响应，我将 JSON 响应发送到 GPT -4，并以用户可读的自然语言格式获取响应。它效果很好，但响应时间非常长。您能给我建议一些其他想法，让我可以在更短的时间内实现相同的目标吗？需要 18 秒，有时甚至 28 秒才能给出响应]]></description>
-      <guid>https://community.openai.com/t/to-get-a-natural-response-from-gpt-i-am-sending-the-json-response-to-gpt-4-and-getting-thr-response-in-a-natural-language-format-it-works-good-but-has-a-very-high-response-time/592031#post_1</guid>
-      <pubDate>Thu, 18 Jan 2024 12:15:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>CHAT GPT 4 慢得令人痛苦，我知道为什么，有一个快速的解决方案</title>
-      <link>https://community.openai.com/t/chat-gpt-4-painfully-slow-i-know-why-with-a-quick-solution/502218?page=4#post_72</link>
-      <description><![CDATA[我的也是，每次我问问题时，网站都会滞后，与过去相比，我可以看到文本生成，但是最近几天，它非常滞后，无法加载，当我重新加载网站时，回复会被切断，如果我从他们那里生成另一个回复，我的屏幕将从该网站停止，并且不会移动，除非重新加载。很多时候，当我重新加载网站时，它会说错误，我几乎要放弃哈哈哈哈哈哈。]]></description>
-      <guid>https://community.openai.com/t/chat-gpt-4-painfully-slow-i-know-why-with-a-quick-solution/502218?page=4#post_72</guid>
-      <pubDate>Thu, 18 Jan 2024 12:11:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>还有其他人无法访问 GPT 商店吗？</title>
-      <link>https://community.openai.com/t/anyone-else-without-access-to-the-gpt-store/584331#post_9</link>
-      <description><![CDATA[推出八天后，Plus 套餐仍然无法访问 GPT 商店。为什么？]]></description>
-      <guid>https://community.openai.com/t/anyone-else-without-access-to-the-gpt-store/584331#post_9</guid>
-      <pubDate>Thu, 18 Jan 2024 12:09:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>财务分析、大数据和 PDF 表格提取 - 最佳实践</title>
-      <link>https://community.openai.com/t/financial-analysis-big-data-and-pdf-table-extraction-best-practice/591614#post_3</link>
-      <description><![CDATA[嗨@tom_t，
-感谢您的回答！
-是的，到目前为止结果还不错......
-但由于令牌大小的原因，我不得不使用 gpt-4-1106-preview，一次分析需要大约 60.000 个令牌，每次分析费用为 0.6 美元……因此，对于目前的业务用例来说，成本有点高…… 
-第二个挑战是将相关税法传递给法学硕士，并以此为基础进行分析……
+ JCL：
 &lt;块引用&gt;
-解决方法是将代理与代码解释器一起使用。它将生成代码、运行代码并“解释”结果。
+是否可以通过使用 GPT-3.5（而不是 4）调用外部 API 的操作来执行自定义 GPT？
 
-所以你的意思是，我将把表提取Python代码添加到助手中，然后助手从中获取响应然后进行分析？]]></description>
-      <guid>https://community.openai.com/t/financial-analysis-big-data-and-pdf-table-extraction-best-practice/591614#post_3</guid>
-      <pubDate>Thu, 18 Jan 2024 12:05:41 GMT</pubDate>
+
+遗憾的是，此方法不可行，因为操作是由 GPT 调用的，因此您必须向 GPT 发送消息，因此仍计入使用上限。
+如果您有兴趣使用 API，则可以使用Assistants API，它们的运行方式与 GPT 类似，但没有内置网络搜索和图像生成功能。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_7</guid>
+      <pubDate>Thu, 18 Jan 2024 15:13:43 GMT</pubDate>
     </item>
     <item>
-      <title>我的微调模型不再表现良好</title>
-      <link>https://community.openai.com/t/my-fine-tuned-model-doesnt-perfom-well-anymore/591247#post_6</link>
-      <description><![CDATA[感谢您的澄清。
-在我看来，您正在尝试通过微调来教授模型知识。不幸的是，这不是微调的目的。
-您可以使用微调来影响模型输出的风格。
-如果我的理解有误，请告诉我。]]></description>
-      <guid>https://community.openai.com/t/my-fine-tuned-model-doesnt-perfom-well-anymore/591247#post_6</guid>
-      <pubDate>Thu, 18 Jan 2024 12:04:30 GMT</pubDate>
+      <title>Streamer 机器人未运行 ChatGPT</title>
+      <link>https://community.openai.com/t/streamer-bot-not-running-chatgpt/585474#post_2</link>
+      <description><![CDATA[我的也不行。根据我的经验，在命令选项卡中，编辑命令时，我没有选项将操作设置为命令。它根本不存在
+]]></description>
+      <guid>https://community.openai.com/t/streamer-bot-not-running-chatgpt/585474#post_2</guid>
+      <pubDate>Thu, 18 Jan 2024 15:09:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4-1106-preview 能否通过 OpenAI Api 调用读取用户给定的 URL？</title>
+      <link>https://community.openai.com/t/can-gpt-4-1106-preview-read-into-user-given-urls-via-openai-api-calls/592270#post_3</link>
+      <description><![CDATA[第三方方法 ]]></description>
+      <guid>https://community.openai.com/t/can-gpt-4-1106-preview-read-into-user-given-urls-via-openai-api-calls/592270#post_3</guid>
+      <pubDate>Thu, 18 Jan 2024 15:08:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>从 Assistant API 切换到人工代理</title>
+      <link>https://community.openai.com/t/switching-from-assistant-api-to-human-agents/591801#post_3</link>
+      <description><![CDATA[感谢您的投入。我会研究这个，关键词可以帮助我进一步研究......]]></description>
+      <guid>https://community.openai.com/t/switching-from-assistant-api-to-human-agents/591801#post_3</guid>
+      <pubDate>Thu, 18 Jan 2024 15:08:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 帽用于定制 GPT</title>
+      <link>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_6</link>
+      <description><![CDATA[是否可以通过使用 GPT-3.5（而不是 4）调用外部 API 的操作来执行自定义 GPT？没有上限限制？如果是这样，你能告诉我怎么做吗？谢谢！]]></description>
+      <guid>https://community.openai.com/t/gpt-4-cap-for-customized-gpt/587552#post_6</guid>
+      <pubDate>Thu, 18 Jan 2024 15:07:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
+      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=10#post_194</link>
+      <description><![CDATA[我回到这里是因为我的 ChatGTP4（不是 GPT）在 20-30 次聊天后已达到极限。
+是的，我的日程又崩溃了。
+每 3 小时 20 次聊天？我该如何处理这个配额？
+我确信没有像以前那样的补偿，他们就像：“你对我们的法学硕士有问题吗？老兄，你可以取消订阅以减轻服务器负担，哈哈，没人关心你。”
+什么时候会有另一个可信的法学硕士出现，嗯？]]></description>
+      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=10#post_194</guid>
+      <pubDate>Thu, 18 Jan 2024 15:06:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Typescript 中使用 Jest 围绕 API 调用测试应用程序</title>
+      <link>https://community.openai.com/t/testing-application-around-api-calls-with-jest-in-typescript/567809#post_9</link>
+      <description><![CDATA[感谢您的回复。
+我无法在 Typescript 文件中使用 require （可能是因为我对 ts-jest 的 jest 配置？）。将我上面的示例测试脚本重写为常见的 JavaScript，这样就可以了。这有点不方便，但我可以将其作为这组测试的解决方法来处理。
+尝试使用位于 /docs/ecmascript-modules 的 ESM Jest 文档中的示例，我无法让它为我提供可以调用 new 的 OpenAI。它似乎确实成功地模拟了该模块，这是向前迈出的一步。
+jest.unstable_mockModule(&#39;openai&#39;, () =&gt; {
+    return jest.fn().mockImplementation(() =&gt; {
+        返回 {
+            完成情况：{
+                创建： jest.fn().mockImplementation(async () =&gt; { return mockOpenAIresponses.create; })
+            }
+        }
+    })
+});
+
+const {OpenAI} =等待导入（&#39;openai&#39;）;
+
+当它调用new OpenAI()时，会出现以下错误：
+TypeError：OpenAI 不是构造函数
+
+有什么线索可以帮助我们克服这个障碍吗？然后我可以将测试保存在 TS 中。]]></description>
+      <guid>https://community.openai.com/t/testing-application-around-api-calls-with-jest-in-typescript/567809#post_9</guid>
+      <pubDate>Thu, 18 Jan 2024 15:05:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
