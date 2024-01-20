@@ -4,156 +4,121 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 20 Jan 2024 03:20:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jan 2024 06:22:48 GMT</lastBuildDate>
     <item>
-      <title>自定义 GPT 错误 - 超链接不可点击</title>
-      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_44</link>
-      <description><![CDATA[您是否使用 GPT 中的操作或 API 来限定并返回链接？]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_44</guid>
-      <pubDate>Sat, 20 Jan 2024 03:17:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>面向独立开发者/企业家/Indy 黑客/个人的共享团队帐户</title>
-      <link>https://community.openai.com/t/shared-team-account-for-solo-developers-entrepreneurs-indy-hackers-individuals/584201?page=2#post_38</link>
-      <description><![CDATA[149 位用户每月 20 美元，为期 12 个月的费用为 35,760 美元。这很难被假装为“哦，我们只是一群朋友分摊午餐费用”。特别是如果您还收取管理费。
-我当然很高兴自己犯了错误，如果事实证明它比使用 API 更好，我会加入这个团队。不过，我不想以艰难的方式找出答案。]]></description>
-      <guid>https://community.openai.com/t/shared-team-account-for-solo-developers-entrepreneurs-indy-hackers-individuals/584201?page=2#post_38</guid>
-      <pubDate>Sat, 20 Jan 2024 03:15:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-4-1106-preview 搞乱了函数调用参数编码</title>
-      <link>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=5#post_90</link>
-      <description><![CDATA[完全同意！目前我们使用这个模型是一个真正的障碍……而且，由于我们通过 langchain 使用它，所以上面的解决方法都不是真正适用的。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500?page=5#post_90</guid>
-      <pubDate>Sat, 20 Jan 2024 03:12:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 的实际截止日期是哪一天？</title>
-      <link>https://community.openai.com/t/what-is-the-actual-cutoff-date-for-gpt-4/394750?page=2#post_23</link>
-      <description><![CDATA[我相信语言模型所说的类似于梦话。
-这是我在 Team 计划（而非 Plus 计划）下使用的 GPT-4 模型的响应。
-
-曾经有过这样规范的语言模型吗？
-就算是废话，问一万遍，也许一次就是真的。
+      <title>将 gpt-4-vision-preview 与 API 结合使用以及如何使用 Python 代码上传图像以聊天 GPT</title>
+      <link>https://community.openai.com/t/using-gpt-4-vision-preview-with-the-api-and-how-to-upload-images-to-chat-gpt-using-python-code/594364#post_1</link>
+      <description><![CDATA[我正在 Visual Studio Code 中运行此代码，但出现以下错误，表明 gpt-4-vision-preview 不支持我的 API。我不确定代码是否正确以及如何将我的 API 链接到
+gpt-4-vision-预览...
 &lt;小时/&gt;
-但是，在这样的上下文长度下，无论我问多少次，答案都是一样的......]]></description>
-      <guid>https://community.openai.com/t/what-is-the-actual-cutoff-date-for-gpt-4/394750?page=2#post_23</guid>
-      <pubDate>Sat, 20 Jan 2024 03:06:28 GMT</pubDate>
+导入openai
+导入base64
+导入请求
+OpenAI API 密钥
+api_key = “API_KEY”
+图像编码函数
+def 编码图像(图像路径):
+以 open(image_path, “rb”) 作为 image_file:
+返回base64.b64encode(image_file.read()).decode(&#39;utf-8&#39;)
+图像路径
+image_path =“Path_of_the_image.jpeg”
+获取base64字符串
+base64_image = 编码_图像（图像路径）
+标题 = {
+“内容类型”：“application/json”，
+“授权”：f“承载{api_key}”
+}
+有效负载= {
+“模型”：“gpt-4-vision-preview”，
+“消息”：[
+{
+“角色”：“用户”，
+“内容”：[
+{
+“类型”：“文本”，
+“text”：“这张图片里有什么？”
+},
+{
+“类型”：“image_url”，
+“image_url”：{
+“url”: f&quot;data:image/jpeg;base64,{base64_image}&quot;
+}
+}
+]
+}
+],
+“max_tokens”：300
+}
+response = requests.post(“completions”, headers=headers, json=payload)
+打印(response.json())
+&lt;小时/&gt;
+{‘error’: {‘message’: &#39;模型 gpt-4-vision-preview 不存在或您无权访问它。}}]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-vision-preview-with-the-api-and-how-to-upload-images-to-chat-gpt-using-python-code/594364#post_1</guid>
+      <pubDate>Sat, 20 Jan 2024 06:12:26 GMT</pubDate>
     </item>
     <item>
-      <title>无法获取验证域名（添加新域名）（未授权帐户）</title>
-      <link>https://community.openai.com/t/cannot-get-verify-domain-add-new-domain-not-authorized-for-account/593254#post_8</link>
-      <description><![CDATA[你明白了吗？
-恭喜老哥
-也许我只是需要一些运气]]></description>
-      <guid>https://community.openai.com/t/cannot-get-verify-domain-add-new-domain-not-authorized-for-account/593254#post_8</guid>
-      <pubDate>Sat, 20 Jan 2024 02:55:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要紧急帮助：OpenAI 帐户上的 Apple 隐藏电子邮件问题</title>
-      <link>https://community.openai.com/t/urgent-assistance-needed-issues-with-apple-hidden-email-on-openai-account/594219#post_2</link>
-      <description><![CDATA[您无法更改与您的帐户关联的电子邮件地址。]]></description>
-      <guid>https://community.openai.com/t/urgent-assistance-needed-issues-with-apple-hidden-email-on-openai-account/594219#post_2</guid>
-      <pubDate>Sat, 20 Jan 2024 02:48:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于分类的微调 GPT-3.5 Turbo：定义类别之外的意外响应</title>
-      <link>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_8</link>
-      <description><![CDATA[班级不平衡几乎肯定是一个问题。
-您能否使用现有数据至少为 c 和 d 类生成一些合成数据？
-我想您的目标是每个班级至少有 \sim300 个示例。
-如此不平衡的问题是，模型可能会知道，只需对所有问题回答 a 并执行此操作，就可以获得相当好的结果。
-您还可以考虑在微调中包含一个验证集，即使您的实际训练数据不是均匀分布的，该验证集也是均匀分布的。]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_8</guid>
-      <pubDate>Sat, 20 Jan 2024 02:36:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 错误 - 超链接不可点击</title>
-      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_43</link>
-      <description><![CDATA[非常感谢！
-这篇 OpenAI 文章对我有用。但您需要使用正确的字段名称。只有在名为“url”的字段中返回 URL，我才能单击该链接。
-我尝试了一些类似于 [anything]URL 的名称，但没有成功。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_43</guid>
-      <pubDate>Sat, 20 Jan 2024 02:34:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于分类的微调 GPT-3.5 Turbo：定义类别之外的意外响应</title>
-      <link>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_7</link>
-      <description><![CDATA[您拥有“a”中的大部分数据。想知道这是否是训练不平衡的问题。
-如果这些都不起作用，请尝试微调 ada-002 或 davinci-002。这就是我通常用于分类的方法。]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_7</guid>
-      <pubDate>Sat, 20 Jan 2024 02:31:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于分类的微调 GPT-3.5 Turbo：定义类别之外的意外响应</title>
-      <link>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_6</link>
-      <description><![CDATA[是的，我已将 max_tokens 设置为 1。我将系统消息添加到完成请求中，现在模型仅响应类“a”。检查 top_logprobs 我发现其他选项都是类的元素，但是，概率更大的标记始终是“a”。]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-gpt-3-5-turbo-for-classification-unexpected-responses-outside-defined-classes/593805#post_6</guid>
-      <pubDate>Sat, 20 Jan 2024 02:17:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 的实际截止日期是哪一天？</title>
-      <link>https://community.openai.com/t/what-is-the-actual-cutoff-date-for-gpt-4/394750?page=2#post_22</link>
-      <description><![CDATA[GPT-3.5-turbo 模型（包括最新预览版）尚未针对 2023 年之前的新数据进行重新训练，例如 11 月 6 日宣布的数据更新日期 gpt-4-turbo。
-https://platform. openai.com/docs/models/gpt-3-5
-如果更新的人工智能模型的预览和试验以不太公开的方式进行（正如一些免费 ChatGPT 用户体验的有限“GPT-4 alpha”中所看到的那样），ChatGPT 可能是特定的地方用户可以在广泛使用之前看到它。
-目前，ChatGPT 3.5 已将“知识截止：2022-01-01”编程为系统消息的一部分。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-actual-cutoff-date-for-gpt-4/394750?page=2#post_22</guid>
-      <pubDate>Sat, 20 Jan 2024 02:00:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>DeepLLM，一个自动聚焦 GPT-4 推理的工具</title>
-      <link>https://community.openai.com/t/deepllm-a-tool-that-automates-focusing-gpt-4s-reasoning/302215#post_9</link>
-      <description><![CDATA[DeepQA 是一个基于 DeepLLM 的应用程序，它递归地探索事物的“思维流”通过自行生成的后续问题树进行法学硕士。
-您可以从 github 获取它或尝试其 Streamlit 应用程序在线。
-从您选择的主题的发起者问题开始后，它会探索其后续问题树。您可以导入生成的定语从句语法作为 Prolog 程序的一部分。它象征性地复制了从法学硕士交互中提取的“思维流”的等价物，并可能在逻辑编程应用程序中使用封装的知识。
-合成语法旨在生成有限语言（通过仔细检测会引发循环的后续问题）。我们还确保问答树中的路径没有重复的答案，这些答案也会被收集，以及在达到用户设置的深度限制时未回答的开放问题。
-您还可以在选择 LLM 之前使用 DeepQA 快速评估 LLM 的优势和局限性。例如，当与比 GPTx 弱得多的本地 LLM（默认情况下使用 Vicuna 7B 启用）一起使用时，您将看到更短、更失焦的结果，并由 DeepQA 在相应的 bin 中收集大量重复的问题和答案。相比之下，最新 GPT-turbo 的结果看起来有点超人 ]]></description>
-      <guid>https://community.openai.com/t/deepllm-a-tool-that-automates-focusing-gpt-4s-reasoning/302215#post_9</guid>
-      <pubDate>Sat, 20 Jan 2024 01:59:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>第 5 级帐户上的多个助理呼叫达到速率限制</title>
-      <link>https://community.openai.com/t/hitting-rate-limits-with-multiple-assistant-calls-on-tier-5-account/555828#post_13</link>
-      <description><![CDATA[如果 OpenAI 没有注意到您的支出和需求，这可能是您需要去的地方：
+      <title>修复“嗯...似乎出了问题”错误</title>
+      <link>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=2#post_31</link>
+      <description><![CDATA[
+得知您遇到错误，我们深表遗憾。 “嗯……似乎出了点问题”消息可能由于多种原因而出现，包括临时服务器问题、网络问题或浏览器相关问题。由于它自行消失，因此可能是服务器端的临时问题。
+为避免将来再次发生这种情况，您可以尝试以下操作：
 
-  &lt;标题类=“来源”&gt;
+清除浏览器缓存和 Cookie：有时，浏览器中存储的数据可能会导致问题。清除缓存和 Cookie 有助于刷新连接。
+检查您的互联网连接：确保您拥有稳定可靠的互联网连接，因为网络问题有时会中断与 AI 的交互。
+使用其他浏览器：如果问题在一种浏览器中仍然存在，请尝试使用其他浏览器，看看它是否能正常工作。
+刷新页面：如果再次遇到错误，只需刷新页面即可解决问题。
+稍等一下：有时，与服务器相关的问题是暂时的，会自行解决。如果您遇到错误，请等待一段时间然后重试可能会有所帮助。
 
-      openai.com
+如果问题仍然频繁发生，联系您用来访问 AI 的平台或服务的支持团队以获得进一步帮助可能会有所帮助。]]></description>
+      <guid>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=2#post_31</guid>
+      <pubDate>Sat, 20 Jan 2024 06:10:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_6</link>
+      <description><![CDATA[
 
 
-  &lt;文章类=“onebox-body”&gt;
-    联系销售人员
-我们很乐意回答问题并让您熟悉 OpenAI，包括为您提供有用的资源、探索您团队的用例以及讨论打包选项。
+治疗网：
+&lt;块引用&gt;
+你的团队
 
 
-
-
-
-表单底部的类别...企业 API。]]></description>
-      <guid>https://community.openai.com/t/hitting-rate-limits-with-multiple-assistant-calls-on-tier-5-account/555828#post_13</guid>
-      <pubDate>Sat, 20 Jan 2024 01:48:41 GMT</pubDate>
+仅供参考
+我不是 OpenAI 员工，只是像您一样的用户，同时也是该论坛的版主。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_6</guid>
+      <pubDate>Sat, 20 Jan 2024 06:10:30 GMT</pubDate>
     </item>
     <item>
-      <title>语音通话功能音量低的问题 - 还有其他人吗？</title>
-      <link>https://community.openai.com/t/low-volume-issue-on-voice-call-feature-anyone-else/408669?page=3#post_56</link>
-      <description><![CDATA[同样的问题，三星 a52s android 14 openui 6]]></description>
-      <guid>https://community.openai.com/t/low-volume-issue-on-voice-call-feature-anyone-else/408669?page=3#post_56</guid>
-      <pubDate>Sat, 20 Jan 2024 01:46:12 GMT</pubDate>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_5</link>
+      <description><![CDATA[我没有使用 VPN。似乎没有一个相关主题能够解决这一特定现象。
+作为参考，我附上了两张照片，显示了聊天历史记录打开与聊天历史记录关闭的结果。使用的提示与您在测试中使用的提示完全相同。
+
+
+至于F12错误日志，我确实注意到以下错误：
+“权限策略标头错误：无法识别的功能：‘文档域’。”
+我不知道为什么将聊天历史记录切换为关闭会导致聊天历史记录打开时不会发生的错误，因为在这两种情况下所有其他条件都完全相同。
+如果您的团队能够提供任何额外的见解，我们将不胜感激。如果这是我不知道的帐户相关问题，我希望能够尽快升级并进行调查。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_5</guid>
+      <pubDate>Sat, 20 Jan 2024 06:06:16 GMT</pubDate>
     </item>
     <item>
-      <title>面向独立开发者/企业家/Indy 黑客/个人的共享团队帐户</title>
-      <link>https://community.openai.com/t/shared-team-account-for-solo-developers-entrepreneurs-indy-hackers-individuals/584201?page=2#post_37</link>
-      <description><![CDATA[假设您去朋友家，他们为您做饭。你给他们一点钱来买杂货和解决麻烦。
-哎呀！
-你刚刚去了一家餐馆，每个人都交税。
-假设您的一位朋友认识一家批发商，并且你们决定一起购买。你给你的朋友一些汽油钱，这样他们就可以买到商品，你们都可以平分积蓄。
-哎呀！
-你刚刚去了 Costco，每个人都纳税。
-我并不是说你在收入/收入辩论中错了，而是@maphew  是正确的，因为事情很快就会变得复杂
-但是，政府不知道... ]]></description>
-      <guid>https://community.openai.com/t/shared-team-account-for-solo-developers-entrepreneurs-indy-hackers-individuals/584201?page=2#post_37</guid>
-      <pubDate>Sat, 20 Jan 2024 01:43:12 GMT</pubDate>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_4</link>
+      <description><![CDATA[
+
+
+治疗网：
+&lt;块引用&gt;
+不过，我想不出任何会导致此特定错误的事情......
+
+
+您是否使用过F12来查找其他错误或消息？
+您使用 VPN 吗？
+您检查过页面底部的相关主题部分列表吗？]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342#post_4</guid>
+      <pubDate>Sat, 20 Jan 2024 05:50:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
