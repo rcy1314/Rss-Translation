@@ -4,138 +4,121 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 26 Jan 2024 03:20:36 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2024 06:23:06 GMT</lastBuildDate>
     <item>
-      <title>自定义 GPT 文件上传上限</title>
-      <link>https://community.openai.com/t/custom-gpt-file-upload-max/525065#post_5</link>
-      <description><![CDATA[我只能上传 25 MB 的文件，超过它所说的文件就太大了，因为我尝试将 400 MB 的文件上传到数据库，但不允许我上传超过 25 MB 的任何文件，所以我认为这仅适用于企业，因为我无法上传那么多。
-单次使用最多只能获取 20 个文件，每个文件限制合计 25MB。 （这就是我得到的全部）
-目前，我正在尝试加载 20 多个文件，但由于这些限制，超过 25 mb 的文件无法上传，不断撞墙是一场噩梦，这周的编码简直就是一场马拉松，几乎没有睡觉如果是的话，大概有16个小时在议程上。但由于这些无尽的障碍限制和碎片化的信息，构建自定义 GPT 的每一步都感觉像是倒退了两步，那还有什么意义呢？一开始的目标是为我的业务打造工具，但事实证明，GPT 更多的是把句子串在一起，而不是任何严肃的开发。评估这些工具？更像是在黑暗中摸索。
-然后是 GPT-4。这就像拥有一辆跑车，却被告知你的时速不能超过 30 英里。每个人都对它的潜力赞不绝口，但我却在这里，受到时间限制，每次只能锁定 2 小时。这周一直在重做代码，陷入死胡同——真是苦差事。几乎要把整个自定义 GPT 项目扔进垃圾箱。当你面对的系统实际上是通过限制人们的潜力（而不是公司或团队）而导致失败时，为什么还要费力去追求一流的东西呢？
-无法保存您的进度自定义 GPT，没有日志记录窗口，甚至无法批量删除聊天或对其进行正确排序。还有定制？算了，尤其是当你独自飞行时。不要让我开始谈论缺乏自定义 GPT 反馈、内存问题以及整个数据安全问题。像我一样搞乱一行代码，你还不如把你的 API 密钥放在银盘上。这就是为什么它们现在被锁定在 JSON 文件中，但即便如此，如果我无法让 YouTube API 与 Openai 合作并在聊天中为人们提供可点击的链接，那又有什么用呢？
-]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-file-upload-max/525065#post_5</guid>
-      <pubDate>Fri, 26 Jan 2024 03:19:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zapier AI 操作与 GPT 错误 ULID</title>
-      <link>https://community.openai.com/t/zapier-ai-actions-with-gpts-error-ulid/556276#post_2</link>
-      <description><![CDATA[嘿，我也遇到了这个问题，请确保您的 GPT 在使用前使用 Zapier 检查可用操作，ULID 操作 ID 应该是来自可用操作函数的特定字符串]]></description>
-      <guid>https://community.openai.com/t/zapier-ai-actions-with-gpts-error-ulid/556276#post_2</guid>
-      <pubDate>Fri, 26 Jan 2024 03:16:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以使用助手 API 重新创建使用 GPT 的本机文件上传 UX？</title>
-      <link>https://community.openai.com/t/can-the-native-file-upload-ux-with-gpt-be-recreated-with-assistants-api/602188#post_1</link>
-      <description><![CDATA[尝试创建一个数据分析机器人，以便我可以像在 Playground 中测试时使用自定义 GPT 或助手一样上传 CSV。
-尝试不同方法 1 周后，我陷入了困境。
-通过 HTTP post 方法发送数据是不行的。您无法以这种方式发送太多数据。这似乎与将数据传递到 GPT 的方式相同，就像复制/粘贴到提示符中一样。
-我最接近的是使用 Pandas 转换为数据帧，然后使用 langchain。然而，当无法从操场上创建助手时，这会带来一些巨大的牺牲（例如自动内存管理以维护上下文、函数的线程历史记录）]]></description>
-      <guid>https://community.openai.com/t/can-the-native-file-upload-ux-with-gpt-be-recreated-with-assistants-api/602188#post_1</guid>
-      <pubDate>Fri, 26 Jan 2024 03:11:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>函数调用中附加消息的最后一步出错</title>
-      <link>https://community.openai.com/t/errors-in-last-step-of-appending-messages-in-function-calling/601860#post_2</link>
-      <description><![CDATA[您需要在用户输入后添加聊天历史记录，并“模拟”人工智能发出的内容：
-params[&#39;messages&#39;].extend(
-[
-  {
-    “角色”：“助理”，
-    &quot;content&quot;: &quot;我帮你查一下那些城市的天气...&quot;,
-    “工具调用”：[
-         {
-          &quot;id&quot;: &quot;call_rygjilssMBx8JQGUgEo7QqeY&quot;,
-          “类型”：“功能”，
-          “功能”： {
-            “名称”：“获取天气预测”，
-            &quot;arguments&quot;: &quot;{\&quot;location\&quot;: \&quot;西雅图\&quot;, \&quot;format\&quot;: \&quot;fahrenheit\&quot;, \&quot;time_period\&quot;: 1}&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;call_pI6vxWtSMU5puVBHNm5nJhw3&quot;,
-          “类型”：“功能”，
-          “功能”： {
-            “名称”：“获取天气预测”，
-            &quot;arguments&quot;: &quot;{\&quot;location\&quot;: \&quot;Miami\&quot;, \&quot;format\&quot;: \&quot;fahrenheit\&quot;, \&quot;time_period\&quot;: 1}&quot;
-        },
-    }
-    ]
-  }
-]
-）
-
-然后还有由您的工具的代码或调用创建的响应：
-params[&#39;messages&#39;].extend(
-[
-  {
-    “角色”：“工具”，“tool_call_id”：“call_rygjilssMBx8JQGUgEo7QqeY”，“内容”：
-        “西雅图 2022 年 12 月 15 日天气预报：最高气温 62 度，最低气温 42 度，晴间多云\n”
-  },
-  {
-    “角色”：“工具”，“tool_call_id”：“call_pI6vxWtSMU5puVBHNm5nJhw3”，“内容”：
-        “迈阿密 2022 年 12 月 15 日预报：最高气温 77 度，最低气温 66 度，晴\n”
-  }
-]
-）
-
-这两者都必须作为消息配对提供，并为每个发出的工具调用和工具应答提供匹配的工具 ID。]]></description>
-      <guid>https://community.openai.com/t/errors-in-last-step-of-appending-messages-in-function-calling/601860#post_2</guid>
-      <pubDate>Fri, 26 Jan 2024 03:01:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何利用法学硕士建立旅游推荐系统</title>
-      <link>https://community.openai.com/t/how-to-build-travel-recommender-with-llm/602180#post_1</link>
-      <description><![CDATA[嗨，我想使用 LLM 和我自己的数据构建一个旅行计划聊天机器人。开发它的最佳方法是什么。
-预先感谢您]]></description>
-      <guid>https://community.openai.com/t/how-to-build-travel-recommender-with-llm/602180#post_1</guid>
-      <pubDate>Fri, 26 Jan 2024 02:55:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4（非 Turbo）的最大代币输出？</title>
-      <link>https://community.openai.com/t/max-token-output-for-gpt-4-non-turbo/602013#post_3</link>
+      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
+      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_6</link>
       <description><![CDATA[
 
 
- dmar：
+ curt.kennedy:
 &lt;块引用&gt;
-GPT-4（非涡轮）有输出限制吗？
+这将允许您以任意的一次一维的粒度调整延迟和交易质量，这非常疯狂！
 
 
-对响应没有人为限制。您可以指定较高的 max_tokens，或者将其保留在 API 调用之外，以免耗尽整个上下文长度。
-&lt;img alt=&quot;图片&quot; height=&quot;199&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/e/e/1/ee1819ad6bd48967b0656cd3eb503fe3c23d6d4b.png&quot; width=&quot;200 ” /&gt;]]></description>
-      <guid>https://community.openai.com/t/max-token-output-for-gpt-4-non-turbo/602013#post_3</guid>
-      <pubDate>Fri, 26 Jan 2024 02:52:47 GMT</pubDate>
+读到这里，我的第一个想法是不要进行截断，而是如果您在最高维度上有足够大的嵌入向量集，这些向量都来自相同（或相似）的知识领域，您可能会采用一些标准（但比截断更复杂）降维技术。
+这可能有利于在较低维度上保持相对较高的性能，以便在该知识领域内进行嵌入。
+而且，由于您保留了所有原始的全维向量，因此当您收集更多嵌入时，您可以定期离线重新计算向量约简......]]></description>
+      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_6</guid>
+      <pubDate>Fri, 26 Jan 2024 06:19:39 GMT</pubDate>
     </item>
     <item>
-      <title>当我们使用数字时，ChatGPT 是否会犯更多错误？</title>
-      <link>https://community.openai.com/t/does-chatgpt-make-mistakes-more-when-we-use-numbers/580132#post_13</link>
-      <description><![CDATA[@mmashigarami嗨。抱歉回复晚了。
-在解决数学问题之前，我面临着完全相同的挑战。我不确定所提供信息的详细信息，但我假设您正在检查候选人的简历并与他们进行工作面试。正确吗？
-如果正确的话，我可以给你一些提示，让chatGPT有更好的结果。
-以下是我为让 chatGPT 判断候选人所做的事情。
+      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
+      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_5</link>
+      <description><![CDATA[这让我想起我们必须检查的另一件事，就是这些新模型是否具有真正相关的嵌入。
+这将影响“不相关”的阈值，因为 ada-002 的阈值曾经接近 &lt;0.9。
+但现在空间可能更加各向同性，锥体也更大。我们拭目以待！]]></description>
+      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_5</guid>
+      <pubDate>Fri, 26 Jan 2024 06:16:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>请取消您的付费客户的 Plus 限制！</title>
+      <link>https://community.openai.com/t/please-remove-the-plus-limit-for-your-paying-customers/587997#post_12</link>
+      <description><![CDATA[我同意你的观点，当我只支付 20 美元进行升级，几个小时后我得到“您已达到当前使用上限”时，我感到多么惊讶，就像 WTF 我只支付 20 美元一样，这将是他们从我这里得到了第一和最后 20 美元，这是肯定的。]]></description>
+      <guid>https://community.openai.com/t/please-remove-the-plus-limit-for-your-paying-customers/587997#post_12</guid>
+      <pubDate>Fri, 26 Jan 2024 06:16:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 中家长控制子账户的提案</title>
+      <link>https://community.openai.com/t/proposal-for-parent-controlled-sub-accounts-in-chatgpt/602308#post_1</link>
+      <description><![CDATA[“亲爱的 OpenAI 团队，我建议在 ChatGPT 中引入家长控制的帐户系统。该系统将允许家长为孩子创建和管理子帐户，从而在独立学习和家长监督之间提供平衡。这样该功能将确保儿童以教育和安全的方式使用 ChatGPT，同时防止误用，例如使用人工智能进行不适当的活动或在没有适当学习的情况下完成家庭作业。这可能是现代数字育儿的一个有价值的工具，鼓励负责任地使用人工智能教育技术。您将来有计划实现这样的功能吗？感谢您考虑我的建议。最诚挚的问候，Sigmar]]></description>
+      <guid>https://community.openai.com/t/proposal-for-parent-controlled-sub-accounts-in-chatgpt/602308#post_1</guid>
+      <pubDate>Fri, 26 Jan 2024 06:11:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
+      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_4</link>
+      <description><![CDATA[所以……
+我们需要多长时间才能计算出嵌入空间的锥角？]]></description>
+      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_4</guid>
+      <pubDate>Fri, 26 Jan 2024 06:11:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 API - 访问多个助手</title>
+      <link>https://community.openai.com/t/assistants-api-access-to-multiple-assistants/480503?page=2#post_26</link>
+      <description><![CDATA[我在实现类似解决方案时面临的一个主要问题是延迟，这种来回通信和自定义函数调用占用了很多时间。
+我什至通过聊天完成实现了类似的流程，以便我可以进行流式传输，但到达第一个令牌的时间仍然在 20 秒左右。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-access-to-multiple-assistants/480503?page=2#post_26</guid>
+      <pubDate>Fri, 26 Jan 2024 05:59:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
+      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_3</link>
+      <description><![CDATA[是的，您可以屏蔽，但您必须将未屏蔽的子向量长度重新调整为 1，然后才能使用余弦相似度（点积）。在屏蔽之后，这只是内存结构中每个向量的 1 个附加数字，所以没什么大不了的。 &lt;img alt=&quot;:rofl:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/rofl.png?v=12&quot; title=&quot;:rofl: “宽度=“20”/&gt;
+只是新模型都是继承自同一个大“母模型”，并且可以很容易地从这个大模型派生出来。
+我不确定这对 MTEB 有何影响，但该出版物表明，随着尺寸的下降，MTEB 会逐渐退化。这意味着任意维度都是相似的。
+这表明，OpenAI 以向量的开头包含最多信息的方式传播信息，并且随着维度变大，它会逐渐减少，或者可能是均匀的，我可以&#39;不告诉。也许它是锥形的，以提供良好的低暗性能。
+但是信息不仅仅集中在大向量的远端，这就是为什么它们可以简单地截断。
+您可能会尝试使用其他嵌入模型进行此操作，并且它也可能适用于该模型，但如果信息集中在向量中意想不到的地方，并且没有正确设计，就像这些 OpenAI 向量一样，您可能会得到奇怪的结果。
+从 DevOps 的角度来看。只需将所有内容嵌入 3072（或任何最高暗度），当您创建内存中分片时，只需截断/重新缩放即可创建具有该暗度的系统。
+对于传入的查询，执行相同的操作，截断/重新缩放以匹配您选择的任意维度的 RAG 向量集。
+这将允许您以任意的一次一维的粒度调整延迟和交易质量，这非常疯狂！]]></description>
+      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_3</guid>
+      <pubDate>Fri, 26 Jan 2024 05:58:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
+      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_2</link>
+      <description><![CDATA[这是一个很酷的想法，使用掩码来预先计算较小尺寸的距离。如果你受CPU限制，如果你在N个暗淡之后没有接近你的截止点，你可以中止余弦相似度操作 ]]></description>
+      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_2</guid>
+      <pubDate>Fri, 26 Jan 2024 05:47:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>设置输出问题的最大令牌</title>
+      <link>https://community.openai.com/t/setting-max-tokens-for-output-issues/601731#post_5</link>
+      <description><![CDATA[
 
-尝试详细定义
-例如：）如果您的职位需要三年的工程经验，请尝试精确地定义；
-三年 Ruby 和 Go 使用经验。
-三年GCP、AWS、Azure等云数据库使用经验
-自由职业者的工作并不被视为一种工作经验。
 
-就这样。歧义总是会导致不想要的结果。
+_j：
+&lt;块引用&gt;
+因为该设置不会以任何方式告知模型要构造什么类型的响应。
 
-建立积分系统
-我目前正在使用ChatGPT 的积分系统来判断候选人。我为每个标准设置了四个类别：最低、高、低和 NG
 
-最低要求：候选人必须满足
-NG：如果候选人至少满足其中一项，我们就不会雇用他们。
-满足所有最低要求的候选人将根据他们获得的 Highs 数量在候选人中排名。然而，他们的分数会随着他们遇到的每一个低点而被扣除。通过建立这样的积分系统，可以区分通过选拔过程的候选人。
+很公平。
 
-提供尽可能多的信息
 
-您可以提供 ChatGPT 职位描述、您的角色、如何判断候选人的说明以及其他（可能）有用的信息。
-希望这对您有帮助。]]></description>
-      <guid>https://community.openai.com/t/does-chatgpt-make-mistakes-more-when-we-use-numbers/580132#post_13</guid>
-      <pubDate>Fri, 26 Jan 2024 02:49:32 GMT</pubDate>
+
+_j：
+&lt;块引用&gt;
+如果你想要一个长度，分解任务的最好方法是“三段，平均每段十个单词”或类似的指令。
+
+
+对于针对特定长度的更多人来说，这是可靠的建议。就我个人而言，对于简短的回复，我通常会采取类似的措辞，“你的回复必须尖锐、简洁、简洁。”]]></description>
+      <guid>https://community.openai.com/t/setting-max-tokens-for-output-issues/601731#post_5</guid>
+      <pubDate>Fri, 26 Jan 2024 05:46:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源正在快速进步</title>
+      <link>https://community.openai.com/t/open-source-is-making-rapid-progress/593393#post_10</link>
+      <description><![CDATA[开源与“专有”模型的​​争论将永远持续 …我最近刚刚参加了供应商培训，这是课程的一部分。比较和对比，列出开源模型和供应商特定模型（专有）之间的优缺点……作为“专有”模型的​​示例，例如 OpenAi 提供的模型，其优点如下：
+
+开发速度
+质量
+持续更新和支持
+集成且易于使用
+]]></description>
+      <guid>https://community.openai.com/t/open-source-is-making-rapid-progress/593393#post_10</guid>
+      <pubDate>Fri, 26 Jan 2024 05:44:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
