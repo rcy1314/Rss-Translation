@@ -4,320 +4,145 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 26 Jan 2024 09:19:21 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2024 12:30:57 GMT</lastBuildDate>
     <item>
-      <title>输入流错误...整天</title>
-      <link>https://community.openai.com/t/error-in-input-stream-all-day-long/499591?page=2#post_24</link>
-      <description><![CDATA[因为我们使用 Azure OpenAI，所以我在 Microsoft 论坛中创建了一个主题。希望我们能在那里得到一些答案。如果此线程中的其他人也使用 Azure 并遇到与我们相同的问题，请单击此线程中的“我有同样的问题”按钮：
-
-  &lt;标题类=“来源”&gt;
-
-      learn.microsoft.com
-
-
-  &lt;文章类=“onebox-body”&gt;
-    我们的 Azure OpenAI 部署在 2023 年 12 月运行良好，但停止运行...
-错误是“输入流中的错误”。
-自今年 1 月以来，OpenAI 论坛上已有 10 个帖子讨论了运行正常的 OpenaI 项目中突然出现此错误消息的问题……
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/error-in-input-stream-all-day-long/499591?page=2#post_24</guid>
-      <pubDate>Fri, 26 Jan 2024 09:17:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>看起来“text-embedding-3”嵌入是从更高的暗淡版本中截断/缩放的版本</title>
-      <link>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_8</link>
+      <title>我的 GPT - 被不公正地从商店“删除”</title>
+      <link>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_15</link>
       <description><![CDATA[
 
 
- curt.kennedy:
+纽根：
 &lt;块引用&gt;
-直接截断
+我只是说说而已，问题不是针对你的。感谢您迄今为止的猜测和评论，它们确实很有帮助。
 
 
-开始用我的一些“游乐场”和 3 个大的东西胡闹......
-&lt;块引用&gt;
-== 返回 3 d=1024 个向量的样本 ==
-0 [‘-0.048355922’, ‘0.030448081’, ‘-0.002223636’, ‘-0.012373986’]
-1 [‘0.000544521’, ‘-0.052708060’, ‘0.037970472’, ‘0.024555754’]
-2 [‘-0.018499656’, ‘-0.023828303’, ‘0.041195750’, ‘-0.011031237’]
-== 返回 3 d=3072 个向量的样本 ==
-0 [‘-0.035144586’, ‘0.022129351’, ‘-0.001616116’, ‘-0.008993286’]
-1 [‘0.000397846’, ‘-0.038510315’, ‘0.027742529’, ‘0.017941277’]
-2 [‘-0.013463791’, ‘-0.017341908’, ‘0.029981693’, ‘-0.008028381’]
-== 所有输入的余弦相似度和向量比较 @ 3072 ==
-0:“喷气背包”&lt;==&gt; 1：“声调语言”：
-0.0293138009386300 - 相同：False
-0:“喷气背包”&lt;==&gt; 2：“这是涂油的闪电！”：
-0.2810681077365715 - 相同：False
-1：“声调语言”&lt;==&gt; 2：“这是涂油的闪电！”：
-0.0498102101138038 - 相同：错误
-
-所以，是的，1024 是从最初的 3072 中提取出来的。我们可以看到相同的符号和相似的大小。
-我想知道他们是否对最高相关维度进行了重新映射，因为发现在其他嵌入模型的中间 1/3 处发现了很多区别。
-&lt;小时/&gt;
-与 ada-002 的阈值 ~0.8 相比，余弦相似度值的范围非常不同：
-==所有输入@1536的余弦相似度和向量比较==
-0:“喷气背包”&lt;==&gt; 1：“喷气背包”：
-1.0000000000000002 - 相同：True
-0:“喷气背包”&lt;==&gt; 2：“声调语言”：
-0.7175784894183529 - 相同：False
-0:“喷气背包”&lt;==&gt; 3：“这是涂油的闪电！”：
-0.7802673329570928 - 相同：False
-1：“喷气背包”&lt;==&gt; 2：“声调语言”：
-0.7175784894183529 - 相同：False
-1：“喷气背包”&lt;==&gt; 3：“这是涂油的闪电！”：
-0.7802673329570928 - 相同：False
-2：“声调语言”&lt;==&gt; 3：“这是涂油的闪电！”：
-0.7006591403724325 - 相同：错误
-&lt;小时/&gt;
-PS； API base64 → 32 位单精度浮点，然后用双精度进行数学运算。显示向量 250-254 从 ~16 位四舍五入。
-
-def cosine_similarity(asingle, bsingle) -&gt;; np.双：
-    &quot;&quot;&quot;返回两个数组的标准化点积&quot;&quot;&quot;
-    a = asingle.astype(np.double)
-    b = bsingle.astype(np.double)
-    返回 np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
-]]></description>
-      <guid>https://community.openai.com/t/it-looks-like-text-embedding-3-embeddings-are-truncated-scaled-versions-from-higher-dim-version/602276#post_8</guid>
-      <pubDate>Fri, 26 Jan 2024 09:16:16 GMT</pubDate>
+不用担心，我知道这很令人沮丧。
+我的看法是，“这是羽衣甘蓝沙拉的食谱”和“通过这种新饮食快速减肥！”之间的区别。
+我对 GPT 的作用一无所知，但现在人们对“饮食”进行了如此多的审查，因为不健康的时尚饮食数量惊人。提供饮食建议就是说“你应该这样做”，而提供食谱则不太一样。
+我觉得我并没有真正解释清楚我在那里看到的细微差别，但现在是凌晨 4:30，我累了……]]></description>
+      <guid>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_15</guid>
+      <pubDate>Fri, 26 Jan 2024 12:27:46 GMT</pubDate>
     </item>
     <item>
-      <title>通过现在使用 API 复制我从 ChatGPT 获得的情绪分析输出</title>
-      <link>https://community.openai.com/t/replicating-sentiment-analysis-output-i-got-from-chatgpt-through-now-use-of-api/602232#post_2</link>
-      <description><![CDATA[如果您想要无代码解决方案，可以尝试 Google 表格上的 GPT 表格插件。
-您可以先对评论进行分类，然后创建图表。
-您还可以添加分类，例如与产品相关的投诉、与服务相关的投诉等。
-您可以告诉 ChatGPT 将 JSON 转换为 CSV，以便轻松将其导入 Google 表格。]]></description>
-      <guid>https://community.openai.com/t/replicating-sentiment-analysis-output-i-got-from-chatgpt-through-now-use-of-api/602232#post_2</guid>
-      <pubDate>Fri, 26 Jan 2024 09:11:25 GMT</pubDate>
+      <title>我的 GPT - 被不公正地从商店“删除”</title>
+      <link>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_14</link>
+      <description><![CDATA[是的，“向所有人发布”选项是不允许的并且呈灰色。
+
+在开始尝试不同的标题和描述之前，我拍摄了这张屏幕截图，因为我知道灰色选项可能会完全消失。
+事情确实如此。
+我选择了“任何有链接的人”来更改标题，并且它传播成功，但之后我什至再也看不到之前的选项了：
+&lt;img alt=&quot;图片&quot; height=&quot;425&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/9/7/2/9725fe4be105dfb9cd658bdf2cc939d3f27db254.png&quot; width=&quot;328 ” /&gt;
+顺便说一句，我还没有收到来自 OpenAI 或任何人关于此删除的任何反馈电子邮件。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_14</guid>
+      <pubDate>Fri, 26 Jan 2024 12:24:48 GMT</pubDate>
     </item>
     <item>
-      <title>新的 OpenAI 公告！更新了 API 模型，不再有惰性输出</title>
-      <link>https://community.openai.com/t/new-openai-announcement-updated-api-models-and-no-more-lazy-outputs/601851#post_11</link>
+      <title>助理检索定价</title>
+      <link>https://community.openai.com/t/assistant-retrieval-pricing/601158#post_4</link>
+      <description><![CDATA[感谢您的回答。我知道付费的是文件的使用而不是存储。这意味着如果机器人助手不使用附加文件，则不会产生任何费用。但我注意到，每次我向机器人助手发送问题时，它总是尝试通过阅读附加文件来获取答案。当问题与附加文件无关时，我必须明确要求在其他地方寻找答案。您是否也遇到过同样的行为？]]></description>
+      <guid>https://community.openai.com/t/assistant-retrieval-pricing/601158#post_4</guid>
+      <pubDate>Fri, 26 Jan 2024 12:22:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 GPT - 被不公正地从商店“删除”</title>
+      <link>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_13</link>
       <description><![CDATA[
 
 
- luigi.acerbi:
+埃尔姆施泰特：
 &lt;块引用&gt;
-如果它有效，那就太棒了，但对于嵌入模型来说，这似乎是一项相当艰巨的任务，正如您也指出的那样……“对角线的一瞥”虽然很诱人。
+我不相信除了“精选”之外的任何类别都是精心策划的。
 
 
+它们可能不是手动策划的，但 OpenAI 明确地看到了它们并给予了它们批准。
+商店中只列出了几个 GPT，所以 OpenAI 当然已经看到了它们。尤其是那些从一开始就存在的，比如 GymStreak。浏览全部内容只需不到一分钟。
+
+
+
+埃尔姆施泰特：
 &lt;块引用&gt;
-只是一个嵌入模型
-
-我的理解是他们是成熟的法学硕士。 （瑞普达芬奇）
-它有效-大约有 5 个故事（除了中间故事，爱情主题喜剧与浪漫故事？）：
-&lt;块引用&gt;
-（点击查看更多详情）
-但我们看到实际的问题是文本的正面和背面存在偏差。
-（点击查看更多详情）
-最初似乎与 3 配合得很好，但并不可靠
- 
+我认为这两者与“饮食建议”有足够的不同，因此很清楚。
+但是，其他人的失败（如果确实发生了这种情况）并不意味着您的也应该如此。
+我是任何事件，目前这都只是猜测。
 
 
-另外 2 批 （点击查看更多详细信息）
-&lt;小时/&gt;
-
-方法（点击了解更多详细信息）]]></description>
-      <guid>https://community.openai.com/t/new-openai-announcement-updated-api-models-and-no-more-lazy-outputs/601851#post_11</guid>
-      <pubDate>Fri, 26 Jan 2024 09:11:05 GMT</pubDate>
+健康教练与“饮食建议”有何不同？它确实提供了改善您健康的食物选择并提供营养指导（见解）。
+&lt;img alt=&quot;图像&quot; height=&quot;242&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/5/c/f/5cf48cbee61a03dde08c5c9ef76f11671e4afbd7.png&quot; width=&quot;457 ” /&gt;
+更不用说他们的 GPT 标题中确实有“健康”一词。
+这只是语义游戏吗？使用“见解”和“提示”等词语代替指导，或使用“健康”代替“健康”等？
+我只是大声说出来，问题不是针对你的。感谢您迄今为止的猜测和评论，它们确实很有帮助。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_13</guid>
+      <pubDate>Fri, 26 Jan 2024 12:17:00 GMT</pubDate>
     </item>
     <item>
-      <title>强制助手一键回复</title>
-      <link>https://community.openai.com/t/force-assistant-to-answer-with-a-single-one-shot-response/601519#post_3</link>
-      <description><![CDATA[您好，Jean Luc，感谢您的提示！
-ChatGPT 轻蔑地忽略了这个命令。
-如果他们是人类工人而不是人工智能，那么第三次不服从这么简单的命令，我会直接解雇他们。
-在这种情况下，我不仅不会解雇它，而且我应该花钱让它学习一些基本的东西，比如不要在他的裤子上拉屎。]]></description>
-      <guid>https://community.openai.com/t/force-assistant-to-answer-with-a-single-one-shot-response/601519#post_3</guid>
-      <pubDate>Fri, 26 Jan 2024 09:03:04 GMT</pubDate>
+      <title>请不要删除 davinci-003，它的性能比任何文章的 chatGPT 模型都要好！</title>
+      <link>https://community.openai.com/t/please-dont-remove-davinci-003-it-performs-better-as-any-chatgpt-model-for-articles/291933?page=2#post_25</link>
+      <description><![CDATA[请保留“text-davinci-003”模型。此外，在我们的版本中，它比建议的替换“gpt-35-turbo-instruct”更可靠，并且更好地理解完成命令。]]></description>
+      <guid>https://community.openai.com/t/please-dont-remove-davinci-003-it-performs-better-as-any-chatgpt-model-for-articles/291933?page=2#post_25</guid>
+      <pubDate>Fri, 26 Jan 2024 12:14:46 GMT</pubDate>
     </item>
     <item>
-      <title>调试函数调用的工具</title>
-      <link>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_3</link>
-      <description><![CDATA[是的，确实如此，但它不允许你玩弄温度、最大令牌等。
-
-
-
-超级沙内斯基：
-&lt;块引用&gt;
-助手 API 游乐场
-
-]]></description>
-      <guid>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_3</guid>
-      <pubDate>Fri, 26 Jan 2024 09:01:06 GMT</pubDate>
+      <title>我的 GPT - 被不公正地从商店“删除”</title>
+      <link>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_12</link>
+      <description><![CDATA[是否完全禁止向“所有人”发布并显示为灰色？或者它只是无法发布并带有类似内容警告？
+前一个案例是通过另一位论坛用户报告的 GPT 看到的，他们还收到了一封反馈电子邮件。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_12</guid>
+      <pubDate>Fri, 26 Jan 2024 12:10:02 GMT</pubDate>
     </item>
     <item>
-      <title>CORS 无法在远程服务器上工作，但可以在 ChatGPT 的本地主机上工作</title>
-      <link>https://community.openai.com/t/cors-not-working-on-remote-server-but-working-on-localhost-for-chatgpt/602459#post_1</link>
-      <description><![CDATA[我有一个节点 server.js 文件，该文件适用于本地主机上所有功能的 CORS，但是当我在 AWS 服务器上进行生产部署时，除了 chatGPT API 之外，一切都正常。 chatGPT API 在本地主机上运行良好。我的所有环境变量都很好。
-有人遇到过这个问题吗？有解决办法吗？以下是我的 server.js 文件的示例：
-const express = require(&#39;express&#39;);
-const dotenv = require(&#39;dotenv&#39;)
-dotenv.config()
-const cors = require(&quot;cors&quot;);
-var bodyParser = require(&#39;body-parser&#39;);
-
-console.log(process.env.NODE_ENV)
-
-const OpenAI = require(&#39;openai&#39;)
-const 路径 = require(&#39;路径&#39;)
-const {generateUploadURL} = require(&#39;./s3.js&#39;)
-const { 引擎 } = require(&#39;express-handlebars&#39;);
-
-常量应用程序 = Express();
-应用程序.use(cors());
-// app.use(express.urlencoded({extended: false}));
-
-//Body解析器中间件（用于以html形式发回数据）
-app.use(bodyParser.json({limit: &#39;50mb&#39;}));
-app.use(bodyParser.urlencoded({limit: &#39;100mb&#39;, 扩展: true}));
-app.use(express.json());
-
-
-//首页路由
-app.get(&#39;/&#39;, (req,res)=&gt;{
-    res.sendFile(path.join(__dirname, &#39;/&#39;, &#39;index.html&#39;))
-})
-
-//设置数据库查询功能
-const {Pool} = require(&quot;pg&quot;);
-const pool = new Pool({ ssl: {rejectUnauthorized: false } });
-pool.connect((错误，释放) =&gt; {
-    如果（错误）{
-      return console.error(`数据库连接错误`, err.stack)
-    } 别的 {
-      return console.log(`连接数据库成功`)
-    }
-  })
-const dbQuery=(text, params) =&gt;pool.query(text, params);
-
-
-//一般数据库查询&lt;--这在任何地方都工作正常
-app.use(&quot;/db/table&quot;, async (req, res)=&gt;{
-    
-    const 表 = req.params.table
-    const 查询 = `SELECT * FROM ${table};`
-    控制台.log(查询)
-    
-    尝试{
-        const 结果 = 等待 dbQuery(查询);
-        res.json(结果.行);
-        console.log(结果.行)
-    } 捕获（错误）{
-        重新发送（错误）
-        控制台.log(错误)
-    }
-})
-
-
-//基本 GPT 响应 &lt;--这在本地主机上没问题，但在 AWS 服务器上不行
-app.get(&quot;/getgpt/:prompt&quot;, async(req,res)=&gt;{
-    const 提示 = req.params.prompt
-    控制台.log（提示）
-
-    const openai = 新 OpenAI({
-        apiKey: process.env.OPEN_AI_API_KEY,
-    })
-    尝试{
-        const 响应 = 等待 openai.chat.completions.create(
-            {
-                型号：“gpt-3.5-turbo”，
-                消息：[{“角色”：“用户”，“内容”：提示}]，
-                最大令牌数：2000，
-                温度：0
-            }
-        ）
-        console.log(response.choices[0].message.content)
-        res.json(response.choices[0].message.content)
-
-    }捕获（错误）{
-        控制台.log(错误);
-    }
-});
-
-//设置服务器端口
-常量端口=3001；
-app.listen(端口, ()=&gt;{
-    console.log(`服务器正在运行并侦听端口 ${port}`);
-});
-]]></description>
-      <guid>https://community.openai.com/t/cors-not-working-on-remote-server-but-working-on-localhost-for-chatgpt/602459#post_1</guid>
-      <pubDate>Fri, 26 Jan 2024 09:00:22 GMT</pubDate>
+      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
+      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=11#post_222</link>
+      <description><![CDATA[由于遇到奇怪的错误，我几个月前停止支付 GPT+ 费用。今天，我决定再次付费，看看它有何改进 - 真是令人失望！我刚刚用 GPT 统计了我的消息，仅 19 条消息就达到了限制。
+当我在 3.5 和 4 型号之间切换时，它显示最多 40 条消息……每 3 小时仍然不多。但在 19 条消息后被限制感觉就像是在向他们支付了令人愤慨的服务价格后，在这个限制下似乎毫无用处。
+例如，我对自定义 GPT 感到很兴奋，因此我尝试了他们的“推荐”部分中的徽标生成器。它仅仅通过提问就吃掉了这 19 条消息中的大部分，结果并不好。你添加了一些改进，突然你就超出了“工作中”的限制......
+如果限制每 3 小时累积 20 条消息，那可能没问题（因为我的低使用时间足以覆盖我实际需要使用它的时间） - 但花这么多钱购买一个只会让我震惊的工具在几条消息后发出限制警告似乎很愚蠢。 这个限制感觉更像是免费试用版，而不是付费版本。
+目前看来，免费的 Bing GPT-4 似乎是一个更好的选择。
+我正在认真考虑要求退款。]]></description>
+      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=11#post_222</guid>
+      <pubDate>Fri, 26 Jan 2024 12:08:44 GMT</pubDate>
     </item>
     <item>
-      <title>调试函数调用的工具</title>
-      <link>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_2</link>
-      <description><![CDATA[尝试使用 Assistants API Playground。根据我的经验，它的行为几乎与聊天完成中的行为相同。]]></description>
-      <guid>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_2</guid>
-      <pubDate>Fri, 26 Jan 2024 08:55:29 GMT</pubDate>
+      <title>带内容的函数调用</title>
+      <link>https://community.openai.com/t/function-calling-with-content/602637#post_1</link>
+      <description><![CDATA[最近，在使用 gpt-3.5-turbo-1106 时，我经常收到包含某些内容的函数调用，而不是获取“无”内容的预期行为。这对我来说是一个问题，因为我隐藏了最终用户的所有函数调用，但是当 llm 填充内容时，它可能会导致用户上下文中断，特别是因为有时 if 甚至会在内容字段中询问用户问题。
+有趣的是，当 llm 忘记使用必要的功能并因此提供不正确的答案然后由用户面对时，这种情况似乎更频繁地发生。
+有人遇到过这样的事情吗？有什么方法可以显式禁用函数调用中的内容吗？]]></description>
+      <guid>https://community.openai.com/t/function-calling-with-content/602637#post_1</guid>
+      <pubDate>Fri, 26 Jan 2024 12:08:17 GMT</pubDate>
     </item>
     <item>
-      <title>调试函数调用的工具</title>
-      <link>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_1</link>
-      <description><![CDATA[朋友们大家好，
-你知道有什么工具可以帮助我调试函数调用吗？
-问题：我想调试在发送一系列提示及其参数时正在调用哪个函数。
-我一直通过编写代码来做到这一点。它的效率不是很高，但经过一些努力就可以完成工作。我不知道像 https://platform.openai.com/playground 这样的解决方案让我调试函数调用。]]></description>
-      <guid>https://community.openai.com/t/tool-to-debug-function-calling/602448#post_1</guid>
-      <pubDate>Fri, 26 Jan 2024 08:53:15 GMT</pubDate>
+      <title>GPT 无法使用“in”运算符在“嗯...某事...”中搜索“代码”</title>
+      <link>https://community.openai.com/t/gpt-cannot-use-in-operator-to-search-for-code-in-hmm-something/602561#post_2</link>
+      <description><![CDATA[这真的很奇怪。我的猜测是人工智能发出了一些奇怪的文本，或者在文档检索返回错误时试图仍然执行搜索。]]></description>
+      <guid>https://community.openai.com/t/gpt-cannot-use-in-operator-to-search-for-code-in-hmm-something/602561#post_2</guid>
+      <pubDate>Fri, 26 Jan 2024 12:08:03 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt团队非法团队成员计费问题</title>
-      <link>https://community.openai.com/t/chatgpt-team-illegal-team-member-billing-issues/602252#post_12</link>
-      <description><![CDATA[据我了解，您可以考虑支付账单，然后立即删除所有其他团队成员。
-然后，请确保永远不要邀请您不能信任的人，直到“成员”角色的邀请新用户的权限受到限制。
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-team-illegal-team-member-billing-issues/602252#post_12</guid>
-      <pubDate>Fri, 26 Jan 2024 08:52:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源正在快速进步</title>
-      <link>https://community.openai.com/t/open-source-is-making-rapid-progress/593393#post_18</link>
+      <title>我的 GPT - 被不公正地从商店“删除”</title>
+      <link>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_11</link>
       <description><![CDATA[
 
 
- curt.kennedy:
+保罗贝洛：
 &lt;块引用&gt;
-这更像是一次压力测试，也是一种自我提升/吹牛的权利
+并且说它来自博士 - 就像不是自定义 GPT 的人一样 - 像是被禁止的。
 
 
- 不错。我发现 Cinebench 非常适合这个目的（尽管你是对的，没有吹牛的权利）——它确实为你节省了大量带宽。
-…与吹牛的权利无关，我尊重这一点 -
-我只是想确保其他开发者不会灰心丧气。它的安装非常简单，我认为它们对 OpenAI API 访问有很大的帮助/补充。]]></description>
-      <guid>https://community.openai.com/t/open-source-is-making-rapid-progress/593393#post_18</guid>
-      <pubDate>Fri, 26 Jan 2024 08:52:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建一个 IA，它将抓取页面并讨论它</title>
-      <link>https://community.openai.com/t/create-an-ia-which-will-crawl-the-pages-and-talk-about-it/600561#post_10</link>
-      <description><![CDATA[谢谢罗伯特，
-我会测试一下，最终可以和大家分享。
-如果您愿意，我可以pm您进行进一步调查。]]></description>
-      <guid>https://community.openai.com/t/create-an-ia-which-will-crawl-the-pages-and-talk-about-it/600561#post_10</guid>
-      <pubDate>Fri, 26 Jan 2024 08:52:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建一个 IA，它将抓取页面并讨论它</title>
-      <link>https://community.openai.com/t/create-an-ia-which-will-crawl-the-pages-and-talk-about-it/600561#post_9</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/create-an-ia-which-will-crawl-the-pages-and-talk-about-it/600561#post_9</guid>
-      <pubDate>Fri, 26 Jan 2024 08:51:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI Assistant 令牌现已可用</title>
-      <link>https://community.openai.com/t/openai-assistant-token-usage-is-now-available/602447#post_1</link>
-      <description><![CDATA[大家好，
-只是想分享一些有关最新 OpenAI 更新的令人兴奋的消息：Assistant API 现在似乎可以提供有关令牌使用情况的信息。作为一名严重依赖 Assistant API 的开发者，我对这次更新感到非常兴奋。
+感谢您的参与！
+我们的品牌名为 Newgen Doctor，因此我们将 GPT 命名为这个名称。
+我不明白“PhD”这个词怎么能被禁止。这个领域有很多非常大的品牌都使用同一个词，例如PhD Nutrition。
+此外，我们的团队拥有实际的博士学位。所以我不明白为什么这是一个问题。
 
-https://platform.openai .com/docs/api-reference/runs/object
-我知道有很多关于此问题的询问，因此我希望这些信息对其他人有所帮助。]]></description>
-      <guid>https://community.openai.com/t/openai-assistant-token-usage-is-now-available/602447#post_1</guid>
-      <pubDate>Fri, 26 Jan 2024 08:50:30 GMT</pubDate>
+
+
+保罗贝洛：
+&lt;块引用&gt;
+你到底把它改成什么了？
+
+
+尝试了很多变体，例如 - 锻炼计划、锻炼和训练。不幸的是，营养指南等没有任何效果。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-got-removed-from-the-store-unjustly/602432#post_11</guid>
+      <pubDate>Fri, 26 Jan 2024 12:06:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
