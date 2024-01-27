@@ -4,137 +4,106 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 27 Jan 2024 06:21:11 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jan 2024 09:16:30 GMT</lastBuildDate>
     <item>
       <title>为什么 GPT-4-1106-preview 输入令牌仍然限制为 32K？ （2级）</title>
-      <link>https://community.openai.com/t/why-gpt-4-1106-preview-input-token-is-still-limited-to-32k-tier-2/603482#post_3</link>
-      <description><![CDATA[这是我一直在使用的代码。
-我通过调用我在 OpenAI 网站上预先配置的 Assistant_id 来使用 Assistant Request。 Assistant 使用的是 GPT-4-1106-preview 的基本模型。有什么想法吗……？
-openai.api_key = &#39;...&#39;
-
-助理 ID = &#39;...&#39;
-
-def create_thread(ass_id,提示):
-    #找助理
-    #assistant = openai.beta.assistants.retrieve(ass_id)
-
-    #创建一个线程
-    线程 = openai.beta.threads.create()
-    my_thread_id = 线程.id
-
-
-    #创建一条消息
-    消息 = openai.beta.threads.messages.create(
-        thread_id=my_thread_id,
-        角色=“用户”，
-        内容=提示
-    ）
-
-    ＃跑步
-    运行 = openai.beta.threads.runs.create(
-        thread_id=my_thread_id,
-        Assistant_id=ass_id,
-    ）
-
-    返回run.id，线程.id
-
-
-def check_status(run_id,thread_id):
-    运行 = openai.beta.threads.runs.retrieve(
-        线程_id=线程_id,
-        运行_id=运行_id,
-    ）
-    返回运行状态
-
-
-
-my_run_id, my_thread_id = create_thread(assistant_id,complete_prompt)
-
-
-状态 = check_status(my_run_id,my_thread_id)
-
-while（状态！=“已完成”）：
-    状态 = check_status(my_run_id,my_thread_id)
-    时间.睡眠(2)
-
-
-响应 = openai.beta.threads.messages.list(
-  thread_id = my_thread_id
-）
-
-
-如果响应.数据：
-    print(response.data[0].content[0].text.value)```]]></description>
-      <guid>https://community.openai.com/t/why-gpt-4-1106-preview-input-token-is-still-limited-to-32k-tier-2/603482#post_3</guid>
-      <pubDate>Sat, 27 Jan 2024 06:15:40 GMT</pubDate>
+      <link>https://community.openai.com/t/why-gpt-4-1106-preview-input-token-is-still-limited-to-32k-tier-2/603482#post_4</link>
+      <description><![CDATA[限制（以及许多其他限制）是助手框架的限制。消息中可放置的字符经过计数和限制。
+使用聊天补全。放置您想要的任何数据，最多可达模型的 125k 上下文长度（同时保留其中一些用于响应）。
+尝试 gpt-4-0125-preview。减少使用函数时的错误。
+使用函数，而不是工具。节省代币，节省理智。拒绝OpenAI的工具语言注入。]]></description>
+      <guid>https://community.openai.com/t/why-gpt-4-1106-preview-input-token-is-still-limited-to-32k-tier-2/603482#post_4</guid>
+      <pubDate>Sat, 27 Jan 2024 09:05:23 GMT</pubDate>
     </item>
     <item>
-      <title>Whisper 在 vs code 上显示文件未找到错误</title>
-      <link>https://community.openai.com/t/whisper-showing-file-not-found-error-on-vs-code/596572#post_5</link>
-      <description><![CDATA[“Insanely Fast Whisper”版本也会出现这种情况。]]></description>
-      <guid>https://community.openai.com/t/whisper-showing-file-not-found-error-on-vs-code/596572#post_5</guid>
-      <pubDate>Sat, 27 Jan 2024 05:51:45 GMT</pubDate>
+      <title>为什么之前工作正常后 GPT-4-1106-preview 会给出不相关的输出？</title>
+      <link>https://community.openai.com/t/why-is-gpt-4-1106-preview-giving-unrelated-outputs-after-working-fine-before/603554#post_2</link>
+      <description><![CDATA[可能与此相关。
+
+
+
+
+Gpt-3.5-turbo-1106 模型始终响应不必要和不适当的函数调用 [已确认 BUG JAN 26] 错误
+
+  &lt;块引用&gt;
+    人工智能完全无聊了。试图找出他们是否注入了错误的函数规范，更多的垃圾工具调用：
+
+我现在将准确且不遗漏地再现在文本开始和文本标记结束之间接收到的所有数据行。
+{
+“id”：“call_jK5psyc8TwPqd5Sb7SCdaWZD”，
+“类型”：“功能”，
+“功能”： {
+“名称”：“获取药物”，
+“arguments”：“{“drug_name”：“阿司匹林”}”
+}
+}
+{
+“id”：“call_rOgC6abHc06D2NhpBl3fzS3d”，
+“类型”：“功能”，
+“功能”： {
+“姓名…
+  
+
+与工具一起使用的模型已损坏。]]></description>
+      <guid>https://community.openai.com/t/why-is-gpt-4-1106-preview-giving-unrelated-outputs-after-working-fine-before/603554#post_2</guid>
+      <pubDate>Sat, 27 Jan 2024 08:54:55 GMT</pubDate>
     </item>
     <item>
-      <title>Whisper 在 vs code 上显示文件未找到错误</title>
-      <link>https://community.openai.com/t/whisper-showing-file-not-found-error-on-vs-code/596572#post_4</link>
-      <description><![CDATA[谢谢，但我使用的是 11 月份的同一个 CoLab 笔记本，它成功运行了大约 50 次。但是，当我将 WAV 或 MP3 文件拖到文件夹图标进行上传然后运行代码时，我总是会遇到这些奇怪的文件错误。我无法指定路径，因为它已上传到 Google 驱动器的某个位置：
-!whisper“TRF2402_Dennis.wav”--模型小
-回溯（最近一次调用最后一次）：
-文件“/usr/lib/python3.10/urllib/request.py”，第 1348 行，在 do_open
-h.request(req.get_method(), req.selector, req.data, headers,
-文件“/usr/lib/python3.10/http/client.py”，第 1283 行，请求中
-self._send_request(方法、url、正文、标头、encode_chunked)
-文件“/usr/lib/python3.10/http/client.py”，第 1329 行，在 _send_request
-self.endheaders(body,encode_chunked=encode_chunked)
-文件“/usr/lib/python3.10/http/client.py”，第 1278 行，在 endheaders
-self._send_output(message_body,encode_chunked=encode_chunked)
-文件“/usr/lib/python3.10/http/client.py”，第 1038 行，在 _send_output
-self.send(msg)
-文件“/usr/lib/python3.10/http/client.py”，第 976 行，发送
-self.connect()
-文件“/usr/lib/python3.10/http/client.py”，第 1455 行，连接
-self.sock = self._context.wrap_socket(self.sock,
-文件“/usr/lib/python3.10/ssl.py”，第 513 行，wrap_socket
-返回 self.sslsocket_class._create(
-文件“/usr/lib/python3.10/ssl.py”，第 1100 行，在 _create
-self.do_handshake()
-文件“/usr/lib/python3.10/ssl.py”，第 1371 行，在 do_handshake
-self._sslobj.do_handshake()
-ConnectionResetError：[Errno 104] 连接被对等方重置
-在处理上述异常的过程中，又发生了一个异常：
-回溯（最近一次调用最后一次）：
-文件“/usr/local/bin/whisper”，第 8 行，位于 
-sys.exit(cli())
-文件“/usr/local/lib/python3.10/dist-packages/whisper/transcribe.py”，第 577 行，在 cli
-model = load_model(model_name, device=device, download_root=model_dir)
-文件“/usr/local/lib/python3.10/dist-packages/whisper/init.py”，第 133 行，位于 load_model
-checkpoint_file = _download(_MODELS[名称], download_root, in_memory)
-文件“/usr/local/lib/python3.10/dist-packages/whisper/init.py”，第 69 行，位于 _download
-以 urllib.request.urlopen(url) 作为源， open(download_target, “wb”) 作为输出：
-文件“/usr/lib/python3.10/urllib/request.py”，第 216 行，在 urlopen
-return opener.open(url, data, timeout)
-文件“/usr/lib/python3.10/urllib/request.py”，第 519 行，打开
-响应 = self._open(req, 数据)
-文件“/usr/lib/python3.10/urllib/request.py”，第 536 行，在 _open
-结果 = self._call_chain(self.handle_open, 协议, 协议 +
-文件“/usr/lib/python3.10/urllib/request.py”，第 496 行，在 _call_chain
-结果 = func(*args)
-文件“/usr/lib/python3.10/urllib/request.py”，第 1391 行，位于 https_open
-返回 self.do_open(http.client.HTTPSConnection, 请求,
-文件“/usr/lib/python3.10/urllib/request.py”，第 1351 行，在 do_open
-引发 URLError(err)
-urllib.error.URLError: ]]></description>
-      <guid>https://community.openai.com/t/whisper-showing-file-not-found-error-on-vs-code/596572#post_4</guid>
-      <pubDate>Sat, 27 Jan 2024 05:50:50 GMT</pubDate>
+      <title>ChatGPT 团队计划中的隐私问题：管理员可以访问用户聊天吗？</title>
+      <link>https://community.openai.com/t/privacy-concerns-in-chatgpt-team-plan-can-administrators-access-user-chats/598283#post_2</link>
+      <description><![CDATA[作为团队计划的所有者，我找不到任何用于查看或控制成员内容的功能。此外，对于 GTP，创建者可以选择是否向团队成员透露它们。]]></description>
+      <guid>https://community.openai.com/t/privacy-concerns-in-chatgpt-team-plan-can-administrators-access-user-chats/598283#post_2</guid>
+      <pubDate>Sat, 27 Jan 2024 08:47:36 GMT</pubDate>
     </item>
     <item>
-      <title>使用标记/提示限制答案长度</title>
-      <link>https://community.openai.com/t/limiting-answer-length-with-tokens-prompting/603492#post_4</link>
-      <description><![CDATA[我发现它非常可靠。我确实通过手动验证过程定期检查样式，然后根据需要进行更改。
-创建摘要后，我有额外的控件用于验证，但它们并不关注样式等，而是关注其他方面，例如无法正确生成摘要的情况。但从技术上讲，您可以部署让第二个模型根据某些标准审查摘要的策略。]]></description>
-      <guid>https://community.openai.com/t/limiting-answer-length-with-tokens-prompting/603492#post_4</guid>
-      <pubDate>Sat, 27 Jan 2024 05:50:27 GMT</pubDate>
+      <title>有人能够通过 CustomGPT 中的 Action 集成 Twitter API 吗？</title>
+      <link>https://community.openai.com/t/has-anyone-been-able-to-integrate-twitter-api-via-action-in-customgpt/599563#post_5</link>
+      <description><![CDATA[
+
+
+ 沙哈亚尔：
+&lt;块引用&gt;
+查找针对任何特定查询或术语的相关推文或回复？
+
+
+这种功能是在 X（twitter 付费墙）背后实现的，但如果你为他们的 API 付费，你就可以做到。
+以下是 2023 年 Twitter API 的概述更改：免费和免费版缺少常见问题解答基本访问 - Superface.ai 更改和快速 TLDR https://istwitterapifree.com]]></description>
+      <guid>https://community.openai.com/t/has-anyone-been-able-to-integrate-twitter-api-via-action-in-customgpt/599563#post_5</guid>
+      <pubDate>Sat, 27 Jan 2024 08:45:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>401 提供的 API 密钥不正确</title>
+      <link>https://community.openai.com/t/401-incorrect-api-key-provided/603609#post_2</link>
+      <description><![CDATA[首先会在操作系统的环境变量中查找 API 密钥。
+查看您是否尚未设置环境变量 OPENAI_API_KEY，如果是，请将其更改为有效的变量。]]></description>
+      <guid>https://community.openai.com/t/401-incorrect-api-key-provided/603609#post_2</guid>
+      <pubDate>Sat, 27 Jan 2024 08:43:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 TEAM 中共享对话和 GPT</title>
+      <link>https://community.openai.com/t/sharing-conversations-and-gpts-in-team/585113#post_3</link>
+      <description><![CDATA[
+好的。其他团队成员可以通过转移所有权来配置 GPT。
+并且不推荐使用继续共享对话的选项。
+已解决]]></description>
+      <guid>https://community.openai.com/t/sharing-conversations-and-gpts-in-team/585113#post_3</guid>
+      <pubDate>Sat, 27 Jan 2024 08:32:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 错误 - 超链接不可点击</title>
+      <link>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_60</link>
+      <description><![CDATA[没有解决，但我发现了一些东西。
+我不小心打开了另一个窗口，并尝试做同样的事情，但无法获得可点击的链接。哇，现在我可以获得可点击的链接了。因此，我再次尝试打开另一个浏览器窗口，但没有得到相同的结果。
+看起来不稳定。]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-bug-hyperlinks-not-clickable/565499?page=3#post_60</guid>
+      <pubDate>Sat, 27 Jan 2024 08:31:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>消息注解——如何正确处理</title>
+      <link>https://community.openai.com/t/message-annotations-how-to-handle-it-properly/602531#post_3</link>
+      <description><![CDATA[您好，您知道学习自然地理学在教育领域的重要性吗？]]></description>
+      <guid>https://community.openai.com/t/message-annotations-how-to-handle-it-properly/602531#post_3</guid>
+      <pubDate>Sat, 27 Jan 2024 08:26:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
