@@ -4,254 +4,190 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 28 Jan 2024 21:18:05 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 01:11:41 GMT</lastBuildDate>
     <item>
-      <title>只有所有者或管理员才有权邀请新成员或在团队工作区中创建 GPT</title>
-      <link>https://community.openai.com/t/only-owners-or-admins-should-be-allowed-to-invite-new-members-or-create-gpts-in-a-teams-workspace/585072?page=2#post_22</link>
-      <description><![CDATA[
+      <title>我们如何备份自定义 GPT</title>
+      <link>https://community.openai.com/t/how-do-we-backup-the-custom-gpts/605372#post_1</link>
+      <description><![CDATA[如何备份我的自定义 GPT 模型？
+好吧，例如，我创建了一个自定义 ChatGPT，即“The DumbGPT”，但是与“DumbGPT”关联的帐户已丢失，并且将在几天后取消订阅 Pro 版本。所以我的问题是，如果我创建一个 Pro 订阅的新帐户，我是否有能力继续在商店中使用“DumbGPT”，因为，我已将“DumbGPT”上传到公众，并且可以通过大家。]]></description>
+      <guid>https://community.openai.com/t/how-do-we-backup-the-custom-gpts/605372#post_1</guid>
+      <pubDate>Mon, 29 Jan 2024 01:11:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用检索和 GPT 4 Turbo 进行提示</title>
+      <link>https://community.openai.com/t/prompting-with-retrieval-and-gpt-4-turbo/605133#post_6</link>
+      <description><![CDATA[我的理解是“销售医生”是一个帮助人们提高销售技巧的工具。销售技巧。基于此，此提示或我在该上下文中的响应没有问题：
 
 
- cruzinaustin：
+
+ sbm：
 &lt;块引用&gt;
-根据我们用于训练它们的知识，自定义 GPT 响应更加详细和连贯
+但是机器人推荐的测试在知识库中不存在，
 
 
-“用于培训他们的知识”是什么意思？您无法训练 GPT。
+任何法学硕士都会出现这种情况。对于没有进行 RAG 的人来说，这也是一个很好的观点，因为在某种程度上，许多问题都涉及 RAG 方法，人们通常以类似于搜索引擎的方式（在某种程度上）对待 LLM。
+用于通用目的的相同优化技术与 RAG 配合得很好。本质上来说，这是基于以下测试的……一些变化：
+不要包含任何无法从包含的文件中引用的信息。
+（其广义版本是以下内容的变体：不包含任何无法凭经验确认或引用且效果较差的信息，因此更具体于上下文）
+就您而言，“引用”一词通常是该短语中最重要的。]]></description>
+      <guid>https://community.openai.com/t/prompting-with-retrieval-and-gpt-4-turbo/605133#post_6</guid>
+      <pubDate>Mon, 29 Jan 2024 01:09:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法使用 NameCheap 验证 CustomGPT 的域</title>
+      <link>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_2</link>
+      <description><![CDATA[已经创建了网站？
+当我创建网站并放置 OpenAI 徽章时，我的案例得到了解决。
+]]></description>
+      <guid>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_2</guid>
+      <pubDate>Mon, 29 Jan 2024 01:06:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助将 Whisper 代码放入 Python 脚本中</title>
+      <link>https://community.openai.com/t/help-putting-whisper-code-into-python-script/605363#post_1</link>
+      <description><![CDATA[嘿，我正在使用 OpenAI API，我正在尝试将此脚本转换为使用 Whisper API，但我不知道如何使其发挥相同的功能。我所说的功能相同是指始终使用语音识别 (r.listen()) 进行监听，这样我就不必按下按钮或触发“录音”来开始与机器人交谈。
+代码：
+从 openai 导入 OpenAI
+导入操作系统
+导入pyaudio
+将speech_recognition导入为sr
+从路径库导入路径
+从playsound导入playsound
+客户端 = OpenAI(
+api_key=&#39;nicetry;)&#39;
+）
+messages1 = [{‘角色’:‘系统’,‘内容’:‘你是一个发短信的人。尽量保持简短的回答。’}]
+当正确时：
+r = sr.Recognizer()
+mic = sr.Microphone()
+以麦克风为源：
+    print(&quot;[听]&quot;)
+    尝试：
+        audio = r.listen(source, timeout=5) # 根据需要调整超时
+        提示= r.recognize_google（音频）
+        print(&quot;你说：&quot; + 提示)
+    除了 sr.WaitTimeoutError：
+        print(&quot;[听]&quot;)
+        继续
+    除了 sr.UnknownValueError：
+        print(&quot;[听]&quot;)
+        继续
 
+如果提示.lower() == &#39;退出&#39;:
+    休息
 
+usrmsg = {&#39;角色&#39;:&#39;用户&#39;,&#39;内容&#39;:提示+&#39;&#39;}
+messages1.append(usrmsg)
+print(&quot;[正在加载...]&quot;)
 
- cruzinaustin：
+完成 = client.chat.completions.create(
+    模型=&#39;gpt-3.5-turbo&#39;，消息=messages1
+）
+
+文本=completion.choices[0].message.content
+
+响应 = client.audio.speech.create(
+    型号=“tts-1”，
+    声音=“合金”，
+    输入=文本，
+）
+
+# 假设“output.mp3”是您要写入的文件
+输出文件路径=路径（“输出.mp3”）
+
+使用 output_file_path.open(&quot;wb&quot;) 作为文件：
+    file.write(响应.内容)
+打印（文本）
+# 播放生成的音频
+播放声音（str（输出文件路径））；
+如果 os.path.exists(&quot;output.mp3&quot;):
+    os.remove(&quot;输出.mp3&quot;);
+
+gptmsg = {&#39;角色&#39;:&#39;助理&#39;,&#39;内容&#39;:文字+&#39;&#39;}
+messages1.append(gptmsg)
+
+print(“再见！再见！”)
+Whisper 代码（来自文档）：
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+audio_file= open(“/path/to/file/audio.mp3”, “rb”)
+成绩单 = client.audio.transcriptions.create(
+型号=“whisper-1”，
+文件=音频文件
+）]]></description>
+      <guid>https://community.openai.com/t/help-putting-whisper-code-into-python-script/605363#post_1</guid>
+      <pubDate>Mon, 29 Jan 2024 00:58:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 gpt-4-turbo-preview 说它对复杂的提示没有帮助</title>
+      <link>https://community.openai.com/t/new-gpt-4-turbo-preview-saying-it-cant-help-on-complex-prompt/605315#post_3</link>
+      <description><![CDATA[我同意，这对 0125 的目标来说很讽刺！
+我非常怀疑如何提供一两个调整来解决这个问题。
+我最近刚刚发布了以下内容作为对另一位用户的提示。您是否可以这样做，以便您可以分享一个粗略的示例：
 &lt;块引用&gt;
-也许他们正在预览带有自定义 GPT 的 GPT 5 或类似内容？
+如果您需要提供示例，最好的方法是采用您拥有的最传统/标准的示例，将它们提供给法学硕士并要求其为您提供模拟。在提示中，指定主题和元详细信息，以便计算时间/预测仅关注最相似、直接的并行。
 
-
-他们几乎肯定不是。
-更有可能的是，您向助手提供的系统消息无法提供与自定义 GPT 中使用的相同质量的检索指导。]]></description>
-      <guid>https://community.openai.com/t/only-owners-or-admins-should-be-allowed-to-invite-new-members-or-create-gpts-in-a-teams-workspace/585072?page=2#post_22</guid>
-      <pubDate>Sun, 28 Jan 2024 21:17:39 GMT</pubDate>
+删除所有长内容，以便可以将其容纳在 1500 个左右的令牌中。理想情况下保留元/指令侧并修剪它们之间的可变内容。
+再说一遍，我不会直接从您的提示中请求任何私人信息或任何内容，而是我可以测试的方法/格式/类似示例，因为我有一些怀疑。
+此外，您提到了温度 - 出于测试/再现的目的，您还降低了top_p，对吗？在这种情况下，Temp 为 0.1，top_p 为 0？
+此外，我确信您已经完成了此操作；不过，提一下也不会有什么坏处——您是否尝试过仅修剪变量内容并重试，迭代添加以确定开始失败的点？
+同样，您还在第一句话中向 GPT 提供了高度简化的简单概述，并带有标记，以确保后续的所有上下文都得到更准确的转换？
+我知道这些都是初级的；然而，确定一下 ]]></description>
+      <guid>https://community.openai.com/t/new-gpt-4-turbo-preview-saying-it-cant-help-on-complex-prompt/605315#post_3</guid>
+      <pubDate>Mon, 29 Jan 2024 00:58:25 GMT</pubDate>
     </item>
     <item>
-      <title>如果在同一线程中完成对函数的更新可能会失败</title>
-      <link>https://community.openai.com/t/updates-to-functions-might-fail-if-done-in-same-thread/605182#post_2</link>
-      <description><![CDATA[如果你查看新线程选项，你可以看到完整的函数“set”，即所有函数 json 以及助手提示符都是线程的一部分。因此，如果您动态更改函数参数，则不会反映在现有线程中，这是有道理的。
-最终，我希望助手（然后是线程）成为“版本化”，但这当然仍然需要我们在另一侧也支持两个不同版本的函数调用 &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji “height=”20”src=“https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12”title=“：slight_smile：”宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/updates-to-functions-might-fail-if-done-in-same-thread/605182#post_2</guid>
-      <pubDate>Sun, 28 Jan 2024 21:16:26 GMT</pubDate>
+      <title>我的帐户似乎已被删除或停用，有人可以帮助我吗？</title>
+      <link>https://community.openai.com/t/my-account-seems-to-have-been-deleted-or-deactivated-can-someone-help-me/242472#post_20</link>
+      <description><![CDATA[不幸的是，开发者论坛无法访问帐户或帐户管理人员，因此唯一的沟通渠道是help.openai.com 机器人。
+我希望我能提供更多，但这不是我们可以从这里影响的系统。]]></description>
+      <guid>https://community.openai.com/t/my-account-seems-to-have-been-deleted-or-deactivated-can-someone-help-me/242472#post_20</guid>
+      <pubDate>Mon, 29 Jan 2024 00:52:29 GMT</pubDate>
     </item>
     <item>
-      <title>如果超出 TPM 限制会有什么问题吗？</title>
-      <link>https://community.openai.com/t/is-there-any-problem-if-i-exceed-tpm-limit/604516#post_5</link>
-      <description><![CDATA[另请参阅指数退避。  https://platform.openai.com/docs/guides/rate-limits/retrying-with-exponential-backoff]]></description>
-      <guid>https://community.openai.com/t/is-there-any-problem-if-i-exceed-tpm-limit/604516#post_5</guid>
-      <pubDate>Sun, 28 Jan 2024 21:13:07 GMT</pubDate>
+      <title>我无法购买 CHAT GPT 4</title>
+      <link>https://community.openai.com/t/nao-estou-conseguindo-comprar-o-chat-gpt-4/602712#post_4</link>
+      <description><![CDATA[我也面临着同样的问题。到目前为止我还没有找到任何解决方案。]]></description>
+      <guid>https://community.openai.com/t/nao-estou-conseguindo-comprar-o-chat-gpt-4/602712#post_4</guid>
+      <pubDate>Mon, 29 Jan 2024 00:51:00 GMT</pubDate>
     </item>
     <item>
-      <title>我想创建一个个人帐户，与我在雇主组织下拥有的帐户完全无关。我只有一个电话号码</title>
-      <link>https://community.openai.com/t/i-want-to-create-a-personal-account-completely-unassociated-from-the-one-i-have-under-my-employers-organisation-i-only-have-one-phone-number/605197#post_1</link>
-      <description><![CDATA[几个月前，我工作的公司创建了一个组织帐户并邀请我们使用它。
-我很少使用它，将我的工作电子邮件帐户和电话号码链接到它。
-现在，作为一个业余爱好项目，我想开发一个应用程序并将 ChatGPT 集成到其中。因此，我使用个人电子邮件创建了一个新的个人帐户，当被问及电话号码时，我使用了与之前帐户中相同的电话号码。
-我现在明白了，因为同一个电话号码与我在雇主组织下拥有的帐户相关联，所以我的个人帐户上没有获得任何免费积分（技术上不确定这意味着什么）。由于我不希望我的个人帐户受到任何限制，因此我想更改与工作帐户关联的电话号码，但显然这是不可能的。
-首先，在询问用户的电话号码之前，您应该向用户明确说明这一限制。其次，我想知道是否可以以某种方式解决这个问题。请注意，我不想将任何内容从一个帐户转移到另一个帐户。我只是希望这两个帐户完全独立，并且理想情况下，我的个人帐户拥有任何其他新帐户的所有福利和好处，而不受我在当前雇主组织下创建的另一个帐户这一事实的限制。
-如果我可以采取措施解决此问题和/或您认为我的要求不合理，请告诉我。]]></description>
-      <guid>https://community.openai.com/t/i-want-to-create-a-personal-account-completely-unassociated-from-the-one-i-have-under-my-employers-organisation-i-only-have-one-phone-number/605197#post_1</guid>
-      <pubDate>Sun, 28 Jan 2024 21:13:03 GMT</pubDate>
+      <title>无法使用 NameCheap 验证 CustomGPT 的域</title>
+      <link>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_1</link>
+      <description><![CDATA[你好
+我正在尝试验证我的域以发布自定义GPT。我已完成以下操作：
+
+已将域（无 https 或 www，仅域）添加到我的构建器配置文件
+将提供的验证字符串复制到“TXT”记录类型下的我的 NameCheap DNS 中，主机为“@”
+等了两天
+
+&lt; /p&gt;
+当我尝试“检查”验证时，我总是收到以下错误消息：
+“无法验证您的域名：域名 [domain dot com] 没有任何 TXT 记录。”
+就上下文而言，我还有其他 TXT 验证，例如 Google、DMARC、我的 ESP，都工作正常。
+我已阅读其他类似社区帖子上的所有解决方案，但似乎没有任何效果。
+
+无法公开发布我的自定义 gpt 无法验证帐单详细信息
+无法使用构建者配置文件验证域
+找到了如何验证配置文件上的域的新解决方案
+解决了如何验证配置文件上的域的问题
+
+提前致谢！]]></description>
+      <guid>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_1</guid>
+      <pubDate>Mon, 29 Jan 2024 00:45:51 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 接受哪些支付卡</title>
-      <link>https://community.openai.com/t/what-payment-cards-are-accepted-by-openai/501980#post_7</link>
-      <description><![CDATA[遗憾的是，预付借记卡不起作用。]]></description>
-      <guid>https://community.openai.com/t/what-payment-cards-are-accepted-by-openai/501980#post_7</guid>
-      <pubDate>Sun, 28 Jan 2024 21:11:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>让其他人使用公共自定义 GPT？</title>
-      <link>https://community.openai.com/t/let-others-use-a-public-custom-gpt/604139#post_4</link>
-      <description><![CDATA[好吧，有趣。您能告诉我更多有关助手 API 的信息吗？]]></description>
-      <guid>https://community.openai.com/t/let-others-use-a-public-custom-gpt/604139#post_4</guid>
-      <pubDate>Sun, 28 Jan 2024 21:09:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用预付卡购买 ChatGPT Plus</title>
-      <link>https://community.openai.com/t/purchasing-chatgpt-plus-with-pre-paid-cards/112837#post_9</link>
-      <description><![CDATA[我也有同样的问题。我使用我的 Greenlight 卡，它只是一张预付借记卡，可以随时充值。我经常因为这种恐惧而被拒绝。 “您的信用卡遭到拒绝。请尝试使用不同的卡。”]]></description>
-      <guid>https://community.openai.com/t/purchasing-chatgpt-plus-with-pre-paid-cards/112837#post_9</guid>
-      <pubDate>Sun, 28 Jan 2024 21:09:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>RAG 和嵌入 - 嵌入带标签的文本是否更好？</title>
-      <link>https://community.openai.com/t/rag-and-embeddings-is-it-better-to-embed-text-with-labels-or-not/604100#post_15</link>
-      <description><![CDATA[
-
-
-阿尔莫斯诺：
-&lt;块引用&gt;
-在 RAG（和 OpenAI 嵌入）的上下文中，如果嵌入一些带有标签的文本，是否会获得更高的准确性？
-
-
-在您的文本上下文中：是的，100%。
-
-
-
-阿尔莫斯诺：
-&lt;块引用&gt;
-“检索第一周有正面评价但上周有负面评价的所有产品”
-
-
-像这样的问题无法通过LLM检索来回答（需要逻辑）。但是，如果您有关系数据库，则可以使用法学硕士来组织/构造非结构化文本，然后通过元数据执行查询。]]></description>
-      <guid>https://community.openai.com/t/rag-and-embeddings-is-it-better-to-embed-text-with-labels-or-not/604100#post_15</guid>
-      <pubDate>Sun, 28 Jan 2024 21:07:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>只有所有者或管理员才有权邀请新成员或在团队工作区中创建 GPT</title>
-      <link>https://community.openai.com/t/only-owners-or-admins-should-be-allowed-to-invite-new-members-or-create-gpts-in-a-teams-workspace/585072?page=2#post_21</link>
-      <description><![CDATA[完全同意（并希望他们这样做）。
-顺便说一句，我确实创建了这些相同的自定义 GPT 的 Assistant API 版本，并发现了一些有趣且奇怪的事情：尽管具有相同的设置，但响应在质量方面根本不相似。
-根据我们用于训练它们的知识，自定义 GPT 响应更加详细和连贯。相比之下，它们使 Assistant API 版本看起来几乎与 3.5 GPT 类似。我尝试了那里的每个模型选项，看看这是否重要，但它根本不重要。也许他们正在预览带有自定义 GPT 的 GPT 5 或类似内容？
-此外，Assistant API 的性能通常很糟糕。每次回复 30-60 秒的响应时间并不少见。
-这就是为什么我坚持在 Teams 中进行更好的成员管理，或者硬着头皮选择 Enterprise。相信不是，该计划的成员无法添加其他成员。所以去算一下吧。
-&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/only-owners-or-admins-should-be-allowed-to-invite-new-members-or-create-gpts-in-a-teams-workspace/585072?page=2#post_21</guid>
-      <pubDate>Sun, 28 Jan 2024 21:06:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想知道 OpenAi 会花多少钱来解决 GPT 懒惰问题</title>
-      <link>https://community.openai.com/t/i-wonder-how-much-openai-would-pay-to-cure-gpt-lazyness/604781#post_5</link>
-      <description><![CDATA[虽然我绝对是评估的支持者，但我认为对于主要使用（如果不仅仅是）ChatGPT 来重新创建故障模式和相应评估的人来说，这具有挑战性。
-如果能够获得一些有关如何设置温度和 top-p 的指导，或者更奇特的是直接从 UI 导出单个示例，那就太好了。
-目前，ChatGPT 用户的最佳选择是点击“拇指向下”按钮。
-想象一下，每月有 1 亿用户，如果 1% 的用户确实发现了值得研究的东西，即使它只是《负面结果杂志》的潜在候选者，会怎样。]]></description>
-      <guid>https://community.openai.com/t/i-wonder-how-much-openai-would-pay-to-cure-gpt-lazyness/604781#post_5</guid>
-      <pubDate>Sun, 28 Jan 2024 21:05:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>RAG 和嵌入 - 嵌入带标签的文本是否更好？</title>
-      <link>https://community.openai.com/t/rag-and-embeddings-is-it-better-to-embed-text-with-labels-or-not/604100#post_14</link>
-      <description><![CDATA[谢谢@RonaldGRuckus，是的，可视化整个事情有很大帮助,
-&lt;块引用&gt;
-我也不明白为什么如果您有一个预设的问题列表，为什么不将其作为一个字段。
-
-因为不存在这样的事情。
-@curt.kennedy你直到最后都拥有我：
-&lt;块引用&gt;
-为此无需法学硕士。
-
-以及其他，
-&lt;块引用&gt;
-“使用RDMBS +向量相似度搜索（可选）”
-
-您真的认为这个问题可以通过 select * from Reviews where week = &#39;good&#39; AND Month = &#39;bad&#39; 来解决吗？您认为我是否将 postgresql 邮件列表与 OpenAI 社区混淆了？将这个问题融入到 RDMBS 中将是在解决问题时倒退一步，感谢您从字面上否定了使用 LLM 处理非结构化数据的整个 f* 点 &lt;img alt=&quot;:喜悦：“类=“表情符号”高度=“20”src=“https://emoji.discourse-cdn.com/twitter/joy.png？v=12”标题=“：喜悦：”宽度=“20” /&gt;.
-我的问题非常具体，它也有一个非常具体的答案，在标题中几乎是独立的，在 RAG（和 OpenAI 嵌入）的上下文中，如果嵌入一些文本，您会获得更高的准确性吗？有没有标签？
-inb4“这取决于”
-不，事实并非如此！抓取任何有机或合成数据集，将其嵌入带/不带文本标签，然后查询带/不带标签并测量检索准确性。就是这样，我可以在一个下午完成，但想听听（我认为）遇到问题的人的意见。 “但是很多 SQL”，真是个笑话。]]></description>
-      <guid>https://community.openai.com/t/rag-and-embeddings-is-it-better-to-embed-text-with-labels-or-not/604100#post_14</guid>
-      <pubDate>Sun, 28 Jan 2024 21:03:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 对定制（非 API）GPT 构建器的愿景或承诺是什么？</title>
-      <link>https://community.openai.com/t/what-s-openai-s-vision-or-commitment-to-custom-non-api-gpt-builder/605088#post_3</link>
-      <description><![CDATA[您的问题反映了对 OpenAI 生态系统内开发的浓厚兴趣。让我们仔细看看：
-
-
-API 使用与 Web 自定义 GPT 工具：OpenAI 可能以不同的方式看待 API 和 Web 自定义 GPT 工具的使用。 API 允许更灵活、更深入地将 GPT 集成到自己的应用程序和系统中，而 Web 自定义 GPT 工具可能旨在用于更简单、直接的应用程序。这在很大程度上取决于您的项目及其要求，哪个选项更适合。
-
-
-自定义 GPT 的“所有权”：关于通过 GPT 工具创建的模型的“所有权”，OpenAI 不太可能提供与独立 API 开发相同的所有权。 GPT 工具可能更多地被视为您创建自己的模型的平台，但它们基于 OpenAI 的基础设施。
-
-
-盈利和用户数据：对于盈利和用户数据（例如电子邮件地址）的访问，目前没有明确的指导方针。这在很大程度上取决于隐私政策和使用条款。
-
-
-这些领域的形势在不断发展，因此建议及时了解 OpenAI 的最新产品和政策。]]></description>
-      <guid>https://community.openai.com/t/what-s-openai-s-vision-or-commitment-to-custom-non-api-gpt-builder/605088#post_3</guid>
-      <pubDate>Sun, 28 Jan 2024 21:01:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4、WTH 的当前使用上限</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-wth/598606?page=2#post_35</link>
-      <description><![CDATA[最初，自定义 GPT 的上限与 ChatGPT 中的基本 GPT-4 模型不同。此后，帽子已统一。有些人（不是全部）可能仍在报告以前的事件。
-验证这些报告也很困难，因为所有聊天的限制为 40，包括在 GPT 构建器界面中。
-如果帐户中存在可供人们审核验证的日志页面，将会很有帮助。只是发送到模型的所有消息的时间顺序列表（带有时间戳），但没有。
-从历史上看，考虑到需求和容量，这一限制在某种程度上是动态的，但目前尚不清楚目前是否仍然如此。]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-wth/598606?page=2#post_35</guid>
-      <pubDate>Sun, 28 Jan 2024 21:00:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>CustomGPT 随着时间的推移“学习”</title>
-      <link>https://community.openai.com/t/customgpt-learning-over-time/605180#post_4</link>
-      <description><![CDATA[训练模型不是我们的工作，而只是告诉它如何提供信息，给出详细的说明，尽可能具体。我发现自然语言容易产生歧义，因此我更多地关注 JSON 文件来告诉它不该做什么。
-
-给我一杯咖啡。
-去喝咖啡的路上有一个玩具（错误）。
--给我一杯咖啡。
-
--给我一杯咖啡。
--别再给我带任何东西了。
--看下楼梯，打开门，走到街上，穿过斑马线。
--小心车辆，只有绿灯才过马路。
--走进商店，要一杯咖啡。
--原路返回。]]></description>
-      <guid>https://community.openai.com/t/customgpt-learning-over-time/605180#post_4</guid>
-      <pubDate>Sun, 28 Jan 2024 21:00:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想知道 OpenAi 会花多少钱来解决 GPT 懒惰问题</title>
-      <link>https://community.openai.com/t/i-wonder-how-much-openai-would-pay-to-cure-gpt-lazyness/604781#post_4</link>
-      <description><![CDATA[该论坛主要是为开发人员提供的空间，如果您的问题更面向用户，我建议您转到discord：
-
-  &lt;标题类=“来源”&gt;
-      
-Discord
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-加入 OpenAI Discord 服务器！
-为开发者和爱好者提供了一个协作和分享使用 OpenAI 强大模型构建的作品的空间。 | 93675 ​​会员
-
-
-
-
-
-用户和开发人员之间存在相当多的交叉，我们欢迎有关模型的讨论 
-
-
-
- mail.reknew:
-&lt;块引用&gt;
-我们注意到的内容包括：摘要回复。告诉你如何回答问题而不是回答问题。使用占位符尽可能地截断响应
-
-
-这些都是独立的问题，按照这个论坛的构建方式，如果人们针对这些问题提出单独的主题，那么通常对 OpenAI 和社区其他成员都会更有帮助，这样它们就可以单独解决。
-如果您想帮助改善问题并参与
-
-
-
- mail.reknew:
-&lt;块引用&gt;
-如何测量这种现象
-
-
-我建议为 GitHub 上的评估做出贡献：
-  &lt;标题类=“来源”&gt;
-      
-GitHub
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-GitHub - openai/evals：Evals 是评估 LLM 和 LLM 的框架...&lt; /a&gt;
-Evals 是一个用于评估 LLM 和 LLM 系统的框架，以及一个开源基准注册库。 evals,Evals 是一个用于评估 LLM 和 LLM 系统的框架，以及一个开放的框架,下载evals的源码_GitHub_酷徒
-
-
-  
-
-
-
-
-我希望有所帮助 &lt;img alt=&quot;:heart:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/heart.png?v=12 “标题=“：心：”宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/i-wonder-how-much-openai-would-pay-to-cure-gpt-lazyness/604781#post_4</guid>
-      <pubDate>Sun, 28 Jan 2024 20:59:03 GMT</pubDate>
+      <title>我的帐户似乎已被删除或停用，有人可以帮助我吗？</title>
+      <link>https://community.openai.com/t/my-account-seems-to-have-been-deleted-or-deactivated-can-someone-help-me/242472#post_19</link>
+      <description><![CDATA[您好@Foxabilo，我尝试了您通过help.openai.com 前一段时间（至少两周前）但仍然没有回复。
+我的帐户于 1 月 4 日被停用，至今 1 月 28 日仍被封锁。我最初是通过电子邮件联系的（1 月 4 日），后来收到回复，只是说存在一些可疑活动，但不清楚具体是什么，并且该帐户只是处于停用状态。我要求对该电子邮件进行更多说明，但从未得到后续回复。由于没有任何回应，我找到了这个帖子并按照您建议的步骤进行操作，但也没有任何结果。 &lt;img alt=&quot;:frowning:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/frowning.png?v=12&quot; title=&quot;:frowning: “宽度=“20”/&gt;
+我不知道我做了什么导致停用（也许是因为我打开了 VPN？或者因为我使用自己的 .NET HttpClient 调用 API，而不是使用现有的 SDK？我不知道......） .
+我知道那边的人非常忙，但我希望有人可以解锁我的帐户，并能更准确地澄清停用的原因，以便我不再重复同样的错误。我一直渴望重新使用 API。
+我已停用帐户的登录电子邮件与此社区帐户的电子邮件相同。
+非常感谢您的帮助，
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/my-account-seems-to-have-been-deleted-or-deactivated-can-someone-help-me/242472#post_19</guid>
+      <pubDate>Mon, 29 Jan 2024 00:36:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
