@@ -4,54 +4,189 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 30 Jan 2024 01:10:08 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2024 03:18:46 GMT</lastBuildDate>
     <item>
-      <title>感谢 OpenAI 员工的小贴子</title>
-      <link>https://community.openai.com/t/a-little-thread-to-thank-openai-employees/606839#post_2</link>
-      <description><![CDATA[我同意，OpenAI 是一笔很棒的交易。我非常感谢他们向公众提供它并让它每天运行。]]></description>
-      <guid>https://community.openai.com/t/a-little-thread-to-thank-openai-employees/606839#post_2</guid>
-      <pubDate>Tue, 30 Jan 2024 01:02:47 GMT</pubDate>
+      <title>Ot：支持本机 Python 脚本的可靠且便宜的网络托管？</title>
+      <link>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_7</link>
+      <description><![CDATA[好吧，我可能错了，我快速浏览了一下，可能错过了，谢谢，明天再检查一下。]]></description>
+      <guid>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_7</guid>
+      <pubDate>Tue, 30 Jan 2024 03:14:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ot：支持本机 Python 脚本的可靠且便宜的网络托管？</title>
+      <link>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_6</link>
+      <description><![CDATA[我不知道你的意思。
+除非我非常错误，否则可以在任意数量的生产环境中部署基于 Streamlit 构建的应用程序。
+
+  &lt;标题类=“来源”&gt;
+      
+Streamlit – 23 年 1 月 6 日
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+Streamlit 部署指南 (wiki)
+
+
+
+
+🚀 部署
+
+
+
+
+鉴于可用于部署 Streamlit 的云平台和技术数量不断增加，将一组最新说明作为标准 Streamlit 文档的一部分是不可行的。值得庆幸的是，你们很多人都...
+
+阅读时间：3分钟🕑
+喜欢：30 ❤
+
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_6</guid>
+      <pubDate>Tue, 30 Jan 2024 03:13:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT4 响应中缺少前导空格</title>
+      <link>https://community.openai.com/t/leading-whitespace-missing-in-gpt4-response/606950#post_1</link>
+      <description><![CDATA[你好。
+我最近遇到了 API 和 GPT4 的问题，它在适当的时候没有生成前导空格。
+一个简单的例子：
+&lt;块引用&gt;
+text =“法国的首都是”
+消息 = [
+{“角色”：“用户”，“内容”：文本}
+]
+结果 = openai.ChatCompletion.create(
+型号=“gpt-4”，
+消息 = 消息，
+max_tokens=50,
+top_p=1,
+温度=0.0，
+停止=[“.”,“\n”])
+打印（结果）
+
+输出为“Paris”，没有前导空格。
+&lt;块引用&gt;
+…
+“型号”：“gpt-4-0613”，
+“选择”：[
+{
+“索引”：0，
+“消息”：{
+“角色”：“助理”，
+“内容”：“巴黎”
+},
+“logprobs”：空，
+“finish_reason”: “停止”
+}
+...
+
+将此与 3.5-turbo-instruct 的完成响应进行比较：
+&lt;块引用&gt;
+结果= openai.Completion.create(
+engine=“gpt-3.5-turbo-instruct”，
+提示=文本，
+max_tokens=50,
+top_p=1,
+温度=0.0，
+停止=[“.”,“\n”])
+打印（结果）
+
+输出为“Paris”，带有前导空格。
+&lt;块引用&gt;
+…
+“型号”：“gpt-3.5-turbo-instruct”，
+“选择”：[
+{
+“text”：“巴黎”，
+“索引”：0，
+“logprobs”：空，
+“finish_reason”: “停止”
+}
+],
+...
+
+出于我的目的，我不知道是否需要附加空格来完成。我正在使用 top_logprobs 执行波束搜索，并且补全可能从单词的中间开始（例如，“在法国，首都”，响应应该是“al is Paris”）。
+这是由于聊天完成的性质造成的吗？它永远不会生成前导空格吗？
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/leading-whitespace-missing-in-gpt4-response/606950#post_1</guid>
+      <pubDate>Tue, 30 Jan 2024 03:13:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ot：支持本机 Python 脚本的可靠且便宜的网络托管？</title>
+      <link>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_5</link>
+      <description><![CDATA[API 是如何实现这一点的？我说的不是 GPT。
+更像是“wwwDOTmywebsiteDOTcom/mypython.py”
+你知道，大多数网络托管公司的网络服务器都会直接渲染Python源代码，也就是说，他们不支持Python。
+那些这样做的人，他们的网络服务器将被配置为将请求重新路由到 python 解释器......]]></description>
+      <guid>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_5</guid>
+      <pubDate>Tue, 30 Jan 2024 03:11:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>想在replit中使用Chatgpt 3.5 Turbo模板但无法使用</title>
+      <link>https://community.openai.com/t/wanna-use-chatgpt-3-5-turbo-template-in-replit-but-cant-use/606946#post_1</link>
+      <description><![CDATA[出现错误，表示已达到配额，因此无法进一步使用模板。尽早需要解决方案，以便模板可以正常使用。]]></description>
+      <guid>https://community.openai.com/t/wanna-use-chatgpt-3-5-turbo-template-in-replit-but-cant-use/606946#post_1</guid>
+      <pubDate>Tue, 30 Jan 2024 03:10:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>Meta 免费的 Code Llama AI 编程工具缩小了与 GPT-4 的差距？</title>
+      <link>https://community.openai.com/t/meta-s-free-code-llama-ai-programming-tool-closes-the-gap-with-gpt-4/606922#post_2</link>
+      <description><![CDATA[韦斯·罗斯 (Wes Roth) 一如既往地发表了精彩评论，是我最喜欢的 AI YouTube 用户之一。 &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12&quot; title=&quot;:slight_smile: “宽度=“20”/&gt;
+我正在写一篇关于代码 llama 70b 的博客文章，并将在今天晚些时候对其进行测试。
+我们最近从 OpenAI 那里听到了很多关于提高编码能力的信息吗？]]></description>
+      <guid>https://community.openai.com/t/meta-s-free-code-llama-ai-programming-tool-closes-the-gap-with-gpt-4/606922#post_2</guid>
+      <pubDate>Tue, 30 Jan 2024 03:09:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 操作。 Oauth 需要附加参数吗？</title>
+      <link>https://community.openai.com/t/gpts-actions-oauth-with-required-additional-parameters/507045#post_2</link>
+      <description><![CDATA[出于安全原因，您需要将它们作为邮件发送。添加 openapi 模式将解决这个问题。请 chatgpt 为您的特定 api 提供一个。我遇到了问题，因为我需要传递 client_id - 这应该是允许的，但显然不允许。]]></description>
+      <guid>https://community.openai.com/t/gpts-actions-oauth-with-required-additional-parameters/507045#post_2</guid>
+      <pubDate>Tue, 30 Jan 2024 03:08:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ot：支持本机 Python 脚本的可靠且便宜的网络托管？</title>
+      <link>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_4</link>
+      <description><![CDATA[他们似乎支持开源Python应用程序等。但是如果我不想让我的东西免费呢？]]></description>
+      <guid>https://community.openai.com/t/ot-reliable-and-cheap-web-hosting-that-supports-native-python-scripts/606911#post_4</guid>
+      <pubDate>Tue, 30 Jan 2024 03:08:18 GMT</pubDate>
     </item>
     <item>
       <title>无法上传文件</title>
-      <link>https://community.openai.com/t/unable-to-upload-documents/605451?page=2#post_39</link>
-      <description><![CDATA[我在两天内遇到了这个上传问题。对于json文件尝试了很多次。]]></description>
-      <guid>https://community.openai.com/t/unable-to-upload-documents/605451?page=2#post_39</guid>
-      <pubDate>Tue, 30 Jan 2024 01:00:43 GMT</pubDate>
+      <link>https://community.openai.com/t/unable-to-upload-documents/605451?page=3#post_41</link>
+      <description><![CDATA[刚刚注意到我终于可以将 PDF 文档上传到 ChatGPT。看起来 OpenAI 已经解决了这个问题。]]></description>
+      <guid>https://community.openai.com/t/unable-to-upload-documents/605451?page=3#post_41</guid>
+      <pubDate>Tue, 30 Jan 2024 03:02:52 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成 API 未返回响应</title>
-      <link>https://community.openai.com/t/chat-completions-api-not-returning-a-reponse/606602#post_5</link>
-      <description><![CDATA[嗯。对困惑感到抱歉。我知道我正在查询 api 而不是 chatgpt premium。我想表达的是，如果我有保费，我很可能会得到我的小问题的答案。尽管如此，我确实喜欢尝试为自己工作。我会检查一下操场，看看是否能想出解决方案。谢谢！！]]></description>
-      <guid>https://community.openai.com/t/chat-completions-api-not-returning-a-reponse/606602#post_5</guid>
-      <pubDate>Tue, 30 Jan 2024 01:00:11 GMT</pubDate>
+      <title>函数 VS 工具 - 有什么区别？</title>
+      <link>https://community.openai.com/t/functions-vs-tools-what-is-the-difference/603277#post_3</link>
+      <description><![CDATA[我刚刚在这里找到了答案：https://platform.openai .com/docs/api-reference/chat/create
+函数已被弃用，工具才是前进的方向。
+工具：
+模型可能调用的工具列表。目前，仅支持函数作为工具。使用它来提供模型可以为其生成 JSON 输入的函数列表。
+在响应对象中还有一个新的 finish_reason “tool_calls”，其中还提到了已弃用的 function_call。
+似乎大多数食谱都已更新，但指南还没有更新还没有。]]></description>
+      <guid>https://community.openai.com/t/functions-vs-tools-what-is-the-difference/603277#post_3</guid>
+      <pubDate>Tue, 30 Jan 2024 02:59:55 GMT</pubDate>
     </item>
     <item>
-      <title>我的帐户被错误终止，客户服务一直忽略我的恢复请求</title>
-      <link>https://community.openai.com/t/my-account-was-mistakenly-terminated-and-customer-service-has-been-ignoring-my-recovery-requests/606843#post_1</link>
-      <description><![CDATA[1 月 21 日，我收到了两封来自 OpenAI 的电子邮件，表示我的 GPT API 和 ChatGPT 使用权限已被终止，我的帐户也已被终止。我无法登录或导出我的历史记录。
-我认为此帐户终止是一个错误。我已经使用 OpenAI 的服务一年了，从来没有遇到过任何问题。因此，我按照电子邮件和在线指南中的说明通过帮助中心和电子邮件提交恢复帐户的请求。
-1 月 23 日，帮助中心代表联系了我，但只是重复说他们认为我参与了可疑的帐户活动，并没有提供任何进一步的信息。
-从那时起，我一直试图联系支持团队以推动帐户恢复过程，但我的所有消息都被忽略。我可以看到支持团队在线，但我的消息仍然是“尚未看到”。
-我的帐户被暂停已经一周了，我还没有收到 Plus 订阅的退款或剩余的 API 余额。我的开发工作已被搁置，我无法导出我的历史记录。
-该帐户对我来说非常重要，我没有违反任何使用政策或从不受支持的位置访问 API。我愿意尽我所能配合帐户恢复过程。但现在，这个进程被搁置了。
-有没有其他人遇到过类似的情况？
-我怎样才能继续这个过程？
-有人能真正帮助我吗？]]></description>
-      <guid>https://community.openai.com/t/my-account-was-mistakenly-terminated-and-customer-service-has-been-ignoring-my-recovery-requests/606843#post_1</guid>
-      <pubDate>Tue, 30 Jan 2024 00:50:34 GMT</pubDate>
+      <title>Dalle3 API 内存/历史记录</title>
+      <link>https://community.openai.com/t/dalle3-api-memory-history/606918#post_4</link>
+      <description><![CDATA[是的，它通过 DALLE3 的 API 是无状态的]]></description>
+      <guid>https://community.openai.com/t/dalle3-api-memory-history/606918#post_4</guid>
+      <pubDate>Tue, 30 Jan 2024 02:56:22 GMT</pubDate>
     </item>
     <item>
-      <title>使用几周后的 Assistant API 改进反馈</title>
-      <link>https://community.openai.com/t/assistants-api-improvements-feedback-after-a-few-weeks-using-it/606800#post_3</link>
-      <description><![CDATA[嗨@thibauld，欢迎！
-我对你帖子中的每一点都有共鸣。
-关于#3不完整的第三方库支持，您是否听说过或考虑过使用马文 ?
-值得注意的是，我认为他们的助手和应用程序工具包值得一看。它们都是 OpenAI 助手 API 的包装器，旨在改善开发体验。
-请注意，除了复制粘贴文档中的示例之外，我没有使用这两个工具包的丰富经验。
-干杯！]]></description>
-      <guid>https://community.openai.com/t/assistants-api-improvements-feedback-after-a-few-weeks-using-it/606800#post_3</guid>
-      <pubDate>Tue, 30 Jan 2024 00:45:11 GMT</pubDate>
+      <title>Dalle3 API 内存/历史记录</title>
+      <link>https://community.openai.com/t/dalle3-api-memory-history/606918#post_3</link>
+      <description><![CDATA[我自己的应用程序使用 dalle3 的 api。好像没有记忆了]]></description>
+      <guid>https://community.openai.com/t/dalle3-api-memory-history/606918#post_3</guid>
+      <pubDate>Tue, 30 Jan 2024 02:53:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
