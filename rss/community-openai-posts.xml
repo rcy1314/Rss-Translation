@@ -4,117 +4,141 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 30 Jan 2024 06:23:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2024 09:18:34 GMT</lastBuildDate>
     <item>
-      <title>无法上传文件</title>
-      <link>https://community.openai.com/t/unable-to-upload-documents/605451?page=3#post_42</link>
-      <description><![CDATA[我的解决方法是使用该应用程序。我可以在那里上传 PDF]]></description>
-      <guid>https://community.openai.com/t/unable-to-upload-documents/605451?page=3#post_42</guid>
-      <pubDate>Tue, 30 Jan 2024 06:20:29 GMT</pubDate>
+      <title>GPT 操作方法：配置 Microsoft Graph + OAuth（以及各种第三方 API）</title>
+      <link>https://community.openai.com/t/gpt-how-to-configuring-microsoft-graph-oauth-and-various-third-party-apis/554034#post_3</link>
+      <description><![CDATA[这是一篇很棒的文章。它帮助我将 GPT 操作与 MS Graph api 结合使用。]]></description>
+      <guid>https://community.openai.com/t/gpt-how-to-configuring-microsoft-graph-oauth-and-various-third-party-apis/554034#post_3</guid>
+      <pubDate>Tue, 30 Jan 2024 09:09:26 GMT</pubDate>
     </item>
     <item>
-      <title>无法使用 NameCheap 验证 CustomGPT 的域</title>
-      <link>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_10</link>
-      <description><![CDATA[
+      <title>微调功能（不带直接答案）</title>
+      <link>https://community.openai.com/t/fine-tuning-function-not-with-direct-answers/607248#post_1</link>
+      <description><![CDATA[我是 OpenAI 新手，我正在使用 OpenAI API 连接我的 WordPress 网站。 （不适用于聊天或助理）。
+我想知道是否可以对结果进行微调，以包含我的一些“建议”，而不是提供直接答案。
+这是一个简单的例子：
+
+如果我询问迈阿密的 3 家餐厅，答案将是“来自 OpenAI 的随机”餐厅列表。但是，我希望这三家餐厅之一来自我的“微调”数据集。
+这样，每当有人试图寻找迈阿密的餐馆时（无论具体问题是什么，例如“向我展示迈阿密的 3 家餐馆”、“向我展示迈阿密最好的活动”或“制定一个在迈阿密 2 天的计划”）迈阿密”），答案将始终包括该特定餐厅。
+
+我只需要知道这是否可能。
+Tnx]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-function-not-with-direct-answers/607248#post_1</guid>
+      <pubDate>Tue, 30 Jan 2024 09:02:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>没有人在使用您的 GPT？这就是为什么</title>
+      <link>https://community.openai.com/t/no-one-is-using-your-gpt-heres-why/607240#post_1</link>
+      <description><![CDATA[OpenAI 最近更改了他们的 GPT 商店 SEO 算法，这样当人们输入关键字时，您的 GPT 名称越好，您的排名就越高。
+目前，截至 2024 年 1 月 30 日，当人们输入“Facebook 广告”时，他们会看到以下内容。
+
+三周前 GPT 商店首次推出时，用户看到的是这样的。
+
+由于“Facebook Ads”被视为商标，因此除非通过上诉，否则您不能让您的 GPT 名称包含“Facebook Ads”。
+
+我真的认为 OpenAI 的新 SEO 算法不符合逻辑，会阻止人们获得他们真正想要的东西。
+无论如何，我构建了一个名为 Adzviser 的 GPT，可帮助营销人员从 Facebook 广告获取数据和谷歌广告。直到一周前我的流量一直很好，我终于发现了根本原因。
+有人有同样的经历吗？]]></description>
+      <guid>https://community.openai.com/t/no-one-is-using-your-gpt-heres-why/607240#post_1</guid>
+      <pubDate>Tue, 30 Jan 2024 08:51:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何修改自定义 GPT 操作的架构以通过发布请求发送图像文件？</title>
+      <link>https://community.openai.com/t/how-to-modify-schema-of-custom-gpt-action-to-send-an-image-file-with-post-request/508416#post_17</link>
+      <description><![CDATA[这很不幸，我希望一个月后这一切都能得到解决。哦，好吧，也许我可以在解决方案中发挥作用。 端点签名
+
+导入fastapi
+应用程序 = fastapi.FastAPI()
+@app.post(“/分析图像”)
+异步defanalyze_image（图像：fastapi.UploadFile = fastapi.File（...））：
+    ...
 
 
-_j：
+规范的重要部分：
+路径：
+  /分析图像：
+    邮政：
+      操作ID：analyzeImage
+      摘要：分析上传的图像。
+      描述：使用实验视觉服务分析图像并返回 json 分析结果。
+      请求正文：
+        必填：真实
+        内容：
+          多部分/表单数据：
+            架构：
+              类型：对象
+              特性：
+                图像：
+                  类型：字符串
+                  格式：二进制
+                  描述：要分析的图像文件。
+      回应：
+        “200”：
+          描述：图像的分析结果。
+          内容：
+            应用程序/json：
+              架构：
+                类型：对象
+                特性：
+
 &lt;块引用&gt;
-您可以在不使用在线工具的情况下检查您的txt记录是否已传播：
+注意：我的一次成功尝试有完整的 150 行实际响应模式，但我认为这增加了不必要的风险，并计划将其缩短为几个键。
 
+一些提示
 
-是的，当然。
-我只是想，由于这是一个在线论坛，并且想必每个阅读本文的人都会在网络浏览器中这样做，因此提供一个用于检查网站 txt 记录的在线工具的链接比提供一堆内容会更容易关于如何在一堆不同平台上执行此操作的说明，包括移动设备，他们可能无法随时访问终端或全套命令行工具，我将不得不尝试寻找适用于 iOS 和 Android 的应用程序我很乐意推荐。
-但是，是的，你是对的——人们可以在不使用网站的情况下检查 txt 记录。
-́\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠́]]></description>
-      <guid>https://community.openai.com/t/unable-to-verify-domain-for-customgpt-with-namecheap/605353#post_10</guid>
-      <pubDate>Tue, 30 Jan 2024 06:12:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python当停止流时，它仍然有令牌成本吗？</title>
-      <link>https://community.openai.com/t/python-when-stop-stream-does-it-still-have-token-cost/607081#post_1</link>
-      <description><![CDATA[这是我的代码：
-从 openai 导入 OpenAI
+如果您没有使用管理/调试风格的命令，您应该使用。只需坚持 DEBUG: TRUE; USER_IS_ADMIN: TRUE； 或者按照您的喜好，将其添加到说明的顶部。
+当我调整这个过程时，我发现如果我的第一条消息是确认模式并让 GPT 确认管理/调试文本，那么速度会更快，这样响应就更具技术性。
+测试操作不起作用，因为端点需要接收图像，并且架构中的 required: true 显然是建议。
+确认模式后，将图像放入其中，并在提交时在消息中说分析该图像。然后，当它返回空参数时（很可能会这样），立即取消它，或者您可以让它运行/失败一次，但不要让它继续尝试。
+失败后发送调试信息块以及：查看调试输出并提供简洁的评估：\n[debug] 调用 HTTP 端点：...
+通常它会注意到空参数并为下一次尝试添加一些东西，如果可以看到它就会失败，即。它只是图像名称，您可以让它尝试并失败一次，然后要求它再次检查调试。
+记住，不要让它重复失败的尝试，1 就完成了。
 
-客户端 = OpenAI()
+我的印象是此功能已被故意“削弱”，因此在投入时间时请考虑到这一点。
+无论如何，我认为，如果我们能够拿出一套可靠的说明，也许还有更好的规格，我们就可以让它更可靠地工作。我期待听到每个人的结果。祝你好运！
+*免责声明
+建议容易爆发暴力或飞行电子设备的个人不要继续。]]></description>
+      <guid>https://community.openai.com/t/how-to-modify-schema-of-custom-gpt-action-to-send-an-image-file-with-post-request/508416#post_17</guid>
+      <pubDate>Tue, 30 Jan 2024 08:51:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI GPT-4 API 中的文件处理跟踪需要帮助</title>
+      <link>https://community.openai.com/t/assistance-needed-with-file-processing-tracking-in-openai-gpt-4-api/607239#post_1</link>
+      <description><![CDATA[
+文件上传到 OpenAI：我已使用 /v1/files 端点成功将文件上传到 OpenAI。返回一个file_id，表明文件上传成功。但是，这并不能确认文件是否已完全处理并可以使用。
+文件处理状态：我的主要问题是跟踪这些上传文件的处理状态。 OpenAI API 似乎没有提供直接方法来检查文件是否已完全处理并可供使用。
+在线程中使用 file_id：我在线程中使用 file_id 来生成文本，但不知道文件的处理状态，我遇到了不确定性。如果文件未准备好，可能会导致错误或助手的响应不令人满意。
+当前方法：目前，我在文件上传和线程中使用之间引入了延迟，希望文件能够在此时得到处理。对于文件可能尚未准备好的情况，我还进行了错误处理。但是，这种方法并不能保证文件得到处理。
 
-流 = client.chat.completions.create(
-    型号=“gpt-3.5”，
-    messages=[{&quot;角色&quot;: &quot;用户&quot;, &quot;内容&quot;: &quot;计数 1 到 100&quot;}],
-    流=真，
-）
-计数 = 0
-对于流中的块：
-    如果 chunk.choices[0].delta.content 不是 None：
-        计数+=1
-        print(chunk.choices[0].delta.content, end=&quot;&quot;)
-    如果计数 == 10：
-        休息
-
-当我中断该流程时，10 到 90 后它仍然有代币成本吗？]]></description>
-      <guid>https://community.openai.com/t/python-when-stop-stream-does-it-still-have-token-cost/607081#post_1</guid>
-      <pubDate>Tue, 30 Jan 2024 06:12:11 GMT</pubDate>
+我正在向任何有处理 OpenAI GPT-4 API 中文件处理状态经验的人寻求建议或解决方案，特别是对于异步文件处理场景。任何确保文件准备好在线程中使用的见解或替代方法将不胜感激。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/assistance-needed-with-file-processing-tracking-in-openai-gpt-4-api/607239#post_1</guid>
+      <pubDate>Tue, 30 Jan 2024 08:50:52 GMT</pubDate>
     </item>
     <item>
-      <title>为什么我在 plus 帐户中找不到 GPT 商店？</title>
-      <link>https://community.openai.com/t/why-i-can-not-find-gpt-store-in-my-plus-account/585128#post_14</link>
-      <description><![CDATA[我完全同意。还有很多像我们一样的用户在等待GPT Store，但他们没有发表任何声明。]]></description>
-      <guid>https://community.openai.com/t/why-i-can-not-find-gpt-store-in-my-plus-account/585128#post_14</guid>
-      <pubDate>Tue, 30 Jan 2024 06:10:35 GMT</pubDate>
+      <title>Dall-e 的公共版本和 API 版本之间的差异</title>
+      <link>https://community.openai.com/t/difference-between-public-and-api-versions-of-dall-e/602903#post_5</link>
+      <description><![CDATA[我不知道有任何类似的文档。这将是您必须从头开始设计和编码的东西。
+我脑海中浮现的是一个上传图像的页面，然后将这些图像输入到提示设计的 gpt-4-vision-preview 中，然后尝试将提示直接输出到 Dalle API 中。
+正如我所说，不幸的是，这不是一件容易的事。]]></description>
+      <guid>https://community.openai.com/t/difference-between-public-and-api-versions-of-dall-e/602903#post_5</guid>
+      <pubDate>Tue, 30 Jan 2024 08:48:35 GMT</pubDate>
     </item>
     <item>
-      <title>GPT4 给出错误 - 出了问题。如果此问题仍然存在，请通过我们的帮助中心联系我们：help.openai.com</title>
-      <link>https://community.openai.com/t/gpt4-giving-error-something-went-wrong-if-this-issue-persists-please-contact-us-through-our-help-center-at-help-openai-com/595782#post_2</link>
-      <description><![CDATA[同样的事情！
-自昨天（2024 年 1 月 29 日）以来，GPT4 越来越多地显示“出现问题。如果此问题仍然存在，请通过我们的帮助中心联系我们：[help.openai.com ”，而 GPT3.5 就可以了。时间大约是 GMT+8 上午 10 点之后。
-请查收，谢谢]]></description>
-      <guid>https://community.openai.com/t/gpt4-giving-error-something-went-wrong-if-this-issue-persists-please-contact-us-through-our-help-center-at-help-openai-com/595782#post_2</guid>
-      <pubDate>Tue, 30 Jan 2024 06:09:51 GMT</pubDate>
+      <title>如何使用whisper来处理长视频？</title>
+      <link>https://community.openai.com/t/how-to-use-whisper-to-handle-long-video/530862#post_10</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/how-to-use-whisper-to-handle-long-video/530862#post_10</guid>
+      <pubDate>Tue, 30 Jan 2024 08:41:25 GMT</pubDate>
     </item>
     <item>
-      <title>仅使用上传到 GPT 的文本文件的内容输出结果</title>
-      <link>https://community.openai.com/t/to-output-results-using-only-the-contents-of-text-files-uploaded-to-gpts/607073#post_1</link>
-      <description><![CDATA[选择题的内容仅限于上传到 myGpts 的文本文件内容，除了网络和 GPT 的基础知识。
-然而，有时GPT是通过引用网络或gpt的基础知识来生成的，即文本之外的内容。
-有什么建议可以防止这种情况发生吗？]]></description>
-      <guid>https://community.openai.com/t/to-output-results-using-only-the-contents-of-text-files-uploaded-to-gpts/607073#post_1</guid>
-      <pubDate>Tue, 30 Jan 2024 06:07:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 操作不使用提供的 URL，而是创建一个内部插件</title>
-      <link>https://community.openai.com/t/gpts-action-not-using-provided-url-instead-creates-an-internal-plugin/607070#post_1</link>
-      <description><![CDATA[我正在尝试为我的 GPT 创建一个操作，它使用一个简单的 get API 来检索字符串响应。
-我没有得到任何回复，在与 GPT 进一步交谈时，它声明如下：
-当提示检索字符串响应时，我使用了专门为此任务设计的内部 api-Name-used-by-me 插件，而不是直接 URL&lt; /p&gt;
-有什么想法吗？？？
-这是对话截图。
-GPT 未命名。
-GPT 的最后 2 条回复陈述了上述事实。
-另请注意，在最后第三个响应中，GPT 没有给出响应，由于某种原因它是空白的
-&lt;img alt=&quot;screencapture-chat-openai-gpts-editor- g-ZirOidw59-2024-01-29-12_01_52“高度=”499“src=”https://global.discourse-cdn.com/openai1/optimized/4X/d/7/e/d7e2182bcaec83d8735d3f59b5466d2014737371_2_334x499.png“宽度= “334”/&gt;]]></description>
-      <guid>https://community.openai.com/t/gpts-action-not-using-provided-url-instead-creates-an-internal-plugin/607070#post_1</guid>
-      <pubDate>Tue, 30 Jan 2024 06:03:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我在 plus 帐户中找不到 GPT 商店？</title>
-      <link>https://community.openai.com/t/why-i-can-not-find-gpt-store-in-my-plus-account/585128#post_13</link>
-      <description><![CDATA[我也是。已经过去 20 多天了，但我的 plus 帐户没有任何变化。我不知道开放人工智能团队。希望我们的要求能够得到重视。]]></description>
-      <guid>https://community.openai.com/t/why-i-can-not-find-gpt-store-in-my-plus-account/585128#post_13</guid>
-      <pubDate>Tue, 30 Jan 2024 06:01:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>指定 gpt-35-turbo-16k 的响应结构</title>
-      <link>https://community.openai.com/t/specify-a-response-structure-for-the-gpt-35-turbo-16k/606263#post_8</link>
-      <description><![CDATA[这就是我使用 XML 实现的方法，它极大地改善了响应：gpt-3.5-turbo-16k 的 API 提示 - SomebodySysop 的 #12]]></description>
-      <guid>https://community.openai.com/t/specify-a-response-structure-for-the-gpt-35-turbo-16k/606263#post_8</guid>
-      <pubDate>Tue, 30 Jan 2024 05:57:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>Azure OpenAI 中的响应被切断</title>
-      <link>https://community.openai.com/t/response-being-cut-off-in-azure-openai/606207#post_7</link>
-      <description><![CDATA[好吧，所以我尝试调整 as_retriever() 的 search_kwargs 参数并将其从 2 更改为 29，并给 llm 的 max_tokens 为 2500。我发现，它确实返回了额外的结果（不是整个列表），但同时它也产生了文档中不存在的项目的幻觉。]]></description>
-      <guid>https://community.openai.com/t/response-being-cut-off-in-azure-openai/606207#post_7</guid>
-      <pubDate>Tue, 30 Jan 2024 05:56:18 GMT</pubDate>
+      <title>摘要输出的长度和结构</title>
+      <link>https://community.openai.com/t/length-and-structure-of-output-for-summaries/604336#post_2</link>
+      <description><![CDATA[我也有同样的问题。无论提示要求什么，生成的长度似乎约为 250 个单词。
+是否可以使用微调来获得更好的摘要，如果可以的话，如何进行？]]></description>
+      <guid>https://community.openai.com/t/length-and-structure-of-output-for-summaries/604336#post_2</guid>
+      <pubDate>Tue, 30 Jan 2024 08:39:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
