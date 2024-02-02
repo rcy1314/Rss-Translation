@@ -4,135 +4,216 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 02 Feb 2024 15:19:33 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Feb 2024 18:22:11 GMT</lastBuildDate>
     <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=19#post_383</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=19#post_383</guid>
-      <pubDate>Fri, 02 Feb 2024 15:18:26 GMT</pubDate>
+      <title>流式传输 Markdown 或其他格式的文本</title>
+      <link>https://community.openai.com/t/streaming-markdown-or-other-formatted-text/510268#post_4</link>
+      <description><![CDATA[我没有找到真正的流解决方案，但我实现的解决方法是重新渲染并清理每个传入块上完成的全部内容。这是一个很好的解决方法，因为代码很简单，而且大多数时候看起来都很棒，但有几个问题：
+
+
+如果降价跨越多个块，它会在下一个块进入之前短暂呈现为未修饰的文本。这在视觉上困扰着我，但没有用户抱怨它，所以我的假设是对于大多数用户来说这可能是一个小烦恼这还没有达到投诉的程度。我们暂时可以容忍。
+
+
+这种方法的计算效率很低。也就是说，我们没有任何关于用户浏览器使用过多 CPU 的抱怨，并且在我们自己的分析中，这并不重要。也就是说，明显低效的实现会分散代码的注意力 - 几乎每个看过它的开发人员都试图“修复”它，但到目前为止还没有成功。
+
+
+同样，将部分 Markdown 渲染为 HTML 显然会分散我们安全编码人员的注意力。虽然（到目前为止）没有人发现漏洞，但我们花了很多时间来分析它。我们看过它的每个人最终都认为他们对此感到满意——但就像效率低下的问题一样，这对几乎所有看过它的人来说都是一种干扰。解析部分内容是一种可以暴露注入和过度/不足运行漏洞的通用模式。
+
+
+这是我们的 Vue3 组件的精简版本。关于上述评论，第 4 行的 v-sanitize 是对 vue-sanitize-directive，并且（Vue 特定的）summaryMarkdown 每次 events.onmessage 更新 summary.value 时都会重新计算.
+&lt;模板&gt;
+  &lt;div class=&quot;card w-100&quot;&gt;
+    &lt;div class=&quot;card-body w-100&quot;&gt;
+      &lt;span v-sanitize=&quot;summaryMarkdown&quot;&gt;&lt;/span&gt;
+    
+  
+&lt;/模板&gt;
+
+&lt;脚本设置 lang=&quot;ts&quot;&gt;
+从&#39;vue&#39;导入{计算，参考，观察}；
+从“markdown-it”导入 MarkdownIt；
+从“./utils”导入{base64Decode}；
+
+const 道具 = DefineProps&lt;{
+  流Url：字符串|不明确的，
+}&gt;();
+
+const 摘要 = ref(&#39;&#39;);
+const isStreaming = ref();
+
+const markdown = new MarkdownIt();
+const 摘要Markdown = 计算(() =&gt; {
+  if (!summary.value) 返回；
+  返回 markdown.render(summary.value);
+})
+
+函数 startStream(streamUrl: 字符串) {
+  isStreaming.value = true;
+  摘要.值 = &#39;&#39;;
+
+  const events = new EventSource(streamUrl);
+
+  events.onmessage = (事件) =&gt; {
+    摘要.值 = 摘要.值.concat(base64Decode(event.data));
+  };
+
+  events.onerror = (事件) =&gt; {
+    console.error(`EventSource.onerror: ${JSON.stringify(event, null, 2)}`);
+  }
+  events.addEventListener(&quot;控制&quot;, (事件) =&gt; {
+    const control = JSON.parse(atob(event.data));
+    console.log(`传入控制命令：${JSON.stringify(control, null, 2)}`);
+    开关（控制.命令）{
+      案例“完成”：
+        events.close();
+        休息;
+      默认：
+        console.log(&#39;未知的 SSE 命令。&#39;);
+    }
+  })
+};
+
+
+watch(() =&gt; props.streamUrl, () =&gt; {
+  if (props.streamUrl) {
+    startStream(props.streamUrl);
+  }
+}, {立即: true});
+
+&lt;/脚本&gt;
+]]></description>
+      <guid>https://community.openai.com/t/streaming-markdown-or-other-formatted-text/510268#post_4</guid>
+      <pubDate>Fri, 02 Feb 2024 18:20:51 GMT</pubDate>
     </item>
     <item>
-      <title>为什么聊天完成 API 在生成过程中有时会停止？最大代币数量不是问题</title>
-      <link>https://community.openai.com/t/why-does-chat-completion-api-stop-sometimes-during-generation-max-tokens-not-an-issue/611635#post_1</link>
+      <title>如何通过我的自定义 GPT 获利</title>
+      <link>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_40</link>
+      <description><![CDATA[盈利的最佳方式是将您的 GPT 转换为助手，将其托管在您的网站上，以便任何人都可以使用它，然后通过 Stripe 添加付费专区。当然，OpenAI 现在会为您发送的每条消息收取费用。像 baccbot 这样的 GPT 已经在这样做，并且有像 agenthost 这样的服务可以让您无需编码即可完成此操作。
+
+  &lt;标题类=“来源”&gt;
+      
+agenthost.ai
+
+
+  &lt;文章类=“onebox-body”&gt;
+    BaccBotGPT
+学习助理可以生成国际文凭 SL 和 HL 科目的练习题，允许学生输入答案，然后根据 IB 评分框架对答案进行评分。
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_40</guid>
+      <pubDate>Fri, 02 Feb 2024 18:17:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_44</link>
+      <description><![CDATA[我今天开始遇到这个问题。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_44</guid>
+      <pubDate>Fri, 02 Feb 2024 18:16:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 操作纲要 - 免费和开源 GPT 操作列表</title>
+      <link>https://community.openai.com/t/gpt-actions-compendium-list-of-free-and-open-source-gpt-actions/611847#post_1</link>
+      <description><![CDATA[这是一个 GitHub 存储库，其中包含多个现成的操作架构，您可以添加到 GPT 中。
+
+  &lt;标题类=“来源”&gt;
+      
+GitHub
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+GitHub - bapo2/gpt-actions：旨在工作的操作模式概要...
+旨在与 OpenAI 的“自定义 GPT”配合使用的操作模式概要。 - GitHub - bapo2/gpt-actions: 旨在与 OpenAI 的“自定义...”配合使用的动作模式纲要
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/gpt-actions-compendium-list-of-free-and-open-source-gpt-actions/611847#post_1</guid>
+      <pubDate>Fri, 02 Feb 2024 18:15:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>总结书籍的新方法</title>
+      <link>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_2</link>
+      <description><![CDATA[嗨@Mikiane - 这真的很有趣。去年下半年，我围绕大型文档摘要进行了一些试点工作，其目的与保留文档的整体结构和逻辑类似。对于我一直在构建的其他一些解决方案，我还尝试了主题文本分割，以便将相似的段落聚集在一起，然后进一步处理它们以进行分析。
+你的方法听起来很有趣。
+如果您对此持开放态度，我非常有兴趣进一步联系并交流一些经验和想法。]]></description>
+      <guid>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_2</guid>
+      <pubDate>Fri, 02 Feb 2024 18:02:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用人工智能生成钩针图案</title>
+      <link>https://community.openai.com/t/using-ai-to-generate-crochet-patterns/611835#post_1</link>
+      <description><![CDATA[我是一名中学生。在过去的几个月里，我一直在学习提示和生成多模型人工智能。我也是一名狂热的钩针编织者，我想使用人工智能来生成全新的钩针图案。
+任何人都可以帮助我进行提示并分享其他技巧来帮助我解决这个问题吗？或者将我与其他资源联系起来。]]></description>
+      <guid>https://community.openai.com/t/using-ai-to-generate-crochet-patterns/611835#post_1</guid>
+      <pubDate>Fri, 02 Feb 2024 18:01:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_43</link>
+      <description><![CDATA[我在该线程中的第二篇文章只是为了说另一天仍然遇到这种情况。主要可用性问题，OpenAI。来吧。
+我想知道是否有一个可能的临时解决方法是创建一个通用的自定义 GPT，其唯一真正的自定义是删除允许其使用对话进行训练的复选标记。有人试过这个吗？以后有时间我可能会尝试一下。
+我的工作笔记本电脑上的 convo 历史记录始终处于关闭状态，因为我无权与法学硕士共享工作代码，而且我怀疑许多其他人也有类似的情况。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_43</guid>
+      <pubDate>Fri, 02 Feb 2024 17:53:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_42</link>
+      <description><![CDATA[我也有同样的问题。希望尽快修复。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=3#post_42</guid>
+      <pubDate>Fri, 02 Feb 2024 17:48:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>MindMac - 适用于 macOS 的更好的隐私优先、本机 ChatGPT 应用程序。新功能：GPT-4-Vision 和互联网浏览</title>
+      <link>https://community.openai.com/t/mindmac-better-privacy-first-native-chatgpt-app-for-macos-new-gpt-4-vision-and-internet-browsing/288348?page=3#post_46</link>
       <description><![CDATA[大家好，
-我有一个应用程序，它使用 OpenAI Node SDK 以及 openAI API 和 GPT-4 模型来生成短篇故事。从输入到输出累计总token数平均约为1800-2000个token。问题在于，聊天完成 API 往往会在文本流期间在故事结束时终止/切断。由于最大输出代币为4000+。我不确定如果输出约为 1800 个令牌，为什么聊天完成会在生成过程中停止。
-有人对如何调试这个有任何建议或指导吗？故事结尾处是否有可能导致 API 停止（即 STOP SEQUENEC 参数）的关键字或短语（即“THE END”）。 ？]]></description>
-      <guid>https://community.openai.com/t/why-does-chat-completion-api-stop-sometimes-during-generation-max-tokens-not-an-issue/611635#post_1</guid>
-      <pubDate>Fri, 02 Feb 2024 15:17:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>温度如何影响微调模型？</title>
-      <link>https://community.openai.com/t/how-temperature-impacts-fine-tuned-models/611584#post_3</link>
-      <description><![CDATA[明白了！
-此外，在微调时我们是否始终必须为每个对话使用相同的系统消息？
-微调时系统消息的一般作用是什么？]]></description>
-      <guid>https://community.openai.com/t/how-temperature-impacts-fine-tuned-models/611584#post_3</guid>
-      <pubDate>Fri, 02 Feb 2024 15:17:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已经在科索沃共和国开设了 CHAT GPT 帐户，我可以使用 OPEN AI API 服务吗？</title>
-      <link>https://community.openai.com/t/i-have-opened-a-chat-gpt-account-from-the-republic-of-kosova-can-i-use-open-ai-api-services/611621#post_2</link>
-      <description><![CDATA[嗨！
-根据支持的国家/地区列表，从今天开始您将无法使用这些服务。
-抱歉，我没有更好的消息要告诉你。]]></description>
-      <guid>https://community.openai.com/t/i-have-opened-a-chat-gpt-account-from-the-republic-of-kosova-can-i-use-open-ai-api-services/611621#post_2</guid>
-      <pubDate>Fri, 02 Feb 2024 15:15:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>数据不足时如何完善提示</title>
-      <link>https://community.openai.com/t/how-to-refine-prompt-when-there-is-lack-of-data/611399#post_11</link>
-      <description><![CDATA[是的，我明白你的意思，但不幸的是，输出仍然不符合预期，你还有其他建议吗？]]></description>
-      <guid>https://community.openai.com/t/how-to-refine-prompt-when-there-is-lack-of-data/611399#post_11</guid>
-      <pubDate>Fri, 02 Feb 2024 15:12:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>提高 DALL-E 中多个小字符的插图质量</title>
-      <link>https://community.openai.com/t/improving-the-quality-of-illustrations-with-multiple-small-characters-in-dall-e/611626#post_1</link>
-      <description><![CDATA[我正在使用 DALL-E 3 生成插图，其中在一张图像中包含多个小字符，但它们显示出来是扭曲的。我该如何改进这个？我正在寻找有关如何完善提示的技巧或任何有助于生成具有多个字符且不失真的质量更高的图像的技术。任何建议或最佳实践将不胜感激。
+我刚刚发布了 MindMac v1.8.20  以提高整体应用程序性能并支持 Ollama LLaVA。现在用户可以上传图像并使用本地模型来询问有关它们的信息。从该版本开始，新的 OpenAI 模型也可在 MindMac 上使用。
+请阅读下面的完整变更日志。
+ 新
 
-致以诚挚的问候]]></description>
-      <guid>https://community.openai.com/t/improving-the-quality-of-illustrations-with-multiple-small-characters-in-dall-e/611626#post_1</guid>
-      <pubDate>Fri, 02 Feb 2024 15:11:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已经在科索沃共和国开设了 CHAT GPT 帐户，我可以使用 OPEN AI API 服务吗？</title>
-      <link>https://community.openai.com/t/i-have-opened-a-chat-gpt-account-from-the-republic-of-kosova-can-i-use-open-ai-api-services/611621#post_1</link>
-      <description><![CDATA[大家好，我已经在科索沃共和国创建/开设了一个帐户，我是否可以使用我的帐户来利用 API 服务，或者由于不支持该帐户而被阻止，并且存在终止我的帐户的风险帐户？
-我想将它用于内部研讨会，并展示使用这些 API 进行智能编码和智能测试的巨大可能性。]]></description>
-      <guid>https://community.openai.com/t/i-have-opened-a-chat-gpt-account-from-the-republic-of-kosova-can-i-use-open-ai-api-services/611621#post_1</guid>
-      <pubDate>Fri, 02 Feb 2024 15:07:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过我的自定义 GPT 获利</title>
-      <link>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_39</link>
-      <description><![CDATA[抱歉，这里是“非开发人员”，但这有多困难？ OpenAI 是如何运作的？如果您设置了付费墙，客户会向您付费，但是您使用 OpenAI API 需要支付任何费用吗？]]></description>
-      <guid>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_39</guid>
-      <pubDate>Fri, 02 Feb 2024 15:06:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>CustomGPT 一个操作最多可进行 30 次操作</title>
-      <link>https://community.openai.com/t/customgpt-limitation-of-30-operation-for-an-action/611335#post_4</link>
-      <description><![CDATA[
+增强了应用的整体性能，提供更流畅的用户体验，包括改进的滚动、更快的搜索功能和无缝的对话切换。
+添加了新的 OpenAI 模型：gpt-4-0125-preview、gpt-4-turbo-preview 和 gpt-3.5-turbo-0125。
+添加了新的 Perplexity 模型：mixtral-8x7b-instruct。
+引入了快速操作图表功能，使用户能够快速生成图表。
+修改了左侧边栏，以记住重新打开应用时它所处的最后状态，确保无缝的用户体验。
+在左侧边栏引入了一个添加按钮，该按钮会在左侧边栏变窄时出现，让用户可以方便地创建新对话或文件夹。
+为 Ollama LLaVA 模型启用了图像视觉支持，允许用户通过 Ollama 使用本地模型上传图像并询问有关图像的信息。
 
+ 改进
 
-萨姆卡茨：
-&lt;块引用&gt;
-我们如何才能引起 OpenAI 某人的注意并参与其中？
+默认禁用未读通知功能，以防止不必要的通知。
 
-
-很难得到 OpenAI 员工的关注。]]></description>
-      <guid>https://community.openai.com/t/customgpt-limitation-of-30-operation-for-an-action/611335#post_4</guid>
-      <pubDate>Fri, 02 Feb 2024 15:05:29 GMT</pubDate>
+ 已修复
+解决了将文件移动到文件夹时导致崩溃的问题。
+让我们在此处查看并分享您的想法。谢谢大家！]]></description>
+      <guid>https://community.openai.com/t/mindmac-better-privacy-first-native-chatgpt-app-for-macos-new-gpt-4-vision-and-internet-browsing/288348?page=3#post_46</guid>
+      <pubDate>Fri, 02 Feb 2024 17:47:43 GMT</pubDate>
     </item>
     <item>
-      <title>无法从“transformers”导入名称“GPT4LMHeadModel”</title>
-      <link>https://community.openai.com/t/cannot-import-name-gpt4lmheadmodel-from-transformers/611337#post_5</link>
-      <description><![CDATA[有趣。您能分享一些令人困惑的结果吗？]]></description>
-      <guid>https://community.openai.com/t/cannot-import-name-gpt4lmheadmodel-from-transformers/611337#post_5</guid>
-      <pubDate>Fri, 02 Feb 2024 15:04:58 GMT</pubDate>
+      <title>谁在申请 Converge 2？</title>
+      <link>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=4#post_75</link>
+      <description><![CDATA[恭喜！如果你不问我，他们给你多长时间准备面试？]]></description>
+      <guid>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=4#post_75</guid>
+      <pubDate>Fri, 02 Feb 2024 17:45:40 GMT</pubDate>
     </item>
     <item>
-      <title>我的 GPT，上传多个文件</title>
-      <link>https://community.openai.com/t/my-gpt-uploading-multiple-files/524779#post_11</link>
-      <description><![CDATA[嗨，Vicent，我正在使用 GPT4 构建器为我的工作创建一个研究伙伴。但我无法上传超过 20 个 PDF。 pdf 的平均大小约为 5MB。如果我作为最终用户有 10GB 上限，为什么我会看到此错误。
-我还看到下面的错误“您已达到 GPT-4 的当前使用上限，请在晚上 9:42 后重试。
-
-您能否帮助我理解为什么我会看到这些错误？]]></description>
-      <guid>https://community.openai.com/t/my-gpt-uploading-multiple-files/524779#post_11</guid>
-      <pubDate>Fri, 02 Feb 2024 15:04:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>CustomGPT 一个操作最多可进行 30 次操作</title>
-      <link>https://community.openai.com/t/customgpt-limitation-of-30-operation-for-an-action/611335#post_3</link>
-      <description><![CDATA[同样的问题基本上只接受 30 个路径/端点，无论操作等如何......更糟糕的是你甚至不能将模式拆分为多个操作，它只允许每个域（服务器/URL）1 个模式 - 如何我们引起 OpenAI 的注意来插话吗？]]></description>
-      <guid>https://community.openai.com/t/customgpt-limitation-of-30-operation-for-an-action/611335#post_3</guid>
-      <pubDate>Fri, 02 Feb 2024 15:04:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过我的自定义 GPT 获利</title>
-      <link>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_38</link>
-      <description><![CDATA[我现在正在为我的 2 个 GPT 制定这个策略。我正在关注的一位开发人员告诉我，最好在网站上创建 GPT 的自定义版本，然后收取访问费用。这有道理吗？理想情况下，我想简单地收取访问费用，以便我的客户可以通过连接到我的 API 在他们的网站上拥有“聊天机器人”或“人工智能助手”。这些是一样的东西吗？？这是一项多么艰巨的任务，因为这项工作的报价范围非常广泛。]]></description>
-      <guid>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=2#post_38</guid>
-      <pubDate>Fri, 02 Feb 2024 15:01:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Cheemera v1.1 构建合规性和规则引擎</title>
-      <link>https://community.openai.com/t/building-compliance-and-rule-engines-using-cheemera-v1-1/611610#post_1</link>
-      <description><![CDATA[一个月前，我首次发布了Cheemera，一个自定义 GPT，它使用 ChatGPT 外部的推理引擎来执行复杂的逻辑推导，而标准 ChatGPT 由于幻觉和可变性而在基本用例之外难以处理。
-我从几位伸出援手的社区成员那里得到了非常好的反馈，因此我继续改进Cheemera GPT（现在为 v1.1），使获得有用的结果变得更加容易。我在 GPT 中添加了一个“Quirky Animals”演示，其中包含大量规则，以展示 Cheemera 轻松处理复杂性的能力。
-对于那些构建或寻找与合规性、监管或风险相关的解决方案并需要管理大量规则的影响的人，我很想听听您的反馈并看看我们可以一起做些什么]]></description>
-      <guid>https://community.openai.com/t/building-compliance-and-rule-engines-using-cheemera-v1-1/611610#post_1</guid>
-      <pubDate>Fri, 02 Feb 2024 14:54:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>扩展ChatGPT的演绎和逻辑推理能力</title>
-      <link>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_29</link>
-      <description><![CDATA[一个月前，我首次发布了Cheemera，一个自定义 GPT，它使用 ChatGPT 外部的推理引擎来执行复杂的逻辑推导，而标准 ChatGPT 由于幻觉和可变性而在基本用例之外难以处理。
-我从几位伸出援手的社区成员那里得到了非常好的反馈，因此我继续改进Cheemera GPT（现在为 v1.1），使获得有用的结果变得更加容易。我在 GPT 中添加了一个“Quirky Animals”演示，其中包含大量规则，以展示 Cheemera 轻松处理复杂性的能力。
-对于那些构建或寻找与合规性、监管或风险相关的解决方案并需要管理大量规则的影响的人，我很想听听您的反馈并看看我们可以一起做些什么]]></description>
-      <guid>https://community.openai.com/t/extending-chatgpts-deductive-and-logical-reasoning-capabilities/569484?page=2#post_29</guid>
-      <pubDate>Fri, 02 Feb 2024 14:54:39 GMT</pubDate>
+      <title>Playground 调用函数时出现问题</title>
+      <link>https://community.openai.com/t/playground-issues-calling-function/588433?page=2#post_35</link>
+      <description><![CDATA[@supershaneski，
+你的例子对我有用 &lt;img alt=&quot;:+1:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/+1.png?v=12 “标题=”：+ 1：“宽度=”20“/&gt;
+有任何有关说明详细信息的文档吗？
+连字符的意义是什么 - 如果有的话？
+如何引用检索？
+和“when”、“is not”等是关键字还是简单的英语？
+谢谢
+yk]]></description>
+      <guid>https://community.openai.com/t/playground-issues-calling-function/588433?page=2#post_35</guid>
+      <pubDate>Fri, 02 Feb 2024 17:44:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
