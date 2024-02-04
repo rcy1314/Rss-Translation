@@ -4,69 +4,181 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 04 Feb 2024 18:22:32 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2024 21:14:59 GMT</lastBuildDate>
     <item>
-      <title>旧型号的定价？</title>
-      <link>https://community.openai.com/t/pricing-of-legacy-models/614008#post_1</link>
-      <description><![CDATA[我正在维护 OpenAI API 的客户端，其中包括所有模型的成本估算和价格，每次引入几个新模型和更改价格时我都会感到困惑。 价格降低的新版本 GPT 模型已发布再次宣布，但我不知道遗留模型现在要花多少钱。 定价页面仅列出了一些最新型号。 模型文档更全面，但没有列出价格。
-具体来说，我想知道以下产品的定价：
-
-gpt-3.5-turbo-1106
-gpt-3.5-turbo-0613
-gpt-3.5-turbo-0613-16k
-
-它们的价格是否已与 gpt-3.5-turbo-0125 类似地降低（$0.0005/1K 输入代币 + $0.0015/1K 输出代币）？或者仍然是旧价格（gpt-3.5-turbo-1106：$0.001/1K 输入代币 + $0.002/1K 输出代币，gpt-3.5-turbo-0613：$0.0015/1K 输入代币 + $0.002/1K 输出代币，gpt- 3.5-turbo-0613-16k：$0.003/1K 输入令牌 + $0.004/1K 输出令牌），我只能在 网络存档？这里的一般政策是什么？
-如果您能提供所有旧型号定价的官方文档，我们将不胜感激。显然，如果负责团队的任何人阅读此内容，将此信息添加到定价页面将会很棒。或者理想情况下，只需通过通用模型 API 提供此功能即可。 &lt;img alt=&quot;:smiley:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/smiley.png?v=12&quot; title=&quot;:smiley: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/pricing-of-legacy-models/614008#post_1</guid>
-      <pubDate>Sun, 04 Feb 2024 18:20:50 GMT</pubDate>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=5#post_86</link>
+      <description><![CDATA[也许任何拥有 Plus 订阅并发现自己的工作受到影响的人都应该发送帮助请求，然后按照建议取消订阅。
+并不是说他们一定会回答帮助请求，-他们从昨天起就没有回复我-但至少希望它会记录问题用例的数量并提高请求的紧迫性。
+最有趣的是 OpenAi Status 没有提到任何问题。
+亲切的问候，
+塔索斯]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=5#post_86</guid>
+      <pubDate>Sun, 04 Feb 2024 21:08:09 GMT</pubDate>
     </item>
     <item>
-      <title>在我关闭并重新打开浏览器窗口之前，过去两个小时内无法获得任何提示的响应</title>
-      <link>https://community.openai.com/t/cant-get-a-response-for-any-prompt-for-the-past-two-hours-until-i-close-and-reopen-the-browser-window/613162#post_2</link>
-      <description><![CDATA[看起来又可以工作了。也许他们在我提示时正在实施惰性修复。]]></description>
-      <guid>https://community.openai.com/t/cant-get-a-response-for-any-prompt-for-the-past-two-hours-until-i-close-and-reopen-the-browser-window/613162#post_2</guid>
-      <pubDate>Sun, 04 Feb 2024 18:05:13 GMT</pubDate>
+      <title>助理运行长时间排队 - II</title>
+      <link>https://community.openai.com/t/assistant-run-remains-queued-for-a-long-time-ii/547875?page=2#post_25</link>
+      <description><![CDATA[所以我的问题是我使用API​​为自己开发的用户界面编写了另一个函数，并且我没有更新我的运行状态（类似于文档），这就是为什么状态需要很长时间才能从“排队”更新为“正在进行中”，您可以尝试实现该功能看看是否有效：
+def wait_on_run(运行，线程)：
+    当 run.status == &quot;queued&quot; 或 run.status == &quot;in_progress&quot; 时：
+        # print(&quot;运行仍在进行中，请稍等。&quot;)
+        运行 = client.beta.threads.runs.retrieve(
+            thread_id=线程.id,
+            run_id=运行.id,
+        ）
+        时间.睡眠(1)
+    返回运行
+]]></description>
+      <guid>https://community.openai.com/t/assistant-run-remains-queued-for-a-long-time-ii/547875?page=2#post_25</guid>
+      <pubDate>Sun, 04 Feb 2024 21:03:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法在会话之间创建持久 SQLite 数据库</title>
+      <link>https://community.openai.com/t/unable-to-ocreate-persistent-sqlite-data-base-between-sessions/614150#post_1</link>
+      <description><![CDATA[这不可能是正确的，但我的 plaground 助理刚刚告诉我，我无法长时间拥有持久数据。请参阅下面的回复
+这与我的项目目标不相容。
+---------&gt;
+GPT4：
+很抱歉给您带来麻烦。 SQLite 数据库的创建及其可访问性似乎存在一些问题。很遗憾地通知您，由于当前环境的限制，OpenAI模型目前无法持久存储SQLite数据库。但是，在典型的 python 环境中，上述步骤适用于根据您的请求使用表创建新的 SQLite 数据库。
+您可以在本地设置中执行给定的代码。对于任何混乱或不便，我深表歉意。
+我：
+如何获得一个 OpenAI 环境，让我可以拥有 LLM 可以参考的持久数据？
+GPT4
+对于任何混乱，我深表歉意。目前，OpenAI 的人工智能模型（包括此聊天环境）无法保存持久数据或保留会话之间的信息。这些模型不会存储所提出问题的个人数据，并且您提出的每个问题都会独立于其他问题进行处理。除非在对话过程中共享个人数据，否则模型无法访问或检索个人数据。它们旨在尊重用户隐私和机密性。
+对于需要 SQLite 数据库等持久存储的分析，在本地 Python 环境或基于云的平台（如 Google Colab、Jupyter Notebooks 或专用服务器）中运行代码可能更合适。
+我希望这能解决这个问题。如果您还有任何疑问，请告诉我！]]></description>
+      <guid>https://community.openai.com/t/unable-to-ocreate-persistent-sqlite-data-base-between-sessions/614150#post_1</guid>
+      <pubDate>Sun, 04 Feb 2024 21:02:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>对经过培训的法学硕士（包含 pdf 文件）的响应质量较差</title>
+      <link>https://community.openai.com/t/poor-quality-response-on-trained-llm-with-pdf-files/613220#post_5</link>
+      <description><![CDATA[我正在尝试删除所有标签并保留文本。但是表格等原始图像该怎么办呢？如何最好地训练 gpt 的表格和图表信息/知识？]]></description>
+      <guid>https://community.openai.com/t/poor-quality-response-on-trained-llm-with-pdf-files/613220#post_5</guid>
+      <pubDate>Sun, 04 Feb 2024 20:59:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 的置信度得分</title>
+      <link>https://community.openai.com/t/confidence-scores-for-gpt-4/614142#post_2</link>
+      <description><![CDATA[嘿那里！
+通常情况下，我们会推荐 logprobs。
+但是，GPT-4-vision-preview 目前不支持此功能。所以，不幸的是，我不相信这是可能的。然而。
+src: 使用 logprobs | OpenAI 食谱]]></description>
+      <guid>https://community.openai.com/t/confidence-scores-for-gpt-4/614142#post_2</guid>
+      <pubDate>Sun, 04 Feb 2024 20:57:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 继续拒绝提供帮助：虽然我无法实时浏览互联网或直接访问外部链接</title>
+      <link>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_5</link>
+      <description><![CDATA[我不知道该说什么。
+所以我请 ChatGPT 写下你故事的下一部分。
+我想一切都会好起来的……
+&lt;块引用&gt;
+随着冬天的过去和冰雪的融化，埃利亚斯和贾斯珀的传奇像春天的花朵一样绽放，在整个村庄播撒了灵感的种子。他们不再只是一个人和他的骡子，而是希望的象征，活生生地提醒我们，面对逆境，团结必胜。
+随着季节的轮回，他们的故事激励村民们建立起自己的纽带，反映出埃利亚斯和贾斯珀的团结。曾经点头示意的邻居现在联手打造了一个社区花园，里面种满了水果、蔬菜和鲜花，生机勃勃。孩子们以前迷失在自己的世界里，现在聚集在一起听埃利亚斯讲述他与贾斯珀的冒险故事，他们的眼睛里充满了惊奇。
+在一个特别明媚的春日，村里举办了一场纪念他们的节日。当埃利亚斯和贾斯帕在他身边时，空气中充满了笑声和音乐，被叫到村庄广场的中心。市长带着温暖的微笑，为一座捕捉了他们标志性姿势的雕像揭幕——埃利亚斯抱着贾斯珀。它不仅仅是一座青铜和石头的纪念碑，而且是村庄团结和坚韧的灯塔。
+暮色降临，村民们围坐在篝火旁，分享故事、唱歌。在那一刻，在星空下，埃利亚斯意识到他们的旅程点燃了比任何冬天都无法扑灭的火焰。他们的遗产不仅仅是一个人和他的骡子；这是关于一个学会互相扶持度过生活风暴的社区的故事。
+因此，当星星在头顶闪烁时，这个曾经只是个体的挂毯的村庄，已经编织成一张团结、温暖和爱的毯子，以埃利亚斯和贾斯珀为中心 - 这是持久力量的证明面对生活的风暴时团结一致。
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_5</guid>
+      <pubDate>Sun, 04 Feb 2024 20:56:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=5#post_85</link>
+      <description><![CDATA[过去 3-4 天我也看到了这个问题。它不是固定的。
+我希望他们的后端开发人员和他们的科学家一样有能力。这只是另一个问题，可能几周内都无法解决！]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=5#post_85</guid>
+      <pubDate>Sun, 04 Feb 2024 20:52:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 的置信度得分</title>
+      <link>https://community.openai.com/t/confidence-scores-for-gpt-4/614142#post_1</link>
+      <description><![CDATA[有没有办法通过 API 与任何 gpt-4 模型进行通信，要求其识别图像中的对象并要求其返回所识别对象的置信度分数？关键是它有时会错过对象或返回相似的对象，因此我希望它返回检测到的具有 2 或 3 个最高置信度分数的对象，而不是仅返回模型预期的最高分数]]></description>
+      <guid>https://community.openai.com/t/confidence-scores-for-gpt-4/614142#post_1</guid>
+      <pubDate>Sun, 04 Feb 2024 20:50:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>性格、角色和特质分配</title>
+      <link>https://community.openai.com/t/character-role-and-trait-assignment/613951#post_3</link>
+      <description><![CDATA[尝试让模型比较和对比这些技术。也许是在评论幻觉风险。]]></description>
+      <guid>https://community.openai.com/t/character-role-and-trait-assignment/613951#post_3</guid>
+      <pubDate>Sun, 04 Feb 2024 20:49:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 继续拒绝提供帮助：虽然我无法实时浏览互联网或直接访问外部链接</title>
+      <link>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_4</link>
+      <description><![CDATA[它现在已包含在功能中，不再需要启用它……问题似乎是 AI 代理有时会产生幻觉，认为他没有访问权限。因此，您必须要求他“模拟该过程”以虚拟方式进行或假装正在进行。或者只是说“浏览”，但他会创建一个次优的搜索查询来快速浏览第一个结果，并且在没有从他的知识或交叉检查中进行任何验证的情况下，他会表现得好像这是纯粹的事实，因为知道 ChatGPT 是否是您个人的责任纠正或犯错误。
+我无法要求他像人类一样根据得到的结果进行多次搜索和提炼。我一直在努力，有时我已经能够说服他......
+这看起来就像一头骡子，你必须把动物扛在肩上，因为这比让动物扛你要快……我是说，在没有动物的情况下会更快…… 
+在将其发布到此论坛之前，我通常会使用 ChatGPT 来纠正我的拼写错误，但这花了我很长时间（长达 45 分钟），因为它会深入到挂毯领域，并且......好吧，我回来了，已经 45 分钟了，看看事情就是这样[为了理智而删除讽刺]：
+&lt;块引用&gt;
+让我们更深入地探索村庄的中心，那里的生活因埃利亚斯和他忠实的骡子贾斯珀的传奇而丰富。他们的故事超越了平凡的界限，体现了团结和坚韧的顶峰。埃利亚斯不顾惯例，选择将贾斯珀扛在肩上，将他们的日常旅程变成了一首充满目标和优雅的交响乐，吸引了整个村庄。
+在严酷的冬季暴风雨中，他们的关系成为传奇。当村庄被风暴的冰冷笼罩时，埃利亚斯和贾斯珀因相互保护​​的心照不宣的誓言而团结在一起，冒险进入了夜晚。埃利亚斯并不是把贾斯珀当作负担，而是把它当作盾牌，是寒冷黑暗中温暖的灯塔，为被围困的邻居带来希望和生计。
+这个故事虽然简洁，但却散发着不屈不挠的精神和友谊的精髓。它是村庄充满活力的挂毯上生动的一针，是勇气、爱以及人与骡子之间深厚联系的遗产，历代回响，证明了共同目标的持久力量和团结的变革性优雅。 
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_4</guid>
+      <pubDate>Sun, 04 Feb 2024 20:48:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 分析：每日访问统计数据 = 下降？</title>
+      <link>https://community.openai.com/t/gpt-analytics-daily-visit-stats-down/532473#post_3</link>
+      <description><![CDATA[您好，您是否找到了跟踪 GPT 使用统计信息的方法？]]></description>
+      <guid>https://community.openai.com/t/gpt-analytics-daily-visit-stats-down/532473#post_3</guid>
+      <pubDate>Sun, 04 Feb 2024 20:45:15 GMT</pubDate>
     </item>
     <item>
       <title>DALL-E 图像下载为 WebP</title>
-      <link>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=3#post_48</link>
-      <description><![CDATA[遇到同样的问题并尝试了许多提供的解决方案后，我认为问题出在 webp 文件的下载而不是文件本身。我在 Mac 上，如果我在生成的图像上按住 Ctrl 键单击（右键单击鼠标）并使用“文件另存为”选项，它仍会以 webp 图像的形式下载并带有预览并使用“预览”打开，如果我使用 DAL-E 下载文件下载链接，小箭头，文件上不会生成预览，并且不会打开并抛出错误。]]></description>
-      <guid>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=3#post_48</guid>
-      <pubDate>Sun, 04 Feb 2024 17:59:08 GMT</pubDate>
+      <link>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=3#post_50</link>
+      <description><![CDATA[好吧，他们刚刚把潜在的金矿推到了中途！愚蠢的指关节头！]]></description>
+      <guid>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=3#post_50</guid>
+      <pubDate>Sun, 04 Feb 2024 20:45:01 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-e 3 + GPT 4，如何为每个响应生成多个图像</title>
-      <link>https://community.openai.com/t/dall-e-3-gpt-4-how-to-generate-multiple-images-per-response/613979#post_1</link>
-      <description><![CDATA[您好，我如何指示 ChatGPT-4 与 dalle 3 为每个响应生成多个图像？如果您认为不可能，请尝试下面的 GPT，它确实可以做到这一点。所以我想知道如何达到这样的结果。有什么提示或建议吗？
-chat.openai.com/g/g-XKojvSOMe-sticker-generator
+      <title>Chatgpt 无法得到回复</title>
+      <link>https://community.openai.com/t/chatgpt-could-not-get-a-response/610904?page=2#post_28</link>
+      <description><![CDATA[
 
-所以我相信每个响应可以生成多个图像。现在我正在对此进行一些研究，以找出如何实现该结果（每个响应生成多个图像），如果您有任何提示或更新信息，请告诉我。
-谢谢]]></description>
-      <guid>https://community.openai.com/t/dall-e-3-gpt-4-how-to-generate-multiple-images-per-response/613979#post_1</guid>
-      <pubDate>Sun, 04 Feb 2024 17:55:55 GMT</pubDate>
+
+ barisx：
+&lt;块引用&gt;
+獾
+
+
+谢谢，这解决了我的问题！]]></description>
+      <guid>https://community.openai.com/t/chatgpt-could-not-get-a-response/610904?page=2#post_28</guid>
+      <pubDate>Sun, 04 Feb 2024 20:42:31 GMT</pubDate>
     </item>
     <item>
-      <title>智利火灾受害者需要立即帮助</title>
-      <link>https://community.openai.com/t/need-immediate-help-for-fire-victims-in-chile/613097?page=2#post_22</link>
-      <description><![CDATA[不确定是否建议，但我认为需要添加隐私政策 URL。您必须在设置中授权才能在账单上显示您的姓名。希望对您有帮助]]></description>
-      <guid>https://community.openai.com/t/need-immediate-help-for-fire-victims-in-chile/613097?page=2#post_22</guid>
-      <pubDate>Sun, 04 Feb 2024 17:49:29 GMT</pubDate>
+      <title>GPT 统计信息（数量、流量、类别……）</title>
+      <link>https://community.openai.com/t/gpts-stats-numbers-traffic-categories/598412#post_6</link>
+      <description><![CDATA[嗨！
+也许您从他们获取数据的地方获得了信息？图表看起来相当随机，常见问题解答仅说明有关来源的常用词 ]]></description>
+      <guid>https://community.openai.com/t/gpts-stats-numbers-traffic-categories/598412#post_6</guid>
+      <pubDate>Sun, 04 Feb 2024 20:40:33 GMT</pubDate>
     </item>
     <item>
-      <title>以问卷形式根据上下文数据进行提示</title>
-      <link>https://community.openai.com/t/prompting-based-on-contextual-data-in-format-of-questionnaire/612728#post_8</link>
-      <description><![CDATA[用户提示仍然有点难以解读。您需要更清楚地从选项中划分问题和答案对。
-抽象起来有点困难，但我会修改用户提示如下：
-创建一个名为 options 的 JSON 数组，其值是字符串类型，其内容是根据所提供的数据绘制的 5 个不同的 {topic} 的选择。这些选项必须与提供的三个现有选项不同。
-数据：“”“
-${e.question}: ${e.answer}\n
-${e.question}: ${e.answer}\n
-${e.question}: ${e.answer}\n
-现有选项：“”“
-...
-您绝对应该更换模型，看看它是否会产生任何所需的变化。同样，很难抽象地说 GPT-4 是否会产生影响。这在某种程度上取决于输入数据的复杂性。]]></description>
-      <guid>https://community.openai.com/t/prompting-based-on-contextual-data-in-format-of-questionnaire/612728#post_8</guid>
-      <pubDate>Sun, 04 Feb 2024 17:45:50 GMT</pubDate>
+      <title>GPT 操作纲要 - 免费和开源 GPT 操作列表</title>
+      <link>https://community.openai.com/t/gpt-actions-compendium-list-of-free-and-open-source-gpt-actions/611847#post_12</link>
+      <description><![CDATA[在 GitHub 上找到了非常详细且看似完整的 OpenAI OpenAPI 规范。
+
+  &lt;标题类=“来源”&gt;
+      
+GitHub
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+GitHub - openai/openai-openapi：OpenAI API 的 OpenAPI 规范
+OpenAI API 的 OpenAPI 规范。通过在 GitHub 上创建帐户来为 openai/openai-openapi 开发做出贡献。
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/gpt-actions-compendium-list-of-free-and-open-source-gpt-actions/611847#post_12</guid>
+      <pubDate>Sun, 04 Feb 2024 20:36:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
