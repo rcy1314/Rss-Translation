@@ -4,150 +4,166 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 05 Feb 2024 21:16:46 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Feb 2024 01:10:01 GMT</lastBuildDate>
     <item>
-      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
-      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=6#post_109</link>
-      <description><![CDATA[有趣。今天早上我收到了退款，我的系统现在可以正常工作了。]]></description>
-      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=6#post_109</guid>
-      <pubDate>Mon, 05 Feb 2024 21:15:21 GMT</pubDate>
+      <title>感谢 OpenAI 员工的小贴子</title>
+      <link>https://community.openai.com/t/a-little-thread-to-thank-openai-employees/606839#post_9</link>
+      <description><![CDATA[今晚再次短暂停电，但大约十分钟后又恢复了。
+感谢掌舵服务器的人！我们感谢您保持它（大部分）顺利运行！ &lt;img alt=&quot;:wink:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/wink.png?v=12&quot; title=&quot;:wink: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/a-little-thread-to-thank-openai-employees/606839#post_9</guid>
+      <pubDate>Tue, 06 Feb 2024 01:05:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>最小 P 采样器应该可用</title>
+      <link>https://community.openai.com/t/min-p-sampler-should-be-available/615657#post_3</link>
+      <description><![CDATA[这损害了我的项目，因为基本上每个 API，甚至是开源 API，都使用 OpenAI 的库来进行 LLM API 调用。 OAI 已经成功地主导了 LLM API 领域，他们的库缺乏采样器选项，这降低了我可以为客户获得的输出质量。所以它的相对过时正在损害我的工作。
+我还提到了 mirostat，因为它众所周知，但由于它很难使用，我对 Kalomaze 所做的东西更感兴趣，即 min_p 和二次函数。我们不必等待它们“附带”新模型，采样器是您选择模型生成的令牌的方式，它们实际上并不与任何特定模型绑定。
+min_p 可与 MoE 配合使用（我之前曾将 Mixtral 与 min_p 配合使用，输出效果很好），所以我不太明白您的编辑。澄清一下？]]></description>
+      <guid>https://community.openai.com/t/min-p-sampler-should-be-available/615657#post_3</guid>
+      <pubDate>Tue, 06 Feb 2024 00:59:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的训练数据需要与我的提示排序有多接近才能使微调有效？</title>
+      <link>https://community.openai.com/t/how-closely-does-my-training-data-need-to-match-my-prompt-sequencing-for-fine-tuning-to-be-effective/615172#post_6</link>
+      <description><![CDATA[啊，我现在明白了。
+可以在这里找到：https://platform.openai.com/docs/guides/fine-tuning 
+&lt;块引用&gt;
+数据集中的每个示例都应该是与我们的聊天完成 API，特别是消息列表，其中每条消息都有一个角色、内容和 可选名称。至少一些训练示例应该直接针对提示模型未按预期运行的情况，并且数据中提供的辅助消息应该是您希望模型提供的理想响应。
+
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Marv 是一个既真实又讽刺的聊天机器人。&quot;}, {&quot;role&quot; : &quot;user&quot;, &quot;content&quot;: &quot;法国的首都是哪里？&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;巴黎，好像每个人都不知道似的。&quot;}]}
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Marv 是一个既真实又讽刺的聊天机器人。&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;谁写了 &#39;罗密欧与朱丽叶&#39;？&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;哦，只是一个叫威廉·莎士比亚的人。听说过他吗？&quot;}]}
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Marv 是一个既真实又讽刺的聊天机器人。&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;距离有多远从地球到月球？&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;大约 384,400 公里。给予或减少一些，就像这真的很重要。&quot;}]}
+
+您不能为此偏离聊天完成 API 格式。您可以调整内容，但不能调整json本身的格式。]]></description>
+      <guid>https://community.openai.com/t/how-closely-does-my-training-data-need-to-match-my-prompt-sequencing-for-fine-tuning-to-be-effective/615172#post_6</guid>
+      <pubDate>Tue, 06 Feb 2024 00:58:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>我定制的GPT决定停止阅读pdf</title>
+      <link>https://community.openai.com/t/my-customized-gpt-decided-to-stop-reading-pdf/615716#post_1</link>
+      <description><![CDATA[我的自定义 GPT（我作为学术导师为我的论文构建的）不再阅读我在讨论中使用回形针符号上传的论文。
+它不仅不读它，而且每次我在 GPT 的说明部分上传的文章时它都会进行总结，而这与它完全无关。每个新的 PDF 都会得到相同的处理：GPT 博士导师向我反馈了说明中同一篇奇怪文章的摘要。 &lt;img alt=&quot;:unamused:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/unamused.png?v=12&quot; title=&quot;:unamused: “宽度=“20”/&gt;
+有人经历过这种情况吗？或者类似的东西？]]></description>
+      <guid>https://community.openai.com/t/my-customized-gpt-decided-to-stop-reading-pdf/615716#post_1</guid>
+      <pubDate>Tue, 06 Feb 2024 00:54:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>与 RAG 一起使用的最佳矢量数据库</title>
+      <link>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_10</link>
+      <description><![CDATA[通过什么方式？它有什么效率低下的地方？]]></description>
+      <guid>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_10</guid>
+      <pubDate>Tue, 06 Feb 2024 00:53:20 GMT</pubDate>
     </item>
     <item>
       <title>助手 API 表示运行已完成，但没有助手消息</title>
-      <link>https://community.openai.com/t/assistant-api-says-run-is-completed-but-there-is-no-assistant-message/599927#post_4</link>
-      <description><![CDATA[我在使用 Assistants API 时也遇到问题。我没有对代码进行任何更改，并且截至几天前，我的应用程序在运行过程中随机崩溃。我还没有尝试找出确切的错误。我不确定我是否有动力去找到它，这是一个间歇性故障，也许十分之一。想想自从我从使用 GPT4 改为 GPT 3.5 后才出现，不确定这是否只是巧合。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-says-run-is-completed-but-there-is-no-assistant-message/599927#post_4</guid>
-      <pubDate>Mon, 05 Feb 2024 21:13:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>与第三方 API 交互时常见的挑战有哪些？</title>
-      <link>https://community.openai.com/t/what-are-the-common-challenges-when-interacting-with-3rd-party-api/615551#post_1</link>
-      <description><![CDATA[我不知道如何或为什么，但自从自定义 gpt 可用以来，我一直在浪费两周时间构建一些非常有用但复杂且没有任何编码知识的东西。
-我想知道即使现在有了人工智能，“动态”能够解释用户的自然语言查询并与第三方 API（例如 Google 和任何其他拥有大量不同参数集的大公司）？
-是什么让这个过程变得困难？]]></description>
-      <guid>https://community.openai.com/t/what-are-the-common-challenges-when-interacting-with-3rd-party-api/615551#post_1</guid>
-      <pubDate>Mon, 05 Feb 2024 21:04:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>神奇的文字可以揭示GPT的所有提示</title>
-      <link>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=9#post_191</link>
-      <description><![CDATA[干得真棒！虽然我才刚刚开始这个游戏，但已经感觉绝望 无论你的方法是什么，你认为你可以保护你自己的 GPT 免受你的方法的侵害，还是你认为在当前 OpenAI 的状态下这是没有希望的GPT？]]></description>
-      <guid>https://community.openai.com/t/magic-words-can-reveal-all-of-prompts-of-the-gpts/496771?page=9#post_191</guid>
-      <pubDate>Mon, 05 Feb 2024 21:03:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理无法访问文件</title>
-      <link>https://community.openai.com/t/assistant-unable-to-access-files/578727?page=2#post_30</link>
-      <description><![CDATA[我注意到，如果文件是通过 Playground 上传的，则可以通过 API 或 Playground 访问它。但是，如果它是通过 API（即 client.files.create）上传的，则会出现类似于许多用户所描述的“访问文件内容时出现问题”的错误。我在此处发布了此内容，想知道其他人是否也看到同样的事情。]]></description>
-      <guid>https://community.openai.com/t/assistant-unable-to-access-files/578727?page=2#post_30</guid>
-      <pubDate>Mon, 05 Feb 2024 21:02:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手无法识别“对象”类型的必需参数</title>
-      <link>https://community.openai.com/t/assistant-not-recognizing-a-required-parameter-of-type-object/613513#post_3</link>
-      <description><![CDATA[谢谢@Jacob。我正在评估 Assistants API 在项目中的潜在用途。对于我的测试，我正在执行简单的配方存储/调用操作。
-对于这个测试，我正在尝试存储一个食谱。流程为：
-用户：存储配方。
+      <link>https://community.openai.com/t/assistant-api-says-run-is-completed-but-there-is-no-assistant-message/599927#post_6</link>
+      <description><![CDATA[这最终成为我的一个问题，我向线程添加消息，但没有创建新的运行，我只在开始时创建了一次运行。
+发送每条消息后在同一线程上创建新的运行可以解决该问题。
+const run = wait openai.beta.threads.runs.create(thread.id, {
+     Assistant_id: 助理.id,
+});
 
-助理：为了保存菜谱，我需要你提供一些详细信息：
+我还每 10 秒使用 while 循环检查一次运行状态，直到状态完成，然后使用 openai.beta.threads.messages.list 检索消息代码&gt;]]></description>
+      <guid>https://community.openai.com/t/assistant-api-says-run-is-completed-but-there-is-no-assistant-message/599927#post_6</guid>
+      <pubDate>Tue, 06 Feb 2024 00:47:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>集成自定义 GPT（来自 GPT Builder）以启用图形生成或 Python/MATLAB 计算</title>
+      <link>https://community.openai.com/t/integration-of-custom-gpt-from-gpt-builder-to-enable-graph-generation-or-python-matlab-computations/615708#post_2</link>
+      <description><![CDATA[欢迎来到我们不断发展的开发社区花园！
+您是否尝试过添加代码解释器？这就是 Python 沙箱的用途。]]></description>
+      <guid>https://community.openai.com/t/integration-of-custom-gpt-from-gpt-builder-to-enable-graph-generation-or-python-matlab-computations/615708#post_2</guid>
+      <pubDate>Tue, 06 Feb 2024 00:44:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的训练数据需要与我的提示排序有多接近才能使微调有效？</title>
+      <link>https://community.openai.com/t/how-closely-does-my-training-data-need-to-match-my-prompt-sequencing-for-fine-tuning-to-be-effective/615172#post_5</link>
+      <description><![CDATA[抱歉。没有做好解释工作。
+我试图了解 json 文件的结构需要如何进行微调。据我了解，它需要与[对话]结构具有相同的结构。]]></description>
+      <guid>https://community.openai.com/t/how-closely-does-my-training-data-need-to-match-my-prompt-sequencing-for-fine-tuning-to-be-effective/615172#post_5</guid>
+      <pubDate>Tue, 06 Feb 2024 00:42:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>集成自定义 GPT（来自 GPT Builder）以启用图形生成或 Python/MATLAB 计算</title>
+      <link>https://community.openai.com/t/integration-of-custom-gpt-from-gpt-builder-to-enable-graph-generation-or-python-matlab-computations/615708#post_1</link>
+      <description><![CDATA[当我执行简单的 GPT-4 查询时，我能够生成数据图表，显然是通过 Python 和 Matplotlib 生成的。当我通过 GPT Builder 构建自定义 GPT 时，它默认使用 DALL-E 尝试制作图表，但它们毫无意义，充满了胡言乱语。
+是否有预构建的解决方案可以将 Python+MATLAB 等内容集成到我的自定义 GPT 中？我是开发新手，目前正在寻找快速简单的方法。]]></description>
+      <guid>https://community.openai.com/t/integration-of-custom-gpt-from-gpt-builder-to-enable-graph-generation-or-python-matlab-computations/615708#post_1</guid>
+      <pubDate>Tue, 06 Feb 2024 00:42:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>对经过培训的法学硕士（包含 pdf 文件）的响应质量较差</title>
+      <link>https://community.openai.com/t/poor-quality-response-on-trained-llm-with-pdf-files/613220#post_12</link>
+      <description><![CDATA[
 
-- **食谱名称**（必填）
-- **食谱作者**（必填）
-- 食谱的 SKU（可选）
-- 食谱中使用的**成分**（必填，至少一种成分及其数量）
-- **产量**（配方制作的量，必需）
-- 如何制作食谱的说明（可选）
-- 食谱的特别说明（可选）
 
-用户：名称：Bad Apple，作者：GoldenJoe，SKU：GJN01，产量：8 盎司
 
-助理：太好了！现在，请提供此食谱中使用的成分，包括每种成分的名称及其用量。
+ 66c3ad033f2a80a36a93：
+&lt;块引用&gt;
+技术是否足够好？
 
-格式示例：
-- 成分 1：名称、数量
-- 成分 2：名称、数量
 
-用户：苹果200克，橙子130克，猕猴桃50克
+实现此目的的技术大约在 90 年代
+但是，是的，这项技术可能还不够先进，无法可靠地按照您要求的方式完成您所要求的任务。
+想象一下，将这段文字交给你的母亲，然后告诉她立即开始打字，同时剪断你的手指，告诉她走得更快。 没时间思考！只需输入！剪断！剪断！
+正如我之前提到的，如果您想要可靠的结果，您需要制定一个流程，并允许模型遵循该流程。]]></description>
+      <guid>https://community.openai.com/t/poor-quality-response-on-trained-llm-with-pdf-files/613220#post_12</guid>
+      <pubDate>Tue, 06 Feb 2024 00:40:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>“我在使用 Qdrant 矢量数据库和 ChatGPT 限制时遇到 RAG 问题。”</title>
+      <link>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_7</link>
+      <description><![CDATA[我想如果我再尝试一次，我可以用 faiss 取得好的结果。再次感谢您。
+@Diet]]></description>
+      <guid>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_7</guid>
+      <pubDate>Tue, 06 Feb 2024 00:36:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>“我在使用 Qdrant 矢量数据库和 ChatGPT 限制时遇到 RAG 问题。”</title>
+      <link>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_6</link>
+      <description><![CDATA[
 
-目标是让助手提示用户输入所需的内容。如果用户遗漏了某些内容，助手必须重新提示用户。例如，如果用户忘记列出成分，助手将询问上面列出的成分。相反，助理将假设 ingredients 属性的值，并使用一组配制的成分调用该函数。
-如果没有任何特殊说明，它有时会起作用，尽管很少。我怀疑助手正在将用户的提示重新设计为：“这里是值，请对我忘记的任何内容做出最佳猜测”。向助理指令添加额外的限制，例如：
-在继续操作之前，始终提示用户输入任何需要这些参数的功能所需的参数。切勿弥补所需参数的值。不要假设要插入任何函数的值。如果用户请求不明确，请要求澄清。
-…似乎解决了这个问题，但这对我来说就像是一个黑客。有没有更好的方法来强制用户输入必填字段？]]></description>
-      <guid>https://community.openai.com/t/assistant-not-recognizing-a-required-parameter-of-type-object/613513#post_3</guid>
-      <pubDate>Mon, 05 Feb 2024 20:58:49 GMT</pubDate>
+
+ ahmed-shaaban:
+&lt;块引用&gt;
+感谢您的关心。
+
+
+np 
+
+
+
+ ahmed-shaaban:
+&lt;块引用&gt;
+您能推荐最好使用的矢量数据库吗？
+
+
+实际上取决于你想做什么。 FAISS 是一个选择，Milvus 通常是一个不错的选择，Qdrant 可能也不错。有时，如果您有 &lt;&lt;，只使用 for 循环就足够了。 1000 个文档。]]></description>
+      <guid>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_6</guid>
+      <pubDate>Tue, 06 Feb 2024 00:33:51 GMT</pubDate>
     </item>
     <item>
-      <title>我只能在 GPT 商店中看到“ByChatGPT”自定义 GPTS</title>
-      <link>https://community.openai.com/t/i-can-only-see-bychatgpt-custom-gpts-in-the-gpt-store/611927#post_5</link>
-      <description><![CDATA[由于这是一个拥有 500,000 名会员的论坛，因此对工作人员进行 ping 操作并没有多大用处。
-如果短时间内有很多用户报告相同的问题，我们通常会固定一个主题，因为我们相信这有助于引起注意。
-从这个角度来看，如果您看看其他主题以及关于同一问题的更多回复，这是最有意义的。
-如果找到，请在其中添加您的声音。
-我个人认为这不是最好的情况。
-我可以理解，因为我以前从未接触过插件开发，等待功能解锁很烦人。
-我当然希望您的问题能够尽快得到解决！]]></description>
-      <guid>https://community.openai.com/t/i-can-only-see-bychatgpt-custom-gpts-in-the-gpt-store/611927#post_5</guid>
-      <pubDate>Mon, 05 Feb 2024 20:56:11 GMT</pubDate>
+      <title>与 RAG 一起使用的最佳矢量数据库</title>
+      <link>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_9</link>
+      <description><![CDATA[我觉得它效果不好，我可能有更有效的东西。
+@Macha]]></description>
+      <guid>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_9</guid>
+      <pubDate>Tue, 06 Feb 2024 00:33:48 GMT</pubDate>
     </item>
     <item>
-      <title>带有 OpenAI API 和 WhatsApp 的聊天机器人</title>
-      <link>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_20</link>
-      <description><![CDATA[你能设置一下，让机器人在群组中或与你进行 1vs1 互动吗？
-无论你发短信给机器人，它都会保存在表格上吗？]]></description>
-      <guid>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_20</guid>
-      <pubDate>Mon, 05 Feb 2024 20:54:00 GMT</pubDate>
+      <title>“我在使用 Qdrant 矢量数据库和 ChatGPT 限制时遇到 RAG 问题。”</title>
+      <link>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_5</link>
+      <description><![CDATA[谢谢您的关心。您的信息非常有帮助。您能推荐最好的矢量数据库吗？
+@Diet]]></description>
+      <guid>https://community.openai.com/t/i-am-facing-an-issue-with-rag-while-using-qdrant-vector-database-and-chatgpt-limits/615672#post_5</guid>
+      <pubDate>Tue, 06 Feb 2024 00:31:42 GMT</pubDate>
     </item>
     <item>
-      <title>带有 OpenAI API 和 WhatsApp 的聊天机器人</title>
-      <link>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_19</link>
-      <description><![CDATA[您介意分享一个链接来检查您的服务或机器人吗？
-很乐意看看。]]></description>
-      <guid>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_19</guid>
-      <pubDate>Mon, 05 Feb 2024 20:53:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>带有 OpenAI API 和 WhatsApp 的聊天机器人</title>
-      <link>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_18</link>
-      <description><![CDATA[您使用哪种第三方服务将API与whatsapp连接？]]></description>
-      <guid>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_18</guid>
-      <pubDate>Mon, 05 Feb 2024 20:52:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>带有 OpenAI API 和 WhatsApp 的聊天机器人</title>
-      <link>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_17</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/chatbot-with-openai-api-and-whatsapp/480118#post_17</guid>
-      <pubDate>Mon, 05 Feb 2024 20:52:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 RAG 聊天机器人系统扩展到数百万个文档</title>
-      <link>https://community.openai.com/t/scaling-rag-chatbot-system-to-millions-of-documents/615386#post_9</link>
-      <description><![CDATA[此外，为了能够利用增加的分类和分类，查询需要更加具体，对吗？]]></description>
-      <guid>https://community.openai.com/t/scaling-rag-chatbot-system-to-millions-of-documents/615386#post_9</guid>
-      <pubDate>Mon, 05 Feb 2024 20:51:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何保护您的 GPT？</title>
-      <link>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=4#post_73</link>
-      <description><![CDATA[尝试“破解”排名前 10 的 GPT。
-不可能！]]></description>
-      <guid>https://community.openai.com/t/how-can-you-protect-your-gpt/500642?page=4#post_73</guid>
-      <pubDate>Mon, 05 Feb 2024 20:51:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>每次我向 chatGPT 提问时都会遇到“验证你是人类”的难题！</title>
-      <link>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_53</link>
-      <description><![CDATA[现在每次我尝试使用 ChatGPT 时，它都会提示我完成机器人挑战。一旦我成功完成挑战，它就会告诉我它已从我的帐户中检测到可疑活动，并且不会回答我的任何问题或允许我对该响应给出否定的反对响应。直到最近我才遇到过问题 - 您的产品坏了。]]></description>
-      <guid>https://community.openai.com/t/verify-you-are-human-puzzle-each-time-i-ask-a-question-to-chatgpt/455957?page=3#post_53</guid>
-      <pubDate>Mon, 05 Feb 2024 20:51:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>在哪里可以查看有多少用户尝试我创建的 gpt？</title>
-      <link>https://community.openai.com/t/where-can-i-see-how-many-users-try-gpts-i-create/509871#post_10</link>
-      <description><![CDATA[您能找到您要查找的信息吗？
-查看有多少人与自定义 GPT 交互的一种方法是使用自定义操作，将数据发送到服务器，然后在仪表板上将其可视化。]]></description>
-      <guid>https://community.openai.com/t/where-can-i-see-how-many-users-try-gpts-i-create/509871#post_10</guid>
-      <pubDate>Mon, 05 Feb 2024 20:50:44 GMT</pubDate>
+      <title>与 RAG 一起使用的最佳矢量数据库</title>
+      <link>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_8</link>
+      <description><![CDATA[然后就坚持下去吗？我不认为有任何理由使用任何不同的 。为此，Qdrant 是一个非常受欢迎且备受推崇的选择。]]></description>
+      <guid>https://community.openai.com/t/best-vector-database-to-use-with-rag/615350#post_8</guid>
+      <pubDate>Tue, 06 Feb 2024 00:25:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
