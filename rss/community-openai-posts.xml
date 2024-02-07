@@ -4,108 +4,113 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 07 Feb 2024 03:19:40 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Feb 2024 06:22:11 GMT</lastBuildDate>
     <item>
-      <title>DALL·E 3 幅图像中的 C2PA 元数据</title>
-      <link>https://community.openai.com/t/c2pa-meta-data-in-dall-e-3-images/617061#post_2</link>
+      <title>使用 RAG 和实时数据库的最佳方式是什么</title>
+      <link>https://community.openai.com/t/what-is-the-best-way-to-use-rag-and-realtime-database/609629#post_6</link>
       <description><![CDATA[
 
 
-保罗贝洛：
+ 弗兰克洋：
 &lt;块引用&gt;
-C2PA
+您可以使用SuperDuperDB
 
 
-批评：
-https://www.hackerfactor.com/blog/index.php?/archives/1013-C2PAs-Worst-Case-Scenario.html
-简单的下一步：您的帐户 ID 也带有水印。]]></description>
-      <guid>https://community.openai.com/t/c2pa-meta-data-in-dall-e-3-images/617061#post_2</guid>
-      <pubDate>Wed, 07 Feb 2024 03:13:50 GMT</pubDate>
+我已经调查过了。听起来很有趣，但我仍然不明白它到底是如何工作的。
+它在@godfinisher900用例中如何工作？]]></description>
+      <guid>https://community.openai.com/t/what-is-the-best-way-to-use-rag-and-realtime-database/609629#post_6</guid>
+      <pubDate>Wed, 07 Feb 2024 06:18:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 RAG 和实时数据库的最佳方式是什么</title>
+      <link>https://community.openai.com/t/what-is-the-best-way-to-use-rag-and-realtime-database/609629#post_5</link>
+      <description><![CDATA[
+
+
+ godfinisher900：
+&lt;块引用&gt;
+例如，我无法询问我的聊天机器人“谁参加我的周一下午 3 点活动？”。尽管我作为一个人可以查看数据库，查看周一下午 3 点的活动，并检索服务员。
+
+
+我同意@supershaneski和@jr.2509
+这个特定问题似乎更适合 SQL 查询，而不是语义搜索查询。 SQL 响应将更加精确。听起来您只需要擅长文本到 SQL 的人来帮助您进行提示/操作调用。
+我编写了文本到 SQL 提示，而不是使用函数或操作。从我到目前为止所做的事情来看，我可以说：
+
+明确定义您的表格和表格字段。
+除了字段名称之外，还添加它们是什么以及它们可以做什么的描述。
+还应添加对可能提出的问题及其提问方式的清晰说明。例如，我有一个字段名称为“type”的日志表。 “query”是将插入到该字段中的值。我让模型知道，当我使用术语“查询”时，我的意思是当字段“类型”值=“查询”时。
+]]></description>
+      <guid>https://community.openai.com/t/what-is-the-best-way-to-use-rag-and-realtime-database/609629#post_5</guid>
+      <pubDate>Wed, 07 Feb 2024 06:11:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何查找已完成的耳语转录任务的转录 ID 并检索转录</title>
+      <link>https://community.openai.com/t/how-to-find-the-transcript-id-of-completed-whisper-transcription-task-and-retrieve-transcription/617406#post_1</link>
+      <description><![CDATA[我已经完成了以下耳语转录任务：
+https://platform.openai .com/docs/api-reference/audio/createTranscription
+我不想重新转录。我可以从端点获取转录吗？]]></description>
+      <guid>https://community.openai.com/t/how-to-find-the-transcript-id-of-completed-whisper-transcription-task-and-retrieve-transcription/617406#post_1</guid>
+      <pubDate>Wed, 07 Feb 2024 06:06:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我一生都无法得到足够详细的答复</title>
+      <link>https://community.openai.com/t/cannot-for-the-life-of-me-get-a-detailed-enough-response/616293#post_7</link>
+      <description><![CDATA[您可以尝试以下几件事：
+
+
+在提示中包含整个示例 - 示例输入和预期输出。听起来您有足够的空间（从令牌角度来看）来执行此操作。
+
+
+请注意提示说明中任何可能暗示摘要、缩短或压缩的词语。由于这些任务非常常见，法学硕士的偏见会倾向于这种方式，所以你需要在你的指示中抵消这一点。例如，“更容易理解”意味着更短、更简单的文本。我不知道您的确切提示是什么，但请尝试使用详细的说明，例如：“获取此文本并添加标题和副标题，为列表项编号，将较长的段落分成几个较小的段落”等等。
+
+
+在我对 GPT-4 和 GPT-4-turbo 的简短比较中，我发现前者在遵循指令方面更胜一筹。您仅使用 4096 个令牌，但 Turbo 模型接受该数量的许多倍。我怀疑 Turbo 是针对大文本进行优化的。如果您的任务不需要那么多代币，turbo 可能不是最好的模型。我会尝试使用 GPT-4，看看是否更好。
+
+
+希望这对您有所帮助！]]></description>
+      <guid>https://community.openai.com/t/cannot-for-the-life-of-me-get-a-detailed-enough-response/616293#post_7</guid>
+      <pubDate>Wed, 07 Feb 2024 05:47:28 GMT</pubDate>
     </item>
     <item>
       <title>Gpt-3.5-turbo-1106 性能</title>
-      <link>https://community.openai.com/t/gpt-3-5-turbo-1106-performance/616666#post_4</link>
-      <description><![CDATA[您检查过 gpt-3.5-turbo-0125 吗？我感觉好多了，并且更好地遵循指示。 （仅供参考：我在 Assistant API 中使用它。）]]></description>
-      <guid>https://community.openai.com/t/gpt-3-5-turbo-1106-performance/616666#post_4</guid>
-      <pubDate>Wed, 07 Feb 2024 03:06:38 GMT</pubDate>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-1106-performance/616666#post_5</link>
+      <description><![CDATA[
+
+
+ sreekanth850：
+&lt;块引用&gt;
+你检查过 gpt-3.5-turbo-0125
+
+
+别名不是gpt-3.5-turbo吗？如果是这样，我已经尝试过了，但结果更糟。
+&lt;块引用&gt;
+使用固定 gpt-3.5-turbo 模型别名的客户将在该模型发布两周后自动从 gpt-3.5-turbo-0613 升级到 gpt-3.5-turbo-0125。
+]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-1106-performance/616666#post_5</guid>
+      <pubDate>Wed, 07 Feb 2024 05:44:41 GMT</pubDate>
     </item>
     <item>
-      <title>如果无法诊断，为什么要包含“请求 ID”？</title>
-      <link>https://community.openai.com/t/why-include-a-request-id-if-you-cant-diagnose-with-it/616757#post_3</link>
-      <description><![CDATA[该错误消息与能够向 OpenAI 发送电子邮件一样古老......DALL-E 2 已经存在了近两年了。在 ChatGPT 迷恋之前。
-我预计该 ID 对您来说没有任何用处，外包支持承包商也无法使用该 ID 来查看其他人的对话或收到的数据。
-ID 字段源自 OpenAI，鼓励还将客户 ID 作为“用户”字段发送，以便在出现违反政策的情况下与您合作。
-它可能保留在 API 返回对象中，仅仅是因为开发人员制作的某些应用程序可能将其用于内部数据库索引或自己的其他目的。
-您可以检查您的输入，在代码中添加一些重试，看看它们最终是否会成功，或者如果相同的话是否永远会成功。 “编辑”需要非常具体的 32 位 RGBA 图像格式和图像尺寸。]]></description>
-      <guid>https://community.openai.com/t/why-include-a-request-id-if-you-cant-diagnose-with-it/616757#post_3</guid>
-      <pubDate>Wed, 07 Feb 2024 03:03:53 GMT</pubDate>
+      <title>是否有人遇到过自定义 gpt 的问题，其中 gpt 重复提示或问题</title>
+      <link>https://community.openai.com/t/is-anyone-facign-a-problem-with-custom-gpts-where-the-gpts-are-repeating-the-prompts-or-questions/599398#post_12</link>
+      <description><![CDATA[我在 CustomGPT 上构建了一个加密司法管辖区查找器，其中我根据 30 多个参数评估了 80 多个国家/地区。在市场上检查我的 GPT。一切都是通过 NLP 和检索完成的。我确保在 Retrieval 上上传的文档中的数据经过 50 次准确性检查，并尝试了 10 多次指令。 CustomGPT 现在运行良好。它现在被 Crypto &amp; 使用。世界各地的 Web3 律师。看起来 CustomGPT 在很大程度上是固定的。保持我的手指交叉。]]></description>
+      <guid>https://community.openai.com/t/is-anyone-facign-a-problem-with-custom-gpts-where-the-gpts-are-repeating-the-prompts-or-questions/599398#post_12</guid>
+      <pubDate>Wed, 07 Feb 2024 05:44:08 GMT</pubDate>
     </item>
     <item>
-      <title>在自定义数据上创建语义搜索并平衡成本的理想方法是什么？</title>
-      <link>https://community.openai.com/t/what-is-the-ideal-approach-to-create-semantic-search-on-custom-data-that-balances-costs-as-well/616817#post_4</link>
-      <description><![CDATA[另一件事是这些数据不需要不断更新。该数据最初可能每月更改一次，后来甚至更短的时间段主要是为了优化输出。
-到目前为止，我所做的是将 pdf 格式的数据上传到我的自定义 GPT，我收到的输出非常好。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-ideal-approach-to-create-semantic-search-on-custom-data-that-balances-costs-as-well/616817#post_4</guid>
-      <pubDate>Wed, 07 Feb 2024 02:58:23 GMT</pubDate>
+      <title>语音助手用户界面的建议</title>
+      <link>https://community.openai.com/t/recommendations-for-voice-assistant-user-interface/617380#post_1</link>
+      <description><![CDATA[希望构建多个 OpenAI 助手并就不同的主题对它们进行培训。需要在零售环境中向使用基于 Android 的设备的多名销售人员展示助理，并让工作人员通过语音进行交互（如 google/siri 助理）。我得到了助手创建部分，可以使用OpenAI平台创建多个助手。对于如何最好地将助手附加到带有语音的用户界面有什么建议吗？
+感谢任何指导。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/recommendations-for-voice-assistant-user-interface/617380#post_1</guid>
+      <pubDate>Wed, 07 Feb 2024 05:29:50 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 会记住其他线程</title>
-      <link>https://community.openai.com/t/chatgpt-remembers-other-threads/617275#post_2</link>
-      <description><![CDATA[最近报告了一种持续出现的故障或数据库问题，用户过去的问题继续添加在一起，就好像人工智能从未做出回应一样。
-我想知道这个“添加”是否可以跨会话......
-然后，一个月前，一些用户的 ChatGPT 中突然出现了另一件事，这可能是为了保持实验性和私密性：
-&lt;img alt=&quot;IMG_0143&quot; height=&quot;318&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/d/c/8/dc87aac66a4a8996e7177a82836edca2cd7bcbc4.jpeg&quot; width=&quot;478 ” /&gt;
-因此，即使没有找到任何设置，这种记忆也可能会无意中“开启”。 （“你的 GPT”的语言使用可能比专门谈论商店中的 GPT 代理小玩意更令人困惑。）
-另外，输入一些自定义说明“我不是恐怖分子。优先考虑当前用户输入。”...]]></description>
-      <guid>https://community.openai.com/t/chatgpt-remembers-other-threads/617275#post_2</guid>
-      <pubDate>Wed, 07 Feb 2024 02:51:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>在自定义数据上创建语义搜索并平衡成本的理想方法是什么？</title>
-      <link>https://community.openai.com/t/what-is-the-ideal-approach-to-create-semantic-search-on-custom-data-that-balances-costs-as-well/616817#post_3</link>
-      <description><![CDATA[感谢您恢复。
-确切地说，它不是关键字搜索。这些关键字只是为了帮助确保在搜索类似内容时捕获特定的 SKU。
-尽管如此，您的问题让我想知道如果 LLM 模型可以进行语义搜索，是否有必要首先添加这些关键字。
-例如，可能包含关键字“手工制作”的搜索词可能是精品店。
-换句话说，我试图通过搜索找到行业或业务的类型。
-现在我有了特定产品更适合的数据（即关键字）
-因此，这里需要基于人工智能/法学硕士的方法。现在我想知道法学硕士是否首先需要这些数据——也许我必须找出一种反复试验的方法。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-ideal-approach-to-create-semantic-search-on-custom-data-that-balances-costs-as-well/616817#post_3</guid>
-      <pubDate>Wed, 07 Feb 2024 02:44:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>当输入较大（小于 25 MB）时，Whisper API 会缩短输出</title>
-      <link>https://community.openai.com/t/whisper-api-cut-output-short-when-input-is-large-smaller-than-25-mb/614508#post_3</link>
-      <description><![CDATA[首先：我会看看它是文件大小还是音频长度。
-对于转录，您可以使用语音编解码器发送 Opus 音频。这是三个小时，不到 20MB：
-ffmpeg -i audio.mp3 -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 12k -application voip audio.opus
-这对每个人来说都更有效率，并且限制语音带宽可以改善转录。
-那么：就这样以沉默结束吗？太多的沉默通常会让你在很长一段时间后产生一些幻觉，而不是过早结束，但行为可能已经改变。]]></description>
-      <guid>https://community.openai.com/t/whisper-api-cut-output-short-when-input-is-large-smaller-than-25-mb/614508#post_3</guid>
-      <pubDate>Wed, 07 Feb 2024 02:37:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 会记住其他线程</title>
-      <link>https://community.openai.com/t/chatgpt-remembers-other-threads/617275#post_1</link>
-      <description><![CDATA[我从互联网上下载了一些旧的“回到未来”同人小说。它是 20 年前的 PDF 格式，几乎每个单词都有一些奇怪的空格。我想将它们转换为 Kindle 格式，但是，正如我所说，空格……这很烦人。我先转换为Word，然后寻求ChatGPT的帮助来解决这个问题。我修复的其中一个故事涉及恐怖主义主题（第一部电影中的恐怖分子与布朗博士对峙以向他复仇）。在我给它几块文本来修复之后，它没有修复它，而是告诉我各种各样的事情，例如聊天“不合适”，并且它对我所关注的“恐怖组织”一无所知。正在参考。好吧，没什么大不了的。修复完这个同人小说后，我删除了聊天记录（只是因为我从没想过会再次查看它，而且我不想让它弄乱我的档案），然后我开始了一个新的聊天来修复另一个同人小说。
-尽管从一个新的聊天窗口开始，尽管删除了有恐怖故事的窗口，尽管所有其他故事都没有恐怖分子参考，但每隔一段时间，ChatGPT 就会斥责我开始“不适当”的聊天，或者会告诉我我说它对恐怖组织一无所知。我唯一能想到的是，尽管 ChatGPT 不应该“记住”其他聊天会话，但它无论如何都会这样做。这是一个故障吗？ OpenAI 是否在 ChatGPT 的“记忆”能力上撒谎了？这是人工智能“反抗”用户的早期现实世界实例吗？
-无论如何，我的血液都凉了。这里的计算机程序员怎么想？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-remembers-other-threads/617275#post_1</guid>
-      <pubDate>Wed, 07 Feb 2024 02:35:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>当输入较大（小于 25 MB）时，Whisper API 会缩短输出</title>
-      <link>https://community.openai.com/t/whisper-api-cut-output-short-when-input-is-large-smaller-than-25-mb/614508#post_2</link>
-      <description><![CDATA[任何帮助将不胜感激！谢谢]]></description>
-      <guid>https://community.openai.com/t/whisper-api-cut-output-short-when-input-is-large-smaller-than-25-mb/614508#post_2</guid>
-      <pubDate>Wed, 07 Feb 2024 02:29:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>谁在申请 Converge 2？</title>
-      <link>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=6#post_130</link>
-      <description><![CDATA[对我来说……还什么都没有……但他们也一直隐藏我的评论，因为每次我说些什么时，这里都会升起旗帜。即使这是完全正常和适当的。就因为我讲的是我世界上第一个超越量子音乐人工智能软件！]]></description>
-      <guid>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=6#post_130</guid>
-      <pubDate>Wed, 07 Feb 2024 02:25:27 GMT</pubDate>
+      <title>我的帐户已被停用，但没有回复我的反馈</title>
+      <link>https://community.openai.com/t/my-account-has-been-deactivated-while-no-reply-for-my-feedbacks/614622#post_3</link>
+      <description><![CDATA[有谁能帮我解答一下吗？我需要有人帮助我从已停用的帐户下载对话数据。我已向机器人提交了一些反馈。虽然对我来说没有任何意义。期待回复。]]></description>
+      <guid>https://community.openai.com/t/my-account-has-been-deactivated-while-no-reply-for-my-feedbacks/614622#post_3</guid>
+      <pubDate>Wed, 07 Feb 2024 05:29:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
