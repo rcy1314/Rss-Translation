@@ -4,106 +4,193 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 08 Feb 2024 15:19:07 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2024 18:21:36 GMT</lastBuildDate>
     <item>
-      <title>如何确保 JSON 模式正确转义引号？</title>
-      <link>https://community.openai.com/t/how-do-i-ensure-that-json-mode-properly-escapes-quotation-marks/619138#post_1</link>
-      <description><![CDATA[当请求 json_object 补全时，我遇到了一个问题，即生成的文本在句子中随机切断。发生这种情况时，完成原因是停止，因此这不是耗尽允许的完成令牌的情况。
-我注意到的模式是，这种情况始终发生在您可能会看到引号 (&quot;) 作为下一个字符的地方。这使我假设引号间歇性地没有在生成的文本，从而提前结束 JSON 对象中当前名称-值对中当前“值”的完成。
-我应该强调这是间歇性的。因为此问题仅影响某些响应 - 其他包含引号的响应完整无问题。
-为了说明这个问题，我有时可能会收到如下的完成信息：
-{
-  “content”：“本杰明·富兰克林有一句名言：”
-}
+      <title>Whisper API 拒绝 safari 中的 MP4 - 但可以在 Chrome 和 Edge 上与 WebM 配合使用</title>
+      <link>https://community.openai.com/t/whisper-api-rejecting-mp4-from-safari-but-works-with-webm-on-chrome-and-edge/619334#post_1</link>
+      <description><![CDATA[你好！我正在使用 React.js 和 node.js 为客户完成 POC。目前，我需要能够从浏览器捕获音频并将其输入后端服务器以完成相当多的处理。
+无需赘述，我目前面临的问题是，当我尝试在 safari 中使用录制按钮（在我的 React 应用程序中，该按钮启动浏览器音频 API）并将其发送到 BE 时，我得到 400说文件不是预期的格式，然后...呈现一系列可接受的格式。但是，当我 console.log 文件的格式时，它显示音频/mp4，它是数组中显示的可接受的文件类型之一。
+我尝试在之前的线程中实现一些建议的用例来解决此问题，例如针对 safari 浏览器的 mediaRecorder.start(1000)，但仍然收到相同的错误。
+我是否必须使用转换库在我的 BE 上为 safari 浏览器创建一个特殊情况，或者是否有一个简单的解决方法可以在客户端实现，以保持工作顺利进行，而无需添加一堆东西？ 
+启动函数供参考→ 
+const startRecording = () =&gt;; {
+    console.log(&quot;开始录制&quot;);
+    如果（！对话开始）{
+        setConversationStarted(真);
+        设置经过时间（0）；
+        setTimer(空);
+    }
+    if (mediaRecorder &amp;&amp; mediaRecorder.state === &quot;非活动&quot;) {
+        mediaRecorder.start(); // &lt;--- 这是罪魁祸首吗？我需要检查浏览器是否是safari并将其更改为1000吗？
+        setIsRecording(true);
+        const startTime = new Date().getTime();
+        setStartTime(开始时间);
+        设置音频URL(&#39;&#39;);
 
-而预期的完成情况更像是：
-{
-  &quot;content&quot;: &quot;本杰明·富兰克林有一句名言：“如果其中两个人死了，三个人就能保守秘密。”&quot;
-}
-
-有办法避免这种情况发生吗？]]></description>
-      <guid>https://community.openai.com/t/how-do-i-ensure-that-json-mode-properly-escapes-quotation-marks/619138#post_1</guid>
-      <pubDate>Thu, 08 Feb 2024 15:12:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt-3.5-turbo-0125 tier5 TPM 限制</title>
-      <link>https://community.openai.com/t/gpt-3-5-turbo-0125-tier5-tpm-limit/611499#post_10</link>
-      <description><![CDATA[全部，
-仅供参考，刚刚检查过，现在 gpt-3.5-turbo-0125 在第 4 层具有 1M TPM。]]></description>
-      <guid>https://community.openai.com/t/gpt-3-5-turbo-0125-tier5-tpm-limit/611499#post_10</guid>
-      <pubDate>Thu, 08 Feb 2024 15:08:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>检测特定主题的相关性</title>
-      <link>https://community.openai.com/t/detecting-relevance-on-a-specific-topic/619098#post_3</link>
-      <description><![CDATA[我正在使用 GPT-4 在 Instagram 上构建一个聊天机器人。我不知道如何使用函数调用或任何其他工具来确定用户的消息是否与协作流程相关（例如：我想就广告事宜与您联系。
-例如，如果用户的消息是关于水果的，我想结束对话。如果不是并且是关于合作，我想继续对话]]></description>
-      <guid>https://community.openai.com/t/detecting-relevance-on-a-specific-topic/619098#post_3</guid>
-      <pubDate>Thu, 08 Feb 2024 14:48:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>恢复作业因超出速率限制而停止之前生成的结果</title>
-      <link>https://community.openai.com/t/recover-results-produced-before-job-stopped-because-the-rate-limit-was-exceeded/619112#post_1</link>
-      <description><![CDATA[有谁知道是否有办法恢复已生成但未保存在本地的结果，因为代码因达到速率限制而停止执行？
-我正在运行 126k 行的作业，它在 120k 行处中断。花费了巨大的成本，我希望至少能得到那12万的结果。
-如果有人知道方法请告诉我！
-错误：
-openai.error.RateLimitError：您超出了当前配额，请检查您的计划和账单详细信息]]></description>
-      <guid>https://community.openai.com/t/recover-results-produced-before-job-stopped-because-the-rate-limit-was-exceeded/619112#post_1</guid>
-      <pubDate>Thu, 08 Feb 2024 14:44:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=20#post_406</link>
-      <description><![CDATA[我最近让 ChatGPT 的机器人为我画了一张图片，主题是 DALL-E 仅生成 WebP 图像，而不是 PNG。
-
-
-也有一些积极的东西。
+        const IntervalId = setInterval(() =&gt; {
+            const now = new Date().getTime();
+            const elapsed = Math.floor((现在 - 开始时间) / 1000);
+            setElapsedTime(已过去);
+        }, 1000);
+        setIntervalId(间隔Id);
+    }
+};
 ]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=20#post_406</guid>
-      <pubDate>Thu, 08 Feb 2024 14:43:16 GMT</pubDate>
+      <guid>https://community.openai.com/t/whisper-api-rejecting-mp4-from-safari-but-works-with-webm-on-chrome-and-edge/619334#post_1</guid>
+      <pubDate>Thu, 08 Feb 2024 18:20:02 GMT</pubDate>
     </item>
     <item>
-      <title>总结书籍的新方法</title>
-      <link>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_9</link>
-      <description><![CDATA[感谢分享。我正在总结没有自然中断但确实有明确语义不同部分的长文档（对话）。我遇到的一个问题是让摘要遵循对话中出现的顺序]]></description>
-      <guid>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_9</guid>
-      <pubDate>Thu, 08 Feb 2024 14:42:31 GMT</pubDate>
+      <title>无法更改每月使用限额</title>
+      <link>https://community.openai.com/t/cant-change-monthly-usage-limit/619321#post_2</link>
+      <description><![CDATA[“您必须按欠费计费才能管理使用限制”：看起来像 这个限制页面另一个人也发现了，然后向更多用户推出。
+如果他们不考虑“之前设定的无法再更改的每月限额怎么办？”，这似乎是一个巨大的疏忽。 - 由于您现在无法访问的设置，您的帐户将在第 8 天被关闭当月！
+值得立即升级，所以我会将其传递。]]></description>
+      <guid>https://community.openai.com/t/cant-change-monthly-usage-limit/619321#post_2</guid>
+      <pubDate>Thu, 08 Feb 2024 18:14:56 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 从昨天起就表现得很奇怪</title>
-      <link>https://community.openai.com/t/chatgpt-acting-strange-since-yesterday/611710#post_15</link>
-      <description><![CDATA[并对其进行一些解释。它曾经采用我声明的状态并等待我输入文本。然后它会以段落的形式给出该文本的要点。这将使我作为一名研究人员的生活变得更轻松。它总是像宝石一样工作。
-现在，另一方面，它根本不等待，但它开始吐出胡言乱语和垃圾。
-当你这样不断地在我们背后插刀时，我们该如何像 OpenAI 一样工作？
-我还有其他在同一设置中有效的提示，但现在它们完全没用了。
-非常感谢！]]></description>
-      <guid>https://community.openai.com/t/chatgpt-acting-strange-since-yesterday/611710#post_15</guid>
-      <pubDate>Thu, 08 Feb 2024 14:39:27 GMT</pubDate>
+      <title>谁在申请 Converge 2？</title>
+      <link>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=6#post_149</link>
+      <description><![CDATA[我发现了一些去年有关 Converge 1 的 Reddit 帖子。他们没有正式宣布获奖者，而且推介视频也没有观看次数。
+所以这有点像人工智能巫师的霍格沃茨。]]></description>
+      <guid>https://community.openai.com/t/whos-applying-to-converge-2/564181?page=6#post_149</guid>
+      <pubDate>Thu, 08 Feb 2024 18:05:02 GMT</pubDate>
     </item>
     <item>
-      <title>总结书籍的新方法</title>
-      <link>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_8</link>
+      <title>将 RAG 聊天机器人系统扩展到数百万个文档</title>
+      <link>https://community.openai.com/t/scaling-rag-chatbot-system-to-millions-of-documents/615386#post_15</link>
       <description><![CDATA[
 
 
-某人Sysop：
+ jwatte：
 &lt;块引用&gt;
-我向每个块添加整个文档的摘要，有时我总结每个单独的块，有时我只是在每个块中放置总体描述，有时我不添加任何内容，因为标题和其他元数据就足够了。&lt; /p&gt;
+我想只要您已经有了一个好的文档分类法，它就可以提供与显式标记集相同的功能，如果没有，添加它就可以提供该功能，所以这是有道理的！
 
 
-这很有趣。将嵌入添加到矢量数据库时是否将其添加为元数据？]]></description>
-      <guid>https://community.openai.com/t/new-approach-to-summarize-books/611668#post_8</guid>
-      <pubDate>Thu, 08 Feb 2024 14:39:21 GMT</pubDate>
+元数据和过滤器现在是并且一直是任何高品位和高品质产品的必需品。重型数据库。也许您从未达到文档开始共享非常相似且浓缩的语义空间的水平，其中距离不足以获得自信的答案（即使经过预处理），但对于诸如财务记录（或在我的案例（数据表）遵循近乎精确的语义模式，因此使用元数据作为过滤器变得至关重要。
+即使不一定需要这些标签，如果您知道或想要搜索特定类型的文档，或搜索特定公司，您也可以使用这些元数据标签/过滤器来加快搜索速度，如下面的文章所示。
+为了节省自己更多的打字时间，这里有一些教育：
+
+  &lt;标题类=“来源”&gt;
+      
+pinecone.io
+
+
+  &lt;文章类=“onebox-body”&gt;
+    矢量搜索中缺少的 WHERE 子句 |松果
+矢量相似性搜索使海量数据集可在几分之一秒内搜索到。然而，尽管这项技术非常出色且实用，但往往看似最直接的问题却是最难解决的。比如...
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/scaling-rag-chatbot-system-to-millions-of-documents/615386#post_15</guid>
+      <pubDate>Thu, 08 Feb 2024 18:03:34 GMT</pubDate>
     </item>
     <item>
-      <title>检测特定主题的相关性</title>
-      <link>https://community.openai.com/t/detecting-relevance-on-a-specific-topic/619098#post_2</link>
-      <description><![CDATA[您的问题非常广泛。
-在不了解有关您的用例的任何其他信息的情况下，任何人都可以给出的最佳答案是使用即时工程，每次都给出一些示例，等等。
-如果您能描述您想要实现的目标，我们也许能够提供一些更好的建议。]]></description>
-      <guid>https://community.openai.com/t/detecting-relevance-on-a-specific-topic/619098#post_2</guid>
-      <pubDate>Thu, 08 Feb 2024 14:38:37 GMT</pubDate>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_11</link>
+      <description><![CDATA[我对视觉模型不是很熟悉，但我建议在自定义数据集上使用 LLaVA 这样的模型。我希望这能回答您的问题。]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_11</guid>
+      <pubDate>Thu, 08 Feb 2024 17:58:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法更改每月使用限额</title>
+      <link>https://community.openai.com/t/cant-change-monthly-usage-limit/619321#post_1</link>
+      <description><![CDATA[我已达到每月 10 美元的使用限制，但似乎无法更改此限制...
+我的帐户中有大约 50 美元的积分，但是我收到一封电子邮件，内容是“您本月的 API 使用量已达到您帐户的每月预算 10.00 美元”，并且 API 现在不再返回数据。我处于“使用级别 2”，并阅读了文档，它说我应该使用“500 美元/月”。我在帐户中找不到任何地方可以将限额从 10 美元增加到 500 美元。
+我收到的电子邮件：
+
+帐户显示为使用级别 2，其中有一些神秘的“欠费账单”参考，我似乎无法找到其设置：
+
+文件显示每月应有 500 美元的使用限额
+
+任何帮助将不胜感激！]]></description>
+      <guid>https://community.openai.com/t/cant-change-monthly-usage-limit/619321#post_1</guid>
+      <pubDate>Thu, 08 Feb 2024 17:57:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_10</link>
+      <description><![CDATA[我明白了，我正在寻找训练模型来对分子轨道图像进行分类，如下所示：
+
+我应该使用哪些开源模型？使用包含 100 张左右手工标记图像的数据集来训练试运行需要多长时间？]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_10</guid>
+      <pubDate>Thu, 08 Feb 2024 17:54:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>针对 gpt-3.5-turbo-0125 进行微调</title>
+      <link>https://community.openai.com/t/fine-tuning-for-gpt-3-5-turbo-0125/618767#post_3</link>
+      <description><![CDATA[
+
+
+ dpf：
+&lt;块引用&gt;
+gpt-3.5-turbo-0125
+
+
+同样，正在等待调整 gpt-3.5-turbo-0125。希望“很快”意味着几天 ]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-for-gpt-3-5-turbo-0125/618767#post_3</guid>
+      <pubDate>Thu, 08 Feb 2024 17:52:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_9</link>
+      <description><![CDATA[那么我建议您使用可以专门针对您的用例进行训练的开源模型。]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_9</guid>
+      <pubDate>Thu, 08 Feb 2024 17:51:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_8</link>
+      <description><![CDATA[gpt-4 视觉模型经常出现标签错误。]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_8</guid>
+      <pubDate>Thu, 08 Feb 2024 17:50:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_7</link>
+      <description><![CDATA[
+
+
+ romit.chakraborty:
+&lt;块引用&gt;
+我正在使用图像分类器构建 LLM 应用程序
+
+
+如果它只是一个图像分类器，那么为什么要自定义训练它？
+GPT-4-Vision 的基本模型可能适合您的用例。]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_7</guid>
+      <pubDate>Thu, 08 Feb 2024 17:49:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_6</link>
+      <description><![CDATA[嗨 Elijah，我正在使用图像分类器构建 LLM 应用程序。基于这个约束，构建图像分类模型并使用函数调用访问它可能会更好？]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_6</guid>
+      <pubDate>Thu, 08 Feb 2024 17:48:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_5</link>
+      <description><![CDATA[您好，您目前无法在自己的图像上微调 GPT-4-Vision。]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_5</guid>
+      <pubDate>Thu, 08 Feb 2024 17:46:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以在图像数据集上训练 gpt-4 视觉模型吗？</title>
+      <link>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_3</link>
+      <description><![CDATA[我希望从 API 调用 gpt-4 视觉预览，并训练它根据数据集对图像进行分类。可以这样做吗？]]></description>
+      <guid>https://community.openai.com/t/can-a-train-a-gpt-4-vision-model-on-a-dataset-of-images/619309#post_3</guid>
+      <pubDate>Thu, 08 Feb 2024 17:45:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>为预测分析用例构建简单的机器学习模型</title>
+      <link>https://community.openai.com/t/building-a-simple-ml-model-for-predictive-analytics-use-cases/619310#post_1</link>
+      <description><![CDATA[嗨，
+只是想知道是否有人能够使用 ChatGPT4 界面创建简单的机器学习模型？我有一个预测分析用例（具有 10K 行和 600 个参数的 csv），但系统在整个过程中不断失败。可能缺乏内存、计算或其他一些限制。很想知道你是如何做到这一点的。谢谢]]></description>
+      <guid>https://community.openai.com/t/building-a-simple-ml-model-for-predictive-analytics-use-cases/619310#post_1</guid>
+      <pubDate>Thu, 08 Feb 2024 17:43:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
