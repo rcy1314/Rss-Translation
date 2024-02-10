@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 10 Feb 2024 03:18:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Feb 2024 06:20:40 GMT</lastBuildDate>
+    <item>
+      <title>YouTube 现在屏蔽了广告拦截器，因此我制作了这个 Chrome 扩展程序（广告加速），它只会使广告运行速度加快 16 倍。 4 个月内拥有超过 30 万用户。 [附代码]</title>
+      <link>https://www.reddit.com/r/webdev/comments/1an8ucy/youtube_is_now_blocking_ad_blockers_so_i_made/</link>
+      <description><![CDATA[我使用了 uBlock Origin，它对我很有用，直到我被这个弹出窗口打倒 - https://imgur.com/AfqSuhk 表示禁用广告拦截器，否则 YouTube 将完全停止播放视频。这让我思考如何利用我现有的技能来解决这个问题。 因此我构建了 Ad Speedup (https://chromewebstore.google.com/detail/ad-speedup-skip-video-ads/pcjlckhhhmlefmobnnoolakplfppdchi?hl=en），将广告静音，自动播放广告 16 倍，因此几乎可以在您没有注意到的情况下跳过所有广告 - 速度快如闪电。我还在侧边栏中添加了一种免费的方式来总结长 YouTube 视频，供需要它的人使用，尽管我不是它的忠实粉丝 - 它可以关闭，有时会派上用场。 我不知道，但我我的想法是对的，这也意味着内容创作者仍然可以从视频中获得收入？如果是这样的话，这是比广告拦截器更好的解决方案，您觉得怎么样？ 这是我编写的实际扩展代码，您可以复制它，重新分发它，并随心所欲地使用它 -或者只是在此处使用我的扩展 - AdSpeedup.com // CONTENT-SCRIPT.JS (function () { function clickSkipButton(player) { const skipButton = player.querySelector( &quot;.ytp-ad-skip-button-modern.ytp-button&quot; ); if (skipButton) {skipButton.click(); } } function adjustmentVideoPlayback(player, isAdPlaying) { const video = player.querySelector(&quot;video&quot;); if (video) { if (isAdPlaying) { video.playbackRate = 16; // 加快视频播放速度 video.muted = true; // 使视频静音 } } } functionobserverCallback(mutations,observer) { for (mutations的constmutation) { if (mutation.type ===“属性”&amp;&amp;mutation.attributeName ===“类”){constplayer=mutation .target; const isAdPlaying = player.classList.contains(“广告展示”) || player.classList.contains(“广告中断”);调整VideoPlayback（播放器，isAdPlaying）； } if (mutation.type === &quot;childList&quot; &amp;&amp;mutation.addedNodes.length) { clickSkipButton(mutation.target); } } } function setupObserver() { const player = document.querySelector(“#movie_player”); if (玩家) { const Observer = new MutationObserver(observerCallback); observer.observe(player, { 属性: true, childList: true, 子树: true, }); // 初始检查 const isAdPlaying = player.classList.contains(“ad-showing”) || player.classList.contains(“广告中断”);调整VideoPlayback（播放器，isAdPlaying）；单击跳过按钮（玩家）； } else { setTimeout(setupObserver, 50); setupObserver(); })(); // MANIFEST.JSON { “manifest_version”: 3, “name”: “您的名字”, “version”: “1.0.1”, “version_name”: “1.0.1”, “”描述”：“您的描述”，“内容脚本”：[ {“匹配”：[“https://*.youtube.com/*” ], &quot;js&quot;: [ &quot;minified/content-script.min.js&quot;; ], “run_at”: “document_start” } ] }  ​   由   提交/u/pareshmukh  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1an8ucy/youtube_is_now_blocking_ad_blockers_so_i_made/</guid>
+      <pubDate>Sat, 10 Feb 2024 05:21:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>允许 IMAP 的电子邮件托管吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1an7cdl/email_hosting_that_allows_imap/</link>
+      <description><![CDATA[我在 GoDaddy 上购买了一个域名，该域名附带了关联的 Outlook 电子邮件。但是，我最近了解到他们不再支持 IMAP/POP。 有人对具有此功能的电子邮件托管有建议吗？  &amp; #32；由   提交 /u/Longjumping-Speed511    reddit.com/r/webdev/comments/1an7cdl/email_hosting_that_allows_imap/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1an7cdl/email_hosting_that_allows_imap/</guid>
+      <pubDate>Sat, 10 Feb 2024 03:58:21 GMT</pubDate>
+    </item>
     <item>
       <title>如何从头开始创建一个体育统计网站</title>
       <link>https://www.reddit.com/r/webdev/comments/1an646o/how_to_create_a_sports_statistics_website_from/</link>
@@ -25,13 +39,6 @@
       <description><![CDATA[有关代理的帮助 我想使用紫外线代理制作一个畅通无阻的游戏网站 https://github.com/titaniumnetwork-dev/Ultraviolet 我希望它类似于星际穿越，https://github.com/InterstellarNetwork/Interstellar 有人可以告诉我如何做到这一点/它需要什么，我的下一个问题是，如何做当我点击星际上的游戏并通过代理加载游戏/url 时它可以工作吗？   由   提交 /u/WhiteeyScience   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1an5puf/help_with_proxy/</guid>
       <pubDate>Sat, 10 Feb 2024 02:30:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>前端开发中实现3D效果的标准做法是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1an5i9i/whats_the_standard_practice_for_implementing_3d/</link>
-      <description><![CDATA[我一直在探索将 3D 效果集成到 Web 项目中，并注意到许多现代网站都使用令人印象深刻的 3D 视觉效果。很明显，Three.js 和 WebGL 这样的库在这方面发挥了重要作用，但我很好奇前端开发人员为实现这种效果所遵循的标准实践。 大多数前端开发人员都是这样做的吗？使用 3D 效果的人也专门研究 Three.js/WebGL，或者是否有一个通用的存储库或资源，他们可以在其中获取预制的 3D 效果和对象以合并到他们的项目中？想到所有使用这些视觉效果的前端开发人员都是 3D 编程专家，我觉得有点令人畏惧。我的假设是，可能存在流行的平台或社区，开发人员可以在其中共享或销售即用型 3D 组件。 有人可以分享一下您通常如何向 Web 项目添加 3D 元素的见解或经验吗？对于那些希望通过 3D 视觉效果增强其网站而无需从一开始就需要深入了解 Three.js 或 WebGL 专业知识的人，您是否有推荐的特定工具、库或网站？ 提前感谢您的意见和建议!   由   提交/u/Jaded_Run3214   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1an5i9i/whats_the_standard_practice_for_implementing_3d/</guid>
-      <pubDate>Sat, 10 Feb 2024 02:19:25 GMT</pubDate>
     </item>
     <item>
       <title>根据采访流程进行过滤</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[我可以用 Vue 开发应用，但是我很难找到 Vue 的工作，但我仍然有精力去学习。 Vue 是否不如 React？切换到 React 是否明智？如果是的话，原因是什么？   由   提交/u/Kinkajou89  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1amyc9f/should_i_really_learn_react_even_tho_i_know_vue/</guid>
       <pubDate>Fri, 09 Feb 2024 20:52:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>OAuth2 数据帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1amy6zc/oauth2_data_help/</link>
-      <description><![CDATA[大家好！我是一名拥有丰富经验的软件开发人员，但我对 Web 开发还很陌生，所以我希望这不是一个太愚蠢的问题。 现在，我正在尝试创建一个nextjs 中的应用程序，我们将从规划中心收集用户列表。我想使用 OAuth，规划中心提供了 python 和 PHP 示例，但我对 js 的了解不够，无法移植这些示例。我已尝试遵循 nextauth 的一些文档，但这似乎更适合创建用户帐户，这不是我想要对此集成执行的操作。 任何帮助将不胜感激！&lt; /p&gt;   由   提交 /u/swagminecrafter   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1amy6zc/oauth2_data_help/</guid>
-      <pubDate>Fri, 09 Feb 2024 20:46:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
