@@ -4,175 +4,89 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 13 Feb 2024 15:18:10 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 13 Feb 2024 18:23:18 GMT</lastBuildDate>
     <item>
-      <title>GPT 商店搜索错误 - 热门 GPT 隐藏在搜索结果中</title>
-      <link>https://community.openai.com/t/gpt-store-search-bug-popular-gpt-hidden-from-search-results/624560#post_7</link>
-      <description><![CDATA[根据定义，错误是无意识的行为，我怀疑用户向我报告的行为是否是有意的。因此，我决定通过论坛和help.openai.com联系OpenAI来解决这个问题.]]></description>
-      <guid>https://community.openai.com/t/gpt-store-search-bug-popular-gpt-hidden-from-search-results/624560#post_7</guid>
-      <pubDate>Tue, 13 Feb 2024 15:15:53 GMT</pubDate>
+      <title>DALL-E 图像下载为 WebP</title>
+      <link>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=5#post_99</link>
+      <description><![CDATA[你错了。 CHATGPT 拒绝此请求。 GPT 给出了一个标准响应，指出它无法提供 png 格式的图像，也无法更改当前 webp 格式的默认值。它不会将 webp 转换为 png，也不会将图像创建为 png。我使用 GPT4 plus。 3.5 中也是如此。]]></description>
+      <guid>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=5#post_99</guid>
+      <pubDate>Tue, 13 Feb 2024 18:17:35 GMT</pubDate>
     </item>
     <item>
-      <title>将 OpenAI Assistant API 构建到 Google Sheets 中</title>
-      <link>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567#post_11</link>
-      <description><![CDATA[感谢一百万，使用该代码我终于让它工作了。谷歌表格中的自定义函数似乎在 30 秒后超时，并且没有办法解决这个问题，但大约有一半的时间该函数在此之前完成。下一步是解决这个问题，我可能只是在 Excel 中执行此操作，因为我不确定在工作表中是否可行。
-下面是我的完整代码。
-/**
- * 自定义 Google Sheets 功能，可与 OpenAI 的 Assistant API 进行交互。
- * 它一次性创建一个线程、发送用户消息并检索响应。
- *
- * @param {string} userInput 用户的输入，取自 Google 表格中的单元格。
- * @return {string} 来自 OpenAI Assistant 的响应。
- * @自定义函数
- */
-函数askOpenAIAssistant（用户输入）{
-  var OPENAI_API_KEY = &#39;sk-************************************&#39;; // 在此设置您的 OpenAI API 密钥
-  var ASSISTANT_ID = &#39;asst_********************&#39;; // 在这里设置你的助手ID
-  var 标头 = {
-    &#39;授权&#39;: &#39;承载&#39; + OPENAI_API_KEY,
-    &#39;内容类型&#39;：&#39;应用程序/json&#39;，
-    &#39;OpenAI-Beta&#39;: &#39;助手=v1&#39;
-  };
-
-  // 创建一个线程
-  var threadResponse = UrlFetchApp.fetch(&#39;https://api.openai.com/v1/threads&#39;, {
-    &#39;方法&#39;: &#39;发布&#39;,
-    &#39;标题&#39;：标题，
-    &#39;muteHttpExceptions&#39;：true
-  });
-
-  if (threadResponse.getResponseCode() !== 200) {
-    return &quot;创建线程失败。响应：&quot; + threadResponse.getContentText();
-  }
-
-  var threadData = JSON.parse(threadResponse.getContentText());
-  var threadId = threadData.id; // 根据实际响应格式进行调整
-
-  // 向线程发送消息
-  var messageResponse = UrlFetchApp.fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-    &#39;方法&#39;: &#39;发布&#39;,
-    &#39;标题&#39;：标题，
-    &#39;有效负载&#39;: JSON.stringify({
-      &#39;角色&#39;：&#39;用户&#39;，
-      &#39;内容&#39;：用户输入
-    }),
-    &#39;muteHttpExceptions&#39;：true
-  });
-
-  if (messageResponse.getResponseCode() !== 200) {
-    return &quot;发送消息失败。响应：&quot; + messageResponse.getContentText();
-  }
-
-  // 使用助手运行线程
-  var runResponse = UrlFetchApp.fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
-    &#39;方法&#39;: &#39;发布&#39;,
-    &#39;标题&#39;：标题，
-    &#39;有效负载&#39;: JSON.stringify({
-      &#39;assistant_id&#39;：ASSISTANT_ID
-    }),
-    &#39;muteHttpExceptions&#39;：true
-  });
-
-  if (runResponse.getResponseCode() !== 200) {
-    return“无法运行线程。响应：” + runResponse.getContentText();
-  }
-
-  var runData = JSON.parse(runResponse.getContentText());
-  var runId = runData.id;
-  var status = runData.status;
-  var startTime = new Date().getTime();
-
-  // 轮询运行状态直到“完成”
-  while (status === &#39;queued&#39; || status === &#39;in_progress&#39;) {
-    实用程序.睡眠（500）； // 等待半秒再检查
-    var checkResponse = UrlFetchApp.fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
-      &#39;方法&#39;：&#39;获取&#39;，
-      &#39;标题&#39;：标题，
-      &#39;muteHttpExceptions&#39;：true
-    });
-
-    var checkData = JSON.parse(checkResponse.getContentText());
-    状态 = checkData.status;
-
-    // 检查超时以避免超出执行限制
-    var currentTime = new Date().getTime();
-    if (currentTime - startTime &gt; 29000) { // 29 秒限制是安全的
-      return“等待运行完成超时。”；
-    }
-  }
-
-  // 运行完成后，获取最终结果
-  if (状态 === &#39;已完成&#39;) {
-    var messagesResponse = UrlFetchApp.fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-      &#39;方法&#39;：&#39;获取&#39;，
-      &#39;标题&#39;：标题，
-      &#39;muteHttpExceptions&#39;：true
-    });
-
-    如果（messagesResponse.getResponseCode（）=== 200）{
-      var messagesData = JSON.parse(messagesResponse.getContentText());
-      // 迭代消息以查找助手的响应
-      for (var i = messagesData.data.length - 1; i &gt;= 0; i--) {
-        var message = messagesData.data[i];
-        if (message.role === &#39;助理&#39; &amp;&amp; message.content &amp;&amp; message.content.length &gt; 0) {
-          // 假设第一个内容项包含文本响应
-          var contentItem = message.content.find(c =&gt; c.type === &#39;text&#39;);
-          if (contentItem &amp;&amp; contentItem.text &amp;&amp; contentItem.text.value) {
-            返回 contentItem.text.value； // 返回助手消息的文本值
-          }
-        }
-      }
-      return &quot;未找到助理的最终回复。&quot;;
-    } 别的 {
-      return &quot;获取消息失败。响应：&quot; + messagesResponse.getContentText();
-    }
-  } 别的 {
-    return &quot;运行未成功完成。状态：&quot; + status;
-  }
-}
-]]></description>
-      <guid>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567#post_11</guid>
-      <pubDate>Tue, 13 Feb 2024 15:09:10 GMT</pubDate>
+      <title>DALL-E 图像下载为 WebP</title>
+      <link>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=5#post_98</link>
+      <description><![CDATA[我很生气 CHATGPT 4 with DALLE 中的所有图像都是 webp 格式而不是 png。我每月支付 CHATGPT Plus 订阅费 20 英镑，特别是因为它的图像生成功能，其中的故事质量曾经很好，并且采用 png 格式。现在图像生成的质量令人震惊，不准确，订阅者肯定已经失去了信任。生成的图像毫无用处，质量很差，并且不再值得订阅。除了图像生成突然变成了 webp 格式（CHAT GPT4 说这是默认设置，无法更改）之外，所有图像的分辨率都很差、不准确、没有很好地遵循提示，并且存在明显的解剖错误，例如额外的脚和手出现。就好像他们抹去了过去 18 个月取得的进展，又回到了低质量的图像和无能的能力。 CHATGPT 现在对图像无用]]></description>
+      <guid>https://community.openai.com/t/dall-e-images-downloading-as-webp/611090?page=5#post_98</guid>
+      <pubDate>Tue, 13 Feb 2024 18:13:33 GMT</pubDate>
     </item>
     <item>
-      <title>特点： 我可以通过编程方式修改模型详细信息吗？</title>
-      <link>https://community.openai.com/t/features-can-i-modify-model-details-programmatically/624770#post_2</link>
-      <description><![CDATA[您好@niketion，欢迎来到论坛 - 除非我误解了您的问题，否则简短的答案是否定的。自定义 GPT 和 OpenAI 的 API 是两个独立的产品。 API 参考不适用于自定义 GPT。]]></description>
-      <guid>https://community.openai.com/t/features-can-i-modify-model-details-programmatically/624770#post_2</guid>
-      <pubDate>Tue, 13 Feb 2024 15:09:04 GMT</pubDate>
+      <title>这些验证码很荒谬</title>
+      <link>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_4</link>
+      <description><![CDATA[已提交至help.openai.com。可以预见的是，他们没有抓住重点，忽略了验证码的所有问题，只是为我的设置找借口。
+我可以解决偶尔的验证码 - 但不能解决这些验证码。
+他们完全忽略了验证码需要可供人类使用的这一点。如果 OpenAI 认为这对于他们的系统来说是可以接受的行为，那么他们应该直接阻止用户。
+我认为他们永远不会放弃 Arkose Labs（他们制作了已知世界中最糟糕的验证码）。 OpenAI 的竞争对手每天都变得更加可行……]]></description>
+      <guid>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_4</guid>
+      <pubDate>Tue, 13 Feb 2024 18:08:07 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API 重复相同的消息</title>
-      <link>https://community.openai.com/t/assistant-api-repeat-the-same-message/617536#post_14</link>
-      <description><![CDATA[你能记录收到的原始数据吗？，即对它进行wireshark或者其他什么，这样你就可以100%确定数据是用空字符串和填充字符串重复的，如果你发现情况是这样的话，您应该创建一个 API 错误条目，因为这种情况不应该发生，至少据我所知不应该发生。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-repeat-the-same-message/617536#post_14</guid>
-      <pubDate>Tue, 13 Feb 2024 15:03:59 GMT</pubDate>
+      <title>将团队计划从按月计费更改为按年计费？</title>
+      <link>https://community.openai.com/t/change-team-plan-from-monthly-to-annual-billing/610733#post_2</link>
+      <description><![CDATA[我也遇到了同样的问题，目前还没有找到解决方案。
+我们计划做的下一件最好的事情就是您已经提到的 - 首先取消 ChatGPT 团队（该团队将在到期日之前保持激活状态），然后根据年度计费使用全新的工作场所重新订阅。
+这只是不方便，但这是一次性的事情。]]></description>
+      <guid>https://community.openai.com/t/change-team-plan-from-monthly-to-annual-billing/610733#post_2</guid>
+      <pubDate>Tue, 13 Feb 2024 18:07:50 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API 重复相同的消息</title>
-      <link>https://community.openai.com/t/assistant-api-repeat-the-same-message/617536#post_13</link>
-      <description><![CDATA[我轮询线程以获取新消息，获取最后收到的消息之后的下一条消息。然而，有时我收到一条有效的短信，但它是空的。真正的消息从未到达。
-所以我对此进行了调试，结果发现我首先收到一条空消息，然后过了一会儿，相同的消息 ID 用于实际消息。
-即相同的 ID 有两个不同的消息，就好像该消息首先被创建（并且我检测到它），然后稍后它被修改以包含内容。
-有人可以验证一下吗？有没有办法普遍检测这种中途消息？]]></description>
-      <guid>https://community.openai.com/t/assistant-api-repeat-the-same-message/617536#post_13</guid>
-      <pubDate>Tue, 13 Feb 2024 15:00:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>特点： 我可以通过编程方式修改模型详细信息吗？</title>
-      <link>https://community.openai.com/t/features-can-i-modify-model-details-programmatically/624770#post_1</link>
-      <description><![CDATA[OpenAI 社区您好，
-我目前正在使用我的高级帐户集成一个名为“MyGPT”的自定义 GPT 模型。在探索官方 API 文档时，我对可用的自定义选项的范围感到好奇。具体来说，我有兴趣知道是否可以使用官方 API 以编程方式设置和修改参数，例如模型名称、描述、对话启动器和指令。
-有人可以提供有关 API 是否允许此类自定义功能的见解吗？任何文档指针或示例将不胜感激]]></description>
-      <guid>https://community.openai.com/t/features-can-i-modify-model-details-programmatically/624770#post_1</guid>
-      <pubDate>Tue, 13 Feb 2024 14:53:33 GMT</pubDate>
+      <title>共享链接需要登录才能阅读（错误）</title>
+      <link>https://community.openai.com/t/shared-links-require-login-to-read-bug/624899#post_3</link>
+      <description><![CDATA[不！我不使用 ChatGPT Teams。我只有 ChatGPT Premium 订阅，并且为我使用的外部应用程序（需要 OpenAI 的 API 的应用程序）单独购买了 API 计划。]]></description>
+      <guid>https://community.openai.com/t/shared-links-require-login-to-read-bug/624899#post_3</guid>
+      <pubDate>Tue, 13 Feb 2024 18:06:02 GMT</pubDate>
     </item>
     <item>
       <title>创建临时 API 密钥以向访问者提供积分</title>
-      <link>https://community.openai.com/t/creating-adhoc-api-keys-for-giving-credits-to-visitors/623908#post_4</link>
-      <description><![CDATA[正确的最佳实践是，您应该将所有输入和输出发送到审核端点，并检查 a) 它不会触发任何标志，b) 使用发回的值您可以构建自己的审核和可接受的使用策略。如果用户随后创建了一个通过这些检查的提示，您将拥有该提示的日志和相应的审核检查，这样您就可以表现出尽职调查并遵循最佳实践，这应该可以保护您的帐户免受问题的影响，但是您应该始终采取措施来处理那些不断尝试导致触发的提示的用户。]]></description>
-      <guid>https://community.openai.com/t/creating-adhoc-api-keys-for-giving-credits-to-visitors/623908#post_4</guid>
-      <pubDate>Tue, 13 Feb 2024 14:48:51 GMT</pubDate>
+      <link>https://community.openai.com/t/creating-adhoc-api-keys-for-giving-credits-to-visitors/623908#post_7</link>
+      <description><![CDATA[单一职责可以让代码变得更简单、更易于管理。
+API 请求的延迟并不严重。
+如果他们将其混合，您将需要考虑完全不同的响应对象，包括潜在的歧义和错误，例如审核端点出现故障。
+如果您想要添加自己的过滤器，审核端点还会发送带有响应的值。如果它被简化为一个简单的错误，那么返回这些值的可能性就消失了。
+无论如何，他们确实会运行自己的审核检查，并且 Azure 等一些服务会为您处理。
+因此，进行简单的布尔检查可能是有意义的，但它限制了可能性，并且还增加了过程的复杂性，导致现在耦合的代码和结果。职责]]></description>
+      <guid>https://community.openai.com/t/creating-adhoc-api-keys-for-giving-credits-to-visitors/623908#post_7</guid>
+      <pubDate>Tue, 13 Feb 2024 17:59:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>避免常见的 ChatGPT 写作风格和结构</title>
+      <link>https://community.openai.com/t/avoiding-common-chatgpt-writing-styles-and-structures/624869#post_3</link>
+      <description><![CDATA[您可以尝试自定义指令，让 ChatGPT 听起来与众不同。
+不存在一刀切的解决方案。例如，对于一次对话，您可能希望它像朋友一样交谈，而在另一次对话中，您可能希望它像专业环境中的人一样做出回应。]]></description>
+      <guid>https://community.openai.com/t/avoiding-common-chatgpt-writing-styles-and-structures/624869#post_3</guid>
+      <pubDate>Tue, 13 Feb 2024 17:54:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>这些验证码很荒谬</title>
+      <link>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_3</link>
+      <description><![CDATA[（；ﾟДﾟ）……什么！？
+（ つ д ⊂ ）用力揉眼睛
+, .
+（；ﾟДﾟ）……天哪！？
+抱歉，我还是第一次看到这样的验证码。
+如果有帮助，您可以访问...
+https://help.openai.com/
+并冷静地（在合理范围内）使用不寻常的验证码报告问题。
+这可能需要几天的时间，但他们也许能够修复它......]]></description>
+      <guid>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_3</guid>
+      <pubDate>Tue, 13 Feb 2024 17:48:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>这些验证码很荒谬</title>
+      <link>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_2</link>
+      <description><![CDATA[嘿，冠军，欢迎来到开发者社区论坛。
+如果您的帐户出现问题，我建议您前往 help.openai.com。该论坛主要作为使用 OpenAI API 的开发人员的空间，并且不会主动监控与 chatGPT 相关的问题。]]></description>
+      <guid>https://community.openai.com/t/these-captchas-are-ridiculous/624890#post_2</guid>
+      <pubDate>Tue, 13 Feb 2024 17:48:29 GMT</pubDate>
     </item>
     </channel>
 </rss>
