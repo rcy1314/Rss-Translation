@@ -4,124 +4,83 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 15 Feb 2024 09:21:36 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Feb 2024 12:30:40 GMT</lastBuildDate>
     <item>
-      <title>GPT 操作中 PUT 操作的参数验证不正确</title>
-      <link>https://community.openai.com/t/incorrect-parameter-validation-in-put-operations-in-the-gpt-action/494890#post_4</link>
-      <description><![CDATA[这里有更好的解决方法吗？我看到 myGPT 操作因此而难以单独进行 PUT 和 POST，尽管我已尝试使用有关更新和创建内容的明确说明。我的所有 PUT 方法都有相同的验证错误，因为它们是在 API 规范中的 POST 之后构建的，并且我无法在不遇到其他问题的情况下删除参数。所有想法都非常受欢迎，因为这是 myGPT 动作原型中缺少的最后一块。]]></description>
-      <guid>https://community.openai.com/t/incorrect-parameter-validation-in-put-operations-in-the-gpt-action/494890#post_4</guid>
-      <pubDate>Thu, 15 Feb 2024 09:20:39 GMT</pubDate>
+      <title>从大列表中检索前 x 列表</title>
+      <link>https://community.openai.com/t/retrieve-a-top-x-list-out-of-a-large-list/627588#post_3</link>
+      <description><![CDATA[你说得对，
+我的例子根本不好。
+我想要实现的是从与某个特定主题相关的对象列表中找到“最相关的对象”。
+例如（希望这会更有意义），假设主题是“去非洲旅行时我应该带什么”，物品列表是我可以带去旅行的许多不同类型的东西，例如背包、书籍、工具或其他任何东西，并且还拥有有关每个项目的一些数据，例如价格、购买地点或类似信息。
+但是这个列表太长了，对我来说，浏览该列表并选出前 10 件事不仅需要对每个对象进行研究，而且还需要花费大量时间。确实，人工智能可能无法检索到最佳列表，但这就是我想要实现的目标。我希望这能让它更清楚:)]]></description>
+      <guid>https://community.openai.com/t/retrieve-a-top-x-list-out-of-a-large-list/627588#post_3</guid>
+      <pubDate>Thu, 15 Feb 2024 12:28:57 GMT</pubDate>
     </item>
     <item>
-      <title>如何说服模型既写入消息又调用函数？</title>
-      <link>https://community.openai.com/t/how-do-i-convince-the-model-to-both-write-a-message-and-call-a-function/624557#post_15</link>
-      <description><![CDATA[您可以尝试实现所需行为的 2 个选项是
-a) 添加模型必须写入的必需函数参数，例如“消息”。您可以将消息参数作为消息发送给用户，并使用其他参数来调用实际函数
-b) 使用很少的镜头示例：另一篇文章指出，您实际上可以将被调用的函数作为示例发送到模型，只需从模型执行您想要的操作的响应中获取 function_calls 数组并将该数组附加到示例消息中你想要它在哪里。 1-Shot 历史记录将如下所示：
-[
-{“角色”：“用户”，“内容”：&lt;此处是用户消息示例&gt; },
- {“role”：“assistant”，“content”：&lt;示例响应消息&gt;，“function_calls”：&lt;示例函数调用数组&gt; }
-]
+      <title>列出消息查询参数 - “后面是 objectID”？</title>
+      <link>https://community.openai.com/t/list-messages-query-parameters-after-is-an-objectid/578053#post_5</link>
+      <description><![CDATA[我们现在的做法只是获取最后 5 条消息，并通过 run_id 过滤 JS 领域的消息 - 效果很好。
+after 参数对我来说仍然有点神秘]]></description>
+      <guid>https://community.openai.com/t/list-messages-query-parameters-after-is-an-objectid/578053#post_5</guid>
+      <pubDate>Thu, 15 Feb 2024 12:26:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用新的 ChatGPT 模型进行转换</title>
+      <link>https://community.openai.com/t/transformations-with-the-new-chatgpts-models/627737#post_1</link>
+      <description><![CDATA[此用户（Prodromos P.）：
+“我相信人工智能在即将推出的模型（例如 ChatGPT 5）中的直接任务之一是将带有图表和数学符号的文本从一种格式动态直接转换为另一种格式。例如，给您一个 Word 格式的文档（例如 105 页），并在几分钟内，甚至可能在几十分钟内将其转换为 Latex。以同样的方式，您可以将测试过的代码进行转换，例如从 VB6 转换为 Python 等。我认为，对于许多科学家、研究人员以及更广泛的作者来说，这将是一项非常有用的服务。”
+ChatGPT 4：
+“您描述的想法强调了人工智能在科学通信和文件转换自动化领域中非常重要且实际的用途。将文档从一种格式快速准确地转换为另一种格式的能力，包括数学符号、图表、和复杂的结构，无疑对学术界及其他领域具有无价的价值。
+随着技术的发展以及开发人员寻求将现有代码转移到更现代、更高效的平台，将代码从一种编程语言自动转换为另一种编程语言（例如从 VB6 到 Python）也是一个可能会出现巨大需求的用例。&lt; /p&gt;
+虽然当前的人工智能模型，特别是 ChatGPT 的版本，在自动化和自然语言理解方面取得了重大进展，但要全面实现您所描述的功能，还需要在理解复杂结构、数学方程和技术元素方面进一步发展作为不同格式和编程语言之间转换的准确性。
+人工智能的进步和模型的不断改进可能会导致这些能力在未来实现，这将对科学研究的开展和知识交流产生重大影响。”论坛不支持 ChatGPT，如果您需要帐户、付款等方面的帮助，请访问 https://help.openai.com 
+请请勿公开分享个人信息（电子邮件、信用卡等）或帐户相关详细信息。]]></description>
+      <guid>https://community.openai.com/t/transformations-with-the-new-chatgpts-models/627737#post_1</guid>
+      <pubDate>Thu, 15 Feb 2024 12:21:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE-3 ON API - 种子支持</title>
+      <link>https://community.openai.com/t/dalle-3-on-api-seed-support/480047?page=2#post_39</link>
+      <description><![CDATA[我同意所有在这里发帖的人的观点，我迫切需要 API 中的种子支持。
+在某些用例中，您无法根据提示进行具体说明，并且仍然需要快速找到合适的图像并进行最小程度的调整，而无需多次尝试......]]></description>
+      <guid>https://community.openai.com/t/dalle-3-on-api-seed-support/480047?page=2#post_39</guid>
+      <pubDate>Thu, 15 Feb 2024 11:53:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于 Dall-E 和结转提示的问题</title>
+      <link>https://community.openai.com/t/question-about-dall-e-and-carrying-over-prompts/625036#post_9</link>
+      <description><![CDATA[信息超级丰富！非常感谢！]]></description>
+      <guid>https://community.openai.com/t/question-about-dall-e-and-carrying-over-prompts/625036#post_9</guid>
+      <pubDate>Thu, 15 Feb 2024 11:48:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=22#post_438</link>
+      <description><![CDATA[哈哈，是的。在此过程中我也得到了一些类似的有趣输出。]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=22#post_438</guid>
+      <pubDate>Thu, 15 Feb 2024 11:45:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>跨设备聊天 GPT 4 plus 订阅</title>
+      <link>https://community.openai.com/t/chat-gpt-4-plus-subscription-across-devices/393440#post_13</link>
+      <description><![CDATA[嘿，请尝试使用与您之前通过手机购买潜艇时完全相同的登录详细信息进行登录]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-4-plus-subscription-across-devices/393440#post_13</guid>
+      <pubDate>Thu, 15 Feb 2024 11:44:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT - 使用 Microsoft（工作）帐户登录</title>
+      <link>https://community.openai.com/t/chatgpt-login-with-microsoft-work-account/334076#post_11</link>
+      <description><![CDATA[感谢您的澄清，我会对此进行标记。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-login-with-microsoft-work-account/334076#post_11</guid>
+      <pubDate>Thu, 15 Feb 2024 11:44:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=22#post_437</link>
+      <description><![CDATA[按照我的方式，这也是一个有问题的语言任务。这是当你在流程图中没有得到一群毁容的人的图表时......
 ]]></description>
-      <guid>https://community.openai.com/t/how-do-i-convince-the-model-to-both-write-a-message-and-call-a-function/624557#post_15</guid>
-      <pubDate>Thu, 15 Feb 2024 09:09:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Openai API 将视频转换为文本</title>
-      <link>https://community.openai.com/t/video-to-text-conversion-using-openai-api/627554#post_2</link>
-      <description><![CDATA[欢迎来到 OpenAI 开发社区！
-OpenAI 实际上有一个关于如何处理视频和创建画外音的食谱条目（一本写得很好的指南）。 您可以在这里找到它。
-可以在 API 文档中找到适合您所需用例的更多优秀文档，特别是 GPT-4V 和耳语。&lt; /p&gt;
-视觉模型可以看到视频，您可以使用 Whisper 转录任何音频。]]></description>
-      <guid>https://community.openai.com/t/video-to-text-conversion-using-openai-api/627554#post_2</guid>
-      <pubDate>Thu, 15 Feb 2024 09:04:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>大错误：DALL-E 不知道如何编写我给他的要放入图像中的文本</title>
-      <link>https://community.openai.com/t/big-bug-dall-e-does-not-know-how-to-write-the-text-that-i-gave-him-to-put-in-the-image/621522#post_3</link>
-      <description><![CDATA[是的，但是解决办法是什么？ ChatGPT 有 4-5 个用于创建图像的模型，但没有一个模型知道如何做好这一点。
-按照说明创建图片，然后准确地复制我要求的文字有什么困难？
-因此，在实践中，我无法使用 ChatGPT 将文字插入图像中。这么简单的事情，它不知道CHATGPT怎么做……
-他甚至不知道如何解决二年级的问题......]]></description>
-      <guid>https://community.openai.com/t/big-bug-dall-e-does-not-know-how-to-write-the-text-that-i-gave-him-to-put-in-the-image/621522#post_3</guid>
-      <pubDate>Thu, 15 Feb 2024 09:03:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>gpt-3.5 与 gpt-4-turbo 之间的 Assistant API 延迟在夜间和白天有所不同</title>
-      <link>https://community.openai.com/t/night-and-day-different-in-assistants-api-latency-between-gpt-3-5-versus-gpt-4-turbo/627161#post_2</link>
-      <description><![CDATA[这是个好主意。
-我会将其移至反馈类别。]]></description>
-      <guid>https://community.openai.com/t/night-and-day-different-in-assistants-api-latency-between-gpt-3-5-versus-gpt-4-turbo/627161#post_2</guid>
-      <pubDate>Thu, 15 Feb 2024 09:01:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Openai API 将视频转换为文本</title>
-      <link>https://community.openai.com/t/video-to-text-conversion-using-openai-api/627554#post_1</link>
-      <description><![CDATA[大家好，我想创建一个将视频转换为文本的平台，我需要使用哪些 API？
-预先感谢您的回答。]]></description>
-      <guid>https://community.openai.com/t/video-to-text-conversion-using-openai-api/627554#post_1</guid>
-      <pubDate>Thu, 15 Feb 2024 08:58:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 不执行 OCR，并且不知道如何从 Photoscape X 提供准确的设置（以百分比表示）来创建可读图像</title>
-      <link>https://community.openai.com/t/chatgpt-does-not-do-ocr-and-does-not-know-how-to-provide-the-exact-settings-in-percentages-from-photoscape-x-to-create-a-readable-image/627552#post_1</link>
-      <description><![CDATA[GPT-4 提示：
-我希望这张图片中的文字能够被更好地看到。我使用一个程序“Photoscape X pro”。左边是所有的设置，从HRD，MAGIC COLOR，FILTERS等。我想让你好好测试一下图像，通过OCR，看看文本的哪些部分不清晰可见（所以哪些部分无法正确阅读） 。然后进行并向我展示获得清晰图像所需的所有设置。
-http://help.photoscape.org/help.php?id=intro
-所有这些设置均以百分比表示。我希望你告诉我每个设置的百分比，绝对是所有设置的百分比，这样才能得到好的图像
-这是 ChatGPT 答案：
-
-“光学字符识别 (OCR) 过程再次因超时而自动终止，这表明处理加载的图像遇到困难。这种情况表明图像可能过于复杂或质量需要额外处理时间，超出了我们当前系统及时完成任务的能力。
-由于无法对文本进行 OCR 识别并识别不清楚或难以辨认的部分，因此无法准确提供 Photoscape X Pro 中调整的详细和个性化建议，包括 24 种设置中每种设置的确切百分比。”
-这是文本图像。正如您所看到的，这不是一个非常清晰的图片。
-
-这是 PhotoScape X 中的设置（每个设置从 1 到 100），必须更改这些设置才能获得更好的图像。 ChatGPT 不知道如何给我任何准确的设置，完全没有连贯性。
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-does-not-do-ocr-and-does-not-know-how-to-provide-the-exact-settings-in-percentages-from-photoscape-x-to-create-a-readable-image/627552#post_1</guid>
-      <pubDate>Thu, 15 Feb 2024 08:58:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为定制 GPT 开发了即时工程理论</title>
-      <link>https://community.openai.com/t/i-developed-prompt-engineering-theory-for-custom-gpts/626485#post_4</link>
-      <description><![CDATA[我认为有人会找到它，所以我会时不时地在这里添加我的想法。
-ChatGPT（可能还有其他法学硕士）将解释用户的上下文并生成与 GPT 的个性或伪个性相匹配的单词选择。
-我发现，使用“Plutchik’s Wheel of Emotions”输入提示中情绪表达强度的差异反映在GPT的输出中。
-当你想设置GPT来避免某件事时，你可以通过输入提示中单词的强度来控制上下文内涵、偏见和承诺的强度，例如无聊→不喜欢→厌恶→厌恶。]]></description>
-      <guid>https://community.openai.com/t/i-developed-prompt-engineering-theory-for-custom-gpts/626485#post_4</guid>
-      <pubDate>Thu, 15 Feb 2024 08:50:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>检测情绪的最佳方法是什么？</title>
-      <link>https://community.openai.com/t/whats-the-best-way-to-detect-emotions/627188#post_4</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/whats-the-best-way-to-detect-emotions/627188#post_4</guid>
-      <pubDate>Thu, 15 Feb 2024 08:49:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>具有多用户聊天功能的开放助手 API</title>
-      <link>https://community.openai.com/t/open-assistants-api-with-multi-user-chat/620090#post_6</link>
-      <description><![CDATA[对于每个聊天室，您都需要一个线程。
-要识别哪条消息是由哪个用户发送的，请使用元数据。
-const 元数据 = {user_id: &#39;USER_ID&#39;, user_name: &#39;John Doe&#39;}
-const thread_messages = 等待 openai.beta.threads.messages.create(
-            线程ID,
-            {
-                角色：&#39;用户&#39;，
-                内容：留言，
-                元数据，
-            }
-        ）
-
-挑战是，您想要什么样的互动？一个用户发送一条消息，AI 会回复吗？或者这将是人类用户正在交谈的普通聊天，并且只有在对话中被询问时才会调用人工智能。]]></description>
-      <guid>https://community.openai.com/t/open-assistants-api-with-multi-user-chat/620090#post_6</guid>
-      <pubDate>Thu, 15 Feb 2024 08:47:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>定制自定义 GPT。知识坚持</title>
-      <link>https://community.openai.com/t/customizing-a-custom-gpt-knowledge-persistence/520900#post_11</link>
-      <description><![CDATA[我发现的唯一方法显然是告诉 GPT，在说明区域，在回答问题之前检查文档。这并不总是有效，并且会迫使 GPT 在回答之前先查看文档。然而，特别是在 GPT 编码方面，它为它不知道的脚本语言弥补了一些东西。我认为微调是可行的方法。]]></description>
-      <guid>https://community.openai.com/t/customizing-a-custom-gpt-knowledge-persistence/520900#post_11</guid>
-      <pubDate>Thu, 15 Feb 2024 08:46:09 GMT</pubDate>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=22#post_437</guid>
+      <pubDate>Thu, 15 Feb 2024 11:43:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
