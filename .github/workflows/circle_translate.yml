@@ -5,25 +5,25 @@ on:
 
   schedule:
    - cron: '0 */3 * * *'
-  # Allows you to run this workflow manually from the Actions tab
+  # 允许您从“操作”选项卡手动运行此工作流
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# 工作流运行由一个或多个作业组成，这些作业可以按顺序或并行运行
 jobs:
-  # This workflow contains a single job called "build"
+  # 此工作流包含一个名为“build”的作业
   build:
-    # The type of runner that the job will run on
+    # 运行作业的运行器类型
     runs-on: ubuntu-20.04
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # 步骤表示将作为作业的一部分执行的一系列任务
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      # 在 $GITHUB_WORKSPACE 下签出存储库，以便作业可以访问它
+      - uses: actions/checkout@v4  # 在这里，我们将Node.js版本从 v3 更新到 v4
         with:
           token: ${{ secrets.WORK_TOKEN }}
     
       - name: Set up Python 
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v3  # 在这里，我们将Node.js版本从 v4 更新到 v3
         with:
           python-version: 3.8
       - name: Install dependencies
