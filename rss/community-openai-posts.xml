@@ -4,115 +4,94 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 16 Feb 2024 03:52:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Feb 2024 06:22:09 GMT</lastBuildDate>
     <item>
-      <title>使用多个提示 OpenAI 调用聊天机器人</title>
-      <link>https://community.openai.com/t/using-multiple-prompts-openai-calls-for-chatbot/628618#post_3</link>
-      <description><![CDATA[
-
-
-_j：
+      <title>SORA 准备好使用了吗？在哪里？</title>
+      <link>https://community.openai.com/t/is-sora-ready-for-use-where/628976#post_2</link>
+      <description><![CDATA[是的，我对此非常兴奋！示例视频很疯狂。
+我认为一个明确的用例是为专业用途制作视频模型。
+或者我什至在考虑个人用途......例如，我正在计划我的婚礼，我想知道我是否可以使用sora来可视化整个事件的演练？]]></description>
+      <guid>https://community.openai.com/t/is-sora-ready-for-use-where/628976#post_2</guid>
+      <pubDate>Fri, 16 Feb 2024 06:21:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 DALLE 为故事生成一致的图像</title>
+      <link>https://community.openai.com/t/consistent-image-generation-for-story-using-dalle/612276#post_9</link>
+      <description><![CDATA[感谢您的评论和详细的例子，这给了我很大的启发，我会尝试修改它。]]></description>
+      <guid>https://community.openai.com/t/consistent-image-generation-for-story-using-dalle/612276#post_9</guid>
+      <pubDate>Fri, 16 Feb 2024 06:18:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何通过我的自定义 GPT 获利</title>
+      <link>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=4#post_71</link>
+      <description><![CDATA[GPT 仅供通过我发送的链接的人使用。不是公共 GTP。我的一位客户将链接提供给其他人的可能性非常小。]]></description>
+      <guid>https://community.openai.com/t/how-to-monetize-my-custom-gpts/600016?page=4#post_71</guid>
+      <pubDate>Fri, 16 Feb 2024 06:15:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 openai Python 库和 Azure OpenAI 时如何找到 GPT-4 模型版本？</title>
+      <link>https://community.openai.com/t/how-can-i-find-out-the-gpt-4-model-version-when-using-openai-python-library-and-azure-openai/629016#post_1</link>
+      <description><![CDATA[我通过 openai Python 库和 Azure OpenAI 使用 GPT 4。如何使用 openai Python 库找到 GPT-4 模型版本（而不是查看 https:// Portal.azure.com/ 因为对于某些 Azure OpenAI 实例，我只有使用 API 的凭据，但无法在 https://portal.azure.com/)?
+我读到：
+https:/ /platform.openai.com/docs/models/continuous-model-upgrades：
 &lt;块引用&gt;
-助手无法自行重新提示。
+您可以通过发送请求后查看响应对象来验证这一点。响应将包括所使用的特定模型版本（例如 gpt-3.5-turbo-0613）。
 
-
-感谢您的及时回复。
-因此，在下面的代码片段中
-response = client.chat.completions.create(
-  型号=“型号”，
-  响应格式={“类型”：“json_object”}，
-  消息=[
-    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个输出JSON的得力助手。&quot;},
-    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;谁赢得了 2020 年世界大赛？&quot;}
-  ]
-）
-
-我可以通过更改系统角色的内容来多次调用它吗？
-当你说“分类”时，我可以进行另一个开放式人工智能调用吗？]]></description>
-      <guid>https://community.openai.com/t/using-multiple-prompts-openai-calls-for-chatbot/628618#post_3</guid>
-      <pubDate>Fri, 16 Feb 2024 03:48:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>不允许使用检索工具</title>
-      <link>https://community.openai.com/t/retrievals-tool-not-permitted/628664#post_3</link>
-      <description><![CDATA[
-
-
-_j：
+https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo：
 &lt;块引用&gt;
-创建助手
+gpt-4 当前指向 gpt-4-0613。
 
+&lt;小时/&gt;
+但是，我尝试调用gpt-4版本0314和gpt-4版本0125-preview：对于它们两者，发送请求后的响应对象仅包含gpt-4：
+ChatCompletion(id=&#39;chatcmpl-8slN5Cbbsdf16s51sdf8yZpRXZM1R&#39;,
+选择=[选择(finish_reason=&#39;停止&#39;,索引=0,logprobs=无,
+message=ChatCompletionMessage(内容=&#39;blahblah&#39;, 角色=&#39;助理&#39;, function_call=None, tool_calls=None),
+content_filter_results={&#39;hate&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;safe&#39;}, &#39;self_harm&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;safe&#39;}, &#39;severity&#39;: {&#39;filtered &#39;: False, &#39;severity&#39;: &#39;安全&#39;}, &#39;暴力&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;安全&#39;}})],
+创建=1708062499，
+model=&#39;gpt-4&#39;, object=&#39;chat.completion&#39;, system_fingerprint=&#39;fp_8absdfsdsfs&#39;,
+用法=CompletionUsage（completion_tokens=185，prompt_tokens=4482，total_tokens=4667），
+Prompt_filter_results=[{&#39;prompt_index&#39;: 0, &#39;content_filter_results&#39;: {&#39;hate&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;安全&#39;}, &#39;self_harm&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;安全&#39;}，&#39;性&#39;：{&#39;过滤&#39;：假，&#39;严重性&#39;：&#39;安全&#39;}，&#39;暴力&#39;：{&#39;过滤&#39;：假，&#39;严重性&#39;：&#39;安全&#39;}}}]）
 
-您好，感谢您的回复。我正在创建一个助手。我也没有使用任何 openAI 库，因为我使用 c# 进行编码，因此我使用 http 方法来执行请求。
-上次成功是在 2 小时前。]]></description>
-      <guid>https://community.openai.com/t/retrievals-tool-not-permitted/628664#post_3</guid>
-      <pubDate>Fri, 16 Feb 2024 03:47:31 GMT</pubDate>
+使用 openai Python 库和 Azure OpenAI 时如何找到 GPT-4 模型版本？]]></description>
+      <guid>https://community.openai.com/t/how-can-i-find-out-the-gpt-4-model-version-when-using-openai-python-library-and-azure-openai/629016#post_1</guid>
+      <pubDate>Fri, 16 Feb 2024 06:10:20 GMT</pubDate>
     </item>
     <item>
-      <title>改进 LLM 输出，使其符合 Slack 格式</title>
-      <link>https://community.openai.com/t/improve-llm-output-so-it-conforms-to-slack-formatting/628549#post_5</link>
-      <description><![CDATA[太好了，感谢您的帮助，我会尝试一下 ]]></description>
-      <guid>https://community.openai.com/t/improve-llm-output-so-it-conforms-to-slack-formatting/628549#post_5</guid>
-      <pubDate>Fri, 16 Feb 2024 03:44:35 GMT</pubDate>
+      <title>有人有使用 GPT3.5 Turbo 进行 RAG 重新排名的经验吗？</title>
+      <link>https://community.openai.com/t/anybody-had-experience-with-rag-reranking-with-gpt3-5-turbo/608804#post_5</link>
+      <description><![CDATA[我不记得确切的文章，但可能是这篇：
+
+  &lt;标题类=“来源”&gt;
+      
+arXiv.org
+
+
+  &lt;文章类=“onebox-body”&gt;
+    大型语言模型是具有成对排名提示的有效文本排名器
+通过将查询和候选文档直接输入到提示中，使用大型语言模型 (LLM) 对文档进行排名是一个有趣且实际的问题。然而，到目前为止，取得的成功有限，因为研究人员发现这很困难......
+
+
+
+
+
+此外，我建议您查看引用上述文章的文章：
+https://scholar.google.com/scholar?cites=16114746473883483909&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en]]></description>
+      <guid>https://community.openai.com/t/anybody-had-experience-with-rag-reranking-with-gpt3-5-turbo/608804#post_5</guid>
+      <pubDate>Fri, 16 Feb 2024 06:09:34 GMT</pubDate>
     </item>
     <item>
-      <title>不允许使用检索工具</title>
-      <link>https://community.openai.com/t/retrievals-tool-not-permitted/628664#post_2</link>
-      <description><![CDATA[这是创建助手还是修改助手？跑？
-代码成功完成此操作已有多久了？您是否更新了 openai 库？
-我刚刚在操场上启用或禁用了。作品。您可以在那里尝试相同的操作。
-您的消息
-&lt;块引用&gt;
-请求有 5 个验证错误
-主体 → 工具 → 0 → 类型
-意想不到的价值；允许： (type=value_error.const;给定=检索;允许=(,))
-主体 → 工具 → 0 → 功能
-不允许使用额外字段 (type=value_error.extra)
-主体 → 工具 → 0 → 功能
-不允许使用额外字段 (type=value_error.extra)
-主体 → 工具 → 0 → 类型
-意想不到的价值；允许： (type=value_error.const;给定=检索;允许=(,))
-主体 → 工具 → 0 → 功能
-none 不是允许的值 (type=type_error.none.not_allowed)
-
-看看 openai.yaml，我没有看到这个驾驶室有任何吸引力，尽管 yaml 似乎比当前运行的 API 版本更接近文档。
-AssistantToolsRetrieval：
-  类型：对象
-  标题: 检索工具
-  特性：
-    类型：
-      类型：字符串
-      描述：“正在定义的工具类型：‘检索’”
-      枚举：[“检索”]
-  必需的：
-    - 类型
-
-在指定 AssistantToolsCode 的地方，它总是伴随着其他代码，包括检索：
-&lt;前&gt;&lt;代码&gt;工具：
-      描述：覆盖助手可用于此运行的工具。这对于修改每次运行的行为很有用。
-      可空：true
-      类型：数组
-      最大物品数：20
-      项目：
-        其中之一：
-          - $ref: &quot;#/components/schemas/AssistantToolsCode&quot;
-          - $ref: &quot;#/components/schemas/AssistantToolsRetrieval&quot;
-          - $ref: &quot;#/components/schemas/AssistantToolsFunction&quot;
-        x-oaiExpandable: true
-
-这是一个谜。]]></description>
-      <guid>https://community.openai.com/t/retrievals-tool-not-permitted/628664#post_2</guid>
-      <pubDate>Fri, 16 Feb 2024 03:37:28 GMT</pubDate>
+      <title>聊天历史记录关闭 =“未找到对话密钥”错误</title>
+      <link>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=7#post_125</link>
+      <description><![CDATA[是的，它又像之前一样行为不端。为无法使用的产品付费感觉很糟糕。]]></description>
+      <guid>https://community.openai.com/t/chat-history-off-conversation-key-not-found-error/594342?page=7#post_125</guid>
+      <pubDate>Fri, 16 Feb 2024 06:03:12 GMT</pubDate>
     </item>
     <item>
-      <title>助手 API |在运行期间添加文件+submit_tool_outputs</title>
-      <link>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341#post_19</link>
-      <description><![CDATA[您可能可以做的事情是在提交 tool_output 时传递以下输出：
-工具的输出保存在名为 {file_name_x} 的文件中。要求用户向您提供该文件。
-这样，您将鼓励运行结束并让您通过消息上传文件。
-当提示用户上传文件时，您可以以编程方式捕获消息并代表用户响应 llm。助手会认为用户确实上传了文件，但这个过程对用户来说是不可见的。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341#post_19</guid>
-      <pubDate>Fri, 16 Feb 2024 03:33:37 GMT</pubDate>
+      <title>不支持的图像 GPT-4V Flutter</title>
+      <link>https://community.openai.com/t/unsupported-image-gpt-4v-flutter/629004#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/unsupported-image-gpt-4v-flutter/629004#post_1</guid>
+      <pubDate>Fri, 16 Feb 2024 06:01:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
