@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 19 Feb 2024 12:31:25 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Feb 2024 18:21:26 GMT</lastBuildDate>
     <item>
-      <title>研究 API/DAPI 市场</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aum2um/research_apidapi_marketplace/</link>
-      <description><![CDATA[   大家好！我正在致力于 API 和 DAPI 市场的 UI/UX 工作，目前正处于研究阶段。我邀请您花 5 分钟时间完成有关上述市场的调查。您的贡献对于改进和调整平台以满足用户需求将非常有帮助。预先感谢您的宝贵时间和见解！   由   提交/u/MeatScepter1  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aum2um/research_apidapi_marketplace/</guid>
-      <pubDate>Mon, 19 Feb 2024 12:24:59 GMT</pubDate>
+      <title>如何使用 React Query 组织 React 应用程序中的 API 层</title>
+      <link>https://www.reddit.com/r/webdev/comments/1autbkz/how_to_organize_the_api_layer_in_react_apps_using/</link>
+      <description><![CDATA[我在我的 React 应用程序中已经使用了相当多的 React Query。它有助于分离 API 层。 最初我所做的是分离我的服务层。这是负责远程数据访问的层。 例如，假设我们有一个 Post 服务： ```ts // api/posts.service.ts&lt; /p&gt; export const getPosts = () =&gt; axios.get(“http://localhost:5000/posts”) export const createPost = ({标题，描述}：CreatePostParams) =&gt; axios.get(&quot;http://localhost:5000/posts&quot;) const postsService = { getPost, createPost, ... } ``` 这是朝着正确方向迈出的一步，并且与框架无关。 现在，下一步是创建自定义钩子包裹着反应查询钩子。所以我们会有这样的东西： ```ts import { UseQueryOptions, QueryKey, UseMutationOptions, MutationFunction, useQuery, } from &#39; @tanstack/react-query&#39;; const useGetPosts = ( options: UseQueryOptions, ) =&gt;; useQuery({ queryKey: [&#39;posts&#39;], queryFn: getPosts, options }); const useCreatePost = ( options: UseMutationOptions, ) =&gt;; useMutation({mutationFn:serviceFn as MutationFunction,...options,}); ``` 最后，您可以像任何其他钩子一样在组件中的某个位置使用它。 这种方法是朝着正确方向迈出的一步，但它有其缺陷：  p&gt;  我们必须跟踪所有这些类型（参数和响应类型） 我们必须手动创建每个新查询或突变 查询键是没有集中化的神奇字符串  如果我们能够以某种方式将整个 postsService 对象传递给某个函数，该函数将为我们生成所有这些钩子，那就太好了？ 我创建了一个开源库 react-query-factory ，它正是这样做的，我在我的所有项目中都使用它（但它现在在 npm 上成为了自己的库）： ```ts // 服务层 const postsService = { getPosts, createPosts, getPostById } // 查询层 const postsQueries = createQueriesFromService(postsService, &#39;posts&#39;) const PostsManager = () =&gt;; { const { data, isLoading } = postsQueries.getPosts.useQuery() // 完全类型安全的数据和选项等。 const { mutate } = postQueries.createPosts.useMutation()  const { data, isLoading } = postsQueries.getPostById.useQuery({id: &quot;123&quot;}) // 完全类型安全的参数等 const queryKey = postsQueries.getPostById.queryKey({id: &quot;; 123&quot;}) // 自动查询键处理 + 完全类型安全 const clickHandler = () =&gt;; { mutate({title: &quot;帖子标题&quot;, description: &quot;帖子描述&quot;}) // 完全类型安全的 mutate 函数 } return ...; } ``` 它简化了为服务层创建自定义挂钩的过程。服务层成为唯一的事实来源，并且是在需求发生变化时唯一需要修改的地方。这样我们就可以避免手动输入，因为所有内容都是从服务层推断出来的。 如果您愿意，可以阅读全文此处，或成为 github 存储库。 你如何管理你的 API 层？这是我真正感兴趣的话题，所以我想听听不同的意见。 祝你编码愉快！   由   提交 /u/veljkoza   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1autbkz/how_to_organize_the_api_layer_in_react_apps_using/</guid>
+      <pubDate>Mon, 19 Feb 2024 17:41:14 GMT</pubDate>
     </item>
     <item>
-      <title>如何准确地将 Figma 设计中的像素转换为 VH 或容器的百分比？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aul6h8/how_do_i_accurately_convert_pixels_to_vh_or/</link>
-      <description><![CDATA[抱歉，如果这是一个显而易见的问题，但我确实发现我的方法与我的方法非常不一致，而且我厌倦了必须“注意-”  我知道您可以在设计中除以查看器端口宽度，但在增加响应能力时，它更多地依赖于判断。有没有人有办法解决吗？    由   提交/u/Famous_Clerk_7529   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aul6h8/how_do_i_accurately_convert_pixels_to_vh_or/</guid>
-      <pubDate>Mon, 19 Feb 2024 11:31:00 GMT</pubDate>
+      <title>如何实现用户自定义域名？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1auszdt/how_to_implement_custom_domain_names_for_users/</link>
+      <description><![CDATA[我正在制作一个 saas 应用程序，它是一个网站构建器，用户可以在其中创建特定类型的网站。 我是通过 netlify 托管我的 ssr 应用程序。目前，用户创建的任何内容都托管在网站域的特定路由 (somesaasapp.com/&lt;username&gt;) 下。 我需要让他们添加自己的自定义域，这些域将映射到此特定路由，这对于每个用户来说都是唯一的，具体取决于他们的用户名。有没有人遇到过类似的问题？实现这个的最简单方法是什么？   由   提交/u/Similar_Philosophy_1   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1auszdt/how_to_implement_custom_domain_names_for_users/</guid>
+      <pubDate>Mon, 19 Feb 2024 17:28:04 GMT</pubDate>
     </item>
     <item>
-      <title>在后端存储经常更改的文件的好方法吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aukews/good_way_to_store_files_that_are_changed/</link>
-      <description><![CDATA[我正在制作一个处理文件的应用程序。客户端最初将文件上传到服务器。从那时起，对文件所做的任何更改都会以增量形式发送到服务器。 服务器使用这些增量并更改文件以反映客户端所做的更改。  我现在只是将用户文件存储在服务器上的本地目录中。这显然不会很好地扩展。这种方法还存在另一个问题。我想将更新文件的任务卸载到另一台服务器上的另一个进程。由于此进程位于另一台服务器上，因此它无法访问 Web 服务器本地目录中的文件。  我想知道存储可能经常更改的文件的好方法是什么。  编辑： 文件可以保存任何类型的数据。从服务器的角度来看，它只是一堆字节。我认为提供完整的工作流程将有助于清晰。   ⁠客户端将文件上传到服务器（初始上传）。  ⁠客户端向服务器发送更新请求。   这个过程有点长。我正在使用我自己的 librsync rdiff 算法的本机 python 实现(https://github.com/ librsync/librsync/blob/master/doc/rdiff.md)。 客户端向服务器请求签名文件。 客户端使用此签名文件并生成代表更改的增量文件。客户端将此增量文件发送到服务器。 服务器解析此增量文件并对客户端想要更新的文件应用必要的更改。 签名文件的大小增量文件通常比实际文件的大小小得多。 当客户端想要在另一台设备上提取对文件所做的更改时，会使用类似的过程。 这是我的 rdiff 算法的本机 python 实现： https://github.com/MohitPanchariya/rdiff 将文件存储在不同的服务器上是一个足够好的解决方案吗？我还将运行脚本来更新该服务器本身上的文件。 我不希望将文件完全传输到不同的服务器，以便应用更新。 编辑：pypi链接 https://pypi.org/project/rdiff/&lt; /p&gt; 我还没有编写文档，并且还计划进行一些改进。   由   提交 /u/spaceuserm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aukews/good_way_to_store_files_that_are_changed/</guid>
-      <pubDate>Mon, 19 Feb 2024 10:41:32 GMT</pubDate>
+      <title>我应该对这家公司进行第四次面试吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ausa6c/should_i_do_a_fourth_interview_with_this_company/</link>
+      <description><![CDATA[我在一家公司经历了三轮面试，都非常顺利，在第三轮经理/面试官告诉我我会知道我是否会在 2-3 天内找到工作。快进一个月后，我要求更新情况，内部招聘人员为延误道歉，他们要求我与他们的技术主管进行 45 分钟的第四轮面试。  我真的不想浪费时间。是否可以接受告诉他们不，有没有办法做到这一点而不 100% 危及我在这家公司的机会？   由   提交 /u/unoumena   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ausa6c/should_i_do_a_fourth_interview_with_this_company/</guid>
+      <pubDate>Mon, 19 Feb 2024 17:01:16 GMT</pubDate>
     </item>
     <item>
-      <title>雇主提供了培训预算 - 考虑到大多数开发资源都可以免费在线访问，对于我可以使用这笔津贴有哪些好主意？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aukaky/been_given_a_training_budget_from_employer/</link>
-      <description><![CDATA[我已经接受了培训并获得了我的雇主提供的开发预算（每年 1500 英镑），但是我不确定用它来做什么最好。作为一名开发人员，我总是通过遵循各种在线教程免费完成大部分自我引导培训。我在想也许这里的人们可以推荐一些有用的开发人员约定（基于英国）？不幸的是，我错过了今年的 Laracon。 我的公司在 iOS 和 Android 上都有一个应用程序，我们使用 Angular/Ionic/Capacitor 和 Laravel 后端 API 开发该应用程序。 你们过去的培训预算都用来做什么了？   由   提交/u/jacobc1596   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aukaky/been_given_a_training_budget_from_employer/</guid>
-      <pubDate>Mon, 19 Feb 2024 10:33:41 GMT</pubDate>
+      <title>为好奇的软件工程师提供的学习资源集合👩🏾‍💻</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aus1m4/a_collection_of_learning_resources_for_curious/</link>
+      <description><![CDATA[       由   提交 /u/DominusKelvin   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aus1m4/a_collection_of_learning_resources_for_curious/</guid>
+      <pubDate>Mon, 19 Feb 2024 16:52:08 GMT</pubDate>
     </item>
     <item>
-      <title>什么网站适合设计师？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aujsaf/what_website_is_for_designers/</link>
-      <description><![CDATA[我曾经听说网页设计师并不总是从头开始设计所有内容，有时他们会将自己的作品放在可以出售的自由职业页面上他们的设计给公司。所以我想知道这是否是真的，如果是的话，那么在哪里？由于我更擅长前端，所以我只想看看其中的一些   由   提交/u/Big-Yogurtcloset7040  /u/Big-Yogurtcloset7040 reddit.com/r/webdev/comments/1aujsaf/what_website_is_for_designers/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aujsaf/what_website_is_for_designers/</guid>
-      <pubDate>Mon, 19 Feb 2024 10:00:24 GMT</pubDate>
+      <title>Tailwind HTML 登陆页面模板</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aurpgs/tailwind_html_landing_page_template/</link>
+      <description><![CDATA[       由   提交/u/tmoreton  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aurpgs/tailwind_html_landing_page_template/</guid>
+      <pubDate>Mon, 19 Feb 2024 16:38:57 GMT</pubDate>
     </item>
     <item>
-      <title>设置限时付费专区的最简单方法是什么？该专区通向付费用户 72 小时内独家可见的页面？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aujrit/whats_the_simplest_method_to_set_up_a_timelimited/</link>
-      <description><![CDATA[我需要在我的网站上出售视频。 Shopify 的解决方案太复杂，因为人们必须将数字产品添加到购物车，然后结帐，然后单击确认电子邮件中的链接。  在搜索此类服务时，我只能找到 OTT 系统提供商，这些提供商适用于定期发布新视频内容并向人们收取按月订阅或按次付费的企业。但我找不到一种工具可以让我在网站上出售单个视频。 Vimeo 停止为其“Vimeo On Demand”吸引新客户服务，现在只销售他们的 OTT 解决方案。 ​ 我想要这样的用户体验： – 如果客户访问子域 watch.xyz.com，他们会看到一个嵌入电影预告片的页面，以及一个“立即观看”的页面。按钮。单击该按钮会将他们引导至一页结账页面（来自 Stripe？？）。 – 客户付款后，他们将被转发到电影观看页面，其中包含专为该客户创建的单独 URL . – 此个人 URL 也应通过电子邮件发送到客户的电子邮件地址。 – 付款后 72 小时，他们的 URL 应停止工作，因此他们无法访问电影页面不再。 ​ 是否有服务可以提供我正在寻找的内容？或者甚至可以使用 Stripe 网关来完成，而无需进行大量编程？我拥有基本的 CSS、HTML 和 Shopify Liquid 知识，可以创建和自定义简单的网站，但我不是 Web 开发人员，也没有预算雇用一个 - 在电影观看页面上，我将嵌入一个隐藏在 vimeo.com 上的 Vimeo 视频，并且只能嵌入到我的域中。那应该不是问题。但系统必须创建仅在 72 小时内有效的个人 URL（我认为这比创建用户帐户系统更简单，在用户帐户系统中，只有使用电子邮件地址登录才能观看电影）。 &lt; /div&gt;  由   提交/u/deathproof2069   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aujrit/whats_the_simplest_method_to_set_up_a_timelimited/</guid>
-      <pubDate>Mon, 19 Feb 2024 09:58:59 GMT</pubDate>
+      <title>我做了一个聊天应用</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aur6xb/i_made_a_chatting_app/</link>
+      <description><![CDATA[https://cuptalk.onrender.com/  功能： • 发送和删除消息 • 回复 • 私聊和群聊  • 聊天活动（聊天成员打字时键入动画） • 离开和添加用户到群聊 • 用户在线状态 • 消息查看状态 • 用户个人资料自定义 • 群组信息自定义 • NSFW 图像检测+有趣的隐藏功能（如果您尝试上传图像）；） • 实时通知（但我目前在 safari 上可能遇到一些问题） 如果你们能测试一下并告诉我您的想法和建议，我将不胜感激 🙏🏻 我绝不是一个专家，这只是我探索后端的第二个项目 Stack：React、Express、MySQL 和 socket.io   由   提交 /u/Mjz11   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aur6xb/i_made_a_chatting_app/</guid>
+      <pubDate>Mon, 19 Feb 2024 16:18:31 GMT</pubDate>
     </item>
     <item>
-      <title>Kubernetes 上的 Spring Boot SSL 热重载 - Piotr 的技术博客</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aujnv8/spring_boot_ssl_hot_reload_on_kubernetes_piotrs/</link>
-      <description><![CDATA[       由   提交/u/piotr_minkowski   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aujnv8/spring_boot_ssl_hot_reload_on_kubernetes_piotrs/</guid>
-      <pubDate>Mon, 19 Feb 2024 09:51:35 GMT</pubDate>
+      <title>使用 React 和 C++ 创建数据结构和算法可视化页面？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aup8u4/creating_a_data_structures_and_algorithm/</link>
+      <description><![CDATA[您好，我目前正在学习 C++ 和 React (Next.js)，只是为了好玩。通常，当学习一门新语言时，我喜欢创建所有最流行的数据结构和算法。这次因为我也在学习 React，所以我想创建一个可以可视化数据结构和算法的页面。 这可能吗？有一些用于逻辑和反应显示的 C++ 代码吗？或者我需要使用诸如 openGL 之类的东西，然后将其显示在页面上？   由   提交 /u/JuanCiro   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aup8u4/creating_a_data_structures_and_algorithm/</guid>
+      <pubDate>Mon, 19 Feb 2024 14:58:37 GMT</pubDate>
     </item>
     <item>
-      <title>卡在 CMS 拣选循环中，请帮助选择</title>
-      <link>https://www.reddit.com/r/webdev/comments/1auj7ml/stuck_in_cms_picking_loop_help_with_options/</link>
-      <description><![CDATA[就上下文而言，我们是一个由 4 名开发人员组成的小型团队，为网络代理工作。 2 名高级开发人员，1 名初级开发人员，我是经过多年简单的网站管理员回归全栈的，所以我基本上是新鲜血液，上次接触全栈大约是在 9 年前，现在我处于 Web 开发的困惑状态事务。老板让我挑选一个用于新项目和所有即将进行的项目的 CMS（如果您愿意的话，一刀切），想法是放弃自制的 CMS。 我们有自己的服务器来托管所有内容  他们有很多项目，其中大多数使用自制的 CMS，其中一些使用 WordPress。我最初提议使用 Wordpress，但高级开发人员有点反对它，而更支持无头 CMS 和静态网站生成器。初级开发人员在 WP 的背景下提出了 root/sage/carbonfields。因此，高级开发人员似乎倾向于更加以开发人员为中心的方法。对于额外的上下文，我们的许多客户要求高度定制的 CMS（因此大量使用本土 CMS）。  此时我正在考虑以下选项：Strapi、Directus、Payload 和 Wordpress（roots、carbonfields）。我想听听关于这些工具的小意见，我对它们都同样菜鸟，但是学习曲线不是问题。    由   提交 /u/douevenprogrambro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1auj7ml/stuck_in_cms_picking_loop_help_with_options/</guid>
-      <pubDate>Mon, 19 Feb 2024 09:20:09 GMT</pubDate>
+      <title>是否有像静态网站那样的（好的）WordPress 免费托管解决方案？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aup5cx/are_there_good_free_hosting_solutions_for/</link>
+      <description><![CDATA[Netlify、Cloudflare Pages、Vercel、GitHub Pages 等都有非常棒的免费托管级别。但据我所知，这些解决方案都无法运行 WordPress。 有吗？  如果不是，什么才算是“好”呢？现在的 WordPress 托管平台（自从我研究非静态解决方案以来已经有一段时间了：P）。   由   提交 /u/crazybabyeater   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aup5cx/are_there_good_free_hosting_solutions_for/</guid>
+      <pubDate>Mon, 19 Feb 2024 14:54:14 GMT</pubDate>
     </item>
     <item>
-      <title>制作一个静态网站需要多长时间？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1auigtd/how_long_should_it_take_to_make_a_static_website/</link>
-      <description><![CDATA[所以上个月我一直在为我认识的一位医生重新创建一个网站。他并不着急，而且我全职工作，所以我每晚只有大约 4 个小时可以工作。诚然，我并没有每晚花 4 个小时在这上面，当我一开始对 Hugo 和 Tailwind 技术不太熟悉时，我确实有点超出了自己的想法（这是一次令人惊叹的学习经历） ）。但即便如此，我所拥有的只是 90% 完整的索引页，不可否认，它看起来确实不错。但我仍然需要调整一些东西，并将内容放入其他页面并制作联系表格。 所以我想我的问题是你们制作一个网站通常需要多长时间?   由   提交 /u/hectoByte   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1auigtd/how_long_should_it_take_to_make_a_static_website/</guid>
-      <pubDate>Mon, 19 Feb 2024 08:28:31 GMT</pubDate>
+      <title>MDN 上有完整的 CSS 文档吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1auoxd9/is_css_documented_fully_on_mdn/</link>
+      <description><![CDATA[CSS 是否完整记录在 MDN 上还是还剩下一些部分？是否有所有 CSS 部分的地图或列表？ （如 Flexbox、动画、网格系统、滚动捕捉）在 MDN 上称为模块   由   提交 /u/Zaza_Zazadze   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1auoxd9/is_css_documented_fully_on_mdn/</guid>
+      <pubDate>Mon, 19 Feb 2024 14:44:29 GMT</pubDate>
     </item>
     <item>
-      <title>您有任何资源可以学习有关后端开发的更深入概念吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1auhxm9/do_you_have_any_resources_to_learn_more_indepth/</link>
-      <description><![CDATA[我最近访问了这个网站：https://www.developerway。 com，我喜欢阅读这些博客，但都是以前端为中心的内容，我想知道是否有这样的网站用于后端开发。 我知道一些 GitHub 存储库，例如很棒的列表，但它们主要包含包列表，所以如果您有一些类似的资源，请分享。 一些 GitHub 存储库：  nodebestpractice 艰苦学习 Nodejs  目前正在经历这个。 很棒的 Nodejs  学习nodejs 很棒的后端 很棒的列表  我知道这些主要是以节点为中心的，但这些是我能找到的全部。对于数据库，我知道 SQL Bolt 和 PostgreSQL 教程 &gt;.   由   提交 /u/Seaweed_Widef   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1auhxm9/do_you_have_any_resources_to_learn_more_indepth/</guid>
-      <pubDate>Mon, 19 Feb 2024 07:52:57 GMT</pubDate>
+      <title>将单例添加到我的 Sanity 仪表板，但“deskTool”已弃用。ts(6385)。我该怎么办？它仍然有效，但我担心它将来会起作用。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1auouu0/adding_singletons_to_my_sanity_dashboard_but/</link>
+      <description><![CDATA[   /u/realSNG   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1auouu0/adding_singletons_to_my_sanity_dashboard_but/</guid>
+      <pubDate>Mon, 19 Feb 2024 14:41:15 GMT</pubDate>
     </item>
     <item>
-      <title>企业之间的合作</title>
-      <link>https://www.reddit.com/r/webdev/comments/1auhagt/cooperation_between_companies/</link>
-      <description><![CDATA[嗨。  所以我和我的朋友一起建立了一家公司，我们制作网站，而另一家类似的公司联系我并要求我参加谷歌会议并与我们讨论他们的想法。  他们告诉我，他们希望合作，如果他们有客户要求提供网站，他们会让我们为他们做网站，我们只需向他们发送发票，他们就会向我们支付费用。工作。  不知道这个词的确切英语单词，但你可能明白这一点。  在签订合同之前和之后有什么提示和技巧或者我应该知道的事情吗？    由   提交/u/PopularBag4147  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1auhagt/cooperation_between_companies/</guid>
-      <pubDate>Mon, 19 Feb 2024 07:11:42 GMT</pubDate>
+      <title>谷歌认证后端</title>
+      <link>https://www.reddit.com/r/webdev/comments/1auno81/google_authentication_backend/</link>
+      <description><![CDATA[嗨，我正在尝试在我的应用程序中实现 google 登录。  我已经在前端实现了身份验证，并在后端创建了端点，在那里我发送在前端获得的令牌并验证它。现在我必须将用户添加到数据库中并生成 JWT 令牌，但我不确定应该存储和使用哪些信息来识别用户。一些教程说我应该存储从谷歌其他人那里收到的电子邮件，但我不应该存储这些电子邮件，而是使用 subject 字段。使用谷歌进行身份验证时存储用户数据的正确方法是什么？    由   提交/u/No_Chocolate9486   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1auno81/google_authentication_backend/</guid>
+      <pubDate>Mon, 19 Feb 2024 13:46:59 GMT</pubDate>
     </item>
     <item>
-      <title>htmx：与 Carson Gross 和 Alex Russell 一起构建网络的新旧方式（JS Party #307）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aug7k7/htmx_a_new_old_way_to_build_the_web_with_carson/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aug7k7/htmx_a_new_old_way_to_build_the_web_with_carson/</guid>
-      <pubDate>Mon, 19 Feb 2024 06:04:45 GMT</pubDate>
+      <title>建立一个交互式数据可视化网站，但迷失了</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aundwm/building_an_interactive_data_visualization/</link>
+      <description><![CDATA[我想创建一个网站，该网站接受用户的文件，然后将这些文件中的数据可视化为图表、图形等，我只有一个公平的作为前端和 Web 开发人员，我有丰富的经验，并且我了解一点 Python。我应该关注后端的哪些内容。   由   提交/u/Sad_Balance_4059   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aundwm/building_an_interactive_data_visualization/</guid>
+      <pubDate>Mon, 19 Feb 2024 13:33:14 GMT</pubDate>
     </item>
     <item>
-      <title>对于在小时和天之间交换的 UI，您有什么建议？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1aufu3j/what_would_you_recommend_regarding_ui_for/</link>
-      <description><![CDATA[我的 SPA 顶部有一行，指定左侧的时间段 - 日期或日期和小时，以及“最后更新” ...前&#39;在右侧。 然后在底部，左侧和右侧有下一个/上一个按钮，这些按钮根据时间跨度是按小时还是按天进行标记。  p&gt; 底部按钮之间有两个按钮，分别表示小时和日期，所选按钮是凹形的，而另一个按钮是凸形的。它很丑。有什么更好的方法来实现这两行支持小屏幕的 ui 有什么建议吗？  https://imgur.com/a/MoHqkDb ​ ;   由   提交 /u/harrymurkin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1aufu3j/what_would_you_recommend_regarding_ui_for/</guid>
-      <pubDate>Mon, 19 Feb 2024 05:43:06 GMT</pubDate>
+      <title>如果只能购买一个人工智能工具，您会购买哪一个？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aun3u0/which_ai_tool_would_you_purchase_if_you_could/</link>
+      <description><![CDATA[如果你只能选择一个。 查看投票   由   提交 /u/hiroshitanahashii   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aun3u0/which_ai_tool_would_you_purchase_if_you_could/</guid>
+      <pubDate>Mon, 19 Feb 2024 13:19:44 GMT</pubDate>
     </item>
     <item>
-      <title>有代码还是无代码？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1auexqk/code_or_no_code/</link>
-      <description><![CDATA[我有一个朋友，每当我向他们展示我正在开发的网站并告诉他们我投入的辛勤工作时，他们都会告诉我他们可以在 wordpress 中 5 分钟内构建这个。 我做错了吗？有时我最终会在网站上花费数月的时间。我从来不喜欢无代码构建器，而且我发现它们很难使用。所以我一切都从头开始。  如果这么简单，我想也许我需要学习 wordpress 和 wix。  ​ 你们对此有何看法？    由   提交/u/Ok_Item_9   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1auexqk/code_or_no_code/</guid>
-      <pubDate>Mon, 19 Feb 2024 04:52:39 GMT</pubDate>
+      <title>Chromium 浏览器从特定网站获取 JSON 时出现问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aumzm1/chromium_browsers_have_a_problem_fetching_json/</link>
+      <description><![CDATA[我不知道为什么会发生这种情况。 我正在尝试这样做，以便用户的 IP 地址用于获取将用于居中地图的坐标，但由于某种原因，Chromium 浏览器（我已在 Brave、Chrome、Edge、Opera GX 中打开它。但由于某种原因它在 Opera 浏览器中工作）阻止了 API 请求制作到特定网站！我总是收到 net::ERR_BLOCKED_BY_CLIENT。 我尝试在 Firefox 和 Safari iOS 浏览器（使用 vscode 开发隧道）中打开它，它效果很好！代码在下面。 fetch(&#39;https://api.ipgeolocation.io/ipgeo?apiKey=[我把我的 api 密钥放在这里]&#39;) .then(response =&gt; response .json()) .then(data =&gt; { const { 纬度, 经度 } = data; 地图(经度, 纬度); });  但是，如果我使用 http://ipwho.is/ 而不是 https://api.ipgeolocation.io/ipgeo?apiKey=[我输入了我的 api 密钥这里]，它适用于 chromium 浏览器，但不适用于 Safari iOS 浏览器！ 那么，什么给了！？我已经实现了一种解决方法，其中我有一个网站列表，将循环浏览这些网站，直到链接有效并且它确实有效，但我想了解为什么这种情况不断发生。 编辑 1：我有 AdGuard chrome 浏览器和 Firefox 中的 uBlock，以及 iOS 上的 AdGuard 应用   由   提交 /u/ImFromRwanda   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aumzm1/chromium_browsers_have_a_problem_fetching_json/</guid>
+      <pubDate>Mon, 19 Feb 2024 13:13:41 GMT</pubDate>
     </item>
     <item>
-      <title>努力专注于工作任务。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1audnhx/struggle_to_focus_on_tasks_at_work/</link>
-      <description><![CDATA[我在一家公司工作，这家公司让我非常面向客户，他们直接向我发送电子邮件以获取更改和更新...大约有 40 多个网站我的工作范围很广。 我的问题是，有没有人有关于坚持完成任务的建议，我深入研究一项任务，然后收到其他客户发来的 5 封电子邮件（通常是相当大的更改或功能）以及当然他们都强调他们的任务是最重要的。并不是说我对此压力太大，只是不断发生这种情况会让我失去注意力，最终导致我做的工作减少。 任何类似的故事或意见将不胜感激！  （我目前正在拖延并写这篇文章）   由   提交/u/mooxbones  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1audnhx/struggle_to_focus_on_tasks_at_work/</guid>
-      <pubDate>Mon, 19 Feb 2024 03:42:32 GMT</pubDate>
+      <title>CSS 是不可能的，但没关系</title>
+      <link>https://www.reddit.com/r/webdev/comments/1aumype/css_is_impossible_and_thats_okay/</link>
+      <description><![CDATA[   /u/TheNerdistRedditor   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1aumype/css_is_impossible_and_thats_okay/</guid>
+      <pubDate>Mon, 19 Feb 2024 13:12:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
