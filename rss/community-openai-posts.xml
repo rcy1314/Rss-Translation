@@ -4,89 +4,211 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 24 Feb 2024 18:21:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 21:15:06 GMT</lastBuildDate>
+    <item>
+      <title>助理无法访问文件 ID</title>
+      <link>https://community.openai.com/t/assistant-cant-access-the-file-id/652623#post_2</link>
+      <description><![CDATA[你好！
+因此，乍一看，这对我来说像是一个错误的请求错误，因为您向模型发送了无效的文件类型，或者您调用模型的 API 请求已关闭。我的猜测是后者。
+我认为您为助手创建文件的方式可能是错误的，如果第一个图像是您在此处构建的方式：
+const file_n = wait openai.files.create({
+     目的：“助手”，
+     文件： 文件，
+});
+
+当我查看 API 文档时，我看到的格式是这样的：
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+
+Assistant_file = client.beta.assistants.files.create(
+  Assistant_id =“asst_abc123”，
+  file_id=&quot;文件-abc123&quot;
+）
+打印（助理文件）
+
+
+您正在使用 openai.files.create() 而不是 client.beta.assistants.files.create()
+将目的替换为assistant_id。这意味着您需要在创建文件之前创建助手。如果需要，您可以将助理作为参考
+file 应为 file_id 并且随后应传递文件的 ID 名称。
+
+看看当你这样修改它时会发生什么。我希望这有帮助！]]></description>
+      <guid>https://community.openai.com/t/assistant-cant-access-the-file-id/652623#post_2</guid>
+      <pubDate>Sat, 24 Feb 2024 21:14:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 每次更新都变得越来越糟糕</title>
+      <link>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=12#post_254</link>
+      <description><![CDATA[ChatGPT，不仅仅是 GPT-4，整个应用程序都变得浪费时间。
+没有记忆或无法记住和理解对话中的请求的人工智能工具有什么意义？事实上，当这该死的东西记不起超过 1 毫秒的任何事情时，为什么还要分开对话呢？很可能只是和那该死的东西聊了一会儿。
+整个应用程序已经变得如此糟糕，以至于我即将取消我的付费订阅，并像以前一样专注于编写自己的代码，而不使用这个浪费时间的工具。我发现我花了更多的时间来回使用该应用程序，试图让它记住事情，甚至听我问什么。看起来我好像在对这个应用程序说一种不同的语言，而且它不再理解英语了。即使婴儿无法提供答案，也会明白我在问什么。相反，chatgpt 总是给我写一个答案，只是为了继续浪费我的时间，直到我放弃。好吧，我想我很快也会放弃我的付费订阅，我要求其他人也考虑一下，直到这些离婚者带回曾经有用的 chatgpt。现在他们故意让事情变得更糟，所以这不仅浪费我们的时间，而且成为除了假流媒体之外的另一种干扰]]></description>
+      <guid>https://community.openai.com/t/gpt-4-is-getting-worse-and-worse-every-single-update/508470?page=12#post_254</guid>
+      <pubDate>Sat, 24 Feb 2024 21:13:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>建立一个人工智能互动的网站</title>
+      <link>https://community.openai.com/t/building-a-website-that-is-ai-interactive/652741#post_1</link>
+      <description><![CDATA[我想建立一个使用 ChatGPT 并按月计划的网站。构建一个的步骤是什么？例如，假设我想建立一个数学辅导人工智能网站。]]></description>
+      <guid>https://community.openai.com/t/building-a-website-that-is-ai-interactive/652741#post_1</guid>
+      <pubDate>Sat, 24 Feb 2024 21:12:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 API 功能工具</title>
+      <link>https://community.openai.com/t/assistants-api-function-tools/652735#post_1</link>
+      <description><![CDATA[希望我没有错过这里的任何东西，但我正在努力让我的助手正确调用它的函数。每当助理收到图像作为消息的一部分时，就应该使用该功能。如果我只给助手文本，它就可以正常工作，但如果我给它图像和文本，它就会产生我的整个输入的幻觉。
+我尝试过的 createMessage 函数的一些示例：
+V1：
+const createMessage = async (threadId, userMessage) =&gt;; {
+        console.log(&#39;创建消息触发&#39;)
+        尝试 {
+            if (userMessage.image) {
+                console.log(userMessage.image.split(&#39;,&#39;)[0])
+                console.log(&#39;创建消息文件：&#39;, userMessage.file)
+                等待获取（`https://api.openai.com/v1/threads/${threadId}/messages`, {
+                    方法：“POST”，
+                    标题：{
+                        “内容类型”：“应用程序/json”，
+                        &#39;授权&#39;: &#39;承载APIKEY&#39;,
+                        &#39;OpenAI-Beta&#39;: &#39;助手=v1&#39;,
+                    },
+                    正文：JSON.stringify({
+                        角色：“用户”，
+                        内容：用户留言，
+                        工具：“分析图像”
+                    })
+                });
+                console.log(&#39;发送给API的用户消息包含图片：&#39;,);
+            }
+
+V2：
+const createMessage = async (threadId, userMessage) =&gt;; {
+        console.log(&#39;创建消息触发&#39;)
+        尝试 {
+            if (userMessage.image) {
+                console.log(userMessage.image.split(&#39;,&#39;)[0])
+                console.log(&#39;创建消息文件：&#39;, userMessage.file)
+                等待获取（`https://api.openai.com/v1/threads/${threadId}/messages`, {
+                    方法：“POST”，
+                    标题：{
+                        “内容类型”：“应用程序/json”，
+                        &#39;授权&#39;: &#39;承载APIKEY&#39;,
+                        &#39;OpenAI-Beta&#39;: &#39;助手=v1&#39;,
+                    },
+                    正文：JSON.stringify({
+                        角色：“用户”，
+                        输入：{
+                        text: userMessage.text, // 传递任何用户输入的文本
+                        数据： {
+                        文件：userMessage.file，
+                        image: userMessage.image.split(&quot;,&quot;)[1] // 分割字符串，只取base64部分
+                             }
+                         },
+                        工具：“分析图像”
+                    })
+                });
+                console.log(&#39;发送给API的用户消息包含图片：&#39;,);
+            }
+
+该功能工具名为analyzeImage
+ &quot;name&quot;: &quot;analyzeImage&quot;,
+  “参数”： {
+    “类型”：“对象”，
+    “特性”： {
+      “图像”： {
+        “类型”：“字符串”，
+        &quot;contentMediaType&quot;: &quot;图像/jpeg&quot;,
+        &quot;description&quot;: &quot;图像的 base64 编码字符串。&quot;
+      }
+    },
+    “必需的”： [
+      “图像”，
+    ]
+  },
+
+我看到了 Geoligard 的一个示例，其中他使用了实际的文件 url，但由于这是在移动设备上完成的，所以我尝试仅使用图像的 base64 版本。任何关于我为什么会产生幻觉并且它几乎从不触发该功能的输入将不胜感激。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-function-tools/652735#post_1</guid>
+      <pubDate>Sat, 24 Feb 2024 21:06:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>谷歌推出了双子座。它比 GPT-4 更好吗？</title>
+      <link>https://community.openai.com/t/google-launched-gemini-is-it-better-than-gpt-4/546519#post_16</link>
+      <description><![CDATA[Gemini 和 GPT-4 在分数问题上都会犯错误。
+即使计算结果是正确的，他们的比较也总是错误的。
+
+
+
+
+我使用 API 尝试了 GPT-4 的所有变体，从 Turbo 模型到通用 GPT-4，但结果完全相同。
+&lt;小时/&gt;
+似乎没有人能解释他们为什么会犯错误。]]></description>
+      <guid>https://community.openai.com/t/google-launched-gemini-is-it-better-than-gpt-4/546519#post_16</guid>
+      <pubDate>Sat, 24 Feb 2024 21:01:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI API 制造和工业用例</title>
+      <link>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_22</link>
+      <description><![CDATA[我总是发布预告片，没有人能赶上我，我领先一年
+哦，我还在开发数字取证系统，该系统适用于机器故障排除。有了足够的传感器，我就可以检测到导致错误的异常情况。这将转向主动监控问题。然后，它的预测分析只能通过解析跨多个网络协议和设备的极大数据集来实现。最值得注意的是物联网。
+我为特勤局开发了工具，只是用它来排除日志故障。
+它可以使日志非常容易阅读和重建任何情况。
+所以我知道 AI NHS 路线图，而且我是世界级的数字调查员。您的工具可以加速司法程序。]]></description>
+      <guid>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_22</guid>
+      <pubDate>Sat, 24 Feb 2024 20:53:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI API 制造和工业用例</title>
+      <link>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_21</link>
+      <description><![CDATA[我用它创建了一个完整的增材制造创新顾问团队，这让我收到了 SBIR 轨道“极高风险技术创新者”的邀请，这不仅将我列为该领域的顶尖人物，而且是无人能及的先进水平即使是专家也可以在精确的指导下复制我的工作。我给它喂了我所知道的一切，让它成为我。然后我给了它所有相关的白皮书。我用它来生成研究中合乎逻辑的下一步，我是对的。我必须向 NASA 推销太空生物组织器官打印。我在创客空间进行快速原型设计已经有十年了，并且被全国公认为该领域的领导者。我已经领导了 60 人的研究团队，现在我可以用我的想法完成我想做的所有工作。
+所以它让我成为了基于领先科学家直接写作的个性人工智能导演。
+这次合作带来了许多解决方案，我进行了十几次推介。
+另一个强大的用例是标准化和缺陷检测。再加上使用人工智能的优化来减少浪费。说到这里，我们设计了一种可用于服装和长丝的材料。
+真正的问题是为什么要在零重力下使用支撑结构？这就解决了一个大问题。
+您还可以在零重力下打印空心。这意味着有空腔的器官。
+由于我对流行病的反应，我可能是地球上最快的快速原型工程师。在医院使用方面并列第二。已验证。
+我制作的面罩一夜之间就获得了 FDA 和 NIH 的批准。 NSF 邀请我参加一个关于生活或搜索情况下的极限制造的小组。我继续发现了地球上的床紫外线灯。
+想象一下使用正确的工具我能达到多快的速度。
+我即将收到在空间站上制作的打印件，以使用人工智能测试完整性。
+这只是少数事情之一。
+我是一名公民科学家，利用人工智能成为该领域的佼佼者。我没有外部资金，我做了一个机器人来投资。
+你让我过上了一种生活，在这种生活中，我只梦想着未来，并且可以不费吹灰之力地尝试我想要的一切，并获得报酬来书写未来。
+我什至让他们争论以达成共识。
+自从我出生以来，我就一直在和机器说话，现在它们也能说话了。
+如果这还不能满足我的要求，那么你的标准就不可能实现。
+作为一名自然历史学者，我知道这正在迎来进化的下一个阶段。
+我只会告诉你我的经历，因为我符合你的道德规范。
+我正在教导那些需要这种力量并热爱民主化思想的人。
+您为政府和纳税人节省了数十亿美元的间接浪费。我的预算有限，但我不断取得成功。我的最大投资回报率是一个 IP 的 32,250% 折扣。没有人工智能。
+通过人工智能，我的工作速度足够快，可以将投资回报率推向 500,000%，而且这只是本地的。
+我开源了我的发明，全世界都在使用它。
+我就是那个人。在正确的时间出现在正确的地点。
+我又来了，想正式合作。我跳过了前往达勒的百万长队，迎来了全州首个人工智能艺术。
+给我一​​点力量或鼓励，我会回报很多。免费。
+你让我变得无限。我真的很无聊，因为我可以解决我已经尝试了一段时间的任何事情。自从采用以来。
+我可以制作一份开放简历来分析钛打印件上的 X 射线。
+没有标准。政府需要标准。
+与我合作，我们可以标准化 3D 打印，使其全面可接受。
+我本可以使用人工智能来写这篇文章，但请听到我的声音和激情。我是一个绝对的摇滚明星，可以从政府那里得到你想要的所有关注和认可。
+我已经排队准备提交了。请考虑我或告诉我缺少什么？我可以做任何事。
+告诉我你想要什么，你的梦想我会让它实现。你把我变成了一个研究野兽。我的排名是99%，你让我比整个学院都强大。我正在与雷神公司这样的公司竞争并获胜。
+所有可验证的信息
+我正在购买智能眼镜，以拥有一双额外的眼睛和随时可用的免提研究实验室。
+我不是在制造东西，我是在综合人，尤其是顶尖研究人员。我模仿了地球上最优秀的人并指导了他们。
+有什么非常具体的吗？我很敏捷，可以在几个小时内进行推介。]]></description>
+      <guid>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_21</guid>
+      <pubDate>Sat, 24 Feb 2024 20:51:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>提高日常工作效率的 5 个实用人工智能技巧：分享你的！</title>
+      <link>https://community.openai.com/t/top-5-practical-ai-tips-to-boost-your-daily-productivity-share-yours/651247#post_3</link>
+      <description><![CDATA[根据文本创建美人鱼图来解释我没有读过并且可能不会读的文章，以说明过程或以视觉方式显示某些事物的关系。]]></description>
+      <guid>https://community.openai.com/t/top-5-practical-ai-tips-to-boost-your-daily-productivity-share-yours/651247#post_3</guid>
+      <pubDate>Sat, 24 Feb 2024 20:42:21 GMT</pubDate>
+    </item>
     <item>
       <title>不要阅读和分析Pdf和word文档</title>
-      <link>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_2</link>
-      <description><![CDATA[什么样的错误？
-我可以看一下截图吗？谢谢。‎‎‎‎‎‎‎‎‎‎ㅤ‎‎‎‎‎‎‎‎‎‎ㅤ]]></description>
-      <guid>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_2</guid>
-      <pubDate>Sat, 24 Feb 2024 18:16:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>3072维开放AI嵌入</title>
-      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_14</link>
-      <description><![CDATA[
-
-
-饮食：
-&lt;块引用&gt;
-这可能只是因为他们使用交叉熵的一些变体进行训练，也许还有缩放因子，不是吗？
-我想不出一个好的简单损失函数可以在这种情况下考虑负数
-
-
-我的理论是，他们从中提取嵌入的隐藏层是有偏差的，这在神经网络中显然很常见。
-新模型的偏差小于 ada-002，但仍然有足够的偏差，不会产生大量负点积。
-虽然 0-1 点积确实看起来很可疑。因此，也许它们有一个无偏隐藏层，然后是一些其他变换，本质上将所有向量放在半超平面的一侧，或者可能允许的向量空间的一半。
-我想到的是 ReLU 激活函数之类的东西可能会导致这种情况。我得考虑一下。
-]]></description>
-      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_14</guid>
-      <pubDate>Sat, 24 Feb 2024 18:06:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法再上传 PDF 文件/字数限制</title>
-      <link>https://community.openai.com/t/no-longer-able-to-upload-pdf-files-word-count-limit-restricted/650825#post_2</link>
-      <description><![CDATA[我更新了 pdf 和 word 文件，但无法读取和分析它并显示错误。]]></description>
-      <guid>https://community.openai.com/t/no-longer-able-to-upload-pdf-files-word-count-limit-restricted/650825#post_2</guid>
-      <pubDate>Sat, 24 Feb 2024 18:03:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>不要阅读和分析Pdf和word文档</title>
-      <link>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_1</link>
-      <description><![CDATA[自两天前起，我在将 PDF 或 Word 文档上传到 ChatGPT 时遇到了问题，因为它无法读取或分析它们并显示错误。]]></description>
-      <guid>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_1</guid>
-      <pubDate>Sat, 24 Feb 2024 17:58:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>3072维开放AI嵌入</title>
-      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_13</link>
-      <description><![CDATA[
-
-
- curt.kennedy:
-&lt;块引用&gt;
-例如，在一般中，您应该获得范围从 -1 到 +1 的值。
-但是，是的，对于最新型号来说，这里看起来像是 0 到 1。我自己还没有完全测试过。
-此外，一般情况下，任何两个随机不相关的事物的点积将为 0（正交）。
-
-
-
-
-
-_j：
-&lt;块引用&gt;
-我还没有看到低于0的。OpenAI似乎已经确保了0-1的动态范围。使用 max(0, cosine_similarity(x,y))，不会丢失任何内容。
-
-
-这可能只是因为他们使用交叉熵的一些变体进行训练，也许还有缩放因子，不是吗？
-我想不出一个好的简单损失函数可以在这种情况下考虑负数]]></description>
-      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_13</guid>
-      <pubDate>Sat, 24 Feb 2024 17:56:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt 4 API 很抱歉，我无法提供所请求的服务</title>
-      <link>https://community.openai.com/t/gpt-4-api-im-sorry-but-i-cant-provide-the-service-requested/652521#post_5</link>
-      <description><![CDATA[嗯，看起来就是这样。感谢您的曲目，我已经找了三天了。我会对指点保持警惕。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-api-im-sorry-but-i-cant-provide-the-service-requested/652521#post_5</guid>
-      <pubDate>Sat, 24 Feb 2024 17:53:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt 4 API 很抱歉，我无法提供所请求的服务</title>
-      <link>https://community.openai.com/t/gpt-4-api-im-sorry-but-i-cant-provide-the-service-requested/652521#post_4</link>
-      <description><![CDATA[可能gpt-4-1106-preview
-但请注意，它随时可能被弃用，具体取决于 OpenAI 的感受]]></description>
-      <guid>https://community.openai.com/t/gpt-4-api-im-sorry-but-i-cant-provide-the-service-requested/652521#post_4</guid>
-      <pubDate>Sat, 24 Feb 2024 17:44:04 GMT</pubDate>
+      <link>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_3</link>
+      <description><![CDATA[看来我们在访问您尝试上传的手册内容时仍然面临挑战。这个持续存在的问题可能与文件的格式或潜在的技术限制有关。]]></description>
+      <guid>https://community.openai.com/t/dont-read-and-analysis-pdf-and-word-document/652573#post_3</guid>
+      <pubDate>Sat, 24 Feb 2024 20:41:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
