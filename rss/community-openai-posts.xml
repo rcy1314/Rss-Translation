@@ -4,150 +4,91 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 24 Feb 2024 01:07:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 03:20:30 GMT</lastBuildDate>
     <item>
-      <title>3072维开放AI嵌入</title>
-      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_7</link>
-      <description><![CDATA[如果有的话，您看到分数低得多的事实应该告诉您，该模型可能比以前的模型要好得多，并且比以前的模型捕获更好语义。因为它看到两个示例向量之间有更多语义差异。
-但是，正如已经说过的，您无法真正比较这两个指标，至少不能直接比较，因为最终实际得分并不像相对排名那么重要不同向量的分数。
-您放入模型中的任何向量的所有余弦相似度分数都可以高于 0.999 或低于 0.001，只要排名，这真的并不重要。这些分数是合适的。
-在非常高的维度中，任何两个随机向量都将近似正交，因此仅出于这个原因，我们通常预期 3072 维空间中的嵌入将不如 1536 维空间中的嵌入相似空间。
-顺便说一句，如果嵌入空间是一个实际的向量空间，则需要具有一些很好的数学属性，这将使其在加法和标量乘法下封闭，事实上所有嵌入向量都被归一化为单位长度，这使得这是不可能的。 
-我希望 OpenAI 能够共享预标准化嵌入，但我认为这种情况不会很快发生。]]></description>
-      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_7</guid>
-      <pubDate>Sat, 24 Feb 2024 00:51:04 GMT</pubDate>
+      <title>搜索长 pdf 中的特定表格 - 可能需要微调模型</title>
+      <link>https://community.openai.com/t/search-long-pdf-for-specific-table-possibly-need-fine-tuning-model/366891#post_9</link>
+      <description><![CDATA[希望您已经解决了这个问题。我对此的两点意见是，您可以使用 llm 来确定可能的页面。这样它可能会更加定制化和准确]]></description>
+      <guid>https://community.openai.com/t/search-long-pdf-for-specific-table-possibly-need-fine-tuning-model/366891#post_9</guid>
+      <pubDate>Sat, 24 Feb 2024 03:15:39 GMT</pubDate>
     </item>
     <item>
       <title>3072维开放AI嵌入</title>
-      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_6</link>
-      <description><![CDATA[新模型比以前的模型具有更大的余弦相似度范围。
-意识到，一般来说，您应该获得 -1 到 1 之间的相似度分数，而不是 0.7 到 1.0
-所以新模型规模更广，但要注意排名。新的排名是否有意义，例如新型号与旧型号的前 5 名排名？调整你的阈值后我会更加注意这一点。]]></description>
-      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_6</guid>
-      <pubDate>Sat, 24 Feb 2024 00:49:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>人们如何确保安全访问 RAG 数据</title>
-      <link>https://community.openai.com/t/how-are-people-ensuring-secure-access-to-rag-data/649348#post_11</link>
+      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_8</link>
       <description><![CDATA[
 
 
- Joyasree78：
+ curt.kennedy:
 &lt;块引用&gt;
-从表中选择余弦相似度
-当角色=元数据[“角色”]
-返回文字
-否则返回 null
+一般来说，您应该获得 -1 到 1 之间的相似度分数
 
 
-抱歉，您所做的正是我所说的“过滤”。
-目前，我检查访问权限如下：
- // 这是权限检查的地方
-// 检查 $context 是一个数组
-// 我们将寻找 $context_item[&#39;nid&#39;]
-// 我们需要对象类型 = 文件、节点或注释
-// 并且对象 public = &#39;Y&#39; 或 &#39;N&#39;
-if (!empty($solrResults)) {
-$solrResults = $this-&gt;solrai_checkAccess($solrResults);
-}
-
-这是我在 Weaviate 中的“余弦相似度”搜索查询的代码。
+我还没有看到低于0的。OpenAI似乎已经确保了0-1的动态范围。使用 max(0, cosine_similarity(x,y))，不会丢失任何内容。
+点积分数现在从 1 快速下降。
+&lt;小时/&gt;
+上面两个段落的一些比较（d=1536 of 3-large）
 &lt;块引用&gt;
-&lt;前&gt;&lt;代码&gt; $query = &#39;
-  {
-    得到 {
-  &#39;。 $className . &#39;（
-  限制： &#39; 。 $this-&gt;limit 。 &#39;
-  近文本：{
-  概念：[&quot;&#39; . $concept . &#39;&quot;],
-  距离： &#39; 。 $this-&gt;距离。 &#39;
-  }
-  在哪里： {
-  运算符：并且，
-  操作数：[
-  { 路径: [&quot;site&quot;], 运算符: 等于, valueText:&quot;&#39; . $baseSite . &#39;&quot;}&#39;
-  。 (!empty($checkedGroups) ? &#39;,&#39; .$this-&gt;solraiService-&gt;solrai_addOperands(&#39;groups&#39;, &#39;Equal&#39;, $checkedGroups, &#39;Or&#39;) : &#39;&#39;)
-  。 (!empty($this-&gt;关键字) ? &#39;,&#39; . &#39;{
-  运算符：或者，
-  操作数：[
-  &#39;。 $this-&gt;solraiService-&gt;solrai_addOperands(&#39;content&#39;, &#39;Like&#39;, $this-&gt;keywords, &#39;And&#39;) 。 &#39;,
-  &#39;。 $this-&gt;solraiService-&gt;solrai_addOperands(&#39;title&#39;, &#39;Like&#39;, $this-&gt;keywords, &#39;And&#39;) 。 &#39;,
-  &#39;。 $this-&gt;solraiService-&gt;solrai_addOperands(&#39;summary&#39;, &#39;Like&#39;, $this-&gt;keywords, &#39;And&#39;) 。 &#39;
-  ]
-  }&#39;：&#39;&#39;)
-  。 (!empty($checkedTags) ? &#39;,&#39; 。$this-&gt;solraiService-&gt;solrai_addOperands(&#39;taxonomy&#39;, &#39;Equal&#39;, $checkedTags, &#39;Or&#39;) : &#39;&#39;) 。 &#39;
-  ]
-  }
-  ){
+由论坛 AI 翻译为英语（从英语）
+1:“可以想象，所有的余弦相似度都表明”
+比赛得分：0.9092
+更改一个单词
+2：“您可以获得一个的所有余弦相似度分数”
+比赛得分：0.9956
+令牌&gt; 10万
+3：“à®¿à®”
+比赛得分：0.0491
 
-
-我的计划是使用“组”来标识用户在此查询中可以/不能访问的“角色”。与您在上面完成的方式完全相同。我可以这样做，因为我的系统知道任何用户可以访问哪些组。]]></description>
-      <guid>https://community.openai.com/t/how-are-people-ensuring-secure-access-to-rag-data/649348#post_11</guid>
-      <pubDate>Sat, 24 Feb 2024 00:33:14 GMT</pubDate>
+全维度的改变似乎表现出更多的拒绝：
+&lt;块引用&gt;
+== 余弦相似度比较 ==
+0：“您可以获得一个的所有余弦相似度分数”
+比赛得分：1.0000
+1：“可以想象，所有余弦相似度都表示”
+比赛得分：0.9002
+2：“您可以获得一个的所有余弦相似度分数”
+比赛得分：0.9952
+3：“à®¿à®”
+比赛得分：0.0360
+]]></description>
+      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_8</guid>
+      <pubDate>Sat, 24 Feb 2024 03:08:22 GMT</pubDate>
     </item>
     <item>
-      <title>寻求建议：优化自定义 GPT 的数据集成</title>
-      <link>https://community.openai.com/t/seeking-advice-optimizing-data-integration-for-custom-gpt/649138#post_6</link>
-      <description><![CDATA[是的，SomebodySysop 所说的一切几乎都是我想说的。
-另一个好处是你们有一个真正的团队来做这件事，听起来像是这样。
-这就像你发现自己已经拥有了多少，哈哈。
-老实说，人们最难理解的部分是第一遍（OAI API 到其他东西）。
+      <title>OpenAI API 制造和工业用例</title>
+      <link>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_19</link>
+      <description><![CDATA[这很有趣，尽管我在制造业的经验有限。至于“即时工程”，如果 {“prompt”:“response”} 为制造业等特定行业构建得很好，那么它实际上是监督学习。许多制造商、他们的商业伙伴和供应商也创建了“提示”。而且他们愿意分享/一起工作，把所有这些“提示”形成一个池，然后，你就有一个模型来训练和测试它们，它可能会产生很好的结果。]]></description>
+      <guid>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_19</guid>
+      <pubDate>Sat, 24 Feb 2024 03:04:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 无法正常工作（印度）</title>
+      <link>https://community.openai.com/t/chatgpt-is-not-working-india/649593#post_3</link>
+      <description><![CDATA[您是否尝试过不同的网络？
+如果您使用的是 WiFi，请尝试使用移动数据。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-is-not-working-india/649593#post_3</guid>
+      <pubDate>Sat, 24 Feb 2024 03:00:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI API 制造和工业用例</title>
+      <link>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_18</link>
+      <description><![CDATA[
 
 
-
-某人Sysop：
+哈利·奥布莱恩：
 &lt;块引用&gt;
-您有一个简单的开源方法可以做到这一点，该方法在您的控制下在您的服务器上运行。
+文档
 
 
-这个。这个声明就在这里哈哈。是的，开发和一些编码在这里是不可避免的，但是您已经完成了很多“困难”部分。
-我会重申这一点：
-
-
-
-某人Sysop：
-&lt;块引用&gt;
-拥有自己的基础设施的另一个优势是，我不仅可以使用它来接听来电，还可以拨打电话。
-简单的解决方案。您从 GPT 收到的信息是这样的：
-获取https://someservice.com/invoices
-当然，您可以修改您需要的元素：
-获取https://someservice.com/invoice_no/invoice_date/invoice_custid/invoice_lineitems/etc&lt; /p&gt;
-您的 API 收到此请求。与其下载 5000 张发票，为什么不简单地重新编码并将请求发送到像这样的其他服务？
-GET https://someotherservice.com/invoices?= Invoice_no=invoice_no&amp;invoice_date=invoice_date&amp;invoice_custid=invoice_custid...
-您从其他服务检索该信息，对其施展魔法，然后将结果发送回 GPT。
-问题已解决。
-
-
-这听起来令人恐惧且复杂，但实际上，您已经基本上弄清楚了“可怕”的部分。
-如果我是你的老板（或者你自己，如果你有招聘权力的话），DevOps 工程师可能是你们所有人都缺少的粘合剂。并不是说你自己无法处理任何事情，但这听起来很像“我们有很酷的东西和方法来管理数据交换和开发，但没有人习惯专门做这种工作”，在中型到大型公司中，DevOps 人员通常负责管理管道，以便每个人都可以专注于自己最擅长的事情。]]></description>
-      <guid>https://community.openai.com/t/seeking-advice-optimizing-data-integration-for-custom-gpt/649138#post_6</guid>
-      <pubDate>Sat, 24 Feb 2024 00:29:23 GMT</pubDate>
+说到文档，我尝试了一个用于“数字工作指令”的小型语言模型，我从互联网上找到了文章和博客，清理它们并将它们用作训练数据，该模型实际上按预期运行，大约一半时间它会返回一些有趣的关键词，但我很清楚，训练数据量太小，如果我在这个领域有大约 1000 个纯文本数据集来进一步训练它，模型可能会产生不错的响应.]]></description>
+      <guid>https://community.openai.com/t/openai-api-manufacturing-and-industrial-use-cases/646388#post_18</guid>
+      <pubDate>Sat, 24 Feb 2024 02:51:50 GMT</pubDate>
     </item>
     <item>
-      <title>人们如何确保安全访问 RAG 数据</title>
-      <link>https://community.openai.com/t/how-are-people-ensuring-secure-access-to-rag-data/649348#post_10</link>
-      <description><![CDATA[这本身不是问题，但是我们不能像传统数据库那样拥有行级访问策略，而不是每次都放置该过滤器。例如，我可以创建一个策略
-从表中选择余弦相似度
-当角色=元数据[“角色”]
-返回文字
-否则返回 null
-如果我可以创建这样的策略，我就不必为每个查询添加过滤器。]]></description>
-      <guid>https://community.openai.com/t/how-are-people-ensuring-secure-access-to-rag-data/649348#post_10</guid>
-      <pubDate>Sat, 24 Feb 2024 00:22:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 自定义操作问题：API 密钥身份验证设置未保存</title>
-      <link>https://community.openai.com/t/issue-with-gpts-custom-action-api-key-authentication-settings-not-saving/552184#post_9</link>
-      <description><![CDATA[同样的问题：API 密钥未保存。]]></description>
-      <guid>https://community.openai.com/t/issue-with-gpts-custom-action-api-key-authentication-settings-not-saving/552184#post_9</guid>
-      <pubDate>Sat, 24 Feb 2024 00:21:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要 API 访问自定义 GPT</title>
-      <link>https://community.openai.com/t/need-api-access-to-custom-gpts/502744#post_13</link>
-      <description><![CDATA[这用于通过 API 创建助手。它与自定义 GPT 没有任何关系。]]></description>
-      <guid>https://community.openai.com/t/need-api-access-to-custom-gpts/502744#post_13</guid>
-      <pubDate>Sat, 24 Feb 2024 00:15:53 GMT</pubDate>
+      <title>Chat GPT 4 失去了阅读文档的所有能力</title>
+      <link>https://community.openai.com/t/chat-gpt-4-has-lost-all-abilities-to-read-documents/651484#post_1</link>
+      <description><![CDATA[自从几天前发生的惨败以来，聊天 GPT 肯定出现了问题，因为它现在无法再读取任何类型的文档。无论文档类型如何（ppt.txt..docx.pdf 等），我都会收到“读取文档时出错”通知。其他人也会遇到这种情况吗？对此有什么措施吗？]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-4-has-lost-all-abilities-to-read-documents/651484#post_1</guid>
+      <pubDate>Sat, 24 Feb 2024 02:43:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
