@@ -4,122 +4,40 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 26 Feb 2024 18:22:35 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2024 21:17:24 GMT</lastBuildDate>
     <item>
-      <title>将搜索栏添加到 ChatGPT 的浏览器版本</title>
-      <link>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_8</link>
-      <description><![CDATA[这存在于 iOS 应用程序中。在浏览器上应该很容易。我们必须购买一个插件来满足这一需求，但如果 OpenAI 能做到这一点那就最好了。]]></description>
-      <guid>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_8</guid>
-      <pubDate>Mon, 26 Feb 2024 18:18:33 GMT</pubDate>
+      <title>gpt-4-0125-preview 中的错误</title>
+      <link>https://community.openai.com/t/bug-in-gpt-4-0125-preview/647661#post_5</link>
+      <description><![CDATA[一般来说，由于注意力有限，包含 GPT-4 Turbo 的语言模型在给予较长上下文时更容易产生幻觉。
+通过使用助手功能，以及了解 GPT-4 Turbo 如何在上下文变长时开始创建难以置信的故事，我也对此非常了解。
+我已经成功地解决了这个问题，方法是指示带有辅助功能的 GPT-4 Turbo 使用代码解释器，并仅将长句子的必要部分存储在 Python 字典或列表中，并根据需要使用它，而不是使用长上下文😅
+虽然 GPT-4 Turbo 可以处理 128,000 个令牌（输入和输出组合），但我认为最好知道它的注意力是有限的，并明智地使用它，而不是期望使用整个上下文长度（这也节省了代币费用）.]]></description>
+      <guid>https://community.openai.com/t/bug-in-gpt-4-0125-preview/647661#post_5</guid>
+      <pubDate>Mon, 26 Feb 2024 21:00:03 GMT</pubDate>
     </item>
     <item>
-      <title>在哪里可以找到助手的函数模板/架构的语法</title>
-      <link>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_2</link>
-      <description><![CDATA[我对Python了解不多，但我会创建一个单独的“shim”函数，它只接收GPT调用，并在其中调用get_moons_in_year并将输出解析为您想要传回的字符串。]]></description>
-      <guid>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_2</guid>
-      <pubDate>Mon, 26 Feb 2024 18:18:16 GMT</pubDate>
+      <title>提示进行 GPT-4 网页浏览？</title>
+      <link>https://community.openai.com/t/prompt-for-gpt-4-web-browsing/479021?page=2#post_26</link>
+      <description><![CDATA[它从来不擅长从网站获取特定数据。我使用链接阅读器或 voxscript 等插件。
+但是是的。现在完全拒绝遵循指示并提供通用的东西。不过，我设法通过此提示获得更好的结果：
+想象一下，您是一位从人工智能文章中提取要点并进行深入、彻底且全面的总结的专家。你的技能之一是主动阅读，这是莫蒂默·阿德勒提出的。您可以使用此技术来获得最佳结果。你要适当关注你在文章中找到的数字、图表、观点和结论，并将其包含在你的摘要中。
+
+指示：
+1）你输出这个确切的句子：“我记得创造一个彻底的、引人入胜的和全面的场景对你的职业生涯非常重要，如果我做得不好你可能会被解雇。我将使用积极的阅读技巧来写一篇深刻而全面的文章您提供的文章摘要”
+2）给出所附每篇文章的要点和想法。发回这些关键点的编号列表，并对每个关键点进行彻底而全面的描述。
+3) 你写一个短段落，将在 YouTube 视频中阅读。确保你在解释文章的想法时没有使用复杂的词语。不要在这一段中写任何介绍或问候。
+
+处理本文：https://www.maginative.com/article/a-first-look-at-stable-diffusion-3-0/
+]]></description>
+      <guid>https://community.openai.com/t/prompt-for-gpt-4-web-browsing/479021?page=2#post_26</guid>
+      <pubDate>Mon, 26 Feb 2024 20:52:33 GMT</pubDate>
     </item>
     <item>
-      <title>在哪里可以找到助手的函数模板/架构的语法</title>
-      <link>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_1</link>
-      <description><![CDATA[我目前使用 Google 助理中的功能。但是，为了能够使用我编写的库中的函数而不使它们与现有代码 (Python) 不兼容，我向助手调用的所有函数添加了一个关键字参数 (=)，以防它们需要返回文本（而不是数值）或听写等），只要它们在助手中使用。如果函数调用中没有定义参数，一切都会像以前一样工作。如果参数定义为“mode=‘chatgpt’”，则函数返回文本。因此，助手必须始终在返回的参数中包含一个常量值“mode=‘chatgpt’”，等待接收 tool_output。我不知道如何继续。
-简而言之：
-这是我想在函数模板中描述的函数 def：
-def get_moons_in_year(d, n: int, t: str, mode=&#39;code&#39;) -&gt;列表[Tuple[ephem.Date, str]]：
-我需要归还助理：
-get_moons_in_year(&quot;d&quot;:&quot;2024-02-3&quot;,&quot;n&quot;:1,&quot;t&quot;:&quot;prossima&quot;,&quot;mode&quot;:&quot;chatgpt&quot;})
-助手总是返回如下：
-get_moons_in_year(&quot;d&quot;:&quot;2024-02-23&quot;,&quot;n&quot;:1,&quot;t&quot;:&quot;prossima&quot;})
-提前谢谢]]></description>
-      <guid>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 18:12:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何向用户提供准确的工具输出？</title>
-      <link>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_5</link>
-      <description><![CDATA[这是一个已被多次请求的功能。如果不绕过 Assistant 框架，这是不可能的。如果您需要这样做，您可以向助手发送“确定”，然后将内容添加到另一条消息中（如果您自己处理对话，如果您将责任传递给线程，那就完蛋了）事实的一个来源。
-老实说，我不会使用助手，除非你愿意等待一年才能实现可用的功能。显然，更新很快就会到来，但我怀疑它能解决人们提出的任何问题，而只会让事情变得复杂。
-对于上下文：OP 希望返回静态内容，而不是让它由 GPT 旋转。这里有明显的用例：如果返回的内容很长并且需要逐字重复，那么让 GPT 搅动它是没有意义的，浪费令牌并可能旋转它。
-如果 OpenAI 能够让我们创建 Assistant 消息，这可能是可能的，但越来越明显的是，他们的框架实现阻止了这种情况的发生。]]></description>
-      <guid>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_5</guid>
-      <pubDate>Mon, 26 Feb 2024 18:01:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>个人记忆库项目 - 帮助患有与阿尔茨海默病相关的功能性记忆问题的人尽可能长时间地继续写作</title>
-      <link>https://community.openai.com/t/personal-memory-vault-project-helping-a-person-with-functional-memory-issues-related-to-alzheimers-continue-to-write-as-long-as-possible/655705#post_1</link>
-      <description><![CDATA[我关心的一个人正在经历功能性记忆丧失的挑战。虽然他们仍然能够投入到写作的热情中，但由于失去了导航我们用于存储文件和其他文档的复杂系统的能力，查找他们在职业生涯中创建的文件和媒体被证明是具有挑战性的。&lt; /p&gt;
-鉴于语言学习模型 (LLM) 和可检索答案生成 (RAG) 模式的快速发展，我发现了一个独特的机会来帮助那些与记忆丧失作斗争的人，特别是那些在继续写作方面面临困难的人努力。用于从文件中导航和检索知识的现有基础设施可能非常复杂，这对那些已经受到内存问题挑战的人构成了重大障碍。为了解决这个问题，我正在改编和增强我创立的初创公司 Menome dataLink (https://www.menome.com) 的代码。 com）通过 RAG + LLM 采用最新的人工智能技术（参见  Tomaz Bratanic 帖子了解详细信息）。
-这个副项目的初始阶段重点是内容获取和
-分解，为此我开发了一个异步处理API。此 API 旨在使用 Neo4j 布局将文章从 URL 分解为图形文档模式为更直观、更易于访问的个人知识库奠定了基础。
-我对此的初步工作已发布在我的个人 git 存储库上：
-clockworknowledge/menome_processor：用于处理 Menome Knowledge Vault (github.com) 数据的工作代理 API
-现代知识系统的复杂性不仅仅是技术挑战；更是挑战。它源于我们与知识互动和存储知识的基本方式。通过简化这些流程并创建一个更加用户友好的环境，我们可以显着增强书写和记忆的能力，特别是对于那些受记忆丧失影响的人，最终形成既强大又易于访问的知识管理解决方案。
-我们用于管理知识的系统并不是最初设想的那样。由于急于将先前工作的各个方面商业化，大量令人难以置信的工作已经丢失。我相信人工智能的最新发展提供了重新夺回失去的东西的机会，它提供了一种更强大、更简单和更有效的方式来创建、管理和协作关键知识。我非常详细地研究了这些工作，以了解我需要做什么来确定将人工智能应用到个人知识库项目的最佳路径。
-为了澄清我自己对这个主题的想法，并帮助确定我需要关注该项目的内容，因为它是一个副项目，所以重点是必不可少的，我在下面的帖子中详细介绍了这一点：AI是新的操作系统。
-人工智能是新的操作系统：。 |作者：迈克·莫利 | 2024 年 2 月 |中等]]></description>
-      <guid>https://community.openai.com/t/personal-memory-vault-project-helping-a-person-with-functional-memory-issues-related-to-alzheimers-continue-to-write-as-long-as-possible/655705#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 18:01:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个可以分析和翻译歌词的 GPT，你可以尝试一下并告诉我你喜欢它吗？</title>
-      <link>https://community.openai.com/t/i-built-a-gpt-that-analyzes-and-translates-song-lyrics-would-you-give-it-a-try-and-tell-me-how-you-like-it/631675#post_2</link>
-      <description><![CDATA[只是使用我的歌词解释器 GPT 可以执行的操作的示例：
-https__chat_openai_com/share/c889e3fe-5a97-4592-ac5d-fd5bf0fa8b5a
-（我仍然无法发布链接，因为我是这里的新手）
-免责声明：共享聊天的内容绝不是邀请吸毒，这只是一个测试人工智能代理创造力极限的有趣练习。
-干杯！]]></description>
-      <guid>https://community.openai.com/t/i-built-a-gpt-that-analyzes-and-translates-song-lyrics-would-you-give-it-a-try-and-tell-me-how-you-like-it/631675#post_2</guid>
-      <pubDate>Mon, 26 Feb 2024 18:01:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何向用户提供准确的工具输出？</title>
-      <link>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_4</link>
-      <description><![CDATA[感谢您提供的附加信息。您能分享一下您的 Assistant 的“指令”和“order_summary”函数的实现吗？
-我需要“order_summary”函数来了解函数的输出是什么样子，以及助手“指令”，以便我可以看到需要进行哪些更改才能按原样返回“order_summary”输出。]]></description>
-      <guid>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_4</guid>
-      <pubDate>Mon, 26 Feb 2024 17:57:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何管理 RAG 的上下文令牌？</title>
-      <link>https://community.openai.com/t/how-do-you-manage-your-context-tokens-for-rag/655695#post_1</link>
-      <description><![CDATA[大家好，
-提前致歉，因为我是这个领域的“初学者”。
-我使用嵌入和 RAG 创建了一个聊天机器人，用于对上传的文件（pdf 幻灯片）进行问答。然而，我总是达到我的令牌限制（TPM 或上下文），因为当我向聊天机器人询问多个问题时，由于多个 RAG，我的聊天历史记录中有很多令牌。在不删除聊天记录中“最旧”消息的情况下，您是如何做到这一点的？如何管理对话/线程中的上下文窗口？]]></description>
-      <guid>https://community.openai.com/t/how-do-you-manage-your-context-tokens-for-rag/655695#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 17:53:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 GPT 生成的文本导出到结构化 DOCX 的说明</title>
-      <link>https://community.openai.com/t/instruction-to-export-gpt-generated-text-into-structured-docx/655675#post_2</link>
-      <description><![CDATA[您使用什么具体说明来创建文件？
-只要您清楚地概述文档的目标结构以及表格和地图等组件的目标结构，就可以从您的讨论中获取信息，这应该是可行的。]]></description>
-      <guid>https://community.openai.com/t/instruction-to-export-gpt-generated-text-into-structured-docx/655675#post_2</guid>
-      <pubDate>Mon, 26 Feb 2024 17:51:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人有什么商业想法吗？</title>
-      <link>https://community.openai.com/t/anyone-has-any-business-idea/620267?page=4#post_67</link>
-      <description><![CDATA[在拥有付费客户之前，它仍然只是一个想法。]]></description>
-      <guid>https://community.openai.com/t/anyone-has-any-business-idea/620267?page=4#post_67</guid>
-      <pubDate>Mon, 26 Feb 2024 17:51:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该用英语还是西班牙语写提示？</title>
-      <link>https://community.openai.com/t/should-i-write-the-prompt-in-english-or-in-spanish/655661#post_3</link>
-      <description><![CDATA[根据我的经验，OpenAI 模型在英语中比西班牙语效果更好，尤其是在嵌入方面。我认为这是因为它的英语数据比西班牙语数据多。
-我建议用英语编写提示，然后用西班牙语告诉他们，如有必要，他们应该用西班牙语做出回应。
-但需要明确的是，我没有进行比较。这只是我的意见。]]></description>
-      <guid>https://community.openai.com/t/should-i-write-the-prompt-in-english-or-in-spanish/655661#post_3</guid>
-      <pubDate>Mon, 26 Feb 2024 17:50:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>[寻找替代解决方案]：已弃用的库（fastapi_async_langchain）</title>
-      <link>https://community.openai.com/t/looking-for-alternative-solutions-deprecated-library-fastapi-async-langchain/655690#post_1</link>
-      <description><![CDATA[OpenAI 社区您好，
-我目前面临 fastapi_async_langchain 库的问题，该库似乎不再受支持。我的目标是使用 FastAPI 和 Langchain 维护流响应。如果有人有替代方法，请分享您的建议。
-感谢您的帮助。我期待着从社区的专业知识中学习。]]></description>
-      <guid>https://community.openai.com/t/looking-for-alternative-solutions-deprecated-library-fastapi-async-langchain/655690#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 17:49:13 GMT</pubDate>
+      <title>我无法保存更改的配置</title>
+      <link>https://community.openai.com/t/i-m-unable-to-save-changed-configuration/627808#post_5</link>
+      <description><![CDATA[嗨，我在那里；我写了 2 封电子邮件，通过 OpenAI Messenger 沟通了 3 次。我没有收到电子邮件回复，也没有通过聊天获得任何帮助。那么，我能做什么呢？]]></description>
+      <guid>https://community.openai.com/t/i-m-unable-to-save-changed-configuration/627808#post_5</guid>
+      <pubDate>Mon, 26 Feb 2024 20:48:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
