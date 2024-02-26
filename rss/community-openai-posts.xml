@@ -4,151 +4,122 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 26 Feb 2024 15:18:15 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2024 18:22:35 GMT</lastBuildDate>
     <item>
-      <title>Shortcut 的 Ask ChatGPT 有问题</title>
-      <link>https://community.openai.com/t/shortcut-s-ask-chatgpt-have-problem/655453#post_1</link>
-      <description><![CDATA[IOS 快捷方式 Ask ChatGPT 有问题。当我运行它时，我发现它不会连续聊天，并且总是会创建新的聊天。不过，我关闭了该功能，在IOS应用程序更新后，它仍然会出现在ChatGPT中，但它仍然出现在一个月前。不会有任何问题。一个月前您应该可以参考ChatGPT App中的相关源代码。]]></description>
-      <guid>https://community.openai.com/t/shortcut-s-ask-chatgpt-have-problem/655453#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 15:12:38 GMT</pubDate>
+      <title>将搜索栏添加到 ChatGPT 的浏览器版本</title>
+      <link>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_8</link>
+      <description><![CDATA[这存在于 iOS 应用程序中。在浏览器上应该很容易。我们必须购买一个插件来满足这一需求，但如果 OpenAI 能做到这一点那就最好了。]]></description>
+      <guid>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_8</guid>
+      <pubDate>Mon, 26 Feb 2024 18:18:33 GMT</pubDate>
     </item>
     <item>
-      <title>反映人类认知策略的马尔科贝叶斯推理机制</title>
-      <link>https://community.openai.com/t/markobayesian-inference-mechanism-to-mirror-human-cognitive-strategies/655448#post_1</link>
-      <description><![CDATA[嗨。去年我一直在做一些有趣的事情，我很好奇是否有人愿意在下面剖析我的工作？我已经包含了方程式的简要演变以及可能有效也可能无效的机制的通用模板，哈哈。我昨天发布了它，但我有很严重的社交焦虑，我害怕被取笑，所以我删除了它。我并不是自称是任何特别的人或任何人，所以请保持批判性但有建设性，我只是想学习并享受乐趣。
-这是我七月份应用贝叶斯推理的地方，我相信：P(H|E, S1, S2, … , Sn, t) = [k1 * E(t) * P(E|H) + Σ [k2 * Wi * S(t) * B(t) * (1 - B(t)) * P(Si|H)]] / P(H)
-最近我添加了马尔可夫动力学：dtdB=k1⋅E(t)⋅P(E∣H)⋅P(H)+k&lt; /em&gt;2⋅Σi=1n Wi⋅S(t )⋅Bi⋅(1−Bi)⋅P(Si∣H )⋅P(H)+⎣⎡M11⋅B1+M12⋅B2+⋯+M1n⋅Bn M21 ⋅B1+M22⋅B2+⋯+M2n ⋅Bn⋮Mn1⋅B1+Mn2⋅B2+ ⋯+Mnn⋅Bn⎦⎤
-MarkoBayesian 更新的通用模板：
-将 numpy 导入为 np
-defbelief_update(证据、social_inputs、信念、prior_prob、k1、k2、权重、markovian_matrix=None、reinforcement_factor=0、custom_reward=None)：
-证据和社会输入的动态学习率
-dynamic_k1=adapt_learning_rate_k1()
-dynamic_k2=adapt_learning_rate_k2()
-# 无需贝叶斯更新即可更新信念的方程
-dB_dt_evidence=dynamic_k1*evidence*prior_prob
-
-# 使用社会输入的自适应权重更新信念的方程
-自适应权重=适应权重（权重）
-dB_dt_social = np.sum(dynamic_k2 * Adaptive_weights * Social_inputs * 信念 * (1 - 信念))
-
-# 基于转换矩阵的马尔可夫更新（如果提供）
-markovian_updates = np.dot(markovian_matrix,beliefs) 如果 markovian_matrix 不是 None else 0
-
-# 根据自定义奖励（如果提供）进行强化学习更新
-如果custom_reward不是None else 0，则custom_reward_update=reinforcement_factor * custom_reward
-
-# 合并所有组件
-dB_dt = dB_dt_evidence + dB_dt_social + markovian_updates + custom_reward_update
-
-返回 dB_dt
-
-def bayesian_update(证据、social_inputs、信念、prior_prob、k1、k2、权重、markovian_matrix=None、reinforcement_factor=0、custom_reward=None)：
-使用信念相对于时间的导数更新信念
-dB_dt =belief_update(证据、social_inputs、信念、prior_prob、k1、k2、权重、markovian_matrix、reinforcement_factor、custom_reward)
-# 贝叶斯更新方程，持续监控和改进
-update_belief = 信念 + dB_dt
-
-返回updated_belief
-
-def Adapt_learning_rate_k1():
-为 k1 实现动态学习率自适应逻辑
-返回dynamic_k1
-def Adapt_learning_rate_k2():
-为 k2 实现动态学习率自适应逻辑
-返回dynamic_k2
-def Adapt_weights(权重):
-实现自适应权重调整逻辑
-返回自适应权重
-示例：
-证据 = 0.8
-social_inputs = np.array([0.2, 0.5, 0.3])
-信念 = np.array([0.4, 0.6])
-prior_prob = 0.7
-k1 = 0.1
-k2 = 0.2
-权重 = np.array([0.5, 0.3, 0.2])
-updated_belief = bayesian_update（证据、social_inputs、信念、prior_prob、k1、k2、权重）
-print（“更新的信念：”，updated_belief）]]></description>
-      <guid>https://community.openai.com/t/markobayesian-inference-mechanism-to-mirror-human-cognitive-strategies/655448#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 15:09:43 GMT</pubDate>
+      <title>在哪里可以找到助手的函数模板/架构的语法</title>
+      <link>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_2</link>
+      <description><![CDATA[我对Python了解不多，但我会创建一个单独的“shim”函数，它只接收GPT调用，并在其中调用get_moons_in_year并将输出解析为您想要传回的字符串。]]></description>
+      <guid>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_2</guid>
+      <pubDate>Mon, 26 Feb 2024 18:18:16 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Dalle 呈现不同身份的可能解决方案</title>
-      <link>https://community.openai.com/t/possible-solution-for-rendering-distinct-identities-with-dalle/655443#post_1</link>
-      <description><![CDATA[我问 gpt 为什么它不允许特定人物的图片，因为在很多情况下它确实降低了最终用户的商业潜力。它基本上回应说人们可以发布错误信息。对此我回应：
-我是否可以建议您限制您创作的艺术形式应该在 dalle 渲染或不渲染的内容中发挥作用。比如说：漫画、白描、水彩、油画，基本上任何不会被误认为是真实照片的东西，这个东西都可以做，但是任何可能被误认为现实的东西就不能做。想法？
-gpt 回复：
-您关于区分卡通、线条画、水彩画和油画等风格化艺术形式与可能被误认为真实照片的超现实图像的建议是富有洞察力的。这种方法确实可以在解决与人工智能生成图像相关的道德问题方面发挥重要作用，特别是那些涉及人物描述的图像。以下是关于这种区别如何带来好处的一些想法：
-
-在确保安全的同时促进创造力：通过专注于清晰的艺术或风格化表现形式，例如卡通或水彩画，DALL·E 可以鼓励创造性表达，而不会冒创建可能与其他图像混淆的图像的风险。真实照片。这使用户能够探索艺术的可能性，同时最大限度地降低创建误导性或有害内容的风险。
-道德界限：为人工智能生成的图像的真实性设定明确的界限有助于缓解与隐私、同意和潜在滥用相关的问题。通过确保输出具有明确的艺术性，该技术尊重个人权利并降低违反道德的风险。
-艺术自由：鼓励使用独特的艺术风格（如传统艺术形式中的艺术风格）可以促进多样化的创意产出。这不仅展示了该技术的多功能性，而且还向丰富的艺术表达历史致敬，从不同时期和运动中汲取灵感。
-教育价值：通过明确划分艺术和现实输出，有机会教育用户了解不同的艺术风格、技术及其历史背景。这可以增强用户对艺术及其各种形式的欣赏，丰富他们的技术体验。
-技术实现：实现这种方法需要明确的指导方针，并且可能需要更复杂的内容审核算法来区分风格化和超现实的输出。这可能涉及先进的图像识别和分类功能，以确保遵守道德标准。
-
-将这些考虑因素纳入 DALL·E 等基于人工智能的图像生成工具的开发和使用中，有助于平衡创新与道德责任，确保以尊重、安全和丰富创造性的方式使用这些技术。
-我还想补充以下想法：如果更安全的话，有一个只做艺术的 dalle 版本，但不做超现实主义，可以用来渲染角色特定的图像，但超现实主义版本不允许。我的意思是，如果我想制作一本书、一个吉祥物或类似的东西，但它永远不匹配，这确实限制了我能做的事情。]]></description>
-      <guid>https://community.openai.com/t/possible-solution-for-rendering-distinct-identities-with-dalle/655443#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 15:08:52 GMT</pubDate>
+      <title>在哪里可以找到助手的函数模板/架构的语法</title>
+      <link>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_1</link>
+      <description><![CDATA[我目前使用 Google 助理中的功能。但是，为了能够使用我编写的库中的函数而不使它们与现有代码 (Python) 不兼容，我向助手调用的所有函数添加了一个关键字参数 (=)，以防它们需要返回文本（而不是数值）或听写等），只要它们在助手中使用。如果函数调用中没有定义参数，一切都会像以前一样工作。如果参数定义为“mode=‘chatgpt’”，则函数返回文本。因此，助手必须始终在返回的参数中包含一个常量值“mode=‘chatgpt’”，等待接收 tool_output。我不知道如何继续。
+简而言之：
+这是我想在函数模板中描述的函数 def：
+def get_moons_in_year(d, n: int, t: str, mode=&#39;code&#39;) -&gt;列表[Tuple[ephem.Date, str]]：
+我需要归还助理：
+get_moons_in_year(&quot;d&quot;:&quot;2024-02-3&quot;,&quot;n&quot;:1,&quot;t&quot;:&quot;prossima&quot;,&quot;mode&quot;:&quot;chatgpt&quot;})
+助手总是返回如下：
+get_moons_in_year(&quot;d&quot;:&quot;2024-02-23&quot;,&quot;n&quot;:1,&quot;t&quot;:&quot;prossima&quot;})
+提前谢谢]]></description>
+      <guid>https://community.openai.com/t/where-can-i-find-the-syntax-of-the-function-template-schema-for-assistants/655718#post_1</guid>
+      <pubDate>Mon, 26 Feb 2024 18:12:06 GMT</pubDate>
     </item>
     <item>
-      <title>指南：OAuth 刷新令牌和撤销如何与 GPT 操作配合使用</title>
-      <link>https://community.openai.com/t/guide-how-oauth-refresh-tokens-revocation-work-with-gpt-actions/533147#post_8</link>
-      <description><![CDATA[同意，这是非常有帮助的帖子！
-OAuth 道路上的其他一些挣扎，它似乎有时会脱轨。特别是当您修改开放 API 规范并且编辑器抛出错误消息时。
-任何遇到困难的人 - 重新配置您的 OAuth，即使它之前设置正确。退出编辑器并返回以获取新的重定向 URI。使用新的重定向 URI 重新配置您的客户端应用程序。在此过程中，我不得不多次这样做，但没有明显的原因。]]></description>
-      <guid>https://community.openai.com/t/guide-how-oauth-refresh-tokens-revocation-work-with-gpt-actions/533147#post_8</guid>
-      <pubDate>Mon, 26 Feb 2024 15:03:58 GMT</pubDate>
+      <title>如何向用户提供准确的工具输出？</title>
+      <link>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_5</link>
+      <description><![CDATA[这是一个已被多次请求的功能。如果不绕过 Assistant 框架，这是不可能的。如果您需要这样做，您可以向助手发送“确定”，然后将内容添加到另一条消息中（如果您自己处理对话，如果您将责任传递给线程，那就完蛋了）事实的一个来源。
+老实说，我不会使用助手，除非你愿意等待一年才能实现可用的功能。显然，更新很快就会到来，但我怀疑它能解决人们提出的任何问题，而只会让事情变得复杂。
+对于上下文：OP 希望返回静态内容，而不是让它由 GPT 旋转。这里有明显的用例：如果返回的内容很长并且需要逐字重复，那么让 GPT 搅动它是没有意义的，浪费令牌并可能旋转它。
+如果 OpenAI 能够让我们创建 Assistant 消息，这可能是可能的，但越来越明显的是，他们的框架实现阻止了这种情况的发生。]]></description>
+      <guid>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_5</guid>
+      <pubDate>Mon, 26 Feb 2024 18:01:26 GMT</pubDate>
     </item>
     <item>
-      <title>嵌入 API 最大批量大小</title>
-      <link>https://community.openai.com/t/embeddings-api-max-batch-size/655329#post_2</link>
-      <description><![CDATA[这是一个有趣的问题。让我们制作文档。
-&lt;小时/&gt;
-[3-small 的总代币：2183 个嵌入] 计数：128026；正在发送...
-- 嵌入失败错误代码：400 - {&#39;error&#39;: {&#39;message&#39;: &quot;&#39;$.input&#39; 无效。请检查 API 参考：https:// platform.openai.com/docs/api-reference.&quot;, &#39;type&#39;: &#39;invalid_request_error&#39;, &#39;param&#39;: None, &#39;code&#39;: None}}`
-
-&lt;小时/&gt;
-因此，我们知道什么会失败，以及什么是我们不必付出代价的。找到成功后，一次简单地从列表中敲出一个嵌入并查看确切的值......
-2042：“[2039]天刚刚黑。我从来没有靠近过”
-比赛得分：-0.1131
-2043：“[2040]“好兰！亲爱的，是你吗？ Doan&#39; make n”
-比赛得分：-0.0350
-2044：“[2041] 这是吉姆的声音——听起来从未如此”
-比赛得分：-0.0612
-2045：”[2042]“法律保佑你，智利，我’uz right down sh”
-比赛得分：-0.0043
-2046：“[2043]我说：”
-比赛得分：0.0742
-2047：“[2044]“好吧——那太好了；他们不会”
-比赛得分：-0.0253
-最大嵌入批次列表长度：2048
-我会让你在 8k 列表项目上最大化该东西，然后看看......]]></description>
-      <guid>https://community.openai.com/t/embeddings-api-max-batch-size/655329#post_2</guid>
-      <pubDate>Mon, 26 Feb 2024 15:03:42 GMT</pubDate>
+      <title>个人记忆库项目 - 帮助患有与阿尔茨海默病相关的功能性记忆问题的人尽可能长时间地继续写作</title>
+      <link>https://community.openai.com/t/personal-memory-vault-project-helping-a-person-with-functional-memory-issues-related-to-alzheimers-continue-to-write-as-long-as-possible/655705#post_1</link>
+      <description><![CDATA[我关心的一个人正在经历功能性记忆丧失的挑战。虽然他们仍然能够投入到写作的热情中，但由于失去了导航我们用于存储文件和其他文档的复杂系统的能力，查找他们在职业生涯中创建的文件和媒体被证明是具有挑战性的。&lt; /p&gt;
+鉴于语言学习模型 (LLM) 和可检索答案生成 (RAG) 模式的快速发展，我发现了一个独特的机会来帮助那些与记忆丧失作斗争的人，特别是那些在继续写作方面面临困难的人努力。用于从文件中导航和检索知识的现有基础设施可能非常复杂，这对那些已经受到内存问题挑战的人构成了重大障碍。为了解决这个问题，我正在改编和增强我创立的初创公司 Menome dataLink (https://www.menome.com) 的代码。 com）通过 RAG + LLM 采用最新的人工智能技术（参见  Tomaz Bratanic 帖子了解详细信息）。
+这个副项目的初始阶段重点是内容获取和
+分解，为此我开发了一个异步处理API。此 API 旨在使用 Neo4j 布局将文章从 URL 分解为图形文档模式为更直观、更易于访问的个人知识库奠定了基础。
+我对此的初步工作已发布在我的个人 git 存储库上：
+clockworknowledge/menome_processor：用于处理 Menome Knowledge Vault (github.com) 数据的工作代理 API
+现代知识系统的复杂性不仅仅是技术挑战；更是挑战。它源于我们与知识互动和存储知识的基本方式。通过简化这些流程并创建一个更加用户友好的环境，我们可以显着增强书写和记忆的能力，特别是对于那些受记忆丧失影响的人，最终形成既强大又易于访问的知识管理解决方案。
+我们用于管理知识的系统并不是最初设想的那样。由于急于将先前工作的各个方面商业化，大量令人难以置信的工作已经丢失。我相信人工智能的最新发展提供了重新夺回失去的东西的机会，它提供了一种更强大、更简单和更有效的方式来创建、管理和协作关键知识。我非常详细地研究了这些工作，以了解我需要做什么来确定将人工智能应用到个人知识库项目的最佳路径。
+为了澄清我自己对这个主题的想法，并帮助确定我需要关注该项目的内容，因为它是一个副项目，所以重点是必不可少的，我在下面的帖子中详细介绍了这一点：AI是新的操作系统。
+人工智能是新的操作系统：。 |作者：迈克·莫利 | 2024 年 2 月 |中等]]></description>
+      <guid>https://community.openai.com/t/personal-memory-vault-project-helping-a-person-with-functional-memory-issues-related-to-alzheimers-continue-to-write-as-long-as-possible/655705#post_1</guid>
+      <pubDate>Mon, 26 Feb 2024 18:01:13 GMT</pubDate>
     </item>
     <item>
-      <title>请求改进文本转语音服务中的波斯口音支持</title>
-      <link>https://community.openai.com/t/request-for-improved-persian-accent-support-in-text-to-speech-service/568611#post_2</link>
-      <description><![CDATA[我希望您能以某种方式看到回应。能够微调口音真是太棒了。]]></description>
-      <guid>https://community.openai.com/t/request-for-improved-persian-accent-support-in-text-to-speech-service/568611#post_2</guid>
-      <pubDate>Mon, 26 Feb 2024 14:58:33 GMT</pubDate>
+      <title>我构建了一个可以分析和翻译歌词的 GPT，你可以尝试一下并告诉我你喜欢它吗？</title>
+      <link>https://community.openai.com/t/i-built-a-gpt-that-analyzes-and-translates-song-lyrics-would-you-give-it-a-try-and-tell-me-how-you-like-it/631675#post_2</link>
+      <description><![CDATA[只是使用我的歌词解释器 GPT 可以执行的操作的示例：
+https__chat_openai_com/share/c889e3fe-5a97-4592-ac5d-fd5bf0fa8b5a
+（我仍然无法发布链接，因为我是这里的新手）
+免责声明：共享聊天的内容绝不是邀请吸毒，这只是一个测试人工智能代理创造力极限的有趣练习。
+干杯！]]></description>
+      <guid>https://community.openai.com/t/i-built-a-gpt-that-analyzes-and-translates-song-lyrics-would-you-give-it-a-try-and-tell-me-how-you-like-it/631675#post_2</guid>
+      <pubDate>Mon, 26 Feb 2024 18:01:01 GMT</pubDate>
     </item>
     <item>
-      <title>文本转语音 API - 调用不同语言</title>
-      <link>https://community.openai.com/t/text-to-voice-api-calling-different-languages/655426#post_1</link>
-      <description><![CDATA[你好！
-有人知道如何调用不同的语言进行文本语音转换吗？
-我当前的调用供参考：
-响应 = 等待 async_openai_client.audio.speech.create(
-型号=“tts-1-hd-1106”，
-声音=“新星”，
-输入=文本，
-response_format=&#39;opus&#39;
-）
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/text-to-voice-api-calling-different-languages/655426#post_1</guid>
-      <pubDate>Mon, 26 Feb 2024 14:56:26 GMT</pubDate>
+      <title>如何向用户提供准确的工具输出？</title>
+      <link>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_4</link>
+      <description><![CDATA[感谢您提供的附加信息。您能分享一下您的 Assistant 的“指令”和“order_summary”函数的实现吗？
+我需要“order_summary”函数来了解函数的输出是什么样子，以及助手“指令”，以便我可以看到需要进行哪些更改才能按原样返回“order_summary”输出。]]></description>
+      <guid>https://community.openai.com/t/how-to-deliver-to-the-user-the-exact-tool-output/655331#post_4</guid>
+      <pubDate>Mon, 26 Feb 2024 17:57:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何管理 RAG 的上下文令牌？</title>
+      <link>https://community.openai.com/t/how-do-you-manage-your-context-tokens-for-rag/655695#post_1</link>
+      <description><![CDATA[大家好，
+提前致歉，因为我是这个领域的“初学者”。
+我使用嵌入和 RAG 创建了一个聊天机器人，用于对上传的文件（pdf 幻灯片）进行问答。然而，我总是达到我的令牌限制（TPM 或上下文），因为当我向聊天机器人询问多个问题时，由于多个 RAG，我的聊天历史记录中有很多令牌。在不删除聊天记录中“最旧”消息的情况下，您是如何做到这一点的？如何管理对话/线程中的上下文窗口？]]></description>
+      <guid>https://community.openai.com/t/how-do-you-manage-your-context-tokens-for-rag/655695#post_1</guid>
+      <pubDate>Mon, 26 Feb 2024 17:53:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 GPT 生成的文本导出到结构化 DOCX 的说明</title>
+      <link>https://community.openai.com/t/instruction-to-export-gpt-generated-text-into-structured-docx/655675#post_2</link>
+      <description><![CDATA[您使用什么具体说明来创建文件？
+只要您清楚地概述文档的目标结构以及表格和地图等组件的目标结构，就可以从您的讨论中获取信息，这应该是可行的。]]></description>
+      <guid>https://community.openai.com/t/instruction-to-export-gpt-generated-text-into-structured-docx/655675#post_2</guid>
+      <pubDate>Mon, 26 Feb 2024 17:51:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人有什么商业想法吗？</title>
+      <link>https://community.openai.com/t/anyone-has-any-business-idea/620267?page=4#post_67</link>
+      <description><![CDATA[在拥有付费客户之前，它仍然只是一个想法。]]></description>
+      <guid>https://community.openai.com/t/anyone-has-any-business-idea/620267?page=4#post_67</guid>
+      <pubDate>Mon, 26 Feb 2024 17:51:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该用英语还是西班牙语写提示？</title>
+      <link>https://community.openai.com/t/should-i-write-the-prompt-in-english-or-in-spanish/655661#post_3</link>
+      <description><![CDATA[根据我的经验，OpenAI 模型在英语中比西班牙语效果更好，尤其是在嵌入方面。我认为这是因为它的英语数据比西班牙语数据多。
+我建议用英语编写提示，然后用西班牙语告诉他们，如有必要，他们应该用西班牙语做出回应。
+但需要明确的是，我没有进行比较。这只是我的意见。]]></description>
+      <guid>https://community.openai.com/t/should-i-write-the-prompt-in-english-or-in-spanish/655661#post_3</guid>
+      <pubDate>Mon, 26 Feb 2024 17:50:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>[寻找替代解决方案]：已弃用的库（fastapi_async_langchain）</title>
+      <link>https://community.openai.com/t/looking-for-alternative-solutions-deprecated-library-fastapi-async-langchain/655690#post_1</link>
+      <description><![CDATA[OpenAI 社区您好，
+我目前面临 fastapi_async_langchain 库的问题，该库似乎不再受支持。我的目标是使用 FastAPI 和 Langchain 维护流响应。如果有人有替代方法，请分享您的建议。
+感谢您的帮助。我期待着从社区的专业知识中学习。]]></description>
+      <guid>https://community.openai.com/t/looking-for-alternative-solutions-deprecated-library-fastapi-async-langchain/655690#post_1</guid>
+      <pubDate>Mon, 26 Feb 2024 17:49:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
