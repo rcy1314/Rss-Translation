@@ -4,108 +4,176 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 01 Mar 2024 18:24:43 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2024 21:17:35 GMT</lastBuildDate>
     <item>
-      <title>纽约市 OpenAI 社区小组提案</title>
-      <link>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_6</link>
-      <description><![CDATA[让我们开始吧！我会努力寻找地点，我们第一次聚会的目标应该是约 20/30 人吗？我应该创建一个 telegram/whatsapp 群组，然后我们在那里进行无缝对话吗？]]></description>
-      <guid>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_6</guid>
-      <pubDate>Fri, 01 Mar 2024 18:23:46 GMT</pubDate>
+      <title>感谢 Logan Kilpatrick 与 OpenAI 的合作</title>
+      <link>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_9</link>
+      <description><![CDATA[祝您旅途愉快@logankilpatrick！
+如果没有你和你在这里建造的东西，我就不会像现在这样受到启发，继续建造，继续前进。看到每个人的成长绝对是令人惊奇的，我对每个人的未来感到非常兴奋。]]></description>
+      <guid>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_9</guid>
+      <pubDate>Fri, 01 Mar 2024 21:17:13 GMT</pubDate>
     </item>
     <item>
-      <title>Vision API - 如何获得更长的输出？</title>
-      <link>https://community.openai.com/t/vision-api-how-to-get-longer-outputs/662055#post_1</link>
-      <description><![CDATA[我正在使用视觉 API，无论我做什么，它都只会生成一个简短的标题，并且文本会因不完整的句子而被中途切断。有没有办法放宽输出令牌限制或告诉它提供更长的输出？
-我尝试了这两个提示
-“为此图像写一个简短的标题”，
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_5</link>
+      <description><![CDATA[它是模型名称，您必须将其替换为部署名称。它通常可以是相同的，但您也有机会重命名它。
+然后对 OpenAI python 库的使用进行更多修改，如上面的链接所述。
+从 openai 导入 AzureOpenAI
+    
+客户端 = AzureOpenAI(
+    api_key=os.getenv(&quot;AZURE_OPENAI_API_KEY&quot;),
+    api_version=&quot;2024-02-15-预览&quot;,
+    azure_endpoint = os.getenv(&quot;AZURE_OPENAI_ENDPOINT&quot;)
+    ）
 
-// 对比
+如果这是第一次使用 OpenAI Azure 服务，我会从聊天完成开始，并看到您在那里得到简单的回复。
+更多，如果使用 entra ID：
+从 azure.identity 导入 DefaultAzureCredential, get_bearer_token_provider
+从 openai 导入 AzureOpenAI
 
-详细描述该图像，包括艺术家的意图
-以及使用的技术、图像中的人物、
-以及图像的内容。
-对图像的细节进行描述。
-写下关于该图像的至少 100 个单词和最多 500 个单词。
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential()，“https://cognitiveservices.azure.com/.default”
+）
 
-在两种情况下得到的结果长度大致相同：
-穿过青翠田野的宁静之路：拥抱自然的宁静
-这张照片捕捉了宁静的户外景观，重点是我看到的木板路
-所以我猜“蜿蜒”被切断了。
-当我尝试你是一位艺术评论家和专家技巧时，我得到的回复是：
-抱歉，似乎存在误会。我不是
-仍然切断
-酱汁几乎是从他们的网站上拿来的：
- const response = wait this.openai.chat.completions.create({
-      型号：“gpt-4-vision-preview”，
-      消息：[
-        {
-          角色：“用户”，
-          内容： [
-            {
-              类型：“文本”，
-              文本：提示，
-            },
-            {
-              类型：“image_url”，
-              图片网址：{
-                网址: 图片网址,
-                细节：“高”，
-              },
-            },
-          ],
-        },
-      ],
+api_version = &quot;2023-12-01-预览&quot;
+端点 =“https://my-resource.openai.azure.com”
+
+客户端 = AzureOpenAI(
+    api_version=api_version,
+    azure_endpoint=端点，
+    azure_ad_token_provider=token_provider，
+）
 ]]></description>
-      <guid>https://community.openai.com/t/vision-api-how-to-get-longer-outputs/662055#post_1</guid>
-      <pubDate>Fri, 01 Mar 2024 18:21:07 GMT</pubDate>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_5</guid>
+      <pubDate>Fri, 01 Mar 2024 21:13:47 GMT</pubDate>
     </item>
     <item>
-      <title>对 30 万页 PDF 进行 RAG 时出现问题</title>
-      <link>https://community.openai.com/t/problem-with-doing-rag-with-300k-pages-of-pdfs/659367#post_4</link>
-      <description><![CDATA[非常感谢您提供的建议。喜欢它。
-将跟随主题。干杯]]></description>
-      <guid>https://community.openai.com/t/problem-with-doing-rag-with-300k-pages-of-pdfs/659367#post_4</guid>
-      <pubDate>Fri, 01 Mar 2024 18:14:14 GMT</pubDate>
+      <title>有停用词列表吗？</title>
+      <link>https://community.openai.com/t/is-there-a-list-of-stop-words/661810#post_4</link>
+      <description><![CDATA[AFAIK DALL-E 有自己的机制来防止误用。不过，您可以使用审核 API 在将提示发送到 API 之前对其进行筛选。]]></description>
+      <guid>https://community.openai.com/t/is-there-a-list-of-stop-words/661810#post_4</guid>
+      <pubDate>Fri, 01 Mar 2024 21:01:18 GMT</pubDate>
     </item>
     <item>
-      <title>如何使 DALL-E 3 生成可靠的图像网格 (3x3)？</title>
-      <link>https://community.openai.com/t/how-do-i-make-dall-e-3-generate-a-reliable-grid-3x3-of-images/659178#post_5</link>
-      <description><![CDATA[您也经常尝试网格吗？
-其他人有类似的经历吗？]]></description>
-      <guid>https://community.openai.com/t/how-do-i-make-dall-e-3-generate-a-reliable-grid-3x3-of-images/659178#post_5</guid>
-      <pubDate>Fri, 01 Mar 2024 18:11:50 GMT</pubDate>
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_4</link>
+      <description><![CDATA[嗯，所以我更新了代码以在模型中包含 azure_deployment 参数，但仍然收到连接错误。您知道是否需要针对 Azure 做一些特定的事情吗？部署的模型正是代码中的内容，gpt-4 1106-Preview。
+客户端 = AzureOpenAI(
+            api_key=config.AZURE_OPENAI_API_KEY,
+            api_version=&quot;2024-02-15-预览&quot;,
+            azure_endpoint = os.getenv(&quot;AZURE_OPENAI_ENDPOINT&quot;),
+            azure_deployment=&quot;gpt4test&quot;,
+        ）
+]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_4</guid>
+      <pubDate>Fri, 01 Mar 2024 21:01:15 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT - 现在完全无法使用</title>
-      <link>https://community.openai.com/t/custom-gpts-are-now-completely-unusable/660919#post_8</link>
-      <description><![CDATA[FWIW，我一直在使用 https://CustomGPT.ai 来处理我的所有问题项目（到目前为止有 4 个）并发现它很有用。它允许您创建自己的自定义 GPT 并提供完整的 API 访问权限。]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-are-now-completely-unusable/660919#post_8</guid>
-      <pubDate>Fri, 01 Mar 2024 18:09:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于训练聊天及其保留哪些信息的问题</title>
-      <link>https://community.openai.com/t/question-about-training-the-chat-and-what-info-it-retains/661998#post_2</link>
-      <description><![CDATA[你对那些反对票提出了一个很好的问题。没有任何手册可以解释一切的含义。
-“拇指朝下”按钮，或对对话是否良好进行投票，不会影响人工智能响应的质量。它只向 OpenAI 提供反馈。在完成知识工作者好/坏评级的其他步骤之后，您的输入可能会在遥远的将来用于未来的模型训练。
-重新生成只会为您提供相同输入的另一个响应。 ChatGPT 经过调整，因此它几乎不会给出完全相同的答案。
-聊天会话独立于其他会话。 AI 学到的只是它从特定聊天中的早期对话中看到的内容（在滚动对话变长后，AI 的可见性有限）。
-因此，如果您开始会话“您现在表现得像个海盗，这样您就可以在我和一个真正的虚张声势的人之间重现身临其境的互动聊天体验。”，人工智能会说 GARRR。然后，在左侧对话选择器中，您可以返回到您正在进行其他工作的其他过去的聊天。]]></description>
-      <guid>https://community.openai.com/t/question-about-training-the-chat-and-what-info-it-retains/661998#post_2</guid>
-      <pubDate>Fri, 01 Mar 2024 18:01:40 GMT</pubDate>
+      <title>修复“嗯...似乎出了问题”错误</title>
+      <link>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=3#post_56</link>
+      <description><![CDATA[这对我来说是一个重大问题，我怀疑这是与我的测试不同类型的网络错误。也许是防火墙问题。但我不确定。]]></description>
+      <guid>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=3#post_56</guid>
+      <pubDate>Fri, 01 Mar 2024 20:59:46 GMT</pubDate>
     </item>
     <item>
       <title>[严重] 超过 25% 的 Assistant API 请求随机超时</title>
-      <link>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=3#post_47</link>
-      <description><![CDATA[即使在他们的助理 UI 中，使用他们的自动 API，它也无法工作。所以是的......这是一个错误]]></description>
-      <guid>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=3#post_47</guid>
-      <pubDate>Fri, 01 Mar 2024 17:57:59 GMT</pubDate>
+      <link>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=3#post_62</link>
+      <description><![CDATA[
+
+
+ npatten：
+&lt;块引用&gt;
+我想他们确实警告过我们这是一个测试版产品......
+
+
+是的，使用尖端技术有时很可怕......自 2019 年以来已经取得了如此大的进步......]]></description>
+      <guid>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=3#post_62</guid>
+      <pubDate>Fri, 01 Mar 2024 20:53:41 GMT</pubDate>
     </item>
     <item>
-      <title>纽约市 OpenAI 社区小组提案</title>
-      <link>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_5</link>
-      <description><![CDATA[+1 我对聚会感兴趣。]]></description>
-      <guid>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_5</guid>
-      <pubDate>Fri, 01 Mar 2024 17:57:23 GMT</pubDate>
+      <title>使用 gpt-4-vision-preview 调用函数有什么解决方法吗？</title>
+      <link>https://community.openai.com/t/any-workarounds-for-function-calling-using-gpt-4-vision-preview/627173#post_3</link>
+      <description><![CDATA[函数调用只是一种轻松构建工具调用的输入输出的方法。您可以以相同的方式使用 GPT4-vision，但没有这种结构化输出。例如，告诉它如果需要使用工具 X，则输出带有工具名称和参数的 json 格式，然后像函数调用一样解析输出，然后将函数输出添加为另一个常规用户消息。&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/any-workarounds-for-function-calling-using-gpt-4-vision-preview/627173#post_3</guid>
+      <pubDate>Fri, 01 Mar 2024 20:52:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_3</link>
+      <description><![CDATA[
+  &lt;标题类=“来源”&gt;
+
+      learn.microsoft.com&lt; /a&gt;
+  
+
+  &lt;文章类=“onebox-body”&gt;
+    如何创建Azure OpenAI 服务助理 - Azure OpenAI
+了解如何使用代码解释器等工具创建有用的 AI 助手
+
+
+
+
+
+特别是，除了不同的库方法之外，您还需要使用模型部署名称。]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_3</guid>
+      <pubDate>Fri, 01 Mar 2024 20:52:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_2</link>
+      <description><![CDATA[以下是如何通过 OpenAI python 包使用 Azure OpenAI 服务.]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_2</guid>
+      <pubDate>Fri, 01 Mar 2024 20:51:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_1</link>
+      <description><![CDATA[您好，我正在尝试通过 Azure Open AI Assistant API 创建助手，但遇到连接错误。
+ 尝试：
+          助手 = client.beta.assistants.create(
+              名称=“基础设施机器人”，
+              说明=说明，
+              工具=[{&quot;type&quot;: &quot;检索&quot;}, {&quot;type&quot;: &quot;code_interpreter&quot;}],
+              型号=“gpt-4-1106-预览”，
+          ）
+          Assistant_id = 助理.id
+
+          # ai_assistants = client.beta.assistants.list(
+          # 订单=“描述”，
+          # 限制=“20”，
+          ＃）
+      除了异常 e：
+          日志记录.error(str(e))
+
+Azure 端点是这样的：AZURE_OPENAI_ENDPOINT=https://[myresource].openai.azure.com/。
+我还尝试了 AZURE_OPENAI_ENDPOINT=https://[myresource].openai.azure.com//openai/assistants?api-version=2024-02-15-preview ，但出现相同的错误。附截图。
+client.beta.assistants.list() 函数会产生相同的错误。
+]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_1</guid>
+      <pubDate>Fri, 01 Mar 2024 20:47:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>[严重] 超过 25% 的 Assistant API 请求随机超时</title>
+      <link>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=2#post_38</link>
+      <description><![CDATA[当我控制台运行时，这就是它卡住的地方：-
+{
+id: ‘run_4bG0wGmHZJqqdO0u8bGoemYb’,
+对象：&#39;thread.run&#39;，
+创建于：1709307122，
+Assistant_id：&#39;asst_HFrxlpyT1MbVYzejPzhOfTaP&#39;，
+thread_id: &#39;thread_SlamGiMcWsyw4ZN2kMyowuBN&#39;,
+状态：&#39;进行中&#39;，
+开始于：1709307122，
+过期时间：1709307722，
+cancelled_at：空，
+failed_at：空，
+Completed_at：空，
+required_action：空，
+最后一个错误：空，
+型号：&#39;gpt-4-0125-preview&#39;，...}
+然后我突然获得“已完成”状态，并获取大量令牌，这是之前用于获取响应的令牌的 3 倍。]]></description>
+      <guid>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=2#post_38</guid>
+      <pubDate>Fri, 01 Mar 2024 15:55:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
