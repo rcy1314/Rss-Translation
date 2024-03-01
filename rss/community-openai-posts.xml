@@ -4,185 +4,31 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 01 Mar 2024 03:22:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2024 06:23:56 GMT</lastBuildDate>
     <item>
       <title>Whisper-1 无法翻译</title>
-      <link>https://community.openai.com/t/whisper-1-fails-to-translate/661127#post_1</link>
-      <description><![CDATA[无法从法语翻译成英语……我该怎么办？另外，当我按下帮助按钮时，愚蠢的聊天机器人毫无价值……那是怎么回事……我在哪里可以获得一些真正的帮助……你拿走我的钱很好，对吧？服务到底在哪里？]]></description>
-      <guid>https://community.openai.com/t/whisper-1-fails-to-translate/661127#post_1</guid>
-      <pubDate>Fri, 01 Mar 2024 03:21:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 llamaindex 和 gpt-3.5-turbo 中使用 RagEvaluatorPack 获取 ValueError'</title>
-      <link>https://community.openai.com/t/getting-valueerror-with-ragevaluatorpack-in-llamaindex-and-gpt-3-5-turbo/661117#post_1</link>
-      <description><![CDATA[在使用 ragas 在 llama-index 中执行 RagEvaluatorPack 时，我收到 ValueError 。下面是代码
-judge_llm = OpenAI(温度=0, model=&quot;gpt-3.5-turbo&quot;)
-
-RagEvaluatorPack = download_llama_pack(&quot;RagEvaluatorPack&quot;, &quot;./pack&quot;)
-rag_evaluator = RagEvaluatorPack(
-    查询引擎=查询引擎，
-    rag_dataset=rag_dataset, # 1A中定义
-    Judge_llm=judge_llm,
-    show_progress=真，
-）
-
-benchmark_df = 等待 rag_evaluator.arun(
-    批量大小=2，
-    睡眠时间秒数=60，
-）
-
-下面是堆栈跟踪
------------------------------------------------- --------------------------------------
-ValueError Traceback（最近一次调用最后一次）
-单元格 In[23]，第 30 行
-     16 rag_evaluator = RagEvaluatorPack（
-     17 查询引擎=查询引擎，
-     18 rag_dataset=rag_dataset, # 1A中定义
-     19 判断_llm=判断_llm,
-     20 show_progress=真，
-     21）
-     23 ################################################### ############################
-     24 # 注意：如果有较低级别的 OpenAI API 订阅，例如使用级别 1 #
-     25 # 那么你需要使用不同的batch_size和sleep_time_in_seconds。 #
-     26 # 对于使用层 1，似乎效果很好的设置是 batch_size=5, #
-     27 # 且 sleep_time_in_seconds=15（截至 2023 年 12 月）#
-     28 #################################################### ############################
----&gt; 30 benchmark_df = 等待 rag_evaluator.arun(
-     31 batch_size=2, # 批量进行 openai api 调用的数量
-     32 sleep_time_in_seconds=60, # 进行 api 调用之前休眠的秒数
-     33）
-
-文件 D:\documents\github\infinitejoy_courses\creating-gpt-chatbots-for-enterprise-useca-vt9QSr1Q-py3.10\lib\site-packages\llama_index\packs\rag_evaluator\base.py:442，位于 RagEvaluatorPack.arun （自我，批量大小，睡眠时间（以秒为单位））
-    第440章 440
-    第441章
---&gt;第442章
-    [第 443 章]
-    第444章）
-
-文件 D:\documents\github\infinitejoy_courses\creating-gpt-chatbots-for-enterprise-useca-vt9QSr1Q-py3.10\lib\site-packages\llama_index\packs\rag_evaluator\base.py:366，在 RagEvaluatorPack._amake_evaluations 中（自我，批量大小，睡眠时间（以秒为单位））
-    第364章
-    第365章
---&gt;第 366 章
-    367 除了 RateLimitError 为错误：
-    第368章
-
-文件 D:\ProgramData\miniconda3\lib\asyncio\tasks.py:304，在 Task.__wakeup(self, future) 中
-    302 def __wakeup(自我，未来)：
-    303 尝试：
---&gt; 304 future.结果（）
-    305除了BaseException作为exc：
-    306 # 这也可能是取消。
-    第307章
-
-文件 D:\ProgramData\miniconda3\lib\asyncio\tasks.py:232，在 Task.__step 中（***解析参数失败***）
-    228 尝试：
-    229如果exc是None：
-    230 # 我们直接使用 `send` 方法，因为协程
-    231 # 没有 `__iter__` 和 `__next__` 方法。
---&gt;第232章
-    233 其他：
-    第234章
-
-文件 ...\lib\site-packages\llama_index\core\evaluation\ Correctness.py:146，位于 CorrectnessEvaluator.aevaluate 中（***解析参数失败***）
-    第138章
-    第139章
-    140 查询=查询，
-    第141章
-    第142章
-    143）
-    145 # 使用解析器函数
---&gt; 146分，推理= self.parser_function(eval_response)
-    [第 148 回]
-    149 查询=查询，
-    150 响应=响应，
-   （...）
-    153反馈=推理，
-    154）
-
-文件 ...lib\site-packages\llama_index\core\evaluation\eval_utils.py:183，在 default_parser(eval_response) 中
-    第173章
-    174 评估响应的默认解析器函数。
-    175
-   （...）
-    180 Tuple[float, str]：包含分数（浮点数）和推理（字符串）的元组。
-    第181章
-    第182章 182
---&gt;第183章
-    184 推理 = Reasoning_str.lstrip(&quot;\n&quot;)
-    185返回分数，推理
-
-ValueError：无法将字符串转换为浮点数：&#39;&#39;
-
-下面是依赖项
-python = &quot;&gt;=3.10,&lt;3.12&quot;
-流光=“^1.31.1”
-骆驼索引 = &quot;^0.10.9&quot;
-骆驼索引嵌入-huggingface =“^0.1.1”
-llama-index-llms-ollama = &quot;^0.1.1&quot;
-拉格斯=“^0.1.2”
-斯帕西=“^3.7.4”
-]]></description>
-      <guid>https://community.openai.com/t/getting-valueerror-with-ragevaluatorpack-in-llamaindex-and-gpt-3-5-turbo/661117#post_1</guid>
-      <pubDate>Fri, 01 Mar 2024 03:11:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>输入流中的错误 - 几乎每次都会发生这种情况</title>
-      <link>https://community.openai.com/t/error-in-imput-stream-it-happens-to-me-almost-every-time/660323#post_2</link>
-      <description><![CDATA[同样，我不会续订我的 GTP4 sub。我测试了一个月，每次提示都会崩溃。我什么也做不了。它似乎无法做我想做的事，即使当我要求简单的答复时，它也会给出很长的答复并崩溃。我只是不断提交不赞成的报告。]]></description>
-      <guid>https://community.openai.com/t/error-in-imput-stream-it-happens-to-me-almost-every-time/660323#post_2</guid>
-      <pubDate>Fri, 01 Mar 2024 03:11:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌推出了双子座。它比 GPT-4 更好吗？</title>
-      <link>https://community.openai.com/t/google-launched-gemini-is-it-better-than-gpt-4/546519#post_17</link>
-      <description><![CDATA[我知道这个问题是在几个月前发布的，但从那时起我就有机会真正使用 Gemini Pro 1.0 API。尽管有一个充满希望的开始，但在我的测试中它甚至达不到 gpt-3.5-turbo-16k。
-我正在向它询问钦定版圣经中的问题。并不是说我在推销什么，这只是我正在开发的应用程序。
-您可以亲自查看结果。
-
-
-&lt;img alt=&quot;上帝是否威胁要对偶像崇拜者采取行动 ( gpt-3.5-turbo-16k）”高度=“283”src=“https://global.discourse-cdn.com/openai1/optimized/4X/0/0/b/00baa519d4c9fbd7e41a8f1e87eb617f86aa5f91_2_690x283.jpeg”宽度=“690” /&gt;
-同样的问题。相同的文件。我收回我说过的所有关于 gpt-3.5-turbo-16k 的可怕言论。]]></description>
-      <guid>https://community.openai.com/t/google-launched-gemini-is-it-better-than-gpt-4/546519#post_17</guid>
-      <pubDate>Fri, 01 Mar 2024 03:04:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>同样的精确查询在一天中的不同时间返回截然不同的结果是否正常？</title>
-      <link>https://community.openai.com/t/is-it-normal-that-the-same-exact-query-would-return-wildly-different-results-at-different-times-of-the-day/661061#post_3</link>
-      <description><![CDATA[@_j 非常有趣，我没有意识到，谢谢，我会研究一下日志记录那个]]></description>
-      <guid>https://community.openai.com/t/is-it-normal-that-the-same-exact-query-would-return-wildly-different-results-at-different-times-of-the-day/661061#post_3</guid>
-      <pubDate>Fri, 01 Mar 2024 02:59:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法上传任何文档到 ChatGPT（我尝试过 PNG、docx、PDF）</title>
-      <link>https://community.openai.com/t/unable-to-upload-any-documents-to-chatgpt-i-tried-png-docx-pdf/661104#post_1</link>
-      <description><![CDATA[无法将大量文档上传到 ChatGPT。我尝试了不同的文件格式，例如 PNG、docx、PDF。我尝试使用上传按钮和拖放来上传它。现在很少工作了，以前工作得很好。]]></description>
-      <guid>https://community.openai.com/t/unable-to-upload-any-documents-to-chatgpt-i-tried-png-docx-pdf/661104#post_1</guid>
-      <pubDate>Fri, 01 Mar 2024 02:58:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何限制助手输入的token？</title>
-      <link>https://community.openai.com/t/how-to-limit-input-tokens-of-assistant/535601#post_6</link>
-      <description><![CDATA[这方面有什么更新吗？我想你们都被淹没了，但如果我们能够控制代币，这将是非常大的。]]></description>
-      <guid>https://community.openai.com/t/how-to-limit-input-tokens-of-assistant/535601#post_6</guid>
-      <pubDate>Fri, 01 Mar 2024 02:53:22 GMT</pubDate>
+      <link>https://community.openai.com/t/whisper-1-fails-to-translate/661127#post_2</link>
+      <description><![CDATA[你好  @mical
+欢迎来到 OpenAI 开发社区。
+共享您的代码通常是我们为您提供帮助的最佳方式。]]></description>
+      <guid>https://community.openai.com/t/whisper-1-fails-to-translate/661127#post_2</guid>
+      <pubDate>Fri, 01 Mar 2024 05:44:29 GMT</pubDate>
     </item>
     <item>
       <title>用于比较 2 个 json 的微调模型</title>
-      <link>https://community.openai.com/t/fine-tuning-model-for-comparing-2-json/660766#post_5</link>
-      <description><![CDATA[我要继续说这对于语言模型来说不是一个很好的用例，至少不是直接的。
-为什么不直接以编程方式提取和比较值？]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-model-for-comparing-2-json/660766#post_5</guid>
-      <pubDate>Fri, 01 Mar 2024 02:48:03 GMT</pubDate>
+      <link>https://community.openai.com/t/fine-tuning-model-for-comparing-2-json/660766#post_6</link>
+      <description><![CDATA[欢迎@shashma
+您可以使用模型将数据格式化为具有预定义标准化值的特定 JSON 格式。
+然后，只需解析 JSON 并根据您本地代码的任何标准对其进行评估即可。]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-model-for-comparing-2-json/660766#post_6</guid>
+      <pubDate>Fri, 01 Mar 2024 05:36:51 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 无法再读取和处理消息中的 PDF</title>
-      <link>https://community.openai.com/t/gpts-unable-to-read-and-process-pdfs-in-messages-anymore/653669?page=2#post_21</link>
-      <description><![CDATA[我总是使用代码解释器来读取文件。告诉它做类似的事情：
-readme_content = open(“/mnt/data/README”, “r”).read()
-自述内容
-但是，在过去的几天里，由于代码解释器停滞和超时，这种方法的工作时间不到一半。我在多个 GPT 上尝试过，唯一没有这个问题的是 GPT4。最近，代码解释器的 python 版本从 3.8 升级到了 3.11，所以希望这只是与最近的一些更新相关的问题。]]></description>
-      <guid>https://community.openai.com/t/gpts-unable-to-read-and-process-pdfs-in-messages-anymore/653669?page=2#post_21</guid>
-      <pubDate>Fri, 01 Mar 2024 02:46:06 GMT</pubDate>
+      <title>为什么嵌入向量之间的余弦相似度始终高于 0.68</title>
+      <link>https://community.openai.com/t/why-cosine-similarity-between-embedding-vectors-is-always-above-68/661144#post_7</link>
+      <description><![CDATA[正如 @curt.kennedy 所说，最好的方法之一就是简单地测试嵌入处理您的数据并观察 CS 值与相关性的关系。然后只需选择一个略低于您观察到相关性的最低 CS 的值即可。]]></description>
+      <guid>https://community.openai.com/t/why-cosine-similarity-between-embedding-vectors-is-always-above-68/661144#post_7</guid>
+      <pubDate>Fri, 01 Mar 2024 05:31:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
