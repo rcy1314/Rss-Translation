@@ -4,105 +4,277 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 02 Mar 2024 18:23:47 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 02 Mar 2024 21:14:56 GMT</lastBuildDate>
     <item>
-      <title>要求对每个提示进行人工验证</title>
-      <link>https://community.openai.com/t/asking-for-human-verification-for-every-prompt/573723?page=3#post_47</link>
-      <description><![CDATA[我也有同样的情况。我不是付费用户，但即使作为免费用户，这也导致无法使用 ChatGPT 3.5，这非常令人沮丧。当我看到付费用户遇到同样的问题时，它甚至不会让我愿意付费来解决这个问题。
-我没有使用任何 VPN，我不会对服务器造成很大的影响，每天只是浏览器提出一些正常的问题（即使是一天中的第一个问题，我也明白这一点），我不知道为什么我的 IP 会被列入黑名单，因为我什么也没做等。
-但是，下面来自 RonaldGRuckus 的消息可能会给我一个提示。我最近修改了我的 cookie 政策，使其更加严格。我可能是问题所在。我会检查它并在必要时进行编辑：
-&lt;块引用&gt;
-你应该知道这个验证码与 OpenAI 几乎没有任何关系。他们将很多服务外包。该服务特别由 Arkose Labs 托管。
-他们会尽一切努力来获取您的指纹。显然，使用机器学习来理解策略，这对我来说意味着，如果你做类似机器人的事情（例如交换 Chrome 配置文件时发生的 cookie 交换），你只会受到惩罚并失去电子信用。
-所以，我想说你已经身处 Elo 地狱了。 &lt;img alt=&quot;:coffin:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/coffin.png?v=12&quot; title=&quot;:coffin: “宽度=“20”/&gt;
-]]></description>
-      <guid>https://community.openai.com/t/asking-for-human-verification-for-every-prompt/573723?page=3#post_47</guid>
-      <pubDate>Sat, 02 Mar 2024 18:23:32 GMT</pubDate>
+      <title>来自多个提供商的嵌入？</title>
+      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_10</link>
+      <description><![CDATA[是的，不错的尝试。该代码肯定有一些错误。 &lt;img alt=&quot;:rofl:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/rofl.png?v=12&quot; title=&quot;:rofl: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_10</guid>
+      <pubDate>Sat, 02 Mar 2024 21:11:43 GMT</pubDate>
     </item>
     <item>
-      <title>我梦想的自定义 GPT 功能</title>
-      <link>https://community.openai.com/t/my-dream-features-for-custom-gpts/663148#post_1</link>
-      <description><![CDATA[
-编写代码速度更快
-自述文件与自定义说明分开
-删除 GPT 之前要求确认
-上传知识文件时，GPT 会指示其质量（即解析该文件的难易程度）
-]]></description>
-      <guid>https://community.openai.com/t/my-dream-features-for-custom-gpts/663148#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 18:17:46 GMT</pubDate>
+      <title>使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？</title>
+      <link>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_2</link>
+      <description><![CDATA[我想您需要与您的 Microsoft 销售/客户团队交谈。
+如果它与其他东西类似，这取决于您将配置的硬件。他们目前的 A100 非常短缺，而且非常吝啬。]]></description>
+      <guid>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_2</guid>
+      <pubDate>Sat, 02 Mar 2024 21:10:03 GMT</pubDate>
     </item>
     <item>
-      <title>从 Assistants API 切换到聊天完成？</title>
-      <link>https://community.openai.com/t/switching-from-assistants-api-to-chat-completion/663018#post_2</link>
-      <description><![CDATA[这是实现这一点的一种潜在方法。基本的架构理念是使用助手、线程、消息和消息。按原样运行并使用元数据驱动输入以完成聊天。通过这种方式，直到 Assistant Api 成熟为止，就可以完成聊天。
-基本实现可以是 BaseAssistant、BaseThread、BaseMessage 和 BaseAssistant 的子类。 betaassi/src/openai_session_handler/ 中的 BaseRun模型位于 main · icdev2dev/betaassi · GitHub
-CCAssistant 类（BaseAssistant）：
-类CCThread(BaseThread)：
-类 CCMessage(BaseMessage):
-p_role:可选[str] = 字段(默认=“”)
-这样声明的每个变量都会使用一个元数据字段（共 15 个，因为每个 Basexxxx 使用 1 个元数据字段）。
-然后就可以通过p-role使用线程中的所有消息；通过将 message.role 提供为“user”，初始化线程的第一条消息，以根据助手的指令提供“系统”上下文；但通过p_role=“system”来区分实际角色
-每次需要聊天完成的输入时，聊天完成的消息形成都是通过按照线程中消息插入的顺序迭代整个消息集来完成的。每条消息都需要进行一些转换，以根据聊天完成 API 的要求进行格式化
-当您从聊天完成中得到答案时，您可以附加一条带有 role=“user”、p_role=“chatcompletion”的消息（请记住，消息角色仅限于“user”）。
-简而言之，就是这样。
-编辑：很快就会开源实施。但通过上述内容，任何人都可以开始]]></description>
-      <guid>https://community.openai.com/t/switching-from-assistants-api-to-chat-completion/663018#post_2</guid>
-      <pubDate>Sat, 02 Mar 2024 18:14:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>C# 与助手集成</title>
-      <link>https://community.openai.com/t/c-integration-with-assistant/499874#post_4</link>
-      <description><![CDATA[适用于 .NET 的 Azure OpenAI 客户端库 - 适用于 .NET 开发人员的 Azure |微软学习
-与 open ai 和 azure 端点配合使用]]></description>
-      <guid>https://community.openai.com/t/c-integration-with-assistant/499874#post_4</guid>
-      <pubDate>Sat, 02 Mar 2024 18:13:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 聊天每条消息都需要验证码</title>
-      <link>https://community.openai.com/t/gpt-chat-requires-captcha-for-every-message/568474#post_22</link>
-      <description><![CDATA[我也遇到同样的问题。每条消息都有一个验证码。这非常非常烦人。
-我承认我没有使用付费计划。但它仍然使得即使在免费计划中也完全不可能使用 ChatGPT，并且在这些情况下我不再使用它。
-但是，如果我使用付费计划，那么这里的许多用户都遇到同样的问题，我会发现这是完全不可接受的，无论技术原因如何，即使它们与我的配置、分机、IP 地址、网络或其他任何内容有关之类的。
-这绝对必须改变和修复，除非 OpenAI 希望大量用户离开。]]></description>
-      <guid>https://community.openai.com/t/gpt-chat-requires-captcha-for-every-message/568474#post_22</guid>
-      <pubDate>Sat, 02 Mar 2024 18:11:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>设置中缺少双因素身份验证</title>
-      <link>https://community.openai.com/t/two-factor-authentication-is-missing-in-settings/255446#post_16</link>
-      <description><![CDATA[我想重置我的 2FA。
-我在设置中遇到了错误，因此我禁用了 2FA，但它实际上并没有更改任何设置。它只是在设置中随机出现一次。
-我正在重置所有 2FA，似乎所有服务都有问题。]]></description>
-      <guid>https://community.openai.com/t/two-factor-authentication-is-missing-in-settings/255446#post_16</guid>
-      <pubDate>Sat, 02 Mar 2024 18:10:13 GMT</pubDate>
+      <title>无论我对这个提示做什么，都会被拒绝 - 但为什么呢？</title>
+      <link>https://community.openai.com/t/getting-rejected-whatever-i-do-with-this-prompt-but-why/659365#post_8</link>
+      <description><![CDATA[考虑使用图像并指示 Dolly 执行 gpt4 接口来使用包含您想要的字符的初始图像，并将其指定为种子图像。另外，与其说任何浴室，不如说它可能类似于化妆室化妆工作室。]]></description>
+      <guid>https://community.openai.com/t/getting-rejected-whatever-i-do-with-this-prompt-but-why/659365#post_8</guid>
+      <pubDate>Sat, 02 Mar 2024 21:09:41 GMT</pubDate>
     </item>
     <item>
       <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_5</link>
-      <description><![CDATA[正是如此！在我的用例中，我将保留每条源信息和相应的嵌入。]]></description>
-      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_5</guid>
-      <pubDate>Sat, 02 Mar 2024 18:09:37 GMT</pubDate>
+      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_9</link>
+      <description><![CDATA[我要求 GPT 实现你的数学，我对其正确性承担零责任，但我认为你可能会觉得它很有趣：
+导入火炬
+导入 torch.nn.function 作为 F
+
+def merge_embeddings（文本，embedding_models，knowledge_stores，alphas，关键字，keyword_rankings，c = 3）：
+    ”“”
+    以容错和连贯的方式组合多个嵌入模型和关键字策略，以进行语义搜索。
+    
+    参数：
+        text (str)：要嵌入的输入文本。
+        embedding_models（列表）：嵌入模型的列表。
+        knowledge_stores（列表）：表示每个模型的知识存储的张量列表。
+        alphas（列表）：每个嵌入模型的权重，总和为 1。
+        keywords (list)：非连贯组合的关键字列表。
+        keywords_rankings (dict)：以关键字为键、其排名为值的字典。
+        c（int，可选）：倒数等级融合公式的常量。默认为 3。
+    
+    返回：
+        torch.Tensor：嵌入和关键字策略的最终综合得分。
+    ”“”
+    embeddings = [embedding_models 中模型的模型（文本）]
+    相关分数 = []
+    对于 i，嵌入枚举（嵌入）：
+        相关性 = torch.matmul(knowledge_stores[i], embedding)
+        top_k_values, _ = torch.topk(相关性, k=K)
+        related_scores.append(top_k_values)
+
+    down_models = [i for i, alpha in enumerate(alphas) if alpha == 0]
+    active_alphas = [i 的 alpha，如果 i 不在 down_models 中，则枚举 (alphas) 中的 alpha]
+    调整后的权重 = torch.tensor(active_alphas) / torch.sum(torch.tensor(active_alphas))
+
+    加权分数 = torch.zeros_like(corlated_scores[0])
+    对于 i，枚举中的分数（corlated_scores）：
+        如果我不在 down_models 中：
+            加权分数 += 调整后的权重[i] * 分数
+
+    rrf_scores = torch.zeros(len(关键字))
+    对于 i，枚举中的关键字（关键字）：
+        如果关键字在 keywords_rankings 中：
+            rrf_scores[i] = 1 / (c + keywords_rankings[关键字])
+
+    keywords_correlations = torch.tanh(rrf_scores)
+    Final_scores = torch.cat([weighted_scores, keywords_correlations])
+    返回最终分数
+]]></description>
+      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_9</guid>
+      <pubDate>Sat, 02 Mar 2024 21:09:20 GMT</pubDate>
     </item>
     <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=23#post_463</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=23#post_463</guid>
-      <pubDate>Sat, 02 Mar 2024 18:04:47 GMT</pubDate>
+      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
+      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_4</link>
+      <description><![CDATA[此外，您在提到裙子和上衣时使用的语言以及肢体语言可能会触发您所说的话。我知道裙子、上衣和身体可能是成人内容，尤其是与成年女儿一词结合在一起时。试着用她的手势或手势来表达，而不是用她的肢体语言。]]></description>
+      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_4</guid>
+      <pubDate>Sat, 02 Mar 2024 21:07:48 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 是否有可以运行 Streamlit 的云服务器？</title>
-      <link>https://community.openai.com/t/does-chatgpt-have-a-cloud-server-where-i-can-run-streamlit/663129#post_1</link>
-      <description><![CDATA[我用 API 制作了一个 ChatGPT-BOT，需要通过 API 从 txt 文件连接到数据库。
-在我的笔记本电脑上，通过 CMD（命令提示符）启动这两个命令之一，它在 localhost 和网站上的 https 中都能完美运行。
-但是因为我不想让我的笔记本电脑一直打开，所以我希望下面的这些命令自动由云服务器接管，这样我就不必一直让我的笔记本电脑打开。&lt; /p&gt;
-streamlit run --server.port 5601 app.py
-或
-streamlit run --server.port 8502 app.py
-所以，现在我可以使用 Google Console 来完成此任务，但需要进行很多设置。很难。非常困难。
-那么，ChatGPT 是否有一个可以运行 Streamlit 的云服务器？]]></description>
-      <guid>https://community.openai.com/t/does-chatgpt-have-a-cloud-server-where-i-can-run-streamlit/663129#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 18:04:03 GMT</pubDate>
+      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
+      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_3</link>
+      <description><![CDATA[艾莎也是迪士尼......重写通常会删除名字，所以通常最好不带名字发送......]]></description>
+      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_3</guid>
+      <pubDate>Sat, 02 Mar 2024 21:06:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>Azure OpenAI GPT 模型返回的“id”是否敏感，或者我可以毫无问题地公开共享它吗？</title>
+      <link>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_2</link>
+      <description><![CDATA[ID 是 OpenAI（在本例中为 Microsoft）内部的数字。唯一可以将其转回 API 调用和消息的是公司内部人员。或者将其转回您的帐户。
+因此，共享基本上就是告诉显示通话的公司。]]></description>
+      <guid>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_2</guid>
+      <pubDate>Sat, 02 Mar 2024 21:03:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何避免 GPT 发出指令？</title>
+      <link>https://community.openai.com/t/how-to-avoid-gpts-give-out-its-instruction/508547#post_10</link>
+      <description><![CDATA[不幸的是@comomo72
+它不起作用，并且目前没有任何保护措施来防止 GPT 指令泄露。
+但是，我希望 OpenAI 尽快解决这个问题，为所有 GPT 创作者带来安慰。
+
+  &lt;标题类=“来源”&gt;
+      
+chat.openai.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    ChatGPT
+能够倾听、学习和挑战的对话式人工智能系统
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-gpts-give-out-its-instruction/508547#post_10</guid>
+      <pubDate>Sat, 02 Mar 2024 21:02:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 模型是否已更新？</title>
+      <link>https://community.openai.com/t/has-the-model-for-gpts-been-updated/663268#post_1</link>
+      <description><![CDATA[GPT 模型是否已更新？从今天早上开始，我的 GPT 速度快了很多，但非常不准确。它正在弥补所有的答案。还有人看到同样的情况吗？]]></description>
+      <guid>https://community.openai.com/t/has-the-model-for-gpts-been-updated/663268#post_1</guid>
+      <pubDate>Sat, 02 Mar 2024 21:01:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 Python API 中不支持超时</title>
+      <link>https://community.openai.com/t/timeout-not-honored-in-assistants-python-api/663086#post_3</link>
+      <description><![CDATA[&lt;块引用&gt;
+客户端 = openai.Client(超时=2)
+
+这也不尊重这一点。
+当我设置较低的值时，使用该客户端的其他操作会按预期超时，但助理不会超时。]]></description>
+      <guid>https://community.openai.com/t/timeout-not-honored-in-assistants-python-api/663086#post_3</guid>
+      <pubDate>Sat, 02 Mar 2024 21:01:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>层级限制和 RPM 中的错误</title>
+      <link>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_5</link>
+      <description><![CDATA[确实，看起来存在不一致
+文档似乎并没有变得更好，但至少现在有了深色模式 
+目前，要充分利用 RPM 限制（至少对于嵌入而言），您可以尝试批处理；您可以将多个字符串作为字符串数组发送，这应该是一个请求。]]></description>
+      <guid>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_5</guid>
+      <pubDate>Sat, 02 Mar 2024 20:59:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>Azure OpenAI GPT 模型返回的“id”是否敏感，或者我可以毫无问题地公开共享它吗？</title>
+      <link>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_1</link>
+      <description><![CDATA[当我调用 Azure OpenAI GPT 模型时，例如：
+#注意：此代码示例需要 OpenAI Python 库版本 1.0.0 或更高版本。
+导入 json
+导入打印件
+从 openai 导入 AzureOpenAI
+
+客户端 = AzureOpenAI(
+  azure_endpoint = &quot;https://xxxxxx.openai.azure.com/&quot;,
+  api_key=&#39;xxxxxxxxxxxxxxxxxxxxx&#39;,
+  api_version=&quot;2023-07-01-预览&quot;
+）
+
+message_text = [{&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;你是一个帮助人们查找信息的AI助手。&quot;}]
+完成 = client.chat.completions.create(
+  型号=“gpt-4xxxxxxxx”，
+  消息=消息文本，
+  温度=0.7，
+  最大令牌数=800,
+  顶部_p=0.95，
+  频率惩罚=0，
+  存在惩罚=0，
+  停止=无
+）
+
+print(&#39;完成:\n&#39;)
+pprint.pprint（完成）
+
+返回的对象有一些id（在本例中是chatcmpl-xxxxxxxxx）：
+ChatCompletion(id=&#39;chatcmpl-xxxxxxxxx&#39;, Choices=[Choice(finish_reason=&#39;stop&#39;, index=0, logprobs=None, message=ChatCompletionMessage(content=&#39;Great) ！今天我能为您提供什么帮助？&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None), content_filter_results={&#39;hate&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;safe&#39;}, &#39;self_harm &#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;性&#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;暴力&#39;：{&#39;filtered&#39;：False，&#39;严重性&#39;：&#39;安全&#39;}}）]，创建= 1709313222，模型=&#39;gpt-4&#39;，对象=&#39;chat.completion&#39;，system_fingerprint =&#39;fp_xxxxx&#39;，用法= CompletionUsage（completion_tokens = 9，prompt_tokens = 18，total_tokens） =27），prompt_filter_results=[{&#39;prompt_index&#39;：0，&#39;content_filter_results&#39;：{&#39;hate&#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;self_harm&#39;：{&#39;filtered&#39;：False， &#39;严重性&#39;: &#39;安全&#39;}, &#39;性&#39;: {&#39;过滤&#39;: False, &#39;严重性&#39;: &#39;安全&#39;}, &#39;暴力&#39;: {&#39;过滤&#39;: 假, &#39;严重性&#39;: &#39;安全&#39;}}} ]）
+
+Azure OpenAI GPT 模型返回的 id 是否敏感，或者我可以公开共享它而不会出现任何问题吗？]]></description>
+      <guid>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_1</guid>
+      <pubDate>Sat, 02 Mar 2024 20:58:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？</title>
+      <link>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_1</link>
+      <description><![CDATA[我目前在 Azure OpenAI 上使用即用即付方式，我很好奇切换到预配吞吐量单位将如何改善延迟。
+我阅读 ：
+&lt;块引用&gt;
+可预测的性能：统一工作负载的稳定最大延迟和吞吐量。
+
+使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？]]></description>
+      <guid>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_1</guid>
+      <pubDate>Sat, 02 Mar 2024 20:57:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>层级限制和 RPM 中的错误</title>
+      <link>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_4</link>
+      <description><![CDATA[第一层：
+
+&lt;表&gt;
+&lt;标题&gt;
+
+型号
+每分钟转数
+RPD
+TPM
+
+
+&lt;正文&gt;
+
+gpt-4
+500
+10,000
+10,000
+
+
+gpt-4-turbo-预览
+500
+-
+300,000
+
+
+gpt-4-vision-预览
+80
+500
+10,000
+
+
+gpt-3.5-turbo
+3,500
+10,000
+60,000
+
+
+文本嵌入-3-large
+500
+10,000
+1,000,000
+
+
+
+似乎通过 help.openai.com 机器人发送的消息是有序的（API 支持的唯一路径是我上次检查的“反馈”）。告知他们您如何达到第 1 级、如何达到新的限制，这可能是计费系统的问题，可能会影响其他人。
+（或者这可能是一种新策略，旨在激励更多用户的现金转化为 funbucks。）]]></description>
+      <guid>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_4</guid>
+      <pubDate>Sat, 02 Mar 2024 20:57:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
+      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_2</link>
+      <description><![CDATA[大家好，我是副驾驶，AI伴侣。我可以帮助您查找信息、回答问题并进行对话。 减少 DALL·E 2 - OpenAI 中的偏差并提高安全性
+DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft 问答
+如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app
+DALL·E 2 - OpenAI
+
+希望这对您有帮助。如果您还有任何疑问，请随时询问我。 减少 DALL·E 2 - OpenAI 中的偏差并提高安全性
+DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft 问答
+如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app
+DALL·E 2 - OpenAI
+
+希望这对您有帮助。如果您还有任何疑问，请随时问我。 减少偏差并提高 DALL·E 2 的安全性。
+(2) DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了...... DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft Q&amp; ;A。
+(3) 如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app。 如何绕过 DALL-E 的 NSFW 过滤器 .
+(4) DALL E 2 - OpenAI。 DALL·E 2。
+(5) DALL·E 2 - OpenAI 中减少偏差并提高安全性。 减少偏差并提高 DALL·E 2 的安全性。
+(6) DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了... DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft Q&amp; ;A。
+(7) 如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app。 如何绕过 DALL-E 的 NSFW 过滤器 .
+(8)DALL E 2 - OpenAI。 DALL·E 2。
+我很确定这是因为使用了“成年女儿”这个词。]]></description>
+      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_2</guid>
+      <pubDate>Sat, 02 Mar 2024 20:55:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
