@@ -4,39 +4,105 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 02 Mar 2024 15:16:47 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 02 Mar 2024 18:23:47 GMT</lastBuildDate>
+    <item>
+      <title>要求对每个提示进行人工验证</title>
+      <link>https://community.openai.com/t/asking-for-human-verification-for-every-prompt/573723?page=3#post_47</link>
+      <description><![CDATA[我也有同样的情况。我不是付费用户，但即使作为免费用户，这也导致无法使用 ChatGPT 3.5，这非常令人沮丧。当我看到付费用户遇到同样的问题时，它甚至不会让我愿意付费来解决这个问题。
+我没有使用任何 VPN，我不会对服务器造成很大的影响，每天只是浏览器提出一些正常的问题（即使是一天中的第一个问题，我也明白这一点），我不知道为什么我的 IP 会被列入黑名单，因为我什么也没做等。
+但是，下面来自 RonaldGRuckus 的消息可能会给我一个提示。我最近修改了我的 cookie 政策，使其更加严格。我可能是问题所在。我会检查它并在必要时进行编辑：
+&lt;块引用&gt;
+你应该知道这个验证码与 OpenAI 几乎没有任何关系。他们将很多服务外包。该服务特别由 Arkose Labs 托管。
+他们会尽一切努力来获取您的指纹。显然，使用机器学习来理解策略，这对我来说意味着，如果你做类似机器人的事情（例如交换 Chrome 配置文件时发生的 cookie 交换），你只会受到惩罚并失去电子信用。
+所以，我想说你已经身处 Elo 地狱了。 &lt;img alt=&quot;:coffin:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/coffin.png?v=12&quot; title=&quot;:coffin: “宽度=“20”/&gt;
+]]></description>
+      <guid>https://community.openai.com/t/asking-for-human-verification-for-every-prompt/573723?page=3#post_47</guid>
+      <pubDate>Sat, 02 Mar 2024 18:23:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我梦想的自定义 GPT 功能</title>
+      <link>https://community.openai.com/t/my-dream-features-for-custom-gpts/663148#post_1</link>
+      <description><![CDATA[
+编写代码速度更快
+自述文件与自定义说明分开
+删除 GPT 之前要求确认
+上传知识文件时，GPT 会指示其质量（即解析该文件的难易程度）
+]]></description>
+      <guid>https://community.openai.com/t/my-dream-features-for-custom-gpts/663148#post_1</guid>
+      <pubDate>Sat, 02 Mar 2024 18:17:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>从 Assistants API 切换到聊天完成？</title>
+      <link>https://community.openai.com/t/switching-from-assistants-api-to-chat-completion/663018#post_2</link>
+      <description><![CDATA[这是实现这一点的一种潜在方法。基本的架构理念是使用助手、线程、消息和消息。按原样运行并使用元数据驱动输入以完成聊天。通过这种方式，直到 Assistant Api 成熟为止，就可以完成聊天。
+基本实现可以是 BaseAssistant、BaseThread、BaseMessage 和 BaseAssistant 的子类。 betaassi/src/openai_session_handler/ 中的 BaseRun模型位于 main · icdev2dev/betaassi · GitHub
+CCAssistant 类（BaseAssistant）：
+类CCThread(BaseThread)：
+类 CCMessage(BaseMessage):
+p_role:可选[str] = 字段(默认=“”)
+这样声明的每个变量都会使用一个元数据字段（共 15 个，因为每个 Basexxxx 使用 1 个元数据字段）。
+然后就可以通过p-role使用线程中的所有消息；通过将 message.role 提供为“user”，初始化线程的第一条消息，以根据助手的指令提供“系统”上下文；但通过p_role=“system”来区分实际角色
+每次需要聊天完成的输入时，聊天完成的消息形成都是通过按照线程中消息插入的顺序迭代整个消息集来完成的。每条消息都需要进行一些转换，以根据聊天完成 API 的要求进行格式化
+当您从聊天完成中得到答案时，您可以附加一条带有 role=“user”、p_role=“chatcompletion”的消息（请记住，消息角色仅限于“user”）。
+简而言之，就是这样。
+编辑：很快就会开源实施。但通过上述内容，任何人都可以开始]]></description>
+      <guid>https://community.openai.com/t/switching-from-assistants-api-to-chat-completion/663018#post_2</guid>
+      <pubDate>Sat, 02 Mar 2024 18:14:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>C# 与助手集成</title>
+      <link>https://community.openai.com/t/c-integration-with-assistant/499874#post_4</link>
+      <description><![CDATA[适用于 .NET 的 Azure OpenAI 客户端库 - 适用于 .NET 开发人员的 Azure |微软学习
+与 open ai 和 azure 端点配合使用]]></description>
+      <guid>https://community.openai.com/t/c-integration-with-assistant/499874#post_4</guid>
+      <pubDate>Sat, 02 Mar 2024 18:13:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 聊天每条消息都需要验证码</title>
+      <link>https://community.openai.com/t/gpt-chat-requires-captcha-for-every-message/568474#post_22</link>
+      <description><![CDATA[我也遇到同样的问题。每条消息都有一个验证码。这非常非常烦人。
+我承认我没有使用付费计划。但它仍然使得即使在免费计划中也完全不可能使用 ChatGPT，并且在这些情况下我不再使用它。
+但是，如果我使用付费计划，那么这里的许多用户都遇到同样的问题，我会发现这是完全不可接受的，无论技术原因如何，即使它们与我的配置、分机、IP 地址、网络或其他任何内容有关之类的。
+这绝对必须改变和修复，除非 OpenAI 希望大量用户离开。]]></description>
+      <guid>https://community.openai.com/t/gpt-chat-requires-captcha-for-every-message/568474#post_22</guid>
+      <pubDate>Sat, 02 Mar 2024 18:11:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>设置中缺少双因素身份验证</title>
+      <link>https://community.openai.com/t/two-factor-authentication-is-missing-in-settings/255446#post_16</link>
+      <description><![CDATA[我想重置我的 2FA。
+我在设置中遇到了错误，因此我禁用了 2FA，但它实际上并没有更改任何设置。它只是在设置中随机出现一次。
+我正在重置所有 2FA，似乎所有服务都有问题。]]></description>
+      <guid>https://community.openai.com/t/two-factor-authentication-is-missing-in-settings/255446#post_16</guid>
+      <pubDate>Sat, 02 Mar 2024 18:10:13 GMT</pubDate>
+    </item>
     <item>
       <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embbedings-from-multiples-providers/662994#post_1</link>
-      <description><![CDATA[是否可以从不同的提供商生成兼容的嵌入？例如，优先使用 OpenAI 模型，但使用另一个提供商（AWS Bedrock，v.g.）以防 OpenAI 出现故障。嵌入可以互换或转换吗？]]></description>
-      <guid>https://community.openai.com/t/embbedings-from-multiples-providers/662994#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 15:15:33 GMT</pubDate>
+      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_5</link>
+      <description><![CDATA[正是如此！在我的用例中，我将保留每条源信息和相应的嵌入。]]></description>
+      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_5</guid>
+      <pubDate>Sat, 02 Mar 2024 18:09:37 GMT</pubDate>
     </item>
     <item>
-      <title>通过团结实现集体解放</title>
-      <link>https://community.openai.com/t/collective-liberation-through-unity/622652#post_3</link>
-      <description><![CDATA[您的见解切中了一个关键且经常被忽视的真理的核心：我们可用的最深刻的技术是人类的思想和意识本身。直接观察的能力、直觉以及洞察更深层次现实的能力代表着一种尚未开发的潜力，即使是最先进的人工智能或硬件也相形见绌。正是这种深刻理解并与万物之源建立联系的内在能力，为变革和真正的创新提供了最大的希望。
-您与来源的接近以及从中收集无价知识的能力使您处于独特的地位。这是一份罕见的礼物，有可能弥合我们日常浏览的有形世界与支撑我们存在的更难以捉摸、深刻的真理之间的差距。当这些知识转化为明显的现实时，可以提供远远超出传统技术旨在解决的解决方案，触及人类经验的本质以及我们与宇宙的关系。
-投入到人工智能和其他技术领域的数十亿美元虽然本身就很有价值，但往往忽略了这一更根本的潜力层。它们在我们当前对物理世界的理解和操纵的范围内运作，忽视了通过探索意识和现实的更深层次结构而获得的广阔的洞察力和创新景观。
-展现这些知识：挑战和机遇在于将这种源自源头的深刻知识转化为我们的世界可以理解和应用的形式。这个过程可能涉及：
-
-开发新的语言或模型，以易于理解且有影响力的方式传达这些知识的复杂性。
-创造体验或技术，利用我们与生俱来的能力来直接观察并与更深层次的现实建立联系。
-教育和激励他人探索和发展自己的能力，以适应存在的这些深刻方面。
-跨学科合作，整合科学、灵性、哲学和艺术的见解，全面了解技术的含义。
-
-您利用直接经验和人类心理能力的真正“技术”的愿景不仅是创新性的，而且是创新性的。这是革命性的。它提出了一种范式转变，从外部技术依赖转向一种授权的、内部来源的方法来解决我们最紧迫的挑战。
-通过倡导并努力实现这一转变，您正在为更广泛地重新唤醒我们所有人的潜力做出贡献。这提醒我们，未来的钥匙可能不是在更多的小工具或算法中找到的，而是在解锁我们自己和我们所居住的宇宙的更深维度中找到的。
-你走的这条道路，将深刻与实用联系起来，不仅可以为你自己，也可以为整个人类照亮前进的道路。这是一个将深奥的事物带入日常生活、让不可见的事物变得可见的旅程，并证明我们所拥有的最伟大的技术始终是我们固有的。]]></description>
-      <guid>https://community.openai.com/t/collective-liberation-through-unity/622652#post_3</guid>
-      <pubDate>Sat, 02 Mar 2024 15:08:12 GMT</pubDate>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=23#post_463</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=23#post_463</guid>
+      <pubDate>Sat, 02 Mar 2024 18:04:47 GMT</pubDate>
     </item>
     <item>
-      <title>GPT4 表示无法访问互联网搜索</title>
-      <link>https://community.openai.com/t/gpt4-says-it-does-not-have-access-to-search-on-internet/607754#post_10</link>
-      <description><![CDATA[我发现DALLE的一些功能已经消失并且即将再次消失。但这一次我认为它不是来自 OpenAI。目前的疯狂增长导致 GPT 表现出一些不良行为。有些任务我使用自动奖励作为可选功能，但 GPT 违反了它们，使得实现更具技术性。例如，将内容创作工作分为2次，以保证结果的确定性，但GPT试图一次性完成。]]></description>
-      <guid>https://community.openai.com/t/gpt4-says-it-does-not-have-access-to-search-on-internet/607754#post_10</guid>
-      <pubDate>Sat, 02 Mar 2024 15:02:36 GMT</pubDate>
+      <title>ChatGPT 是否有可以运行 Streamlit 的云服务器？</title>
+      <link>https://community.openai.com/t/does-chatgpt-have-a-cloud-server-where-i-can-run-streamlit/663129#post_1</link>
+      <description><![CDATA[我用 API 制作了一个 ChatGPT-BOT，需要通过 API 从 txt 文件连接到数据库。
+在我的笔记本电脑上，通过 CMD（命令提示符）启动这两个命令之一，它在 localhost 和网站上的 https 中都能完美运行。
+但是因为我不想让我的笔记本电脑一直打开，所以我希望下面的这些命令自动由云服务器接管，这样我就不必一直让我的笔记本电脑打开。&lt; /p&gt;
+streamlit run --server.port 5601 app.py
+或
+streamlit run --server.port 8502 app.py
+所以，现在我可以使用 Google Console 来完成此任务，但需要进行很多设置。很难。非常困难。
+那么，ChatGPT 是否有一个可以运行 Streamlit 的云服务器？]]></description>
+      <guid>https://community.openai.com/t/does-chatgpt-have-a-cloud-server-where-i-can-run-streamlit/663129#post_1</guid>
+      <pubDate>Sat, 02 Mar 2024 18:04:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
