@@ -4,277 +4,154 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 02 Mar 2024 21:14:56 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2024 01:13:05 GMT</lastBuildDate>
     <item>
-      <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_10</link>
-      <description><![CDATA[是的，不错的尝试。该代码肯定有一些错误。 &lt;img alt=&quot;:rofl:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/rofl.png?v=12&quot; title=&quot;:rofl: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_10</guid>
-      <pubDate>Sat, 02 Mar 2024 21:11:43 GMT</pubDate>
+      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
+      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_4</link>
+      <description><![CDATA[GPT 知识库中的文件数量有限制，您提出的是一个规避该限制的功能。
+如果您想通过 API 使用 GPT，可以使用助手 API。
+如果您只是需要更多的知识文件，或者能够根据需要更新它们，您应该使用操作从您自己的数据库中检索这些文件API。]]></description>
+      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_4</guid>
+      <pubDate>Sun, 03 Mar 2024 01:08:32 GMT</pubDate>
     </item>
     <item>
-      <title>使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？</title>
-      <link>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_2</link>
-      <description><![CDATA[我想您需要与您的 Microsoft 销售/客户团队交谈。
-如果它与其他东西类似，这取决于您将配置的硬件。他们目前的 A100 非常短缺，而且非常吝啬。]]></description>
-      <guid>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_2</guid>
-      <pubDate>Sat, 02 Mar 2024 21:10:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>无论我对这个提示做什么，都会被拒绝 - 但为什么呢？</title>
-      <link>https://community.openai.com/t/getting-rejected-whatever-i-do-with-this-prompt-but-why/659365#post_8</link>
-      <description><![CDATA[考虑使用图像并指示 Dolly 执行 gpt4 接口来使用包含您想要的字符的初始图像，并将其指定为种子图像。另外，与其说任何浴室，不如说它可能类似于化妆室化妆工作室。]]></description>
-      <guid>https://community.openai.com/t/getting-rejected-whatever-i-do-with-this-prompt-but-why/659365#post_8</guid>
-      <pubDate>Sat, 02 Mar 2024 21:09:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_9</link>
-      <description><![CDATA[我要求 GPT 实现你的数学，我对其正确性承担零责任，但我认为你可能会觉得它很有趣：
-导入火炬
-导入 torch.nn.function 作为 F
-
-def merge_embeddings（文本，embedding_models，knowledge_stores，alphas，关键字，keyword_rankings，c = 3）：
-    ”“”
-    以容错和连贯的方式组合多个嵌入模型和关键字策略，以进行语义搜索。
-    
-    参数：
-        text (str)：要嵌入的输入文本。
-        embedding_models（列表）：嵌入模型的列表。
-        knowledge_stores（列表）：表示每个模型的知识存储的张量列表。
-        alphas（列表）：每个嵌入模型的权重，总和为 1。
-        keywords (list)：非连贯组合的关键字列表。
-        keywords_rankings (dict)：以关键字为键、其排名为值的字典。
-        c（int，可选）：倒数等级融合公式的常量。默认为 3。
-    
-    返回：
-        torch.Tensor：嵌入和关键字策略的最终综合得分。
-    ”“”
-    embeddings = [embedding_models 中模型的模型（文本）]
-    相关分数 = []
-    对于 i，嵌入枚举（嵌入）：
-        相关性 = torch.matmul(knowledge_stores[i], embedding)
-        top_k_values, _ = torch.topk(相关性, k=K)
-        related_scores.append(top_k_values)
-
-    down_models = [i for i, alpha in enumerate(alphas) if alpha == 0]
-    active_alphas = [i 的 alpha，如果 i 不在 down_models 中，则枚举 (alphas) 中的 alpha]
-    调整后的权重 = torch.tensor(active_alphas) / torch.sum(torch.tensor(active_alphas))
-
-    加权分数 = torch.zeros_like(corlated_scores[0])
-    对于 i，枚举中的分数（corlated_scores）：
-        如果我不在 down_models 中：
-            加权分数 += 调整后的权重[i] * 分数
-
-    rrf_scores = torch.zeros(len(关键字))
-    对于 i，枚举中的关键字（关键字）：
-        如果关键字在 keywords_rankings 中：
-            rrf_scores[i] = 1 / (c + keywords_rankings[关键字])
-
-    keywords_correlations = torch.tanh(rrf_scores)
-    Final_scores = torch.cat([weighted_scores, keywords_correlations])
-    返回最终分数
-]]></description>
-      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_9</guid>
-      <pubDate>Sat, 02 Mar 2024 21:09:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
-      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_4</link>
-      <description><![CDATA[此外，您在提到裙子和上衣时使用的语言以及肢体语言可能会触发您所说的话。我知道裙子、上衣和身体可能是成人内容，尤其是与成年女儿一词结合在一起时。试着用她的手势或手势来表达，而不是用她的肢体语言。]]></description>
-      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_4</guid>
-      <pubDate>Sat, 02 Mar 2024 21:07:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
-      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_3</link>
-      <description><![CDATA[艾莎也是迪士尼......重写通常会删除名字，所以通常最好不带名字发送......]]></description>
-      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_3</guid>
-      <pubDate>Sat, 02 Mar 2024 21:06:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>Azure OpenAI GPT 模型返回的“id”是否敏感，或者我可以毫无问题地公开共享它吗？</title>
-      <link>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_2</link>
-      <description><![CDATA[ID 是 OpenAI（在本例中为 Microsoft）内部的数字。唯一可以将其转回 API 调用和消息的是公司内部人员。或者将其转回您的帐户。
-因此，共享基本上就是告诉显示通话的公司。]]></description>
-      <guid>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_2</guid>
-      <pubDate>Sat, 02 Mar 2024 21:03:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免 GPT 发出指令？</title>
-      <link>https://community.openai.com/t/how-to-avoid-gpts-give-out-its-instruction/508547#post_10</link>
-      <description><![CDATA[不幸的是@comomo72
-它不起作用，并且目前没有任何保护措施来防止 GPT 指令泄露。
-但是，我希望 OpenAI 尽快解决这个问题，为所有 GPT 创作者带来安慰。
-
-  &lt;标题类=“来源”&gt;
-      
-chat.openai.com
+      <title>错误：您没有帐户，因为该帐户已被删除或停用。如果您认为这是一个错误，请通过我们的帮助中心联系我们：help.openai.com</title>
+      <link>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_7</link>
+      <description><![CDATA[
 
 
-  &lt;文章类=“onebox-body”&gt;
-    ChatGPT
-能够倾听、学习和挑战的对话式人工智能系统
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-gpts-give-out-its-instruction/508547#post_10</guid>
-      <pubDate>Sat, 02 Mar 2024 21:02:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 模型是否已更新？</title>
-      <link>https://community.openai.com/t/has-the-model-for-gpts-been-updated/663268#post_1</link>
-      <description><![CDATA[GPT 模型是否已更新？从今天早上开始，我的 GPT 速度快了很多，但非常不准确。它正在弥补所有的答案。还有人看到同样的情况吗？]]></description>
-      <guid>https://community.openai.com/t/has-the-model-for-gpts-been-updated/663268#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 21:01:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手 Python API 中不支持超时</title>
-      <link>https://community.openai.com/t/timeout-not-honored-in-assistants-python-api/663086#post_3</link>
-      <description><![CDATA[&lt;块引用&gt;
-客户端 = openai.Client(超时=2)
-
-这也不尊重这一点。
-当我设置较低的值时，使用该客户端的其他操作会按预期超时，但助理不会超时。]]></description>
-      <guid>https://community.openai.com/t/timeout-not-honored-in-assistants-python-api/663086#post_3</guid>
-      <pubDate>Sat, 02 Mar 2024 21:01:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>层级限制和 RPM 中的错误</title>
-      <link>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_5</link>
-      <description><![CDATA[确实，看起来存在不一致
-文档似乎并没有变得更好，但至少现在有了深色模式 
-目前，要充分利用 RPM 限制（至少对于嵌入而言），您可以尝试批处理；您可以将多个字符串作为字符串数组发送，这应该是一个请求。]]></description>
-      <guid>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_5</guid>
-      <pubDate>Sat, 02 Mar 2024 20:59:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>Azure OpenAI GPT 模型返回的“id”是否敏感，或者我可以毫无问题地公开共享它吗？</title>
-      <link>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_1</link>
-      <description><![CDATA[当我调用 Azure OpenAI GPT 模型时，例如：
-#注意：此代码示例需要 OpenAI Python 库版本 1.0.0 或更高版本。
-导入 json
-导入打印件
-从 openai 导入 AzureOpenAI
-
-客户端 = AzureOpenAI(
-  azure_endpoint = &quot;https://xxxxxx.openai.azure.com/&quot;,
-  api_key=&#39;xxxxxxxxxxxxxxxxxxxxx&#39;,
-  api_version=&quot;2023-07-01-预览&quot;
-）
-
-message_text = [{&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;你是一个帮助人们查找信息的AI助手。&quot;}]
-完成 = client.chat.completions.create(
-  型号=“gpt-4xxxxxxxx”，
-  消息=消息文本，
-  温度=0.7，
-  最大令牌数=800,
-  顶部_p=0.95，
-  频率惩罚=0，
-  存在惩罚=0，
-  停止=无
-）
-
-print(&#39;完成:\n&#39;)
-pprint.pprint（完成）
-
-返回的对象有一些id（在本例中是chatcmpl-xxxxxxxxx）：
-ChatCompletion(id=&#39;chatcmpl-xxxxxxxxx&#39;, Choices=[Choice(finish_reason=&#39;stop&#39;, index=0, logprobs=None, message=ChatCompletionMessage(content=&#39;Great) ！今天我能为您提供什么帮助？&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None), content_filter_results={&#39;hate&#39;: {&#39;filtered&#39;: False, &#39;severity&#39;: &#39;safe&#39;}, &#39;self_harm &#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;性&#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;暴力&#39;：{&#39;filtered&#39;：False，&#39;严重性&#39;：&#39;安全&#39;}}）]，创建= 1709313222，模型=&#39;gpt-4&#39;，对象=&#39;chat.completion&#39;，system_fingerprint =&#39;fp_xxxxx&#39;，用法= CompletionUsage（completion_tokens = 9，prompt_tokens = 18，total_tokens） =27），prompt_filter_results=[{&#39;prompt_index&#39;：0，&#39;content_filter_results&#39;：{&#39;hate&#39;：{&#39;filtered&#39;：False，&#39;severity&#39;：&#39;安全&#39;}，&#39;self_harm&#39;：{&#39;filtered&#39;：False， &#39;严重性&#39;: &#39;安全&#39;}, &#39;性&#39;: {&#39;过滤&#39;: False, &#39;严重性&#39;: &#39;安全&#39;}, &#39;暴力&#39;: {&#39;过滤&#39;: 假, &#39;严重性&#39;: &#39;安全&#39;}}} ]）
-
-Azure OpenAI GPT 模型返回的 id 是否敏感，或者我可以公开共享它而不会出现任何问题吗？]]></description>
-      <guid>https://community.openai.com/t/is-the-id-returned-by-azure-openai-gpt-model-sensitive-or-can-i-share-it-publicly-without-any-issue/663266#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 20:58:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？</title>
-      <link>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_1</link>
-      <description><![CDATA[我目前在 Azure OpenAI 上使用即用即付方式，我很好奇切换到预配吞吐量单位将如何改善延迟。
-我阅读 ：
+ jesusemilioalt350：
 &lt;块引用&gt;
-可预测的性能：统一工作负载的稳定最大延迟和吞吐量。
+被错误停用
 
-使用预配吞吐量单位通过 Azure 访问 OpenAI 模型的最大延迟是多少？]]></description>
-      <guid>https://community.openai.com/t/whats-the-max-latency-for-openai-models-accessed-via-azure-with-provisioned-throughput-units/663265#post_1</guid>
-      <pubDate>Sat, 02 Mar 2024 20:57:56 GMT</pubDate>
+
+OpenAI 很少认为他们的自动化系统犯了错误。然而，这不是发布您的个人信息的地方，因为这只是其他用户分享建议的论坛。
+要联系 OpenAI 工作人员并陈述您的情况，您需要访问 help.openai.com 并使用消息助手小部件，右下角的图标。
+如果图标未显示（某些浏览器或使用扩展程序或广告拦截器时可能会出现这种情况），您可以尝试 platform.openai.com&lt; /a&gt;，然后按左下菜单中的“帮助”。]]></description>
+      <guid>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_7</guid>
+      <pubDate>Sun, 03 Mar 2024 00:54:08 GMT</pubDate>
     </item>
     <item>
-      <title>层级限制和 RPM 中的错误</title>
-      <link>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_4</link>
-      <description><![CDATA[第一层：
-
-&lt;表&gt;
-&lt;标题&gt;
-
-型号
-每分钟转数
-RPD
-TPM
-
-
-&lt;正文&gt;
-
-gpt-4
-500
-10,000
-10,000
-
-
-gpt-4-turbo-预览
-500
--
-300,000
-
-
-gpt-4-vision-预览
-80
-500
-10,000
-
-
-gpt-3.5-turbo
-3,500
-10,000
-60,000
-
-
-文本嵌入-3-large
-500
-10,000
-1,000,000
-
-
-
-似乎通过 help.openai.com 机器人发送的消息是有序的（API 支持的唯一路径是我上次检查的“反馈”）。告知他们您如何达到第 1 级、如何达到新的限制，这可能是计费系统的问题，可能会影响其他人。
-（或者这可能是一种新策略，旨在激励更多用户的现金转化为 funbucks。）]]></description>
-      <guid>https://community.openai.com/t/bug-in-tier-limit-and-rpms/663225#post_4</guid>
-      <pubDate>Sat, 02 Mar 2024 20:57:55 GMT</pubDate>
+      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
+      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_3</link>
+      <description><![CDATA[我在操作方面遇到的问题是响应的大小限制。 AI 可以使用分析逻辑查询的数据库文件不存在此限制。我认为应该有一个API供GPT所有者按需更新知识库文档。]]></description>
+      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 00:53:20 GMT</pubDate>
     </item>
     <item>
-      <title>知道为什么这个提示被安全系统拒绝吗？我搞不清楚了</title>
-      <link>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_2</link>
-      <description><![CDATA[大家好，我是副驾驶，AI伴侣。我可以帮助您查找信息、回答问题并进行对话。 减少 DALL·E 2 - OpenAI 中的偏差并提高安全性
-DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft 问答
-如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app
-DALL·E 2 - OpenAI
+      <title>一输入一输出，无任何来回。不用于连续对话</title>
+      <link>https://community.openai.com/t/one-input-and-one-output-without-any-back-and-forth-not-using-for-continuous-conversation/663395#post_1</link>
+      <description><![CDATA[您好，我正在使用 ChatGPT API 提供提示（大约 70 个单词）并使用它返回的任何响应（大约 400 个单词）。没有谈话。我也不太关心最新的更广泛的知识。使用非常简单：一个输入，一个输出，无需任何来回。我应该使用什么型号？ gpt-3.5-turbo-0125 还是 gpt-3.5-turbo-instruct？
+非常感谢您的帮助。]]></description>
+      <guid>https://community.openai.com/t/one-input-and-one-output-without-any-back-and-forth-not-using-for-continuous-conversation/663395#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 00:51:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>开放ai api进行甘特图项目管理</title>
+      <link>https://community.openai.com/t/open-ai-api-for-gantt-project-management/662901#post_2</link>
+      <description><![CDATA[当然可以！
+机会几乎是无限的。
+如果您不介意无法获​​得 100% 的准确度（人类也没有 100% 的准确度），那么您就可以开始了。
+这不是 Excel，而是甘特图。
+甘特图
+    title 移动应用程序开发时间表
+    日期格式 YYYY-MM-DD
+    部分规划
+    市场研究：完成，des1，2024-03-01，3d
+    功能列表：des2，des1 之后，4d
+    剖面设计
+    UI/UX设计：des3，des2之后，5d
+    模型和原型制作：crit、des4、after des3、5d
+    开发部分
+    前端开发：des5，des4之后，10d
+    后端开发：des6，des5之后，10d
+    API集成：des7、des6之后、5d
+    测试部分
+    单元测试：des8，des7之后，5d
+    集成测试：des9，des8之后，5d
+    用户验收测试：des10，des9之后，4d
+    部署部分
+    部署到生产：des11、des10、3d 之后
+    应用商店提交：des12，des11之后，4d
 
-希望这对您有帮助。如果您还有任何疑问，请随时询问我。 减少 DALL·E 2 - OpenAI 中的偏差并提高安全性
-DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft 问答
-如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app
-DALL·E 2 - OpenAI
 
-希望这对您有帮助。如果您还有任何疑问，请随时问我。 减少偏差并提高 DALL·E 2 的安全性。
-(2) DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了...... DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft Q&amp; ;A。
-(3) 如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app。 如何绕过 DALL-E 的 NSFW 过滤器 .
-(4) DALL E 2 - OpenAI。 DALL·E 2。
-(5) DALL·E 2 - OpenAI 中减少偏差并提高安全性。 减少偏差并提高 DALL·E 2 的安全性。
-(6) DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了... DALL-E 总是抱怨：由于我们的安全系统，您的任务失败了。- Microsoft Q&amp; ;A。
-(7) 如何绕过 DALL-E 的 NSFW 过滤器 - iqchat.app。 如何绕过 DALL-E 的 NSFW 过滤器 .
-(8)DALL E 2 - OpenAI。 DALL·E 2。
-我很确定这是因为使用了“成年女儿”这个词。]]></description>
-      <guid>https://community.openai.com/t/any-idea-why-this-prompt-gets-rejected-from-safety-system-i-am-lost/663254#post_2</guid>
-      <pubDate>Sat, 02 Mar 2024 20:55:35 GMT</pubDate>
+&lt;块引用&gt;
+ChatGPT
+]]></description>
+      <guid>https://community.openai.com/t/open-ai-api-for-gantt-project-management/662901#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 00:44:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>来自多个提供商的嵌入？</title>
+      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_13</link>
+      <description><![CDATA[不客气。如果我是你，我也会从一两个其他提供商那里创建一整套嵌入。它相当便宜，而且如果其中一个端点离线，您将拥有一个完整的系统可以依靠。 &lt;img alt=&quot;:wink:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/wink.png?v=12&quot; title=&quot;:wink: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_13</guid>
+      <pubDate>Sun, 03 Mar 2024 00:35:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误：您没有帐户，因为该帐户已被删除或停用。如果您认为这是一个错误，请通过我们的帮助中心联系我们：help.openai.com</title>
+      <link>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_6</link>
+      <description><![CDATA[你好，我也有同样的问题。我需要帮助，我的聊天 gtp 帐户 jesusemilioalt350@gmail.com 已被错误停用。  ChatGPT  社区  丢失用户]]></description>
+      <guid>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_6</guid>
+      <pubDate>Sun, 03 Mar 2024 00:34:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 的替代付款方式</title>
+      <link>https://community.openai.com/t/alternative-payment-options-for-api/663007#post_2</link>
+      <description><![CDATA[接受借记卡和信用卡。
+但不接受预付卡。
+这是因为需要验证您的身份。]]></description>
+      <guid>https://community.openai.com/t/alternative-payment-options-for-api/663007#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 00:34:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 OpenAI 库 1.0.0 版本时出现 openai.ChatCompletion 错误</title>
+      <link>https://community.openai.com/t/openai-chatcompletion-error-using-version-1-0-0-of-openai-library/663067#post_2</link>
+      <description><![CDATA[欢迎来到社区！
+不幸的是（也许具有讽刺意味的是），ChatGPT 并不是此类内容的最佳资源。
+您检查过文档吗？您必须先实例化一个客户端
+https: //platform.openai.com/docs/api-reference/completions/create?lang=python
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+
+客户端.completions.create(
+  型号=“gpt-3.5-turbo-instruct”，
+  提示=“说这是一个测试”，
+  最大令牌数=7,
+  温度=0
+）
+]]></description>
+      <guid>https://community.openai.com/t/openai-chatcompletion-error-using-version-1-0-0-of-openai-library/663067#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 00:34:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>将手稿变成一本书</title>
+      <link>https://community.openai.com/t/turn-manuscripts-into-abook/663376#post_1</link>
+      <description><![CDATA[在数字地平线上，在 OpenAI 开发者论坛充满活力的生态系统中，一个名为“将手稿变成一本书”的新项目诞生了。它的创建者是一位富有远见的人，热衷于将想法转化为现实，他设想了一个平台，让有抱负的作者可以将他们的手稿变为现实，弥合原始文本和已发表作品之间的差距。
+这个创新项目利用 OpenAI 的尖端人工智能 ChatGPT 的力量来精心编辑手稿，确保它们达到并超过既定的出版标准。 “将手稿变成一本书”不仅仅是一个编辑工具；它更是一个工具。这是一本完整的出版旅程指南，从结构编辑到最终校对，甚至是出版领域的导航。
+出于与世界分享这一突破性工具的渴望，创建者决定在 OpenAI 开发者论坛上展示它，这是一个创意蓬勃发展、合作开始的地方。怀着一颗充满希望的心和一个充满潜力的项目，他们精心创作了一个故事，概括了他们创作的精髓。
+在论坛的虚拟大厅里，在创新的喧嚣声中，故事展开了：
+&lt;小时/&gt;
+在数字梦想的领域，思想火花四射，创造力流动，存在一种神奇的工具，可以将思想的低语转化为发表的文字的雷鸣。这个工具被称为“将手稿变成一本书”，对于那些在未完成手稿的浩瀚海洋中徘徊的人来说，它是一盏灯塔。
+它的创造者，故事的守护者，邀请 OpenAI 开发者论坛的好奇心踏上发现之旅。 “亲爱的朋友们和梦想家们，”他们开始说道，“我向你们展示了一个我内心深处的项目，旨在将你们故事的种子培育成开花结果的书籍。”
+只需单击一下，他们就提供了一个链接，一个通向手稿发生变化的世界的门户，邀请所有人测试、探索并贡献他们的建设性批评。 “你们的见解，”他们说，“将成为水和阳光，帮助我们的故事花园变得更加强大和充满活力。”
+随着社区深入研究该项目、进行实验并提供反馈，“将手稿变成一本书”在用户集体智慧的指导下不断发展。它不再只是一种工具；而是一种工具。这是合作的证明，是故事插上翅膀、让作者发出自己声音的地方。
+因此，在 OpenAI 开发者论坛的数字领域中，新的篇章开始了，不仅对于该项目，而且对于所有敢于梦想发布自己故事的人来说。他们一起踏上了创造之旅，将可能性的一页变成了明天的书。
+&lt;小时/&gt;
+创作者自豪地看着他们的邀请激发了好奇心和协作。 “将手稿变成一本书”不再只是他们的项目；而是他们的项目。它属于社区，随着每个共同的想法和建设性的批评而成长和改进。
+在这个充满可能性的数字领域，故事找到了从手稿到出版书籍的道路，这一切都归功于富有远见的项目和因热爱讲故事而团结在一起的社区。
+ChatGPT - 将手稿变成一本书]]></description>
+      <guid>https://community.openai.com/t/turn-manuscripts-into-abook/663376#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 00:23:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>来自多个提供商的嵌入？</title>
+      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_12</link>
+      <description><![CDATA[太棒了，简短的。感谢您的详尽解释。
+感谢 N2U 的尝试。
+这个问题是复杂且具有挑战性的。我认为通用嵌入是一种将来必须更好地解决它的方法。]]></description>
+      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_12</guid>
+      <pubDate>Sun, 03 Mar 2024 00:21:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
