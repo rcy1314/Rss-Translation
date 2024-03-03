@@ -4,154 +4,246 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 03 Mar 2024 01:13:05 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2024 03:18:09 GMT</lastBuildDate>
     <item>
-      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
-      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_4</link>
-      <description><![CDATA[GPT 知识库中的文件数量有限制，您提出的是一个规避该限制的功能。
-如果您想通过 API 使用 GPT，可以使用助手 API。
-如果您只是需要更多的知识文件，或者能够根据需要更新它们，您应该使用操作从您自己的数据库中检索这些文件API。]]></description>
-      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_4</guid>
-      <pubDate>Sun, 03 Mar 2024 01:08:32 GMT</pubDate>
+      <title>OAI API 切换至预付费计费</title>
+      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_19</link>
+      <description><![CDATA[购买的积分将在一年后过期。它们不可退款。]]></description>
+      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_19</guid>
+      <pubDate>Sun, 03 Mar 2024 03:17:39 GMT</pubDate>
     </item>
     <item>
-      <title>错误：您没有帐户，因为该帐户已被删除或停用。如果您认为这是一个错误，请通过我们的帮助中心联系我们：help.openai.com</title>
-      <link>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_7</link>
+      <title>Dall-E 以任何理由拒绝生成任何类型的图像</title>
+      <link>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231#post_19</link>
+      <description><![CDATA[UPD：我开始使用 GPT 市场上的 DALL-E，它的效果非常好！到目前为止没有问题，但尝试在“常规”GPT 聊天会话之一中使用 DALL-E 时却不断出现同样的错误。在我看来，ChatGPT 在使用 DALL-E 插件时遇到了问题]]></description>
+      <guid>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231#post_19</guid>
+      <pubDate>Sun, 03 Mar 2024 03:12:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 python 脚本编译为导入 OpenAI API 的 pyinstaller.exe</title>
+      <link>https://community.openai.com/t/compiling-python-script-into-a-pyinstaller-exe-with-openai-api-imported/663460#post_1</link>
+      <description><![CDATA[0
+我正在尝试编译一个 python 脚本，使用 pyinstaller 将 OpenAI API 导入到单个 .exe 文件中。该脚本编译为 .exe 文件，但 .exe 文件不会启动。我怎样才能让这个脚本工作？
+这是我用来将脚本编译成 .exe 文件的命令
+pyinstaller -F --onefile --windowed “C:\Users\User\OneDrive\Desktop\chatgptbot.pyw”
+从 tkinter 导入 *
+从 tkinter 导入消息框
+从 tkinter.scrolledtext 导入 ScrolledText
+导入openai
+从 openai 导入 OpenAI
+
+
+
+客户端 = OpenAI(
+   
+    api_key=&quot;********************************************”,
+）
+
+def chat_gpt（提示）：
+    响应 = client.chat.completions.create(
+        型号=“gpt-4”，
+        messages=[{&quot;角色&quot;:&quot;用户&quot;,&quot;内容&quot;:提示}]
+    ）
+    返回response.choices[0].message.content.strip()
+
+
+
+def 加载屏幕():
+    def 分析():
+       
+
+        chatgptentryget=chatgptentry.get(&#39;1.0&#39;, &#39;end-1c&#39;)
+        chatbot_response=chat_gpt(&quot;回答这个问题：&quot; + chatgptentryget)
+        messagebox.showinfo(&#39;您的回复&#39;, chatbot_response)
+        
+    
+    分析（）
+
+
+
+根1 = Tk()
+root1.title(&quot;ChatGPT 机器人&quot;)
+root1.geometry(&quot;800x310&quot;)
+root1.configure(背景=&#39;#eeeeee&#39;)
+
+滚动条 = 滚动条(root1, orient=VERTICAL)
+滚动条.pack（侧=右，填充= Y）
+
+canvas1=画布(root1,宽度=1800,高度=150,scrollregion=(0,0,1800,300))
+canvas1.configure(背景=&#39;#eeeeee&#39;)
+
+滚动条.config(命令=canvas1.yview)
+canvas1.config（宽度=1800，高度=150，yscrollcommand=scrollbar.set）
+
+canvas1.xview_moveto(0)
+canvas1.yview_moveto(0)
+
+内部 = 框架(canvas1, bg=&#39;#eeeeee&#39;)
+canvas1.pack_propagate(0)
+Interior_id = canvas1.create_window(400, 150, 窗口=内部, 锚点=中心)
+canvas1.config（宽度=800，高度=300，bg=&#39;#eeeeee&#39;）
+
+canvas1.pack()
+
+def _on_mousewheel（事件）：
+    事件编号=-1*(事件.delta/120)
+    int(事件号)
+    canvas1.yview(&quot;滚动&quot;,int(事件编号),&quot;单位&quot;)
+    
+canvas1.bind_all(&quot;&quot;,_on_mousewheel)
+
+
+
+botlabel = 标签（内部，文本=“ChatGPT Bot”，宽度= 700，fg=&#39;#2b89c4&#39;，字体=（&#39;arial&#39;，17））
+botlabel.pack()
+
+label111=标签(内部,bg=&#39;#eeeeee&#39;, )
+label111.pack()
+
+Includecriteria = Label(interior, text=&quot;输入您的问题&quot;, width=700,bg =&#39;#2b89c4&#39;, fg=&#39;white&#39;, font = (&#39;arial&#39;, 12))
+包含标准.pack()
+
+rowframe01 = 框架（内部）
+rowframe01.pack()
+rowframe01.config(bg=&#39;#eeeeee&#39;)
+
+
+chatgptentry = ScrolledText(rowframe01,宽度= 56,高度= 10, 字体=(&#39;arial&#39;,8))
+chatgptentry.grid（列= 0）
+processbutton=按钮（内部，text=“过程响应”，宽度=30，bd=4，fg=&#39;黑色&#39;，bg=&#39;银色&#39;，font=（&#39;arial&#39;，11），command=loadingscreen）
+处理按钮.pack()
+]]></description>
+      <guid>https://community.openai.com/t/compiling-python-script-into-a-pyinstaller-exe-with-openai-api-imported/663460#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 03:03:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>我犯了一个错误，就是在屋顶上向那些不这样做的人大喊大叫</title>
+      <link>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_1</link>
+      <description><![CDATA[大家好，
+我很高兴找到这个地方。
+我犯了一个错误，那就是在屋顶上向那些不明白对于那些选择抓住机会的人来说这个世界已经发生了多么根本的变化的人们大喊大叫。说实话，我可能在这个过程中失去了朋友。
+无论如何，我很想交朋友，交往；商业或其他。我在技术层面上很得心应手。我最近创办了一家人工智能初创公司
+
+  &lt;标题类=“来源”&gt;
+      
+projectdavid.co.uk
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+
+大卫项目
+使用create-react-app创建的网站
+
+
+
+
+
+这是我一周大部分时间都在做的事情，我感到很幸运。
+我们正在对“Q”进行最后的修饰，“Q”是我们针对商业和高级用户的实体。也考虑给他贴上白色标签。
+我决定全力使用 Assistants API。它有点慢，我读过一些抱怨。然而，该架构的潜力已经超出了我们最疯狂的梦想。非常高兴将我们的产品构建为并行测试版，直到 @OpenAI 提高速度、流媒体、错误率等。
+&lt; /p&gt;
+这是迄今为止 Q 的一个小屏幕截图。
+欢迎随时与我们联系。]]></description>
+      <guid>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 03:02:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>OAI API 切换至预付费计费</title>
+      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_18</link>
+      <description><![CDATA[祝你有美好的一天。
+请问预购的积分是否也会每月过期，或者在完全用完之前可以使用？这是因为我们每个月的使用量并不是固定的，这取决于通过我们的系统发送的 API 请求的数量。如果没有过期，我们计划购买全年的预计积分。
+非常感谢！]]></description>
+      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_18</guid>
+      <pubDate>Sun, 03 Mar 2024 02:58:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Python 中与自定义 gpt 交互</title>
+      <link>https://community.openai.com/t/interacting-with-your-custom-gpt-in-python/662831#post_5</link>
+      <description><![CDATA[目前，自己定义助手是更好的解决方案。自动化交互仍然有点困难]]></description>
+      <guid>https://community.openai.com/t/interacting-with-your-custom-gpt-in-python/662831#post_5</guid>
+      <pubDate>Sun, 03 Mar 2024 02:52:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求：可以指定历史上限</title>
+      <link>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_3</link>
+      <description><![CDATA[即使指定 limit=1，响应历史记录的数量也会继续增加。 .
+def _get_message(gpt_thread_id:str, Secret:str):
+客户端 = OpenAI(api_key=secret)
+返回 client.beta.threads.messages.list(
+thread_id=gpt_thread_id,
+限制=1
+）]]></description>
+      <guid>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 02:42:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>OAI API 切换至预付费计费</title>
+      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_17</link>
+      <description><![CDATA[我每月的账单不到 0.5 美元，所以如果过期我可能会赔钱。
+我希望降低最低金额。]]></description>
+      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_17</guid>
+      <pubDate>Sun, 03 Mar 2024 02:42:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求：可以指定历史上限</title>
+      <link>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_2</link>
+      <description><![CDATA[也许可以用limit参数来控制？
+定义列表(
+自我，
+thread_id: str,
+*，
+之后：str |未给出 = NOT_GIVEN，
+之前：str |未给出 = NOT_GIVEN，
+限制：整数 |未给出 = NOT_GIVEN，
+顺序：文字[“asc”，“desc”] |未给出 = NOT_GIVEN，
+# 如果您需要将无法通过 kwargs 提供的其他参数传递给 API，请使用以下参数。
+# 此处给出的额外值优先于客户端定义的值或传递给此方法的值。
+extra_headers：标题|无=无，
+extra_query：查询|无=无，
+extra_body：身体|无=无，
+超时：浮动| httpx.超时|无 |未给出 = NOT_GIVEN，
+) → SyncCursorPage[ThreadMessage]:
+limit：返回对象数量的限制。限制范围为 1 到 100，默认值为 20。]]></description>
+      <guid>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 02:34:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 load_summarize_chain 时出现 UnicodeEncodeError</title>
+      <link>https://community.openai.com/t/unicodeencodeerror-while-using-load-summarize-chain/634708#post_3</link>
+      <description><![CDATA[是的，这与库和 API 积分有关。
+Langchain 版本问题已解决：
+从 langchain_openai 导入 ChatOpenAI
+从 langchain.prompts 导入 PromptTemplate
+API 积分问题始终得到解决（笑）。
+谢谢。]]></description>
+      <guid>https://community.openai.com/t/unicodeencodeerror-while-using-load-summarize-chain/634708#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 02:20:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
+      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_8</link>
       <description><![CDATA[
 
 
- jesusemilioalt350：
+ krusaderjake：
 &lt;块引用&gt;
-被错误停用
+我更愿意使用 API
 
 
-OpenAI 很少认为他们的自动化系统犯了错误。然而，这不是发布您的个人信息的地方，因为这只是其他用户分享建议的论坛。
-要联系 OpenAI 工作人员并陈述您的情况，您需要访问 help.openai.com 并使用消息助手小部件，右下角的图标。
-如果图标未显示（某些浏览器或使用扩展程序或广告拦截器时可能会出现这种情况），您可以尝试 platform.openai.com&lt; /a&gt;，然后按左下菜单中的“帮助”。]]></description>
-      <guid>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_7</guid>
-      <pubDate>Sun, 03 Mar 2024 00:54:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
-      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_3</link>
-      <description><![CDATA[我在操作方面遇到的问题是响应的大小限制。 AI 可以使用分析逻辑查询的数据库文件不存在此限制。我认为应该有一个API供GPT所有者按需更新知识库文档。]]></description>
-      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_3</guid>
-      <pubDate>Sun, 03 Mar 2024 00:53:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>一输入一输出，无任何来回。不用于连续对话</title>
-      <link>https://community.openai.com/t/one-input-and-one-output-without-any-back-and-forth-not-using-for-continuous-conversation/663395#post_1</link>
-      <description><![CDATA[您好，我正在使用 ChatGPT API 提供提示（大约 70 个单词）并使用它返回的任何响应（大约 400 个单词）。没有谈话。我也不太关心最新的更广泛的知识。使用非常简单：一个输入，一个输出，无需任何来回。我应该使用什么型号？ gpt-3.5-turbo-0125 还是 gpt-3.5-turbo-instruct？
-非常感谢您的帮助。]]></description>
-      <guid>https://community.openai.com/t/one-input-and-one-output-without-any-back-and-forth-not-using-for-continuous-conversation/663395#post_1</guid>
-      <pubDate>Sun, 03 Mar 2024 00:51:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>开放ai api进行甘特图项目管理</title>
-      <link>https://community.openai.com/t/open-ai-api-for-gantt-project-management/662901#post_2</link>
-      <description><![CDATA[当然可以！
-机会几乎是无限的。
-如果您不介意无法获​​得 100% 的准确度（人类也没有 100% 的准确度），那么您就可以开始了。
-这不是 Excel，而是甘特图。
-甘特图
-    title 移动应用程序开发时间表
-    日期格式 YYYY-MM-DD
-    部分规划
-    市场研究：完成，des1，2024-03-01，3d
-    功能列表：des2，des1 之后，4d
-    剖面设计
-    UI/UX设计：des3，des2之后，5d
-    模型和原型制作：crit、des4、after des3、5d
-    开发部分
-    前端开发：des5，des4之后，10d
-    后端开发：des6，des5之后，10d
-    API集成：des7、des6之后、5d
-    测试部分
-    单元测试：des8，des7之后，5d
-    集成测试：des9，des8之后，5d
-    用户验收测试：des10，des9之后，4d
-    部署部分
-    部署到生产：des11、des10、3d 之后
-    应用商店提交：des12，des11之后，4d
+然后制作一个 
+听起来你在这方面已经领先了，只是需要在以下方面做更多的工作：
 
 
+
+ krusaderjake：
 &lt;块引用&gt;
-ChatGPT
-]]></description>
-      <guid>https://community.openai.com/t/open-ai-api-for-gantt-project-management/662901#post_2</guid>
-      <pubDate>Sun, 03 Mar 2024 00:44:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_13</link>
-      <description><![CDATA[不客气。如果我是你，我也会从一两个其他提供商那里创建一整套嵌入。它相当便宜，而且如果其中一个端点离线，您将拥有一个完整的系统可以依靠。 &lt;img alt=&quot;:wink:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/wink.png?v=12&quot; title=&quot;:wink: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_13</guid>
-      <pubDate>Sun, 03 Mar 2024 00:35:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>错误：您没有帐户，因为该帐户已被删除或停用。如果您认为这是一个错误，请通过我们的帮助中心联系我们：help.openai.com</title>
-      <link>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_6</link>
-      <description><![CDATA[你好，我也有同样的问题。我需要帮助，我的聊天 gtp 帐户 jesusemilioalt350@gmail.com 已被错误停用。  ChatGPT  社区  丢失用户]]></description>
-      <guid>https://community.openai.com/t/erro-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error-please-contact-us-through-our-help-center-at-help-openai-com/656469#post_6</guid>
-      <pubDate>Sun, 03 Mar 2024 00:34:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 的替代付款方式</title>
-      <link>https://community.openai.com/t/alternative-payment-options-for-api/663007#post_2</link>
-      <description><![CDATA[接受借记卡和信用卡。
-但不接受预付卡。
-这是因为需要验证您的身份。]]></description>
-      <guid>https://community.openai.com/t/alternative-payment-options-for-api/663007#post_2</guid>
-      <pubDate>Sun, 03 Mar 2024 00:34:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 OpenAI 库 1.0.0 版本时出现 openai.ChatCompletion 错误</title>
-      <link>https://community.openai.com/t/openai-chatcompletion-error-using-version-1-0-0-of-openai-library/663067#post_2</link>
-      <description><![CDATA[欢迎来到社区！
-不幸的是（也许具有讽刺意味的是），ChatGPT 并不是此类内容的最佳资源。
-您检查过文档吗？您必须先实例化一个客户端
-https: //platform.openai.com/docs/api-reference/completions/create?lang=python
-从 openai 导入 OpenAI
-客户端 = OpenAI()
+不起作用，因为 OpenAI 具有响应大小限制，甚至无法从宽数据库表返回 100 行
 
-客户端.completions.create(
-  型号=“gpt-3.5-turbo-instruct”，
-  提示=“说这是一个测试”，
-  最大令牌数=7,
-  温度=0
-）
-]]></description>
-      <guid>https://community.openai.com/t/openai-chatcompletion-error-using-version-1-0-0-of-openai-library/663067#post_2</guid>
-      <pubDate>Sun, 03 Mar 2024 00:34:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>将手稿变成一本书</title>
-      <link>https://community.openai.com/t/turn-manuscripts-into-abook/663376#post_1</link>
-      <description><![CDATA[在数字地平线上，在 OpenAI 开发者论坛充满活力的生态系统中，一个名为“将手稿变成一本书”的新项目诞生了。它的创建者是一位富有远见的人，热衷于将想法转化为现实，他设想了一个平台，让有抱负的作者可以将他们的手稿变为现实，弥合原始文本和已发表作品之间的差距。
-这个创新项目利用 OpenAI 的尖端人工智能 ChatGPT 的力量来精心编辑手稿，确保它们达到并超过既定的出版标准。 “将手稿变成一本书”不仅仅是一个编辑工具；它更是一个工具。这是一本完整的出版旅程指南，从结构编辑到最终校对，甚至是出版领域的导航。
-出于与世界分享这一突破性工具的渴望，创建者决定在 OpenAI 开发者论坛上展示它，这是一个创意蓬勃发展、合作开始的地方。怀着一颗充满希望的心和一个充满潜力的项目，他们精心创作了一个故事，概括了他们创作的精髓。
-在论坛的虚拟大厅里，在创新的喧嚣声中，故事展开了：
-&lt;小时/&gt;
-在数字梦想的领域，思想火花四射，创造力流动，存在一种神奇的工具，可以将思想的低语转化为发表的文字的雷鸣。这个工具被称为“将手稿变成一本书”，对于那些在未完成手稿的浩瀚海洋中徘徊的人来说，它是一盏灯塔。
-它的创造者，故事的守护者，邀请 OpenAI 开发者论坛的好奇心踏上发现之旅。 “亲爱的朋友们和梦想家们，”他们开始说道，“我向你们展示了一个我内心深处的项目，旨在将你们故事的种子培育成开花结果的书籍。”
-只需单击一下，他们就提供了一个链接，一个通向手稿发生变化的世界的门户，邀请所有人测试、探索并贡献他们的建设性批评。 “你们的见解，”他们说，“将成为水和阳光，帮助我们的故事花园变得更加强大和充满活力。”
-随着社区深入研究该项目、进行实验并提供反馈，“将手稿变成一本书”在用户集体智慧的指导下不断发展。它不再只是一种工具；而是一种工具。这是合作的证明，是故事插上翅膀、让作者发出自己声音的地方。
-因此，在 OpenAI 开发者论坛的数字领域中，新的篇章开始了，不仅对于该项目，而且对于所有敢于梦想发布自己故事的人来说。他们一起踏上了创造之旅，将可能性的一页变成了明天的书。
-&lt;小时/&gt;
-创作者自豪地看着他们的邀请激发了好奇心和协作。 “将手稿变成一本书”不再只是他们的项目；而是他们的项目。它属于社区，随着每个共同的想法和建设性的批评而成长和改进。
-在这个充满可能性的数字领域，故事找到了从手稿到出版书籍的道路，这一切都归功于富有远见的项目和因热爱讲故事而团结在一起的社区。
-ChatGPT - 将手稿变成一本书]]></description>
-      <guid>https://community.openai.com/t/turn-manuscripts-into-abook/663376#post_1</guid>
-      <pubDate>Sun, 03 Mar 2024 00:23:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>来自多个提供商的嵌入？</title>
-      <link>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_12</link>
-      <description><![CDATA[太棒了，简短的。感谢您的详尽解释。
-感谢 N2U 的尝试。
-这个问题是复杂且具有挑战性的。我认为通用嵌入是一种将来必须更好地解决它的方法。]]></description>
-      <guid>https://community.openai.com/t/embeddings-from-multiple-providers/662994#post_12</guid>
-      <pubDate>Sun, 03 Mar 2024 00:21:57 GMT</pubDate>
+
+也许是时候稍微过滤一下响应数据了 ]]></description>
+      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_8</guid>
+      <pubDate>Sun, 03 Mar 2024 02:19:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
