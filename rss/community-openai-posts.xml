@@ -4,246 +4,146 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 03 Mar 2024 03:18:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2024 06:22:32 GMT</lastBuildDate>
     <item>
-      <title>OAI API 切换至预付费计费</title>
-      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_19</link>
-      <description><![CDATA[购买的积分将在一年后过期。它们不可退款。]]></description>
-      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_19</guid>
-      <pubDate>Sun, 03 Mar 2024 03:17:39 GMT</pubDate>
+      <title>过去 2 天 CHATGPT 4 用户界面问题</title>
+      <link>https://community.openai.com/t/last-2-days-chatgpt-4-user-interface-issues/662790#post_3</link>
+      <description><![CDATA[不，它尚未修复，我仍然遇到问题。]]></description>
+      <guid>https://community.openai.com/t/last-2-days-chatgpt-4-user-interface-issues/662790#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 06:09:17 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-E 以任何理由拒绝生成任何类型的图像</title>
-      <link>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231#post_19</link>
-      <description><![CDATA[UPD：我开始使用 GPT 市场上的 DALL-E，它的效果非常好！到目前为止没有问题，但尝试在“常规”GPT 聊天会话之一中使用 DALL-E 时却不断出现同样的错误。在我看来，ChatGPT 在使用 DALL-E 插件时遇到了问题]]></description>
-      <guid>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231#post_19</guid>
-      <pubDate>Sun, 03 Mar 2024 03:12:10 GMT</pubDate>
+      <title>愿景正在创造完全虚构的答案</title>
+      <link>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_4</link>
+      <description><![CDATA[感谢您的及时回复。这是我的错——我的请求格式错误。我在将“内容”json 添加到消息之前对其进行了序列化。现在我已正确发出请求，它的行为符合预期。
+也许 API 更好的响应是在我的请求传入时抛出错误，如下所示：
+&lt;块引用&gt;
+{
+“模型”：“gpt-4-vision-preview”，
+“消息”：[{
+“角色”:“系统”,
+“content”：“你是一个由 GPT-4 提供支持的计算机视觉 AI 助手。\r\nAI 知识截止时间：2023 年 4 月\r\n\r\n内置视觉功能：\r\n- 从图像中提取文本\r\n- 描述图像\r\n- 分析图像内容”
+}, {
+“角色”：“用户”，
+&quot;content&quot;: &quot;[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;描述该图像。文件名不表示图像内容。&quot;},{&quot;type&quot;:&quot;image_url&quot;,&quot;image_url&quot;:{ &quot;url&quot;:&quot;https://support.content.office.net/en-us/media/4c10ecfd-3008-4b00-9f98-d41b6f899c2d.png&quot;}}]”
+}
+],
+“max_tokens”：1000，
+“温度”：0.1
+}
+
+内容属性实际上缺乏正确图像请求所需的子属性，因此我猜它只是将其作为聊天完成请求或其他内容进行处理。]]></description>
+      <guid>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_4</guid>
+      <pubDate>Sun, 03 Mar 2024 06:03:55 GMT</pubDate>
     </item>
     <item>
-      <title>将 python 脚本编译为导入 OpenAI API 的 pyinstaller.exe</title>
-      <link>https://community.openai.com/t/compiling-python-script-into-a-pyinstaller-exe-with-openai-api-imported/663460#post_1</link>
-      <description><![CDATA[0
-我正在尝试编译一个 python 脚本，使用 pyinstaller 将 OpenAI API 导入到单个 .exe 文件中。该脚本编译为 .exe 文件，但 .exe 文件不会启动。我怎样才能让这个脚本工作？
-这是我用来将脚本编译成 .exe 文件的命令
-pyinstaller -F --onefile --windowed “C:\Users\User\OneDrive\Desktop\chatgptbot.pyw”
-从 tkinter 导入 *
-从 tkinter 导入消息框
-从 tkinter.scrolledtext 导入 ScrolledText
-导入openai
-从 openai 导入 OpenAI
-
-
-
-客户端 = OpenAI(
-   
-    api_key=&quot;********************************************”,
-）
-
-def chat_gpt（提示）：
-    响应 = client.chat.completions.create(
-        型号=“gpt-4”，
-        messages=[{&quot;角色&quot;:&quot;用户&quot;,&quot;内容&quot;:提示}]
-    ）
-    返回response.choices[0].message.content.strip()
-
-
-
-def 加载屏幕():
-    def 分析():
-       
-
-        chatgptentryget=chatgptentry.get(&#39;1.0&#39;, &#39;end-1c&#39;)
-        chatbot_response=chat_gpt(&quot;回答这个问题：&quot; + chatgptentryget)
-        messagebox.showinfo(&#39;您的回复&#39;, chatbot_response)
-        
-    
-    分析（）
-
-
-
-根1 = Tk()
-root1.title(&quot;ChatGPT 机器人&quot;)
-root1.geometry(&quot;800x310&quot;)
-root1.configure(背景=&#39;#eeeeee&#39;)
-
-滚动条 = 滚动条(root1, orient=VERTICAL)
-滚动条.pack（侧=右，填充= Y）
-
-canvas1=画布(root1,宽度=1800,高度=150,scrollregion=(0,0,1800,300))
-canvas1.configure(背景=&#39;#eeeeee&#39;)
-
-滚动条.config(命令=canvas1.yview)
-canvas1.config（宽度=1800，高度=150，yscrollcommand=scrollbar.set）
-
-canvas1.xview_moveto(0)
-canvas1.yview_moveto(0)
-
-内部 = 框架(canvas1, bg=&#39;#eeeeee&#39;)
-canvas1.pack_propagate(0)
-Interior_id = canvas1.create_window(400, 150, 窗口=内部, 锚点=中心)
-canvas1.config（宽度=800，高度=300，bg=&#39;#eeeeee&#39;）
-
-canvas1.pack()
-
-def _on_mousewheel（事件）：
-    事件编号=-1*(事件.delta/120)
-    int(事件号)
-    canvas1.yview(&quot;滚动&quot;,int(事件编号),&quot;单位&quot;)
-    
-canvas1.bind_all(&quot;&quot;,_on_mousewheel)
-
-
-
-botlabel = 标签（内部，文本=“ChatGPT Bot”，宽度= 700，fg=&#39;#2b89c4&#39;，字体=（&#39;arial&#39;，17））
-botlabel.pack()
-
-label111=标签(内部,bg=&#39;#eeeeee&#39;, )
-label111.pack()
-
-Includecriteria = Label(interior, text=&quot;输入您的问题&quot;, width=700,bg =&#39;#2b89c4&#39;, fg=&#39;white&#39;, font = (&#39;arial&#39;, 12))
-包含标准.pack()
-
-rowframe01 = 框架（内部）
-rowframe01.pack()
-rowframe01.config(bg=&#39;#eeeeee&#39;)
-
-
-chatgptentry = ScrolledText(rowframe01,宽度= 56,高度= 10, 字体=(&#39;arial&#39;,8))
-chatgptentry.grid（列= 0）
-processbutton=按钮（内部，text=“过程响应”，宽度=30，bd=4，fg=&#39;黑色&#39;，bg=&#39;银色&#39;，font=（&#39;arial&#39;，11），command=loadingscreen）
-处理按钮.pack()
-]]></description>
-      <guid>https://community.openai.com/t/compiling-python-script-into-a-pyinstaller-exe-with-openai-api-imported/663460#post_1</guid>
-      <pubDate>Sun, 03 Mar 2024 03:03:06 GMT</pubDate>
+      <title>CreatiCode Scratch 插件 - 启用 ChatGPT 进行基于块的编码</title>
+      <link>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_29</link>
+      <description><![CDATA[不，这并不能解决我在 Windows 11 上的 Firefox 上的问题。Chrome 工作正常。]]></description>
+      <guid>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_29</guid>
+      <pubDate>Sun, 03 Mar 2024 06:03:10 GMT</pubDate>
     </item>
     <item>
       <title>我犯了一个错误，就是在屋顶上向那些不这样做的人大喊大叫</title>
-      <link>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_1</link>
-      <description><![CDATA[大家好，
-我很高兴找到这个地方。
-我犯了一个错误，那就是在屋顶上向那些不明白对于那些选择抓住机会的人来说这个世界已经发生了多么根本的变化的人们大喊大叫。说实话，我可能在这个过程中失去了朋友。
-无论如何，我很想交朋友，交往；商业或其他。我在技术层面上很得心应手。我最近创办了一家人工智能初创公司
-
-  &lt;标题类=“来源”&gt;
-      
-projectdavid.co.uk
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-
-大卫项目
-使用create-react-app创建的网站
-
-
-
-
-
-这是我一周大部分时间都在做的事情，我感到很幸运。
-我们正在对“Q”进行最后的修饰，“Q”是我们针对商业和高级用户的实体。也考虑给他贴上白色标签。
-我决定全力使用 Assistants API。它有点慢，我读过一些抱怨。然而，该架构的潜力已经超出了我们最疯狂的梦想。非常高兴将我们的产品构建为并行测试版，直到 @OpenAI 提高速度、流媒体、错误率等。
-&lt; /p&gt;
-这是迄今为止 Q 的一个小屏幕截图。
-欢迎随时与我们联系。]]></description>
-      <guid>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_1</guid>
-      <pubDate>Sun, 03 Mar 2024 03:02:47 GMT</pubDate>
+      <link>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_2</link>
+      <description><![CDATA[嗨@prime.thanos336
+我建议您仔细阅读OpenAI 品牌指南]]></description>
+      <guid>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 05:58:57 GMT</pubDate>
     </item>
     <item>
-      <title>OAI API 切换至预付费计费</title>
-      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_18</link>
-      <description><![CDATA[祝你有美好的一天。
-请问预购的积分是否也会每月过期，或者在完全用完之前可以使用？这是因为我们每个月的使用量并不是固定的，这取决于通过我们的系统发送的 API 请求的数量。如果没有过期，我们计划购买全年的预计积分。
-非常感谢！]]></description>
-      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_18</guid>
-      <pubDate>Sun, 03 Mar 2024 02:58:13 GMT</pubDate>
+      <title>CreatiCode Scratch 插件 - 启用 ChatGPT 进行基于块的编码</title>
+      <link>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_28</link>
+      <description><![CDATA[您可以尝试关闭并重新打开聊天窗口吗？我们已经测试过它应该可以在 Windows 上的 Firefox 上运行：
+]]></description>
+      <guid>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_28</guid>
+      <pubDate>Sun, 03 Mar 2024 05:53:00 GMT</pubDate>
     </item>
     <item>
-      <title>在 Python 中与自定义 gpt 交互</title>
-      <link>https://community.openai.com/t/interacting-with-your-custom-gpt-in-python/662831#post_5</link>
-      <description><![CDATA[目前，自己定义助手是更好的解决方案。自动化交互仍然有点困难]]></description>
-      <guid>https://community.openai.com/t/interacting-with-your-custom-gpt-in-python/662831#post_5</guid>
-      <pubDate>Sun, 03 Mar 2024 02:52:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>请求：可以指定历史上限</title>
-      <link>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_3</link>
-      <description><![CDATA[即使指定 limit=1，响应历史记录的数量也会继续增加。 .
-def _get_message(gpt_thread_id:str, Secret:str):
-客户端 = OpenAI(api_key=secret)
-返回 client.beta.threads.messages.list(
-thread_id=gpt_thread_id,
-限制=1
-）]]></description>
-      <guid>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_3</guid>
-      <pubDate>Sun, 03 Mar 2024 02:42:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>OAI API 切换至预付费计费</title>
-      <link>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_17</link>
-      <description><![CDATA[我每月的账单不到 0.5 美元，所以如果过期我可能会赔钱。
-我希望降低最低金额。]]></description>
-      <guid>https://community.openai.com/t/oai-api-switching-to-pre-paid-billing/659398#post_17</guid>
-      <pubDate>Sun, 03 Mar 2024 02:42:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>请求：可以指定历史上限</title>
-      <link>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_2</link>
-      <description><![CDATA[也许可以用limit参数来控制？
-定义列表(
-自我，
-thread_id: str,
-*，
-之后：str |未给出 = NOT_GIVEN，
-之前：str |未给出 = NOT_GIVEN，
-限制：整数 |未给出 = NOT_GIVEN，
-顺序：文字[“asc”，“desc”] |未给出 = NOT_GIVEN，
-# 如果您需要将无法通过 kwargs 提供的其他参数传递给 API，请使用以下参数。
-# 此处给出的额外值优先于客户端定义的值或传递给此方法的值。
-extra_headers：标题|无=无，
-extra_query：查询|无=无，
-extra_body：身体|无=无，
-超时：浮动| httpx.超时|无 |未给出 = NOT_GIVEN，
-) → SyncCursorPage[ThreadMessage]:
-limit：返回对象数量的限制。限制范围为 1 到 100，默认值为 20。]]></description>
-      <guid>https://community.openai.com/t/request-make-it-possible-to-specify-the-upper-limit-of-history/663420#post_2</guid>
-      <pubDate>Sun, 03 Mar 2024 02:34:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 load_summarize_chain 时出现 UnicodeEncodeError</title>
-      <link>https://community.openai.com/t/unicodeencodeerror-while-using-load-summarize-chain/634708#post_3</link>
-      <description><![CDATA[是的，这与库和 API 积分有关。
-Langchain 版本问题已解决：
-从 langchain_openai 导入 ChatOpenAI
-从 langchain.prompts 导入 PromptTemplate
-API 积分问题始终得到解决（笑）。
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/unicodeencodeerror-while-using-load-summarize-chain/634708#post_3</guid>
-      <pubDate>Sun, 03 Mar 2024 02:20:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过 API 编辑我的 GPT 以更新知识库文件</title>
-      <link>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_8</link>
-      <description><![CDATA[
-
-
- krusaderjake：
+      <title>愿景正在创造完全虚构的答案</title>
+      <link>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_3</link>
+      <description><![CDATA[欢迎@kbkev78
+在我对您的图像进行的测试中，它完美地回复了：
 &lt;块引用&gt;
-我更愿意使用 API
+该图像显示的计算机屏幕显示蓝屏死机 (BSOD)，这是系统崩溃后 Windows 操作系统上显示的常见错误屏幕。屏幕顶部有一个悲伤的表情符号，并显示一条消息：“您的设备遇到问题，需要重新启动。”我们只是收集一些错误信息，然后我们会为您重新启动。”消息下方是一个显示“0% 完成”的进度指示器，以及一个可能链接到有关该错误的更多信息的二维码。
+
+这是我使用的代码：
+从 openai 导入 OpenAI
+客户端 = OpenAI()
 
 
-然后制作一个 
-听起来你在这方面已经领先了，只是需要在以下方面做更多的工作：
+响应 = client.chat.completions.create(
+    型号=“gpt-4-vision-preview”，
+    消息=[
+        {
+            “角色”：“系统”，
+            “内容”： [
+                {
+                    “类型”：“文本”，
+                    &quot;text&quot;: &quot;用 json 格式的图像描述进行响应，并使用键&#39;description&#39;&quot;
+                },
+            ],
+        },
+        {
+            “角色”：“用户”，
+            “内容”： [
+                {
+                    “类型”：“图像_url”，
+                    “图像网址”：{
+                        “网址”：f“https://support.content.office.net/en-us/media/4c10ecfd-3008-4b00-9f98-d41b6f899c2d.png”
+                    }
+                },
 
+            ],
+        }
+    ],
+    最大令牌数=1000,
+）
 
-
- krusaderjake：
+打印（响应）
+]]></description>
+      <guid>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 05:52:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>评估另一个平台在 OpenAI 平台上开发的自定义 GPT 模块的设计</title>
+      <link>https://community.openai.com/t/assessing-the-design-of-a-custom-gpt-module-developed-on-the-openai-platform-by-another-platform/662321#post_3</link>
+      <description><![CDATA[我主要对评估宪法人工智能的合规标准感兴趣。]]></description>
+      <guid>https://community.openai.com/t/assessing-the-design-of-a-custom-gpt-module-developed-on-the-openai-platform-by-another-platform/662321#post_3</guid>
+      <pubDate>Sun, 03 Mar 2024 05:52:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>愿景正在创造完全虚构的答案</title>
+      <link>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_2</link>
+      <description><![CDATA[当您规定低温时会发生什么？答案有改善吗？]]></description>
+      <guid>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_2</guid>
+      <pubDate>Sun, 03 Mar 2024 05:42:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>线程/消息API应支持JSON模式</title>
+      <link>https://community.openai.com/t/the-thread-message-api-should-support-json-mode/663591#post_1</link>
+      <description><![CDATA[您好 OpenAI 团队，
+新的线程和助手 API 非常棒。我们正在尝试使用助手 API 根据给定的提示检索一些 Json 对象。 JSON 模式如果能出现在助手消息 API 中那就太棒了。
+Xz]]></description>
+      <guid>https://community.openai.com/t/the-thread-message-api-should-support-json-mode/663591#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 05:40:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>愿景正在创造完全虚构的答案</title>
+      <link>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_1</link>
+      <description><![CDATA[我正在使用 gpt-4-vision-preview 模型请求聊天完成，要求提供图像的描述。无论我发送 base64 还是 URL，我得到的响应都是完全由整体组成的。它与图像没有相似之处。它通常会对图像中的内容产生截然不同的完整幻觉，但如果网址中包含单词，则响应似乎是根据这些单词组成的。
+例如，https://support.content.office.net/en-us/media/4c10ecfd-3008-4b00-9f98-d41b6f899c2d.png 只是蓝屏的图像来自微软支持论坛的死亡事件。 Vision 显然使用 Microsoft 和 Office 一词自信地告诉我这一点：
 &lt;块引用&gt;
-不起作用，因为 OpenAI 具有响应大小限制，甚至无法从宽数据库表返回 100 行
+您提供的图片是 Microsoft Excel 程序的屏幕截图。它显示了一个电子表格，重点关注单元格 A1 到 D6。单元格包含以下数据：
+
+第 1 行包含标题：“日期”、“商品”、“成本”和“销售额”。
+第 2 行到第 6 行的“日期”列中包含不同的日期，“项目”列中列出了不同的项目，例如“小组件”和“小工具”，“成本”列中包含数值，“成本”列中包含数值。 “销售”栏。
+“成本”和“销售额”列的格式为货币。单元格 D6 是“销售”列中的底部单元格，具有蓝色边框，表示它可能已被选中或处于活动状态。没有可见的公式，顶部的功能区显示“主页”选项卡，表明当前没有使用特定的函数或格式选项。
 
 
-也许是时候稍微过滤一下响应数据了 ]]></description>
-      <guid>https://community.openai.com/t/edit-my-gpt-via-api-to-update-knowledge-base-files/663307#post_8</guid>
-      <pubDate>Sun, 03 Mar 2024 02:19:54 GMT</pubDate>
+我尝试提示它只报告图像中的内容等。我还改变了温度，但没有明显的效果。它只是不断地编造类似的非常详细的废话，有时还针对不同的 Microsoft Office 应用程序。]]></description>
+      <guid>https://community.openai.com/t/vision-is-creating-completely-made-up-answers/663583#post_1</guid>
+      <pubDate>Sun, 03 Mar 2024 05:29:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
