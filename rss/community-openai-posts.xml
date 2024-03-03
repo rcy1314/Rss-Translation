@@ -4,85 +4,38 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 03 Mar 2024 12:29:03 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2024 15:18:18 GMT</lastBuildDate>
     <item>
-      <title>如何拥有更长的上下文窗口？</title>
-      <link>https://community.openai.com/t/how-to-have-a-longer-context-window/663724#post_6</link>
-      <description><![CDATA[是的。我也会采纳 @_j 的建议。如果您有更大的数据集，这确实是更有效的方法。
-如果您决定采用基于嵌入的分类方法，并且您对嵌入不熟悉，那么您可以使用基于嵌入的分类方法。有限公司，那么 OpenAI 食谱中的以下工作示例将会派上用场。
-
-  &lt;标题类=“来源”&gt;
-      
-cookbook.openai.com
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-使用嵌入进行分类 | OpenAI 食谱
-使用 OpenAI API 进行构建的开源示例和指南。浏览片段、高级技术和演练的集合。分享您自己的示例和指南。
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/how-to-have-a-longer-context-window/663724#post_6</guid>
-      <pubDate>Sun, 03 Mar 2024 12:17:42 GMT</pubDate>
+      <title>错误代码：429 您超出了当前配额，请检查您的计划和账单详细信息</title>
+      <link>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/649547#post_5</link>
+      <description><![CDATA[我现在明白这里发生了什么。 OpenAI 改变了“现收现付”的处理方式。他们希望预先收到钱，而不是在月底只为您使用的费用付费。]]></description>
+      <guid>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/649547#post_5</guid>
+      <pubDate>Sun, 03 Mar 2024 15:17:30 GMT</pubDate>
     </item>
     <item>
-      <title>函数调用中可以有两个参数吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-have-two-arguments-in-a-function-call/663795#post_3</link>
-      <description><![CDATA[当然！让您的天气函数需要城市、日期范围、简单或扩展预报......
-您所展示的并不是供 AI 使用的完整函数定义。
-下面是您提供给聊天完成“函数”API 参数的示例函数规范（显示除“数组”之外的所有类型，其中指示输出多个项目，例如 5 个关键字，需要更高质量的函数描述） .
-函数 = [
-{
-    &quot;name&quot;: &quot;数据演示&quot;,
-    &quot;description&quot;: &quot;这是主要功能描述&quot;,
-    “参数”： {
-        “类型”：“对象”，
-        “特性”： {
-“string_1”：{“类型”：“字符串”，“描述”：“”}，
-&quot;number_2&quot;: {&quot;type&quot;: &quot;number&quot;, &quot;description&quot;: &quot;&quot;},
-&quot;boolean_3&quot;: {&quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;&quot;},
-&quot;empty_4&quot;: {&quot;type&quot;: &quot;null&quot;,&quot;description&quot;: &quot;这是对empty_4 null属性的描述&quot;},
-&quot;string_5_enum&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;Happy&quot;, &quot;Sad&quot;]},
-        },
-        “必需”：[“string_1”，“number_2”，“boolean_3”，“empty_4”，“string_5_enum”]
-    }
-}
-]
-
-string_1 等是名称。
-要求 AI 只需调用其函数来测试所有参数，您就会得到以下创意输出：
-{
-  ..
-  “选择”：[
-    {
-      “索引”：0，
-      “信息”： {
-        “角色”：“助理”，
-        “内容”：空，
-        “函数调用”：{
-          &quot;name&quot;: &quot;数据演示&quot;,
-          “参数”：“{
-  &quot;string_1&quot;: &quot;你好&quot;,
-  “number_2”：42，
-  “boolean_3”：真，
-  “empty_4”：空，
-  &quot;string_5_enum&quot;: &quot;快乐&quot;
-}”
-        }
-      },
-      “完成原因”：“函数调用”
-    }
-  ],...
-
-
-一个重要的警告是，人工智能通常会在没有足够信息的多个参数中弥补值。这需要更多关于每个信息源必须来自哪里的规范，并且除非看到或找到所有参数的值，否则无法使用该函数。
-&lt;小时/&gt;
-如果您实际上希望能够调用完全独立的函数，每个函数都有自己的一组参数，您可以使用“工具”的并行工具调用功能，例如，人工智能可以要求一次仅支持一个城市的功能提供三种不同的预测。]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-have-two-arguments-in-a-function-call/663795#post_3</guid>
-      <pubDate>Sun, 03 Mar 2024 11:42:45 GMT</pubDate>
+      <title>尽管添加了积分，但持续的 API 速率限制（错误代码：429）仍存在问题</title>
+      <link>https://community.openai.com/t/persistent-api-rate-limit-error-code-429-issues-despite-added-credits/662231#post_5</link>
+      <description><![CDATA[OpenAI 确实应该决定在临近月底时将现有月度用户切换为预付费用户。从月初开始持续一周多的每月账户计费已经导致过去两个月的处理延迟。现在，您已经处理了这些账单，并且有相同的客户需要进行购买。
+这很可能是正在发生的事情 - 看起来已购买和添加的积分仍会延迟在您的帐户上实际激活。
+您只需仔细检查您的主要结算概览，看看它是否仍然显示您按月结算，看看这是否是一个与现在要求使用延迟积分的问题不同的问题。]]></description>
+      <guid>https://community.openai.com/t/persistent-api-rate-limit-error-code-429-issues-despite-added-credits/662231#post_5</guid>
+      <pubDate>Sun, 03 Mar 2024 15:16:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>尽管添加了积分，但持续的 API 速率限制（错误代码：429）仍存在问题</title>
+      <link>https://community.openai.com/t/persistent-api-rate-limit-error-code-429-issues-despite-added-credits/662231#post_4</link>
+      <description><![CDATA[尽管我的帐户中添加了信用卡，但我突然遇到了同样的问题。
+在过去的几个月里，我的个人预算从未接近过 100 美元。我是自动计费的，这意味着我的使用情况会被跟踪，并在月底从我提供的信用卡中扣除金额。现在我什至手动添加了积分，但仍然收到不够配额的错误。
+&lt;img alt=&quot;Bildschirmfoto 2024-03-03 um 15.59.46 “高度=”234”src= “https://global.discourse-cdn.com/openai1/optimized/4X/6/5/0/650ef3e32f53d791c250002f08c6a9985e9715e6_2_690x234.png”宽度=“690”/&gt;]]></description>
+      <guid>https://community.openai.com/t/persistent-api-rate-limit-error-code-429-issues-despite-added-credits/662231#post_4</guid>
+      <pubDate>Sun, 03 Mar 2024 15:03:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>CreatiCode Scratch 插件 - 启用 ChatGPT 进行基于块的编码</title>
+      <link>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_30</link>
+      <description><![CDATA[感谢您的反馈。我们将在 Firefox 上调查该问题。请暂时使用 Chrome。]]></description>
+      <guid>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_30</guid>
+      <pubDate>Sun, 03 Mar 2024 14:50:17 GMT</pubDate>
     </item>
     </channel>
 </rss>
