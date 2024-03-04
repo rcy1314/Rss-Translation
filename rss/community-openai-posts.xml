@@ -4,172 +4,83 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 04 Mar 2024 11:10:52 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2024 12:35:14 GMT</lastBuildDate>
     <item>
-      <title>Openai 响应被截断</title>
-      <link>https://community.openai.com/t/openai-response-getting-truncated/664976#post_4</link>
-      <description><![CDATA[当您谈论 3000 in/1000 out 时，您仍在使用语言模型来生成语言推理。它可能有一个类似 gpt-3.5-turbo-instruct 的名称，该名称仅适用于完成端点，如果您改编了一些旧代码，则可能会使用它。
-Langchain 是一种在简单使用之前就需要完全理解的东西。与助手一样，它能够在内部迭代运行并清空您的帐户余额。]]></description>
-      <guid>https://community.openai.com/t/openai-response-getting-truncated/664976#post_4</guid>
-      <pubDate>Mon, 04 Mar 2024 11:09:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>删除存储中的所有内容</title>
-      <link>https://community.openai.com/t/deleting-everything-in-storage/664945#post_2</link>
-      <description><![CDATA[我为您制作了一个用于管理助手文件的 python 实用程序，它比仅执行灾难性数据丢失更安全。
-== 助手文件实用程序 ==
-[1] 上传文件
-[2] 列出所有文件
-[3] 列出全部并删除您选择的一项
-[4]删除所有辅助文件（需确认）
-[9] 退出
-输入您的选择：
-
-警告：其他人代码中的错误仍然可能导致助手破坏性损失，因此请先了解我的代码。
-Python
-从 openai 导入 OpenAI
-导入日期时间
-
-# 初始化OpenAI客户端
-客户端 = OpenAI()
-
-def upload_file():
-    filename = input(&quot;请输入要上传的文件名：&quot;)
-    尝试：
-        以 open(filename, &quot;rb&quot;) 作为文件：
-            响应= client.files.create（文件=文件，目的=“助手”）
-            打印（响应）
-            print(f&quot;文件上传成功：{response.filename} [{response.id}]&quot;)
-    除了文件未找到错误：
-        print(&quot;未找到文件。请确保文件名和路径正确。&quot;)
-
-def list_files():
-    响应 = client.files.list(目的=“助手”)
-    if len(response.data) == 0:
-        print(&quot;没有找到文件。&quot;)
-        返回
-    对于response.data中的文件：
-        创建日期 = datetime.datetime.utcfromtimestamp(file.created_at).strftime(&#39;%Y-%m-%d&#39;)
-        print(f&quot;{file.filename} [{file.id}], 创建时间: {created_date}&quot;)
-
-def list_and_delete_file():
-    而真实：
-        响应 = client.files.list(目的=“助手”)
-        文件=列表（响应.数据）
-        如果 len(文件) == 0:
-            print(&quot;没有找到文件。&quot;)
-            返回
-        对于 i，枚举中的文件（文件，start = 1）：
-            创建日期 = datetime.datetime.utcfromtimestamp(file.created_at).strftime(&#39;%Y-%m-%d&#39;)
-            print(f&quot;[{i}] {file.filename} [{file.id}], 创建: {created_date}&quot;)
-        choice = input(&quot;输入要删除的文件编号，或任何其他输入以返回菜单：&quot;)
-        如果不是 choice.isdigit() 或 int(choice) &lt; 1 或 int(选择) &gt;长度（文件）：
-            返回
-        selected_file = 文件[int(选择) - 1]
-        client.files.delete(selected_file.id)
-        print(f&quot;文件已删除：{selected_file.filename}&quot;)
-
-def delete_all_files():
-    确认 = 输入（“这将删除所有目的为‘助手’的 OpenAI 文件。\n 输入‘YES’进行确认：”)
-    如果确认==“是”：
-        响应 = client.files.list(目的=“助手”)
-        对于response.data中的文件：
-            client.files.delete(file.id)
-        print(&quot;所有带有‘助手’的文件都已被删除。”)
-    别的：
-        print(&quot;操作已取消。&quot;)
-
-def main():
-    而真实：
-        print(&quot;\n== 助手文件实用程序 ==&quot;)
-        print(&quot;[1]上传文件&quot;)
-        print(&quot;[2]列出所有文件&quot;)
-        print(&quot;[3] 列出所有并删除您选择的一项&quot;)
-        print(&quot;[4]删除所有辅助文件(需确认)&quot;)
-        print(&quot;[9] 退出&quot;)
-        choice = input(&quot;请输入您的选择：&quot;)
-
-        如果选择==“1”：
-            上传文件（）
-        elif 选择==“2”：
-            列表文件()
-        elif 选择==“3”：
-            列表并删除文件()
-        elif 选择==“4”：
-            删除所有文件()
-        elif 选择==“9”：
-            休息
-        别的：
-            print(&quot;选择无效，请重试。&quot;)
-
-如果 __name__ == &quot;__main__&quot;:
-    主要的（）
-
-
-]]></description>
-      <guid>https://community.openai.com/t/deleting-everything-in-storage/664945#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 11:05:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT-4（PRO）应该能够处理更大的 .docx 文档</title>
-      <link>https://community.openai.com/t/chatgpt-4-pro-should-be-able-to-process-larger-docx-documents/665078#post_1</link>
-      <description><![CDATA[我附上了一份 256 页的文档，其中有一本书是用罗马尼亚语写的。我建议 ChatGPT 纠正我的工作，并在适当的情况下在我的文字中添加重音符号（变音符号）。
-这是ChatGPT-4的答案。我还尝试了 4 种不同的工具（插件），例如“GrammarGuru”或“Deeper”。两者都给了我相同的答案：
-&lt;块引用&gt;
-我开始分析您文档中的文本，发现有必要在罗马尼亚语文本中更正和添加变音符号。该文本似乎是一部关于弗朗西斯科·佩特拉卡及其对文学影响的作品，特别提到了他的作品和哲学。
-要更正文本并添加变音符号，我将按照以下步骤操作：识别所有需要变音符号的单词（ă、â、î、ş、ś），更正任何拼写或印刷错误，最后重新格式化文本以符合规则罗马尼亚语当前的拼写和标点符号。此过程包括按点调整大小写、检查和弦以及确保风格一致性。
-不幸的是，由于文档的大小和复杂性，我无法在这里完全手动进行这些更正。我建议您使用具有添加罗马尼亚语变音符号功能的文字处理工具。在线或文本编辑软件中有多种此类工具可以自动执行此过程。
-
-打印屏幕：
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-pro-should-be-able-to-process-larger-docx-documents/665078#post_1</guid>
-      <pubDate>Mon, 04 Mar 2024 11:00:28 GMT</pubDate>
+      <title>感谢 Logan Kilpatrick 与 OpenAI 的合作</title>
+      <link>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_14</link>
+      <description><![CDATA[也希望洛根也能如此。从来没有太多互动，但总是关注他勤奋的更新。甚至有一次联系我，询问我是否可以从印度飞来参加会议 ]]></description>
+      <guid>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_14</guid>
+      <pubDate>Mon, 04 Mar 2024 12:34:30 GMT</pubDate>
     </item>
     <item>
       <title>句子分类解决方案</title>
-      <link>https://community.openai.com/t/sentence-classification-solution/664192#post_4</link>
-      <description><![CDATA[感谢您的详细回复。
-想知道每个类别需要多少数据量才能通过这种方法获得良好的结果？现在我们可能可以添加数百个，但是根据您的经验，这会得到好的结果吗？]]></description>
-      <guid>https://community.openai.com/t/sentence-classification-solution/664192#post_4</guid>
-      <pubDate>Mon, 04 Mar 2024 10:58:20 GMT</pubDate>
+      <link>https://community.openai.com/t/sentence-classification-solution/664192#post_5</link>
+      <description><![CDATA[对于分类，取决于你要分类多少个类别。
+使用嵌入式模型代替 LLM 进行分类可能非常经济高效，但它需要更多样本，因为 LLM 中包含的知识不可用。
+一般来说，您拥有的类别越多，您需要的样本就越多。
+但即使有数百个示例，这种方法也可以给出良好的结果。
+数据相对较少，类别之间是否存在明显差异，或者预训练的嵌入模型（尽管我在这里提到了 OpenAI 嵌入模型）与目标领域高度相关。
+未经实验，实际结果是未知的，但如果您有数百个示例，我建议首先尝试使用该数据的嵌入式模型。
+如果您有足够的数据与要分类的数据相匹配，则分类效果会很好。
+然后，如果准确性不够好，您可能需要考虑增加您拥有的数据量。
+嵌入愉快！]]></description>
+      <guid>https://community.openai.com/t/sentence-classification-solution/664192#post_5</guid>
+      <pubDate>Mon, 04 Mar 2024 12:32:58 GMT</pubDate>
     </item>
     <item>
-      <title>如何将我创建的 MyGPT 分配给工作区的其他成员？</title>
-      <link>https://community.openai.com/t/how-can-i-assign-a-mygpt-that-i-have-created-to-another-member-of-the-workspace/665076#post_1</link>
-      <description><![CDATA[碰巧，我在我的帐户上创建了 5 个 MyGPT 模型，而另一个用户（不记得他们是如何做到的）现在显示为我创建的 5 个模型之一的创建者。]]></description>
-      <guid>https://community.openai.com/t/how-can-i-assign-a-mygpt-that-i-have-created-to-another-member-of-the-workspace/665076#post_1</guid>
-      <pubDate>Mon, 04 Mar 2024 10:57:59 GMT</pubDate>
+      <title>openai.NotFoundError：错误代码404，python找不到助手</title>
+      <link>https://community.openai.com/t/openai-notfounderror-error-code-404-python-cant-find-assistant/544073#post_3</link>
+      <description><![CDATA[我有完全相同的问题：我可以创建一个客户端。聊天完成 API 工作正常。但是当我尝试创建助手时，它给了我一个“NotFoundError：错误代码：404 - {&#39;error&#39;：{&#39;code&#39;：&#39;404&#39;，&#39;message&#39;：&#39;资源未找到&#39;}}”
+如有任何帮助，我们将不胜感激！]]></description>
+      <guid>https://community.openai.com/t/openai-notfounderror-error-code-404-python-cant-find-assistant/544073#post_3</guid>
+      <pubDate>Mon, 04 Mar 2024 12:30:52 GMT</pubDate>
     </item>
     <item>
-      <title>寻找具有 WebFlux Java 知识的爱好者</title>
-      <link>https://community.openai.com/t/looking-for-enthusiasts-with-webflux-java-knowledge/139809#post_2</link>
-      <description><![CDATA[是否可以像 ChatGPT 自己的界面一样（逐段）以这种方式传输 AI 的响应？]]></description>
-      <guid>https://community.openai.com/t/looking-for-enthusiasts-with-webflux-java-knowledge/139809#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 10:55:43 GMT</pubDate>
+      <title>如何在某一点后强制重置/删除/忘记聊天记录</title>
+      <link>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_1</link>
+      <description><![CDATA[此刻我正在思考一个简单的脚本/问题。
+
+给出了数百个文档 (txt)，10 到 30 页之间
+针对每个文档都会提出一组标准化问题，答案存储在 cvs 文件中
+
+由于文档没有连接，并且gpt-4-0125的上下文窗口是128k token，所以我的想法是直接上传txt文件作为提示，而不是走矢量数据库路线。
+或者提示的大小是否有限制？
+提示 1：“我提供一条文本。请记住这一点，因为我会提出一个问题。请尽可能简短地回答。/n/n{text}/n 请按“确定”进行确认。之后我会提出问题。”
+答案 1：“好的”或任何其他内容，并不重要
+问题 1：“请回答以下问题：{text}”
+答案 2：{answer}
+我现在想要的是
+
+将“答案 2”存储在 cvs 文件中
+从聊天记录中删除答案 2 和问题 1
+提出新问题
+重复直到提出所有问题
+
+我的目标是不上传每个问题的文本，但我也希望文本的答案不会相互干扰。每个问答周期都应是“新鲜的”。]]></description>
+      <guid>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_1</guid>
+      <pubDate>Mon, 04 Mar 2024 12:28:01 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成时工具调用间歇性失败：寻求解决方案</title>
-      <link>https://community.openai.com/t/intermittent-tool-invocation-failure-in-chat-completion-seeking-solutions/665069#post_1</link>
-      <description><![CDATA[我在通过聊天完成调用工具时遇到了概率失败的问题。具体来说，当我在提示中包含工具调用命令并在 tools 参数中指定工具时，响应偶尔会显示“我当前无法直接调用 [特定工具]”，概率为随着输入标记长度的增加，出现此问题的概率也随之增加。我尝试更改该工具的名称，但这并没有解决问题。下面是我测试过的失败概率分布图。 x 轴表示输入令牌的数量，y 轴表示失败概率。谁能建议如何解决这个问题？
- ]]></description>
-      <guid>https://community.openai.com/t/intermittent-tool-invocation-failure-in-chat-completion-seeking-solutions/665069#post_1</guid>
-      <pubDate>Mon, 04 Mar 2024 10:54:58 GMT</pubDate>
+      <title>在聊天记录中切换回 GPT 4 模型</title>
+      <link>https://community.openai.com/t/switching-back-to-gpt-4-model-in-chat-history/279563#post_3</link>
+      <description><![CDATA[似乎不起作用 ChatGPT 4 会说它无法使用外部链接。这几乎就像出于隐私原因而被阻止的共享链接。我想当我尝试的时候，4 甚至说过这样的话。]]></description>
+      <guid>https://community.openai.com/t/switching-back-to-gpt-4-model-in-chat-history/279563#post_3</guid>
+      <pubDate>Mon, 04 Mar 2024 12:14:47 GMT</pubDate>
     </item>
     <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_479</link>
-      <description><![CDATA[大家的建议都很好，感谢分享 - 我很高兴看到这个帖子，因为讨论了一些我不知道的事情。
-过去几个月我一直在尝试学习如何提示。
-我们花了很多时间研究电影和电视大师的照明技术，然后将其转化为详细的提示，解释光源和颜色以及房间区域的光反射和光源的颜色。我相信这对解释我想要的风格有很大帮助，而无需实际说“以 foobar 艺术家的风格”等或提及商标或任何流派/艺术运动的名称。好吧，我说过几次孟菲斯设计的 10% 融合风格，因为它让一些东西真的更“流行”一点。 ]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_479</guid>
-      <pubDate>Mon, 04 Mar 2024 10:51:31 GMT</pubDate>
+      <title>消息上下文 - 每个线程还是每个助手？</title>
+      <link>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_8</link>
+      <description><![CDATA[不，我没有，我害怕。我假设它是每个线程的，但最好能确定 ]]></description>
+      <guid>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_8</guid>
+      <pubDate>Mon, 04 Mar 2024 12:13:39 GMT</pubDate>
     </item>
     <item>
-      <title>Vision API - 通过 Azure Blind 或者我错过了什么？</title>
-      <link>https://community.openai.com/t/vision-api-through-azure-blind-or-what-am-i-missing/662188#post_4</link>
-      <description><![CDATA[您能否分享导致问题的示例图像？]]></description>
-      <guid>https://community.openai.com/t/vision-api-through-azure-blind-or-what-am-i-missing/662188#post_4</guid>
-      <pubDate>Mon, 04 Mar 2024 10:47:31 GMT</pubDate>
+      <title>请求恢复帐户</title>
+      <link>https://community.openai.com/t/request-for-account-reinstatement/665149#post_2</link>
+      <description><![CDATA[您好@babao Huang - 不幸的是，这些类型的请求无法通过此论坛处理。您必须等待 OpenAI 支持团队就此事做出回应。
+与此同时，您可以考虑通过其他方式（例如 Azure）使用 OpenAI 的 API，如果这能给您带来一丝安慰的话。]]></description>
+      <guid>https://community.openai.com/t/request-for-account-reinstatement/665149#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 12:03:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
