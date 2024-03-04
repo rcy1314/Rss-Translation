@@ -4,83 +4,150 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 04 Mar 2024 12:35:14 GMT</lastBuildDate>
-    <item>
-      <title>感谢 Logan Kilpatrick 与 OpenAI 的合作</title>
-      <link>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_14</link>
-      <description><![CDATA[也希望洛根也能如此。从来没有太多互动，但总是关注他勤奋的更新。甚至有一次联系我，询问我是否可以从印度飞来参加会议 ]]></description>
-      <guid>https://community.openai.com/t/thanking-logan-kilpatrick-for-his-time-with-openai/661984#post_14</guid>
-      <pubDate>Mon, 04 Mar 2024 12:34:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>句子分类解决方案</title>
-      <link>https://community.openai.com/t/sentence-classification-solution/664192#post_5</link>
-      <description><![CDATA[对于分类，取决于你要分类多少个类别。
-使用嵌入式模型代替 LLM 进行分类可能非常经济高效，但它需要更多样本，因为 LLM 中包含的知识不可用。
-一般来说，您拥有的类别越多，您需要的样本就越多。
-但即使有数百个示例，这种方法也可以给出良好的结果。
-数据相对较少，类别之间是否存在明显差异，或者预训练的嵌入模型（尽管我在这里提到了 OpenAI 嵌入模型）与目标领域高度相关。
-未经实验，实际结果是未知的，但如果您有数百个示例，我建议首先尝试使用该数据的嵌入式模型。
-如果您有足够的数据与要分类的数据相匹配，则分类效果会很好。
-然后，如果准确性不够好，您可能需要考虑增加您拥有的数据量。
-嵌入愉快！]]></description>
-      <guid>https://community.openai.com/t/sentence-classification-solution/664192#post_5</guid>
-      <pubDate>Mon, 04 Mar 2024 12:32:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>openai.NotFoundError：错误代码404，python找不到助手</title>
-      <link>https://community.openai.com/t/openai-notfounderror-error-code-404-python-cant-find-assistant/544073#post_3</link>
-      <description><![CDATA[我有完全相同的问题：我可以创建一个客户端。聊天完成 API 工作正常。但是当我尝试创建助手时，它给了我一个“NotFoundError：错误代码：404 - {&#39;error&#39;：{&#39;code&#39;：&#39;404&#39;，&#39;message&#39;：&#39;资源未找到&#39;}}”
-如有任何帮助，我们将不胜感激！]]></description>
-      <guid>https://community.openai.com/t/openai-notfounderror-error-code-404-python-cant-find-assistant/544073#post_3</guid>
-      <pubDate>Mon, 04 Mar 2024 12:30:52 GMT</pubDate>
-    </item>
+    <lastBuildDate>Mon, 04 Mar 2024 15:19:43 GMT</lastBuildDate>
     <item>
       <title>如何在某一点后强制重置/删除/忘记聊天记录</title>
-      <link>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_1</link>
-      <description><![CDATA[此刻我正在思考一个简单的脚本/问题。
+      <link>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_2</link>
+      <description><![CDATA[欢迎来到社区！
+我有坏消息，但对你来说可能是更好的消息。
+您可能对该技术的工作原理存在根本性的误解。
 
-给出了数百个文档 (txt)，10 到 30 页之间
-针对每个文档都会提出一组标准化问题，答案存储在 cvs 文件中
 
-由于文档没有连接，并且gpt-4-0125的上下文窗口是128k token，所以我的想法是直接上传txt文件作为提示，而不是走矢量数据库路线。
-或者提示的大小是否有限制？
+
+马塞尔.休宁豪斯：
+&lt;块引用&gt;
 提示 1：“我提供一条文本。请记住这一点，因为我会提出一个问题。请尽可能简短地回答。/n/n{text}/n 请按“确定”进行确认。之后我会提出问题。”
 答案 1：“好的”或任何其他内容，并不重要
-问题 1：“请回答以下问题：{text}”
-答案 2：{answer}
-我现在想要的是
 
-将“答案 2”存储在 cvs 文件中
-从聊天记录中删除答案 2 和问题 1
-提出新问题
-重复直到提出所有问题
 
-我的目标是不上传每个问题的文本，但我也希望文本的答案不会相互干扰。每个问答周期都应是“新鲜的”。]]></description>
-      <guid>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_1</guid>
-      <pubDate>Mon, 04 Mar 2024 12:28:01 GMT</pubDate>
+这是完全没有必要的。该模型不会“摄取”或思考您的文本。对于生成的每个标记（“单词”），模型基本上会再次“读取”整个文本。
+这是个好消息：
+你想做的事情是很有可能的。你不需要让模型忘记，因为它不需要 - 它不会知道你没有向它展示什么（除了它训练有素的知识，这些知识在 23 年 4 月的某个地方被切断了）。&lt; /p&gt;
+所以你可以做这样的事情：
+&lt;小时/&gt;
+&lt;块引用&gt;
+系统
+&lt;块引用&gt;
+您是 QA 机器人。你的工作是回答给定特定文本的问题。布拉布拉布拉。
+
+用户
+&lt;块引用&gt;
+这是一段文字：
+------------
+{文本}
+------------
+根据上面的文字，请回答以下问题：
+{问题}
+
+
+然后就会输出响应。我们称之为“响应” 
+&lt;小时/&gt;
+然后我们可以进去并拨打另一个电话：
+&lt;块引用&gt;
+系统
+&lt;块引用&gt;
+您是 CSV 机器人。您的工作是将散文转换为结构化 CSV 数据。
+您的回复必须遵循以下架构：
+{架构}
+
+用户
+&lt;块引用&gt;
+这里有一些自由文本：
+------------
+{答案}
+------------
+请将上面的文本转换为 CSV。
+确保您的回复是纯 CSV。请勿包含闲聊。如果您的响应不是纯 CSV，系统将会崩溃。从标题开始您的回复。
+
+
+&lt;小时/&gt;
+所以tldr：如果你可以回滚时间，就不需要让它忘记东西]]></description>
+      <guid>https://community.openai.com/t/how-to-force-to-reset-delete-forget-chat-history-after-a-certain-point/665198#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 15:18:28 GMT</pubDate>
     </item>
     <item>
-      <title>在聊天记录中切换回 GPT 4 模型</title>
-      <link>https://community.openai.com/t/switching-back-to-gpt-4-model-in-chat-history/279563#post_3</link>
-      <description><![CDATA[似乎不起作用 ChatGPT 4 会说它无法使用外部链接。这几乎就像出于隐私原因而被阻止的共享链接。我想当我尝试的时候，4 甚至说过这样的话。]]></description>
-      <guid>https://community.openai.com/t/switching-back-to-gpt-4-model-in-chat-history/279563#post_3</guid>
-      <pubDate>Mon, 04 Mar 2024 12:14:47 GMT</pubDate>
+      <title>ChatGPT复制到剪贴板功能（格式化）</title>
+      <link>https://community.openai.com/t/chatgpt-copy-to-clipboard-function-formatting/357931#post_2</link>
+      <description><![CDATA[请问您可以发送 chrome 插件的链接吗？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-copy-to-clipboard-function-formatting/357931#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 15:15:07 GMT</pubDate>
     </item>
     <item>
-      <title>消息上下文 - 每个线程还是每个助手？</title>
-      <link>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_8</link>
-      <description><![CDATA[不，我没有，我害怕。我假设它是每个线程的，但最好能确定 ]]></description>
-      <guid>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_8</guid>
-      <pubDate>Mon, 04 Mar 2024 12:13:39 GMT</pubDate>
+      <title>我被禁止了，我不知道为什么</title>
+      <link>https://community.openai.com/t/i-am-banned-and-i-have-no-idea-why/665420#post_1</link>
+      <description><![CDATA[我的聊天 GPT 帐户退还了我 20 美元，然后给我写了一封电子邮件，内容如下：
+我们确定您使用 OpenAI 服务的方式违反了我们的政策。
+由于这一违规行为，我们将立即停止与电子邮件电子邮件关联的帐户访问我们的产品。常见的违规原因包括违反我们的[使用政策]或从[不受支持的位置]访问我们的服务。您可能还希望查看我们的[使用条款]。
+如果您认为这是错误的并想提出申诉，请通过我们的[帮助中心]与我们联系。我们将审核您的申诉，并在恢复您的访问权限后与您联系。
+最好，
+OpenAI团队
+我使用 ChatGPT 来编写代码，因为我是一名开发人员，并为我的山羊瑜伽业务宣传语编写文本。我很困惑我违反了什么政策。然后，如何使用聊天机器人与帮助中心的上诉人实际联系是非常令人困惑的。帮助！]]></description>
+      <guid>https://community.openai.com/t/i-am-banned-and-i-have-no-idea-why/665420#post_1</guid>
+      <pubDate>Mon, 04 Mar 2024 15:13:50 GMT</pubDate>
     </item>
     <item>
-      <title>请求恢复帐户</title>
-      <link>https://community.openai.com/t/request-for-account-reinstatement/665149#post_2</link>
-      <description><![CDATA[您好@babao Huang - 不幸的是，这些类型的请求无法通过此论坛处理。您必须等待 OpenAI 支持团队就此事做出回应。
-与此同时，您可以考虑通过其他方式（例如 Azure）使用 OpenAI 的 API，如果这能给您带来一丝安慰的话。]]></description>
-      <guid>https://community.openai.com/t/request-for-account-reinstatement/665149#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 12:03:57 GMT</pubDate>
+      <title>使用 OpenAIEmbeddings，我没有收到正确的响应</title>
+      <link>https://community.openai.com/t/using-openaiembeddings-i-am-not-receiving-a-proper-response/665272#post_3</link>
+      <description><![CDATA[如果您无法使用信用余额支付服务费用，OpenAI 不会做出任何响应，只会显示错误。
+https://platform.openai.com/帐户/计费/概述]]></description>
+      <guid>https://community.openai.com/t/using-openaiembeddings-i-am-not-receiving-a-proper-response/665272#post_3</guid>
+      <pubDate>Mon, 04 Mar 2024 15:03:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>标题：使用 OpenAI Assistant 实现文本提取、修改和文件重新生成</title>
+      <link>https://community.openai.com/t/title-implementing-text-extraction-modification-and-file-regeneration-with-openai-assistant/660668#post_6</link>
+      <description><![CDATA[嗯，代码解释器可以使用 python 打开和创建 docx 文件......]]></description>
+      <guid>https://community.openai.com/t/title-implementing-text-extraction-modification-and-file-regeneration-with-openai-assistant/660668#post_6</guid>
+      <pubDate>Mon, 04 Mar 2024 15:02:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT Plus 订阅访问</title>
+      <link>https://community.openai.com/t/chatgpt-plus-subscription-access/657276#post_2</link>
+      <description><![CDATA[同样的问题，有人解决了吗？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-plus-subscription-access/657276#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 15:02:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>提高我的速率限制</title>
+      <link>https://community.openai.com/t/increasing-my-rate-limits/665134#post_3</link>
+      <description><![CDATA[更清楚地说：该 API 不是免费的。您可以处于“免费套餐”，因为您从未向 OpenAI 支付过任何费用，但如果您没有任何可用积分，则仍然没有任何资金来支付服务费用。
+页面右侧的使用情况显示可能已授予的任何免费试用金额，如果已过期，剩余部分将显示为粉红色： https://platform.openai.com/usage
+账单概览显示您当前的预付信用额，如果您尚未从“免费”毕业，则该信用额将为 0.00 美元。 https://platform.openai.com/account/billing/overview]]></description>
+      <guid>https://community.openai.com/t/increasing-my-rate-limits/665134#post_3</guid>
+      <pubDate>Mon, 04 Mar 2024 15:01:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>标题：使用 OpenAI Assistant 实现文本提取、修改和文件重新生成</title>
+      <link>https://community.openai.com/t/title-implementing-text-extraction-modification-and-file-regeneration-with-openai-assistant/660668#post_5</link>
+      <description><![CDATA[您能详细说明一下这个功能吗？我们怎样才能做到这一点]]></description>
+      <guid>https://community.openai.com/t/title-implementing-text-extraction-modification-and-file-regeneration-with-openai-assistant/660668#post_5</guid>
+      <pubDate>Mon, 04 Mar 2024 15:01:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 OpenAIEmbeddings，我没有收到正确的响应</title>
+      <link>https://community.openai.com/t/using-openaiembeddings-i-am-not-receiving-a-proper-response/665272#post_2</link>
+      <description><![CDATA[您好@harsh.rajguru2 - 欢迎来到论坛。
+您能否分享一些有关您要嵌入的文本、您正在使用的 OpenAI 嵌入模型、您收到的错误代码等的更多详细信息？这将有助于查明可能的根本原因。]]></description>
+      <guid>https://community.openai.com/t/using-openaiembeddings-i-am-not-receiving-a-proper-response/665272#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 14:59:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>从文本转语音 api 进行流式传输</title>
+      <link>https://community.openai.com/t/streaming-from-text-to-speech-api/493784?page=2#post_35</link>
+      <description><![CDATA[谢谢！是的，我试图使用流式响应来让它感觉更实时，但似乎有些浏览器还不能很好地使用它。
+我尝试使用 MediaSource API 附加从服务器传入的块，但工作起来并不简单。]]></description>
+      <guid>https://community.openai.com/t/streaming-from-text-to-speech-api/493784?page=2#post_35</guid>
+      <pubDate>Mon, 04 Mar 2024 14:55:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>耳语语言识别</title>
+      <link>https://community.openai.com/t/whisper-language-recognition/665358#post_2</link>
+      <description><![CDATA[Whisper API 有两种参数机制，可以增强其对语言的遵守：（两个字母代码）
+提示：（导致要转录的音频开始的语言）
+如果从你嘴里发出的音节植根于另一种语言并受到另一种语言的影响，Whisper 具有不可思议的能力，可以调整该音节并尽早做出决定。
+您甚至可以在音频中添加几秒钟的母语人士的声音来对齐转录，这是足够可靠的，可以在之后通过丢弃第一句话来删除。如果人工智能有任何智能的迹象，甚至是“我们对一位非德语母语人士的采访现在继续用德语进行”的内容。 （“Unser Interview mit einer Person, die Deutsch nicht als Mutterspra​​che spricht und das ausschließlich auf Deutsch geführt wird, geht nun weiter。”）]]></description>
+      <guid>https://community.openai.com/t/whisper-language-recognition/665358#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 14:54:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
