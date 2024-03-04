@@ -4,53 +4,172 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 04 Mar 2024 07:10:42 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2024 11:10:52 GMT</lastBuildDate>
     <item>
-      <title>创建图像时出错 连续错误</title>
-      <link>https://community.openai.com/t/error-creating-image-continuous-errors/613498#post_2</link>
-      <description><![CDATA[过去 24 小时我遇到了同样的问题，您有解决方案吗？]]></description>
-      <guid>https://community.openai.com/t/error-creating-image-continuous-errors/613498#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 07:07:56 GMT</pubDate>
+      <title>Openai 响应被截断</title>
+      <link>https://community.openai.com/t/openai-response-getting-truncated/664976#post_4</link>
+      <description><![CDATA[当您谈论 3000 in/1000 out 时，您仍在使用语言模型来生成语言推理。它可能有一个类似 gpt-3.5-turbo-instruct 的名称，该名称仅适用于完成端点，如果您改编了一些旧代码，则可能会使用它。
+Langchain 是一种在简单使用之前就需要完全理解的东西。与助手一样，它能够在内部迭代运行并清空您的帐户余额。]]></description>
+      <guid>https://community.openai.com/t/openai-response-getting-truncated/664976#post_4</guid>
+      <pubDate>Mon, 04 Mar 2024 11:09:42 GMT</pubDate>
     </item>
     <item>
-      <title>函数调用总是返回错误的结果</title>
-      <link>https://community.openai.com/t/function-calling-always-return-wrong-result/664722#post_3</link>
-      <description><![CDATA[感谢您的回复。
-json发送到api没问题，发现提示错误，并且没有命令GPT做正确的动作]]></description>
-      <guid>https://community.openai.com/t/function-calling-always-return-wrong-result/664722#post_3</guid>
-      <pubDate>Mon, 04 Mar 2024 06:59:23 GMT</pubDate>
+      <title>删除存储中的所有内容</title>
+      <link>https://community.openai.com/t/deleting-everything-in-storage/664945#post_2</link>
+      <description><![CDATA[我为您制作了一个用于管理助手文件的 python 实用程序，它比仅执行灾难性数据丢失更安全。
+== 助手文件实用程序 ==
+[1] 上传文件
+[2] 列出所有文件
+[3] 列出全部并删除您选择的一项
+[4]删除所有辅助文件（需确认）
+[9] 退出
+输入您的选择：
+
+警告：其他人代码中的错误仍然可能导致助手破坏性损失，因此请先了解我的代码。
+Python
+从 openai 导入 OpenAI
+导入日期时间
+
+# 初始化OpenAI客户端
+客户端 = OpenAI()
+
+def upload_file():
+    filename = input(&quot;请输入要上传的文件名：&quot;)
+    尝试：
+        以 open(filename, &quot;rb&quot;) 作为文件：
+            响应= client.files.create（文件=文件，目的=“助手”）
+            打印（响应）
+            print(f&quot;文件上传成功：{response.filename} [{response.id}]&quot;)
+    除了文件未找到错误：
+        print(&quot;未找到文件。请确保文件名和路径正确。&quot;)
+
+def list_files():
+    响应 = client.files.list(目的=“助手”)
+    if len(response.data) == 0:
+        print(&quot;没有找到文件。&quot;)
+        返回
+    对于response.data中的文件：
+        创建日期 = datetime.datetime.utcfromtimestamp(file.created_at).strftime(&#39;%Y-%m-%d&#39;)
+        print(f&quot;{file.filename} [{file.id}], 创建时间: {created_date}&quot;)
+
+def list_and_delete_file():
+    而真实：
+        响应 = client.files.list(目的=“助手”)
+        文件=列表（响应.数据）
+        如果 len(文件) == 0:
+            print(&quot;没有找到文件。&quot;)
+            返回
+        对于 i，枚举中的文件（文件，start = 1）：
+            创建日期 = datetime.datetime.utcfromtimestamp(file.created_at).strftime(&#39;%Y-%m-%d&#39;)
+            print(f&quot;[{i}] {file.filename} [{file.id}], 创建: {created_date}&quot;)
+        choice = input(&quot;输入要删除的文件编号，或任何其他输入以返回菜单：&quot;)
+        如果不是 choice.isdigit() 或 int(choice) &lt; 1 或 int(选择) &gt;长度（文件）：
+            返回
+        selected_file = 文件[int(选择) - 1]
+        client.files.delete(selected_file.id)
+        print(f&quot;文件已删除：{selected_file.filename}&quot;)
+
+def delete_all_files():
+    确认 = 输入（“这将删除所有目的为‘助手’的 OpenAI 文件。\n 输入‘YES’进行确认：”)
+    如果确认==“是”：
+        响应 = client.files.list(目的=“助手”)
+        对于response.data中的文件：
+            client.files.delete(file.id)
+        print(&quot;所有带有‘助手’的文件都已被删除。”)
+    别的：
+        print(&quot;操作已取消。&quot;)
+
+def main():
+    而真实：
+        print(&quot;\n== 助手文件实用程序 ==&quot;)
+        print(&quot;[1]上传文件&quot;)
+        print(&quot;[2]列出所有文件&quot;)
+        print(&quot;[3] 列出所有并删除您选择的一项&quot;)
+        print(&quot;[4]删除所有辅助文件(需确认)&quot;)
+        print(&quot;[9] 退出&quot;)
+        choice = input(&quot;请输入您的选择：&quot;)
+
+        如果选择==“1”：
+            上传文件（）
+        elif 选择==“2”：
+            列表文件()
+        elif 选择==“3”：
+            列表并删除文件()
+        elif 选择==“4”：
+            删除所有文件()
+        elif 选择==“9”：
+            休息
+        别的：
+            print(&quot;选择无效，请重试。&quot;)
+
+如果 __name__ == &quot;__main__&quot;:
+    主要的（）
+
+
+]]></description>
+      <guid>https://community.openai.com/t/deleting-everything-in-storage/664945#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 11:05:20 GMT</pubDate>
     </item>
     <item>
-      <title>CreatiCode Scratch 插件 - 启用 ChatGPT 进行基于块的编码</title>
-      <link>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_32</link>
-      <description><![CDATA[
-重新加载选项卡，看起来没问题。]]></description>
-      <guid>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_32</guid>
-      <pubDate>Mon, 04 Mar 2024 06:52:54 GMT</pubDate>
+      <title>ChatGPT-4（PRO）应该能够处理更大的 .docx 文档</title>
+      <link>https://community.openai.com/t/chatgpt-4-pro-should-be-able-to-process-larger-docx-documents/665078#post_1</link>
+      <description><![CDATA[我附上了一份 256 页的文档，其中有一本书是用罗马尼亚语写的。我建议 ChatGPT 纠正我的工作，并在适当的情况下在我的文字中添加重音符号（变音符号）。
+这是ChatGPT-4的答案。我还尝试了 4 种不同的工具（插件），例如“GrammarGuru”或“Deeper”。两者都给了我相同的答案：
+&lt;块引用&gt;
+我开始分析您文档中的文本，发现有必要在罗马尼亚语文本中更正和添加变音符号。该文本似乎是一部关于弗朗西斯科·佩特拉卡及其对文学影响的作品，特别提到了他的作品和哲学。
+要更正文本并添加变音符号，我将按照以下步骤操作：识别所有需要变音符号的单词（ă、â、î、ş、ś），更正任何拼写或印刷错误，最后重新格式化文本以符合规则罗马尼亚语当前的拼写和标点符号。此过程包括按点调整大小写、检查和弦以及确保风格一致性。
+不幸的是，由于文档的大小和复杂性，我无法在这里完全手动进行这些更正。我建议您使用具有添加罗马尼亚语变音符号功能的文字处理工具。在线或文本编辑软件中有多种此类工具可以自动执行此过程。
+
+打印屏幕：
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-pro-should-be-able-to-process-larger-docx-documents/665078#post_1</guid>
+      <pubDate>Mon, 04 Mar 2024 11:00:28 GMT</pubDate>
     </item>
     <item>
-      <title>CreatiCode Scratch 插件 - 启用 ChatGPT 进行基于块的编码</title>
-      <link>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_31</link>
-      <description><![CDATA[
-在 Chrome 上也是如此。]]></description>
-      <guid>https://community.openai.com/t/creaticode-scratch-plugin-enable-chatgpt-for-block-based-coding/193493?page=2#post_31</guid>
-      <pubDate>Mon, 04 Mar 2024 06:51:52 GMT</pubDate>
+      <title>句子分类解决方案</title>
+      <link>https://community.openai.com/t/sentence-classification-solution/664192#post_4</link>
+      <description><![CDATA[感谢您的详细回复。
+想知道每个类别需要多少数据量才能通过这种方法获得良好的结果？现在我们可能可以添加数百个，但是根据您的经验，这会得到好的结果吗？]]></description>
+      <guid>https://community.openai.com/t/sentence-classification-solution/664192#post_4</guid>
+      <pubDate>Mon, 04 Mar 2024 10:58:20 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 gpt 操作 - 多个 url 参数</title>
-      <link>https://community.openai.com/t/custom-gpt-action-multiple-url-parameter/499400#post_2</link>
-      <description><![CDATA[+1
-向 GPT 添加自定义参数的能力将非常棒，并且可以解锁如此多的用例。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-action-multiple-url-parameter/499400#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 06:40:35 GMT</pubDate>
+      <title>如何将我创建的 MyGPT 分配给工作区的其他成员？</title>
+      <link>https://community.openai.com/t/how-can-i-assign-a-mygpt-that-i-have-created-to-another-member-of-the-workspace/665076#post_1</link>
+      <description><![CDATA[碰巧，我在我的帐户上创建了 5 个 MyGPT 模型，而另一个用户（不记得他们是如何做到的）现在显示为我创建的 5 个模型之一的创建者。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-assign-a-mygpt-that-i-have-created-to-another-member-of-the-workspace/665076#post_1</guid>
+      <pubDate>Mon, 04 Mar 2024 10:57:59 GMT</pubDate>
     </item>
     <item>
-      <title>通过 API 访问 GPT，该 API 接受参数并可以在内部处理信息以根据 URL 中的参数自定义响应</title>
-      <link>https://community.openai.com/t/acceding-gpts-via-api-that-accepts-parameters-and-can-process-information-internally-to-customize-response-based-on-parameters-in-the-url/495648#post_2</link>
-      <description><![CDATA[+1
-向 GPT 添加自定义参数的能力将非常棒，并且可以解锁如此多的用例。]]></description>
-      <guid>https://community.openai.com/t/acceding-gpts-via-api-that-accepts-parameters-and-can-process-information-internally-to-customize-response-based-on-parameters-in-the-url/495648#post_2</guid>
-      <pubDate>Mon, 04 Mar 2024 06:40:19 GMT</pubDate>
+      <title>寻找具有 WebFlux Java 知识的爱好者</title>
+      <link>https://community.openai.com/t/looking-for-enthusiasts-with-webflux-java-knowledge/139809#post_2</link>
+      <description><![CDATA[是否可以像 ChatGPT 自己的界面一样（逐段）以这种方式传输 AI 的响应？]]></description>
+      <guid>https://community.openai.com/t/looking-for-enthusiasts-with-webflux-java-knowledge/139809#post_2</guid>
+      <pubDate>Mon, 04 Mar 2024 10:55:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天完成时工具调用间歇性失败：寻求解决方案</title>
+      <link>https://community.openai.com/t/intermittent-tool-invocation-failure-in-chat-completion-seeking-solutions/665069#post_1</link>
+      <description><![CDATA[我在通过聊天完成调用工具时遇到了概率失败的问题。具体来说，当我在提示中包含工具调用命令并在 tools 参数中指定工具时，响应偶尔会显示“我当前无法直接调用 [特定工具]”，概率为随着输入标记长度的增加，出现此问题的概率也随之增加。我尝试更改该工具的名称，但这并没有解决问题。下面是我测试过的失败概率分布图。 x 轴表示输入令牌的数量，y 轴表示失败概率。谁能建议如何解决这个问题？
+ ]]></description>
+      <guid>https://community.openai.com/t/intermittent-tool-invocation-failure-in-chat-completion-seeking-solutions/665069#post_1</guid>
+      <pubDate>Mon, 04 Mar 2024 10:54:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_479</link>
+      <description><![CDATA[大家的建议都很好，感谢分享 - 我很高兴看到这个帖子，因为讨论了一些我不知道的事情。
+过去几个月我一直在尝试学习如何提示。
+我们花了很多时间研究电影和电视大师的照明技术，然后将其转化为详细的提示，解释光源和颜色以及房间区域的光反射和光源的颜色。我相信这对解释我想要的风格有很大帮助，而无需实际说“以 foobar 艺术家的风格”等或提及商标或任何流派/艺术运动的名称。好吧，我说过几次孟菲斯设计的 10% 融合风格，因为它让一些东西真的更“流行”一点。 ]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_479</guid>
+      <pubDate>Mon, 04 Mar 2024 10:51:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vision API - 通过 Azure Blind 或者我错过了什么？</title>
+      <link>https://community.openai.com/t/vision-api-through-azure-blind-or-what-am-i-missing/662188#post_4</link>
+      <description><![CDATA[您能否分享导致问题的示例图像？]]></description>
+      <guid>https://community.openai.com/t/vision-api-through-azure-blind-or-what-am-i-missing/662188#post_4</guid>
+      <pubDate>Mon, 04 Mar 2024 10:47:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
