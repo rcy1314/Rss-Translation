@@ -4,104 +4,223 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 05 Mar 2024 09:17:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2024 12:31:54 GMT</lastBuildDate>
     <item>
-      <title>执行两三个请求后，令牌很快就会耗尽</title>
-      <link>https://community.openai.com/t/after-performing-two-or-three-requests-tokens-are-quickly-depleted/666243#post_3</link>
-      <description><![CDATA[非常感谢您如此及时的回复！我会尝试检查我们的使用成本和活动，然后返回此处提供信息。]]></description>
-      <guid>https://community.openai.com/t/after-performing-two-or-three-requests-tokens-are-quickly-depleted/666243#post_3</guid>
-      <pubDate>Tue, 05 Mar 2024 09:13:30 GMT</pubDate>
+      <title>飞机不会在天上飞……飞机不能像鸟一样飞……</title>
+      <link>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_15</link>
+      <description><![CDATA[他们说这不符合使用 OpenAI 徽标的准则，但我认为它不应该适用于屏幕截图，因为我不是第一个使用该徽标的人，我只是将我的对话截图演示人工智能代理如何与我交互（我自己的个人资料也有一个与我在论坛中使用的头像不同的头像，但我也不明白它应该如何可疑）]]></description>
+      <guid>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_15</guid>
+      <pubDate>Tue, 05 Mar 2024 12:28:28 GMT</pubDate>
     </item>
     <item>
-      <title>单词级时间戳*和*句子时间戳在一起？</title>
-      <link>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_3</link>
-      <description><![CDATA[我正在使用 API 生成带时间戳的 json。它在句子级和单词级分别上运行良好。
-但是，我想使用一个 API 调用来将单词级和句子级组合输出到 JSON 响应。
-举例说明：
-字级：
-&#39;curl --request POST \&#39;https://api.openai.com/v1/audio/transcriptions\&#39; --header \&#39;授权：承载&#39; 。 $令牌。 &#39;\&#39; --header \&#39;内容类型：多部分/表单数据\&#39; -F file=&quot;@audio.mp3&quot; -F response_format=&quot;verbose_json&quot; -F timestamp_grinarities[]=&quot;word&quot; -F model=&quot;耳语-1&quot; -F 语言=&quot;nl&quot;&#39;
+      <title>需要有关我的第一个即将投入生产的提示的帮助</title>
+      <link>https://community.openai.com/t/need-help-with-my-first-soon-to-be-in-production-prompt/666686#post_1</link>
+      <description><![CDATA[我对整个即时工程世界还是个新手，到目前为止，这一切都很棒而且很有趣，实际上，无论如何，我一段时间以来第一次享受 IT 领域的乐趣！回到主要问题。我目前正在实习期间处理一个提示，旨在处理一些 csv 文件并从其表中检索一些信息，在这个提示中我正在使用系统用户助手，我不知道我是否正确使用它，因为我发现有关该主题的文档很少，所以我在这里寻求帮助，这是提示：[
+{
+“角色”:“系统”,
+“content”：“您是一个人工智能工具，可以对包含精算师等相关数据的 Excel 和 CSV 文件执行操作和分析。”,
+},
+{
+“角色”：“用户”，
+“内容”：“”“
+在此示例中，您必须对这些表执行步骤 1：
+—
+栏1 栏2 栏3 栏4 栏5 栏6 栏7 栏8
+—
+列A 列B 列C 列2 列D 列E
+—
+“”“
+},
+{
+“角色”：“助理”，
+“内容”：“”“
+第 1 步：
+从提供的表中提取列名
+- 第一个表包含以下列：(Column1 Column2 Column3 Column4 Column5 Column6 Column7 Column8)
+- 第二个表包含这些列：(ColumnA ColumnB ColumnC Column2 ColumnD ColumnE)
+“”“
+},
+{
+“角色”：“用户”，
+“内容”：“”“
+在同一示例上执行步骤 2：
+“”“
+},
+{
+“角色”：“助理”，
+“内容”：“”“
+步骤2：
+查找列之间的关系：
+表1：
+- Column4和Column6与column8有关系
+表2：
+- ColumnA 与 ColumnB 和 Column2 相关
+“”“
+},
+{
+“角色”：“用户”，
+“内容”：“”“
+在同一示例上执行步骤 3：
+“”“
+},
+{
+“角色”：“助理”，
+“内容”：“”“
+第三步：
+查找表之间的关系或关联：
+- 表1和表2在column2上存在一对多关系
+“”“
+},
+{
+“角色”：“用户”，
+“内容”：“”“
+在同一示例上执行步骤 4：
+A 栏 B 栏 C 栏 D 栏 E 栏 F 栏 G
+“”“
+},
+{
+“角色”：“助理”，
+“内容”：“”“
+步骤 4：
+列出已识别的主键和辅助键：
+表1：
+- ColumnA 可以是该表中的主键
+表2：
+- ColumnD 是该表中的辅助键
+“”“
+},
+{
+“角色”：“用户”，
+“内容”：“”“
+在这些桌子上
+&lt;前&gt;&lt;代码&gt;{信息}
 
-句子级别：
-&#39;curl --request POST \&#39;https://api.openai.com/v1/audio/transcriptions\&#39; --header \&#39;授权：承载&#39; 。 $令牌。 &#39;\&#39; --header \&#39;内容类型：多部分/表单数据\&#39; -F file=&quot;@audio.mp3&quot; -F response_format=&quot;verbose_json&quot; -F timestamp_grinarities[]=&quot;sentence&quot; -F model=&quot;耳语-1&quot; -F 语言=&quot;nl&quot;&#39;
+    您必须仅执行以下任务：
+        - 第 1 步：提取包含数据的列的名称。
+        - 第 2 步：查找同一表内的列之间的关系。
+        - 步骤3：查找不同文件或表之间的关系。
+        - 步骤 4：根据给定数据识别主键和辅助键。
+        - 步骤 5：如果未找到主键，则继续从 2 列或更多列创建组合键。
+    &quot;&quot;&quot;.format(信息=信息)
+},
+{
+    “角色”：“用户”，
+    “内容”： ”””
+    不要证明你的答案合理。
+    ”“”
+}
+]
 ]]></description>
-      <guid>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_3</guid>
-      <pubDate>Tue, 05 Mar 2024 09:12:42 GMT</pubDate>
+      <guid>https://community.openai.com/t/need-help-with-my-first-soon-to-be-in-production-prompt/666686#post_1</guid>
+      <pubDate>Tue, 05 Mar 2024 12:26:36 GMT</pubDate>
     </item>
     <item>
-      <title>消息上下文 - 每个线程还是每个助手？</title>
-      <link>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_10</link>
-      <description><![CDATA[是的，它效果很好，因为这意味着您只需自定义助手的知识、指令、功能等一次，然后所有用户都可以访问这些资源。我想设置一个助手相当于创建一个 GPT，但是是私有的。]]></description>
-      <guid>https://community.openai.com/t/messages-context-per-thread-or-per-assistant/501925#post_10</guid>
-      <pubDate>Tue, 05 Mar 2024 09:10:01 GMT</pubDate>
+      <title>我可以选择 TTS 语言吗？</title>
+      <link>https://community.openai.com/t/can-i-choose-the-tts-language/477491?page=2#post_22</link>
+      <description><![CDATA[新功能“大声朗读”比您的 tts-1 效果更好。
+它没有那么浓重的美国口音。
+也许你会让 tts-1 变得更好？？？
+有什么计划吗？？？      ]]></description>
+      <guid>https://community.openai.com/t/can-i-choose-the-tts-language/477491?page=2#post_22</guid>
+      <pubDate>Tue, 05 Mar 2024 12:25:35 GMT</pubDate>
     </item>
     <item>
-      <title>避免某些响应和提示并根据我的输入生成响应</title>
-      <link>https://community.openai.com/t/avoid-certain-responses-and-prompts-and-generate-responses-as-per-my-input/642140#post_7</link>
-      <description><![CDATA[没关系，非常感谢！ &lt;img alt=&quot;:slightly_smiling_face:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slightly_smiling_face.png?v=12&quot; title=&quot;:slightly_smiling_face: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/avoid-certain-responses-and-prompts-and-generate-responses-as-per-my-input/642140#post_7</guid>
-      <pubDate>Tue, 05 Mar 2024 09:08:42 GMT</pubDate>
+      <title>在哪里可以获得用于调整 GPT 3.5 Turbo 模型的所有超参数列表</title>
+      <link>https://community.openai.com/t/where-can-i-get-list-of-all-hyperparameters-for-tuning-gpt-3-5-turbo-model/666639#post_3</link>
+      <description><![CDATA[仅显示以下参数进行微调。
+批量大小，
+学习率乘数，
+n_epochs，
+后缀，
+验证文件
+GPT API 是否具有“Continue_from_previous_version”等参数来承载之前训练的学习内容？]]></description>
+      <guid>https://community.openai.com/t/where-can-i-get-list-of-all-hyperparameters-for-tuning-gpt-3-5-turbo-model/666639#post_3</guid>
+      <pubDate>Tue, 05 Mar 2024 12:22:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我需要帮助，chatgpt4 开始滞后</title>
+      <link>https://community.openai.com/t/i-need-help-chatgpt4-started-to-lag/666672#post_1</link>
+      <description><![CDATA[我会向它发送一个请求，该请求不会显示并且会停止，即使在重新加载页面后，它也无法接受请求并忽略它们。]]></description>
+      <guid>https://community.openai.com/t/i-need-help-chatgpt4-started-to-lag/666672#post_1</guid>
+      <pubDate>Tue, 05 Mar 2024 12:21:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的处女作《口袋里的浪链》出版了</title>
+      <link>https://community.openai.com/t/my-debut-book-langchain-in-your-pocket-is-out/613351#post_13</link>
+      <description><![CDATA[这对我来说非常方便和实用。帮助我快速理解并上手LangChain的所有关键组件。]]></description>
+      <guid>https://community.openai.com/t/my-debut-book-langchain-in-your-pocket-is-out/613351#post_13</guid>
+      <pubDate>Tue, 05 Mar 2024 12:19:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>飞机不会在天上飞……飞机不能像鸟一样飞……</title>
+      <link>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_14</link>
+      <description><![CDATA[首先是我的屏幕截图的质量，以及它没有遵守有关使用 OpenAI 徽标的服务条款的事实（请注意，我不是使用该徽标的人，它只是一张屏幕截图），然后是事实我不喜欢别人的意见？我真诚地结束了我的大部分帖子，我想在这里听取社区的意见......
+我没有在我的主要消息中明确提到它，但我在对此线程第一篇文章的回复中提到了它：
+
+
+
+ Luxcium：
+&lt;块引用&gt;
+我显然也喜欢社区的其他成员提醒我，我对 OpenAI 的期望太高了，即使他们稍后修复它，我仍然需要使用一些解决方法......
+
+
+因此，我一直在积极尝试在互动中保持真诚和坦诚……我的印象是@ _j 尽管误解了我最初的前提是展示一些有价值的东西，所以我确实尝试使其相同，但由于人工智能代理说“在这个世界上”或“在这个特定场景中”，我提到它并不那么好就像 @_j 在他的提示下所做的那样......
+我显然因为试图复制我认为他在正常 ChatGPT-4 对话中所做的事情而遇到了麻烦（显然它是在 API 中或我可能没有完全理解的东西）
+我最初的反应和消息是对 ChatGPT-4 内置行为的反应，这并不是说无法实现特定的目标……我并不是想提高自己在实现某些目标方面的表现，而是指出我不喜欢人工智能代理的一些事情……如果你认为这就是它的本质，那么可以称之为咆哮……但除了我所描述的行为之外，我并没有对任何事情咆哮或感到不安（描述得很糟糕，因为似乎没有人有过这种行为）了解我的意图和思考过程）
+显然，我对人工智能代理抱有巨大的期望，我也明白我必须要有耐心……随着时间的推移，许多事情都得到了改善，我指出了从我的角度来看应该由开发团队解决的明显不一致之处……
+我将永远对那些向我解释如何克服限制的人感到高兴和感激，我希望在我最初的帖子中能够进行对话，并且我将始终有兴趣了解其他人的想法情况……
+尽管我觉得这已经超出了主题，但我试图复制与我之前提到的相同的行为，似乎正是该消息给我带来了麻烦，我并没有试图越狱任何东西或制造虚假信息关于我发布的屏幕截图的声明（我删除了它，因为它被标记为假的，但它并不是那么粗略），如果有人可以在这个帖子中或私下告诉我，我认为这并不违反政策。我的目标不是做任何违反规则的事情或越狱任何事情：
+
+  &lt;标题类=“来源”&gt;
+      
+chat.openai.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    ChatGPT
+能够倾听、学习和挑战的对话式人工智能系统
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_14</guid>
+      <pubDate>Tue, 05 Mar 2024 12:18:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>在哪里可以获得用于调整 GPT 3.5 Turbo 模型的所有超参数列表</title>
+      <link>https://community.openai.com/t/where-can-i-get-list-of-all-hyperparameters-for-tuning-gpt-3-5-turbo-model/666639#post_2</link>
+      <description><![CDATA[API 参考 - OpenAI API
+这是您要找的吗？]]></description>
+      <guid>https://community.openai.com/t/where-can-i-get-list-of-all-hyperparameters-for-tuning-gpt-3-5-turbo-model/666639#post_2</guid>
+      <pubDate>Tue, 05 Mar 2024 12:17:19 GMT</pubDate>
     </item>
     <item>
       <title>索拉作为心理图像；场景树和计算时间</title>
-      <link>https://community.openai.com/t/sora-as-mental-images-scenario-trees-and-compute-times/666402#post_2</link>
-      <description><![CDATA[直到世界尽头 - 克莱尔的梦想（帕蒂·史密斯和弗雷德 - 这需要时间）高清 
+      <link>https://community.openai.com/t/sora-as-mental-images-scenario-trees-and-compute-times/666402#post_4</link>
+      <description><![CDATA[又一个思想实验。假设您佩戴的是 Apple Vision Pro。每时每刻，它都会将当前帧提供给 Sora 作为视频的起始帧，要求它创建一个 5 秒的真实视频，并执行 10k 次。找到平均值，然后将未来的预测叠加到您的 Apple Vision 显示屏上。
+那么，如果我们在 AR 中行走，可能会注意到哪些事情。假设您正在椰子树下行走。我认为这是现实的，大多数人不会三思而后行。但做一些研究的法学硕士，以及许多 Sora 代人，实际上会产生一种椰子从树上掉下来的场景。实际上，这可能是一面旗帜，你的 Apple Vision 会提醒你不要在那棵椰子树下行走，风有点大，而且那里有一些成熟的椰子。
+这里真正令人兴奋的是它将如何表达这些信息！在 AR 中，它可以简单地覆盖从你面前的树上掉下来的椰子。它实际上会以高保真度直观地向您展示未来会发生什么。
+我可以想象数百种场景，比如建筑，这可能会成为强制性的。您甚至不需要非常准确的预测，只需标记某些应用程序中的严重危险即可。]]></description>
+      <guid>https://community.openai.com/t/sora-as-mental-images-scenario-trees-and-compute-times/666402#post_4</guid>
+      <pubDate>Tue, 05 Mar 2024 12:11:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>飞机不会在天上飞……飞机不能像鸟一样飞……</title>
+      <link>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_13</link>
+      <description><![CDATA[两者是完全相同的徽标...
 
-&lt;块引用&gt;
-澳大利亚内陆地区的一位科学家建造了一种设备，可以让他失明的妻子重见光明，但当她因实验而精疲力尽而死时，他将机器转向另一个用途：记录梦境。很快，这位科学家、他的儿子和女朋友就因为在便携式视频屏幕上观看自己的梦想而上瘾了。
-考虑到这部电影是 1991 年制作的，它对便携式技术及其成瘾性很有预见性。
 ]]></description>
-      <guid>https://community.openai.com/t/sora-as-mental-images-scenario-trees-and-compute-times/666402#post_2</guid>
-      <pubDate>Tue, 05 Mar 2024 09:02:00 GMT</pubDate>
+      <guid>https://community.openai.com/t/planes-don-t-fly-in-the-sky-planes-can-t-fly-like-birds-do/665104#post_13</guid>
+      <pubDate>Tue, 05 Mar 2024 12:11:28 GMT</pubDate>
     </item>
     <item>
-      <title>单词级时间戳*和*句子时间戳在一起？</title>
-      <link>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_2</link>
-      <description><![CDATA[
-
-
-信息493：
-&lt;块引用&gt;
-单词级和句子时间戳
-
-
-欢迎来到论坛。
-您能详细解释一下您的意思吗？
-你到底想做什么？]]></description>
-      <guid>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_2</guid>
-      <pubDate>Tue, 05 Mar 2024 08:59:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以生成有关使用 Chat GPT 的长书吗？</title>
-      <link>https://community.openai.com/t/can-i-generate-long-books-on-using-chat-gpt/666429#post_5</link>
-      <description><![CDATA[
-
-
- 全局强度：
-&lt;块引用&gt;
-在一小时内生成书籍。
-
-
-是的，我们还没到那一步。
-我每天可以编辑大约40k，但质量比“按钮赚钱”类型的服务高很多......
-不要将其视为魔法按钮 - 将其视为力量倍增器。 &lt;img alt=&quot;:wink:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/wink.png?v=12&quot; title=&quot;:wink: “宽度=“20”/&gt;
-预计到达时间：我一直在考虑做一个帖子来记录我的进度和过程，但我不确定是否有人感兴趣？]]></description>
-      <guid>https://community.openai.com/t/can-i-generate-long-books-on-using-chat-gpt/666429#post_5</guid>
-      <pubDate>Tue, 05 Mar 2024 08:57:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>单词级时间戳*和*句子时间戳在一起？</title>
-      <link>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_1</link>
-      <description><![CDATA[是否可以在 verbose_json 响应中同时返回单词级时间戳和句子时间戳 - 仅使用一个 API 调用？]]></description>
-      <guid>https://community.openai.com/t/word-level-timestamps-and-sentence-timestamps-together/666462#post_1</guid>
-      <pubDate>Tue, 05 Mar 2024 08:52:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以生成有关使用 Chat GPT 的长书吗？</title>
-      <link>https://community.openai.com/t/can-i-generate-long-books-on-using-chat-gpt/666429#post_4</link>
-      <description><![CDATA[嗯，要给它加上准确的时间戳有点困难，但一小时也不是不可能实现。
-要点是，在一次 API 调用中，您总体上只能生成 700-900 个单词。要达到 300 个页面，您将需要相当多的 API 调用。您可以并行运行它们以加快该过程。再次强调，细节决定成败。]]></description>
-      <guid>https://community.openai.com/t/can-i-generate-long-books-on-using-chat-gpt/666429#post_4</guid>
-      <pubDate>Tue, 05 Mar 2024 08:49:55 GMT</pubDate>
+      <title>[严重] 超过 25% 的 Assistant API 请求随机超时</title>
+      <link>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=4#post_84</link>
+      <description><![CDATA[运行ID：run_ujPe6hn7dq4H6WJXSGz6Z6SB
+也许这也会完成，但需要 12 分钟才能完成 1 分钟前的事情]]></description>
+      <guid>https://community.openai.com/t/critical-over-25-assistant-api-request-timeout-randomly/661499?page=4#post_84</guid>
+      <pubDate>Tue, 05 Mar 2024 12:10:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
