@@ -4,165 +4,123 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 07 Mar 2024 00:58:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 Mar 2024 03:17:28 GMT</lastBuildDate>
     <item>
-      <title>OpenAI 是否已为免费套餐（试用）用户禁用 DALL-E 3？</title>
-      <link>https://community.openai.com/t/has-openai-disabled-dall-e-3-for-free-tier-trial-users/590277#post_18</link>
-      <description><![CDATA[仍然无法工作。我认为他们只是故意阻止它。
-但他们在账户限制网站上仍然声称可以通过Free Tier使用。
-有趣。]]></description>
-      <guid>https://community.openai.com/t/has-openai-disabled-dall-e-3-for-free-tier-trial-users/590277#post_18</guid>
-      <pubDate>Thu, 07 Mar 2024 00:56:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>.tiktoken 文件不断出现 NewConnectionError</title>
-      <link>https://community.openai.com/t/newconnectionerror-keeps-coming-up-over-a-tiktoken-file/670052#post_1</link>
-      <description><![CDATA[我们使用 ChatGPT 向用户提供代码建议，但是在发送请愿书时我们经常会收到此错误：
-HTTPSConnectionPool(host=&#39;openaipublic.blob.core.windows.net&#39;, port=443): url 超过最大重试次数：/encodings/cl100k_base.tiktoken （由 NewConnectionError(&#39;：无法建立新连接：[Errno -2] 名称或服务未知&#39;))
-如果我没看错的话，OpenAI 后端正在尝试从 URL 获取该编码文件，但未能成功，并且请求返回时出现错误。这是我的问题吗（我正在使用 tiktoken 库来预先计算令牌，但我没有看到任何异步方法）？还是您的 API 存在可用性错误？
-如果是后者，通过一些退避措施来提高 AsyncOpenAI(...) 的 max_retries 参数是否足以解决问题？]]></description>
-      <guid>https://community.openai.com/t/newconnectionerror-keeps-coming-up-over-a-tiktoken-file/670052#post_1</guid>
-      <pubDate>Thu, 07 Mar 2024 00:54:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何管理 GPT 工作区、查看统计信息等？</title>
-      <link>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_5</link>
-      <description><![CDATA[啊……你是说我的 GPT。是的，我有……我可以访问它们并很好地编辑它们。但我找不到 OP 中突出显示的“管理工作区”选项，该选项应该向您显示统计信息并允许更多管理选项。]]></description>
-      <guid>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_5</guid>
-      <pubDate>Thu, 07 Mar 2024 00:48:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手无法使用 code_interpreter 正确检索给定数据</title>
-      <link>https://community.openai.com/t/assistants-not-retrieving-given-data-properly-with-code-interpreter/670041#post_1</link>
-      <description><![CDATA[我注意到，当我有一个 json 文件并且仅打开 code_interprenter 时，您可以提出一些基本问题，它会说最随机的事情。
-示例我有一个 json 文件，内容如下：
-教育：“麻省理工学院的计算机科学”
-助理回应“他在哪里学习？”
+      <title>获取 gpt4 来分析附加 PDF 文件的 API 调用是什么？</title>
+      <link>https://community.openai.com/t/whats-the-api-call-to-get-gpt4-to-analyse-an-attached-pdf-file/670186#post_1</link>
+      <description><![CDATA[我可以通过使用下面的代码块对图像进行 Base64 编码来附加图像来创建 API。除了 PDF 之外，我怎样才能做同样的事情？我想附上 PDF 和 GPT 以提供 PDF 的摘要。我要修改下面的type参数吗？我在任何地方都找不到这方面的文档。我 4 个月前听说 GPT4 现在可以读取 PDF。
+谢谢！
+ 负载 = {
+    “模型”：“gpt-4-vision-预览”，
+    “消息”：[
+        {
+        “角色”：“用户”，
+        “内容”： [
+            {
+            “类型”：“文本”，
+            &quot;text&quot;: &quot;告诉我我的验血报告结果。&quot;
+            },
+            {
+            &quot;type&quot;: &quot;image_url&quot;, # 改变这个吗？
+            “图像网址”：{
+                “url”：f“数据：图像/jpeg;base64，{base64_image}”
+            }
+            }
+        ]
+        }
+    ],
+    “最大令牌”：300
+    }
 
-英国的非洲研究和经济学
-
-好像根本不相关]]></description>
-      <guid>https://community.openai.com/t/assistants-not-retrieving-given-data-properly-with-code-interpreter/670041#post_1</guid>
-      <pubDate>Thu, 07 Mar 2024 00:40:33 GMT</pubDate>
+    响应 = requests.post(&quot;https://api.openai.com/v1/chat/completions&quot;, headers=headers, json=payload)
+]]></description>
+      <guid>https://community.openai.com/t/whats-the-api-call-to-get-gpt4-to-analyse-an-attached-pdf-file/670186#post_1</guid>
+      <pubDate>Thu, 07 Mar 2024 03:14:07 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 对其开发者社区缺乏尊重</title>
-      <link>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_5</link>
-      <description><![CDATA[感谢您的评论。这是可能发生的众多示例之一。]]></description>
-      <guid>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_5</guid>
-      <pubDate>Thu, 07 Mar 2024 00:28:05 GMT</pubDate>
+      <title>chatgpt 登录时出现空白页</title>
+      <link>https://community.openai.com/t/blank-page-at-the-login-of-the-chatgpt/383878?page=2#post_33</link>
+      <description><![CDATA[非常感谢！希望你有美好的一天 ]]></description>
+      <guid>https://community.openai.com/t/blank-page-at-the-login-of-the-chatgpt/383878?page=2#post_33</guid>
+      <pubDate>Thu, 07 Mar 2024 03:08:18 GMT</pubDate>
     </item>
     <item>
-      <title>在 Unity C# 中发布到现有线程时，“缺少必需参数：‘角色’”</title>
-      <link>https://community.openai.com/t/missing-required-parameter-role-when-posting-to-an-existing-thread-in-unity-c/669424#post_3</link>
-      <description><![CDATA[我不熟悉 C#，但这两个端点的负载是不同的。
-POST v1/threads 接受 messages: 列表，而 POST v1/threads/:id/messages 接受顶级 角色、内容等
-您可能必须更改第二个端点的负载。]]></description>
-      <guid>https://community.openai.com/t/missing-required-parameter-role-when-posting-to-an-existing-thread-in-unity-c/669424#post_3</guid>
-      <pubDate>Thu, 07 Mar 2024 00:24:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>20 个文件的限制是否也适用于单个线程？</title>
-      <link>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_8</link>
-      <description><![CDATA[容器化，用户和助手之间具有 1:1 的相关性。本质上，每个助手都成为代表用户的一种代理，这非常容易管理和扩展。
-然后，文件限制就等于助手的限制，这意味着每个用户最多可以上传 20 个文件（我猜大概是这样？）。它已经被管理和处理了；不需要额外的努力。它还有一个额外的好处，就是可以防止一个用户尝试访问另一个用户的文件，这是一个潜在的漏洞（目前），当尝试作为一个助手管理来自不同用户的线程时。另外，通过这种布局，它允许用户创建自己的线程，而无需进行太多额外的工作来识别线程属于谁（如果您选择将线程表示为用户，则必须自己执行此操作）。
-这是助理的预期目的，也是助理如此构建的原因。
-我个人并没有发现其他方法有任何本质上的错误，但它更加复杂，并且更适合典型“代理”的用例目前的模型不适合您想要的产品/服务。]]></description>
-      <guid>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_8</guid>
-      <pubDate>Thu, 07 Mar 2024 00:23:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 对其开发者社区缺乏尊重</title>
-      <link>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_4</link>
-      <description><![CDATA[感谢您的回复，马查。我理解你的观点。从发展的角度来看，这是完全正确的。当然，您将 API 视为车轮，我们必须构建其余部分，而不仅仅是不同颜色的车轮。但在这种情况下，这是不正确的，与已经向公众提供的人工智能相比，向开发人员提供的 API 已经过时了。例如：与 OPENAI 已经向公众提供的服务相比，这些助手落后了。 DALLE 3 API 也支持已经公开发布的 API。因此，我们不应该建造汽车，而应该重新发明轮子。从逻辑上讲，这个车轮应该具有最低限度的功能，那么如果所提供的车轮已经有缺陷，我们如何才能制造汽车呢？如果开发人员还必须修复有缺陷的轮子，那就毫无意义了。感谢您的理解。]]></description>
-      <guid>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_4</guid>
-      <pubDate>Thu, 07 Mar 2024 00:22:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个线程中可以上传 20 多个文件确实正确吗？我的测试表明你可以</title>
-      <link>https://community.openai.com/t/is-it-indeed-correct-you-can-upload-more-than-20-files-in-a-thread-my-testing-shows-you-can/670013#post_3</link>
-      <description><![CDATA[感谢您的明确答复。这是个好消息！您知道在哪里可以看到每个线程的文件定价吗？线程中的文件是否有存储成本？因为正如您所说，每个线程的文件数量没有上限，因此出于财务原因似乎需要仔细控制。]]></description>
-      <guid>https://community.openai.com/t/is-it-indeed-correct-you-can-upload-more-than-20-files-in-a-thread-my-testing-shows-you-can/670013#post_3</guid>
-      <pubDate>Thu, 07 Mar 2024 00:14:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何管理 GPT 工作区、查看统计信息等？</title>
-      <link>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_4</link>
-      <description><![CDATA[
-单击您的个人资料/帐户名称，将显示此列表。单击“我的 ChatGPT”功能可让您管理自定义 GPT。]]></description>
-      <guid>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_4</guid>
-      <pubDate>Thu, 07 Mar 2024 00:13:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>20 个文件的限制是否也适用于单个线程？</title>
-      <link>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_7</link>
+      <title>卡在java中的编辑端点上</title>
+      <link>https://community.openai.com/t/stuck-on-the-edit-endpoint-in-java/670066#post_3</link>
       <description><![CDATA[
 
 
-马哈：
+ rfir6：
 &lt;块引用&gt;
-我建议为每个用户提供自己的助手
+//写入图像文件
+wr.writeBytes(两个连字符 + 边界 + CRLF);
+wr.writeBytes(“内容处置：表单数据；名称=“图像”；文件名=“image.png””+ CRLF);Log.d(“yoyo”，“内容处置：表单数据；名称= “图像”; 文件名=“image.png”” + CRLF);
+wr.writeBytes(“内容类型：image/png” + CRLF);
+wr.writeBytes(CRLF);
+wr.write(imageData);
+wr.writeBytes(CRLF);
+//写入掩码文件
+wr.writeBytes(两个连字符 + 边界 + CRLF);
+wr.writeBytes(&quot;内容处理：表单数据；name=\&quot;mask\&quot;; filename=\&quot;mask.png\&quot;&quot; + CRLF);Log.d(&quot;yoyo&quot;, &quot;内容处理：表单-数据; 名称=\&quot;掩码\&quot;; 文件名=\&quot;掩码.png\&quot;&quot; + CRLF);
+wr.writeBytes(&quot;内容类型：image/png&quot; + CRLF);
+wr.writeBytes(CRLF);
+wr.write(maskData);
+wr.writeBytes(CRLF);
 
 
-这个建议背后的理由是什么？
-谢谢]]></description>
-      <guid>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_7</guid>
-      <pubDate>Thu, 07 Mar 2024 00:11:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个线程中可以上传 20 多个文件确实正确吗？我的测试表明你可以</title>
-      <link>https://community.openai.com/t/is-it-indeed-correct-you-can-upload-more-than-20-files-in-a-thread-my-testing-shows-you-can/670013#post_2</link>
-      <description><![CDATA[在 Assistants API 中，有两种文件：
 
-助手文件 (v1/assistants/:id/files)，最多 20 个，由助手在其运行的每个线程中使用。
-消息文件 (v1/threads/:id/messages/:id/files)，每条消息限制为 10 个，但线程上的文件总数没有上限。这些用于该线程上的运行，而不是跨线程共享。
+图像和蒙版
+512 像素 X 512 像素
+两者都 &lt;4MB 大小
+代码如下：
+// 写入图像文件
+wr.writeBytes(两个连字符 + 边界 + CRLF);
+wr.writeBytes(“内容处置：表单数据；名称=“图像”；文件名=“image.png””+ CRLF);Log.d(“yoyo”，“内容处置：表单数据；名称= “图像”; 文件名=“image.png”” + CRLF);
+wr.writeBytes(“内容类型：image/png” + CRLF);
+wr.writeBytes(CRLF);
+wr.write(imageData);
+wr.writeBytes(CRLF);
+//写入掩码文件
+wr.writeBytes(两个连字符 + 边界 + CRLF);
+wr.writeBytes(&quot;内容处理：表单数据；name=\&quot;mask\&quot;; filename=\&quot;mask.png\&quot;&quot; + CRLF);Log.d(&quot;yoyo&quot;, &quot;内容处理：表单-数据; 名称=\&quot;掩码\&quot;; 文件名=\&quot;掩码.png\&quot;&quot; + CRLF);
+wr.writeBytes(&quot;内容类型：image/png&quot; + CRLF);
+wr.writeBytes(CRLF);
+wr.write(maskData);
+wr.writeBytes(CRLF);
+]]></description>
+      <guid>https://community.openai.com/t/stuck-on-the-edit-endpoint-in-java/670066#post_3</guid>
+      <pubDate>Thu, 07 Mar 2024 03:02:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chatgpt Plus 一直冻结！</title>
+      <link>https://community.openai.com/t/chatgpt-plus-freezing-all-the-time/540304?page=2#post_31</link>
+      <description><![CDATA[真正的问题是为什么我们首先会看到它？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-plus-freezing-all-the-time/540304?page=2#post_31</guid>
+      <pubDate>Thu, 07 Mar 2024 02:51:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 操作中的多种安全方案支持</title>
+      <link>https://community.openai.com/t/multiple-security-scheme-support-in-gpt-actions/669913#post_4</link>
+      <description><![CDATA[
 
-希望有帮助！]]></description>
-      <guid>https://community.openai.com/t/is-it-indeed-correct-you-can-upload-more-than-20-files-in-a-thread-my-testing-shows-you-can/670013#post_2</guid>
-      <pubDate>Thu, 07 Mar 2024 00:11:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>20 个文件的限制是否也适用于单个线程？</title>
-      <link>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_6</link>
-      <description><![CDATA[我认为像 supabase 这样的东西将是一个好的开始。您可以在此处查看其食谱，这通常是手头的宝贵资源。 
-如果这变得太复杂（或者如果它过多地干扰了您公司的开发），我建议为每个用户提供他们自己的助手，这样您就不必最终创建自己的解决方法。权衡最终取决于您和您的合作团队。]]></description>
-      <guid>https://community.openai.com/t/does-the-limit-of-20-files-also-apply-to-individual-threads/669925#post_6</guid>
-      <pubDate>Thu, 07 Mar 2024 00:09:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何管理 GPT 工作区、查看统计信息等？</title>
-      <link>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_3</link>
-      <description><![CDATA[感谢您的回复。是的，我有Plus。您所说的“My ChatGPT”功能在哪里？是在 OpenAI 还是 ChatGPT 上？它在屏幕上的什么位置等等？]]></description>
-      <guid>https://community.openai.com/t/how-do-you-manage-your-gpts-workspace-see-stats-etc/669676#post_3</guid>
-      <pubDate>Thu, 07 Mar 2024 00:03:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 对其开发者社区缺乏尊重</title>
-      <link>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_3</link>
-      <description><![CDATA[有人可以同意。 ChatGPT Plus 现在无法遵循单一指令；我们未来预计将使用哪种模型？
-你可能认为人工智能可以遵循这个指令来帮助我们更轻松地阅读：
+
+ 实际生活：
 &lt;块引用&gt;
-这需要清晰且符合逻辑的段落布局。使用换行改进演示文稿，但不要更改文本：
-OpenAI 对其开发者社区缺乏尊重……（其余）
+向自定义 GPT 添加操作时，什么时候可以使用多种安全方案？
 
-当然，ChatGPT GPT-4 无法完成这项工作，需要重新解释从 #1 开始的每个句子。
-&lt;块引用&gt;
-OpenAI 对其开发者社区缺乏尊重，这一点令人担忧。首先，我要向OpenAI的科学家表示感谢。作为一名小型网络开发人员，与那些花费数年时间创建这些精彩人工智能的人相比，我并没有什么特别的。然而，在 DALLE 和 CHATGPT 发布一年后，我们开发人员发现自己陷入了令人沮丧的境地。
-让我解释一下：OPENAI 似乎极大地限制了这些人工智能的潜力，而我们却反复遇到同样的问题。例如，DALLE 是否仍然仅限于每次 API 调用仅生成一张图像？使用 CHATGPT，我们每四个小时就会遇到阻塞，或者必须忍受两个小时的等待才能继续我们的工作。
-此外，消耗我们代币的自定义 GPT 功能通常无法理解指令，迫使我们多次重新启动。这个周期会耗尽我们的代币，导致定制的等待时间更长。
-继续讨论 API 问题，OPENAI 提供的 API 使我们能够创建具有 ChatGPT、助手和 DALLE 等集成功能的网站。然而，当该技术已在其他地方广泛使用并得到认可时，此类网站的吸引力就值得怀疑。提供的助手缺乏 CHATGPT 的实时响应能力，并且无法与 DALLE 无缝集成，需要重新开发现有功能。
-这种 API 方法不如直接通过 OPENAI 提供的方法，似乎会适得其反。为什么不让开发人员获得同样强大的技术，从而促进创新，而不是让我们陷入劣质工具的困境？
-最后，API 使用的成本结构是另一个争论点。对每个用户的每个输入和输出进行收费很快就会变得非常昂贵，特别是对于拥有大量用户群的平台而言。这种定价模式对于小型开发商来说尤其具有挑战性，并且似乎忽视了这种业务策略对创新和可访问性的影响。
-总而言之，当前的方法似乎阻碍而不是帮助小型开发者，有利于大公司并抑制技术进步。
 
-所以忽略它 - 这不是写的。
-一个简单的任务：重复一系列标记。在适当的情况下预测换行。 gpt-4-turbo AI 不可能使 15 个代币保持不变。
-（编辑：这也是来自为其工具注入 GPT-4 的文本墙）
-当然，API 的 gpt-4-0314 可以胜任这项任务，但如果您以前没有使用过该模型，OpenAI 已切断对该模型的访问。
+这是一个非常好的问题，不幸的是，答案几乎肯定是“很快就没有时间了。”
+与此同时，您可能需要考虑在本地或云端设置 API 网关来处理您的 API 调用。
 
-摘要（点击查看更多详情）]]></description>
-      <guid>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_3</guid>
-      <pubDate>Thu, 07 Mar 2024 00:02:29 GMT</pubDate>
+API 管理 - Amazon API Gateway - AWS
+API 网关 |  API ゲートウェイ  | 谷歌云
+GitHub - Kong/kong：🦍云原生 API 网关和 AI 网关。&lt; /里&gt;
+
+或者您可以使用在您自己的服务器上运行的简单 Flask 应用程序来推出自己的应用程序。
+使用其中任何一个，您都可以为 GPT 操作创建一个 API 密钥，然后只需在后端的目标服务中处理任何必要的身份验证。
+这是我一直向需要访问需要在查询字符串中包含 API 密钥的 API 的人推荐的方法。]]></description>
+      <guid>https://community.openai.com/t/multiple-security-scheme-support-in-gpt-actions/669913#post_4</guid>
+      <pubDate>Thu, 07 Mar 2024 02:51:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
