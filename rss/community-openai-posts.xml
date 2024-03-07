@@ -4,123 +4,205 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 07 Mar 2024 03:17:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 Mar 2024 06:23:07 GMT</lastBuildDate>
     <item>
-      <title>获取 gpt4 来分析附加 PDF 文件的 API 调用是什么？</title>
-      <link>https://community.openai.com/t/whats-the-api-call-to-get-gpt4-to-analyse-an-attached-pdf-file/670186#post_1</link>
-      <description><![CDATA[我可以通过使用下面的代码块对图像进行 Base64 编码来附加图像来创建 API。除了 PDF 之外，我怎样才能做同样的事情？我想附上 PDF 和 GPT 以提供 PDF 的摘要。我要修改下面的type参数吗？我在任何地方都找不到这方面的文档。我 4 个月前听说 GPT4 现在可以读取 PDF。
-谢谢！
- 负载 = {
-    “模型”：“gpt-4-vision-预览”，
-    “消息”：[
-        {
-        “角色”：“用户”，
-        “内容”： [
-            {
-            “类型”：“文本”，
-            &quot;text&quot;: &quot;告诉我我的验血报告结果。&quot;
-            },
-            {
-            &quot;type&quot;: &quot;image_url&quot;, # 改变这个吗？
-            “图像网址”：{
-                “url”：f“数据：图像/jpeg;base64，{base64_image}”
-            }
-            }
-        ]
+      <title>我的第一个 API 请求期间出现错误代码 - 429</title>
+      <link>https://community.openai.com/t/error-code-429-during-my-first-api-request/602571#post_6</link>
+      <description><![CDATA[嗨，我是从 openai 官方文档中原样复制的。我按原样运行下面的代码。在 3.5 中，我收到错误代码 429。在 GPT-4 中，我使用模型“gpt-4-0125-preview”并收到错误 404。
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+
+完成 = client.chat.completions.create(
+  型号=“gpt-3.5-turbo”，
+  消息=[
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一位诗意的助手，擅长以创造性的天赋解释复杂的编程概念。&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;写一首诗来解释编程中递归的概念。&quot;}
+  ]
+）
+
+print(completion.choices[0].message)
+]]></description>
+      <guid>https://community.openai.com/t/error-code-429-during-my-first-api-request/602571#post_6</guid>
+      <pubDate>Thu, 07 Mar 2024 06:21:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>让多个机器人相互交谈</title>
+      <link>https://community.openai.com/t/having-multiple-bots-converse-with-each-other/670380#post_2</link>
+      <description><![CDATA[
+
+
+ willfulton86：
+&lt;块引用&gt;
+不是编码专家？
+
+
+您不需要成为专家，但天下没有免费的午餐。您必须使用 API，或者至少使用一些无代码工具来完成此操作。
+您链接的文章可能指的是@功能。这不允许 gpt 相互对话，只允许您使用现有上下文查询特定的 gpt。
+
+
+
+ willfulton86：
+&lt;块引用&gt;
+我与 ChatGPT 进行了几次对话，这表明这是一种可能性
+
+
+chatgpt 在任何事情上都不是一个有信誉的权威。供您考虑：
+&lt;img alt=&quot;image&quot; height=&quot;47&quot; src=&quot;https://global.discourse-cdn.com/openai1/optimized/4X/9/c/b/9cb86a4edaf8ebe3b464287f39c4c07698a589e7_2_690x47.png “宽度=“690”/&gt;]]></description>
+      <guid>https://community.openai.com/t/having-multiple-bots-converse-with-each-other/670380#post_2</guid>
+      <pubDate>Thu, 07 Mar 2024 06:18:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 错误 401：提供的 API 密钥不正确？</title>
+      <link>https://community.openai.com/t/chatgpt-error-401-incorrect-api-key-provided/670386#post_1</link>
+      <description><![CDATA[嗨，我编写了以下简单的 HTML Web 应用程序来测试 API，但无论我发送什么，控制台都会返回 401 错误。是我没有正确访问API吗？我已经尝试过超过 12 个新密钥，但在调整代码很长时间后仍然没有成功。
+;
+&lt;html lang=&quot;zh-cn&quot;&gt;
+&lt;头&gt;
+    &lt;元字符集=“UTF-8”&gt;
+    &lt;元名称=“视口”内容=“宽度=设备宽度，初始比例= 1.0”&gt;
+    海盗聊天
+    &lt;风格&gt;
+        身体 {
+            字体系列：Arial、无衬线字体；
+            背景颜色：#f0f0f0；
+            保证金：0；
+            填充：0；
         }
-    ],
-    “最大令牌”：300
-    }
 
-    响应 = requests.post(&quot;https://api.openai.com/v1/chat/completions&quot;, headers=headers, json=payload)
+        #聊天窗口{
+            宽度：400px；
+            边距：20px 自动；
+            边框：1px实心#ccc；
+            边框半径：5px；
+            溢出：隐藏；
+        }
+
+        #聊天框{
+            高度：300px；
+            溢出-y：滚动；
+            内边距：10px；
+            背景颜色：#fff；
+        }
+
+        #用户输入{
+            宽度：计算（100% - 20px）；
+            保证金：0；
+            内边距：10px；
+            边框：无；
+            顶部边框：1px 实线#ccc；
+            字体大小：16px；
+        }
+
+        #send-btn {
+            宽度：100%；
+            内边距：10px；
+            背景颜色：#007bff；
+            颜色：#fff；
+            边框：无；
+            光标：指针；
+            字体大小：16px；
+        }
+    &lt;/风格&gt;
+&lt;/头&gt;
+&lt;正文&gt;
+    
+        &lt;div id=&quot;聊天框&quot;&gt;&lt;/div&gt;
+        &lt;input type=&quot;text&quot; id=&quot;user-input&quot; placeholder=&quot;输入您的消息...&quot;&gt;
+        &lt;按钮 id=&quot;send-btn&quot;&gt;发送
+    
+
+    &lt;脚本&gt;
+        const chatBox = document.getElementById(&#39;聊天框&#39;);
+        const userInput = document.getElementById(&#39;用户输入&#39;);
+        const sendBtn = document.getElementById(&#39;send-btn&#39;);
+
+        sendBtn.addEventListener(&#39;点击&#39;, () =&gt; {
+            const userMessage = userInput.value.trim();
+            if (userMessage !== &#39;&#39;) {
+                appendMessage(&#39;你&#39;, userMessage);
+                userInput.value = &#39;&#39;;
+                sendMessageToPirate(userMessage);
+            }
+        });
+
+        函数appendMessage（发件人，消息）{
+            const messageElement = document.createElement(&#39;div&#39;);
+            messageElement.innerHTML = `${sender}:; ${消息}`;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        异步函数 sendMessageToPirate(message) {
+            const apiKey = &#39;YOUR_API_KEY_PLACEHOLDER&#39;;
+            const 端点 = &#39;https://api.openai.com/v1/engines/davinci/completions&#39;;
+            常量标头 = {
+                &#39;内容类型&#39;：&#39;应用程序/json&#39;，
+                &#39;授权&#39;：&#39;承载${apiKey}`
+            };
+            常量数据 = {
+                提示：消息，
+                最大令牌数：150，
+                温度：0.5，
+                顶部_p：1，
+                数：1，
+                停止：[&#39;\n&#39;]
+            };
+
+            尝试 {
+                const 响应 = 等待获取（端点，{
+                    方法：&#39;POST&#39;，
+                    标题：标题，
+                    正文：JSON.stringify(数据)
+                });
+
+                如果（！response.ok）{
+                    throw new Error(&#39;网络响应不正常&#39;);
+                }
+
+                const responseData =等待response.json();
+                const PirateResponse = responseData.choices[0].text.trim();
+                附加消息（&#39;海盗&#39;，pirateResponse）；
+            } 捕获（错误）{
+                console.error(&#39;错误：&#39;, 错误);
+            }
+        }
+    &lt;/脚本&gt;
+&lt;/正文&gt;
+&lt;/html&gt;
+
 ]]></description>
-      <guid>https://community.openai.com/t/whats-the-api-call-to-get-gpt4-to-analyse-an-attached-pdf-file/670186#post_1</guid>
-      <pubDate>Thu, 07 Mar 2024 03:14:07 GMT</pubDate>
+      <guid>https://community.openai.com/t/chatgpt-error-401-incorrect-api-key-provided/670386#post_1</guid>
+      <pubDate>Thu, 07 Mar 2024 06:13:53 GMT</pubDate>
     </item>
     <item>
-      <title>chatgpt 登录时出现空白页</title>
-      <link>https://community.openai.com/t/blank-page-at-the-login-of-the-chatgpt/383878?page=2#post_33</link>
-      <description><![CDATA[非常感谢！希望你有美好的一天 ]]></description>
-      <guid>https://community.openai.com/t/blank-page-at-the-login-of-the-chatgpt/383878?page=2#post_33</guid>
-      <pubDate>Thu, 07 Mar 2024 03:08:18 GMT</pubDate>
+      <title>让多个机器人相互交谈</title>
+      <link>https://community.openai.com/t/having-multiple-bots-converse-with-each-other/670380#post_1</link>
+      <description><![CDATA[我与 ChatGPT 进行了几次对话，这表明这是一种可能性，而且 此链接确认了这一点。
+我认为这打开了一些大门。有人知道在没有编码专家的情况下完成此任务的最简单方法吗？]]></description>
+      <guid>https://community.openai.com/t/having-multiple-bots-converse-with-each-other/670380#post_1</guid>
+      <pubDate>Thu, 07 Mar 2024 06:08:00 GMT</pubDate>
     </item>
     <item>
-      <title>卡在java中的编辑端点上</title>
-      <link>https://community.openai.com/t/stuck-on-the-edit-endpoint-in-java/670066#post_3</link>
-      <description><![CDATA[
-
-
- rfir6：
-&lt;块引用&gt;
-//写入图像文件
-wr.writeBytes(两个连字符 + 边界 + CRLF);
-wr.writeBytes(“内容处置：表单数据；名称=“图像”；文件名=“image.png””+ CRLF);Log.d(“yoyo”，“内容处置：表单数据；名称= “图像”; 文件名=“image.png”” + CRLF);
-wr.writeBytes(“内容类型：image/png” + CRLF);
-wr.writeBytes(CRLF);
-wr.write(imageData);
-wr.writeBytes(CRLF);
-//写入掩码文件
-wr.writeBytes(两个连字符 + 边界 + CRLF);
-wr.writeBytes(&quot;内容处理：表单数据；name=\&quot;mask\&quot;; filename=\&quot;mask.png\&quot;&quot; + CRLF);Log.d(&quot;yoyo&quot;, &quot;内容处理：表单-数据; 名称=\&quot;掩码\&quot;; 文件名=\&quot;掩码.png\&quot;&quot; + CRLF);
-wr.writeBytes(&quot;内容类型：image/png&quot; + CRLF);
-wr.writeBytes(CRLF);
-wr.write(maskData);
-wr.writeBytes(CRLF);
-
-
-
-图像和蒙版
-512 像素 X 512 像素
-两者都 &lt;4MB 大小
-代码如下：
-// 写入图像文件
-wr.writeBytes(两个连字符 + 边界 + CRLF);
-wr.writeBytes(“内容处置：表单数据；名称=“图像”；文件名=“image.png””+ CRLF);Log.d(“yoyo”，“内容处置：表单数据；名称= “图像”; 文件名=“image.png”” + CRLF);
-wr.writeBytes(“内容类型：image/png” + CRLF);
-wr.writeBytes(CRLF);
-wr.write(imageData);
-wr.writeBytes(CRLF);
-//写入掩码文件
-wr.writeBytes(两个连字符 + 边界 + CRLF);
-wr.writeBytes(&quot;内容处理：表单数据；name=\&quot;mask\&quot;; filename=\&quot;mask.png\&quot;&quot; + CRLF);Log.d(&quot;yoyo&quot;, &quot;内容处理：表单-数据; 名称=\&quot;掩码\&quot;; 文件名=\&quot;掩码.png\&quot;&quot; + CRLF);
-wr.writeBytes(&quot;内容类型：image/png&quot; + CRLF);
-wr.writeBytes(CRLF);
-wr.write(maskData);
-wr.writeBytes(CRLF);
-]]></description>
-      <guid>https://community.openai.com/t/stuck-on-the-edit-endpoint-in-java/670066#post_3</guid>
-      <pubDate>Thu, 07 Mar 2024 03:02:36 GMT</pubDate>
+      <title>为什么 GEMINI（来自 Google）可以给我书籍中的场景/段落，而 ChatGPT-4 却不能因为版权作品而不能？</title>
+      <link>https://community.openai.com/t/how-come-gemini-from-google-can-give-me-scenes-passages-from-books-and-chatgpt-4-cant-because-of-copyrights-works/665452#post_3</link>
+      <description><![CDATA[是的，但 OpenAI 也从互联网获取信息，也通过书籍爬行所有网站。所以，在互联网上上传书籍并不是OpenAI的问题，它只是使用了互联网上找到的信息。
+此外，到 2024 年，所有书籍和更多书籍都将以 pdf/txt 形式在互联网上可见。所以，人工智能不能禁止这些书。这就像禁止互联网......
+另一方面，ChatGPT 可以提供如下答案：
+根据网上搜索的资料，找到以下摘自《》一书的内容]]></description>
+      <guid>https://community.openai.com/t/how-come-gemini-from-google-can-give-me-scenes-passages-from-books-and-chatgpt-4-cant-because-of-copyrights-works/665452#post_3</guid>
+      <pubDate>Thu, 07 Mar 2024 06:02:20 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt Plus 一直冻结！</title>
-      <link>https://community.openai.com/t/chatgpt-plus-freezing-all-the-time/540304?page=2#post_31</link>
-      <description><![CDATA[真正的问题是为什么我们首先会看到它？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-plus-freezing-all-the-time/540304?page=2#post_31</guid>
-      <pubDate>Thu, 07 Mar 2024 02:51:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 操作中的多种安全方案支持</title>
-      <link>https://community.openai.com/t/multiple-security-scheme-support-in-gpt-actions/669913#post_4</link>
-      <description><![CDATA[
-
-
- 实际生活：
-&lt;块引用&gt;
-向自定义 GPT 添加操作时，什么时候可以使用多种安全方案？
-
-
-这是一个非常好的问题，不幸的是，答案几乎肯定是“很快就没有时间了。”
-与此同时，您可能需要考虑在本地或云端设置 API 网关来处理您的 API 调用。
-
-API 管理 - Amazon API Gateway - AWS
-API 网关 |  API ゲートウェイ  | 谷歌云
-GitHub - Kong/kong：🦍云原生 API 网关和 AI 网关。&lt; /里&gt;
-
-或者您可以使用在您自己的服务器上运行的简单 Flask 应用程序来推出自己的应用程序。
-使用其中任何一个，您都可以为 GPT 操作创建一个 API 密钥，然后只需在后端的目标服务中处理任何必要的身份验证。
-这是我一直向需要访问需要在查询字符串中包含 API 密钥的 API 的人推荐的方法。]]></description>
-      <guid>https://community.openai.com/t/multiple-security-scheme-support-in-gpt-actions/669913#post_4</guid>
-      <pubDate>Thu, 07 Mar 2024 02:51:34 GMT</pubDate>
+      <title>API Books Crawler：数学、物理和化学书籍的 OCR + LATEX</title>
+      <link>https://community.openai.com/t/api-books-crawler-ocr-latex-for-mathematics-physics-and-chemistry-books/670367#post_1</link>
+      <description><![CDATA[我扫描了整个家庭图书馆并拥有 pdf 格式的所有书籍。其中大多数无法在互联网上找到。除了历史、艺术、历史和小说方面的书外，我还有医学、数学、物理、化学等书籍。
+我需要扫描我的 PDF 书籍，创建数据库，然后启动 ChatGPT 来获取答案。我必须使用API​​，来抓取所有书籍。
+现在，为了完成这项任务并获得良好的结果，我正在使用 Mathpix Snip (mathpix.com)，使用 OCR 和 LATEX 扫描每个 PDF 文件，然后保存每个文件在 txt 中。 Mathpix Snip 是将数学、物理和化学书籍转换为 Latex 并另存为 txt 文件的最佳工具。之后，我将 txt 数据库与 OpenAI 的 API 连接起来。简单，但是……
+问题：需要很多时间！
+因此，我需要一次性更快地完成所有这些过程：扫描 pdf、将其转换为 txt 文件、创建包含 500 本书的独特数据库，以便我可以开始使用 ChatGPT 仅关注我的数据库.
+那么，我如何扫描、使用 OCR+LATEX 转换、使用 OpenAi 的 API 并抓取所有书籍以建立数据库，然后启动 ChatGPT 提示答案？]]></description>
+      <guid>https://community.openai.com/t/api-books-crawler-ocr-latex-for-mathematics-physics-and-chemistry-books/670367#post_1</guid>
+      <pubDate>Thu, 07 Mar 2024 05:55:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
