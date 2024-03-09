@@ -4,149 +4,263 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 09 Mar 2024 01:07:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2024 03:22:00 GMT</lastBuildDate>
     <item>
-      <title>审核 API 返回“未定义”</title>
-      <link>https://community.openai.com/t/moderation-api-return-undefined/673625#post_3</link>
-      <description><![CDATA[ const mdrResponse = wait openai.moderations.create({input: mPrompt});
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_10</link>
+      <description><![CDATA[这是我当前为支持（包括提示）而设置的测试代码。玛丽是个假律师：
+# 测试主要
 
-这是调用OpenAI的部分，是的，我确实使用了输入，用户和提示只是为了我的后端登录，我只将提示传递给OpenAI作为输入。]]></description>
-      <guid>https://community.openai.com/t/moderation-api-return-undefined/673625#post_3</guid>
-      <pubDate>Sat, 09 Mar 2024 01:04:36 GMT</pubDate>
+导入 openai_test_processor
+导入操作系统
+
+从 openai_test_processor 导入 OpenAITestProcessor
+从日期时间导入日期时间
+
+
+# 初始化输出
+
+ai = OpenAITestProcessor()
+
+context=&#39;你是一个有用的助手。&#39;
+提示=“转到https://63898d4121644524ae9b79145f5ed630.stophatingyourbusiness.com/law-offices-of-mary-pason/并告诉我玛丽·帕森从事什么行业。”
+
+ai.set_initial_context（上下文）
+
+
+# 获取当前日期和时间
+现在 = 日期时间.now()
+时间戳 = now.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)
+响应= ai.get_one_response（提示）
+
+内容 = f&quot;{时间戳}: {响应}\n\n&quot;
+
+# 获取当前日期和时间
+现在 = 日期时间.now()
+时间戳 = now.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)
+response = ai.get_one_response (&#39;这是什么 GPT 模型？&#39;)
+
+内容 += f&quot;{时间戳}: {响应}&quot;
+
+输出文件夹 = &#39;测试输出&#39;
+文件名 = &#39;测试.txt&#39;
+
+输出路径 = os.path.join(输出文件夹, 文件名)
+将 open(output_path, &quot;w&quot;) 作为 f：
+    f.write(内容)
+
+班级：
+# openai_test_processor.py
+
+导入操作系统
+从 openai 导入 OpenAI
+导入 json
+
+OpenAITestProcessor 类：
+    def __init__(自身):
+        self.conversation_history = [] # 跟踪发送到 GPT 的消息
+
+        # 初始化 OpenAI API 密钥
+        self.api_key = os.getenv(&#39;OPENAI_API_KEY&#39;)
+        self.client = OpenAI(api_key=self.api_key)
+        self.system_client = OpenAI(api_key=self.api_key)
+
+    def set_initial_context(self, system_message):
+        # 清除现有的对话历史记录并正确引用 self
+        self.conversation_history = []
+        
+        # 将初始系统消息添加到对话历史记录中
+        如果系统消息：
+            self.conversation_history.append({&quot;角色&quot;: &quot;系统&quot;, &quot;内容&quot;: system_message})
+
+    def get_one_response(self, user_message):
+        
+        # 使用 ChatCompletion 对聊天模型进行 API 调用
+        完成 = self.client.chat.completions.create(model=&quot;gpt-4-turbo-preview&quot;,
+        messages=self.conversation_history + [{&quot;角色&quot;: &quot;用户&quot;, &quot;内容&quot;: user_message}])
+
+        # 打印模型
+        打印（完成.模型）
+
+        # 提取并返回响应
+        响应=completion.choices[0].message.content
+
+        返回响应
+
+]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_10</guid>
+      <pubDate>Sat, 09 Mar 2024 03:20:33 GMT</pubDate>
     </item>
     <item>
-      <title>审核 API 返回“未定义”</title>
-      <link>https://community.openai.com/t/moderation-api-return-undefined/673625#post_2</link>
-      <description><![CDATA[审核将“输入”作为您发送的文本。没有“用户：”。等等
-额外：阅读所有相关内容：
-https://platform.openai。 com/docs/api-reference/moderations
-我怀疑“你的”代码是人工智能的“代码”......]]></description>
-      <guid>https://community.openai.com/t/moderation-api-return-undefined/673625#post_2</guid>
-      <pubDate>Sat, 09 Mar 2024 01:02:48 GMT</pubDate>
+      <title>ChatGPT 不响应提示</title>
+      <link>https://community.openai.com/t/chatgpt-is-not-responding-to-prompts/671804?page=2#post_38</link>
+      <description><![CDATA[你是对的，Opera 也能正常工作。看起来像 Chrom &lt;img alt=&quot;:thinking:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/thinking.png?v=12 的问题“标题=“：思考：”宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/chatgpt-is-not-responding-to-prompts/671804?page=2#post_38</guid>
+      <pubDate>Sat, 09 Mar 2024 03:17:04 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成 API 函数调用 描述 限制</title>
-      <link>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_4</link>
+      <title>当您在浏览器中发送消息时它就会消失</title>
+      <link>https://community.openai.com/t/it-disappears-when-you-send-a-message-in-the-browser/671885#post_13</link>
+      <description><![CDATA[我也遇到了同样的问题。但当我尝试在设置中手动将语言切换为英语（之前设置为中文），然后刷新页面时，它起作用了。]]></description>
+      <guid>https://community.openai.com/t/it-disappears-when-you-send-a-message-in-the-browser/671885#post_13</guid>
+      <pubDate>Sat, 09 Mar 2024 03:12:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_9</link>
       <description><![CDATA[
 
 
-tallamsahil5：
+_j：
 &lt;块引用&gt;
-但注意到我不能有那么大的提示
+涡轮模型中幻觉的唯一改进是，你会从你发送的一半输入中得到一堵否认之墙，并且不会从其余输入中得出聪明的推论。
 
 
-我不知道你从哪里得出这个结论......
-对于许多输入（例如用户消息和函数返回），Assistants 的字符数限制为 32768 个字符。
-聊天完成，根据 AI 模型，您可以发送接近 400000 个字符 - 使用 GPT-4-Turbo 模型时需要 124k 个 AI 令牌才能允许 1k 响应。
-限制：定义 128 个函数； yaml API 规范没有对角色消息中返回的字符串长度进行限制。
-消息数量没有限制（如果您在机器人中写入 1 个令牌，输出 1 个令牌，则消息数量约为 20k）
-ChatCompletionRequestFunctionMessage：
-      类型：对象
-      标题： 功能消息
-      已弃用：true
-      特性：
-        角色：
-          类型：字符串
-          枚举：[“函数”]
-          描述：消息作者的角色，在本例中为“函数”。
-        内容：
-          可空：true
-          类型：字符串
-          描述：函数消息的内容。
-        姓名：
-          类型：字符串
-          描述：要调用的函数的名称。
-      必需的：
-        - 角色
-        - 内容
-        - 姓名
+我认为这本身就很有价值。也许我没有公正地评估0613，但使用1106来防止0314脱轨效果非常好。我认为拒绝是一个功能 
+你是说0613在任何情况下都有优势吗？
 
-你可以根据需要维护聊天历史记录，但函数调用的历史记录和添加必须是无损的，直到 AI 最终响应用户，这样 AI 才能看到哪些内容失败了以及哪些内容被迭代调用。您可能在 AI 自行拨打多次电话后发送的电话。
+
+
+ wingrowthsystems：
 &lt;块引用&gt;
-系统：你是一个功能机器人
-用户：今天百慕大首都有多少人口
-助理：cia_factbook.list_countries(“North_America”)
-功能：“加拿大、百慕大等”
-助理：cia_factbook.capitals(“百慕大”)
-功能：“百慕大：汉密尔顿”
-助理：cia_factbook.population_city(“百慕大：汉密尔顿”)
-功能：“866”
-]]></description>
-      <guid>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_4</guid>
-      <pubDate>Sat, 09 Mar 2024 00:59:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>审核 API 返回“未定义”</title>
-      <link>https://community.openai.com/t/moderation-api-return-undefined/673625#post_1</link>
-      <description><![CDATA[有人遇到过审核 API 返回“未定义”的情况吗？
-我正在使用带有 js 的 Firebase 函数，安装了 openai，并且我的 gpt、dall e 调用有效，但审核返回未定义。
-我用 url 调用测试了节制，它也有效。
-感谢您的帮助
-以下是我的代码：
-onCall(async (请求, 响应) =&gt; {
-尝试{
-const mPrompt = request.data.prompt || “没有消息”；
-const mUser = request.data.user || “未知用户”；
-logger.info(用户：${mUser} 请求：${mPrompt} ，{structedData：true});
- const mdrResponse = wait openai.moderations.create({input: mPrompt});
+我刚刚尝试了 gpt-4-turbo-preview 并得到了完全相同的结果。无论如何我都无法使用它，因为我最多需要 6000 个代币。
 
-            logger.info(`用户：${mUser} 响应：${JSON.stringify(mdrResponse.data)}`);
-            返回 {
-                结果代码：“1”，
-                结果信息：mdrResponse.data，
-            };
-        } 捕获（错误）{
-            logger.error(&quot;OpenAI 错误：&quot;, error);
-            返回 {
-                结果代码：“400”，
-                错误信息：error.toString(),
-            };
-        }
-    });
-]]></description>
-      <guid>https://community.openai.com/t/moderation-api-return-undefined/673625#post_1</guid>
-      <pubDate>Sat, 09 Mar 2024 00:54:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>介绍 Sensei，一个用于快速创建 AI 指南的框架</title>
-      <link>https://community.openai.com/t/introducing-sensei-a-framework-for-quickly-creating-ai-guides/658157#post_3</link>
-      <description><![CDATA[感谢您的更新。我添加了  项目标签。
-我们感谢您将更新放在同一个线程中，因为这使我们可以更轻松地了解您项目的所有内容。
-我目前没有时间亲自查看，但祝你好运！
-希望你能坚持下去……]]></description>
-      <guid>https://community.openai.com/t/introducing-sensei-a-framework-for-quickly-creating-ai-guides/658157#post_3</guid>
-      <pubDate>Sat, 09 Mar 2024 00:54:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>介绍 Sensei，一个用于快速创建 AI 指南的框架</title>
-      <link>https://community.openai.com/t/introducing-sensei-a-framework-for-quickly-creating-ai-guides/658157#post_2</link>
-      <description><![CDATA[我想分享过去十天的一些更新！
-从一开始，我们就希望人工智能指南能够寻求其他专业人工智能指南的支持。我们的假设是，具有专门提示和知识的导游网络将胜过被太多信息淹没的单一导游。
-我们在测试中已经看到了一些早期的确认：即使对于一些简单的事情，比如解释一本书，我们也可以通过让“根”指南处理人类输入并调用可以访问的专业指南来获得更好的性能。单独的章节来了解详细信息。
-当指南响应需要彼此完全不同时，跨多个指南拆分功能就变得更加重要。例如，一位向导可能需要在低温下生成技术输出，而另一位向导可能需要理解人类提示中表达的情感。根向导的作用是扮演流量控制器的角色，根据人类的提示来提示其外部向导，并综合响应。
-无论如何，我们来看看新内容：
 
-改进了分支和启动脚本，使创建和部署 AI 指南变得更加容易
-可以在配置文件中命名和描述外部指南
-标准的“callGuide”函数可用于调用配置中的任何外部指南
-]]></description>
-      <guid>https://community.openai.com/t/introducing-sensei-a-framework-for-quickly-creating-ai-guides/658157#post_2</guid>
-      <pubDate>Sat, 09 Mar 2024 00:41:50 GMT</pubDate>
+您在哪里进行初步评估？您想分享您的提示吗？]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_9</guid>
+      <pubDate>Sat, 09 Mar 2024 03:12:05 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成 API 函数调用 描述 限制</title>
-      <link>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_3</link>
-      <description><![CDATA[它说我在函数调用描述中的提示当前是 5843 个令牌。我仍然收到错误提示，提示太长，这是为什么？使用聊天完成 API 的功能对象描述提示令牌是否有限制？]]></description>
-      <guid>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_3</guid>
-      <pubDate>Sat, 09 Mar 2024 00:41:35 GMT</pubDate>
+      <title>ChatGPT 已停止在 Firefox 中工作</title>
+      <link>https://community.openai.com/t/chatgpt-has-stopped-working-in-firefox/664425#post_16</link>
+      <description><![CDATA[当我在 Firefox 中运行 Broswer 控制台时，它会显示以下内容：
+X-Content-Type-Options 标头警告：值为“nosniff;”；您的意思是发送“nosniff”吗？ 2
+Cookie“__cf_bm”很快就会被拒绝，因为它是外部的并且不具有“Partitioned”属性。 [log_event_beacon]
+Cookie“_cfuvid”很快就会被拒绝，因为它是外部的并且不具有“Partitioned”属性。 [log_event_beacon]
+Cookie“__cf_bm”很快就会被拒绝，因为它是外部的并且不具有“Partitioned”属性。 [log_event_beacon]
+Cookie“_cfuvid”很快就会被拒绝，因为它是外部的并且不具有“Partitioned”属性。 [log_event_beacon]
+X-Content-Type-Options 标头警告：值为“nosniff;”；您的意思是发送“nosniff”吗？
+“********************”处的资源被 OpaqueResponseBlocking 阻止。原因：“nosniff 是正确的，并且 mimeType 是一种不透明的阻止列表 MIME 类型或其本质是‘text/plain’”。 2
+X-Content-Type-Options 标头警告：值为“nosniff;”；您的意思是发送“nosniff”吗？ 4
+未知属性“-moz-border-radius”。宣言落空。 [codemirror.css:244:22]
+元素匹配选择器：.CodeMirror pre.CodeMirror-line、.CodeMirror pre.CodeMirror-line-like
+节点列表 
+X-Content-Type-Options 标头警告：值为“nosniff;”；您的意思是发送“nosniff”吗？
+这是 Mac / Firefox 问题吗，因为我注意到大多数报告相同问题的人都使用 Mac。我正在使用文图拉。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-has-stopped-working-in-firefox/664425#post_16</guid>
+      <pubDate>Sat, 09 Mar 2024 03:09:29 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成 API 函数调用 描述 限制</title>
-      <link>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_2</link>
-      <description><![CDATA[GPT 3.5 Turbo 有 16,385 个代币限制 (https://platform.openai.com/文档/模型/gpt-3-5-turbo)
-你的提示有多长？ https://platform.openai.com/tokenizer]]></description>
-      <guid>https://community.openai.com/t/chat-completions-api-function-call-description-limit/673579#post_2</guid>
-      <pubDate>Sat, 09 Mar 2024 00:23:42 GMT</pubDate>
+      <title>MyGPT 4 型号 ID - 在哪里可以找到它，我可以找到它吗？</title>
+      <link>https://community.openai.com/t/mygpt-4-model-id-where-do-i-find-it-can-i-find-it/673695#post_2</link>
+      <description><![CDATA[您是在谈论 ChatGPT 以及其中制作的 GPT 吗？
+没有分配给 GPT 的模型。将 GPT 视为等待使用的指令。 “模型”是用户在 Plus 帐户中获得的 AI，这可能是模型变体的持续测试程序。]]></description>
+      <guid>https://community.openai.com/t/mygpt-4-model-id-where-do-i-find-it-can-i-find-it/673695#post_2</guid>
+      <pubDate>Sat, 09 Mar 2024 03:07:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 对其开发者社区缺乏尊重</title>
+      <link>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_11</link>
+      <description><![CDATA[不幸的是，这些都是使用给定平台的工具的危险。]]></description>
+      <guid>https://community.openai.com/t/openais-lack-of-respect-towards-its-developer-community/669928#post_11</guid>
+      <pubDate>Sat, 09 Mar 2024 03:04:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_8</link>
+      <description><![CDATA[我刚刚尝试了 gpt-4-turbo-preview 并得到了完全相同的结果。无论如何我都无法使用它，因为我最多需要 6000 个代币。]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_8</guid>
+      <pubDate>Sat, 09 Mar 2024 03:02:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>当您在浏览器中发送消息时它就会消失</title>
+      <link>https://community.openai.com/t/it-disappears-when-you-send-a-message-in-the-browser/671885#post_12</link>
+      <description><![CDATA[我也遇到了同样的问题，不知道有什么好的解决办法吗？]]></description>
+      <guid>https://community.openai.com/t/it-disappears-when-you-send-a-message-in-the-browser/671885#post_12</guid>
+      <pubDate>Sat, 09 Mar 2024 03:02:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_7</link>
+      <description><![CDATA[
+
+
+饮食：
+&lt;块引用&gt;
+gpt-4-0613 是 gpt-4 模型中最差的，比 0314（大多数人不再可用）显着下降
+涡轮模型稍微笨一些，但在幻觉等方面更稳定。
+
+
+GPT-4是最差的？ （GPT-4指向gpt-4-0613）哈哈哈。
+涡轮模型中幻觉的唯一改进是，你会从你发送的一半输入中得到一堵否认之墙，并且不会从其余输入中得出聪明的推论。]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_7</guid>
+      <pubDate>Sat, 09 Mar 2024 02:59:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 比 3.5 差</title>
+      <link>https://community.openai.com/t/chatgpt-4-is-worse-than-3-5/588078?page=3#post_41</link>
+      <description><![CDATA[是的，GPT4 很荒谬。这些指导方针变得过于严格。当我收到 3.5 的回复并且 4 正在为不给我回复找借口时，我不禁觉得 4 完全是浪费钱。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-is-worse-than-3-5/588078?page=3#post_41</guid>
+      <pubDate>Sat, 09 Mar 2024 02:59:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_6</link>
+      <description><![CDATA[
+
+
+ wingrowthsystems：
+&lt;块引用&gt;
+唯一的 gpt-4 变体是 gpt-4-0613
+
+
+ https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
+是的，gpt-4 和 gpt-4-turbo 是两个不同的东西。我建议您可能正在寻找 Turbo，但无意中使用了 gpt-4。]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_6</guid>
+      <pubDate>Sat, 09 Mar 2024 02:58:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_5</link>
+      <description><![CDATA[
+
+
+ wingrowthsystems：
+&lt;块引用&gt;
+gpt-4-0613
+
+
+是的。 OpenAI 仪表板对于所使用的内容非常具体。唯一的 gpt-4 变体是 gpt-4-0613。我今天去了游乐场几次，但很少使用。
+我也打不到314。我也尝试过。]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_5</guid>
+      <pubDate>Sat, 09 Mar 2024 02:55:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>经历来自 OpenAI API 的意外模型响应（预期 GPT-4，收到 GPT-3）</title>
+      <link>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_4</link>
+      <description><![CDATA[
+
+
+ wingrowthsystems：
+&lt;块引用&gt;
+值得注意的是，GPT-4 有一种特定的方式来处理对其训练数据之外的信息的请求，例如声明其无法访问外部网站，而 GPT-3 往往会生成响应
+
+
+你是在谈论游乐场测试吗？
+您可能使用的是 gpt-4-turbo，而不是 gpt-4。有显着差异。将您的模型设置为 gpt-4-1106-preview 或 gpt-4-0125-preview。
+gpt-4-0613 是 gpt-4 模型中最差的，比 0314 显着下降（大多数人不再使用它）
+涡轮模型稍微笨一些，但在幻觉等方面更稳定。]]></description>
+      <guid>https://community.openai.com/t/experiencing-unexpected-model-responses-from-openai-api-gpt-4-expected-gpt-3-received/673644#post_4</guid>
+      <pubDate>Sat, 09 Mar 2024 02:52:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我犯了一个错误，就是在屋顶上向那些不这样做的人大喊大叫</title>
+      <link>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_3</link>
+      <description><![CDATA[你好。到目前为止，您的应用程序看起来不错。我刚刚开始学习人工智能开发。尝试从头开始构建 GPT 模型，但惨遭失败。然后我发现了 nanoGPT，所以我将以此为基础重新开始并从那里开始构建。但我的问题是缺乏知识和有限的计算机资源。但我从不让这些事情妨碍我。
+我认为很多人并不像我们中的一些人那样热衷于科技。但这是未来。我认为部分问题本质上是社会经济问题。它的成本太高，而且该领域的一些人倾向于有毒和精英主义，就像加密货币所发生的那样。所以我想我是否能弄清楚如何从无到有，并可能超越这一点。也许我可以从该项目中建立一个更具包容性的社区，即使是新手也可以以某种方式做出贡献。
+但这只是我个人的想法。首先，我必须穿越众所周知的丛林并开辟道路。]]></description>
+      <guid>https://community.openai.com/t/i-have-made-the-mistake-of-shouting-from-the-roof-tops-to-people-who-just-do-not/663459#post_3</guid>
+      <pubDate>Sat, 09 Mar 2024 02:50:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
