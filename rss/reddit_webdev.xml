@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 08 Mar 2024 21:15:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2024 01:06:08 GMT</lastBuildDate>
+    <item>
+      <title>难以构建（难以响应）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba4oqc/difficult_to_build_tough_to_make_responsive/</link>
+      <description><![CDATA[      我正在尝试找出在桌面视口中构建此英雄部分的最简单方法。这特别困难，因为文本量是可变的。 H1 可以在 1-3 行之间变化，这使得黑色部分的高度进行调整，但图像保持相同的高度/比例，然后看起来很糟糕。我无法弄清楚这一点。移动视口要简单一些，因为它只是堆叠。  ​ https://preview.redd.it/m5tomku7i7nc1.png?width=474&amp;format=png&amp;auto=webp&amp;s=b4e0ba5cc66c06fd6f5492eb97ff283d0d49de95 &lt; p&gt;​ https://preview.redd.it /lqtap2l8i7nc1.png?width=199&amp;format=png&amp;auto=webp&amp;s=1635b09358b7928ab061eac242b4a317d1661d8f   由   提交/u/jaredchese  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba4oqc/difficult_to_build_tough_to_make_responsive/</guid>
+      <pubDate>Sat, 09 Mar 2024 00:53:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻求建议是否可能！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba3iww/looking_for_advice_on_if_this_is_even_possible/</link>
+      <description><![CDATA[我希望创建一个平台，用户可以根据他们在注册期间提供的特定属性进行交互。例如，当用户注册时，他们会被要求填写有关其独特特征或偏好的详细信息。我正在寻求的关键功能之一是用户能够提出问题并获得答案，但有所不同。我想根据提问者个人资料和潜在回答者个人资料中的某些标准来限制谁可以回答问题。例如，如果用户提出问题并在其个人资料中指定特定属性，我只希望其个人资料中具有匹配或互补属性的用户能够做出响应。这可以确保所提供的答案与提问者的具体情况相关且有帮助。总之，用户需要填写具有特定属性的个人资料，并且平台应允许根据提问者的标准动态过滤潜在的回答者。这可确保为所有用户提供量身定制且有意义的交互体验   由   提交/u/Sensitive_Cloud444  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba3iww/looking_for_advice_on_if_this_is_even_possible/</guid>
+      <pubDate>Sat, 09 Mar 2024 00:01:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何将用户与 firebase Auth 和自定义后端（MySQL for db）同步</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba3ftn/how_to_sync_users_with_firebase_auth_and_custom/</link>
+      <description><![CDATA[嗨，我仅使用 firebase 进行身份验证，以 React 作为前端，以 dotnet 作为后端。我现在正在做的是使用 firebase 客户端在前端创建用户，然后将不记名令牌发送到我的后端。如果令牌有效，我将创建用户并将其存储在 sql 中。这对我来说很有用，但我有一个问题，那就是用户是从前端在 firebase 中创建的，因此可能存在用户存在于 firebase auth 中但不存在于我的数据库中的情况。我可以在后端创建用户，但我如何知道这是否是有效的请求（例如：来自我的注册表单的请求）或其他内容。我喜欢在前端创建用户的地方是我从 firebase 获取一个令牌，我可以使用它来授权用户，但不确定如果我在后端创建用户，我该怎么做？    由   提交 /u/After-Perception-250   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba3ftn/how_to_sync_users_with_firebase_auth_and_custom/</guid>
+      <pubDate>Fri, 08 Mar 2024 23:57:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建通用解决方案，用于跟踪公司-企业信息收集应用程序中与其他模型相关的缺失字段</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba2ee7/building_a_generic_solution_for_tracking_missing/</link>
+      <description><![CDATA[问题陈述：公司可以从公司收集某些信息的应用程序 使用的数据库：Postgres 这就是我的模型的样子 model Firm { id String @id @default(uuid())firmName String requests Request[] } model Company { id Int @id @默认（自动增量（）） companyLegalName 字符串？公司名称后缀字符串？ // 例如：Inc.、Pvt.有限公司等注册地址 地址？ @relation(name: &quot;incorporation_address&quot;) requests Request[] } enum RequestStatus { REQUESTED REQUEST_COMPLETED REQUESTED_RESUBMISSION } model Request { id String @id @default(cuid()) value Json？消息字符串？请求字段 Json？ lastUpdateTime DateTime @default(now()) @updatedAt company Company @relation(字段：[companyId]，引用：[id]) companyId Int 公司 CAFirm @relation(字段：[firmId]，引用：[id])firmId String isCustomerActionRequired Boolean @default(true) requestStatus RequestStatus @default(REQUESTED) }  此应用程序的基本思想是：我已经在公司模型中跟踪了某些公司信息集以及一些我可能没有在我的公司模型中跟踪的内容。 假设公司需要companyName来执行他们的操作，而companyName可能会丢失，我正在构建一个系统，允许公司从公司请求companyName用户，使用请求模型进行跟踪，其中值是用户为其公司名称输入的值，requestedFields 是我存储所需信息类型的键值和类型的位置。 I我的后端有一个如下所示的配置：   fields: [ { key: &quot;COMPANY_NAME&quot;, type: FieldType.TEXT, displayValue: &quot;CompanyName&quot;, }, ], &lt; /code&gt; ​ 现在，对于字段模型中的每个对象，我在请求模型中创建一行，字段的类型用于在客户端 上下文： Reddit 查询有关同一项目的通用客户端表单 我当前的解决方案： ​   fields: [ { key: &quot;COMPANY_INFORMATION&quot;, displayValue: &quot;公司详细信息&quot;, companyId: company?.id, type: FieldType.COMPANY_INFORMATION NestedFields: [ { key: &quot;COMPANY_LEGAL_NAME&quot; ;, type: FieldType.TEXT, displayValue: &quot;Company&#39;s legal name&quot;, value: company?.companyLegalName }, ] ]  我可以访问后端的公司对象，如果companyLegalName 存在，我将其与响应一起发送，如果没有，则向公司显示缺失，这进一步提示公司请求缺失的信息 ​ 在前端我正在根据类型渲染自定义表单，并同时进行两个 api 调用来更新公司模型以及请求模型，以便我更容易跟踪 我需要什么帮助 我想要一个更通用的解决方案来实现此解决方案，在其中我可以跟踪与其他模型相关的缺失字段，无论它是标量还是非标量，有人可以帮助我吗 ​ ​   由   提交/u/Amantulsyan35   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba2ee7/building_a_generic_solution_for_tracking_missing/</guid>
+      <pubDate>Fri, 08 Mar 2024 23:13:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>将存储、协作和聊天功能整合到一个平台中。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba1vlh/consolidate_storage_collaboration_and_chat/</link>
+      <description><![CDATA[大家好， 我们一直致力于https ://thedrive.ai，您可以在其中存储、读取、写入以及与 AI 和您的团队协作。我不想破坏这里所有的乐趣。自己检查一下。 干杯。   由   提交 /u/karkibigyan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba1vlh/consolidate_storage_collaboration_and_chat/</guid>
+      <pubDate>Fri, 08 Mar 2024 22:51:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于为任务设置最长工作时间的开发工作的想法</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba167l/thoughts_on_dev_jobs_who_set_max_hours_for_a_task/</link>
+      <description><![CDATA[这里是较新的开发人员，大约有 2 年的经验，只是想看看每个人对公司设置任务应花费的最大时间有何看法？ 示例： 功能名称 - 截止日期：3 月 6 日 开发人员名称 - 3 小时 我刚刚开始对此内部进行一些工作一个机构的项目，只有大约一个月的时间，所以我仍在习惯他们的代码库和一些我以前从未使用过的东西。我们必须记录每项任务的时间，这对我来说没有问题，但任务也有一个最长时间，老实说这只会让我压力更大。他们也有截止日期，这对于任何与开发相关的事情来说都是显而易见的，但我觉得当我工作时，我所考虑的只是我要确保我能在分配的时间内完成多快有，即使我在截止日期前几天正在处理它。 也许随着时间的推移，情况会变得更好，但在我看来，我认为当然应该有一个截止日期和记录时间，但除非有一个荒谬的高时间日志，为什么要最大化它？ 时间也是由不进行开发的人选择的，所以有时我在 20 分钟内完成一项任务，而我被给予 2小时，但是当任务更大并且时间很紧时，这就会成为一个问题。 这是许多开发公司的常见做法吗？只是想看看其他人对此有何看法。   由   提交 /u/Xcelifyy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba167l/thoughts_on_dev_jobs_who_set_max_hours_for_a_task/</guid>
+      <pubDate>Fri, 08 Mar 2024 22:22:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>将您的网站图标设置为 auth0 登录页面的小指南</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba1078/small_guide_to_set_your_favicon_into_auth0_login/</link>
+      <description><![CDATA[大家好，我想与大家分享这个，由于我没有找到 Auth0 subreddit，我将在这里发布我的小指南：  这就是我将自定义图标放入登录、注册和 auth0 的任何页面的方法；本指南面向所有使用新通用登录而不使用自定义 html 主题的人。 首先我在线上传了我的徽标（我使用了 imgbb） 然后我打开了 Powershell并使用以下命令安装在我的电脑 Scoop 上： Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression 然后我安装了 Auth0 CLI（始终使用 Powershell）： scoop bucket add auth0 https://github.com/auth0/scoop-auth0-cli.git scoop install auth0 并以用户身份登录：  auth0 登录 现在您的浏览器将打开一个页面，您将在其中插入凭据、登录并等待 powershell 接收响应 现在您所要做的就是编写此命令并将占位符替换为您徽标的 https： auth0 universal-login update --favicon PLACEHOLDER 好了，它现在应该可以工作了。希望我让那里的人度过了更轻松的一天。 为了以防万一，我将在此处链接我的来源。 https://community.auth0.com/t/favicon-not-working-on-new-universal-login/107987 /2 https://github.com /auth0/auth0-cli?tab=readme-ov-file#installation 祝大家有美好的一天  &amp;# 32；由   提交/u/Cold_Set_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba1078/small_guide_to_set_your_favicon_into_auth0_login/</guid>
+      <pubDate>Fri, 08 Mar 2024 22:15:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>NodeJS API 模拟库</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba06c7/nodejs_api_mocking_libraries/</link>
+      <description><![CDATA[嗨，有谁知道或可以推荐任何与 https://www.mocks-server.org/？ 我知道，并且玩过https:// /mswjs.io/，但我特别关注可以作为独立 http 服务器启动的模拟解决方案，其中可以以编程方式更改端点响应（无需重新启动模拟服务器）以帮助自动测试运行。&lt; /p&gt; Mocks-server 做了所有这些，而且它很棒，但它已经有一段时间没有更新了，而且它不是用 TypeScript 编写的事实并不理想，所以想知道是否还有其他东西可以尝试. 干杯！   由   提交 /u/woodshed_ned   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba06c7/nodejs_api_mocking_libraries/</guid>
+      <pubDate>Fri, 08 Mar 2024 21:42:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>最佳代码完成副驾驶？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ba05ss/best_code_completion_copilot/</link>
+      <description><![CDATA[我有兴趣找到编码时使用的最佳副驾驶。自从 Github 的 Co-Pilot 推出以来，我就一直在使用它，它已经完成了它的工作，但我觉得从一开始我就没有看到太多的增长。我唯一关心的因素是代码完成。 我昨天实际上使用了 Cursor 的 Copilot++，可以说我看到了 Github 的即时改进，这非常令人惊讶。 这里有一个我知道的其他几个副驾驶： - Cursor 的副驾驶  - Supermaven（我现在正在尝试这个） - Codeium - 塔贝宁 - Double（归功于 telewebb） 我希望听到一些关于这些不同副驾驶的意见或对我不知道的人的建议   由   提交 /u/MonzterSlayer   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ba05ss/best_code_completion_copilot/</guid>
+      <pubDate>Fri, 08 Mar 2024 21:41:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么似乎没有人使用 .NET</title>
+      <link>https://www.reddit.com/r/webdev/comments/1b9zydf/why_does_no_one_seem_to_use_net/</link>
+      <description><![CDATA[由于我作为政府承包商花费了大量时间，因此我几乎专门使用 .NET 进行 Web 开发。在政府之外，我注意到没有人使用 .net 进行任何前端开发，也很少使用后端。有什么我应该注意的原因吗？   由   提交 /u/twigmytwig   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1b9zydf/why_does_no_one_seem_to_use_net/</guid>
+      <pubDate>Fri, 08 Mar 2024 21:33:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>支付网关集成 - Ontraport</title>
+      <link>https://www.reddit.com/r/webdev/comments/1b9zuzb/payment_gateway_integration_ontraport/</link>
+      <description><![CDATA[大家好！我正在为客户研究支付网关选项，并正在寻找一些外部意见。客户当前正在使用并希望退出 Authorize.net。她正在寻找一种可能更便宜的选择。她想要至少有 5 个选项可供选择。以下是目前与 Ontraport 集成的网关： Elavon Eway Rapid Network Merchants Inc Payflow Pro PayJunction Payleap PayPal Payments Pro QuickBooks 付款服务 Stripe 和 Stripe 令牌  USA ePay 我们只关注在线读者，不需要实体选项。我个人只使用过 Stripe &amp; PayPal之前用于支付集成。有人对列出的这些内容有过实践经验吗？他们对你来说效果如何？预先感谢您！   由   提交 /u/boop-nose_joy-parade   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1b9zuzb/payment_gateway_integration_ontraport/</guid>
+      <pubDate>Fri, 08 Mar 2024 21:29:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们都是如何完成业余项目的？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1b9zjt4/how_do_you_all_finish_side_projects/</link>
+      <description><![CDATA[就上下文而言，我已经成为一名全栈开发人员 13 年了。我觉得我很有成就，有能力开发软件系统和应用程序。 但是，在完成自己的“业余项目”时，我一直遇到问题 我得到了真正的动力事实上，2015 年的时候，我设计了一款几乎不折不扣的游戏（没有双关语），wordle。  我已经启动了很多副业项目，并且通常都会完成它，这是一个可行的开发实例，然后……所有的动力都消失了。 我的问题是如何做任何一个你们真的从副项目过渡到主项目吗？只是需要建议。   由   提交/u/bccorb1000   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1b9zjt4/how_do_you_all_finish_side_projects/</guid>
+      <pubDate>Fri, 08 Mar 2024 21:17:03 GMT</pubDate>
+    </item>
     <item>
       <title>Reddit 嵌入评论不起作用</title>
       <link>https://www.reddit.com/r/webdev/comments/1b9yskm/reddit_embed_comment_not_working/</link>
@@ -20,95 +104,11 @@
       <pubDate>Fri, 08 Mar 2024 20:37:35 GMT</pubDate>
     </item>
     <item>
-      <title>如何避免开发环境和生产环境之间的差异？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9yina/how_does_one_avoid_discrepancies_between_the/</link>
-      <description><![CDATA[我目前正在使用 VS Code 的实时预览扩展来构建一个网站，我注意到一旦发布就会出现一些细微的差异。我想知道除了进行微调、推送到 GitHub 并查看发生了什么变化之外，解决此问题最有效的方法是什么。  P.S.抱歉，如果这个问题是多余的，我找不到任何其他可以帮助我的内容。   由   提交 /u/Bacleo   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9yina/how_does_one_avoid_discrepancies_between_the/</guid>
-      <pubDate>Fri, 08 Mar 2024 20:36:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>不再需要从头开始设计，有任何带有 Web UI 组件和示例的库可供挑选和构建吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9xivw/no_more_designing_from_scratch_any_libraries_with/</link>
-      <description><![CDATA[我一直在为我们的客户从头开始设计网站，现在我有一些预算较低的项目即将推出，显然不是每个公司需要定制设计。我想知道是否有任何好的网站/应用程序/平台可以展示最常见 Web 组件的许多不同样式或变体。 （我不是在寻找 UI 代码示例，只是设计够了，我自己构建它）   由   提交 /u/miguste   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9xivw/no_more_designing_from_scratch_any_libraries_with/</guid>
-      <pubDate>Fri, 08 Mar 2024 19:56:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>笔记本推荐</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9x9h0/notebook_recommendations/</link>
-      <description><![CDATA[有谁知道有一款专为 Web 开发人员/后端开发人员设计的笔记本，可以从头到尾帮助创建新应用程序。业务需求、网页设计/用户体验、后端 api 等部分。有人知道是否存在这样的东西吗？   由   提交 /u/Nojil   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9x9h0/notebook_recommendations/</guid>
-      <pubDate>Fri, 08 Mar 2024 19:45:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>伙计们，在开始执行实施部分之前，您是否计划好您的项目/任务？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9x14m/guys_do_you_plan_out_your_projectsassignment/</link>
-      <description><![CDATA[目前正在从事新工作，我想知道实现某些功能或任务的最佳方式是什么？  你们是用笔纸来计划一切还是直接编码？ 此外，任何资源/文章都会受到赞赏   由   提交 /u/whyiam_alive   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9x14m/guys_do_you_plan_out_your_projectsassignment/</guid>
-      <pubDate>Fri, 08 Mar 2024 19:36:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>切换到新的域名注册商</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9wgrc/switching_to_a_new_domain_registrar/</link>
-      <description><![CDATA[我目前有一个 Deluxe Hosting 的网站，我的域名也注册在该网站上。我将把我的网站转移到另一家公司。公司并不关心我在哪里注册了域名。他们建议 godaddy 和网络解决方案是流行的解决方案。然而，我对 godaddy 的研究表明它们是垃圾。关于网络解决方案的内容不多。  我最近在 NameCheap 上为我的个人电子邮件注册了一个域名，一切似乎都很顺利。我只是好奇 NameCheap 是否是为我的企业保留域名的好地方，或者我应该将其保留在 Deluxe 中吗？或者我应该把它移到其他地方。我不明白除了客户服务之外所有公司之间的主要区别是什么。某些注册商是否更安全或更适合企业？请帮助我理解。谢谢你！    由   提交/u/smoknjoe44  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9wgrc/switching_to_a_new_domain_registrar/</guid>
-      <pubDate>Fri, 08 Mar 2024 19:13:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>Long Shot：是否有其他程序可以打开 Instapage 文件？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9w0u0/long_shot_are_there_any_alternative_programs_that/</link>
-      <description><![CDATA[长话短说，我有一些登陆页面，但我在上一个雇主的 Instapage 中创建了这些页面，并且想要从后端获取一些屏幕截图，除了我输入的一些专门代码。 然而，在开始免费试用后，事实证明该服务不允许您上传以前构建的文件/页面，除非您支付他们的顶级费用软件包（不幸的是，它没有免费试用版）。 MacBook 上的 TextEdit 允许我查看所有代码，但除此之外我很 SOL。希望有一种不同的方式可以打开文件并查看工作区 - 尽管我认为它可能是专有的并且在其他地方不起作用。 TIA！   由   提交 /u/nciscokid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9w0u0/long_shot_are_there_any_alternative_programs_that/</guid>
-      <pubDate>Fri, 08 Mar 2024 18:56:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>为我即将推出的网站制作了一个易于编写脚本的打字机/文本编辑器效果</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9uwpf/made_an_easily_scriptable_typewriter_text_editor/</link>
-      <description><![CDATA[       由   提交/u/Baegus  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9uwpf/made_an_easily_scriptable_typewriter_text_editor/</guid>
-      <pubDate>Fri, 08 Mar 2024 18:12:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源 Webflow 替代方案？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9unaw/opensource_webflow_alternatives/</link>
-      <description><![CDATA[嗨，您知道有哪些开源网站构建器系统允许您导出 HTML css 和 js 吗？谢谢    由   提交/u/Retrobici-9696    reddit.com/r/webdev/comments/1b9unaw/opensource_webflow_alternatives/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9unaw/opensource_webflow_alternatives/</guid>
-      <pubDate>Fri, 08 Mar 2024 18:02:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想要一个“向我发送图片”按钮，用用户的网络摄像头发送图片并将其通过电子邮件发送给我</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9udlx/i_want_a_send_me_a_picture_button_that_a_picture/</link>
-      <description><![CDATA[仔细一看，似乎有很多服务器端编程。这是对的吗： 1) JS 使用网络摄像头获取图像。 2) php 将图像保存到服务器。 3) python 发送电子邮件附件？ 感谢您的任何想法！   由   提交 /u/Demeter_Family_Farm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9udlx/i_want_a_send_me_a_picture_button_that_a_picture/</guid>
-      <pubDate>Fri, 08 Mar 2024 17:51:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>制作两个并排的多行文本输入字段并对齐行</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9thel/making_two_sidebyside_multiline_text_input_fields/</link>
-      <description><![CDATA[Hello r-slash-webdev ​ 我目前正在尝试制作一个Web 应用程序包含一个组件，该组件由两个并排的文本字段组成，每个字段都允许使用自动换行进行多行输入。我的想法是，我希望用户能够以多种语言编辑文档，因此每种语言版本都可以轻松并排比较。我想让文本字段中的每一行与另一个文本字段中的相应行位于相同的高度，因此，如果由于自动换行或其他原因，一行需要比另一行占用更多的高度，那么另一条线的高度将增加，以便它们都具有相同的高度或垂直位置偏移，以便它们全部对齐。这样，一种语言的每一行/段落都可以被阅读，并与另一种语言的另一行/段落并排进行比较，而不会因为某些语言比其他语言占用更多空间而出现错位。  ​ 这个想法类似于使用表格进行翻译，但是表格对于我的用例来说效果不太好，因为文档的任何一种语言版本都不一定是最终版本草稿在任何时间点，所以我仍然需要能够像文档一样编辑任一版本，而不是严格翻译一个版本。 ​ 到目前为止绝对“最简单的解决方案”我想出的是制作某种类型的自定义组件（可能使用 React，因为这是我最熟悉的），这只是我用 javascript 编写自己的编辑器。我希望有某种方法可以通过标准 HTML 输入、CSS（例如 CSS 网格的对齐功能，但我所有的实验最终都不起作用）和最少的 javascript 来更轻松地完成此任务，但我还没有我自己无法找到任何方法来完成此任务。是否有人碰巧知道任何可用于更简单解决方案的 CSS 或 javascript 技巧，或者是否有针对此用例的现有解决方案（例如 NPM 模块），或者除了编写我自己的自定义编辑器之外没有其他方法？   由   提交/u/Aethix0  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9thel/making_two_sidebyside_multiline_text_input_fields/</guid>
-      <pubDate>Fri, 08 Mar 2024 17:16:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>谁能帮我理解“receive-cookie-deprecation”会话cookie？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9snp8/can_anyone_help_me_understand/</link>
-      <description><![CDATA[我有一个网站在上个月突然获得了一个名为“receive-cookie-deprecation”的会话 cookie。据我所知，它是由 Chrome 放置的，因为它不会出现在 Firefox 或 Safari 中。我认为这与 Chrome 在 2024 年弃用第 3 方 cookie 有关，并且它用于某些 PrivacySandbox API 功能，但这就是我能发现的全部内容。 您会将此会话 cookie 视为第一方还是第三方派对？另外，有人知道有关 cookie 用途的更多信息吗？ 根据 GDPR，第一方会话 cookie 不需要同意，但网站仍应告诉用户会话 cookie 的作用。因此，如果它被视为第三方，我需要根据用户偏好来阻止它，但如果它是第一方，我仍然需要知道它会做什么来向我的用户披露它。 &lt; !-- SC_ON --&gt;  由   提交 /u/gotnicerice   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9snp8/can_anyone_help_me_understand/</guid>
-      <pubDate>Fri, 08 Mar 2024 16:44:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>2024年大三找工作，还有可能吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9saqw/finding_a_job_as_a_junior_in_2024_is_it_still/</link>
-      <description><![CDATA[最近我开始更深入地研究 Web 开发。 我曾在 2021 年左右作为自由职业者与某人合作过不是很复杂的 WP 项目。 我没有学位。我正在构建一个包含 2 个大型应用程序的组合（它们包含前端、后端、数据库，它们具有真正的实用性） 问题是我目前正在边做边学（在组合上工作），javascript 与目前有 React、Express、postgresql、router、npm、vite、node、jest。我每天至少花 8 个小时，但我也有连续两周花 16 个小时的时间，我已经取得了很大进步。 我的目标是将这些应用程序推向市场，并将它们用作为未来的雇主提供经验。但是投入这么多的时间在这上面，放弃了其他的活动全力以赴，基本上除了我女朋友之外的任何活动都放弃了。 我想问一下现在市场上有没有这样的公司仍在招聘，如果有机会以“初级”身份进入市场考虑到我在该领域没有多年的经验，虽然过去我用Python和selenium做过网络爬虫和自动化，用html/CSS做的网站很少js和php，但我不能吹嘘它们，很小项目。 仅凭我通过制作和部署这两个项目获得的经验是否有可能被雇用？现在的公司都要求学历吗？我是不是在浪费时间，而且几乎没有机会很快被录用？你有什么经历？谢谢你，抱歉我的英语不好。   由   提交 /u/Zestyclose-Trainer52    reddit.com/r/webdev/comments/1b9saqw/finding_a_job_as_a_junior_in_2024_is_it_still/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9saqw/finding_a_job_as_a_junior_in_2024_is_it_still/</guid>
-      <pubDate>Fri, 08 Mar 2024 16:30:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何构建一个类似于 Shadcn UI 的自定义组件库，具有易于安装、单独组件安装等特点？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1b9s9jh/how_can_one_build_a_custom_component_library/</link>
-      <description><![CDATA[标题基本上，我想了解如何执行此操作，但只能找到用于创建使用如下流程的自定义组件库的流程MUI上线并没有像Shadcn UI那样的流程上。 另外如何让它兼容多个框架？   由   提交/u/_cheekymikey_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1b9s9jh/how_can_one_build_a_custom_component_library/</guid>
-      <pubDate>Fri, 08 Mar 2024 16:29:00 GMT</pubDate>
+      <title>我对 js 注入攻击如何运作有正确的想法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1b9ht48/do_i_have_the_right_idea_of_how_js_injection/</link>
+      <description><![CDATA[因此，当您访问用户的个人资料时，后端会将用户简介信息添加到段落标记中，如下所示： &lt;p&gt;{{简介信息}}但是拥有此个人简介的用户可以将其个人简介设置为： &lt;脚本&gt;恶意代码&lt;/script&gt; 那么现在当生物信息加载时，会自动运行代码，可以窃取cookie，注入HTML等？ 防止这些攻击，我可以禁止“&gt;”吗？或“&lt;”不被放置在任何地方？这种攻击也可以通过将其添加到图像等文件中来完成，因为它不太可能被检查是否有恶意内容？   由   提交 /u/centerdeveloper   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1b9ht48/do_i_have_the_right_idea_of_how_js_injection/</guid>
+      <pubDate>Fri, 08 Mar 2024 06:56:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
