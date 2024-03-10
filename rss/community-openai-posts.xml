@@ -4,88 +4,92 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 10 Mar 2024 15:16:37 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2024 18:19:58 GMT</lastBuildDate>
     <item>
-      <title>种子参数和可重复输出不起作用</title>
-      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_25</link>
-      <description><![CDATA[GPT-3 模型是确定性的。您输入相同的输入，每次都会获得完全相同的嵌入以及完全相同的 logit 值和 logprobs。所以这不是“变压器架构”问题。
-数学就是数学，除非处理器中出现计算错误，否则无论底层过程有多复杂，这些位每次都会以相同的方式组合。
-现在所有可用的 OpenAI 模型确实是不确定的。我们不知道为什么。他们是否关闭了 GPU 中的 ECC 以提高效率？硬件池的非同质混合。他们是否故意“选择性可用性”输出，以便您无法对底层机制进行状态检查？不管是什么，你运行 20 个相同的嵌入或 20 个相同的聊天完成，你几乎每次都会得到不同的向量和不同的对数概率，通常会导致排名令牌和排名语义搜索的位置切换。
-指纹的变化表明您将得到不同的结果 - 他们添加了训练、重新加权或推理架构更改，因此本质上就像将您的工作指向不同的模型，没有更改日志。
-种子是 Logit 计算和 softmax 之后的采样的一部分，它是随机的。你可以要求 AI 在温度 1.5 下滚动 1d20，每次调用都会得到不同的结果，因为从所有可能的令牌中随机选择。将种子设置为相同，您总是会得到相同的结果 - 除了前面描述的降低作为采样器输入的令牌质量的质量的问题之外。]]></description>
-      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_25</guid>
-      <pubDate>Sun, 10 Mar 2024 15:08:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>附加到助手的文件和附加到消息的文件之间有区别吗？</title>
-      <link>https://community.openai.com/t/s-there-a-difference-between-files-attached-to-the-assistant-and-files-attached-to-messages/573691#post_5</link>
-      <description><![CDATA[@sps 我面临以下问题：模型对线程中的第二个问题给出了不正确的答案启用检索
-问题是模型在收到第二条消息时开始产生幻觉。但是，我也尝试上传第二条消息的知识库，然后模型就没有产生幻觉。
-您知道为什么会发生这种情况吗？]]></description>
-      <guid>https://community.openai.com/t/s-there-a-difference-between-files-attached-to-the-assistant-and-files-attached-to-messages/573691#post_5</guid>
-      <pubDate>Sun, 10 Mar 2024 15:08:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 审查制度：呼吁开发人员重新思考他们的立场</title>
-      <link>https://community.openai.com/t/chatgpt-censorship-calling-out-the-devs-to-rethink-their-position/613914#post_2</link>
-      <description><![CDATA[天哪，我刚刚订阅了，但在生成母乳喂养的隐喻和解剖图像时遇到了问题（是的，母乳喂养是很自然的事情），而且它也不想生成水手月亮修道士，因为它很恐怖。你在开玩笑吧？这是审查到荒谬的程度。
-如果这没有改变，我认为继续订阅没有意义。我最感兴趣的是隐喻、超现实主义、解剖学和恐怖。这些限制因用户而异吗？就像我被标记为可怕的内容，现在正在对我进行过度审查或类似的事情？我没有任何线索。我很沮丧。
-有更好的图像生成人工智能的建议吗？审查较少？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-censorship-calling-out-the-devs-to-rethink-their-position/613914#post_2</guid>
-      <pubDate>Sun, 10 Mar 2024 14:58:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>视频识别并根据所附视频中的元素重新生成新视频</title>
-      <link>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_3</link>
-      <description><![CDATA[这是一个视频示例，我从中制作了场景。重要的是人工智能能够识别视频中的元素，并使用相同的元素制作类似的东西，但也有不同。
-和我的朋友一起跑步]]></description>
-      <guid>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_3</guid>
-      <pubDate>Sun, 10 Mar 2024 14:56:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>种子参数和可重复输出不起作用</title>
-      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_24</link>
-      <description><![CDATA[此外，简单的浮点计算竞争条件很可能会产生一定程度的随机性
-当完成计算并行化时，某些计算可能会更快，并导致微小的（~0.00…001）错误（由于有限的浮点精度）。
-虽然大多数时候这并不重要，但在极少数情况下会选择不同的令牌，这反过来又可能会由于变压器架构的工作方式而影响所有其余令牌。
-虽然我不确定这种情况有多普遍（如果有的话）
-请告诉我这是否有意义 ]]></description>
-      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_24</guid>
-      <pubDate>Sun, 10 Mar 2024 14:55:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>审查制度不祥之兆 - 我将保留我的潜艇，直到开源赶上</title>
-      <link>https://community.openai.com/t/censorship-bad-omen-i-will-keep-my-sub-until-open-source-catches-up/511768?page=2#post_22</link>
-      <description><![CDATA[天哪，我刚刚订阅了，但在生成母乳喂养的隐喻和解剖图像时遇到了问题（是的，母乳喂养是很自然的事情），而且它也不想生成水手月亮修道士，因为它很恐怖。你在开玩笑吧？这是审查到荒谬的程度。
-如果这没有改变，我认为继续订阅没有意义。我最感兴趣的是隐喻、超现实主义、解剖学和恐怖。]]></description>
-      <guid>https://community.openai.com/t/censorship-bad-omen-i-will-keep-my-sub-until-open-source-catches-up/511768?page=2#post_22</guid>
-      <pubDate>Sun, 10 Mar 2024 14:51:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>种子参数和可重复输出不起作用</title>
-      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_23</link>
-      <description><![CDATA[&lt;块引用&gt;
-这不是指纹的用途。
+      <title>Dall-E-3 模型的图像费用</title>
+      <link>https://community.openai.com/t/charges-for-dall-e-3-model-for-image/675469#post_6</link>
+      <description><![CDATA[
 
-感谢您的快速回复！让我更清楚地表达自己的意思。
-来自 OpenAI 官方文档：
+
+ mdmuhtasimfuadfahim：
 &lt;块引用&gt;
-system_fingerprint 此指纹表示模型运行时使用的后端配置。可以与 seed 请求参数结合使用，以了解何时进行了可能影响确定性的后端更改。
+我看到 Dall-E-3 型号支持这些尺寸：[&#39;256x256&#39;, &#39;512x512&#39;, &#39;1024x1024&#39;, &#39;1024x1792&#39;, &#39;1792x1024&#39;]对于图像
 
-我并不是说 system_fingerprint 作为输入到模型中的“种子”值本身，而是后端系统配置本身的“隐喻哈希”
-即我们可以将生成表示为：
-提示+种子→后端→完成
-从上面可以看出，在给定相同的提示和种子对作为输入的情况下，不同的后端（表示为不同的 system_fingerprint 值）可能会导致不同的完成
-让我知道你的想法 ]]></description>
-      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_23</guid>
-      <pubDate>Sun, 10 Mar 2024 14:51:33 GMT</pubDate>
+
+
+
+
+ mdmuhtasimfuadfahim：
+&lt;块引用&gt;
+没有。如果我使用随机大小，则会收到来自 OpenAI 的错误消息。我在哪里找到这些尺寸的。我想知道这个按点击收费吗？尽管出现错误。
+
+
+哦，好吧。您说您看到文档说它支持这些尺寸，我认为这是不正确的。
+有一个很棒的图像端点指南，它展示了您可以做什么，而不是随机的发送尺寸，然后告诉我们您读到了可行的地方。 &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12&quot; title=&quot;:slight_smile: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/charges-for-dall-e-3-model-for-image/675469#post_6</guid>
+      <pubDate>Sun, 10 Mar 2024 18:17:32 GMT</pubDate>
     </item>
     <item>
-      <title>“您的输入图像可能包含我们的安全系统不允许的内容。” -Vision API响应</title>
-      <link>https://community.openai.com/t/your-input-image-may-contain-content-that-is-not-allowed-by-our-safety-system-vision-api-response/653372#post_15</link>
-      <description><![CDATA[我是 @kgpgeyxhts46 ，刚刚更改了帐户。我尝试了你的提示，但还是不行，我认为是图片的问题而不是提示的问题，因为当我刚发送提示没有图片时，它可以正常回复，但只要上传图片即可。就会存在如上面问题描述的安全问题。]]></description>
-      <guid>https://community.openai.com/t/your-input-image-may-contain-content-that-is-not-allowed-by-our-safety-system-vision-api-response/653372#post_15</guid>
-      <pubDate>Sun, 10 Mar 2024 14:47:57 GMT</pubDate>
+      <title>从 ChatGPT Plus 升级到 ChatGPT Team 帐户</title>
+      <link>https://community.openai.com/t/upgraded-from-chatgpt-plus-to-a-chatgpt-team-account/675876#post_2</link>
+      <description><![CDATA[一切都过去了。
+团队帐户无法产生任何内容。这在您迁移帐户时已得到解释。]]></description>
+      <guid>https://community.openai.com/t/upgraded-from-chatgpt-plus-to-a-chatgpt-team-account/675876#post_2</guid>
+      <pubDate>Sun, 10 Mar 2024 18:08:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>请愿！ ChatGPT 的两种风格：一种适合儿童，一种适合大胆的人</title>
+      <link>https://community.openai.com/t/petition-two-flavors-of-chatgpt-one-for-kids-one-for-the-bold/674796#post_4</link>
+      <description><![CDATA[你很困惑。
+这种调整的原因不是为了保护用户免受模型的影响，而是为了保护整个社会免受一些有权访问模型的适应不良用户的影响。]]></description>
+      <guid>https://community.openai.com/t/petition-two-flavors-of-chatgpt-one-for-kids-one-for-the-bold/674796#post_4</guid>
+      <pubDate>Sun, 10 Mar 2024 18:07:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chat-gpt 在消息的“内容”部分中使用 function_call 进行回复</title>
+      <link>https://community.openai.com/t/chat-gpt-is-replying-with-a-function-call-inside-of-the-content-portion-of-the-message/676084#post_4</link>
+      <description><![CDATA[很高兴听到它正在工作。你说得对，它们是一样的。尽管 function_call 和函数已被弃用，但可能值得更改为工具]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-is-replying-with-a-function-call-inside-of-the-content-portion-of-the-message/676084#post_4</guid>
+      <pubDate>Sun, 10 Mar 2024 18:03:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>open ai最新版本中出现无法导入ratelimit错误</title>
+      <link>https://community.openai.com/t/getting-cannot-import-ratelimiterror-in-open-ai-latest-version/676130#post_2</link>
+      <description><![CDATA[
+
+
+ Mercejance89：
+&lt;块引用&gt;
+openai导入RateLimitError
+
+
+没有 RateLimitError 模块。您从哪里获得此代码？]]></description>
+      <guid>https://community.openai.com/t/getting-cannot-import-ratelimiterror-in-open-ai-latest-version/676130#post_2</guid>
+      <pubDate>Sun, 10 Mar 2024 18:02:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>截至目前，GPT-4 视觉模型的准确性和质量已降至 50% 以下</title>
+      <link>https://community.openai.com/t/the-accuracy-and-quality-of-the-gpt-4-vision-model-have-dropped-below-50-percent-as-of-today/676092#post_2</link>
+      <description><![CDATA[您需要提供更多详细信息，然后任何人才有希望帮助您。]]></description>
+      <guid>https://community.openai.com/t/the-accuracy-and-quality-of-the-gpt-4-vision-model-have-dropped-below-50-percent-as-of-today/676092#post_2</guid>
+      <pubDate>Sun, 10 Mar 2024 18:00:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>open ai最新版本中出现无法导入ratelimit错误</title>
+      <link>https://community.openai.com/t/getting-cannot-import-ratelimiterror-in-open-ai-latest-version/676130#post_1</link>
+      <description><![CDATA[如何从openai导入RateLimitError包？ openai哪个版本支持？
+出现以下错误：ImportError：无法从“openai”导入名称“RateLimitError”
+运行代码时： from openai import RateLimitError]]></description>
+      <guid>https://community.openai.com/t/getting-cannot-import-ratelimiterror-in-open-ai-latest-version/676130#post_1</guid>
+      <pubDate>Sun, 10 Mar 2024 17:59:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法向 ChatGPT 发送消息（2024 年 3 月）</title>
+      <link>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_13</link>
+      <description><![CDATA[对我来说，就像我发送一条消息，发送图标变成黑色，但消息没有发送，除此之外什么也没有发生。
+我使用 win 11 chrome 互联网没问题，在 mac os 上也能做同样的事情]]></description>
+      <guid>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_13</guid>
+      <pubDate>Sun, 10 Mar 2024 17:56:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
