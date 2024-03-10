@@ -4,107 +4,88 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 10 Mar 2024 12:28:17 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2024 15:16:37 GMT</lastBuildDate>
     <item>
-      <title>chatgpt 3.5 功能障碍</title>
-      <link>https://community.openai.com/t/dysfunction-with-chatgpt-3-5/675370#post_7</link>
-      <description><![CDATA[
+      <title>种子参数和可重复输出不起作用</title>
+      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_25</link>
+      <description><![CDATA[GPT-3 模型是确定性的。您输入相同的输入，每次都会获得完全相同的嵌入以及完全相同的 logit 值和 logprobs。所以这不是“变压器架构”问题。
+数学就是数学，除非处理器中出现计算错误，否则无论底层过程有多复杂，这些位每次都会以相同的方式组合。
+现在所有可用的 OpenAI 模型确实是不确定的。我们不知道为什么。他们是否关闭了 GPU 中的 ECC 以提高效率？硬件池的非同质混合。他们是否故意“选择性可用性”输出，以便您无法对底层机制进行状态检查？不管是什么，你运行 20 个相同的嵌入或 20 个相同的聊天完成，你几乎每次都会得到不同的向量和不同的对数概率，通常会导致排名令牌和排名语义搜索的位置切换。
+指纹的变化表明您将得到不同的结果 - 他们添加了训练、重新加权或推理架构更改，因此本质上就像将您的工作指向不同的模型，没有更改日志。
+种子是 Logit 计算和 softmax 之后的采样的一部分，它是随机的。你可以要求 AI 在温度 1.5 下滚动 1d20，每次调用都会得到不同的结果，因为从所有可能的令牌中随机选择。将种子设置为相同，您总是会得到相同的结果 - 除了前面描述的降低作为采样器输入的令牌质量的质量的问题之外。]]></description>
+      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_25</guid>
+      <pubDate>Sun, 10 Mar 2024 15:08:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>附加到助手的文件和附加到消息的文件之间有区别吗？</title>
+      <link>https://community.openai.com/t/s-there-a-difference-between-files-attached-to-the-assistant-and-files-attached-to-messages/573691#post_5</link>
+      <description><![CDATA[@sps 我面临以下问题：模型对线程中的第二个问题给出了不正确的答案启用检索
+问题是模型在收到第二条消息时开始产生幻觉。但是，我也尝试上传第二条消息的知识库，然后模型就没有产生幻觉。
+您知道为什么会发生这种情况吗？]]></description>
+      <guid>https://community.openai.com/t/s-there-a-difference-between-files-attached-to-the-assistant-and-files-attached-to-messages/573691#post_5</guid>
+      <pubDate>Sun, 10 Mar 2024 15:08:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 审查制度：呼吁开发人员重新思考他们的立场</title>
+      <link>https://community.openai.com/t/chatgpt-censorship-calling-out-the-devs-to-rethink-their-position/613914#post_2</link>
+      <description><![CDATA[天哪，我刚刚订阅了，但在生成母乳喂养的隐喻和解剖图像时遇到了问题（是的，母乳喂养是很自然的事情），而且它也不想生成水手月亮修道士，因为它很恐怖。你在开玩笑吧？这是审查到荒谬的程度。
+如果这没有改变，我认为继续订阅没有意义。我最感兴趣的是隐喻、超现实主义、解剖学和恐怖。这些限制因用户而异吗？就像我被标记为可怕的内容，现在正在对我进行过度审查或类似的事情？我没有任何线索。我很沮丧。
+有更好的图像生成人工智能的建议吗？审查较少？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-censorship-calling-out-the-devs-to-rethink-their-position/613914#post_2</guid>
+      <pubDate>Sun, 10 Mar 2024 14:58:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>视频识别并根据所附视频中的元素重新生成新视频</title>
+      <link>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_3</link>
+      <description><![CDATA[这是一个视频示例，我从中制作了场景。重要的是人工智能能够识别视频中的元素，并使用相同的元素制作类似的东西，但也有不同。
+和我的朋友一起跑步]]></description>
+      <guid>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_3</guid>
+      <pubDate>Sun, 10 Mar 2024 14:56:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>种子参数和可重复输出不起作用</title>
+      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_24</link>
+      <description><![CDATA[此外，简单的浮点计算竞争条件很可能会产生一定程度的随机性
+当完成计算并行化时，某些计算可能会更快，并导致微小的（~0.00…001）错误（由于有限的浮点精度）。
+虽然大多数时候这并不重要，但在极少数情况下会选择不同的令牌，这反过来又可能会由于变压器架构的工作方式而影响所有其余令牌。
+虽然我不确定这种情况有多普遍（如果有的话）
+请告诉我这是否有意义 ]]></description>
+      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_24</guid>
+      <pubDate>Sun, 10 Mar 2024 14:55:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>审查制度不祥之兆 - 我将保留我的潜艇，直到开源赶上</title>
+      <link>https://community.openai.com/t/censorship-bad-omen-i-will-keep-my-sub-until-open-source-catches-up/511768?page=2#post_22</link>
+      <description><![CDATA[天哪，我刚刚订阅了，但在生成母乳喂养的隐喻和解剖图像时遇到了问题（是的，母乳喂养是很自然的事情），而且它也不想生成水手月亮修道士，因为它很恐怖。你在开玩笑吧？这是审查到荒谬的程度。
+如果这没有改变，我认为继续订阅没有意义。我最感兴趣的是隐喻、超现实主义、解剖学和恐怖。]]></description>
+      <guid>https://community.openai.com/t/censorship-bad-omen-i-will-keep-my-sub-until-open-source-catches-up/511768?page=2#post_22</guid>
+      <pubDate>Sun, 10 Mar 2024 14:51:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>种子参数和可重复输出不起作用</title>
+      <link>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_23</link>
+      <description><![CDATA[&lt;块引用&gt;
+这不是指纹的用途。
 
-
- phil_33：
+感谢您的快速回复！让我更清楚地表达自己的意思。
+来自 OpenAI 官方文档：
 &lt;块引用&gt;
-多次测试没有结果
+system_fingerprint 此指纹表示模型运行时使用的后端配置。可以与 seed 请求参数结合使用，以了解何时进行了可能影响确定性的后端更改。
 
-
-进入设置，并将您的语言首选项更改为英语。
-观察并报告结果。]]></description>
-      <guid>https://community.openai.com/t/dysfunction-with-chatgpt-3-5/675370#post_7</guid>
-      <pubDate>Sun, 10 Mar 2024 12:15:11 GMT</pubDate>
+我并不是说 system_fingerprint 作为输入到模型中的“种子”值本身，而是后端系统配置本身的“隐喻哈希”
+即我们可以将生成表示为：
+提示+种子→后端→完成
+从上面可以看出，在给定相同的提示和种子对作为输入的情况下，不同的后端（表示为不同的 system_fingerprint 值）可能会导致不同的完成
+让我知道你的想法 ]]></description>
+      <guid>https://community.openai.com/t/seed-param-and-reproducible-output-do-not-work/487245?page=2#post_23</guid>
+      <pubDate>Sun, 10 Mar 2024 14:51:33 GMT</pubDate>
     </item>
     <item>
-      <title>视频识别并根据所附视频中的元素重新生成新视频</title>
-      <link>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_2</link>
-      <description><![CDATA[只要我们发挥我们的想象力......
-&lt;小时/&gt;
-我有兴趣开发一种人工智能功能，该功能可以彻底改变烘烤各种食品的过程，以实现完美的褐变。利用尖端的人工智能视觉，该功能应仔细检测烤面包机或烤面包机中的烤面包、百吉饼、英式松饼和糕点等产品的褐变程度，并采用人工智能控制的工具与烤面包机进行交互。 /p&gt;
-这项创新的成功将取决于人工智能准确、一致地识别烤面包机内各种产品的褐变程度的能力！
-----AI吐司功能提示示例----
-我希望这种先进的人工智能功能能够根据不同物品所需的褐变程度进行完全定制，满足个人喜好，同时使烘烤成为一个真正高效和个性化的过程。 AI 模型的主要考虑因素是：
-
-视觉准确性：AI 视觉必须足够敏锐，能够辨别褐变程度的变化并区分不同的产品及其规格。
-人工智能控制工具：人工智能必须与适当的设备协调才能与烤面包机或烤面包机进行交互。它应该维护用户安全并保证不引人注目的实际使用体验。
-接口和交互：人工智能功能应与现代厨房用具无缝集成。它可以提供易于使用的交互式选项（包括智能设备），供用户设置自己的偏好。
-适应性和适应性学习：为了实现优化的烘烤，人工智能必须能够随着时间的推移适应和学习用户的偏好，并有效地调整流程以获得所需的结果。
-
-如果这个概念符合您对人工智能驱动的烹饪进步的愿景，请说“继续”以启动这种最先进的烘烤技术的开发。如果您有任何修改或建议，请随时分享！]]></description>
-      <guid>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_2</guid>
-      <pubDate>Sun, 10 Mar 2024 12:12:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为艺术家和设计师创建了一个强大的工具</title>
-      <link>https://community.openai.com/t/i-have-created-a-powerful-tool-for-artists-and-designers/675693#post_1</link>
-      <description><![CDATA[
-  &lt;标题类=“来源”&gt;
-      
-ChatGPT
-
-
-  &lt;文章类=“onebox-body”&gt;
-    ChatGPT - XFutuRestyle 实验&lt; /h3&gt;
-
-  乌克兰开发的新一代令人印象深刻的未来主义艺术中的图像转换器
-
-
-
-
-
-
-允许您进行数量惊人的实验
-]]></description>
-      <guid>https://community.openai.com/t/i-have-created-a-powerful-tool-for-artists-and-designers/675693#post_1</guid>
-      <pubDate>Sun, 10 Mar 2024 12:07:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>视频识别并根据所附视频中的元素重新生成新视频</title>
-      <link>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_1</link>
-      <description><![CDATA[我想根据所附的视频示例生成新视频。就像 DALL-E 处理图像一样。
-例如，我有一个 20 秒的视频，我和我的朋友在植物园跑步。
-新生成的视频，必须使用视频中相同的元素，还必须更改任何类型的版权，例如人脸、T 恤（有些跑步者穿的 T 恤上有他们所参加的体育俱乐部的名称）属于写在上面的）等。
-最重要的事情：人工智能必须完美识别视频中的所有元素！！
----- 重新生成视频的提示示例----
-我想要一个运动且励志的背景音乐来补充视频，没有语音或字幕。我会将此首选项包含在您的视频项目设置中。在生成项目之前，我们先总结一下细节，以确保一切都符合您的愿景。
-
-时长：视频时长最长 20 秒
-场景：与朋友在植物园跑步，捕捉参与者在自然环境中的能量和联系。我们走上一些大理石楼梯，周围有很多插花和树木。走上楼梯后，我们在阳光充足的鹅卵石走廊上直线奔跑。我们的左边和右边有很多树排成一条直线
-语气：充满活力、激励人心，适合对运动和户外活动感兴趣的受众。
-无画外音或字幕：视频中不会有旁白或字幕。
-背景音乐：一首充满运动感和激励性的音乐，可以激发灵感和充满活力，避免浩室音乐或催眠曲风。
-
-如果这些详细信息符合您的要求，请告诉我“继续”生成视频项目。如果您有任何更改或需要添加其他详细信息，请告诉我！]]></description>
-      <guid>https://community.openai.com/t/video-recognition-and-regenerate-new-videos-based-on-the-elements-from-the-video-attached/675684#post_1</guid>
-      <pubDate>Sun, 10 Mar 2024 12:01:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法向 ChatGPT 发送消息（2024 年 3 月）</title>
-      <link>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_7</link>
-      <description><![CDATA[我删除了连接 cookie，当我重新连接时它可以工作，但只有一个条件：不要离开页面（注销或关闭选项卡）。
-我使用的是 Windows 11、Google Chrome，]]></description>
-      <guid>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_7</guid>
-      <pubDate>Sun, 10 Mar 2024 12:00:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法提交任何内容以在 Edge 中聊天</title>
-      <link>https://community.openai.com/t/cannot-submit-anything-to-chat-in-edge/672544#post_3</link>
-      <description><![CDATA[我在隐私设置中停用了“安全 Microsoft Edge 网络”，然后它又恢复正常了]]></description>
-      <guid>https://community.openai.com/t/cannot-submit-anything-to-chat-in-edge/672544#post_3</guid>
-      <pubDate>Sun, 10 Mar 2024 11:59:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法向 ChatGPT 发送消息（2024 年 3 月）</title>
-      <link>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_6</link>
-      <description><![CDATA[我也遇到了同样的问题，有谁知道怎么解决吗？ &lt;img alt=&quot;:frowning:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/frowning.png?v=12&quot; title=&quot;:frowning: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/cant-sent-message-to-chatgpt-march-2024/675219#post_6</guid>
-      <pubDate>Sun, 10 Mar 2024 11:50:58 GMT</pubDate>
+      <title>“您的输入图像可能包含我们的安全系统不允许的内容。” -Vision API响应</title>
+      <link>https://community.openai.com/t/your-input-image-may-contain-content-that-is-not-allowed-by-our-safety-system-vision-api-response/653372#post_15</link>
+      <description><![CDATA[我是 @kgpgeyxhts46 ，刚刚更改了帐户。我尝试了你的提示，但还是不行，我认为是图片的问题而不是提示的问题，因为当我刚发送提示没有图片时，它可以正常回复，但只要上传图片即可。就会存在如上面问题描述的安全问题。]]></description>
+      <guid>https://community.openai.com/t/your-input-image-may-contain-content-that-is-not-allowed-by-our-safety-system-vision-api-response/653372#post_15</guid>
+      <pubDate>Sun, 10 Mar 2024 14:47:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
