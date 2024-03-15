@@ -4,37 +4,146 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 15 Mar 2024 06:22:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 Mar 2024 09:18:02 GMT</lastBuildDate>
     <item>
-      <title>我需要紧急帮助 Microsoft for Startups Founders Hub OpenAI Credit</title>
-      <link>https://community.openai.com/t/i-need-urgent-help-microsoft-for-startups-founders-hub-openai-credit/683697#post_6</link>
-      <description><![CDATA[是的，我也尝试寻求帮助，他们还发送了自动回复并关闭聊天]]></description>
-      <guid>https://community.openai.com/t/i-need-urgent-help-microsoft-for-startups-founders-hub-openai-credit/683697#post_6</guid>
-      <pubDate>Fri, 15 Mar 2024 06:14:10 GMT</pubDate>
+      <title>微调时添加COT数据有帮助吗？</title>
+      <link>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_2</link>
+      <description><![CDATA[欢迎来到开发社区！
+正如这些事情的情况一样，我认为正确的答案是“视情况而定”。
+您的用例是什么？该模型是否足够“智能”，能够通过及时的工程设计来实现正确的目标？
+您是否想添加外部知识？如果是这样，您可能最好使用 RAG 技术（例如 Assistants API&lt; /a&gt;) 代替。]]></description>
+      <guid>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_2</guid>
+      <pubDate>Fri, 15 Mar 2024 09:06:53 GMT</pubDate>
     </item>
     <item>
-      <title>Darshan Hiranandani - 人工智能在塑造 2034 年的未来方面将发挥什么作用？</title>
-      <link>https://community.openai.com/t/darshan-hiranandani-what-role-will-ai-play-in-shaping-the-future-in-2034/684536#post_1</link>
-      <description><![CDATA[嗨，我是 Darshan Hiranandani，住在班加罗尔。展望未来既令人兴奋又令人畏惧。当我们思考 2034 年的前景时，我很好奇您对人工智能在塑造我们的世界中所扮演的角色有何看法。您如何看待人工智能到那时对我们生活的各个方面的影响？无论是在医疗保健、教育、交通还是任何其他领域，我们都将非常感谢您的观点。让我们携手合作，共同分享我们对未来的愿景！]]></description>
-      <guid>https://community.openai.com/t/darshan-hiranandani-what-role-will-ai-play-in-shaping-the-future-in-2034/684536#post_1</guid>
-      <pubDate>Fri, 15 Mar 2024 06:10:33 GMT</pubDate>
+      <title>错误地说“您超出了当前配额”</title>
+      <link>https://community.openai.com/t/incorrectly-saying-you-exceeded-your-current-quota/684811#post_3</link>
+      <description><![CDATA[啊，很抱歉给您带来不便。
+一切都解决了，非常感谢您的快速响应，就像 API 响应 
+谢谢
+维拉杰]]></description>
+      <guid>https://community.openai.com/t/incorrectly-saying-you-exceeded-your-current-quota/684811#post_3</guid>
+      <pubDate>Fri, 15 Mar 2024 09:01:39 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-e-3 是否附加水印？</title>
-      <link>https://community.openai.com/t/does-dall-e-3-append-watermarks/684431#post_3</link>
-      <description><![CDATA[它是一个“水印”——因为它是嵌入图像内容中的加密隐写术。
+      <title>流函数调用中的不同行为</title>
+      <link>https://community.openai.com/t/different-behavior-in-streaming-function-calling/684836#post_1</link>
+      <description><![CDATA[函数 = {
+    “计数字符串”：{
+        “名称”：“计数字符串”，
+        &quot;description&quot;: &quot;计算字符串中的字符数。&quot;,
+        “参数”： {
+            “类型”：“对象”，
+            “特性”： {
+                “字符串到计数”：{
+                    “类型”：“字符串”，
+                    &quot;description&quot;: &quot;要计算其字符数的字符串。&quot;,
+                },
+            },
+            “必需”：[“string_to_count”]，
+        },
+    }
+}
+工具 = [
+    {
+        “类型”：“功能”，
+        “功能”： {
+            “名称”：“计数字符串”，
+            &quot;description&quot;: &quot;计算字符串中的字符数。&quot;,
+            “参数”： {
+                “类型”：“对象”，
+                “特性”： {
+                    “字符串到计数”：{
+                        “类型”：“字符串”，
+                        &quot;description&quot;: &quot;要计算其字符数的字符串。&quot;,
+                    },
+                },
+                “必需”：[“string_to_count”]，
+            },
+        }
+    }
+]
 
- https://help.openai.com/en/articles/8912793-c2pa-in-dall-e-3]]></description>
-      <guid>https://community.openai.com/t/does-dall-e-3-append-watermarks/684431#post_3</guid>
-      <pubDate>Fri, 15 Mar 2024 06:08:18 GMT</pubDate>
+当我使用functions来获取响应时，没问题。
+messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;计算&#39;hello word&#39;中的字符数。&quot;}]
+响应 = client.chat.completions.create(
+    型号=“gpt-4-0613”，
+    消息=消息，
+    函数=列表(FUNCTIONS.values()),
+    流=真，
+）
+
+响应如下，function_call 不是 None。
+ChatCompletionChunk(id=&#39;chatcmpl-92xSEdSMDugkO3jGEkTbbDTNJGPai&#39;, Choices=[Choice(delta=ChoiceDelta(content=None, function_call=ChoiceDeltaFunctionCall(arguments=&#39;{\n&#39;, name=无），角色=无，tool_calls=无），...
+
+但是我使用tools来获取响应，这是不行的。
+messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;计算&#39;hello word&#39;中的字符数。&quot;}]
+响应 = client.chat.completions.create(
+    型号=“gpt-4-0613”，
+    消息=消息，
+    工具=工具，
+    流=真，
+）
+
+响应如下，function_call为None。
+ChatCompletionChunk(id=&#39;chatcmpl-92xhJurez25gW8BXLNldlIkVN4x9j&#39;, Choices=[Choice(delta=ChoiceDelta(content=None, function_call=None, role=&#39;assistant&#39;, tool_calls=None) , finish_reason=无 ...
+ChatCompletionChunk(id=&#39;chatcmpl-92xhJurez25gW8BXLNldlIkVN4x9j&#39;, Choices=[Choice(delta=ChoiceDelta(content=None, function_call=None, role=None, tool_calls=None), ...
+....
+]]></description>
+      <guid>https://community.openai.com/t/different-behavior-in-streaming-function-calling/684836#post_1</guid>
+      <pubDate>Fri, 15 Mar 2024 09:01:29 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 分析中文内容时出现问题</title>
-      <link>https://community.openai.com/t/problem-with-analyzing-chinese-content-with-chatgpt/684518#post_1</link>
-      <description><![CDATA[这是我试图分析的示例数据文件。 ChatGPT 无法识别大多数列。如果有人遇到过此类问题并成功解决，请分享您的解决方案。
+      <title>RAG 系统与微调，我该怎么办</title>
+      <link>https://community.openai.com/t/rag-systems-vs-fine-tuning-what-do-i-do/684834#post_1</link>
+      <description><![CDATA[我正在开始自己的 SaaS - 自动化 DIY 聊天机器人构建
+我希望我的用户能够：
+
+不要使用 RAG 让 AI 了解他们的业务，而是使用微调（我的假设是从长远来看，成本会更低）
+
+但我不知道会发生什么，例如，如果他们想要改变一个小细节，将如何完成，如果他们想要微调它，可能需要多长时间]]></description>
+      <guid>https://community.openai.com/t/rag-systems-vs-fine-tuning-what-do-i-do/684834#post_1</guid>
+      <pubDate>Fri, 15 Mar 2024 08:59:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调时添加COT数据有帮助吗？</title>
+      <link>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_1</link>
+      <description><![CDATA[大家好。我正在通过 GPT-3.5-turbo 的微调来构建一个聊天机器人。目前，还有很多失败的案例，提示中已经具体描述了指令，并且sft数据中也有相应的案例。我应该怎么做才能解决这些糟糕的情况？由思路链和最终回复文本组成的 COT 数据会有帮助吗？]]></description>
+      <guid>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_1</guid>
+      <pubDate>Fri, 15 Mar 2024 08:53:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误地说“您超出了当前配额”</title>
+      <link>https://community.openai.com/t/incorrectly-saying-you-exceeded-your-current-quota/684811#post_2</link>
+      <description><![CDATA[
+
+
+ virajvaitha1995：
+&lt;块引用&gt;
+这个月我用了 0/10 英镑，我绝对有配额
+
+
+你检查过你的电子邮件吗？
+这里有一个线程可能会有所帮助 
+
+
+
+
+[3 月 8 日起] API 错误 429...检查计划或账单详细信息 = 每月计费帐户已切换为预付费 API
+
+  &lt;块引用&gt;
+    症状
+错误代码 429 - 您超出了当前配额，请检查您的计划和账单详细信息。
+如果没有此错误，任何 API 服务都无法正常工作
+可能：按月计费的帐户切换为仅预付款
+第 2 轮 - 2024 年 3 月 8 日
+如果您因使用 OpenAI API 而收到每月账单和每月自动收费，那么情况正在发生变化。
+您的帐户可能会被切断（如电子邮件中所述），直到您现在通过预购买帐户积分为您的帐户提供资金。
+您的帐户可能已经...
+  
 ]]></description>
-      <guid>https://community.openai.com/t/problem-with-analyzing-chinese-content-with-chatgpt/684518#post_1</guid>
-      <pubDate>Fri, 15 Mar 2024 05:57:14 GMT</pubDate>
+      <guid>https://community.openai.com/t/incorrectly-saying-you-exceeded-your-current-quota/684811#post_2</guid>
+      <pubDate>Fri, 15 Mar 2024 08:53:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
