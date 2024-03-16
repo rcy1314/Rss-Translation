@@ -4,127 +4,120 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 16 Mar 2024 15:16:12 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2024 18:23:43 GMT</lastBuildDate>
     <item>
-      <title>通过清晰且一致的回答来帮助提示多项选择题</title>
-      <link>https://community.openai.com/t/help-prompting-a-multichoice-question-with-a-clear-response-that-can-be-consistant/686679#post_4</link>
-      <description><![CDATA[我想知道它是否会更好，并节省一点钱，为选择编号，将 max_tokens 设置为 1 或 2（也许 5？），然后提示将只需简短“仅给出答案的数字来回答以下多项选择题。\n\n问题：\n ${question}”]]></description>
-      <guid>https://community.openai.com/t/help-prompting-a-multichoice-question-with-a-clear-response-that-can-be-consistant/686679#post_4</guid>
-      <pubDate>Sat, 16 Mar 2024 15:12:20 GMT</pubDate>
+      <title>无法从 ChatGPT 获取流式响应</title>
+      <link>https://community.openai.com/t/unable-to-get-a-streaming-response-from-chatgpt/612629?page=3#post_48</link>
+      <description><![CDATA[解决了！ ！ ！
+我和你们有同样的问题，我也尝试禁用ipv6但没有解决，最终的解决方案是修复我的socks端口，也许你们应该确保您的socks协议ip端口是正确的！]]></description>
+      <guid>https://community.openai.com/t/unable-to-get-a-streaming-response-from-chatgpt/612629?page=3#post_48</guid>
+      <pubDate>Sat, 16 Mar 2024 18:06:52 GMT</pubDate>
     </item>
     <item>
-      <title>轻松实施 RAG 进行测试？</title>
-      <link>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_4</link>
-      <description><![CDATA[谢谢，是的，为了清楚起见。我的系统使用大量文本作为上下文，我目前在 API 中传递这些文本。我想看看使用 RAG 系统的性能差异，其中上下文已嵌入向量数据库中。总之，我希望测试和比较不同的输出，一个来自提示注入，另一个来自向量嵌入式数据库（我认为我需要使用 RAG 从中获取数据，但 RAG 对我来说是新的） 。再次感谢！]]></description>
-      <guid>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_4</guid>
-      <pubDate>Sat, 16 Mar 2024 15:10:15 GMT</pubDate>
+      <title>GPT 操作，身份验证中的问题</title>
+      <link>https://community.openai.com/t/gpts-action-problem-in-the-authentication/623994#post_3</link>
+      <description><![CDATA[嗨@marco.vitaletti78
+最近发现了对第三方 API 使用基本 API 身份验证的问题，应该很快就会得到解决。
+此外，我建议不要通过将其包含在 URL 或提示说明中来绕过此问题，因为这可能会导致泄露第 3 方 API 密钥。]]></description>
+      <guid>https://community.openai.com/t/gpts-action-problem-in-the-authentication/623994#post_3</guid>
+      <pubDate>Sat, 16 Mar 2024 17:52:17 GMT</pubDate>
     </item>
     <item>
-      <title>在助手中使用自定义函数时，Run.status 未移至 require_action</title>
-      <link>https://community.openai.com/t/run-status-not-moving-to-requires-action-while-using-custom-function-in-an-assistant/686869#post_1</link>
-      <description><![CDATA[论坛您好，
-我正在运行以下代码，作为学习如何创建具有自定义功能的助手的一部分。执行直到运行，然后给出错误（在“wait_on_run”函数之后）并退出，因为 run.status 没有移动到“requires_sction”。非常感谢任何指导或帮助。
-导入操作系统
-导入openai
-导入时间
-导入json
-从 openai 导入 OpenAI
-客户端 = OpenAI()
-def wait_on_run(运行, 线程):
-# 等待特定线程运行的简单函数。线程运行后返回运行。
-while run.status == “queued” 或 run.status == “in_progress”:
-打印(运行.状态)
-run = client.beta.threads.runs.retrieve (thread_id=thread.id, run_id=run.id)
-time.sleep(2)
-返回运行
-def word_definition_quiz(单词,definition_options):
-print(“你好！让我们测试一下你的单词知识。”)
-print(f&quot;这个词的正确定义是什么：{word}“”)
-打印(“\n”)
-对于 num，枚举中的选项（definition_options）：
-print(f&quot;定义#{num}是：{选项}“)
-打印(“\n”)
-num_choice = input(“你的选择是什么？(返回单个数字选项)”)
-返回定义选项[int(num_choice)]
-function_json=[{
-“类型”：“功能”，
-“功能”：{
-“名称”：“word_definition_quiz”，
-“description”：“获取学生的测验答案”，
-“参数”：{
-“类型”：“对象”，
-“属性”：{
-“word”: {“type”: “string”, “description”: “要求定义的单词”},
-“definition_options”：{“类型”：“数组”，
-“项目”：{“类型”：“字符串”}，
-“description”：“Python 定义字符串列表。对于给定的单词，只有一个定义是正确的。”}
-},
-“必需”：[“单词”，“定义选项”]
-}
-}
-}]
-#instructions=“您帮助创建一个测验来检查单词的定义，提供一个单词，然后提供多个定义选项，其中只有一个选项是正确的。”
-assistant = client.beta.assistants.create(instructions=“您帮助创建一个测验来检查单词的定义，提供一个单词，然后提供多个定义选项，其中只有一个选项是正确的”,
-型号=“gpt-4-turbo-preview”，
-工具= [{
-“类型”：“功能”，
-“功能”：{
-“名称”：“word_definition_quiz”，
-“description”：“获取学生的测验答案”，
-“参数”：{
-“类型”：“对象”，
-“属性”：{
-“word”: {“type”: “string”, “description”: “要求定义的单词”},
-“definition_options”：{“类型”：“数组”，
-“项目”：{“类型”：“字符串”}，
-“description”：“Python 定义字符串列表。对于给定的单词，只有一个定义是正确的。”}
-},
-“必需”：[“单词”，“定义选项”]
-}
-}
-}]
-）
-线程 = client.beta.threads.create()
-user_input = “创建一个新的测验问题词和定义列表。然后让我知道收到的学生答案是否正确”
-message = client.beta.threads.messages.create(thread_id=thread.id, role=“user”, content=“创建一个新的测验问题词和定义列表。然后使用工具中定义的函数，让我了解收到的学生答案是否正确”）
-run = client.beta.threads.runs.create(
-thread_id=线程.id,
-Assistant_id=‘asst_cpgzNM3gPJe1LltQ4imd22iL’)
-wait_on_run(运行，线程)
-tool_call = run.required_action.submit_tool_outputs.tool_calls[0]
-参数 = json.loads(tool_call.function.arguments)
-响应 = word_definition_quiz(参数[‘word’], 参数[‘definition_options’])
-run = client.beta.threads.runs.submit_tool_outputs (thread_id = thread.id, run_id = run.id,
-tool_outputs = [{‘tool_call_id’:tool_call.id,
-‘输出’：json.dumps(响应)
-}])
-运行 = wait_on_run(运行,线程)
-messages = client.beta.threads.messages.list(thread.id)
-对于消息中的thread_message：
-print(thread_message.content[0].text.value)
-打印（‘\n’）]]></description>
-      <guid>https://community.openai.com/t/run-status-not-moving-to-requires-action-while-using-custom-function-in-an-assistant/686869#post_1</guid>
-      <pubDate>Sat, 16 Mar 2024 15:05:05 GMT</pubDate>
+      <title>AI助手文件限制</title>
+      <link>https://community.openai.com/t/ai-assistants-file-limits/566434#post_10</link>
+      <description><![CDATA[此页面的每个助手 20：https: //platform.openai.com/docs/assistants/how-it-works/creating-assistants
+&lt;块引用&gt;
+&quot; 每个助手最多可以附加 20 个文件，每个文件最多 512 MB。您的组织上传的所有文件的大小不得超过 100 GB。您可以请求增加此存储限制使用我们的帮助中心。除了 512 MB 文件大小限制外，每个文件只能包含2,000,000 个令牌。如果任何附加文件超出令牌限制，助理或消息创建将会失败。”
+]]></description>
+      <guid>https://community.openai.com/t/ai-assistants-file-limits/566434#post_10</guid>
+      <pubDate>Sat, 16 Mar 2024 17:49:02 GMT</pubDate>
     </item>
     <item>
-      <title>我可以上传文件 - 任何地方</title>
-      <link>https://community.openai.com/t/i-can-upload-files-anywhere/686850#post_1</link>
-      <description><![CDATA[我已经尝试了几周将文件上传到 ChatGPT 但失败。我已经尝试了每种文件类型（pdf、txt、jpg、png、doc 等），但没有任何效果。文件大小不是问题，因为某些 png 文件小于 5kb。我尝试创建自定义 GPT 并遇到同样的问题。
-但是，我可以在使用移动设备时上传文件。我尝试了 OpenAI 的帮助，他们给了我一个要尝试的事情清单，我已经尝试过很多次了，然后又给我留下了阴影。
-在这个问题得到解决之前，我的项目处于停滞状态。任何见解都会有所帮助。]]></description>
-      <guid>https://community.openai.com/t/i-can-upload-files-anywhere/686850#post_1</guid>
-      <pubDate>Sat, 16 Mar 2024 14:38:11 GMT</pubDate>
+      <title>Thread 中的背靠背助手消息 — 我的 bug？</title>
+      <link>https://community.openai.com/t/back-to-back-assistant-messages-in-thread-my-bug/677483#post_5</link>
+      <description><![CDATA[好吧，这真是太糟糕了，但至少我可以停止尝试解决这个问题。谢谢！回到完成我去...]]></description>
+      <guid>https://community.openai.com/t/back-to-back-assistant-messages-in-thread-my-bug/677483#post_5</guid>
+      <pubDate>Sat, 16 Mar 2024 17:46:02 GMT</pubDate>
     </item>
     <item>
-      <title>您的每日最高限额将在 XX 小时 XX 分钟后重置</title>
-      <link>https://community.openai.com/t/your-daily-maximum-will-reset-in-xx-hours-and-xx-minutes/686848#post_1</link>
-      <description><![CDATA[嗨。
-dall-e 每 3 小时有 40 张图像？
-今天我生成了大约 20 个，这让我等了 13 个小时以上？
-“您已达到每日最大图像数量。为了确保每个人都能获得最佳体验，我们设有费率限制。请等待第二天再生成更多图像。您的每日最高限额将在 13 小时 50 分钟后重置。”
-我该怎么办？]]></description>
-      <guid>https://community.openai.com/t/your-daily-maximum-will-reset-in-xx-hours-and-xx-minutes/686848#post_1</guid>
-      <pubDate>Sat, 16 Mar 2024 14:35:51 GMT</pubDate>
+      <title>Thread 中的背靠背助手消息 — 我的 bug？</title>
+      <link>https://community.openai.com/t/back-to-back-assistant-messages-in-thread-my-bug/677483#post_4</link>
+      <description><![CDATA[它基本上是愚蠢的、脱节的人工智能，脑白质切除术已经达到极限，无法再发挥功能或看到森林。
+&lt;img alt=&quot;图片&quot; height=&quot;493&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/e/4/4/e44eb4a27003710c22af1c7aa3b349bccea432e8.png&quot; width=&quot;605 ” /&gt;
+在多次尝试让 ChatGPT 的 AI 进行足够的网络搜索以不对这个问题给出肯定答案（但它永远无法做到）之后，它甚至无法操作其工具调用。
+方法是使用聊天补全，用低top_p控制采样，并使用未损坏的旧模型的“功能”。]]></description>
+      <guid>https://community.openai.com/t/back-to-back-assistant-messages-in-thread-my-bug/677483#post_4</guid>
+      <pubDate>Sat, 16 Mar 2024 17:40:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>还有其他人遇到 chatgpt 4 一遍又一遍重复的问题吗？</title>
+      <link>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150#post_14</link>
+      <description><![CDATA[是的，上周我的回复中曾多次出现过这种情况。这非常烦人，但考虑到我的提示，我认为有必要告诉模型“好吧，让我们继续讨论下一个问题，即……”
+我不知道为什么现在的行为是这样的，但适应所需的努力相当低。
+按照你的意愿去做，但我希望它对某人有帮助。]]></description>
+      <guid>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150#post_14</guid>
+      <pubDate>Sat, 16 Mar 2024 17:39:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>提示使用我在 ChatGPT / DALL-E API 中制作的 API 制作相同的图像不明白 1-Bit 的含义</title>
+      <link>https://community.openai.com/t/prompt-to-make-same-image-using-api-that-i-made-in-chatgpt-dall-e-api-doesnt-understand-the-meaning-of-1-bit/657880#post_20</link>
+      <description><![CDATA[是的，Midjourney API 会非常好！
+不过，我发现中途“角色参考”充其量只是……中间……。他们的种子有效，但仅限于同一模型版本。更重要的是，这意味着他们永远无法采用某些模型版本（例如 Niji 4）并将其托管在比最初托管的其他/更新的硬件上。只要他们真正坚持下去，这对他们来说是有好处的，但从长远来看，不要指望这种情况会永远重复。在我看来，OpenAI 正在采取更加谨慎的态度，不会承诺他们知道最终将不得不打破的东西。]]></description>
+      <guid>https://community.openai.com/t/prompt-to-make-same-image-using-api-that-i-made-in-chatgpt-dall-e-api-doesnt-understand-the-meaning-of-1-bit/657880#post_20</guid>
+      <pubDate>Sat, 16 Mar 2024 17:38:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>操作在 GPT 生成器中挂起</title>
+      <link>https://community.openai.com/t/action-hangs-in-gpt-builder/666608#post_9</link>
+      <description><![CDATA[我也有类似的问题。昨天端点测试运行良好。
+但是当运行自定义 gpt 时，操作会无休止地运行。
+真正奇怪的是，今天连动作测试都不起作用了。
+行动似乎不稳定，正在紧张建设中。
+希望这个问题能尽快得到解决。]]></description>
+      <guid>https://community.openai.com/t/action-hangs-in-gpt-builder/666608#post_9</guid>
+      <pubDate>Sat, 16 Mar 2024 17:37:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪里有讨论使用 ChatGPT 进行形式推理的好地方？</title>
+      <link>https://community.openai.com/t/where-is-a-good-place-to-discuss-the-use-of-chatgpt-for-formal-reasoning/686987#post_2</link>
+      <description><![CDATA[如果您不介意阅读一下，请访问我主页的 2023 年 9 月部分。我无法在此处链接到它，但可以通过我的个人资料获得它。您不必阅读全部内容或观看视频，只需从“更新：”开始的六段即可。]]></description>
+      <guid>https://community.openai.com/t/where-is-a-good-place-to-discuss-the-use-of-chatgpt-for-formal-reasoning/686987#post_2</guid>
+      <pubDate>Sat, 16 Mar 2024 17:37:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>请保留文本颜色切换！</title>
+      <link>https://community.openai.com/t/preserving-text-colour-toggle-please/686614#post_4</link>
+      <description><![CDATA[这只是带格式的文本。
+如果您想粘贴纯文本，请使用Cmd + Shift + Option + V。]]></description>
+      <guid>https://community.openai.com/t/preserving-text-colour-toggle-please/686614#post_4</guid>
+      <pubDate>Sat, 16 Mar 2024 17:33:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪里有讨论使用 ChatGPT 进行形式推理的好地方？</title>
+      <link>https://community.openai.com/t/where-is-a-good-place-to-discuss-the-use-of-chatgpt-for-formal-reasoning/686987#post_1</link>
+      <description><![CDATA[这是个好地方吗？
+而且，整个社区对形式推理有兴趣吗？
+我正在开发一个系统，允许您逐字地从 ChatGPT 获取输出并验证它。我特别想知道OpenAI开发者本身对这类工作是否有兴趣。]]></description>
+      <guid>https://community.openai.com/t/where-is-a-good-place-to-discuss-the-use-of-chatgpt-for-formal-reasoning/686987#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 17:32:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使 gpt-35-turbo 模型遵循我的指示？</title>
+      <link>https://community.openai.com/t/how-to-make-gpt-35-turbo-model-follows-my-instructions/685121#post_13</link>
+      <description><![CDATA[
+
+
+ chcw：
+&lt;块引用&gt;
+你所说的边界是视觉项目吗
+
+
+我的意思是，从字面上看，您通话中最后一个用户提示的最后一句听起来应该是这样，因此模型会填写它并期望编写三个段落，因为模型只是“继续”之前的内容。
+尽管我同意其他人的观点，但保证字数的唯一方法是计算返回的字数，然后调用模型，要求其扩展或收缩结果。这些模型不像书写人类那样遵循高阶指令。
+要求模型计算其写入的单词数不会很有用，因为模型无法回溯。一旦决定输出“我写了 X 个单词”完成，如果 X 太小，模型就无法修复它。
+关于“最大代币”设置，您应该做的是设定最大总预算（例如 8000），然后计算提示中的代币数量，然后将 max_tokens 设置为您的目标减去代币数量在提示中。这样，您将永远不会收到“请求的令牌太多”错误。将预算设置为低于绝对最大值是合理的，因为 OpenAI 方面可能会稍微调整您的 API 调用，这可能会稍微改变可用代币的数量，因此一点误差余量有助于增强鲁棒性。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-gpt-35-turbo-model-follows-my-instructions/685121#post_13</guid>
+      <pubDate>Sat, 16 Mar 2024 17:31:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
