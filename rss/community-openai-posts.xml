@@ -4,41 +4,108 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 16 Mar 2024 09:16:37 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2024 12:32:17 GMT</lastBuildDate>
     <item>
-      <title>在助手流中提交工具输出时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-submitting-tool-outputs-in-assistants-stream/686414#post_4</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/issue-with-submitting-tool-outputs-in-assistants-stream/686414#post_4</guid>
-      <pubDate>Sat, 16 Mar 2024 09:05:52 GMT</pubDate>
+      <title>轻松实施 RAG 进行测试？</title>
+      <link>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_1</link>
+      <description><![CDATA[你好！我想实现检索增强生成来测试它在我构建的系统上的性能。有人对最简单的方法有建议吗（或帮助和学习的最佳指南）？我正在寻找易用性来开始获得结果，而复杂性/定制可以稍后出现。我希望它像导入一个库一样简单……如果它有用的话，我正在使用 Python。感谢社区！]]></description>
+      <guid>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 12:16:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>建议添加聊天 GPT</title>
+      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=4#post_81</link>
+      <description><![CDATA[对我们用于聊天的基本页面进行节省时间改进的建议
+如果我开始打字，光标会自动位于聊天框中吗？如果我开始滚动，页面可以开始向上或向下移动。
+这将节省浏览页面的时间
+谢谢
+罗布]]></description>
+      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=4#post_81</guid>
+      <pubDate>Sat, 16 Mar 2024 12:05:58 GMT</pubDate>
     </item>
     <item>
       <title>Function _call 和 Tool_Call 有何区别？</title>
-      <link>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_2</link>
-      <description><![CDATA[嗨！
-当构建在聊天完成 API 之上时，它被称为函数。
-当在助手 API 之上构建时，它被称为工具。
-助手还允许使用代码解释器作为工具（功能）等。
-希望这能为您澄清问题。
-以下是文档的相关部分：
-https://platform.openai. com/docs/guides/function-calling
-https://platform.openai.com/文档/助手/工具]]></description>
-      <guid>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_2</guid>
-      <pubDate>Sat, 16 Mar 2024 09:01:55 GMT</pubDate>
+      <link>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_5</link>
+      <description><![CDATA[这篇文章提供了有关不同之处的更多信息：阻止您随意使用角色消息，将额外的令牌放入您无法控制的上下文中......
+
+
+
+
+GPT-4-0125-preview 幻觉工具调用 API
+
+  &lt;块引用&gt;
+    除了函数规范的命名空间工具注入之外，通过工具，无论你是否愿意，AI 也会浪费新的代币：
+## 多工具使用
+
+// 该工具充当使用多个工具的包装器。必须在工具部分中指定可以使用的每个工具。仅允许使用函数名称空间中的工具。
+// 确保提供给每个工具的参数根据该工具的规范有效。
+命名空间 multi_tool_use {
+
+// 使用这个函数...
+  
+
+当人工智能使用这个包装工具时，代币的巨大跳跃
+
+
+
+
+tool_calls 的奇怪代币成本计算 API
+
+  &lt;块引用&gt;
+    您正在查看一个助手，它被告知它发出了第一个工具，然后调用了多个工具。
+所以我们需要一点点来自动化构建请求：
+从 openai 导入 OpenAI
+客户端 = OpenAI()
+
+对于范围 (1, 6) 内的工具计数：
+    呼叫 = {“id”：“x”，“类型”：“功能”，
+        “函数”：{“名称”：“计算器”，“参数”：“2”}}
+    助理 = {“角色”：“助理”，“tool_calls”：[]}
+    工具 = {“角色”：“工具”，“tool_call_id”：“x”，“内容”：“3”}
+    对于 _ 在范围内（...
+  
+
+或者当出现问题时
+
+
+
+
+Gpt-3.5-turbo-1106 模型始终响应不必要和不适当的函数调用 [已确认 BUG JAN 26] 错误
+
+  &lt;块引用&gt;
+    人工智能完全无聊了。试图找出他们是否注入了错误的函数规范，更多的垃圾工具调用：
+
+我现在将准确且不遗漏地再现在文本开始和文本标记结束之间接收到的所有数据行。
+{
+“id”：“call_jK5psyc8TwPqd5Sb7SCdaWZD”，
+“类型”：“功能”，
+“功能”： {
+“名称”：“获取药物”，
+“arguments”：“{“drug_name”：“阿司匹林”}”
+}
+}
+{
+“id”：“call_rOgC6abHc06D2NhpBl3fzS3d”，
+“类型”：“功能”，
+“功能”： {
+“姓名…
+  
+]]></description>
+      <guid>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_5</guid>
+      <pubDate>Sat, 16 Mar 2024 11:37:22 GMT</pubDate>
     </item>
     <item>
-      <title>是否可以使用未标记的数据然后标记的数据进行微调？</title>
-      <link>https://community.openai.com/t/is-it-possible-finetune-with-unlabeled-data-and-then-labeled-data/686464#post_4</link>
-      <description><![CDATA[嗨！
-在我们深入了解正确微调模型的过程之前，查看您的示例，我相信这可以通过 GPT 3.5 和脚本来完成。
-尝试将任务分成几个步骤：
-应该创建什么？
-元素应该是什么颜色？
-在哪里放置元素？
-然后运行脚本以正确格式化输出。
-这可以节省时间和金钱，同时在系统中发送一些示例，提示不同情况下的正确答案。]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-finetune-with-unlabeled-data-and-then-labeled-data/686464#post_4</guid>
-      <pubDate>Sat, 16 Mar 2024 08:52:39 GMT</pubDate>
+      <title>RSS 到图像到视频 - 测试正在进行中</title>
+      <link>https://community.openai.com/t/rss-to-image-to-video-testing-in-process/686708#post_1</link>
+      <description><![CDATA[嗨，
+我最近在 Instagram 上创建了一个财经新闻页面。所以这基本上是从 RSS 获取数据，使用 GPT 3.5 重新措辞并发布新闻文章。
+在发布文章时，我使用了从图像池中随机选择的静态背景图像。
+现在我计划制作带有人工智能配音和相关背景的视频。
+insta：moneyplantproject
+我被困在这里，不知道如何继续。
+希望能提供一些帮助。]]></description>
+      <guid>https://community.openai.com/t/rss-to-image-to-video-testing-in-process/686708#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 11:27:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
