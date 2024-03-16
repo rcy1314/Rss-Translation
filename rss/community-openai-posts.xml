@@ -4,108 +4,127 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 16 Mar 2024 12:32:17 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2024 15:16:12 GMT</lastBuildDate>
+    <item>
+      <title>通过清晰且一致的回答来帮助提示多项选择题</title>
+      <link>https://community.openai.com/t/help-prompting-a-multichoice-question-with-a-clear-response-that-can-be-consistant/686679#post_4</link>
+      <description><![CDATA[我想知道它是否会更好，并节省一点钱，为选择编号，将 max_tokens 设置为 1 或 2（也许 5？），然后提示将只需简短“仅给出答案的数字来回答以下多项选择题。\n\n问题：\n ${question}”]]></description>
+      <guid>https://community.openai.com/t/help-prompting-a-multichoice-question-with-a-clear-response-that-can-be-consistant/686679#post_4</guid>
+      <pubDate>Sat, 16 Mar 2024 15:12:20 GMT</pubDate>
+    </item>
     <item>
       <title>轻松实施 RAG 进行测试？</title>
-      <link>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_1</link>
-      <description><![CDATA[你好！我想实现检索增强生成来测试它在我构建的系统上的性能。有人对最简单的方法有建议吗（或帮助和学习的最佳指南）？我正在寻找易用性来开始获得结果，而复杂性/定制可以稍后出现。我希望它像导入一个库一样简单……如果它有用的话，我正在使用 Python。感谢社区！]]></description>
-      <guid>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_1</guid>
-      <pubDate>Sat, 16 Mar 2024 12:16:49 GMT</pubDate>
+      <link>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_4</link>
+      <description><![CDATA[谢谢，是的，为了清楚起见。我的系统使用大量文本作为上下文，我目前在 API 中传递这些文本。我想看看使用 RAG 系统的性能差异，其中上下文已嵌入向量数据库中。总之，我希望测试和比较不同的输出，一个来自提示注入，另一个来自向量嵌入式数据库（我认为我需要使用 RAG 从中获取数据，但 RAG 对我来说是新的） 。再次感谢！]]></description>
+      <guid>https://community.openai.com/t/easy-rag-implementation-for-testing/686735#post_4</guid>
+      <pubDate>Sat, 16 Mar 2024 15:10:15 GMT</pubDate>
     </item>
     <item>
-      <title>建议添加聊天 GPT</title>
-      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=4#post_81</link>
-      <description><![CDATA[对我们用于聊天的基本页面进行节省时间改进的建议
-如果我开始打字，光标会自动位于聊天框中吗？如果我开始滚动，页面可以开始向上或向下移动。
-这将节省浏览页面的时间
-谢谢
-罗布]]></description>
-      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=4#post_81</guid>
-      <pubDate>Sat, 16 Mar 2024 12:05:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Function _call 和 Tool_Call 有何区别？</title>
-      <link>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_5</link>
-      <description><![CDATA[这篇文章提供了有关不同之处的更多信息：阻止您随意使用角色消息，将额外的令牌放入您无法控制的上下文中......
-
-
-
-
-GPT-4-0125-preview 幻觉工具调用 API
-
-  &lt;块引用&gt;
-    除了函数规范的命名空间工具注入之外，通过工具，无论你是否愿意，AI 也会浪费新的代币：
-## 多工具使用
-
-// 该工具充当使用多个工具的包装器。必须在工具部分中指定可以使用的每个工具。仅允许使用函数名称空间中的工具。
-// 确保提供给每个工具的参数根据该工具的规范有效。
-命名空间 multi_tool_use {
-
-// 使用这个函数...
-  
-
-当人工智能使用这个包装工具时，代币的巨大跳跃
-
-
-
-
-tool_calls 的奇怪代币成本计算 API
-
-  &lt;块引用&gt;
-    您正在查看一个助手，它被告知它发出了第一个工具，然后调用了多个工具。
-所以我们需要一点点来自动化构建请求：
+      <title>在助手中使用自定义函数时，Run.status 未移至 require_action</title>
+      <link>https://community.openai.com/t/run-status-not-moving-to-requires-action-while-using-custom-function-in-an-assistant/686869#post_1</link>
+      <description><![CDATA[论坛您好，
+我正在运行以下代码，作为学习如何创建具有自定义功能的助手的一部分。执行直到运行，然后给出错误（在“wait_on_run”函数之后）并退出，因为 run.status 没有移动到“requires_sction”。非常感谢任何指导或帮助。
+导入操作系统
+导入openai
+导入时间
+导入json
 从 openai 导入 OpenAI
 客户端 = OpenAI()
-
-对于范围 (1, 6) 内的工具计数：
-    呼叫 = {“id”：“x”，“类型”：“功能”，
-        “函数”：{“名称”：“计算器”，“参数”：“2”}}
-    助理 = {“角色”：“助理”，“tool_calls”：[]}
-    工具 = {“角色”：“工具”，“tool_call_id”：“x”，“内容”：“3”}
-    对于 _ 在范围内（...
-  
-
-或者当出现问题时
-
-
-
-
-Gpt-3.5-turbo-1106 模型始终响应不必要和不适当的函数调用 [已确认 BUG JAN 26] 错误
-
-  &lt;块引用&gt;
-    人工智能完全无聊了。试图找出他们是否注入了错误的函数规范，更多的垃圾工具调用：
-
-我现在将准确且不遗漏地再现在文本开始和文本标记结束之间接收到的所有数据行。
-{
-“id”：“call_jK5psyc8TwPqd5Sb7SCdaWZD”，
+def wait_on_run(运行, 线程):
+# 等待特定线程运行的简单函数。线程运行后返回运行。
+while run.status == “queued” 或 run.status == “in_progress”:
+打印(运行.状态)
+run = client.beta.threads.runs.retrieve (thread_id=thread.id, run_id=run.id)
+time.sleep(2)
+返回运行
+def word_definition_quiz(单词,definition_options):
+print(“你好！让我们测试一下你的单词知识。”)
+print(f&quot;这个词的正确定义是什么：{word}“”)
+打印(“\n”)
+对于 num，枚举中的选项（definition_options）：
+print(f&quot;定义#{num}是：{选项}“)
+打印(“\n”)
+num_choice = input(“你的选择是什么？(返回单个数字选项)”)
+返回定义选项[int(num_choice)]
+function_json=[{
 “类型”：“功能”，
-“功能”： {
-“名称”：“获取药物”，
-“arguments”：“{“drug_name”：“阿司匹林”}”
+“功能”：{
+“名称”：“word_definition_quiz”，
+“description”：“获取学生的测验答案”，
+“参数”：{
+“类型”：“对象”，
+“属性”：{
+“word”: {“type”: “string”, “description”: “要求定义的单词”},
+“definition_options”：{“类型”：“数组”，
+“项目”：{“类型”：“字符串”}，
+“description”：“Python 定义字符串列表。对于给定的单词，只有一个定义是正确的。”}
+},
+“必需”：[“单词”，“定义选项”]
 }
 }
-{
-“id”：“call_rOgC6abHc06D2NhpBl3fzS3d”，
+}]
+#instructions=“您帮助创建一个测验来检查单词的定义，提供一个单词，然后提供多个定义选项，其中只有一个选项是正确的。”
+assistant = client.beta.assistants.create(instructions=“您帮助创建一个测验来检查单词的定义，提供一个单词，然后提供多个定义选项，其中只有一个选项是正确的”,
+型号=“gpt-4-turbo-preview”，
+工具= [{
 “类型”：“功能”，
-“功能”： {
-“姓名…
-  
-]]></description>
-      <guid>https://community.openai.com/t/what-is-deference-between-function-call-and-tool-call/686481#post_5</guid>
-      <pubDate>Sat, 16 Mar 2024 11:37:22 GMT</pubDate>
+“功能”：{
+“名称”：“word_definition_quiz”，
+“description”：“获取学生的测验答案”，
+“参数”：{
+“类型”：“对象”，
+“属性”：{
+“word”: {“type”: “string”, “description”: “要求定义的单词”},
+“definition_options”：{“类型”：“数组”，
+“项目”：{“类型”：“字符串”}，
+“description”：“Python 定义字符串列表。对于给定的单词，只有一个定义是正确的。”}
+},
+“必需”：[“单词”，“定义选项”]
+}
+}
+}]
+）
+线程 = client.beta.threads.create()
+user_input = “创建一个新的测验问题词和定义列表。然后让我知道收到的学生答案是否正确”
+message = client.beta.threads.messages.create(thread_id=thread.id, role=“user”, content=“创建一个新的测验问题词和定义列表。然后使用工具中定义的函数，让我了解收到的学生答案是否正确”）
+run = client.beta.threads.runs.create(
+thread_id=线程.id,
+Assistant_id=‘asst_cpgzNM3gPJe1LltQ4imd22iL’)
+wait_on_run(运行，线程)
+tool_call = run.required_action.submit_tool_outputs.tool_calls[0]
+参数 = json.loads(tool_call.function.arguments)
+响应 = word_definition_quiz(参数[‘word’], 参数[‘definition_options’])
+run = client.beta.threads.runs.submit_tool_outputs (thread_id = thread.id, run_id = run.id,
+tool_outputs = [{‘tool_call_id’:tool_call.id,
+‘输出’：json.dumps(响应)
+}])
+运行 = wait_on_run(运行,线程)
+messages = client.beta.threads.messages.list(thread.id)
+对于消息中的thread_message：
+print(thread_message.content[0].text.value)
+打印（‘\n’）]]></description>
+      <guid>https://community.openai.com/t/run-status-not-moving-to-requires-action-while-using-custom-function-in-an-assistant/686869#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 15:05:05 GMT</pubDate>
     </item>
     <item>
-      <title>RSS 到图像到视频 - 测试正在进行中</title>
-      <link>https://community.openai.com/t/rss-to-image-to-video-testing-in-process/686708#post_1</link>
-      <description><![CDATA[嗨，
-我最近在 Instagram 上创建了一个财经新闻页面。所以这基本上是从 RSS 获取数据，使用 GPT 3.5 重新措辞并发布新闻文章。
-在发布文章时，我使用了从图像池中随机选择的静态背景图像。
-现在我计划制作带有人工智能配音和相关背景的视频。
-insta：moneyplantproject
-我被困在这里，不知道如何继续。
-希望能提供一些帮助。]]></description>
-      <guid>https://community.openai.com/t/rss-to-image-to-video-testing-in-process/686708#post_1</guid>
-      <pubDate>Sat, 16 Mar 2024 11:27:40 GMT</pubDate>
+      <title>我可以上传文件 - 任何地方</title>
+      <link>https://community.openai.com/t/i-can-upload-files-anywhere/686850#post_1</link>
+      <description><![CDATA[我已经尝试了几周将文件上传到 ChatGPT 但失败。我已经尝试了每种文件类型（pdf、txt、jpg、png、doc 等），但没有任何效果。文件大小不是问题，因为某些 png 文件小于 5kb。我尝试创建自定义 GPT 并遇到同样的问题。
+但是，我可以在使用移动设备时上传文件。我尝试了 OpenAI 的帮助，他们给了我一个要尝试的事情清单，我已经尝试过很多次了，然后又给我留下了阴影。
+在这个问题得到解决之前，我的项目处于停滞状态。任何见解都会有所帮助。]]></description>
+      <guid>https://community.openai.com/t/i-can-upload-files-anywhere/686850#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 14:38:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>您的每日最高限额将在 XX 小时 XX 分钟后重置</title>
+      <link>https://community.openai.com/t/your-daily-maximum-will-reset-in-xx-hours-and-xx-minutes/686848#post_1</link>
+      <description><![CDATA[嗨。
+dall-e 每 3 小时有 40 张图像？
+今天我生成了大约 20 个，这让我等了 13 个小时以上？
+“您已达到每日最大图像数量。为了确保每个人都能获得最佳体验，我们设有费率限制。请等待第二天再生成更多图像。您的每日最高限额将在 13 小时 50 分钟后重置。”
+我该怎么办？]]></description>
+      <guid>https://community.openai.com/t/your-daily-maximum-will-reset-in-xx-hours-and-xx-minutes/686848#post_1</guid>
+      <pubDate>Sat, 16 Mar 2024 14:35:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
