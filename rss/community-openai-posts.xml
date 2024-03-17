@@ -4,140 +4,161 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 17 Mar 2024 01:14:30 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 17 Mar 2024 03:18:45 GMT</lastBuildDate>
     <item>
-      <title>GPT-4 不理解自己</title>
-      <link>https://community.openai.com/t/gpt-4-doesnt-understand-itself/687259#post_1</link>
+      <title>使用递归函数/工具调用进行流式传输</title>
+      <link>https://community.openai.com/t/streaming-with-recursive-function-tools-calling/687313#post_1</link>
       <description><![CDATA[你好，
-我刚刚发现了一些有趣的事情。我决定简单地询问 GPT-4 我可以在一篇文章中附加多少张图片。据说只有一个。我知道这是假的，因为我经常附上多张照片。我一直询问它，它明确表示它不理解自己的操作指南。它提到我不熟悉 2023 年 4 月之后的任何更新，但在此之前我就已经制作了多个图像。
-这或许可以解释其对内容违规行为和其他问题的过度执法。 AI 实际上并不知道它是什么。
-我刚刚发现这很有趣]]></description>
-      <guid>https://community.openai.com/t/gpt-4-doesnt-understand-itself/687259#post_1</guid>
-      <pubDate>Sun, 17 Mar 2024 01:02:43 GMT</pubDate>
+函数调用与流不兼容吗？我有一个没有流媒体的例子，效果很好。当我设置stream:true时，我没有得到函数调用的工作。我正在尝试构建一个驾车通过应用程序，并根据订单单个项目或多个项目进行递归调用。有人可以帮助我如何使用流式传输进行递归调用吗？
+从“openai”导入OpenAI；
+从“ai”导入{ OpenAIStream，StreamingTextResponse }；
+从“./functions”导入{函数}；
+从 &#39;openai/resources/chat&#39; 导入类型 { ChatCompletionCreateParams }；
+
+
+
+// 可选，但推荐：在边缘运行时运行。
+// 请参阅 https://vercel.com/docs/concepts/functions/edge-functions
+导出常量运行时=“边缘”；
+
+const openai = 新 OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+});
+
+
+
+// 工具定义示例
+常量工具= {
+  &#39;订单单项&#39;: (args) =&gt; {
+    // 处理单个商品订单的逻辑
+    console.log(&#39;订购单个商品：&#39;, args);
+    // 在这里实现排序逻辑
+  },
+  &#39;订单菜单项&#39;: (args) =&gt; {
+    // 处理菜单项顺序的逻辑
+    console.log(&#39;订购菜单项：&#39;, args);
+    // 在这里实现排序逻辑
+  },
+  &#39;订购饮料项目&#39;: (args) =&gt; {
+    // 处理饮品订单的逻辑
+    console.log(&#39;订购饮料项目：&#39;, args);
+    // 在这里实现排序逻辑
+  },
+};
+
+导出异步函数 POST(req: Request) {
+  // 从请求正文中提取“messages”
+  const { messages } = wait req.json();
+  const start = Date.now();
+  
+  // 根据提示请求OpenAI API响应
+  尝试 {
+    const 响应 = 等待 openai.chat.completions.create({
+      型号：“gpt-4”，
+      流：真实，
+      消息：消息，
+      //工具：工具，
+      //工具选择：“自动”，
+    });
+    //console.log(&quot;消息====&gt;&quot;, messages);
+    //console.log(&quot;响应===&gt;&quot;, 响应);
+
+    const 流 = OpenAIStream(响应);
+    让工具调用 = {
+      名称：空，
+      参数：“”，
+    };
+
+    
+
+    // 基于累积数据的工具调用的示例伪逻辑
+    if (toolInitation.name &amp;&amp; typeof 工具[toolInitation.name] === &quot;函数&quot;) {
+      尝试 {
+        // 假设 toolInitation.arguments 是字符串化的 JSON，解析它
+        // 如果不是JSON格式，则相应调整这部分
+        const args = JSON.parse(toolInitation.arguments);
+        工具[工具调用.名称](args); // 使用解析后的参数调用该工具
+      } 捕获（错误）{
+        console.error(&quot;调用工具或解析参数时出错：&quot;, error);
+        // 适当地处理错误
+      }
+    }
+    
+    const 响应流 = 新 StreamingTextResponse(流, {
+      标题：{
+        &quot;X-LLM-Start&quot;: `${start}`,
+        &quot;X-LLM-Response&quot;: `${Date.now()}`,
+      },
+    });
+    //console.log(&quot;resstream ===&gt;&quot;,responsestream);
+
+    返回响应流；
+   
+  } 捕获（错误）{
+    console.error(&quot;错误：&quot;, 错误);
+    返回新的响应（JSON.stringify（{错误：error.message}），{
+      状态：500，
+      headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },
+    });
+  }
+}
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/streaming-with-recursive-function-tools-calling/687313#post_1</guid>
+      <pubDate>Sun, 17 Mar 2024 02:55:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistants API Streaming 在工具输出提交时结束流</title>
+      <link>https://community.openai.com/t/assistants-api-streaming-ends-stream-on-tool-output-submission/684621#post_4</link>
+      <description><![CDATA[我刚刚尝试了类似的操作，虽然前几个运行步骤似乎注册了更新的工具输出，但运行只是返回到需要完全相同的工具输出并再次奇怪地终止。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-streaming-ends-stream-on-tool-output-submission/684621#post_4</guid>
+      <pubDate>Sun, 17 Mar 2024 02:26:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Make.com 的 API 调用失败。状态失败</title>
+      <link>https://community.openai.com/t/failed-api-call-using-make-com-status-failed/590917#post_4</link>
+      <description><![CDATA[工作了一整天，然后突然“无效状态“失败”了几个小时。]]></description>
+      <guid>https://community.openai.com/t/failed-api-call-using-make-com-status-failed/590917#post_4</guid>
+      <pubDate>Sun, 17 Mar 2024 02:25:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>支付 5 美元后等级限额未增加</title>
+      <link>https://community.openai.com/t/tier-limit-not-increased-after-paying-5/687137#post_12</link>
+      <description><![CDATA[如果等待一天并不能解决问题（而且经常如此），那么您需要通过更多某种类型的投入来刺激变革。
+您已经完成了帮助请求。
+特殊之处可能是一个帐户太旧但未用于付款，尚未升级并根据使用情况放置到更高的级别。]]></description>
+      <guid>https://community.openai.com/t/tier-limit-not-increased-after-paying-5/687137#post_12</guid>
+      <pubDate>Sun, 17 Mar 2024 02:23:34 GMT</pubDate>
     </item>
     <item>
       <title>助理以不同的输入语言进行响应</title>
-      <link>https://community.openai.com/t/assistant-respond-in-a-different-input-language/687251#post_1</link>
-      <description><![CDATA[我的助手表现良好，但不知为何，它开始以不同的输入语言给出回复。
-它会执行一次回复，然后返回说英语（或聊天语言）。
-这是一个间歇性问题，可能每 20 个线程影响 1 个聊天，但严重程度足以影响用户体验。
-我尝试添加诸如“仅用英语回复，除非用户要求”之类的指令。但是，尽管用户清楚地使用英语，但偶尔，它会偏离路线并说另一种语言。
-我正在使用助手 API 和 GPT4-turbo。
-有什么建议吗？]]></description>
-      <guid>https://community.openai.com/t/assistant-respond-in-a-different-input-language/687251#post_1</guid>
-      <pubDate>Sun, 17 Mar 2024 00:46:46 GMT</pubDate>
+      <link>https://community.openai.com/t/assistant-respond-in-a-different-input-language/687251#post_2</link>
+      <description><![CDATA[最好的做法是不要使用 gpt-4-turbo 模型。
+模型非常不确定要写什么（高度困惑），它甚至无法预测正确语言的标记集。
+助手中没有采样参数来限制不良标记，避免引导语言的生成偏离路线，这使得情况变得更糟。
+如果您希望降低成本并减少对 AI 大脑造成的损害（只是与检索不兼容），gpt-3.5-turbo-0613 会更好。]]></description>
+      <guid>https://community.openai.com/t/assistant-respond-in-a-different-input-language/687251#post_2</guid>
+      <pubDate>Sun, 17 Mar 2024 02:19:25 GMT</pubDate>
     </item>
     <item>
-      <title>助理 API 创建角色为“助理”的新消息</title>
-      <link>https://community.openai.com/t/assistants-api-create-new-message-with-role-assistant/618192#post_11</link>
-      <description><![CDATA[在某种程度上。尽管从字面上看，openai 消息类没有任何外部内容（即，它全部存储在元数据中）]]></description>
-      <guid>https://community.openai.com/t/assistants-api-create-new-message-with-role-assistant/618192#post_11</guid>
-      <pubDate>Sun, 17 Mar 2024 00:21:43 GMT</pubDate>
+      <title>由操作/GPT 提供的 URL 在桌面中不可单击，但在 iOS 应用程序中可单击</title>
+      <link>https://community.openai.com/t/urls-served-by-action-gpt-not-clickable-in-desktop-but-are-clickable-in-ios-app/574476#post_10</link>
+      <description><![CDATA[自定义 GPT 显示的 URL 仍然不可点击。
+我的 GPT 显示从 Excel 数据文件获取的 URL。
+URL 格式良好，但显示时不可点击。
+示例： https://chat.openai.com/share /e/3c72aa4e-96ff-4e26-b0f8-413bf26bed6d]]></description>
+      <guid>https://community.openai.com/t/urls-served-by-action-gpt-not-clickable-in-desktop-but-are-clickable-in-ios-app/574476#post_10</guid>
+      <pubDate>Sun, 17 Mar 2024 02:16:06 GMT</pubDate>
     </item>
     <item>
-      <title>助理 API 创建角色为“助理”的新消息</title>
-      <link>https://community.openai.com/t/assistants-api-create-new-message-with-role-assistant/618192#post_10</link>
-      <description><![CDATA[哦，有趣。 @icdev2dev ，以确保我理解......这是您在官方 Assistants API 之上的自定义实现？]]></description>
-      <guid>https://community.openai.com/t/assistants-api-create-new-message-with-role-assistant/618192#post_10</guid>
-      <pubDate>Sun, 17 Mar 2024 00:19:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 操作错误 - “身份验证 URL、令牌 URL 和 API 主机名必须共享根域”</title>
-      <link>https://community.openai.com/t/gpt-actions-error-auth-url-token-url-and-api-hostname-must-share-a-root-domain/491072?page=4#post_76</link>
-      <description><![CDATA[我在 Flask 中做了类似的事情，但我不断收到一个错误，提示我没有返回 JSON：
-0, message=&#39;尝试使用意外的 mimetype 解码 JSON：text/html； charset=utf-8&#39;, url=URL(&#39;https://oauth-gpt-huey.replit.app/authorize&#39;)
-以下是我在 Flask 应用程序中用于尝试实现此功能的端点：
-# OAuth 配置
-oauth = OAuth（应用程序）
-谷歌= oauth.注册（
-    名称=&#39;谷歌&#39;,
-    client_id=os.environ[&#39;CLIENT_ID&#39;], # 替换为您的客户端 ID
-    client_secret = 操作系统。
-    environ[&#39;CLIENT_SECRET&#39;], # 替换为您的客户端密码
-    access_token_url=&#39;https://accounts.google.com/o/oauth2/token&#39;,
-    access_token_params=无，
-    authorize_url=&#39;https://accounts.google.com/o/oauth2/auth&#39;,
-    authorize_params=无，
-    api_base_url=&#39;https://www.googleapis.com/oauth2/v2/userinfo&#39;,
-    client_kwargs={&#39;范围&#39;: &#39;电子邮件&#39;},
-）
-
-
-@app.route(&#39;/登录&#39;)
-def 登录():
-  # 生成唯一的状态值用于CSRF保护
-  state = request.args.get(&#39;state&#39;, uuid.uuid4().hex)
-  callback_url = request.args.get(&#39;redirect_uri&#39;, &#39;&#39;)
-  会话[&#39;oauth_state&#39;] = 状态
-  会话[&#39;callback_url&#39;] =callback_url
-
-  redirect_uri = url_for(&#39;授权&#39;, _external=True)
-  返回 google.authorize_redirect(redirect_uri=redirect_uri, state=state)
-
-
-@app.route(&#39;/授权&#39;)
-def 授权():
-  尝试：
-    # 从会话中检索状态并与请求参数中的状态进行比较
-    Expected_state = session.get(&#39;oauth_state&#39;, &#39;&#39;)
-    request_state = request.args.get(&#39;状态&#39;, &#39;&#39;)
-    callback_url = session.get(&#39;callback_url&#39;, &#39;&#39;)
-    代码 = request.args.get(&#39;代码&#39;, &#39;&#39;)
-
-    如果不是request_state或expected_state！= request_state：
-      返回 jsonify({&quot;错误&quot;:
-                      “状态不匹配或缺少状态参数。”}), 400
-
-    # 将状态包含在回调 URL 中作为查询参数
-    callback_url = f&quot;{callback_url}?state={request_state}&amp;code={code}&quot;
-
-    返回重定向（callback_url）
-  除了异常 e：
-    app.logger.error(f&quot;/authorize 中出现错误：{e}&quot;)
-    返回 jsonify({&quot;error&quot;: str(e)}), 500
-
-
-@app.route(&#39;/token&#39;)
-def 令牌():
-  尝试：
-    token_info = google.authorize_access_token()
-
-    返回 jsonify({
-        &quot;access_token&quot;: token_info.get(&quot;access_token&quot;),
-        “令牌类型”：
-        &quot;bearer&quot;, # 通常，类型是 Bearer，但请与您的 OAuth 提供商确认
-        &quot;refresh_token&quot;: token_info.get(&quot;refresh_token&quot;),
-        &quot;expires_in&quot;: token_info.get(&quot;expires_in&quot;)
-    }), 200
-  除了异常 e：
-    返回 jsonify({&quot;error&quot;: str(e)}), 500
-
+      <title>DALLE3 提示提示和技巧主题</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=2#post_33</link>
+      <description><![CDATA[最后，这是单个冰块、日本环境、帆船的重新混合。
 ]]></description>
-      <guid>https://community.openai.com/t/gpt-actions-error-auth-url-token-url-and-api-hostname-must-share-a-root-domain/491072?page=4#post_76</guid>
-      <pubDate>Sun, 17 Mar 2024 00:18:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么 ChatGPT 的情况每况愈下？</title>
-      <link>https://community.openai.com/t/why-is-chatgpt-getting-from-bad-to-worst/617490?page=2#post_39</link>
-      <description><![CDATA[是的，这太可怕了。一周又一周变得越来越糟。特别是编写简单的代码或修复代码中的错误。我得不断提醒它少说废话，别乱说。我要求它仅在我的自定义指令中以要点和代码的形式回答。它会在前 2 或 3 个提示中执行此操作，然后滔滔不绝地讲出一本小说。除了我要求的解决方案之外，它几乎是故意地围绕着每一种可能的解决方案。我想知道 OpenAI 是否从未从解雇奥特曼的错误中恢复过来？这也是埃隆在董事会的朋友发起的。我认为 OpenAI 让很多工程师感到愤怒。不确定这是否是报复，或者只是 OpenAI 不再关心用户，已经从有限利润转向营利模式，在这种模式下，我们不再获得我们所支付的计算资源。我们甚至不能选择代币更少、使用上限更低但计算能力更强的模型。这真是一种耻辱。我要取消我的 Plus 会员资格。]]></description>
-      <guid>https://community.openai.com/t/why-is-chatgpt-getting-from-bad-to-worst/617490?page=2#post_39</guid>
-      <pubDate>Sun, 17 Mar 2024 00:17:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>多助理系统中管理聊天记录的最佳方法</title>
-      <link>https://community.openai.com/t/optimal-approach-for-managing-chat-history-in-a-multi-assistant-system/596435#post_8</link>
-      <description><![CDATA[你好，
-我已经在一个聊天机器人上工作了几个星期，遵循一个线程和几个共享它的助手的方法。具体有3名助理：
-
-“引导者”，发起对话并确定用户意图的人
-两位“专家”，各自有着截然不同的目标。
-
-它们中的任何一个都可以将控制权传递给另外两个中的任何一个，具体取决于用户的意图。
-我发现这种方法非常有用，因为由于使用相同的线程，所有三个都共享上下文。就我而言，在与我的聊天机器人的单个会话中，用户需要两个助手是正常的。由于两者都使用具有一些公共参数的调用函数，因此如果一个助手已经确定了一些公共参数，则另一个助手不需要再次询问用户。
-当然，缺点是对话中令牌数量的增长。
-我正在努力解决的另一个问题是正确识别意图以使助手正确更改。由于助手 API 对响应的控制比 chat_completion API 少得多，因此很难给出精确的指令以使它们始终表现相同。]]></description>
-      <guid>https://community.openai.com/t/optimal-approach-for-managing-chat-history-in-a-multi-assistant-system/596435#post_8</guid>
-      <pubDate>Sun, 17 Mar 2024 00:16:51 GMT</pubDate>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=2#post_33</guid>
+      <pubDate>Sun, 17 Mar 2024 02:12:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
