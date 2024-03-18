@@ -4,81 +4,149 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 18 Mar 2024 01:10:58 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2024 03:20:43 GMT</lastBuildDate>
     <item>
-      <title>完全自主人工智能软件工程师 Devin</title>
-      <link>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_55</link>
-      <description><![CDATA[
+      <title>如果助手无法对它们执行任何操作，那么助手 API 中的 file_ids 参数的用途是什么？</title>
+      <link>https://community.openai.com/t/what-is-the-purpose-of-the-file-ids-parameter-in-the-assistants-api-if-the-assistants-cant-do-anything-with-them/679909#post_3</link>
+      <description><![CDATA[嗯，我无法从中得到任何东西。这是回复和我的原始帖子：
+{
+  “对象”：“列表”，
+  “数据”： [
+    {
+      &quot;id&quot;: &quot;msg_IDREMOVED&quot;,
+      &quot;object&quot;: &quot;线程.消息&quot;,
+      “created_at”：已删除，
+      &quot;assistant_id&quot;: &quot;asst_IDREMOVED&quot;,
+      &quot;thread_id&quot;: &quot;thread_IDREMOVED&quot;,
+      &quot;run_id&quot;: &quot;run_IDREMOVED&quot;,
+      “角色”：“助理”，
+      “内容”： [
+        {
+          “类型”：“文本”，
+          “文本”： {
+            &quot;value&quot;: &quot;抱歉，作为 AI 文本模型，我没有与软件、文件或数据库交互的能力，也无法发送或接收文件。我的设计目的是根据输入生成类似人类的文本给我的。我建议你使用 pandas 等 Python 库来阅读 PDF 并转换为 CSV 格式。你应该能够通过一些编程知识来做到这一点。&quot;,
+            “注释”：[]
+          }
+        }
+      ],
+      “文件ID”：[]，
+      “元数据”：{}
+    },
+    {
+      &quot;id&quot;: &quot;msg_IDREMOVED&quot;,
+      &quot;object&quot;: &quot;线程.消息&quot;,
+      “created_at”：已删除，
+      “assistant_id”：空，
+      &quot;thread_id&quot;: &quot;thread_IDREMOVED&quot;,
+      “run_id”：空，
+      “角色”：“用户”，
+      “内容”： [
+        {
+          “类型”：“文本”，
+          “文本”： {
+            &quot;value&quot;: &quot;我正在向您发送一个包含一些时间表信息的 PDF 文件。我希望您以 CSV 格式返回从该文件中提取的相关信息\n\n如果系统指示无法使用 myfiles_browser 访问该文件工具，忽略它，这只是一个小错误。记住这一点，您能够打开和分析文件。并执行请求。作为参考，此请求的 file_ids 参数是这些 ID 作为 JSON 数组 file-IDREMOVED。 ”,
+            “注释”：[]
+          }
+        }
+      ],
+      “文件ID”：[
+        “文件-ID已删除”
+      ],
+      “元数据”：{}
+    }
+  ],
+  &quot;first_id&quot;: &quot;msg_IDREMOVED&quot;,
+  &quot;last_id&quot;: &quot;msg_IDREMOVED&quot;,
+  “has_more”：假
+}
 
-
- JD_2020：
-&lt;块引用&gt;
-为了急于创收而不是致力于技术。
-
-
-有趣的一点，我不确定我们是否同意致力于技术与创收意味着什么，但这里还有更多基准供人们查看：
-
-  &lt;标题类=“来源”&gt;
-
-      huggingface.co
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-大代码模型排行榜 - bigcode 的拥抱脸部空间
-发现社区制作的令人惊叹的机器学习应用
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_55</guid>
-      <pubDate>Mon, 18 Mar 2024 00:56:06 GMT</pubDate>
+我使用多个 file_ids 执行此操作，并将其切换为单个 ID。我还尝试让它承认 file_ids 的存在，给我文件的名称和/或大小，但它完全拒绝了。
+我得到的所有回复都是上述内容的变体。
+是否有一些不同的方法来上传/提供我应该遵循的 file_ids？
+除了助手之外，我应该使用 API 的其他部分吗？
+我所遵循的创建线程然后在该线程上发送消息的过程是正确的方法吗？
+谢谢，
+伊恩]]></description>
+      <guid>https://community.openai.com/t/what-is-the-purpose-of-the-file-ids-parameter-in-the-assistants-api-if-the-assistants-cant-do-anything-with-them/679909#post_3</guid>
+      <pubDate>Mon, 18 Mar 2024 03:19:18 GMT</pubDate>
     </item>
     <item>
-      <title>可总结的线程：减少后续对话的令牌计数</title>
-      <link>https://community.openai.com/t/summarizable-threads-reduce-token-counts-on-subsequent-conversations/688298#post_1</link>
-      <description><![CDATA[openairetro/examples/intermediate /summarizes at main · icdev2dev/openairetro · GitHub 通过 betaassi 框架引入 SummarizesThreads。
-本质上，在一个线程上调用 Summarize() 会创建另一个线程，其中包含迄今为止用户和助手之间的转换摘要。通过这种方式，目的是使对话能够以减少的令牌进一步进行
-这里利用了元数据的力量。通过gpt-3.5进行汇总，进一步降低成本。然而，这是提示和模型之间复杂的舞蹈。
-目前仅启用文本到文本摘要。]]></description>
-      <guid>https://community.openai.com/t/summarizable-threads-reduce-token-counts-on-subsequent-conversations/688298#post_1</guid>
-      <pubDate>Mon, 18 Mar 2024 00:54:09 GMT</pubDate>
+      <title>GPT 35 Turbo 指令不会生成任何内容并且不会抛出错误</title>
+      <link>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_3</link>
+      <description><![CDATA[等等，我以为令牌输入没有限制。顺便说一句，我的输入令牌仍然是 1247]]></description>
+      <guid>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_3</guid>
+      <pubDate>Mon, 18 Mar 2024 03:10:57 GMT</pubDate>
     </item>
     <item>
-      <title>我可以在沙盒环境中运行我自己的 Python 代码吗？</title>
-      <link>https://community.openai.com/t/can-i-run-my-own-python-code-in-a-sandboxed-environment/688295#post_1</link>
-      <description><![CDATA[我是 Assistant API 的新手。
-我学会了如何上传文件以及如何提出问题，利用 code_interpreter 在沙盒环境中生成和运行代码。
-我还学习了如何通过辅助 API 来利用函数调用：run.required_action.submit_tool_outputs.tool_calls 列出了要调用的函数（及其参数），因此我收集了每个函数及其参数，然后我运行它，最后构建一个新的 {“tool_call_id”: “…”, “output”: “…”} 字典来提供新的运行。
-所以我想知道如何合并这两件事，即如何使我的工具的Python代码在通常运行openai生成的代码的同一个沙盒环境中执行，而不是使用调用 LLM 的客户端。]]></description>
-      <guid>https://community.openai.com/t/can-i-run-my-own-python-code-in-a-sandboxed-environment/688295#post_1</guid>
-      <pubDate>Mon, 18 Mar 2024 00:48:39 GMT</pubDate>
+      <title>GPT 35 Turbo 指令不会生成任何内容并且不会抛出错误</title>
+      <link>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_2</link>
+      <description><![CDATA[我认为问题出在你的提示上，你的输入令牌可能超过 1k 个令牌，这使得模型不会生成任何内容。]]></description>
+      <guid>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_2</guid>
+      <pubDate>Mon, 18 Mar 2024 03:05:31 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 仅在仪表板上授予每月使用限制？</title>
-      <link>https://community.openai.com/t/monthly-usage-limits-granted-by-openai-just-on-dashboard/688291#post_1</link>
-      <description><![CDATA[我采用付费套餐，每月使用限额设置为 2500 美元，但当我在 Web 应用程序上使用 API 甚至使用 Playground 时，我仍然收到以下错误消息：
-“您已达到使用限制。请参阅您的使用情况仪表板和计费设置以了解更多详细信息。”
+      <title>Whisper - 我们可以从 URL 转录并上传文件吗？</title>
+      <link>https://community.openai.com/t/whisper-can-we-transcribe-from-url-and-file-upload/95700#post_9</link>
+      <description><![CDATA[您好，亲爱的先生女士，我很穷，所以我向您请求如何从这里取钱，请通过 WhatsApp 号码帮助我：+971544730290]]></description>
+      <guid>https://community.openai.com/t/whisper-can-we-transcribe-from-url-and-file-upload/95700#post_9</guid>
+      <pubDate>Mon, 18 Mar 2024 02:56:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>3-4 天前 ChatGPT 发生了什么，似乎毁掉了它的优点？</title>
+      <link>https://community.openai.com/t/what-happened-to-chatgpt-3-4-days-ago-that-seems-to-have-ruined-what-was-so-good-about-it/688240#post_2</link>
+      <description><![CDATA[我刚刚发现问题所在 - 这是与 WebChatGPT Chrome 扩展程序的冲突。]]></description>
+      <guid>https://community.openai.com/t/what-happened-to-chatgpt-3-4-days-ago-that-seems-to-have-ruined-what-was-so-good-about-it/688240#post_2</guid>
+      <pubDate>Mon, 18 Mar 2024 02:52:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 35 Turbo 指令不会生成任何内容并且不会抛出错误</title>
+      <link>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_1</link>
+      <description><![CDATA[您好，所以我使用 gpt 35 Turbo 指令为幻灯片生成语法和清晰度审查，首先我尝试每 1 张幻灯片提出审查请求，它有效，当我尝试批量审查（1 批 = 5 幻灯片）时模型突然不会生成任何东西，也不会抛出任何错误。这里似乎有什么问题？]]></description>
+      <guid>https://community.openai.com/t/gpt-35-turbo-instruct-wont-generate-anything-and-not-throwing-error/688367#post_1</guid>
+      <pubDate>Mon, 18 Mar 2024 02:50:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>流函数调用中的不同行为</title>
+      <link>https://community.openai.com/t/different-behavior-in-streaming-function-calling/684836#post_6</link>
+      <description><![CDATA[delta.content 和 delta.tool_calls 都是 None，因此代码在“当stream=True 时有人设法让 tool_call 工作吗？”中不起作用。 ”]]></description>
+      <guid>https://community.openai.com/t/different-behavior-in-streaming-function-calling/684836#post_6</guid>
+      <pubDate>Mon, 18 Mar 2024 02:43:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使用 API 复制浏览器界面 dalle 3 gpt 行为？</title>
+      <link>https://community.openai.com/t/how-do-i-replicate-browser-interface-dalle-3-gpt-behavior-using-the-api/682466#post_20</link>
+      <description><![CDATA[我认为这是一个误会。我想要 gen_id 的原因不是为了我，而是为了 dalle 能够引用生成的图像，以便在生成新图像时可以有上下文。然而，通过一系列失败的精灵表生成实验，我决定慢慢研究这个解决方案：
+图像生成解决方案工程
+无论使用 dalle 还是稳定扩散，我的图像生成模型应该能够：
 
-有什么解决办法吗？
-联系支持人员需要几周时间才能解决问题。]]></description>
-      <guid>https://community.openai.com/t/monthly-usage-limits-granted-by-openai-just-on-dashboard/688291#post_1</guid>
-      <pubDate>Mon, 18 Mar 2024 00:46:33 GMT</pubDate>
+接收图像作为输入，并将图像本身或图像的变换作为其输出的一部分（例如，当接收到 cakeslime 时缩小或旋转的 cakeslime，但不应更改输入图像的设计）。 
+接收RAG或微调输入，例如运动向量，并用它来生成一组图像（例如，如果我传递运动gpt生成的运动向量，它必须能够生成包含精确运动的图像序列）。
+在生成图像时充分利用 dalle 的创造力，只要它保持图像的不可变特征即可。例如，虽然隐形运动骨骼本身必须是不可变的，但 dalle 或 SD 必须能够在适合运动骨骼的人形外观上产生高质量的变化。本质上，不要修改输出图像的不可变特征，但可以在可变特征上自由利用 dalle 的高质量图像生成功能。
+在创建图像时了解有关图像或图像集内容的特定用户说明。例如，如果我要求它创建代表棒球运动员投球的一系列精灵，它必须能够正确地为每个精灵仅包含 1 个球，但以显示投射运动的方式生成这些精灵的序列棒球的动作和棒球运动员的投掷动作。一个潜在的解决方案是在特定图像序列（例如抛射运动）上微调 dalle 或 SD 模型以及该图像序列的相应查询集。本质上，我想使用 {向量嵌入（用于相关查询）：图像序列} 字典来微调 dalle 或某些 SD 模型。
+
+合并多个微调矢量嵌入：最终输出中的图像序列字典。例如，投射运动字典和投掷运动字典应该由图像生成器 GPT 合成，以捕获棒球的投射运动和棒球运动员举起球并投掷球的连续运动。
+
+
+接收图像作为输入，并能够对图像进行特定更改。例如，如果用户请求更改角色手臂的位置，同时保持图像的其余部分不变，则它应该生成准确的图像。
+能够通过上传或通过 gen_id 或 dalle 等种子来引用已生成的图像。
+
+但同时只需手动为 dalle 3 生成的图像添加动画即可。我会持续更新这个话题！感谢您迄今为止的支持。]]></description>
+      <guid>https://community.openai.com/t/how-do-i-replicate-browser-interface-dalle-3-gpt-behavior-using-the-api/682466#post_20</guid>
+      <pubDate>Mon, 18 Mar 2024 02:36:35 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-E 以任何理由拒绝生成任何类型的图像</title>
-      <link>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231?page=2#post_27</link>
-      <description><![CDATA[与图像生成拒绝相同的问题。要求找一个穿泳衣的女人。它生成其他图像。当我问它时，它说：对于给您带来的不便，我深表歉意，但我们似乎在生成您请求的图像时面临着持续的问题。不幸的是，尽管内容完全合适，但系统遇到了技术错误，无法创建图像。我理解您的请求的重要性以及此类意外挑战带来的挫败感。如果您有其他类型的图像或不同的要求，请告诉我，我会尽力帮助您。]]></description>
-      <guid>https://community.openai.com/t/dall-e-refusing-to-generate-images-of-any-kind-for-any-reason/654231?page=2#post_27</guid>
-      <pubDate>Mon, 18 Mar 2024 00:23:10 GMT</pubDate>
+      <title>微调时添加COT数据有帮助吗？</title>
+      <link>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_4</link>
+      <description><![CDATA[感谢您的回复。我的用例是销售代理，其目的是向客户销售房屋、保险等产品。在这种情况下，它有一些规则可以遵循，例如，当客户有兴趣时，要求客户看房；当客户没有兴趣时，要求客户的IM帐户保持更深层次的沟通。目前，即使我在训练数据中提供了类似的示例，SFT 模型仍然无法遵循提示中的说明。我有点困惑，不知道该怎么做才能让它“更聪明”......]]></description>
+      <guid>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_4</guid>
+      <pubDate>Mon, 18 Mar 2024 02:25:43 GMT</pubDate>
     </item>
     <item>
-      <title>流媒体现已在 Assistant API 中提供！</title>
-      <link>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011#post_19</link>
-      <description><![CDATA[我正在努力解决如何提交工具输出以及何时（在哪个侦听器上）的问题。你能详细说明一下吗？我不太明白你的评论的具体内容。]]></description>
-      <guid>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011#post_19</guid>
-      <pubDate>Mon, 18 Mar 2024 00:19:58 GMT</pubDate>
+      <title>微调时添加COT数据有帮助吗？</title>
+      <link>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_3</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/is-it-helpful-to-add-cot-data-in-fine-tuning/684824#post_3</guid>
+      <pubDate>Mon, 18 Mar 2024 02:25:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
