@@ -4,75 +4,61 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 22 Mar 2024 03:19:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 22 Mar 2024 06:23:12 GMT</lastBuildDate>
     <item>
-      <title>模型如何决定将哪些查询传递给 RAG 函数？</title>
-      <link>https://community.openai.com/t/how-does-the-model-decide-what-query-to-pass-to-rag-functions/689588#post_20</link>
-      <description><![CDATA[
-
-
- rybo：
-&lt;块引用&gt;
-最多支持 128 个函数。
-
-
-请允许我纠正一下自己。
-如上所述，传统的 GPT-4 不支持调用多个工具（并行函数调用）。
-“Assistant”这个词让我很困惑，因为“Assistant”用于 GPT 的响应，而且还有一个 Assistant API。
-但是，现在我明白您在谈论“最多支持 128 个函数”这一声明中的并行函数调用。
-这只是我的观点，但是当传递所有要检索的文本作为输入时，随着上下文长度变长，由于注意力的限制，似乎更容易引起幻觉。所以，我说传统的GPT-4引起幻觉的可能性较小。
-我对此表示歉意。]]></description>
-      <guid>https://community.openai.com/t/how-does-the-model-decide-what-query-to-pass-to-rag-functions/689588#post_20</guid>
-      <pubDate>Fri, 22 Mar 2024 03:07:27 GMT</pubDate>
+      <title>为什么我不再有“继续生成”按钮？</title>
+      <link>https://community.openai.com/t/why-dont-i-have-the-continue-generation-button-anymore/693531#post_1</link>
+      <description><![CDATA[如标题所说，我发现长文本中途被打断时，Continue Generation功能丢失了。我已经有一段时间没有使用ChatGPT了，现在再次使用它，这种情况让我有点尴尬。
+我使用的模型是ChatGPT3.5，网页版。]]></description>
+      <guid>https://community.openai.com/t/why-dont-i-have-the-continue-generation-button-anymore/693531#post_1</guid>
+      <pubDate>Fri, 22 Mar 2024 06:21:06 GMT</pubDate>
     </item>
     <item>
       <title>流媒体现已在 Assistant API 中提供！</title>
-      <link>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=2#post_29</link>
-      <description><![CDATA[我就是这样处理的。
-与 client.beta.threads.runs.create_and_stream(
-        线程_id = 线程_id,
-        Assistant_id = 助理.id,
-    ) 作为流：
-        对于流中的事件：
-            如果 event.event == &#39;thread.run.step.created&#39;:
-                如果 event.data.type == &#39;tool_calls&#39;:
-                    print(&#39;\n检测到工具调用..&#39;)
-                    Final_run = Stream.get_final_run()
-                    从requires_action（final_run，查询）中产生
-                    休息
-                别的：
-                    print(&#39;\n检测到消息创建...&#39;)
-                    对于stream.text_deltas中的文本：
-                        产量 f&quot;数据: {json.dumps({&#39;text&#39;: text})}\n\n&quot;
-            elif event.event == &#39;thread.message.delta&#39;:
-                产量 f&quot;数据: {json.dumps({&#39;text&#39;: event.data.delta.content[0].text.value})}\n\n&quot;
-]]></description>
-      <guid>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=2#post_29</guid>
-      <pubDate>Fri, 22 Mar 2024 02:58:50 GMT</pubDate>
+      <link>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=2#post_30</link>
+      <description><![CDATA[是否有计划为 Azure OpenAI 添加对此的支持。谢谢！]]></description>
+      <guid>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=2#post_30</guid>
+      <pubDate>Fri, 22 Mar 2024 06:16:21 GMT</pubDate>
     </item>
     <item>
-      <title>相同种子、相同型号的系统指纹不同，其他参数相同</title>
-      <link>https://community.openai.com/t/system-fingerprint-is-different-for-the-same-seed-and-same-model-other-parameters-also-same/693387#post_1</link>
-      <description><![CDATA[嗨，
-我想知道你是否可以帮忙。
-我观察到，对于相同的模型、相同的种子和相同的参数，如果我循环调用聊天完成 API，系统指纹会发生变化。这是预期的吗？是因为这个功能还处于测试阶段吗？我希望使用种子和系统指纹组合来检测 OpenAI API 中的任何后端更改。如果您能提供帮助，那就太好了。
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/system-fingerprint-is-different-for-the-same-seed-and-same-model-other-parameters-also-same/693387#post_1</guid>
-      <pubDate>Fri, 22 Mar 2024 02:58:01 GMT</pubDate>
+      <title>有人有使用 GPT3.5 Turbo 进行 RAG 重新排名的经验吗？</title>
+      <link>https://community.openai.com/t/anybody-had-experience-with-rag-reranking-with-gpt3-5-turbo/608804#post_9</link>
+      <description><![CDATA[啊，好的，明白了。由于这个主题，我有点困惑。不过，使用较低功耗的模型来做到这一点仍然很有趣。你这样做的目的是什么？它如何改善你想要实现的目标？ （很抱歉让这个话题进一步偏离正轨 - 我也对OP的主题非常感兴趣！）]]></description>
+      <guid>https://community.openai.com/t/anybody-had-experience-with-rag-reranking-with-gpt3-5-turbo/608804#post_9</guid>
+      <pubDate>Fri, 22 Mar 2024 06:01:16 GMT</pubDate>
     </item>
     <item>
-      <title>有人缺少 >>>>> 按钮吗？</title>
-      <link>https://community.openai.com/t/missing-button-for-anyone/693376#post_1</link>
-      <description><![CDATA[当我达到最大字数限制时，我看不到通常看到的按钮。它只是不存在。我想问一下有人遇到同样的问题吗？我只需要确认这是我的问题还是一般问题。字数是1200。一般1300也能应付。现在它达到了最大字数限制，但没有继续按钮。]]></description>
-      <guid>https://community.openai.com/t/missing-button-for-anyone/693376#post_1</guid>
-      <pubDate>Fri, 22 Mar 2024 02:46:14 GMT</pubDate>
+      <title>日本通用主题 -从成熟的技术讨论到简单的投诉 -</title>
+      <link>https://community.openai.com/t/topic/692858#post_5</link>
+      <description><![CDATA[我不确定提示是自定义指令、系统消息还是普通消息，但对于 API，“请用日语说话。”就足够了。我会的。 
+如果是自定义指令，除了底部“请用日语说话”之外，还可以在顶部添加“我是日本人”（你想让ChatGPT知道的内容）。我感觉他们用的是日语。 
+不过，有时当人们突然开始在没有任何上下文的情况下说英语时，我会感到恼火，哈哈
+浏览功能怎么样...
+如果您在对话开始时明确地说“搜索以找出答案”，看起来您正在搜索，但给人的印象是您正在使用缓存而不是当场搜索。 
+ChatGPT 的优先级似乎比 OpenAI 低，GUI 的误译被忽略了……
+我应该什么都不做还是做什么？]]></description>
+      <guid>https://community.openai.com/t/topic/692858#post_5</guid>
+      <pubDate>Fri, 22 Mar 2024 06:00:55 GMT</pubDate>
     </item>
     <item>
-      <title>在 ChatGPT-Team 中导出聊天</title>
-      <link>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_6</link>
-      <description><![CDATA[很有问题。我希望这个问题能尽快得到解决。]]></description>
-      <guid>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_6</guid>
-      <pubDate>Fri, 22 Mar 2024 02:32:19 GMT</pubDate>
+      <title>与 OpenAI API 通信时遇到问题</title>
+      <link>https://community.openai.com/t/having-trouble-communicating-with-openai-api/693465#post_3</link>
+      <description><![CDATA[这里你也应该非常小心。
+这似乎是客户端代码，您不应将代码部署到生产环境中，以免向所有人公开您的 API 密钥。
+确保在上线之前最终以某种方式代理此调用，以便客户端永远不会知道您的密钥。
+我建议您在部署之前确保有经验的人对您的设置进行端到端的审查。]]></description>
+      <guid>https://community.openai.com/t/having-trouble-communicating-with-openai-api/693465#post_3</guid>
+      <pubDate>Fri, 22 Mar 2024 05:53:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 的有机获取远低于插件。我们应该做什么？</title>
+      <link>https://community.openai.com/t/organic-acquisition-on-gpts-is-much-lower-than-plugins-what-should-we-do/692443#post_7</link>
+      <description><![CDATA[我仍然很好奇 GPT 市场的长期发展。
+在 DevDay 上，当 Sam 在台上宣布这一消息时，我认为这是一个绝妙的主意。然而，我将它们主要视为一种“变革管理工具”，使没有编码技能的个人更容易使用生成式人工智能进行构建，从而有助于并降低生成式人工智能日常整体采用的障碍&lt; /p&gt;
+从商店中提供的产品来看，我到目前为止还没有看到 GPT 的附加值。我很少使用它们，而且目前我绝对不会为它们中的任何一个支付额外费用（超过 20 美元的订阅费用）。我认为提高商店中可用 GPT 的门槛以及某些其他限制会有很大的好处。
+抱歉 - 我知道这并没有解决收购问题，但我确实认为在成功执行收购策略之前，还有很多结构性问题需要讨论。]]></description>
+      <guid>https://community.openai.com/t/organic-acquisition-on-gpts-is-much-lower-than-plugins-what-should-we-do/692443#post_7</guid>
+      <pubDate>Fri, 22 Mar 2024 05:52:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
