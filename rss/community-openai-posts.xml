@@ -4,28 +4,135 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 24 Mar 2024 18:23:39 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2024 21:15:12 GMT</lastBuildDate>
+    <item>
+      <title>模型“gpt-4-vision-preview”有函数调用吗？</title>
+      <link>https://community.openai.com/t/does-the-model-gpt-4-vision-preview-have-function-calling/490197#post_10</link>
+      <description><![CDATA[
+
+
+史蒂文尼克：
+&lt;块引用&gt;
+他们在实现函数调用支持方面并没有什么魔力。
+
+
+他们所做的神奇之处在于预训练人工智能并识别特定的特殊令牌来调用后端API方法。如果工具或功能未“正式”通过，则经过训练的人工智能将被禁用。
+代码
+
+强制进入 AI 的经过训练的“函数调用”示例：（点击查看更多详情）
+来自 gpt-4-vision-preview 或 gpt 的输出-4-1106-预览：
+&lt;块引用&gt;
+当然！我将使用 Python 创建一个包含大量彩色圆圈的图像。让我们开始吧。
+
+就这样，有一个介绍，除了“停止”之外没有任何反应。
+但是，下一步，我要做的就是添加一个不执行任何操作的占位符工具……其他一切都是相同的系统提示语言，模拟 OpenAI 后端创建的内容。
+使用虚拟函数命名空间作为 tools API 参数的输出：
+ – 输出为 tool_calls= 参数 –
+从PIL导入图像、ImageDraw
+将 numpy 导入为 np
+从 IPython.display 导入显示
+
+# 创建一个白色背景的图像
+宽度、高度 = 1280, 720
+image = Image.new(&quot;RGB&quot;, (宽度, 高度), &quot;白色&quot;)
+绘制 = ImageDraw.Draw(图像)
+
+# 生成随机圆圈
+圈数 = 1000
+对于 _ 在范围内（num_circles）：
+    # 随机位置
+    x, y = np.random.randint(0, 宽度), np.random.randint(0, 高度)
+    # 随机半径
+    r = np.random.randint(5, 50)
+    # 随机颜色
+    颜色 = (np.random.randint(0, 255), np.random.randint(0, 255), np.random.randint(0, 255))
+    # 画圆
+    绘制椭圆（（x-r，y-r，x+r，y+r），填充=颜色，轮廓=无）
+
+# 显示图像
+显示（图像）
+
+结论
+除非他们决定允许，否则您无法激活功能或工具的预训练。对于 gpt-4-vision，他们不允许你。]]></description>
+      <guid>https://community.openai.com/t/does-the-model-gpt-4-vision-preview-have-function-calling/490197#post_10</guid>
+      <pubDate>Sun, 24 Mar 2024 21:14:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>消失的反应，融合的提示</title>
+      <link>https://community.openai.com/t/disappearing-responses-fused-prompts/695986#post_1</link>
+      <description><![CDATA[我想知道 OpenAI 是否有人正在采取措施修复提示融合和响应消失的错误（当从网络浏览器访问 ChatGPT 时），或者至少意识到这个问题？这种情况经常发生，有时会导致 Chatgpt 对于单提示对话以外的任何事情完全无用。
+我尝试过 Firefox、Opera 和 Edge，尝试关闭 Firefox 中的增强保护，但没有任何帮助。
+此外，虽然我还没有测试这么多，但似乎 ChatGPT 3.5 没有这个错误，并且只发生在 ChatGPT 4 中。这意味着目前我正在为一个我无法使用的工具付费，并且这个问题自二月初以来一直存在（如果我没记错的话）。
+很高兴看到该错误最终得到修复，或者至少得到某人正式确认修复即将到来。]]></description>
+      <guid>https://community.openai.com/t/disappearing-responses-fused-prompts/695986#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 21:09:02 GMT</pubDate>
+    </item>
     <item>
       <title>还有其他人遇到 chatgpt 4 一遍又一遍重复的问题吗？</title>
-      <link>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150#post_18</link>
-      <description><![CDATA[@vb 的建议对我来说效果很好，但实际上可以保留得很好简短的。一个简单的“酷，怎么样……”或“谢谢，怎么样……”似乎足以表明话题的改变。
-我想我在使用它一年左右后开始看到这一点，并开始放弃我过去使用的礼貌和对话内容。我有点怀疑这是 chatgpt 的新问题，而且是当我的提示开始变得更加简洁时我开始遇到的问题（例如 @kazvorpal 指出）。]]></description>
-      <guid>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150#post_18</guid>
-      <pubDate>Sun, 24 Mar 2024 18:10:44 GMT</pubDate>
+      <link>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150?page=2#post_22</link>
+      <description><![CDATA[实际上，这正是这个错误所发生的情况，这就是人们所描述的，也是本线程的主题 
+我想也许你只是没有意识到这一点，但如果你重新阅读该线程，就会提到它。该模型不会无缘无故地重复。原因是回复已被删除，并且不记得曾经回答过原始问题。我对此百分百确定。
+每次我注意到它重复出现时，我立即知道对话现在已经混乱了，如果我简单地刷新页面，我会看到我最后几条消息被合并在一起，这正是删除时发生的情况他们之间的人工智能反应。
+您应该亲自测试一下，或者检查您的聊天档案。这种情况已经持续了几个月。]]></description>
+      <guid>https://community.openai.com/t/anyone-else-getting-issues-with-chatgpt-4-repeating-itself-over-and-over/613150?page=2#post_22</guid>
+      <pubDate>Sun, 24 Mar 2024 21:03:57 GMT</pubDate>
     </item>
     <item>
-      <title>API响应尝试调用不存在的工具</title>
-      <link>https://community.openai.com/t/api-response-trying-to-call-a-tool-that-does-not-exist/695848#post_1</link>
-      <description><![CDATA[所以这是一个奇怪的问题，我正在使用“gpt-3.5-turbo-16k”，当我在提示中传递 openAI 复杂数据（JSON、YAML 或只是项目符号列表）时，它有时会返回对名为“python”的工具的函数调用，并将 python 代码作为第一个参数。问题是我没有告诉它有一个名为“python”的工具，而且我没有一个名为 python 的 tool_call，所以这不是我想要的行为。我在 ChatGPT 中看到过这一点，它运行一个小型嵌入式 Python 解释器来分析 JSON 等复杂数据，但我不知道如何让它在使用 API 时不尝试这样做……也许缺少在系统提示符中添加一些内容。有什么想法吗？]]></description>
-      <guid>https://community.openai.com/t/api-response-trying-to-call-a-tool-that-does-not-exist/695848#post_1</guid>
-      <pubDate>Sun, 24 Mar 2024 18:07:01 GMT</pubDate>
+      <title>垃圾邮件新聊天以提高排名</title>
+      <link>https://community.openai.com/t/spamming-new-chats-to-boost-ranking/689632#post_10</link>
+      <description><![CDATA[这个问题似乎还没有解决。报告这些帐户是我们所有人都可以采取的临时解决方案，这将有助于进一步凸显该问题。报告其 GPT 时使用关键字“垃圾邮件”]]></description>
+      <guid>https://community.openai.com/t/spamming-new-chats-to-boost-ranking/689632#post_10</guid>
+      <pubDate>Sun, 24 Mar 2024 21:01:11 GMT</pubDate>
     </item>
     <item>
-      <title>纽约市 OpenAI 社区小组提案</title>
-      <link>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_9</link>
-      <description><![CDATA[是的，当然，我很快就会创建一个聚会小组]]></description>
-      <guid>https://community.openai.com/t/proposal-for-nyc-openai-community-group/620378#post_9</guid>
-      <pubDate>Sun, 24 Mar 2024 18:02:18 GMT</pubDate>
+      <title>如何应对“懒惰”的GPT 4</title>
+      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=5#post_83</link>
+      <description><![CDATA[我使用过免费版本的 Claude 和 chatGPT：免费，我可以同意。
+克劳德  似乎对问题进行了更多的“思考”，但只有在您给出详细说明之后......而开始聊天  领先。不过，这并不重要，因为一旦你开始编码，你希望机器人“学会你的风格”。聊天的行为就像每个提示都是一次性提示：它不采取额外的步骤。
+在详细信息之后，克劳德  遵循每个场景而不是告诉它为每个场景执行此操作（例如，如果我希望以某种方式屏蔽输出 - 它开始屏蔽所有类似的输出相同的掩码 ；聊天需要我明确说明）。
+以下是我对 Free 的看法（chatGPT“聊天”与 Claude.ai“Claude”）。付费好像也差不多。
+需要较少的初始指导？
+聊天  或
+关于同一个聊天/Claude 
+用最少的代码来解决问题的机器人？
+我查看了两个代码库，开始在聊天中看到额外的代码行
+克劳德 
+很酷的功能？
+付费聊天有一个看似非常有用的永久设置“始终提供所有代码”，如上面的屏幕截图所示。我可能不应该给这部分评分。
+聊天  测试价格有点高。
+希望每次发布都变得更好！]]></description>
+      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=5#post_83</guid>
+      <pubDate>Sun, 24 Mar 2024 20:56:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 刚刚推出了新的 AI 语音吗？</title>
+      <link>https://community.openai.com/t/did-openai-just-make-a-new-ai-voice/695044#post_3</link>
+      <description><![CDATA[如何通过 API 访问这些新声音？你知道吗？]]></description>
+      <guid>https://community.openai.com/t/did-openai-just-make-a-new-ai-voice/695044#post_3</guid>
+      <pubDate>Sun, 24 Mar 2024 20:55:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 OpenAI 不提供一个全面的、精心策划的 gpt 来构建 gpt？</title>
+      <link>https://community.openai.com/t/why-doesnt-openai-provide-a-comprehensive-curated-gpt-for-building-gpts/695970#post_1</link>
+      <description><![CDATA[您好，我意识到开发和维护强大的支持 chatgpt 并非易事，包括考虑新的 GPT 特性和功能。然而，这对 OpenAI 的业务来说是有好处的，而且如果有人这样做，OpenAI 就有专业知识可以做到这一点。如果他们做不到，那么我们就别再假装人工智能支持聊天机器人不仅仅是美化的搜索和预设的回复了。
+现有文档将成为真正支持 GPT 的起点，并由 OpenAI 工作人员手动添加以及论坛中精选的讨论（准确的讨论）进行补充。是的，人类将会被需要。而且它并不总是正确的，所以只需添加一些免责声明即可。
+我不是 GPT 方面的专家，我遇到的很多问题和问题都可以很容易地通过知情人士得到解答，而不是我不断地在 OpenAI 论坛和其他地方的对话中寻找面包屑。&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/why-doesnt-openai-provide-a-comprehensive-curated-gpt-for-building-gpts/695970#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 20:49:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 并未利用所有输出令牌 (max_tokens=4095)</title>
+      <link>https://community.openai.com/t/gpt-4-does-not-utilise-all-output-tokens-max-tokens-4095/695966#post_1</link>
+      <description><![CDATA[我一直在尝试使用 GPT-4 从非结构化文本中提取类。我当前的用例是大约 3000 个单词的文本，包含大约 300 个类。
+尽管 max_tokens=4095 我无法让 GPT-4 提取所有类。一般到40-60课就停了。
+即使我给它提供某些类作为文本中的示例（它总是忽略这些示例），它也会完全忽略这些示例。
+我使用模型为“gpt-4-turbo-preview”的 API，温度 = 1，top-p=1。
+这是我的提示之一的示例：“从本技术规范中提取与物理或虚拟组件相关的所有本体类/概念，重点关注构成系统构建的硬件部件、软件模块或系统实体。在“classes”字段下以 JSON 格式返回结果，以单数形式列出每个类。请仅包含那些直接涉及系统架构的组件，不包括外围或不相关的实体。鉴于课程量大，确保全面覆盖，目标是 100% 提取。
+输入和预期输出示例： 输入：“之前的任务根据所需的电线数量使用了不同类型的连接器。解决方案包括以太网连接器和 USB 串行连接器。根据 [4]，NCUBE 项目使用了 RJ-45 插孔。”输出：{“classes”：[“连接器”，“以太网连接器”，“USB串行连接器”，“电线”]}。”
+即使我添加“文本包含至少 300 个类。确保提取 100%。”，它只提取 150 个类。但之后就停止了。
+有没有人也观察到这种行为和/或知道为什么会发生这种情况以及可以采取什么措施？]]></description>
+      <guid>https://community.openai.com/t/gpt-4-does-not-utilise-all-output-tokens-max-tokens-4095/695966#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 20:43:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
