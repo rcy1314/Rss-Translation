@@ -4,108 +4,305 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 24 Mar 2024 12:31:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2024 15:16:33 GMT</lastBuildDate>
     <item>
-      <title>没有收到任何免费试用积分？</title>
-      <link>https://community.openai.com/t/didn-t-receive-any-free-trial-credits/693150#post_9</link>
-      <description><![CDATA[我注册时没有收到 5 美元，电话号码和电子邮件是唯一的，可能是什么问题？ Openai 关闭了 5 美元？]]></description>
-      <guid>https://community.openai.com/t/didn-t-receive-any-free-trial-credits/693150#post_9</guid>
-      <pubDate>Sun, 24 Mar 2024 12:27:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法在 Teams 计划上创建我的 GPT</title>
-      <link>https://community.openai.com/t/cant-create-my-gpt-on-teams-plan/695578#post_1</link>
-      <description><![CDATA[大家好。我收到 504 错误（服务器错误）
-有什么想法吗？
+      <title>在前端显示助手 api - 需要 Websockets？</title>
+      <link>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_11</link>
+      <description><![CDATA[后端：
+// POST 路由启动流并处理用户消息
+router.post(“/hero-completion-assistant-stream”, apiLimiter, async (req, res) =&gt; {
+const userMessage = req.body.userMessage;
+如果（apiLimitReached）{
+console.log(“已达到 API 限制，无法启动新流。”);
+return res.status(429).send(“API达到限制，请稍后再试。”);
+}
+尝试{
+// 步骤1：为每个交互创建一个新线程
+const threadResponse = wait openai.beta.threads.create();
+console.log(“使用 ID 创建的新线程：”, threadResponse.id);
+// 第 2 步：向线程添加消息
+const messageResponse = 等待 openai.beta.threads.messages.create(threadResponse.id, {
+  角色：“用户”，
+  内容：用户留言，
+});
+console.log(&quot;用户消息已添加到线程：&quot;, messageResponse);
 
-我试图寻找官方支持，但似乎不存在。有这样一个帖子https://help。 openai.com/en/articles/6614161-how-can-i-contact-support 但实际上我登录时没有“帮助按钮”。个人资料中的所有链接都只是指向 WIKI]]></description>
-      <guid>https://community.openai.com/t/cant-create-my-gpt-on-teams-plan/695578#post_1</guid>
-      <pubDate>Sun, 24 Mar 2024 12:26:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 Django 框架中使用流并将响应传递给 UI(Assistants API)</title>
-      <link>https://community.openai.com/t/how-to-use-streaming-in-django-framework-and-pass-response-to-ui-assistants-api/693832#post_3</link>
-      <description><![CDATA[
+// 如果尚未完成，则初始化该线程的存储
+if (!threadResponses[threadResponse.id]) {
+  threadResponses[threadResponse.id] = { 事件: [], 客户端: [] };
+}
 
+// 步骤 3：使用新创建的线程 ID 流式传输 Run
+const 流 = openai.beta.threads.runs
+  .createAndStream(threadResponse.id, {
+    Assistant_id: AssistantIdToUseSimone, // 确保该变量定义正确
+  })
+  .on(&quot;textCreated&quot;, (text) =&gt; {
+    console.log(&quot;textCreated 事件：&quot;, text);
+    sendEventToAllClients(threadResponse.id, { 事件: &quot;textCreated&quot;, 数据: 文本 });
+  })
+  .on(&quot;textDelta&quot;, (textDelta) =&gt; {
+    console.log(&quot;textDelta 事件：&quot;, textDelta);
+    sendEventToAllClients(threadResponse.id, { 事件: &quot;textDelta&quot;, 数据: textDelta });
+  })
+  .on(&quot;toolCallCreated&quot;, (toolCall) =&gt; {
+    console.log(&quot;toolCallCreated 事件：&quot;, toolCall);
+    sendEventToAllClients(threadResponse.id, { 事件: &quot;toolCallCreated&quot;, 数据: toolCall });
+  })
+  .on(&quot;toolCallDelta&quot;, (toolCallDelta) =&gt; {
+    console.log(&quot;toolCallDelta 事件：&quot;, toolCallDelta);
+    sendEventToAllClients(threadResponse.id, { 事件: &quot;toolCallDelta&quot;, 数据: toolCallDelta });
+  })
+  .on(&quot;结束&quot;, () =&gt; {
+    console.log(&quot;流结束&quot;);
+    sendEventToAllClients(threadResponse.id, { event: &quot;end&quot;, data: null });
+  });
 
- cloudUser98：
-&lt;块引用&gt;
-流式Http响应
+res.status(200).json({ threadId: threadResponse.id });
 
+} 捕获（错误）{
+console.error(“错误：”, 错误);
+res.status(500).send(“服务器内部错误”);
+}
+});
+// GET 路由以将响应流返回客户端
+router.get(“/hero-completion-assistant-stream”, apiLimiter, (req, res) =&gt; {
+const threadId = req.query.threadId;
+res.writeHead(200, {
+“内容类型”：“文本/事件流”，
+“缓存控制”：“无缓存”，
+连接：“保持活动”，
+});
+if (threadResponses[threadId]) {
+// 将现有事件流式传输到新客户端
+threadResponses[threadId].events.forEach((event) =&gt; {
+res.write(事件: ${event.event}\ndata: ${JSON.stringify(event.data)}\n\n);
+});
+// 将此客户端添加到未来事件列表中
+threadResponses[threadId].clients.push(res);
 
-感谢您的贡献，在 StreamingHttpResponse 中，我将所有响应放在一起，而不是像字/行那样。]]></description>
-      <guid>https://community.openai.com/t/how-to-use-streaming-in-django-framework-and-pass-response-to-ui-assistants-api/693832#post_3</guid>
-      <pubDate>Sun, 24 Mar 2024 12:18:57 GMT</pubDate>
+}
+// 处理客户端断开连接
+req.on(“关闭”, () =&gt; {
+threadResponses[threadId].clients = threadResponses[threadId].clients.filter((client) =&gt; client !== res);
+});
+});
+// 向连接到线程的所有客户端发送事件的函数
+函数 sendEventToAllClients(threadId, event) {
+if (threadResponses[threadId]) {
+const eventData = 事件: ${event.event}\ndata: ${JSON.stringify(event.data)}\n\n;
+threadResponses[threadId].events.push(event); // 为新客户存储事件
+// 流式传输到所有连接的客户端
+threadResponses[threadId].clients.forEach((client) =&gt; client.write(eventData));
+
+}
+}]]></description>
+      <guid>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_11</guid>
+      <pubDate>Sun, 24 Mar 2024 15:15:32 GMT</pubDate>
     </item>
     <item>
-      <title>大规模生产的及时评估</title>
-      <link>https://community.openai.com/t/prompt-evaluations-at-scale-for-production/695570#post_1</link>
-      <description><![CDATA[大家好，
-我想知道每个人在构建生产时如何比较他们的提示。例如，假设您对提示做了一个小更改，并想看看它的整体行为如何（因此需要测试n次）。除了写剧本，还有什么办法？我听说过像 LangSmith 这样的解决方案，但我不确定这些工具有多有用以及它们的使用范围有多广泛。
-谢谢，
-莱瓦特]]></description>
-      <guid>https://community.openai.com/t/prompt-evaluations-at-scale-for-production/695570#post_1</guid>
-      <pubDate>Sun, 24 Mar 2024 12:18:37 GMT</pubDate>
+      <title>在前端显示助手 api - 需要 Websockets？</title>
+      <link>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_10</link>
+      <description><![CDATA[const fetchOpenAIResponse = async (promptText) =&gt;; {
+尝试{
+setLoading(true);
+console.log(“开始 fetchOpenAIResponse”);
+setDisplayContent(“”);
+setRawContent(“”);
+ // 关闭旧的 EventSource 连接（如果存在）
+  如果（eventSourceRef.current）{
+    eventSourceRef.current.close();
+  }
+
+  const 响应 = 等待 fetch(`${API_URL_NEW_BACKEND}/api/hero-completion-assistant-stream`, {
+    方法：“POST”，
+    标题：{
+      “内容类型”：“应用程序/json”，
+    },
+    body: JSON.stringify({ userMessage: PromptText }),
+  });
+
+  if (!response.ok) throw new Error(&quot;网络响应不正常&quot;);
+
+  const data =等待response.json();
+  console.log(&quot;从服务器接收到线程 ID:&quot;, data.threadId);
+
+  const newEventSource = new EventSource(`${API_URL_NEW_BACKEND}/api/hero-completion-assistant-stream?threadId=${data.threadId}`);
+
+  newEventSource.addEventListener(&quot;textDelta&quot;, (event) =&gt; {
+    const eventData = JSON.parse(event.data);
+    console.log(&quot;收到textDelta事件：&quot;, eventData);
+
+    setRawContent((prevRawContent) =&gt; {
+      const newRawContent = `${prevRawContent}${eventData.value}`;
+      const html = DOMPurify.sanitize(标记(newRawContent));
+      设置显示内容（html）；
+      返回新的原始内容；
+    });
+  });
+
+  newEventSource.onopen = () =&gt;; console.log(&quot;SSE连接成功打开。&quot;);
+  newEventSource.onerror = (事件) =&gt; {
+    console.error(&quot;SSE 连接遇到错误：&quot;, event);
+    设置加载（假）；
+    setShowPopup(真);
+    newEventSource.close();
+  };
+
+  // 将新的 EventSource 对象存储在 useRef 中
+  eventSourceRef.current = newEventSource;
+} 捕获（错误）{
+  console.error(&quot;发生错误：&quot;, error);
+  设置加载（假）；
+  setShowPopup(真);
+}
+
+};]]></description>
+      <guid>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_10</guid>
+      <pubDate>Sun, 24 Mar 2024 15:15:00 GMT</pubDate>
     </item>
     <item>
-      <title>试图只为粉丝聊天。这是正确的方法吗？</title>
-      <link>https://community.openai.com/t/trying-to-make-a-chatter-for-onlyfans-is-this-the-right-approach/694690#post_8</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/trying-to-make-a-chatter-for-onlyfans-is-this-the-right-approach/694690#post_8</guid>
-      <pubDate>Sun, 24 Mar 2024 12:06:16 GMT</pubDate>
+      <title>GPT API 无法创建补全，因为模型生成了无效的 Unicode 输出</title>
+      <link>https://community.openai.com/t/gpt-api-failed-to-create-completion-as-the-model-generated-invalid-unicode-output/695671#post_2</link>
+      <description><![CDATA[OpenAI 分词器生成字节，并具有一定的自主权来生成新颖的 UTF-8 Unicode 字符编码，其长度范围可能为 1 到 4 个字节。大约有一百万个有效的 Unicode 代码点，以及超过 10 万个实际字符。
+这也意味着一旦触发超过一个字节的高位 unicode，就会有大约 1600 万个无效字节序列。
+AI 输出了无法解码的内容。这是一个模型问题，或者输入问题，或者按照错误消息引导您，预测和使用不太可能且无效的输出的随机机会。
+如果您可以在 top_p=0​​.0001 处确定性地重现错误，那么这将比随机偶然输出更加引人注目。
+我猜想，当使用 gpt-4-1106-preview 或 Vision 时，这种情况最有可能发生，因为这些模型在使用函数时是用错误的 unicode 进行训练的。]]></description>
+      <guid>https://community.openai.com/t/gpt-api-failed-to-create-completion-as-the-model-generated-invalid-unicode-output/695671#post_2</guid>
+      <pubDate>Sun, 24 Mar 2024 15:09:02 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-E 3 出现错误 429 (1015)，但未达到配额/费率（与气泡相关？）</title>
-      <link>https://community.openai.com/t/error-429-1015-with-dall-e-3-but-quota-rate-not-reached-bubble-related/694871?page=3#post_45</link>
-      <description><![CDATA[是的，而且，不要忘记对 OPENAI 的其他 API 调用也有效！只有创建图像端点不起作用！
-所以这不是一个全球性的 OPENAI - BUBBLE 问题。仅适用于此端点： https://api.openai.com/v1/images/ Generations&lt; /a&gt;]]></description>
-      <guid>https://community.openai.com/t/error-429-1015-with-dall-e-3-but-quota-rate-not-reached-bubble-related/694871?page=3#post_45</guid>
-      <pubDate>Sun, 24 Mar 2024 11:59:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>API：模型“gpt-4”不存在或您无权访问它</title>
-      <link>https://community.openai.com/t/api-the-model-gpt-4-does-not-exist-or-you-do-not-have-access-to-it/695457#post_4</link>
-      <description><![CDATA[除非您需要 chatGPT 扩展，否则如果您小心使用，那么使用 API 是最划算的，即使使用 Plus 订阅，您对 GPT4 的费率也有限制。 GPT3.5 非常便宜。
-只是说，我花了几个月才意识到差异]]></description>
-      <guid>https://community.openai.com/t/api-the-model-gpt-4-does-not-exist-or-you-do-not-have-access-to-it/695457#post_4</guid>
-      <pubDate>Sun, 24 Mar 2024 11:53:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>试图只为粉丝聊天。这是正确的方法吗？</title>
-      <link>https://community.openai.com/t/trying-to-make-a-chatter-for-onlyfans-is-this-the-right-approach/694690#post_7</link>
-      <description><![CDATA[请问流是什么意思？
-和助手API中的流模式是一样的吗？]]></description>
-      <guid>https://community.openai.com/t/trying-to-make-a-chatter-for-onlyfans-is-this-the-right-approach/694690#post_7</guid>
-      <pubDate>Sun, 24 Mar 2024 11:48:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过api上传pdf文件并从中询问某些信息</title>
-      <link>https://community.openai.com/t/upload-pdf-file-via-api-and-ask-for-certain-information-from-it/695546#post_1</link>
+      <title>GPT-4 下拉菜单中没有插件选项</title>
+      <link>https://community.openai.com/t/no-plugin-option-in-gpt-4-drop-down-menu/695695#post_1</link>
       <description><![CDATA[你好，
-我尝试使用聊天 GPT 来实现以下目的。
-
-通过 API 将 pdf 文件上传到 ChatGPT
-获取回复
-以该回复为来源提出多个问题
-（这里我们的目标是不要每次都上传每个问题的源pdf文件）
-
-根据文档，您能帮我找到需要上传的文件名吗
-curl https://api.openai.com/v1/files 
--H“授权：承载$OPENAI_API_KEY”
--F目的=“微调”
--F file=“@mydata.jsonl”
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/upload-pdf-file-via-api-and-ask-for-certain-information-from-it/695546#post_1</guid>
-      <pubDate>Sun, 24 Mar 2024 11:42:23 GMT</pubDate>
+我刚刚升级到 Chat GPT 4。设置中的插件已启用，历史记录和训练也是如此。我清除了缓存并遵循了我在网上找到的所有建议。然而下拉菜单中没有插件按钮。我需要等待多长时间才能出现？]]></description>
+      <guid>https://community.openai.com/t/no-plugin-option-in-gpt-4-drop-down-menu/695695#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 15:06:53 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-E 3 出现错误 429 (1015)，但未达到配额/费率（与气泡相关？）</title>
-      <link>https://community.openai.com/t/error-429-1015-with-dall-e-3-but-quota-rate-not-reached-bubble-related/694871?page=3#post_44</link>
-      <description><![CDATA[更新：在深入研究后，我现在确信 Bubble 受到 OpenAI 的速率限制，因为所有 API 调用都是从一台服务器进行的。非常愚蠢，我们无法自己托管服务器。请联系 Bubble 并敦促他们提出/让其提出。
+      <title>在前端显示助手 api - 需要 Websockets？</title>
+      <link>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_9</link>
+      <description><![CDATA[您好@yvoderooij - 感谢您的快速回复！我很想看到上面第一个选项的代码片段，看看它能把我引向何方。]]></description>
+      <guid>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_9</guid>
+      <pubDate>Sun, 24 Mar 2024 15:05:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>在前端显示助手 api - 需要 Websockets？</title>
+      <link>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_8</link>
+      <description><![CDATA[嘿@william.zebrowski，
+我有两个可以分享的代码片段：
 
-更新：我在 Bubble 上发表了一篇论坛帖子。请前往那里表达您的疑虑：Bubble.io 速率受 OpenAI DALLe 限制 - 错误 - Bubble 论坛]]></description>
-      <guid>https://community.openai.com/t/error-429-1015-with-dall-e-3-but-quota-rate-not-reached-bubble-related/694871?page=3#post_44</guid>
-      <pubDate>Sun, 24 Mar 2024 11:42:08 GMT</pubDate>
+无需对话即可流式输出（工作正常）
+流式输出，用户可以在其中与助手交互（部分工作，我无法正确显示来自 api 的消息，现在在给出新输出时会不断附加所有消息）
+
+请告诉我您想看哪一个]]></description>
+      <guid>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_8</guid>
+      <pubDate>Sun, 24 Mar 2024 15:00:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以选择重新访问对话的特定部分（书签功能）</title>
+      <link>https://community.openai.com/t/option-to-revisit-specific-parts-of-a-conversation-book-mark-feature/695692#post_1</link>
+      <description><![CDATA[嗨，
+我想知道是否可以为聊天 GPT 开发一个像书签这样的功能。这将允许用户立即跳到对话中他们认为特别有用或有趣的标记点。特别是当您知道稍后需要访问多个点进行比较或就多个主题进行交互时，拥有书签功能可能会非常有帮助。我认为这可以让用户更轻松地重新访问讨论的特定部分，而无需滚动浏览整个对话，从而增强用户体验。
+致以诚挚的问候，
+E.Z.]]></description>
+      <guid>https://community.openai.com/t/option-to-revisit-specific-parts-of-a-conversation-book-mark-feature/695692#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 14:58:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 知识库文件名</title>
+      <link>https://community.openai.com/t/gpt-knowledgebase-filenames/694565#post_4</link>
+      <description><![CDATA[请忽略我之前的建议。您让我相信，等待 OpenAI 解决该问题会更好。]]></description>
+      <guid>https://community.openai.com/t/gpt-knowledgebase-filenames/694565#post_4</guid>
+      <pubDate>Sun, 24 Mar 2024 14:58:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>在前端显示助手 api - 需要 Websockets？</title>
+      <link>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_7</link>
+      <description><![CDATA[@yvoderooij - 您能分享一下您是如何做到这一点的吗？我试图弄清楚如何通过 websocket 在前端进行流媒体工作。有什么可以分享的吗？非常感谢！]]></description>
+      <guid>https://community.openai.com/t/displaying-assistant-api-on-frontend-websockets-needed/688865#post_7</guid>
+      <pubDate>Sun, 24 Mar 2024 14:52:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 的代理排除，NO_PROXY=api.openai.com？</title>
+      <link>https://community.openai.com/t/proxy-exclusion-for-api-no-proxy-api-openai-com/695637#post_2</link>
+      <description><![CDATA[我在防火墙上放置了一个带有错误证书 SSL 捕获器的转发代理，并配置了操作系统来使用它。它破坏了我的 Python 聊天机器人。
+然后添加以下内容以使其再次工作：
+导入操作系统
+从 openai 导入 OpenAI
+尝试：
+    os.environ[&#39;NO_PROXY&#39;] = os.environ[&#39;NO_PROXY&#39;] + &#39;,&#39; + &#39;api.openai.com&#39;
+除了：
+    os.environ[&#39;NO_PROXY&#39;] = &#39;api.openai.com&#39;
+    
+客户端 = OpenAI()
+
+openai python SDK 模块使用的 httpx 库遵循此 no_proxy 环境变量。]]></description>
+      <guid>https://community.openai.com/t/proxy-exclusion-for-api-no-proxy-api-openai-com/695637#post_2</guid>
+      <pubDate>Sun, 24 Mar 2024 14:42:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>CLIP GUI - XAI 应用程序 ~ 可解释（和可猜测）的 AI 与 CLIP ViT 和 ResNet 模型</title>
+      <link>https://community.openai.com/t/clip-gui-xai-app-explainable-and-guessable-ai-with-clip-vit-resnet-models/695679#post_1</link>
+      <description><![CDATA[
+  &lt;标题类=“来源”&gt;
+      
+GitHub
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+GitHub - zer0int/CLIP-XAI-GUI：CLIP GUI - XAI 应用程序 ~ 可解释（并且...
+CLIP GUI - XAI 应用程序 ~ 可解释（和可猜测）的 AI 与 ViT &amp; ResNet 模型 - zer0int/CLIP-XAI-GUI
+
+
+
+
+
+
+
+使用 CLIP 梯度上升来优化文本嵌入，以实现与输入图像嵌入的余弦相似性 → CLIP“意见”词/文本输出
+
+
+GradCAM / CLIP ViT 和 ResNet 模型显着特征的注意力可视化
+
+
+游戏化：您可以通过为给定单词放置 ROI 来猜测 CLIP 正在“查看”的内容
+
+
+您可以编辑 CLIP 的意见并添加您自己的意见（在 AI 上强制您的人类偏见零样本选择；-)）
+
+
+尝试使用 ViT-L/14 - 稳定扩散、SDXL 等文本编码器，或者 - 稍微不太理想的结果 - 甚至 ViT-B/32，并通过 CLIP 意见提示文本到图像生成 AI 。 “CLIP 知道 CLIP 看到什么”（如果模型匹配或非常相似）。
+
+
+可以使其成为一个有趣的支持网络的智能手机应用程序“投票系统”，“谁能正确猜出人工智能在‘看’什么？” + 中学高分表（游戏化） - 如果有的话！如果 CLIP 的“意见”不包括对显着特征的这种不恰当的描述，并且以这种不可预测的（意外的）方式就好了。唉，这更像是一个“提醒”，而不是实际的实施建议。
+
+
+唉，“负责任地享受”！
+
+]]></description>
+      <guid>https://community.openai.com/t/clip-gui-xai-app-explainable-and-guessable-ai-with-clip-vit-resnet-models/695679#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 14:41:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>在浏览器中可视化向量嵌入</title>
+      <link>https://community.openai.com/t/visualising-vector-embeddings-in-the-browser/187247#post_3</link>
+      <description><![CDATA[我自己的OSS实现了吗，代码可用@ GitHub - stephanj/嵌入可视化]]></description>
+      <guid>https://community.openai.com/t/visualising-vector-embeddings-in-the-browser/187247#post_3</guid>
+      <pubDate>Sun, 24 Mar 2024 14:40:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT API 无法创建补全，因为模型生成了无效的 Unicode 输出</title>
+      <link>https://community.openai.com/t/gpt-api-failed-to-create-completion-as-the-model-generated-invalid-unicode-output/695671#post_1</link>
+      <description><![CDATA[我收到了非常奇怪的 Open AI 消息，我在互联网上找不到任何地方？这是我尝试调用 API 时得到的结果&gt;
+&lt;块引用&gt;
+调用 GPT 时出现问题。详细错误（代码=invalid_model_output，消息=无法创建完成，因为模型生成了无效的 Unicode 输出。不幸的是，这种情况在极少数情况下可能会发生。请考虑检查您的提示或降低请求的温度。您可以重试您的请求，或联系如果错误仍然存​​在，请通过我们的帮助中心 help.openai.com 与我们联系。（请包含请求 ID req_a90b4e95a18fcab8e3d188e5d11b919f在您的消息中。
+
+有开发人员可以帮助我摆脱这个吗？]]></description>
+      <guid>https://community.openai.com/t/gpt-api-failed-to-create-completion-as-the-model-generated-invalid-unicode-output/695671#post_1</guid>
+      <pubDate>Sun, 24 Mar 2024 14:29:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
