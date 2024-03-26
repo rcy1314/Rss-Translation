@@ -4,213 +4,221 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 26 Mar 2024 09:19:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2024 12:32:11 GMT</lastBuildDate>
     <item>
-      <title>微调模型时出现企业帐户错误</title>
-      <link>https://community.openai.com/t/business-account-error-while-fine-tuning-a-model/696861#post_9</link>
+      <title>函数调用 - 如何获取 dict 作为返回类型</title>
+      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_5</link>
       <description><![CDATA[
 
 
- trenton.dambrowitz:
+ sps：
 &lt;块引用&gt;
-说实话，在我看来，尝试使用正常的提示工程来做到这一点总是更好。微调后的 gpt-3.5 的推理比基本模型贵六倍，因此可能会更多只需编写一些系统提示符即可负担得起。
-我的建议是尝试使用基本模型创建它并优化您的提示（解释用例，为其提供不同可接受字段的列表等），并且仅在结果符合时进行微调不一致或提示的成本非常高。
 
 
-我读过有关微调的文章，但是……我还是有点困惑。
-如果我猜对了，微调将用于“细化”人工智能的响应，以便它可以“更具体”地表达用户请求的主题。
-为此，我们需要提供一个 JSONL（或其他源），其中包含所有可能的请求/提示及其各自将由 AI 使用的响应。
-那么……如何“教”AI 做一些新的事情？
-这一点让我有点困惑......]]></description>
-      <guid>https://community.openai.com/t/business-account-error-while-fine-tuning-a-model/696861#post_9</guid>
-      <pubDate>Tue, 26 Mar 2024 09:12:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何创建正确的 JSONL 进行训练</title>
-      <link>https://community.openai.com/t/how-to-create-a-correct-jsonl-for-training/693897#post_11</link>
-      <description><![CDATA[再次嗨@HappyQuokka -
-您需要检查微调界面，当您在下拉列表中选择 GPT-4 时，它是否允许您请求访问。如果是这样，您将看到下面的表格供您填写。之后，完全由 OpenAI 团队决定是否授予您访问权限。
 
-据我们所知，目前很少有开发者/组织获得 GPT-4 微调。在这方面，请另外参阅开放 AI 帮助中心&lt;的以下信​​息&lt; /a&gt;.
+ willemvdb42：
 &lt;块引用&gt;
-目前，只能通过实验性访问程序对 GPT-4 进行微调。初步结果表明，与 GPT-3.5 微调所取得的实质性成果相比，GPT-4 微调需要更多的工作才能对基本模型实现有意义的改进。随着 GPT-4 微调的质量和安全性的提高，积极使用 GPT-3.5 微调的开发人员将可以选择在他们的 微调控制台。
+“类型”：“数组”
+
+
+然后这个“type”必须设置为“dict”而不是数组。
+
+
+这是不正确的。 “dict”不是有效的 JSON 类型。请记住：函数规范应该是有效的 JSON 格式。 JSON 确实使用“object”而不是“dict”。&lt; /p&gt;
+如果在上面的示例中将“object”替换为“dict”，您会收到以下错误消息：
+&lt;块引用&gt;
+BadRequestError：错误代码：400 - {&#39;error&#39;：{&#39;message&#39;：“函数&#39;number_letters&#39;的无效架构：&#39;dict&#39;在任何给定架构下都无效”，&#39;type&#39;：&#39;invalid_request_error&#39; ，“参数”：无，“代码”：无}}
 ]]></description>
-      <guid>https://community.openai.com/t/how-to-create-a-correct-jsonl-for-training/693897#post_11</guid>
-      <pubDate>Tue, 26 Mar 2024 09:11:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>实际任务。客户电子邮件分析</title>
-      <link>https://community.openai.com/t/practical-task-custumer-emails-analysis/697923#post_1</link>
-      <description><![CDATA[我有一个实际任务。公司收到的客户电子邮件有一个数据库。需要人工智能对其进行分类，通过扫描文本并指示电子邮件是否讨论：1.状态更新，2.状态更新和其他问题，3.不关于状态更新。是否可以使用付费版本的 GPT-4 上传文件并执行此类分析？]]></description>
-      <guid>https://community.openai.com/t/practical-task-custumer-emails-analysis/697923#post_1</guid>
-      <pubDate>Tue, 26 Mar 2024 09:09:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>JSON 模式与 gpt-4-vision-preview</title>
-      <link>https://community.openai.com/t/json-mode-with-gpt-4-vision-preview/697908#post_2</link>
-      <description><![CDATA[
-
-
-奥兰.sh：
-&lt;块引用&gt;
-使用gpt-4-vision-preview时可以设置JSON模式吗？
-
-
-是的，JSON 模式适用于视觉模型和 Turbo 模型。
-https:// platform.openai.com/docs/guides/text- Generation/json-mode
-无法获得响应：400 {
-  “错误”： {
-    &quot;message&quot;: &quot;&#39;messages&#39; 必须以某种形式包含单词 &#39;json&#39;，才能使用 &#39;json_object&#39; 类型的 &#39;response_format&#39;。&quot;,
-    “类型”：“无效请求错误”，
-    “参数”：“消息”，
-    “代码”：空
-  }
-}
-
-要解决此问题，您可以尝试在任何角色的提示中附加单词“JSON”。
-{
-  “型号”：“gpt-3.5-turbo”，
-  “消息”：[
-    {
-      “角色”：“系统”，
-      &quot;content&quot;: &quot;你是一个有用的助手。生成 JSON 响应。&quot;
-    },
-    {
-      “角色”：“用户”，
-      &quot;content&quot;: &quot;创建旅行套件项目列表&quot;
-    }
-  ],
-  “最大令牌”：150，
-  “温度”：0.7，
-  “响应格式”：{
-    “类型”：“json_object”
-  }
-}
-
-输出：
-{
-  “型号”：“gpt-3.5-turbo-0125”，
-  “选择”：[
-    {
-      “索引”：0，
-      “信息”： {
-        “角色”：“助理”，
-        “内容”： {
-          “旅行套装”：{
-            “项目”： [
-              “护照”，
-              “旅游行程”，
-              “钱包里有现金和卡”，
-              “旅游保险”，
-              “电话充电器”，
-              “旅行适配器”，
-              “旅行装洗漱用品”，
-              “药物”，
-              “零食”，
-              “水瓶”，
-              “旅行枕”，
-              “耳塞和眼罩”，
-              “旅行伞”，
-              “旅行证件（机票、预订单）”，
-              “便携式行李秤”，
-              《笔记本和笔》
-            ]
-          }
-        }
-      },
-      “logprobs”：空，
-      &quot;finish_reason&quot;: &quot;停止&quot;
-    }
-  ],
-  “用法”： {
-    “提示令牌”：28，
-    “完成令牌”：115，
-    “total_tokens”：143
-  }
-}
-
-]]></description>
-      <guid>https://community.openai.com/t/json-mode-with-gpt-4-vision-preview/697908#post_2</guid>
-      <pubDate>Tue, 26 Mar 2024 09:07:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调后的 gpt-3.5-turbo-0125 有 4k 上下文窗口，而不是承诺的 16k</title>
-      <link>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_2</link>
-      <description><![CDATA[您好，欢迎来到论坛！
-您是对的，GPT-3.5-turbo-0125 的训练示例应允许最多 16k 个令牌。是什么让您得出这样的结论：它仅限于 4k 上下文令牌？]]></description>
-      <guid>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_2</guid>
-      <pubDate>Tue, 26 Mar 2024 08:59:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>JSON 模式与 gpt-4-vision-preview</title>
-      <link>https://community.openai.com/t/json-mode-with-gpt-4-vision-preview/697908#post_1</link>
-      <description><![CDATA[你好，
-使用gpt-4-vision-preview时可以设置JSON模式吗？
-目前，当我尝试使用 response_format = {“type”: “json_object”} 设置它时
-我失败了。
-谢谢]]></description>
-      <guid>https://community.openai.com/t/json-mode-with-gpt-4-vision-preview/697908#post_1</guid>
-      <pubDate>Tue, 26 Mar 2024 08:46:25 GMT</pubDate>
+      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_5</guid>
+      <pubDate>Tue, 26 Mar 2024 12:28:47 GMT</pubDate>
     </item>
     <item>
       <title>函数调用 - 如何获取 dict 作为返回类型</title>
-      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_1</link>
-      <description><![CDATA[我想让GPT4通过调用API的函数输出一个字典。例如，如果我有一个列表 [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;] 我希望 GPT4 输出一个字典 [&quot;a&quot;: 1, &quot;b&quot;: 2 ，“c”：3]。
-例如：
-NUMBER_LETTERS = {
-    “名称”：“数字_字母”，
-    &quot;description&quot;: &quot;您将收到一个字母列表作为输入。请返回一个字典，其中每个值都是其中之一&quot;
-        &quot; 收到的字母，对应的值为该字母在字母表中的索引。任意输入&quot;
-        “小写字母以外的值应为 -1。以下是一些示例：”
-        &quot;\n示例 1: 输入 = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;] --&gt; 输出 = {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}&quot;
-        &quot;\n示例 2: 输入 = [&#39;a&#39;, &#39;A&#39;, &#39;bla&#39;] --&gt; 输出 = {&#39;a&#39;: 1, &#39;A&#39;: -1, &#39;bla&#39;: -1}&quot;
-        &quot;\n示例 3: 输入 = [&#39;abc&#39;, &#39;z&#39;, &#39;y&#39;] --&gt; 输出 = {&#39;abc&#39;: -1, &#39;z&#39;: 26, &#39;y&#39;: 25}&quot;,
-    “参数”： {
-        “类型”：“对象”，
-        “特性”： {
-            “输出”： {
-                “类型”：“数组”，
-                &quot;description&quot;: &quot;一个字典，其中每个输入字母都是一个键，它在字母表中的索引是值。&quot;,
-                “项目”： {
-                    “类型”：“对象”，
-                    “模式属性”：{
-                        &quot;^.*$&quot;: {&quot;type&quot;: &quot;整数&quot;},
-                    },
-                    “附加属性”：False
-                }
-            }
-        },
-        “必需”：[“输出”]
-    }
-}
+      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_4</link>
+      <description><![CDATA[
 
-这给了我：
-{&#39;input&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]}
 
-作为输出。如何让它正确输出字典？]]></description>
-      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_1</guid>
-      <pubDate>Tue, 26 Mar 2024 08:41:56 GMT</pubDate>
+jlvanhulst：
+&lt;块引用&gt;
+您没有提及您正在使用哪种型号。我在 3.5 和 4+ 上尝试过这个
+3.5 上的性能正如预期的那样令人怀疑，但 4 似乎没有问题
+
+
+我在 GPT4 上尝试过，你是否尝试了我在上面示例中定义的函数？你得到了什么输出？]]></description>
+      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_4</guid>
+      <pubDate>Tue, 26 Mar 2024 12:25:51 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 4 中的提示图像</title>
-      <link>https://community.openai.com/t/prompting-images-in-chatgpt-4/691466#post_3</link>
-      <description><![CDATA[我已经检查过这一点，但不太清楚贡献者正在做什么来获得一致的图像。有人可以通过编号的步骤清楚地解释他们的过程吗？]]></description>
-      <guid>https://community.openai.com/t/prompting-images-in-chatgpt-4/691466#post_3</guid>
-      <pubDate>Tue, 26 Mar 2024 08:39:00 GMT</pubDate>
+      <title>我的 Google 助理不遵循指示</title>
+      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_14</link>
+      <description><![CDATA[好的 - 我现在明白了。
+我认为最好将其分成两份工作。首先，您向其提供类别列表，然后让它选择类别
+您让它调用您的工具函数，该函数将为该类别提供标签，然后让它从列表中选择标签]]></description>
+      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_14</guid>
+      <pubDate>Tue, 26 Mar 2024 12:23:54 GMT</pubDate>
     </item>
     <item>
-      <title>在 ChatGPT 中提交带有图像的提示时遇到问题</title>
-      <link>https://community.openai.com/t/trouble-submitting-prompt-with-image-in-chatgpt/697678?page=2#post_29</link>
-      <description><![CDATA[仍然有问题，有人有任何更新吗？]]></description>
-      <guid>https://community.openai.com/t/trouble-submitting-prompt-with-image-in-chatgpt/697678?page=2#post_29</guid>
-      <pubDate>Tue, 26 Mar 2024 08:36:05 GMT</pubDate>
+      <title>函数调用 - 如何获取 dict 作为返回类型</title>
+      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_3</link>
+      <description><![CDATA[欢迎@willemvdb42
+
+
+
+ willemvdb42：
+&lt;块引用&gt;
+[“a”：1，“b”：2，“c”：3]。
+
+
+首先你必须明白这不是一个有效的类型。您可以使用字典数组或单个字典来包含值。
+如果符合您的要求，我更喜欢一个字典，因为它可以节省令牌。它看起来像：
+{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+
+
+
+
+ willemvdb42：
+&lt;块引用&gt;
+“类型”：“数组”
+
+
+然后这个“type”必须设置为“dict”而不是数组。]]></description>
+      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_3</guid>
+      <pubDate>Tue, 26 Mar 2024 12:22:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 Google 助理不遵循指示</title>
+      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_13</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_13</guid>
+      <pubDate>Tue, 26 Mar 2024 12:18:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>返回值可能会根据消息的限制参数而变化</title>
+      <link>https://community.openai.com/t/a-return-value-may-change-depending-on-the-limit-argument-of-messages/698109#post_1</link>
+      <description><![CDATA[据我所知，消息返回值中的“file_ids”值消失了。
+当“limit”参数为 9 或更多时，“file_ids”似乎会变空。
+num=9
+client.beta.threads.messages.list(
+            thread_id=self.thread_id,.
+            限制=数字
+            ）
+ ```]]></description>
+      <guid>https://community.openai.com/t/a-return-value-may-change-depending-on-the-limit-argument-of-messages/698109#post_1</guid>
+      <pubDate>Tue, 26 Mar 2024 12:16:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>函数调用 - 如何获取 dict 作为返回类型</title>
+      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_2</link>
+      <description><![CDATA[您没有提及您正在使用哪种型号。我在 3.5 和 4+ 上尝试过这个
+3.5 上的性能正如预期的那样令人怀疑，但 4 似乎没有问题]]></description>
+      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_2</guid>
+      <pubDate>Tue, 26 Mar 2024 12:16:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 Google 助理不遵循指示</title>
+      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_12</link>
+      <description><![CDATA[顺便说一句，谢谢你，感谢您的帮助！]]></description>
+      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_12</guid>
+      <pubDate>Tue, 26 Mar 2024 12:15:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 Google 助理不遵循指示</title>
+      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_11</link>
+      <description><![CDATA[我没有预定义的列表，因为如果它不能与该提示一起工作，对我来说就足够了。虽然我刚刚检查过，您可以生成您想要的数量，但只需给聊天 gpt 这样：““像这样生成工作经验头衔和描述的示例，但针对不同的角色””“头衔”：“软件工程师”，
+“description”: “使用 Python、Node.js、Kubernetes 和 Tensorflow 从事各种 Web 项目。\n开发了强大的 AI 模型，供全世界免费使用。”“”“”。此外，问题是您也没有其他类型工作的完整类别和标签列表。这是 github 要点，包含整个列表“CategoriesAndTags · GitHub ”]]></description>
+      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_11</guid>
+      <pubDate>Tue, 26 Mar 2024 12:15:38 GMT</pubDate>
     </item>
     <item>
       <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_56</link>
-      <description><![CDATA[100%，构建酷炫的东西首先要分享。如果您想以此谋生，请继续应用您所学到的知识来使用 API 构建产品。]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_56</guid>
-      <pubDate>Tue, 26 Mar 2024 08:34:11 GMT</pubDate>
+      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_58</link>
+      <description><![CDATA[为企业构建时的历史是不同的。至少需要最少的控制。]]></description>
+      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_58</guid>
+      <pubDate>Tue, 26 Mar 2024 12:09:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistants API 经常生成带有无效 JSON 的函数调用</title>
+      <link>https://community.openai.com/t/assistants-api-often-generates-function-calls-with-invalid-json/693997#post_5</link>
+      <description><![CDATA[看起来只有最新型号受到影响。我尚未在 gpt-4-1106-preview 上看到此问题。
+OpenAI 团队的人可以看一下这个吗？使用 gpt-4-0125-preview 会导致更多的处理标记，因为函数调用参数通常以正确的 json 开头，然后生成一些乱码，最后有很多空格。 1106 的类似任务仅消耗 11659 个输入、2404 个输出令牌，而 0125 使用 19463 个输入、8321 个输出令牌。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-often-generates-function-calls-with-invalid-json/693997#post_5</guid>
+      <pubDate>Tue, 26 Mar 2024 12:08:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 如何收费？</title>
+      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_57</link>
+      <description><![CDATA[
+
+
+某人Sysop：
+&lt;块引用&gt;
+旨在为 OpenAI 赚钱。根据定义，这并不意味着它就是您所认为的“完美解决方案”。它省去了您自己编写界面的麻烦，而您唯一的成本就是 – 货币化的损失
+
+
+再说一次，我认为你没有理解我的观点：
+OpenAI 将有其收入来源：仍然通过 1. GPT、2. 新用户 3. 代币来支付。
+这不是免费的。他们将继续赚取同样的钱来为其运营提供资金并赚取利润。
+但是，通过为 GPT 提供精细的访问控制机制，您可以扩展您的 IP。无需制定和重复相同的概念，只需通过控制安全地将其部署给另一个客户即可，每个人都会很高兴。这是一个双赢的局面。
+我从来没有考虑过“免费午餐”。我在企业方面，并且我有客户愿意为此付费，但使用 GPT 引擎很难扩展此操作。
+我知道我可以使用 API，但 GPT 引擎已经存在。这只是使用正确的权限和控制进行组织和部署的问题。不是免费的午餐。许多公司会为这些功能付出很多代价，从而减轻他们构建模型与企业系统交互的负担，但对于公司来说，我们需要应用一些职责分离。]]></description>
+      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_57</guid>
+      <pubDate>Tue, 26 Mar 2024 12:07:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的帐户无法使用。不显示转化历史记录也没有响应</title>
+      <link>https://community.openai.com/t/my-account-isnt-working-doesnt-show-conv-history-also-not-responding/697392#post_2</link>
+      <description><![CDATA[更新*。看起来它突然又工作了。]]></description>
+      <guid>https://community.openai.com/t/my-account-isnt-working-doesnt-show-conv-history-also-not-responding/697392#post_2</guid>
+      <pubDate>Tue, 26 Mar 2024 12:04:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 Google 助理不遵循指示</title>
+      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_10</link>
+      <description><![CDATA[
+
+
+ 恩富加洛：
+&lt;块引用&gt;
+任务：仅使用提供的列表处理职位描述以准确分类和标记。
+规则： - 仅使用匹配类别内的标签。避免使用不相关类别的标签。 - 如果没有确切的标签匹配，则省略该标签而不是借用其他类别。 - 输出格式：仅匹配的类别和适用的标签。
+例如，给定此类别：“{
+“类别”：“网络安全与安全”道德黑客”，
+“标签”：[
+“渗透测试”，
+《网络安全》，
+“应用程序安全”，
+“端点安全”，
+“密码学”，
+《防火墙管理》，
+“IDS/IPS”，
+“漏洞评估”，
+“恶意软件分析”，
+《风险评估》，
+“事件响应”，
+“安全合规性”，
+“道德黑客”，
+“取证分析”，
+“OWASP”，
+《社会工程》，
+“网络钓鱼”
+]
+},”你只能选择里面的标签
+“{}”，您只能选择括号内带有所选类别的标签。
+坚持提供的类别和标签列表。不要推断或添加新的。”
+
+
+谢谢 - 还有一些样品要处理吗？]]></description>
+      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_10</guid>
+      <pubDate>Tue, 26 Mar 2024 11:59:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调后的 gpt-3.5-turbo-0125 有 4k 上下文窗口，而不是承诺的 16k</title>
+      <link>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_3</link>
+      <description><![CDATA[当我在 Playground 中尝试基本 gpt-3.5-turbo-0125 模型和我的微调版本时，最大长度为 4095，而 gpt-3.5-turbo-16k 让您可以使用承诺的 16k。
+我无法使用 Completions API 进行正确的测试，因为输出的错误非常多，比如有些答案是韩语的（我的数据集和提示是英语的），有些是不完整的标记叠加，有些是一些单词之间有一些乱码的符号，等等。
+感谢您的回答！]]></description>
+      <guid>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_3</guid>
+      <pubDate>Tue, 26 Mar 2024 11:57:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
