@@ -4,221 +4,50 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 26 Mar 2024 12:32:11 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2024 15:18:32 GMT</lastBuildDate>
     <item>
-      <title>函数调用 - 如何获取 dict 作为返回类型</title>
-      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_5</link>
+      <title>Gpt-4 视觉少镜头用图像提示</title>
+      <link>https://community.openai.com/t/gpt-4-vision-few-shot-prompting-with-images/698188#post_3</link>
+      <description><![CDATA[包含一些图像的单个用户消息将如下所示：
+user_message = [ { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: [ { &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;描述这两个图像&quot;, }, { &quot;type&quot;: &quot;image_url&quot;, &quot;image_url&quot;: {&quot;url&quot;: f&quot;data:image/jpeg;base64,{base64_image1}&quot;, &quot;detail&quot;: &quot;low&quot;} }, { &quot;type&quot;: &quot;image_url&quot;, &quot;image_url&quot; : {&quot;url&quot;: f&quot;data:image/png;base64,{base64_image2}&quot;, &quot;detail&quot;: &quot;high&quot;} } ] } ]
+如果您希望 AI 继续查看过去消息中的图像内容，过去包含用户图像输入和 AI 助手答案的对话可以与第一次发送的完全相同。
+聊天历史记录可以与您在正常聊天中发送的信息相同（图像费用更高），或者您可以开始过期并在未来有限的轮次后删除实际图像，以免再次发送.
+如果您让它再次执行类似的任务，人工智能写入的响应风格不太可能有太大变化。只有当旧图像内容仍然很重要时，您才会再次发送它们，否则旧图像会分散注意力。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-vision-few-shot-prompting-with-images/698188#post_3</guid>
+      <pubDate>Tue, 26 Mar 2024 15:07:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>有关“gpt-3.5-turbo-0125”订阅定价结构的查询</title>
+      <link>https://community.openai.com/t/inquiry-regarding-pricing-structure-for-gpt-3-5-turbo-0125-subscription/697977#post_4</link>
       <description><![CDATA[
 
 
- sps：
+ pankajtech1g：
 &lt;块引用&gt;
+input_text =“我想静态提取...
 
 
-
- willemvdb42：
-&lt;块引用&gt;
-“类型”：“数组”
-
-
-然后这个“type”必须设置为“dict”而不是数组。
-
-
-这是不正确的。 “dict”不是有效的 JSON 类型。请记住：函数规范应该是有效的 JSON 格式。 JSON 确实使用“object”而不是“dict”。&lt; /p&gt;
-如果在上面的示例中将“object”替换为“dict”，您会收到以下错误消息：
-&lt;块引用&gt;
-BadRequestError：错误代码：400 - {&#39;error&#39;：{&#39;message&#39;：“函数&#39;number_letters&#39;的无效架构：&#39;dict&#39;在任何给定架构下都无效”，&#39;type&#39;：&#39;invalid_request_error&#39; ，“参数”：无，“代码”：无}}
+您发布的所有内容的文本总数为 1135 个令牌。即使全部是产出而不是较低价格的投入，运行此作业的总成本也将低于 0.002 美元。
+实际使用的 API 账单将从预付费积分中扣除，您必须先为您的帐户充值，最低购买金额为 5 美元。
+您滥用了消息角色。您可能需要比您演示的更好的提示指令，首先在系统消息中告诉人工智能其目的和任务是什么，然后是包含数据的用户消息，然后“用户”提供伴随信息的确切处理指令.]]></description>
+      <guid>https://community.openai.com/t/inquiry-regarding-pricing-structure-for-gpt-3-5-turbo-0125-subscription/697977#post_4</guid>
+      <pubDate>Tue, 26 Mar 2024 15:00:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT右下提示无法滚动</title>
+      <link>https://community.openai.com/t/chatgpt-prompt-cant-scroll-at-the-bottom-right/188515#post_17</link>
+      <description><![CDATA[要解决此问题，请删除位置样式，右键单击打开检查，然后取消选中此位置样式，将立即解决问题。
 ]]></description>
-      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_5</guid>
-      <pubDate>Tue, 26 Mar 2024 12:28:47 GMT</pubDate>
+      <guid>https://community.openai.com/t/chatgpt-prompt-cant-scroll-at-the-bottom-right/188515#post_17</guid>
+      <pubDate>Tue, 26 Mar 2024 14:55:06 GMT</pubDate>
     </item>
     <item>
-      <title>函数调用 - 如何获取 dict 作为返回类型</title>
-      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_4</link>
-      <description><![CDATA[
-
-
-jlvanhulst：
-&lt;块引用&gt;
-您没有提及您正在使用哪种型号。我在 3.5 和 4+ 上尝试过这个
-3.5 上的性能正如预期的那样令人怀疑，但 4 似乎没有问题
-
-
-我在 GPT4 上尝试过，你是否尝试了我在上面示例中定义的函数？你得到了什么输出？]]></description>
-      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_4</guid>
-      <pubDate>Tue, 26 Mar 2024 12:25:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Google 助理不遵循指示</title>
-      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_14</link>
-      <description><![CDATA[好的 - 我现在明白了。
-我认为最好将其分成两份工作。首先，您向其提供类别列表，然后让它选择类别
-您让它调用您的工具函数，该函数将为该类别提供标签，然后让它从列表中选择标签]]></description>
-      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_14</guid>
-      <pubDate>Tue, 26 Mar 2024 12:23:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>函数调用 - 如何获取 dict 作为返回类型</title>
-      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_3</link>
-      <description><![CDATA[欢迎@willemvdb42
-
-
-
- willemvdb42：
-&lt;块引用&gt;
-[“a”：1，“b”：2，“c”：3]。
-
-
-首先你必须明白这不是一个有效的类型。您可以使用字典数组或单个字典来包含值。
-如果符合您的要求，我更喜欢一个字典，因为它可以节省令牌。它看起来像：
-{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
-
-
-
-
- willemvdb42：
-&lt;块引用&gt;
-“类型”：“数组”
-
-
-然后这个“type”必须设置为“dict”而不是数组。]]></description>
-      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_3</guid>
-      <pubDate>Tue, 26 Mar 2024 12:22:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Google 助理不遵循指示</title>
-      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_13</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_13</guid>
-      <pubDate>Tue, 26 Mar 2024 12:18:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>返回值可能会根据消息的限制参数而变化</title>
-      <link>https://community.openai.com/t/a-return-value-may-change-depending-on-the-limit-argument-of-messages/698109#post_1</link>
-      <description><![CDATA[据我所知，消息返回值中的“file_ids”值消失了。
-当“limit”参数为 9 或更多时，“file_ids”似乎会变空。
-num=9
-client.beta.threads.messages.list(
-            thread_id=self.thread_id,.
-            限制=数字
-            ）
- ```]]></description>
-      <guid>https://community.openai.com/t/a-return-value-may-change-depending-on-the-limit-argument-of-messages/698109#post_1</guid>
-      <pubDate>Tue, 26 Mar 2024 12:16:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>函数调用 - 如何获取 dict 作为返回类型</title>
-      <link>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_2</link>
-      <description><![CDATA[您没有提及您正在使用哪种型号。我在 3.5 和 4+ 上尝试过这个
-3.5 上的性能正如预期的那样令人怀疑，但 4 似乎没有问题]]></description>
-      <guid>https://community.openai.com/t/function-calling-how-to-get-dict-as-return-type/697905#post_2</guid>
-      <pubDate>Tue, 26 Mar 2024 12:16:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Google 助理不遵循指示</title>
-      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_12</link>
-      <description><![CDATA[顺便说一句，谢谢你，感谢您的帮助！]]></description>
-      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_12</guid>
-      <pubDate>Tue, 26 Mar 2024 12:15:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Google 助理不遵循指示</title>
-      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_11</link>
-      <description><![CDATA[我没有预定义的列表，因为如果它不能与该提示一起工作，对我来说就足够了。虽然我刚刚检查过，您可以生成您想要的数量，但只需给聊天 gpt 这样：““像这样生成工作经验头衔和描述的示例，但针对不同的角色””“头衔”：“软件工程师”，
-“description”: “使用 Python、Node.js、Kubernetes 和 Tensorflow 从事各种 Web 项目。\n开发了强大的 AI 模型，供全世界免费使用。”“”“”。此外，问题是您也没有其他类型工作的完整类别和标签列表。这是 github 要点，包含整个列表“CategoriesAndTags · GitHub ”]]></description>
-      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_11</guid>
-      <pubDate>Tue, 26 Mar 2024 12:15:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_58</link>
-      <description><![CDATA[为企业构建时的历史是不同的。至少需要最少的控制。]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_58</guid>
-      <pubDate>Tue, 26 Mar 2024 12:09:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistants API 经常生成带有无效 JSON 的函数调用</title>
-      <link>https://community.openai.com/t/assistants-api-often-generates-function-calls-with-invalid-json/693997#post_5</link>
-      <description><![CDATA[看起来只有最新型号受到影响。我尚未在 gpt-4-1106-preview 上看到此问题。
-OpenAI 团队的人可以看一下这个吗？使用 gpt-4-0125-preview 会导致更多的处理标记，因为函数调用参数通常以正确的 json 开头，然后生成一些乱码，最后有很多空格。 1106 的类似任务仅消耗 11659 个输入、2404 个输出令牌，而 0125 使用 19463 个输入、8321 个输出令牌。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-often-generates-function-calls-with-invalid-json/693997#post_5</guid>
-      <pubDate>Tue, 26 Mar 2024 12:08:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_57</link>
-      <description><![CDATA[
-
-
-某人Sysop：
-&lt;块引用&gt;
-旨在为 OpenAI 赚钱。根据定义，这并不意味着它就是您所认为的“完美解决方案”。它省去了您自己编写界面的麻烦，而您唯一的成本就是 – 货币化的损失
-
-
-再说一次，我认为你没有理解我的观点：
-OpenAI 将有其收入来源：仍然通过 1. GPT、2. 新用户 3. 代币来支付。
-这不是免费的。他们将继续赚取同样的钱来为其运营提供资金并赚取利润。
-但是，通过为 GPT 提供精细的访问控制机制，您可以扩展您的 IP。无需制定和重复相同的概念，只需通过控制安全地将其部署给另一个客户即可，每个人都会很高兴。这是一个双赢的局面。
-我从来没有考虑过“免费午餐”。我在企业方面，并且我有客户愿意为此付费，但使用 GPT 引擎很难扩展此操作。
-我知道我可以使用 API，但 GPT 引擎已经存在。这只是使用正确的权限和控制进行组织和部署的问题。不是免费的午餐。许多公司会为这些功能付出很多代价，从而减轻他们构建模型与企业系统交互的负担，但对于公司来说，我们需要应用一些职责分离。]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=3#post_57</guid>
-      <pubDate>Tue, 26 Mar 2024 12:07:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的帐户无法使用。不显示转化历史记录也没有响应</title>
-      <link>https://community.openai.com/t/my-account-isnt-working-doesnt-show-conv-history-also-not-responding/697392#post_2</link>
-      <description><![CDATA[更新*。看起来它突然又工作了。]]></description>
-      <guid>https://community.openai.com/t/my-account-isnt-working-doesnt-show-conv-history-also-not-responding/697392#post_2</guid>
-      <pubDate>Tue, 26 Mar 2024 12:04:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Google 助理不遵循指示</title>
-      <link>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_10</link>
-      <description><![CDATA[
-
-
- 恩富加洛：
-&lt;块引用&gt;
-任务：仅使用提供的列表处理职位描述以准确分类和标记。
-规则： - 仅使用匹配类别内的标签。避免使用不相关类别的标签。 - 如果没有确切的标签匹配，则省略该标签而不是借用其他类别。 - 输出格式：仅匹配的类别和适用的标签。
-例如，给定此类别：“{
-“类别”：“网络安全与安全”道德黑客”，
-“标签”：[
-“渗透测试”，
-《网络安全》，
-“应用程序安全”，
-“端点安全”，
-“密码学”，
-《防火墙管理》，
-“IDS/IPS”，
-“漏洞评估”，
-“恶意软件分析”，
-《风险评估》，
-“事件响应”，
-“安全合规性”，
-“道德黑客”，
-“取证分析”，
-“OWASP”，
-《社会工程》，
-“网络钓鱼”
-]
-},”你只能选择里面的标签
-“{}”，您只能选择括号内带有所选类别的标签。
-坚持提供的类别和标签列表。不要推断或添加新的。”
-
-
-谢谢 - 还有一些样品要处理吗？]]></description>
-      <guid>https://community.openai.com/t/my-assistant-is-not-following-instructions/697417#post_10</guid>
-      <pubDate>Tue, 26 Mar 2024 11:59:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调后的 gpt-3.5-turbo-0125 有 4k 上下文窗口，而不是承诺的 16k</title>
-      <link>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_3</link>
-      <description><![CDATA[当我在 Playground 中尝试基本 gpt-3.5-turbo-0125 模型和我的微调版本时，最大长度为 4095，而 gpt-3.5-turbo-16k 让您可以使用承诺的 16k。
-我无法使用 Completions API 进行正确的测试，因为输出的错误非常多，比如有些答案是韩语的（我的数据集和提示是英语的），有些是不完整的标记叠加，有些是一些单词之间有一些乱码的符号，等等。
-感谢您的回答！]]></description>
-      <guid>https://community.openai.com/t/finetuned-gpt-3-5-turbo-0125-has-a-4k-context-window-instead-of-the-16k-promised/697638#post_3</guid>
-      <pubDate>Tue, 26 Mar 2024 11:57:02 GMT</pubDate>
+      <title>需要帮助将团队帐户的付费席位转移给新员工</title>
+      <link>https://community.openai.com/t/need-help-with-transferring-a-paid-seat-to-a-new-employee-on-a-team-account/698235#post_2</link>
+      <description><![CDATA[ChatGPT 团队的缺点之一（众多缺点之一）是用户的空间仍然是个人的，并且除非您在登录凭据下创建的帐户也在您的控制之下，否则不会传输或拥有信息 - 这仍然存在缺点需要电话验证。看来 OpenAI 宁愿收集每个员工的个人信息，也不愿让你管理帐户。
+如果用户未登录，基本上您能做的就是从团队中删除帐户，从而丢失任何公司使用的 GPT 或共享聊天。然后，席位许可证会返回到池中，您将根据过去邀请的最大人数不断地付费。]]></description>
+      <guid>https://community.openai.com/t/need-help-with-transferring-a-paid-seat-to-a-new-employee-on-a-team-account/698235#post_2</guid>
+      <pubDate>Tue, 26 Mar 2024 14:50:53 GMT</pubDate>
     </item>
     </channel>
 </rss>
