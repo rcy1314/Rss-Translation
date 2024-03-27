@@ -4,232 +4,102 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 27 Mar 2024 09:19:49 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2024 12:31:50 GMT</lastBuildDate>
     <item>
-      <title>如何创建正确的 JSONL 进行训练</title>
-      <link>https://community.openai.com/t/how-to-create-a-correct-jsonl-for-training/693897#post_12</link>
-      <description><![CDATA[嗨，
-根据用户的建议，我尝试了“提示工程”，并找到了正确的“提示”来获取预期的 JSON 作为响应，而无需费力进行训练/微调。
-感谢您的所有建议。
-问候，
-罗伯托]]></description>
-      <guid>https://community.openai.com/t/how-to-create-a-correct-jsonl-for-training/693897#post_12</guid>
-      <pubDate>Wed, 27 Mar 2024 09:16:45 GMT</pubDate>
+      <title>我的限制是多少 未达到 open ai api 中的使用限制 我必须支付多少费用</title>
+      <link>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_5</link>
+      <description><![CDATA[不，在联系支持人员之前，我三次检查了我的活动页面（当天 0 活动）。
+根据我个人的调试，我的 API 响应从大约 8 小时前开始就一直给出相同的错误代码。]]></description>
+      <guid>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_5</guid>
+      <pubDate>Wed, 27 Mar 2024 12:31:42 GMT</pubDate>
     </item>
     <item>
-      <title>将信息从一个 GPT 发送到另一个 GPT</title>
-      <link>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_4</link>
-      <description><![CDATA[我能想到的唯一方法是使用自定义操作，其中一个自定义 GPT 的返回结果存储在数据库中，而另一个 GPT 将检查是否有相关的新信息可以从所述数据库中提取。
-换句话说，如果存在客户或您认为有用的模型回复，您可以调用操作来更新数据库，然后客户可以通过要求自己的 GPT 首先联系数据库然后使用数据来检索它作为未来的背景。]]></description>
-      <guid>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_4</guid>
-      <pubDate>Wed, 27 Mar 2024 09:13:54 GMT</pubDate>
+      <title>系统提示内容修改对微调模型的影响</title>
+      <link>https://community.openai.com/t/effect-of-the-revisions-made-in-system-prompt-content-to-the-fine-tuned-model/699123#post_2</link>
+      <description><![CDATA[答案取决于  我想说的是，对系统提示进行较小的更改不会改变您尝试模型执行的操作的“要点”仅产生可忽略不计的影响。然而，涉及改变任务性质的更多实质性修改可能会导致不良结果。]]></description>
+      <guid>https://community.openai.com/t/effect-of-the-revisions-made-in-system-prompt-content-to-the-fine-tuned-model/699123#post_2</guid>
+      <pubDate>Wed, 27 Mar 2024 12:30:56 GMT</pubDate>
     </item>
     <item>
-      <title>在助手流中提交工具输出时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-submitting-tool-outputs-in-assistants-stream/686414#post_6</link>
-      <description><![CDATA[作为更新，我目前有一种递归方法来保持流程。还可以使用（稍微有点hacky）的解决方法来提交工具输出，但目前它可以工作。我将它包装到 ThreadManager 类中，但希望您能明白：
-
-常量 FINISHED_STATUSES = [
-    “失败的”，
-    “取消”，
-    “完全的”，
-    “已到期”，
-    “线程.运行.完成”,
-    “线程运行失败”，
-    “线程.运行.取消”,
-    “线程.运行.过期”
-]
-
-导出类型 ThreadRunStatus = RunStatus | “没有开始”
-
-导出类ThreadManager {
-    私人客户端：OpenAi
-    构造函数（
-        私有线程ID：字符串，
-        openaiConfig：客户端选项
-    ）{
-        this.client = new OpenAi(openaiConfig)
-    }
-
-    async getThreadStatus(): Promise; {
-        const lastRuns = 等待 this.client.beta.threads.runs.list(this.threadId, { limit: 1 })
-        const lastRun = lastRuns.data[0]
-        返回lastRun？.status ?? “没有开始”
-    }
-
-    private async uploadFile(attachment: { stream: Readable; name: string }): Promise; {
-        const 前缀 =“附件_”
-        常量时间戳 = Date.now()
-        const 文件名 = `${前缀}${时间戳}_${附件.名称}`
-
-        const fileUploadResponse = 等待 this.client.files.create({
-            文件：await toFile(attachment.stream, 文件名),
-            用途：“助手”
-        })
-
-        返回文件上传响应.id
-    }
-
-    异步postMessage(
-        内容：字符串，
-        选择：{
-            助手ID：字符串
-            记录器：可记录
-            函数注册：函数注册
-            消息处理程序：消息处理程序
-            fileIds?: string[] //用于现有的openai文件
-            附件？：{
-                名称：字符串
-                流：可读
-            }[]
-        }
-    ): 承诺&lt;无效&gt; {
-        const { AssistantId, functionRegistry, messageHandler } = opts
-        const { threadId, 客户端 } = this
-
-        让 fileIds: string[] = opts.fileIds ?? []
-        if (opts.attachments?.length) {
-            const uploadPromises = opts.attachments.map(attachment =&gt; this.uploadFile(attachment))
-            fileIds = 等待 Promise.all(uploadPromises)
-        }
-
-        //将threadId添加到每个日志中
-        const logger = (级别, 消息) =&gt;
-            opts.logger(level, { threadId, ...(typeof message === &quot;string&quot; ? { message } : message) })
-
-        const lastRuns = 等待 client.beta.threads.runs.list(threadId, { limit: 1 })
-        const lastRun = lastRuns.data[0]
-        if (lastRun &amp;&amp; !FINISHED_STATUSES.includes(lastRun.status)) {
-            throw new Error(&quot;该线程已经有一个活动的运行，请稍候&quot;)
-        }
-
-        等待 client.beta.threads.messages.create(threadId, {
-            角色：“用户”，
-            内容，
-            file_ids：文件ID
-        })
-
-        const 流 = client.beta.threads.runs.createAndStream(threadId, {
-            Assistant_id：助理Id，
-            型号：“gpt-4-turbo-preview”
-        })
-        setupEventHandlers(流, messageHandler, {
-            客户，
-            记录器，
-            线程ID,
-            函数注册表
-        })
-    }
-}
-
-
-
-导出 const setupEventHandlers = (
-    流：助理流，
-    消息处理程序：消息处理程序，
-    选择：{ 客户端：OpenAI;线程ID：字符串；函数注册：函数注册；记录器：可记录}
-）=&gt; {
-    让 runId: 字符串
-
-    const { 客户端、threadId、functionRegistry、记录器 } = opts
-
-    const checkAndRespondToToolCalls = async () =&gt;; {
-        if (!runId) 返回
-        const lastRun = 等待 client.beta.threads.runs.retrieve(threadId, runId)
-        if (lastRun.status !== &quot;requires_action&quot;) return
-
-        const fnCallResults = 等待 Promise.all(
-            lastRun.required_action?.submit_tool_outputs?.tool_calls?.map(tc =&gt;
-                callFunction(tc.function.name, JSON.parse(tc.function.arguments), functionRegistry, tc.id, 记录器)
-            ）
-        ）
-
-        const newStream = client.beta.threads.runs.submitToolOutputsStream(threadId, runId, {
-            tool_outputs: fnCallResults.map(({ callId, result }) =&gt; {
-                返回 {
-                    tool_call_id：callId，
-                    输出：结果
-                }
-            })
-        })
-        setupEventHandlers(newStream, messageHandler, opts)
-    }
-
-    溪流
-        .on(&quot;runStepCreated&quot;, 步骤 =&gt; (runId = step.run_id))
-        .on(&quot;textDelta&quot;, textDelta =&gt;;
-            messageHandler.onMessageTextChunk ？ messageHandler.onMessageTextChunk(textDelta.value) : null
-        ）
-        .on(&quot;textDone&quot;, 文本 =&gt;
-            messageHandler.onMessageComplete ？ messageHandler.onMessageComplete(text.value) : null
-        ）
-        .on(&quot;结束&quot;, checkAndRespondToToolCalls)
-        .on(&quot;错误&quot;, err =&gt; {
-            记录器（“错误”，错误）
-        })
-}
-
-]]></description>
-      <guid>https://community.openai.com/t/issue-with-submitting-tool-outputs-in-assistants-stream/686414#post_6</guid>
-      <pubDate>Wed, 27 Mar 2024 09:10:40 GMT</pubDate>
+      <title>对于在 Assistan API 中降低 GPT 4 Turbo 模型的成本和限制消息长度有什么建议吗？</title>
+      <link>https://community.openai.com/t/any-suggestions-to-reduce-cost-and-limit-message-length-of-gpt-4-turbo-model-in-assistan-api/699366#post_3</link>
+      <description><![CDATA[尝试使其答案保持一致。
+如果这不起作用，请告诉我。]]></description>
+      <guid>https://community.openai.com/t/any-suggestions-to-reduce-cost-and-limit-message-length-of-gpt-4-turbo-model-in-assistan-api/699366#post_3</guid>
+      <pubDate>Wed, 27 Mar 2024 12:27:35 GMT</pubDate>
     </item>
     <item>
-      <title>将信息从一个 GPT 发送到另一个 GPT</title>
-      <link>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_3</link>
-      <description><![CDATA[嗨！我有……这是一种解决方法，但我希望为客户大规模地做到这一点。有什么想法如何自动化吗？谢谢！]]></description>
-      <guid>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_3</guid>
-      <pubDate>Wed, 27 Mar 2024 09:09:23 GMT</pubDate>
+      <title>我的限制是多少 未达到 open ai api 中的使用限制 我必须支付多少费用</title>
+      <link>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_4</link>
+      <description><![CDATA[您好 - 您是否可能达到了任何其他限制，例如每分钟令牌数、每分钟或每天的请求数？
+您可以在此处仔细检查您所在级别的适用限制。]]></description>
+      <guid>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_4</guid>
+      <pubDate>Wed, 27 Mar 2024 12:24:06 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant的Tokens：如何在代码中记录参数“This number of tokens”？</title>
-      <link>https://community.openai.com/t/tokens-of-assistant-how-can-i-log-the-parameter-this-number-of-tokens-in-the-code/699194#post_1</link>
-      <description><![CDATA[当我在“助手”的“Playground”上请求时，我看到每个请求的代币数量。
-如何在代码中记录参数“This number of tokens”？
-示例：
-问题：
-“嗨”
-答：
-“你好！今天我能为您提供什么帮助吗？”
-日志：1877 个令牌]]></description>
-      <guid>https://community.openai.com/t/tokens-of-assistant-how-can-i-log-the-parameter-this-number-of-tokens-in-the-code/699194#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 09:03:11 GMT</pubDate>
+      <title>Azure Open AI Assistant API 连接错误</title>
+      <link>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_8</link>
+      <description><![CDATA[当我尝试在本地运行 Azure OpenAI API 聊天完成的 Python 代码并提供所有必需的参数时，它间歇性地出现以下错误。如果您能建议如何解决此问题，则需要您的帮助。
+httpcore.ConnectError: [Errno 11001] getaddrinfo 失败
+上述异常是导致以下异常的直接原因：
+httpx.ConnectError: [Errno 11001] getaddrinfo 失败
+上述异常是导致以下异常的直接原因：
+从错误中引发 APIConnectionError(request=request)
+openai.APIConnectionError：连接错误。]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-assistant-api-connection-error/662198#post_8</guid>
+      <pubDate>Wed, 27 Mar 2024 12:23:34 GMT</pubDate>
     </item>
     <item>
-      <title>将信息从一个 GPT 发送到另一个 GPT</title>
-      <link>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_2</link>
-      <description><![CDATA[嗨！您是否尝试过使用 @mention 功能是否可以解决您的问题？它仍然需要您复制并粘贴要共享的内容，但这就是人们可以在单个对话中使用多个自定义 GPT 的方式。]]></description>
-      <guid>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_2</guid>
-      <pubDate>Wed, 27 Mar 2024 09:02:01 GMT</pubDate>
+      <title>对于在 Assistan API 中降低 GPT 4 Turbo 模型的成本和限制消息长度有什么建议吗？</title>
+      <link>https://community.openai.com/t/any-suggestions-to-reduce-cost-and-limit-message-length-of-gpt-4-turbo-model-in-assistan-api/699366#post_2</link>
+      <description><![CDATA[您好，我的名字是 clementjazy4，我是这里的新人，您能帮我解决一些我需要知道的事情吗？谢谢]]></description>
+      <guid>https://community.openai.com/t/any-suggestions-to-reduce-cost-and-limit-message-length-of-gpt-4-turbo-model-in-assistan-api/699366#post_2</guid>
+      <pubDate>Wed, 27 Mar 2024 12:22:03 GMT</pubDate>
     </item>
     <item>
-      <title>将信息从一个 GPT 发送到另一个 GPT</title>
-      <link>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_1</link>
-      <description><![CDATA[嗨！我已经创建了自己的 GPT，并希望将生成的内容发送到另一个自定义 GPT（不是我创建的）。这可能吗？
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/sending-info-from-one-gpt-to-another-gpt/699191#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 08:59:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Davinci-002微调完成不起作用</title>
-      <link>https://community.openai.com/t/davinci-002-fine-tuning-completion-does-not-work/698691#post_5</link>
-      <description><![CDATA[感谢您的关注！
-我认为这不是最好的解决方案，因为我们总是必须将所有指令传递给 GPT。看来我们为指导付出的代价比句子分析本身还要多。此外，它在旧模型的相同数据集上按照我想要的方式工作]]></description>
-      <guid>https://community.openai.com/t/davinci-002-fine-tuning-completion-does-not-work/698691#post_5</guid>
-      <pubDate>Wed, 27 Mar 2024 08:53:07 GMT</pubDate>
+      <title>我的限制是多少 未达到 open ai api 中的使用限制 我必须支付多少费用</title>
+      <link>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_3</link>
+      <description><![CDATA[我也面临着同样的问题。
+发票已付，使用量并未激增，远未达到我的极限。
+然而，API 响应给了我错误代码 429，我已经超出了配额。
+4 小时前与支持人员聊天，但仍未收到协助回复。]]></description>
+      <guid>https://community.openai.com/t/what-is-my-limits-did-not-reached-usage-limit-in-open-ai-api-how-much-must-i-pay/699238#post_3</guid>
+      <pubDate>Wed, 27 Mar 2024 12:18:12 GMT</pubDate>
     </item>
     <item>
       <title>账单问题，无法支付发票</title>
-      <link>https://community.openai.com/t/billing-issue-couldnt-pay-the-invoice/699173#post_1</link>
-      <description><![CDATA[您好，从一两周前开始，我在支付账单时开始遇到一些奇怪的问题。
-我一直在为 API 使用付费。
-信用余额系统出现了，我充值了 20 美元。即使使用信用余额系统，仍有 10.04 美元的到期账单，出现错误，指出我的使用已暂停，直到我支付 10.04 美元
-我当前的信用余额是 18.75 美元
-我支付的卡是借记卡，与我支付信用余额的卡是同一张卡
-支持团队没有解决我的问题
-当我尝试付款时收到的消息是“哎呀！我们无法支付此发票，如果问题仍然存在，请报告此问题。”
-感谢任何帮助。]]></description>
-      <guid>https://community.openai.com/t/billing-issue-couldnt-pay-the-invoice/699173#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 08:42:00 GMT</pubDate>
+      <link>https://community.openai.com/t/billing-issue-couldnt-pay-the-invoice/699173#post_2</link>
+      <description><![CDATA[嗨！
+这似乎是一个最好直接联系 OpenAI 支持的问题。您是在尝试付款时刚刚收到错误消息还是通过开发者平台上的聊天小部件与他们联系？
+这里有一个链接，指向您可以进行的其他一些操作考虑尝试解决付款问题。但是，如果问题仍然存在，您最好的选择是通过支持渠道联系。
+希望问题能得到解决]]></description>
+      <guid>https://community.openai.com/t/billing-issue-couldnt-pay-the-invoice/699173#post_2</guid>
+      <pubDate>Wed, 27 Mar 2024 12:14:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>针对仇恨内容微调 GPT-3.5</title>
+      <link>https://community.openai.com/t/fine-tuning-gpt-3-5-on-hateful-content/699409#post_2</link>
+      <description><![CDATA[您好，欢迎来到开发社区！
+按照目前大多数大型 API 可访问模型的审核方式，这是不可能的。
+您最好的选择是从 Huggingface 找到未经审查的开源模型，并在本地或使用云对其进行微调计算。]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-gpt-3-5-on-hateful-content/699409#post_2</guid>
+      <pubDate>Wed, 27 Mar 2024 12:09:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI专注于《街头霸王6》</title>
+      <link>https://community.openai.com/t/ai-focused-on-street-fighter-6/699412#post_1</link>
+      <description><![CDATA[大家好，
+我有兴趣开发人工智能来协助格斗游戏的竞争和技术分析。我注意到视频分析/解释目前仍然是一个非常先进的领域。它提供的有关如何改进的反馈通常基于没有太多上下文的数据源，从而产生通用且与上下文无关的建议。
+为了解决这个问题，我编写了一个 mod，可以将《街头霸王 6》比赛转换为脚本。我想知道是否可以教人工智能“阅读”脚本，或者是否需要 API 或更高级的代码。
+我的具体问题是：
+
+是否可以训练人工智能在没有 API 的情况下分析格斗游戏脚本？
+教导 AI 解读格斗游戏脚本会遇到哪些挑战？
+有哪些资源（例如教程、库）可以帮助我完成此项目？
+
+任何见解或建议将不胜感激。预先感谢您的帮助！]]></description>
+      <guid>https://community.openai.com/t/ai-focused-on-street-fighter-6/699412#post_1</guid>
+      <pubDate>Wed, 27 Mar 2024 12:08:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
