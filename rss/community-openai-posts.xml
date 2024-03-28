@@ -4,135 +4,150 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 27 Mar 2024 21:17:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 01:11:13 GMT</lastBuildDate>
     <item>
-      <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_67</link>
-      <description><![CDATA[我也是一名开发人员，我发现我们处于同一条船上。再说一遍，这只是组织、把关和社区建设的问题。
-现在，我与你打赌，其他大玩家将实现 GPT 的相同功能，并且他们可以添加这些功能并专注于企业渠道 - 也许是微软？这就是我不会投入资源从头开始编写任何内容的原因。无论我们喜欢与否，这种情况都会发生，我确信我们的客户可以转向他们的解决方案，而我们将无法收回开发解决方案的投资。
-目前的环境太不稳定了。我们甚至不知道 GPT 是否会保留。他们可以在眨眼之间逐步淘汰这一点 - 这就是为什么我们不像我们的朋友那样“拥有”GPT @elmstedt 一直在说。
-但我可以告诉你，看到 GPT 发挥作用真是太棒了。我构建了一个发票处理器并将其与 Oracle JD Edwards 集成。在我的一项测试中，我上传了一张发票的 .PNG 文件，但我没有注意到发票的总额存在计算错误。 GPT 足够聪明，可以修复 API 响应错误，但也提供了一条说明，说明值不匹配。对于大中型公司来说，调查并修复存在此类错误的发票中的错误（每张发票）的平均成本为 53 美元。想象一下该解决方案可以避免的错误数量、数量和不平衡批次。太棒了！！]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_67</guid>
-      <pubDate>Wed, 27 Mar 2024 21:15:47 GMT</pubDate>
+      <title>Chatgpt 助理直播</title>
+      <link>https://community.openai.com/t/chatgpt-assistant-streaming/700038#post_1</link>
+      <description><![CDATA[我在使用 chatgpt 助手（在流式传输时）调用函数时遇到问题。
+我无法获取函数的参数，它总是返回空。
+这是我的一些代码片段
+我正在尝试调用一个名为 image_describe 的函数
+这是我获得的快照
+FunctionToolCall(id=&#39;call_************&#39;, function=Function(arguments=&#39;{&quot;&#39;, name=&#39;image_describe&#39;, 输出=None), type=&#39;function&#39;, index= 0)
+类EventHandler(AssistantEventHandler):
+  @覆盖
+  def on_text_created(self, text) -&gt;;没有任何：
+    打印（f“\ nassistant＆gt;”，结束=“”，flush=True）
+      
+  @覆盖
+  def on_text_delta(自身、增量、快照)：
+    打印（delta.value，end =“”，flush = True）
+      
+  def on_tool_call_created(self, tool_call):
+    打印（工具调用）
+    print(f&quot;\nassistant &gt; {tool_call.type}\n&quot;,flush=True)
+
+  def on_tool_call_delta(自身，增量，快照)：
+    运行=client.assistant.retrieve(
+       Assistant_id=助理ID
+    ）
+    打印（运行）
+    参数=json.loads(snapshot.function.arguments)
+    arg=delta.函数
+    参数=自身
+    打印（自己）
+    工具输出=[]
+    如果 delta.type == &#39;code_interpreter&#39;:
+      如果 delta.code_interpreter.input：
+        打印（delta.code_interpreter.input，end =“”，flush = True）
+      如果 delta.code_interpreter.outputs：
+        打印（f“\n\n输出&gt;”，flush=True）
+        对于 delta.code_interpreter.outputs 中的输出：
+          如果输出类型==“日志”：
+            打印(f&quot;\n{output.logs}&quot;,flush=True)
+            
+    如果 delta.type == &quot;函数&quot;:
+        function_name=快照.函数.名称
+        参数=快照.函数.参数
+        如果函数名称==“图像描述”：
+                图像路径=参数[“图像路径”]
+
+
+
+
+与 client.beta.threads.runs.create_and_stream(
+  thread_id=线程.id,
+  Assistant_id=助手.id,
+  event_handler=EventHandler(),
+) 作为流：
+  流.until_done()
+
+
+
+  而真实：
+
+    # 用户输入=get_input()
+    user_input=input(&quot;\n 你:&quot;)
+    消息 = client.beta.threads.messages.create(
+        thread_id = 线程.id,
+        角色=“用户”，
+        内容=用户输入
+    ）
+
+    与 client.beta.threads.runs.create_and_stream(
+        thread_id=线程.id,
+        Assistant_id=助理.id,
+        event_handler=EventHandler(),
+    ) 作为流：
+        对于流中的事件：
+        # 打印文本增量事件中的文本
+            尝试 ：
+                如果 event.type == &quot;thread.message.delta&quot; 和 event.data.delta.content:
+                    打印（事件.data.delta.content[0].text）
+            除了 ：
+                  流.until_done()
+
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-assistant-streaming/700038#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 00:55:42 GMT</pubDate>
     </item>
     <item>
-      <title>如何将 Slack 线程消息链接到 OpenAI 线程？</title>
-      <link>https://community.openai.com/t/how-to-link-a-slack-thread-message-to-a-openai-thread/699902#post_1</link>
-      <description><![CDATA[您好，我想知道如何使用 Slack 将线程消息附加到开放 AI 线程？因为当我在 Slack 中编写一条消息时，它会发送到 Open AI，但它总是在 OpenAI 上创建一个线程，但我想将 slack 线程消息附加到 OpenAI 中的唯一线程，如果 Slack 消息是一条新消息，它应该创建一个新线程，所有松弛消息应存储在创建的线程中，我怎样才能实现这一点&gt;]]></description>
-      <guid>https://community.openai.com/t/how-to-link-a-slack-thread-message-to-a-openai-thread/699902#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 21:14:48 GMT</pubDate>
+      <title>无法购买 API 积分</title>
+      <link>https://community.openai.com/t/unable-to-purchase-api-credits/700027#post_1</link>
+      <description><![CDATA[我是一名 5 级用户，过去曾多次成功付款。但是当我尝试在新系统下购买 OpenAI API 积分时，出现错误：
+&lt;块引用&gt;
+我们无法处理您的付款。如果此问题仍然存在，请通过我们的帮助中心联系我们：https://help.openai.com。 
+
+我尝试了多张信用卡，但所有信用卡都抛出此错误。
+有人解决了吗？]]></description>
+      <guid>https://community.openai.com/t/unable-to-purchase-api-credits/700027#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 00:34:05 GMT</pubDate>
     </item>
     <item>
-      <title>助理线程可以存储在我们的服务器上而不是 OpenAI 上吗</title>
-      <link>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_13</link>
-      <description><![CDATA[感谢您的建议GitHub - langchain-ai/opengpts 作为我们用例的替代解决方案。我会进一步研究它。
-过去，在 Assistants 推出之前，我曾使用 Langchain/Pinecone 解决方案，但在它推出后转而使用 Assistant API 提供的简单性。更重要的是，我发现与我们的自定义方法相比，助手使用更少的令牌提供了更好的结果。
-有谁知道助手和 ChatGPT 使用什么算法来处理 RAG 并在提示（X 令牌）+当前用户消息（Y 令牌）+消息历史记录（N 令牌）+相关检索（M 令牌）之间分配令牌？或者为什么 OpenAI ChatGPT/Assistants 比自制的 RAG + OpenAI API 更好？
-在我的旧方法中，X 和 Y 当然是可变的，具体取决于提示大小和用户的最新输入&gt; N 和 M 的长度是固定的，假设存在大量消息历史记录和大量检索文件。因此，每次来回都是 (X + Y + N + M) 令牌，这很快就变得非常昂贵，因为我们的用例需要大量相对较小的来回消息。]]></description>
-      <guid>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_13</guid>
-      <pubDate>Wed, 27 Mar 2024 21:12:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>429 - 您超出了当前配额，请检查您的计划和账单详细信息</title>
-      <link>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/699697#post_9</link>
-      <description><![CDATA[如果您很着急，您可以创建一个新帐户并添加最低限度的资金来维持运营。等待您的主帐户中的问题得到解决。]]></description>
-      <guid>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/699697#post_9</guid>
-      <pubDate>Wed, 27 Mar 2024 21:06:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_66</link>
+      <title>RAG 并不是真正的解决方案</title>
+      <link>https://community.openai.com/t/rag-is-not-really-a-solution/599291#post_14</link>
       <description><![CDATA[
 
 
- 栏位：
+ vidyasagar.mundroy：
 &lt;块引用&gt;
-我们的想法是与 OpenAI 合作，并在我的客户群中分发他们的 GPT。
+事实上，我已经使用 LlamaIndex 实现了一个基于 RAG 的快速玩具聊天机器人，提供了四个肯定用于训练 LLM (gemini-pro) 的 PDF 文档，并且聊天机器人正确回答了七个问题中的五个。
 
 
-有先例。早在 20 世纪 90 年代初，我就使用 Folio Views 技术方式向企业客户创建并营销了“信息库”。这是当时突破性的文本检索技术。我完全控制了生产和营销，并根据我的销售额向 Folio 支付季度许可费。
-至于 GPT 和我喜欢称之为“知识库”的东西，我就在你身边。事实上，我想我们这里很多人都是一样的。因为我是一名开发人员，所以我将自己定位为能够利用 GPT - 或者做我自己的事情 - 取决于哪种效果最好。和你一样，我也押注于 OpenAI。
-但是，现在谁真正知道呢？
-祝你好运！]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_66</guid>
-      <pubDate>Wed, 27 Mar 2024 21:06:06 GMT</pubDate>
+几个月以来，我一直致力于相当传统的 RAG 实现。很少有正确格式的问题没有得到回答的情况，也从来没有出现幻觉的情况。但是，这不会凭空发生——开发 RAG 系统可以产生始终如一的良好结果，为此我们付出了大量的工作。
+首先，执行 @curt.kennedy 建议的所有操作。
+您不能只是以任何旧的方式分割文本，然后期待智能答案。我个人使用我自己版本的语义分块 https: //www.youtube.com/watch?v=w_veb816Asg&amp;t=1s&amp;pp=ygUOc2VtYW50aWMgY2h1bms%3D
+但是，如果您在 YouTube 上搜索“语义分块”，您会发现许多不同的教程，介绍如何对数据进行分块，从而使其在查询中更加有用。
+此外，当您说它回答了 7 个问题中的 5 个问题时，它没有回答的两个问题是什么？而且，是什么让您说这些问题没有得到答复或者可以在给定的文本中得到答复？您必须查看所提出问题的确切措辞以及您期望回答该问题的确切文本。您可能应该温习一下提示工程 101，但我敢打赌，要么您的问题不够具体（基于实际存在的文本），要么您的分块以某种方式分割了文本的想法与您认为应该的方式不匹配余弦相似度搜索。再说一遍，你的分块方法。
+最后，这个问题是具体的还是笼统的？根据定义，RAG 系统非常适合大海捞针类型的查询——通常是谁、什么、何时、何地？当涉及到笼统的问题以及涉及如何以及在更大程度上涉及为什么的问题时，他们开始表现不佳。
+我发现很多人认为，因为这些机器的反应看起来非常像人类，所以他们实际上“思考”了他们所武断的数据。他们不知道。他们只是在反省文字。他们不是人类，所以他们不具备人类的直觉——他们无法推理。因此，当你问它一个模糊的、笼统的问题，而这个问题没有在返回给它的一个或多个块中具体回答时，它要么会产生幻觉，要么告诉你它无法回答这个问题（如果你已经写了系统提示）正确）。
+所有这些都表明，RAG，即使是简单的 RAG，也不仅仅是将 PDF 转储到矢量存储中并提出问题，而很少考虑模型实际上如何能够响应。]]></description>
+      <guid>https://community.openai.com/t/rag-is-not-really-a-solution/599291#post_14</guid>
+      <pubDate>Thu, 28 Mar 2024 00:12:51 GMT</pubDate>
     </item>
     <item>
-      <title>如何让我的自定义 GPT 显示我的网站而不是我的名字？</title>
-      <link>https://community.openai.com/t/how-can-i-get-my-custom-gpt-to-show-my-website-instead-of-my-name/699894#post_1</link>
-      <description><![CDATA[我读了很多关于修改构建者配置文件的文章，但我无法取消选中我的姓名按钮，并且没有用于使用我的自定义网站的按钮。
-这就是我尝试取消选中我的名字时看到的内容。
-]]></description>
-      <guid>https://community.openai.com/t/how-can-i-get-my-custom-gpt-to-show-my-website-instead-of-my-name/699894#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 21:01:54 GMT</pubDate>
+      <title>关于customGPT知识截止的问题</title>
+      <link>https://community.openai.com/t/question-about-customgpt-knowledge-cutoffs/699650#post_3</link>
+      <description><![CDATA[感谢您的澄清，简短而甜蜜！如果有的话，将写回其他相关问题 ]]></description>
+      <guid>https://community.openai.com/t/question-about-customgpt-knowledge-cutoffs/699650#post_3</guid>
+      <pubDate>Thu, 28 Mar 2024 00:11:30 GMT</pubDate>
     </item>
     <item>
-      <title>反复出现的问题：无法从 ChatGPT 获取流响应</title>
-      <link>https://community.openai.com/t/recurring-issue-unable-to-get-a-streaming-response-from-chatgpt/699103#post_2</link>
-      <description><![CDATA[我在使用 Linux Chrome 时也看到了同样的情况。似乎适用于 Firefox]]></description>
-      <guid>https://community.openai.com/t/recurring-issue-unable-to-get-a-streaming-response-from-chatgpt/699103#post_2</guid>
-      <pubDate>Wed, 27 Mar 2024 20:57:13 GMT</pubDate>
+      <title>视觉模型拒绝翻译我自己的文档</title>
+      <link>https://community.openai.com/t/vision-model-refuses-to-translate-my-own-documents/700018#post_1</link>
+      <description><![CDATA[使用 python 在目录上运行循环，使用视觉预览或 gpt-4 将一些账单 (jpeg) 从法语翻译成英语，但由于存在帐户信息、付款参考等，因此即使可以，模型也会保持沉默查看信息。
+我尝试修改提示...“他们是我的文档”，我有 POA，我很绝望，它不是个人的，等等，等等，它似乎引用了“不共享”的隐藏系统提示个人信息”……在这种情况下，它不会翻译并为我提供我需要的完整文档信息。该代码通常可以工作，但对于某些正常“公用事业账单”格式的文档，它只是彻底否认。
+有人有任何解决方法或建议吗？谢谢！]]></description>
+      <guid>https://community.openai.com/t/vision-model-refuses-to-translate-my-own-documents/700018#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 00:10:51 GMT</pubDate>
     </item>
     <item>
-      <title>收入分享 - 有什么好处？</title>
-      <link>https://community.openai.com/t/revenue-sharing-whats-the-deal/479922?page=2#post_23</link>
-      <description><![CDATA[好吧，只是告诉您正在与列表中的顶级 GPT 构建器合作。三位领先的 GPT 开发人员复制了我的自定义 GPT 模型，并实现了超过一百万次对话。现在，他们得到了回报。]]></description>
-      <guid>https://community.openai.com/t/revenue-sharing-whats-the-deal/479922?page=2#post_23</guid>
-      <pubDate>Wed, 27 Mar 2024 20:54:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>429 - 您超出了当前配额，请检查您的计划和账单详细信息</title>
-      <link>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/699697#post_8</link>
-      <description><![CDATA[我们也遇到了这个问题。我们远远低于令牌限制和美元使用量，但我们在生产环境中随机遇到了这个问题，而没有触及任何东西。 3.5 和 4 模型可以工作，但是文本嵌入模型 ada 向我们抛出了这个错误。甚至我们的组织使用量也低于每月配额。 @openai 需要尽快查看这个问题]]></description>
-      <guid>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/699697#post_8</guid>
-      <pubDate>Wed, 27 Mar 2024 20:53:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理线程可以存储在我们的服务器上而不是 OpenAI 上吗</title>
-      <link>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_12</link>
-      <description><![CDATA[感谢您清晰而直接的回复。]]></description>
-      <guid>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_12</guid>
-      <pubDate>Wed, 27 Mar 2024 20:48:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理线程可以存储在我们的服务器上而不是 OpenAI 上吗</title>
-      <link>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_11</link>
-      <description><![CDATA[感谢您指出这一点。我读到通过 API 传入的数据不会用于训练，并且假设它也不会被保留。我将联系 Openai，了解支持我们的无保留用例。]]></description>
-      <guid>https://community.openai.com/t/can-assistant-threads-be-stored-on-our-server-instead-of-at-openai/697528#post_11</guid>
-      <pubDate>Wed, 27 Mar 2024 20:47:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 如何收费？</title>
-      <link>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_65</link>
-      <description><![CDATA[谢谢，我很感激。
-再说一次，有大量的低代码/无代码模型可以使用和利用 API，我明白了。
-我认为你没有理解“被俘虏”的概念。
-我们的想法是与 OpenAI 合作，并在我的客户群中分发他们的 GPT。
-为什么选择 OpenAI，为什么不选择 Google、NVIDIA、Facebook、AWS、OCI？
-他们的时代终将到来，但 GPT 的颠覆、与企业系统集成的便利性（我集成了 ERP 软件）以及目前的结果是无与伦比的。对我来说，这至关重要，不仅要首先开始，还要首先向我的客户提供此类技术。然后，随着基础的建立，他们可以切换（如果是这种情况）到他们想要的模型/平台。
-此外，我认为我的观点是完全可以实现的 - 为企业的 GPT 添加访问角色和安全性 - 并建立一个合作伙伴生态系统 - 不是为“任何人”，而是为集成商、ISV 和咨询公司，将他们的知识集成到GPT 并分发它。这就是区别。企业用户的分销渠道 - 无论是寻找资产位置的现场人员还是需要了解公司销量的财务官员。有很多用例。我一直在使用我的演示系统创建和烘焙这些想法，并引起了业界的广泛关注 - 到目前为止，没有人能接近我所提供的内容，对我来说，这个时机至关重要。
-现在，如果我无法使用 GPT 保护我的 IP，我可以将我的知识出售给我的客户，向他们展示如何构建它，并转让这些知识。从估值的角度来看，我会向那个人收取两倍的可用资金，以便为我的客户建立为期 3 天的研讨会的商业想法，但我的目标是为我的公司以及 OpenAI 建立 MRR。]]></description>
-      <guid>https://community.openai.com/t/how-to-charge-for-a-custom-gpt/594787?page=4#post_65</guid>
-      <pubDate>Wed, 27 Mar 2024 20:46:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>对话输出太长并切入返回的响应</title>
-      <link>https://community.openai.com/t/conversation-output-too-long-and-cut-in-the-returned-response/699878#post_1</link>
-      <description><![CDATA[你好，
-我正在开发一款 B2B 健康应用程序，首先会向用户询问几个入门问题。根据他们的回复，我向助理发出 API 调用，以生成定制的膳食计划。我精心设计了以结构化 JSON 格式返回计划的提示，这部分过程运行良好。
-但是，我面临输出长度的问题。我需要制定一个 7 天的膳食计划，每天至少吃 3 餐。每顿饭都包含一系列食物、常量营养素和 3 步食谱。正如您可以想象的，这会创建一个非常长的输出。当我使用 OpenAI tokenizer 检查令牌长度时，它始终低于 5900 个令牌。
-这个长度限制是由于模型、上下文窗口还是我的方法中的某些原因造成的？如果我的用例需要重新设计，您有什么建议？我对简化这一流程的方法持开放态度。
-谢谢！
-]]></description>
-      <guid>https://community.openai.com/t/conversation-output-too-long-and-cut-in-the-returned-response/699878#post_1</guid>
-      <pubDate>Wed, 27 Mar 2024 20:44:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>由于拒绝（但固定）付款而导致的 BUG - 配额不足（足够） - openai.RateLimitError</title>
-      <link>https://community.openai.com/t/bug-due-to-declined-but-fixed-payment-insufficient-sufficient-quota-openai-ratelimiterror/699542#post_3</link>
-      <description><![CDATA[这里可能有同样的问题，等了几个小时然后再次工作。我已向我的帐户添加了 50 美元积分/余额...]]></description>
-      <guid>https://community.openai.com/t/bug-due-to-declined-but-fixed-payment-insufficient-sufficient-quota-openai-ratelimiterror/699542#post_3</guid>
-      <pubDate>Wed, 27 Mar 2024 20:36:47 GMT</pubDate>
+      <title>使文本转语音的时间限制超过 2 分 36 秒，这样我就可以听 chatgpt 的完整故事</title>
+      <link>https://community.openai.com/t/make-text-to-speech-have-more-limit-than-2-minutes-and-36-seconds-so-i-can-listen-full-story-from-chatgpt/654693#post_2</link>
+      <description><![CDATA[您可以使用 www.make audio.app 将文本转换为音频。它构建在 OpenAI 的 TTS API 之上。
+您最多可以输入 100,000 个字符的文本。]]></description>
+      <guid>https://community.openai.com/t/make-text-to-speech-have-more-limit-than-2-minutes-and-36-seconds-so-i-can-listen-full-story-from-chatgpt/654693#post_2</guid>
+      <pubDate>Wed, 27 Mar 2024 23:42:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
