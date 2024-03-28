@@ -4,174 +4,93 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 28 Mar 2024 06:23:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 09:19:08 GMT</lastBuildDate>
     <item>
-      <title>无法在 open ai 聊天完成 API 中维护用户会话</title>
-      <link>https://community.openai.com/t/unable-to-maintain-user-session-in-open-ai-chat-completion-api/300991#post_14</link>
-      <description><![CDATA[@sps 嘿frds，你能帮助我吗？我正在使用 openai 和 llamaindex 创建聊天机器人。我已经成功实现了流程。但是，在现场，如果一个用户问一些问题，它会正确响应，而另一个用户问一些问题，也回答得很好，但我会将历史记录提供给 openai 请求，但所有用户聊天历史记录都会合并同时将历史记录插入到请求中。解决办法是什么。
-从 Flask 导入 Flask、请求、jsonify、响应
-从 llama_index.core 导入 VectorStoreIndex、SimpleDirectoryReader
-从 llama_index.core.memory 导入 ChatMemoryBuffer
-从 llama_index.llms.openai 导入 OpenAI
-从 llama_index.llms.openai.base 导入 ChatResponse
-导入操作系统
-导入时间
-导入openai
-导入json
-从 dotenv 导入 load_dotenv
-load_dotenv()
-os.environ[“OPENAI_API_KEY”] = os.getenv(&#39;OPENAI_API_KEY&#39;)
-openai.api_key = os.environ[“OPENAI_API_KEY”]
-app = Flask(名称)
-内存 = ChatMemoryBuffer.from_defaults(token_limit=8000)
-llm = OpenAI(model=“gpt-3.5-turbo”, 温度=0)
-data = SimpleDirectoryReader(input_dir=“data”).load_data()
-index = VectorStoreIndex.from_documents(data)
-chat_engine = index.as_chat_engine(
-chat_mode=“上下文”，
-llm=llm,
-内存=内存，
-系统提示=(
-“你的名字是克拉鲁斯。你是一个聊天机器人，能够进行正常的交互，也能够说话”
-“关于克拉鲁斯货币项目相关的疑问”
-“如果用户的查询与提供的上下文相关，则需要在响应消息 JSON 中使用上下文中的正确响应消息进行回答”
- &#39;&#39;&#39;以正确的 JSON 格式给出所有响应，例如 { &quot;response&quot;: &quot;查询的响应消息&quot;, &quot;intent&quot;: &quot;查询的意图&quot; }&#39;&#39;&#39;
-),
-
-)
-defgenerate_chat_responses(查询):
-res=‘’
-响应 = chat_engine.stream_chat(query)
-对于response.response_gen中的令牌：
-res += 令牌
-返回结果
-@app.route(“/voice-backend”,methods=[‘POST’])
-def voiceAssistant():
-数据 = request.get_json()
-query = data.get(&#39;提示&#39;)
-
-
-尝试：
-
-    返回 jsonify({&quot;satus&quot;: 200, &quot;data&quot;:generate_chat_responses(query)})
-    
-除了异常 e：
-    打印（“异常：”，e）
-
-如果名称 == ‘ma​​in’:
-app.run（调试=True，端口=8080）]]></description>
-      <guid>https://community.openai.com/t/unable-to-maintain-user-session-in-open-ai-chat-completion-api/300991#post_14</guid>
-      <pubDate>Thu, 28 Mar 2024 06:17:55 GMT</pubDate>
+      <title>无法从 ChatGPT 获取流式响应</title>
+      <link>https://community.openai.com/t/unable-to-get-a-streaming-response-from-chatgpt/612629?page=3#post_56</link>
+      <description><![CDATA[请求网址：
+https://ab.chatgpt.com/ v1/rgstr
+请求方式：
+选项
+状态代码：
+403 禁止
+推荐人政策：
+跨源时严格源
+这就是错误（红色标记），你能帮我解决它吗？（也许这是问题的关键）非常感谢]]></description>
+      <guid>https://community.openai.com/t/unable-to-get-a-streaming-response-from-chatgpt/612629?page=3#post_56</guid>
+      <pubDate>Thu, 28 Mar 2024 09:11:04 GMT</pubDate>
     </item>
     <item>
-      <title>无法在 open ai 聊天完成 API 中维护用户会话</title>
-      <link>https://community.openai.com/t/unable-to-maintain-user-session-in-open-ai-chat-completion-api/300991#post_13</link>
-      <description><![CDATA[@novaphil 嘿frds，你能帮助我吗？我正在使用 openai 和 llamaindex 创建聊天机器人。我已经成功实现了流程。但是，在现场，如果一个用户问一些问题，它会正确响应，而另一个用户问一些问题，也回答得很好，但我会将历史记录提供给 openai 请求，但所有用户聊天历史记录都会合并同时将历史记录插入到请求中。解决办法是什么。
-从 Flask 导入 Flask、请求、jsonify、响应
-从 llama_index.core 导入 VectorStoreIndex、SimpleDirectoryReader
-从 llama_index.core.memory 导入 ChatMemoryBuffer
-从 llama_index.llms.openai 导入 OpenAI
-从 llama_index.llms.openai.base 导入 ChatResponse
-导入操作系统
-导入时间
-导入openai
-导入json
-从 dotenv 导入 load_dotenv
-load_dotenv()
-os.environ[“OPENAI_API_KEY”] = os.getenv(&#39;OPENAI_API_KEY&#39;)
-openai.api_key = os.environ[“OPENAI_API_KEY”]
-app = Flask(名称)
-内存 = ChatMemoryBuffer.from_defaults(token_limit=8000)
-llm = OpenAI(model=“gpt-3.5-turbo”, 温度=0)
-data = SimpleDirectoryReader(input_dir=“data”).load_data()
-index = VectorStoreIndex.from_documents(data)
-chat_engine = index.as_chat_engine(
-chat_mode=“上下文”，
-llm=llm,
-内存=内存，
-系统提示=(
-“你的名字是克拉鲁斯。你是一个聊天机器人，能够进行正常的交互，也能够说话”
-“关于克拉鲁斯货币项目相关的疑问”
-“如果用户的查询与提供的上下文相关，则需要在响应消息 JSON 中使用上下文中的正确响应消息进行回答”
- &#39;&#39;&#39;以正确的 JSON 格式给出所有响应，例如 { &quot;response&quot;: &quot;查询的响应消息&quot;, &quot;intent&quot;: &quot;查询的意图&quot; }&#39;&#39;&#39;
-),
-
-)
-defgenerate_chat_responses(查询):
-res=‘’
-响应 = chat_engine.stream_chat(query)
-对于response.response_gen中的令牌：
-res += 令牌
-返回结果
-@app.route(“/voice-backend”,methods=[‘POST’])
-def voiceAssistant():
-数据 = request.get_json()
-query = data.get(&#39;提示&#39;)
-
-
-尝试：
-
-    返回 jsonify({&quot;satus&quot;: 200, &quot;data&quot;:generate_chat_responses(query)})
-    
-除了异常 e：
-    打印（“异常：”，e）
-
-如果名称 == ‘ma​​in’:
-app.run（调试=True，端口=8080）]]></description>
-      <guid>https://community.openai.com/t/unable-to-maintain-user-session-in-open-ai-chat-completion-api/300991#post_13</guid>
-      <pubDate>Thu, 28 Mar 2024 06:17:08 GMT</pubDate>
+      <title>我们现在可以在 ChatGPT 3.5 中上传图像吗？</title>
+      <link>https://community.openai.com/t/can-we-now-upload-images-in-chatgpt-3-5/700346#post_2</link>
+      <description><![CDATA[嗨！
+视觉模型是Plus用户独有的。
+我不会完全排除少数用户可能通过免费订阅获得访问权限的可能性，但这绝对不会发生在整个用户群上。]]></description>
+      <guid>https://community.openai.com/t/can-we-now-upload-images-in-chatgpt-3-5/700346#post_2</guid>
+      <pubDate>Thu, 28 Mar 2024 09:02:01 GMT</pubDate>
     </item>
     <item>
-      <title>朗读功能无法通过 Firefox 在 ChatGPT 上运行</title>
-      <link>https://community.openai.com/t/read-aloud-feature-not-working-on-chatgpt-via-firefox/664947#post_15</link>
-      <description><![CDATA[我现在有了一个新的第二个系统（赢得 11 个最先进的一切）
-新系统 Firefox 120.01 - 是 - 朗读效果完美
-旧系统 Win 10 Firefox 120.01 - 否 - 大声朗读显示正在播放但没有声音]]></description>
-      <guid>https://community.openai.com/t/read-aloud-feature-not-working-on-chatgpt-via-firefox/664947#post_15</guid>
-      <pubDate>Thu, 28 Mar 2024 06:09:21 GMT</pubDate>
+      <title>沙盒链接。我一直试图访问该链接，但没有希望。有人能帮助我吗？</title>
+      <link>https://community.openai.com/t/sandbox-link-i-have-been-trying-to-access-the-link-with-no-hope-can-someone-help-me-please/493663#post_3</link>
+      <description><![CDATA[在 Android 应用程序中遇到同样的问题，问题解决了吗？]]></description>
+      <guid>https://community.openai.com/t/sandbox-link-i-have-been-trying-to-access-the-link-with-no-hope-can-someone-help-me-please/493663#post_3</guid>
+      <pubDate>Thu, 28 Mar 2024 09:01:36 GMT</pubDate>
     </item>
     <item>
-      <title>Gradio 聊天机器人：部署、提取对话历史、模拟对话</title>
-      <link>https://community.openai.com/t/gradio-chatbot-deployment-extracting-conversation-history-simulated-conversations/699924#post_2</link>
-      <description><![CDATA[幸运的是，所有这些都相当简单。您只需要一些关键见解。我会很快制作出原型。]]></description>
-      <guid>https://community.openai.com/t/gradio-chatbot-deployment-extracting-conversation-history-simulated-conversations/699924#post_2</guid>
-      <pubDate>Thu, 28 Mar 2024 05:58:44 GMT</pubDate>
+      <title>通过Actions让GPT读取SharePoint中的PDF文档</title>
+      <link>https://community.openai.com/t/make-the-gpt-read-pdf-documents-in-sharepoint-through-actions/700353#post_1</link>
+      <description><![CDATA[大家好，
+我正在构建一个自定义 GPT，一旦客户提供合同号，它就需要获取客户的报告。为此，我创建了一个操作，该操作与服务器中的 API 进行通信，并在客户提供合同号后从 SharePoint 检索可共享链接。当 GPT 需要使用服务器提供的可共享链接提取 PDF 内容时，就会出现问题。 GPT 成功向用户提供了下载文件的链接，但它没有提取 PDF 中的内容。它说，由于安全原因，它无法访问外部 URL。我不想让客户下载链接，然后将其上传到 GPT 中，因为这对于使用手机的客户来说太麻烦了。知道如何解决这个问题吗？]]></description>
+      <guid>https://community.openai.com/t/make-the-gpt-read-pdf-documents-in-sharepoint-through-actions/700353#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 08:49:00 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 新商标：VOICE ENGINE</title>
-      <link>https://community.openai.com/t/new-openai-trademark-voice-engine/692713#post_11</link>
-      <description><![CDATA[有几件事仍然让我担心 OpenAI：
+      <title>“您的卡已被拒绝”</title>
+      <link>https://community.openai.com/t/your-card-has-been-declined/700335#post_4</link>
+      <description><![CDATA[您好，欢迎来到社区！
+不幸的是，我们无法直接帮助您解决此问题，您最好的选择是通过开发者平台上的聊天小部件直接联系 OpenAI 支持，或者，如果可以选择，尝试使用其他信用卡/借记卡.
+此外，这里还有一些提示供您参考可以看看并尝试。
+祝你好运！]]></description>
+      <guid>https://community.openai.com/t/your-card-has-been-declined/700335#post_4</guid>
+      <pubDate>Thu, 28 Mar 2024 08:45:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于api接口调用的问题</title>
+      <link>https://community.openai.com/t/questions-about-api-interface-calls/700350#post_1</link>
+      <description><![CDATA[调用openai接口有2种不同的方式：
 
 
-围绕路线图、所使用的数据集持续保密。我知道他们选择将“开放”解释为不意味着开源，这很好，但是这里到底什么是开放呢？几乎没有。他们做的事情与任何非开放商业服务没有什么不同。我觉得这最终必然会导致问题。
-
-
-这是为一个小世界提供的全球服务，但产品中的美国偏见程度相当惊人。例如，当前所有的声音都非常美国化（除了英国的声音）。即使只是英语，世界各地也有很多口音。我真的希望新的语音项目有所改变，并且语音选择是完全可定制和包容的。
-
+这两个调用最终返回的是同一个对象吗？由于我已经更改了程序中调用 api 的方式，但不想更改程序中的其余代码，有没有办法使返回的对象对象相同。
+调用该方法返回的第一个对象是：message = response[&#39;choices&#39;][0][&#39;message&#39;].]]></description>
+      <guid>https://community.openai.com/t/questions-about-api-interface-calls/700350#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 08:45:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>连接助手 API 到外部 api</title>
+      <link>https://community.openai.com/t/connecting-assistant-api-to-external-api/700253#post_4</link>
+      <description><![CDATA[是的，您已经发现了助手 API 的硬限制，它本身无法根据每个请求从大量文件中动态选择相关文件。
+典型的解决方法是将所有文本添加到几个非常大的文件中并启用检索功能。
+否则，您将必须构建一个函数来选择匹配的文件，然后在消息级别上传这些文件。
+在这个阶段，您最好构建自己的 RAG 系统。
+诗。我之前没有添加此链接，但推荐阅读：
+https://platform.openai.com /docs/assistants/tools/knowledge-retrieval]]></description>
+      <guid>https://community.openai.com/t/connecting-assistant-api-to-external-api/700253#post_4</guid>
+      <pubDate>Thu, 28 Mar 2024 08:45:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>尽管拥有全新的电话号码，但未获得免费积分</title>
+      <link>https://community.openai.com/t/not-receiving-free-credits-despite-having-a-completely-new-phone-number/700348#post_1</link>
+      <description><![CDATA[我不知道是不是只有我这么想，但我似乎无法再收到 5 美元的积分了。我已经被这个问题困扰了一个星期了。我到处检查了他们是否删除它的证据，从 X、discord 和 reddit，我没有看到他们发布任何有关删除制作人员名单的内容，也没有看到任何具体的证据。我现在开始怀疑了。我希望这只是一个问题 
 ]]></description>
-      <guid>https://community.openai.com/t/new-openai-trademark-voice-engine/692713#post_11</guid>
-      <pubDate>Thu, 28 Mar 2024 05:48:34 GMT</pubDate>
+      <guid>https://community.openai.com/t/not-receiving-free-credits-despite-having-a-completely-new-phone-number/700348#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 08:42:40 GMT</pubDate>
     </item>
     <item>
-      <title>如何让助手返回JSON？</title>
-      <link>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_10</link>
-      <description><![CDATA[不使用函数和额外调用的简单快速解决方法只是告诉它使用特定键以 json 格式返回。如果请求的格式不太复杂，可以提供格式的上下文。如果使用 python 等，则解析格式化的字符串。]]></description>
-      <guid>https://community.openai.com/t/how-to-make-assistant-return-json/484881#post_10</guid>
-      <pubDate>Thu, 28 Mar 2024 05:46:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过 API 密钥跟踪 API 使用情况和费用？</title>
-      <link>https://community.openai.com/t/how-to-track-api-usage-and-cost-by-api-key/174145?page=4#post_68</link>
-      <description><![CDATA[也许您已经注意到，但在 API 密钥页面上，您需要为旧 API 密钥单独启用每个 API 密钥的跟踪 - 这就是您从“打开跟踪”链接进入此页面的原因。默认情况下会跟踪新的 API 密钥。]]></description>
-      <guid>https://community.openai.com/t/how-to-track-api-usage-and-cost-by-api-key/174145?page=4#post_68</guid>
-      <pubDate>Thu, 28 Mar 2024 05:42:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过 API 密钥跟踪 API 使用情况和费用？</title>
-      <link>https://community.openai.com/t/how-to-track-api-usage-and-cost-by-api-key/174145?page=4#post_67</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/how-to-track-api-usage-and-cost-by-api-key/174145?page=4#post_67</guid>
-      <pubDate>Thu, 28 Mar 2024 05:39:41 GMT</pubDate>
+      <title>我们现在可以在 ChatGPT 3.5 中上传图像吗？</title>
+      <link>https://community.openai.com/t/can-we-now-upload-images-in-chatgpt-3-5/700346#post_1</link>
+      <description><![CDATA[我发现一些 GPT-3.5 用户具有图像访问权限，而一些用户具有“朗读”选项，但其他用户则没有。我还没有图像访问权限。当向免费用户提供新功能时，是否有任何优先顺序或类似的东西？]]></description>
+      <guid>https://community.openai.com/t/can-we-now-upload-images-in-chatgpt-3-5/700346#post_1</guid>
+      <pubDate>Thu, 28 Mar 2024 08:41:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
