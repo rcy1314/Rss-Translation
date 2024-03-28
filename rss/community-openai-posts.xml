@@ -4,150 +4,129 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 28 Mar 2024 01:11:13 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 03:19:33 GMT</lastBuildDate>
     <item>
-      <title>Chatgpt 助理直播</title>
-      <link>https://community.openai.com/t/chatgpt-assistant-streaming/700038#post_1</link>
-      <description><![CDATA[我在使用 chatgpt 助手（在流式传输时）调用函数时遇到问题。
-我无法获取函数的参数，它总是返回空。
-这是我的一些代码片段
-我正在尝试调用一个名为 image_describe 的函数
-这是我获得的快照
-FunctionToolCall(id=&#39;call_************&#39;, function=Function(arguments=&#39;{&quot;&#39;, name=&#39;image_describe&#39;, 输出=None), type=&#39;function&#39;, index= 0)
-类EventHandler(AssistantEventHandler):
-  @覆盖
-  def on_text_created(self, text) -&gt;;没有任何：
-    打印（f“\ nassistant＆gt;”，结束=“”，flush=True）
-      
-  @覆盖
-  def on_text_delta(自身、增量、快照)：
-    打印（delta.value，end =“”，flush = True）
-      
-  def on_tool_call_created(self, tool_call):
-    打印（工具调用）
-    print(f&quot;\nassistant &gt; {tool_call.type}\n&quot;,flush=True)
-
-  def on_tool_call_delta(自身，增量，快照)：
-    运行=client.assistant.retrieve(
-       Assistant_id=助理ID
-    ）
-    打印（运行）
-    参数=json.loads(snapshot.function.arguments)
-    arg=delta.函数
-    参数=自身
-    打印（自己）
-    工具输出=[]
-    如果 delta.type == &#39;code_interpreter&#39;:
-      如果 delta.code_interpreter.input：
-        打印（delta.code_interpreter.input，end =“”，flush = True）
-      如果 delta.code_interpreter.outputs：
-        打印（f“\n\n输出&gt;”，flush=True）
-        对于 delta.code_interpreter.outputs 中的输出：
-          如果输出类型==“日志”：
-            打印(f&quot;\n{output.logs}&quot;,flush=True)
-            
-    如果 delta.type == &quot;函数&quot;:
-        function_name=快照.函数.名称
-        参数=快照.函数.参数
-        如果函数名称==“图像描述”：
-                图像路径=参数[“图像路径”]
-
-
-
-
-与 client.beta.threads.runs.create_and_stream(
-  thread_id=线程.id,
-  Assistant_id=助手.id,
-  event_handler=EventHandler(),
-) 作为流：
-  流.until_done()
-
-
-
-  而真实：
-
-    # 用户输入=get_input()
-    user_input=input(&quot;\n 你:&quot;)
-    消息 = client.beta.threads.messages.create(
-        thread_id = 线程.id,
-        角色=“用户”，
-        内容=用户输入
-    ）
-
-    与 client.beta.threads.runs.create_and_stream(
-        thread_id=线程.id,
-        Assistant_id=助理.id,
-        event_handler=EventHandler(),
-    ) 作为流：
-        对于流中的事件：
-        # 打印文本增量事件中的文本
-            尝试 ：
-                如果 event.type == &quot;thread.message.delta&quot; 和 event.data.delta.content:
-                    打印（事件.data.delta.content[0].text）
-            除了 ：
-                  流.until_done()
-
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-assistant-streaming/700038#post_1</guid>
-      <pubDate>Thu, 28 Mar 2024 00:55:42 GMT</pubDate>
+      <title>“早晨接力”：全球团结交响曲</title>
+      <link>https://community.openai.com/t/morning-relay-a-global-symphony-of-unity/678232#post_6</link>
+      <description><![CDATA[感谢大家分享您的旅程、互相支持并为我们社区的发展做出贡献。
+我们齐心协力才能蓬勃发展并取得有意义的进步。
+让我们在身体健康的情况下，在我们的所有努力中继续互相鼓励和支持。]]></description>
+      <guid>https://community.openai.com/t/morning-relay-a-global-symphony-of-unity/678232#post_6</guid>
+      <pubDate>Thu, 28 Mar 2024 03:10:51 GMT</pubDate>
     </item>
     <item>
-      <title>无法购买 API 积分</title>
-      <link>https://community.openai.com/t/unable-to-purchase-api-credits/700027#post_1</link>
-      <description><![CDATA[我是一名 5 级用户，过去曾多次成功付款。但是当我尝试在新系统下购买 OpenAI API 积分时，出现错误：
-&lt;块引用&gt;
-我们无法处理您的付款。如果此问题仍然存在，请通过我们的帮助中心联系我们：https://help.openai.com。 
-
-我尝试了多张信用卡，但所有信用卡都抛出此错误。
-有人解决了吗？]]></description>
-      <guid>https://community.openai.com/t/unable-to-purchase-api-credits/700027#post_1</guid>
-      <pubDate>Thu, 28 Mar 2024 00:34:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>RAG 并不是真正的解决方案</title>
-      <link>https://community.openai.com/t/rag-is-not-really-a-solution/599291#post_14</link>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_498</link>
       <description><![CDATA[
-
-
- vidyasagar.mundroy：
-&lt;块引用&gt;
-事实上，我已经使用 LlamaIndex 实现了一个基于 RAG 的快速玩具聊天机器人，提供了四个肯定用于训练 LLM (gemini-pro) 的 PDF 文档，并且聊天机器人正确回答了七个问题中的五个。
-
-
-几个月以来，我一直致力于相当传统的 RAG 实现。很少有正确格式的问题没有得到回答的情况，也从来没有出现幻觉的情况。但是，这不会凭空发生——开发 RAG 系统可以产生始终如一的良好结果，为此我们付出了大量的工作。
-首先，执行 @curt.kennedy 建议的所有操作。
-您不能只是以任何旧的方式分割文本，然后期待智能答案。我个人使用我自己版本的语义分块 https: //www.youtube.com/watch?v=w_veb816Asg&amp;t=1s&amp;pp=ygUOc2VtYW50aWMgY2h1bms%3D
-但是，如果您在 YouTube 上搜索“语义分块”，您会发现许多不同的教程，介绍如何对数据进行分块，从而使其在查询中更加有用。
-此外，当您说它回答了 7 个问题中的 5 个问题时，它没有回答的两个问题是什么？而且，是什么让您说这些问题没有得到答复或者可以在给定的文本中得到答复？您必须查看所提出问题的确切措辞以及您期望回答该问题的确切文本。您可能应该温习一下提示工程 101，但我敢打赌，要么您的问题不够具体（基于实际存在的文本），要么您的分块以某种方式分割了文本的想法与您认为应该的方式不匹配余弦相似度搜索。再说一遍，你的分块方法。
-最后，这个问题是具体的还是笼统的？根据定义，RAG 系统非常适合大海捞针类型的查询——通常是谁、什么、何时、何地？当涉及到笼统的问题以及涉及如何以及在更大程度上涉及为什么的问题时，他们开始表现不佳。
-我发现很多人认为，因为这些机器的反应看起来非常像人类，所以他们实际上“思考”了他们所武断的数据。他们不知道。他们只是在反省文字。他们不是人类，所以他们不具备人类的直觉——他们无法推理。因此，当你问它一个模糊的、笼统的问题，而这个问题没有在返回给它的一个或多个块中具体回答时，它要么会产生幻觉，要么告诉你它无法回答这个问题（如果你已经写了系统提示）正确）。
-所有这些都表明，RAG，即使是简单的 RAG，也不仅仅是将 PDF 转储到矢量存储中并提出问题，而很少考虑模型实际上如何能够响应。]]></description>
-      <guid>https://community.openai.com/t/rag-is-not-really-a-solution/599291#post_14</guid>
-      <pubDate>Thu, 28 Mar 2024 00:12:51 GMT</pubDate>
+]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=24#post_498</guid>
+      <pubDate>Thu, 28 Mar 2024 03:10:26 GMT</pubDate>
     </item>
     <item>
-      <title>关于customGPT知识截止的问题</title>
-      <link>https://community.openai.com/t/question-about-customgpt-knowledge-cutoffs/699650#post_3</link>
-      <description><![CDATA[感谢您的澄清，简短而甜蜜！如果有的话，将写回其他相关问题 ]]></description>
-      <guid>https://community.openai.com/t/question-about-customgpt-knowledge-cutoffs/699650#post_3</guid>
-      <pubDate>Thu, 28 Mar 2024 00:11:30 GMT</pubDate>
+      <title>学习率乘数值</title>
+      <link>https://community.openai.com/t/learning-rate-multiplier-values/699910#post_4</link>
+      <description><![CDATA[给你一个小Python脚本：
+导入openai、json； c = openai.Client()
+print(json.dumps(c.fine_tuning.jobs.list().model_dump()[&#39;data&#39;], indent=1))
+
+结果，作业列表：
+[
+ {
+  “id”：“ftjob-1234uZHb7VWRPmJiJA43T8”，
+  “创建于”：1699475555，
+  “错误”： {
+   “代码”：空，
+   “消息”：空，
+   “参数”：空，
+   “错误”：空
+  },
+  &quot;fine_tuned_model&quot;: &quot;ft:gpt-3.5-turbo-1106:orgname::12345678&quot;,
+  “完成于”：1699478999，
+  “超参数”：{
+   “n_epochs”：9，
+   “批量大小”：1，
+   “学习率乘数”：2
+  },
+  “型号”：“gpt-3.5-turbo-1106”，
+  &quot;object&quot;: &quot;fine_tuning.job&quot;,
+  &quot;organization_id&quot;: &quot;org-1234uZHb7VWRPmJiJA43TeT8&quot;,
+  “结果文件”：[
+   “文件-1234uZHb7VWRPmJiJA43TeT8”
+  ],
+  “状态”：“成功”，
+  “训练过的令牌”：97769，
+  &quot;training_file&quot;: &quot;文件-1234uZHb7VWRPmJiJA43TeT8y&quot;,
+  &quot;validation_file&quot;: &quot;文件-1234uZHb7VWRPmJiJA43TeT8z&quot;,
+  “用户提供的后缀”：空
+ },
+ {
+  &quot;id&quot;: &quot;ftjob-1234uZHb7VWRPmJiJA43TeT&quot;,
+  “创建于”：1699475011，
+  ...
+]]></description>
+      <guid>https://community.openai.com/t/learning-rate-multiplier-values/699910#post_4</guid>
+      <pubDate>Thu, 28 Mar 2024 02:51:39 GMT</pubDate>
     </item>
     <item>
-      <title>视觉模型拒绝翻译我自己的文档</title>
-      <link>https://community.openai.com/t/vision-model-refuses-to-translate-my-own-documents/700018#post_1</link>
-      <description><![CDATA[使用 python 在目录上运行循环，使用视觉预览或 gpt-4 将一些账单 (jpeg) 从法语翻译成英语，但由于存在帐户信息、付款参考等，因此即使可以，模型也会保持沉默查看信息。
-我尝试修改提示...“他们是我的文档”，我有 POA，我很绝望，它不是个人的，等等，等等，它似乎引用了“不共享”的隐藏系统提示个人信息”……在这种情况下，它不会翻译并为我提供我需要的完整文档信息。该代码通常可以工作，但对于某些正常“公用事业账单”格式的文档，它只是彻底否认。
-有人有任何解决方法或建议吗？谢谢！]]></description>
-      <guid>https://community.openai.com/t/vision-model-refuses-to-translate-my-own-documents/700018#post_1</guid>
-      <pubDate>Thu, 28 Mar 2024 00:10:51 GMT</pubDate>
+      <title>“$.messages[1].content”无效</title>
+      <link>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_7</link>
+      <description><![CDATA[欢迎来到 OpenAI 开发论坛@junhl5806
+问题出在 messages 列表中的第二条消息。
+消息“content”只能是字符串或已定义类型的内容部分数组，传入图像时每个内容部分可以是text或image_url类型。您可以通过添加多个 image_url 内容部分来传递多个图像。仅在使用 gpt-4-vision-preview 模型时支持图像输入。
+这里是 API 参考了解更多信息。]]></description>
+      <guid>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_7</guid>
+      <pubDate>Thu, 28 Mar 2024 02:51:02 GMT</pubDate>
     </item>
     <item>
-      <title>使文本转语音的时间限制超过 2 分 36 秒，这样我就可以听 chatgpt 的完整故事</title>
-      <link>https://community.openai.com/t/make-text-to-speech-have-more-limit-than-2-minutes-and-36-seconds-so-i-can-listen-full-story-from-chatgpt/654693#post_2</link>
-      <description><![CDATA[您可以使用 www.make audio.app 将文本转换为音频。它构建在 OpenAI 的 TTS API 之上。
-您最多可以输入 100,000 个字符的文本。]]></description>
-      <guid>https://community.openai.com/t/make-text-to-speech-have-more-limit-than-2-minutes-and-36-seconds-so-i-can-listen-full-story-from-chatgpt/654693#post_2</guid>
-      <pubDate>Wed, 27 Mar 2024 23:42:09 GMT</pubDate>
+      <title>“$.messages[1].content”无效</title>
+      <link>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_6</link>
+      <description><![CDATA[
+不，这里：我怀疑这个消息对象可能格式错误。]]></description>
+      <guid>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_6</guid>
+      <pubDate>Thu, 28 Mar 2024 02:50:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>反复出现的问题：无法从 ChatGPT 获取流响应</title>
+      <link>https://community.openai.com/t/recurring-issue-unable-to-get-a-streaming-response-from-chatgpt/699103#post_4</link>
+      <description><![CDATA[我遇到了和你一样的问题，换搜索引擎也解决不了问题]]></description>
+      <guid>https://community.openai.com/t/recurring-issue-unable-to-get-a-streaming-response-from-chatgpt/699103#post_4</guid>
+      <pubDate>Thu, 28 Mar 2024 02:47:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>由于某种原因，Assistants API 无法访问文件</title>
+      <link>https://community.openai.com/t/the-assistants-api-cannot-access-files-for-some-reason/525243#post_6</link>
+      <description><![CDATA[我将以下代码与 gpt-4-turbo-preview 一起使用，该代码直接从 OpenAI 文档复制：
+thread = client.beta.threads.create(
+            消息=[
+                {
+                    “角色”：“用户”，
+                    &quot;content&quot;: &quot;我的提示&quot;
+                    &quot;file_ids&quot;: [文件1.id],
+                }
+            ]
+        ）
+
+每次运行它时，我都会收到此消息的某个版本：
+抱歉，我无法直接访问或分析上传的文件内容。但是，如果您可以提供一些详细信息或文档摘录，我很乐意根据您提供的说明帮助分析这些内容。
+我从该链中的其他人那里读到，这可能是一个间歇性问题。然而，无论我在过去几天运行多少次，它都对我不起作用。
+我假设问题出在 OpenAI 上，而不是代码上。如果最后有人想出解决方法吗？]]></description>
+      <guid>https://community.openai.com/t/the-assistants-api-cannot-access-files-for-some-reason/525243#post_6</guid>
+      <pubDate>Thu, 28 Mar 2024 02:45:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>“$.messages[1].content”无效</title>
+      <link>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_5</link>
+      <description><![CDATA[我希望 GPT 给出这个答案。
+（回复：{“ticker”：“KRW-BTC”，“decision”：“买入”，“quantity”：0.8，“reason”：“对于 KRW-BTC，价格已形成看涨吞噬模式，表明潜在的下跌趋势反转。RSI_14 也已突破 30，表明上升趋势开始。建议买入，以利用预期的价格上涨。”})]]></description>
+      <guid>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_5</guid>
+      <pubDate>Thu, 28 Mar 2024 02:41:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>“$.messages[1].content”无效</title>
+      <link>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_4</link>
+      <description><![CDATA[如果打印出“analyze_datas_with_GPT4”中的消息对象 - 你会得到什么？]]></description>
+      <guid>https://community.openai.com/t/messages-1-content-is-invalid/700063#post_4</guid>
+      <pubDate>Thu, 28 Mar 2024 02:36:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
