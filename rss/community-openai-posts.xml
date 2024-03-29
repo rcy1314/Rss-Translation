@@ -4,51 +4,161 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 29 Mar 2024 12:31:52 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 29 Mar 2024 15:19:13 GMT</lastBuildDate>
     <item>
-      <title>用于创建 PowerPoint 演示文稿的 API</title>
-      <link>https://community.openai.com/t/api-to-create-powerpoint-presentations/701493#post_1</link>
-      <description><![CDATA[我正在尝试使用现有的 PowerPoint 模板让 GPT 4.0 Turbo 根据我提供的一些信息创建新文档。不过，我能想到的最好的办法就是 VB 脚本。有谁知道有一个 API 可以自动执行此操作吗？获取内容和现有 PowerPoint 模板并创建一个在 PowerPoint 中完全格式化的新文档？]]></description>
-      <guid>https://community.openai.com/t/api-to-create-powerpoint-presentations/701493#post_1</guid>
-      <pubDate>Fri, 29 Mar 2024 12:25:55 GMT</pubDate>
+      <title>移动应用程序滚动故障</title>
+      <link>https://community.openai.com/t/mobile-app-scrolling-glitching/564237#post_8</link>
+      <description><![CDATA[+1（iOS 17.1.2 上的 iPhone se 2020）
+我想说有点烦人]]></description>
+      <guid>https://community.openai.com/t/mobile-app-scrolling-glitching/564237#post_8</guid>
+      <pubDate>Fri, 29 Mar 2024 14:51:04 GMT</pubDate>
     </item>
     <item>
-      <title>OPENAI 支持没有回复 |计费问题</title>
-      <link>https://community.openai.com/t/openai-support-does-not-answer-billing-problems/695481#post_3</link>
-      <description><![CDATA[一个月过去了，什么都没有。
-我还是没有答案！花了这么长时间真是太疯狂了……]]></description>
-      <guid>https://community.openai.com/t/openai-support-does-not-answer-billing-problems/695481#post_3</guid>
-      <pubDate>Fri, 29 Mar 2024 12:16:46 GMT</pubDate>
+      <title>ChatGPT Plus 和使用限制</title>
+      <link>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=5#post_101</link>
+      <description><![CDATA[嘿，他们已经修复了错误翻译！我很惊讶 
+&lt;img alt=&quot;图片&quot; height=&quot;92&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/7/e/a/7eae2634750efcbb7cb61a2f7f9c25a4371fbcf9.png&quot; width=&quot;338 ” /&gt;]]></description>
+      <guid>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=5#post_101</guid>
+      <pubDate>Fri, 29 Mar 2024 14:45:12 GMT</pubDate>
     </item>
     <item>
-      <title>需要针对特定​​用例的建议</title>
-      <link>https://community.openai.com/t/advice-needed-on-a-specific-use-case/701449#post_2</link>
-      <description><![CDATA[欢迎来到论坛！
-您可以查看这些帖子，了解如何使用嵌入来解决此问题：
+      <title>关于嵌入网站问答教程的问题</title>
+      <link>https://community.openai.com/t/issue-regarding-the-tutorial-on-website-q-a-with-embedding/701608#post_1</link>
+      <description><![CDATA[我无法收到预期的答案，因为在浏览完完整的用户指南后，该答案是在带有嵌入教程的网站问答中返回的。完整的 OpenAI 网站页面已按照教程中的说明抓取并保存在我的本地计算机上。
+以这个问题为例：“我们最新的嵌入模型是什么？”
+create_context 函数的答案似乎包含如下截图所示的关键字，例如“ext-embedding-ada-002”
+。但我不明白为什么 client.chat.completions.create 仍然返回“我不知道”的答案。
+有人遇到过同样的问题吗？官方教程还有效吗？
+我的代码片段：
+def answer_question(
+        df,
+        型号=“gpt-3.5-turbo”，
+        Question=&quot;我可以在没有人工审核的情况下将模型输出发布到 Twitter 吗？&quot;,
+        最大长度=1800，
+        尺寸=“阿达”，
+        调试=假，
+        最大令牌=150，
+        stop_sequence=无
+）：
+    ”“”
+    根据数据框文本中最相似的上下文回答问题
+    ”“”
+    上下文 = 创建上下文（
+        问题，
+        df,
+        最大长度=最大长度，
+        尺寸=尺寸，
+    ）
+    # 如果进行调试，则打印原始模型响应
+    如果调试：
+        print(&quot;上下文：\n&quot; + 上下文)
+        打印（“\n\n”）
 
+    尝试：
+        # 使用问题和上下文创建聊天完成
+        响应 = client.chat.completions.create(
+            型号=“gpt-4-turbo-preview”，
+            消息=[
+                {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;根据下面的上下文回答问题，如果根据上下文无法回答问题，请说“我不知道”\n\ n”},
+                {&quot;role&quot;: &quot;user&quot;, f&quot;content&quot;: &quot;上下文: {context}\n\n---\n\n问题: {问题}\n答案:&quot;}
+            ],
+            温度=0，
+            最大令牌=最大令牌，
+            顶部_p=1,
+            频率惩罚=0，
+            存在惩罚=0，
+            停止=停止序列，
+        ）
+        返回response.choices[0].message.content
+    除了异常 e：
+        打印(e)
+        返回 ””
 
-使用嵌入来检索相关上下文AI 助手：本教程重点介绍使用嵌入来检索 AI 助手的相关上下文，基于使用 Chat Completions API 的简单聊天助手教程。
-
-
-嵌入过去的对话数据以进行上下文记忆和检索检索：本文讨论了将过去的对话数据嵌入到向量数据库中以实现语义查询的不同方法，包括微调或训练嵌入模型。
-
-
-采用 GPT-3 的专用聊天机器人：这篇文章分解了使用系统提示和基于嵌入的检索来赋予聊天机器人记忆并提供上下文相关响应的能力。
-
-
-无限内存实现：这篇文章讨论了嵌入和/或矢量数据库来检索相关对话并管理要从消息列表中删除的消息索引以节省令牌。
-
-
-如果这些帖子没有解决问题，请随时在此处跟进。]]></description>
-      <guid>https://community.openai.com/t/advice-needed-on-a-specific-use-case/701449#post_2</guid>
-      <pubDate>Fri, 29 Mar 2024 12:08:10 GMT</pubDate>
+]]></description>
+      <guid>https://community.openai.com/t/issue-regarding-the-tutorial-on-website-q-a-with-embedding/701608#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:43:32 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 立即显示响应</title>
-      <link>https://community.openai.com/t/chatgpt-displaying-respons-at-once/701475#post_1</link>
-      <description><![CDATA[当在 ChatGPT 中搜索查询时，它现在会立即显示响应，而不是逐个字母地写入响应。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-displaying-respons-at-once/701475#post_1</guid>
-      <pubDate>Fri, 29 Mar 2024 11:57:10 GMT</pubDate>
+      <title>识别函数调用的“触发令牌”</title>
+      <link>https://community.openai.com/t/identifying-trigger-tokens-for-function-call/701607#post_1</link>
+      <description><![CDATA[有人发现 OpenAI 模型用于识别何时触发 API 函数的特定令牌吗？由于 markdown 错误，我在 ChatGPT 中短暂地看到了它们，但遗憾的是它没有重现。了解此令牌序列对于微调、API 交互，甚至直接 ChatGPT 提示都非常有帮助。就我而言，我正在构建一个微调模型，我需要提示模型何时应该调用 API，何时应该忽略它。
+我很欣赏有关此主题的任何知识！]]></description>
+      <guid>https://community.openai.com/t/identifying-trigger-tokens-for-function-call/701607#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:43:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>为 OpenAI Streams 实现“停止生成”功能</title>
+      <link>https://community.openai.com/t/implementing-a-stop-generating-function-for-openai-streams/701597#post_1</link>
+      <description><![CDATA[大家好，
+我想进一步讨论如何控制 OpenAI API 流调用的终止，以防止生成过多的令牌。这个主题是之前提出的（由于某种原因，我不能在此处包含链接，但路径是“/t/chatgpts-stop-generate-function-how-to-implement/235121/11”），但有一个清晰的代码解决方案还是需要的。
+挑战
+当在openai.chat.completions.create函数中使用stream: true参数时，API将不断生成令牌，直到流自然关闭。如何引入一种机制来按需停止生成？
+这是 API REF 中提供的代码，没有任何展示案例：
+从“openai”导入OpenAI；
+
+const openai = new OpenAI();
+
+异步函数 main() {
+  const 完成 = 等待 openai.chat.completions.create({
+    型号：“gpt-4-1106-预览”，
+    消息：[
+      {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
+      {“角色”：“用户”，“内容”：“您好！”}
+    ],
+    流：真实，
+  });
+
+  for wait (const 完成块) {
+    console.log(chunk.choices[0].delta.content);
+  }
+}
+
+主要的（）;
+
+我认为 for 循环内简单的“中断”不足以关闭连接！对吗？
+您能否提供一个代码示例来演示其中一个或多个解决方案？]]></description>
+      <guid>https://community.openai.com/t/implementing-a-stop-generating-function-for-openai-streams/701597#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:29:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何构建RAG暨推荐系统？</title>
+      <link>https://community.openai.com/t/how-to-build-rag-cum-recommender-system/701594#post_1</link>
+      <description><![CDATA[以下是问题的描述。
+我有一个大型数据集，我发现特定的用户问题可以通过多种方式解决。例如：如果有人问“如何登录 Facebook？”登录 Facebook 的方式可能不止一种，例如使用应用程序或从门户网站等。
+我希望可以生成一种方式作为响应，其源信息存在于文档元数据中。并推荐其他方法的问题。例如：
+人：“如何登录 Facebook？”
+AI：“您可以按照以下步骤使用移动应用程序登录 Facebook：
+…
+…
+…
+您可能还感兴趣：
+推荐问题：“如何从桌面登录 Facebook？”
+…
+…
+来源：
+部分：“...”
+标题：“……”
+Source_uri：“...”
+我将不胜感激任何建议和指导。]]></description>
+      <guid>https://community.openai.com/t/how-to-build-rag-cum-recommender-system/701594#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:24:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的新帐户遇到速率限制错误</title>
+      <link>https://community.openai.com/t/im-facing-rate-limit-error-for-my-new-account/701591#post_1</link>
+      <description><![CDATA[我刚刚创建一个新帐户并尝试创建 API 密钥，结果出现速率限制错误。
+]]></description>
+      <guid>https://community.openai.com/t/im-facing-rate-limit-error-for-my-new-account/701591#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:23:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 团队 - 席位可以撤销吗？</title>
+      <link>https://community.openai.com/t/chatgpt-teams-can-a-seat-be-revoked/701585#post_1</link>
+      <description><![CDATA[因此，我正在使用新的 Teams 帐户进行测试，添加一个虚拟用户以从新用户的角度查看事物，然后删除/撤销该用户。以为只剩下我（管理员）了，但它仍然显示有两个座位。现在我担心如果我邀请一个新用户，当我只使用两个时，座位会增加到 3 个，因此也会面临额外的费用......
+是计数不对，还是我错过了正确踢出虚拟帐户的步骤？
+任何建议都会很棒。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-teams-can-a-seat-be-revoked/701585#post_1</guid>
+      <pubDate>Fri, 29 Mar 2024 14:20:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
