@@ -4,59 +4,112 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 30 Mar 2024 03:21:42 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2024 06:21:39 GMT</lastBuildDate>
     <item>
-      <title>我可以在哪里报告问题</title>
-      <link>https://community.openai.com/t/where-i-can-report-problem-about-problem/700563#post_3</link>
-      <description><![CDATA[如果你遇到的事情让你有这样的感觉，那一定是有点令人沮丧。但对我来说，沟通问题与 GPT 没有直接关系。至于我接触过的个人或公司，情况各不相同。他们的责任是解决我们过去收到的关于我们的人工智能仍在学习和发展的问候信息。我只是随口提到，这就像一个低级公司，每当出现问题时就用聊天机器人作为借口。之后，我就再没有看到过这条消息。关于我想报告的内容，我只是发现帮助中心中针对此类聊天机器人的系统问题似乎是最近出现的。某人消失一个月然后回复一次已经很常见了。但在使用机器人收集丢失数据的情况下，这种情况才刚刚开始。除了烦人之外，它还使数据管理变得更加困难。他们要求发送的一些图像最终出现在其他聊天中，而不是出现在提出问题的聊天中。
-ในวันที่พฤ。 28 มี.ค。 2024 年 20:26 Jay F 通过 OpenAI 开发者论坛 notifications@openai1.discoursemail.com&gt;回复：]]></description>
-      <guid>https://community.openai.com/t/where-i-can-report-problem-about-problem/700563#post_3</guid>
-      <pubDate>Sat, 30 Mar 2024 03:16:23 GMT</pubDate>
+      <title>从 firebase index.js 文件完成调用</title>
+      <link>https://community.openai.com/t/completion-calling-from-firebase-index-js-file/702108#post_1</link>
+      <description><![CDATA[嗨，
+Chatgpt 和 Claude 先生说写在这里。
+在 vs code 中使用 firebase cli，编写公共 app.js，它会调用 index.js 中的 httpsCallable 以进行 https.onCall openai.completions.create 或 openai.chat.completion.create 的服务器处理，或者它应该是什么？
+Firebase 控制台日志定期返回我的错误处理，以尝试生成场景函数的“错误生成场景：TypeError：无法读取未定义的属性（读取‘完成’）”。下面粘贴的函数作为参考 
+所有 firebase node_modules 均安装到当前并初始化。
+const openai = new OpenAI({
+apiKey: “密钥在这里——”,
+});
+const OpenAI = require(&#39;openai&#39;);
+exports.generateScenario = functions.https.onCall(async (data, context) =&gt; {
+尝试{
+console.log(&#39;收到数据：&#39;, data);
+const 提示 = data.prompt;
+console.log(&#39;提示：&#39;, 提示);
+const response = wait openai.completions.create({
+  型号：“gpt-3.5-turbo”，
+  messages: [{role: &quot;system&quot;, content: &quot;根据以下提示生成场景。&quot;}, {role: &quot;user&quot;, content: Prompt}],
+});
+console.log(&#39;OpenAI 响应：&#39;, response.data);
+
+if (response.data &amp;&amp; response.data.choices &amp;&amp; response.data.choices.length &gt; 0) {
+  const generatedText = response.data.choices[0].message.content.trim();
+  console.log(&#39;生成的文本：&#39;, generatedText);
+  返回生成的文本；
+} 别的 {
+  throw new Error(&#39;无法生成场景&#39;);
+}
+
+} 捕获（错误）{
+console.error(‘生成场景时出错：’, error);
+抛出新函数。https.HttpsError(‘internal’, error.message);
+}
+});]]></description>
+      <guid>https://community.openai.com/t/completion-calling-from-firebase-index-js-file/702108#post_1</guid>
+      <pubDate>Sat, 30 Mar 2024 06:18:45 GMT</pubDate>
     </item>
     <item>
-      <title>Law&Ethics 和 Etik ve Ahlak 讨论这些人工智能问题</title>
-      <link>https://community.openai.com/t/law-ethics-and-etik-ve-ahlak-on-these-ai-issues/702023#post_1</link>
-      <description><![CDATA[我不知道应该在哪里进行此类讨论。 Reddit 对于真正的讨论来说太主流了，所以我正在寻找一个论坛，在那里我可以讨论 Elon 关于这些问题的安全性的建议。我是不是发错地址了？]]></description>
-      <guid>https://community.openai.com/t/law-ethics-and-etik-ve-ahlak-on-these-ai-issues/702023#post_1</guid>
-      <pubDate>Sat, 30 Mar 2024 03:16:01 GMT</pubDate>
+      <title>如何让助理了解其他助理？</title>
+      <link>https://community.openai.com/t/how-to-make-assistants-aware-of-the-other-ones/702107#post_1</link>
+      <description><![CDATA[嘿，冠军们
+我现在正在开发一个涉及助手 API 的客户项目，我很好奇您如何处理这样一个事实：如果您尝试在一个线程中与多个助手一起工作，他们似乎不知道其他助手。
+线程示例：
+&lt;块引用&gt;
+
+
+用户：嗨
+
+
+助理1：您好！今天我能为您提供什么帮助吗？
+
+
+用户：创建博客文章页面
+
+
+助理 1：博客文章页面已为您创建。
+
+
+助理 2：要继续，我需要一些信息来为您的博客文章创建内容。您能否提供以下详细信息：
+
+
+主题：
+
+
+目标受众：
+
+
+博客文章目标：
+
+
+支持示例：
+
+
+号召性用语：
+
+
+用户：谁写了“你好！今天我能为您提供什么帮助？”？
+
+
+助理 2：我在谈话开始时生成了这条消息来问候您。如果您有任何疑问或需要帮助，请随时询问！
+
+
+
+这种缺乏理解会在使用多代理方法时产生各种问题。
+你如何处理这个问题？]]></description>
+      <guid>https://community.openai.com/t/how-to-make-assistants-aware-of-the-other-ones/702107#post_1</guid>
+      <pubDate>Sat, 30 Mar 2024 06:18:37 GMT</pubDate>
     </item>
     <item>
-      <title>Playground 和 API 之间的响应不一致</title>
-      <link>https://community.openai.com/t/inconsistent-responses-between-playground-and-api/701857#post_2</link>
-      <description><![CDATA[您的“温度：1”。
-这就像问为什么 Yahtzee 游戏每次都不一样，即使您使用完全相同的骰子。]]></description>
-      <guid>https://community.openai.com/t/inconsistent-responses-between-playground-and-api/701857#post_2</guid>
-      <pubDate>Sat, 30 Mar 2024 02:32:17 GMT</pubDate>
+      <title>ChatGPT 中的聊天两层排序可改善组织和可访问性</title>
+      <link>https://community.openai.com/t/two-tiered-sorting-of-chats-in-chatgpt-for-improved-organization-and-accessibility/561434#post_5</link>
+      <description><![CDATA[听起来很合乎逻辑，但我在哪里可以找到 ChatGPT 侧边栏的 URL？您能否提供更多详细信息以方便用户处理？]]></description>
+      <guid>https://community.openai.com/t/two-tiered-sorting-of-chats-in-chatgpt-for-improved-organization-and-accessibility/561434#post_5</guid>
+      <pubDate>Sat, 30 Mar 2024 06:10:44 GMT</pubDate>
     </item>
     <item>
-      <title>访问“myfiles_browser”</title>
-      <link>https://community.openai.com/t/access-to-myfiles-browser/651183#post_3</link>
-      <description><![CDATA[myfiles_browser 是 API 助手“检索”文件中的语义搜索工具。
-它用于回答您的文档，这是一种人工智能，它会进行函数调用，而不是回答（由您承担费用）调用工具并获取搜索结果，然后“单击”文档并阅读它们以找出答案如果没有任何与用户输入相关的内容。
-因此，只需使用助手检索，就像将文件上传到 ChatGPT 或在 ChatGPT Plus 中将文件添加到 GPT 一样。]]></description>
-      <guid>https://community.openai.com/t/access-to-myfiles-browser/651183#post_3</guid>
-      <pubDate>Sat, 30 Mar 2024 02:28:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何应对“懒惰”的GPT 4</title>
-      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=6#post_108</link>
-      <description><![CDATA[这是一个大问题。 “懒惰”是描述它的完美词，特别是因为我发现的唯一解决办法是诉诸 chatGPT 的慈善方面，说服它来帮助你。我发现它无法/不愿意阅读 pdf，直到我多次恳求它并谢谢你，几乎乞求它帮忙]]></description>
-      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=6#post_108</guid>
-      <pubDate>Sat, 30 Mar 2024 01:56:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我会收到一封电子邮件，告知我的帐户 API 已被禁止？</title>
-      <link>https://community.openai.com/t/why-did-i-receive-an-email-that-my-account-api-was-banned/701739#post_7</link>
-      <description><![CDATA[我可能不完全同意你的观点。华侨银行是一家新加坡银行，其主要用户是新加坡人。我的同事也使用OCBC，但没有被禁止。我主要是想知道被封禁的具体原因，至少需要一个解释。]]></description>
-      <guid>https://community.openai.com/t/why-did-i-receive-an-email-that-my-account-api-was-banned/701739#post_7</guid>
-      <pubDate>Sat, 30 Mar 2024 01:43:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>Open AI Assistant api中如何设置模型的温度等采样参数？</title>
-      <link>https://community.openai.com/t/how-to-set-temperature-and-other-sampling-parameters-of-model-in-open-ai-assistant-api/486368?page=2#post_38</link>
-      <description><![CDATA[太棒了。我注意到它已记录在 API 中，但尚未成为已发布的 Python API 的一部分？]]></description>
-      <guid>https://community.openai.com/t/how-to-set-temperature-and-other-sampling-parameters-of-model-in-open-ai-assistant-api/486368?page=2#post_38</guid>
-      <pubDate>Sat, 30 Mar 2024 01:34:45 GMT</pubDate>
+      <title>将图像导出为带图层的可编辑文件</title>
+      <link>https://community.openai.com/t/exporting-image-as-editable-files-with-layers/702084#post_1</link>
+      <description><![CDATA[大家好，
+我对以各种格式导出图像的功能感兴趣。有没有可用的插件来促进这一点？虽然我知道此类功能可能超出了 ChatGPT-4 当前的范围，但能够保存和导出带有图层的图像以在设计程序中进一步自定义将是非常棒的。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/exporting-image-as-editable-files-with-layers/702084#post_1</guid>
+      <pubDate>Sat, 30 Mar 2024 05:37:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
