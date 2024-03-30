@@ -4,112 +4,88 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 30 Mar 2024 06:21:39 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2024 09:16:04 GMT</lastBuildDate>
     <item>
-      <title>从 firebase index.js 文件完成调用</title>
-      <link>https://community.openai.com/t/completion-calling-from-firebase-index-js-file/702108#post_1</link>
-      <description><![CDATA[嗨，
-Chatgpt 和 Claude 先生说写在这里。
-在 vs code 中使用 firebase cli，编写公共 app.js，它会调用 index.js 中的 httpsCallable 以进行 https.onCall openai.completions.create 或 openai.chat.completion.create 的服务器处理，或者它应该是什么？
-Firebase 控制台日志定期返回我的错误处理，以尝试生成场景函数的“错误生成场景：TypeError：无法读取未定义的属性（读取‘完成’）”。下面粘贴的函数作为参考 
-所有 firebase node_modules 均安装到当前并初始化。
-const openai = new OpenAI({
-apiKey: “密钥在这里——”,
-});
-const OpenAI = require(&#39;openai&#39;);
-exports.generateScenario = functions.https.onCall(async (data, context) =&gt; {
-尝试{
-console.log(&#39;收到数据：&#39;, data);
-const 提示 = data.prompt;
-console.log(&#39;提示：&#39;, 提示);
-const response = wait openai.completions.create({
-  型号：“gpt-3.5-turbo”，
-  messages: [{role: &quot;system&quot;, content: &quot;根据以下提示生成场景。&quot;}, {role: &quot;user&quot;, content: Prompt}],
-});
-console.log(&#39;OpenAI 响应：&#39;, response.data);
-
-if (response.data &amp;&amp; response.data.choices &amp;&amp; response.data.choices.length &gt; 0) {
-  const generatedText = response.data.choices[0].message.content.trim();
-  console.log(&#39;生成的文本：&#39;, generatedText);
-  返回生成的文本；
-} 别的 {
-  throw new Error(&#39;无法生成场景&#39;);
-}
-
-} 捕获（错误）{
-console.error(‘生成场景时出错：’, error);
-抛出新函数。https.HttpsError(‘internal’, error.message);
-}
-});]]></description>
-      <guid>https://community.openai.com/t/completion-calling-from-firebase-index-js-file/702108#post_1</guid>
-      <pubDate>Sat, 30 Mar 2024 06:18:45 GMT</pubDate>
+      <title>微软初创公司创始人中心</title>
+      <link>https://community.openai.com/t/microsoft-for-startups-founders-hub/702201#post_1</link>
+      <description><![CDATA[‌‌大家好，10 天前我被 Microsoft for Startups Founders Hub 录取，他们赠送了我价值 2500 美元的 ChatGPT API。我按照要求填写了申请表，但是已经10天了，我仍然没有收到回复或API。我使用 https://help.openai.com/ 的消息功能来询问客户服务，但是只收到自动回复，没有来自真人的回复。以前有人遇到过这个问题吗？怎么解决呢？谢谢。]]></description>
+      <guid>https://community.openai.com/t/microsoft-for-startups-founders-hub/702201#post_1</guid>
+      <pubDate>Sat, 30 Mar 2024 09:15:11 GMT</pubDate>
     </item>
     <item>
-      <title>如何让助理了解其他助理？</title>
-      <link>https://community.openai.com/t/how-to-make-assistants-aware-of-the-other-ones/702107#post_1</link>
-      <description><![CDATA[嘿，冠军们
-我现在正在开发一个涉及助手 API 的客户项目，我很好奇您如何处理这样一个事实：如果您尝试在一个线程中与多个助手一起工作，他们似乎不知道其他助手。
-线程示例：
+      <title>有什么办法可以复制一个线程吗？</title>
+      <link>https://community.openai.com/t/any-way-to-duplicate-a-thread/660969#post_5</link>
+      <description><![CDATA[
+
+
+ 托尼AIChamp：
 &lt;块引用&gt;
+我错过了什么吗？
 
 
-用户：嗨
-
-
-助理1：您好！今天我能为您提供什么帮助吗？
-
-
-用户：创建博客文章页面
-
-
-助理 1：博客文章页面已为您创建。
-
-
-助理 2：要继续，我需要一些信息来为您的博客文章创建内容。您能否提供以下详细信息：
-
-
-主题：
-
-
-目标受众：
-
-
-博客文章目标：
-
-
-支持示例：
-
-
-号召性用语：
-
-
-用户：谁写了“你好！今天我能为您提供什么帮助？”？
-
-
-助理 2：我在谈话开始时生成了这条消息来问候您。如果您有任何疑问或需要帮助，请随时询问！
-
-
-
-这种缺乏理解会在使用多代理方法时产生各种问题。
-你如何处理这个问题？]]></description>
-      <guid>https://community.openai.com/t/how-to-make-assistants-aware-of-the-other-ones/702107#post_1</guid>
-      <pubDate>Sat, 30 Mar 2024 06:18:37 GMT</pubDate>
+您只能添加用户消息。助理角色已被阻止，因此您无法重新创建对话。还有工具调用和返回消息完全被阻塞。
+Google 助理是一台拒绝机器。]]></description>
+      <guid>https://community.openai.com/t/any-way-to-duplicate-a-thread/660969#post_5</guid>
+      <pubDate>Sat, 30 Mar 2024 09:08:54 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 中的聊天两层排序可改善组织和可访问性</title>
-      <link>https://community.openai.com/t/two-tiered-sorting-of-chats-in-chatgpt-for-improved-organization-and-accessibility/561434#post_5</link>
-      <description><![CDATA[听起来很合乎逻辑，但我在哪里可以找到 ChatGPT 侧边栏的 URL？您能否提供更多详细信息以方便用户处理？]]></description>
-      <guid>https://community.openai.com/t/two-tiered-sorting-of-chats-in-chatgpt-for-improved-organization-and-accessibility/561434#post_5</guid>
-      <pubDate>Sat, 30 Mar 2024 06:10:44 GMT</pubDate>
+      <title>GPT 始终允许请求</title>
+      <link>https://community.openai.com/t/gpts-allow-requests-all-time/691481#post_5</link>
+      <description><![CDATA[如果您使用的是 openApiSchema，那么您需要将 x-openai-isConsequential 设置为 false
+
+如果我没记错的话，用户仍然需要设置为始终允许首次使用。]]></description>
+      <guid>https://community.openai.com/t/gpts-allow-requests-all-time/691481#post_5</guid>
+      <pubDate>Sat, 30 Mar 2024 08:58:32 GMT</pubDate>
     </item>
     <item>
-      <title>将图像导出为带图层的可编辑文件</title>
-      <link>https://community.openai.com/t/exporting-image-as-editable-files-with-layers/702084#post_1</link>
-      <description><![CDATA[大家好，
-我对以各种格式导出图像的功能感兴趣。有没有可用的插件来促进这一点？虽然我知道此类功能可能超出了 ChatGPT-4 当前的范围，但能够保存和导出带有图层的图像以在设计程序中进一步自定义将是非常棒的。
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/exporting-image-as-editable-files-with-layers/702084#post_1</guid>
-      <pubDate>Sat, 30 Mar 2024 05:37:46 GMT</pubDate>
+      <title>无法获取上传状态</title>
+      <link>https://community.openai.com/t/failed-to-get-upload-status/567808#post_5</link>
+      <description><![CDATA[这里有同样的问题。似乎只发生在我的自定义 GPT 中，
+这是否已被正式记录为错误？]]></description>
+      <guid>https://community.openai.com/t/failed-to-get-upload-status/567808#post_5</guid>
+      <pubDate>Sat, 30 Mar 2024 08:44:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 不遵循说明</title>
+      <link>https://community.openai.com/t/openai-doesnt-follow-the-instructions/701424#post_3</link>
+      <description><![CDATA[
+
+
+_j：
+&lt;块引用&gt;
+您无法为 DALL-E 3 提供图像。
+
+
+我应该使用哪个模型和哪个 API 来修改现有图像？
+
+
+
+_j：
+&lt;块引用&gt;
+您真正想要接收的图像是难以捉摸的。即使是人类画家也很难辨别你和英国人的愿望。
+
+
+这篇文章只是我所做的众多测试之一。我一步一步地添加了越来越多的细节，因为人工智能完全误解了我并忽略了规范。一开始的描述只是：“从正面看到的罗莎山的测高轮廓，在地平线上非常突出，风格化，黑白分明。”
+现在我尝试了这个：“黑白和 2D 的罗莎山山高程剖面图。”。恕我直言，这个定义非常精确；但结果完全是骗人的，看起来AI在跟我开玩笑。如果您对二维高度剖面或高程剖面有更精确的定义，欢迎您。
+看一个例子来说明我的意思：
+]]></description>
+      <guid>https://community.openai.com/t/openai-doesnt-follow-the-instructions/701424#post_3</guid>
+      <pubDate>Sat, 30 Mar 2024 08:44:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误：您超出了当前配额，请检查您的计划和账单详细信息</title>
+      <link>https://community.openai.com/t/error-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/689526#post_8</link>
+      <description><![CDATA[您好 - 您的帐户上有足够的预付积分吗？]]></description>
+      <guid>https://community.openai.com/t/error-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/689526#post_8</guid>
+      <pubDate>Sat, 30 Mar 2024 08:32:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>大家好，这个问题应该得到解决，“无法读取/访问“配置选项卡”中的文件</title>
+      <link>https://community.openai.com/t/hello-all-this-was-supposed-to-be-resolved-unable-to-read-access-the-files-in-configure-tab/648544#post_3</link>
+      <description><![CDATA[补充一下，这是我在使用 Open AI 的 Assistant API 构建解决方案时面临的最大挑战之一。如果没有可靠的方法来确保文件被访问，自动化就会以惊人的速度失败。
+这个问题还远没有解决。]]></description>
+      <guid>https://community.openai.com/t/hello-all-this-was-supposed-to-be-resolved-unable-to-read-access-the-files-in-configure-tab/648544#post_3</guid>
+      <pubDate>Sat, 30 Mar 2024 08:21:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
