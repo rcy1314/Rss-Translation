@@ -4,7 +4,28 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 31 Mar 2024 06:20:08 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 Mar 2024 09:17:27 GMT</lastBuildDate>
+    <item>
+      <title>本地 Python 应用程序的浏览器内界面</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bs6479/inbrowser_interface_for_a_local_python_application/</link>
+      <description><![CDATA[前言：  我是 Python 的初学者，没有前端 UI 经验开发 我精通 Node.js  我有一个 Python 的 CLI 应用程序。我想为其提供一个基于浏览器的交互式前端。 这是我正处于十字路口的地方，确实需要一些建议：  我应该使用一个前端框架，或者我可以使用普通的 JS 吗？我将拥有一个交互式页面，其中包含约 5 个表单/按钮，以及交互式表格数据可视化。 是否有一个涉及 React（或 Svelte 或 vanilla JS）前端、Node.js 前端的架构？ js 后端来弥合差距，而我的业务逻辑的 Python 应用程序是一个明智的方法吗？  这对我来说有点未知的领域，所以我洗耳恭听任何经验和建议，或者你们可能有的指点。 提前致谢！   由   提交/u/rafasofizadeh  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bs6479/inbrowser_interface_for_a_local_python_application/</guid>
+      <pubDate>Sun, 31 Mar 2024 09:09:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用空 Cookie 获取 401（未经授权）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bs4ez2/getting_401_unauthorized_with_empty_cookie/</link>
+      <description><![CDATA[当我访问 http:// 时收到 401（未经授权） localhost:5000/api/users/ 来自react，但是当我在邮递员中测试时运行良好，问题是当有人登录时应该在浏览器中添加 jwt 令牌作为 cookie，但不知何故它实际上不是，当我手动访问 cookies 部分或使用 console.log 我得到了未定义。我尝试在我的登录挂钩中添加 jwt 令牌作为来自 React 的 cookie。 ``js import { useState } from “react” import来自“react-hot-toast”的 toast 从“../context/AuthContext”导入 { useAuthContext } const useLogin = () =&gt; { const [loading, setLoading] = useState(false) const { authUser, setAuthUser } = useAuthContext() const login = async (用户名,密码）=&gt; { if (!用户名 || !密码) { return toast.error(&#39;请填写两个字段&#39;) } &lt; p&gt;setLoading(true) 尝试{ const res = wait fetch(&#39;http://localhost:5000/api/auth/login&#39;, { &lt; p&gt;方法：&#39;POST&#39;， 标头：{ &#39;Content-Type&#39;：&#39;application/json&#39; }， &lt; p&gt;body: JSON.stringify({ 用户名, 密码 }) }) const data = wait res.json() if (data.错误）{ toast.error(data.error) } setLoading(false) toast.success(&#39;已记录成功&#39;) localStorage.setItem(&#39;chat-user&#39;, JSON.stringify(data)) setAuthUser(data) const token = &#39; secureToken=&#39;+encodeURIComponent(authUser.token); // &lt;- 这里 document.cookie = token; } catch (error) { console.error(error.message) } } 返回{加载，登录} } 导出默认useLogin ``` 仍然收到 401（未经授权）意味着后端无法获取 jwt 令牌，因此抛出此错误 loginController.js ` ``js const login = async (req, res) =&gt; { 尝试{ const { 用户名, 密码 } = req.body; const user = wait User.findOne({ 用户名 }); const isPasswordCorrect = wait bcrypt.compare(密码, 用户?.密码 || &quot;&quot;); &lt; p&gt;if (!user || !isPasswordCorrect) { return res.status(400).json({ error: &quot;无效的用户名或密码&quot; }); }  const token =generateToken(user._id, res); res.status(200).json({...user, token: token}); res.status(200).json({...user, token: token}); &gt; } catch (error) { console.log(&quot;登录控制器出错&quot;, error.message); res.status(500).json( { error: “内部服务器错误” }); } } ``` generateToken.js ```js const jwt = require(&#39;jsonwebtoken&#39;); constgenerateToken = (id, res) =&gt;; { const token = jwt.sign({id}, process.env.JWT_SECRET, { expiresIn: &#39;30d&#39; }) res.cookie(“secureToken”, token,{ httpOnly: true }) 返回令牌; &lt; p&gt;} module.exports =generateToken; ``` authorize.js（用于验证检查经过身份验证的用户的中间件） ```js const jwt = require(&#39;jsonwebtoken&#39;); const User = require(&#39;../models/userModel&#39;); const 授权 = async (req, res, next) =&gt; { 尝试{ const token = req.cookies.secureToken if (!token) return res.status(401).json({ error: “未经授权，访问被拒绝” }) const demod = jwt.verify(token, process.env.JWT_SECRET) const user = wait User.findOne({ _id: &lt; a href=&quot;https://decoded.id&quot;&gt;decoded.id }).select(&#39;-password&#39;) if (!user) {  return res.status(401).json({ error: &quot;未经授权，访问被拒绝&quot; }) } req.user = user next () } catch (e) { console.error(e) res.status(500).json({ error: &quot;服务器错误” }) } } module.exports = Authorize; ``` 抱歉，如果这不是获得有关此问题的帮助的正确位置，请提供正确的 sub reddit   由   提交/u/sidharthbh8  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bs4ez2/getting_401_unauthorized_with_empty_cookie/</guid>
+      <pubDate>Sun, 31 Mar 2024 07:10:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>您对 CSS 锚点：悬停过渡效果感觉如何？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bs3rzm/how_do_you_feel_about_css_anchor_hover_transition/</link>
+      <description><![CDATA[以科学的名义。 查看民意调查   由   提交/u/icomplimentassholes   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bs3rzm/how_do_you_feel_about_css_anchor_hover_transition/</guid>
+      <pubDate>Sun, 31 Mar 2024 06:30:05 GMT</pubDate>
+    </item>
     <item>
       <title>我的 UI 库的捆绑器。</title>
       <link>https://www.reddit.com/r/webdev/comments/1bs2kfi/bundler_for_my_ui_library/</link>
@@ -27,7 +48,7 @@
       <pubDate>Sun, 31 Mar 2024 03:18:58 GMT</pubDate>
     </item>
     <item>
-      <title>我可以使用 WordPress 创建一个具有以下功能并且零编程技能的网站吗？</title>
+      <title>我可以使用 WordPress 和零编程技能创建一个执行以下操作的网站吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1brxd2d/can_i_create_a_website_that_does_the_following/</link>
       <description><![CDATA[ 登录功能 每个人都可以创建博客文章 每个人都可以对彼此的帖子进行投票（这会推高它），并且可以评论彼此的帖子  我怀疑任何非编程系统都可以做到这一点，但是： 4）算法系统这会将您喜欢的内容推送给您 我可以使用 wordpress 或任何其他可以以零编程技能创建此类网站的系统吗？ 谢谢   由   提交/u/DBKing555  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1brxd2d/can_i_create_a_website_that_does_the_following/</guid>
@@ -57,7 +78,7 @@
     <item>
       <title>我需要雇用谁？</title>
       <link>https://www.reddit.com/r/webdev/comments/1bruqix/who_do_i_need_to_hire/</link>
-      <description><![CDATA[（我不是来雇用此子人员的，但对谁有疑问 谁&lt; /em&gt; 我需要招聘。） 我正在寻找帮助，为大中型网站的大量网站进行设计和开发工作公司。我需要这些网站的专家结果（设计和构建新页面、部分、功能以及对这些网站进行故障排除）。 这些网站位于 WordPress、Webflow、Wix 和 Squarespace 上。 &lt; p&gt;我不清楚我需要雇用谁：  我需要雇用一名网页设计师和网页开发人员作为单独的角色吗？ 我需要为每个平台聘请单独的专家？  高质量的工作在这里极其重要，所以我不知道将所有这些角色分开是否有意义，或者是否有可能聘请能够在设计和设计方面取得出色成果的人。跨多个平台的开发。 非常感谢。我感到迷失了！   由   提交 /u/GetaSubaru   [链接] [评论]]]></description>
+      <description><![CDATA[（我不是来招聘此子团队的人员，但对谁有疑问 谁&lt; /em&gt; 我需要招聘。） 我正在寻找帮助，为大中型网站的大量网站进行设计和开发工作公司。我需要这些网站的专家结果（设计和构建新页面、部分、功能以及对这些网站进行故障排除）。 这些网站位于 WordPress、Webflow、Wix 和 Squarespace 上。 &lt; p&gt;我不清楚我需要雇用谁：  我需要雇用一名网页设计师和网页开发人员作为单独的角色吗？ 我需要为每个平台聘请单独的专家？  高质量的工作在这里极其重要，所以我不知道将所有这些角色分开是否有意义，或者是否有可能聘请能够在设计和设计方面取得出色成果的人。跨多个平台的开发。 非常感谢。我感到迷失了！   由   提交 /u/GetaSubaru   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bruqix/who_do_i_need_to_hire/</guid>
       <pubDate>Sat, 30 Mar 2024 22:47:54 GMT</pubDate>
     </item>
@@ -78,7 +99,7 @@
     <item>
       <title>烤/帮第一专业自助广告网站</title>
       <link>https://www.reddit.com/r/webdev/comments/1brt5lw/roasthelp_first_professional_selfadvertising/</link>
-      <description><![CDATA[大家好， 我为自己推出了第一个网站，以公开宣传我的编程业务。我希望尽可能保持简约，以传达重要内容，并节省人们阅读一堆废话的时间。 也是第一次使用 WordPress，并创建了一个功能最少的小型网站。我的项目都使用框架或仅使用原始语言。感觉它满足了我的要求，但也感觉太无特色了🙃 最后，我对服务不确定，我通常不认为企业对前期成本透明，我想改变这一点。该页面似乎还可以使用更多内容来帮助传达我能够做的事情，但我不确定什么.. 🤔  想法？烤？ https://abyssaldev.com/ 更新 1：收到一些反馈一位朋友负责实施已完成的项目概述并与客户联系以获得推荐。这是我接下来要在网站中实现的内容。   由   提交/u/Snowdevil042   [链接] [评论]]]></description>
+      <description><![CDATA[大家好， 我为自己推出了第一个网站，以公开宣传我的编程业务。我希望尽可能保持简约，以传达重要的内容，并节省人们阅读一堆废话的时间。 也是第一次使用 WordPress，并创建了一个功能最少的小型网站。我的项目都使用框架或仅使用原始语言。感觉它满足了我的要求，但也感觉太无特色了🙃 最后，我对服务不确定，我通常不认为企业对前期成本透明，我想改变这一点。该页面似乎还可以使用更多内容来帮助传达我能够做的事情，但我不确定什么.. 🤔  想法？烤？ https://abyssaldev.com/ 更新 1：收到一些反馈一位朋友负责实施已完成的项目概述并与客户联系以获得推荐。这是我接下来要在网站中实现的内容。   由   提交/u/Snowdevil042   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1brt5lw/roasthelp_first_professional_selfadvertising/</guid>
       <pubDate>Sat, 30 Mar 2024 21:40:08 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[我有一个静态站点，作为家庭服务器在 Raspberry Pi 上运行，该站点是使用 vanilla HTML CSS 和 JS 构建的。我将其用于我尝试过的小项目，作为长期技能培养的一部分。每个页面都有自己的目录，其中包含该项目的所有相关文件。其中之一使用 PHP，我想在下一个中尝试使用 Node.JS。有没有办法使用带有 href 的普通 a 标签从 HTML 索引页面打开节点页面？ TIA    ;由   提交 /u/PedroHicko   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1brsyht/link_static_site_to_node_project/</guid>
       <pubDate>Sat, 30 Mar 2024 21:31:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>地形扩散 - 使用扩散模型绘制无限景观。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1brswtg/terrain_diffusion_paint_infinite_landscapes_using/</link>
-      <description><![CDATA[ 由   提交/u/sshh12  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1brswtg/terrain_diffusion_paint_infinite_landscapes_using/</guid>
-      <pubDate>Sat, 30 Mar 2024 21:29:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以更改 JavaScript 语法语言吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1brsw9s/can_i_change_javascript_syntax_language/</link>
-      <description><![CDATA[英语不是我的主要语言，所以我想知道是否有某种方法可以翻译语法？我用谷歌搜索但不太幸运。如果有帮助的话，我正在使用 VSCode！ 谢谢大家！   由   提交/u/ai_naum_filho  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1brsw9s/can_i_change_javascript_syntax_language/</guid>
-      <pubDate>Sat, 30 Mar 2024 21:29:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>LLM 不应该写 SQL</title>
-      <link>https://www.reddit.com/r/webdev/comments/1brs8hg/llms_shouldnt_write_sql/</link>
-      <description><![CDATA[     &lt; /td&gt;  由   提交/u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1brs8hg/llms_shouldnt_write_sql/</guid>
-      <pubDate>Sat, 30 Mar 2024 21:01:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
