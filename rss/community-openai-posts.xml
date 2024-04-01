@@ -4,168 +4,174 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 01 Apr 2024 09:20:24 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2024 12:33:58 GMT</lastBuildDate>
     <item>
-      <title>用于微调的混合训练数据</title>
-      <link>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_8</link>
-      <description><![CDATA[
-
-
-库纳尔：
-&lt;块引用&gt;
-我仍然可以保留较大模型的通用知识
-
-
-在应用样式之前，应用程序必须了解消息的内容/含义。这里天空是极限，样式模型只是以您需要的样式重写输出。]]></description>
-      <guid>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_8</guid>
-      <pubDate>Mon, 01 Apr 2024 09:15:05 GMT</pubDate>
+      <title>如何降低提示代币价格</title>
+      <link>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_3</link>
+      <description><![CDATA[我正在寻找降低代币成本的方法。这是一个 GPT 助手，旨在为出租车司机提供有关当地法律和适合出租车运营的车辆的信息。然而，完成一条提示需要大约 90k 令牌，这对于每条用户消息来说是相当昂贵的。我正在探索减少这笔巨额象征性支出的方法。也许实施仅在用户查询时获取法律的工具，或者采用缓存机制可以减少支出，确保我不必为每条消息支付 0.5 美元。
+提前致谢]]></description>
+      <guid>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_3</guid>
+      <pubDate>Mon, 01 Apr 2024 12:33:03 GMT</pubDate>
     </item>
     <item>
-      <title>用于微调的混合训练数据</title>
-      <link>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_7</link>
-      <description><![CDATA[
-
-
-库纳尔：
-&lt;块引用&gt;
-那么，当添加从原始文本到样式文本的微调模型时，您通常如何在系统级别提示这些模型？
-
-
-类似于（系统消息）“请按照您的风格重写提供的文本：”。
-用户消息是原始文本输入，已经经过您的逻辑处理，即最终答案。样式只是应用程序处理的输出的“过滤器”。
-提示必须与训练中使用的提示完全匹配。
-有时，需要风格参数（语气变化、情感等）。通常情况下，去样式文本会丢失该信息。在这些情况下，将进行如下特殊培训：
-
-在对输入文本进行去样式化之前分析样式/提取所需的元数据。
-取消输入文本的样式。
-使用提取的参数创建系统提示，例如：请按照您的风格重写给定的文本。确保使用 $text_tone 语气，让读者明白您处于 $text_mood 中。
-使用去样式化的文本作为用户消息
-使用原文作为辅助消息。
-
-训练完成后，使用完全相同的提示格式为文本添加样式。
-
-
-
-库纳尔：
-&lt;块引用&gt;
-如果是这样，模型在提示如何在已经发生的微调之外设置文本样式时如何具有上下文？
-
-
-该模型没有如何设置文本样式的上下文。您需要了解，当所需的样式是模型可以生成的唯一样式时，可以获得最佳的样式性能。这就是微调的目的。使用上述方法并在系统消息中提供参数可以实现相同样式内的一些变化，但如果您想获得最大的输出质量，它们应该是最小的变化。当您的应用绝对需要多种样式时，保持质量的最佳方法是为每种样式使用单独的模型。
-现在，如果您只想要一个能够根据“参数”切换样式的模型，为了获得不错的结果，您需要在训练中每种样式至少有 2k 个样本，并将样式作为参数包含在系统消息中（请参阅方法多于）。但模型质量通常仍低于“特定风格”模型。
-哦，还有输出的内容方面。除了以新样式返回的用户消息中的文本（不改变含义）之外，没有与内容相关的上下文。如果您的应用程序在此步骤需要更改含义，则很可能您的逻辑存在错误。保留这一点以防有人不确定这一点。]]></description>
-      <guid>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_7</guid>
-      <pubDate>Mon, 01 Apr 2024 09:10:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了可以交互图像的 OpenAI</title>
-      <link>https://community.openai.com/t/i-have-built-openai-that-can-interact-images/703830#post_1</link>
-      <description><![CDATA[Warung.ai 开发人员构建了可以与图像交互的 OpenAI。
-观看演示：Warung-AI-Channel
-访问我们的网站：www.warungai.xyz。
-谢谢。
-&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/i-have-built-openai-that-can-interact-images/703830#post_1</guid>
-      <pubDate>Mon, 01 Apr 2024 09:06:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt4视觉和函数调用</title>
-      <link>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_4</link>
-      <description><![CDATA[这是一篇懒惰的帖子：
-
-OP 询问的是愿景而不是图像创作
-请使用Markdown 提供的代码分隔。
-也许可以考虑在您的代码中添加一些描述 - 即使英语不是您的母语 - 也许可以借助翻译工具？
+      <title>从一百万个代币中你能得到多少个西里尔字母？</title>
+      <link>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_3</link>
+      <description><![CDATA[谢谢！是的，我的意思是我可以用一百万个代币“购买”多少保加利亚语单词。我见过这个服务，但我不确定它是否正常工作。为了进行测试，我粘贴了定价页面 定价 中的文本
+“多种型号，每种型号都有不同的功能和价格点。价格可以以每 1M 或 1K 代币为单位查看。您可以将代币视为单词的片段，其中 1,000 个代币约为 750 个单词。本段是35 个代币。”
+正如你从屏幕截图中看到的，它根本没有显示 35 个令牌，而是 52 个（而且我还没有插入关于令牌的最后一个短语）...
 ]]></description>
-      <guid>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_4</guid>
-      <pubDate>Mon, 01 Apr 2024 09:02:40 GMT</pubDate>
+      <guid>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_3</guid>
+      <pubDate>Mon, 01 Apr 2024 12:23:15 GMT</pubDate>
     </item>
     <item>
-      <title>我已经构建了可以与 Google 地图交互的 OpenAI</title>
-      <link>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_1</link>
-      <description><![CDATA[Warung.ai 开发人员构建了可以与 Google 地图交互的 OpenAI。该应用程序可以与 AirBNB 或 Uber 等集成。
-在 YouTube 频道 Warung-AI-Channel 观看演示。
-访问我们的网站：www.warungai.xyz
-谢谢。
-&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_1</guid>
-      <pubDate>Mon, 01 Apr 2024 08:55:13 GMT</pubDate>
+      <title>API 没有回答图像中的合法问题</title>
+      <link>https://community.openai.com/t/api-is-not-answering-legitimate-questions-from-images/699615#post_9</link>
+      <description><![CDATA[很有趣的事情，但我刚刚意识到代码使用了错误的参数来发送问题。基本上我只是发送图像，没有任何问题或请求。看起来它只是假设我希望它回答测试或其他问题。这里的“ckbxHomeworkMode.Content.ToString()”应该是sQuestion。那只是一个复选框。我已经对测试进行了硬编码，但从未更新过。我使用正确的参数更新了代码，它现在可以工作了。
+ 尝试一下
+                {
+                    SpinnerStatus.Visibility = Visibility.Visible;
+                    //图像创作
+                    等待 SendHomeworkAsync(ckbxHomeworkMode.Content.ToString(), lblPickupFolder.Content.ToString());
+                }
+
+]]></description>
+      <guid>https://community.openai.com/t/api-is-not-answering-legitimate-questions-from-images/699615#post_9</guid>
+      <pubDate>Mon, 01 Apr 2024 12:21:48 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt4视觉和函数调用</title>
-      <link>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_3</link>
-      <description><![CDATA[第1步：将json添加到actions.json
+      <title>如何在 API 中启用或禁用内存？</title>
+      <link>https://community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964#post_2</link>
+      <description><![CDATA[该API目前不提供记忆功能。目前仅在 ChatGPT 界面上推出。
+但是，如果您有兴趣构建用于保留内存的自定义解决方案，那么可能值得查看其他一些论坛帖子。 @darcschnider 等一些人一直在做一些高级工作来实现记忆保留。请参阅此处的帖子：
+
+
+
+
+Kruel.ai V5.0 - 由于先进的内存系统，完全理解运行 16k 的 Api 伴侣 社区
+
+  &lt;块引用&gt;
+    今天编程已经 1.7 年了，我很高兴向大家展示我的成就。
+Kruel.ai 5.0 是全功能人工智能伴侣的开始。它有一个角色系统，用于配置人工智能核心系统，包括给它一个名称、它的行为方式以及工作或背景故事，具体取决于你如何使用它。
+它具有长期记忆系统，旨在捕获您所需的一切，从您的讨论到您的计算机屏幕，甚至您周围的世界（如果您给它眼睛）。它不仅拥有长...
+  
+]]></description>
+      <guid>https://community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964#post_2</guid>
+      <pubDate>Mon, 01 Apr 2024 12:21:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在 API 中启用或禁用内存？</title>
+      <link>https://community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964#post_1</link>
+      <description><![CDATA[我对内存选项很着迷，我想通过使用 API 进行实验，有什么可以打开和关闭内存的吗？]]></description>
+      <guid>https://community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 12:15:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何应对“懒惰”的GPT 4</title>
+      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=6#post_119</link>
+      <description><![CDATA[我对自己提出了一个挑战，那就是让愚蠢的事情来帮助我进行一个简单的基于 Promise 的暂停和等待。
+每一个。单身的。时间。它编写了一个 setInterval( 而不是一个 Promise 对象。
+当它直接给你一个非常基本的方向时，有什么意义？]]></description>
+      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=6#post_119</guid>
+      <pubDate>Mon, 01 Apr 2024 12:15:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何降低提示代币价格</title>
+      <link>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_2</link>
+      <description><![CDATA[您好，欢迎来到论坛！
+您能否分享更多有关您想要实现的目标的信息？这将使提供一些想法/指导变得更容易。谢谢！]]></description>
+      <guid>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_2</guid>
+      <pubDate>Mon, 01 Apr 2024 12:12:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>**我面临 TTS 音频难题。**</title>
+      <link>https://community.openai.com/t/i-am-facing-an-tts-audio-conundrum/683691#post_8</link>
+      <description><![CDATA[是的，谢谢你的考虑！我们尝试了不同的音频格式，但没有任何显着的改进。但不幸的是，“金属音效”仍然存在。一月来自柏林的问候]]></description>
+      <guid>https://community.openai.com/t/i-am-facing-an-tts-audio-conundrum/683691#post_8</guid>
+      <pubDate>Mon, 01 Apr 2024 12:10:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误：t.split 不是函数</title>
+      <link>https://community.openai.com/t/erro-t-split-is-not-a-function/702644#post_2</link>
+      <description><![CDATA[我在 ChatGPT 上尝试执行的所有操作（包括使用第三方 GPT）时也遇到此错误。我无法提出任何疑问。有谁知道发生了什么吗？]]></description>
+      <guid>https://community.openai.com/t/erro-t-split-is-not-a-function/702644#post_2</guid>
+      <pubDate>Mon, 01 Apr 2024 12:06:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用错误的助手运行</title>
+      <link>https://community.openai.com/t/run-using-the-wrong-assistant/703958#post_1</link>
+      <description><![CDATA[我在一个线程中创建了两个助手。
+当我使用我创建的第二个助手创建运行时：
 {
-“name”: “文生图”,
-“价值”：{
-“类型”：“功能”，
-“功能”：{
-“名称”：“dall_e.text2image”，
-“description”：“理解更多的细微差别和细节，让您可以轻松地将您的想法转化为极其准确的图像。当您需要更高质量的图像时使用此功能。仅生成一张图像。”,
-“参数”：{
-“类型”：“对象”，
-“属性”：{
-“提示”：{
-“类型”：“字符串”，
-“description”: “图像描述”
+“id”：“run_1234567”，
+“object”: “thread.run”,
+“创建于”：1711972897，
+“assistant_id”：“asst_1234567b”，
+“thread_id”：“thread_1234567”，
+“状态”：“已排队”，
+“started_at”：空，
+“expires_at”：1711973497，
+“cancelled_at”：空，
+“failed_at”：空，
+“completed_at”：空，
+“required_action”：空，
+“last_error”：空，
+“型号”：“gpt-3.5-turbo-0125”，
+“instructions”: “写一个简短的文本摘要。所有重要的要点必须出现在摘要中。摘要不应超过 100 个单词。”,
+“工具”：，
+“file_ids”：，
+“元数据”：{}，
+“温度”：1.0，
+“用法”：空
 }
-},
-“必需”：[
-“提示”
-]
-}
-}
-}
-},
-步骤2：编写函数dall_e.text2image
-def text2image(is_fee, 提示):
-尝试：
-# 使用AI生成的指令生成图画
-响应 = (
-OpenAI()
-.images.generate(
-型号=“dall-e-3”，
-提示=prompt_en,
-尺寸=“1024x1024”，
-质量=“高清”，
-n=1，
-style=“生动”，
-)
-)
-# 保存image_url到OSS
-对于response.data中的数据：
-object_key = f&quot;{uuid.uuid4()}.png&quot;
-image_url = oss.save(object_key, requests.get(data.url))
-logger.info(“image_url：%s”, image_url)
-return json.dumps({“image_url”: image_url})
-除了异常 e:
-logger.error(“无图像 %s”,e)
-返回 json.dumps({“成功”: “假”})]]></description>
-      <guid>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_3</guid>
-      <pubDate>Mon, 01 Apr 2024 08:52:40 GMT</pubDate>
+运行完成后，最后一条消息始终使用我创建的第一个助手，而不是我在创建运行对象时传递的助手。如果我与第二个助手一起使用游乐场，结果是好的，并且是我使用第二个助手所期望的。
+这是一个已知问题，还是我对 API 的调用有问题？
+P.S.：在我看来，如果我第二次向线程传递消息，无论我在运行时传递什么助手 ID，结果将始终是该消息上使用的第一个助手的 ID]]></description>
+      <guid>https://community.openai.com/t/run-using-the-wrong-assistant/703958#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 12:05:48 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT-4 默认为惰性</title>
-      <link>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886?page=2#post_26</link>
-      <description><![CDATA[它太懒了，我正在考虑不再使用它。我要求它从图像中给我一个特定的十六进制颜色代码，一开始它说它根本无法给我代码，然后它通过猜测给了我错误的代码，当我要求正确的代码时，它保留了反复地、烦人地说有一个错误，它正在尝试，但它只是一次重复加载几分钟。然后当我尝试分享聊天时也出现错误。那次谈话没有任何效果，哈哈……]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886?page=2#post_26</guid>
-      <pubDate>Mon, 01 Apr 2024 08:47:51 GMT</pubDate>
+      <title>如何降低提示代币价格</title>
+      <link>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_1</link>
+      <description><![CDATA[大家好
+我有一个很长的提示（90k 代币）|
+最多的信息是关于法律和汽车模式的
+降低每个请求价格的最佳方法是什么？
+我在 google 和 Open Ai 文档中寻找一些信息
+找到了嵌入，但我不太明白如何使用创建的嵌入以及它如何帮助我]]></description>
+      <guid>https://community.openai.com/t/how-to-reduce-prompt-tokens-price/703956#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 12:03:13 GMT</pubDate>
     </item>
     <item>
-      <title>我的积分不到一个月就过期了，而且我没有获得任何使用 GPT-4 的延期，我只是被邀请尝试一下</title>
-      <link>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_4</link>
+      <title>从一百万个代币中你能得到多少个西里尔字母？</title>
+      <link>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_2</link>
+      <description><![CDATA[不确定我 100% 理解这个问题，但如果您希望获得保加利亚语给定单词量的标记数量估计，您可以通过 OpenAI 的 tokenizer UI 此处或通过 OpenAI tiktoken tokenizer 以编程方式进行（详细信息请参见此处).
+使用这些工具应该可以让您了解单词与标记的比率。]]></description>
+      <guid>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_2</guid>
+      <pubDate>Mon, 01 Apr 2024 11:59:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT-4V 生成响应时出现意外/奇怪的行为</title>
+      <link>https://community.openai.com/t/unexpected-odd-behavior-while-generating-response-using-gpt-4v/625849#post_2</link>
+      <description><![CDATA[但是副驾驶 bing 能够从图像中获取文本，但 API 无法获取它。无法进行简单的OCR]]></description>
+      <guid>https://community.openai.com/t/unexpected-odd-behavior-while-generating-response-using-gpt-4v/625849#post_2</guid>
+      <pubDate>Mon, 01 Apr 2024 11:55:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>解决 ChatGPT 的鼠标悬停问题：不需要的链接打开</title>
+      <link>https://community.openai.com/t/troubleshooting-mouse-hover-issue-with-chatgpt-unwanted-link-opening/495720#post_5</link>
       <description><![CDATA[大家好，
-开发者论坛的成员和领导团队无权访问帐户或支付系统。
-如果您已向 API 支付积分，并且这些付款来自受支持国家/地区的有效银行的有效 CC/DC，那么根据我的理解，它们应该持续 12 个月。如果没有发生这种情况，那么您需要联系 help.openai.com 并使用右下角的支持机器人来提供您的详细信息问题。如果您找不到正确的选项，请选择付款和账单，然后为所有其他选项选择“其他”，直到您可以输入消息。]]></description>
-      <guid>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_4</guid>
-      <pubDate>Mon, 01 Apr 2024 08:39:51 GMT</pubDate>
+有什么解决办法吗？仍然有相同的情况，但我的问题出在 Edge 中。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/troubleshooting-mouse-hover-issue-with-chatgpt-unwanted-link-opening/495720#post_5</guid>
+      <pubDate>Mon, 01 Apr 2024 11:53:19 GMT</pubDate>
     </item>
     <item>
-      <title>我的积分不到一个月就过期了，而且我没有获得任何使用 GPT-4 的延期，我只是被邀请尝试一下</title>
-      <link>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_3</link>
-      <description><![CDATA[这里也一样…并不像它说的那么开放…或者只是]]></description>
-      <guid>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_3</guid>
-      <pubDate>Mon, 01 Apr 2024 08:32:54 GMT</pubDate>
+      <title>从一百万个代币中你能得到多少个西里尔字母？</title>
+      <link>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_1</link>
+      <description><![CDATA[你好！请告知我在哪里或如何可以更好地理解保加利亚语“纯词”的大致成本？我知道 1,000,000 个代币价值 1.5 美元。假设这大约有 750,000 个英语单词。但是从英语翻译成保加利亚语时仍然浪费了一些单词。但其中花掉了多少呢？最后大约有多少个保加利亚语单词？我亏损了 - 一半、四分之一还是多少？
+也许不完全是保加利亚语，而是任何其他西里尔语，对我来说至少粗略地理解很重要。谢谢！]]></description>
+      <guid>https://community.openai.com/t/how-many-words-in-cyrillic-can-you-get-from-a-million-tokens/703945#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 11:52:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
