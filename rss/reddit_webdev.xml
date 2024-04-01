@@ -4,7 +4,77 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 01 Apr 2024 18:21:27 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2024 21:16:42 GMT</lastBuildDate>
+    <item>
+      <title>iOS safari <audio> 遇到问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btfrbh/having_trouble_with_ios_safari_audio/</link>
+      <description><![CDATA[您好！我正在开发一个音乐网站，它在除 iPhone 之外的所有设备上都能完美运行。在浏览互联网后，我看到了所有有关自动播放限制以及需要用户交互才能播放音频的内容，但问题是我已经这样做了？  所以我完全不知所措，我尝试浏览互联网，我尝试使用网络音频 API，我尝试向 AI 寻求帮助，但什么也没有。我不知道该怎么办。所有代码都可以在我的 Github 存储库中找到，但这是我认为可能导致该问题的主要代码。 &lt; p&gt;Player.jsx : 38 &lt;useEffect(() =&gt; { const audio = audioRef.current; audio.src = currentSong; const handleTimeUpdate = () =&gt; { const剩余 = audio.duration - audio.currentTime; setRemainingTime(remaining); setProgress((audio.currentTime / audio.duration) * 100); }; audio.addEventListener(&quot;timeupdate&quot;, handleTimeUpdate); audio.addEventListener(&quot;loadedmetadata&quot;, () =&gt; {&lt; br /&gt; setDuration(audio.duration); }); if (isPlaying) { audio.play().catch((error) =&gt; { console .error(“播放错误：”, error); playButtonPressed = true; }); } else { audio.pause(); } return () =&gt; { audio.pause(); audio.removeEventListener(&quot;timeupdate&quot;, handleTimeUpdate); }; }, [currentSong, isPlaying]);&gt; ​ Player.jsx : 69 &lt; ;const handlePlay = () =&gt; { setIsPlaying(true);audioRef.current.muted = true; // 最初将音频静音 audioRef.current .play() .then(() =&gt; { // 在播放承诺解决后，取消音频静音&lt; br /&gt; audioRef.current.muted = false; }) .catch((error) =&gt; { console.error(&quot;播放错误:&quot;, error);  playButtonPressed = true; }); };&gt; ​ &amp;# x200b;   由   提交/u/krayonixix  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btfrbh/having_trouble_with_ios_safari_audio/</guid>
+      <pubDate>Mon, 01 Apr 2024 21:07:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>作为一名自由开发者，在紧急状态下如何快速找到客户？ （严肃的）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btf1ct/how_can_i_land_a_client_fast_as_a_freelance_dev/</link>
+      <description><![CDATA[大家好，我是一名网页开发者和网页设计师，我的一个重要项目还没有收到报酬，我需要在 2 年内交房租天。获得项目的最快方法是什么？我不在美国，我回到了我的祖国和家乡，那里没有科技场景，尽管我试图在现实生活中敲门推销我的服务。自由职业网站是不可能的，因为我从来没有在那里接过项目，而且我不能向朋友或家人借钱，因为他们目前也没有太多钱。我给企业和企业主发送了几十封电子邮件，但我很好奇是否有更好的方法？在大学里，我接受了我能为其他企业做的所有类型的项目：标志设计、品牌设计、社交媒体营销、网页设计、电子商务网站开发、自动化、网页抓取，凡是你能想到的。我并不是所有方面的专家，但我在这些方面都有经验，不过我的大部分项目都涉及网页开发和图形设计。我已注册成立，我有多个银行账户，一个 Paypal，我可以发送发票，我可以签署合同，我可以签署保密协议，通过电话交谈，通过 Zoom 交谈，与世界上任何客户交谈的任何内容，我只想尽可能快地工作。如果您有任何想法，请告诉我，我对任何事物、任何国家或时区持开放态度。我希望你有一个幸福的一天，我正在等待你的建议。谢谢！   由   提交/u/ProfessionalPie1287   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btf1ct/how_can_i_land_a_client_fast_as_a_freelance_dev/</guid>
+      <pubDate>Mon, 01 Apr 2024 20:41:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于在 Rust 中构建后端 Web 应用程序的模板</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bte3h9/a_template_for_building_backend_web_apps_in_rust/</link>
+      <description><![CDATA[我发现很难找到开始使用 Rust 编写 REST API 所需的所有部分，因此我决定尝试构建一个有效的对于任何希望在后端使用 Rust 的人来说，这是一个起点。 我刚刚完成了一个用于生产就绪的 Rust REST API 的模板，您可以拉取该模板 来自我的 GitHub。以下是模板中现成的内容：  HTTP 路由器和业务逻辑的单元测试 针对真实 Postgres 数据库的集成测试 通过 CircleCI 进行 CI，运行单元和集成测试、检查代码并验证格式 通过 Swagger UI 提供 OpenAPI 文档 可配置的记录器 传入的验证HTTP 请求数据传输对象 关于模板中使用的编码模式的大量文档  我希望它对任何希望使用 Rust 的正确性和速度的人来说都是有用的他们的网络后端有好处！欢迎任何反馈以及对模板的贡献。我希望这不会违反规则 3，因为我希望这对其他后端开发人员来说是宝贵的资源。快乐编码！   由   提交 /u/emanguy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bte3h9/a_template_for_building_backend_web_apps_in_rust/</guid>
+      <pubDate>Mon, 01 Apr 2024 20:06:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何大规模开发和交付 WordPress 网站？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btdr9j/how_to_develop_and_deliver_wordpress_sites_at/</link>
+      <description><![CDATA[假设我的代理机构每月获得 30-40 个 WordPress 网站，其中主要是本地企业的信息网站。如何加快流程并按时交付项目？   由   提交 /u/saneomaniac   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btdr9j/how_to_develop_and_deliver_wordpress_sites_at/</guid>
+      <pubDate>Mon, 01 Apr 2024 19:54:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>(SHOPIFY) 需要一个代码来添加第二张图片，以便横幅图像显示在 Dawn 主题的移动视图中。桌面图像不适合移动视图。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btd7d8/shopify_need_a_code_to_add_a_second_picture_for/</link>
+      <description><![CDATA[    /u/c3ll0skyy5hadm4n   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btd7d8/shopify_need_a_code_to_add_a_second_picture_for/</guid>
+      <pubDate>Mon, 01 Apr 2024 19:33:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该将我的 api 放在单独的子域上吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btd3hs/should_i_have_my_api_on_a_separate_subdomain/</link>
+      <description><![CDATA[我是一名小型独立 Web 开发人员，我有一些承包商来帮助我开发我的网站，但我正在努力保留我的前端开发人员与后端开发人员分开，因为我不希望任何人能够访问我的所有网站代码。 （就上下文而言，我正在构建一个 SEO SaaS） 因此，我创建了一个用于所有后端开发的存储库，当我推送时，该存储库会部署到特定文件夹。然后我将网站的其余部分放在一个单独的存储库中，就像常规网站一样，我的前端开发人员只需引用我构建的 API 来获取数据。 但我即将最后雇用一个后端承包商，我想知道如果我将 api 构建为它自己的子域上的自己的站点，而不是主站点的子文件夹，是否会更容易？感觉将我的后端和 api 分开会更容易，因为它是自己的网站，而我的前端则分开作为自己的网站，因为我想将两者分开    由   提交 /u/AtwoodEnterprise   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btd3hs/should_i_have_my_api_on_a_separate_subdomain/</guid>
+      <pubDate>Mon, 01 Apr 2024 19:29:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>关注者数据管理、Pinia 商店与 API 调用？！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btciyf/follower_data_management_pinia_store_vs_api_calls/</link>
+      <description><![CDATA[我正在构建一个社交媒体网站，使用 Django 作为后端，使用 Django Rest Framework (DRF) 作为 API，使用 Vue.js 作为前端Pinia作为商店。我目前正在实现关注者-关注关系，并定义了必要的模型。但是，我不确定是否在用户登录时将关注者数据存储在客户端存储 (Pinia) 中并从那里访问它，还是进行 API 调用以根据应用程序不同部分的需要获取数据。我想知道有效处理关注者数据管理的最佳方法以及更好的做法是什么。 所有的输入都表示赞赏。  &amp; #32；由   提交/u/hopefull420  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btciyf/follower_data_management_pinia_store_vs_api_calls/</guid>
+      <pubDate>Mon, 01 Apr 2024 19:08:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>纪念网络诞生 35 周年：一封公开信</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btcfzb/marking_the_webs_35th_birthday_an_open_letter/</link>
+      <description><![CDATA[   /u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btcfzb/marking_the_webs_35th_birthday_an_open_letter/</guid>
+      <pubDate>Mon, 01 Apr 2024 19:05:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>Discord 如何在网络上创建这样的动画？ （评论中说明）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btc5bu/how_does_discord_create_such_animations_on_web/</link>
+      <description><![CDATA[       由   提交 /u/hontemulo   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btc5bu/how_does_discord_create_such_animations_on_web/</guid>
+      <pubDate>Mon, 01 Apr 2024 18:54:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我有一个项目，在在线健身教练平台上制作一个网站。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1btbb13/i_got_a_project_making_a_website_on_online/</link>
+      <description><![CDATA[大家好，我今年 21 岁了，正在攻读计算机科学学位。我不知道如何编码。我尝试了很多并做了一个前端，但现在我不知道如何进一步进行。我将描述这个项目需要什么，但我只需要一个清晰的路径和指导，我缺乏落后，每次我坐下来编码时，一切看起来都非常混乱。描述： 在线健身教练平台：HTML/CSS：  使用 HTML/CSS 设计健身教练平台界面，以提供锻炼计划、跟踪进度和提供指导支持。 使用 CSS 样式创建具有视觉吸引力的锻炼计划、锻炼演示和进度跟踪器，以激励用户实现其健身目标。  PHP：  使用 PHP 开发后端功能来管理用户帐户、锻炼计划和辅导课程。 使用 PHP 库或框架实现进度跟踪、目标设定和指导反馈等功能。  MySQL：   设置 MySQL 数据库来存储用户个人资料、锻炼数据和辅导记录。 设计数据库架构以有效管理用户交互、锻炼进度和辅导反馈在在线健身教练平台内。  我还有 10 天的时间来提交项目，相信我，我可以学到很多东西。有一段时间我的精神状态不太好，我没有朋友可以谈论这一切。这是我最后的希望 编辑：我不需要高端网站。只是我应该继续制作一个具有上述要求的简单 4-5 页网站的蓝图想法    由   提交 /u/150rsdegaa   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1btbb13/i_got_a_project_making_a_website_on_online/</guid>
+      <pubDate>Mon, 01 Apr 2024 18:22:09 GMT</pubDate>
+    </item>
     <item>
       <title>最便宜的部署选项</title>
       <link>https://www.reddit.com/r/webdev/comments/1btaejg/cheapest_deployment_option/</link>
@@ -22,7 +92,7 @@
     <item>
       <title>我可以从该网站提取该视频作为干净的视频吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1bt9o5k/can_i_extract_this_video_from_this_site_as_a/</link>
-      <description><![CDATA[我想在没有任何 UI 的情况下使用此视频作为参考，有没有办法下载视频本身或在新窗口中打开它选项卡和屏幕录制？感谢任何线索！ https://www.lvmhprize.com/？ （抱歉，这会转到主页，我无法链接各个页面，因为它们是弹出窗口，但一旦您点击，就会有视频）  &amp;# 32；由   提交/u/buffster007  [链接] [评论]]]></description>
+      <description><![CDATA[我想在没有任何 UI 的情况下使用此视频作为参考，有没有办法下载视频本身或在新窗口中打开它选项卡和屏幕录制？感谢任何线索！ https://www.lvmhprize.com/？ （抱歉，这会转到主页，我无法链接各个页面，因为它们是弹出窗口，但是一旦您点击，就会有视频）  &amp;# 32；由   提交/u/buffster007  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bt9o5k/can_i_extract_this_video_from_this_site_as_a/</guid>
       <pubDate>Mon, 01 Apr 2024 17:21:30 GMT</pubDate>
     </item>
@@ -34,81 +104,11 @@
       <pubDate>Mon, 01 Apr 2024 17:06:33 GMT</pubDate>
     </item>
     <item>
-      <title>Javascript & JQuery - 推荐类似 Duckett 的一本但更新较多的书籍</title>
+      <title>Javascript & JQuery - 对 Duckett 等书籍的建议，但更新较多</title>
       <link>https://www.reddit.com/r/webdev/comments/1bt8zc9/javascript_jquery_suggestions_for_books_like/</link>
       <description><![CDATA[大家好， 正如标题所说，我想买 Jon Buckett 的书，因为它的评价非常好，而且提供了解释和图形设计的完美结合有助于学习过程。  不幸的是，使用一本已经 10 年没有更新的书来学习是没有意义的，所以......有什么具有相同图形吸引力和有效性的书籍建议吗？ 谢谢;)   由   提交 /u/Banzambo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bt8zc9/javascript_jquery_suggestions_for_books_like/</guid>
       <pubDate>Mon, 01 Apr 2024 16:55:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>Figma 到 HTML</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt8wnh/figma_to_html/</link>
-      <description><![CDATA[我需要针对当前项目的一些建议。 场景：我有一个项目需要 HTML 版本的我设计的 Figma 文件。我知道这是前端开发人员的工作，但我正在努力帮助这个人，因此我正在检查是否可以在我不编码的情况下做到这一点。我的问题是：  在 Figma 之外是否有一种简单的方法可以做到这一点？我正在检查 Framer 和 Webflow，不确定您是否熟悉，但如果有必要，我愿意使用这两个中的任何一个。 Figma 上的开发模式是一个不错的选择吗？开发者使用它吗？生成的代码真的有效吗？如果可行，这是最简单的解决方法。   如果有更好的解决方案，欢迎分享。谢谢你！    由   提交 /u/Radiant-Watch-9994   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt8wnh/figma_to_html/</guid>
-      <pubDate>Mon, 01 Apr 2024 16:52:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>这对于技术面试来说足够了吗</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt7wcw/will_this_be_enough_for_technical_interviews/</link>
-      <description><![CDATA[以下是技术回合的一些重要问题的列表。您认为这足以通过技术回合吗？ https://docs.google.com/spreadsheets/d/1hzP8j7matoUiJ15N-RhsL5Dmig8_E3aP/edit?usp=sharing&amp;ouid=115571625766265934734&amp;rtp of=true&amp;sd=true   由   提交 /u/TranslatorAway9891   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt7wcw/will_this_be_enough_for_technical_interviews/</guid>
-      <pubDate>Mon, 01 Apr 2024 16:14:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助挑选作业</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt7t44/need_help_picking_out_assignment/</link>
-      <description><![CDATA[所以我们有一个项目要做，用 HTML5 + CSS3 + Javascript 制作一个静态网站，我完全不知道要做什么以及会做什么简单/简单或其他... 这些是我们列出的我们可以做的事情：  游戏（乒乓球、贪吃蛇、刽子手、彩票、幸运轮） ，Criss Cross，Pexeso...） 逃脱游戏 故事 动画 订单系统 计算器 时钟（模拟或数字） 英语单词翻译器。 货币兑换 2（二进制）转换器),8,10,16 ..  自从我们刚开始以来，我对 JS 几乎一无所知，但我想现在就开始，因为我知道如果我不这样做，那将会是截止日期非常紧迫，我不认为复制 yt 教程是最好的方法。   由   提交/u/Filip46820   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt7t44/need_help_picking_out_assignment/</guid>
-      <pubDate>Mon, 01 Apr 2024 16:11:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>403 禁止错误</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt6oq7/403_forbidden_error/</link>
-      <description><![CDATA[我不是网络开发人员，我只是来这里寻求帮助，我无法访问学校的测试门户，只有我一个人可以无法使用我的 wifi，但当我转向移动运营商互联网时，它可以工作。我尝试通过 wifi 访问它时收到 403 禁止错误，我无法使用我的运营商，因为我住在覆盖范围极小的偏远地区，而光纤 wifi 是我唯一的选择。需要帮助来解决这个问题    由   提交 /u/Razorkingyt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt6oq7/403_forbidden_error/</guid>
-      <pubDate>Mon, 01 Apr 2024 15:27:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>403 禁止错误</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt6oq4/403_forbidden_error/</link>
-      <description><![CDATA[我不是网络开发人员，我只是来这里寻求帮助，我无法访问学校的测试门户，只有我一个人可以无法使用我的 wifi，但当我转向移动运营商互联网时，它可以工作。我尝试通过 wifi 访问它时收到 403 禁止错误，我无法使用我的运营商，因为我住在覆盖范围极小的偏远地区，而光纤 wifi 是我唯一的选择。需要帮助来解决这个问题    由   提交 /u/Razorkingyt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt6oq4/403_forbidden_error/</guid>
-      <pubDate>Mon, 01 Apr 2024 15:27:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要房地产管理系统的帮助（大学项目）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt6kgg/need_help_for_real_estate_management_system/</link>
-      <description><![CDATA[你好，我是新来的。我想为我的大学项目创建一个 REMS，但我很困惑从哪里开始（Php/HTML CSS JS）。因为这是我在网络开发中的第一个项目，所以我想得到一个清晰的理解。旨在创建 housing.com  请帮忙。谢谢   由   提交 /u/Appropriate_Pay3263   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt6kgg/need_help_for_real_estate_management_system/</guid>
-      <pubDate>Mon, 01 Apr 2024 15:23:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>一整天都在尝试修复 cors 错误，但仍然没有解决</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt6bwv/trying_to_fix_cors_error_all_day_and_still_no_fix/</link>
-      <description><![CDATA[我在 EC2 中部署了 Node Express API。并在 namecheap 中设置了 cloudfare 名称服务器。之后我在cloudfare中设置了EC2的A和C名称记录。还在实例中设置了 nginx 一切正常。当我访问 backenddomain.com 时，它成功进入 nginx 欢迎页面。当我访问 backenddomain.com/api/stats 时，它成功地在 get 请求上提供响应和 json 数据 现在我在我的节点 API 中设置了 cors，以允许我的反应域 frontenddomain.com。我认为所有代码都是正确的。它正在我当地的环境中运行。对于部署在 vercel 和 render 中的其他 React 节点项目，我对 cors 进行了相同的设置。所以现在我已经在 cors origin 中列出了反应域，我仍然从中收到 cors 错误。我不知道为什么。  我是否还需要在 EC2 的 nginx 配置中设置 cors？我需要在 cloudfare 设置中执行某些操作吗？我还是不明白。我在这里留下了任何不完整的配置吗？我从“frontenddomain.com”点击“backenddomain.com/api/stats”，它给了我 cors 错误。  所以我不知道问题出在哪里。有人可以帮我解决这个问题吗？  server.ts  app.use((_, res, next) =&gt; { res.header(&quot;Access-Control-Allow-Credentials&quot;,真）；下一个（）；}）； app.use(express.json({ limit: &quot;10mb&quot; })); app.use(express.urlencoded({ 扩展: true })); app.use(cookieParser()); app.use(摩根(“dev”)); app.use( cors({ origin: [&quot;http://localhost:3000&quot;, &quot;frontenddomain.com&quot;], 凭证: true, }) );  前端的 axiosconfig.ts  export const axiosInstance = axios.create({ withCredentials: true, headers: { &quot;Content-Type&quot;: &quot; ;application/json&quot;, &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;, 接受: &quot;application/json&quot;, }, });    由   提交/u/milanpoudel  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt6bwv/trying_to_fix_cors_error_all_day_and_still_no_fix/</guid>
-      <pubDate>Mon, 01 Apr 2024 15:14:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>Nodejs 托管平台？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt5isn/nodejs_hosting_platform/</link>
-      <description><![CDATA[作为构建我们初创公司 SaaS 平台后端的工程师，我面临着一个关键的决定：选择正确的托管提供商。成本是我们现阶段最关心的问题，但可扩展性和安全性绝对是不容谈判的。 寻找能够处理不断增长的 SaaS 应用程序的预算友好型托管解决方案。我们正在使用 Nodejs。 有什么建议吗？   由   提交 /u/LuayKelani   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt5isn/nodejs_hosting_platform/</guid>
-      <pubDate>Mon, 01 Apr 2024 14:42:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rocky 的网络开发成功秘诀</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt5bmu/rockys_success_secret_to_web_development/</link>
-      <description><![CDATA[如果您认为自己需要成为天才才能成为专业的 Web 开发人员... ​ ​再想一想！ ​ ​ 事实上：还记得洛奇·巴尔博亚的传奇吗？ ​ 他克服重重困难，奋力登上顶峰。 ​ /&gt; ​ 当然，他受到了一些打击，但他不断前进。 ​ ​这就是网络开发中需要的心态。 ​ 曾经陷入教程地狱，感觉永远看不到最后的曙光吗？ ​ 我曾经经历过，而且很糟糕！ ​&lt; br /&gt; 但就像洛奇一样，每一次绊倒都是迈向胜利的一步。 ​ 想想你在无数次失败后掌握了艰难的电子游戏关卡的那一刻。 ​ 是的，那种感觉？ ​ 这就是它的全部内容。 ​ 关键在于： ​ 怀疑者希望你相信自己。  ​他们想让你认为你需要一些花哨的学位或无尽的经验。 ​但是你猜怎么着？ 那是一堆垃圾。​ ​您无需获得许可即可在数字世界中取得成功。 ​ 因此，事情是这样的： ​ Web 开发不适合胆小的人。 ​ 但是，如果您愿意卷起袖子并投入其中勇往直前，你会发现自己站在世界之巅。 ​继续努力，继续学习，并记住： ​​唯一的限制就是你设定的限制你自己。 ​ ​ 让我们通过编码到达顶峰， ​ 你的朋友， ​ Michiel   由   提交 /u/michielarkema   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt5bmu/rockys_success_secret_to_web_development/</guid>
-      <pubDate>Mon, 01 Apr 2024 14:35:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>多年后，CSS 仍然是我接触过的最困难的东西？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bt4fzp/after_multiple_years_css_is_still_the_most/</link>
-      <description><![CDATA[听着，我专门将某个东西的宽度设置为 10vw，它只是......它什么也没做，它仍然占据了整个由于某种原因宽度。 CSS就是不听。它不会抛出错误，它只是不执行任何操作。而且它永远不会做任何事情。我什至不再期望改变类中的某些内容实际上会产生任何结果 我有 300 行 CSS 来实现最简单的狗屎，只是因为，出于某种原因，狗屎不起作用，所以我创建另一个 div 封装它，然后它可以工作或不知道。如果我想要做某事，我会把它粘贴到每种样式中，直到看到实际发生的事情，如下所示：   justify-content: flex-start;对齐项目：弹性开始；对齐内容：弹性开始；  现在我知道了理论上的区别，以及它应该如何工作，理论上，说真的，我从来没有遇到过Python开发的问题，我从来没有遇到过Python开发的问题。 JavaScript，但我他妈的拿不到 CSS，去年我做了一个项目，我对它非常自豪，有后端和所有东西，还有各种花里胡哨的东西，但我最终没有完成它，因为我无法完成它找CSS配合吧！  我的意思是为什么会有滚动条？当你不应该占用任何空间，因为容器本身设置为有限的 VH/VW 时，你如何让我滚动？  我没有具体的例子，因为我有数千行 CSS，我不知道如何从中得出正面或反面。有某种 CSSuicide 监视帮助热线吗？   由   提交/u/EducationalCreme9044   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bt4fzp/after_multiple_years_css_is_still_the_most/</guid>
-      <pubDate>Mon, 01 Apr 2024 13:59:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
