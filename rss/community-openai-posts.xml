@@ -4,14 +4,168 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 01 Apr 2024 06:23:50 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2024 09:20:24 GMT</lastBuildDate>
     <item>
-      <title>使用 GPT 生成代码而不处理异常</title>
-      <link>https://community.openai.com/t/code-generating-with-gpt-without-handling-exceptions/703677#post_1</link>
-      <description><![CDATA[我很好奇 GPT 可以编写导致调试崩溃的测试代码，但 GPT 生成的代码处理异常不会导致崩溃。
-是否禁止在没有异常处理或任何其他方式通过提示来消除这种情况的情况下创建代码？]]></description>
-      <guid>https://community.openai.com/t/code-generating-with-gpt-without-handling-exceptions/703677#post_1</guid>
-      <pubDate>Mon, 01 Apr 2024 06:04:31 GMT</pubDate>
+      <title>用于微调的混合训练数据</title>
+      <link>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_8</link>
+      <description><![CDATA[
+
+
+库纳尔：
+&lt;块引用&gt;
+我仍然可以保留较大模型的通用知识
+
+
+在应用样式之前，应用程序必须了解消息的内容/含义。这里天空是极限，样式模型只是以您需要的样式重写输出。]]></description>
+      <guid>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_8</guid>
+      <pubDate>Mon, 01 Apr 2024 09:15:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于微调的混合训练数据</title>
+      <link>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_7</link>
+      <description><![CDATA[
+
+
+库纳尔：
+&lt;块引用&gt;
+那么，当添加从原始文本到样式文本的微调模型时，您通常如何在系统级别提示这些模型？
+
+
+类似于（系统消息）“请按照您的风格重写提供的文本：”。
+用户消息是原始文本输入，已经经过您的逻辑处理，即最终答案。样式只是应用程序处理的输出的“过滤器”。
+提示必须与训练中使用的提示完全匹配。
+有时，需要风格参数（语气变化、情感等）。通常情况下，去样式文本会丢失该信息。在这些情况下，将进行如下特殊培训：
+
+在对输入文本进行去样式化之前分析样式/提取所需的元数据。
+取消输入文本的样式。
+使用提取的参数创建系统提示，例如：请按照您的风格重写给定的文本。确保使用 $text_tone 语气，让读者明白您处于 $text_mood 中。
+使用去样式化的文本作为用户消息
+使用原文作为辅助消息。
+
+训练完成后，使用完全相同的提示格式为文本添加样式。
+
+
+
+库纳尔：
+&lt;块引用&gt;
+如果是这样，模型在提示如何在已经发生的微调之外设置文本样式时如何具有上下文？
+
+
+该模型没有如何设置文本样式的上下文。您需要了解，当所需的样式是模型可以生成的唯一样式时，可以获得最佳的样式性能。这就是微调的目的。使用上述方法并在系统消息中提供参数可以实现相同样式内的一些变化，但如果您想获得最大的输出质量，它们应该是最小的变化。当您的应用绝对需要多种样式时，保持质量的最佳方法是为每种样式使用单独的模型。
+现在，如果您只想要一个能够根据“参数”切换样式的模型，为了获得不错的结果，您需要在训练中每种样式至少有 2k 个样本，并将样式作为参数包含在系统消息中（请参阅方法多于）。但模型质量通常仍低于“特定风格”模型。
+哦，还有输出的内容方面。除了以新样式返回的用户消息中的文本（不改变含义）之外，没有与内容相关的上下文。如果您的应用程序在此步骤需要更改含义，则很可能您的逻辑存在错误。保留这一点以防有人不确定这一点。]]></description>
+      <guid>https://community.openai.com/t/mixed-training-data-for-fine-tuning/700895#post_7</guid>
+      <pubDate>Mon, 01 Apr 2024 09:10:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了可以交互图像的 OpenAI</title>
+      <link>https://community.openai.com/t/i-have-built-openai-that-can-interact-images/703830#post_1</link>
+      <description><![CDATA[Warung.ai 开发人员构建了可以与图像交互的 OpenAI。
+观看演示：Warung-AI-Channel
+访问我们的网站：www.warungai.xyz。
+谢谢。
+&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/i-have-built-openai-that-can-interact-images/703830#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 09:06:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt4视觉和函数调用</title>
+      <link>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_4</link>
+      <description><![CDATA[这是一篇懒惰的帖子：
+
+OP 询问的是愿景而不是图像创作
+请使用Markdown 提供的代码分隔。
+也许可以考虑在您的代码中添加一些描述 - 即使英语不是您的母语 - 也许可以借助翻译工具？
+]]></description>
+      <guid>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_4</guid>
+      <pubDate>Mon, 01 Apr 2024 09:02:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经构建了可以与 Google 地图交互的 OpenAI</title>
+      <link>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_1</link>
+      <description><![CDATA[Warung.ai 开发人员构建了可以与 Google 地图交互的 OpenAI。该应用程序可以与 AirBNB 或 Uber 等集成。
+在 YouTube 频道 Warung-AI-Channel 观看演示。
+访问我们的网站：www.warungai.xyz
+谢谢。
+&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_1</guid>
+      <pubDate>Mon, 01 Apr 2024 08:55:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt4视觉和函数调用</title>
+      <link>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_3</link>
+      <description><![CDATA[第1步：将json添加到actions.json
+{
+“name”: “文生图”,
+“价值”：{
+“类型”：“功能”，
+“功能”：{
+“名称”：“dall_e.text2image”，
+“description”：“理解更多的细微差别和细节，让您可以轻松地将您的想法转化为极其准确的图像。当您需要更高质量的图像时使用此功能。仅生成一张图像。”,
+“参数”：{
+“类型”：“对象”，
+“属性”：{
+“提示”：{
+“类型”：“字符串”，
+“description”: “图像描述”
+}
+},
+“必需”：[
+“提示”
+]
+}
+}
+}
+},
+步骤2：编写函数dall_e.text2image
+def text2image(is_fee, 提示):
+尝试：
+# 使用AI生成的指令生成图画
+响应 = (
+OpenAI()
+.images.generate(
+型号=“dall-e-3”，
+提示=prompt_en,
+尺寸=“1024x1024”，
+质量=“高清”，
+n=1，
+style=“生动”，
+)
+)
+# 保存image_url到OSS
+对于response.data中的数据：
+object_key = f&quot;{uuid.uuid4()}.png&quot;
+image_url = oss.save(object_key, requests.get(data.url))
+logger.info(“image_url：%s”, image_url)
+return json.dumps({“image_url”: image_url})
+除了异常 e:
+logger.error(“无图像 %s”,e)
+返回 json.dumps({“成功”: “假”})]]></description>
+      <guid>https://community.openai.com/t/gpt4-vision-and-function-calling/703732#post_3</guid>
+      <pubDate>Mon, 01 Apr 2024 08:52:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT-4 默认为惰性</title>
+      <link>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886?page=2#post_26</link>
+      <description><![CDATA[它太懒了，我正在考虑不再使用它。我要求它从图像中给我一个特定的十六进制颜色代码，一开始它说它根本无法给我代码，然后它通过猜测给了我错误的代码，当我要求正确的代码时，它保留了反复地、烦人地说有一个错误，它正在尝试，但它只是一次重复加载几分钟。然后当我尝试分享聊天时也出现错误。那次谈话没有任何效果，哈哈……]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-defaults-to-lazy/560886?page=2#post_26</guid>
+      <pubDate>Mon, 01 Apr 2024 08:47:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的积分不到一个月就过期了，而且我没有获得任何使用 GPT-4 的延期，我只是被邀请尝试一下</title>
+      <link>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_4</link>
+      <description><![CDATA[大家好，
+开发者论坛的成员和领导团队无权访问帐户或支付系统。
+如果您已向 API 支付积分，并且这些付款来自受支持国家/地区的有效银行的有效 CC/DC，那么根据我的理解，它们应该持续 12 个月。如果没有发生这种情况，那么您需要联系 help.openai.com 并使用右下角的支持机器人来提供您的详细信息问题。如果您找不到正确的选项，请选择付款和账单，然后为所有其他选项选择“其他”，直到您可以输入消息。]]></description>
+      <guid>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_4</guid>
+      <pubDate>Mon, 01 Apr 2024 08:39:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的积分不到一个月就过期了，而且我没有获得任何使用 GPT-4 的延期，我只是被邀请尝试一下</title>
+      <link>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_3</link>
+      <description><![CDATA[这里也一样…并不像它说的那么开放…或者只是]]></description>
+      <guid>https://community.openai.com/t/my-credits-expired-in-less-than-a-month-and-i-didnt-get-any-extension-to-use-gpt-4-which-i-just-got-invited-to-try/141673#post_3</guid>
+      <pubDate>Mon, 01 Apr 2024 08:32:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
