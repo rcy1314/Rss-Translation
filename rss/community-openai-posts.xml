@@ -4,209 +4,137 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 02 Apr 2024 18:24:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Apr 2024 21:18:23 GMT</lastBuildDate>
     <item>
-      <title>如何让 GPT 在一个请求中为多个提示生成响应？</title>
-      <link>https://community.openai.com/t/how-to-make-gpt-generate-responses-for-multiple-prompts-at-one-request/705648#post_1</link>
-      <description><![CDATA[您好，我想知道是否可以一次将多个提示（即不同的生成任务）输入到 Chat Completions API 中，并针对每个提示获得多个回复。根据这个 OpenAI 文档，提示数组可以输入到 message.content 参数中。这是我的代码：
-prompt = [&quot;你好&quot;, &quot;很高兴认识你&quot;]
-提示 = [{&quot;text&quot;: p, &quot;type&quot;: &quot;text&quot;} 提示中的 p]
-r = self.client.chat.completions.create(
-    型号=&#39;gpt-3.5-turbo&#39;,
-    消息=[
-        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
-        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: Prompt} # 提示符是一个列表
-    ],
-    温度=0.9，
-    n=1，
-    max_tokens=最大_tokens
-    ）
-
-输出 = r.choices[0].message.content
-
-输出：
-您好！很高兴认识你。
-
-该模型似乎将所有提示连接成一个，并为其生成单个响应。但是，我的目标是获取一个响应列表，例如 [&#39;hi&#39;, &#39;nice to meet you too.&#39;] 每个提示。
-是否有可能获得对每个单独提示的响应？怎么办？]]></description>
-      <guid>https://community.openai.com/t/how-to-make-gpt-generate-responses-for-multiple-prompts-at-one-request/705648#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 18:21:23 GMT</pubDate>
+      <title>RAG 当前最佳实践</title>
+      <link>https://community.openai.com/t/rag-current-best-practices/705683#post_2</link>
+      <description><![CDATA[我不知道 H i P a 合规性的具体细节，但在我看来，您的任务是构建一个对所有文档进行访问控制的抹布系统。我现在使用 weviate 和可用的元数据属性来执行此操作，它位于嵌入对象中。]]></description>
+      <guid>https://community.openai.com/t/rag-current-best-practices/705683#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 21:14:09 GMT</pubDate>
     </item>
     <item>
-      <title>TTS 语音带有明显的美国口音</title>
-      <link>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_9</link>
-      <description><![CDATA[请注意，上述帖子中包含的各种语音模型的描述和用例完全是虚构的。]]></description>
-      <guid>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_9</guid>
-      <pubDate>Tue, 02 Apr 2024 18:21:22 GMT</pubDate>
+      <title>401 仅限生产中的授权错误</title>
+      <link>https://community.openai.com/t/401-authorisation-error-in-production-only/704096#post_2</link>
+      <description><![CDATA[确实，这和Clerk有关。在 middleware.ts 中，我必须按照 publicRoutes “noopener nofollow ugc”&gt;此处。又可以工作了，但是需要改进中间件。]]></description>
+      <guid>https://community.openai.com/t/401-authorisation-error-in-production-only/704096#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 21:13:38 GMT</pubDate>
     </item>
     <item>
-      <title>尝试在 Unity 游戏中使用 ChatGPT API 但失败</title>
-      <link>https://community.openai.com/t/trying-to-use-chatgpt-api-in-unity-game-but-fail/705646#post_1</link>
-      <description><![CDATA[我在编码方面非常陌生，尤其是 ChatGPT，所以这里是我的用于输入文本的统一 C# 代码：
-使用 System.Collections;
-使用系统；
-使用UnityEngine；
-使用UnityEngine.Networking；
-使用UnityEngine.UI；
-公共类 TextHandler ：MonoBehaviour
-{
-公共输入字段输入字段；
-公共文本输出文本；
-[系统.可序列化]
-公共类 GptResponse
-{
-公共选择选择；
-}
-[系统.可序列化]
-公开课选择
-{
-公共字符串文本；
-}
-public void HandleInput()
-{
-
-    字符串 userInput = inputField.text;
-    StartCoroutine(SendToGPT(userInput));
-
-}
-
-私有IEnumerator SendToGPT（字符串输入）
-{
-字符串 apiUrl = “url”;
-string requestBody = &quot;{\&quot;prompt\&quot;: \&quot;&quot; + input + &quot;\&quot;, \&quot;max_tokens\&quot;: 500}&quot;;
-
-UnityWebRequest 请求 = UnityWebRequest.PostWwwForm(apiUrl, requestBody);
-
-request.SetRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
-request.SetRequestHeader(&quot;授权&quot;, &quot;承载 myapi&quot;);
-
-产量返回请求.SendWebRequest();
-
-if (request.result == UnityWebRequest.Result.Success)
-{
-    字符串responseJson = request.downloadHandler.text;
-    
-    字符串 generatedText = ParseResponseFromJSON(responseJson);
-
-    产量返回生成的文本；
-}
-别的
-{
-    Debug.LogError(&quot;发送请求时出错：&quot; + request.error);
-    产量返回空；
-}
-
-}
-私有字符串 ParseResponseFromJSON(string jsonResponse)
-{
-尝试一下
-{
-GptResponse 响应 = JsonUtility.FromJson(jsonResponse);
- if (response.choices != null &amp;&amp; response.choices.Length &gt; 0)
-    {
-        字符串 generatedText = response.choices[0].text;
-        返回生成的文本；
-    }
-    别的
-    {
-        Debug.LogError(&quot;在 JSON 响应中找不到选择。&quot;);
-        return“错误：在 JSON 响应中找不到选择。”；
-    }
-}
-捕获（异常 e）
-{
-    Debug.LogError(&quot;解析 JSON 响应时出错：&quot; + e.Message);
-    return &quot;解析 JSON 响应时出错&quot;;
-}
-
-}
-}
-在输入框中写入文本后，它会等待大约 2 秒并给出以下错误：
-发送请求时出错：HTTP/1.1 400 错误请求
-UnityEngine.Debug:LogError（对象）
-TextHandler/d__5:MoveNext ()（位于 Assets/Scripts/TextHandler.cs:67）
-UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)]]></description>
-      <guid>https://community.openai.com/t/trying-to-use-chatgpt-api-in-unity-game-but-fail/705646#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 18:20:58 GMT</pubDate>
+      <title>[助手] 有没有办法删除给定线程的消息或修改消息内容？</title>
+      <link>https://community.openai.com/t/assistants-is-there-a-way-to-delete-message-or-modify-message-content-for-a-given-thread/476333#post_10</link>
+      <description><![CDATA[目前这已经是可能的。也许它现在与您无关，但仅与社区相关 - 重新创建仅包含所需消息的线程是可能的解决方案。现在刚刚查了一下。]]></description>
+      <guid>https://community.openai.com/t/assistants-is-there-a-way-to-delete-message-or-modify-message-content-for-a-given-thread/476333#post_10</guid>
+      <pubDate>Tue, 02 Apr 2024 21:10:29 GMT</pubDate>
     </item>
     <item>
-      <title>将我的 Rshiny 应用程序与 GPT 连接</title>
-      <link>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_2</link>
-      <description><![CDATA[自定义 GPT 是 ChatGPT 产品，无法在 chat.openai.com 之外访问它们。
-如果您想将任何类型的应用程序连接到 OpenAI 的模型之一，您需要使用可用的 API 端点之一并支付使用费用。]]></description>
-      <guid>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_2</guid>
-      <pubDate>Tue, 02 Apr 2024 18:12:43 GMT</pubDate>
+      <title>Gpt聊天越来越没用了</title>
+      <link>https://community.openai.com/t/gpt-chat-more-and-more-useless/705421#post_2</link>
+      <description><![CDATA[我只使用了一条指令，我花了 40 条消息，而 GPT 无法尊重这条指令。
+什么时候还款？这是一个骗局，你不能窃取用户的钱并删除所有功能。]]></description>
+      <guid>https://community.openai.com/t/gpt-chat-more-and-more-useless/705421#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 21:04:37 GMT</pubDate>
     </item>
     <item>
-      <title>耳语转录失败和幻觉</title>
-      <link>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_1</link>
-      <description><![CDATA[你好。我使用 OpenAI 食谱编写了一个简单的音频到文本摘要和转录应用程序。通常效果很好。
-但是今天我尝试为一个小音频文件（&lt;10mb）创建会议纪要，Whisper 处理了该文件并建议它没有内容！a 当我再次尝试时，它总结了文件的部分内容，其余部分&#39;幻觉出全新的信息，与实际对话完全无关。其他用户是否也遇到过音频转文本模式中此类基本用例的问题？有关如何限制此类“灾难性”故障可能性的任何指导。谢谢。]]></description>
-      <guid>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 18:10:38 GMT</pubDate>
+      <title>即使使用量远低于限制，也会发生 Insufficient_quota 错误</title>
+      <link>https://community.openai.com/t/insufficient-quota-error-occurred-even-though-the-usage-is-way-lower-than-the-limit/705714#post_2</link>
+      <description><![CDATA[嘿嘿！ OpenAI 为很多账户转为预付费。您应该已经收到一封电子邮件。
+您现在只需预购积分即可。]]></description>
+      <guid>https://community.openai.com/t/insufficient-quota-error-occurred-even-though-the-usage-is-way-lower-than-the-limit/705714#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 20:45:48 GMT</pubDate>
     </item>
     <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_504</link>
-      <description><![CDATA[复活节快乐……我的 150 个 GPT 中的一些图像是我花了几个月的时间来确保它们用户友好、无尽、一致的角色。适合孩子的故事书，去很多国家旅行，看看www.aiautomate.me
-
-
-
-&lt; /a&gt;
-]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_504</guid>
-      <pubDate>Tue, 02 Apr 2024 18:10:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>写整本书的技巧</title>
-      <link>https://community.openai.com/t/technique-for-writing-entire-books/705519#post_2</link>
-      <description><![CDATA[我昨晚花了五个小时做了一个，我醒来发现你也做了一个哈哈。 （代码大约需要 10 分钟，UI 大约需要 4 小时 50 分钟。）请随意在此处分享链接。我也对你给它提供的上下文感兴趣，你是否给了它整本书并告诉它写下一章，这可能只是在吃钱？]]></description>
-      <guid>https://community.openai.com/t/technique-for-writing-entire-books/705519#post_2</guid>
-      <pubDate>Tue, 02 Apr 2024 18:09:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
-      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_5</link>
-      <description><![CDATA[这让我想起了 Photoshop 的生成填充。它看起来很棒，我迫不及待地想把它推出给我。]]></description>
-      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_5</guid>
-      <pubDate>Tue, 02 Apr 2024 18:00:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>基于嵌入维护聊天机器人的上下文？</title>
-      <link>https://community.openai.com/t/maintain-context-for-a-chat-bot-based-on-embeddings/471933#post_2</link>
-      <description><![CDATA[你有没有弄清楚这一点？有类似的q]]></description>
-      <guid>https://community.openai.com/t/maintain-context-for-a-chat-bot-based-on-embeddings/471933#post_2</guid>
-      <pubDate>Tue, 02 Apr 2024 17:55:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 GPT 模型构建母语文化和宗教经文工具</title>
-      <link>https://community.openai.com/t/building-a-tool-using-gpt-model-for-cultural-and-religious-scripture-in-native-language/705615#post_1</link>
-      <description><![CDATA[寻求有关使用 GPT 模型为我的母语经文构建工具的建议。我有数据，ChatGPT 显示了理解。我该如何继续？]]></description>
-      <guid>https://community.openai.com/t/building-a-tool-using-gpt-model-for-cultural-and-religious-scripture-in-native-language/705615#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 17:55:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
-      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_4</link>
-      <description><![CDATA[每当 OpenAI 发布任何东西时，他们都会让每个人都可以立即使用它。
-事实是，他们总是把事情推出来。给它一些时间，你就会得到它]]></description>
-      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_4</guid>
-      <pubDate>Tue, 02 Apr 2024 17:54:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
-      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_3</link>
+      <title>文档处理解决方案</title>
+      <link>https://community.openai.com/t/document-processing-solutions/704358#post_6</link>
       <description><![CDATA[
 
 
-罗纳德GRuckus：
+ 谢尔盖亚特科：
 &lt;块引用&gt;
-fml
+
+理解：OCR + 原始文本清理和格式化 + 语义结构分析
+分析：数据提取、逻辑运算
+报告：数据和结果输出
 
 
-我在 ChatGPT4 上找不到该选项。这在法国有售吗？]]></description>
-      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_3</guid>
-      <pubDate>Tue, 02 Apr 2024 17:53:10 GMT</pubDate>
+
+我解决了类似的问题，但遇到了必须以某种方式格式化的大型文档的问题。只需一个简单的项目符号列表就可以解决问题。我们的情况几乎是一样的。很棒的是，我们已经从这些文档中找出了我们需要的关键因素。
+
+
+
+ 谢尔盖亚特科：
+&lt;块引用&gt;
+我们花了一年半的时间来分析人类完成我们需要完成的任务的方式并绘制工作流程，从待办事项到工作原型大约花了 6 个月的时间
+
+
+为什么花了这么长时间？您是否试图从这些文档中准确找出您需要哪些信息？在我们的情况下，我们确切地知道我们想要从这些 PDF 中获得什么输出。 @sergeliatko]]></description>
+      <guid>https://community.openai.com/t/document-processing-solutions/704358#post_6</guid>
+      <pubDate>Tue, 02 Apr 2024 20:38:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>网络错误 - 一直如此！</title>
+      <link>https://community.openai.com/t/network-error-all-the-time/705736#post_1</link>
+      <description><![CDATA[我不希望在这里写下内容可以解决问题，但可能会帮助某人知道这不是他们的系统/故障等。
+大约一周以来，我几乎每 5 个响应都会在响应过程中收到一个网络错误。登录多台机器，新/旧对话 - 并不重要。
+总体速度有时约为每秒一个单词。基本上一周多以来它已经接近无法使用了。]]></description>
+      <guid>https://community.openai.com/t/network-error-all-the-time/705736#post_1</guid>
+      <pubDate>Tue, 02 Apr 2024 20:35:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>文档处理解决方案</title>
+      <link>https://community.openai.com/t/document-processing-solutions/704358#post_5</link>
+      <description><![CDATA[
+
+
+调整：
+&lt;块引用&gt;
+我们使用 Instructor（搜索 jxnl coach）从 PDF 文档获取结构化 JSON 输出。它有Python和JS版本。目前，我们首先对文档进行 OCR，但已经开始从多模式法学硕士中获得相当好的表格提取结果。
+
+
+我会尝试一下。谢谢@hudge]]></description>
+      <guid>https://community.openai.com/t/document-processing-solutions/704358#post_5</guid>
+      <pubDate>Tue, 02 Apr 2024 20:35:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>Converge 2 发生了什么？</title>
+      <link>https://community.openai.com/t/what-ever-happened-to-converge-2/677966#post_10</link>
+      <description><![CDATA[我的申请也被接受了（在第三世界医疗保健领域） - 但我没有收到任何回复
+也许这就是部分原因。
+https://www.reuters.com/technology/openai-removes-sam-altmans-ownership-its-startup-fund-2024-04-01/&lt; /p&gt;
+另一方面，Logan（帮助创办了这个论坛）今天接受了 Google 的职位，负责支持 Gemini API
+(https://twitter.com/OfficialLoganK/status/1775222819439149424)&lt; /p&gt;
+有趣的时刻。]]></description>
+      <guid>https://community.openai.com/t/what-ever-happened-to-converge-2/677966#post_10</guid>
+      <pubDate>Tue, 02 Apr 2024 20:28:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于检查模型健康状况的 API 路由</title>
+      <link>https://community.openai.com/t/api-routes-to-check-model-health/34941#post_11</link>
+      <description><![CDATA[Open AI 刚刚发布了有关检查 API 运行状况的新文档。您可以在此处找到它。
+这是一些用于检查 API 是否可操作的代码：
+导入请求
+def check_openai_api_operational():
+    url =“https://status.openai.com/api/v2/summary.json”
+    尝试：
+        响应 = requests.get(url)
+        响应.raise_for_status()
+        数据 = 响应.json()
+
+        # 检查整体系统状态
+        总体状态 = data.get(&#39;状态&#39;, {}).get(&#39;指标&#39;)
+        如果总体状态！=“无”：
+            return False, f&quot;OpenAI API 未完全运行：{data.get(&#39;status&#39;, {}).get(&#39;description&#39;)}&quot;
+
+    
+        对于 data.get(&#39;components&#39;, []) 中的组件：
+            if component.get(&#39;status&#39;) != &#39;运行&#39;:
+                return False, f“组件 &#39;{component.get(&#39;name&#39;)}&#39; 无法运行。”
+
+        返回 True，“OpenAI API 已完全运行。”
+    除了 requests.RequestException 作为 e：
+        return False, f“无法到达 OpenAI 状态 API：{e}”
+]]></description>
+      <guid>https://community.openai.com/t/api-routes-to-check-model-health/34941#post_11</guid>
+      <pubDate>Tue, 02 Apr 2024 20:27:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
