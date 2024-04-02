@@ -4,114 +4,209 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 02 Apr 2024 15:19:33 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Apr 2024 18:24:36 GMT</lastBuildDate>
     <item>
-      <title>语音引擎 - 应对合成语音的挑战和机遇</title>
-      <link>https://community.openai.com/t/voice-engine-navigating-the-challenges-and-opportunities-of-synthetic-voices/701714#post_6</link>
-      <description><![CDATA[&lt;块引用&gt;
-与此同时，由于合成语音滥用的可能性，我们正在采取谨慎和知情的方式来进行更广泛的发布。我们希望就合成声音的负责任部署以及社会如何适应这些新功能展开对话。根据这些对话和小规模测试的结果，我们将就是否以及如何大规模部署这项技术做出更明智的决定。
+      <title>如何让 GPT 在一个请求中为多个提示生成响应？</title>
+      <link>https://community.openai.com/t/how-to-make-gpt-generate-responses-for-multiple-prompts-at-one-request/705648#post_1</link>
+      <description><![CDATA[您好，我想知道是否可以一次将多个提示（即不同的生成任务）输入到 Chat Completions API 中，并针对每个提示获得多个回复。根据这个 OpenAI 文档，提示数组可以输入到 message.content 参数中。这是我的代码：
+prompt = [&quot;你好&quot;, &quot;很高兴认识你&quot;]
+提示 = [{&quot;text&quot;: p, &quot;type&quot;: &quot;text&quot;} 提示中的 p]
+r = self.client.chat.completions.create(
+    型号=&#39;gpt-3.5-turbo&#39;,
+    消息=[
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: Prompt} # 提示符是一个列表
+    ],
+    温度=0.9，
+    n=1，
+    max_tokens=最大_tokens
+    ）
 
-我强烈建议您阅读这样的博客文章。
-没有时间限制，他们非常谨慎。文章暗示，如果风险足够高且无法解决，他们就不会发布。]]></description>
-      <guid>https://community.openai.com/t/voice-engine-navigating-the-challenges-and-opportunities-of-synthetic-voices/701714#post_6</guid>
-      <pubDate>Tue, 02 Apr 2024 15:19:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>识别和读取文件格式的问题</title>
-      <link>https://community.openai.com/t/problems-with-recognising-and-reading-file-formats/705459#post_1</link>
-      <description><![CDATA[我目前正在开发用于财务分析的人工智能助手。在测试过程中，我想上传不同格式的数据。实际上只有错误消息或者助手开始从知识库分析文件。
-造成这种永久性错误的原因可能是什么？我使用标准格式，例如 Excel、PDF、PNG、JPG，]]></description>
-      <guid>https://community.openai.com/t/problems-with-recognising-and-reading-file-formats/705459#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 15:15:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>即使提及模型 ID 后，微调模型也未给出预期响应</title>
-      <link>https://community.openai.com/t/fine-tuned-model-not-giving-expected-responses-even-after-mentioning-model-id/705245#post_6</link>
-      <description><![CDATA[好吧，在我看来，主要的挑战是确保助手的响应符合预定义的 JSON 格式。这确实可以通过微调来实现。
-对于训练数据集，我将包含以下示例：(1) 一条系统消息，描述助手的目的和响应的性质，包括它应返回的 JSON 对象所需结构的一般描述， (2) 用户消息，其中包含 PDF 内容以及任何其他用户特定查询，以及 (3) 助理响应消息，其中包含所需格式的 JSON 以及 PDF 中的特定值。]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-model-not-giving-expected-responses-even-after-mentioning-model-id/705245#post_6</guid>
-      <pubDate>Tue, 02 Apr 2024 15:08:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>语音引擎 - 应对合成语音的挑战和机遇</title>
-      <link>https://community.openai.com/t/voice-engine-navigating-the-challenges-and-opportunities-of-synthetic-voices/701714#post_5</link>
-      <description><![CDATA[您好，这个 api 何时可供学习？]]></description>
-      <guid>https://community.openai.com/t/voice-engine-navigating-the-challenges-and-opportunities-of-synthetic-voices/701714#post_5</guid>
-      <pubDate>Tue, 02 Apr 2024 15:07:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免“抱歉，我无法帮助您识别图像中的人物或对图像中的人物做出假设。”？</title>
-      <link>https://community.openai.com/t/how-do-you-get-around-sorry-i-cant-help-with-identifying-or-making-assumptions-about-people-in-images/664475#post_3</link>
-      <description><![CDATA[它对我有用，微软中的基本URL带有base_url=f“{api_base}openai/deployments/{deployment_name}/extensions”，当我删除“/extensions”时它的作品]]></description>
-      <guid>https://community.openai.com/t/how-do-you-get-around-sorry-i-cant-help-with-identifying-or-making-assumptions-about-people-in-images/664475#post_3</guid>
-      <pubDate>Tue, 02 Apr 2024 15:03:50 GMT</pubDate>
+输出 = r.choices[0].message.content
+
+输出：
+您好！很高兴认识你。
+
+该模型似乎将所有提示连接成一个，并为其生成单个响应。但是，我的目标是获取一个响应列表，例如 [&#39;hi&#39;, &#39;nice to meet you too.&#39;] 每个提示。
+是否有可能获得对每个单独提示的响应？怎么办？]]></description>
+      <guid>https://community.openai.com/t/how-to-make-gpt-generate-responses-for-multiple-prompts-at-one-request/705648#post_1</guid>
+      <pubDate>Tue, 02 Apr 2024 18:21:23 GMT</pubDate>
     </item>
     <item>
       <title>TTS 语音带有明显的美国口音</title>
-      <link>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_6</link>
-      <description><![CDATA[OpenAI 引入了一系列“声音”，为用户提供量身定制的交互体验。这些声音（Alloy、Echo、Fable、Onyx、Nova 和 Shimmer）中的每一种都有其独特的特征和预期用例，可以根据用户的需求增强信息传达的方式。以下是每项的简要概述：
-合金
-
-特点：Alloy 的设计简洁明了，注重以直接的方式传递信息。这是一种不拐弯抹角的声音，旨在提高效率和清晰度。
-用例：Alloy 非常适合技术解释、数据分析以及清晰度和精确度至关重要的场景。这就像一位值得信赖的顾问的声音，开门见山。
-
-回声
-
-特征：Echo 具有反思性和深思熟虑的语气，通常用于增强响应的深度。它就像一个对话伙伴，会考虑信息的含义并提供见解。
-用例：非常适合讨论哲学主题、反思性问题或探索复杂主题的细微差别。 Echo 提供的答案可以思考更大的图景或潜在的含义。
-
-寓言
-
-特点：寓言富有想象力和创造力，旨在丰富故事讲述或任何受益于叙事繁荣的内容。这种声音可以让故事变得栩栩如生，增添迷人或奇思妙想的元素。
-用例：非常适合讲故事、创意写作提示、生成富有想象力的场景或任何需要叙事创意的情况。
-
-玛瑙
-
-特点：Onyx 权威而自信，传达出专业和自信的感觉。这是您所期望的来自某个领域的专家的声音，他准备好坚定地分享他们的知识。
-用例：非常适合权威建议、专家分析以及表达对所提供信息的信心。这就像咨询一位对其领域充满信心的专家。
-
-Nova
-
-特点：Nova 充满活力且引人入胜，旨在吸引注意力并传达热情。这就像与一个对话题的兴奋具有感染力的人进行对话。
-用例：最适合用于引人入胜的解释、激励性主题，或任何您想为对话注入活力和热情的时候。
-
-微光
-
-特征：Shimmer 乐观且令人振奋，提供旨在照亮用户心情或提供鼓励的响应。这就像有一个总是看​​到光明的一面、给予支持的朋友一样。
-用例：非常适合当您寻求鼓励、动力或积极的事情时。微光可以振奋精神，让你在任何情况下都能看到更光明的前景。
-
-每种声音都允许 OpenAI 迎合广泛的交互风格，从事实和直接到富有想象力和激励性，确保用户能够找到最适合他们当前需求或偏好的语气。]]></description>
-      <guid>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_6</guid>
-      <pubDate>Tue, 02 Apr 2024 14:59:49 GMT</pubDate>
+      <link>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_9</link>
+      <description><![CDATA[请注意，上述帖子中包含的各种语音模型的描述和用例完全是虚构的。]]></description>
+      <guid>https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394#post_9</guid>
+      <pubDate>Tue, 02 Apr 2024 18:21:22 GMT</pubDate>
     </item>
     <item>
-      <title>适合聊天机器人机构的白标人工智能聊天机器人解决方案？</title>
-      <link>https://community.openai.com/t/white-label-ai-chatbot-solutions-for-a-chatbot-agency/705437#post_1</link>
-      <description><![CDATA[我正在寻找可以白标使用的人工智能聊天机器人
-专门寻找在代理机构中的使用
-需要高消息限制
-需要定制支持和入门帮助
-有什么解决办法吗？]]></description>
-      <guid>https://community.openai.com/t/white-label-ai-chatbot-solutions-for-a-chatbot-agency/705437#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 14:57:51 GMT</pubDate>
+      <title>尝试在 Unity 游戏中使用 ChatGPT API 但失败</title>
+      <link>https://community.openai.com/t/trying-to-use-chatgpt-api-in-unity-game-but-fail/705646#post_1</link>
+      <description><![CDATA[我在编码方面非常陌生，尤其是 ChatGPT，所以这里是我的用于输入文本的统一 C# 代码：
+使用 System.Collections;
+使用系统；
+使用UnityEngine；
+使用UnityEngine.Networking；
+使用UnityEngine.UI；
+公共类 TextHandler ：MonoBehaviour
+{
+公共输入字段输入字段；
+公共文本输出文本；
+[系统.可序列化]
+公共类 GptResponse
+{
+公共选择选择；
+}
+[系统.可序列化]
+公开课选择
+{
+公共字符串文本；
+}
+public void HandleInput()
+{
+
+    字符串 userInput = inputField.text;
+    StartCoroutine(SendToGPT(userInput));
+
+}
+
+私有IEnumerator SendToGPT（字符串输入）
+{
+字符串 apiUrl = “url”;
+string requestBody = &quot;{\&quot;prompt\&quot;: \&quot;&quot; + input + &quot;\&quot;, \&quot;max_tokens\&quot;: 500}&quot;;
+
+UnityWebRequest 请求 = UnityWebRequest.PostWwwForm(apiUrl, requestBody);
+
+request.SetRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+request.SetRequestHeader(&quot;授权&quot;, &quot;承载 myapi&quot;);
+
+产量返回请求.SendWebRequest();
+
+if (request.result == UnityWebRequest.Result.Success)
+{
+    字符串responseJson = request.downloadHandler.text;
+    
+    字符串 generatedText = ParseResponseFromJSON(responseJson);
+
+    产量返回生成的文本；
+}
+别的
+{
+    Debug.LogError(&quot;发送请求时出错：&quot; + request.error);
+    产量返回空；
+}
+
+}
+私有字符串 ParseResponseFromJSON(string jsonResponse)
+{
+尝试一下
+{
+GptResponse 响应 = JsonUtility.FromJson(jsonResponse);
+ if (response.choices != null &amp;&amp; response.choices.Length &gt; 0)
+    {
+        字符串 generatedText = response.choices[0].text;
+        返回生成的文本；
+    }
+    别的
+    {
+        Debug.LogError(&quot;在 JSON 响应中找不到选择。&quot;);
+        return“错误：在 JSON 响应中找不到选择。”；
+    }
+}
+捕获（异常 e）
+{
+    Debug.LogError(&quot;解析 JSON 响应时出错：&quot; + e.Message);
+    return &quot;解析 JSON 响应时出错&quot;;
+}
+
+}
+}
+在输入框中写入文本后，它会等待大约 2 秒并给出以下错误：
+发送请求时出错：HTTP/1.1 400 错误请求
+UnityEngine.Debug:LogError（对象）
+TextHandler/d__5:MoveNext ()（位于 Assets/Scripts/TextHandler.cs:67）
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)]]></description>
+      <guid>https://community.openai.com/t/trying-to-use-chatgpt-api-in-unity-game-but-fail/705646#post_1</guid>
+      <pubDate>Tue, 02 Apr 2024 18:20:58 GMT</pubDate>
     </item>
     <item>
       <title>将我的 Rshiny 应用程序与 GPT 连接</title>
-      <link>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_1</link>
-      <description><![CDATA[您好，您能帮我从我的 Rshiny 应用程序通过 API 调用我构建的 GPT，我无法建立连接。我该怎么办？
-感谢您的帮助]]></description>
-      <guid>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_1</guid>
-      <pubDate>Tue, 02 Apr 2024 14:51:18 GMT</pubDate>
+      <link>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_2</link>
+      <description><![CDATA[自定义 GPT 是 ChatGPT 产品，无法在 chat.openai.com 之外访问它们。
+如果您想将任何类型的应用程序连接到 OpenAI 的模型之一，您需要使用可用的 API 端点之一并支付使用费用。]]></description>
+      <guid>https://community.openai.com/t/connecting-my-rshiny-app-with-a-gpt/705434#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 18:12:43 GMT</pubDate>
     </item>
     <item>
-      <title>辅助功能响应检索错误</title>
-      <link>https://community.openai.com/t/assistant-function-response-retrive-error/705268#post_3</link>
-      <description><![CDATA[您返回的结果受到模型令牌大小的限制，模型令牌大小是您的消息、数据、指令和每个线程的响应。
-拥有关于如何处理数据的更好的辅助说明是获得更好结果的关键。正如您提到的，每个对象的 id 是人工智能要跟踪的更具体的东西。我确实认为它可以同时跟踪的事物数量最多，我发誓我达到了上限。我想说的是预览版 10k。 GPT4 总是会更好地理解事物，因此当使用相同的指令处理一个模型而不是另一个模型时，结果并不总是相同。使用 gpt3，在制作提示时，您必须花更多时间思考如何使您正在做的事情更加清晰，甚至由于人工智能的工作原理，您仍然有可能得到不符合您逻辑的模式。
-gpt4 运行起来很昂贵，具体取决于您想要做什么。其中 gpt3 的成本惊人，但需要做更多的工作才能使其按照您想要的方式工作。
-我仍在寻找我发誓我看到那个用于跟踪的帽子的地方。那或者也许这是我读过的一篇文章哈哈。]]></description>
-      <guid>https://community.openai.com/t/assistant-function-response-retrive-error/705268#post_3</guid>
-      <pubDate>Tue, 02 Apr 2024 14:50:51 GMT</pubDate>
+      <title>耳语转录失败和幻觉</title>
+      <link>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_1</link>
+      <description><![CDATA[你好。我使用 OpenAI 食谱编写了一个简单的音频到文本摘要和转录应用程序。通常效果很好。
+但是今天我尝试为一个小音频文件（&lt;10mb）创建会议纪要，Whisper 处理了该文件并建议它没有内容！a 当我再次尝试时，它总结了文件的部分内容，其余部分&#39;幻觉出全新的信息，与实际对话完全无关。其他用户是否也遇到过音频转文本模式中此类基本用例的问题？有关如何限制此类“灾难性”故障可能性的任何指导。谢谢。]]></description>
+      <guid>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_1</guid>
+      <pubDate>Tue, 02 Apr 2024 18:10:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_504</link>
+      <description><![CDATA[复活节快乐……我的 150 个 GPT 中的一些图像是我花了几个月的时间来确保它们用户友好、无尽、一致的角色。适合孩子的故事书，去很多国家旅行，看看www.aiautomate.me
+
+
+
+&lt; /a&gt;
+]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_504</guid>
+      <pubDate>Tue, 02 Apr 2024 18:10:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>写整本书的技巧</title>
+      <link>https://community.openai.com/t/technique-for-writing-entire-books/705519#post_2</link>
+      <description><![CDATA[我昨晚花了五个小时做了一个，我醒来发现你也做了一个哈哈。 （代码大约需要 10 分钟，UI 大约需要 4 小时 50 分钟。）请随意在此处分享链接。我也对你给它提供的上下文感兴趣，你是否给了它整本书并告诉它写下一章，这可能只是在吃钱？]]></description>
+      <guid>https://community.openai.com/t/technique-for-writing-entire-books/705519#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 18:09:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
+      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_5</link>
+      <description><![CDATA[这让我想起了 Photoshop 的生成填充。它看起来很棒，我迫不及待地想把它推出给我。]]></description>
+      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_5</guid>
+      <pubDate>Tue, 02 Apr 2024 18:00:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于嵌入维护聊天机器人的上下文？</title>
+      <link>https://community.openai.com/t/maintain-context-for-a-chat-bot-based-on-embeddings/471933#post_2</link>
+      <description><![CDATA[你有没有弄清楚这一点？有类似的q]]></description>
+      <guid>https://community.openai.com/t/maintain-context-for-a-chat-bot-based-on-embeddings/471933#post_2</guid>
+      <pubDate>Tue, 02 Apr 2024 17:55:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT 模型构建母语文化和宗教经文工具</title>
+      <link>https://community.openai.com/t/building-a-tool-using-gpt-model-for-cultural-and-religious-scripture-in-native-language/705615#post_1</link>
+      <description><![CDATA[寻求有关使用 GPT 模型为我的母语经文构建工具的建议。我有数据，ChatGPT 显示了理解。我该如何继续？]]></description>
+      <guid>https://community.openai.com/t/building-a-tool-using-gpt-model-for-cultural-and-religious-scripture-in-native-language/705615#post_1</guid>
+      <pubDate>Tue, 02 Apr 2024 17:55:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
+      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_4</link>
+      <description><![CDATA[每当 OpenAI 发布任何东西时，他们都会让每个人都可以立即使用它。
+事实是，他们总是把事情推出来。给它一些时间，你就会得到它]]></description>
+      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_4</guid>
+      <pubDate>Tue, 02 Apr 2024 17:54:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
+      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_3</link>
+      <description><![CDATA[
+
+
+罗纳德GRuckus：
+&lt;块引用&gt;
+fml
+
+
+我在 ChatGPT4 上找不到该选项。这在法国有售吗？]]></description>
+      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_3</guid>
+      <pubDate>Tue, 02 Apr 2024 17:53:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
