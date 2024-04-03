@@ -4,11 +4,95 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 03 Apr 2024 09:18:17 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Apr 2024 12:30:44 GMT</lastBuildDate>
+    <item>
+      <title>你们更喜欢哪种形式的教程？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1burapq/which_form_of_tutorials_you_guys_prefer/</link>
+      <description><![CDATA[在按照教程学习或构建东西时，你们更喜欢哪种形式或教程？ 查看民意调查   由   提交 /u/NisemonoNaWa   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1burapq/which_form_of_tutorials_you_guys_prefer/</guid>
+      <pubDate>Wed, 03 Apr 2024 12:25:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>PHP 仍然是最简单的工具来构建对于非技术人员来说非常非常容易安装的东西吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buql9c/is_php_still_the_easiest_tool_to_use_to_build/</link>
+      <description><![CDATA[我正在考虑为音乐家构建一个非常易于设置和安装的自托管产品。我记得通过 cPanel 安装 WordPress 非常容易。我想知道 PHP 是否仍然是可以使用的工具，以便我可以让非技术人员轻松安装网站。  我知道自从我上次涉足 Web 开发世界（FE 框架之前）以来，Web 工具已经发生了变化，现在有 Rails 和 Node 等等，但设置这些工具似乎更困难复杂，不像旧的 5 分钟安装那么简单。  有兴趣听听您对此的想法吗？ 谢谢。    由   提交 /u/TouchMySwollenFace   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buql9c/is_php_still_the_easiest_tool_to_use_to_build/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:49:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>CORS，我很难理解的东西。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buqj43/cors_something_i_struggle_to_understand/</link>
+      <description><![CDATA[我在这里发布了我向 GPT-4 提出的问题：  我有一个 Vue.js 3 Web 应用程序通过“npm run dev -- --host”命令在本地主机上运行。此应用程序调用托管在ASP.NET Core、RESTful 远程API。 azurewebsites.net&quot;&gt;https://dukle-api-fs-personal.azurewebsites.net。放置 policy.AllowAnyOrigin();策略.AllowAnyHeader(); policy.AllowAnyMethod(); 在ASP.NET Core API的Program.cs中，解决CORS问题，但为什么呢？ 根据我对 CORS 的理解，当我在本地主机上提供 Vue 服务时，我的客户端（浏览器）将其来源设置为为本地应用程序提供服务的 Vue 服务器。所以，在这种情况下，我猜原点设置为类似 http://localhost... 所以，我想该服务器是否应该设置参数以允许到达不同的来源。相反，在 Vue 服务器上不执行任何操作，而是将这 3 行代码放入 ASP.NET Core API 的 Program.cs 中诡计。为什么？  GPT-4 回复：  浏览器在向不同来源发出请求时应用 CORS（跨源资源共享）规则（不同的域、协议或端口）从页面加载的位置。  CORS 作为 Web 浏览器的标准来实现，以防止服务器向不安全或未知域提供资源。从本质上讲，它是一种安全机制，可防止从 API 服务器未列入白名单的域调用 API（在本例中为您的 .NET API）。 当您尝试从运行的 Vue.js 应用程序调用 API 时在本地主机上，浏览器通过发出预检请求（使用 OPTIONS 方法）来检查发出请求是否安全。  然后，服务器（您的 .NET API）需要响应该预检请求，表示它允许从运行 Vue.js 应用程序的源发出实际请求（http://localhost...) 通过发送正确的 &#39;Access-Control-Allow-Origin&#39;、&#39;Access-Control-Allow-Methods&#39; 和 &#39; Access-Control-Allow-Headers 的标头。 代码行 policy.AllowAnyOrigin();策略.AllowAnyHeader();您添加到服务器的配置（在 ASP.NET Core API 的 Program.cs 中），本质上是将所有来源、标头和方法列入白名单。  它本质上是说“允许该服务器接受来自任何来源（域、协议或端口）的请求，允许 HTTP 请求中的任何标头值并允许任何 HTTP 方法”。  您告诉 API 接受来自所有来源（包括您的 Vue.js 应用程序，无论托管在何处）的请求，以及任何可能类型的标头和方法。这就是为什么这 3 行代码为您解决了 CORS 问题。 请记住，在生产中允许任何来源 (policy.AllowAnyOrigin()) 通常不是一个好主意环境，因为它允许任何网站与您的 API 交互。您应该将其限制在受信任的域中。同样，policy.AllowAnyHeader() 和 policy.AllowAnyMethod() 也可以扩大攻击面，您应该将允许的标头和方法限制在需要的范围内。  心中的疑惑依然存在。如果我访问 http://badWebsite.com，并且他的开发人员还创建了  http://badApi.com，由 http://badWebsite.com 使用，在 http://badApi.com 让http://badWebsite.com 来调用她，在这种情况下CORS对保护我没有用吗？   由   提交/u/Formal-Move4430  /u/Formal-Move4430 reddit.com/r/webdev/comments/1buqj43/cors_something_i_struggle_to_understand/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buqj43/cors_something_i_struggle_to_understand/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:46:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>在哪里部署我的全栈项目？我迷路了</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buq30g/where_to_deploy_my_fullstack_project_im_lost/</link>
+      <description><![CDATA[最近我开始了我的第一个全栈学校项目，用 React 作为前端，Django 作为后端，它只是一个简单的简历制作工具，但我认为最糟糕的部分是搜索最好的/免费的（我是一个破产的学生）/易于设置的后端托管网站。我见过几个选项：AWS、Azure、Firebase、render、pythonEverywhere 等等，但我迷失了。 此外，我应该单独部署前端和后端还是将它们部署在同一个服务器？我可以将 GitHub 页面与 React 一起使用，同时将后端放在其他地方吗？我怎么能这么做呢？有人可以给我链接关于此事的任何好的资源或给我任何提示吗？   由   提交 /u/s1r-william   /u/s1r-william  reddit.com/r/webdev/comments/1buq30g/where_to_deploy_my_fullstack_project_im_lost/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buq30g/where_to_deploy_my_fullstack_project_im_lost/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:21:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有指定的工具来创建这些产品展示视频动画？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bupy23/is_there_a_designate_tool_to_create_these_product/</link>
+      <description><![CDATA[例如，在此着陆页中 https:// www.spikenow.com  有这些正在使用的工具的视频。我可以在代码中看到它是一个视频元素，只是想知道是否有一些工具可以帮助以简单的方式创建和输出这些元素？而不是手动录制、剪切、裁剪编辑压缩等。   由   提交 /u/Yanaytsabary   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bupy23/is_there_a_designate_tool_to_create_these_product/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:13:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>工作中从头开始的第一个项目</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bupxwo/first_project_from_scratch_at_work/</link>
+      <description><![CDATA[我的目标是成为一名全栈开发人员，但我一开始主要从事前端工作。我拥有计算机科学学士学位和 8 个月的工作经验。也就是说，我刚刚被分配到我的第一个独立完整项目 - 我们公司的网站。我知道我会使用 NextJs 和 Strapi。我在做这件事的时候有什么需要注意的吗？自我注释和不重复的代码是给定的，但我想知道我还应该记住什么。如果有任何帮助，我将不胜感激！   由   提交/u/lnthrx  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bupxwo/first_project_from_scratch_at_work/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:13:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>运行 Websocket 服务器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bupxp9/running_a_websocket_server/</link>
+      <description><![CDATA[我正在构建一个 SaaS 平台，该平台具有协作功能并不断从服务器接收更新 - 这意味着用户在使用时会不断打开 Websocket 连接位于仪表板上。 因此，如果有 1000 人登录，即有 1000 个并发连接。 使用托管解决方案（例如iehost.com、pusher）会更好吗？ .com 等或使用开源解决方案（例如 socket.io 或 soketi.app）主机（自己实现）？   由   提交/u/Ok_Competition_7644   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bupxp9/running_a_websocket_server/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:13:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找缺失的数据类型</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buptiz/the_hunt_for_the_missing_data_type/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buptiz/the_hunt_for_the_missing_data_type/</guid>
+      <pubDate>Wed, 03 Apr 2024 11:06:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>深入探讨 Meraki 1.0</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bupha3/a_deep_dive_into_meraki_10/</link>
+      <description><![CDATA[       由   提交/u/feross  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bupha3/a_deep_dive_into_meraki_10/</guid>
+      <pubDate>Wed, 03 Apr 2024 10:45:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>获取整个 JSON 集还是单个 JSON 集以提高效率？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bupfxh/fetch_whole_json_set_or_single_for_efficiency/</link>
+      <description><![CDATA[我有网站。它从 API 获取。当它获取帖子时，它需要获取帖子本身和作者的用户名。目前我有一个完整用户信息的访问点，例如姓名、地址、年龄等。 （例如 JSON 的 10 个值）我应该仅为用户名创建一个单独的 api 访问点，还是使用单个值来获取整个内容是否有效？ 是否值得让它只获取单一值？如果获取整组数据，它会大大减慢我的服务/网站的速度吗？   由   提交/u/ITvi-software07  /u/ITvi-software07 reddit.com/r/webdev/comments/1bupfxh/fetch_whole_json_set_or_single_for_efficiency/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bupfxh/fetch_whole_json_set_or_single_for_efficiency/</guid>
+      <pubDate>Wed, 03 Apr 2024 10:43:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>[前端]哪些投资组合项目对招聘经理有吸引力？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buoy0o/frontend_what_portfolio_projects_are_appealing_to/</link>
+      <description><![CDATA[我正在努力更新我的作品集，所以我想知道招聘经理会关注哪些项目，然后说“好吧，这很酷，让我们让他们加入进来”一次会议”。 我当前的投资组合项目：用 NextJS 构建的电子商务网站。 React 中内置的待办事项列表。 React 内置存储卡。 React 内置计算器。在 Sveltekit 中内置的蚀刻草图。 Tic Tac Toe 是用 Sveltekit 构建的。 我的计划是将这 6 个项目变成 3 个非常可靠的项目。电子商务网站是实现这一目标的第一步......那么您希望在简历中看到哪些项目向您表明该候选人有潜力在您的团队中工作并取得成功？    由   提交 /u/Yhcti   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buoy0o/frontend_what_portfolio_projects_are_appealing_to/</guid>
+      <pubDate>Wed, 03 Apr 2024 10:11:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>这个解决方案会被视为 cookie 吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1buouyd/would_this_solution_be_considered_a_cookie/</link>
+      <description><![CDATA[大家好！  我正在为一家公司构建一个过度设计的 SPA 网站。我是一名业余爱好者，这是我的第一个真正的项目，我不知道我在做什么，但到目前为止我玩得很开心。 （哦，这都是家庭内部的事情，所以如果我搞砸了，真的没有法律后果，这意味着我可能没有资格胜任这份工作，这没关系：D） 我一直在阅读有关饼干的内容，因为爸爸对臭名昭著的饼干横幅感到担忧。该网站（截至目前）不收集任何 cookie，我通过开发工具和一些 cookie 扫描仪确认了这一点。因此，我们实现了一个简单的 toast，通知我们不收集任何 cookie，是的，每次有人重新进入或刷新网站时它都会显示。  现在我的问题。 Wiki 说“Cookie 放置在用于访问网站的设备上”，MDN 说 Cookie 是服务器发送给用户的东西。我真的在这里思考是因为：  我正在考虑实现一个简单的分析系统（不需要高级的谷歌狗屎），该系统可以在每个按钮上工作。每个按钮都有一个 ID，当单击它时，我会在数据库中获得 +1。完全匿名，没有 IP，没有位置，只有简单的数字增量。它还可能会计算秒数来查看正在显示哪些照片。我想您明白了。一种原始的分析可以帮助我弄清楚如何在网站上定位内容，什么是有趣的，什么是不有趣的。  不会进行跟踪，不会在用户的 PC 上永久保存任何内容，根本不会有 PII。像这样的东西会被视为cookie吗？它需要一个合法的 cookie 横幅吗？这是一个公平的解决方案吗？我是否以错误的方式思考或做错了什么？  以上是我在尝试掌握这个主题时想到的几个问题。我将非常感谢任何建议和/或解释！   由   提交 /u/Sziszhaq   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1buouyd/would_this_solution_be_considered_a_cookie/</guid>
+      <pubDate>Wed, 03 Apr 2024 10:06:01 GMT</pubDate>
+    </item>
     <item>
       <title>z-index swiperjs问题</title>
       <link>https://www.reddit.com/r/webdev/comments/1bumn5o/zindex_swiperjs_problem/</link>
-      <description><![CDATA[嗨， 我正在开发一个网站（不适合我），它仍然是一个在制品，所以不要评判 我面临的问题是我的 swiper.js 和其他组件，您将看到它们重现了该问题。 为此：在“新闻”中部分（页脚之前的最后一部分），如果您单击按钮“Leggi la notizia”它会打开包含完整新闻的对话框。我无法使对话框的灰色背景覆盖滑动器（和其他一些元素），因此它们重叠，而且我不知道为什么，因为它并不是对每个图像都这样做。我尝试了不同的 z 索引并将 z-0 应用于每个 swiper div，但它不起作用。  你能帮我一下吗？这是开发网站：lnx.eticamentesnc.it 谢谢，祝你有美好的一天！   由   提交 /u/BarboBarbo   [链接] [评论]]]></description>
+      <description><![CDATA[嗨， 我正在开发一个网站（不适合我），它仍然是一个在制品，所以不要评判 我面临的问题是我的 swiper.js 和其他组件，您将看到它们重现了该问题。 为此：在“新闻”中部分（页脚之前的最后一部分），如果您单击按钮“Leggi la notizia”它会打开包含完整新闻的对话框。我无法使对话框的灰色背景覆盖滑动器（和其他一些元素），因此它们重叠，而且我不知道为什么，因为它并没有对每个图像都这样做。我尝试了不同的 z 索引并将 z-0 应用于每个 swiper div，但它不起作用。  你能帮我一下吗？这是开发网站：lnx.eticamentesnc.it 谢谢，祝你有美好的一天！   由   提交 /u/BarboBarbo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bumn5o/zindex_swiperjs_problem/</guid>
       <pubDate>Wed, 03 Apr 2024 07:33:26 GMT</pubDate>
     </item>
@@ -22,93 +106,9 @@
     <item>
       <title>练习/爱好项目的建议</title>
       <link>https://www.reddit.com/r/webdev/comments/1bum8my/advice_with_practicehobby_project/</link>
-      <description><![CDATA[嗨，我已经作为后端开发人员工作了几年，也有一些前端知识。由于生活原因，我已经大约一年半没有进入编码世界了。我很生疏，忘记了很多基本的东西，但我想刷新我所知道的知识，并了解更新的玩具和技术（人工智能工具、流行框架等），以便在我尝试找工作时了解最新情况几个月后。 我时不时地和我的朋友和女朋友玩一些d&amp;d，几天前我看到我的女朋友使用一个名为inkarnate的网站为她的幻想世界绘制了一张地图（赢得了不要链接它，以防它违反任何规则）但我很好奇并且有兴趣尝试自己构建类似的东西作为投资组合项目/个人工具，特别是使用图像/纹理作为画笔和图章的画布/绘图功能。&lt; /p&gt; 我会对此进行自己的研究，但我希望得到一些有关图书馆的建议和推荐，这将帮助我或为我指明正确的方向。我在前端和后端都使用 JS，至于 UI，我愿意接受任何流行的框架，如 React、Vue 或其他框架，只要它能让它更高效、更容易构建，并且有助于增加我获得成功的机会。稍后再上班。 现在是凌晨 4 点，所以我醒来后会阅读所有回复，但提前感谢所有提供帮助的人！   由   提交/u/vashomaru   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，我已经作为后端开发人员工作了几年，也有一些前端知识。由于生活原因，我已经大约一年半没有进入编码世界了。我很生疏，忘记了很多基本的东西，但我想刷新我所知道的知识，并了解更新的玩具和技术（人工智能工具、流行框架等），以便在我尝试找工作时了解最新情况几个月后。 我时不时地和我的朋友和女朋友玩一些d&amp;d，几天前，我看到我的女朋友使用一个名为inkarnate的网站为她的幻想世界绘制了一张地图（赢得了不要链接它，以防它违反任何规则）但我很好奇并且有兴趣尝试自己构建类似的东西作为投资组合项目/个人工具，特别是使用图像/纹理作为画笔和图章的画布/绘图功能。&lt; /p&gt; 我会对此进行自己的研究，但我希望得到一些有关图书馆的建议和推荐，这将帮助我或为我指明正确的方向。我在前端和后端都使用 JS，至于 UI，我愿意接受任何流行的框架，如 React、Vue 或其他框架，只要它能让它更高效、更容易构建，并且有助于增加我获得成功的机会。稍后再上班。 现在是凌晨 4 点，所以我醒来后会阅读所有回复，但提前感谢所有提供帮助的人！   由   提交/u/vashomaru   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bum8my/advice_with_practicehobby_project/</guid>
       <pubDate>Wed, 03 Apr 2024 07:05:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 github 页面上部署 Tailwind 项目？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bulna7/how_do_i_deploy_tailwind_projects_on_github_pages/</link>
-      <description><![CDATA[我似乎在 youtube 上找不到任何有用的教程。如果这里有人可以帮助我或分享任何有用的链接，那将非常有帮助。非常感谢！   由   提交 /u/sanket_joice   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bulna7/how_do_i_deploy_tailwind_projects_on_github_pages/</guid>
-      <pubDate>Wed, 03 Apr 2024 06:26:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一个仅客户端的 tRPC 替代方案</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bula2l/i_made_a_client_side_only_trpc_alternative/</link>
-      <description><![CDATA[对于那些喜欢类型安全和类型安全的人来说tRPC 的 DX，但没有打字稿后端，我为您制作了开源工具。它是一个基于 React 查询构建的 api 中间件包装器，可确保强大的类型安全性以及与 tRPC 相同的出色 DX，而无需臃肿和复杂的配置。如果您觉得有用，请随意贡献/加星！谢谢！ https://github.com/cwooldridge1/react-safe-query &lt; /div&gt;  由   提交/u/syntropic_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bula2l/i_made_a_client_side_only_trpc_alternative/</guid>
-      <pubDate>Wed, 03 Apr 2024 06:03:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想购买一个已被占用但在“domainr.com”上列出待售的域名，我可以信任 DomainAgents 服务吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bukq8t/i_want_to_buy_a_domain_name_thats_taken_but/</link>
-      <description><![CDATA[有人用过这样的东西吗？试图弄清楚它是否值得一试，或者我是否会失去我的钱   由   提交/u/narcabusesurvivor18   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bukq8t/i_want_to_buy_a_domain_name_thats_taken_but/</guid>
-      <pubDate>Wed, 03 Apr 2024 05:28:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于自动化和脚本编写的现代无头浏览器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bukbjl/modern_headless_browser_for_automation_and/</link>
-      <description><![CDATA[我正在寻找一些与无头浏览器一起工作的自动化脚本，但似乎找不到一个简单的脚本，大多数教程基本上都在谈论关于获取selenium然后在常规浏览器中配置大量设置，是否有一些更简单的相当于Postman或无头浏览器的cna脚本？   由   提交 /u/abrandis   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bukbjl/modern_headless_browser_for_automation_and/</guid>
-      <pubDate>Wed, 03 Apr 2024 05:04:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>溢出问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1buk5e1/issues_with_overflow/</link>
-      <description><![CDATA[       我有一个布局，其中两个元素在容器中占用相同的空间，容器的一个子元素有一个可能溢出的子元素，并且我希望看到该子元素中的内容（因此，当它溢出时，我希望用户能够滚动）但是，另一个元素不需要执行此操作或扩展其高度。然而，无论我多么努力，我似乎​​都不知道如何实现这一目标。请参阅 codepen 了解与我现在所拥有的类似的内容以及下图，希望能更好地直观地呈现我想要的结果。&lt; /p&gt; 我希望发生什么   由   提交 /u/Centricc   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1buk5e1/issues_with_overflow/</guid>
-      <pubDate>Wed, 03 Apr 2024 04:54:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>帮助 - 不确定要寻找什么</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bujquz/help_not_sure_what_to_look_for/</link>
-      <description><![CDATA[我想制作一张欧洲地图，每个国家都可以选择（就像一个按钮），但我不知道如何去做或做什么寻找。我考虑过具有自定义形状的按钮，但问题是如何定位它们以构成正确的地图？ 提前致谢。   由   提交 /u/LimpNoodle01   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bujquz/help_not_sure_what_to_look_for/</guid>
-      <pubDate>Wed, 03 Apr 2024 04:30:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>聘请 CSS 前端设计师的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1buik76/advice_for_a_hiring_a_front_end_designer_for_css/</link>
-      <description><![CDATA[我创建了一个网络获取和排序网络应用程序。从功能上讲，它可以工作，并且页面元素已布局，但是主要反馈是它看起来很糟糕，背景是白色的，按钮是老式的，只有白底黑字等等。  我的想法是提供由 Flask 和 JS 生成的 html 页面，然后由设计师对 css 进行处理，使其看起来正确。对于设计师来说，这是一种合理的工作方式吗？有什么建议吗？   由   提交/u/Top_Mobile_2194   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1buik76/advice_for_a_hiring_a_front_end_designer_for_css/</guid>
-      <pubDate>Wed, 03 Apr 2024 03:27:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chrome 自动填充失控</title>
-      <link>https://www.reddit.com/r/webdev/comments/1buii9s/chrome_autofill_is_out_of_control/</link>
-      <description><![CDATA[在过去的一个月里，我们有大量用户报告 Chrome 自动填充信息不适当地进入我们的网络应用程序。这些问题是持续存在的、可靠重复的且奇怪的。 刚才，我们收到了一份新报告，其中在提交包含主题行的 AJAX 表单（想象一下联系请求表单）时，Chrome 主动提出保存主题行作为网站的用户名。 我们已经让 Chrome 将用户保存的登录详细信息自动填充到  元素中。我们已将其放入  中。当然，Chrome 开发者绝对不会尊重开发者使用autocomplete=“off” 属性。 我们找到的唯一解决方案是在每个输入元素上使用 autocomplete=&quot;one-time-code&quot;我们的网络应用程序。 只是一个令人厌恶的网络开发人员的 PSA/咆哮。 告诉您的客户使用 Firefox 或 不寒而栗 Safari。   由   提交 /u/crabmusket   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1buii9s/chrome_autofill_is_out_of_control/</guid>
-      <pubDate>Wed, 03 Apr 2024 03:24:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>bpftop,bpftop 提供运行 eBPF 程序的动态实时视图,下载bpftop的源码_GitHub_酷徒它显示每个程序的平均运行时间、每秒事件数以及估计的总 CPU 百分比。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bui4y2/github_netflixbpftop_bpftop_provides_a_dynamic/</link>
-      <description><![CDATA[   /u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bui4y2/github_netflixbpftop_bpftop_provides_a_dynamic/</guid>
-      <pubDate>Wed, 03 Apr 2024 03:06:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>您建议使用什么堆栈来构建像 JIRA 这样的 Web 应用程序？ （除JAVA + Spring框架之外的任何框架）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1buhkqf/what_stack_do_you_recommend_to_build_a_web_app/</link>
-      <description><![CDATA[嘿伙计们， 我有兴趣听取您的意见和建议，您会推荐使用什么堆栈来构建像这样的网络应用程序吉拉？请列出您的完整堆栈，从前端、中端到后端以及您将使用的所有其他内容！  干杯   由   提交 /u/Zealousideal_Bed7898   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1buhkqf/what_stack_do_you_recommend_to_build_a_web_app/</guid>
-      <pubDate>Wed, 03 Apr 2024 02:39:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>有史以来最好的 VS Code 主题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bugfdt/best_vs_code_theme_ever/</link>
-      <description><![CDATA[      ​ 就这些了。&lt;​​/a&gt;   由   提交/u/phillip-england  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bugfdt/best_vs_code_theme_ever/</guid>
-      <pubDate>Wed, 03 Apr 2024 01:44:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人知道一个大型开源 Mern 堆栈项目吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bug89j/anyone_know_a_big_open_source_mern_stack_project/</link>
-      <description><![CDATA[寻找全栈应用程序的文件结构最佳实践    ;由   提交 /u/OiaOrca   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bug89j/anyone_know_a_big_open_source_mern_stack_project/</guid>
-      <pubDate>Wed, 03 Apr 2024 01:34:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
