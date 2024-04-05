@@ -4,39 +4,58 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 05 Apr 2024 03:21:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2024 06:22:38 GMT</lastBuildDate>
     <item>
-      <title>耳语转录失败和幻觉</title>
-      <link>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_5</link>
-      <description><![CDATA[非常感谢！非常感谢。]]></description>
-      <guid>https://community.openai.com/t/whisper-transcription-failures-and-hallucinations/705634#post_5</guid>
-      <pubDate>Fri, 05 Apr 2024 02:44:12 GMT</pubDate>
+      <title>验证损失与完整验证损失</title>
+      <link>https://community.openai.com/t/validation-loss-vs-full-validation-loss/707992#post_2</link>
+      <description><![CDATA[新的微调有一些我尚未完全探索的新事物，这些只是我之前提出的建议。
+具体来说：您有 n_epochs 超参数，用于指定训练数据将完成多少遍。现在有检查点 - 在每个时期结束时生成的单独模型，因此您可以找到它们过度拟合的位置（以您的图表的学习速率来看，这发生得很早。
+ https://platform.openai.com/docs/guides/fine-tuning/use-a-checkpointed-model
+这也是“完整验证损失”报告的来源，除了在批处理期间运行一些推理之外，还有有关内部质量点的更多信息。
+您可以在上面的链接中阅读更多内容，因为我只会自己阅读并提炼它，需要用我没有做过的实验来填写不清楚的部分。]]></description>
+      <guid>https://community.openai.com/t/validation-loss-vs-full-validation-loss/707992#post_2</guid>
+      <pubDate>Fri, 05 Apr 2024 06:19:54 GMT</pubDate>
     </item>
     <item>
-      <title>“无法检索构建者配置文件”</title>
-      <link>https://community.openai.com/t/unable-to-retrieve-builder-profile/581755#post_14</link>
-      <description><![CDATA[太糟糕了，支持无法回答人们的问题。我也有同样的问题，已报告给支持人员，他们已经忽略我 50 天了，他们根本不在乎无法共享自定义 GPT 的付费客户。]]></description>
-      <guid>https://community.openai.com/t/unable-to-retrieve-builder-profile/581755#post_14</guid>
-      <pubDate>Fri, 05 Apr 2024 02:28:59 GMT</pubDate>
+      <title>chatgpt 4 无法解析 .xlsx 文件</title>
+      <link>https://community.openai.com/t/chatgpt-4-cannot-parse-xlsx-files/708067#post_2</link>
+      <description><![CDATA[几周来一直遇到同样的问题。这让我发疯]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-cannot-parse-xlsx-files/708067#post_2</guid>
+      <pubDate>Fri, 05 Apr 2024 06:16:09 GMT</pubDate>
     </item>
     <item>
-      <title>是否有已知的方法可以绕过 Winston AI 检测器？</title>
-      <link>https://community.openai.com/t/is-there-a-known-method-to-bypass-the-winston-ai-detector/701092#post_2</link>
-      <description><![CDATA[您听说过BypassGPT吗？
-我曾经遇到过同样的问题，就像你一样。在我寻求绕过 AI 检测的过程中，BypassGPT 引起了我的注意。
-老实说，我最初怀疑这个工具是否真的可以帮助我绕过 Winston AI。我的意思是，我只花了 10 秒钟就得到了一篇人性化的文本——这与我过去花一个小时重写但仍然无法通过的情况相去甚远。但猜猜怎么了？我通过 Winston AI 运行了结果，它提供了 100% 的人类评分。更不用说，Winston AI 在文本中发现了 0 次抄袭。
-这个工具对我来说确实节省了时间，值得一试。]]></description>
-      <guid>https://community.openai.com/t/is-there-a-known-method-to-bypass-the-winston-ai-detector/701092#post_2</guid>
-      <pubDate>Fri, 05 Apr 2024 02:14:49 GMT</pubDate>
+      <title>如何在OpenAI平台上纠正我的助手？</title>
+      <link>https://community.openai.com/t/how-can-i-correct-my-assistant-on-the-openai-platform/708145#post_2</link>
+      <description><![CDATA[首先，您可以按照质量和费用的顺序升级正在使用的人工智能模型：
+gpt-3.5-turbo → gpt-3.5-turbo-0613 → gpt-4-turbo-preview → gpt-4-0613 → （gpt-4-0301 仅适用于过去的用户）
+然后，如果您希望人工智能回答某个专业，在聊天消息“系统”消息（或助手中的“指令”）中，您可以将其编程为专家，并用语言告诉人工智能它在哪里集中注意力。告诉人工智能它是缝纫专家，实际上可以让它更好地回答。
+进一步的指示可以是让人工智能逐步思考，如果有任何问题看起来很困难或存在逻辑难题，请写出它将如何找到解决方案。当人工智能在实际决定答案之前写更多有关该主题的内容时，它可以进行更多的内省，从而得出正确的最终结论。
+除了简单的用户输入之外，这还通过提供输入上下文来“训练”人工智能，为完成输出做好准备。
+真正的训练是，如果您需要大幅改变人工智能的行为 - 那么您可以使用微调端点来创建您自己的模型，需要大量致力于准备数据，然后您只能改进 gpt-3.5-xx 模型，然后必须使用“助手”之外的微调模型，使用更典型的聊天完成端点（您在其中维护自己的客户聊天历史记录）。&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/how-can-i-correct-my-assistant-on-the-openai-platform/708145#post_2</guid>
+      <pubDate>Fri, 05 Apr 2024 06:12:40 GMT</pubDate>
     </item>
     <item>
-      <title>助手 API 多助手代理工作流程</title>
-      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_2</link>
-      <description><![CDATA[嗨安德烈斯
-首先，Assistants API 仍处于测试阶段，因此不要指望在生产中完全可用。
-其次，如果您共享代码和日志将会很有好处。在许多情况下，问题可能出在实现而不是协议中。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_2</guid>
-      <pubDate>Fri, 05 Apr 2024 01:55:54 GMT</pubDate>
+      <title>如何在OpenAI平台上纠正我的助手？</title>
+      <link>https://community.openai.com/t/how-can-i-correct-my-assistant-on-the-openai-platform/708145#post_1</link>
+      <description><![CDATA[我的助手在应该能够提供正确答案的时候却给出了错误答案。我想我没有正确训练它。您知道培训助理的最佳实践是什么吗？]]></description>
+      <guid>https://community.openai.com/t/how-can-i-correct-my-assistant-on-the-openai-platform/708145#post_1</guid>
+      <pubDate>Fri, 05 Apr 2024 05:59:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>将文本拆分为块与减少文本</title>
+      <link>https://community.openai.com/t/splitting-text-into-chunks-versus-reducing-the-text/696028#post_8</link>
+      <description><![CDATA[考虑不同调用之间的相似度分数差异为 0.1% 或 0.001%。数量非常少。
+如果您正在寻找与某个问题匹配的前 5 个文档块，有些文档可能会改变位置，或者 #5 结果偶尔可能会发生变化，这已经足够了如果你要一遍又一遍地执行相同的搜索，则会更改为不同的内容，但在实际使用中，人工智能在实际匹配语言和含义方面的质量远不如分数差异精确。]]></description>
+      <guid>https://community.openai.com/t/splitting-text-into-chunks-versus-reducing-the-text/696028#post_8</guid>
+      <pubDate>Fri, 05 Apr 2024 05:57:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>过去 2 天 CHATGPT 4 用户界面问题</title>
+      <link>https://community.openai.com/t/last-2-days-chatgpt-4-user-interface-issues/662790#post_4</link>
+      <description><![CDATA[我使用duckduckgo并切换到safari。它在 duckduckgo 搜索引擎上逐渐发挥作用，几乎立即就冻结了。]]></description>
+      <guid>https://community.openai.com/t/last-2-days-chatgpt-4-user-interface-issues/662790#post_4</guid>
+      <pubDate>Fri, 05 Apr 2024 05:53:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
