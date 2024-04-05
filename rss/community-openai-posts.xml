@@ -4,130 +4,279 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 04 Apr 2024 21:17:24 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2024 01:11:16 GMT</lastBuildDate>
     <item>
-      <title>来自剑桥的人工智能初创公司 Suno AI 生成逼真的广播质量音乐</title>
-      <link>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853#post_1</link>
-      <description><![CDATA[这是人工智能生成的音乐，是一个悲伤的女孩唱着麻省理工学院许可证：
+      <title>GPT 3.5 Turbo 不利用 .json 文件中提供的外部数据</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_4</link>
+      <description><![CDATA[
+
+
+ vinniejstanzani：
+&lt;块引用&gt;
+将speech_recognition导入为sr
 
 
 
-    &lt;音频控制=“”预加载=“自动”&gt;
-      
+你无法通过“假装回答”来欺骗训练过度的人工智能，让其了解新知识。您正在尝试以以下方式开始消息：
+
+[{&#39;role&#39;: &#39;system&#39;, &#39;content&#39;: &#39;像《钢铁侠》中的贾维斯一样的人工智能助手，名为 ASTRA。&#39;}, {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39; ABC 公司是谁拥有的？&#39;}, {&#39;role&#39;: &#39;assistant&#39;, &#39;content&#39;: &#39;ABC 由 XYZ 先生拥有。&#39;}]
+但如果您在此之后添加新的用户问题，助理可能会说“对不起，我上次的回答有误，因为我没有 ABC 公司的任何记录”。
+OpenAI 进行了重大监督，没有为聊天消息格式赋予“新知识”类型的角色。因此，我们必须让新知识的注入看起来不像是生成的答案，也不是用户已经知道的信息，而是给它一个新型的带注释的容器。效果很好的是在当前用户消息之前插入一条消息，充当助理角色，内容类似于“这是我自动检索到的更多信息，可帮助我回答下一个问题：xxx。”
+知识可以只是文档文本，而不是模拟聊天。您可以将系统消息分开并专注于 AI 身份和能力。
+那么你就只有可信的语音到文本。 查看此处所有无法正常工作的方式。您应该打印出正在转录的内容以进行诊断。使用 Whisper 将显着提高您控制下的 API 的使用质量。]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_4</guid>
+      <pubDate>Fri, 05 Apr 2024 01:06:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在 open ai 中生成图像时遇到错误 400 bad request <为什么？</title>
+      <link>https://community.openai.com/t/i-get-on-error-400-bad-request-in-generate-image-in-open-ai-why/707962#post_1</link>
+      <description><![CDATA[const inp = document.getElementById(&#39;inp&#39;);
+const images = document.querySelector(&#39;.images&#39;);
+const getImage = async () =&gt;{
+常量方法={
+方法：“POST”，
+标题：{
+“内容类型”：“application/json”，
+“授权”：承载${api}
+},
+正文：JSON.stringify(
+{
+“型号”：“dall-e-3”，
+“提示”:inp.value,
+“n”：3，
+“尺寸”：“1024x1024”
+}
+)}
+const res = wait fetch(“这里我输入 url”,methods);
+const data = wait res.json();
+控制台.log(数据);
+}
 
 
 
-少走的路：
+    
+    
+    
+    文档
 
 
-
-    &lt;音频控制=“”预加载=“自动”&gt;
-      
-
-
-
-另一个：
-  &lt;标题类=“来源”&gt;
-      
-app.suno.ai
-
-
-  &lt;文章类=“onebox-body”&gt;
-    抱歉，我是一个语言模型，我不是 |苏诺
-流行歌曲。聆听并与 Suno 一起制作您自己的作品。
+    AI 图像生成器
 
 
 
 
+&lt;/div&gt;
+
+    &lt;输入 id=&quot;inp&quot; type=&quot;text&quot;&gt;
+    生成
+
+&lt;脚本 src=&quot;scripts.js&quot;&gt;&lt;/script&gt;
 ]]></description>
-      <guid>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853#post_1</guid>
-      <pubDate>Thu, 04 Apr 2024 21:17:11 GMT</pubDate>
+      <guid>https://community.openai.com/t/i-get-on-error-400-bad-request-in-generate-image-in-open-ai-why/707962#post_1</guid>
+      <pubDate>Fri, 05 Apr 2024 00:47:50 GMT</pubDate>
     </item>
     <item>
-      <title>使用图像链接将图像传递到模型不起作用</title>
-      <link>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_4</link>
-      <description><![CDATA[是的，你得站在站长的角度考虑。他们可能不喜欢机器人数十次、数百次或数千次点击他们的图像，并且必须支付带宽费用等。这不是很多，但它会增加。也可能是它的原理。
-我记得在过去的热链接图像时代，如果请求不是来自原始域，一些网站管理员会放置令人讨厌的图像。谢天谢地，我认为这种情况不会再发生了！]]></description>
-      <guid>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_4</guid>
-      <pubDate>Thu, 04 Apr 2024 21:04:47 GMT</pubDate>
+      <title>最近与 OpenAI 签署 BAA 的人有运气吗（2024 年 3 月）</title>
+      <link>https://community.openai.com/t/anybody-have-any-luck-with-signing-a-baa-with-openai-lately-march-2024/693138#post_4</link>
+      <description><![CDATA[定期订阅就足够了。这是针对 API 的。]]></description>
+      <guid>https://community.openai.com/t/anybody-have-any-luck-with-signing-a-baa-with-openai-lately-march-2024/693138#post_4</guid>
+      <pubDate>Fri, 05 Apr 2024 00:27:48 GMT</pubDate>
     </item>
     <item>
-      <title>使用图像链接将图像传递到模型不起作用</title>
-      <link>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_3</link>
-      <description><![CDATA[我更愿意直接查询它们以获得稳定的管道，但是如果确实无法直接查询，我也会考虑自己托管它。谢谢。]]></description>
-      <guid>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_3</guid>
-      <pubDate>Thu, 04 Apr 2024 20:57:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果使用“tool_choice”参数，Gpt-3.5 /4 仅返回一个函数调用的参数</title>
-      <link>https://community.openai.com/t/gpt-3-5-4-only-returning-arguments-for-one-function-call-if-tool-choice-parameter-is-used/707831#post_1</link>
-      <description><![CDATA[你好，
-我有一个 gpt 调用，它被指示从文本正文中提取标题及其各自的作者，并将它们用作函数参数。
-但是，如果文本正文中有多个标题和作者，每当我显式使用 tool_choice 时，GPT 3.5 和 4 都只会为其中一个标题和作者生成参数。永远不要两者兼而有之。
-我希望它能够使用“tool_choice”并让模型返回多个参数对而不是仅一对。]]></description>
-      <guid>https://community.openai.com/t/gpt-3-5-4-only-returning-arguments-for-one-function-call-if-tool-choice-parameter-is-used/707831#post_1</guid>
-      <pubDate>Thu, 04 Apr 2024 20:43:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>（Teams AI 库）多个函数或具有协变请求的复合函数？</title>
-      <link>https://community.openai.com/t/teams-ai-library-many-functions-or-a-compound-function-with-covariant-request/707827#post_1</link>
-      <description><![CDATA[我正在关注 Teams AI 示例（例如 06.assistants.b.orderBot - 抱歉，无法包含链接），他们的示例似乎专注于具有复杂请求类型的单个功能，例如“点餐（披萨/沙拉/饮料）”代替“点披萨”、“点沙拉”、“点饮料”不同的功能。
-这种方法的优点和缺点是什么？我应该尝试使用多个不同的函数吗？
-（迈出第一步，请温柔）]]></description>
-      <guid>https://community.openai.com/t/teams-ai-library-many-functions-or-a-compound-function-with-covariant-request/707827#post_1</guid>
-      <pubDate>Thu, 04 Apr 2024 20:39:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用图像链接将图像传递到模型不起作用</title>
-      <link>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_2</link>
-      <description><![CDATA[欢迎来到论坛。
-我听说某些域正在阻止它......您可以在自己的服务器或其他服务器上托管吗？]]></description>
-      <guid>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_2</guid>
-      <pubDate>Thu, 04 Apr 2024 20:25:40 GMT</pubDate>
+      <title>帮助使用OpenAI的Assistant函数调用python代码</title>
+      <link>https://community.openai.com/t/help-using-openais-assistants-function-calling-into-a-python-code/705827#post_4</link>
+      <description><![CDATA[我不是一个Python专家，所以我对你的代码的理解可能不好，但似乎你总是假设你的工具被调用。
+run = wait_on_run(运行，线程)
+
+＃ 这部分
+tool_call = run.required_action.submit_tool_outputs.tool_calls[0]
+名称 = 工具调用.函数.名称
+参数 = json.loads(tool_call.function.arguments)
+...
+]]></description>
+      <guid>https://community.openai.com/t/help-using-openais-assistants-function-calling-into-a-python-code/705827#post_4</guid>
+      <pubDate>Fri, 05 Apr 2024 00:19:59 GMT</pubDate>
     </item>
     <item>
       <title>高级功能调用/提示工程</title>
-      <link>https://community.openai.com/t/advance-function-calling-prompt-engineering/707822#post_1</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/advance-function-calling-prompt-engineering/707822#post_1</guid>
-      <pubDate>Thu, 04 Apr 2024 20:22:18 GMT</pubDate>
+      <link>https://community.openai.com/t/advance-function-calling-prompt-engineering/707822#post_4</link>
+      <description><![CDATA[1.) 生成调用函数的消息，您可以在系统提示/指令中添加一些内容来告诉 API 显示一些消息，但这并不可靠。不过，您可以自己显示该消息。您可以准备自己的消息模板或在函数中添加消息参数。然后在提交工具输出之前显示它。
+3.) 是否可以引入一些“条件”函数调用？，您可以通过在系统提示/指令中编写逻辑来实现这一点。 （例如如果条件A，则调用工具A。否则，调用工具B。）]]></description>
+      <guid>https://community.openai.com/t/advance-function-calling-prompt-engineering/707822#post_4</guid>
+      <pubDate>Fri, 05 Apr 2024 00:07:51 GMT</pubDate>
     </item>
     <item>
-      <title>使用图像链接将图像传递到模型不起作用</title>
-      <link>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_1</link>
-      <description><![CDATA[嘿，我正在尝试将一些图像传递给 gpt-4-vision，但我无法解析一些图像。尤其是“publicdomainpictures”网站上的
-对于其他应用程序，可以通过修改标头和用户代理来抓取图像。 gpt-4-vision 中可能有这样的事情吗？
-我尝试替换response = client.chat.completions.create()中的“标题”。但是，我仍然收到错误。]]></description>
-      <guid>https://community.openai.com/t/passing-images-to-the-model-using-links-to-the-image-not-working/707818#post_1</guid>
-      <pubDate>Thu, 04 Apr 2024 20:16:54 GMT</pubDate>
+      <title>从 Web 界面通过具有 UUID 的 API 访问 ChatGPT 线程</title>
+      <link>https://community.openai.com/t/accessing-chatgpt-threads-via-api-with-uuids-from-web-interface/707883#post_2</link>
+      <description><![CDATA[我认为 API 和 ChatGPT 之间不可能交叉]]></description>
+      <guid>https://community.openai.com/t/accessing-chatgpt-threads-via-api-with-uuids-from-web-interface/707883#post_2</guid>
+      <pubDate>Fri, 05 Apr 2024 00:05:50 GMT</pubDate>
     </item>
     <item>
-      <title>我不知道如何使用文本转音频功能</title>
-      <link>https://community.openai.com/t/i-cant-figure-out-how-to-use-the-text-to-audio-feature/707521#post_10</link>
-      <description><![CDATA[删除底部部分：[/quote] open 。和“”，然后顶部应变成灰色或黄色。]]></description>
-      <guid>https://community.openai.com/t/i-cant-figure-out-how-to-use-the-text-to-audio-feature/707521#post_10</guid>
-      <pubDate>Thu, 04 Apr 2024 20:14:29 GMT</pubDate>
+      <title>Gemini Ultra API 响应时间？</title>
+      <link>https://community.openai.com/t/gemini-ultra-api-response-times/707947#post_1</link>
+      <description><![CDATA[嘿，听起来我的问题是在错误的论坛中，但请让我解释一下。
+我一直在最高级别使用 GPT4 Turbo（我认为），并且获得了 2 - 10 秒相当不错的响应时间，尽管有时它会慢得多，当然也取决于代币的数量。
+不知道是否有人对Gemini ultra在各种提示场景和输出长度的响应时间方面进行过直接比较？
+我可能有机会这样做，但据我了解，鉴于当前的技术状况，我所获得的时间相当不错。
+我因亚毫秒级响应而面临压力。
+还试图避免潜在的销售工作
+非常感谢任何见解和帮助，谢谢！]]></description>
+      <guid>https://community.openai.com/t/gemini-ultra-api-response-times/707947#post_1</guid>
+      <pubDate>Fri, 05 Apr 2024 00:05:01 GMT</pubDate>
     </item>
     <item>
-      <title>Assistants API 拆分响应，设置 max_token 限制</title>
-      <link>https://community.openai.com/t/assistants-api-splitting-the-response-set-max-token-limits/707374#post_2</link>
-      <description><![CDATA[很抱歉给您带来麻烦 - 我们已经解决了这个问题，现在所有的事情都应该在一条消息中。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-splitting-the-response-set-max-token-limits/707374#post_2</guid>
-      <pubDate>Thu, 04 Apr 2024 20:13:49 GMT</pubDate>
+      <title>帮助使用OpenAI的Assistant函数调用python代码</title>
+      <link>https://community.openai.com/t/help-using-openais-assistants-function-calling-into-a-python-code/705827#post_3</link>
+      <description><![CDATA[我按照说明进行操作并使其工作......有点。当我问一些需要函数的问题时，比如“天气怎么样？”，它就起作用了。但是每当我输入“hi”或“地球的周长是多少”时，就会出现以下错误：
+回溯（最近一次调用）：
+  文件“C:\Users\Harry\Documents\Code\HAVID\GPT\GPTV2_8.py”，第 93 行，在  中
+    tool_call = run.required_action.submit_tool_outputs.tool_calls[0]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError：“NoneType”对象没有属性“submit_tool_outputs”
+
+所以我只是有点迷失。
+完整代码如下：
+从 openai 导入 OpenAI
+导入时间
+导入请求
+导入 json
+
+api_key = &quot;API_key&quot;
+openweathermap_api_key = &quot;Another_API_Key&quot;
+客户端 = OpenAI(api_key=api_key)
+
+ASSISTANT_ID =“asst_something”
+
+def get_current_weather(city=“Some_location”,country_code=“us”):
+    base_url =“the_URL”
+    Complete_url = f&quot;{base_url}appid={openweathermap_api_key}&amp;q={city},{country_code}&amp;units=imperial&quot;
+    响应 = requests.get(complete_url)
+    天气数据=response.json()
+    如果weather_data[&#39;cod&#39;] == 200：
+        主要 = 天气数据[&#39;主要&#39;]
+        温度 = 主[&#39;温度&#39;]
+        湿度 = 主[&#39;湿度&#39;]
+        云=weather_data[&#39;云&#39;][&#39;全部&#39;]
+        天气描述 = 天气数据[&#39;天气&#39;][0][&#39;描述&#39;]
+        opportunity_of_rain = Weather_data.get(&#39;rain&#39;, {}).get(&#39;1h&#39;, 0)
+        天气报告 = [
+            f“温度：{温度}°F”，
+            f&quot;湿度：{湿度}%&quot;,
+            f&quot;云量：{云}%&quot;,
+            f“描述：{weather_description}”，
+            f“下雨的几率（下一小时）：{chance_of_rain}%”
+        ]
+        
+        return &quot;\n&quot;.join([f&quot;- {item}&quot; 对于 Weather_report 中的项目])
+    别的：
+        返回“未找到天气数据”。
+    
+函数_json = {
+    “名称”：“获取当前天气”，
+    &quot;description&quot;: &quot;获取给定位置的当前天气&quot;,
+    “参数”： {
+        “类型”：“对象”，
+        “特性”： {
+            “地点”： {
+                “类型”：“字符串”，
+                &quot;description&quot;: &quot;城市和国家代码，例如，some_location,us。如果未指定，则默认为 some_location, US。&quot;,
+                “默认”：“某个位置，美国”
+            },
+            “单位”：{“类型”：“字符串”，“枚举”：[“摄氏度”，“华氏度”]，“默认”：“华氏度”}，
+        },
+        “必需的”： []，
+    },
+}
+
+助手 = client.beta.assistants.update(
+    助理_ID，
+    工具=[
+        {“类型”：“code_interpreter”}，
+        {“类型”：“检索”}，
+        {“类型”：“函数”，“函数”：function_json}，
+    ],
+）
+
+def Submit_message(assistant_id, 线程, user_message):
+    client.beta.threads.messages.create(
+        thread_id = thread.id，角色=“用户”，内容= user_message
+    ）
+    返回 client.beta.threads.runs.create(
+        thread_id=线程.id,
+        助理id=助理id，
+    ）
+
+def get_response(线程):
+    返回 client.beta.threads.messages.list(thread_id=thread.id, order=&quot;asc&quot;)
+
+def create_thread_and_run(user_input):
+    线程 = client.beta.threads.create()
+    运行=提交消息（ASSISTANT_ID，线程，用户输入）
+    返回线程，运行
+
+def wait_on_run(运行，线程)：
+    当 run.status == &quot;queued&quot; 或 run.status == &quot;in_progress&quot; 时：
+        运行 = client.beta.threads.runs.retrieve(
+            thread_id=线程.id,
+            run_id=运行.id,
+        ）
+        睡眠时间(0.5)
+    返回运行
+
+线程，运行 = create_thread_and_run(
+    “地球的周长是多少”
+）
+运行= wait_on_run（运行，线程）
+
+tool_call = run.required_action.submit_tool_outputs.tool_calls[0]
+名称 = 工具调用.函数.名称
+参数 = json.loads(tool_call.function.arguments)
+
+响应 = get_current_weather()
+
+运行 = client.beta.threads.runs.submit_tool_outputs(
+    thread_id=线程.id,
+    run_id=运行.id,
+    工具输出=[
+        {
+            “tool_call_id”：tool_call.id，
+            “输出”：json.dumps（响应），
+        }
+    ],
+）
+
+运行= wait_on_run（运行，线程）
+打印（运行）
+]]></description>
+      <guid>https://community.openai.com/t/help-using-openais-assistants-function-calling-into-a-python-code/705827#post_3</guid>
+      <pubDate>Thu, 04 Apr 2024 23:58:39 GMT</pubDate>
     </item>
     <item>
-      <title>为什么我收到的回复不完整</title>
-      <link>https://community.openai.com/t/why-i-am-getting-fragmented-responses/707397#post_4</link>
-      <description><![CDATA[很抱歉给您带来麻烦 - 我们已经解决了这个问题，现在应该可以按预期工作了。]]></description>
-      <guid>https://community.openai.com/t/why-i-am-getting-fragmented-responses/707397#post_4</guid>
-      <pubDate>Thu, 04 Apr 2024 20:13:15 GMT</pubDate>
+      <title>GPT 3.5 Turbo 不利用 .json 文件中提供的外部数据</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_3</link>
+      <description><![CDATA[它必须是 jsonl 文件而不是 json。
+我不能在这里只评论文字吗？它一直在说&lt;&lt;对不起，身体似乎不清楚这是一个句子吗？&gt;&gt;
+编辑：
+我也是新来的，这是我的第一条评论，我认为当我们只写一句话或短句时，系统不允许将其作为评论发布]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_3</guid>
+      <pubDate>Thu, 04 Apr 2024 23:39:07 GMT</pubDate>
     </item>
     <item>
-      <title>令人沮丧：Assistant API 和 GPT4 持续出现错误</title>
-      <link>https://community.openai.com/t/frustrating-persistent-errors-with-assistant-api-gpt4/707439#post_2</link>
-      <description><![CDATA[您好 Vinod，您能否分享一些您遇到内部服务器错误的运行或线程 ID？]]></description>
-      <guid>https://community.openai.com/t/frustrating-persistent-errors-with-assistant-api-gpt4/707439#post_2</guid>
-      <pubDate>Thu, 04 Apr 2024 20:12:41 GMT</pubDate>
+      <title>连接辅助文件出现 400 错误</title>
+      <link>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_5</link>
+      <description><![CDATA[尝试使用名称参数的 toFile() 。
+toFile(yourfile, &#39;xxxx.ext&#39;)
+https://github.com/openai/openai-node/blob/master/src/uploads.ts#L102]]></description>
+      <guid>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_5</guid>
+      <pubDate>Thu, 04 Apr 2024 23:37:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 3.5 Turbo 不利用 .json 文件中提供的外部数据</title>
+      <link>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_2</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-turbo-not-utilising-external-data-provided-in-json-file/707920#post_2</guid>
+      <pubDate>Thu, 04 Apr 2024 23:35:19 GMT</pubDate>
     </item>
     </channel>
 </rss>
