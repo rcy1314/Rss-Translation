@@ -4,74 +4,31 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 07 Apr 2024 01:17:42 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2024 03:19:04 GMT</lastBuildDate>
+    <item>
+      <title>在独立 VR 耳机上实现聊天完成 3.5 Turbo + RAG，可能吗？</title>
+      <link>https://community.openai.com/t/chat-completions-3-5-turbo-rag-on-a-standalone-vr-headset-possible/709655#post_1</link>
+      <description><![CDATA[嗨，我为 Meta Quest 3 VR 耳机制作了一个 VR（实际上是混合现实）应用程序，该应用程序具有用户可以与之交互的 AI 驱动的 NPC（它是“安全工作”）。我使用 Unity 并创建了使用 Assistant API 的版本，因为它允许对话中的上下文，以便 NPC 具有某种记忆。但 Assistants API 相当慢。
+由于我使用 Unity，因此无法使用 Python，因此我必须使用 C# 包装器库。该库尚不支持 Assistant API 的新流功能。因此，我正在考虑使用 RAG 系统为对话提供一些背景信息，并使用 GPT 3.5 Turbo 来提高速度和成本，而不是使用助手。我没有使用 RAG 的经验。我的问题是，RAG 可以在基于 Android 系统的独立设备（Meta Quest 3）上使用吗？
+我知道我可以使用服务器，但这会使事情变得复杂（？），我更喜欢在设备上完成 RAG 处理。或者这不是 RAG 的工作原理？
+欢迎任何意见。]]></description>
+      <guid>https://community.openai.com/t/chat-completions-3-5-turbo-rag-on-a-standalone-vr-headset-possible/709655#post_1</guid>
+      <pubDate>Sun, 07 Apr 2024 03:03:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>LLM 代理的最大痛点（Assistants API、Autogen 等）</title>
+      <link>https://community.openai.com/t/biggest-pains-with-llm-agents-assistants-api-autogen-etc/578745?page=2#post_35</link>
+      <description><![CDATA[这些框架最大的问题是它们还没有做好生产准备，更多的是用于探索和学习。]]></description>
+      <guid>https://community.openai.com/t/biggest-pains-with-llm-agents-assistants-api-autogen-etc/578745?page=2#post_35</guid>
+      <pubDate>Sun, 07 Apr 2024 02:32:07 GMT</pubDate>
+    </item>
     <item>
       <title>/mnt/data/路径幻觉</title>
-      <link>https://community.openai.com/t/mnt-data-path-hallucination/709274#post_6</link>
-      <description><![CDATA[抱歉：“直接”=聊天完成。在我的原始消息中进行了编辑。
-在这种情况下，代码解释器未启用。
-让我重新解释一下：
-你告诉模型“这是一个路径 /tmp/xxx，写一个命令”，例如 ls。
-模型将回复 ls /mnt/data/randomstuff 而不是 ls /tmp/xxx
-似乎是对 chatgpt 的代码解释器使用模型进行了微调，并且很难采取措施，即使您提示要排除此路径。]]></description>
-      <guid>https://community.openai.com/t/mnt-data-path-hallucination/709274#post_6</guid>
-      <pubDate>Sun, 07 Apr 2024 00:53:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chrome 浏览器上的共享图标</title>
-      <link>https://community.openai.com/t/share-icon-in-the-way-on-chrome-browser/704907#post_3</link>
-      <description><![CDATA[这个问题比我想象的还要大。我无法访问上传图标，因为它被共享图标覆盖了！救命！！！
-]]></description>
-      <guid>https://community.openai.com/t/share-icon-in-the-way-on-chrome-browser/704907#post_3</guid>
-      <pubDate>Sun, 07 Apr 2024 00:53:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助来定义技术堆栈并开始使用</title>
-      <link>https://community.openai.com/t/need-help-to-define-a-tech-stack-and-get-started/709583#post_2</link>
-      <description><![CDATA[
-
-
- Leon_M：
-&lt;块引用&gt;
-我想在 openai 之外进行构建以节省一些预算。
-
-
-对于小型项目来说，OpenAI 比自托管要好得多，因为您不必分配 24/7 GPU 资源，而实际运行则需要耗费大量资源。
-在 LambdaLabs 上，您可以以每小时 75 美分的价格租用 A10（老一代，24 GB 内存，对于 16 位的 7B 型号或 8 位的 13B 型号来说足够了）。这是每月 540 美元。您会从 OpenAI API 中获得大量 API 调用，而且它们的模型要好得多。
-如果您不打算在开发时在线提供任何可用的东西，而只是在本地工作站上运行自己的东西，那么获取 RTX 4060 Ti 16GB 卡，将其插入具有 Ryzen 7600 CPU 的 Linux 桌面工作站中，并继续执行。您只需花费 1500 美元即可轻松将其组装在一起。您建议的任何一个模型都可以“完成任务”，但显然不如更大的模型。
-但是，实际上，我强烈建议使用一些托管 API，您可以按令牌/API 调用付费，因为一开始它实际上会更便宜，而且质量更好。如果模型只选择一个脚本，并且该脚本是“固定的”，则无需让模型输出完整的脚本 - 只需输出对脚本的引用，并将其从 Web 应用程序中的文件中包含进来，以保存生成的代币。]]></description>
-      <guid>https://community.openai.com/t/need-help-to-define-a-tech-stack-and-get-started/709583#post_2</guid>
-      <pubDate>Sun, 07 Apr 2024 00:44:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>混合嵌入服务？</title>
-      <link>https://community.openai.com/t/mixing-embedding-services/707855?page=2#post_34</link>
-      <description><![CDATA[似乎人们对 RAG 的工作原理感到困惑。只要整个语料库和用户查询都使用相同的嵌入模型嵌入，它就应该可以正常工作。普通过程是用户输入文本，用户输入的向量表示用于检索相似文档。到目前为止，LLM还没有使用。当您获得类似的文档和用户输入时，LLM 开始生成令牌。 LLM 不直接使用你的嵌入模型；它仍然在嵌入模型检索类似文档的帮助下将输入作为文本，它不会将输入作为来自嵌入模型的嵌入。嵌入模型不一定是法学硕士；它可以是一个相对较小的模型。
-这意味着检索系统100%独立于生成令牌，您可以使用任何嵌入模型。
-希望这个回答对您有所帮助。]]></description>
-      <guid>https://community.openai.com/t/mixing-embedding-services/707855?page=2#post_34</guid>
-      <pubDate>Sun, 07 Apr 2024 00:40:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>连接辅助文件出现 400 错误</title>
-      <link>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_8</link>
-      <description><![CDATA[我认为问题出在文件名上。如果您通过助手选项卡在网络上上传文件“example_file.pdf”，它将使用正确的文件名上传。当我使用 API 上传文件二进制文件时，它会上传默认名称为“upload”的文件，没有文件扩展名。目前正在尝试找出如何指定文件名/扩展名......如果有人知道如何做到这一点，它可能会解决这个问题]]></description>
-      <guid>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_8</guid>
-      <pubDate>Sun, 07 Apr 2024 00:37:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助来定义技术堆栈并开始使用</title>
-      <link>https://community.openai.com/t/need-help-to-define-a-tech-stack-and-get-started/709583#post_1</link>
-      <description><![CDATA[你好，
-我需要帮助来为应用程序选择技术堆栈。
-它是一个带有 AI Assistant 的应用程序，可以向用户读取脚本。助手应根据用户的输入选择合适的脚本。
-对于开发和测试，我想在 openai 之外构建以节省一些预算。
-要构建演示，我想从 Mistral-7B-Instruct-v0.2 或 llama2 LLM 开始，但欢迎建议。
-托管开源法学硕士并构建此类应用程序的最佳地点是什么？我应该使用哪些工具？
-有人可以将我推向正确的方向吗？
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/need-help-to-define-a-tech-stack-and-get-started/709583#post_1</guid>
-      <pubDate>Sun, 07 Apr 2024 00:21:29 GMT</pubDate>
+      <link>https://community.openai.com/t/mnt-data-path-hallucination/709274#post_9</link>
+      <description><![CDATA[这种偏差看起来非常强大，我们在系统提示符和消息本身上尝试了很多提示工程。但这种情况持续发生了相当长的时间。
+Logit 偏差看起来是一个更持久的解决方案，我将对此进行实验并查看。]]></description>
+      <guid>https://community.openai.com/t/mnt-data-path-hallucination/709274#post_9</guid>
+      <pubDate>Sun, 07 Apr 2024 01:39:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
