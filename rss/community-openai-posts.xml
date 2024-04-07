@@ -4,144 +4,244 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 07 Apr 2024 15:19:43 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2024 18:21:14 GMT</lastBuildDate>
     <item>
-      <title>最好将所有内容都包含在第一个提示中，还是将第一个提示和 eval 提示分开？</title>
-      <link>https://community.openai.com/t/better-to-include-everything-in-the-first-prompt-or-split-between-first-and-an-eval-prompt/709989#post_2</link>
-      <description><![CDATA[我会继续将其分为两个步骤，因为这样可以进行更有针对性的评估和增强。
-关于第二个问题：
-
-
-
- eivu：
-&lt;块引用&gt;
-就这个问题而言，如果我将其分成两个单独的迭代，那么我应该在第一个迭代中包含什么内容，在第二个“评估”迭代中包含什么内容？
-
-
-您能与我们分享您当前的提示吗？听起来您已经有了一个两步模型，我们可以将其用作起点并进行审查以进行潜在的进一步优化。]]></description>
-      <guid>https://community.openai.com/t/better-to-include-everything-in-the-first-prompt-or-split-between-first-and-an-eval-prompt/709989#post_2</guid>
-      <pubDate>Sun, 07 Apr 2024 15:17:02 GMT</pubDate>
+      <title>如何知道是否使用了RAG数据（json文件，无db）？</title>
+      <link>https://community.openai.com/t/how-to-know-whether-rag-data-json-files-no-db-was-used/709991#post_3</link>
+      <description><![CDATA[嗨@eivu，这里唯一的选择是添加一个步骤 - 任意模型假设从 0 到 10，它将对生成的输出与所提供的示例之一的关系进行评分。因此，您将有两个输出 - 生成的文本和最相关示例的排名。]]></description>
+      <guid>https://community.openai.com/t/how-to-know-whether-rag-data-json-files-no-db-was-used/709991#post_3</guid>
+      <pubDate>Sun, 07 Apr 2024 18:11:33 GMT</pubDate>
     </item>
     <item>
-      <title>角色：client.chat.completions.create 中的助理</title>
-      <link>https://community.openai.com/t/role-assistant-in-client-chat-completions-create/709144#post_7</link>
+      <title>通过人工智能或辅助创建视觉模式</title>
+      <link>https://community.openai.com/t/creating-visual-schemas-by-ai-or-assistance/708274#post_4</link>
+      <description><![CDATA[好吧，所以我在这里可能没有最好的答案，但现在看到你的 JSON，你希望人工智能填写什么？另外，AI是如何获取这些信息的？]]></description>
+      <guid>https://community.openai.com/t/creating-visual-schemas-by-ai-or-assistance/708274#post_4</guid>
+      <pubDate>Sun, 07 Apr 2024 18:07:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义操作 API 调用的 IP 白名单地址？</title>
+      <link>https://community.openai.com/t/ip-whitelist-addresses-for-custom-action-api-calls/604646#post_6</link>
+      <description><![CDATA[是的！！！这绝对是我一直在寻找的东西。谢谢！]]></description>
+      <guid>https://community.openai.com/t/ip-whitelist-addresses-for-custom-action-api-calls/604646#post_6</guid>
+      <pubDate>Sun, 07 Apr 2024 17:59:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在创建mapgpt并使用Assistant api和streamlit，但是当我运行这个时出现错误</title>
+      <link>https://community.openai.com/t/im-creating-mapgpt-and-working-with-assistant-api-and-streamlit-but-getting-error-when-i-run-this/710137#post_1</link>
+      <description><![CDATA[导入streamlit为st
+导入plotly.graph_objects作为go
+从 openai 导入 OpenAI
+导入json
+#from dotenv import find_dotenv, load_dotenv
+#_ : bool = load_dotenv(find_dotenv())
+客户端：OpenAI = OpenAI()
+从 openai.types.beta 导入助手
+OpenAIApi=st.secrets[“OPENAI_API_KEY”]
+#================================================
+st.title(“穆扎米尔”)
+#Store kiya hai taky jb 刷新 ho 价值 dubara sy na mily store k bad sy mily
+如果“map”不在 st.session_state 中：
+st.session_state[“地图”] = {
+“纬度”：39.949610，
+“经度”：-75.163789，
+“缩放”：16，
+}
+#conservation
+如果“coversation”不在 st.session_state 中：
+st.session_state[“coversation”] = 
+助理创建、线程、运行和存储它们
+如果“assistant”不在 st.session_state 中：
+st.session_state[“助手”] = Client.beta.assistants.create(
+name=“穆扎米尔旅行社”，
+instructions=“您是一个Hepull旅行助手，可以编写和执行代码，并可以访问数字地图来显示信息”,
+型号=“gpt-3.5-turbo-1106”，
+工具=[ {
+“名称”：“更新地图”，
+“description”：“更新地图以特定位置为中心”，
+“参数”：{
+“类型”：“对象”，
+“属性”：{
+“经度”：{
+“类型”：“数字”，
+“description”: “地图中心位置的经度”
+},
+“纬度”：{
+“类型”：“数字”，
+“description”: “地图中心位置的纬度”
+},
+“缩放”：{
+“类型”：“整数”，
+“description”: “地图的缩放级别”
+}
+},
+“必填”: [“经度”,“纬度”,“缩放”]
+}
+},{
+“名称”：“添加标记”，
+“description”:“将标记列表添加到地图”,
+“参数”：{
+“类型”：“对象”，
+“属性”：{
+“经度”：{
+“类型”：“数组”，
+“项目”：{
+“类型”：“数字”
+},
+“description”: “每个标记位置的经度列表”
+},
+“纬度”：{
+“类型”：“数组”，
+“项目”：{
+“类型”：“数字”
+},
+“description”: “每个标记位置的纬度列表”
+},
+“标签”：{
+“类型”：“数组”，
+“项目”：{
+“类型”：“字符串”
+},
+“description”: “每个标记位置显示的文本列表”
+}
+},
+“必需”：[“经度”，“纬度”，“标签”]
+}
+}
+]
+）
+st.session_state[“thread”] = Client.beta.threads.create()
+st.session_state[“运行”] = 无
+带有st.sidebar：
+st.header(“调试”)
+st.write(st.session_state.to_dict())
+#================================================ =====
+#Create 左右两列
+左列，右列 = st.columns(2)
+与 left_column：
+st.subheader(“保护”)
+与右列：
+Fig = go.Figure(go.Scattermapbox())
+图.update_layout(
+地图框=字典(
+accesstoken=st.secrets[“MapBox_Access”], # 使用secrets.toml中的令牌
+center=go.layout.mapbox.Center(
+纬度=45，
+经度=-73
+)
+),
+margin=dict(l=0, r=0, t=0, b=0)
+)
+st.plotly_chart(
+无花果，
+config = {“displayModeBar”：False}，
+use_container_width=True,
+key = “情节”，
+）
+#Add 占位符
+st.chat_input(
+placeholder=“在这里提问”，
+key=“input_user_msg”，
+）
+错误是什么？]]></description>
+      <guid>https://community.openai.com/t/im-creating-mapgpt-and-working-with-assistant-api-and-streamlit-but-getting-error-when-i-run-this/710137#post_1</guid>
+      <pubDate>Sun, 07 Apr 2024 17:58:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何应对“懒惰”的GPT 4</title>
+      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_135</link>
+      <description><![CDATA[很难描述，因为我不完全理解。
+举个例子，我正在为一个项目手工编写 CSS，由于某种原因，Opus 非常不擅长 CSS 的“级联”部分，并且很难理解如何将 CSS 与 DOM 关联起来。如果我不检查它，它会将我的各种页面或组件变成弗兰肯斯坦怪物，它们都具有元素的自定义 CSS，这些元素可以简单地放入 div 容器或其他东西中。
+所以我决定向 gpt-4 发送相同的内容、相同的用户消息和相同的上下文，它立即知道，好吧，这个 CSS 应该进入根 html，而现在这个页面将获得自定义 CSS不可否认，我没有为此准备背景，因为我认为我不需要这样做。但 gpt-4 知道该怎么做，无需我明确告诉它。所以也许这是训练数据的差异，我真的不确定。
+这也不是我遇到的唯一事情，这只是我最近正在处理的事情。
+编辑：有趣的是 Opus 创建了更好看的 CSS。这是我使用相同的用户消息和上下文来回测试过几次的另一件事。所以现在我只是告诉它 CSS 需要显式地去哪里，Opus 就做得很好。]]></description>
+      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_135</guid>
+      <pubDate>Sun, 07 Apr 2024 17:54:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>当检索以 run_id 作为参数的消息时，我会得到什么 mwssages？</title>
+      <link>https://community.openai.com/t/what-mwssages-i-will-get-when-retrieve-messages-with-a-run-id-as-a-parameter/710128#post_1</link>
+      <description><![CDATA[嗨，
+发送用户消息后，应创建一个运行，当此运行状态为“完成”时，应返回消息列表，并以 run_id（可选）作为参数。
+那么在这种情况下，所有检索到的消息的角色都是“助手”？
+在这种情况下，消息可以是多条消息吗？]]></description>
+      <guid>https://community.openai.com/t/what-mwssages-i-will-get-when-retrieve-messages-with-a-run-id-as-a-parameter/710128#post_1</guid>
+      <pubDate>Sun, 07 Apr 2024 17:47:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何应对“懒惰”的GPT 4</title>
+      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_134</link>
       <description><![CDATA[
 
 
- nisant031：
+ ClipFarms：
 &lt;块引用&gt;
-这是因为模型不记得之前是否问过同样的问题吗？他们将从头开始计算一切？
+出于某种原因，gpt-4 可以更好地处理某些逻辑
 
 
-是的。
-
-
-
- nisant031：
-&lt;块引用&gt;
-对于一个简单的问题问两次，我是否会得到类似但不相同的答复？
-
-
-输出中注入了一定程度的随机性 - 您可以使用温度和 top_p 参数来控制它。
-如果您前往完成游乐场 (https://platform.openai.com/playground/complete)，您可以切换概率：
-
-这显示了令牌被预测的可能性。请注意，所有可能的令牌概率（数十万个选项）加起来都是 1。
-较高的温度会使概率分布“平坦化”，因此更不可能的标记有更高的机会被选择。将其设置为零（将在后端更改为一个非常小的数字）以防止低概率上升到顶部。
-top_p 定义了从中选择令牌的桶有多大。 1 (100%) 允许假设选择所有令牌。 0.1 只允许选择前 10% 之一。如果将其设置为 0，则仅选择最有可能的标记。
-如果将温度或 top_p 设置为 0，则更有可能获得确定性结果。不能保证（可能是由于舍入误差或其他原因，可能是宇宙射线，可能是错误，谁知道），但通常非常接近。]]></description>
-      <guid>https://community.openai.com/t/role-assistant-in-client-chat-completions-create/709144#post_7</guid>
-      <pubDate>Sun, 07 Apr 2024 15:03:13 GMT</pubDate>
+您是否有任何您认为 gpt-4 比 opus 更好的例子？]]></description>
+      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_134</guid>
+      <pubDate>Sun, 07 Apr 2024 17:45:58 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAlignment，一家 OpenAI 需要创建的公司/非营利组织</title>
-      <link>https://community.openai.com/t/openalignment-a-company-nonprofit-openai-needs-to-create/708957#post_5</link>
+      <title>哪种是工作与简历匹配项目的最佳模型？</title>
+      <link>https://community.openai.com/t/which-is-best-model-for-job-to-resume-matching-project/365384#post_12</link>
       <description><![CDATA[
 
 
-_j：
+ scottmonkey：
 &lt;块引用&gt;
-奥特曼返回后上个月，Sutskever 与 OpenAI 合作，董事会大部分成员辞职，Sutskever 在公司的未来似乎充满不确定性。
+对于这种事情，您推荐哪种矢量数据库
 
 
-是的，这个关键要点就在这里。从那时起，几乎没有提及任何联盟或伊利亚。
-但即使什么都没有改变，也没有解散，这个联盟还是原来的形式，范围还不够广泛。
-再次感谢您的回复，但我觉得您浏览了我的帖子，您的收获是“人们希望 OpenAI 能够解决对齐问题”，当然，这是事实，但这只是我正在尝试的一方面建立。
-需要有一个像 OpenAI 本身一样突出的外部协调组织，它需要解决人工智能给社会带来的问题，而不仅仅是调整他们最强大的 LLM 模型以确保安全......（尽管每个人工智能公司都应该拥有一个超级对齐团队。)
-
-
-预测：提醒世界注意新的人工智能技术，例如 Sora。 OpenAI 发布 Sora 并不是为了让世界习惯这项技术的存在。伟大的。但还有很多东西需要“整个世界”进行教育和寻找。
-
-
-风险管理和缓解：组织需要开始针对各种技术进行政策讨论的对话。不知道大家有没有注意到，美国政府在立法层面有些两极分化，反应迟缓。直面问题并提出可能的立法建议，以避免负面后果。 （示例： 每个制造商都应该为其应用创建一份 SDS，列出其可能产生的任何负面影响。）
-
-
-协作：该组织应该是一种技术中心，多家公司和政策制定者共同努力解决某些问题。谷歌、微软、Anthropic 应该合作，共同研究如何确保公众免受其正在开发的产品的侵害。如果他们只有在发生不可逆转的事情时才决定这样做，他们将失去公众的信任。 他们需要抢先一步，总有一天，手指会开始寻找一个实体来为发生的任何负面变化负责。这将会发生。
-
-
-技术乐观：除了所有负面影响之外，OpenAlignment 还应该努力消除有关 AI 的错误信息，并帮助通过实际用例向世界展示其好处。就像 OpenAI 与 Sora 所做的一样，成为一个邀请公众使用和试验新技术的实体，以弥合技术创造者与他们希望将其引入的世界之间的差距。 
-
-
-当然，还要继续原来的“超级对齐小组”的工作，该小组也将忙得不可开交。但我的提议比该小组的范围要大得多。
-
-
-我们需要一个致力于使人工智能技术与社会保持一致的组织，而不仅仅是协调各个模型的内部运作。所有最大的参与者都需要为此做出贡献，不仅是金钱，还包括人力资本。]]></description>
-      <guid>https://community.openai.com/t/openalignment-a-company-nonprofit-openai-needs-to-create/708957#post_5</guid>
-      <pubDate>Sun, 07 Apr 2024 14:58:05 GMT</pubDate>
+就个人而言：weaviate.io 特别是他们的云服务，对于小额资金来说非常强大（我们运行它是为了2M/visitors/monthly 网站 beatofhawaii.com 上的内容建议系统，每月 3k 对象存储的费用约为 75 美元每月查询 2B 个数据点）]]></description>
+      <guid>https://community.openai.com/t/which-is-best-model-for-job-to-resume-matching-project/365384#post_12</guid>
+      <pubDate>Sun, 07 Apr 2024 17:42:15 GMT</pubDate>
     </item>
     <item>
-      <title>4Turbo 模式的 API 不提供干净的 JSON</title>
-      <link>https://community.openai.com/t/api-with-4turbo-modal-not-providing-a-clean-json/710027#post_1</link>
-      <description><![CDATA[你好，
-也许这里有人可以帮忙
-我有一个与 GPT 4 配合良好的提示，并以 JSON 格式返回响应，但现在当我测试 4 Turbo 模式时，它无法按预期工作。
-请求中有以下内容：“``json”
-这会“搞乱”我的系统，因为它需要 JSON 格式的响应。]]></description>
-      <guid>https://community.openai.com/t/api-with-4turbo-modal-not-providing-a-clean-json/710027#post_1</guid>
-      <pubDate>Sun, 07 Apr 2024 14:46:08 GMT</pubDate>
+      <title>如何应对“懒惰”的GPT 4</title>
+      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_133</link>
+      <description><![CDATA[我已经进入 Claude Opus 大约一周了，这太棒了。出于某种原因，gpt-4 可以更好地处理某些逻辑，但在 95% 的情况下，如果我在使用 Opus 时遇到问题并决定尝试 gpt-4，我会立即对收到的愚蠢回复感到愤怒。目前的质量确实存在问题，至少对于编码任务来说是这样。
+写作似乎仍然不错，但我也即将将我的商业应用程序切换到 Claude，只是因为我确实 100% 注意到我的 gpt-4 输出质量下降，特别是在以下系统或用户说明。那就彻底拍完了。就好像“指令”的上下文窗口被大大减少或以某种方式搞砸了。]]></description>
+      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=7#post_133</guid>
+      <pubDate>Sun, 07 Apr 2024 17:31:13 GMT</pubDate>
     </item>
     <item>
-      <title>角色：client.chat.completions.create 中的助理</title>
-      <link>https://community.openai.com/t/role-assistant-in-client-chat-completions-create/709144#post_6</link>
-      <description><![CDATA[谢谢。这很有帮助。
-对于一个简单的问题问两次，我是否会得到类似但不相同的答复？
-第一次：
-
-第二次响应：
-要查找值不超过 10 的斐波那契数列，我们可以编写一个 Python 代码片段来生成该数列。这是代码：
-def 斐波那契(n):
-    fib_系列 = [0, 1]
-    而 fib_series[-1] + fib_series[-2] &lt;= n：
-        fib_series.append(fib_series[-1] + fib_series[-2])
-    返回 fib_series
-
-fibonacci_series = 斐波那契(10)
-打印（斐波那契数列）
-
-当您运行此代码时，它将输出最多为 10 的斐波那契数列。
-====================
-尽管响应相似，但准确率不到 10%。
-这是因为模型不记得以前是否曾问过同样的问题吗？他们将从头开始计算一切？]]></description>
-      <guid>https://community.openai.com/t/role-assistant-in-client-chat-completions-create/709144#post_6</guid>
-      <pubDate>Sun, 07 Apr 2024 14:23:37 GMT</pubDate>
+      <title>在 GPT4-Vision 响应中设定基调和风格</title>
+      <link>https://community.openai.com/t/setting-a-tone-and-style-in-gpt4-vision-responses/705250#post_12</link>
+      <description><![CDATA[我已经尝试过在系统提示符中写入的示例（尽管不是专门针对 Vision）。如果这是一个商业应用程序，我会小心，因为示例有时会导致意想不到的后果，除非您的目标非常严格，例如“我总是想要这种精确的语法/语气/单词选择/等”。
+使用gpt-4和gpt-4-1106-preview，我确实设置了一个编写示例。然后，我使用 gpt-4 通过多个精炼函数运行返回。它工作得非常好，但价格更昂贵并且需要很长时间，因此根据您的需要，这可能会也可能不会。但在我看来，它可以带来最高质量的写作，而单次回报几乎是不可能做到的。]]></description>
+      <guid>https://community.openai.com/t/setting-a-tone-and-style-in-gpt4-vision-responses/705250#post_12</guid>
+      <pubDate>Sun, 07 Apr 2024 17:21:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>冒充 sora 的虚假页面（骗局！）</title>
+      <link>https://community.openai.com/t/a-false-page-pretending-to-be-sora-scam/676234#post_18</link>
+      <description><![CDATA[有一个名为 open-sora (org) 的 Facebook 页面。该网站页面非常漂亮，使用了 OpenAI 徽标等。它要求您下载软件。]]></description>
+      <guid>https://community.openai.com/t/a-false-page-pretending-to-be-sora-scam/676234#post_18</guid>
+      <pubDate>Sun, 07 Apr 2024 17:20:39 GMT</pubDate>
     </item>
     <item>
       <title>[Python] 需要编码帮助。 NPC对话历史不能超过800个代币</title>
-      <link>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_1</link>
-      <description><![CDATA[您好，chatGPT API 相当新，我一直在 chatGPT 上工作，以便在我的游戏中进行真实的 NPC 对话。该代码是用 Python 编写的，应该记住我们之前讨论过的内容。
-它有效……直到令牌总数达到 800~，然后如果我不删除之前的消息，AI 会完全重置，并且不记得任何东西。相当于 2~3 条消息。
-如果我不将“max_tokens_limit”设置为 800，功能块看起来像这样，在最后几行附近。对话不断重置。
-“gpt-3.5-turbo-16k”应该有一个“16385”令牌限制，但是，对话每 2~3 个提示就会重置，大约达到 800~ 使用的令牌。
-有人知道我做错了什么吗？
-client = OpenAI(api_key=&quot;sk----------------&quot;)
+      <link>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_3</link>
+      <description><![CDATA[然后您可能需要再次尝试最大代币以获得您喜欢的输出和代币消耗。另外，我喜欢这个主意。]]></description>
+      <guid>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_3</guid>
+      <pubDate>Sun, 07 Apr 2024 17:14:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Python] 需要编码帮助。 NPC对话历史不能超过800个代币</title>
+      <link>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_2</link>
+      <description><![CDATA[是的，问题很清楚
+您通过 len 计算总标记，但一个单词可以有多个标记，一般来说，len 只是一种非常粗略/不准确的标记计数方式，非常适合快速餐巾纸数学，但不利于精度&lt; /p&gt;
+试试这个：
+从 tiktoken 导入 Tokenizer
 
-消息 = [
-    {&quot;角色&quot;: &quot;系统&quot;, &quot;内容&quot;: systemRoleMssg},
-    {“角色”：“用户”，“内容”：userInitilizingMssg}
-]
+分词器 = 分词器()
 
-最大令牌限制 = 16385
+def count_tokens(文本):
+    返回 len(列表(tokenizer.tokenize(text)))
 
-def sendMssgToChatGPT(text_MSG):##在此处插入提示
+def sendMssgToChatGPT(text_MSG):
     # 如果消息列表不存在则初始化
     如果“消息”不在 globals() 中：
         全球消息
@@ -155,7 +255,6 @@ def sendMssgToChatGPT(text_MSG):##在此处插入提示
         型号=“gpt-3.5-turbo-16k”，
         消息=消息，
         最大令牌数=300
-    
     ）
     
     # 获取模型响应
@@ -168,22 +267,15 @@ def sendMssgToChatGPT(text_MSG):##在此处插入提示
     messages.append({&quot;角色&quot;: &quot;助理&quot;, &quot;内容&quot;: model_response})
 
     # 计算token总数
-    Total_tokens = sum(len(message[&quot;content&quot;].split()) 如果消息中有“内容”，则消息中的消息为 0）
+    Total_tokens = sum(count_tokens(message[&quot;content&quot;]) 如果消息中有“内容”，则消息中的消息为 0）
 
     # 如果达到令牌限制，则删除旧消息
-    同时total_tokens &gt; (max_tokens_limit): ##如果我不更改 max_tokens_limit = 800，chatGPT 在达到 800 后刷新，尽管令牌不断增加
-        已删除的消息 = messages.pop(1)
-        Total_tokens -= len(removed_message[&quot;content&quot;].split()) 如果“content”在removed_message中，则为0
+    同时total_tokens &gt; （最大令牌限制）：
+        已删除的消息 = messages.pop(0)
+        Total_tokens -= count_tokens(removed_message[&quot;content&quot;]) 如果“content”在removed_message 中，否则为 0
 ]]></description>
-      <guid>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_1</guid>
-      <pubDate>Sun, 07 Apr 2024 14:17:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何获取 JSON 格式的 API 响应</title>
-      <link>https://community.openai.com/t/how-to-get-api-response-in-json-format/605909#post_8</link>
-      <description><![CDATA[您可能会考虑的一个缓慢但 100% 可靠的解决方案是在助手中启用“代码解释器”并指示助手将结果写入 JSON 文件。然后就可以获取助手创建的这个JSON文件的内容了。]]></description>
-      <guid>https://community.openai.com/t/how-to-get-api-response-in-json-format/605909#post_8</guid>
-      <pubDate>Sun, 07 Apr 2024 14:04:00 GMT</pubDate>
+      <guid>https://community.openai.com/t/python-need-coding-help-npc-conversation-history-cant-pass-800-tokens/710007#post_2</guid>
+      <pubDate>Sun, 07 Apr 2024 17:14:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
