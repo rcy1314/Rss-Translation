@@ -4,11 +4,67 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 08 Apr 2024 15:16:50 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Apr 2024 18:24:38 GMT</lastBuildDate>
+    <item>
+      <title>[数据库设计]。通过将一些紧密相关的属性分组并将它们移动到单独的表中，将一个实体分成多个一对一相关的表，这是一种不好的方法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz4zh4/db_design_is_it_a_bad_approach_to_separate_one/</link>
+      <description><![CDATA[我正在为我的个人爱好项目开发 API。我使用 TS、express 和 Prisma。 我最近想到，通过以下方式分隔表格可能会很有用： 模型视频{ id String @id @default(uuid()) title String channel Channel @relation(fields: [channelId],references: [id]) url String // ...以及其他最基本的属性 // 可以选择的分组属性是否包含在响应统计 VideoStats 中？ } model VideoStats { video Video @relation(fields: [videoId],references: [id], onDelete: Cascade) videoId String @id viewCount Int @default(0) likeCount Int @default(0) dislikeCount Int @default(0) }  不过看起来有点狡猾。特别是因为 videoStats 只能是可选的。我还没有找到在 Prisma 中强制执行一对一关系的好方法。 但它有其用处。例如，可以很容易地选择在响应中包含一些字段并避免发送不必要的数据。这样，仅当用户专门将“?include=stats”放在“?”中时，才会包含 stats 属性。在查询中。  通过这种方法，我还可以利用 Prisma 生成的接口仅允许包含特定字段，从而使用 TypeScript 保留良好的类型。  我认为它还可以潜在地降低控制器和服务的复杂性，因为我不需要在那里放置大量自定义逻辑，所有内容都应该主要由 ORM 处理。  此外，隐藏某些特定字段应该很舒服。例如，我可以将隐藏的详细信息（processingDetails、fileDetails 等）移动到单独的表中，并且仅当用户有权查看此信息时才允许包含这些详细信息。 ​ 这是否是一种有效的方法？它会导致什么问题？我在这里的主要目标是实现“包含”我的 API 中的功能。如果有任何干净的方法可以做到这一点，请告诉我，我将非常感激。   由   提交/u/Alex_054  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz4zh4/db_design_is_it_a_bad_approach_to_separate_one/</guid>
+      <pubDate>Mon, 08 Apr 2024 18:13:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>为 React 组件库设置 Storybook 的指南</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz48na/a_guide_to_setting_up_storybook_for_a_react/</link>
+      <description><![CDATA[       由   提交/u/tbantle  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz48na/a_guide_to_setting_up_storybook_for_a_react/</guid>
+      <pubDate>Mon, 08 Apr 2024 17:44:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>您会使用什么技术来制作模因网站？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz3jh6/what_tech_would_you_use_for_making_meme_site/</link>
+      <description><![CDATA[嗨，我想知道具有大型社区的模因网站的最佳堆栈，包括添加、创建、投票模因、消息传递、等候室等。是吗？可以以便宜的方式完成吗？   由   提交 /u/Mammoth-Top7942    reddit.com/r/webdev/comments/1bz3jh6/what_tech_would_you_use_for_making_meme_site/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz3jh6/what_tech_would_you_use_for_making_meme_site/</guid>
+      <pubDate>Mon, 08 Apr 2024 17:16:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>奇怪的顺风类名称</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz3cyh/bizarre_tailwind_class_names/</link>
+      <description><![CDATA[为什么display: none叫hidden，而visibility: hide code&gt; 称为 invisible？这是不直观的并且注定会引起混乱。这让我感到困惑。   由   提交/u/citrus1330  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz3cyh/bizarre_tailwind_class_names/</guid>
+      <pubDate>Mon, 08 Apr 2024 17:09:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助塑造网络到移动应用程序开发的未来：寻求您的见解！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz283c/help_shape_the_future_of_webtomobile_app/</link>
+      <description><![CDATA[Redditors 大家好， 我正处于概念化新开发工​​具的最初阶段，该工具旨在将 Web 应用程序无缝转换为移动应用程序应用程序，我计划从一开始就集成托管解决方案。该项目仍处于预开发阶段，我正在与开发人员和技术爱好者社区联系，从头开始指导其方向。 在编写任何代码之前，我希望确保我们能够满足您的实际需求并解决您在日常开发工作中面临的真正问题。为此，我需要您深入了解如何使该工具真正对您有利。 我创建了一个简短的 Google 表单来收集您对遇到的挑战以及您希望存在的功能的反馈：  https://forms.gle/ib1d8aZAumLMFXCaA 该表格涵盖了几个关键领域：当前解决方案的痛点、所需的功能、托管需求以及任何特定的安全考虑因素。您的回答将直接影响我们工具的基础方面，确保我们专注于对您最重要的事情。 该调查只需要您几分钟的时间，但可以对开发过程产生持久的影响. 感谢您愿意分享您的专业知识和经验。我们可以一起创造一些东西，不仅可以满足我们的需求，还可以为开发工具树立新的标准。   由   提交/u/heathcliff6547   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz283c/help_shape_the_future_of_webtomobile_app/</guid>
+      <pubDate>Mon, 08 Apr 2024 16:25:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>多租户 SSO/OAuth？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz1ie1/multi_tenant_ssooauth/</link>
+      <description><![CDATA[我继承了一个 Web 应用程序，它是一个非常基本的 CRUD 节点 API 后端，带有 React 前端。它具有内置身份验证，但 MVP 功能之一是通过 OAuth 集成启用 SSO，并支持多个联合身份提供商，因为该应用程序也是多租户的。我的第一个想法是使用 Auth0 或 AWS cognito，因为两者都支持内置用户池（多租户）和多个联合 SSO 提供商。我还应该考虑其他方法吗？基本上，该应用程序由企业用户使用，他们都希望该应用程序通过 Azure AD、Google 等提供基于 SSO 的身份验证，但我还需要在内部为那些不想联合身份验证的用户提供身份验证。   由   提交 /u/regreddit   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz1ie1/multi_tenant_ssooauth/</guid>
+      <pubDate>Mon, 08 Apr 2024 15:58:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>防止电子邮件别名提交表单</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz1gct/prevent_email_aliases_from_submitting_a_form/</link>
+      <description><![CDATA[我有一个网站，如果您提交姓名和地址，您就可以赢得优惠券。电子邮件进入奖池。目前，其唯一限制是每个电子邮件地址每天只能输入 1 条内容。出于法律原因，这次我无法通过 IP 或地址进行限制。 我们遇到的问题是，compers（每天参加比赛的人）使用他们的 iCloud/Outlook 别名电子邮件地址进入多次。  有什么方法可以判断一个电子邮件地址是否是别名？即使我们使用多重身份验证来确认电子邮件地址的真实性，它也会到达相同的端点。 ​   由   提交 /u/TheAngelsCry   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz1gct/prevent_email_aliases_from_submitting_a_form/</guid>
+      <pubDate>Mon, 08 Apr 2024 15:55:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>启动画面文件大小</title>
+      <link>https://www.reddit.com/r/webdev/comments/1bz0xrc/splash_screen_file_size/</link>
+      <description><![CDATA[你好。我的客户想要使用“启动画面”（或预加载器），强制访问其网站的访问者在访问主网站之前观看简短的动画或视频。我已经解释了为什么我认为这是一个坏主意，但无论如何...... 该网站是一个 Wordpress 构建，我正在使用一个名为 Loftloader Pro 的插件来显示所需的动画。它按预期工作，但他们提供的文件（动画 GIF 和 MP4 视频）大小分别为 35MB 和 4.5MB。太大了，无法强制用户加载。 我尝试了各种方法来减小大小、转换为各种格式、降低质量/尺寸、转换为 Lottie、WEBM 等，但所有结果仍然是这样太大了。 在我回去找他们并说这不可行之前，有没有人对我还可以尝试什么有任何建议？   由   提交 /u/Bloomingfails   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1bz0xrc/splash_screen_file_size/</guid>
+      <pubDate>Mon, 08 Apr 2024 15:34:57 GMT</pubDate>
+    </item>
     <item>
       <title>通过“Automatic Pixy”实现强大、灵活的 Web 应用程序安全性</title>
       <link>https://www.reddit.com/r/webdev/comments/1bz0eqs/strong_flexible_web_application_security_with/</link>
-      <description><![CDATA[如果您曾经想知道：  “Pixy”是什么？是（Proof of Key Code Exchange -- PKCE）？ 为什么需要它？ Pixy 的漏洞在哪里？ Pixy 实施的挑战在哪里？  或者如果如果您曾经寻找过可以自动为您处理 PKCE 工作的东西，而无需对您的网络应用程序进行任何更改，那么我可能会感兴趣。 我从事 OpenZiti 工作项目及其我们命名为“BrowZer”的产品之一。 我最近发布了一个 BrowZer 文章回答了上述所有 PKCE 问题 以及更多问题。 ​   由   提交/u/rentallect  [链接] [评论]]]></description>
+      <description><![CDATA[如果您曾经想知道：  “Pixy”是什么？是（Proof of Key Code Exchange -- PKCE）？ 为什么需要它？ Pixy 的漏洞在哪里？ Pixy 实施的挑战在哪里？  或者如果如果您曾经寻找过可以自动为您处理 PKCE 工作的东西，而无需对您的 Web 应用程序进行任何更改，那么我可能会感兴趣。 我从事 OpenZiti 工作项目及其我们命名为“BrowZer”的产品之一。 我最近发布了一个 BrowZer 文章回答了上述所有 PKCE 问题 以及更多问题。 ​   由   提交/u/rentallect  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1bz0eqs/strong_flexible_web_application_security_with/</guid>
       <pubDate>Mon, 08 Apr 2024 15:14:16 GMT</pubDate>
     </item>
@@ -43,7 +99,7 @@
     <item>
       <title>WordPress 不安全吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1byz8bh/is_wordpress_insecure/</link>
-      <description><![CDATA[我正在和一个人争论 wordpress 是否不安全。我一直相信，如果您使用正确的插件并通过正确的配置使所有内容保持最新，则 WordPress 是安全的，但我坚持认为 WordPress 本身非常不安全，并且永远不要使用它。我本人不太关注 IT 安全新闻，所以也许它确实不安全。真的那么不安全吗？   由   提交 /u/TheManWhoFartsInSofa   [链接] [评论]]]></description>
+      <description><![CDATA[我正在和一个人争论 WordPress 是否不安全。我一直相信，如果您使用正确的插件并通过正确的配置使所有内容保持最新，则 WordPress 是安全的，但我坚持认为 WordPress 本身非常不安全，并且永远不要使用它。我本人不太关注 IT 安全新闻，所以也许它确实不安全。真的那么不安全吗？   由   提交 /u/TheManWhoFartsInSofa   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1byz8bh/is_wordpress_insecure/</guid>
       <pubDate>Mon, 08 Apr 2024 14:26:19 GMT</pubDate>
     </item>
@@ -53,62 +109,6 @@
       <description><![CDATA[大家好，我是一名大学生（机器学习和大数据），想在空闲时间独立研究编程的其他方面。&lt; br /&gt; 我最近将时间投入到独立项目以及显然与我的研究领域相关的事情上，但由于我有可能通过为几个熟人开发电子商务来赚钱，所以我想完全沉浸在 CMS 电子商务中 显然，作为一名开发人员，我对 Shopify 类型的解决方案不感兴趣，但我可以详细介绍一些内容。 确实有很多平台，为此我不知道该选择哪一个。 我在单一解决方案之间犹豫不决，例如： OpenCart 或 Prestashop 或者无头解决方案（我认为最近发现存在），例如 Stripe或Saleor。 您推荐哪个或哪个平台？ 我也不清楚这些Headless系统，可以我通过简单的调用将前端与后端集成在一起，就好像我在使用任何库来做事情一样...？ 谢谢！   由   提交 /u/Amazing-Rnt9111    reddit.com/r/webdev/comments/1byyak6/help_too_many_cms_platforms/&quot;&gt;[链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1byyak6/help_too_many_cms_platforms/</guid>
       <pubDate>Mon, 08 Apr 2024 13:46:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么 Safari 仍然不支持 Web 组件？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1byxydr/how_is_web_components_still_not_supported_in/</link>
-      <description><![CDATA[我认为 Web 组件是个好主意，但 Safari 仍然不支持它。在 Safari 完全支持 Web 组件之前，我不会使用它。您认为 Safari 今年有可能支持它吗？另外，我很好奇为什么 html 导入功能被弃用。我认为 Web 组件和 html 导入有可能取代 React.js。    由   提交/u/dellm4800  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1byxydr/how_is_web_components_still_not_supported_in/</guid>
-      <pubDate>Mon, 08 Apr 2024 13:31:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站开发费用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1byxvnj/website_development_charges/</link>
-      <description><![CDATA[您好，请问您网站开发的费用一般是多少？金融/财富管理相关内容，   由   提交 /u/Intrepid_Self4652   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1byxvnj/website_development_charges/</guid>
-      <pubDate>Mon, 08 Apr 2024 13:28:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻求建议：在疑惑中启动 Web 应用程序项目</title>
-      <link>https://www.reddit.com/r/webdev/comments/1byxsbx/seeking_advice_starting_a_web_application_project/</link>
-      <description><![CDATA[大家好， 我最近一直在陷入困境，我真的需要这个社区的一些指导。我一直在考虑构建一个 Web 应用程序跟踪器项目的想法。然而，我的朋友们不断谈论 Web 开发市场的饱和，这让我感到有点失落和不确定。 一点背景：我花了很多时间来磨练。我的编程技能，尤其是 LeetCode 的技能。我已经关注奋斗者表大约一个半月了，处理各种数据结构和算法，包括数组、链表，目前正在研究堆栈和队列。 尽管我取得了进展，当我使用 LeetCode 进行制作时，我发现自己正处于项目的十字路口。一方面，我对这个想法充满热情，我什至从设计一个简单的侧边栏开始。但另一方面，我对从哪里开始以及如何有效地进行感到不知​​所措和无能为力。 我为自己设定了一个个人截止日期，要在 8 月份之前完成这个项目，同时还可能提高 AWS 技能或 Azure 认证。然而，我开始怀疑我是否有能力解决这个问题。 所以，这是我向这个令人惊叹的社区提出的问题：  鉴于 Web 开发市场的饱和，您认为仍然值得从事像我这样的项目吗？ 考虑到我在 LeetCode 上的进展，我应该优先继续该项目还是专注于该项目仅仅掌握算法和数据结构？ 对于那些已经开始类似项目的人来说，你是从哪里开始的？对于像我这样有一点感觉的人，你有什么建议？不知所措？ 我还在考虑在完成这个项目后切换到另一个领域，例如 AI/ML。这种转变的可行性如何？我如何使当前的项目与未来的目标保持一致？ 最后，我非常喜欢后端开发的想法，因为我喜欢 Java并玩它。关于如何在项目的后端方面利用 Java 有什么建议吗？  我真诚地感谢您提供的任何见解、意见或建议。预先感谢大家的时间和支持！   由   提交/u/Suspicious_Ad5105   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1byxsbx/seeking_advice_starting_a_web_application_project/</guid>
-      <pubDate>Mon, 08 Apr 2024 13:24:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络开发者</title>
-      <link>https://www.reddit.com/r/webdev/comments/1byxdyz/webdev/</link>
-      <description><![CDATA[嘿伙计们。我高中还剩一年，我想我想从事网络开发职业。是否有工作机会，掌握该职业需要多长时间以及远程工作是否容易。    由   提交/u/ImToxic00   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1byxdyz/webdev/</guid>
-      <pubDate>Mon, 08 Apr 2024 13:06:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>正如我所读到的，Lemon Squeezy 对于欧盟用户来说是一个糟糕的选择吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bywwvu/is_lemon_squeezy_a_bad_choice_for_eu_users_as_i/</link>
-      <description><![CDATA[大家好 我开发了一个 MVP。我读过一些帖子（一年前）提到 Lemon Squeezy 是一个糟糕的选择，特别是对于欧盟开发者来说。除了所需费用（5% + 0.50 美分）外，他们还会扣除支出以及信用卡/借记卡费用。对于那些有使用它的经验的人，您能否建议我是否应该使用它（作为欧盟公民），或者我应该切换到 Paddle 或其他替代方案？   由   提交/u/1chbinamin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bywwvu/is_lemon_squeezy_a_bad_choice_for_eu_users_as_i/</guid>
-      <pubDate>Mon, 08 Apr 2024 12:43:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>域文件夹而不是不同的域</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bywg2q/domain_folder_instead_of_a_different_domain/</link>
-      <description><![CDATA[所以我在一所大学的营销部门工作，这个有在另一所大学工作经验的人告诉我，我们可以创建增加潜在客户的登陆页面。好吧，我同意，但他还说最好从巴西获得一个域名（大学主要想要巴西的潜在客户）并在那里创建登陆页面。我正在阅读有关单个域下的文件夹的内容？有人能解释一下它们是如何工作的吗？  老实说，我认为获得另一个域名太复杂了，他还提到来自巴西的域名更适合发送电子邮件，因为它不会成为垃圾邮件。我对网站建设几乎一无所知，所以我真的需要帮助。  谢谢！    由   提交/u/Used_Barber958   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bywg2q/domain_folder_instead_of_a_different_domain/</guid>
-      <pubDate>Mon, 08 Apr 2024 12:19:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>“人工智能不会抢走我们的工作”——专业课程卖家。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1bywblz/ai_wont_take_our_jobs_professional_course_seller/</link>
-      <description><![CDATA[您是否注意到，最看好人工智能不会取代我们工作的人都是拥有 15-20 年经验的行业资深人士或专业课程销售人员或图书馆开发人员？  “这只是一个可以帮助我们的工具” 不。   由   提交 /u/schumon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1bywblz/ai_wont_take_our_jobs_professional_course_seller/</guid>
-      <pubDate>Mon, 08 Apr 2024 12:13:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>恭喜：您的 WordPress 插件刚刚成为“核心”功能</title>
-      <link>https://www.reddit.com/r/webdev/comments/1byw82a/congrats_your_wordpress_plugin_has_just_become_a/</link>
-      <description><![CDATA[   /u/leoleoloso  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1byw82a/congrats_your_wordpress_plugin_has_just_become_a/</guid>
-      <pubDate>Mon, 08 Apr 2024 12:08:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
