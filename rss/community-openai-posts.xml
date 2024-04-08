@@ -4,44 +4,228 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 07 Apr 2024 21:16:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Apr 2024 01:12:53 GMT</lastBuildDate>
+    <item>
+      <title>如何从 API 获取 JSON 结构响应</title>
+      <link>https://community.openai.com/t/how-to-get-json-structure-response-from-api/708966#post_8</link>
+      <description><![CDATA[
+
+
+ ramn7：
+&lt;块引用&gt;
+IIUC
+
+
+IIUC是什么意思？]]></description>
+      <guid>https://community.openai.com/t/how-to-get-json-structure-response-from-api/708966#post_8</guid>
+      <pubDate>Mon, 08 Apr 2024 01:11:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>Open AI Assistant中上下文窗口的大小是多少个token？</title>
+      <link>https://community.openai.com/t/how-many-tokens-is-the-size-of-the-context-window-in-open-ai-assistant/710293#post_1</link>
+      <description><![CDATA[我在文档中找不到这个数字的位置。我正在开发一个聊天机器人，其中线程可能会很长，因此如果令牌窗口大小很小，我需要一个解决方案来确保从窗口中删除的过去消息不会“丢失”......因此以某种方式将它们反馈回来（也许是一个摘要，然后用这个摘要创建一个新线程？虽然听起来很乏味……）
+谢谢]]></description>
+      <guid>https://community.openai.com/t/how-many-tokens-is-the-size-of-the-context-window-in-open-ai-assistant/710293#post_1</guid>
+      <pubDate>Mon, 08 Apr 2024 00:54:51 GMT</pubDate>
+    </item>
     <item>
       <title>微调模型太糟糕了，根本不起作用</title>
-      <link>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_14</link>
+      <link>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_18</link>
+      <description><![CDATA[这就是你想要做的......
+
+将训练示例数量增加到 500 到 1,000 个
+训练模型。
+
+我对完成第一点的建议是，根据需要使用尽可能多的提示，使用 GPT-4 构建一个综合数据集。]]></description>
+      <guid>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_18</guid>
+      <pubDate>Mon, 08 Apr 2024 00:00:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_7</link>
+      <description><![CDATA[非常感谢你
+当涉及 requires_action 时，我会让 GPT 再次阅读文档，我们将从那里获取它。
+（这听起来确实像“我错过了什么”）]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_7</guid>
+      <pubDate>Sun, 07 Apr 2024 23:45:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_6</link>
+      <description><![CDATA[不知道你的意思。如何得到助理的回复？它应该在同一个地方。]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_6</guid>
+      <pubDate>Sun, 07 Apr 2024 23:39:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的第一个 Vision API 请求超出了 TPM 限制</title>
+      <link>https://community.openai.com/t/tpm-limit-exceeded-for-my-first-vision-api-request/710256#post_3</link>
+      <description><![CDATA[实际上，我自己预先调整了图像大小，以尝试最小化 Base64 编码大小……我不知道这是否有很大帮助，但是嘿，我尝试过。
+defencode_and_resize_image_base64(image_path, output_size=(768, 768)):
+    使用 Image.open(image_path) 作为 img：
+        ＃ 保持纵横比
+        img.thumbnail(output_size, Image.Resampling.LANCZOS)
+        
+        # 将调整大小的图像保存到字节缓冲区
+        缓冲区 = io.BytesIO()
+        img.save(buffer, format=&quot;JPEG&quot;) # 根据需要调整格式
+        缓冲区.seek(0)
+        
+        # 对调整大小的图像进行编码
+        image_resized_and_encoded = base64.b64encode(buffer.read()).decode(&#39;utf-8&#39;)
+        
+        返回图像调整大小和编码
+
+然后当我经过它时，它几乎是直接从他们的指南中获取的。我首先有一个函数来设置有效负载并捕获完成后的响应。
+defanalyze_image_with_vision_api(image_base64):
+    标题= {
+        “内容类型”：“应用程序/json”，
+        “授权”：f“承载{api_key}”
+    }
+
+    有效负载={
+        “模型”：“gpt-4-vision-预览”，
+        “消息”：[
+            {
+                “角色”：“用户”，
+                “content”：“这张图片里有什么？”
+            },
+            {
+                “角色”：“系统”，
+                “内容”：f“数据：image/jpeg;base64，{image_base64}”
+            }
+        ],
+    }
+
+    尝试：
+        响应 = requests.post(&quot;https://api.openai.com/v1/chat/completions&quot;,
+                                 headers=标头，json=有效负载）
+        返回response.json()
+    除了异常 e：
+        print(f&quot;发生错误：{e}&quot;)
+        返回无
+
+然后我调用该函数并处理错误。
+如果需要调整大小：
+    image_to_process=encode_and_resize_image_base64(image_path)
+别的：
+    image_to_process = 编码_image_base64(image_path)
+
+Vision_response =analyze_image_with_vision_api(image_to_process)
+如果视觉响应：
+    print(&quot;视觉 API 响应：&quot;, Vision_response)
+别的：
+    print(&quot;图像分析失败。&quot;)
+]]></description>
+      <guid>https://community.openai.com/t/tpm-limit-exceeded-for-my-first-vision-api-request/710256#post_3</guid>
+      <pubDate>Sun, 07 Apr 2024 23:36:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_5</link>
+      <description><![CDATA[有没有办法将其添加到我的“创建线程并运行”命令中？
+这确实是一次性的事情]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_5</guid>
+      <pubDate>Sun, 07 Apr 2024 23:35:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_4</link>
+      <description><![CDATA[当您轮询运行状态时，请检查状态何时变为 requires_action 且 required_action.type 为 submit_tool_outputs，然后您将在此处调用 submitToolOutputs并继续运行。
+在 Playground 中，显示日志面板并检查输出，当您达到 requires_action 时，您就会看到发生了什么。]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_4</guid>
+      <pubDate>Sun, 07 Apr 2024 23:31:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_3</link>
+      <description><![CDATA[
+
+
+超级沙内斯基：
+&lt;块引用&gt;
+在 Playground 中添加您自己的工具处理程序。
+
+
+谢谢！
+我的问题是如何在 API 代码中“添加您自己的工具处理程序”？
+我的 API 代码超时，它上传文件，启动线程/运行，但我输入或输出的令牌为零，什么也没有发生。]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_3</guid>
+      <pubDate>Sun, 07 Apr 2024 23:26:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调模型太糟糕了，根本不起作用</title>
+      <link>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_17</link>
       <description><![CDATA[
 
 
  ben24：
 &lt;块引用&gt;
-是的，具体来说，我正在做的是建立一个人工智能导师。但我希望以一致的风格和语气教授课程，
+因此，我首先规划课程的模块，然后规划第一个模块的单元，然后为每个单元规划课程，然后单独为每个课程制定内容。
 
 
-查看我在表单上关于音调调整的消息，了解如何获得它。
-但我自己是后勤人员，您给出的任务太笼统，需要分解为更小的任务（写下您完整的课程准备工作流程，然后构建为块并创建管道）。
-如果您使用用户数据和他们的错误来调整课程的进展，这个主题也会变得更有趣]]></description>
-      <guid>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_14</guid>
-      <pubDate>Sun, 07 Apr 2024 21:11:00 GMT</pubDate>
+我的意思是每个项目的彻底的逐步工作流程，并尽可能添加许多细节，特别是“如何决定”是如何做 x、y 和 z。
+就我个人而言，我会从最终结果：课程开始，尝试将其转换为一种具有所有课程所共有的“属性”的对象。
+然后向上讨论如何获得这些“属性”以及需要什么。所有的想法和决定都没有任何内容。
+然后基本上调查整个事情并尝试找到定义您的工作流程的“块”。
+但是，它需要更详细的头脑风暴。]]></description>
+      <guid>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_17</guid>
+      <pubDate>Sun, 07 Apr 2024 23:25:09 GMT</pubDate>
     </item>
     <item>
-      <title>如何使用大约 100 个文档（docx、xlsx、pptx、pdf）训练 API</title>
-      <link>https://community.openai.com/t/how-to-train-the-api-using-like-100-documents-docx-xlsx-pptx-pdf/708914#post_4</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/how-to-train-the-api-using-like-100-documents-docx-xlsx-pptx-pdf/708914#post_4</guid>
-      <pubDate>Sun, 07 Apr 2024 21:01:53 GMT</pubDate>
+      <title>第一次使用 Assistants API，我缺少什么？</title>
+      <link>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_2</link>
+      <description><![CDATA[这是为了提交工具输出，因为您无法在 Playground 中添加自己的工具处理程序。]]></description>
+      <guid>https://community.openai.com/t/1st-use-of-assistants-api-what-am-i-missing/710254#post_2</guid>
+      <pubDate>Sun, 07 Apr 2024 23:24:17 GMT</pubDate>
     </item>
     <item>
-      <title>微调模型太糟糕了，根本不起作用</title>
-      <link>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_13</link>
-      <description><![CDATA[是的，提示在基本级别上有效。制作的内容还不错，但有点不一致，而且不详细。]]></description>
-      <guid>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077#post_13</guid>
-      <pubDate>Sun, 07 Apr 2024 20:28:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 GPT4-Vision 响应中设定基调和风格</title>
-      <link>https://community.openai.com/t/setting-a-tone-and-style-in-gpt4-vision-responses/705250#post_13</link>
-      <description><![CDATA[它的目的是作为示例让他们开始]]></description>
-      <guid>https://community.openai.com/t/setting-a-tone-and-style-in-gpt4-vision-responses/705250#post_13</guid>
-      <pubDate>Sun, 07 Apr 2024 20:24:59 GMT</pubDate>
+      <title>我的第一个 Vision API 请求超出了 TPM 限制</title>
+      <link>https://community.openai.com/t/tpm-limit-exceeded-for-my-first-vision-api-request/710256#post_2</link>
+      <description><![CDATA[我刚刚测试发送 1536x2048 的图像，得到以下结果：
+用户提示：
+&lt;块引用&gt;
+请描述所包含的图像并写一首俳句。
+
+输出：
+{
+  id: &#39;chatcmpl-9BW1gTgyzfQJya8CNHR6gYU84CrXX&#39;,
+  对象：&#39;聊天完成&#39;，
+  创建：1712531744，
+  型号：&#39;gpt-4-1106-vision-preview&#39;，
+  选择：[
+    {
+      索引：0，
+      消息：[对象]，
+      对数概率：空，
+      完成原因：“停止”
+    }
+  ],
+  用法：{prompt_tokens：842，completion_tokens：102，total_tokens：944}，
+  系统指纹：空
+}
+
+消息输出：
+{
+  索引：0，
+  信息： {
+    角色：“助理”，
+    内容：“图像显示了樱花的特写镜头，在日语中称为“樱花”，重点是精致的粉红色花朵和微红色的叶子。花朵附着在深色、崎岖的树枝上，与花瓣的柔软形成鲜明对比。背景是苍白、阴沉的天空，使得花朵的颜色更加突出。\n&#39; +
+      &#39;\n&#39; +
+      &#39;这是受图像启发的俳句：\n&#39; +
+      &#39;\n&#39; +
+      &#39;樱花盛开，\n&#39; +
+      &#39;粉色和红色的轻柔低语，\n&#39; +
+      “春天温柔的怀抱。”
+  },
+  对数概率：空，
+  完成原因：“停止”
+}
+
+用于测试的图像：
+
+没有看到你的代码，我无法说出问题出在哪里。]]></description>
+      <guid>https://community.openai.com/t/tpm-limit-exceeded-for-my-first-vision-api-request/710256#post_2</guid>
+      <pubDate>Sun, 07 Apr 2024 23:21:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
