@@ -4,40 +4,194 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 09 Apr 2024 15:20:18 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Apr 2024 18:20:14 GMT</lastBuildDate>
     <item>
       <title>新团队用户无法加入团队</title>
-      <link>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_2</link>
-      <description><![CDATA[我们也遇到同样的问题。我的研究使我相信，对于为什么会发生这种情况，没有一致的原因。有些人说是后端问题，另一些人说这是与计费有关的问题。大多数人说这似乎会及时解决。
-你看到它为你解决了吗？]]></description>
-      <guid>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_2</guid>
-      <pubDate>Tue, 09 Apr 2024 15:19:15 GMT</pubDate>
+      <link>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_6</link>
+      <description><![CDATA[明白了，我认为这证实了我的怀疑。
+我认为，对于团队帐户，如果您在下一个付款期之前将席位数量增加一倍或添加 20 个席位，它将冻结，直到您在当天结束时进行“调整”付款。尽管灵活的月度计划不必像年度计划那样处理“True Up”续订。根据我们的账单历史记录显示，我们在 4 月份已经支付了 3 次，实际情况并非如此。
+要解决此问题，您需要为大型组织规划分阶段部署。每天有 20 个注册，直到每个人都注册为止。]]></description>
+      <guid>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_6</guid>
+      <pubDate>Tue, 09 Apr 2024 18:19:32 GMT</pubDate>
     </item>
     <item>
-      <title>了解上下文令牌和生成令牌比率</title>
-      <link>https://community.openai.com/t/understanding-context-tokens-and-generated-tokens-ratio/711813#post_2</link>
-      <description><![CDATA[我不确定输入令牌与输出令牌的比率与助手的质量有什么关系。你能详细说明一下你的想法吗？]]></description>
-      <guid>https://community.openai.com/t/understanding-context-tokens-and-generated-tokens-ratio/711813#post_2</guid>
-      <pubDate>Tue, 09 Apr 2024 15:14:56 GMT</pubDate>
+      <title>新团队用户无法加入团队</title>
+      <link>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_5</link>
+      <description><![CDATA[呃，他们太慢了，我想我最好还是让 ChatGPT 说实话。]]></description>
+      <guid>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_5</guid>
+      <pubDate>Tue, 09 Apr 2024 18:16:20 GMT</pubDate>
     </item>
     <item>
-      <title>如何阻止人工智能牺牲输入信息</title>
-      <link>https://community.openai.com/t/how-to-stop-ai-sacrificing-information-from-the-input/711822#post_2</link>
-      <description><![CDATA[你要求模型同时做很多事情。我首先让它很好地完成其中一件事情，然后再分层处理其他任务。您可能（可能会）需要进行多次传递。
-首先要求模型总结幻灯片，然后添加保留图像的规则。一旦它可靠并且按照您想要的方式工作，您可以将原始幻灯片传递到不同的提示中以进行主题分类，或者我会传递摘要，因为这样的标记较少。
-希望有帮助。]]></description>
-      <guid>https://community.openai.com/t/how-to-stop-ai-sacrificing-information-from-the-input/711822#post_2</guid>
-      <pubDate>Tue, 09 Apr 2024 15:11:30 GMT</pubDate>
+      <title>代码解释器会话一小时后过期，接下来怎么办？</title>
+      <link>https://community.openai.com/t/code-interpreter-session-expires-after-an-hour-what-next/711186#post_6</link>
+      <description><![CDATA[
+
+
+ 达克施尼德：
+&lt;块引用&gt;
+啊，我想我现在明白这个问题了。听起来好像当您的线程保持活动状态时，您正在使用的代码解释器会话可能会遇到超时。这意味着，当您在一段时间过后尝试在同一线程中继续使用代码解释器时，它不会简单地从上次中断的地方继续使用，因为会话可能已过期。
+这种情况确实具有挑战性，尤其是在没有关于代码解释器的会话管理如何设计在助手框架内工作的具体细节的情况下。我在这里假设这些代码解释器本质上是助手调用的服务，它们可能没有独立于主线程会话的自己的会话管理。
+如果不知道您使用代码解释器执行的任务的确切性质，就很难提供精确的解决方法。但是，如果您从事构建代码或处理大型数据集等任务，则可以考虑实施一种“书签”系统。该系统将跟踪您的进度，同时考虑会话的时间限制。然后您可以将其设计为：
+
+限制运行时间：限制每个会话的持续时间，以确保它在超时之前结束。这需要存储它停止的位置，以便您可以在新会话中从该点继续。
+分块处理：将任务分解为更小的块，以便在每个会话的时间限制内进行处理。处理每个块后，存储进度和可能的输出。在下一个会话中，您可以从上次停下的地方继续，处理下一个块，依此类推，直到任务完成。如果任务是累积的或连续的，这种方法还可能涉及重新组装零件。
+
+实现此类机制可能需要在应用程序中添加额外的逻辑来管理跨会话的状态并确保连续性。它可能有点复杂，但可以在给定会话超时约束的情况下提供可行的前进路径。
+我希望这有帮助！如果您可以分享有关您尝试使用代码解释器实现的目标的更多详细信息，我也许可以提供更有针对性的建议。
+
+
+发现完全由人工智能编写的文本的多个水印......
+您应该对任何来自语言模型的人工智能语言的范围和目的保持透明。]]></description>
+      <guid>https://community.openai.com/t/code-interpreter-session-expires-after-an-hour-what-next/711186#post_6</guid>
+      <pubDate>Tue, 09 Apr 2024 18:07:03 GMT</pubDate>
     </item>
     <item>
-      <title>当前使 GPT api 消化网络链接/pdf/幻灯片/youtube 视频中的信息的最佳实践或技术是什么？</title>
-      <link>https://community.openai.com/t/what-are-the-current-best-practises-or-techniques-to-make-gpt-api-to-digest-info-from-web-link-pdfs-slides-youtube-videos/711832#post_1</link>
-      <description><![CDATA[大家好！
-我是人工智能方面的新手，目前正在寻找一种方法来使用 GPT API 分析网络链接、pdf、幻灯片或 YouTube 视频的内​​容，以使其与用户交互。
-目前这方面的最佳实践是什么？我应该使用嵌入还是使用一些可以从这些不同数据源中提取文本的库？
-感谢您的宝贵时间！]]></description>
-      <guid>https://community.openai.com/t/what-are-the-current-best-practises-or-techniques-to-make-gpt-api-to-digest-info-from-web-link-pdfs-slides-youtube-videos/711832#post_1</guid>
-      <pubDate>Tue, 09 Apr 2024 14:38:31 GMT</pubDate>
+      <title>发出 API 请求时配额错误消息不正确</title>
+      <link>https://community.openai.com/t/incorrect-quota-error-message-when-making-api-request/711965#post_3</link>
+      <description><![CDATA[你好@PaulBellow我希望你一切顺利
+目前，我处于免费状态，正在从事一个非常小的副项目，以便向面试官展示。
+我认为无法购买免费套餐。另外，我有超过 1 美元可供免费使用，为什么你停止使用它们
+谢谢]]></description>
+      <guid>https://community.openai.com/t/incorrect-quota-error-message-when-making-api-request/711965#post_3</guid>
+      <pubDate>Tue, 09 Apr 2024 18:06:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调模型太糟糕了，根本不起作用</title>
+      <link>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077?page=2#post_23</link>
+      <description><![CDATA[
+
+
+ ben24：
+&lt;块引用&gt;
+我想我可以进一步将其拆分以分别生成练习和测试，然后将课程内容包含在上下文窗口中？
+
+
+对多个任务使用多个模型- sergeliatko 的 #12 解释了为什么最好将任务拆分得尽可能深。
+此外，我在您的 JSON 不可打印字符和数学公式中看到，您需要确保训练 JSON 文件中的字符编码为 UTF-8，这样就不会损坏。这可能是您的文件出现错误的原因。
+看到您的 JSON 和结构，我个人会尝试隔离您正在操作的实体并跟踪它们的来源。这是我背后的逻辑（同样，非常主观）
+您的目标是向学生教授一些概念，这些概念被分解为具有单元和课程的复杂主题，作为第一级和第二级的孩子，其中“教学”意味着转移对主题的理解，可以通过测试期间获得的高分来验证...... 
+我将从构建 CONCEPT 对象结构开始，以了解可以教授什么内容以及如何教授它......]]></description>
+      <guid>https://community.openai.com/t/finetuned-model-so-bad-it-doesnt-work/710077?page=2#post_23</guid>
+      <pubDate>Tue, 09 Apr 2024 18:05:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何获得 OpenAI 的计费支持？</title>
+      <link>https://community.openai.com/t/how-do-i-get-hold-of-billing-support-for-openai/711639#post_3</link>
+      <description><![CDATA[
+
+
+ thisiszeev：
+&lt;块引用&gt;
+但我最新的账单不会从预付积分中扣除，我即将被暂停
+
+
+过去使用的待处理每月账单将不会通过积分支付。这是设计使然，并且修复了之前的一个巨大疏忽。
+您需要确保之前用于支付每月账单的付款方式继续有效，直到您最终的每月账单得到满足（该账单仍将在正常时间计费）。
+要联系 OpenAIs 签约支持人员，请在您位于 platform.openai.com 的 API 帐户中选择帮助，然后会出现一个帮助小部件有一个消息区域，您首先必须在其中导航电话树。您必须非常清楚，您需要能够查看您的帐户并接受付款的工作人员提供的付款帐户服务，而不仅仅是“机器人支持回复”，甚至可能不会使用运营商的母语，并且仍然可能会被忽视这些外包商的工作就是让沟通消失。]]></description>
+      <guid>https://community.openai.com/t/how-do-i-get-hold-of-billing-support-for-openai/711639#post_3</guid>
+      <pubDate>Tue, 09 Apr 2024 18:05:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 服务器的位置</title>
+      <link>https://community.openai.com/t/location-of-openai-servers/559880#post_6</link>
+      <description><![CDATA[
+
+
+多斯：
+&lt;块引用&gt;
+但是，我具体应该瞄准哪个城市
+
+
+假设一个数据中心位于俄亥俄州，您尝试寻找附近的主机托管...
+您实际与之通信的 Cloudflare 防火墙数据中心在哪里？]]></description>
+      <guid>https://community.openai.com/t/location-of-openai-servers/559880#post_6</guid>
+      <pubDate>Tue, 09 Apr 2024 17:56:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使查询上下文化不复制整个参考文本？</title>
+      <link>https://community.openai.com/t/how-to-make-query-contexualization-not-copy-the-entire-reference-text/711961#post_8</link>
+      <description><![CDATA[明白了。可能想退后一步并处理提示，然后……如果可以的话，简化一下。
+你能把它分成单独的调用吗？]]></description>
+      <guid>https://community.openai.com/t/how-to-make-query-contexualization-not-copy-the-entire-reference-text/711961#post_8</guid>
+      <pubDate>Tue, 09 Apr 2024 17:52:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>移动设备上 Playground 的“聊天”部分的历史记录位置</title>
+      <link>https://community.openai.com/t/history-location-on-chat-section-of-playground-on-mobile/711952#post_3</link>
+      <description><![CDATA[感谢您的回复！很高兴知道它不是永久性的，我记得在某处读到过。]]></description>
+      <guid>https://community.openai.com/t/history-location-on-chat-section-of-playground-on-mobile/711952#post_3</guid>
+      <pubDate>Tue, 09 Apr 2024 17:52:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使查询上下文化不复制整个参考文本？</title>
+      <link>https://community.openai.com/t/how-to-make-query-contexualization-not-copy-the-entire-reference-text/711961#post_7</link>
+      <description><![CDATA[我实际上在GPT-4上尝试了4-shot，仍然不可靠，我认为根本问题在于无法准确地做到以下几点：
+
+
+识别查询中的主语文本和宾语文本。在“检查此代码是否有错误：{非常非常长的代码片段}”的情况下。第一部分是包含用户意图的主题文本（应改写为独立且上下文丰富），第二部分是包含要执行操作的参考文本的对象文本（其中应简明概括）。
+
+
+在将用户查询改写为独立查询与压缩参考文本之间取得平衡。要求法学硕士用完整的上下文重新表述查询并压缩/总结查询中的文本本质上是矛盾的。它复制的参考文本越多，它遵循独立指令的能力就越好，而遵循压缩指令的能力就越差，反之亦然。
+
+]]></description>
+      <guid>https://community.openai.com/t/how-to-make-query-contexualization-not-copy-the-entire-reference-text/711961#post_7</guid>
+      <pubDate>Tue, 09 Apr 2024 17:51:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>电源自动化 + Whisper API</title>
+      <link>https://community.openai.com/t/power-automate-whisper-api/711979#post_1</link>
+      <description><![CDATA[晚上好。有人从 Power Automate 设置了与 Whisper 的连接吗？无需使用 Power Apps！使用视频 Reza Dorrani 中的材料后，我总是收到“已移动”错误。]]></description>
+      <guid>https://community.openai.com/t/power-automate-whisper-api/711979#post_1</guid>
+      <pubDate>Tue, 09 Apr 2024 17:49:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>漏洞： ？接近令牌限制，但仍收到 200 响应</title>
+      <link>https://community.openai.com/t/bug-approach-token-limit-but-still-get-200-response/711940#post_5</link>
+      <description><![CDATA[重置时间不到一分钟可以解释为您发送的时间接近但不超过限制。如果您以精确的速率限制连续发送，并且没有以突发方式开始并行会话，那么您应该始终以与清空它相同的速率重新填充一个存储桶，该存储桶的连续储备几乎达到其全部大小.
+您必须一次分派许多调用才能达到限制，异步、线程，不受您自己的软件限制。
+独立调用受到限制，并且基于即时使用历史记录的推理性能较差，这是意料之外的。
+或者，如果您确实在几分钟内将速率限制提高了一倍，但从未看到拒绝：嘘。！]]></description>
+      <guid>https://community.openai.com/t/bug-approach-token-limit-but-still-get-200-response/711940#post_5</guid>
+      <pubDate>Tue, 09 Apr 2024 17:48:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>漏洞： ？接近令牌限制，但仍收到 200 响应</title>
+      <link>https://community.openai.com/t/bug-approach-token-limit-but-still-get-200-response/711940#post_4</link>
+      <description><![CDATA[我再次让它连续运行 30 次。我没有收到错误，但我注意到 API 返回所需的时间如下：
+第 1 次调用：2 秒
+第二次调用：1s
+第三次调用：1s
+第四次调用：2s
+第五次调用：1s
+第六次调用：1s
+第七次调用：2s
+第八次调用：9s
+第九次调用：10s
+第十次调用：10s
+第11次调用：10秒
+第12次调用：10秒
+第 13 次通话：9 秒
+第 14 次调用：10 秒
+第 15 次通话：9 秒
+第 16 次调用：10 秒
+第 17 次通话：9 秒
+第 18 次调用：10 秒
+第 19 次通话：9 秒
+第20次调用：10秒
+第21次通话：10秒
+第22次通话：10秒
+第23次通话：9秒
+第24次通话：10秒
+第25次通话：10秒
+第26次调用：10秒
+第27次通话：10秒
+第28次通话：9秒
+第29次调用：10秒
+第 30 次调用：9 秒
+这是否意味着 API 不会返回错误，而是会延迟您的请求，直到您有足够的令牌配额？这将是 openAI 的一个有趣的解决方案......
+所以我的限制是每分钟 60k，每 10 秒，我会得到 10k 令牌配额补充，这足以处理一个请求。数字加起来！]]></description>
+      <guid>https://community.openai.com/t/bug-approach-token-limit-but-still-get-200-response/711940#post_4</guid>
+      <pubDate>Tue, 09 Apr 2024 17:48:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
