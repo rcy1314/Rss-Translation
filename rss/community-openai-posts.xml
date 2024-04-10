@@ -4,171 +4,136 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 10 Apr 2024 09:20:17 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 12:31:56 GMT</lastBuildDate>
     <item>
-      <title>助手中的输入令牌如何收费？</title>
-      <link>https://community.openai.com/t/how-are-input-tokens-charged-in-assistants/712536#post_1</link>
-      <description><![CDATA[当用户继续聊天时，输入令牌是否会累积？例如，如果用户发送 n 条消息，是否会向我收取 (system_prompt+1+2+3…+n) 条消息作为每条消息的输入令牌？或者输入令牌只是每条消息？非常感谢。]]></description>
-      <guid>https://community.openai.com/t/how-are-input-tokens-charged-in-assistants/712536#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 09:20:03 GMT</pubDate>
+      <title>GPT 无法访问资源文件</title>
+      <link>https://community.openai.com/t/gpt-not-accessing-resource-files/703393#post_3</link>
+      <description><![CDATA[是的，这就是我上传它们的地方。这是三个 Word 文档，分别为 2MB、165KB 和 64KB。
+预览按计划运行，但我在公开聊天中没有看到相同的行为。如果我要求它直接访问文件，它会说不能。]]></description>
+      <guid>https://community.openai.com/t/gpt-not-accessing-resource-files/703393#post_3</guid>
+      <pubDate>Wed, 10 Apr 2024 12:31:15 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Assistant API 创建车辆销售助理</title>
-      <link>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_8</link>
-      <description><![CDATA[谢谢。
-摘要 API 将如何决定显示哪个屏幕？
-如果能举个例子就太好了。]]></description>
-      <guid>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_8</guid>
-      <pubDate>Wed, 10 Apr 2024 09:04:54 GMT</pubDate>
+      <title>助手 API 多助手代理工作流程</title>
+      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_7</link>
+      <description><![CDATA[通过函数调用。由于我试图在处于“requires_action”状态的同一线程中启动另一次运行，因此也会发生同样的事情。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_7</guid>
+      <pubDate>Wed, 10 Apr 2024 12:24:24 GMT</pubDate>
     </item>
     <item>
-      <title>RAG 并不是真正的解决方案</title>
-      <link>https://community.openai.com/t/rag-is-not-really-a-solution/599291?page=3#post_46</link>
-      <description><![CDATA[感谢分享。您肯定有一种有趣且合理的方法，并且从中可以学到一些很好的知识和见解。
-挑战的一个重要部分是，我正在处理高度多样化的文档体，这些文档通常很长，具有异构文档架构等。这些文档有共同点，但在应用分块机制之前，我需要有一个非常完善的方法识别和分析它们的架构，然后决定如何最好地对它们进行分块。在某些情况下，架构是通过目录等来定义的，这有助于此过程。在其他情况下，它需要一种自下而上的方法（我认为这可能类似于您在语义分析中所做的事情）。
-我还认为，除了主题和层次分析之外，根据信息块在文档中的功能作用和目的对信息块进行分类也很有用。
-因此，作为我正在努力的一部分，我认为我需要定义一个通用分类法来区分不同的文档/信息类型，然后分解文档的共同元素。然后，该分类法将作为架构分析的通用基线。
-如前所述，有很多细节需要考虑。但希望一旦我为文档的一个子集找到正确的方法，在其他文档中复制它就会更容易。]]></description>
-      <guid>https://community.openai.com/t/rag-is-not-really-a-solution/599291?page=3#post_46</guid>
-      <pubDate>Wed, 10 Apr 2024 09:02:51 GMT</pubDate>
+      <title>助手 API 多助手代理工作流程</title>
+      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_6</link>
+      <description><![CDATA[我将推理分解为两个概念以方便理解。我最初的想法是让多个助手在同一个线程中运行，并让一个代理助手充当协调器。每个子助手都是一个函数调用，因此当代理助手识别出需要子助手时，它会进入“requires_action”状态，显然，该状态被视为正在进行的状态。因此，我无法在同一个线程中运行子助手，因为它被锁定了。
+我采用的第二种方法由同一组代理助理和子助理组成，但是当代理助理识别出需要子助理时，会在子助理中创建一个单独的线程，并且必要的信息是通过函数调用传递。这让我可以像对话一样在两个线程之间来回切换。我最终做了这样的事情： 优化 AI：使用 Azure OpenAI Assistant API 构建高级多代理框架
+这是可行的，但是，线程之间的这种来回需要花费大量时间，并且 OpenAI 通常最终会取消运行或将其标记为过期。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_6</guid>
+      <pubDate>Wed, 10 Apr 2024 12:22:23 GMT</pubDate>
     </item>
     <item>
-      <title>API 密钥似乎已经消失（但仍然有效）</title>
-      <link>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_2</link>
-      <description><![CDATA[今天我遇到了同样的问题。
-API 密钥仍然有效，但未列出。]]></description>
-      <guid>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_2</guid>
-      <pubDate>Wed, 10 Apr 2024 09:00:01 GMT</pubDate>
+      <title>助手 API 多助手代理工作流程</title>
+      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_5</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_5</guid>
+      <pubDate>Wed, 10 Apr 2024 12:21:41 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Assistants API 通过另一个 API 获取您自己数据库的信息</title>
-      <link>https://community.openai.com/t/using-assistants-api-to-get-information-through-another-api-for-your-own-database/517900#post_9</link>
-      <description><![CDATA[嗨，我想 AskYourDatabase 正是您正在寻找的https://www.askyourdatabase.com/&lt; /a&gt;]]></description>
-      <guid>https://community.openai.com/t/using-assistants-api-to-get-information-through-another-api-for-your-own-database/517900#post_9</guid>
-      <pubDate>Wed, 10 Apr 2024 08:57:13 GMT</pubDate>
+      <title>我没有看到个性化选项卡</title>
+      <link>https://community.openai.com/t/i-do-not-see-the-personalization-tab/627156#post_5</link>
+      <description><![CDATA[4/10 …无法看到此个性化并测试内存]]></description>
+      <guid>https://community.openai.com/t/i-do-not-see-the-personalization-tab/627156#post_5</guid>
+      <pubDate>Wed, 10 Apr 2024 12:18:21 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Assistant API 创建车辆销售助理</title>
-      <link>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_7</link>
+      <title>我刚刚达到 40 条消息的限制</title>
+      <link>https://community.openai.com/t/i-have-just-reached-the-limit-of-40-messages/712644#post_1</link>
+      <description><![CDATA[我刚刚达到 40 条消息的限制，因为 GPT 无法编写排除冗余单词的 2 句话段落。
+我被困住了，无法前进。你们什么时候给那些被你们骗的被骗用户退款？]]></description>
+      <guid>https://community.openai.com/t/i-have-just-reached-the-limit-of-40-messages/712644#post_1</guid>
+      <pubDate>Wed, 10 Apr 2024 12:15:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>Microsoft Word 插件（或自定义 GPT）是否能够更新上传的 Word 文档？</title>
+      <link>https://community.openai.com/t/can-or-will-the-microsoft-word-plugin-or-a-custom-gpt-be-able-to-update-word-documents-that-are-uploaded/527757#post_4</link>
+      <description><![CDATA[大家好，
+有没有人能够开发@peter.marise解决方案的演示描述（或具有可比功能的任何其他解决方案）？很高兴详细讨论这个问题]]></description>
+      <guid>https://community.openai.com/t/can-or-will-the-microsoft-word-plugin-or-a-custom-gpt-be-able-to-update-word-documents-that-are-uploaded/527757#post_4</guid>
+      <pubDate>Wed, 10 Apr 2024 12:13:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>除非指定，否则 Gpt-4-turbo-2024-04-09 会认为是 2021 年</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-will-think-its-in-2021-unless-specified/712483#post_4</link>
       <description><![CDATA[
 
 
- sandeep.solanki：
+飞翔的胖头：
 &lt;块引用&gt;
-“show_vehicle_details”更改屏幕
+否则它会认为现在是 2021 年，并会相应地回答任何事实
 
 
-这就是问题所在。不应该。下一个 API 调用（摘要）应该是决定更改屏幕的调用。工具调用应该在后台进行。
-用户查询
-调用 tool_call
-将工具输出提交到摘要 API
-摘要 API 输出将决定显示哪个屏幕
-]]></description>
-      <guid>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_7</guid>
-      <pubDate>Wed, 10 Apr 2024 08:50:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 密钥似乎已经消失（但仍然有效）</title>
-      <link>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_1</link>
-      <description><![CDATA[这基本上与某人在这里讨论的问题完全相同：
-community.openai.com/t/api-key-created-but-not-showing-in-api-keys-gui/522492
-当我访问 platform.openai.com/api-keys 时，我的一大堆 API 密钥突然不再出现在列表中。但是，它们仍在工作，我什至可以在 platform.openai.com/usage 页面上看到它们的使用情况。
-这相当烦人，因为我认为我的 API 密钥之一没有授予正确的权限，我想编辑它，但由于它没有列出，我无法再编辑它......]]></description>
-      <guid>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 08:46:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>推动类似 Spotify 的版权内容付费 ChatGPT 选项</title>
-      <link>https://community.openai.com/t/push-for-spotify-like-pay-for-copyrighted-content-chatgpt-option/582660#post_3</link>
-      <description><![CDATA[令我惊讶的是，没有其他人对此问题做出回应，因为这可能是迄今为止对大多数 GPT 创建者来说最重要的问题之一。
+除非它确实认为现在不是 2021 年。友好的聊天机器人无法从我的系统消息中获取年份：
 
-  &lt;标题类=“来源”&gt;
-      
-Ars OpenForum
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-
-发布者：OpenAI 的 GPT 商店机器人非法抓取我们的教科书
-OpenAI 已从 GPT 商店下架了一些机器人，但版权投诉仍在继续。
-
-查看全文...
-
-
-
-
-
-无论如何，跟踪响应中实际使用的文档就是这么简单：
-
-  &lt;标题类=“来源”&gt;
-      
-chat.openai.com
-
-
-  &lt;文章类=“onebox-body”&gt;
-    ChatGPT
-能够倾听、学习和挑战的对话式人工智能系统
-
-
-
-
-
-对于 RAG，您只需在系统提示符中添加如下内容：
+你可以随意检查它的知识；即使是继承人的年龄也是正确的，直到两周后开始的一轮生日为止。
+0-shot 响应仅来自训练，而 AI 有很多来自之前的聊天。不过，该截图聊天的后续内容是：“您知道生日和年龄的知识截止日期是哪一天？”
 &lt;块引用&gt;
-请引用您在回复中使用的文本的文档编号。
+哦，对了，我的知识是最新的，直到 2023 年初。所以，嗯，如果在那之后有任何生日或重大事件，我可能无法完全跟上。你为什么要问？您有什么特别好奇的事情吗？
 ]]></description>
-      <guid>https://community.openai.com/t/push-for-spotify-like-pay-for-copyrighted-content-chatgpt-option/582660#post_3</guid>
-      <pubDate>Wed, 10 Apr 2024 08:41:38 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-will-think-its-in-2021-unless-specified/712483#post_4</guid>
+      <pubDate>Wed, 10 Apr 2024 12:11:07 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Assistant API 创建车辆销售助理</title>
-      <link>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_6</link>
-      <description><![CDATA[“show_vehicle_details”更改屏幕。如果奥迪Q3更环保又如何呢？由于RAV4是稍后调用的，因此屏幕上将始终显示RAV4。
-我想根据对话上下文控制屏幕。]]></description>
-      <guid>https://community.openai.com/t/create-a-vehicle-sales-assistant-using-assistant-api/712427#post_6</guid>
-      <pubDate>Wed, 10 Apr 2024 08:33:07 GMT</pubDate>
+      <title>外部共享GPT Team中创建的GPT</title>
+      <link>https://community.openai.com/t/sharing-gpt-created-in-gpt-team-externally/712632#post_1</link>
+      <description><![CDATA[大家好，
+我在我的团队帐户中创建了一个 GPT，我想通过 API 与外部共享，但我找不到模型标识符。请问您能帮忙吗？
+我在 Open AI 平台上设置了一个密钥，但这似乎与 Teams 分开，而且我在那里创建的助手比我在 Team 中创建的助手弱很多，即使提示相同。我怀疑这是由于 3.5 与 4 造成的。
+任何帮助将不胜感激！]]></description>
+      <guid>https://community.openai.com/t/sharing-gpt-created-in-gpt-team-externally/712632#post_1</guid>
+      <pubDate>Wed, 10 Apr 2024 11:57:32 GMT</pubDate>
     </item>
     <item>
-      <title>我需要有关第三方应用程序的 Open AI 数据隐私政策的澄清</title>
-      <link>https://community.openai.com/t/i-need-a-clarification-regarding-the-open-ai-data-privacy-policy-with-the-third-party-applications/712502#post_1</link>
-      <description><![CDATA[知识库文章是否有可能通过 Open AI 泄露到互联网上？
-2. 从 kb 文章传输到 open Ai 的确切组件是什么，请告诉我们（评论、主题、内容）...
-我们不会根据您的业务数据进行训练
-&lt;块引用&gt;
-他们可以使用这些数据进行模型训练，这有机会通过开放域响应生成来公开数据。请指教
-]]></description>
-      <guid>https://community.openai.com/t/i-need-a-clarification-regarding-the-open-ai-data-privacy-policy-with-the-third-party-applications/712502#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 08:29:50 GMT</pubDate>
+      <title>GPT-4-Turbo 不响应图像 url 输入</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-not-responding-to-image-url-input/712624#post_1</link>
+      <description><![CDATA[我收到一条关于 gpt-4-turbo 的错误消息，用于描述我通过 API 中的 URL 发送的图像。图像大小为 6.9 MB，最大允许限制为 20 MB。
+代码-
+imgLink = &quot;https://benny-image-shop.s3.ap-south-1.amazonaws.com/2024-04-10/1712746302215000_103.215.237.66。 .jpg&quot;
+
+有效负载= {“模型”：“gpt-4-turbo”，
+        “消息”：[
+        {
+            “角色”：“用户”，
+            “内容”： [
+            {
+                “类型”：“文本”，
+                “文本”：“描述”
+            },
+            {
+                “类型”：“图像_url”，
+                “图像网址”：{
+                “url”：imgLink
+                }
+            }
+            ]
+        }
+        ],
+        “最大令牌”：500
+    }
+
+    headers = {&quot;授权&quot;: f&quot;承载者&quot; + api_key,
+                “内容类型”：“application/json”}
+
+    响应 = requests.post(&#39;https://api.openai.com/v1/chat/completions&#39;, headers=headers, json=payload)
+
+错误 - {‘error’: {‘message’: ‘无效图像。’, ‘type’: ‘invalid_request_error’, ‘param’: None, ‘code’: None}}]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-not-responding-to-image-url-input/712624#post_1</guid>
+      <pubDate>Wed, 10 Apr 2024 11:53:01 GMT</pubDate>
     </item>
     <item>
-      <title>从 Files_in_Knowledgebase 中提取信息</title>
-      <link>https://community.openai.com/t/extracting-info-from-files-in-knowledgebase/712498#post_1</link>
-      <description><![CDATA[大家好，我只是使用提示和知识库来使用 gpt 构建器构建我的自定义 gpt，我只是想知道如何从知识库中检索信息，是转换为向量还是提取文本并包含在用户的查询文本中吗？正如我在其中一篇文章中读到的那样，它是否取决于文件的大小
-
-
-
-如何处理知识库文件（助手 API） API
-
-  &lt;块引用&gt;
-    当然。所以静态成本是存储：
-
-检索价格为每个助手每天 0.20 美元/GB。启用检索工具后，将单个文件 ID 附加到多个助手将产生每个助手每天的费用。例如，如果您将同一个 1 GB 文件附加到启用了检索工具的两个不同助理（例如，面向客户的助理 #1 和内部员工助理 #2），您将需要支付两次存储费 (2 *每天 0.20 美元）。该费用不随…的变化而变化。
-  
-
-
-使用 Markdown 格式是否比包含大量演示信息的 pdf 或 html 格式更容易让模型检索文件中的信息？
-文件名也有影响吗？
-提前致谢]]></description>
-      <guid>https://community.openai.com/t/extracting-info-from-files-in-knowledgebase/712498#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 08:23:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>来自剑桥的人工智能初创公司 Suno AI 生成逼真的广播质量音乐</title>
-      <link>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_29</link>
-      <description><![CDATA[喜欢这里的争论，它不再是关于计算机是否可以生成（超出）还过得去的音乐，而是现在的音乐有多好。似乎有些人正在努力了解到底发生了什么。]]></description>
-      <guid>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_29</guid>
-      <pubDate>Wed, 10 Apr 2024 08:20:52 GMT</pubDate>
+      <title>新 API OpenAi 帐户中出现“未找到信用赠款”消息</title>
+      <link>https://community.openai.com/t/message-no-credit-grants-found-in-the-new-api-openai-accounts/712611#post_2</link>
+      <description><![CDATA[该 API 不是免费的，OpenAI 不再提供免费试用积分。
+可以通过在您的 platform.openai.com 帐户中进入设置 -&gt; 计费，选择“添加付款方式”来解决该问题”，并继续购买预付款信用。]]></description>
+      <guid>https://community.openai.com/t/message-no-credit-grants-found-in-the-new-api-openai-accounts/712611#post_2</guid>
+      <pubDate>Wed, 10 Apr 2024 11:48:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
