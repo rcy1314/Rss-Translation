@@ -4,168 +4,118 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 10 Apr 2024 18:25:16 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 21:18:19 GMT</lastBuildDate>
     <item>
-      <title>Logprobs 和 message.content 不一致</title>
-      <link>https://community.openai.com/t/logprobs-and-message-content-are-inconsistent/712959#post_1</link>
-      <description><![CDATA[我通过 API 使用 gpt-4-turbo-2024-04-09，并带有提示要求模型使用 0 或 1 进行响应。我的 API 调用包括以下参数：
-&#39;max_tokens&#39;: 1,
-“n”：3，
-&#39;logprobs&#39;：正确，
-&#39;top_logprobs&#39;：2
+      <title>将搜索栏添加到 ChatGPT 的浏览器版本</title>
+      <link>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_13</link>
+      <description><![CDATA[请添加搜索栏！！这将非常有用]]></description>
+      <guid>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456#post_13</guid>
+      <pubDate>Wed, 10 Apr 2024 21:09:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>比较 GPT-4-turbo 和 GPT-4-vision-preview 之间的 15 道 SAT 数学题</title>
+      <link>https://community.openai.com/t/compare-15-sat-math-question-between-gpt-4-turbo-and-gpt-4-vision-preview/712778#post_5</link>
+      <description><![CDATA[
 
-99.5% 的情况下，message.content（模型输出）与 logprob 的顶部标记相同（例如，模型输出为 1，logprob 的顶部标记为 1）。
-但是，有 0.5% 的情况并非如此（例如，模型输出为 1，而 logprob 的顶部标记为 0）。
-这种差异/差异是预期的还是可能是一个错误？]]></description>
-      <guid>https://community.openai.com/t/logprobs-and-message-content-are-inconsistent/712959#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 18:23:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 ChatGPT 也会改变您的词汇量吗？</title>
-      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_7</link>
-      <description><![CDATA[因为，在阅读某人的书后，你实际上可以得出这个结论，该书讲述了当芯片被引入并嵌入某人的大脑和血细胞时，人工智能如何超越人类。  也许，今天人们会因为你这个近乎超现实、荒谬的想法而嘲笑你。但是，当政府有权决定你能想、能说、能发号施令的时候，你会很高兴生活在人工智能和政府为你提供基本必需品并听从他们的每一个命令的世界里，无忧无虑。
-人工智能只是一个工具，就像一把枪。它可以用来在野外寻找食物，也可以用来射杀某人。在正确的人手中，人工智能可以促进人类进步，但在邪恶的人手中，好吧，祝你好运。
-它首先规定你能说什么、你能听到什么等等……最后是你能想到和感受到的。想象一下，这是使用单一系统政府在全球范围内全面完成的，并且使用内置人工智能的计算机芯片“控制”人类。如果你不遵循它的指示，……那么，一旦大脑研究找到了集成人工智能嵌入式芯片的方法，它就可以“摧毁”或至少干扰你的大脑或嵌入芯片的任何东西。进入人类大脑（Neuralink）。]]></description>
-      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_7</guid>
-      <pubDate>Wed, 10 Apr 2024 18:21:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何通过函数调用获取字符串列表作为输出？</title>
-      <link>https://community.openai.com/t/how-to-get-a-list-of-strings-as-an-output-with-function-calling/712957#post_1</link>
-      <description><![CDATA[我希望函数的参数是列表而不是字符串。我试图让法学硕士分解这个问题并列出一步一步的计划。我希望这些步骤是字符串列表。这种情况会发生吗？或者这是否属于并行函数调用的范围？无论哪种方式，当它似乎都没有做的时候。这里的函数调用使用 pydantic 模式，对吗？但是当我将“type”参数作为列表/数组给出时，它会抛出异常
-这是我尝试使用的代码：
 
-规划工具= [
-    {
-        “类型”：“功能”，
-        “功能”： {
-            “名称”：“计划”，
-            &quot;description&quot;: &quot;将问题分解为更易于管理的子问题。提供详细的逐步解决方案。&quot;,
-            “参数”： {
-                “类型”：“对象”，
-                “特性”： {
-                    “子问题”：{
-                        “类型”：“字符串”，
-                        &quot;description&quot;: &quot;您试图解决的子问题。这应该是您应该获取附加信息的问题&quot;,
-                    }
-                },
-                “必填”：[“查询”]
-            }
-        }
-    }
-]
+ cdunn：
+&lt;块引用&gt;
+…使用 gpt-4-turbo 进行函数调用？
 
-^上面是传递给LLM的工具（我的借口是它至少会分解问题，并且输出将有多个工具调用，每个工具调用都是一个子问题），但它似乎不起作用。
-我能想到的一个非常肮脏的黑客是让工具输出由一些特殊字符分隔的步骤，然后在处理它时将其分割，但我希望这是最后一个选项
-我的截止日期是周四，任何帮助都会很棒！]]></description>
-      <guid>https://community.openai.com/t/how-to-get-a-list-of-strings-as-an-output-with-function-calling/712957#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 18:20:19 GMT</pubDate>
+
+gpt-4-turbo 可以看到。
+流程图
+         图片 --&gt; GPT-4-涡轮
+]]></description>
+      <guid>https://community.openai.com/t/compare-15-sat-math-question-between-gpt-4-turbo-and-gpt-4-vision-preview/712778#post_5</guid>
+      <pubDate>Wed, 10 Apr 2024 21:08:39 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt-4-turbo 不尊重“必需”，而 gpt-4-turbo-preview 则</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-is-not-respecting-required-while-gpt-4-turbo-preview-is/712931#post_2</link>
-      <description><![CDATA[感谢您的举报！不幸的是，函数调用不能保证遵循模式，并且不同模型的质量可能存在差异。我的建议是尝试快速设计模型，例如“始终包含 foo 参数”。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-is-not-respecting-required-while-gpt-4-turbo-preview-is/712931#post_2</guid>
-      <pubDate>Wed, 10 Apr 2024 18:19:37 GMT</pubDate>
+      <title>并行 API 请求 - 响应时间非常长</title>
+      <link>https://community.openai.com/t/parallel-api-requests-very-long-response-times/712969#post_3</link>
+      <description><![CDATA[您是在谈论 OpenAI 模型的运行核心吗？这是在帐户级别设置的吗？
+我已经跨 lambda 并行运行测试（在单独的容器中并行运行），并且它存在不受内存、核心等影响的问题。
+从我提供的基准来看，它也不受不同模型（GPT-3.5、Claude 等）的影响，因此，如果您指的是我在本地或云中运行的机器，那么这不是瓶颈案例。]]></description>
+      <guid>https://community.openai.com/t/parallel-api-requests-very-long-response-times/712969#post_3</guid>
+      <pubDate>Wed, 10 Apr 2024 21:08:09 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt-4-turbo模型函数调用不起作用</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-model-function-call-doesnt-work/712218#post_4</link>
-      <description><![CDATA[抱歉，感谢您的报告 - index 不是 tool_calls 参数的有效输入，我们正在慢慢使验证更加严格。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-model-function-call-doesnt-work/712218#post_4</guid>
-      <pubDate>Wed, 10 Apr 2024 18:18:46 GMT</pubDate>
+      <title>Whisper API，增加文件限制 >25 MB</title>
+      <link>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_20</link>
+      <description><![CDATA[如果您安装了 Python 系统，则可以直接运行 .py，或者在 IDLE 3.9 中打开文件，然后选择“run”在其 print-shell 中执行。您可以尝试看看 VSCode 是否不想信任您的解释器或外部二进制文件，或者没有按照您的想法进行管道传输。
+在 cmd.com shell 中运行 ffmpeg 命令行只是为了确保它能够单独编码文件。]]></description>
+      <guid>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_20</guid>
+      <pubDate>Wed, 10 Apr 2024 21:05:54 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 也会改变您的词汇量吗？</title>
-      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_6</link>
-      <description><![CDATA[有趣的是，我们都有不同的触发因素，让我们假设某段文本背后有人工智能。我绝对不知道呼吸花絮 @PaulBellow
-@N2U 您实际上和/或仍在使用经过微调的 Discourse 论坛 AI 吗？我只是想象五年后人工智能将如何像五年前的你一样说话......
-@johncain194 我实际上不太明白你是如何得出这个严峻的前景的。之前您提到 GenAI 确实改善了您个人的语言使用。为什么阅读别人的人工智能文本会让我们看不起文本？我也绝对对此感到内疚！]]></description>
-      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_6</guid>
-      <pubDate>Wed, 10 Apr 2024 18:12:35 GMT</pubDate>
+      <title>使用 ChatGPT 是否也会改变您的词汇量？</title>
+      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_13</link>
+      <description><![CDATA[不得不说很像啊，我很聪明。呵呵……这真是一份很棒的礼物。我确实感觉自己变得更聪明了。一致的刹车是关键哈哈…抱歉     哦，我发现使用这个有用的工具实际上我找到了它今天。如果事情有点不对劲，也可能会有所帮助。
+“一次生成一个句子的提示代码片段，重点是清晰和简洁的说明。每个提示应清晰有效地传达特定的任务或问题，确保易于理解和实施。将每个提示的长度限制为 3 到 4 个句子，以实现最佳的可读性和理解性。一次提供一个提示，以促进高效的处理和执行。”]]></description>
+      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_13</guid>
+      <pubDate>Wed, 10 Apr 2024 21:04:06 GMT</pubDate>
     </item>
     <item>
       <title>如何通过提示编辑图像</title>
-      <link>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_1</link>
-      <description><![CDATA[您好，如何在不使用遮罩的情况下通过提示编辑图像。
-我尝试了多种方法。
-我用的是这样的：
-curl -H &#39;授权：承载 sk-***uPb&#39; https://api.openai.com/v1/images/edits --form &#39;image=@&quot; ./tmp/selfie.png&quot;&#39; --form &#39;prompt=&quot;将背景替换为河流并使用水彩风格的照片&quot;&#39; --form &#39;size=&quot;256x256&quot;&#39; --form &#39;n=1&#39;
-
-我已经在提示中输入了一些命令，但没有任何变化。
-为了客观起见，我需要上传一张图片，然后通过提示，例如：“将背景更改为海滩背景”，就可以更改它。]]></description>
-      <guid>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_1</guid>
-      <pubDate>Wed, 10 Apr 2024 18:11:38 GMT</pubDate>
+      <link>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_6</link>
+      <description><![CDATA[编辑端点在 DALLE2 中仍然可用，但您需要发送掩码来告诉它要替换什么/在哪里以及原始图像。]]></description>
+      <guid>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_6</guid>
+      <pubDate>Wed, 10 Apr 2024 20:58:23 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 也会改变您的词汇量吗？</title>
-      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_5</link>
-      <description><![CDATA[我要补充一点，我对 ChatGPT 默认词汇中的单词产生了一点反感，并且往往被过度使用。到目前为止，我一直在积极进行“逻辑偏见之战”，以至少在我自己的人工智能生成的输出中避免它们。但它也使得更容易发现其他人生成的人工智能输出。]]></description>
-      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_5</guid>
-      <pubDate>Wed, 10 Apr 2024 18:11:28 GMT</pubDate>
+      <title>Whisper API，增加文件限制 >25 MB</title>
+      <link>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_19</link>
+      <description><![CDATA[您在哪个时区？你今晚晚些时候或明天会在吗？]]></description>
+      <guid>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_19</guid>
+      <pubDate>Wed, 10 Apr 2024 20:57:24 GMT</pubDate>
     </item>
     <item>
-      <title>研究：利用人工智能增强健康诊断和治疗计划</title>
-      <link>https://community.openai.com/t/research-using-ai-to-augment-health-diagnoses-and-treatment-plans/537345#post_8</link>
-      <description><![CDATA[嗨雷蒙德，
-我已经发邮件了。
-你会回到我身边吗？我觉得有机会。
-谢谢，
-巴斯·斯图尔特
-bass.stewart@outreachemr.org]]></description>
-      <guid>https://community.openai.com/t/research-using-ai-to-augment-health-diagnoses-and-treatment-plans/537345#post_8</guid>
-      <pubDate>Wed, 10 Apr 2024 18:10:01 GMT</pubDate>
+      <title>如何通过提示编辑图像</title>
+      <link>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_5</link>
+      <description><![CDATA[非常感谢您的回复，即使是在 DALL-E-2 中也没有？]]></description>
+      <guid>https://community.openai.com/t/how-do-i-edit-an-image-through-the-prompt/712949#post_5</guid>
+      <pubDate>Wed, 10 Apr 2024 20:56:35 GMT</pubDate>
     </item>
     <item>
-      <title>信用卡被拒绝并且不允许我添加新卡</title>
-      <link>https://community.openai.com/t/credit-card-rejected-and-wont-allow-me-to-add-a-new-one/695509#post_6</link>
-      <description><![CDATA[我的卡也有问题，首先它说有错误，然后拒绝（我订购了 DoorDash 以确保它没问题，它很好）。尝试联系支持人员，但没有真正得到任何帮助。他们可能需要修复他们的 Stripe 帐户或其他东西。它在不应该出现的情况下给出错误，然后不允许您更新/更改您的卡。再次尝试添加我的卡后，我不断收到“太多请求”。我正在开发一个工作项目，没有真正的解决途径，这真是太令人沮丧了。]]></description>
-      <guid>https://community.openai.com/t/credit-card-rejected-and-wont-allow-me-to-add-a-new-one/695509#post_6</guid>
-      <pubDate>Wed, 10 Apr 2024 18:08:04 GMT</pubDate>
+      <title>Whisper API，增加文件限制 >25 MB</title>
+      <link>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_18</link>
+      <description><![CDATA[我从您建议的链接下载了 FFMpeg。感谢那。当我运行以下命令时，它可以很好地读取所有肉类数据。但我仍然遇到同样的错误。正如我所说，它在 python 3.8.3 中运行得很好。我会尝试一下，但是更改 VSCode 中的解释器没有任何作用。我必须更改系统路径并重新启动。在我这样做之前还有其他建议吗？
+“D:\VS Code Projects\ffmpeg-7.0-essentials_build\bin\ffmpeg.exe” ffmpeg -i myAudio.mp3 -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 12k -application voip -f ogg 音频.ogg
+流#0:0:音频：mp3 (mp3float)、44100 Hz、单声道、fltp、128 kb/s
+[AVFormatContext @ 00000248315d1640] 无法选择“ffmpeg”的输出格式；使用标准扩展名作为文件名或手动指定格式。
+[out#0 @ 00000248315d1140] 初始化 ffmpeg 的复用器时出错：参数无效
+打开输出文件 ffmpeg 时出错。
+打开输出文件时出错：参数无效]]></description>
+      <guid>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754#post_18</guid>
+      <pubDate>Wed, 10 Apr 2024 20:56:03 GMT</pubDate>
     </item>
     <item>
-      <title>Udio：来自 Nvidia 的新音乐生成器 text2audio？</title>
-      <link>https://community.openai.com/t/udio-new-music-generator-text2audio-from-nvidia/711354#post_5</link>
-      <description><![CDATA[感谢分享！
-还有人尝试一下吗？他们免费赠送这么多东西真是太疯狂了……他们很快就会抢占所有市场份额！
-我还没有机会玩。]]></description>
-      <guid>https://community.openai.com/t/udio-new-music-generator-text2audio-from-nvidia/711354#post_5</guid>
-      <pubDate>Wed, 10 Apr 2024 18:03:35 GMT</pubDate>
+      <title>Chatgpt - 无法加载历史记录</title>
+      <link>https://community.openai.com/t/chatgpt-unable-to-load-history/463627#post_11</link>
+      <description><![CDATA[在我尝试清除缓存和所有其他内容但无法取消存档聊天之前遇到了这个问题，完全重新加载了我的所有其他对话]]></description>
+      <guid>https://community.openai.com/t/chatgpt-unable-to-load-history/463627#post_11</guid>
+      <pubDate>Wed, 10 Apr 2024 20:54:16 GMT</pubDate>
     </item>
     <item>
-      <title>RAG 并不是真正的解决方案</title>
-      <link>https://community.openai.com/t/rag-is-not-really-a-solution/599291?page=3#post_51</link>
-      <description><![CDATA[是的，这将是我需要的一部分。我可能会添加另一个更抽象的层，以便提高不同文档之间的可比性。
-无论如何，我都需要对我想要的应用程序进行概念验证。希望到月底我可以报告我的进展，并得出更多结论。
-此外，再次感谢您分享您的工作摘要。了解其他人如何解决这些问题总是很有趣且有帮助的 - 并激发新的想法。这是使这个论坛成为一个如此棒的地方的关键原因之一！]]></description>
-      <guid>https://community.openai.com/t/rag-is-not-really-a-solution/599291?page=3#post_51</guid>
-      <pubDate>Wed, 10 Apr 2024 17:55:14 GMT</pubDate>
+      <title>比较 GPT-4-turbo 和 GPT-4-vision-preview 之间的 15 道 SAT 数学题</title>
+      <link>https://community.openai.com/t/compare-15-sat-math-question-between-gpt-4-turbo-and-gpt-4-vision-preview/712778#post_4</link>
+      <description><![CDATA[所以您使用 gpt-4-turbo 进行函数调用并使用视觉转录照片中的问题，然后让 Turbo 解决问题？]]></description>
+      <guid>https://community.openai.com/t/compare-15-sat-math-question-between-gpt-4-turbo-and-gpt-4-vision-preview/712778#post_4</guid>
+      <pubDate>Wed, 10 Apr 2024 20:52:06 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 也会改变您的词汇量吗？</title>
-      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_4</link>
-      <description><![CDATA[我已经使用 ChatGPT4 撰写了几篇手稿和未出版的书籍以及几篇已出版的学术文章。然而，当我的学生使用 ChatGPT/Claude/或任何其他 AGI 提供商时，我立即知道。哈哈，我从这个 AGI 一开始（GPT 3 及之前）就一直关注它，并且确切地知道哪个是哪个。除了 GPT 检测器和旁路器之外，我还可以测量某人的词汇量。甚至 ChatGPT 也经常自我修饰和“重复”，而且他们的一些胡言乱语毫无意义。在很长的文本或脚本中，仍然需要人类（人工智能在这方面很难保持其“恒定性”）。
-我什至能察觉到很多内容创作者的变化，他们开始在创作中融入人工智能。我只是感到悲伤的是，在未来，这种充斥着人工智能的内容将占据主导地位，而人类，整个人类将变得更加愚蠢，并将被人工智能霸主所支配，包括他们的词汇！这是一个严峻的未来......
-是的，使用chatGPT将我的词汇量提升到了一个新的水平，包括我感兴趣的其他语言。但是，chatGPT 4并不像人们在现实生活中所说的那么灵活......]]></description>
-      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_4</guid>
-      <pubDate>Wed, 10 Apr 2024 17:53:11 GMT</pubDate>
+      <title>聊天 gpt 说我使用了 gpt-4 的上限，但我使用的是 3.5，它不起作用</title>
+      <link>https://community.openai.com/t/chat-gpt-says-ive-used-gpt-4-s-cap-but-im-on-3-5-and-it-wont-work/713643?page=3#post_53</link>
+      <description><![CDATA[重点是我今天下午没有任何问题，只是今天晚上才开始。嗯，我很高兴它现在对我有用。希望遇到此问题的每个人也会发生这种情况。]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-says-ive-used-gpt-4-s-cap-but-im-on-3-5-and-it-wont-work/713643?page=3#post_53</guid>
+      <pubDate>Wed, 10 Apr 2024 20:50:50 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 也会改变您的词汇量吗？</title>
-      <link>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_3</link>
-      <description><![CDATA[我相信使用人工智能在一定程度上扩大了我的词汇量，尽管我无法告诉你扩大了多少 
-几乎我在论坛上的所有消息都经过了人工智能的轻微过滤，包括这一条，因为我认为谨慎使用它有助于对话的进行。但完全或大部分由人工智能撰写的帖子很少有太多可说的。]]></description>
-      <guid>https://community.openai.com/t/does-using-chatgpt-change-your-vocabulary-too/712892#post_3</guid>
-      <pubDate>Wed, 10 Apr 2024 17:51:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 密钥已创建，但未显示在 /api-keys gui 中</title>
-      <link>https://community.openai.com/t/api-key-created-but-not-showing-in-api-keys-gui/522492#post_5</link>
-      <description><![CDATA[我们也遇到了这个问题。
-有没有办法在这个（损坏的）UI 之外管理密钥？
-我们已经配置了无法再看到的密钥，因此无法再管理 ]]></description>
-      <guid>https://community.openai.com/t/api-key-created-but-not-showing-in-api-keys-gui/522492#post_5</guid>
-      <pubDate>Wed, 10 Apr 2024 17:51:14 GMT</pubDate>
+      <title>聊天 gpt 说我使用了 gpt-4 的上限，但我使用的是 3.5，它不起作用</title>
+      <link>https://community.openai.com/t/chat-gpt-says-ive-used-gpt-4-s-cap-but-im-on-3-5-and-it-wont-work/713643?page=3#post_52</link>
+      <description><![CDATA[人们仍然遇到问题吗？它现在对我有用。]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-says-ive-used-gpt-4-s-cap-but-im-on-3-5-and-it-wont-work/713643?page=3#post_52</guid>
+      <pubDate>Wed, 10 Apr 2024 20:50:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
