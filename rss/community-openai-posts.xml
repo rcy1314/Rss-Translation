@@ -4,112 +4,111 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Apr 2024 09:20:01 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Apr 2024 12:31:50 GMT</lastBuildDate>
     <item>
-      <title>使用 gpt-4 API 对文档进行语义分块</title>
-      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_2</link>
-      <description><![CDATA[过去几天我一直在脑子里思考一个非常非常新的想法。如果我们能让模型返回语义块的边界，即使该块唯一可识别的前几个和最后几个单词，会怎么样？
-有了这些信息，您就可以应用常规脚本来提取块的实际文本。如果这是可能的，那么一次或减少数量的 API 调用可能就足够了，从而节省时间和成本。]]></description>
-      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_2</guid>
-      <pubDate>Fri, 12 Apr 2024 09:11:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我还有 489 美元的余额，为什么迟到的账单是 2.14 美元</title>
-      <link>https://community.openai.com/t/i-still-have-a-balance-of-489-why-is-there-a-late-bill-of-2-14/714670#post_3</link>
-      <description><![CDATA[我怎样才能获得学分补助。我的已经过期了。]]></description>
-      <guid>https://community.openai.com/t/i-still-have-a-balance-of-489-why-is-there-a-late-bill-of-2-14/714670#post_3</guid>
-      <pubDate>Fri, 12 Apr 2024 09:02:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>我使用的是最新版本的 GPT Vision 吗？</title>
-      <link>https://community.openai.com/t/am-i-using-the-latest-version-of-gpt-vision/715680#post_2</link>
-      <description><![CDATA[最新型号为gpt-4-turbo-2024-04-09
-&lt;块引用&gt;
-GPT-4 Turbo 与视觉
-具有视觉功能的最新 GPT-4 Turbo 型号。视觉请求现在可以使用 JSON 模式和函数调用。当前指向 gpt-4-turbo-2024-04-09 。
+      <title>RFI/RFP 响应聊天机器人的自定义指令示例</title>
+      <link>https://community.openai.com/t/examples-of-custom-instructions-for-an-rfi-rfp-response-chatbot/715834#post_1</link>
+      <description><![CDATA[作为电子商务软件解决方案的售前人员，我们的工作是响应无数的 RFI/RFP。随着时间的推移，我们已经生成了一个庞大的问答知识库。我想使用 ChatGPT 或 GPT Builder 为未来的 RFP 问题创建 RFP 响应机。
+我在 CSV 文件中包含 1000 多个问题和答案，可以轻松上传。我尝试编写自定义指令，但结果不太好。
+您能否分享一些自定义指令示例，用于仅根据提供的知识库创建应答机器人？
+我还应该上传问题还是只上传答案以使机器人更加准确？
+作为起点，重要的是：
 
-参考：https://platform.openai.com/docs/models/continuous-model-upgrades ]]></description>
-      <guid>https://community.openai.com/t/am-i-using-the-latest-version-of-gpt-vision/715680#post_2</guid>
-      <pubDate>Fri, 12 Apr 2024 08:47:06 GMT</pubDate>
+仅根据提供的知识库进行回复
+按照所提供的相同格式/风格进行回复
+提供尽可能多的参考链接，例如参考文档、视频、网络链接等。
+...
+]]></description>
+      <guid>https://community.openai.com/t/examples-of-custom-instructions-for-an-rfi-rfp-response-chatbot/715834#post_1</guid>
+      <pubDate>Fri, 12 Apr 2024 12:04:13 GMT</pubDate>
     </item>
     <item>
-      <title>使用 gpt-4 API 对文档进行语义分块</title>
-      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_1</link>
-      <description><![CDATA[我正在根据这篇文章开发的对话线索创建这个主题：RAG 并不是真正的解决方案 - SomebodySysop 的#43
-虽然我们中的许多人对第一层“语义分块”有不同的方法，例如@sergeliatko&lt; /a&gt; 的 API： RAG 是并不是真正的解决方案 - #50 by sergeliatko 我们仍在寻找一种方法让法学硕士做最后一点“子分块”，我们拥有模型而不是简单地按大小切分块查看它并根据语义相关性确定划分它的最佳方式。
-@jr.2509 , @sergeliatko , @joyasree78 一直在研究方法，但当我开始研究这个问题时，我发现了一些真正的问题是什么。
-这是我的最新想法，即创建一种方法，让 gpt-4 API 协助文档的语义分块。这个概念很简单：我向它发送一个文本文档（如合同或其他协议），其中包含创建层次结构大纲的说明。获得大纲后，我会将其发送回模型，并附有根据大纲的每个部分“分块”文档的说明。基本上，它将返回每个轮廓元素表示的文本段。
-然而，执行起来有点复杂。首先，我们需要处理 4K 令牌上下文输出限制，因此任何段都不能超过该限制。其次，这将需要多次调用，模型必须检查全文并返回大纲中的下一段。
-我的问题是：我可以上传源文本文档一次，然后让 gpt-4 在每次连续的 API 调用时引用它吗？如果可能的话，这可能会起作用。如果我必须在每次连续的 API 调用时上传源文本文件，那将是非常昂贵的。有建议吗？]]></description>
-      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_1</guid>
-      <pubDate>Fri, 12 Apr 2024 08:46:40 GMT</pubDate>
+      <title>OpenAI 任意禁止我访问 ChatGPT 4，即使我的订阅仍在进行中（加号）- 我可以在哪里对此提出异议？</title>
+      <link>https://community.openai.com/t/openai-arbitrarily-disabled-my-access-to-chatgpt-4-even-though-my-subscription-is-still-ongoing-plus-where-can-i-dispute-this/715049#post_3</link>
+      <description><![CDATA[支持完全没用。 help.openai.com仅用于“配件”，并没有真正解决任何问题。
+我刚刚向支持人员检查了我的状态，即使我直接发送了它们，但到目前为止，还没有答复，而我正在等待我的帐户得到修复。]]></description>
+      <guid>https://community.openai.com/t/openai-arbitrarily-disabled-my-access-to-chatgpt-4-even-though-my-subscription-is-still-ongoing-plus-where-can-i-dispute-this/715049#post_3</guid>
+      <pubDate>Fri, 12 Apr 2024 11:43:53 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 gpt 不起作用“不再支持插件。”</title>
-      <link>https://community.openai.com/t/custom-gpts-dont-work-plugins-are-no-longer-supported/715688#post_1</link>
-      <description><![CDATA[我知道插件已被删除，并且它们的功能已完全转移到自定义 gpts。但是当我打开与任何自定义 gpt 的聊天时，它会显示“不再支持插件”，我真的需要这个专门的 gpt 来完成我的工作，有什么解决方案吗？对话如下所示：
-你
-你能给我找到引用这篇文章的论文吗？
-学者人工智能
-不再支持插件。
-Edit1：我什至检查了 openAi 制作的官方 gpts，如数据分析师和 DALLE，结果相同。
-Edit2：它开始神奇地工作，不知道问题是什么，因为我没有做任何新的事情，所以这篇文章可以关闭。对于遇到同样问题的人，首先继续删除聊天记录并开始新的聊天记录，大约 5-10 分钟后它就开始工作了。]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-dont-work-plugins-are-no-longer-supported/715688#post_1</guid>
-      <pubDate>Fri, 12 Apr 2024 08:46:33 GMT</pubDate>
+      <title>GPT 操作失败：针对带有 LetsEncrypt 证书的 Go Web 服务器的 TLS 握手失败</title>
+      <link>https://community.openai.com/t/gpt-action-fails-tls-handshake-failure-against-go-web-server-w-letsencrypt-cert/715811#post_1</link>
+      <description><![CDATA[服务器报告 TLS 握手失败。 ChatGPT 报告 {}。证书在浏览器和curl中运行没有问题。
+任何见解都会有所帮助。]]></description>
+      <guid>https://community.openai.com/t/gpt-action-fails-tls-handshake-failure-against-go-web-server-w-letsencrypt-cert/715811#post_1</guid>
+      <pubDate>Fri, 12 Apr 2024 11:39:39 GMT</pubDate>
     </item>
     <item>
-      <title>我使用的是最新版本的 GPT Vision 吗？</title>
-      <link>https://community.openai.com/t/am-i-using-the-latest-version-of-gpt-vision/715680#post_1</link>
-      <description><![CDATA[您好，我看到了“GPT4 Turbo Vision”的参考资料，并努力找出要使用的最新版本的 GPT4 Vision API。
-现在，我正在从代码中调用‘gpt-4-vision-preview’，标头响应返回两个看起来有点过时的字段。
-‘openai-版本’: ‘2020-10-01’
-‘模型’：‘gpt-4-1106-vision-preview’
-谁能解释一下为什么‘openai’版本这么过时？ “gpt-4-1106-vision-preview”模型是最新使用的模型吗？如果没有，我该如何更新这些？
-另一方面，关于速率限制，RPD（每日请求数）是根据您发送的图像数量计算的，还是可以发送 1 个包含 5 张图像的 POST 请求并算作一个 RPD？
-非常感谢]]></description>
-      <guid>https://community.openai.com/t/am-i-using-the-latest-version-of-gpt-vision/715680#post_1</guid>
-      <pubDate>Fri, 12 Apr 2024 08:40:07 GMT</pubDate>
+      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_22</link>
+      <description><![CDATA[嘿，如何使用 GPT-4 Turbo 而不拒绝回答任何问题？我希望能借用别人的账户，甚至 OpenAI 在未经我同意的情况下将我的账户降级为“非订阅”。看来我的帐户已经坏了。无法用它做任何事情。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_22</guid>
+      <pubDate>Fri, 12 Apr 2024 11:38:49 GMT</pubDate>
     </item>
     <item>
-      <title>将 OpenAI Assistant API 构建到 Google Sheets 中</title>
-      <link>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_29</link>
-      <description><![CDATA[你的项目在 LinkedIn 上看起来很棒，我很想尝试一下。特别是您创建的 =ASKGPT 函数。]]></description>
-      <guid>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_29</guid>
-      <pubDate>Fri, 12 Apr 2024 08:38:10 GMT</pubDate>
+      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_21</link>
+      <description><![CDATA[chatGPT 不会自动拥有最新版本。
+目前我们唯一的指示是询问截止日期。虽然可能也不太可靠。
+2023 年 11 月，他们确认 chatgpt 使用 4 涡轮增压。
+几周前，对我来说是 2023 年 12 月（总是给我那个日期）
+然后大约 3 或 4 周前，它开始告诉我 2023 年 4 月，直到今天又告诉我 2023 年 12 月，这可能意味着现在它使用的是最新的涡轮增压。 0409
+它只是不可靠
+如果他们发布了新型号版本，并不意味着chatgpt立即使用它
+（我猜它一定在chatgpt的系统消息中，因为在API中这些模型会告诉你各种日期，但在chatgpt中它非常一致）]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_21</guid>
+      <pubDate>Fri, 12 Apr 2024 11:38:02 GMT</pubDate>
     </item>
     <item>
-      <title>将 OpenAI Assistant API 构建到 Google Sheets 中</title>
-      <link>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_28</link>
-      <description><![CDATA[谢谢！这对我来说非常有用，并且节省了很多时间。感谢 @lumo1987 和 @mouimet 也是]]></description>
-      <guid>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_28</guid>
-      <pubDate>Fri, 12 Apr 2024 08:37:23 GMT</pubDate>
+      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_20</link>
+      <description><![CDATA[他问的是chatgpt plus，这是指chatgpt平台，不是openai平台...在chatgpt平台中你不能选择型号，Plus订阅自动有最新的型号版本...]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_20</guid>
+      <pubDate>Fri, 12 Apr 2024 11:32:36 GMT</pubDate>
     </item>
     <item>
-      <title>将聊天记录整理到文件夹中</title>
-      <link>https://community.openai.com/t/organizing-chats-into-folders/163900#post_12</link>
-      <description><![CDATA[请。请执行此操作。我有许多不同类型的对话线程。在其他人中挑选并找到特定的人是非常令人沮丧的。这将大大提高生产力。]]></description>
-      <guid>https://community.openai.com/t/organizing-chats-into-folders/163900#post_12</guid>
-      <pubDate>Fri, 12 Apr 2024 08:31:39 GMT</pubDate>
+      <title>DALL-E 总是拒绝创建图像，真是无赖</title>
+      <link>https://community.openai.com/t/dall-e-always-refuse-to-create-images-what-a-bummer/712739#post_12</link>
+      <description><![CDATA[这意味着OpenAI的那些人涉足了我的账户。甚至在我的订阅结束之前，我的 ChatGPT 4 订阅就已降级。]]></description>
+      <guid>https://community.openai.com/t/dall-e-always-refuse-to-create-images-what-a-bummer/712739#post_12</guid>
+      <pubDate>Fri, 12 Apr 2024 11:29:18 GMT</pubDate>
     </item>
     <item>
-      <title>我看不到搜索主题的方法</title>
-      <link>https://community.openai.com/t/i-cant-see-a-way-to-search-through-the-topics/715642#post_3</link>
-      <description><![CDATA[它完全解决了我的问题。谢谢。
-我谦虚地认为搜索按钮放错了位置。
-它应该放在主题列表的正上方，除非搜索还查看文档和 API 参考…
-因此搜索文件应该位于所有内容、主题、回复等之上。
-现在我知道这对我来说没有太大区别，但我认为靠近它过滤的列表比靠近它无法搜索的内容更好。
-但是，我可能无法了解全部情况，而且这是我第一次来到这里的社区，所以我可能无法理解所有内容......
-干杯，]]></description>
-      <guid>https://community.openai.com/t/i-cant-see-a-way-to-search-through-the-topics/715642#post_3</guid>
-      <pubDate>Fri, 12 Apr 2024 08:29:03 GMT</pubDate>
+      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_19</link>
+      <description><![CDATA[它不会自动拥有最新型号，只有当 openai 决定更新时
+现在对我（以及许多不和谐的人）来说最大的麻烦是知道 chatgpt 实际使用的模型是什么。
+他们确实需要开始告诉/向我们展示它在 chatGPT 中的用途。
+每个模型/版本的行为都不同，您需要了解每个模型的所有怪癖。
+真的很烦人，让 chatGPT 对我来说不可靠，让我想使用游乐场]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_19</guid>
+      <pubDate>Fri, 12 Apr 2024 11:29:06 GMT</pubDate>
     </item>
     <item>
-      <title>功能请求：能够固定聊天</title>
-      <link>https://community.openai.com/t/feature-request-ability-to-pin-chats/84808?page=2#post_25</link>
-      <description><![CDATA[那太棒了，想知道为什么还没有开发出来，这太令人沮丧了。]]></description>
-      <guid>https://community.openai.com/t/feature-request-ability-to-pin-chats/84808?page=2#post_25</guid>
-      <pubDate>Fri, 12 Apr 2024 08:27:29 GMT</pubDate>
+      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
+      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_18</link>
+      <description><![CDATA[ChatGPT Plus 用户集成了 Turbo 模型。换句话说，你不能在Chatgpt中选择你想要的型号，它会自动包含最新的型号...如果你想选择特定的型号，你需要使用API​​进入平台]]></description>
+      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483#post_18</guid>
+      <pubDate>Fri, 12 Apr 2024 11:23:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用工具消息过滤工具调用数据</title>
+      <link>https://community.openai.com/t/filter-tool-call-data-with-tool-message/715804#post_1</link>
+      <description><![CDATA[你好！我正在尝试使用工具来回答给定的用户问题。该工具调用一个函数，该函数从 API 收集原始信息，然后必须由模型进行细化。我认为这可以通过在调用工具后，通过将原始数据直接传递给模型来回复模型来完成，但用户问题并没有以通常的质量得到回答。模型会有。
+除了原始信息之外，我的“工具”角色消息的内容还有以下句子：
+‘根据用户的查询：“{query}”过滤结果，并以相同的 JSON 格式返回。\n’
+其中“query”是原始用户问题。
+我想知道如何正确执行此操作，使用“工具”角色消息是正确的，否则任何人都做过类似的事情。
+非常感谢！]]></description>
+      <guid>https://community.openai.com/t/filter-tool-call-data-with-tool-message/715804#post_1</guid>
+      <pubDate>Fri, 12 Apr 2024 11:21:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误“不再支持插件”</title>
+      <link>https://community.openai.com/t/error-plugins-are-no-longer-supported/715755#post_2</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/error-plugins-are-no-longer-supported/715755#post_2</guid>
+      <pubDate>Fri, 12 Apr 2024 11:19:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
