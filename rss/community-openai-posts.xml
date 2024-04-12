@@ -4,203 +4,199 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Apr 2024 15:19:22 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Apr 2024 18:20:40 GMT</lastBuildDate>
     <item>
-      <title>如何在 Google 助理中嵌入单个网页？</title>
-      <link>https://community.openai.com/t/how-do-i-embed-a-single-web-page-in-an-assistant/706525#post_6</link>
-      <description><![CDATA[系统提示符就是为此而设计的。以下是论坛讨论中的更多信息：
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_10</link>
+      <description><![CDATA[
 
 
+某人Sysop：
+&lt;块引用&gt;
+我实际上比我预期的走得更远。我的内容也根据文档层次结构进行语义分块，但我的问题是 – 如果最后一个分块超过 X 个标记会发生什么？
 
 
-系统部分应包含哪些内容提示的内容？ API
+“理想块”，如果我们可以这样称呼它，或多或少是“原子的” - 一次包含一个想法，这样当匹配通常很短的查询（通常是一个句子问题）的向量时，你的 RAG 在精度上获胜) 到块的向量。如果块很长，它们往往会包含多个想法，从而失去了如此需要的精度。
+为什么当它们的长度超过 3-5 段时，他们会包含多个想法？ - 因为人类在大约 3-5 段时就失去了思维导图，他们的思维开始思考带来一堆不太相关的想法。
+所以 3-5 段，很大程度上在令牌限制之内。根据我的经验，我可以补充一点，chucks（尤其是在法律文件中）下午更接近 1 段而不是 3 段。
+我提倡的方法是，首先获取块，然后分析它们的目的，然后才开始构建层次关系。 VS 建立关系，然后分成多个部分。
+通过我的方法，我从未遇到过由于令牌窗口限制狭窄而导致的一系列问题。它还提高了速度，因为我很早就获得了块，然后整个过程作为并行处理同时运行。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_10</guid>
+      <pubDate>Fri, 12 Apr 2024 18:20:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们可以将整个文档（PDF、doc、execil）从一种语言翻译成另一种语言吗？</title>
+      <link>https://community.openai.com/t/can-we-translate-whole-document-pdf-doc-execil-form-one-langues-to-other/716117#post_1</link>
+      <description><![CDATA[您好，我是 OpenAI 新手，我有一个问题：我们可以通过 API 调用使用 OpenAI 将任何文档从一种语言翻译成另一种语言吗？喜欢：
 
-  &lt;块引用&gt;
-    您好，我使用 GPT3.5 并使用系统用户格式来设计提示符。预期输出是模型将根据某些输入文本完成任务
-我的问题是，提示的“系统”部分应该包含什么内容？
+通过 API 向 OpenAI 提供任何文档。
+将其翻译成所需的语言。
+收到带有翻译语言/文本的原始格式的文档？
 
-它应该只是任务模型的角色吗？
-或者 2.它还应该包括模型必须完成的说明吗？
-
-在上面的第一种情况下，“用户”部分将包括说明+输入文本，在“用户”部分上方的第二种情况下......
-  
-
-如果您需要的行为发生变化，或者您需要不同的消息类型来驱动不同的行为，您可以在您发送的消息周围插入一些预先提示指令。]]></description>
-      <guid>https://community.openai.com/t/how-do-i-embed-a-single-web-page-in-an-assistant/706525#post_6</guid>
-      <pubDate>Fri, 12 Apr 2024 15:18:31 GMT</pubDate>
+或者我们是否需要从文档中提取文本，然后将其提供给 OpenAI 并获取翻译后的数据？]]></description>
+      <guid>https://community.openai.com/t/can-we-translate-whole-document-pdf-doc-execil-form-one-langues-to-other/716117#post_1</guid>
+      <pubDate>Fri, 12 Apr 2024 18:17:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>超人类智慧？</title>
+      <link>https://community.openai.com/t/super-human-intelligence/714662#post_13</link>
+      <description><![CDATA[@qrdl
+蛋糕日快乐！
+]]></description>
+      <guid>https://community.openai.com/t/super-human-intelligence/714662#post_13</guid>
+      <pubDate>Fri, 12 Apr 2024 18:06:27 GMT</pubDate>
     </item>
     <item>
       <title>我自己的数据库数据的数据集格式</title>
-      <link>https://community.openai.com/t/dataset-format-for-my-own-data-from-database/715993#post_1</link>
-      <description><![CDATA[我有一个项目，我必须阅读电子邮件并生成一种映射器，通过微调将电子邮件中的信息与 2 个数据库表中的信息相关联，我认为这是最好的选择，但我不明白用什么我可以这样做，以便模型具有来自我的表的信息，并且当我以纯文本形式发送电子邮件时，它会返回来自我的数据库数据的相关信息，因为我使用数据库数据构建训练文件。
-例如：我有表客户：{&#39;table_name&#39;: &#39;customers&#39;, &#39;accountNumber&#39;: &#39;94571&#39;, &#39;accountName&#39;: &#39;Test&#39;, &#39;specialInstructions&#39;: &#39;Instructions&#39;, &#39;countries_indicative&#39;: 44}，如何我可以使用表customers 创建 jsonl 文件。
-我很欣赏每一个意见，谢谢。]]></description>
-      <guid>https://community.openai.com/t/dataset-format-for-my-own-data-from-database/715993#post_1</guid>
-      <pubDate>Fri, 12 Apr 2024 15:17:44 GMT</pubDate>
+      <link>https://community.openai.com/t/dataset-format-for-my-own-data-from-database/715993#post_3</link>
+      <description><![CDATA[那么，我是否可以使用数据库中的数据进行训练，然后让 AI 将这些数据返回给我？我有接收电子邮件的过程以及获取包含我需要的数据的 GPT json 的过程，但它是来自同一封电子邮件的数据，但它仍然不相关，我想不出另一种方法来关联和创建映射器因为有时当新电子邮件到达时，我的想法是人工智能负责尽可能多地关联。
+我需要一个解决方案，谢谢您的回复。]]></description>
+      <guid>https://community.openai.com/t/dataset-format-for-my-own-data-from-database/715993#post_3</guid>
+      <pubDate>Fri, 12 Apr 2024 17:57:05 GMT</pubDate>
     </item>
     <item>
-      <title>Get_prompts() 收到意外的关键字参数“描述”</title>
-      <link>https://community.openai.com/t/get-prompts-got-an-unexpected-keyword-argument-description/715984#post_1</link>
-      <description><![CDATA[这就是我得到的“Function(arguments=&#39;{“description”:“解释 ARFCN、UARFCN、EARFCN 和 NR-ARFCN 之间的区别。”}&#39;，name=&#39;get_prompts&#39;，output=None)”当我打印 print(tool_call.function) 但仍然收到错误 get_prompts() 得到了意外的关键字参数“description”
-这是函数 get_prompts = {
-“名称”：“获取提示”，
-“description”: “函数接受纯用户输入文本并返回适合给定解释的提示列表。”,
-“参数”：{
-“类型”：“对象”，
-“属性”：{
-“描述”：{
-“类型”：“字符串”，
-“description”:“必须生成提示的需求的描述。”,
-}
-},
-“必需”：[“描述”]，
-},
-}
-]]]></description>
-      <guid>https://community.openai.com/t/get-prompts-got-an-unexpected-keyword-argument-description/715984#post_1</guid>
-      <pubDate>Fri, 12 Apr 2024 15:03:34 GMT</pubDate>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_9</link>
+      <description><![CDATA[这样解决亲子关系问题：
+添加“有孩子”指示器：
+[
+  {
+    &quot;title&quot;: &quot;一、序言&quot;,
+    &quot;title_path&quot;: &quot;一、序言&quot;,
+    “1级，
+    “has_children”：“N”，
+    “令牌计数”：23，
+    &quot;first_few_words&quot;: &quot;制片人 – SAG-AFTRA 基本协议&quot;,
+    &quot;last_few_words&quot;: &quot;\&quot;生产者\&quot; 统称为\&quot;生产者\&quot;&quot;
+  },
+  {
+    &quot;title&quot;: &quot;二.见证Eth&quot;,
+    &quot;title_path&quot;: &quot;二、见证以太坊&quot;,
+    “1级，
+    “has_children”：“N”，
+    “令牌计数”：13，
+    &quot;first_few_words&quot;: &quot;WITNESSETH：考虑到双方&quot;,
+    &quot;last_few_words&quot;: &quot;协议如下，特同意如下：&quot;
+  },
+  {
+    &quot;title&quot;: &quot;三、总则&quot;,
+    &quot;title_path&quot;: &quot;三、总则&quot;,
+    “1级，
+    “has_children”：“是”，
+    “令牌计数”：15432，
+    &quot;first_few_words&quot;: &quot;1. 协议的认可和范围&quot;,
+    &quot;last_few_words&quot;: &quot;编码；应研究和审查与每日津贴率相关的部分的适当性；&quot;
+  },
+  {
+    &quot;title&quot;: &quot;1. 协议的认可和范围&quot;,
+    &quot;title_path&quot;: &quot;III. 一般条款 - 1. 协议的认可和范围&quot;,
+    “级别”：2，
+    “has_children”：“是”，
+    “令牌计数”：438，
+    &quot;first_few_words&quot;: &quot;A. 认可 联盟得到认可&quot;,
+    &quot;last_few_words&quot;: &quot;第二部分适用于纽约区雇用的背景演员。&quot;
+  },
+  // ...（对于其他段，以此类推，具有适当的“has_children”值）...
+]
+
+content_copy使用代码谨慎使用.Json
+变更说明：
+
+
+我向 JSON 数组中的每个对象添加了一个新属性“has_children”。
+
+
+“has_children”的值为“Y”（是）或“N”（否），具体取决于该段在文档层次结构中是否有任何子段（小节或更高级别）。
+
+
+确定“有孩子”的逻辑：
+
+
+代码将分析文档的层次结构。
+
+
+对于每个片段，它将检查大纲内是否存在属于该片段下方的更深层次的片段。
+
+
+如果子段存在，“has_children”设置为“Y”，否则设置为“N”。
+
+
+此添加的好处：
+
+
+结构清晰：“has_children”指示器可以让您更清楚地了解文档的层次结构以及各部分之间的关​​系。
+
+
+导航和处理：它对于导航和处理任务很有帮助。例如，您可以使用此信息来确定是否展开或折叠用户界面中的部分，或者决定是否进一步处理子段。
+
+
+此增强功能进一步改进了 JSON 输出中提供的信息，使其对于理解和使用文档的结构更加有用。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_9</guid>
+      <pubDate>Fri, 12 Apr 2024 17:52:29 GMT</pubDate>
     </item>
     <item>
-      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_32</link>
-      <description><![CDATA[我同意这并不理想。同时，如果您的应用程序能够访问所有最新信息至关重要，那么我建议您实现其他机制来确保这一点。
-我个人的观点是，我们开始有点兜圈子了。我认为这个问题已经成立。毕竟这不是第一篇讨论这个问题的帖子。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_32</guid>
-      <pubDate>Fri, 12 Apr 2024 14:56:55 GMT</pubDate>
+      <title>Whisper API，增加文件限制 >25 MB</title>
+      <link>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754?page=2#post_29</link>
+      <description><![CDATA[我创建了一个新的 API 密钥，一切正常。感谢您的帮助。
+我在论坛上看到其他人也发生过这种情况。你知道为什么会发生这种情况吗？只是 OpenAI 的成长烦恼？我绝对不希望这种情况在生产中发生。]]></description>
+      <guid>https://community.openai.com/t/whisper-api-increase-file-limit-25-mb/566754?page=2#post_29</guid>
+      <pubDate>Fri, 12 Apr 2024 17:39:24 GMT</pubDate>
     </item>
     <item>
-      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_31</link>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_8</link>
       <description><![CDATA[
 
 
- jr.2509：
+ 谢尔盖亚特科：
 &lt;块引用&gt;
-您基本上从本线程前面的 @_j 获得了解决方案。如果您想获得更大的确定性，请将当前日期和已知的截止日期作为信息添加到系统消息中。
+在我的方法中，大纲是语义分块过程的输出。而且它是由简单的代码生成的，没有涉及人工智能。
 
 
-您能否合理解释为什么这不是模型中的基线包含或默认情况下打开的标志开关？例如，将模型的截止日期作为 API 用户的问题的理由是什么？
-从任何用户的角度来看，在 API 调用中指定模型版本应该足以让模型利用其最新知识，而不需要额外的指令，这应该是合乎逻辑的。
-在系统消息中进行显式引导的需求似乎违反直觉，并且可能会导致不必要的复杂性和错误，尤其是在没有明确记录此要求的情况下。
-此外，API参考指南在系统提示说明中没有提及使用截止日期，这表明这是应该在模型选择时完成的事情。 https://platform.openai.com/docs/api-reference/ 
-是的，API 基本上是一个“DIY”工具包，但仍然如此。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_31</guid>
-      <pubDate>Fri, 12 Apr 2024 14:52:43 GMT</pubDate>
+我实际上比我预期的走得更远。我的内容也根据文档层次结构进行语义分块，但我的问题是 – 如果最后一个分块超过 X 个标记会发生什么？我怎样才能在语义上“子块”它？这就是我试图解决的实际问题。
+
+
+
+ 谢尔盖亚特科：
+&lt;块引用&gt;
+这就是我大约一年半前失败的地方：文档大小未知，并且不能保证它适合模型的注意力窗口以生成有效的大纲（尤其是父子关系）......
+
+
+从我上次的测试中可以看出，亲子关系以及如何处理是一个问题。但随着技术的进步，上下文窗口问题已经基本得到解决。 128K → 1M 令牌上下文窗口现在已经很流行了。
+如果您获得发布 API 的许可，期待试用您的 API。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_8</guid>
+      <pubDate>Fri, 12 Apr 2024 17:38:55 GMT</pubDate>
     </item>
     <item>
-      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_30</link>
-      <description><![CDATA[
-
-
- jr.2509：
-&lt;块引用&gt;
-当我用同样的方法询问科马克·麦卡锡时，我没有得到他去年去世的信息。这可能只是表明这是模型未训练过的信息。
-
-
----
-在系统消息中询问但未指定型号版本：Cormac McCarthy 还活着吗？
----
-截至 2023 年 9 月我的最后一次更新，著名的美国小说家科马克·麦卡锡 (Cormac McCarthy) 去世了。于2023年6月13日去世。以独特的写作风格和《血色子午线》、《老无所依》、《路》等小说而闻名。
----
-在系统消息中指定“您是 gpt-4-turbo-2024-04-09”时询问：Cormac McCarthy 还活着吗？
----
-截至 2023 年 4 月我的最后一次知识更新，科马克·麦卡锡还活着。但是，要了解最新信息，请检查最新来源。
-
-和
----
-在系统消息中询问但未指定型号版本：Cormac McCarthy 还活着吗？
----
-截至 2023 年我最后一次更新时，科马克·麦卡锡仍然活着。但是，对于最新信息，我建议检查最新的新闻来源或在线数据库。
----
-在系统消息中指定“您是 gpt-4-turbo-2024-04-09”时询问：Cormac McCarthy 还活着吗？
----
-截至 2024 年 4 月我的最后一次更新，著名的美国小说家科马克·麦卡锡 (Cormac McCarthy) 去世了。他于 2023 年 6 月 13 日去世。他以其独特的写作风格和对美国文学的贡献而闻名，著名作品包括《道路》、《血色子午线》和《老无所依》。
+      <title>由于聊天无法加载，一周内无法使用 ChatGPT plus</title>
+      <link>https://community.openai.com/t/cant-use-chatgpt-plus-for-a-week-now-because-the-chat-wont-load/715289#post_2</link>
+      <description><![CDATA[我也有同样的问题。在不同的电脑和手机上尝试过。一切都失败了......在我支付额外费用的同时对这种废话变得非常不耐烦。]]></description>
+      <guid>https://community.openai.com/t/cant-use-chatgpt-plus-for-a-week-now-because-the-chat-wont-load/715289#post_2</guid>
+      <pubDate>Fri, 12 Apr 2024 17:31:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_7</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689#post_7</guid>
+      <pubDate>Fri, 12 Apr 2024 17:28:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>Whisper 在较长的记录中遗漏了一些语音块</title>
+      <link>https://community.openai.com/t/whisper-leaves-out-chunks-of-speech-in-longer-transcript/715999#post_3</link>
+      <description><![CDATA[感谢您的帮助！
+您对提示的看法是正确的，但更改提示仍然会改变间隙的频率。
+您对输入参数有何建议，以便获得更敏感、间隙更小的转录本？不幸的是，模型省略的块具有最好的质量并且清晰易懂。]]></description>
+      <guid>https://community.openai.com/t/whisper-leaves-out-chunks-of-speech-in-longer-transcript/715999#post_3</guid>
+      <pubDate>Fri, 12 Apr 2024 17:27:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>最新 GPT-4 Turbo 更新</title>
+      <link>https://community.openai.com/t/latest-gpt-4-turbo-update/716090#post_1</link>
+      <description><![CDATA[嘿伙计们，我以为 openai 宣布最新的 Turbo 版本可供所有高级用户使用。 Turbo 版本有 128000 个令牌的上下文窗口。不过好像有地区更新？看来我还没有获得升级版本。我问过它，它回答说只有8000个代币。
 ]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_30</guid>
-      <pubDate>Fri, 12 Apr 2024 14:49:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_29</link>
-      <description><![CDATA[您基本上从本线程前面的 @_j 获得了解决方案。如果您想获得更大的确定性，请将当前日期和已知的截止日期作为信息添加到系统消息中。
-{
-    “型号”：“gpt-4-turbo-2024-04-09”，
-    “消息”：[
-{
-        “角色”：“系统”，
-        &quot;content&quot;: &quot;你是一个有用的助手。你的知识截止日期是2023年12月。今天的日期是2024年4月12日。&quot;
-      },
-{
-        “角色”：“用户”，
-        &quot;content&quot;: &quot;2023 年诺贝尔生理学或医学奖授予了谁？&quot;
-      }
-    ],
-    “温度”：1，
-    “最大令牌”：1000，
-    “顶部_p”：1，
-    “频率惩罚”：0，
-    “存在惩罚”：0
-  }
-
-返回正确答案
-2023 年诺贝尔生理学或医学奖授予 Katalin Karikó 和 Drew Weissman，以表彰他们在 mRNA 技术方面的开创性工作，该技术对于开发 COVID-19 疫苗至关重要。该技术不仅有效应对了COVID-19大流行，而且预示着疫苗开发和各种疾病治疗干预的新时代。
-
-当我用同样的方法询问科马克·麦卡锡时，我没有得到他去年去世的信息。这可能只是表明这是模型未训练过的信息。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_29</guid>
-      <pubDate>Fri, 12 Apr 2024 14:48:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>默认情况下，Gpt-4-turbo-2024-04-09 不会锚定到最新的截止日期</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_28</link>
-      <description><![CDATA[
-
-
- jr.2509：
-&lt;块引用&gt;
-就我个人而言，我不太明白为什么我们如此着迷于实际的约会？仅仅因为截止日期发生了变化，并不意味着模型知道自上一个截止日期以来发生的所有新情况。它接受了额外数据的训练，但我们不知道额外数据是什么样的。
-
-
-我刚刚再次重新发布的代码产生的结果如下：
- 
-和
- 
-现在，即使使用 You are gpt-4-turbo-2024-04-09 系统提示进行引导，有时也会出现错误的答案。这再次证明了我一直试图在这里提出的观点，即模型的功能有多么不稳定，以及问题是如何累积的——就像之前的评论者提到的那样，这“不是什么新鲜事”，但从某种意义上来说，更差、更突出。事实错误不断堆积……再说一次，如果你不关心任何事实，那么这可能不是一个大问题。这并不能否认模型在某种程度上不平衡的事实。
-
-
-
- jr.2509：
-&lt;块引用&gt;
-仅仅因为截止日期发生了变化，并不意味着模型知道自上一个截止日期以来发生的所有新情况。
-
-
-正如您从示例中看到的，很多事情可能会在几个月内发生变化。如果您完全不关心模型在基础水平上的事实准确性（或任何类型的准确性），那么我认为这不是问题，“谁在乎？”
-除了事实的歪曲之外，我担心的是，它会更加偏向于将自己锚定在错误的公理等上，而且这不仅仅是截止日期错误，因此时间范围内的事实也是错误的，因此这可以显示在模型的其他基准测试和性能指标中，就像我在本线程中已经提到的这些初始基准测试中已经指出的那样：
-
-  &lt;标题类=“来源”&gt;
-
-      助手 – 24 年 4 月 9 日
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-GPT-4 Turbo with Vision 是编码的倒退
-OpenAI 的 GPT-4 Turbo with Vision 模型在辅助程序代码编辑基准测试中的得分比之前的所有 GPT-4 模型都要差。特别是，它似乎比现有的 GPT-4 Turbo“预览”模型更容易出现“惰性编码”。
-
-
-
-
-
-模型在测试指标中表现出的上述问题可以而且很可能会在模型的其他功能中表现出来；再次，请参阅上面的链接。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-2024-04-09-does-not-anchor-to-most-current-cutoff-date-by-default/712483?page=2#post_28</guid>
-      <pubDate>Fri, 12 Apr 2024 14:37:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>api平台未经授权的交易</title>
-      <link>https://community.openai.com/t/unauthorised-transactions-from-api-platform/715639#post_5</link>
-      <description><![CDATA[感谢大家的回复，作为更新，我仍在等待支持人员在 help.openai.com 上答复我]]></description>
-      <guid>https://community.openai.com/t/unauthorised-transactions-from-api-platform/715639#post_5</guid>
-      <pubDate>Fri, 12 Apr 2024 14:33:13 GMT</pubDate>
+      <guid>https://community.openai.com/t/latest-gpt-4-turbo-update/716090#post_1</guid>
+      <pubDate>Fri, 12 Apr 2024 17:26:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
