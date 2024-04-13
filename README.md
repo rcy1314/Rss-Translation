@@ -13,4 +13,4 @@
 ## 已转换翻译源
  - source001 [https://rsshub.app/cnbc/rss/100003114](https://rsshub.app/cnbc/rss/100003114) -> [CNBC](rss/CNBC.xml)
  - source002 [https://rsshub.app/reuters/world/china](https://rsshub.app/reuters/world/china) -> [路透社](rss/%E8%B7%AF%E9%80%8F%E7%A4%BE.xml)
- - source003 [https://rsshub.app/twitter/user/sama](https://rsshub.app/twitter/user/sama) -> [sama](rss/sama.xml)
+ - source003 [https://www.theverge.com/rss/full.xml](https://www.theverge.com/rss/full.xml) -> [TheVerge](rss/TheVerge.xml)
