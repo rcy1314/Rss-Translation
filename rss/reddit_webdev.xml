@@ -4,11 +4,32 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 13 Apr 2024 03:15:26 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 13 Apr 2024 06:17:15 GMT</lastBuildDate>
+    <item>
+      <title>在哪里可以找到阿姆斯特丹开发者聚会？专注电商</title>
+      <link>https://www.reddit.com/r/webdev/comments/1c2v4wq/where_to_find_amsterdam_dev_meetups_focusing_on/</link>
+      <description><![CDATA[我正在寻找很酷的聚会和活动。您有什么资源或技巧？   由   提交/u/tijsluitse  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1c2v4wq/where_to_find_amsterdam_dev_meetups_focusing_on/</guid>
+      <pubDate>Sat, 13 Apr 2024 06:14:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>加载 Google Analytics（影响核心网络生命体）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1c2tif2/loading_of_google_analytics_affects_on_core_web/</link>
+      <description><![CDATA[让我先明确一下... Lighthouse 分数甚至 CrUX 都不是最重要的事情。但是，考虑到我的努力，如果能在那里取得更好的成绩那就太好了。我在这里提供静态 HTML，HTML、CSS 和 JS 总共大约 100Kb...使用 HTTP 预加载来处理所有重要的事情、延迟加载图像和非关键的事情，甚至可以有效地体验即时的实际加载时间在低端设备上...我几乎无法优化任何更好的东西！ 我构建了一些相对复杂的网络应用程序，并非常努力地从它们中获得最佳的实际性能。我的利基市场是农村社区，多年来，在低端设备上加载 3G 一直是我的首要任务。我主要提供静态 HTML，也许 40Kb JS 用于非必要的、渐进式参与类型的东西...至少在可能的情况下（显然带有地图的页面需要加载更多 JS）。 所以，无论如何，在典型页面上，我意识到加载 Google Analytics 并不是必需的，因此我在页面加载和空闲时动态加载 GA（在 defer 脚本中有效使用 requestIdleCallback） 。这确保它不会完成对带宽或进程来说实际上很重要的事情。所有真正重要的东西都会先出现，然后才加载分析。  随着最近对 Core Web Vitals/Lighthouse 的更改，这实际上对性能分数产生了非常不利的影响，而实际上不应该如此。在移动设备上按原样进行测试会产生低至 64 的性能分数...但只需禁用 GA 的加载（其他一切仍然相同，包括用于加载 GA 的捆绑模块...它只是永远不会加载脚本，因为它是给定的即使在部署预览中，常量 GA = null  而不是字符串基础）也会导致 96（这实际上稍微慢一些，并且添加了一些与其创建的 PR 相关的额外 JS）。  所以，我的主要观点是 Core Web Vitals 甚至 CrUX 并不一定真正代表真实性能（虽然总体上仍然不错......但仍然是综合基准，不应该直接设置你的性能目标）。但是，如果有人碰巧知道一种更好的延迟加载 GA 策略，并且不会对 CWV 结果产生负面影响，我很高兴听到你的策略。  哦，FTW，相关网站的实际加载时间约为 400 毫秒或在该范围内。我在农村地区的典型/次优网络条件下对实际低端设备进行了测试，并且这些站点大多仍然有效即时。我们谈论的是几 Kb 的静态 HTML、约 30 Kb 的 CSS（总共，所有内容都单独捆绑）以及约 40 Kb 的大部分非必要 JS...使用 HTTP 预加载标头，服务工作人员可以使用严重过时的策略总体上在在线时提供新鲜的 HTML），由于它是静态站点，所以服务器端处理时间为零...基本上在各个方面都进行了优化...包括所有脚本 defer 和图像  &gt;loading=“lazy”...经过极其优化，总页面加载约为 100Kb（带预加载）。基本上，这是尽可能优化的，至少就实际交互和页面加载的时间而言是这样。  看起来，非必要的 Google Analytics 脚本的延迟加载确实是罪魁祸首，而仅仅不加载它（其他条件相同）就会使性能产生 20-30 的差异分数。我的技术实际上通过在空闲时延迟加载分析来获得更好的性能，实际上大大降低了我的性能分数。我再说一遍……我在空闲时间延迟加载了一个不重要的东西，这大大降低了性能分数。    由   提交/u/shgysk8zer0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1c2tif2/loading_of_google_analytics_affects_on_core_web/</guid>
+      <pubDate>Sat, 13 Apr 2024 04:34:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>客户/使用情况分析很重要......呃！您使用什么平台？有什么优点/缺点吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1c2skl4/customerusage_analytics_are_importantduh_what/</link>
+      <description><![CDATA[用户交互、功能使用和转化漏斗分析是每个 saas 跟踪的三件事（如果你不是，我希望它是有计划的，哈哈）。  这是除了通过 Sentry、Datadog 和 Axiom 等工具进行日志记录之外的。 但是回到跟踪，我体验过的唯一工具是 MixPanel 和 Posthog - 是吗？您还有其他推荐吗？ 我目前正在使用 Sentry + PostHog 组合来 Pluq.io ，尽管我正在运行遇到使用 PostHog 在我的前端和 Express 服务器之间设置转换漏斗跟踪的问题（服务器端事件根本没有触发 -_-）。 他们有一个节点包，但我似乎可以让它为我的生活工作（可能只是用户错误；（  话虽如此，是否有人有任何其他分析平台建议，或者您是否已使用 PostHog 或一个成功设置客户端+服务器端跟踪这些服务？ 干杯！    提交者    /u/seanhward   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1c2skl4/customerusage_analytics_are_importantduh_what/</guid>
+      <pubDate>Sat, 13 Apr 2024 03:40:29 GMT</pubDate>
+    </item>
     <item>
       <title>为什么 Javascript 生态系统如此（过度）令人讨厌？</title>
       <link>https://www.reddit.com/r/webdev/comments/1c2r6dr/why_is_the_javascript_ecosystem_so_over_hated/</link>
-      <description><![CDATA[只是想发帖给我无用的 2 美分，但在我看来 JavaScript 生态系统太热了。 人们抱怨说有太多的库/框架，我一直认为：只需选择一个框架或其他东西并坚持使用它，您不需要学习现有的所有内容。 尽管我同意您是更有可能经历“闪亮物体综合症”在这个生态系统中，但这也会带来新的学习，在某些情况下甚至可能带来创新。 ，因为它非常简单，我可以做我想做的一切） 不知道，有人对此有什么意见吗？   由   提交 /u/AndryDev   [链接] [评论]]]></description>
+      <description><![CDATA[只是想发帖给我无用的 2 美分，但在我看来 JavaScript 生态系统太热了。 人们抱怨说有太多的库/框架，我一直认为：只需选择一个框架或其他东西并坚持使用它，您不需要学习现有的所有内容。 尽管我同意您是更有可能经历“闪亮物体综合症”在这个生态系统中，但这也会带来新的学习，在某些情况下甚至可能是创新。 ，因为它非常简单，我可以做我想做的一切） 不知道，有人对此有什么意见吗？   由   提交 /u/AndryDev   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1c2r6dr/why_is_the_javascript_ecosystem_so_over_hated/</guid>
       <pubDate>Sat, 13 Apr 2024 02:25:33 GMT</pubDate>
     </item>
@@ -36,14 +57,14 @@
     <item>
       <title>需要帮助了解有关域的一些信息</title>
       <link>https://www.reddit.com/r/webdev/comments/1c2ncne/need_help_understanding_something_about_domains/</link>
-      <description><![CDATA[你好！ 所以我用谷歌搜索了我的问题，但找不到足够接近我的情况的答案，所以我在这里发帖。&lt; /p&gt; 一年前，我在 Google Domain 上购买了一个域名，一个多月前我删除了它，希望能够从其他地方重新购买它。因此，要么支付 70 美元才能取回，要么（至少我认为）在兑换期后通过 Porkbun/GoDaddy 购买，当时我什至不知道转让是一回事。  现在兑换期已经结束，我在 GoDaddy/Porkbun 上搜索它，它说它是一千五百美元？？？我一年前以 12 美元的价格购买了它，在那段时间里大约有 20 次访问，所以我不明白这是怎么发生的，有人知道吗？ 我知道我搞砸了，但这没有帮助，请分享有关其发生原因的任何信息！    由   提交 /u/StillNotAPerson   [链接] [评论]]]></description>
+      <description><![CDATA[你好！ 所以我用谷歌搜索了我的问题，但找不到足够接近我的情况的答案，所以我在这里发帖。&lt; /p&gt; 一年前，我在 Google Domain 上购买了一个域名，一个多月前我删除了它，希望能够从其他地方重新购买它。因此，要么支付 70 美元才能取回，要么（至少我认为）在兑换期后通过 Porkbun/GoDaddy 购买，当时我什至不知道转让是一回事。  现在兑换期已经结束，我在 GoDaddy/Porkbun 上搜索它，它说它是一千五百美元???我一年前以 12 美元的价格购买了它，在那段时间里大约有 20 次访问，所以我不明白这是怎么发生的，有人知道吗？ 我知道我搞砸了，但这没有帮助，请分享有关其发生原因的任何信息！    由   提交 /u/StillNotAPerson   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1c2ncne/need_help_understanding_something_about_domains/</guid>
       <pubDate>Fri, 12 Apr 2024 23:17:30 GMT</pubDate>
     </item>
     <item>
       <title>有人还记得 Coachella 的定制直播页面有多好吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1c2n17r/anyone_remember_how_much_better_coachellas_custom/</link>
-      <description><![CDATA[找不到完整的屏幕截图，但想了解一下： https://web.archive.org/web/20160420183529/http://live.coachella.com/ vs https://www.youtube.com/@Coachella ​ 这是否会向客户证明定制开发比将东西硬塞到每个人都使用的可用平台中更好？或者，创造独特的网络体验不再是一个好的价值主张？已经走下坡路了，正如人们以多种方式分享的那样。） 编辑：显然，有一项流媒体版权交易对他们来说很有意义，但必须想象，如果他们愿意，他们仍然可以将其纳入更好的界面：https://www.reddit.com/r/Coachella/comments/12oo85u/ Why_does_coachella_do_a_youtube_stream/?rdt=40754   由   提交/u/zombie_79_94   [链接] [评论]]]></description>
+      <description><![CDATA[找不到完整的屏幕截图，但想了解一下： https://web.archive.org/web/20160420183529/http://live.coachella.com/ vs https://www.youtube.com/@Coachella ​ 这是否会向客户证明定制开发比将东西硬塞到每个人都使用的可用平台中更好？或者创造独特的网络体验不再是一个好的价值主张？已经走下坡路了，正如人们以多种方式分享的那样。） 编辑：显然，有一项流媒体版权交易对他们来说很有意义，但必须想象，如果他们愿意，他们仍然可以将其纳入更好的界面：https://www.reddit.com/r/Coachella/comments/12oo85u/ Why_does_coachella_do_a_youtube_stream/?rdt=40754   由   提交/u/zombie_79_94   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1c2n17r/anyone_remember_how_much_better_coachellas_custom/</guid>
       <pubDate>Fri, 12 Apr 2024 23:03:09 GMT</pubDate>
     </item>
@@ -57,7 +78,7 @@
     <item>
       <title>投资组合推荐请求</title>
       <link>https://www.reddit.com/r/webdev/comments/1c2mp7x/portfolio_recommendation_request/</link>
-      <description><![CDATA[世界你好。我正在建立我的新投资组合网站。虽然它仍然新鲜而清晰，但我将感谢您对进一步实施的见解。  请随时挑战我添加功能。    由   提交/u/Toyenberg  [链接] [评论]]]></description>
+      <description><![CDATA[世界你好。我正在建立我的新投资组合网站。虽然它仍然是新鲜和清晰的，但我将感谢您对进一步实施的见解。  请随时挑战我添加功能。    由   提交/u/Toyenberg  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1c2mp7x/portfolio_recommendation_request/</guid>
       <pubDate>Fri, 12 Apr 2024 22:48:34 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[我的一个朋友是一名财富管理人员，他想雇用我建立一个网站。他需要用户能够安全地上传经纪报表。 如果可能的话，我计划与 Astro 一起构建该网站。我正在考虑使用 Netlify 和 Very Good Security 插件来处理文档上传。 这有多困难？我了解 JavaScript 基础知识。有人有使用这些工具的经验吗？  任何帮助表示赞赏。我想在开始这个项目之前弄清楚我是否可以做到这一点。   由   提交 /u/seldstein   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1c2kw61/secure_document_upload_with_netlify_on_an_astro/</guid>
       <pubDate>Fri, 12 Apr 2024 21:31:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>所见即所得 HTML 工具</title>
-      <link>https://www.reddit.com/r/webdev/comments/1c2kpn2/wysiwyg_html_tool/</link>
-      <description><![CDATA[大家好 我需要在 HTML 网站上工作。我需要复制一些页面并更改一些文本和图像。我想知道是否有一个工具（Web 或桌面、Windows 或 Linux）可以让我以所见即所得的方式执行此操作？  提前致谢   由   提交/u/oix29  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1c2kpn2/wysiwyg_html_tool/</guid>
-      <pubDate>Fri, 12 Apr 2024 21:23:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>除了 cookie、位置数据或 IP 之外，网站还可以使用什么来确定位置？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1c2jnxl/what_apart_from_cookies_location_data_or_ip_can_a/</link>
-      <description><![CDATA[我使用位于美国的 VPN，我删除了 cookie，并禁止每个网站访问我的位置，但当我访问 altrarunning.com 它将我重定向到 altrarunning.eu 我不知道他们是如何正在做。  ​   由   提交/u/EducationalCreme9044   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1c2jnxl/what_apart_from_cookies_location_data_or_ip_can_a/</guid>
-      <pubDate>Fri, 12 Apr 2024 20:39:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>有没有一种方法可以轻松创建和托管仅显示图片和电子邮件地址的免费静态页面？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1c2jk8r/is_there_a_way_to_easily_create_and_host_a_free/</link>
-      <description><![CDATA[我在 spaceship.com 上注册了 2 个域名。我希望他们只指向一个带有我公司徽标和电子邮件地址的静态页面。  有什么方法可以免费做到这一点吗？   由   提交 /u/PostModernPost   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1c2jk8r/is_there_a_way_to_easily_create_and_host_a_free/</guid>
-      <pubDate>Fri, 12 Apr 2024 20:35:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
