@@ -4,187 +4,147 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 15 Apr 2024 09:17:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2024 12:31:53 GMT</lastBuildDate>
     <item>
-      <title>如何访问 GPT 日本</title>
-      <link>https://community.openai.com/t/how-to-get-an-access-to-gpt-japan/718005#post_1</link>
-      <description><![CDATA[我们正在开发一款应用程序，目标是特定亚洲语言之间的翻译。
-日语是其中一种语言。我们如何才能访问自定义的日本 GPT 模型并查看它是否对我们的用例有用？
-我没有找到任何联系信息...]]></description>
-      <guid>https://community.openai.com/t/how-to-get-an-access-to-gpt-japan/718005#post_1</guid>
-      <pubDate>Mon, 15 Apr 2024 09:17:23 GMT</pubDate>
+      <title>助理 API 在回答问题时不会考虑整个输入 JSON 文件</title>
+      <link>https://community.openai.com/t/assistants-api-is-not-considering-the-entire-input-json-file-while-answering-questions/718171#post_1</link>
+      <description><![CDATA[我正在使用chatgpt助手API（检索）。我上传了一个文件并将 fileId 传递给线程，然后如果我运行该线程，它在回答问题时不会考虑整个 JSON 文件。
+这也是上传和询问答案的最佳文件格式。使用助手 API 上传 CSV 文件进行检索不起作用。
+如果我有一个 JSON 文件，键值可能与用户可能要求的不同，因为 JSON 文件包含表的数据。假设在 JSON 中，它将具有 orderName 键，我将在表中显示为“订单名称”。所以用户会根据订单名称提出问题，那么我怎样才能让chatgpt api识别它呢。有什么方法可以更好地做到这一点吗？]]></description>
+      <guid>https://community.openai.com/t/assistants-api-is-not-considering-the-entire-input-json-file-while-answering-questions/718171#post_1</guid>
+      <pubDate>Mon, 15 Apr 2024 12:29:31 GMT</pubDate>
     </item>
     <item>
-      <title>助手“tool_choice”终于可用，但在流式传输时以无限循环结束</title>
-      <link>https://community.openai.com/t/assistants-tool-choice-finally-available-but-ends-in-an-infinite-loop-while-streaming/716917#post_4</link>
-      <description><![CDATA[嘿@nikunj
-感谢您的回复！看来还是同样的问题。
-在附件中您可以找到我的（缩小的）代码（node.js）：
-异步函数handleAssistantRun(threadId, AssistantData, message) {
-const initialRunData = { run: null, runArguments: {} };
-if (!threadId?.length || !assistantData?.assistant_id?.length || !message?.length) 返回initialRunData;
+      <title>输出的主要区别：playground 与 API</title>
+      <link>https://community.openai.com/t/major-difference-in-output-playground-vs-api/475768#post_11</link>
+      <description><![CDATA[@alext13您找到解决方案了吗？
+我有完全相同的问题 
+我有一个提示，我希望它以 json 格式返回六个项目：
+我正在进行头脑风暴会议，需要更多想法来补充我现有的便利贴。你不能归还我已经拥有的任何东西。建议的语言，应该与我当前的便签内容相同。请以 JSON 结构返回六个建议，其中键为“suggestions”，其中每个建议都是列表中的一个元素。我当前的便签示例：Banan Pære Æble
+您可以在附图中看到，游乐场返回了预期的结果。但下面是API的结果，完全不同。一开始还不错，有水果，就像它应该的那样。但随后它会继续出现完全不同的情况。
+{“消息”：“
+“科斯拜尔”
+示例...\n\n你好，我需要你写一份 2000 字的商业计划，没有实施，只是一个商业计划\n\n我需要你写一本 7,000 字的书，主题为“与黑暗共舞”然后在书的末尾有另一本书的 3-4 页概要，该书将是续集或从该书发展而来。这本书将是语音对话，叙述数量非常有限。\n\n我需要帮助为母语不是英语的人修改标题。这是非常非常简单的项目，应该只需要几分钟。\n\nXây dựng một website có chức năng giao hàng cho các quán cà phê và nhà hàng 还剩 6 天\n\nTên dự án（项目名称）： Whorespresso, với ý nghĩa chiếc xe tải (làm từ Coffee Truck) đặc biệt, được đưa đến cơ sở sản xuất cà phê, đặt chung gói hàng (vớ i chữ In House), và đưa&quot;}
 
-尝试 {
-const runProps = {
-Assistant_id：assistantData.assistant_id，
-附加消息：[{角色：“用户”，内容：消息}]，
-tool_choice: { 类型: &quot;函数&quot;, 函数: { 名称: &quot;createNewResponse&quot; } },
-温度：assistData.config.assist.温度 * 0.01，
-流：真实，
-};
-
-const runStream =等待 openai.beta.threads.runs.create(threadId, runProps);
-
-        返回等待observeStream（runStream，assistantData，threadId）；
-} 捕获（错误）{
-console.error(&quot;handleAssistantRun 出错:&quot;, error);
-返回初始运行数据；
-}
-}
-
-异步函数observeStream（流，assistantData，threadId，actionAlreadyRequired = false）{
-    让 runArguments = {};
-
-    for wait (const 流块) {
-        const { 事件，数据 } = 块；
-
-        if (event === &#39;thread.run.requires_action&#39;) {
-            if (!actionAlreadyRequired) {
-                const actionData =等待handleRequiresAction(data, threadId);
-                runArguments = actionData.runArguments;
-                const result =等待observeStream（actionData.actionRunStream，assistantData，threadId，true）;
-
-                返回 { 运行：result.run, runArguments };
-            } 别的 {
-                返回 { 运行：数据，runArguments };
-            }
-        } else if ([&#39;thread.run.completed&#39;, &#39;done&#39;, &#39;end&#39;].includes(event)) {
-            返回 { 运行：数据，runArguments };
-        } else if ([&#39;thread.run.failed&#39;, &#39;thread.run.cancelled&#39;, &#39;thread.run.expired&#39;, &#39;error&#39;].includes(event)) {
-            console.error(&#39;无法完成请求。数据：&#39; + JSON.stringify(data));
-            返回 { 运行：事件 === &#39;错误&#39; ？ null：数据，runArguments };
-        }
-    }
-}
-
-异步函数handleRequiresAction(run, threadId) {
-    const initialActionRunStreamData = { runActionStream: null, runArguments: {} };
-
-    if (!run?.required_action?.submit_tool_outputs?.tool_calls?.length) {
-        console.error(`无法完成请求。未提供有效的工具调用。`);
-        返回初始ActionRunStreamData；
-    }
-
-    const toolCalls = run.required_action.submit_tool_outputs.tool_calls;
-    const toolOutputs = [];
-    让 runArguments = {};
-
-    尝试 {
-        for (const toolCall of toolCalls) {
-            if (toolCall.function?.name !== &#39;createNewResponse&#39;) {
-                工具输出.push({
-                    tool_call_id：toolCall.id，
-                    输出：JSON.stringify({ success: true }),
-                });
-
-                继续;
-            }
-
-            runArguments = JSON.parse(toolCall.function?.arguments) || {}；
-
-            工具输出.push({
-                tool_call_id：toolCall.id，
-                输出：JSON.stringify（{响应：“一些响应”}），
-            });
-        }
-
-        const actionRunStream = 等待 openai.beta.threads.runs.submitToolOutputs(threadId, run.id, {
-            流：真实，
-            工具输出：工具输出，
-        });
-
-        返回 { actionRunStream, runArguments };
-    } 捕获（错误）{
-        console.error(&#39;handleRequiresAction 中出现错误：&#39;, error);
-        返回初始ActionRunStreamData；
-    }
-}
-
-它在通过 else 块第二次调用observeStream 后停止（if (event === &#39;thread.run.requires_action&#39;)）。我正在使用 &quot;openai&quot;: &quot;^4.33.1&quot; npm 模块。]]></description>
-      <guid>https://community.openai.com/t/assistants-tool-choice-finally-available-but-ends-in-an-infinite-loop-while-streaming/716917#post_4</guid>
-      <pubDate>Mon, 15 Apr 2024 08:52:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
-      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_7</link>
-      <description><![CDATA[除了测试之外，我还对您的示例说明进行了一些（基本）修改。
-&lt;块引用&gt;
-您是一名助理，负责根据下面提供的信息回答用户有关产品/服务的问题。在回复用户查询时，您仅严格依赖所提供的信息。你永远不会发明任何信息。如果无法通过可用信息回答查询，您可以回复：“抱歉，我不知道答案”
-产品描述：
-面向 IT 专家的英语语言培训服务。
-(1) 目标受众：开发人员、QA、项目经理和产品经理
-(2) 费用：取决于学生的水平和要求
-(3) 授课形式：线上
-
-根据一些测试问题，这似乎适用于 gpt-3.5-turbo。]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_7</guid>
-      <pubDate>Mon, 15 Apr 2024 08:51:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
-      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_6</link>
-      <description><![CDATA[我对您的示例问题“有哪些付款方式可用？”进行了初步测试。显示 gpt-3.5-turbo 模型下的 Assistant 正确回答“抱歉，我不知道答案”。我将运行一些其他测试，但这也许只是一次性的？]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_6</guid>
-      <pubDate>Mon, 15 Apr 2024 08:41:36 GMT</pubDate>
+我不知道为什么它不同，我尝试将所有属性设置为与游乐场相同。提示是从代码中复制粘贴等]]></description>
+      <guid>https://community.openai.com/t/major-difference-in-output-playground-vs-api/475768#post_11</guid>
+      <pubDate>Mon, 15 Apr 2024 12:12:17 GMT</pubDate>
     </item>
     <item>
       <title>我可以在微调模型上重新训练吗？</title>
-      <link>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_2</link>
-      <description><![CDATA[是的，您可以进一步微调已经微调的模型。为此，您基本上遵循与常规微调相同的过程。您只需在提交训练数据时引用您现有的微调模型即可。
-另请参阅此处供参考。]]></description>
-      <guid>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_2</guid>
-      <pubDate>Mon, 15 Apr 2024 08:36:21 GMT</pubDate>
+      <link>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_5</link>
+      <description><![CDATA[我不确定我是否理解您想要实现的目标。能详细说明一下吗？]]></description>
+      <guid>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_5</guid>
+      <pubDate>Mon, 15 Apr 2024 12:07:42 GMT</pubDate>
     </item>
     <item>
-      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
-      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_5</link>
-      <description><![CDATA[为了简单起见（分享这个“幻觉”案例），我创建了这个受限知识集，以避免可能影响答案的额外因素。所以是的 - 这是完整的信息集]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_5</guid>
-      <pubDate>Mon, 15 Apr 2024 08:33:39 GMT</pubDate>
+      <title>如何在基于 OpenAI Assistant 的网络应用程序上赚钱</title>
+      <link>https://community.openai.com/t/how-to-make-money-on-an-openai-assistant-based-webapp/710226#post_3</link>
+      <description><![CDATA[谢谢尼古拉斯。
+我们计划两者兼而有之。
+  &lt;标题类=“来源”&gt;
+      
+eStarHelper – 24 年 3 月 18 日
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+Virtue Insight DSCSA 聊天机器人 – 由 eSTARHelper 提供支持！ - eStarHelper
+FDA DSCSA Copilot 由 SmartSearch+ 提供支持
+
+
+
+
+
+横幅广告将出售给赞助商。
+为那些希望使用我们的 SmartSearch± 的用户提供每月付费订阅 - 即。对我们 Sharepoint Online 门户网站上托管的 FDA 内容进行全文关键字搜索。
+我们将 SmartSearch+ 定位为 You-th-Human 能够检查 AI/ML 生成 ChatGPT-4 偏差的唯一真正方法！如果 FDA 发布指导 PDF 或 21 CFR 法规 - 您就会找到它！没有人工智能/机器学习问题。 ]]></description>
+      <guid>https://community.openai.com/t/how-to-make-money-on-an-openai-assistant-based-webapp/710226#post_3</guid>
+      <pubDate>Mon, 15 Apr 2024 12:06:31 GMT</pubDate>
     </item>
     <item>
-      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
-      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_4</link>
-      <description><![CDATA[
+      <title>助手API不一致</title>
+      <link>https://community.openai.com/t/assistant-api-not-consistant/718145#post_1</link>
+      <description><![CDATA[我正在使用助手 API 来实现简单的用例。我上传了 2 个文档并添加了助手说明。
+我遇到了两种问题。
 
+GPT 和 Assistant API 之间的区别。具有相同文档和相同说明的 GPT 可以提供更好的答案，并且返回一致的响应。而 Assistant API 则不然。
+当多个用户询问相同的问题时，它会向用户返回不一致的响应。
+这里的不一致是指它给出了一个糟糕的响应，例如“无法访问文档”。或“没有数据”等，而其他时候它会给出文档的响应。
 
- 四月：
+那么有什么方法可以实现一致性吗？]]></description>
+      <guid>https://community.openai.com/t/assistant-api-not-consistant/718145#post_1</guid>
+      <pubDate>Mon, 15 Apr 2024 12:03:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻求数据探索项目的建议</title>
+      <link>https://community.openai.com/t/seeking-advise-for-data-exploration-project/718144#post_1</link>
+      <description><![CDATA[你好，
+我目前正在开发一个数据探索和可视化项目，其中包括可通过 API 访问的多个数据源（主要是 REST，但不仅限于此）。
+我希望我的助手能够跨多个数据源构建复杂的查询，以便可以将查询拆分为多个步骤，其中每个步骤都涉及 API 调用或应用于其他步骤的计算函数。这。最终目标是让用户能够检查步骤、调整参数，然后执行计算并可视化将在另一个模块中完成的结果。
+一个简单的示例：API：GetActiveUsers(time_period)、GetUsageTime(user, time_period)
+问题：“计算2023年每个月的平均使用时间”
+预期结果（只是一个想法）：
+第 1 步：适用日期为“2023 年 1 月”至“2023 年 12 月”
+Step2: 调用 GetActiveUsers(date) → users
+Step3：FOR users 中的每个用户
+Step4: 调用 GetUsageTime|(user, date) → t
+Step5 avg_time += t,
+Step6 avg_time = avg_time / count(users)
+非技术用户应该能够检查步骤、调整“日期”等参数或过滤用户，然后生成图表。计算可能非常复杂，例如 JOIN 或统计函数。
+我正在考虑定义一种基于自定义 DSL 或 JSON 的语言来进行输出，并想知道是否有人做过类似的项目，因为我不想重新发明轮子。有任何想法吗？任何反馈帮助将不胜感激。
+-亚历克斯]]></description>
+      <guid>https://community.openai.com/t/seeking-advise-for-data-exploration-project/718144#post_1</guid>
+      <pubDate>Mon, 15 Apr 2024 12:03:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Playground <> API 响应（所有参数相等）</title>
+      <link>https://community.openai.com/t/playground-api-response-all-params-equal/591034#post_13</link>
+      <description><![CDATA[@Foxalabs 我可以提供一个示例
+我有一个提示，我希望它以 json 格式返回六个项目：
+我正在进行头脑风暴会议，需要更多想法来补充我现有的便利贴。你不能归还我已经拥有的任何东西。建议的语言，应该与我当前的便签内容相同。请以 JSON 结构返回六个建议，其中键为“suggestions”，其中每个建议都是列表中的一个元素。我当前的便签示例：Banan Pære Æble
+您可以在附图中看到，游乐场返回了预期的结果。但下面是API的结果，完全不同。一开始还不错，有水果，就像它应该的那样。但随后它会继续出现完全不同的情况。
+{“message”:&quot; &quot;Kirsebær&quot; su 示例...\n\n你好，我需要你写一份 2000 字的商业计划，没有实施，只是一个商业计划\ n\n我需要你写一本 7,000 字的书，主题为“与黑暗共舞”，然后在书的末尾有另一本书的 3-4 页概要，该书将是续集或从该书发展而来。这本书将是语音对话，叙述数量非常有限。\n\n我需要为非英语人士修改标题，这是一个非常非常简单的项目，只需要几分钟。\ n\nXây dựng một website có chức năng giao hàng cho các quán cà phê và nhà hàng 还剩 6 天\n\nTên dự án (项目名称): Whorespresso, với ý nghĩa chiếc xe tải (làm từ Coffee Truck) ặc biệt， được đưa đến cơ sở sản xuất cà phê, đặt chung gói hàng (với chữ In House), và đưa&quot;}
+
+我不知道为什么它不同，我尝试将所有属性设置为与游乐场相同。提示是从代码中复制粘贴等]]></description>
+      <guid>https://community.openai.com/t/playground-api-response-all-params-equal/591034#post_13</guid>
+      <pubDate>Mon, 15 Apr 2024 12:01:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistant API：如何设置 GPT-4 Turbo 的上下文窗口限制</title>
+      <link>https://community.openai.com/t/assistant-api-how-to-set-limit-of-context-window-for-gpt-4-turbo/534869#post_10</link>
+      <description><![CDATA[嘿@nikunj，
+公共路线图会很棒。我们目前不知道正在发货什么或何时发货（即使是“可能是 2024 年第三季度”的日期范围。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-how-to-set-limit-of-context-window-for-gpt-4-turbo/534869#post_10</guid>
+      <pubDate>Mon, 15 Apr 2024 11:57:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以在微调模型上重新训练吗？</title>
+      <link>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_4</link>
+      <description><![CDATA[我们不需要学习新模型来创建更好的模型吗？我想训练作为现有微调模型的输入的数据。]]></description>
+      <guid>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_4</guid>
+      <pubDate>Mon, 15 Apr 2024 11:56:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>将工具调用请求和助理响应中的消息结合起来</title>
+      <link>https://community.openai.com/t/combining-tool-call-requests-and-a-messages-in-assistants-response/549019#post_2</link>
+      <description><![CDATA[我有一个类似的问题，我不明白这些工具（如检索和函数调用）是否并行工作，以及助手是否结合这两个工具的响应生成答案。因为我在每个步骤中打印了运行状态，并且它似乎使用了检索或我提供的函数，这与这里的第二个项目符号不符 https://platform.openai.com/docs/assistants/how-it-works 。]]></description>
+      <guid>https://community.openai.com/t/combining-tool-call-requests-and-a-messages-in-assistants-response/549019#post_2</guid>
+      <pubDate>Mon, 15 Apr 2024 11:50:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>尝试将 40 多个用户添加到团队计划中，但遇到 2 个主要错误</title>
+      <link>https://community.openai.com/t/tried-to-add-40-users-to-team-plan-but-encounter-2-main-errors/675651#post_4</link>
+      <description><![CDATA[如果设置限制也不足为奇，因为在 ChatGPT 团队的计划中，无论其权限如何，都可以邀请新成员，并且帐户的创建者必须支付费用。
+https://help.openai.com/en/articles/9160487-is-it-possible-to-restrict-members-from-将其他成员添加到我的chatgpt团队工作空间
 &lt;块引用&gt;
-以下是有关我的服务的信息：
+是否可以限制成员向我的 ChatGPT 团队工作区添加其他成员？
 
-我为开发人员、QA、项目经理和产品经理提供的机会
-费用取决于学生的水平和要求
-在线课程的形式
-
-
-
-这是您向助理提供的用于回答查询的全套信息，还是每个项目符号都有更多详细信息？抱歉，只是想了解...]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_4</guid>
-      <pubDate>Mon, 15 Apr 2024 08:31:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
-      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_3</link>
-      <description><![CDATA[“知识文件的类型”和信息的性质是什么意思？你能给个例子吗？实际上我提供的所有信息都在本说明中（没有使用额外的文件）]]></description>
-      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_3</guid>
-      <pubDate>Mon, 15 Apr 2024 08:28:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>client.Completion 问题有人可以帮忙吗？</title>
-      <link>https://community.openai.com/t/client-completion-issue-can-any-one-help/717940#post_4</link>
-      <description><![CDATA[您是否已向您的 API 帐户添加积分？ OpenAI 不再提供免费套餐/免费积分，因此您需要为 API 使用预先提供资金。]]></description>
-      <guid>https://community.openai.com/t/client-completion-issue-can-any-one-help/717940#post_4</guid>
-      <pubDate>Mon, 15 Apr 2024 08:23:34 GMT</pubDate>
+&lt;块引用&gt;
+我们目前不提供限制成员添加成员的功能，因为 ChatGPT Team 是一个协作工作区。我们建议仅邀请值得信赖的团队成员，并定期查看您工作区的“成员”页面。
+]]></description>
+      <guid>https://community.openai.com/t/tried-to-add-40-users-to-team-plan-but-encounter-2-main-errors/675651#post_4</guid>
+      <pubDate>Mon, 15 Apr 2024 11:50:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
