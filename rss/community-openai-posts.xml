@@ -4,78 +4,187 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 15 Apr 2024 06:22:56 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2024 09:17:51 GMT</lastBuildDate>
     <item>
-      <title>在 chatgpt 4 中无法看到插件选项</title>
-      <link>https://community.openai.com/t/unable-to-see-plugins-option-in-the-chatgpt-4/717870#post_1</link>
-      <description><![CDATA[实际上，我使用的是聊天 GPT 4，其中插件选项之前可以使用，这很容易创建一些流程图，但它不会显示在新聊天中。在任何情况下是否禁用它？]]></description>
-      <guid>https://community.openai.com/t/unable-to-see-plugins-option-in-the-chatgpt-4/717870#post_1</guid>
-      <pubDate>Mon, 15 Apr 2024 06:17:55 GMT</pubDate>
+      <title>如何访问 GPT 日本</title>
+      <link>https://community.openai.com/t/how-to-get-an-access-to-gpt-japan/718005#post_1</link>
+      <description><![CDATA[我们正在开发一款应用程序，目标是特定亚洲语言之间的翻译。
+日语是其中一种语言。我们如何才能访问自定义的日本 GPT 模型并查看它是否对我们的用例有用？
+我没有找到任何联系信息...]]></description>
+      <guid>https://community.openai.com/t/how-to-get-an-access-to-gpt-japan/718005#post_1</guid>
+      <pubDate>Mon, 15 Apr 2024 09:17:23 GMT</pubDate>
     </item>
     <item>
-      <title>尝试将 40 多个用户添加到团队计划中，但遇到 2 个主要错误</title>
-      <link>https://community.openai.com/t/tried-to-add-40-users-to-team-plan-but-encounter-2-main-errors/675651#post_3</link>
-      <description><![CDATA[我们也有同样的问题。无法添加超过 32 个用户。这样已经4天了。
+      <title>助手“tool_choice”终于可用，但在流式传输时以无限循环结束</title>
+      <link>https://community.openai.com/t/assistants-tool-choice-finally-available-but-ends-in-an-infinite-loop-while-streaming/716917#post_4</link>
+      <description><![CDATA[嘿@nikunj
+感谢您的回复！看来还是同样的问题。
+在附件中您可以找到我的（缩小的）代码（node.js）：
+异步函数handleAssistantRun(threadId, AssistantData, message) {
+const initialRunData = { run: null, runArguments: {} };
+if (!threadId?.length || !assistantData?.assistant_id?.length || !message?.length) 返回initialRunData;
 
-您在哪里找到支持邮件地址？我已经尝试了一切来获得支持，但运气不佳！]]></description>
-      <guid>https://community.openai.com/t/tried-to-add-40-users-to-team-plan-but-encounter-2-main-errors/675651#post_3</guid>
-      <pubDate>Mon, 15 Apr 2024 06:10:24 GMT</pubDate>
+尝试 {
+const runProps = {
+Assistant_id：assistantData.assistant_id，
+附加消息：[{角色：“用户”，内容：消息}]，
+tool_choice: { 类型: &quot;函数&quot;, 函数: { 名称: &quot;createNewResponse&quot; } },
+温度：assistData.config.assist.温度 * 0.01，
+流：真实，
+};
+
+const runStream =等待 openai.beta.threads.runs.create(threadId, runProps);
+
+        返回等待observeStream（runStream，assistantData，threadId）；
+} 捕获（错误）{
+console.error(&quot;handleAssistantRun 出错:&quot;, error);
+返回初始运行数据；
+}
+}
+
+异步函数observeStream（流，assistantData，threadId，actionAlreadyRequired = false）{
+    让 runArguments = {};
+
+    for wait (const 流块) {
+        const { 事件，数据 } = 块；
+
+        if (event === &#39;thread.run.requires_action&#39;) {
+            if (!actionAlreadyRequired) {
+                const actionData =等待handleRequiresAction(data, threadId);
+                runArguments = actionData.runArguments;
+                const result =等待observeStream（actionData.actionRunStream，assistantData，threadId，true）;
+
+                返回 { 运行：result.run, runArguments };
+            } 别的 {
+                返回 { 运行：数据，runArguments };
+            }
+        } else if ([&#39;thread.run.completed&#39;, &#39;done&#39;, &#39;end&#39;].includes(event)) {
+            返回 { 运行：数据，runArguments };
+        } else if ([&#39;thread.run.failed&#39;, &#39;thread.run.cancelled&#39;, &#39;thread.run.expired&#39;, &#39;error&#39;].includes(event)) {
+            console.error(&#39;无法完成请求。数据：&#39; + JSON.stringify(data));
+            返回 { 运行：事件 === &#39;错误&#39; ？ null：数据，runArguments };
+        }
+    }
+}
+
+异步函数handleRequiresAction(run, threadId) {
+    const initialActionRunStreamData = { runActionStream: null, runArguments: {} };
+
+    if (!run?.required_action?.submit_tool_outputs?.tool_calls?.length) {
+        console.error(`无法完成请求。未提供有效的工具调用。`);
+        返回初始ActionRunStreamData；
+    }
+
+    const toolCalls = run.required_action.submit_tool_outputs.tool_calls;
+    const toolOutputs = [];
+    让 runArguments = {};
+
+    尝试 {
+        for (const toolCall of toolCalls) {
+            if (toolCall.function?.name !== &#39;createNewResponse&#39;) {
+                工具输出.push({
+                    tool_call_id：toolCall.id，
+                    输出：JSON.stringify({ success: true }),
+                });
+
+                继续;
+            }
+
+            runArguments = JSON.parse(toolCall.function?.arguments) || {}；
+
+            工具输出.push({
+                tool_call_id：toolCall.id，
+                输出：JSON.stringify（{响应：“一些响应”}），
+            });
+        }
+
+        const actionRunStream = 等待 openai.beta.threads.runs.submitToolOutputs(threadId, run.id, {
+            流：真实，
+            工具输出：工具输出，
+        });
+
+        返回 { actionRunStream, runArguments };
+    } 捕获（错误）{
+        console.error(&#39;handleRequiresAction 中出现错误：&#39;, error);
+        返回初始ActionRunStreamData；
+    }
+}
+
+它在通过 else 块第二次调用observeStream 后停止（if (event === &#39;thread.run.requires_action&#39;)）。我正在使用 &quot;openai&quot;: &quot;^4.33.1&quot; npm 模块。]]></description>
+      <guid>https://community.openai.com/t/assistants-tool-choice-finally-available-but-ends-in-an-infinite-loop-while-streaming/716917#post_4</guid>
+      <pubDate>Mon, 15 Apr 2024 08:52:13 GMT</pubDate>
     </item>
     <item>
-      <title>如何将本地图片从图库/相机上传到OpenAI API？</title>
-      <link>https://community.openai.com/t/how-to-upload-a-local-image-from-gallery-camera-to-openai-api/717857#post_1</link>
-      <description><![CDATA[你好，
-我正在使用 Kotlin 开发 Android 应用程序。
-我能够成功地将 URL 从互联网发送到 API。但是，我不确定下一步应该做什么来发送用户上传到 API 的本地图像。我是否必须将图像保存在服务器中，然后获取 URL，还是有更简单的方法？
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/how-to-upload-a-local-image-from-gallery-camera-to-openai-api/717857#post_1</guid>
-      <pubDate>Mon, 15 Apr 2024 06:08:40 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_7</link>
+      <description><![CDATA[除了测试之外，我还对您的示例说明进行了一些（基本）修改。
+&lt;块引用&gt;
+您是一名助理，负责根据下面提供的信息回答用户有关产品/服务的问题。在回复用户查询时，您仅严格依赖所提供的信息。你永远不会发明任何信息。如果无法通过可用信息回答查询，您可以回复：“抱歉，我不知道答案”
+产品描述：
+面向 IT 专家的英语语言培训服务。
+(1) 目标受众：开发人员、QA、项目经理和产品经理
+(2) 费用：取决于学生的水平和要求
+(3) 授课形式：线上
+
+根据一些测试问题，这似乎适用于 gpt-3.5-turbo。]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_7</guid>
+      <pubDate>Mon, 15 Apr 2024 08:51:07 GMT</pubDate>
     </item>
     <item>
-      <title>返回图像作为 gpt-4-turbo 函数调用的结果</title>
-      <link>https://community.openai.com/t/returning-image-as-result-of-function-call-to-gpt-4-turbo/714903#post_11</link>
-      <description><![CDATA[我想您的建议非常适合我的应用程序。暂时看不到其他办法]]></description>
-      <guid>https://community.openai.com/t/returning-image-as-result-of-function-call-to-gpt-4-turbo/714903#post_11</guid>
-      <pubDate>Mon, 15 Apr 2024 06:03:52 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_6</link>
+      <description><![CDATA[我对您的示例问题“有哪些付款方式可用？”进行了初步测试。显示 gpt-3.5-turbo 模型下的 Assistant 正确回答“抱歉，我不知道答案”。我将运行一些其他测试，但这也许只是一次性的？]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_6</guid>
+      <pubDate>Mon, 15 Apr 2024 08:41:36 GMT</pubDate>
     </item>
     <item>
-      <title>技术乐观主义者宣言</title>
-      <link>https://community.openai.com/t/the-techno-optimist-manifesto/448035#post_9</link>
-      <description><![CDATA[完全有可能为了自私的目的而写出真相。
-一件事的表现和背后的作者意图是另一件事。
-如果我发现癌症的治疗方法是因为我想成为世界卫生组织的新秘书，那么除了我的自私意图之外，我的发现仍然可以拯救生命。
-对我来说，《宣言》是关于技术和社会的非常好的哲学观点。]]></description>
-      <guid>https://community.openai.com/t/the-techno-optimist-manifesto/448035#post_9</guid>
-      <pubDate>Mon, 15 Apr 2024 05:42:37 GMT</pubDate>
+      <title>我可以在微调模型上重新训练吗？</title>
+      <link>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_2</link>
+      <description><![CDATA[是的，您可以进一步微调已经微调的模型。为此，您基本上遵循与常规微调相同的过程。您只需在提交训练数据时引用您现有的微调模型即可。
+另请参阅此处供参考。]]></description>
+      <guid>https://community.openai.com/t/can-i-retrain-on-a-fine-tuned-model/717959#post_2</guid>
+      <pubDate>Mon, 15 Apr 2024 08:36:21 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4-Turbo 模型在 LMSys 基准测试中比旧版 GPT-4 模型表现更好</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-models-perform-better-the-older-gpt-4-models-in-lmsys-benchmark/716356#post_11</link>
-      <description><![CDATA[@ClipFarms
-您对 Anthropic Opus 和旧 gpt4 之间的性能比较有何看法？如果您都使用过它们？]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-models-perform-better-the-older-gpt-4-models-in-lmsys-benchmark/716356#post_11</guid>
-      <pubDate>Mon, 15 Apr 2024 05:27:43 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_5</link>
+      <description><![CDATA[为了简单起见（分享这个“幻觉”案例），我创建了这个受限知识集，以避免可能影响答案的额外因素。所以是的 - 这是完整的信息集]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_5</guid>
+      <pubDate>Mon, 15 Apr 2024 08:33:39 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4-Turbo 模型在 LMSys 基准测试中比旧版 GPT-4 模型表现更好</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-models-perform-better-the-older-gpt-4-models-in-lmsys-benchmark/716356#post_10</link>
-      <description><![CDATA[我的意思是对于编码，可能是第一个，但对于作为消费产品的一般问答来说，第二个，我认为这就是他们的目的。对于新涡轮增压车型严格要求简洁，您有何看法？]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-models-perform-better-the-older-gpt-4-models-in-lmsys-benchmark/716356#post_10</guid>
-      <pubDate>Mon, 15 Apr 2024 05:26:53 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_4</link>
+      <description><![CDATA[
+
+
+ 四月：
+&lt;块引用&gt;
+以下是有关我的服务的信息：
+
+我为开发人员、QA、项目经理和产品经理提供的机会
+费用取决于学生的水平和要求
+在线课程的形式
+
+
+
+这是您向助理提供的用于回答查询的全套信息，还是每个项目符号都有更多详细信息？抱歉，只是想了解...]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_4</guid>
+      <pubDate>Mon, 15 Apr 2024 08:31:07 GMT</pubDate>
     </item>
     <item>
-      <title>将人工智能个性置于系统内容和用户内容中有何区别？</title>
-      <link>https://community.openai.com/t/what-is-the-difference-between-putting-the-ai-personality-in-system-content-and-in-user-content/194938#post_9</link>
-      <description><![CDATA[感谢您的切实可行的回复。老实说，我读到这篇文章时，灯泡熄灭了]]></description>
-      <guid>https://community.openai.com/t/what-is-the-difference-between-putting-the-ai-personality-in-system-content-and-in-user-content/194938#post_9</guid>
-      <pubDate>Mon, 15 Apr 2024 05:26:33 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_3</link>
+      <description><![CDATA[“知识文件的类型”和信息的性质是什么意思？你能给个例子吗？实际上我提供的所有信息都在本说明中（没有使用额外的文件）]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_3</guid>
+      <pubDate>Mon, 15 Apr 2024 08:28:06 GMT</pubDate>
     </item>
     <item>
-      <title>使用 ChatGPT 来制作音乐 🎶</title>
-      <link>https://community.openai.com/t/got-chatgpt-to-make-music/34843#post_12</link>
-      <description><![CDATA[ChatGPT 商店中有一个名为 Song Maker 的 GPT，具有 50k 对话，可以根据提示制作或编辑 MIDI 文件。根本不是Suno的水平，但我认为Suno还不能输出MIDI。]]></description>
-      <guid>https://community.openai.com/t/got-chatgpt-to-make-music/34843#post_12</guid>
-      <pubDate>Mon, 15 Apr 2024 05:18:27 GMT</pubDate>
+      <title>client.Completion 问题有人可以帮忙吗？</title>
+      <link>https://community.openai.com/t/client-completion-issue-can-any-one-help/717940#post_4</link>
+      <description><![CDATA[您是否已向您的 API 帐户添加积分？ OpenAI 不再提供免费套餐/免费积分，因此您需要为 API 使用预先提供资金。]]></description>
+      <guid>https://community.openai.com/t/client-completion-issue-can-any-one-help/717940#post_4</guid>
+      <pubDate>Mon, 15 Apr 2024 08:23:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
