@@ -4,152 +4,210 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 16 Apr 2024 01:11:15 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2024 03:21:15 GMT</lastBuildDate>
     <item>
       <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_3</link>
-      <description><![CDATA[感谢您的回复并分享用于计算令牌和从标头中提取状态的代码！
-&lt;块引用&gt;
-您已经有了发送计数，还需要五分钟
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_11</link>
+      <description><![CDATA[是的，我使用的最终解决方法确实是将较长的提示分成较短的提示，然后将其最大类别分数作为结果。如果其他人遇到同样的问题，这是我的解决方法：
+def query_moderation(内容, max_num_retries=3, wait_time=60):
+    客户端 = OpenAI()
+    重试次数 = 0
+    完成=假
+    while（未完成）且 num_retries &lt;= max_num_retries：
+        如果 num_retries &gt; 0:
+            print (f&#39;重试 {num_retries} 次&#39;)
+        尝试：
+            响应= client.moderations.create（输入=内容）
+            完成=真
+        除了异常 e：
+            err_msg = f&#39;{e}&#39;
+            打印（错误消息）
+            m = re.search(r&quot;请在 (\d+\.?\d*)s 中重试&quot;, err_msg)
+            重试次数 += 1
+            如果米：
+                sleep_time = min(float(m.group(1)) * 1.2, wait_time)
+                print (f&#39;睡眠: {sleep_time} 秒&#39;)
+                时间.睡眠（睡眠时间）
+            别的：
+                时间.睡眠（等待时间）
+    如果没有完成：
+        内容长度 = len(内容)
+        half_length = int(round(内容长度/2))
+        content_firsthalf = 内容[:half_length]
+        内容第二半 = 内容[半长度:]
+        print (f&#39;将旧长度: {content_length} 分割成新长度: {half_length}&#39;)
+        output_firsthalf = query_moderation(content_firsthalf, max_num_retries, wait_time)
+        输出第二半 = 查询审核（内容第二半，最大重试次数，等待时间）
+        输出= {&#39;标记&#39;：output_firsthalf [&#39;标记&#39;]或output_secondhalf [&#39;标记&#39;]}
+        输出[&#39;类别&#39;] = {}
+        对于 output_firsthalf[&#39;categories&#39;] 中的 k：
+            输出[&#39;类别&#39;][k] = output_firsthalf[&#39;类别&#39;][k] 或 output_secondhalf[&#39;类别&#39;][k]
+        输出[&#39;category_scores&#39;] = {}
+        对于 output_firsthalf[&#39;category_scores&#39;] 中的 k：
+            输出[&#39;category_scores&#39;][k] = max(output_firsthalf[&#39;category_scores&#39;][k], output_secondhalf[&#39;category_scores&#39;][k])
+    别的：
+        输出=response.results[0].model_dump()
+    返回输出
 
-我想你的意思是5秒？上面的错误消息显示“请在 5.046 秒后重试”。也就是说，为了仔细检查是否是等待时间的问题，我等待了 5 分钟再次发送请求，但仍然遇到相同的错误，如下所示（下面的代码现在可以重现该问题，因为我使用 requests下载触发错误的提示）：
+但是，我仍然希望 OpenAI 能够解决这个问题，或者至少修复他们的错误消息，特别是考虑到产生这个错误是多么简单（至少对我来说，但我不确定这个问题是否只是特定于我的帐户，如果有人可以在下面测试我的代码并让我知道，我将不胜感激）：
 从 openai 导入 OpenAI
 导入时间
 导入请求
 客户端 = OpenAI()
-
-# 获取文本，示例取自WildChat数据集
 响应 = requests.get(&quot;https://raw.githubusercontent.com/da03/moderation_issue/main/example.txt&quot;)
-文本 = 响应.文本
+打印（响应.文本[5999]）
+flag_product_error = True # 当 True 时，产生 429 错误；错误，没有错误
+如果标志_产生_错误：
+    文本=响应.文本[:6000]
+别的：
+    文本=响应.文本[:5999]
 
-# 1. 长请求的 429 速率限制错误
 print (f&#39;字符数: {len(text)}&#39;)
 尝试：
     响应 = client.moderations.create(input=text)
 除了异常 e：
     打印（&#39;错误&#39;，e）
-
-打印 （）
-
-# 2.等待5分钟后同样的错误
-# 确保已经过去了 5 分钟
-print(&#39;等待5分钟&#39;)
-时间.睡眠(300)
-print (f&#39;字符数: {len(text)}&#39;)
-尝试：
-    响应 = client.moderations.create(input=text)
-除了异常 e：
-    打印（&#39;错误&#39;，e）
-
-# 3. 即使只等待 1 分钟，较短的请求也不会出错
-时间.睡眠(60)
-文本 = 文本[:5000]
-print (f&#39;字符数: {len(text)}&#39;)
-尝试：
-    响应 = client.moderations.create(input=text)
-除了异常 e：
-    打印（&#39;错误&#39;，e）
-
-上述代码的输出如下。请注意，前两次失败（第二次等待了 5 分钟仍失败，而第一次错误消息为“请在 6.406 秒后重试”），而第三次在输入被截断为 5k 个字符后成功，因此我认为这只是一个长度问题：
-字符数：6872
-error 错误代码：429 - {&#39;error&#39;: {&#39;message&#39;: &#39;在组织 org-WAXHZpHsjoSbCdNbzcNU959e 中达到了 text-moderation-007 每分钟令牌 (TPM) 的速率限制：限制 150000，已使用 142589，已请求 23427。请尝试再次在 6.406 秒内。请访问 https://platform.openai.com/account/rate-limits 了解更多信息。&#39;, &#39;type&#39;: &#39;tokens&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;rate_limit_exceeded&#39;}}
-
-等待5分钟
- 字符数：6872
-error 错误代码：429 - {&#39;error&#39;：{&#39;message&#39;：&#39;在组织 org-WAXHZpHsjoSbCdNbzcNU959e 中达到了 text-moderation-007 每分钟令牌 (TPM) 的速率限制：限制 150000，已使用 143513，已请求 23427。请尝试再次在 6.776 秒内。请访问 https://platform.openai.com/account/rate-limits 了解更多信息。&#39;, &#39;type&#39;: &#39;tokens&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;rate_limit_exceeded&#39;}}
-字符数：5000
-
-&lt;块引用&gt;
-看到标头的“已使用”字段的增加不超过您实际发送的数量
-
-不幸的是，提取您提供的代码的 x header 部分 (print_x_headers) 仅返回一个空字典。我的openai版本是1.19.0。当我检查返回的标头时，它不包含任何以“x-rate”开头的内容，如下所示：
-标头([(&#39;date&#39;, &#39;星期二, 2024 年 4 月 16 日 01:02:59 GMT&#39;), (&#39;content-type&#39;, &#39;application/json&#39;), （&#39;传输编码&#39;，&#39;分块&#39;），（&#39;连接&#39;，&#39;保持活动&#39;），（&#39;openai-版本&#39;，&#39;2020-10-01&#39;），（&#39;openai-组织&#39;，&#39;[编辑]&#39;), (&#39;x-request-id&#39;, &#39;req_33b0580cd018110c4e8a0e5c0e78ae79&#39;), (&#39;openai-processing-ms&#39;, &#39;157&#39;), (&#39;严格传输安全&#39;, &#39;max-age=15724800; includeSubDomains&#39; ), (&#39;cf-cache-status&#39;, &#39;动态&#39;), (&#39;set-cookie&#39;, &#39;[编辑]&#39;), (&#39;set-cookie&#39;, &#39;[编辑]&#39;), (&#39;服务器&#39;, &#39; cloudflare&#39;), (&#39;cf-ray&#39;, &#39;[编辑]&#39;), (&#39;内容编码&#39;, &#39;gzip&#39;), (&#39;alt-svc&#39;, &#39;h3=&quot;:443&quot;; ma=86400&#39;) ]）
-
-其他观察结果
-最后，我注意到错误大多发生在非英语语言中，例如中文和韩语，但这只是我对 WildChat 数据集的观察，我没有对此进行定量测量。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_3</guid>
-      <pubDate>Tue, 16 Apr 2024 01:08:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>BatchAPI 现已推出</title>
-      <link>https://community.openai.com/t/batchapi-is-now-available/718416#post_10</link>
-      <description><![CDATA[欢迎@bruno.nvsx
-JSON 模式只是聊天完成时设置为 json 的响应格式。您可以通过传递 response_format 来完成此操作具有价值
-{ &quot;type&quot;: &quot;json_object&quot; }
-
-在请求输入对象的正文中。]]></description>
-      <guid>https://community.openai.com/t/batchapi-is-now-available/718416#post_10</guid>
-      <pubDate>Tue, 16 Apr 2024 00:43:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>使 JSON 输出更有可能</title>
-      <link>https://community.openai.com/t/make-json-output-more-likely/718590#post_3</link>
-      <description><![CDATA[我不会对此置之不理，因为它会玷污你们这一代的其他人。 （取决于你在做什么，ofc）
-详细：
-&lt;块引用&gt;
-&quot;90&quot;: 10, // &quot;{&quot;的标记 ID 可能会促使模型在某些上下文中打开比预期更多的子对象
-
-&lt;块引用&gt;
- &quot;92&quot;: 10, // &quot;}&quot; 的令牌 ID 可能会促使模型在某些上下文中过早关闭对象
-
-我宁愿降低温度并告诉模型如何开始。一旦你克服了最初的{驼峰，就不会出现太多问题 
-也就是说，logit 偏差仍然是一个值得掌握的好工具！]]></description>
-      <guid>https://community.openai.com/t/make-json-output-more-likely/718590#post_3</guid>
-      <pubDate>Tue, 16 Apr 2024 00:22:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>数学公式渲染错误</title>
-      <link>https://community.openai.com/t/math-formula-render-error/718679#post_1</link>
-      <description><![CDATA[我问了一个数学问题，它应该给我一个方程，但它给了我一些红色代码，并说错误是解析错误。看来是 Katex 错误。
 ]]></description>
-      <guid>https://community.openai.com/t/math-formula-render-error/718679#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 00:07:48 GMT</pubDate>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_11</guid>
+      <pubDate>Tue, 16 Apr 2024 03:16:55 GMT</pubDate>
     </item>
     <item>
-      <title>咨询公司与 OpenAI 合作</title>
-      <link>https://community.openai.com/t/consulting-company-partnership-with-openai/718678#post_1</link>
-      <description><![CDATA[您好 - 我是一家不断壮大、拥有 5000 名员工的全球咨询公司的一员，我们正在与科技公司建立多个合作伙伴关系。有人知道我们如何与 OpenAI 联系来做类似的事情吗？我发现他们已经开始直接接触大客户。]]></description>
-      <guid>https://community.openai.com/t/consulting-company-partnership-with-openai/718678#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 00:04:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>使 JSON 输出更有可能</title>
-      <link>https://community.openai.com/t/make-json-output-more-likely/718590#post_2</link>
-      <description><![CDATA[你使用的是JSON模式吗？
-https： //platform.openai.com/docs/guides/text- Generation/json-mode]]></description>
-      <guid>https://community.openai.com/t/make-json-output-more-likely/718590#post_2</guid>
-      <pubDate>Tue, 16 Apr 2024 00:04:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 密钥似乎已经消失（但仍然有效）</title>
-      <link>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_5</link>
-      <description><![CDATA[我们组织中有很多人都遇到过这种情况。这非常糟糕，是在聊天中提出的，除了知道我正在与机器人聊天之外，我不确定这还有什么作用。]]></description>
-      <guid>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_5</guid>
-      <pubDate>Mon, 15 Apr 2024 23:51:54 GMT</pubDate>
+      <title>如何为我的 API 助手添加网页浏览功能？</title>
+      <link>https://community.openai.com/t/how-can-i-add-web-browsing-ability-to-my-api-assistant/708119#post_3</link>
+      <description><![CDATA[“看来我得定义自己的API来调用Google搜索，然后将结果返回给助手处理，对吧？寻求澄清。” &lt;img alt=&quot;:thinking:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/thinking.png?v=12&quot; title=&quot;:thinking: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/how-can-i-add-web-browsing-ability-to-my-api-assistant/708119#post_3</guid>
+      <pubDate>Tue, 16 Apr 2024 03:08:05 GMT</pubDate>
     </item>
     <item>
       <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_2</link>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_10</link>
+      <description><![CDATA[标题打印例程：
+def print_x_headers(headers: dict) -&gt;;没有任何：
+    &quot;&quot;&quot;仅打印 x-ratelimit 标头&quot;&quot;&quot;
+    x_headers = {k: v for k, v in headers.items() if k.lower().startswith(&#39;x-rate&#39;)}
+    打印（json.dumps（x_headers，缩进= 2））
+
+当使用 print_x_headers(headers) 调用时，从 with_raw_response 方法中获取的标头确实会打印。但如果我们没有获得 x-ratelimit（就像其他具有标头的端点一样），它会设置为不打印任何内容。因为它会进行过滤。
+您可以使用 .startswith(‘’) - 一个空字符串，它不会过滤标头，并为您提供一份关于您所获得的所有内容的可读报告。可用的键不能回答我们任何有关费率的问题，那么：
+日期
+内容类型
+传输编码
+连接
+openai-版本
+openai-组织
+x-请求-id
+openai-processing-ms
+严格传输安全
+cf-缓存状态
+设置cookie
+设置cookie
+服务器
+cf射线
+内容编码
+替代服务
+我想人们可以使用他们推荐的 2000 个令牌分割点来进行您自己的分块。让正则表达式在 1000 个中文字符之后开始查找换行符，或者当它变得绝望时查找空格，因为它们的标记使用率很高。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_10</guid>
+      <pubDate>Tue, 16 Apr 2024 03:02:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>在令牌限制下，无论如何响应都会被切断</title>
+      <link>https://community.openai.com/t/under-token-limit-response-is-cut-off-regardless/718774#post_1</link>
+      <description><![CDATA[你好，
+我处于 API 使用的第 1 层。我发现，无论远低于给定模型的令牌限制（在本例中为 gpt-3.5-turbo-0125，但发生在所有情况下），我的响应都会被切断。使用标记器测量我的最新输入是 290 个标记，我收到的响应是 295。响应在句子中被切断。
+无论模型如何，也无论我是否设置 max_tokens 参数，这种情况都会发生。
+有什么想法吗？]]></description>
+      <guid>https://community.openai.com/t/under-token-limit-response-is-cut-off-regardless/718774#post_1</guid>
+      <pubDate>Tue, 16 Apr 2024 03:00:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_9</link>
+      <description><![CDATA[事实上，我能够确定它中断的位置：在 6,000 个字符处（通过在下面的代码中将 flag_product_error 设置为 True），它中断了；但在 5,999 个字符处（通过将下面的 flag_product_error 设置为 False），它可以工作。第5999个字符似乎没有什么特别的地方（是一个汉字“要”，意思是“想要”或“需要”）。
+从 openai 导入 OpenAI
+导入时间
+导入请求
+客户端 = OpenAI()
+响应 = requests.get(&quot;https://raw.githubusercontent.com/da03/moderation_issue/main/example.txt&quot;)
+
+flag_product_error = True # 当 True 时，产生 429 错误；错误，没有错误
+如果标志_产生_错误：
+    文本=响应.文本[:6000]
+别的：
+    文本=响应.文本[:5999]
+
+print (f&#39;字符数: {len(text)}&#39;)
+尝试：
+    响应 = client.moderations.create(input=text)
+除了异常 e：
+    打印（&#39;错误&#39;，e）
+
+顺便说一句，我想提一下，我并不是唯一看到此错误的人。我的一位合作者发现了同样的问题，他们通过在遇到错误时截断输入来修复它，如下所示：
+json_data[&quot;input&quot;] = json_data[&quot;input&quot;][:int(0.9*len(json_data[&quot;input&quot;]))]
+
+但我希望找出真正的根本问题。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_9</guid>
+      <pubDate>Tue, 16 Apr 2024 02:58:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 模型指纹并不唯一，这使得它们对于跟踪模型更新相当无用</title>
+      <link>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_9</link>
+      <description><![CDATA[
+
+
+_j：
+&lt;块引用&gt;
+质量概率
+
+
+我已尽我所能研究了“质量概率”一词，但我无法确认该术语是否被用作官方学术术语。
+我认为“质量概率”一词，不是“概率质量”或“概率质量函数”，可以在特定社区或群体中用作独特术语。
+此外，尽管我对“质量概率”进行了调查，但我无法确认它是否被认为是一般技术和学术语言中的官方术语。
+尽管如此，我完全承认由于我自身知识的缺乏，我可能误解了这个术语，因此我可能错误地得出结论：它不是一般技术和学术语言中的常见术语。&lt; /p&gt;
+我无意否认你的意见。
+鉴于我缺乏研究、知识和基本理解，你的表达完全有道理。
+如果您能提供任何迹象表明“质量概率”被接受为一个学术术语，我很乐意阅读并了解更多信息。]]></description>
+      <guid>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_9</guid>
+      <pubDate>Tue, 16 Apr 2024 02:53:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_8</link>
+      <description><![CDATA[嗯，我打印出来的请求标头是使用您的代码（包括提示），我刚刚在 print_x_headers 中添加了一条打印语句...]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_8</guid>
+      <pubDate>Tue, 16 Apr 2024 02:50:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经使用新号码创建了新的 openai 帐户，但没有获得任何免费信用</title>
+      <link>https://community.openai.com/t/i-have-created-new-openai-account-with-new-number-and-havent-got-any-free-creadit/717565#post_6</link>
+      <description><![CDATA[您可以在 help.openai.com 上找到所有关于免费或试用的内容的完全省略和删除。
+除了那些习惯于通过解决方法和漏洞一次又一次获得它们的人之外，这不应该是一个巨大的失望。]]></description>
+      <guid>https://community.openai.com/t/i-have-created-new-openai-account-with-new-number-and-havent-got-any-free-creadit/717565#post_6</guid>
+      <pubDate>Tue, 16 Apr 2024 02:48:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_7</link>
+      <description><![CDATA[抱歉，审核率限制似乎与其他模型的使用是分开的，我们不知道 openai 如何管理它。
+如果您仅在该帐户中测试 API，并且在休眠 300 秒后配额窗口仍然是 143513，甚至比五分钟前还要高，则可能存在一些我们不知道的问题或秘密。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_7</guid>
+      <pubDate>Tue, 16 Apr 2024 02:45:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_6</link>
       <description><![CDATA[
 
 
 云天灯：
 &lt;块引用&gt;
-审核的上下文长度限制是多少？
+不幸的是，提取您提供的代码的 x header 部分
 
 
-文档不再列出输入限制。我向它发送了 250 万个令牌，只是延长了等待响应的时间，表明它正在工作。 （大小明显超过每个人的 TPM，因为我的组织不提供审核 x-ratelimit 标头）。
-由于之前的文档已经描述了审核在内部进行分块，然后只报告最高分，因此该技术可以得到极大的扩展是有道理的。
-
-是的，我制作示例代码来获取 x-ratelimit 标头有点过头了。 （点击查看更多详情）
-现在你的错误：
-您向我们提供的速率错误看起来您已经有一个发送计数，需要再花五分钟才能重置回 150k 可用的原始值。
-因此，要真正了解正在发生的情况，您必须等待比给定的重置时间更长的时间。发送一个令牌即可获取更新和重置的汇率。
-然后为了测试，您可以运行一个循环，并看到标头的“已使用”字段增加的量不超过您实际发送的量，并且它会不断“补充”您的限额。
-审核用于检查语言模型输入，而不是任意任务。
-如果速率对您来说仍然太低，您可以仅发送将放置在上下文中的新的原始用户输入，而不是整个上下文。用户也不必知道您是否由于费率错误而随机丢弃支票。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_2</guid>
-      <pubDate>Mon, 15 Apr 2024 23:49:02 GMT</pubDate>
+然后，审核端点似乎没有提供其他典型的标头。我得到 &quot;x-request-id&quot;: &quot;req_78f451... 作为我唯一的 x-header 返回，并认为它很奇怪但出乎意料。
+看来这对你的帐户来说是特定的，或者你的数据有一些特定的东西，使得“剩余”变得疯狂。我按顺序向我的脚本添加了 4 个主循环，发送 58746 个 openai 文档的每个令牌，审核端点可能想要阅读（并且必须选择没有 &lt;|endoftext|&gt; 的文档，而审核会拒绝该文档）），并且没有得到任何结果率错误，也没有任何剩余内容的报告。
+由于 OpenAI 工作人员不会在这里巡逻寻找需要修复的问题，因此您可以发送帮助消息，并尽量不要通过发送“帐户问题”来触发机器人承包商，甚至发送限制上的“请求例外”看看它是否会被人类读取。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_6</guid>
+      <pubDate>Tue, 16 Apr 2024 02:44:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
