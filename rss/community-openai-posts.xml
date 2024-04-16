@@ -4,93 +4,152 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 15 Apr 2024 21:18:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2024 01:11:15 GMT</lastBuildDate>
     <item>
-      <title>WordPress 中 OpenAi API 的最佳插件？</title>
-      <link>https://community.openai.com/t/best-plugin-for-openai-api-in-wordpress/417233#post_5</link>
-      <description><![CDATA[我正在使用neatscriptlab 的文章生成器。 net，简单易用。]]></description>
-      <guid>https://community.openai.com/t/best-plugin-for-openai-api-in-wordpress/417233#post_5</guid>
-      <pubDate>Mon, 15 Apr 2024 21:17:36 GMT</pubDate>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_3</link>
+      <description><![CDATA[感谢您的回复并分享用于计算令牌和从标头中提取状态的代码！
+&lt;块引用&gt;
+您已经有了发送计数，还需要五分钟
+
+我想你的意思是5秒？上面的错误消息显示“请在 5.046 秒后重试”。也就是说，为了仔细检查是否是等待时间的问题，我等待了 5 分钟再次发送请求，但仍然遇到相同的错误，如下所示（下面的代码现在可以重现该问题，因为我使用 requests下载触发错误的提示）：
+从 openai 导入 OpenAI
+导入时间
+导入请求
+客户端 = OpenAI()
+
+# 获取文本，示例取自WildChat数据集
+响应 = requests.get(&quot;https://raw.githubusercontent.com/da03/moderation_issue/main/example.txt&quot;)
+文本 = 响应.文本
+
+# 1. 长请求的 429 速率限制错误
+print (f&#39;字符数: {len(text)}&#39;)
+尝试：
+    响应 = client.moderations.create(input=text)
+除了异常 e：
+    打印（&#39;错误&#39;，e）
+
+打印 （）
+
+# 2.等待5分钟后同样的错误
+# 确保已经过去了 5 分钟
+print(&#39;等待5分钟&#39;)
+时间.睡眠(300)
+print (f&#39;字符数: {len(text)}&#39;)
+尝试：
+    响应 = client.moderations.create(input=text)
+除了异常 e：
+    打印（&#39;错误&#39;，e）
+
+# 3. 即使只等待 1 分钟，较短的请求也不会出错
+时间.睡眠(60)
+文本 = 文本[:5000]
+print (f&#39;字符数: {len(text)}&#39;)
+尝试：
+    响应 = client.moderations.create(input=text)
+除了异常 e：
+    打印（&#39;错误&#39;，e）
+
+上述代码的输出如下。请注意，前两次失败（第二次等待了 5 分钟仍失败，而第一次错误消息为“请在 6.406 秒后重试”），而第三次在输入被截断为 5k 个字符后成功，因此我认为这只是一个长度问题：
+字符数：6872
+error 错误代码：429 - {&#39;error&#39;: {&#39;message&#39;: &#39;在组织 org-WAXHZpHsjoSbCdNbzcNU959e 中达到了 text-moderation-007 每分钟令牌 (TPM) 的速率限制：限制 150000，已使用 142589，已请求 23427。请尝试再次在 6.406 秒内。请访问 https://platform.openai.com/account/rate-limits 了解更多信息。&#39;, &#39;type&#39;: &#39;tokens&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;rate_limit_exceeded&#39;}}
+
+等待5分钟
+ 字符数：6872
+error 错误代码：429 - {&#39;error&#39;：{&#39;message&#39;：&#39;在组织 org-WAXHZpHsjoSbCdNbzcNU959e 中达到了 text-moderation-007 每分钟令牌 (TPM) 的速率限制：限制 150000，已使用 143513，已请求 23427。请尝试再次在 6.776 秒内。请访问 https://platform.openai.com/account/rate-limits 了解更多信息。&#39;, &#39;type&#39;: &#39;tokens&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;rate_limit_exceeded&#39;}}
+字符数：5000
+
+&lt;块引用&gt;
+看到标头的“已使用”字段的增加不超过您实际发送的数量
+
+不幸的是，提取您提供的代码的 x header 部分 (print_x_headers) 仅返回一个空字典。我的openai版本是1.19.0。当我检查返回的标头时，它不包含任何以“x-rate”开头的内容，如下所示：
+标头([(&#39;date&#39;, &#39;星期二, 2024 年 4 月 16 日 01:02:59 GMT&#39;), (&#39;content-type&#39;, &#39;application/json&#39;), （&#39;传输编码&#39;，&#39;分块&#39;），（&#39;连接&#39;，&#39;保持活动&#39;），（&#39;openai-版本&#39;，&#39;2020-10-01&#39;），（&#39;openai-组织&#39;，&#39;[编辑]&#39;), (&#39;x-request-id&#39;, &#39;req_33b0580cd018110c4e8a0e5c0e78ae79&#39;), (&#39;openai-processing-ms&#39;, &#39;157&#39;), (&#39;严格传输安全&#39;, &#39;max-age=15724800; includeSubDomains&#39; ), (&#39;cf-cache-status&#39;, &#39;动态&#39;), (&#39;set-cookie&#39;, &#39;[编辑]&#39;), (&#39;set-cookie&#39;, &#39;[编辑]&#39;), (&#39;服务器&#39;, &#39; cloudflare&#39;), (&#39;cf-ray&#39;, &#39;[编辑]&#39;), (&#39;内容编码&#39;, &#39;gzip&#39;), (&#39;alt-svc&#39;, &#39;h3=&quot;:443&quot;; ma=86400&#39;) ]）
+
+其他观察结果
+最后，我注意到错误大多发生在非英语语言中，例如中文和韩语，但这只是我对 WildChat 数据集的观察，我没有对此进行定量测量。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_3</guid>
+      <pubDate>Tue, 16 Apr 2024 01:08:12 GMT</pubDate>
     </item>
     <item>
-      <title>AI 模型指纹并不唯一，这使得它们对于跟踪模型更新相当无用</title>
-      <link>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_7</link>
-      <description><![CDATA[@_j
-网页浏览器的指纹和OpenAI API返回的系统指纹完全不同。
-我只是考虑为帐户设置唯一种子值的可能性，但事实上，机器人生成的响应大多是无意义的。]]></description>
-      <guid>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_7</guid>
-      <pubDate>Mon, 15 Apr 2024 21:17:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手 API 多助手代理工作流程</title>
-      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_15</link>
-      <description><![CDATA[你的例子是什么？我在该帖子中没有看到您的任何其他帖子！]]></description>
-      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_15</guid>
-      <pubDate>Mon, 15 Apr 2024 21:05:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手 API 多助手代理工作流程</title>
-      <link>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_14</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/assistants-api-multi-assistant-agentic-workflow/707742#post_14</guid>
-      <pubDate>Mon, 15 Apr 2024 21:04:55 GMT</pubDate>
+      <title>BatchAPI 现已推出</title>
+      <link>https://community.openai.com/t/batchapi-is-now-available/718416#post_10</link>
+      <description><![CDATA[欢迎@bruno.nvsx
+JSON 模式只是聊天完成时设置为 json 的响应格式。您可以通过传递 response_format 来完成此操作具有价值
+{ &quot;type&quot;: &quot;json_object&quot; }
+
+在请求输入对象的正文中。]]></description>
+      <guid>https://community.openai.com/t/batchapi-is-now-available/718416#post_10</guid>
+      <pubDate>Tue, 16 Apr 2024 00:43:41 GMT</pubDate>
     </item>
     <item>
       <title>使 JSON 输出更有可能</title>
-      <link>https://community.openai.com/t/make-json-output-more-likely/718590#post_1</link>
-      <description><![CDATA[通常您需要 LLM 的输出为 json 格式。即使您包含诸如“输出必须采用 JSON 格式”或其变体之类的短语，LLM 有时也会输出类似“这是 json 格式的输出”或“```json”之类的内容。
-这使得LLM输出的下游解析任务失败（即无效的json）。
-增加 LLM 创建纯 json 作为输出的可能性的一个简单技巧是使用 openAI API 的“logic_bias”参数。此参数是一个字典，指定偏差（-100 表示不太可能，100 表示很可能）与您希望或多或少出现在输出中的字符关联的 token_id。
-例如，以下内容增加了输出中“{”和“}”的概率，并减少了“``或”&#39;&#39;的概率。
- logit_bias: {
-    &quot;90&quot;: 10, // &quot;{&quot; 的令牌 ID
-    &quot;92&quot;: 10, // &quot;}&quot; 的令牌 ID
-    &quot;19317&quot;: -10, // &quot;&#39;&#39;&#39;&quot; 的令牌 ID
-    &quot;19317&quot;: -10, // &quot;&#39;&#39;&#39;&quot; 的令牌 ID
-    &quot;74694&quot;: -10 // &quot;```&quot; 的令牌 ID
-  }]]></description>
-      <guid>https://community.openai.com/t/make-json-output-more-likely/718590#post_1</guid>
-      <pubDate>Mon, 15 Apr 2024 21:04:14 GMT</pubDate>
+      <link>https://community.openai.com/t/make-json-output-more-likely/718590#post_3</link>
+      <description><![CDATA[我不会对此置之不理，因为它会玷污你们这一代的其他人。 （取决于你在做什么，ofc）
+详细：
+&lt;块引用&gt;
+&quot;90&quot;: 10, // &quot;{&quot;的标记 ID 可能会促使模型在某些上下文中打开比预期更多的子对象
+
+&lt;块引用&gt;
+ &quot;92&quot;: 10, // &quot;}&quot; 的令牌 ID 可能会促使模型在某些上下文中过早关闭对象
+
+我宁愿降低温度并告诉模型如何开始。一旦你克服了最初的{驼峰，就不会出现太多问题 
+也就是说，logit 偏差仍然是一个值得掌握的好工具！]]></description>
+      <guid>https://community.openai.com/t/make-json-output-more-likely/718590#post_3</guid>
+      <pubDate>Tue, 16 Apr 2024 00:22:10 GMT</pubDate>
     </item>
     <item>
-      <title>AI 模型指纹并不唯一，这使得它们对于跟踪模型更新相当无用</title>
-      <link>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_6</link>
-      <description><![CDATA[与之相关的问题如果可以的话，
-从 OPENAI 更新种子参数后，我的微调模型没有给出相同的结果，而且在我的开发和生产中，相同模型的结果在相同参数和所有内容下都不同。您建议应该检查什么？]]></description>
-      <guid>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_6</guid>
-      <pubDate>Mon, 15 Apr 2024 20:49:14 GMT</pubDate>
+      <title>数学公式渲染错误</title>
+      <link>https://community.openai.com/t/math-formula-render-error/718679#post_1</link>
+      <description><![CDATA[我问了一个数学问题，它应该给我一个方程，但它给了我一些红色代码，并说错误是解析错误。看来是 Katex 错误。
+]]></description>
+      <guid>https://community.openai.com/t/math-formula-render-error/718679#post_1</guid>
+      <pubDate>Tue, 16 Apr 2024 00:07:48 GMT</pubDate>
     </item>
     <item>
-      <title>AI 模型指纹并不唯一，这使得它们对于跟踪模型更新相当无用</title>
-      <link>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_5</link>
+      <title>咨询公司与 OpenAI 合作</title>
+      <link>https://community.openai.com/t/consulting-company-partnership-with-openai/718678#post_1</link>
+      <description><![CDATA[您好 - 我是一家不断壮大、拥有 5000 名员工的全球咨询公司的一员，我们正在与科技公司建立多个合作伙伴关系。有人知道我们如何与 OpenAI 联系来做类似的事情吗？我发现他们已经开始直接接触大客户。]]></description>
+      <guid>https://community.openai.com/t/consulting-company-partnership-with-openai/718678#post_1</guid>
+      <pubDate>Tue, 16 Apr 2024 00:04:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>使 JSON 输出更有可能</title>
+      <link>https://community.openai.com/t/make-json-output-more-likely/718590#post_2</link>
+      <description><![CDATA[你使用的是JSON模式吗？
+https： //platform.openai.com/docs/guides/text- Generation/json-mode]]></description>
+      <guid>https://community.openai.com/t/make-json-output-more-likely/718590#post_2</guid>
+      <pubDate>Tue, 16 Apr 2024 00:04:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 密钥似乎已经消失（但仍然有效）</title>
+      <link>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_5</link>
+      <description><![CDATA[我们组织中有很多人都遇到过这种情况。这非常糟糕，是在聊天中提出的，除了知道我正在与机器人聊天之外，我不确定这还有什么作用。]]></description>
+      <guid>https://community.openai.com/t/api-keys-seem-to-have-disappeared-but-are-still-working/712510#post_5</guid>
+      <pubDate>Mon, 15 Apr 2024 23:51:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>审核提高了长输入的 429 速率限制错误</title>
+      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_2</link>
       <description><![CDATA[
 
 
-尊严_for_all：
+云天灯：
 &lt;块引用&gt;
-早期用户对 ChatGPT 的引用是正确的，这可能表明种子值主要用于绕过验证码
+审核的上下文长度限制是多少？
 
 
-用户的响应是机器人生成的废话。这个回答听起来也像是人工智能在回答问题。
-API 上的系统指纹与 Web 浏览器指纹没有任何关系。
-系统指纹应该报告有关其运行的模型或架构的未讨论的细节。虽然人们可能会认为它指的是自该功能发布以来人工智能模型本身的变化，但如果模型在 A100 或 H100 驱动的机器上运行，它可能会通过返回不同的值来额外表明结果统计数据中出现额外偏差的某些原因，作为猜测为什么有多个结果的示例。]]></description>
-      <guid>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_5</guid>
-      <pubDate>Mon, 15 Apr 2024 20:47:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已经回到 ADA 2，text-embedding-3-small 对我不起作用</title>
-      <link>https://community.openai.com/t/ive-gone-back-to-ada-2-text-embedding-3-small-is-not-working-for-me/616216#post_11</link>
-      <description><![CDATA[...而且您的距离阈值也需要不同。 ada 2 的门槛普遍要高很多]]></description>
-      <guid>https://community.openai.com/t/ive-gone-back-to-ada-2-text-embedding-3-small-is-not-working-for-me/616216#post_11</guid>
-      <pubDate>Mon, 15 Apr 2024 20:39:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已经回到 ADA 2，text-embedding-3-small 对我不起作用</title>
-      <link>https://community.openai.com/t/ive-gone-back-to-ada-2-text-embedding-3-small-is-not-working-for-me/616216#post_10</link>
-      <description><![CDATA[是的，好吧，在论坛上阅读了更多内容后，很明显 ada 和 te3s 不兼容，这不像为给定输入更改 gpt 模型。您不能简单地在 ada 生成的现有向量数据库上开始使用 te3s。
-不确定除了我之外的每个人是否都清楚这一点 ]]></description>
-      <guid>https://community.openai.com/t/ive-gone-back-to-ada-2-text-embedding-3-small-is-not-working-for-me/616216#post_10</guid>
-      <pubDate>Mon, 15 Apr 2024 20:37:51 GMT</pubDate>
+文档不再列出输入限制。我向它发送了 250 万个令牌，只是延长了等待响应的时间，表明它正在工作。 （大小明显超过每个人的 TPM，因为我的组织不提供审核 x-ratelimit 标头）。
+由于之前的文档已经描述了审核在内部进行分块，然后只报告最高分，因此该技术可以得到极大的扩展是有道理的。
+
+是的，我制作示例代码来获取 x-ratelimit 标头有点过头了。 （点击查看更多详情）
+现在你的错误：
+您向我们提供的速率错误看起来您已经有一个发送计数，需要再花五分钟才能重置回 150k 可用的原始值。
+因此，要真正了解正在发生的情况，您必须等待比给定的重置时间更长的时间。发送一个令牌即可获取更新和重置的汇率。
+然后为了测试，您可以运行一个循环，并看到标头的“已使用”字段增加的量不超过您实际发送的量，并且它会不断“补充”您的限额。
+审核用于检查语言模型输入，而不是任意任务。
+如果速率对您来说仍然太低，您可以仅发送将放置在上下文中的新的原始用户输入，而不是整个上下文。用户也不必知道您是否由于费率错误而随机丢弃支票。]]></description>
+      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_2</guid>
+      <pubDate>Mon, 15 Apr 2024 23:49:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
