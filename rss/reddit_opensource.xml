@@ -4,11 +4,25 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 16 Apr 2024 15:18:18 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2024 18:21:01 GMT</lastBuildDate>
+    <item>
+      <title>Bridge — Django 的自动基础设施</title>
+      <link>https://www.reddit.com/r/opensource/comments/1c5m1vp/bridge_automatic_infrastructure_for_django/</link>
+      <description><![CDATA[https://github.com/Never-Over /bridge 问题 我们构建bridge来解决任何新项目中最令人沮丧的部分——基础设施。每当您启动一个新的 Django 项目时，通常都必须手动配置 Postgres、后台工作人员、任务队列等。当您部署应用程序时，问题会被放大 - 托管提供商对您已配置的内容一无所知，因此您必须执行更复杂的过程才能在已部署的环境中设置相同的基础设施。&lt; /p&gt; 修复 bridge 是一个 pip 安装包，它可以启动您需要的所有基础设施，并自动将其连接到您的 Django 项目。通过在 Django 项目的 settings.py 文件中添加一行，bridge 会为您配置所有内容 — 这意味着您无需搞乱 DATABASES code&gt;、BROKER_URL 或其他环境变量来连接到这些服务。 bridge 还为您提供管理这些服务所需的访问权限，包括数据库和 Redis shell，以及用于监视后台任务的 Flower 实例。 何时当您准备好部署时，bridge 也可以处理这个问题。通过运行 bridge init render，bridge 将编写在 Render&lt; 上部署应用程序所需的所有配置/a&gt;，包括一个直接从自述文件中触发部署的按钮。 如果您不需要所有这些服务（假设您已经有一个数据库，并且只想添加后台工作人员）桥接也支持这个！它可以自动化您需要的一切，而不是您不需要的一切。 工作原理 bridge 构建在 Docker 之上，因此您可以获得完全隔离的最新版本从一开始就使用 Postgres 和 Redis。 Celery 和 Flower 需要在您的应用程序代码之上运行，因此我们连接到 runserver 以将它们作为后台进程启动。如果您需要停止运行，bridge stop 将方便地关闭它启动的所有服务。 即将推出 将来，我们希望添加对更多服务的支持 (jupyter 、mail/mailhog 等）、更多托管提供商（Heroku、Railway 等）以及更多配置（环境变量、可选依赖项等）。 bridge 始终如此将完全开源。请尝试一下，我们希望得到任何反馈！ Github &lt; p&gt;文档 PyPI   由   提交/u/the1024  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1c5m1vp/bridge_automatic_infrastructure_for_django/</guid>
+      <pubDate>Tue, 16 Apr 2024 17:33:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>[新，开源] Chrome 扩展程序可自动抓取网站表格/列表</title>
+      <link>https://www.reddit.com/r/opensource/comments/1c5jk63/new_opensource_chrome_extension_to_automatically/</link>
+      <description><![CDATA[Rows.com 开源 RowsX，一个 Chrome 扩展网络抓取工具。 它遵循 MIT 许可证，因此任何人都可以分叉和贡献，包括他们的开放赏金计划。 仓库：https://github.com/rows/X   由   提交/u/hcrx  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1c5jk63/new_opensource_chrome_extension_to_automatically/</guid>
+      <pubDate>Tue, 16 Apr 2024 15:53:27 GMT</pubDate>
+    </item>
     <item>
       <title>一个纯 C 语言的 Linux 线程文件名清理程序，没有任何依赖</title>
       <link>https://www.reddit.com/r/opensource/comments/1c5hdzc/a_threaded_filename_sanitizer_for_linux_in_pure_c/</link>
-      <description><![CDATA[这是一个 200 SLOC 以下的非常小的程序。除了 Linux 和 Glibc 之外，它没有任何依赖项。 根据 UNIX 和 URL 标准进行清理：  只有小写字母数字英语。 空格、点和破折号 --&gt;下划线。 没有连续、尾随、前导下划线。 保持扩展名完整（如果它是文件，而不是目录）。 您将得到结果名称，例如：example_folder/spreadsheet_file.ods  详细的理由可以在存储库中找到。 在具有大量线程，它甚至可以在几秒钟内重命名超过一百万个条目。大多数人类大小的文件系统将立即重命名（0.000 秒）。 它具有许多安全功能（跳过点文件；跳过系统文件和用户不拥有的文件；不能以 root 身份运行，无法覆盖文件）。因此，您可以直接使用 sanitizefs /home 命令运行它，以重命名系统上的所有内容。 它还有一个干运行标志，因此您可以测试事物，而无需实际重命名任何内容. 它不使用 mv 或任何其他外部命令，因此它无法覆盖任何内容。它直接使用 Linux 内核中的较低级别的 renameat2() 函数。所以只能重命名；快速且安全。 它可以轻松集成到 TUI 文件管理器（例如 Yazi、LF、Ranger、NNN、vifm）中，实现更加自动化、更易于使用。 github.com/emrakyz/sanitize_fs   由   提交 /u/RusselsTeap0t   [链接] [评论]]]></description>
+      <description><![CDATA[这是一个 200 SLOC 以下的非常小的程序。除了 Linux 和 Glibc 之外，它没有任何依赖项。 根据 UNIX 和 URL 标准进行清理：  只有小写字母数字英语。 空格、点和破折号 --&gt;下划线。 没有连续、尾随、前导下划线。 保持扩展名完整（如果它是文件，而不是目录）。 您将得到结果名称，例如：example_folder/spreadsheet_file.ods  详细的理由可以在存储库中找到。 在具有大量线程，它甚至可以在几秒钟内重命名超过一百万个条目。大多数人类大小的文件系统将立即重命名（0.000 秒）。 它具有许多安全功能（跳过点文件；跳过系统文件和用户不拥有的文件；不能以 root 身份运行，无法覆盖文件）。因此，您可以直接使用 sanitizefs /home 命令运行它，以简单地重命名系统上的所有内容。 它还有一个干运行标志，因此您可以测试内容，而无需实际重命名任何内容. 它不使用 mv 或任何其他外部命令，因此它无法覆盖任何内容。它直接使用 Linux 内核中的较低级别的 renameat2() 函数。所以只能重命名；快速且安全。 它可以轻松集成到 TUI 文件管理器（例如 Yazi、LF、Ranger、NNN、vifm）中，实现更加自动化、更易于使用。 即时文件名清理器：线程化和线程化递归与轻量级   由   提交 /u/RusselsTeap0t   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c5hdzc/a_threaded_filename_sanitizer_for_linux_in_pure_c/</guid>
       <pubDate>Tue, 16 Apr 2024 14:24:02 GMT</pubDate>
     </item>
@@ -27,13 +41,6 @@
       <pubDate>Tue, 16 Apr 2024 13:16:58 GMT</pubDate>
     </item>
     <item>
-      <title>在编写专有软件时使用 Copyleft 工具</title>
-      <link>https://www.reddit.com/r/opensource/comments/1c5eql0/using_copyleft_tools_while_writing_proprietary/</link>
-      <description><![CDATA[我编写专有软件。最近我遇到了一个有趣的 GNU 项目，我想用它来帮助管理我的桌面点文件。该软件获得 GPL 许可，专有软件不得以任何方式使用或调用。它恰好位于我用来编写软件的同一个桌面上。如果我使用这个 GNU 实用程序，我是否会面临任何法律风险？   由   提交 /u/TooManyBison   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1c5eql0/using_copyleft_tools_while_writing_proprietary/</guid>
-      <pubDate>Tue, 16 Apr 2024 12:21:42 GMT</pubDate>
-    </item>
-    <item>
       <title>寻找适用于 Windows 的 OSS 防火墙/Netlimiter 替代方案</title>
       <link>https://www.reddit.com/r/opensource/comments/1c53xnq/looking_for_oss_firewallnetlimiter_alternative/</link>
       <description><![CDATA[大家好， 我是 Netlimiter 的长期用户，但我并不热衷于订阅模式。 我正在寻找免费或只需一次性购买的替代品。我的要求非常简单： - 我希望应用程序提示我授予互联网访问权限，可以选择暂时或永久记住我的决定。  - 应用程序尝试连接到互联网时的 GUI 警报。 任何建议将不胜感激。 请记住，即时决策能力和每台计算机的控制是我认为 Netlimiter 最吸引人的地方。类似的动态功能将是理想的选择。 非常感谢！ &lt;3   由   提交 /u/MikeTheFox   [链接] [评论]]]></description>
@@ -50,7 +57,7 @@
     <item>
       <title>Notion2Pandas</title>
       <link>https://www.reddit.com/r/opensource/comments/1c4w5ef/notion2pandas/</link>
-      <description><![CDATA[大家好！我刚刚发布了一个新的 Python 包，notion2pandas，它允许您仅用一行代码将 Notion 数据库导入 pandas 数据帧，并仅用一行代码从 pandas 数据帧更新 Notion 数据库。&lt;无论您是数据科学家、数据工程师、Python 爱好者，还是只是好奇，从终端“pip install notion2pandas”，按照 README 中的教程进行操作，祝您编码愉快！  ​ https://gitlab.com/Jaeger87/notion2pandas   由   提交/u/Jaeger1987   [链接] [评论]]]></description>
+      <description><![CDATA[大家好！我刚刚发布了一个新的 Python 包，notion2pandas，它允许您仅用一行代码将 Notion 数据库导入到 pandas 数据框中，并仅用一行代码从 pandas 数据框中更新 Notion 数据库。&lt;无论您是数据科学家、数据工程师、Python 爱好者，还是只是好奇，从终端“pip install notion2pandas”，按照 README 中的教程进行操作，祝您编码愉快！  ​ https://gitlab.com/Jaeger87/notion2pandas   由   提交/u/Jaeger1987   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c4w5ef/notion2pandas/</guid>
       <pubDate>Mon, 15 Apr 2024 20:09:29 GMT</pubDate>
     </item>
@@ -69,7 +76,7 @@
       <pubDate>Mon, 15 Apr 2024 16:39:50 GMT</pubDate>
     </item>
     <item>
-      <title>我制作了一个 GPL Minecraft 启动器！</title>
+      <title>我制作了一个 GPL Minecraft 启动器！！</title>
       <link>https://www.reddit.com/r/opensource/comments/1c4li51/i_made_a_gpl_minecraft_launcher/</link>
       <description><![CDATA[我为开源 CLI 启动器 picomc 制作了一个 GUI，以便于使用，我认为它运行得很好，我很乐意有人来测试它！&lt; /p&gt; 它被称为“picodulce”，是为了纪念一种阿根廷糖果，也因为它是世界上最“甜”的糖果。使用picomc的方式 ​ https://github.com/nixietab /picodulce   由   提交/u/shucture  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c4li51/i_made_a_gpl_minecraft_launcher/</guid>
@@ -102,13 +109,6 @@
       <description><![CDATA[我和一群朋友启动了一个开源项目，旨在制作有意义且反应性的视觉效果，以配合音乐和系统音频。 &lt; p&gt;免责声明：我们已经开始了这个项目，但我们还没有完成，并非所有功能都已实现。 （尤其是涉及 Librosa 的内容） 它的作用  接收音乐和系统音频 从音频中提取有意义的信息 幅度、频率信息、音乐分析  以视觉方式表示这些有意义的信息  预期的最终产品 对音频输出流具有不同视觉解释的多个场景，旨在用于壁纸引擎、iCue 或家居灯光。 为您服务 如果您有兴趣，请访问我们的网站和 GitHub。 欢迎贡献者！ 如果您有更多问题，请随时在下面发表评论或在 Discord 中给我们留言！ 我们的网站 我们的 GitHub 我们的 Discord   由   提交/u/Cautious_Philosopher   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c4f700/make_reactive_and_interesting_videos3d_scenes/</guid>
       <pubDate>Mon, 15 Apr 2024 06:18:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>这个周末我创建了一个快速的 OSS 网页游戏作为业余项目！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1c4a3gh/i_created_a_quick_oss_web_game_as_a_side_project/</link>
-      <description><![CDATA[老实说，我不记得上次构建与工作无关的东西是什么时候了，所以我决定花一些时间，开发一个有趣的东西这个周末的业余项目！ 目标：登陆页面/应用内错误很糟糕，但它们也太常见了。所以我制作了一个 1 分钟的游戏，你的目标是在这个假的“待办事项列表应用程序”（还有排行榜）中找到尽可能多的错误。 快来看看吧！ https://detailorient.app 此处的开源存储库：https://github.com/kevjin/are-you-detail-orientation    由   提交 /u/8YearOldCodPlayer   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1c4a3gh/i_created_a_quick_oss_web_game_as_a_side_project/</guid>
-      <pubDate>Mon, 15 Apr 2024 01:32:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
