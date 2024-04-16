@@ -4,210 +4,135 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 16 Apr 2024 03:21:15 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2024 06:23:24 GMT</lastBuildDate>
     <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_11</link>
-      <description><![CDATA[是的，我使用的最终解决方法确实是将较长的提示分成较短的提示，然后将其最大类别分数作为结果。如果其他人遇到同样的问题，这是我的解决方法：
-def query_moderation(内容, max_num_retries=3, wait_time=60):
-    客户端 = OpenAI()
-    重试次数 = 0
-    完成=假
-    while（未完成）且 num_retries &lt;= max_num_retries：
-        如果 num_retries &gt; 0:
-            print (f&#39;重试 {num_retries} 次&#39;)
-        尝试：
-            响应= client.moderations.create（输入=内容）
-            完成=真
-        除了异常 e：
-            err_msg = f&#39;{e}&#39;
-            打印（错误消息）
-            m = re.search(r&quot;请在 (\d+\.?\d*)s 中重试&quot;, err_msg)
-            重试次数 += 1
-            如果米：
-                sleep_time = min(float(m.group(1)) * 1.2, wait_time)
-                print (f&#39;睡眠: {sleep_time} 秒&#39;)
-                时间.睡眠（睡眠时间）
-            别的：
-                时间.睡眠（等待时间）
-    如果没有完成：
-        内容长度 = len(内容)
-        half_length = int(round(内容长度/2))
-        content_firsthalf = 内容[:half_length]
-        内容第二半 = 内容[半长度:]
-        print (f&#39;将旧长度: {content_length} 分割成新长度: {half_length}&#39;)
-        output_firsthalf = query_moderation(content_firsthalf, max_num_retries, wait_time)
-        输出第二半 = 查询审核（内容第二半，最大重试次数，等待时间）
-        输出= {&#39;标记&#39;：output_firsthalf [&#39;标记&#39;]或output_secondhalf [&#39;标记&#39;]}
-        输出[&#39;类别&#39;] = {}
-        对于 output_firsthalf[&#39;categories&#39;] 中的 k：
-            输出[&#39;类别&#39;][k] = output_firsthalf[&#39;类别&#39;][k] 或 output_secondhalf[&#39;类别&#39;][k]
-        输出[&#39;category_scores&#39;] = {}
-        对于 output_firsthalf[&#39;category_scores&#39;] 中的 k：
-            输出[&#39;category_scores&#39;][k] = max(output_firsthalf[&#39;category_scores&#39;][k], output_secondhalf[&#39;category_scores&#39;][k])
-    别的：
-        输出=response.results[0].model_dump()
-    返回输出
-
-但是，我仍然希望 OpenAI 能够解决这个问题，或者至少修复他们的错误消息，特别是考虑到产生这个错误是多么简单（至少对我来说，但我不确定这个问题是否只是特定于我的帐户，如果有人可以在下面测试我的代码并让我知道，我将不胜感激）：
-从 openai 导入 OpenAI
-导入时间
-导入请求
-客户端 = OpenAI()
-响应 = requests.get(&quot;https://raw.githubusercontent.com/da03/moderation_issue/main/example.txt&quot;)
-打印（响应.文本[5999]）
-flag_product_error = True # 当 True 时，产生 429 错误；错误，没有错误
-如果标志_产生_错误：
-    文本=响应.文本[:6000]
-别的：
-    文本=响应.文本[:5999]
-
-print (f&#39;字符数: {len(text)}&#39;)
-尝试：
-    响应 = client.moderations.create(input=text)
-除了异常 e：
-    打印（&#39;错误&#39;，e）
+      <title>无法加载对话 8d28c097-a6fb-4ac2-94c9-e320aa7d2514</title>
+      <link>https://community.openai.com/t/unable-to-load-conversation-8d28c097-a6fb-4ac2-94c9-e320aa7d2514/718900#post_1</link>
+      <description><![CDATA[大家好，
+我自 2024 年 3 月 18 日起一直在使用 ChatGPT Plus。从昨天开始我得到了以下信息：
+无法加载对话 8d28c097-a6fb-4ac2-94c9-e320aa7d2514
+user.json 它说：​​“chatgpt_plus_user”：false
+我尝试过：
+使用不同的浏览器
+更新浏览器
+清除浏览器缓存
+尝试注销并登录
+没有任何帮助。谁能帮我？谢谢！
+最诚挚的问候，
+居尔]]></description>
+      <guid>https://community.openai.com/t/unable-to-load-conversation-8d28c097-a6fb-4ac2-94c9-e320aa7d2514/718900#post_1</guid>
+      <pubDate>Tue, 16 Apr 2024 06:22:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=2#post_34</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=2#post_34</guid>
+      <pubDate>Tue, 16 Apr 2024 06:11:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI有可能创作音乐吗？</title>
+      <link>https://community.openai.com/t/is-it-possible-for-a-ai-to-produce-music/717648#post_5</link>
+      <description><![CDATA[您在 chatgpt 类别中发帖。我对openai sora知之甚少
+很确定它没有音频功能。]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-for-a-ai-to-produce-music/717648#post_5</guid>
+      <pubDate>Tue, 16 Apr 2024 06:09:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>侧边栏不显示在桌面浏览器上</title>
+      <link>https://community.openai.com/t/sidebar-not-showing-on-desktop-browser/108235#post_10</link>
+      <description><![CDATA[尝试：
+1- 放大 (Cmd &gt; + )
+2- 然后缩小（Cmd &gt; - ），
+左边会出现一个小箭头。它将打开侧面菜单
 ]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_11</guid>
-      <pubDate>Tue, 16 Apr 2024 03:16:55 GMT</pubDate>
+      <guid>https://community.openai.com/t/sidebar-not-showing-on-desktop-browser/108235#post_10</guid>
+      <pubDate>Tue, 16 Apr 2024 06:04:53 GMT</pubDate>
     </item>
     <item>
-      <title>如何为我的 API 助手添加网页浏览功能？</title>
-      <link>https://community.openai.com/t/how-can-i-add-web-browsing-ability-to-my-api-assistant/708119#post_3</link>
-      <description><![CDATA[“看来我得定义自己的API来调用Google搜索，然后将结果返回给助手处理，对吧？寻求澄清。” &lt;img alt=&quot;:thinking:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/thinking.png?v=12&quot; title=&quot;:thinking: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/how-can-i-add-web-browsing-ability-to-my-api-assistant/708119#post_3</guid>
-      <pubDate>Tue, 16 Apr 2024 03:08:05 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_14</link>
+      <description><![CDATA[好的，该视频的目的是向人们展示可以在 PC 上使用本地数据的 Assistant，他不会更改数据或生成随机的东西，他很听话且聪明等等。
+我知道视频中的聊天不太好，我也解决了一些错误，修复了聊天以正确更新等等（我将在 24 小时内更换视频）
+我将通过界面和真实的数据库来改进它。
+完成后，我会为迷你 AGI 构建架构。]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_14</guid>
+      <pubDate>Tue, 16 Apr 2024 06:03:18 GMT</pubDate>
     </item>
     <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_10</link>
-      <description><![CDATA[标题打印例程：
-def print_x_headers(headers: dict) -&gt;;没有任何：
-    &quot;&quot;&quot;仅打印 x-ratelimit 标头&quot;&quot;&quot;
-    x_headers = {k: v for k, v in headers.items() if k.lower().startswith(&#39;x-rate&#39;)}
-    打印（json.dumps（x_headers，缩进= 2））
-
-当使用 print_x_headers(headers) 调用时，从 with_raw_response 方法中获取的标头确实会打印。但如果我们没有获得 x-ratelimit（就像其他具有标头的端点一样），它会设置为不打印任何内容。因为它会进行过滤。
-您可以使用 .startswith(‘’) - 一个空字符串，它不会过滤标头，并为您提供一份关于您所获得的所有内容的可读报告。可用的键不能回答我们任何有关费率的问题，那么：
-日期
-内容类型
-传输编码
-连接
-openai-版本
-openai-组织
-x-请求-id
-openai-processing-ms
-严格传输安全
-cf-缓存状态
-设置cookie
-设置cookie
-服务器
-cf射线
-内容编码
-替代服务
-我想人们可以使用他们推荐的 2000 个令牌分割点来进行您自己的分块。让正则表达式在 1000 个中文字符之后开始查找换行符，或者当它变得绝望时查找空格，因为它们的标记使用率很高。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_10</guid>
-      <pubDate>Tue, 16 Apr 2024 03:02:23 GMT</pubDate>
+      <title>AI有可能创作音乐吗？</title>
+      <link>https://community.openai.com/t/is-it-possible-for-a-ai-to-produce-music/717648#post_4</link>
+      <description><![CDATA[能够创建视频的人工智能怎么样？我听说过类似的事情。
+如果人工智能可以制作视频，那么认为它们也可以制作音频也就不牵强了，不是吗？]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-for-a-ai-to-produce-music/717648#post_4</guid>
+      <pubDate>Tue, 16 Apr 2024 06:02:58 GMT</pubDate>
     </item>
     <item>
-      <title>在令牌限制下，无论如何响应都会被切断</title>
-      <link>https://community.openai.com/t/under-token-limit-response-is-cut-off-regardless/718774#post_1</link>
-      <description><![CDATA[你好，
-我处于 API 使用的第 1 层。我发现，无论远低于给定模型的令牌限制（在本例中为 gpt-3.5-turbo-0125，但发生在所有情况下），我的响应都会被切断。使用标记器测量我的最新输入是 290 个标记，我收到的响应是 295。响应在句子中被切断。
-无论模型如何，也无论我是否设置 max_tokens 参数，这种情况都会发生。
-有什么想法吗？]]></description>
-      <guid>https://community.openai.com/t/under-token-limit-response-is-cut-off-regardless/718774#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 03:00:03 GMT</pubDate>
+      <title>助手API和函数调用问题</title>
+      <link>https://community.openai.com/t/assistants-api-and-function-calling-question/717908#post_2</link>
+      <description><![CDATA[没关系，我想我大概明白了。
+在我的线程/运行观察者上我需要做这样的事情：
+def wait_on_run(运行，线程)：
+    while run.status in [&quot;queued&quot;, &quot;in_progress&quot;, &quot;requires_action&quot;]:
+        运行 = client.beta.threads.runs.retrieve(
+            thread_id=线程.id,
+            run_id=运行.id,
+        ）
+        如果 run.status == &quot;requires_action&quot;:
+            print(&#39;处理函数调用。&#39;)
+
+            required_action = 运行.required_action
+            如果 required_action.type == &#39;submit_tool_outputs&#39;:
+                # 访问第一个工具调用
+                tool_call = required_action.submit_tool_outputs.tool_calls[0]
+                工具调用 ID = 工具调用 ID
+                
+                # 获取查询（函数参数）
+                query_str = tool_call.function.arguments
+                query_dict = json.loads(query_str)
+                查询 = query_dict.get(&#39;查询&#39;)
+                
+                #调用外部函数
+                输出 = 搜索互联网（查询）
+                
+                # 从函数获取数据后提交工具输出
+                client.beta.threads.runs.submit_tool_outputs(
+                    thread_id=线程.id,
+                    run_id=运行.id,
+                    工具输出=[{
+                        “tool_call_id”：tool_call_id，
+                        “输出”：json.dumps（输出）
+                    }]
+                ）
+
+        睡眠时间(0.2)
+    返回运行
+
+以防万一其他人需要它。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-and-function-calling-question/717908#post_2</guid>
+      <pubDate>Tue, 16 Apr 2024 05:59:48 GMT</pubDate>
     </item>
     <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_9</link>
-      <description><![CDATA[事实上，我能够确定它中断的位置：在 6,000 个字符处（通过在下面的代码中将 flag_product_error 设置为 True），它中断了；但在 5,999 个字符处（通过将下面的 flag_product_error 设置为 False），它可以工作。第5999个字符似乎没有什么特别的地方（是一个汉字“要”，意思是“想要”或“需要”）。
-从 openai 导入 OpenAI
-导入时间
-导入请求
-客户端 = OpenAI()
-响应 = requests.get(&quot;https://raw.githubusercontent.com/da03/moderation_issue/main/example.txt&quot;)
-
-flag_product_error = True # 当 True 时，产生 429 错误；错误，没有错误
-如果标志_产生_错误：
-    文本=响应.文本[:6000]
-别的：
-    文本=响应.文本[:5999]
-
-print (f&#39;字符数: {len(text)}&#39;)
-尝试：
-    响应 = client.moderations.create(input=text)
-除了异常 e：
-    打印（&#39;错误&#39;，e）
-
-顺便说一句，我想提一下，我并不是唯一看到此错误的人。我的一位合作者发现了同样的问题，他们通过在遇到错误时截断输入来修复它，如下所示：
-json_data[&quot;input&quot;] = json_data[&quot;input&quot;][:int(0.9*len(json_data[&quot;input&quot;]))]
-
-但我希望找出真正的根本问题。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_9</guid>
-      <pubDate>Tue, 16 Apr 2024 02:58:13 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_13</link>
+      <description><![CDATA[谢谢，我今天看一下再回来，从第一次快速观看开始，我不明白它是如何准确回答我的问题的]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_13</guid>
+      <pubDate>Tue, 16 Apr 2024 05:55:42 GMT</pubDate>
     </item>
     <item>
-      <title>AI 模型指纹并不唯一，这使得它们对于跟踪模型更新相当无用</title>
-      <link>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_9</link>
-      <description><![CDATA[
-
-
-_j：
-&lt;块引用&gt;
-质量概率
-
-
-我已尽我所能研究了“质量概率”一词，但我无法确认该术语是否被用作官方学术术语。
-我认为“质量概率”一词，不是“概率质量”或“概率质量函数”，可以在特定社区或群体中用作独特术语。
-此外，尽管我对“质量概率”进行了调查，但我无法确认它是否被认为是一般技术和学术语言中的官方术语。
-尽管如此，我完全承认由于我自身知识的缺乏，我可能误解了这个术语，因此我可能错误地得出结论：它不是一般技术和学术语言中的常见术语。&lt; /p&gt;
-我无意否认你的意见。
-鉴于我缺乏研究、知识和基本理解，你的表达完全有道理。
-如果您能提供任何迹象表明“质量概率”被接受为一个学术术语，我很乐意阅读并了解更多信息。]]></description>
-      <guid>https://community.openai.com/t/ai-model-fingerprints-are-not-unique-making-them-fairly-useless-for-tracking-model-updates/715497#post_9</guid>
-      <pubDate>Tue, 16 Apr 2024 02:53:35 GMT</pubDate>
+      <title>如何避免Assistant API产生幻觉（使用gpt3.5模型）</title>
+      <link>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_12</link>
+      <description><![CDATA[谢谢！你的帮助太棒了。我会在未来的机器人指令设置中考虑这一点！]]></description>
+      <guid>https://community.openai.com/t/how-to-avoid-hallucinations-for-assistant-api-using-gpt3-5-model/717950#post_12</guid>
+      <pubDate>Tue, 16 Apr 2024 05:54:55 GMT</pubDate>
     </item>
     <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_8</link>
-      <description><![CDATA[嗯，我打印出来的请求标头是使用您的代码（包括提示），我刚刚在 print_x_headers 中添加了一条打印语句...]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_8</guid>
-      <pubDate>Tue, 16 Apr 2024 02:50:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已经使用新号码创建了新的 openai 帐户，但没有获得任何免费信用</title>
-      <link>https://community.openai.com/t/i-have-created-new-openai-account-with-new-number-and-havent-got-any-free-creadit/717565#post_6</link>
-      <description><![CDATA[您可以在 help.openai.com 上找到所有关于免费或试用的内容的完全省略和删除。
-除了那些习惯于通过解决方法和漏洞一次又一次获得它们的人之外，这不应该是一个巨大的失望。]]></description>
-      <guid>https://community.openai.com/t/i-have-created-new-openai-account-with-new-number-and-havent-got-any-free-creadit/717565#post_6</guid>
-      <pubDate>Tue, 16 Apr 2024 02:48:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_7</link>
-      <description><![CDATA[抱歉，审核率限制似乎与其他模型的使用是分开的，我们不知道 openai 如何管理它。
-如果您仅在该帐户中测试 API，并且在休眠 300 秒后配额窗口仍然是 143513，甚至比五分钟前还要高，则可能存在一些我们不知道的问题或秘密。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_7</guid>
-      <pubDate>Tue, 16 Apr 2024 02:45:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>审核提高了长输入的 429 速率限制错误</title>
-      <link>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_6</link>
-      <description><![CDATA[
-
-
-云天灯：
-&lt;块引用&gt;
-不幸的是，提取您提供的代码的 x header 部分
-
-
-然后，审核端点似乎没有提供其他典型的标头。我得到 &quot;x-request-id&quot;: &quot;req_78f451... 作为我唯一的 x-header 返回，并认为它很奇怪但出乎意料。
-看来这对你的帐户来说是特定的，或者你的数据有一些特定的东西，使得“剩余”变得疯狂。我按顺序向我的脚本添加了 4 个主循环，发送 58746 个 openai 文档的每个令牌，审核端点可能想要阅读（并且必须选择没有 &lt;|endoftext|&gt; 的文档，而审核会拒绝该文档）），并且没有得到任何结果率错误，也没有任何剩余内容的报告。
-由于 OpenAI 工作人员不会在这里巡逻寻找需要修复的问题，因此您可以发送帮助消息，并尽量不要通过发送“帐户问题”来触发机器人承包商，甚至发送限制上的“请求例外”看看它是否会被人类读取。]]></description>
-      <guid>https://community.openai.com/t/moderation-raises-429-rate-limit-error-for-long-input/718609#post_6</guid>
-      <pubDate>Tue, 16 Apr 2024 02:44:27 GMT</pubDate>
+      <title>微调模型不严格从训练集中选择标签</title>
+      <link>https://community.openai.com/t/fine-tuned-model-not-strictly-selecting-labels-from-training-set/718876#post_1</link>
+      <description><![CDATA[嗨，我的工作是微调 gpt3.5 模型。我有两个数据集。在第一个数据集中，我有提示的信息，包括提示、提示描述、提示标题和类别。我希望我的模型以某种方式知道这些数据。在我的第二个数据集中，我对这些提示信息和目标提示标题有疑问。我想微调模型，以便如果用户向它提出问题，它应该向用户建议最合适的提示标题，如果没有这样的提示标题，它应该相应地说没有提示标题符合您的要求。
+因此，作为解决方案，我从第一个数据集创建了一个示例（example_0），其中包含所有提示信息。第二个数据集包含问题和答案，我将其划分为训练集和测试集，并在训练集中的第一个位置添加了 example_0 并进行了微调。但问题是，在某些情况下，它会重新构造标签（prompt_title），或者对于新数据，它会生成提示标题，但它应该返回“没有匹配的提示标题”。]]></description>
+      <guid>https://community.openai.com/t/fine-tuned-model-not-strictly-selecting-labels-from-training-set/718876#post_1</guid>
+      <pubDate>Tue, 16 Apr 2024 05:50:15 GMT</pubDate>
     </item>
     </channel>
 </rss>
