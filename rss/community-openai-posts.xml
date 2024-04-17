@@ -4,163 +4,90 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 16 Apr 2024 21:17:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 01:11:47 GMT</lastBuildDate>
     <item>
-      <title>如何删除为 API 访问创建的项目（新功能）</title>
-      <link>https://community.openai.com/t/how-to-delete-projects-new-functionality-created-for-api-access/719689#post_1</link>
-      <description><![CDATA[喜欢新项目/组织。假设每个项目都有不同的徽标或颜色（很难知道您所在的项目）。另外，如何删除项目？我似乎不知道如何在创建项目后对其进行存档或删除。]]></description>
-      <guid>https://community.openai.com/t/how-to-delete-projects-new-functionality-created-for-api-access/719689#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 20:59:41 GMT</pubDate>
+      <title>助手：每个订单的 JSON 文件，将文件附加到线程</title>
+      <link>https://community.openai.com/t/assistants-json-file-for-each-order-attach-file-to-thread/719808#post_1</link>
+      <description><![CDATA[我正在尝试为电子商务店主建立一个助手。当他们想要与特定订单交互时，我希望 OpenAI 在线程中包含订单的详细信息，以用作与订单相关的消息的参考。
+示例：用户转到订单 #123 页面。页面有窗口，以便用户访问助手来询问订单或对订单采取操作/功能。
+我的问题是：订单特定线程（订单 123 的线程）是否应该附加 order.json (order123.json) 文件，或者我应该只在订单线程上下文的开头提供订单信息？我试图避免在线程中进一步截断订单详细信息，而且订单详细信息也不是小上下文。
+我还可以提供一个函数来检索订单详细信息，但只要提出问题就会调用该函数。
+我希望我的漫谈有意义。]]></description>
+      <guid>https://community.openai.com/t/assistants-json-file-for-each-order-attach-file-to-thread/719808#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 01:00:38 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt-4-turbo 不存在或您无权访问它</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-does-not-exist-or-you-do-not-have-access-to-it/718851#post_3</link>
-      <description><![CDATA[嗨，
-代码已正确实施；这是一个计费问题。
-我解决了这个问题。在启用访问之前付款似乎有轻微的延迟。我在付款后一两分钟提出了请求。
-我强烈建议改进错误消息以通知用户他们需要付款。我付款没有问题，但我在调试他们的系统以确定我需要付款时遇到了问题。
-谢谢]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-does-not-exist-or-you-do-not-have-access-to-it/718851#post_3</guid>
-      <pubDate>Tue, 16 Apr 2024 20:51:41 GMT</pubDate>
+      <title>使用嵌入模型时，为什么要询问普通模型而不是嵌入模型？</title>
+      <link>https://community.openai.com/t/when-using-embedding-models-why-to-ask-normal-models-instead-of-embedding-ones/719794#post_1</link>
+      <description><![CDATA[嗨，我正在尝试使用嵌入模型以隔离的方式工作，因为我想提供不想存储在任何地方的敏感数据，所以我的想法是：
+
+根据包含业务规则的提示生成嵌入
+将嵌入存储在我的数据库中
+通过提供之前生成的嵌入+我的问题（关于嵌入中包含的数据）向嵌入模型提出问题
+
+我正在研究 openai com/docs/guides/embeddings 平台并研究用例，我基于询问问题的代码构建了我的代码：
+示例/question_answering_using_embeddings
+在那里我可以看到如何生成嵌入，但最后，我可以看到他们只是问一个普通的 GPT 模型（如 3.5 或 4.0）一个问题，我看不到嵌入在哪一点被使用或注入进入GPT模型。
+def 询问(
+    查询：str，
+    df: pd.DataFrame = df,
+    型号：str = GPT_MODEL，
+    token_budget: int = 4096 - 500,
+    print_message: 布尔 = False,
+）-&gt;字符串：
+    &quot;&quot;&quot;使用 GPT 以及相关文本和嵌入的数据框回答查询。&quot;&quot;&quot;
+    消息= query_message（查询，df，模型=模型，token_budget=token_budget）
+    如果打印消息：
+        打印（消息）
+    消息 = [
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;您回答有关2022年冬奥会的问题。&quot;},
+        {“角色”：“用户”，“内容”：消息}，
+    ]
+    响应 = client.chat.completions.create(
+        型号=型号，
+        消息=消息，
+        温度=0
+    ）
+    response_message = response.choices[0].message.content
+    返回响应消息
+
+我认为这是向嵌入模型提出问题，而不是向普通的 GPT 模型提出问题。有没有一种方法可以实现我想要的结果（询问一个不记得数据的嵌入模型，基于先前生成的嵌入+敏感数据和相关问题）？]]></description>
+      <guid>https://community.openai.com/t/when-using-embedding-models-why-to-ask-normal-models-instead-of-embedding-ones/719794#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 00:40:52 GMT</pubDate>
     </item>
     <item>
-      <title>在整个会话中保留预先配置的对话启动项</title>
-      <link>https://community.openai.com/t/retain-pre-configured-conversation-starters-throughout-a-session/719684#post_1</link>
-      <description><![CDATA[大家好。我正在创建一些自定义聊天，但无法让它们保留我预先配置的对话启动器。一旦用户开始聊天会话，对话开始按钮就会消失。有什么线索吗？
-我已将其内置到聊天中，但没有香蕉：
-在整个会话期间始终保留对话开头，以便用户可以在会话期间随时应用它们。]]></description>
-      <guid>https://community.openai.com/t/retain-pre-configured-conversation-starters-throughout-a-session/719684#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 20:44:05 GMT</pubDate>
+      <title>列出助手端点未从非默认项目返回助手？</title>
+      <link>https://community.openai.com/t/list-assistants-endpoint-not-returning-assistants-from-non-default-project/719725#post_3</link>
+      <description><![CDATA[Aaaah 是有道理的，因为我使用的是我一直使用的 API 密钥。我还没有尝试过在项目中使用新的。谢谢！]]></description>
+      <guid>https://community.openai.com/t/list-assistants-endpoint-not-returning-assistants-from-non-default-project/719725#post_3</guid>
+      <pubDate>Wed, 17 Apr 2024 00:23:13 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 中处理电子表格时出错 - 代码解释器</title>
-      <link>https://community.openai.com/t/error-processing-spreadsheet-in-chatgpt-code-interpreter/612007#post_4</link>
-      <description><![CDATA[不，我没有，但现在它可以正常工作了。]]></description>
-      <guid>https://community.openai.com/t/error-processing-spreadsheet-in-chatgpt-code-interpreter/612007#post_4</guid>
-      <pubDate>Tue, 16 Apr 2024 20:41:26 GMT</pubDate>
+      <title>Assistant API 刚刚得到了重大升级吗？</title>
+      <link>https://community.openai.com/t/did-assistants-api-just-get-a-big-upgrade/719754#post_3</link>
+      <description><![CDATA[所以：消息[-n:]
+总比没有好。
+我想您可以在聊天中放置一个动态滑块，适当地使用户界面中的旧回合变灰。但你最终无法知道所管理的上限长度。
+但是：它如何影响线程中所有看不见的内部工具调用和工具返回？
+计数是否仅取决于用户消息的发起以及随后发生的情况？或者任意数量的消息，这些消息可能会给您留下没有上下文的助理响应……
+为什么不呢：
+truncation_strategy：{“max_messages”：数字，“max_message_tokens”：数字，“truncate_at”：[“较小”| “更大”]}]]></description>
+      <guid>https://community.openai.com/t/did-assistants-api-just-get-a-big-upgrade/719754#post_3</guid>
+      <pubDate>Wed, 17 Apr 2024 00:12:53 GMT</pubDate>
     </item>
     <item>
-      <title>带有 OAI API 的 KV 缓存 - 什么时候启动？</title>
-      <link>https://community.openai.com/t/kv-cache-with-the-oai-api-when-does-it-kick-in/719616#post_3</link>
-      <description><![CDATA[是的，我想只有 OpenAI 的员工才能回答这个问题。他们在 docs 中提到，某些提示的 KV 缓存效率更高，因此他们肯定会做一些事情，但最终需要内部开发人员来确认。]]></description>
-      <guid>https://community.openai.com/t/kv-cache-with-the-oai-api-when-does-it-kick-in/719616#post_3</guid>
-      <pubDate>Tue, 16 Apr 2024 20:36:10 GMT</pubDate>
+      <title>列出助手端点未从非默认项目返回助手？</title>
+      <link>https://community.openai.com/t/list-assistants-endpoint-not-returning-assistants-from-non-default-project/719725#post_2</link>
+      <description><![CDATA[我刚刚测试过，使用项目下的 API 密钥，它按预期工作。]]></description>
+      <guid>https://community.openai.com/t/list-assistants-endpoint-not-returning-assistants-from-non-default-project/719725#post_2</guid>
+      <pubDate>Wed, 17 Apr 2024 00:11:37 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT4 自最新更新以来不断出现错误</title>
-      <link>https://community.openai.com/t/chatgpt4-having-constant-errors-since-the-latest-update/500595#post_6</link>
-      <description><![CDATA[现在是 2024 年 4 月，在使用 GPT 或使用 bing 或图像（几乎任何东西）进行搜索时，我不断收到错误“出了点问题”，而且速度非常慢，而且会让人筋疲力尽。
-浏览器或应用程序上仍然出现错误。]]></description>
-      <guid>https://community.openai.com/t/chatgpt4-having-constant-errors-since-the-latest-update/500595#post_6</guid>
-      <pubDate>Tue, 16 Apr 2024 20:35:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调事件 ID 拼写错误</title>
-      <link>https://community.openai.com/t/fine-tuning-event-id-typo/719613#post_2</link>
-      <description><![CDATA[您想知道占位符版本或更像散列的版本是否正确？
-您可以自己得到结果。
-这是一个粗略的作业列表抓取器，然后您可以选择一个作业来显示其事件（两个 API 调用都限制返回长度）
-导入 json
-从 openai 导入 OpenAI
-
-def main():
-    客户端 = OpenAI()
-
-    # 获取微调作业列表
-    joblist_response = client.fine_tuning.jobs.list(limit=10)
-    作业 = joblist_response.model_dump()
-    
-    # 打印作业详细信息
-    打印（json.dumps（作业，缩进= 2））
-
-    # 用于作业选择和事件获取的主循环
-    而真实：
-        print(&quot;\n选择一个作业来显示事件:&quot;)
-        对于索引，枚举中的作业（jobs[&#39;data&#39;]）：
-            print(f&quot;[{index + 1}] \&quot;id\&quot;: \&quot;{job[&#39;id&#39;]}\&quot;&quot;)
-        打印（“[99]退出”）
-
-        choice = input(&quot;请输入您的选择：&quot;)
-        if choice.isdigit():
-            选择 = int(选择)
-            如果选择== 99：
-                休息
-            elif 1 &lt;= 选择 &lt;= len(jobs[&#39;data&#39;]):
-                job_id = 职位[&#39;数据&#39;][选择 - 1][&#39;id&#39;]
-                # 检索并打印所选作业的事件
-                events_response = client.fine_tuning.jobs.list_events(
-                    fine_tuning_job_id=job_id,
-                    极限=3
-                ）
-                事件 = events_response.model_dump()
-                打印（json.dumps（事件，缩进= 2））
-            别的：
-                print(&quot;选择无效，请重试。&quot;)
-        别的：
-            print(&quot;请输入一个有效的数字。&quot;)
-
-如果 __name__ == &quot;__main__&quot;:
-    主要的（）
-
-您会发现事件列表中的事件对象的 ID 格式为：
-“id”：“ftevent-Frmmaq9zNRgm9bvER5cZYvYK”]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-event-id-typo/719613#post_2</guid>
-      <pubDate>Tue, 16 Apr 2024 20:34:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>制作一个充当辅助功能的 WatchOS 应用程序</title>
-      <link>https://community.openai.com/t/make-a-watchos-app-that-acts-as-the-assistent-feature/719676#post_1</link>
-      <description><![CDATA[ChatGPT 团队您好。
-我认为用户拥有一个 WearOS 应用程序会很酷而且很容易。这样，人们可以在匆忙或手机距离很远的情况下与 ChatGPT 进行交互。这可能就像 Android 上的辅助功能一样，如果有一个用于快速访问的小部件那就太棒了。您可以在新的对话中打开应用程序，甚至不需要切换对话，因为这样更干净、更容易使用。您点击并按住即可与 ChatGPT 对话，然后松开即可获得一个遮阳篷。
-这就是我的想法。
-亲切的问候，
-米兰]]></description>
-      <guid>https://community.openai.com/t/make-a-watchos-app-that-acts-as-the-assistent-feature/719676#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 20:24:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用聊天 gpt api 保持对话连续性？</title>
-      <link>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_11</link>
-      <description><![CDATA[
-
-
-
-无法在以下位置维护用户会话打开ai聊天完成API API
-
-  &lt;块引用&gt;
-    我昨晚遇到了这个问题并解决了它：正如其他人所说，您需要在发送请求的服务器端存储一些用户标识符。解决方案是存储用户字典 (sessionId) 及其消息历史记录。以下是在 React 和 NodeJs 中执行此操作的方法：
-反应
-const sessionId = uuidv4();
-  常量数据 = {
-    用户会话：会话 ID，
-    提示：提示，
-  };
-
-  const handleChatCompletion = async () =&gt;; {
-    尝试 {
-      setIsLoading(true);
-      常数 ap…
-  
-]]></description>
-      <guid>https://community.openai.com/t/how-can-i-maintain-conversation-continuity-with-chat-gpt-api/574819#post_11</guid>
-      <pubDate>Tue, 16 Apr 2024 20:18:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt 4 质量波动</title>
-      <link>https://community.openai.com/t/gpt-4-quality-fluctuation/719671#post_1</link>
-      <description><![CDATA[我注意到 GPT-4-1106 预览版模型的质量大幅下降。它曾经写出非常高质量的文章；现在看来真的很糟糕。它会恢复正常吗？我注意到每次他们发布新型号时都会发生这种情况。暂时有好处，然后就变坏了。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-quality-fluctuation/719671#post_1</guid>
-      <pubDate>Tue, 16 Apr 2024 20:17:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>BatchAPI 现已推出</title>
-      <link>https://community.openai.com/t/batchapi-is-now-available/718416?page=2#post_27</link>
-      <description><![CDATA[请求输入对象示例（又名上传文件）：
-{&quot;custom_id&quot;: &quot;request-1&quot;, &quot;method&quot;: &quot;POST&quot;, &quot;url&quot;: &quot;/v1/chat/completions&quot;, &quot;body&quot;: {&quot;model&quot;: &quot;gpt- 3.5-turbo&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个有用的助手。&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;2是什么+2？&quot;}]}}
-JSONL 表示用行分隔的 JSON。全部在同一条线上。
-您必须生成自己的 custom_id，以便可以将响应与原始消息进行匹配（可能无法保证所有调用都将按相同顺序或将成功）]]></description>
-      <guid>https://community.openai.com/t/batchapi-is-now-available/718416?page=2#post_27</guid>
-      <pubDate>Tue, 16 Apr 2024 20:00:40 GMT</pubDate>
+      <title>无法加载对话</title>
+      <link>https://community.openai.com/t/unable-to-load-conversation/562565#post_18</link>
+      <description><![CDATA[是的，结果我只需要更新我的浏览器就可以解决问题。主要是我一个多星期没有关了，也没有更新。]]></description>
+      <guid>https://community.openai.com/t/unable-to-load-conversation/562565#post_18</guid>
+      <pubDate>Wed, 17 Apr 2024 00:10:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
