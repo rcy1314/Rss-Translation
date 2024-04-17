@@ -4,92 +4,120 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 17 Apr 2024 09:19:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 12:32:23 GMT</lastBuildDate>
     <item>
-      <title>DALLE3 提示提示和技巧线程</title>
-      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_47</link>
-      <description><![CDATA[
-
-
-_j：
-&lt;块引用&gt;
-半挂卡车的直线侧视图
-
-
-
-这样可以吗？]]></description>
-      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_47</guid>
-      <pubDate>Wed, 17 Apr 2024 09:18:35 GMT</pubDate>
+      <title>对于 ChatGPT Enterprise，我如何使用内部文档为其提供更多上下文？</title>
+      <link>https://community.openai.com/t/with-chatgpt-enterprise-how-can-i-provide-more-context-to-it-by-using-internal-documentation/720280#post_1</link>
+      <description><![CDATA[使用 ChatGPT Enterprise，我如何通过将其指向内部文档、文件等来提供更多上下文？我相信 API 和 ChatGPT Enterprise 是两个不同的东西。使用 API 可以自定义和微调基本模型，但仅使用 ChatGPT 的企业版，是否可以使用文档并指向知识文章来为其提供上下文？]]></description>
+      <guid>https://community.openai.com/t/with-chatgpt-enterprise-how-can-i-provide-more-context-to-it-by-using-internal-documentation/720280#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 12:31:37 GMT</pubDate>
     </item>
     <item>
-      <title>chatGPT 作为计算机程序员</title>
-      <link>https://community.openai.com/t/chatgpt-as-a-computer-programmer/719919#post_3</link>
-      <description><![CDATA[我很高兴在这方面与你们的研究人员合作。加入组织不适合我。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-as-a-computer-programmer/719919#post_3</guid>
-      <pubDate>Wed, 17 Apr 2024 09:15:19 GMT</pubDate>
+      <title>无法从 gpt 3.5 Turbo 0125 获得相关答案</title>
+      <link>https://community.openai.com/t/cant-get-relevant-answers-from-gpt-3-5-turbo-0125/720272#post_1</link>
+      <description><![CDATA[system_template = “”“”你是一个有用的聊天机器人。从上下文中回答问题如果你找不到答案，就说我不知道​​。阅读整个上下文并生成相关信息
+开始！
+{chat_history}
+问题：{问题}
+有用的答案：“”“
+retriever_mpnet = db_mpnet.as_retriever(search_kwargs={‘k’: 3})
+从 langchain.prompts.chat 导入 (
+聊天提示模板，
+系统消息提示模板，
+HumanMessagePromptTemplate，
+）
+消息 = [
+SystemMessagePromptTemplate.from_template(system_template),
+HumanMessagePromptTemplate.from_template(“{question}”)
+]
+prompt = ChatPromptTemplate.from_messages(messages)
+从 langchain.callbacks.streaming_stdout 导入 StreamingStdOutCallbackHandler
+从 langchain.chat_models 导入 ChatOpenAI
+llm=ChatOpenAI(streaming=True,
+回调=[StreamingStdOutCallbackHandler()],
+温度=0.3，
+型号=“gpt-3.5-turbo-0125”，
+openai_api_key = openai.api_key）
+内存 = ConversationBufferMemory(
+memory_key=“聊天记录”，
+max_len=20,
+output_key=&#39;答案&#39;,
+检索器=retriever_mpnet，
+）
+链 = ConversationalRetrievalChain.from_llm(
+llm=llm,
+检索器=db_mpnet_ret,
+内存=内存，
+condense_question_prompt=提示，
+return_source_documents=True,
+get_chat_history=lambda h : h
+）
+即使检索文档具有查询的完美信息，它也永远不会给出正确的答案？它要么自己生成随机答案，要么说我不知道​​，即使查询很简单，例如“支付护士费用”。它不断给出不同的答案，我已经尝试了所有温度，它给出了一些答案，但突然重新启动时，它又开始给出错误的答案。我不知道该怎么做才能让它正确读取上下文。]]></description>
+      <guid>https://community.openai.com/t/cant-get-relevant-answers-from-gpt-3-5-turbo-0125/720272#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 12:21:50 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt 4 质量波动</title>
-      <link>https://community.openai.com/t/gpt-4-quality-fluctuation/719671#post_4</link>
-      <description><![CDATA[我也注意到了。我最近看到的 GPT 写的内容严重落后于 GPT 3 的输出。我还没有尝试 GPT4 Turbo。目前它给我的印象是有点“残疾”和受到审查。有点像比较一个孩子学习或追求他/她擅长的东西，但由于某种原因而受到阻碍。你知道它可以做得更好，但它不想这样做。谷歌吟游诗人后来的双子座是一样的，但是双子座有很大的差异，这让我很失望。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-quality-fluctuation/719671#post_4</guid>
-      <pubDate>Wed, 17 Apr 2024 09:14:37 GMT</pubDate>
+      <title>自 2023 年 7 月起，Chat GPT 4 在内容生成方面变得越来越糟糕</title>
+      <link>https://community.openai.com/t/chat-gpt-4-is-getting-worse-on-content-generating-from-july-2023/308019#post_12</link>
+      <description><![CDATA[是的，我不知道发生了什么，但最近它甚至停止给我任何答案，并且基本上崩溃了几次，并说“嗯......似乎出了问题。”在给我任何答案之前……我开始考虑退出 GPT 4，因为它基本上与 GPT3.5 几乎相同]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-4-is-getting-worse-on-content-generating-from-july-2023/308019#post_12</guid>
+      <pubDate>Wed, 17 Apr 2024 12:18:48 GMT</pubDate>
     </item>
     <item>
-      <title>AAC 文件的持续时间错误</title>
-      <link>https://community.openai.com/t/aac-files-have-wrong-duration/719744#post_3</link>
-      <description><![CDATA[感谢您提供全面的信息 我试图避免客户端混合，但可能必须走那条路。如果返回的 aac 文件从一开始就可以位于 m4a/mp4 容器中，那就太好了。]]></description>
-      <guid>https://community.openai.com/t/aac-files-have-wrong-duration/719744#post_3</guid>
-      <pubDate>Wed, 17 Apr 2024 09:04:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以将 API 用于使用 Chat-GPT 团队计划内部创建的聊天机器人吗？</title>
-      <link>https://community.openai.com/t/chat-gpt-team-plan-api/720083#post_2</link>
-      <description><![CDATA[ChatGPT 只是网站的聊天机器人。
-API 是一个单独的产品。
-在 ChatGPT 中创建的“GPT”仅存在且只能在 Web 应用程序或 ChatGPT 应用程序中使用。
-在 API 上，您可以购买积分。然后您可以使用积分来支付人工智能服务的数据费用。
-ChatGPT 订阅不会赋予您任何 API 特殊权利或支付任何 API 服务费用。您无需支付 ChatGPT 即可使用该 API。
-您可以使用 API 上提供的 AI 模型来复制专用 AI 的功能。
-platform.openai.com]]></description>
-      <guid>https://community.openai.com/t/chat-gpt-team-plan-api/720083#post_2</guid>
-      <pubDate>Wed, 17 Apr 2024 08:59:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>chatGPT 作为计算机程序员</title>
-      <link>https://community.openai.com/t/chatgpt-as-a-computer-programmer/719919#post_2</link>
-      <description><![CDATA[
+      <title>如何将用户问题转发到 openai Assistant api 到我的restapi端点</title>
+      <link>https://community.openai.com/t/how-to-forward-user-question-to-openai-assistant-api-to-my-restapi-endpoint/720250#post_2</link>
+      <description><![CDATA[这是我使用助手从 API 获取数据的方法。
   &lt;标题类=“来源”&gt;
-
-      openai.com
+      
+中 - 2 月 27 日，24 日
 
 
   &lt;文章类=“onebox-body”&gt;
     
-职业
-开发安全且有益的人工智能系统需要来自不同学科和背景的人员。我们一直在寻找有好奇心的人加入我们的团队。
+OpenAI 助手逐步-步骤
+为什么是助理？
+
+阅读时间：7 分钟阅读
 
 
 
 
 
-有简历和出版物。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-as-a-computer-programmer/719919#post_2</guid>
-      <pubDate>Wed, 17 Apr 2024 08:54:27 GMT</pubDate>
+
+希望对你有帮助]]></description>
+      <guid>https://community.openai.com/t/how-to-forward-user-question-to-openai-assistant-api-to-my-restapi-endpoint/720250#post_2</guid>
+      <pubDate>Wed, 17 Apr 2024 12:15:43 GMT</pubDate>
     </item>
     <item>
-      <title>助手 API 对于实时/生产来说太慢？</title>
-      <link>https://community.openai.com/t/assistants-api-too-slow-for-realtime-production/493627?page=2#post_40</link>
-      <description><![CDATA[一年来人们一直在就同一问题提供反馈，但没有取得丝毫改进。事实上，情况正在不断恶化。现在我无法在 150 秒内得到回复。该产品在这种情况下无法使用。作为替代方案，Google Gemini 的运行速度非常快。虽然它没有“助手”功能，但您可以按照正确的说明以类似的方式使用它。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-too-slow-for-realtime-production/493627?page=2#post_40</guid>
-      <pubDate>Wed, 17 Apr 2024 08:42:41 GMT</pubDate>
+      <title>Logit_bias 未按预期工作</title>
+      <link>https://community.openai.com/t/logit-bias-not-working-as-expected/720187#post_2</link>
+      <description><![CDATA[您是否尝试过通过系统提示指示模型仅回答 A-E 之间的一个字母？]]></description>
+      <guid>https://community.openai.com/t/logit-bias-not-working-as-expected/720187#post_2</guid>
+      <pubDate>Wed, 17 Apr 2024 12:13:10 GMT</pubDate>
     </item>
     <item>
-      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
-      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115#post_8</link>
-      <description><![CDATA[我刚刚在这里添加了一个帐户来支持这个想法。在文件夹中组织聊天应该非常容易实现。]]></description>
-      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115#post_8</guid>
-      <pubDate>Wed, 17 Apr 2024 08:26:22 GMT</pubDate>
+      <title>Dall-E-2 图像编辑添加随机文本</title>
+      <link>https://community.openai.com/t/dall-e-2-image-edit-adds-random-text/720262#post_1</link>
+      <description><![CDATA[我尝试了屏蔽和图像，上传到dall-e
+我掩盖了天花板，它返回时附加了一些随机文本，我什至要求不要附加文本，但它仍然如此。
+生成的图像：
+]]></description>
+      <guid>https://community.openai.com/t/dall-e-2-image-edit-adds-random-text/720262#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 12:11:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>检索数据的准确性（大型 CSV）</title>
+      <link>https://community.openai.com/t/accuracy-of-retrieved-data-large-csv/719152#post_6</link>
+      <description><![CDATA[您是否尝试过使用助手和功能？这些可以让您更好地控制数据。此外，您可以将数据直接附加到助手，或者创建一个函数来准确获取您想要的内容]]></description>
+      <guid>https://community.openai.com/t/accuracy-of-retrieved-data-large-csv/719152#post_6</guid>
+      <pubDate>Wed, 17 Apr 2024 12:07:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何将用户问题转发到 openai Assistant api 到我的restapi端点</title>
+      <link>https://community.openai.com/t/how-to-forward-user-question-to-openai-assistant-api-to-my-restapi-endpoint/720250#post_1</link>
+      <description><![CDATA[我想将用户问题转发到 openai Assistant api 到我的restapi端点。据我了解，我需要使用openai助手的所谓功能。但是我应该在哪里指定我的restapi端点URL？]]></description>
+      <guid>https://community.openai.com/t/how-to-forward-user-question-to-openai-assistant-api-to-my-restapi-endpoint/720250#post_1</guid>
+      <pubDate>Wed, 17 Apr 2024 11:59:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
