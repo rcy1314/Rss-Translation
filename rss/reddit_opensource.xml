@@ -4,11 +4,18 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 17 Apr 2024 12:31:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 15:20:33 GMT</lastBuildDate>
+    <item>
+      <title>基于模式的假数据生成器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1c6brk0/schema_based_fake_data_generator/</link>
+      <description><![CDATA[大家好， 在我的个人项目中，我经常发现自己需要使用数据作为应用程序中的占位符。有时用虚拟数据填充数据库或使用 React 或 React Native 创建 UI 元素。 去年我发现了 Zod，它的 API 启发了我基于 FakerJS（一种非常流行的虚假数据生成器）构建的 Blueprint 项目。  我目前正在尝试删除 Faker 依赖项并按需实现虚假数据生成器，以确保它可以舒适地与 Blueprint 的 API 一起使用。 尝试一下。 https://github.com/cicerotcv/blueprint  ```typescript import { Blueprint as Bp } from &#39;@cicerotcv/blueprint&#39; // 您可以描述模式 const dateSchema = Bp.date .between(&quot;2000-01-01&quot;, &quot;2022-12-31&quot;) .transform((date) =&gt; date.toISOString()); const idSchema = Bp.datatype.uuid(); const emailSchema = Bp.internet.email() // 将它们连接到 ObjectSchema const userSchema = Bp.object({ id: idSchema, createdAt: dateSchema, email: emailSchema, }); // 创建相同类型的项目数组 const userCollection = Bp.array({ minLength: 1, maxLength: 4, schema: userSchema, }); // 并运行 .compile() 以生成所有项目 console.log(userCollection.compile()); ```    提交人    /u/Anxious_Insurance341   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1c6brk0/schema_based_fake_data_generator/</guid>
+      <pubDate>Wed, 17 Apr 2024 14:47:22 GMT</pubDate>
+    </item>
     <item>
       <title>开源轻量级 PDF 阅读器</title>
       <link>https://www.reddit.com/r/opensource/comments/1c5qbsv/opensource_lightweight_pdf_reader/</link>
-      <description><![CDATA[问题 我讨厌 Adob​​e Reader！它速度慢且体积过大，而且它就是 Adob​​e。然而，我阅读了大量 PDF 并对其进行了注释，并且希望在每个设备上拥有具有相同注释的相同库。只有 Adob​​e Reader 提供此功能。 解决方案 所以：我为此创建了一个小型（~1MB！）开源 Web 应用程序！目前没有（正在运行的）后端服务用于同步，但我已经有了它的代码。如果有人对此感兴趣或有反馈，请联系我们！ GitHub - 演示   由   提交 /u/Alexswak   [链接] [评论]]]></description>
+      <description><![CDATA[问题 我讨厌 Adob​​e Reader！它很慢，体积大得不必要，而且它是 Adob​​e 的。但是，我阅读了很多 PDF 并对其进行了注释，并且希望在每台设备上都有相同的库和相同的注释。只有 Adob​​e Reader 能提供这种功能。 解决方案 因此：我为此创建了一个小型（~1MB！）开源 Web 应用程序！目前没有（正在运行的）用于同步的后端服务，但我已经有了它的代码。如果有人有兴趣就此合作或有反馈，请联系我们！ GitHub - 演示    提交人    /u/Alexswak   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c5qbsv/opensource_lightweight_pdf_reader/</guid>
       <pubDate>Tue, 16 Apr 2024 20:24:36 GMT</pubDate>
     </item>
@@ -48,7 +55,7 @@
       <pubDate>Tue, 16 Apr 2024 13:16:58 GMT</pubDate>
     </item>
     <item>
-      <title>寻找适用于 Windows 的 OSS 防火墙/Netlimiter 替代方案</title>
+      <title>寻找适用于 Windows 的 OSS 防火墙/Netlimiter 替代品</title>
       <link>https://www.reddit.com/r/opensource/comments/1c53xnq/looking_for_oss_firewallnetlimiter_alternative/</link>
       <description><![CDATA[大家好， 我是 Netlimiter 的长期用户，但我并不热衷于订阅模式。 我正在寻找免费或只需一次性购买的替代品。我的要求非常简单： - 我希望应用程序提示我授予互联网访问权限，可以选择暂时或永久记住我的决定。  - 应用程序尝试连接到互联网时的 GUI 警报。 任何建议将不胜感激。 请记住，即时决策能力和每台计算机的控制是我认为 Netlimiter 最吸引人的地方。类似的动态功能将是理想的选择。 非常感谢！ &lt;3   由   提交 /u/MikeTheFox   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c53xnq/looking_for_oss_firewallnetlimiter_alternative/</guid>
@@ -102,13 +109,6 @@
       <description><![CDATA[ 由   提交/u/00ProBoy00   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1c4j3ba/open_source_laravel_10_admin_template_sneat/</guid>
       <pubDate>Mon, 15 Apr 2024 10:44:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>Unity 引擎的 NothingOS SDK</title>
-      <link>https://www.reddit.com/r/opensource/comments/1c4fheh/nothingos_sdk_for_unity_engine/</link>
-      <description><![CDATA[大家好。我对购买的 Nothing Phone 2a 感到非常兴奋，而且我认为 Glyphs 在动作游戏中可能会非常有趣。它可以用作重新加载、任何类型的计时器和闪光指示器。 因此，我决定通过免费和免费的方式将此功能引入基于 Unity 的游戏。开源包： https://github.com/am1goo/NothingOS.Unity&lt; /p&gt; 功能  基于字形的进度条 自定义字形动画&lt; /p&gt; 支持所有范围的分布式设备（电话 1、电话 2、电话 2a）  里面有什么？   Unity 引擎的 .NET 包装 本机 Glyph 开发工具包 .jar 库  &lt; p&gt;非常欢迎任何形式的贡献。错误、功能请求或反馈可以以问题的形式报告。   由   提交/u/am1goo  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1c4fheh/nothingos_sdk_for_unity_engine/</guid>
-      <pubDate>Mon, 15 Apr 2024 06:37:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
