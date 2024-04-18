@@ -4,174 +4,205 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 18 Apr 2024 18:24:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2024 21:16:28 GMT</lastBuildDate>
     <item>
-      <title>GPT-4 中的窄句结构选择...“____ is not just, it's ____”</title>
-      <link>https://community.openai.com/t/narrow-sentence-structure-choices-from-gpt-4-isnt-just-its/721488#post_4</link>
-      <description><![CDATA[“这不是为了改善句子结构，而是以整体的方式看待整个人工智能。”
-当存在人工智能以外的角色或声音时，这似乎就会发生。当它以模棱两可的方式积极地或宣传性地谈论某事时。
-或者可能是现在的人工智能太糟糕了。我使用 GPT，有两位专家在聊天，经常看到使用这样的短语。人工智能现在只是重新措辞并重复我所说的话。告诉它实际做一些研究并实际为我提供答案，GPT 个性在下一个回合就被打破，给出“你自己查一下”的互联网报告。所以没有适合你的例子。]]></description>
-      <guid>https://community.openai.com/t/narrow-sentence-structure-choices-from-gpt-4-isnt-just-its/721488#post_4</guid>
-      <pubDate>Thu, 18 Apr 2024 18:23:23 GMT</pubDate>
+      <title>我无法使用 GPT-4 版本。我正在付款</title>
+      <link>https://community.openai.com/t/i-cant-use-the-gpt-4-version-i-am-paying/169061?page=4#post_74</link>
+      <description><![CDATA[大家好，我在使用 ChatGPT 付费版本 4（或 PLUS）时遇到了麻烦：从今天开始，如果我向 ChatGPT 4 输入任何消息，它会显示：
+“嗯……好像出了什么问题”。
+控制台中还显示：“从原始聊天中访问 oaistatic dot com 的脚本。 openai dot com 已被 CORS 策略阻止：请求的资源上不存在“Access-Control-Allow-Origin”标头。”
+请帮我解决这个问题？我要放弃了……感谢您的任何想法！]]></description>
+      <guid>https://community.openai.com/t/i-cant-use-the-gpt-4-version-i-am-paying/169061?page=4#post_74</guid>
+      <pubDate>Thu, 18 Apr 2024 21:14:37 GMT</pubDate>
     </item>
     <item>
-      <title>写整本书的技巧</title>
-      <link>https://community.openai.com/t/technique-for-writing-entire-books/705519?page=2#post_31</link>
-      <description><![CDATA[您好，我正在尝试写一本言情小说，但很快发现生成的输出字数非常低 - 我要求每章 9000 字，但通常只得到 900 字！因此，我对使用已安装在笔记本电脑上的 AI Story Builders 非常感兴趣，但不太确定如何开始！我需要使用 Azure 吗？我有一个带有详细章节的故事的强化描述 - 这足以开始吗？ （尚未微调）谢谢]]></description>
-      <guid>https://community.openai.com/t/technique-for-writing-entire-books/705519?page=2#post_31</guid>
-      <pubDate>Thu, 18 Apr 2024 18:18:20 GMT</pubDate>
+      <title>通过并行 API 调用达到 1mio 令牌计数限制</title>
+      <link>https://community.openai.com/t/reaching-1mio-token-count-limit-with-parallel-api-calls/721692#post_1</link>
+      <description><![CDATA[您好，我们遇到了令牌速率限制 (TPM) 的问题，而且很难理解原因。
+我们处于第 4 层，在 gpt 3.5 上具有 1mio TPM，并处理 100 多个翻译项目的数组。当我们使用并行 api 调用循环遍历数组时，我们很快就会达到报告的令牌消耗量，该消耗量比实际令牌消耗量高 10 倍。在剩余令牌标头响应中可见。
+所有项目使用的代币总数：~27000
+在此屏幕截图（来自重组工作流程）中，我们按顺序（顶部）和并行（底部）运行该流程：
+
+顺序：
+剩余的请求&amp;报告的剩余令牌在某种程度上是错误的。它们不反映实际消费。无论我们执行多少次 api 调用，它都会显示仍有 9999 次调用剩余。一个原因似乎是几毫秒后发生的重置。但我对请求和请求的实际消耗不应该是这样吗？令牌会在这里反映出来吗？当然，我们期望数字会减少，直到达到消耗的总请求/令牌，或者不是？ 参考这里
+并行：
+在这里，我们看到了极端相反的情况，计算预测剩余代币将降至 840798 个代币以下，并且稍后的一些 api 调用将低于 829932 个代币，而实际代币消耗约为 27000 个代币。这是 140000+ 个代币的错误。
+系统可以并行请求 20x100 个 api 调用，这将低于我们的 requestLimit（10.000），但是，一旦我们执行，我们就会立即达到令牌速率限制。 （20x27000 个代币 = 540.000 个代币）
+&lt;块引用&gt;
+已达到组织组织中 gpt-3.5-turbo 每分钟令牌 (TPM) 的速率限制：限制 1000000，已使用 999247，已请求 3824。请在 184 毫秒后重试。
+
+问题：
+在本文中： 此处指出：
+&lt;块引用&gt;
+速率限制可以量化，这意味着它们在较短的时间内强制执行（例如，每分钟 60,000 个请求可以强制为每秒 1,000 个请求）。发送太长的短突发请求或上下文（提示+max_tokens）可能会导致速率限制错误，即使您在技术上低于每分钟的速率限制。
+
+（此处也参考：如果超出 TPM 限制，会有什么问题吗？-#4 by N2U)
+这也适用于代币吗？也许这可以解释所报告的代币消耗量的激增。
+最佳]]></description>
+      <guid>https://community.openai.com/t/reaching-1mio-token-count-limit-with-parallel-api-calls/721692#post_1</guid>
+      <pubDate>Thu, 18 Apr 2024 21:13:15 GMT</pubDate>
     </item>
     <item>
-      <title>达芬奇003升级不工作</title>
-      <link>https://community.openai.com/t/da-vinci-003-upgrade-not-working/721556#post_1</link>
-      <description><![CDATA[我的代码非常简单 - 它是一个小生成器，作为向我的团队展示如何使用 gpt 的一部分 - 但我很久以前就这样做了，现在它已被弃用
-所以我尝试将其更新为
-型号：“gpt-3.5-turbo-instruct”
-而不是
-型号：“davinci-003”
-但它刚刚停止工作 - 在如何重新格式化它方面我是否缺少一些东西？
-我收到的控制台错误是
-无法加载资源：服务器响应状态为 502 () /.netlify/functions/open:1
-这似乎暗示了 Open.js 文件的第一行
-但是当我检查 API 跟踪时，每当我加载网站时就会调用它 - 所以它一定会超过第一行？
-Open.js 
-从“axios”导入axios；
+      <title>Meta AI 的 Llama 3 发布</title>
+      <link>https://community.openai.com/t/llama-3-from-meta-ai-released/721682#post_1</link>
+      <description><![CDATA[Meta AI 正式宣布并发布了首款 Llama 3 模型，在常见评测中表现非常出色。
 
-const { REACT_APP_OPENAI_API_KEY } = process.env;
-
-Exports.handler = 异步函数（事件，上下文）{
-  const { word } = JSON.parse(event.body);
-
-  const 提示 = 单词？.长度
-    ？ `生成......[为简洁起见，此处省略了长提示]`
-    : `生成一个...[此处长提示]。`;
-
-  const 响应 = 等待 axios.post( &quot;https://api.openai.com/v1/completions&quot;,
-    {
-      温度：0.4，
-      迅速的，
-      最大令牌数：400，
-      数：1，
-      型号：“文本-davinci-003”，
-    },
-    {
-      标题：{
-        授权：`承载${REACT_APP_OPENAI_API_KEY}`，
-        “内容类型”：“应用程序/json”，
-      },
-    }
-  ）；
-
-  // const haikuText = response.data.choices[0].text.trim();
-
-  让 haikuText = response.data.choices[0].text.trim();
-
-  // 清理俳句文本
-  haikuText = haikuText.replace(/[^a-zA-Z,.&#39;\s-ñ~]+/g, &#39;&#39;);
+  &lt;标题类=“来源”&gt;
+      
+元人工智能
 
 
-  返回 {
-    状态代码：200，
-    正文： JSON.stringify({ haikuText }),
-  };
-};
+  &lt;文章类=“onebox-body”&gt;
+    
+Meta Llama 3 简介：功能最强大的公开版本迄今为止法学硕士
+今天，我们将推出 Meta Llama 3，它是我们下一代最先进的开源大型语言模型。在接下来的几个月中，我们预计将分享新的功能、额外的模型尺寸等等。
+
+
+
+
+
+期待看到 OpenAI 的回应/新的 SOTA 模型以保持领先地位！]]></description>
+      <guid>https://community.openai.com/t/llama-3-from-meta-ai-released/721682#post_1</guid>
+      <pubDate>Thu, 18 Apr 2024 21:00:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 gpt-4-turbo-2024-04-09 出现问题</title>
+      <link>https://community.openai.com/t/problem-with-the-new-gpt-4-turbo-2024-04-09/719920#post_4</link>
+      <description><![CDATA[我遇到了类似的问题，只有最近的 4-turbo 受到影响
+
+
+
+
+Gpt- 4-turbo 不尊重“必需”，而 gpt-4-turbo-preview 则 API
+
+  &lt;块引用&gt;
+    是的，函数没有注入膨胀包装器供 AI 写入其工具，并且 API 没有将多个工具调用与特定调用返回的响应相匹配的 ID 机制。
+遵循它也更好，而且更好。
+  
 ]]></description>
-      <guid>https://community.openai.com/t/da-vinci-003-upgrade-not-working/721556#post_1</guid>
-      <pubDate>Thu, 18 Apr 2024 18:14:19 GMT</pubDate>
+      <guid>https://community.openai.com/t/problem-with-the-new-gpt-4-turbo-2024-04-09/719920#post_4</guid>
+      <pubDate>Thu, 18 Apr 2024 20:58:02 GMT</pubDate>
     </item>
     <item>
       <title>“嗯……似乎出了点问题”错误</title>
-      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_7</link>
-      <description><![CDATA[我在多个设备上遇到了同样的问题。]]></description>
-      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_7</guid>
-      <pubDate>Thu, 18 Apr 2024 18:12:40 GMT</pubDate>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_13</link>
+      <description><![CDATA[谢谢！这个临时解决方法对我有用。]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_13</guid>
+      <pubDate>Thu, 18 Apr 2024 20:53:27 GMT</pubDate>
     </item>
     <item>
-      <title>GPT4 “嗯……好像出了什么问题。”</title>
-      <link>https://community.openai.com/t/gpt4-hmm-something-seems-to-have-gone-wrong/669247?page=2#post_29</link>
-      <description><![CDATA[我遇到了同样的问题，我尝试了所有这些修复操作以查看是否有帮助，但没有运气：
-
-清除cookie
-清除浏览器历史记录
-重新加载浏览器
-更换了浏览器
-计算机超载
-打开了一个新聊天
-在另一台设备上尝试过
-尝试在不同设备上启用 VPN（我已将其关闭）
-尝试从其他互联网连接
-退出 chat.openai 并重新登录
-]]></description>
-      <guid>https://community.openai.com/t/gpt4-hmm-something-seems-to-have-gone-wrong/669247?page=2#post_29</guid>
-      <pubDate>Thu, 18 Apr 2024 18:08:47 GMT</pubDate>
+      <title>“嗯……似乎出了点问题”错误</title>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_12</link>
+      <description><![CDATA[我发现的一个快速解决方法是使用 gpt-4 开始新的聊天，然后先自行上传任何图片。这可以解决单个新会话的问题，但无法解决您过去或新对话的问题。]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_12</guid>
+      <pubDate>Thu, 18 Apr 2024 20:51:56 GMT</pubDate>
     </item>
     <item>
-      <title>无法在 Assistant API 调用中设置“温度”参数</title>
-      <link>https://community.openai.com/t/cannot-set-temperature-parameter-in-assistant-api-call/721547#post_1</link>
-      <description><![CDATA[嗨，
-我正在使用 Python SDK（版本 openai==1.21.2）和 gpt-35-turbo，2024-02-15-preview（我也尝试过 2024-03-01-预览）。当尝试创建这样的流式运行时：
- 与 self._client.beta.threads.runs.stream(
-            线程_id=线程_id,
-            Assistant_id=助理_id,
-            温度=0.0，
-            事件处理程序=事件处理程序，
-        ) 作为流：
-            等待流.until_done()
+      <title>达芬奇003升级不工作</title>
+      <link>https://community.openai.com/t/da-vinci-003-upgrade-not-working/721556#post_3</link>
+      <description><![CDATA[
 
-我总是收到以下错误消息：
+
+ gui1:
 &lt;块引用&gt;
-openai.BadRequestError: 错误代码: 400 - {&#39;error&#39;: {&#39;message&#39;: &#39;1 个请求验证错误\nbody → 温度\n 不允许额外字段 (type=value_error.extra)&#39;, &#39;type&#39; : &#39;invalid_request_error&#39;, &#39;param&#39;: None, &#39;code&#39;: None}}
+我收到的控制台错误是
+无法加载资源：服务器响应状态为 502 () /.netlify/functions/open:1
 
-有人可以告诉我可能是什么问题吗？
-干杯，
-迪特里希]]></description>
-      <guid>https://community.openai.com/t/cannot-set-temperature-parameter-in-assistant-api-call/721547#post_1</guid>
-      <pubDate>Thu, 18 Apr 2024 18:07:34 GMT</pubDate>
+
+错误不是从您的代码中抛出的，而是从netlify代码中抛出的。这就是为什么错误消息没有帮助。
+您能够跟踪堆栈以查看错误源自何处吗？
+无论如何，502 错误是错误网关错误。请参阅：
+
+  &lt;标题类=“来源”&gt;
+      
+NordVPN – 23 9 月 13 日&lt; /a&gt;
+  
+
+  &lt;文章类=“onebox-body”&gt;
+    
+502 错误网关：它是什么以及如何修复它 | NordVPN
+502 错误网关错误是无法连接到服务器时收到的 HTTP 状态代码之一。以下是导致此问题的原因以及解决方法。
+
+
+
+
+
+您无法采取任何措施来解决此问题，因为错误不在您这边。]]></description>
+      <guid>https://community.openai.com/t/da-vinci-003-upgrade-not-working/721556#post_3</guid>
+      <pubDate>Thu, 18 Apr 2024 20:46:22 GMT</pubDate>
     </item>
     <item>
-      <title>连接辅助文件出现 400 错误</title>
-      <link>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_18</link>
-      <description><![CDATA[我不是一个代码编写者，所以不幸的是，这对我来说有点胡言乱语，但也许更好地理解一些步骤将帮助我理解在我的情况下修复某些内容是否可行（连接到来自“无代码”平台的 openAI API，我的文件存储在非公共 AWS S3 中）。
-上传文件后会发生什么？我是发送文件（所以基本上我自己使用 AWS 预签名 URL（或者至少是执行请求的正在运行的 Nocode 应用程序）从 S3 获取文件并将其发送过来），还是发送openAI 的文件路径，以便 openAI 访问并下载该文件。
-我认为这与之前提到的文件名、文件字节有关（
-
-
-
-布恰马西亚：
-&lt;块引用&gt;
-当我直接上传字节时
-
-]]></description>
-      <guid>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_18</guid>
-      <pubDate>Thu, 18 Apr 2024 18:06:33 GMT</pubDate>
+      <title>GPT Assistant 使用本地数据提供高度准确的实时信息</title>
+      <link>https://community.openai.com/t/gpt-assistant-delivers-highly-accurate-real-time-information-using-local-data/719306#post_10</link>
+      <description><![CDATA[好吧，我现在明白你只是想炫耀你的创作，没有任何贡献。无论如何，我只能建议你降低你的信心水平，一旦你发现你的创作将开始表现出意想不到的表现，你会为此疯狂和/或疯狂，你可能会来这里寻求指导，你会找到人告诉您他们很抱歉，但无法告诉您更多信息。欢迎来到人工智能世界]]></description>
+      <guid>https://community.openai.com/t/gpt-assistant-delivers-highly-accurate-real-time-information-using-local-data/719306#post_10</guid>
+      <pubDate>Thu, 18 Apr 2024 20:35:54 GMT</pubDate>
     </item>
     <item>
-      <title>GPT Assistant 利用本地数据提供高度准确的实时信息</title>
-      <link>https://community.openai.com/t/gpt-assistant-delivers-highly-accurate-real-time-information-using-local-data/719306#post_8</link>
-      <description><![CDATA[谢谢，您还不清楚它是如何从您计算机中修改后的 CSV 文件读取的，您是否创建了助手正在调用的 Web 服务？那么如何指导助手写作呢？]]></description>
-      <guid>https://community.openai.com/t/gpt-assistant-delivers-highly-accurate-real-time-information-using-local-data/719306#post_8</guid>
-      <pubDate>Thu, 18 Apr 2024 18:06:23 GMT</pubDate>
+      <title>GPT-4 几天不工作</title>
+      <link>https://community.openai.com/t/gpt-4-not-working-for-days/719819#post_4</link>
+      <description><![CDATA[我也遇到这个问题了。这对我来说是昨天开始发生的。
+GPT-3.5-turbo 工作正常，但 GPT-4 就是拒绝工作。在桌面上，我收到错误：
+“嗯...似乎出了问题。”
+从 ChatGPT 应用程序中我收到此错误消息：
+“服务器出现问题。请稍后重试。(8767581a9dc01003-LAX)”
+API 与 GPT-4 配合良好]]></description>
+      <guid>https://community.openai.com/t/gpt-4-not-working-for-days/719819#post_4</guid>
+      <pubDate>Thu, 18 Apr 2024 20:34:09 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4 中的狭义句子结构选择...“____ is not just, it's ____”</title>
-      <link>https://community.openai.com/t/narrow-sentence-structure-choices-from-gpt-4-isnt-just-its/721488#post_3</link>
-      <description><![CDATA[您可以尝试：
-
-调整温度和 top_p 超参数
-根据您喜欢的写作风格的示例微调自定义模型
-使用 logit 偏差参数来避免某些短语。
-
-让我们知道什么对您有用！]]></description>
-      <guid>https://community.openai.com/t/narrow-sentence-structure-choices-from-gpt-4-isnt-just-its/721488#post_3</guid>
-      <pubDate>Thu, 18 Apr 2024 17:59:38 GMT</pubDate>
+      <title>“嗯……似乎出了点问题”错误</title>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_11</link>
+      <description><![CDATA[我也看到了同样的问题。任何修复它的帮助都会很棒。谢谢！]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_11</guid>
+      <pubDate>Thu, 18 Apr 2024 20:32:42 GMT</pubDate>
     </item>
     <item>
-      <title>错误代码 429 - 您超出了当前配额，请检查您的计划和账单详细信息</title>
-      <link>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/719291#post_11</link>
-      <description><![CDATA[所以：它有效吗？但是哪里？ （您在哪里看到“provided gpt” - 有多种型号可供选择。
-但是然后不起作用？]]></description>
-      <guid>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/719291#post_11</guid>
-      <pubDate>Thu, 18 Apr 2024 17:55:50 GMT</pubDate>
+      <title>嗯……好像出了什么问题。错误</title>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721630#post_3</link>
+      <description><![CDATA[这里也一样。它一整天都对我不起作用。尝试过注销、重新登录等。]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721630#post_3</guid>
+      <pubDate>Thu, 18 Apr 2024 20:30:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何为很长的内容写出好的提示</title>
+      <link>https://community.openai.com/t/how-to-write-a-good-prompt-for-a-long-long-content/721190#post_4</link>
+      <description><![CDATA[您可以尝试这种方法：
+首先，让 GPT 阅读长篇文章，然后询问“这篇文章是关于什么的？”
+接下来，打开一个新的聊天室，将长文章粘贴到那里，然后粘贴刚刚在底部生成的摘要。最后，发出您想要的命令。结构应如下所示：
+文章
+{你的长文章}
+我想让你做什么
+以上是一篇关于{总结}的文章
+请报告文章中的所有事实。
+如果 GPT 无法识别摘要中未提及的事实，您可以在末尾添加一句：
+请清楚说明摘要中包含哪些内容以及不包含哪些内容。]]></description>
+      <guid>https://community.openai.com/t/how-to-write-a-good-prompt-for-a-long-long-content/721190#post_4</guid>
+      <pubDate>Thu, 18 Apr 2024 20:29:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT4 不浏览网页或非常不愿意这样做</title>
+      <link>https://community.openai.com/t/gpt4-not-browsing-the-web-or-is-very-reluctant-to-do-so/688884#post_20</link>
+      <description><![CDATA[这对我来说是同样的事情，并且非常令人沮丧，因为我在工作流程中大量使用它 ]]></description>
+      <guid>https://community.openai.com/t/gpt4-not-browsing-the-web-or-is-very-reluctant-to-do-so/688884#post_20</guid>
+      <pubDate>Thu, 18 Apr 2024 20:29:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>“嗯……似乎出了点问题”错误</title>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_10</link>
+      <description><![CDATA[这里也一样。一整天都没有工作。根本不工作。]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_10</guid>
+      <pubDate>Thu, 18 Apr 2024 20:29:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>重复提示模式的错误代码 400</title>
+      <link>https://community.openai.com/t/error-code-400-for-repetitive-prompt-patterns/627157#post_7</link>
+      <description><![CDATA[遇到同样的问题。 OpenAI 有支持吗？
+您认为我们不会在处理一批数据时遇到相同的提示吗？
+此问题已被阻止。
+啊，好吧。看起来这个问题是由于注入到提示中的错误数据造成的。我认为该错误消息对某些人来说具有误导性，并且可以通过进一步的阐述将 API 用户引向错误数据，而不是他们认为的作为提示。]]></description>
+      <guid>https://community.openai.com/t/error-code-400-for-repetitive-prompt-patterns/627157#post_7</guid>
+      <pubDate>Thu, 18 Apr 2024 20:29:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
