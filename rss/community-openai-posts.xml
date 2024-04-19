@@ -4,169 +4,147 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 19 Apr 2024 09:20:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2024 12:31:55 GMT</lastBuildDate>
     <item>
-      <title>Assistant API 总是返回空注释</title>
-      <link>https://community.openai.com/t/assistant-api-always-return-empty-annotations/489285?page=3#post_47</link>
-      <description><![CDATA[是的，这是一个很容易的误解，因为整个主题是“返回空注释”  抱歉。
-您介意记录并发送扩展的 file_引用吗？因为我不确定该对象是否同时具有 file_ID 和 quote，或者只有 file_ID。
-我真的很感激，所以我可以理解我的团队是否是唯一遇到这种合法注释中缺少引用问题的人（因为我在论坛上没有找到任何东西），或者这根本不是其他人正在使用的功能。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-always-return-empty-annotations/489285?page=3#post_47</guid>
-      <pubDate>Fri, 19 Apr 2024 09:11:07 GMT</pubDate>
+      <title>“嗯……似乎出了点问题”错误</title>
+      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_20</link>
+      <description><![CDATA[我也遇到了同样的问题，希望他们尽快解决。]]></description>
+      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721221#post_20</guid>
+      <pubDate>Fri, 19 Apr 2024 12:30:51 GMT</pubDate>
     </item>
     <item>
-      <title>需要 OpenAI 使用给定的产品信息为品牌社交媒体生成内容</title>
-      <link>https://community.openai.com/t/need-openai-to-generation-of-content-for-brands-social-media-using-given-product-information/708656#post_5</link>
-      <description><![CDATA[我们提供数字产品设计和制作开发服务。我们的团队已经构建了几个生成式人工智能产品，例如 thenexed.com 。这篇文章的目的是尽量减少我们的研究。其他人建议或正在使用什么模型来创建此类应用程序。
-谢谢@grandell1234]]></description>
-      <guid>https://community.openai.com/t/need-openai-to-generation-of-content-for-brands-social-media-using-given-product-information/708656#post_5</guid>
-      <pubDate>Fri, 19 Apr 2024 09:06:20 GMT</pubDate>
+      <title>自定义 GPT 今天不起作用</title>
+      <link>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_18</link>
+      <description><![CDATA[那么看来是账户问题。您需要通过帮助机器人进行通信（在 platform.openai.com 上更容易，使用菜单中的帮助，然后在帮助小部件，发送“消息”，问题是尽管您订阅了 ChatGPT Plus，但您的帐户仅在尝试使用 GPT-4 AI 模型时才在各处返回该文本。
+你必须让别人知道他们需要修复它，而不是你，因为你也有从我之前的检查步骤中获得的网络错误或缺失，确保它不是在你这边或来自你的网络提供商。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_18</guid>
+      <pubDate>Fri, 19 Apr 2024 12:28:57 GMT</pubDate>
     </item>
     <item>
-      <title>使用openai选择标题的代码</title>
-      <link>https://community.openai.com/t/code-for-title-selection-using-openai/722138#post_1</link>
-      <description><![CDATA[加载您的数据集
-df = pd.read_excel(“/content/sample_data/report.xlsx”)
-df = df.dropna(subset=[“desc”])
-df = df.drop_duplicates(subset=[“desc”])
-df = df.reset_index(drop=True)
-清理文本数据
-def cleantwt(twt):
-if isinstance(twt, str):
-twt = re.sub(“RT”, &quot; &quot;, twt)
-twt = re.sub(”#[A-Za_z0-9]+“, “”, twt)
-twt = re.sub(r&#39;[0-9]+&#39;, &#39;&#39;, twt)
-twt = re.sub(&#39;[0123456789]+&#39;,&#39;&#39;,twt)
-twt = re.sub(r&#39;[A-Za-z]&#39;, &#39;&#39;, twt)
-twt = re.sub(“‘”“, “”, twt)
-twt = re.sub(”\n”, “”, twt)
-twt = re.sub(“https?://\S+”, “”, twt)
-twt = re.sub(‘@[\S]‘, ‘’, twt)
-twt = re.sub(&#39; [1]+|[\s]+&#39;, &#39;&#39;, twt)
-        twt = re.sub(r&#39;[+&amp;+;+]|[&gt;+]|[Ù+]|[?+ ]|[“”]|@&#39;, &#39; &#39;,twt)
-返回twt
-其他：
-返回twt
-df[“clean_text”] = df[“desc”].apply(cleantwt)
-加载停用词
-以 open(&#39;/content/sample_data/stopwords.txt&#39;, &#39;r&#39;,encoding=&#39;utf-8&#39;) 作为文件：
-stopwords_ur = file.read().splitlines()
-删除停用词
-def remove_stopwords(text):
-返回 [如果单词不在 stopwords_ur 中，则返回文本中的单词]
-标记并删除停用词
-def 预处理(文本):
-令牌 = gensim.utils.simple_preprocess(text)
-tokens_no_stopwords = remove_stopwords(tokens)
-返回 tokens_no_stopwords
-应用预处理
-df[“clean_text_no_stopwords”] = df[“clean_text”].apply（预处理）
-创建 N-克
-def make_n_grams(文本):
-bigram = gensim.models.Phrases(文本, min_count=5, 阈值=100)
-bigram_mod = gensim.models.phrases.Phraser(bigram)
-trigram = gensim.models.Phrases(bigram[文本], 阈值=100)
-trigram_mod = gensim.models.phrases.Phraser(trigram)
-bigrams_text = [bigram_mod[doc] 用于文本中的文档]
-trigrams_text = [trigram_mod[bigram_mod[doc]] 用于 bigrams_text 中的文档]
-返回 trigrams_text
-应用 N-克
-data_ngrams = make_n_grams(df[“clean_text_no_stopwords”])
-data_strings = [&quot; &quot;.join(doc) for data_ngrams 中的文档]
-id2word = corpora.Dictionary(data_ngrams)
-文本 = data_ngrams
-corpus = [id2word.doc2bow(text) 用于文本中的文本]
-在此之后的代码
+      <title>工作区：自定义 GPT 的编辑权限</title>
+      <link>https://community.openai.com/t/workspace-edit-rights-for-custom-gpts/584350#post_7</link>
+      <description><![CDATA[同样，我们采用的是企业计划，并且我们的用户要求授予自定义 GPT 的编辑权限。我们现在的解决方法是提供一个 GPT 所有者的共享帐户，但这意味着支付额外的席位 ]]></description>
+      <guid>https://community.openai.com/t/workspace-edit-rights-for-custom-gpts/584350#post_7</guid>
+      <pubDate>Fri, 19 Apr 2024 12:22:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 今天不起作用</title>
+      <link>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_17</link>
+      <description><![CDATA[我在我的工作计算机和私人计算机上都尝试过，Google Chrome 和 Firefox，仍然一样，对于版本 3.5，一切正常，但版本 4 无法启动。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_17</guid>
+      <pubDate>Fri, 19 Apr 2024 12:21:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>连接辅助文件出现 400 错误</title>
+      <link>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_20</link>
+      <description><![CDATA[我的旧文件都是根据最后一个“/”和“?”之间的内容从 URL 中提取的（这也导致从 AWS S3 预签名 URL 中识别出文件），但现在它正在查看最后一个后面的内容# 
+AWS 预签名 URL 看起来像这样（经过操作以删除一些实际数据）
+https://abcde.s3.eu-central-1.amazonaws.com/FILE .docx?响应内容-处置=内联&amp;X-Amz-安全令牌=IQoJb3JpZ2luX2VjEMz%2F%2F%2F%2F%2F%2F %2F%2F%2F%2FwEaCmV1LW5vcnRoLTEiRzBFAiEAv0kFoXcAvjqsDoPXHiNjBvvA2sJi7hLQzuPbajWp16cC IFo5aYhMZNXOHfTMR.........52%2Fn96DaR%2BuIXGlc2nr7r0vzgiBNZEQ% 2Bow09％2FL1I％2FAXB7CLLQQMDQVPO9Q85MPSC％2FlKQHDWWUHXNZMWTKUFRPI2＆X-AMZ-ALGORITHM = AWS4-HMAC-SHA256 X-AMZ-Exires = 7200＆amp; x-amz-credential = ASIAYS2NQ5SXOSU.....u-central-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=cb578be3116869869342b4f227e3dd18db2c871536a89cde4e55d55abcde
+导致 openAI 中名为：
+aws4_request&amp;X-Amz-Signature=cb578be3116869869342b4f227e3dd18db2c871536a89cde4e55d55abcde
+如果将文件名提取重新配置为标准 URI 设置（或者可能在 API 中传递一些可选信息以使用 URI 进行名称识别（或者我所说的没有任何意义？），那就太好了？ ]]></description>
+      <guid>https://community.openai.com/t/400-error-on-connect-assistent-files/707414#post_20</guid>
+      <pubDate>Fri, 19 Apr 2024 12:18:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=2#post_39</link>
+      <description><![CDATA[好吧，这是我所到达的地方的临时更新。
+在我的最新脚本中，我现在使用以下步骤序列，其中一些受到启发@SomebodySysop 的方法。
 
 
-\s ↩︎
-
-]]></description>
-      <guid>https://community.openai.com/t/code-for-title-selection-using-openai/722138#post_1</guid>
-      <pubDate>Fri, 19 Apr 2024 08:59:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>修复“嗯...似乎出了问题”错误</title>
-      <link>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_100</link>
-      <description><![CDATA[我已经解决这个问题两天了]]></description>
-      <guid>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_100</guid>
-      <pubDate>Fri, 19 Apr 2024 08:54:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 ChatGPT 4 plus 中如何访问修复和修复</title>
-      <link>https://community.openai.com/t/in-chatgpt-4-plus-how-do-i-access-inpainting-and-outpainting/496960#post_5</link>
-      <description><![CDATA[很快是一个相当抽象的信息......
-我本可以在我的 Fooocus 实例中完成此操作，但我支付了更好的渲染费用。现在，我觉得我浪费了我的钱。]]></description>
-      <guid>https://community.openai.com/t/in-chatgpt-4-plus-how-do-i-access-inpainting-and-outpainting/496960#post_5</guid>
-      <pubDate>Fri, 19 Apr 2024 08:53:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>修复“嗯...似乎出了问题”错误</title>
-      <link>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_99</link>
-      <description><![CDATA[从昨天下午开始我就遇到同样的错误 - GPT-4 不起作用。 （团队帐号）]]></description>
-      <guid>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_99</guid>
-      <pubDate>Fri, 19 Apr 2024 08:51:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>嗯...似乎出了问题 - 错误</title>
-      <link>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721937#post_3</link>
-      <description><![CDATA[我也有同样的问题，这是我发现的：
-
-ChatGPT 3.5 仍然有效。
-ChatGPT 4 给出错误“嗯……似乎出了问题。”。
-ChatGPT 4 (ODD) 如果您上传图像并附上问题，它将正常响应。 （？！）
-ChatGPT 4 Android 应用程序出现错误“服务器出现问题”。
-]]></description>
-      <guid>https://community.openai.com/t/hmm-something-seems-to-have-gone-wrong-error/721937#post_3</guid>
-      <pubDate>Fri, 19 Apr 2024 08:51:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在不发送提示的情况下向 gpt 提供/查看实时数据</title>
-      <link>https://community.openai.com/t/how-to-feed-view-real-time-data-to-gpt-without-sending-a-prompt/722038#post_3</link>
-      <description><![CDATA[使用函数调用。仅当需要时才会调用获取实时行情数据或新闻文章的函数。]]></description>
-      <guid>https://community.openai.com/t/how-to-feed-view-real-time-data-to-gpt-without-sending-a-prompt/722038#post_3</guid>
-      <pubDate>Fri, 19 Apr 2024 08:49:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>修复“嗯...似乎出了问题”错误</title>
-      <link>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_98</link>
-      <description><![CDATA[连续两天。 ChatGPT 3.5 运行良好。每当我尝试使用 ChatGPT 4 时，它都会说：“嗯……似乎出了问题。”。
-我正在考虑取消订阅，因为我无法使用我所支付的费用。]]></description>
-      <guid>https://community.openai.com/t/fix-hmm-something-seems-to-have-gone-wrong-error/543179?page=5#post_98</guid>
-      <pubDate>Fri, 19 Apr 2024 08:39:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>AttributeError：“Beta”对象没有属性“vector_stores”</title>
-      <link>https://community.openai.com/t/attributeerror-beta-object-has-no-attribute-vector-stores/721461#post_6</link>
-      <description><![CDATA[谢谢本。经过进一步调查，问题似乎与 Streamlit 有一些冲突（我正在构建 Streamlit 应用程序）。当我创建一个没有streamlit的测试项目时，vector_store创建得很好。
-莱恩]]></description>
-      <guid>https://community.openai.com/t/attributeerror-beta-object-has-no-attribute-vector-stores/721461#post_6</guid>
-      <pubDate>Fri, 19 Apr 2024 08:38:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手创建线程，上传文件出错</title>
-      <link>https://community.openai.com/t/assistants-create-threads-and-an-error-occurs-when-uploading-files/722087#post_3</link>
-      <description><![CDATA[
+我使用 pdfplumber 从 PDF 中提取文本，这比我尝试过的其他库产生了更好的结果。作为此过程的一部分，我裁剪文档以避免提取页脚和页码，并从提取中排除其他脚注，因为它会干扰逻辑单元的定义。也就是说，我仍然需要找到一种方法将脚注与关键信息重新合并。
 
 
- sps：
-&lt;块引用&gt;
-[{&quot;type&quot;: &quot;file_search&quot;}] 
+然后，我使用 SpaCy 库来识别单个句子，提取这些句子并将其保存到 JSONL 文件中，每一行代表一个句子（或章节标题）。我在每个句子/标题前面加上一个唯一的行号。这深受 @SomebodySysop 方法的启发。事实上，正如我将在接下来的步骤中回顾的那样，根据所识别的几个单词提取逻辑单元被证明是困难的，从而导致遗漏和错误。因此，我也使用了基于行的方法。
 
 
-非常感谢您的回复。
-不过，我已经升级到最新版本了。openai@4.38.1。 
-以下是有关线程的文档： Doc 
-如果我这样写
-&quot;附件&quot;: [
-        { &quot;file_id&quot;: message_file.id, &quot;tools&quot;: [{&quot;type&quot;: &quot;file_search&quot;}] }
-      ],
+我应用 OpenAI 的 GPT-4-turbo 模型来识别基于包含单个句子的 JSONL 文件的文档大纲，并要求它返回一个包含基于定义的 JSON 模式的大纲的 JSON。
 
-，仍然会出现类型错误。
-TS2322: 类型 &#39;{ file_id: any;工具：{ 类型：字符串； }[]; }[] |未定义&#39; 不可分配给类型&#39;Attachment[] |空 |不明确的&#39;。输入 &#39;{ file_id: 任意;工具：{ 类型：字符串； }[]; }[]&#39; 不可分配给类型“Attachment[]”。输入 &#39;{ file_id: 任意;工具：{ 类型：字符串； }[]; }&#39; 不可分配给类型“附件”。属性“工具”的类型不兼容。类型 &#39;{ 类型：字符串； }[]&#39; 不可分配给类型 &#39;(&quot;file_search&quot; | &quot;code_interpreter&quot;)[]&#39;。类型 &#39;{ 类型：字符串； }&#39; 不可分配给类型 &#39;&quot;file_search&quot; | “代码解释器”&#39;。
-]]></description>
-      <guid>https://community.openai.com/t/assistants-create-threads-and-an-error-occurs-when-uploading-files/722087#post_3</guid>
-      <pubDate>Fri, 19 Apr 2024 08:37:48 GMT</pubDate>
+
+随后，我运行另一个 API 调用，要求模型识别每个文档已识别大纲的逻辑单元，并再次根据定义的架构以 JSON 文件形式返回信息。经过大量测试表明，随后根据每个逻辑单元中的前几个单词提取逻辑单元在实践中被证明是困难且不可靠的，我现在也恢复了要求模型简单地识别逻辑单元所在的唯一行号的方法。单元开始和结束并将该信息包含在 JSON 文件中。
+
+
+使用上一步中的 JSON 文件（包括有关每个逻辑单元位置的信息），然后再次应用代码来执行逻辑单元的提取。
+
+
+举个例子：对于我一直用于测试的 12 页文档，在这种方法下我最终得到了 26 个逻辑单元，这符合我的预期。
+我会注意到，虽然对于较小的文档，可以将步骤 4 和 5 合并到单个 API 调用中，但我计划保留这两个单独的步骤。这对于较长的文档尤其重要，我打算将按文档部分识别逻辑单元的过程分开，以确保结果可靠。
+如上所述，除了进一步测试之外，一个关键点是如何处理脚注中的定义/解释。我有一些早期的想法，但我想更多地考虑这部分。
+一旦我在未来几天进一步完善和清理我的代码，我会将其添加到此处以供参考。
+&lt;小时/&gt;
+这是一次有趣的旅程，但看起来我们离自动语义分块又近了一步 ]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=2#post_39</guid>
+      <pubDate>Fri, 19 Apr 2024 12:16:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用免费套餐的 API 访问</title>
+      <link>https://community.openai.com/t/api-access-using-free-tier/710656#post_4</link>
+      <description><![CDATA[无需通过最低信用购买（这不是定期订阅，而是仅支付 API 调用费用）为 API 帐户提供资金，您唯一能够测试的是您是否能够接收“429：检查您的账单”错误。]]></description>
+      <guid>https://community.openai.com/t/api-access-using-free-tier/710656#post_4</guid>
+      <pubDate>Fri, 19 Apr 2024 12:15:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 今天不起作用</title>
+      <link>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_16</link>
+      <description><![CDATA[我会首先尝试一个完全不同的网络浏览器，甚至是不同的电脑（如果你有的话）。
+然后在浏览器的网络开发人员工具 → 网络中进行调查，以查看提交问题时的连接错误。
+干扰 OpenAI 连接的因素可能会导致这种情况，例如可能与第 3 方 AV 捆绑的防火墙产品、公司网络，甚至是向您强加代理服务器的恶意软件。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_16</guid>
+      <pubDate>Fri, 19 Apr 2024 12:13:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用免费套餐的 API 访问</title>
+      <link>https://community.openai.com/t/api-access-using-free-tier/710656#post_3</link>
+      <description><![CDATA[您好，我这里有一个疑问：我想在购买 5 美元或更多的订阅之前测试 openai api 密钥。那有什么办法吗。如果是的话，请帮助我。]]></description>
+      <guid>https://community.openai.com/t/api-access-using-free-tier/710656#post_3</guid>
+      <pubDate>Fri, 19 Apr 2024 12:12:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>游乐场助手在功能响应模拟中存在的问题</title>
+      <link>https://community.openai.com/t/problems-with-playground-assistant-in-the-simulation-of-response-to-functions/722271#post_1</link>
+      <description><![CDATA[我必须重复答案两次，但首先我必须做出更改，尽管是最小的更改，例如在某处添加空格，如果我不这样做，它将保持阻塞等待响应，例如：{“成功” ”:true}，我尝试提交，然后在“success”后面加一个空格{“success” : true}，我再次提交，助手又开始工作，例如：
+预约(
+{ “姓名”: “marco”, “电话”: “3476606123”, “日期”: “星期四”, “时间”: “10:30” })
+{“成功”：true}]]></description>
+      <guid>https://community.openai.com/t/problems-with-playground-assistant-in-the-simulation-of-response-to-functions/722271#post_1</guid>
+      <pubDate>Fri, 19 Apr 2024 12:07:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>file_search Assistant 出现无效请求错误</title>
+      <link>https://community.openai.com/t/invalid-request-error-with-file-search-assistant/722267#post_1</link>
+      <description><![CDATA[您好，我正在尝试与助手一起使用 file_search 工具，但我不断收到以下错误：
+openai.BadRequestError：错误代码：400 - {‘error’：{‘message’：“无效值：‘file_search’。支持的值为：&#39;code_interpreter&#39;、&#39;function&#39; 和 &#39;retrieval&#39;。”、&#39;type&#39;: &#39;invalid_request_error&#39;、&#39;param&#39;: &#39;tools[0].type&#39;、&#39;code&#39;: &#39;invalid_value&#39;}}&lt; /p&gt;
+有人知道如何解决这个问题吗？]]></description>
+      <guid>https://community.openai.com/t/invalid-request-error-with-file-search-assistant/722267#post_1</guid>
+      <pubDate>Fri, 19 Apr 2024 12:04:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>有没有免费测试api的方法？</title>
+      <link>https://community.openai.com/t/is-there-any-way-to-test-the-api-for-free/310390#post_4</link>
+      <description><![CDATA[我想知道，openai 是否仍然以 5 美元的价格提供免费 api 用于跟踪目的。？
+提前致谢]]></description>
+      <guid>https://community.openai.com/t/is-there-any-way-to-test-the-api-for-free/310390#post_4</guid>
+      <pubDate>Fri, 19 Apr 2024 12:01:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在新线程中重用以前创建的线程数据而不将以前的线程数据添加到新线程</title>
+      <link>https://community.openai.com/t/how-to-reuse-previously-created-thread-data-in-new-thread-without-adding-previous-thread-data-to-new-thread/722264#post_1</link>
+      <description><![CDATA[我创建了一个聊天模块，并使用助手 API 和线程来管理用户聊天。目前，我仅为新用户创建新线程，并为现有用户使用现有线程。
+现在，如果单个用户在同一线程中创建多个聊天，则管理聊天会话将非常困难。
+一个想法是，如果我可以为每个会话创建新线程，但将先前创建的线程的引用提供给同一用户的新线程。因此聊天 gpt 可以使用先前的线程数据并在相同的上下文中进行回答。但我无法找到在新线程中引用前一个线程的方法。
+有人可以帮我吗？
+提前致谢。
+索拉布]]></description>
+      <guid>https://community.openai.com/t/how-to-reuse-previously-created-thread-data-in-new-thread-without-adding-previous-thread-data-to-new-thread/722264#post_1</guid>
+      <pubDate>Fri, 19 Apr 2024 12:00:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT -4 不起作用，每次输入提示时都会返回错误</title>
+      <link>https://community.openai.com/t/gpt-4-not-working-throwing-back-error-everytime-i-am-inputting-a-prompt/722254#post_1</link>
+      <description><![CDATA[出于某种原因，每次我输入提示时，GPT -4 模型都会返回错误（嗯……似乎出了问题。）。这种情况已经发生两天了……我无法访问之前的聊天记录，这妨碍了我的工作]]></description>
+      <guid>https://community.openai.com/t/gpt-4-not-working-throwing-back-error-everytime-i-am-inputting-a-prompt/722254#post_1</guid>
+      <pubDate>Fri, 19 Apr 2024 11:52:52 GMT</pubDate>
     </item>
     </channel>
 </rss>
