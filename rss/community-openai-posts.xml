@@ -4,191 +4,61 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 20 Apr 2024 18:22:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2024 21:15:54 GMT</lastBuildDate>
     <item>
-      <title>助理 API - 文件错误</title>
-      <link>https://community.openai.com/t/assistant-api-error-with-files/485559#post_16</link>
-      <description><![CDATA[大家好，
-考虑到助手的最新更改（现在 OpenAI-beta =&gt; Assistants=v2），我能够按照本指南使用我的助手启动和运行文件搜索：https://platform.openai.com/docs/assistants/tools/file -search/quickstart?context=streaming&amp;lang=python
-该指南描述了两种访问文件的方法：
-
-创建矢量存储，上传文件并附加到矢量存储；然后修改你的助手以引用矢量存储。然后创建线程并运行创建。
-
-或
-
-上传文件，创建助手，创建一个包含嵌套消息的线程，其中包含 file_id 作为 file_search 附件（将显示示例），然后创建运行。
-
-我已经成功使用 #2，助手能够访问该文件，并且我不需要直接处理矢量存储或修改助手 (2更少的 API 调用）。
-以下是一些部分示例：
-创建助手：
- 34 def create_assistant
-  35 url = &quot;#{@base_url}/助手&quot;
-  36
-  37 身体={
-  38 型号: &#39;gpt-4-turbo-preview&#39;,
-  39名称：“我的助理”，
-  40 条说明：“您将分析文档”，
-  41个工具：[
-  42 { 类型： &#39;文件搜索&#39; }
-  43]
-  44 }.to_json
-  45
-  46 res = HTTParty.post(url, body: body, headers: headers)
-  47
-  48 分辨率
-  49 结束
-
-上传文件（正文）：
- 140 def upload_file_body
- 141 {
- 142 文件：@file，
- 143 目的：‘助手’
- 144}
- 145 结束
-
-创建一个线程：
-def create_thread(file_id:)
- 119 url = &quot;#{@base_url}/线程&quot;
- 120
- 第121章
- 122 条消息：[
- 123{
- 124角色：&#39;用户&#39;，
- 125内容：内容（file_id），
- 126个附件：[
- 127 { file_id: file_id, 工具: [{ type: &#39;file_search&#39; }] }
- 128]
- 129}
- 130]
- 131}
- 132
- 133 res = HTTParty.post(url, body: body.to_json, headers: headers)
- 134
- 135 分辨率
- 136结束
-
-所有 API 调用的标头：
- 147 def 标头
- 148 {
- 149 &#39;授权&#39; =&gt; “承载#{@api_key}”，
- 正文 正文_第 150 章“应用程序/json”，
- 第151章“助手=v2”
- 152}
- 153 结束
-
-以这种方式创建助手、上传文件并创建线程使我的运行能够成功，因为助手能够找到文件并运行分析。
-请务必将 OpenAI-Beta 标头也升级到 v2。
-希望这有帮助！]]></description>
-      <guid>https://community.openai.com/t/assistant-api-error-with-files/485559#post_16</guid>
-      <pubDate>Sat, 20 Apr 2024 18:10:35 GMT</pubDate>
+      <title>API 是否有隐藏的速率限制？</title>
+      <link>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_4</link>
+      <description><![CDATA[我知道，我处于第 5 级，远低于我的每日限额。是否存在隐藏的速率限制，大量使用会导致流量限制？
+当我的使用量非常大时，我的请求开始全部超时。 gpt-4-turbo 分析图像需要 +30 秒。]]></description>
+      <guid>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_4</guid>
+      <pubDate>Sat, 20 Apr 2024 20:58:40 GMT</pubDate>
     </item>
     <item>
-      <title>助理无法访问文件</title>
-      <link>https://community.openai.com/t/assistants-cant-access-file/615313#post_7</link>
-      <description><![CDATA[大家好，
-考虑到助手的最新更改（现在 OpenAI-beta =&gt; Assistants=v2），我能够按照本指南使用我的助手启动和运行文件搜索：https://platform.openai.com/docs/assistants/tools/file -search/quickstart?context=streaming&amp;lang=python
-该指南描述了两种访问文件的方法：
-
-创建矢量存储，上传文件并附加到矢量存储；然后修改你的助手以引用矢量存储。然后创建线程并运行创建。
-
-或
-
-上传文件，创建助手，创建一个包含嵌套消息的线程，其中包含 file_id 作为 file_search 附件（将显示示例），然后创建运行。
-
-我已经成功使用 #2，助手能够访问该文件，并且我不需要直接处理矢量存储或修改助手 (2更少的 API 调用）。
-以下是一些部分示例：
-创建助手：
-
-  34 def 创建助手
-  35 url = &quot;#{@base_url}/助手&quot;
-  36
-  37 身体={
-  38 型号: &#39;gpt-4-turbo-preview&#39;,
-  39名称：“我的助理”，
-  40 条说明：“您将分析文档”，
-  41个工具：[
-  42 { 类型： &#39;文件搜索&#39; }
-  43]
-  44 }.to_json
-  45
-  46 res = HTTParty.post(url, body: body, headers: headers)
-  47
-  48 分辨率
-  49 结束
-
-上传文件（正文）：
- 140 def upload_file_body
- 141 {
- 142 文件：@file，
- 143 目的：‘助手’
- 144}
- 145 结束
-
-创建一个线程：
-def create_thread(file_id:)
- 119 url = &quot;#{@base_url}/线程&quot;
- 120
- 第121章
- 122 条消息：[
- 123{
- 124角色：&#39;用户&#39;，
- 125内容：内容（file_id），
- 126个附件：[
- 127 { file_id: file_id, 工具: [{ type: &#39;file_search&#39; }] }
- 128]
- 129}
- 130]
- 131}
- 132
- 133 res = HTTParty.post(url, body: body.to_json, headers: headers)
- 134
- 135 分辨率
- 136结束
-
-所有 API 调用的标头：
- 147 def 标头
- 148 {
- 149 &#39;授权&#39; =&gt; “承载#{@api_key}”，
- 正文 正文_第 150 章“应用程序/json”，
- 第151章“助手=v2”
- 152}
- 153 结束
-
-以这种方式创建助手、上传文件并创建线程使我的运行能够成功，因为助手能够找到文件并运行分析。
-请务必将 OpenAI-Beta 标头也升级到 v2。
-希望这有帮助！]]></description>
-      <guid>https://community.openai.com/t/assistants-cant-access-file/615313#post_7</guid>
-      <pubDate>Sat, 20 Apr 2024 18:08:25 GMT</pubDate>
+      <title>API 是否有隐藏的速率限制？</title>
+      <link>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_3</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_3</guid>
+      <pubDate>Sat, 20 Apr 2024 20:57:35 GMT</pubDate>
     </item>
     <item>
-      <title>用户针对 ChatGPT 停用帐户提出申诉</title>
-      <link>https://community.openai.com/t/user-appeal-for-chatgpt-deactivated-account/723338#post_1</link>
-      <description><![CDATA[尊敬的 OpenAI 支持团队，
-我的 ChatGPT 帐户已被终止。我使用 ChatGPT 进行了一年多的个人研究、写小说、剧本等。在这一年里，我收到了 2 封警告电子邮件，因此我尽力遵守该政策，但发生了错误，ChatGPT 将我的聊天识别为不当内容再次并认为其违反了使用条款。我收到一封电子邮件，说我的帐户因违反规则而被终止。但严格来说，这不是故意的，而是我的粗心和ChatGPT的错误。我已经向 support@openai.com 和帮助部分发送了一个月的电子邮件，但没有回复。我需要检索有关该帐户的一些重要信息。如果需要的话我什至会付钱。请有人帮助我重新激活我的帐户 &lt;img alt=&quot;:pray:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/pray.png?v=12 “标题=“：祈祷：”宽度=“20”/&gt;。
-感谢您的帮助。
-谨致问候，
-内森]]></description>
-      <guid>https://community.openai.com/t/user-appeal-for-chatgpt-deactivated-account/723338#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 18:02:20 GMT</pubDate>
+      <title>Playground 与 App 的工作原理</title>
+      <link>https://community.openai.com/t/playground-vs-app-how-it-works/723389#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/playground-vs-app-how-it-works/723389#post_1</guid>
+      <pubDate>Sat, 20 Apr 2024 20:20:20 GMT</pubDate>
     </item>
     <item>
-      <title>API 密钥任务缺少图标</title>
-      <link>https://community.openai.com/t/api-secret-key-task-missing-icons/723255#post_2</link>
-      <description><![CDATA[机器人测试是 Arkose 公司提供的一种验证码形式。
-生成谜题的系统和人员认为其中一个选项是正确的。只是可能很难辨别他们的逻辑。
-如果您是人类，那么这种对您与一家公司的会话的入侵，您并不知道您正在与该公司打交道，该公司会在互联网上窥探您的一举一动来确定您的本性，也可能只是使用点击和鼠标行为来得分。&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/api-secret-key-task-missing-icons/723255#post_2</guid>
-      <pubDate>Sat, 20 Apr 2024 17:45:48 GMT</pubDate>
+      <title>TTS API访问，未找到密钥</title>
+      <link>https://community.openai.com/t/tts-api-access-not-finding-the-key/722696#post_4</link>
+      <description><![CDATA[好吧，我想我已经明白了。我通过 XDA Developers 使用 Ubuntu 找到了相关的替代方案。
+到目前为止，我已经运行了导出 OPENAI_API_KEY=“sk-我的密钥的其余部分”
+查看指南，似乎每次都必须进行设置，但是有一种使用 /etc/environment 进行设置的永久方法。]]></description>
+      <guid>https://community.openai.com/t/tts-api-access-not-finding-the-key/722696#post_4</guid>
+      <pubDate>Sat, 20 Apr 2024 20:15:43 GMT</pubDate>
     </item>
     <item>
       <title>使用 GPT-4 进行多模态（图像）微调</title>
-      <link>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_1</link>
-      <description><![CDATA[你好。长期倾听者，第一次来电。
-GPT4的微调是否具有对图像输入进行微调的能力。
-我正在开展的项目正在取得良好的结果，但需要最后一点推动才能达到我可以轻松部署它的程度。
-干杯！]]></description>
-      <guid>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 17:39:07 GMT</pubDate>
+      <link>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_2</link>
+      <description><![CDATA[欢迎来到社区@james.maine92
+微调目前仅限于这些模型.]]></description>
+      <guid>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_2</guid>
+      <pubDate>Sat, 20 Apr 2024 20:07:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 是否有隐藏的速率限制？</title>
+      <link>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_2</link>
+      <description><![CDATA[欢迎来到开发论坛
+是的，有速率限制，而且他们对此是透明的。]]></description>
+      <guid>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_2</guid>
+      <pubDate>Sat, 20 Apr 2024 20:00:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 是否有隐藏的速率限制？</title>
+      <link>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_1</link>
+      <description><![CDATA[我使用 gpt 4 Turbo 为我运行的网站进行图像识别。当我大量使用 API 但仍远低于我的限制时，我的所有请求都会开始超时。
+这是他们有隐藏的节流机制吗？我想知道，以便我可以相应地调整或计划使用情况。]]></description>
+      <guid>https://community.openai.com/t/does-the-api-have-hidden-throttling-rate-limits/723382#post_1</guid>
+      <pubDate>Sat, 20 Apr 2024 19:49:19 GMT</pubDate>
     </item>
     </channel>
 </rss>
