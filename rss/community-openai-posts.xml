@@ -4,196 +4,191 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 20 Apr 2024 15:18:13 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2024 18:22:32 GMT</lastBuildDate>
     <item>
-      <title>请求 ChatGPT 界面中的积极反馈选项，以更好地了解用户满意度</title>
-      <link>https://community.openai.com/t/request-for-positive-feedback-option-in-chatgpt-interface-to-better-understand-user-satisfaction/723252#post_1</link>
-      <description><![CDATA[TL;DR：在 ChatGPT 中请求“竖起大拇指”反馈选项，以区分用户何时找到解决方案和何时放弃对话。
-OpenAI 团队您好，
-我是 ChatGPT 的活跃用户，经常发现它是解决问题和获得见解不可或缺的工具。然而，我注意到，虽然可以选择对响应给出“拇指向下”，但当人工智能提供异常有用的响应时，没有相应的方式来给出“拇指向上”或任何形式的积极反馈。&lt; /p&gt;
-实施积极反馈功能不仅可以增强用户体验，还可以提供目前缺失的重要数据点，其中包括：
+      <title>助理 API - 文件错误</title>
+      <link>https://community.openai.com/t/assistant-api-error-with-files/485559#post_16</link>
+      <description><![CDATA[大家好，
+考虑到助手的最新更改（现在 OpenAI-beta =&gt; Assistants=v2），我能够按照本指南使用我的助手启动和运行文件搜索：https://platform.openai.com/docs/assistants/tools/file -search/quickstart?context=streaming&amp;lang=python
+该指南描述了两种访问文件的方法：
 
-准确的用户满意度指标：如果没有积极的反馈选项，OpenAI 就没有直接的方法来辨别用户是否真正发现答案有用，或者他们是否只是放弃对话。这可能会导致分析出现偏差，仅记录负面互动。
-增强强化学习：积极的反馈将作为人工智能的强化信号，帮助其更有效地了解哪些类型的响应可以满足用户的需求和期望。
-更好的参与度跟踪：能够“喜欢”或“赞成”回复将使 OpenAI 能够更准确地跟踪参与度。这将有助于了解哪些交互是成功的，哪些交互是用户在没有足够解决方案的情况下可能会脱离的交互。
-改进 AI 训练和模型调整：通过全面的正面和负面反馈，可以更准确地调整 AI 模型的训练，从而随着时间的推移提高响应质量。
-社区互动和士气：积极的反馈机制还可以提高用户士气并鼓励社区更加积极参与，从而营造一个认可有益互动的环境。
+创建矢量存储，上传文件并附加到矢量存储；然后修改你的助手以引用矢量存储。然后创建线程并运行创建。
 
-缺乏表达积极反馈的方式可能会无意中给人留下互动不如实际有帮助的印象，影响人工智能的感知有效性，并可能以不完全反映用户体验的方式影响其发展。&lt; /p&gt;
-我希望您考虑添加此功能，我相信这将通过提供更平衡的用户交互和满意度视图来极大地造福 OpenAI 社区。
-感谢您对此事的关注。
-最诚挚的问候，金德拉
-[由 GPT4 撰写  ]]]></description>
-      <guid>https://community.openai.com/t/request-for-positive-feedback-option-in-chatgpt-interface-to-better-understand-user-satisfaction/723252#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 15:16:20 GMT</pubDate>
+或
+
+上传文件，创建助手，创建一个包含嵌套消息的线程，其中包含 file_id 作为 file_search 附件（将显示示例），然后创建运行。
+
+我已经成功使用 #2，助手能够访问该文件，并且我不需要直接处理矢量存储或修改助手 (2更少的 API 调用）。
+以下是一些部分示例：
+创建助手：
+ 34 def create_assistant
+  35 url = &quot;#{@base_url}/助手&quot;
+  36
+  37 身体={
+  38 型号: &#39;gpt-4-turbo-preview&#39;,
+  39名称：“我的助理”，
+  40 条说明：“您将分析文档”，
+  41个工具：[
+  42 { 类型： &#39;文件搜索&#39; }
+  43]
+  44 }.to_json
+  45
+  46 res = HTTParty.post(url, body: body, headers: headers)
+  47
+  48 分辨率
+  49 结束
+
+上传文件（正文）：
+ 140 def upload_file_body
+ 141 {
+ 142 文件：@file，
+ 143 目的：‘助手’
+ 144}
+ 145 结束
+
+创建一个线程：
+def create_thread(file_id:)
+ 119 url = &quot;#{@base_url}/线程&quot;
+ 120
+ 第121章
+ 122 条消息：[
+ 123{
+ 124角色：&#39;用户&#39;，
+ 125内容：内容（file_id），
+ 126个附件：[
+ 127 { file_id: file_id, 工具: [{ type: &#39;file_search&#39; }] }
+ 128]
+ 129}
+ 130]
+ 131}
+ 132
+ 133 res = HTTParty.post(url, body: body.to_json, headers: headers)
+ 134
+ 135 分辨率
+ 136结束
+
+所有 API 调用的标头：
+ 147 def 标头
+ 148 {
+ 149 &#39;授权&#39; =&gt; “承载#{@api_key}”，
+ 正文 正文_第 150 章“应用程序/json”，
+ 第151章“助手=v2”
+ 152}
+ 153 结束
+
+以这种方式创建助手、上传文件并创建线程使我的运行能够成功，因为助手能够找到文件并运行分析。
+请务必将 OpenAI-Beta 标头也升级到 v2。
+希望这有帮助！]]></description>
+      <guid>https://community.openai.com/t/assistant-api-error-with-files/485559#post_16</guid>
+      <pubDate>Sat, 20 Apr 2024 18:10:35 GMT</pubDate>
     </item>
     <item>
-      <title>我的提示适用于 OpenAI Playground，但不适用于我的应用程序</title>
-      <link>https://community.openai.com/t/my-prompts-works-on-openai-playground-but-doesnt-work-on-my-application/722654#post_5</link>
-      <description><![CDATA[这个是我的
-从 &#39;openai&#39; 导入 OpenAI
-从“快递”进口快递
-从 &#39;cors&#39; 导入 cors
-从“body-parser”导入 bodyParser
-从“@googlemaps/google-maps-services-js”导入 { Client }；
+      <title>助理无法访问文件</title>
+      <link>https://community.openai.com/t/assistants-cant-access-file/615313#post_7</link>
+      <description><![CDATA[大家好，
+考虑到助手的最新更改（现在 OpenAI-beta =&gt; Assistants=v2），我能够按照本指南使用我的助手启动和运行文件搜索：https://platform.openai.com/docs/assistants/tools/file -search/quickstart?context=streaming&amp;lang=python
+该指南描述了两种访问文件的方法：
 
-常量应用程序 = Express()
+创建矢量存储，上传文件并附加到矢量存储；然后修改你的助手以引用矢量存储。然后创建线程并运行创建。
 
-const PORT = process.env.PORT || 3001
+或
 
-const 客户端 = 新客户端({});
+上传文件，创建助手，创建一个包含嵌套消息的线程，其中包含 file_id 作为 file_search 附件（将显示示例），然后创建运行。
 
-app.use(bodyParser.json());
+我已经成功使用 #2，助手能够访问该文件，并且我不需要直接处理矢量存储或修改助手 (2更少的 API 调用）。
+以下是一些部分示例：
+创建助手：
 
-const openai = 新 OpenAI({
-  apiKey: &#39;███████████████████████████████████████████8LIiIzmi&#39;
-})
-应用程序.use(cors())
+  34 def 创建助手
+  35 url = &quot;#{@base_url}/助手&quot;
+  36
+  37 身体={
+  38 型号: &#39;gpt-4-turbo-preview&#39;,
+  39名称：“我的助理”，
+  40 条说明：“您将分析文档”，
+  41个工具：[
+  42 { 类型： &#39;文件搜索&#39; }
+  43]
+  44 }.to_json
+  45
+  46 res = HTTParty.post(url, body: body, headers: headers)
+  47
+  48 分辨率
+  49 结束
 
-应用程序.use(express.json())
+上传文件（正文）：
+ 140 def upload_file_body
+ 141 {
+ 142 文件：@file，
+ 143 目的：‘助手’
+ 144}
+ 145 结束
 
-让welcomeMessage =“”
+创建一个线程：
+def create_thread(file_id:)
+ 119 url = &quot;#{@base_url}/线程&quot;
+ 120
+ 第121章
+ 122 条消息：[
+ 123{
+ 124角色：&#39;用户&#39;，
+ 125内容：内容（file_id），
+ 126个附件：[
+ 127 { file_id: file_id, 工具: [{ type: &#39;file_search&#39; }] }
+ 128]
+ 129}
+ 130]
+ 131}
+ 132
+ 133 res = HTTParty.post(url, body: body.to_json, headers: headers)
+ 134
+ 135 分辨率
+ 136结束
 
-// 用于获取欢迎消息的 Express.js 端点
-app.get(&#39;/api/welcome&#39;, async (req, res) =&gt; {
-  尝试 {
-    const 响应 = 等待 openai.chat.completions.create({
-      model: &quot;gpt-4&quot;, // 使用合适的模型
-      messages: [{ // 假设在没有先前上下文的情况下开始对话
-        角色：“系统”，
-        内容：“首先说‘你好！欢迎来到地理课。你想开始学习地理吗？’//“为地理讨论聊天机器人生成一条简短的友好且引人入胜的欢迎消息。
-      }]
-    });
-    welcomeMessage = response.choices[0].message.content.trim(); // 存储欢迎信息
-    res.json({ 消息:welcomeMessage });
-    //res.json({ message: response.choices[0].message.content.trim() });
-  } 捕获（错误）{
-    console.error(&#39;获取欢迎消息时出错：&#39;, error);
-    res.status(500).json({ error: &#39;无法获取欢迎消息&#39; });
-  }
-});
+所有 API 调用的标头：
+ 147 def 标头
+ 148 {
+ 149 &#39;授权&#39; =&gt; “承载#{@api_key}”，
+ 正文 正文_第 150 章“应用程序/json”，
+ 第151章“助手=v2”
+ 152}
+ 153 结束
 
-  // 假设您已经拥有 &#39;/api/welcome&#39; 端点
-
-// 处理用户消息并响应的端点
-app.post(&#39;/api/conversation&#39;, async (req, res) =&gt; {
-    const { userMessage } = req.body; // 从请求中获取用户消息
-    
-    尝试 {
-      // 将用户消息发送到OpenAI的API
-      const 响应 = 等待 openai.chat.completions.create({
-        model: &quot;gpt-4&quot;, // 根据可用型号进行调整
-        messages: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;:welcomeMessage}, // 使用存储的欢迎消息作为第一条消息
-        //{&quot;角色&quot;: &quot;用户&quot;, &quot;内容&quot;: userMessage},
-        {&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;您是一名地理老师。您提出随机的地理问题。当学生回答正确时，您会通过说“干得好！！！”来提供反馈。当学生回答错误时，您会提供提示或正确答案。&quot;},
-        //{&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;询问随机地理问题&quot;},
-        // {&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;当学生正确回答时，通过说&#39;干得好！！！&#39;来给予反馈。&quot;},
-        // {&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;当学生回答错误时提供提示或正确答案。&quot;},
-      {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:userMessage}], // 发送用户的消息进行处理
-        最大令牌数：150，
-      });
-  
-      // 将生成的响应返回给前端
-      res.json({ botResponse: response.choices[0].message.content });
-    } 捕获（错误）{
-      console.error(&#39;对话处理错误：&#39;, error);
-      res.status(500).json({ error: &#39;无法处理对话&#39; });
-    }
-  });
-
-  app.post(&#39;/api/city-info&#39;, async (req, res) =&gt; {
-    const { 城市名称 } = req.body;
-  
-    尝试 {
-      const Prompt = `提供有关 ${cityName} 的详细信息。`;
-      const 响应 = 等待 openai.chat.completions.create({
-        型号：“gpt-4”，
-        messages: [{&quot;角色&quot;:&quot;系统&quot;,&quot;内容&quot;:提示}],
-        最大令牌数：150，
-      });
-  
-      res.json({ 信息: response.choices[0].message.content });
-    } 捕获（错误）{
-      console.error(&#39;获取城市信息时出错：&#39;, error);
-      res.status(500).json({ error: &#39;获取城市信息失败&#39; });
-    }
-  });
-  
-  app.post(&#39;/api/location&#39;, async (req, res) =&gt; {
-    const { 位置 } = req.body;
-    尝试 {
-        const 响应 = 等待 client.geocode({
-            参数：{
-                地址：位置，
-                密钥：api密钥，
-            },
-        });
-        const { lat, lng } = response.data.results[0].geometry.location;
-        res.json({ 纬度, 经度 });
-    } 捕获（错误）{
-        控制台.错误（错误）；
-        res.status(500).send(&#39;检索位置数据时出错&#39;);
-    }
-});
-
-app.listen(PORT, () =&gt; console.log(`服务器在 http://localhost:${PORT}`))
-
-这就是我得到的
-]]></description>
-      <guid>https://community.openai.com/t/my-prompts-works-on-openai-playground-but-doesnt-work-on-my-application/722654#post_5</guid>
-      <pubDate>Sat, 20 Apr 2024 14:51:26 GMT</pubDate>
+以这种方式创建助手、上传文件并创建线程使我的运行能够成功，因为助手能够找到文件并运行分析。
+请务必将 OpenAI-Beta 标头也升级到 v2。
+希望这有帮助！]]></description>
+      <guid>https://community.openai.com/t/assistants-cant-access-file/615313#post_7</guid>
+      <pubDate>Sat, 20 Apr 2024 18:08:25 GMT</pubDate>
     </item>
     <item>
-      <title>我收到“超出当前配额”错误，但我有可用余额</title>
-      <link>https://community.openai.com/t/i-am-getting-an-exceeded-your-current-quota-error-but-i-have-balance-available/723235#post_1</link>
-      <description><![CDATA[我的使用限额为 400 美元，但本月到目前为止我只花费了 260 美元。然而，从今天早上开始，我一直收到一条“您超出了当前配额，请检查您的计划和账单详细信息。”每当我尝试进行 API 调用时都会收到消息。我尝试创建新的 API 密钥，但错误仍然存​​在。
-我不知道发生了什么，也不知道这是否是 API 中的错误。
-请帮忙。我该如何解决这个问题？]]></description>
-      <guid>https://community.openai.com/t/i-am-getting-an-exceeded-your-current-quota-error-but-i-have-balance-available/723235#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 14:49:39 GMT</pubDate>
+      <title>用户针对 ChatGPT 停用帐户提出申诉</title>
+      <link>https://community.openai.com/t/user-appeal-for-chatgpt-deactivated-account/723338#post_1</link>
+      <description><![CDATA[尊敬的 OpenAI 支持团队，
+我的 ChatGPT 帐户已被终止。我使用 ChatGPT 进行了一年多的个人研究、写小说、剧本等。在这一年里，我收到了 2 封警告电子邮件，因此我尽力遵守该政策，但发生了错误，ChatGPT 将我的聊天识别为不当内容再次并认为其违反了使用条款。我收到一封电子邮件，说我的帐户因违反规则而被终止。但严格来说，这不是故意的，而是我的粗心和ChatGPT的错误。我已经向 support@openai.com 和帮助部分发送了一个月的电子邮件，但没有回复。我需要检索有关该帐户的一些重要信息。如果需要的话我什至会付钱。请有人帮助我重新激活我的帐户 &lt;img alt=&quot;:pray:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/pray.png?v=12 “标题=“：祈祷：”宽度=“20”/&gt;。
+感谢您的帮助。
+谨致问候，
+内森]]></description>
+      <guid>https://community.openai.com/t/user-appeal-for-chatgpt-deactivated-account/723338#post_1</guid>
+      <pubDate>Sat, 20 Apr 2024 18:02:20 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API 中的新功能！</title>
-      <link>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=2#post_32</link>
-      <description><![CDATA[我们什么时候可以看到由新的 Assistants v2 提供支持的 GPT]]></description>
-      <guid>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=2#post_32</guid>
-      <pubDate>Sat, 20 Apr 2024 14:37:58 GMT</pubDate>
+      <title>API 密钥任务缺少图标</title>
+      <link>https://community.openai.com/t/api-secret-key-task-missing-icons/723255#post_2</link>
+      <description><![CDATA[机器人测试是 Arkose 公司提供的一种验证码形式。
+生成谜题的系统和人员认为其中一个选项是正确的。只是可能很难辨别他们的逻辑。
+如果您是人类，那么这种对您与一家公司的会话的入侵，您并不知道您正在与该公司打交道，该公司会在互联网上窥探您的一举一动来确定您的本性，也可能只是使用点击和鼠标行为来得分。&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/api-secret-key-task-missing-icons/723255#post_2</guid>
+      <pubDate>Sat, 20 Apr 2024 17:45:48 GMT</pubDate>
     </item>
     <item>
-      <title>请求上限使得构建 GPT 变得不可能</title>
-      <link>https://community.openai.com/t/request-cap-makes-impossible-to-build-gpts/575136#post_11</link>
-      <description><![CDATA[是的，这真是令人沮丧。有趣的是，我是在订阅后才遇到这个问题的。 我什至不使用 40 条消息。大约 10-20 条消息后，我也会被屏蔽 2-3 小时 - 我同意，这使得构建 GPT 变得非常困难。现在阅读这些回复后，我可能同意 OpenAI 在 40 限制内构建 GPT 时包含所有提示。我不明白的是为什么他们会对付费订阅者设置限制。无论如何，为免费用户设置限制，但对付费会员要有更多的宽容！]]></description>
-      <guid>https://community.openai.com/t/request-cap-makes-impossible-to-build-gpts/575136#post_11</guid>
-      <pubDate>Sat, 20 Apr 2024 14:34:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>终于达到了 GPT-4 的使用上限</title>
-      <link>https://community.openai.com/t/finally-reached-the-usage-cap-for-gpt-4/498324?page=3#post_48</link>
-      <description><![CDATA[有趣的是，我在订阅后才开始收到这些消息，更糟糕的是，我什至没有使用 40 个提示，然后我就收到了这个消息。所以我不知道 OpenAI 是否包含 40 条上限的回复。我认为为付费订户设置限制是可笑的。]]></description>
-      <guid>https://community.openai.com/t/finally-reached-the-usage-cap-for-gpt-4/498324?page=3#post_48</guid>
-      <pubDate>Sat, 20 Apr 2024 14:28:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 不更新或刷新文档</title>
-      <link>https://community.openai.com/t/custom-gpt-not-updating-or-refreshing-docs/723212#post_1</link>
-      <description><![CDATA[如何解决未更新我的文件的自定义 GPT 问题？
-当我删除文档并将其替换为更新的文档时，它不会刷新该文档。
-已经过去几天了，GPT 显示“更新待处​​理”。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-not-updating-or-refreshing-docs/723212#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 14:11:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于消息分类器用例仅传递一次指令</title>
-      <link>https://community.openai.com/t/passing-instructions-only-once-for-a-message-classifier-use-case/722923#post_15</link>
-      <description><![CDATA[根据我的经验，使用嵌入的多标签需要更多数量级的数据，系统才能收敛到较低的错误率。
-我还没有像您一样尝试过广泛的提示，然后从大量（250）个标签集中生成标签以供绘制。
-因此，如果您确实有层次结构，我会首先获得您的高级分类，然后从那里进一步细分。
-无论您选择哪种方法，这种分而治之的方法都应该为您提供更准确的标签，因为您的初始过滤会消除所有应用的错误标签带来的噪音。
-除了嵌入向量之外，要考虑的另一件事是使用 TF-IDF 之类的方法来获取关键字，然后将其映射到标签。实际上，您可以同时执行关键字和嵌入，并将它们与 RRF（倒数排名融合）相结合，为每个文本块提供总体最佳标签集。
-所以在实现中我在这里想，你与语义（嵌入/密集向量）相关并与关键字（稀疏向量）相关，并且段落是相同的块，只是通过不同的镜头查看，然后与 RRF 结合。权重也不必相等，因此有很大的空间来调整这样的东西。
-然后，您可以收获顶级标签，其中与特定标签高度一致的关键字或关键短语的权重更高。]]></description>
-      <guid>https://community.openai.com/t/passing-instructions-only-once-for-a-message-classifier-use-case/722923#post_15</guid>
-      <pubDate>Sat, 20 Apr 2024 14:11:02 GMT</pubDate>
+      <title>使用 GPT-4 进行多模态（图像）微调</title>
+      <link>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_1</link>
+      <description><![CDATA[你好。长期倾听者，第一次来电。
+GPT4的微调是否具有对图像输入进行微调的能力。
+我正在开展的项目正在取得良好的结果，但需要最后一点推动才能达到我可以轻松部署它的程度。
+干杯！]]></description>
+      <guid>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_1</guid>
+      <pubDate>Sat, 20 Apr 2024 17:39:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
