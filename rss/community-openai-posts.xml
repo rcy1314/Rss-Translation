@@ -4,62 +4,27 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 21 Apr 2024 01:16:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2024 03:18:50 GMT</lastBuildDate>
     <item>
-      <title>打开AI的新文件搜索工具</title>
-      <link>https://community.openai.com/t/open-ais-new-file-search-tool/723480#post_1</link>
-      <description><![CDATA[大家好，
-我制作了一个视频来尝试新的文件搜索工具。如果您对此有任何见解，请告诉我，以进一步发挥作用释放开放人工智能Assistant 使用矢量存储进行新文件搜索 - 分步]]></description>
-      <guid>https://community.openai.com/t/open-ais-new-file-search-tool/723480#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 23:53:16 GMT</pubDate>
+      <title>订阅 PLUS 后无法访问 GPT-4</title>
+      <link>https://community.openai.com/t/no-access-to-gpt-4-with-plus-subscription/303418?page=2#post_26</link>
+      <description><![CDATA[即使我在几个小时前订阅了，我也遇到了这个问题。如何联系 chatgpt plus 或 chatgpt 4 支持中心或从他们那里获取帮助？]]></description>
+      <guid>https://community.openai.com/t/no-access-to-gpt-4-with-plus-subscription/303418?page=2#post_26</guid>
+      <pubDate>Sun, 21 Apr 2024 03:01:06 GMT</pubDate>
     </item>
     <item>
-      <title>流媒体现已在 Assistant API 中提供！</title>
-      <link>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=3#post_52</link>
-      <description><![CDATA[我制作了一个视频，介绍了一种简单的方法来创建带有流媒体的开放式人工智能助手的流式聊天机器人。希望它对您有所帮助超级简单构建流式开放 AI 助理聊天机器人 - 分步教程]]></description>
-      <guid>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=3#post_52</guid>
-      <pubDate>Sat, 20 Apr 2024 23:51:28 GMT</pubDate>
+      <title>建议添加聊天 GPT</title>
+      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_84</link>
+      <description><![CDATA[添加一种将对话上下文转移到另一个对话的方法，或者创建一个具有相同上下文的新对话，以便我们可以继续故事等。]]></description>
+      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_84</guid>
+      <pubDate>Sun, 21 Apr 2024 02:39:02 GMT</pubDate>
     </item>
     <item>
-      <title>创建批处理作业时出现服务器错误 500</title>
-      <link>https://community.openai.com/t/server-error-500-on-creating-batch-job/723478#post_1</link>
-      <description><![CDATA[我正在尝试新的 OpenAI 批处理功能，但每当我尝试提交任何作业时，我都会收到服务器错误 500。起初我认为这可能是 OpenAI 端的问题，但几天后我仍然收到相同的错误，而其他人似乎能够成功提交作业，所以我认为这可能是我的请求的问题。
-以下是我在 Google Colab 上运行的完整代码：
-导入 json
-从 openai 导入 OpenAI
-从 google.colab 导入用户数据
-导入请求
-从临时文件导入命名临时文件
-
-数据 = [
-    {&#39;custom_id&#39;：&#39;request-1&#39;，&#39;method&#39;：&#39;POST&#39;，&#39;url&#39;：&#39;/v1/chat/completions&#39;，&#39;body&#39;：{&#39;model&#39;：&#39;gpt-3.5-turbo&#39;，&#39; messages&#39;: [{&#39;角色&#39;: &#39;用户&#39;, &#39;内容&#39;: &#39;你好！&#39;}]}},
-    {&#39;custom_id&#39;：&#39;request-2&#39;，&#39;method&#39;：&#39;POST&#39;，&#39;url&#39;：&#39;/v1/chat/completions&#39;，&#39;body&#39;：{&#39;model&#39;：&#39;gpt-3.5-turbo&#39;，&#39; messages&#39;: [{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;珠穆朗玛峰有多高？&#39;}]}}]
-
-客户端 = OpenAI(api_key=userdata.get(&#39;openai-colab&#39;))
-
-将 NamedTemporaryFile(suffix=&#39;.jsonl&#39;) 作为 f：
-    对于数据中的项目：
-        行 = json.dumps(item)+&#39;\n&#39;
-        f.write(line.encode(&#39;utf-8&#39;))
-    file_response = client.files.create(file=f.file, Purpose=&#39;batch&#39;)
-
-batch_response = client.batches.create(
-  input_file_id=file_response.id,
-  端点=&#39;/v1/chat/completions&#39;,
-  完成窗口=&#39;24小时&#39;)
-批处理响应
-
-我收到以下错误
-InternalServerError: 错误代码: 500 - {&#39;error&#39;: {&#39;message&#39;: &#39;服务器在处理您的请求时出错。对于那个很抱歉！您可以重试您的请求，或者如果您继续看到此错误，请通过我们的帮助中心 help.openai.com 与我们联系。 （请在您的电子邮件中包含请求 ID req_a4a007ce711a6a0740ffed8778c47db6。）&#39;, &#39;type&#39;: &#39;server_error&#39;, &#39;param&#39;: None, &#39;code&#39;: None}}
-
-我尝试使用常规 jsonl 文件而不是 TempFile 来执行此操作，但结果是相同的。
-当我使用  Purpose=&#39;batch&#39;, status=&#39;processed&#39; 运行 client.files.list() 时，文件正在上传并显示在文件列表中code&gt;，但批处理作业未创建
-client.batches.list()
-&gt;&gt;&gt;&gt;&gt; SyncCursorPage[Batch](data=[],object=&#39;list&#39;,first_id=None,last_id=None,has_more=False)
-
-我还尝试通过从终端发送 POST 请求而不使用 Python 客户端来创建作业，但得到了相同的响应。任何帮助，将不胜感激。谢谢]]></description>
-      <guid>https://community.openai.com/t/server-error-500-on-creating-batch-job/723478#post_1</guid>
-      <pubDate>Sat, 20 Apr 2024 23:50:06 GMT</pubDate>
+      <title>流媒体现已在 Assistants API 中提供！</title>
+      <link>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=3#post_53</link>
+      <description><![CDATA[您必须卸载并重新安装最新版本的openai SDK]]></description>
+      <guid>https://community.openai.com/t/streaming-is-now-available-in-the-assistants-api/682011?page=3#post_53</guid>
+      <pubDate>Sun, 21 Apr 2024 02:16:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
