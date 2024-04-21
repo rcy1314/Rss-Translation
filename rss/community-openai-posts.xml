@@ -4,79 +4,93 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 21 Apr 2024 09:18:58 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2024 12:31:21 GMT</lastBuildDate>
     <item>
-      <title>批次：此请求的 custom_id 与另一个请求重复</title>
-      <link>https://community.openai.com/t/batch-the-custom-id-for-this-request-is-a-duplicate-of-another-request/723696#post_2</link>
-      <description><![CDATA[嗨 - 我刚刚尝试重现该错误。问题很可能是在给定批次中，您对两个或更多请求使用相同的 custom_ID。在错误消息中，它应该告诉您有重复 ID 的行。
-换句话说，您作为给定批次的一部分提交的每个请求输入对象都必须具有唯一的 custom_ID。跨批次您可以使用相同的 custom_ID，但不能在给定批次内使用。
-我希望这是有道理的。]]></description>
-      <guid>https://community.openai.com/t/batch-the-custom-id-for-this-request-is-a-duplicate-of-another-request/723696#post_2</guid>
-      <pubDate>Sun, 21 Apr 2024 09:13:15 GMT</pubDate>
+      <title>Playground 与 App 的工作原理</title>
+      <link>https://community.openai.com/t/playground-vs-app-how-it-works/723389#post_3</link>
+      <description><![CDATA[对话的进行与系统提示无关。它的流量不是预期的。]]></description>
+      <guid>https://community.openai.com/t/playground-vs-app-how-it-works/723389#post_3</guid>
+      <pubDate>Sun, 21 Apr 2024 12:17:24 GMT</pubDate>
     </item>
     <item>
-      <title>使用 GPT-4 进行多模态（图像）微调</title>
-      <link>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_3</link>
-      <description><![CDATA[感谢您的回复。
-我看到 gpt-4-0613 包含在此列表中。由于 GPT-4 可以接受多模态输入，这是否也可以扩展到微调？]]></description>
-      <guid>https://community.openai.com/t/multimodal-image-fine-tuning-with-gpt-4/723327#post_3</guid>
-      <pubDate>Sun, 21 Apr 2024 09:12:46 GMT</pubDate>
+      <title>我已经构建了可以与 Google 地图交互的 OpenAI</title>
+      <link>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_7</link>
+      <description><![CDATA[我很惊讶这个功能有效，因为 OpenAI 故意禁止从图像中识别人名、公司名称、电话号码、实际地址、电子邮件地址等。他们声称这是出于“安全”原因而被禁用，但我认为微软的竞争性业务战略可能比“安全”问题更重要。 OCR 已经存在了几十年，显然不会对社会构成风险。]]></description>
+      <guid>https://community.openai.com/t/i-have-built-openai-that-can-interact-with-google-maps/703819#post_7</guid>
+      <pubDate>Sun, 21 Apr 2024 12:14:23 GMT</pubDate>
     </item>
     <item>
-      <title>批次：此请求的 custom_id 与另一个请求重复</title>
-      <link>https://community.openai.com/t/batch-the-custom-id-for-this-request-is-a-duplicate-of-another-request/723696#post_1</link>
-      <description><![CDATA[尝试从最近的 批量端点。
-&lt;块引用&gt;
-此请求的 custom_id 与另一个请求重复。对于批次中的每个请求，custom_id 参数必须是唯一的。
+      <title>助手的指令和帖子里的消息有什么区别？</title>
+      <link>https://community.openai.com/t/what-is-the-difference-between-the-assistants-instruction-and-message-in-thread/723795#post_1</link>
+      <description><![CDATA[据我所知，client.beta.threads.runs.create需要线程级别的指令，而client.beta.threads.messages.create  需要在运行级别添加到线程的内容
+从其他帖子中，我读到了后来的说明，例如在运行时创建的说明，覆盖并替换了该运行的助手的原始说明。
+我有点困惑为什么有多个必填地方我需要指定指令，因为它感觉多余？
+就我而言，如果我只需要向线程添加文件，则需要在此时添加一条消息。然后在运行时为助手添加另一条消息...
+有没有更好的方法来处理这个问题？]]></description>
+      <guid>https://community.openai.com/t/what-is-the-difference-between-the-assistants-instruction-and-message-in-thread/723795#post_1</guid>
+      <pubDate>Sun, 21 Apr 2024 12:07:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何检查文件在线程内何时可用？</title>
+      <link>https://community.openai.com/t/how-can-i-check-when-a-file-is-available-within-thread/723787#post_1</link>
+      <description><![CDATA[当我将文件上传到线程并在一个脚本中运行助手时，助手通常要等我一会儿才能找到该文件。
+有什么想法吗，我如何检查文件何时可供线程中的助手使用？
+def create_thread():
+    线程 = client.beta.threads.create()
+    返回线程.id
 
-这是来自新文件的新批次，其中包含一些在之前的批次请求中使用的 custom_ids。由于此错误，我将所有 custom_ids 更新为 &quot;new-{custom_id}&quot;，但仍然遇到相同的错误。]]></description>
-      <guid>https://community.openai.com/t/batch-the-custom-id-for-this-request-is-a-duplicate-of-another-request/723696#post_1</guid>
-      <pubDate>Sun, 21 Apr 2024 09:04:59 GMT</pubDate>
+
+def upload_file(文件路径):
+    文件 = client.files.create(
+    文件=打开（文件路径，“rb”），
+    目的=&#39;助手&#39;
+    ）
+    打印（文件）
+    返回文件
+
+
+def add_message_to_thread(thread_id, file_id, message_content):
+    消息 = client.beta.threads.messages.create(
+    线程_id=线程_id,
+    角色=“用户”，
+    file_ids=[文件id],
+    内容=消息内容
+    ）
+    message_id = 消息.id
+    返回消息，message_id
+
+def run_assistant_on_thread(thread_id, Assistant_id, Assistant_instruction):
+    运行 = client.beta.threads.runs.create(
+    线程_id=线程_id,
+    助理id=助理id，
+    型号=“gpt-3.5-turbo”，
+    指令=助手指令，
+    工具=[{&quot;类型&quot;:&quot;检索&quot;}]
+    ）
+
+    而真实：
+        如果 run.status == &#39;已排队&#39;:
+            打印(运行.状态)
+            时间.睡眠(3)
+            run = client.beta.threads.runs.retrieve(run_id=run.id, thread_id=thread_id)
+        别的：
+            返回运行
+
+
+def get_assistant_response(thread_id):
+    thread_response_list = client.beta.threads.messages.list(thread_id=thread_id, order=&#39;desc&#39;, limit=1)
+    响应 = thread_response_list.data[0].content[0].text.value
+    返回响应
+]]></description>
+      <guid>https://community.openai.com/t/how-can-i-check-when-a-file-is-available-within-thread/723787#post_1</guid>
+      <pubDate>Sun, 21 Apr 2024 11:55:43 GMT</pubDate>
     </item>
     <item>
       <title>是不是很慢，有时还很慢？</title>
-      <link>https://community.openai.com/t/is-it-very-slow-and-sometimes-down/723139#post_2</link>
-      <description><![CDATA[并且仍在发生，这使其无法使用，工作进行到一半时它停止并出现“网络错误”，必须重复并希望，重复并希望......
-C:\Users\garry&gt;ping chat.openai.com
-Ping chat.openai.com.cdn.cloudflare.net [172.64 .150.28] 32 字节数据：
-172.64.150.28回复：字节=32 时间=36ms TTL=57
-请求超时。
-172.64.150.28回复：字节=32 时间=34ms TTL=57
-来自 172.64.150.28 的回复：字节=32 时间=32ms TTL=57
-172.64.150.28 的 Ping 统计数据：
-数据包：已发送 = 4，已接收 = 3，丢失 = 1（丢失 25%），
-大约往返时间（以毫秒为单位）：
-最小值 = 32 毫秒，最大值 = 36 毫秒，平均值 = 34 毫秒]]></description>
-      <guid>https://community.openai.com/t/is-it-very-slow-and-sometimes-down/723139#post_2</guid>
-      <pubDate>Sun, 21 Apr 2024 08:40:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>请求朗读控件</title>
-      <link>https://community.openai.com/t/request-for-read-aloud-controls/723678#post_1</link>
-      <description><![CDATA[开发者们大家好，感谢你们的辛勤工作！
-只需发布其他人可能也会觉得有用的请求。
-最近推出的朗读功能对我来说是一个真正的游戏规则改变者，我一直使用它作为经过训练的朗读机器人来辅助使用白皮书和学习材料。
-我想知道是否可以为朗读功能添加暂停、快退/快进控制和语音速度控制？
-我认为点击界面上的“扬声器”按钮后，ChatGPT 会渲染一个音频文件，然后播放？
-厚颜无耻，更进一步，下载此音频的能力将是惊人的，但我知道这对功能请求来说是一个很大的要求！
-不管怎样，你们都做得非常出色，再次感谢你们制作了如此出色的工具！]]></description>
-      <guid>https://community.openai.com/t/request-for-read-aloud-controls/723678#post_1</guid>
-      <pubDate>Sun, 21 Apr 2024 08:28:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>Universal Teacher 简介：Alexa 和 ChatGPT 的互动学习体验</title>
-      <link>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-alexa-and-chatgpt/722490#post_2</link>
-      <description><![CDATA[这是视频说明...
-https://www.youtube.com/watch?v=bvBKW0F5nPM]]></description>
-      <guid>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-alexa-and-chatgpt/722490#post_2</guid>
-      <pubDate>Sun, 21 Apr 2024 08:04:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>向非付费用户共享 GPT</title>
-      <link>https://community.openai.com/t/sharing-gpts-to-non-paid-users/534230#post_18</link>
-      <description><![CDATA[我已经构建了一个产品，可以让您重新创建 GPT，并且可以与其他人共享并货币化，并发布到网站！我无法在这里分享它，因为它会被标记，但请随时给我发消息，我将提供链接 ]]></description>
-      <guid>https://community.openai.com/t/sharing-gpts-to-non-paid-users/534230#post_18</guid>
-      <pubDate>Sun, 21 Apr 2024 07:58:06 GMT</pubDate>
+      <link>https://community.openai.com/t/is-it-very-slow-and-sometimes-down/723139#post_3</link>
+      <description><![CDATA[好的，尝试了免费 VPN，似乎是我的 ISP 和到 chatgpt 的路由出现了问题，大约一个小时后没有网络错误等。]]></description>
+      <guid>https://community.openai.com/t/is-it-very-slow-and-sometimes-down/723139#post_3</guid>
+      <pubDate>Sun, 21 Apr 2024 11:19:37 GMT</pubDate>
     </item>
     </channel>
 </rss>
