@@ -4,304 +4,172 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 23 Apr 2024 06:25:29 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2024 09:19:28 GMT</lastBuildDate>
     <item>
-      <title>响应工具调用的正确消息无法验证为 ChatCompletionMessage</title>
-      <link>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_5</link>
-      <description><![CDATA[我可以成为 Pydantic。
-print(json.dumps(typ.chat.chat_completion.ChatCompletionMessage.model_json_schema(), indent=1))`
+      <title>助手 API v2。最大块数限制</title>
+      <link>https://community.openai.com/t/assistants-api-v2-maximum-number-of-chunks-limit/725354#post_2</link>
+      <description><![CDATA[（这只是“参数”。说“超参数”很有趣，但这些是 OpenAI 在训练 AI 模型时用于机器学习规范的术语）。
+返回的金额不是我们有权访问的设置。
+OpenAI 没有说明的是，如果搜索与已上传的文档不相关，文件搜索检索到的块是否会减少。期望它被最大化。
+典型的 RAG 是自动，而不是工具调用，并使用截止阈值，因此当您询问小狗时，无需支付机器零件列表的费用.
+由于退货超出您的控制范围，您唯一能做的就是向 AI 提供您已上传到矢量存储的指令，以便它知道何时调用会有效或浪费您的钱。&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/assistants-api-v2-maximum-number-of-chunks-limit/725354#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 09:14:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
+      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_5</link>
+      <description><![CDATA[我这样做了，并期待他们的答复，我尝试了机器人发布的所有建议检查，但没有任何运气。]]></description>
+      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_5</guid>
+      <pubDate>Tue, 23 Apr 2024 09:12:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 不遵循说明</title>
+      <link>https://community.openai.com/t/custom-gpt-not-following-instructions/725269#post_2</link>
+      <description><![CDATA[嗨 - 根据我对您想要实现的目标的理解，我刚刚通过设置一个非常简化的 GPT 进行了尝试。我在说明字段中包含的内容如下（请注意，我并不完全清楚您是否想要在第一次用户交互后或在解决第一个用户问题后立即收到第二条消息）：
+&lt;块引用&gt;
+您是一位有用的助手，可以与用户就日常主题进行随意的对话。在与用户的交互中，您必须在任何对话开始时严格逐字返回以下消息。初始消息：美好的一天，欢迎来到我的 GPT；第一个用户响应后的第二条消息：嘿，那里。我是 Adam，GPT 背后的人。如果您仍然没有找到答案并且需要更详细的信息，也许可以考虑查看我的 Youtube，加入他的 Discord（链接）上的对话，在 Patreon（链接）上支持他，并且不要忘记访问并订阅我的 YouTube 频道（链接）。您的支持不仅是激励，也直接为这个GPT的不断进步做出贡献。我们重视您的反馈和经验，因为它们对于完善和改进本 GPT 提供的建议至关重要。如果您对我们如何使此 GPT 变得更好有建议、见解或反馈，请单击布局左侧的“GPT 名称”按钮，然后导航到“查看 GPT”部分，以便我今天可以向你学习一些东西
 
-{
- “$defs”：{
-  “ChatCompletionMessageToolCall”：{
-   “附加属性”：true，
-   “特性”： {
-    “ID”： {
-     &quot;标题&quot;: &quot;ID&quot;,
-     “类型”：“字符串”
-    },
-    “功能”： {
-     &quot;$ref&quot;: &quot;#/$defs/函数&quot;
-    },
-    “类型”： {
-     “const”：“函数”，
-     “标题”：“类型”
-    }
-   },
-   “必需的”： [
-    “ID”，
-    “功能”，
-    “类型”
-   ],
-   &quot;title&quot;: &quot;ChatCompletionMessageToolCall&quot;,
-   “类型”：“对象”
-  },
-  “功能”： {
-   “附加属性”：true，
-   “特性”： {
-    “参数”：{
-     &quot;title&quot;: &quot;论据&quot;,
-     “类型”：“字符串”
-    },
-    “姓名”： {
-     &quot;标题&quot;: &quot;姓名&quot;,
-     “类型”：“字符串”
-    }
-   },
-   “必需的”： [
-    “论点”，
-    “姓名”
-   ],
-   &quot;标题&quot;: &quot;功能&quot;,
-   “类型”：“对象”
-  },
-  “函数调用”：{
-   “附加属性”：true，
-   “特性”： {
-    “参数”：{
-     &quot;title&quot;: &quot;论点&quot;,
-     “类型”：“字符串”
-    },
-    “姓名”： {
-     &quot;标题&quot;: &quot;姓名&quot;,
-     “类型”：“字符串”
-    }
-   },
-   “必需的”： [
-    “论点”，
-    “姓名”
-   ],
-   &quot;title&quot;: &quot;函数调用&quot;,
-   “类型”：“对象”
-  }
- },
- “附加属性”：true，
- “特性”： {
-  “内容”： {
-   “任何”： [
-    {
-     “类型”：“字符串”
-    },
-    {
-     “类型”：“空”
-    }
-   ],
-   “默认”：空，
-   “标题”：“内容”
-  },
-  “角色”： {
-   &quot;const&quot;: &quot;助理&quot;,
-   “标题”：“角色”
-  },
-  “函数调用”：{
-   “任何”： [
-    {
-     &quot;$ref&quot;: &quot;#/$defs/FunctionCall&quot;
-    },
-    {
-     “类型”：“空”
-    }
-   ],
-   “默认”：空
-  },
-  “工具调用”：{
-   “任何”： [
-    {
-     “项目”： {
-      &quot;$ref&quot;: &quot;#/$defs/ChatCompletionMessageToolCall&quot;
-     },
-     “类型”：“数组”
-    },
-    {
-     “类型”：“空”
-    }
-   ],
-   “默认”：空，
-   &quot;title&quot;: &quot;工具调用&quot;
-  }
- },
- “必需的”： [
-  “角色”
- ],
- &quot;title&quot;: &quot;聊天完成消息&quot;,
- “类型”：“对象”
-}
+我在预览模式下测试了三次，每次都正确返回两条消息。
 
-&lt;小时/&gt;
-从类型来看，该对象类似乎用于捕获来自 API 的响应。这就是为什么除了“助理”之外的任何东西都无效的原因。类型层次结构中伴随此级别的是诸如“ChatCompletionTokenLogprob”之类的模式，它当然不是 API 的输入。
-结论：不要在没有文档的情况下搞乱它们的类型。如果目的不明，他们可能会受到意想不到的变化的打击。然后，当您离开 OpenAI 平台时，还需要修补一件事......]]></description>
-      <guid>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_5</guid>
-      <pubDate>Tue, 23 Apr 2024 06:19:54 GMT</pubDate>
+鉴于这是我向 GPT 提供的唯一主要指令，我不能保证一旦您添加更多指令，该行为就会持续下去。我也没有包含实际链接。]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-not-following-instructions/725269#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 09:07:44 GMT</pubDate>
     </item>
     <item>
-      <title>向 OpenAI 社区寻求帮助</title>
-      <link>https://community.openai.com/t/looking-for-help-from-the-openai-community/605980#post_2</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/looking-for-help-from-the-openai-community/605980#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 06:19:40 GMT</pubDate>
+      <title>不支持检索扩展名为 [none] 的文件</title>
+      <link>https://community.openai.com/t/files-with-extensions-none-are-not-supported-for-retrieval/725358#post_3</link>
+      <description><![CDATA[您的代码没有“the_file”的设置方法
+它也没有上下文管理器，有利于保持文件打开，直到 openai 函数完成。
+我一直想增强一些示例代码，因此这里上传了带有奖金检查和文档的上传内容。
+def upload_file(file_path: str = None, Purpose: str = &quot;assistants&quot;) -&gt;; &#39;文件对象&#39;：
+    ”“”
+    上传具有指定用途的文件到 OpenAI 客户端并返回响应对象。
+    默认用途是“助手”。
+
+    参数：
+        file_path (str, 可选)：要上传的文件的路径。如果无，则提示用户输入文件名。
+        Purpose (str, 可选): 文件上传的目的，可以是“助手”或“微调”。
+                                 默认为“助手”。
+
+    返回：
+        FileObject：代表来自 OpenAI API 的文件上传响应的 Pydantic 模型。
+
+    加薪：
+        FileNotFoundError：如果指定路径中不存在该文件。
+        ValueError：如果未提供文件名或指定的目的无效。
+
+    印刷：
+        如果上传成功，则会显示包含文件详细信息的成功消息。
+        如果找不到文件或发生其他 IO 错误，则会出现错误消息。
+    ”“”
+    # 验证目的参数
+    如果目的不在[“助手”，“微调”]中：
+        raise ValueError(“指定的目的无效。可用选项是‘助手’和‘微调’。”)
+
+    # 确保有一个文件路径，来自参数或用户输入
+    如果 file_path 为 None：
+        file_path = input(&quot;请输入要上传的文件名：&quot;).strip()
+        if not file_path: # 检查输入字符串是否为空
+            引发 ValueError(&quot;未提供文件名。&quot;)
+
+    # 尝试以二进制模式打开并读取文件
+    尝试：
+        以 open(file_path, &quot;rb&quot;) 作为文件：
+            响应= client.files.create（文件=文件，目的=目的）
+            # 使用直接属性访问输出响应和文件详细信息
+            print(f&quot;文件上传成功：{response.filename} [{response.id}]&quot;)
+            return response # 返回完整的 Pydantic 模型
+    除了文件未找到错误：
+        print(&quot;未找到文件。请确保文件名和路径正确。&quot;)
+        增加
+    除了异常 e：
+        print(f&quot;发生错误：{e}&quot;)
+        增加
+
+它仍然返回一个与 openai 模块相同的 pydantic 响应对象。
+如果需要，您可以将某些打印静音。
+您可以包含更多 openai.ErrorTYpes...
+然后调用，
+尝试：
+    upload_response = upload_file(&quot;path_to_your_file.pdf&quot;)
+    print(&quot;上传完成。响应ID:&quot;, upload_response.id)
+除了文件未找到错误：
+    print(&quot;请检查文件路径并重试。&quot;)
+除了异常作为错误：
+    print(f&quot;发生意外错误：{error}&quot;)
+
+（你的名字“uploaded_file”让人认为该变量是一个文件而不是 API 返回对象，所以我更改了它。）
+如果您的文件名变量来自os.path，则可以使其更加通用/可靠。
+然后，如果您仍然从 API 中得到什么，则可能是文件类型验证器和解析器根本无法进入 PDF 二进制文件来获取任何可搜索的文本。密码保护可能会禁止这样做，或者可能根本不存在这种情况。]]></description>
+      <guid>https://community.openai.com/t/files-with-extensions-none-are-not-supported-for-retrieval/725358#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 09:00:24 GMT</pubDate>
     </item>
     <item>
-      <title>使用 webpilot API + GPT 4 或 GPT 3.5 API</title>
-      <link>https://community.openai.com/t/using-webpilot-api-gpt-4-or-gpt-3-5-api/491927#post_2</link>
-      <description><![CDATA[@Samdani 成功了吗？你采取了什么方法？]]></description>
-      <guid>https://community.openai.com/t/using-webpilot-api-gpt-4-or-gpt-3-5-api/491927#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 06:12:52 GMT</pubDate>
+      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
+      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_4</link>
+      <description><![CDATA[您想增加您的信用余额吗？
+OpenAI 不接受您的卡的原因可能有多种。
+您需要联系https://help.openai.com。]]></description>
+      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 08:55:40 GMT</pubDate>
     </item>
     <item>
-      <title>微调的行为是随机的</title>
-      <link>https://community.openai.com/t/fine-tuning-is-behaving-randomly/725297#post_1</link>
-      <description><![CDATA[1 个月前，每当我微调模型时 - 开放 AI 都会自动选择超参数为
-纪元 - 3
-批量大小 - 1
-LR 乘数 - 2
-我的数据是 - 大约 400 个示例，包含 500 万个代币
-一切都很好
-然后最近大约 15 天前，当我创建模型时 - 再次打开大约 460 个示例和 600 万个令牌，选择了旧的一组超参数，并且它不适合或存在很多错误 - 然后我尝试了很多组合，但没有任何效果，但经过 5 天的尝试
-突然开启AI选择
-纪元 - 3
-批量大小 - 1
-LR 乘数 - 8
-这是我拥有过的最好的模型 - 它运行得很好
-但昨天，当我尝试使用 800 万个令牌的 530 个示例进行微调时 -
-建议再次打开AI
-纪元 - 3
-批量大小 - 1
-LR 乘数 - 2
-我尝试过 - 但模型非常糟糕，主要是拟合不足
-然后我尝试了
-纪元 - 3
-批量大小 - 1
-LR 乘数 - 8
-这个也有问题 - 主要是过度拟合，但我不确定
-我是不是做错了什么
-因为创建这些模型花费了我很多钱，而且也不起作用
-它开始感觉像是一场运气游戏 - 请帮忙
-如何选择最合适的超参数集？
-有没有明确的方法来做到这一点？
-请帮忙]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-is-behaving-randomly/725297#post_1</guid>
-      <pubDate>Tue, 23 Apr 2024 06:08:16 GMT</pubDate>
+      <title>Gpt 不负责数据格式化。帮助！</title>
+      <link>https://community.openai.com/t/gpt-is-not-responsible-for-data-formatting-help/725406#post_2</link>
+      <description><![CDATA[嗨！
+如果模型难以正确解释您的数据，那么您可以使用几种不同的选项来尝试修复该问题：
+
+
+包括有关任务的模型的更详细/具体说明，包括输入数据的性质和格式以及预期如何解释输入数据。
+
+
+包括 1-2 个示例，说明如何根据输入数据生成所需格式的 JSON。
+
+
+根据输入数据的训练对（即转换为文本后的银行对账单数据）和生成的带有值的 JSON 创建一个微调模型。
+
+]]></description>
+      <guid>https://community.openai.com/t/gpt-is-not-responsible-for-data-formatting-help/725406#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 08:54:10 GMT</pubDate>
     </item>
     <item>
-      <title>余额为 0 时不会出现错误</title>
-      <link>https://community.openai.com/t/no-error-when-you-have-0-balance/724717#post_3</link>
-      <description><![CDATA[OpenAI 最近允许账户在 0.00 美元之后长时间出现负信用，然后被关闭。硬限制似乎也不起作用。
-因此，如果您希望看到您的代码在收到错误时返回错误，即使 API 应该返回错误，您可能需要创建一个没有资金的新帐户。
-并且不要指望 API 函数能够阻止帐户达到 -$1000.00 美元（如报道所述）。]]></description>
-      <guid>https://community.openai.com/t/no-error-when-you-have-0-balance/724717#post_3</guid>
-      <pubDate>Tue, 23 Apr 2024 05:53:49 GMT</pubDate>
+      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
+      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_3</link>
+      <description><![CDATA[不，这是一个完全安全的 Open AI 网站，API 平台网站位于 https://platform。 openai.com/]]></description>
+      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 08:39:13 GMT</pubDate>
     </item>
     <item>
-      <title>业务/团队用户创建的 GPT 聊天是否用于训练模型？</title>
-      <link>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_6</link>
-      <description><![CDATA[好吧......一旦您分享，它就不再是您的业务数据！
-漏洞！！！]]></description>
-      <guid>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_6</guid>
-      <pubDate>Tue, 23 Apr 2024 05:51:34 GMT</pubDate>
+      <title>Lnu-AI - 本土人工智能系统</title>
+      <link>https://community.openai.com/t/lnu-ai-an-indigenous-ai-system/271461#post_5</link>
+      <description><![CDATA[这太不可思议了@MadieLaine
+让人看到就充满力量！]]></description>
+      <guid>https://community.openai.com/t/lnu-ai-an-indigenous-ai-system/271461#post_5</guid>
+      <pubDate>Tue, 23 Apr 2024 08:38:53 GMT</pubDate>
     </item>
     <item>
-      <title>响应工具调用的正确消息无法验证为 ChatCompletionMessage</title>
-      <link>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_4</link>
+      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
+      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_2</link>
       <description><![CDATA[
 
 
-_j：
+比它：
 &lt;块引用&gt;
+聊天 GPT Turbo 令牌购买
 
 
-
-埃尔姆施泰特：
-&lt;块引用&gt;
-这是无效的，
-message = ChatCompletionMessage(**message_dict)
-
-
-它使用字典来参数解包，这是一种将类似 JSON 的 Python 对象作为参数传递到函数中的完全有效的方法。
-
-
-抱歉@_j，我会说得更清楚。
-这是无效的，
-消息 = ChatCompletionMessage(**message_dict)
-
-对于 OpenAI Python 模块，OP 演示的内容包含在 message_dict 中。
-具体来说，使用工具的角色。
-现在还有什么你想不必要地迂腐的吗？]]></description>
-      <guid>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_4</guid>
-      <pubDate>Tue, 23 Apr 2024 05:50:34 GMT</pubDate>
+我不确定你想做什么，但这不是一件事。
+看来您可能将信用卡信息放入诈骗网站。]]></description>
+      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 08:33:07 GMT</pubDate>
     </item>
     <item>
-      <title>业务/团队用户创建的 GPT 聊天是否用于训练模型？</title>
-      <link>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_5</link>
-      <description><![CDATA[是的，这讲述了一个不同的故事。它仍然与此声明不一致：
-&lt;块引用&gt;
-我们从不训练您的业务数据或对话
-
-我认为这样可以更清楚。]]></description>
-      <guid>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_5</guid>
-      <pubDate>Tue, 23 Apr 2024 05:50:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>业务/团队用户创建的 GPT 聊天是否用于训练模型？</title>
-      <link>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_4</link>
-      <description><![CDATA[
-
-
- vb：
-&lt;块引用&gt;
-与属于团队帐户的自定义 GPT 进行的所有对话都应免于培训，因为通过操作检索的说明、知识文件或信息属于帐户持有者。
-
-
-仅如果自定义 GPT 仅在团队内共享。添加了重点，
-&lt;块引用&gt;
-服务条款
-(b) GPT 的分发和推广。 通过与他人共享您的 GPT，您将授予 OpenAI 非独占的、全球性的、不可撤销的、免版税的许可： (i) OpenAI 使用、测试、存储、复制、翻译、显示、修改、分发、推广或以其他方式向其他用户提供您的 GPT 的全部或任何部分（包括 GPT 内容）； (ii) 在您的 GPT 输出包括您的 GPT 内容的范围内，供您的 GPT 用户使用、存储、复制、展示、分发、准备您的 GPT 内容的衍生作品以及以其他方式使用您的 GPT 内容。您将确保您发布的有关 GPT 的所有信息始终完整、准确且不具有误导性。
-
-如果您与团队外部的人员共享 GPT，则只要 GPT 输出您上传的任何内容，基本上都可以获取。]]></description>
-      <guid>https://community.openai.com/t/are-chats-with-gpts-created-by-business-team-users-used-to-train-models/725108#post_4</guid>
-      <pubDate>Tue, 23 Apr 2024 05:47:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>响应工具调用的正确消息无法验证为 ChatCompletionMessage</title>
-      <link>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_3</link>
-      <description><![CDATA[
-
-
-埃尔姆施泰特：
-&lt;块引用&gt;
-这是无效的，
-message = ChatCompletionMessage(**message_dict)
-
-
-它使用字典来参数解包，这是一种将类似 JSON 的 Python 对象作为参数传递到函数中的完全有效的方法。
-它使用 Python 库中的一种“类型”，我没有搞乱它，因为 python 列表就可以了。
-但是，API chat.competions 函数的输入是 API 调用的所有参数，而不仅仅是消息。诸如型号名称、温度、工具规格等信息。其中消息（列表）只是必须存在的另一件事。
-我在我的大型演示中使用了该约定，即通过工具调用返回助理消息，并使用匹配的 ID 返回配对的工具调用。
-
-
-
-
-函数调用帮助 - 模型没有似乎接受功能提示？ 提示
-
-  &lt;块引用&gt;
-    我决定制作大型演示。除此之外，我还不如编写一个聊天机器人，其中包含用于处理模拟功能的类，并展示将它们重写为真实的 API……
-
-# 导入并设置具有较短超时的 OpenAI 客户端对象
-从 openai 导入 OpenAI
-导入 json
-客户端= OpenAI（超时= 30）
-
-# 这里我们将制定一个工具规范，通过一次添加一个来更加灵活
-工具规格=[]
-工具规范.extend([{
-        “类型”：“功能”，
-        “功能”： {
-            “名称”：“得到我们…
-  
-
-我写的是一个带有固定字符串的线性示例，以尽可能具有说明性。您必须具有查找多个并行工具的解析功能，并在返回中自适应地提供所有这些工具的列表。这就是上面代码示例中“for tool_call”的用途。
-此外，如果您没有同时拥有“助手”和“工具”且 ID 和长度匹配，端点将会向您显示错误。]]></description>
-      <guid>https://community.openai.com/t/a-correct-message-in-response-to-a-tool-call-cannot-validate-as-chatcompletionmessage/725036#post_3</guid>
-      <pubDate>Tue, 23 Apr 2024 05:40:55 GMT</pubDate>
+      <title>使用 Azure OpenAI 与 OpenAI Platform 的模型微调时间</title>
+      <link>https://community.openai.com/t/model-fine-tuning-times-with-azure-openai-vs-openai-platform/620255#post_4</link>
+      <description><![CDATA[您好，我们正在测试一个微调项目 atm。出于好奇，您的数据集中包含多少个训练示例？代币的总共使用量是多少？每个例子？]]></description>
+      <guid>https://community.openai.com/t/model-fine-tuning-times-with-azure-openai-vs-openai-platform/620255#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 08:32:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
