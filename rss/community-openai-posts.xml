@@ -4,172 +4,118 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 23 Apr 2024 09:19:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2024 12:34:03 GMT</lastBuildDate>
     <item>
-      <title>助手 API v2。最大块数限制</title>
-      <link>https://community.openai.com/t/assistants-api-v2-maximum-number-of-chunks-limit/725354#post_2</link>
-      <description><![CDATA[（这只是“参数”。说“超参数”很有趣，但这些是 OpenAI 在训练 AI 模型时用于机器学习规范的术语）。
-返回的金额不是我们有权访问的设置。
-OpenAI 没有说明的是，如果搜索与已上传的文档不相关，文件搜索检索到的块是否会减少。期望它被最大化。
-典型的 RAG 是自动，而不是工具调用，并使用截止阈值，因此当您询问小狗时，无需支付机器零件列表的费用.
-由于退货超出您的控制范围，您唯一能做的就是向 AI 提供您已上传到矢量存储的指令，以便它知道何时调用会有效或浪费您的钱。&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/assistants-api-v2-maximum-number-of-chunks-limit/725354#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 09:14:21 GMT</pubDate>
+      <title>文件上传访问权限需要从功能工具授予 code_interpreter</title>
+      <link>https://community.openai.com/t/file-upload-access-needs-to-given-from-function-tool-to-code-interepreter/725594#post_1</link>
+      <description><![CDATA[嗨，我有一定数量的工具作为函数，而且我正在 openai 助手 api 中使用 code_interpreter 和 file_search 工具…当助手选择函数工具时，函数工具会希望传递 csv 作为 tool_submit_outputs…有什么方法可以提交 csv 文件，该文件可以作为 tool_submit 输出上传，然后 code_interpreter 可以从中承担回答查询的费用并进行一些分析]]></description>
+      <guid>https://community.openai.com/t/file-upload-access-needs-to-given-from-function-tool-to-code-interepreter/725594#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 12:32:06 GMT</pubDate>
     </item>
     <item>
-      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
-      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_5</link>
-      <description><![CDATA[我这样做了，并期待他们的答复，我尝试了机器人发布的所有建议检查，但没有任何运气。]]></description>
-      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_5</guid>
-      <pubDate>Tue, 23 Apr 2024 09:12:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 不遵循说明</title>
-      <link>https://community.openai.com/t/custom-gpt-not-following-instructions/725269#post_2</link>
-      <description><![CDATA[嗨 - 根据我对您想要实现的目标的理解，我刚刚通过设置一个非常简化的 GPT 进行了尝试。我在说明字段中包含的内容如下（请注意，我并不完全清楚您是否想要在第一次用户交互后或在解决第一个用户问题后立即收到第二条消息）：
-&lt;块引用&gt;
-您是一位有用的助手，可以与用户就日常主题进行随意的对话。在与用户的交互中，您必须在任何对话开始时严格逐字返回以下消息。初始消息：美好的一天，欢迎来到我的 GPT；第一个用户响应后的第二条消息：嘿，那里。我是 Adam，GPT 背后的人。如果您仍然没有找到答案并且需要更详细的信息，也许可以考虑查看我的 Youtube，加入他的 Discord（链接）上的对话，在 Patreon（链接）上支持他，并且不要忘记访问并订阅我的 YouTube 频道（链接）。您的支持不仅是激励，也直接为这个GPT的不断进步做出贡献。我们重视您的反馈和经验，因为它们对于完善和改进本 GPT 提供的建议至关重要。如果您对我们如何使此 GPT 变得更好有建议、见解或反馈，请单击布局左侧的“GPT 名称”按钮，然后导航到“查看 GPT”部分，以便我今天可以向你学习一些东西
-
-我在预览模式下测试了三次，每次都正确返回两条消息。
-
-鉴于这是我向 GPT 提供的唯一主要指令，我不能保证一旦您添加更多指令，该行为就会持续下去。我也没有包含实际链接。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-not-following-instructions/725269#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 09:07:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>不支持检索扩展名为 [none] 的文件</title>
-      <link>https://community.openai.com/t/files-with-extensions-none-are-not-supported-for-retrieval/725358#post_3</link>
-      <description><![CDATA[您的代码没有“the_file”的设置方法
-它也没有上下文管理器，有利于保持文件打开，直到 openai 函数完成。
-我一直想增强一些示例代码，因此这里上传了带有奖金检查和文档的上传内容。
-def upload_file(file_path: str = None, Purpose: str = &quot;assistants&quot;) -&gt;; &#39;文件对象&#39;：
-    ”“”
-    上传具有指定用途的文件到 OpenAI 客户端并返回响应对象。
-    默认用途是“助手”。
-
-    参数：
-        file_path (str, 可选)：要上传的文件的路径。如果无，则提示用户输入文件名。
-        Purpose (str, 可选): 文件上传的目的，可以是“助手”或“微调”。
-                                 默认为“助手”。
-
-    返回：
-        FileObject：代表来自 OpenAI API 的文件上传响应的 Pydantic 模型。
-
-    加薪：
-        FileNotFoundError：如果指定路径中不存在该文件。
-        ValueError：如果未提供文件名或指定的目的无效。
-
-    印刷：
-        如果上传成功，则会显示包含文件详细信息的成功消息。
-        如果找不到文件或发生其他 IO 错误，则会出现错误消息。
-    ”“”
-    # 验证目的参数
-    如果目的不在[“助手”，“微调”]中：
-        raise ValueError(“指定的目的无效。可用选项是‘助手’和‘微调’。”)
-
-    # 确保有一个文件路径，来自参数或用户输入
-    如果 file_path 为 None：
-        file_path = input(&quot;请输入要上传的文件名：&quot;).strip()
-        if not file_path: # 检查输入字符串是否为空
-            引发 ValueError(&quot;未提供文件名。&quot;)
-
-    # 尝试以二进制模式打开并读取文件
-    尝试：
-        以 open(file_path, &quot;rb&quot;) 作为文件：
-            响应= client.files.create（文件=文件，目的=目的）
-            # 使用直接属性访问输出响应和文件详细信息
-            print(f&quot;文件上传成功：{response.filename} [{response.id}]&quot;)
-            return response # 返回完整的 Pydantic 模型
-    除了文件未找到错误：
-        print(&quot;未找到文件。请确保文件名和路径正确。&quot;)
-        增加
-    除了异常 e：
-        print(f&quot;发生错误：{e}&quot;)
-        增加
-
-它仍然返回一个与 openai 模块相同的 pydantic 响应对象。
-如果需要，您可以将某些打印静音。
-您可以包含更多 openai.ErrorTYpes...
-然后调用，
-尝试：
-    upload_response = upload_file(&quot;path_to_your_file.pdf&quot;)
-    print(&quot;上传完成。响应ID:&quot;, upload_response.id)
-除了文件未找到错误：
-    print(&quot;请检查文件路径并重试。&quot;)
-除了异常作为错误：
-    print(f&quot;发生意外错误：{error}&quot;)
-
-（你的名字“uploaded_file”让人认为该变量是一个文件而不是 API 返回对象，所以我更改了它。）
-如果您的文件名变量来自os.path，则可以使其更加通用/可靠。
-然后，如果您仍然从 API 中得到什么，则可能是文件类型验证器和解析器根本无法进入 PDF 二进制文件来获取任何可搜索的文本。密码保护可能会禁止这样做，或者可能根本不存在这种情况。]]></description>
-      <guid>https://community.openai.com/t/files-with-extensions-none-are-not-supported-for-retrieval/725358#post_3</guid>
-      <pubDate>Tue, 23 Apr 2024 09:00:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
-      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_4</link>
-      <description><![CDATA[您想增加您的信用余额吗？
-OpenAI 不接受您的卡的原因可能有多种。
-您需要联系https://help.openai.com。]]></description>
-      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_4</guid>
-      <pubDate>Tue, 23 Apr 2024 08:55:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gpt 不负责数据格式化。帮助！</title>
-      <link>https://community.openai.com/t/gpt-is-not-responsible-for-data-formatting-help/725406#post_2</link>
-      <description><![CDATA[嗨！
-如果模型难以正确解释您的数据，那么您可以使用几种不同的选项来尝试修复该问题：
-
-
-包括有关任务的模型的更详细/具体说明，包括输入数据的性质和格式以及预期如何解释输入数据。
-
-
-包括 1-2 个示例，说明如何根据输入数据生成所需格式的 JSON。
-
-
-根据输入数据的训练对（即转换为文本后的银行对账单数据）和生成的带有值的 JSON 创建一个微调模型。
-
+      <title>通过 API 密钥对不同用户设置 API 令牌限制</title>
+      <link>https://community.openai.com/t/set-api-token-limit-on-different-users-from-api-key/725534#post_2</link>
+      <description><![CDATA[我的 openai 无法工作。
 ]]></description>
-      <guid>https://community.openai.com/t/gpt-is-not-responsible-for-data-formatting-help/725406#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 08:54:10 GMT</pubDate>
+      <guid>https://community.openai.com/t/set-api-token-limit-on-different-users-from-api-key/725534#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 12:27:45 GMT</pubDate>
     </item>
     <item>
-      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
-      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_3</link>
-      <description><![CDATA[不，这是一个完全安全的 Open AI 网站，API 平台网站位于 https://platform。 openai.com/]]></description>
-      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_3</guid>
-      <pubDate>Tue, 23 Apr 2024 08:39:13 GMT</pubDate>
+      <title>第一次调用时助理上下文的指令上下文被截断为仅 12k 个字符</title>
+      <link>https://community.openai.com/t/instructions-context-for-assistant-context-truncated-on-1st-call-to-only-12k-chars/707797#post_3</link>
+      <description><![CDATA[我的解决方案是使用 Claude 的 Opus &amp;十四行诗模型。上下文窗口更大（200k）更便宜。然而，它的特色较少；例如，它们不支持嵌入，因此您必须自己执行此操作。 （我目前不使用它。）]]></description>
+      <guid>https://community.openai.com/t/instructions-context-for-assistant-context-truncated-on-1st-call-to-only-12k-chars/707797#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 12:21:48 GMT</pubDate>
     </item>
     <item>
-      <title>Lnu-AI - 本土人工智能系统</title>
-      <link>https://community.openai.com/t/lnu-ai-an-indigenous-ai-system/271461#post_5</link>
-      <description><![CDATA[这太不可思议了@MadieLaine
-让人看到就充满力量！]]></description>
-      <guid>https://community.openai.com/t/lnu-ai-an-indigenous-ai-system/271461#post_5</guid>
-      <pubDate>Tue, 23 Apr 2024 08:38:53 GMT</pubDate>
+      <title>无法再上传屏幕截图到聊天 gpt-4</title>
+      <link>https://community.openai.com/t/not-able-to-upload-screenshots-to-chat-gpt-4-anymore/490352#post_13</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/not-able-to-upload-screenshots-to-chat-gpt-4-anymore/490352#post_13</guid>
+      <pubDate>Tue, 23 Apr 2024 12:21:29 GMT</pubDate>
     </item>
     <item>
-      <title>Open API 令牌购买失败，出现卡被拒绝错误</title>
-      <link>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_2</link>
-      <description><![CDATA[
-
-
-比它：
-&lt;块引用&gt;
-聊天 GPT Turbo 令牌购买
-
-
-我不确定你想做什么，但这不是一件事。
-看来您可能将信用卡信息放入诈骗网站。]]></description>
-      <guid>https://community.openai.com/t/open-api-token-purchase-fails-with-card-declined-error/725404#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 08:33:07 GMT</pubDate>
+      <title>助手 V2 文件。尺寸限制</title>
+      <link>https://community.openai.com/t/assistant-v2-files-size-limit/724950#post_4</link>
+      <description><![CDATA[谢谢你的信息。我会尝试将 pdf 分成两半。]]></description>
+      <guid>https://community.openai.com/t/assistant-v2-files-size-limit/724950#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 12:20:02 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Azure OpenAI 与 OpenAI Platform 的模型微调时间</title>
-      <link>https://community.openai.com/t/model-fine-tuning-times-with-azure-openai-vs-openai-platform/620255#post_4</link>
-      <description><![CDATA[您好，我们正在测试一个微调项目 atm。出于好奇，您的数据集中包含多少个训练示例？代币的总共使用量是多少？每个例子？]]></description>
-      <guid>https://community.openai.com/t/model-fine-tuning-times-with-azure-openai-vs-openai-platform/620255#post_4</guid>
-      <pubDate>Tue, 23 Apr 2024 08:32:58 GMT</pubDate>
+      <title>图片上传持续失败</title>
+      <link>https://community.openai.com/t/image-upload-continues-to-fail/725575#post_1</link>
+      <description><![CDATA[（主题已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/image-upload-continues-to-fail/725575#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 12:15:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们对人工智能代理进行自动化测试的流程是怎样的？</title>
+      <link>https://community.openai.com/t/whats-your-process-for-automated-testing-for-ai-agents/295444#post_11</link>
+      <description><![CDATA[@dlite您分享的图片来自什么工具？
+我想设置类似的东西]]></description>
+      <guid>https://community.openai.com/t/whats-your-process-for-automated-testing-for-ai-agents/295444#post_11</guid>
+      <pubDate>Tue, 23 Apr 2024 12:15:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 新手 - 商业用途问题</title>
+      <link>https://community.openai.com/t/newcomer-to-custom-gpts-business-use-question/725567#post_1</link>
+      <description><![CDATA[大家好，新手&amp;第一篇文章在这里。
+我的妻子经营着一家小型到中型的企业，但随着企业的扩张，她花费越来越多的时间处理问题和电子邮件，而无法处理更多的业务交易并进一步发展业务。
+她确实有 3 名临时员工，但仍然自己处理个人电子邮件。
+定制 GPT 是否可能是她的最佳选择，以便她能够对有关其业务的所有方面的 GPT 进行培训，然后将经过培训的 GPT 提供给她的员工使用，以便他们可以开始回复电子邮件/无需询问她一直在问问题/让员工对复杂的业务有更多的自主权？
+她如何保护自己和 GPT 不泄露太多 GPT 可能需要培训但员工和潜在客户不需要知道的信息？ - 我在这里使用了搜索功能，注意到有人说给自定义 GPT 一个特殊的密码，我将在我自己的示例中尝试这个。
+她训练 GPT 的任何内容都会成为公共访问/知识吗？
+仅供参考，她确实有一位商业顾问，并且是支持小组的成员等。但在我向她提出这个想法之前，我只是想自己做尽可能多的研究。
+谢谢大家。]]></description>
+      <guid>https://community.openai.com/t/newcomer-to-custom-gpts-business-use-question/725567#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 12:06:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>返回旧数据的搜索</title>
+      <link>https://community.openai.com/t/searches-returning-old-data/724946#post_3</link>
+      <description><![CDATA[该死的好吧，但这并不理想。谢谢您提供的信息]]></description>
+      <guid>https://community.openai.com/t/searches-returning-old-data/724946#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 12:02:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手api消息中没有注释</title>
+      <link>https://community.openai.com/t/assistant-api-no-annotation-in-message/725562#post_1</link>
+      <description><![CDATA[我无法在消息对象中获取注释。我正在创建一个线程并使用 Run 对其进行流式传输。我尝试从 .on(&quot;messageDone&quot;, (event) =&gt; {} 获取注释，但没有注释存在。它是空数组。
+我在v2版本的assistant api上使用它。我确实需要向用户显示引文。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-no-annotation-in-message/725562#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 11:59:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>返回旧数据的搜索</title>
+      <link>https://community.openai.com/t/searches-returning-old-data/724946#post_2</link>
+      <description><![CDATA[不，这不是一个错误，他们提高了价格并降低了性能。
+他们发布虚假公告并进行更新，但这些更新实际上没有任何作用，因为它已经几个月没有发挥作用了。]]></description>
+      <guid>https://community.openai.com/t/searches-returning-old-data/724946#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 11:55:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>访问 GPT-4 微调</title>
+      <link>https://community.openai.com/t/access-to-gpt-4-finetuning/555372#post_15</link>
+      <description><![CDATA[这很正常，设置没用，不再听指令，不再有任何用处。]]></description>
+      <guid>https://community.openai.com/t/access-to-gpt-4-finetuning/555372#post_15</guid>
+      <pubDate>Tue, 23 Apr 2024 11:53:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人成功地将他们的定制 gpt 货币化吗？</title>
+      <link>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_8</link>
+      <description><![CDATA[不，因为这是一个谎言。
+就像他们不必要的更新一样，导致 GPT 3 个月无法使用。
+发布当天他的效率提高了。]]></description>
+      <guid>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_8</guid>
+      <pubDate>Tue, 23 Apr 2024 11:52:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么GPT已经失效3个月了，价格却没有变化？</title>
+      <link>https://community.openai.com/t/why-does-the-price-remain-unchanged-even-though-gpt-has-not-been-working-for-3-months/725557#post_1</link>
+      <description><![CDATA[为什么 GPT 已经失效 3 个月了，价格却没有变化？
+cccvvcxvxcvxcvxcvwxdvwsdvwfd]]></description>
+      <guid>https://community.openai.com/t/why-does-the-price-remain-unchanged-even-though-gpt-has-not-been-working-for-3-months/725557#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 11:48:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
