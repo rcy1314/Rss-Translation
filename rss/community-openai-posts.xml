@@ -4,139 +4,162 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 23 Apr 2024 18:21:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2024 21:16:41 GMT</lastBuildDate>
     <item>
-      <title>有人成功地将他们的定制 gpt 货币化吗？</title>
-      <link>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_10</link>
-      <description><![CDATA[我刚刚分享了它可能反对的政策。
-除此之外，您确实不应该向使用他人服务的人收费。
-但是，我不是你爸爸，你是你，我是我。]]></description>
-      <guid>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_10</guid>
-      <pubDate>Tue, 23 Apr 2024 18:21:28 GMT</pubDate>
+      <title>如何向客户收取自定义 Windows 应用程序中 API 使用费用</title>
+      <link>https://community.openai.com/t/how-to-charge-customers-for-api-usage-in-my-custom-windows-application/725757#post_4</link>
+      <description><![CDATA[我不确定根据使用情况进行更改的模型是否是一个好的模型。我认为无论如何你都应该对订阅收费，并确保你知道用户平均消费了多少。也就是说，您必须跟踪每个用户的成本以确保您赚钱。每个 API 调用都会返回 inputTokens、outputTokens，您可以根据以下逻辑使用它们来计算成本：
+// 价格以美元为单位，按照定价，即每 1000 个代币。 calculateCost() 将除以 1k
+常量模型成本 = {
+‘gpt-3.5-turbo’: {
+inputCostPer1kToken: 0.0005,
+输出CostPer1kToken：0.0015，
+},
+‘gpt-3.5-turbo-0125’: {
+inputCostPer1kToken: 0.0005,
+输出CostPer1kToken：0.0015，
+},
+‘gpt-4’: {
+inputCostPer1kToken: 0.03,
+每 1kToken 输出成本：0.06，
+},
+‘gpt-4-turbo’: {
+inputCostPer1kToken: 0.01,
+每个Token的输出成本：0.03，
+},
+‘gpt-4-turbo-preview’：{
+inputCostPer1kToken: 0.01,
+每 1kToken 输出成本：0.03，
+},
+// 根据需要添加其他模型
+};
+// 计算API成本
+函数计算成本（模型，输入令牌，输出令牌）{
+// 示例：从 modelCosts 中获取特定于模型的成本
+const 成本 = modelCosts[模型] || modelCosts[‘默认’];
+// 除以 1k（代币）并乘以 100 即可得到以美分为单位的价格
+const inputCostCents = (inputTokens / 1000 * 100) * cost.inputCostPer1kToken;
+const outputCostCents = (outputTokens / 1000 * 100) * cost.outputCostPer1kToken;
+返回 inputCostCents + outputCostCents;
+}]]></description>
+      <guid>https://community.openai.com/t/how-to-charge-customers-for-api-usage-in-my-custom-windows-application/725757#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 21:05:37 GMT</pubDate>
     </item>
     <item>
-      <title>Assistants API——提示要求和OpenAI“自我”知识</title>
-      <link>https://community.openai.com/t/assistants-api-prompt-requirements-and-openai-self-knowldge/604573#post_8</link>
-      <description><![CDATA[您能详细说明一下吗？我尝试使用助手 api 中的“指令”参数为其提供一个大文档，以便用户可以提出有关它的问题。我想更好地了解您面临的问题以及您可能提出的解决方案。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-prompt-requirements-and-openai-self-knowldge/604573#post_8</guid>
-      <pubDate>Tue, 23 Apr 2024 18:18:25 GMT</pubDate>
+      <title>Assistants V2 API 没有可用的文档</title>
+      <link>https://community.openai.com/t/there-is-no-available-documentation-for-the-assistants-v2-api/725964#post_2</link>
+      <description><![CDATA[也许检查一下文件搜索文档。
+https://platform. openai.com/docs/assistants/tools/file-search]]></description>
+      <guid>https://community.openai.com/t/there-is-no-available-documentation-for-the-assistants-v2-api/725964#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 21:00:22 GMT</pubDate>
     </item>
     <item>
-      <title>将不同的聊天合并在一起</title>
-      <link>https://community.openai.com/t/merge-different-chats-together/725879#post_1</link>
-      <description><![CDATA[我想要一个将聊天合并在一起的功能。
-例如，我想要一份有关 2 个不同聊天的报告，但我目前无法做到这一点。]]></description>
-      <guid>https://community.openai.com/t/merge-different-chats-together/725879#post_1</guid>
-      <pubDate>Tue, 23 Apr 2024 18:14:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT-4 下载链接未显示</title>
-      <link>https://community.openai.com/t/chatgpt-4-download-link-not-displaying/304417#post_10</link>
-      <description><![CDATA[这发生在我身上，这是因为我上传的文件的文件名中有空格。
-看到上面的其他一些人也有同样的问题 - 并且看到他们的文件名也有空格。这可能就是原因。
-要求 gpt 将空格替换为下划线或其他任何内容。并检查您的文件名，看看其中是否有任何其他字符会弄乱它。
-如果您使用的是来自 google 的文件，则它有可能包含空格
-希望这有帮助]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-download-link-not-displaying/304417#post_10</guid>
-      <pubDate>Tue, 23 Apr 2024 18:13:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 对儿童安全的承诺</title>
-      <link>https://community.openai.com/t/openai-s-commitment-to-child-safety/725846#post_3</link>
-      <description><![CDATA[阅读是一项重要技能。
+      <title>openai.beta.threads.createAndRun 不接受将 Response_format 设置为 JSON</title>
+      <link>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_3</link>
+      <description><![CDATA[好的，找到问题了。我的错。问题是这一行：
+…运行选项
+虽然作为一个包罗万象，我预计不会覆盖 runOptions.response_format ，但它确实做到了，并将 json_object 直接放在 response_format 中覆盖前一行。自从我从其他代码示例中获取此代码后发布，并展示如何调用。
+const createOAIAThreadRunAndStream = async (threadId, AssistantId, runOptions = {}, userId) =&gt; {
+const model = runOptions.model || &#39;gpt-3.5-turbo&#39;;
 
+返回新的 Promise((解决, 拒绝) =&gt; {
+    尝试 {
 
-
- vb：
-&lt;块引用&gt;
-这不包括为科学或教育目的而创建的内容。
-
+        const 流选项 = {
+            Assistant_id：助理Id，
+            型号： 型号 || &#39;gpt-3.5-turbo&#39;,
+            说明：runOptions.instructions ||无效的，
+            附加指令：runOptions.附加指令||无效的，
+            工具：runOptions.tools ||无效的，
+            元数据：runOptions.metadata ||无效的，
+            // 响应格式：“自动”，
+            响应格式：runOptions.response_format ？ { 类型：runOptions.response_format } ：未定义，
+            // ...runOptions, // 确保包含 runOptions 提供的任何其他未指定的选项 -- 已删除以修复问题
+        };
 ]]></description>
-      <guid>https://community.openai.com/t/openai-s-commitment-to-child-safety/725846#post_3</guid>
-      <pubDate>Tue, 23 Apr 2024 17:58:55 GMT</pubDate>
+      <guid>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 20:57:08 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 对儿童安全的承诺</title>
-      <link>https://community.openai.com/t/openai-s-commitment-to-child-safety/725846#post_2</link>
-      <description><![CDATA[也就是说，让孩子们不知道物种如何繁殖。
-您也想禁止食谱作为一种生物学功能，因为有些食物是宗教禁忌？]]></description>
-      <guid>https://community.openai.com/t/openai-s-commitment-to-child-safety/725846#post_2</guid>
-      <pubDate>Tue, 23 Apr 2024 17:56:05 GMT</pubDate>
+      <title>Assistants V2 API 没有可用的文档</title>
+      <link>https://community.openai.com/t/there-is-no-available-documentation-for-the-assistants-v2-api/725964#post_1</link>
+      <description><![CDATA[助理的最新 API 参考文档 https://platform.openai.com /docs/api-reference/assistants 仍然适用于 V1 api。我需要知道消息 API 调用如何更改以允许将矢量存储和文件附加到线程中的消息。具体使用 client.beta.threads.messages.create() 函数。]]></description>
+      <guid>https://community.openai.com/t/there-is-no-available-documentation-for-the-assistants-v2-api/725964#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 20:55:03 GMT</pubDate>
     </item>
     <item>
-      <title>有人成功地将他们的定制 gpt 货币化吗？</title>
-      <link>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_9</link>
-      <description><![CDATA[当然你可以对 GPT 收费
-不违反任何政策]]></description>
-      <guid>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_9</guid>
-      <pubDate>Tue, 23 Apr 2024 17:53:59 GMT</pubDate>
+      <title>如何将我的提示发送给我的助手？</title>
+      <link>https://community.openai.com/t/how-to-send-my-prompt-to-my-assistant/725912#post_3</link>
+      <description><![CDATA[太棒了！。
+非常感谢，我会检查一下，如果有其他问题，我会回复您]]></description>
+      <guid>https://community.openai.com/t/how-to-send-my-prompt-to-my-assistant/725912#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 20:52:08 GMT</pubDate>
     </item>
     <item>
-      <title>Max_tokens 未设置，截断返回“finish_reason”：“stop”</title>
-      <link>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_6</link>
-      <description><![CDATA[
-&lt;表&gt;
-&lt;标题&gt;
-
-令牌类型
-计数
-成本
-
-
-&lt;正文&gt;
-
-提示令牌
-6613
-0.07 美元
-
-
-完成令牌
-4096
-0.12 美元
-
-
-总计
-10709
-0.19 美元
-
-
-
-随机地让你的回答数量达到 2/3 需要一点费用。
-如果您现在要重叠一些最终数据，您可以比较人工智能修订的质量。然后只要求对 1k chunk 进行处理并比较质量改进。]]></description>
-      <guid>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_6</guid>
-      <pubDate>Tue, 23 Apr 2024 17:52:31 GMT</pubDate>
+      <title>将异步客户端与 AsyncOpenAI 结合使用</title>
+      <link>https://community.openai.com/t/using-asynchronous-client-with-asyncopenai/624114#post_8</link>
+      <description><![CDATA[似乎存在超出用户层施加的速率限制。我处于最高级别，但 410 个请求花了 841 秒。每个请求都要求用两句话概括大约 1000 个标记的段落。]]></description>
+      <guid>https://community.openai.com/t/using-asynchronous-client-with-asyncopenai/624114#post_8</guid>
+      <pubDate>Tue, 23 Apr 2024 20:50:04 GMT</pubDate>
     </item>
     <item>
-      <title>Openai 法典。如何使用它 。我想通过私人测试版使用 Codex，所以我尝试注册测试版，但是我看不到“加入候补名单”按钮。接下来我尝试在microsoft word 2013中获取codex插件，并且还访问了office商店，</title>
-      <link>https://community.openai.com/t/openai-codex-how-to-use-it-i-want-to-use-codex-through-private-beta-so-i-tried-to-register-to-beta-but-i-could-not-see-the-join-the-waitlist-button-next-i-tried-to-get-the-codex-add-ins-in-microsoft-word-2013-and-also-visited-office-store/725564#post_4</link>
-      <description><![CDATA[嗨！
-Codex 模型已被弃用，不再可用。
-您可以使用 GPT 3.5 和 GPT 4 实现相同的功能。
-此外，没有私人测试版。
-您可以通过 chat.openai.com 的网络界面免费访问 GPT 3.5，并注册订阅以访问 GPT 4。或者您可以通过 https://platform.openai.com/playground/chat 与 API 交互，但随后您需要购买一些学分。
-希望这有帮助。]]></description>
-      <guid>https://community.openai.com/t/openai-codex-how-to-use-it-i-want-to-use-codex-through-private-beta-so-i-tried-to-register-to-beta-but-i-could-not-see-the-join-the-waitlist-button-next-i-tried-to-get-the-codex-add-ins-in-microsoft-word-2013-and-also-visited-office-store/725564#post_4</guid>
-      <pubDate>Tue, 23 Apr 2024 17:43:02 GMT</pubDate>
+      <title>Playground 助手不会给出与 Python 代码相同的响应</title>
+      <link>https://community.openai.com/t/playground-assistants-dont-give-the-same-response-as-python-code/725547#post_4</link>
+      <description><![CDATA[幻觉似乎是控制的对立面，但也许你会找到一个中间立场。让第二个助理检查是一个很酷的主意，但同时也导致了同样的问题。有趣的是，您发现模型在不同时期的行为有所不同，我认为这说明了我们使用的是我们根本无法真正控制的闭源产品这一事实。因此，我想拥抱这种混乱，或者只将其用于可能不会对最终产品造成损害的较小任务。但如果你的整个产品都依赖 chatGPT，从目前的情况来看，你将永远无法获得一致性，并且随着时间的推移，这种不一致性将继续变化，因为你无法实际控制它。只是希望您不是在银行、法律、治理、医学或其他任何领域工作，否则糟糕的结果可能会对您的最终用户造成损害。归根结底，这项技术还处于起步阶段，因此请保持适度的期望。]]></description>
+      <guid>https://community.openai.com/t/playground-assistants-dont-give-the-same-response-as-python-code/725547#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 20:26:03 GMT</pubDate>
     </item>
     <item>
-      <title>Max_tokens 未设置，截断返回“finish_reason”：“stop”</title>
-      <link>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_5</link>
-      <description><![CDATA[我再运行一次并进行此响应
- },
-      “logprobs”：空，
-      “完成原因”：“长度”
-    }
-  ],
-  “用法”： {
-    “提示令牌”：6613，
-    “完成令牌”：4096，
-    “total_tokens”：10709
-  },
-  “系统指纹”：“fp_122114e45f”
-}
-]]></description>
-      <guid>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_5</guid>
-      <pubDate>Tue, 23 Apr 2024 17:40:44 GMT</pubDate>
+      <title>Chatgpt 将对单用户关闭吗？为什么？</title>
+      <link>https://community.openai.com/t/chatgpt-is-closing-down-for-single-users-why/725948#post_1</link>
+      <description><![CDATA[chatgpt什么时候会对单一用户关闭？
+我发现他们不再对单个用户感兴趣。没有更新，没有更新
+因此，为了获得比 3.0 更好的东西，我们需要支付 90 欧元，并假装我们组织中有 3 个人。这有什么意义？
+他们对生活中没有其他人的人有种族歧视。当我同时他们在谈论不要种族主义
+对于我们所有人来说，这都是一种非常冒犯的行为，我们被迫在没有朋友和家人的情况下独自生活。
+分享给你！]]></description>
+      <guid>https://community.openai.com/t/chatgpt-is-closing-down-for-single-users-why/725948#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 20:25:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>openai.beta.threads.createAndRun 不接受将 Response_format 设置为 JSON</title>
+      <link>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_2</link>
+      <description><![CDATA[分享完整的代码，否则没有人能够帮助您。]]></description>
+      <guid>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_2</guid>
+      <pubDate>Tue, 23 Apr 2024 20:25:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>Playground 助手不会给出与 Python 代码相同的响应</title>
+      <link>https://community.openai.com/t/playground-assistants-dont-give-the-same-response-as-python-code/725547#post_3</link>
+      <description><![CDATA[感谢您的留言@scharleswatson
+我正在尝试通过两名助手来对抗幻觉。我要求第一个助手给出充分的响应，然后，我将第一个输出作为输入传递给第二个助手，后者将完善响应。另外，我有一个循环，当应用程序或第二个助手认为存在错误时会进行迭代，因此它会要求更正。
+我的成绩还不错，但远非完美。寻找解决方案最糟糕的事情是幻觉引发的不稳定。我注意到模型在同一天短时间内表现不同，因此这无助于制定清晰的策略。
+只是分享想法，以了解其他人是否找到了控制幻觉的方法。]]></description>
+      <guid>https://community.openai.com/t/playground-assistants-dont-give-the-same-response-as-python-code/725547#post_3</guid>
+      <pubDate>Tue, 23 Apr 2024 20:05:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>openai.beta.threads.createAndRun 不接受将 Response_format 设置为 JSON</title>
+      <link>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_1</link>
+      <description><![CDATA[我将其设置为response_format: { type: “json_object” } 但我收到错误：“无效值：‘json_object’。支持的值为：‘auto’。”。我也尝试了response_format: {“type”:“json_object”}，同样的错误。我没有使用任何工具。我还指定在消息/附加说明中生成 JSON。
+根据文档，“auto”是默认值，否则必须指定一个对象：
+文档中的可能类型 https://platform.openai。 com/docs/api-reference/runs/createThreadAndRun:
+设置为 { &quot;type&quot;: &quot;json_object&quot; } 启用 JSON 模式，保证模型生成的消息是有效的 JSON。
+auto 是默认值
+object：描述模型预期输出的对象。如果 json_object 仅允许将 function 类型 tools 传递给 Run。如果text，模型可以返回文本或任何需要的值。
+类型：必须是 text 或 json_object 之一。]]></description>
+      <guid>https://community.openai.com/t/response-format-set-to-json-not-accepted-by-openai-beta-threads-createandrun/725937#post_1</guid>
+      <pubDate>Tue, 23 Apr 2024 19:51:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>由于文本格式问题，ai 给出的响应不准确</title>
+      <link>https://community.openai.com/t/text-formatting-issue-due-to-which-ai-giving-inaccurate-responses/722319#post_4</link>
+      <description><![CDATA[大家好，我正在尝试将银行对账单 pdf 转换为文本，并提供该文本以打开 ai api 并要求它创建一个 json 并以 json 形式返回我的响应。现在我在这里面临一个问题，假设支付字段是空的，而支付字段填满了金额，因此人工智能将支付条目放入支付条目中。
+所以我意识到问题不在于 open ai，claude ai 的行为也相同，问题在于我将 pdf 转换为文本的位置。我正在使用 pdf-parse 节点库进行转换
+
+我该如何解决这个问题，我认为pdf是生成html的，这就是为什么没有格式化的原因，我如何预处理将pdf转换回html的文本也没有给出结果]]></description>
+      <guid>https://community.openai.com/t/text-formatting-issue-due-to-which-ai-giving-inaccurate-responses/722319#post_4</guid>
+      <pubDate>Tue, 23 Apr 2024 08:27:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
