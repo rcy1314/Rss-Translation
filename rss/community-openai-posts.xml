@@ -4,203 +4,254 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 24 Apr 2024 15:20:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 18:22:42 GMT</lastBuildDate>
     <item>
-      <title>有人成功地将他们的定制 gpt 货币化吗？</title>
-      <link>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_13</link>
-      <description><![CDATA[顺便说一下
-我在商店里有一个免费的自定义 GPT...等待收入分成生效。
+      <title>API 响应中的串联流包（最近更改和简单修复）[svelte/javascript]</title>
+      <link>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_2</link>
+      <description><![CDATA[我想指出的是，内置了管道修饰符来处理此类情况：
 
-良好的收视率和超过一千个对话......
-虽然我花费了托管后端的费用，但我并没有从中赚到一分钱……而且从表面上看，我不会这样做。
-如果 OpenAI 不知道如何激励开发者社区，那么人们就会离开。
-另一个问题是，我认为订阅 chatGPT Plus 在人们中会更常见。它不是。因此，这对于试图寻找客户的建筑商来说是一个进入壁垒。]]></description>
-      <guid>https://community.openai.com/t/has-anyone-successfully-monetized-their-custom-gpt/724973#post_13</guid>
-      <pubDate>Wed, 24 Apr 2024 15:16:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_6</link>
-      <description><![CDATA[我需要纠正自己。
-V1 在操场上和更长时间内不起作用。
+  &lt;标题类=“来源”&gt;
+      
+MDN 网络文档
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+TransformStream - Web API | MDN
+Streams API 的 TransformStream 接口代表了管道链转换流概念的具体实现。
+
+
+
+
+
+下面是我用来去除无用信息并仅将内容作为 text/event-stream 直接传递给客户端的示例：
+ const Transformer = new TransformStream({
+    变换（块，控制器）{
+      // 修改块
+      const 已解码 = new TextDecoder().decode(chunk);
+      const parsed = JSON.parse(解码);
+      const text = parsed.choices?.[0].delta?.content;
+      如果（文本）{
+        const 编码 = new TextEncoder().encode(text);
+        控制器.enqueue（编码）；
+      }
+      if (!text &amp;&amp; parsed.choices[0].finish_reason) {
+        控制器.enqueue(null);
+      }
+    },
+  });
+
+ // 通过转换器传输原始流
+  // 显式键入以提高可读性
+  const moddedStream =（完成为 Stream）
+    .toReadableStream()
+    .pipeThrough(变压器);
+
+出于某种原因，我从未遇到过任何损坏的 JSON 对象，但在发生这种情况时处理它绝对是有意义的。
+依赖 Streams API 可以带来很多好处：
 &lt;块引用&gt;
-默认的 Playground 体验已迁移为使用 v2 版本的 API（您仍然拥有 v1 版本对象的只读视图，但无法编辑它们）。您通过 Playground 对工具和文件所做的任何更改只能在 API 的 v2 版本中访问。
-
+还有更多优点 - 您可以检测流何时开始或结束、将流链接在一起、根据需要处理错误和取消流，并对读取流的速度做出反应。
+]]></description>
+      <guid>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_2</guid>
+      <pubDate>Wed, 24 Apr 2024 18:04:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT4 Vision 限制的批处理 API</title>
+      <link>https://community.openai.com/t/batch-api-for-gpt4-vision-limitations/726758#post_1</link>
+      <description><![CDATA[那么，使用带有 GPT4 视觉模型的新 Batch API，我最多可以批处理多少图像/文本？此批处理 API 的速率限制？]]></description>
+      <guid>https://community.openai.com/t/batch-api-for-gpt4-vision-limitations/726758#post_1</guid>
+      <pubDate>Wed, 24 Apr 2024 17:56:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 API 中的新功能！</title>
+      <link>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=3#post_48</link>
+      <description><![CDATA[尽管这里有 OpenAI 员工的反馈，但我还看到我们的助手自动切换到 V2，使我们的成本增加了 10 倍。我们将从仪表板返回到 v1，但我非常惊讶 OpenAI 在此版本中自动升级了助手！
+如果没有更改默认值，为什么成本会急剧增加？
+任何人都可以建议与 v1 匹配的正确设置（上下文等）吗？
+更不用说 - OpenAI 还使得切换到 v1 旧版时无法从仪表板编辑助手对象！
+编辑：我们甚至无法从仪表板从 v2 助手切换到 v1 助手。该设置不会保存。]]></description>
+      <guid>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=3#post_48</guid>
+      <pubDate>Wed, 24 Apr 2024 17:54:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALL-E 3 无法在 ChatGPT 中工作</title>
+      <link>https://community.openai.com/t/dall-e-3-not-working-within-chatgpt/469153?page=2#post_26</link>
+      <description><![CDATA[嗨，我的 Dall E 3 无法工作。我购买了 plus 订阅，但当我去使用 Dall E 功能或任何其他与此相关的功能时，它说未找到 Chat GPT。难道是骗局？
+有人可以帮忙吗？]]></description>
+      <guid>https://community.openai.com/t/dall-e-3-not-working-within-chatgpt/469153?page=2#post_26</guid>
+      <pubDate>Wed, 24 Apr 2024 17:52:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 响应中的串联流包（最近更改和简单修复）[svelte/javascript]</title>
+      <link>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_1</link>
+      <description><![CDATA[大家好，
 &lt;块引用&gt;
-为了在 v1 版本的 API 中更改文件，您需要直接使用 API。
+免责声明：我不是最好的 Javascript 开发人员，因此请随时为遇到相同问题的任何人做出任何改进
+
+最近，我使用的一个 Svelte 应用程序在解析从 API 接收的 JSON 包时出现了一些问题。经过一些简单的调试后，我注意到一些收到的流消息被串联起来，这导致它们无法被 JSON.parse() 正确解析。
+
+如果您遇到类似的问题，我希望这可以为您节省一些时间。对我有用的修复方法只是确保使用正则表达式分隔任何串联的流消息，然后像平常一样进行处理。如果这不能完全解决您的问题，至少现在您知道要向 chatgpt 询问什么，或者可能需要注意的事情。
+之前的代码
+let source = new SSE(&quot;https://api.openai.com/v1/chat/completions&quot;, {
+    标题：{
+      “内容类型”：“应用程序/json”，
+      授权：`承载${DEFAULT_API_KEY}`，
+    },
+    方法：“POST”，
+    有效负载：JSON.stringify({
+      模型：$gptModel.code，
+      消息：消息，
+      流：真实，
+    }),
+  });
+  
+source.addEventListener(&quot;消息&quot;, (e) =&gt; {
+if (e.data != &quot;[完成]&quot;) {
+让有效负载 = JSON.parse(e.data);
+让打字=假；
+让文本=payload.choices[0].delta.content；
+// 用于生成文本的任何处理
+}
+
+之后的代码
+let source = new SSE(&quot;https://api.openai.com/v1/chat/completions&quot;, {
+    标题：{
+      “内容类型”：“应用程序/json”，
+      授权：`承载${DEFAULT_API_KEY}`，
+    },
+    方法：“POST”，
+    有效负载：JSON.stringify({
+      模型：$gptModel.code，
+      消息：消息，
+      流：真实，
+    }),
+  });
+  
+source.addEventListener(&quot;消息&quot;, (e) =&gt; {
+if (e.data != &quot;[完成]&quot;) {
+// console.log(e.data);
+// 使用检测 JSON 对象之间边界的正则表达式分割数据
+让 splitData = e.data.split(/(?&lt;=})(?={)/);
+splitData.forEach(数据 =&gt; {
+尝试 {
+让有效负载= JSON.parse(数据);
+让打字=假；
+让文本=payload.choices[0].delta.content；
+如果（文本==未定义）{
+打字=！打字；
+}
+如果（文本！=未定义）{
+// 用于生成文本的任何处理
+}
+} 捕获（错误）{
+console.error(&quot;流响应错误。错误：&quot;, error);
+}
+});
+}
 ]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_6</guid>
-      <pubDate>Wed, 24 Apr 2024 15:11:12 GMT</pubDate>
+      <guid>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_1</guid>
+      <pubDate>Wed, 24 Apr 2024 17:51:31 GMT</pubDate>
     </item>
     <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_5</link>
-      <description><![CDATA[是的，我能够复制该错误。
-当使用现有助手并切换到 V1 或使用 V1 创建新助手时，在这两种情况下，重新加载页面后，V2 都会显示为 Assistants API 的当前版本。
-我会将此主题重新分类为错误报告。]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_5</guid>
-      <pubDate>Wed, 24 Apr 2024 15:07:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_4</link>
-      <description><![CDATA[API 端点版本并不是由 Playground 保存到与 API 完全分离的每个助手的网络商店中，就像它不保存您的“聊天”模型或其他设置一样。
-我曾建议，选择用于所有助手的下拉菜单可能是一个更好的网络界面。然而，Web 界面和消费者使用 API 作为 ChatGPT 替代品并不是他们真正的目标。]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_4</guid>
-      <pubDate>Wed, 24 Apr 2024 15:06:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能偏见和安全：只有新鲜且相关的例子</title>
-      <link>https://community.openai.com/t/ai-bias-and-safety-only-fresh-relevant-examples/720680#post_7</link>
-      <description><![CDATA[感谢分享，@dignity_for_all。第二个是我最喜欢的 ]]></description>
-      <guid>https://community.openai.com/t/ai-bias-and-safety-only-fresh-relevant-examples/720680#post_7</guid>
-      <pubDate>Wed, 24 Apr 2024 15:01:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调错误：由于训练文件无效，作业失败。意外的文件格式，需要提示/完成对或聊天消息</title>
-      <link>https://community.openai.com/t/fine-tuning-error-the-job-failed-due-to-an-invalid-training-file-unexpected-file-format-expected-either-prompt-completion-pairs-or-chat-messages/726568#post_6</link>
-      <description><![CDATA[据我了解，这不是必需的。我个人只使用系统消息进行了微调，因此没有直接的数据点来判断这是否与错误有关。今晚晚些时候我可以简单地检查一下，如果到那时还没有解决。]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-error-the-job-failed-due-to-an-invalid-training-file-unexpected-file-format-expected-either-prompt-completion-pairs-or-chat-messages/726568#post_6</guid>
-      <pubDate>Wed, 24 Apr 2024 15:00:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 Assistant V2 与流媒体和 Python 结合使用</title>
-      <link>https://community.openai.com/t/using-an-assistant-v2-with-streaming-and-python/726494#post_5</link>
-      <description><![CDATA[该流不是来自列表消息。它来自于运行。
-您永远不会在初始代码中执行运行。您刚刚粘贴的代码不会流式传输。
-缺少的是您需要在返回的生成器 Python 对象上使用迭代器“提取器”。一个“for”循环。收集收到的块，提取并显示这些增量对象以响应用户，或者监视工具。以及可以通过显示新文本或到目前为止附加文本来更新的显示。
-链接的示例使用事件处理程序和 python 模块的事件 openai-python/helpers.md 位于 main · openai/openai-python · GitHub
-API dox 显示您获取的块的类型，数据之前的事件类型：
-https:// platform.openai.com/docs/api-reference/assistants-streaming/events]]></description>
-      <guid>https://community.openai.com/t/using-an-assistant-v2-with-streaming-and-python/726494#post_5</guid>
-      <pubDate>Wed, 24 Apr 2024 15:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 Assistant V2 与流媒体和 Python 结合使用</title>
-      <link>https://community.openai.com/t/using-an-assistant-v2-with-streaming-and-python/726494#post_4</link>
-      <description><![CDATA[终于可以用了。如果有人需要这个
-导入操作系统
-从 openai 导入 OpenAI
+      <title>Max_tokens 未设置，截断返回“finish_reason”：“stop”</title>
+      <link>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_10</link>
+      <description><![CDATA[我认为这个错误是一次性的。第二次我得到  &quot;finish_reason&quot;: &quot;length&quot;
+我正在处理的内容是从此页面提取的https://www.filmfix.com/en/blog/4k-vs-2k-8mm-film-transfer/，但在 WP 内部，助手被指示这样做
+ var interject_instructions = `
 
-# 初始化OpenAI客户端
-客户端 = OpenAI()
-OpenAI.api_key = os.getenv(&#39;OPENAI_API_KEY&#39;)# 已保存 如果没有添加您的密钥
-# 指定现有助手的ID
-现有_assistant_id =“asst_myID”
+但在开始对数据进行任何更正之前，请特别注意这些指示。对于 JSON 文档键“maincontent”值，使用此特定的概述格式至关重要。我将突出显示您的编辑。这种格式对于我们识别您所做的更改至关重要。请严格遵循以下准则：
 
-# 步骤1：检索现有助手
-现有助手 = client.beta.assistants.retrieve(existing_assistant_id)
-print(f&quot;这是现有的助手对象：{existing_assistant} \n&quot;)
+1. **单词更改（针对简单的拼写错误）**：
+   - **原文**：“天空是绿色的。”
+   - **更正文本**：“天空是 绿色 蓝色 狗不友善。狗通常很友好。 ; （更正观点和拼写错误的单词）&quot;
 
-# 第二步：创建一个线程
-my_thread = client.beta.threads.create()
-print(f&quot;这是线程对象：{my_thread} \n&quot;)
+请确保：
+- 使用提供的 HTML span 标签清楚地标记每种类型的编辑（单词更改或句子重组）。
+- 不要省略标签，因为它为每次更正提供了必要的上下文。
 
-# 第 3 步：向主题添加消息
-my_thread_message = client.beta.threads.messages.create(
-  thread_id=my_thread.id,
-  角色=“用户”，
-  content=&quot;我们可以见面吗&quot;,
-）
-print(f&quot;这是消息对象：{my_thread_message} \n&quot;)
+不应用这些格式规则可能会导致编辑被忽略或未正确注明。
+`;
 
-# 第四步：运行助手
-my_run = client.beta.threads.runs.create(
-  thread_id=my_thread.id,
-  Assistant_id=现有_assistant_id，
-  指令=existing_assistant.指令
-）
-print(f&quot;这是运行对象：{my_run} \n&quot;)
+var taskInstructions = `作为一家电影传输公司，我们要求文档（以 ${targetLang} 编写）经过拼写、语法和句子结构检查。
+`;
 
-# 步骤 5：定期检索运行以检查其状态以查看其是否已移至已完成
-而 my_run.status 在 [&quot;queued&quot;, &quot;in_progress&quot;] 中：
-    keep_retriving_run = client.beta.threads.runs.retrieve(
-        thread_id=my_thread.id,
-        run_id=my_run.id
-    ）
-    print(f&quot;运行状态：{keep_retreering_run.status}&quot;)
+if (jQuery(&#39;input[name=&quot;ff_interject_remarks&quot;]:checked&#39;).val() == &#39;y&#39;) {
+任务指令 += interject_instructions;
+}
 
-    如果 keep_retriving_run.status == “已完成”：
-        打印（“\n”）
+任务指令 += `
 
-        # 第6步：检索助手添加到主题的消息
-        all_messages = client.beta.threads.messages.list(
-            thread_id=my_thread.id
-        ）
+以下是所提供的 JSON 文件的结构，其中包含要重新评估的文本：
 
-        打印（” -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - - ------------- \n&quot;)
+{
+&quot;title&quot;: &quot;&lt;文档的标题&gt;&quot;,
+&quot;maincontent&quot;: &quot;&lt;主文档&gt;&quot;,
+&quot;description&quot;: &quot;&lt;适合元描述标签的摘要文本&gt;&quot;,
+}
 
-        print(f&quot;用户：{my_thread_message.content[0].text.value}&quot;)
-        print(f&quot;助理：{all_messages.data[0].content[0].text.value}&quot;)
+我们的 WordPress 设置中的数据源：
+- 来自输入字段的“标题”：&#39;&#39;。
+- 来自文本区域的“主要内容”：&#39;&#39;。
 
-        休息
-    elif keep_retriving_run.status == &quot;queued&quot; 或 keep_retriving_run.status == &quot;in_progress&quot;:
-        经过
-    别的：
-        print(f&quot;运行状态：{keep_retreering_run.status}&quot;)
-        休息
+请直接在文档中提出您的更正建议。请勿包含任何备注。
 
+${标题说明}
 
+您的编辑将替换这些 WordPress 元素中的原始文本，重点是：
+- 保留 WordPress HTML 格式。
+- 维护 HTML 和文本的完整性和结构。
+- 标题应遵循标题大小写约定（前提是该规则适用于语言 ${targetLang}），其中每个重要单词的第一个字母大写。
+
+`;
+
+if (ff_rework_title_and_first_paragraph == &#39;y&#39;) {
+taskInstructions += `作为一项单独的任务，重新评估您已完成的“标题”工作，但这一次，将其作为“engagingTitle”进行第二次尝试。 “engagingTitle”应该更有吸引力、更有吸引力，甚至更有趣。在长度限制方面充分进行 SEO 挖掘。
+
+此外，再次作为一项单独的任务，对第一段进行完整重写。这次要特别注意第一句，尽量让它更吸引人、更吸引人，以吸引读者。
+
+最后，重新评估“engagingTitle”和“engagingFirstParagraph”是否可以很好地协同工作，并且在考虑手头的文档时是否偏离主题，并在需要时进行调整。
+
+`;}
+
+taskInstructions += `完成后，返回以下 JSON 结构化格式的文档：
+
+{
+&quot;title&quot;: &quot;&lt;修改后的标题&gt;&quot;,
+&quot;maincontent&quot;: &quot;&lt;修改后的maincontent&gt;&quot;,
+&quot;description&quot;: &quot;&lt;重新设计的元描述&gt;&quot;,`;
+
+if (ff_rework_title_and_first_paragraph == &#39;y&#39;) {
+任务指令 += `
+&quot;engagingTitle&quot;: &quot;&lt;引人入胜的标题&gt;&quot;,
+&quot;engagingFirstParagraph&quot;: &quot;&lt;以引人入胜的开头开头的第一段&gt;&quot;,`;
+
+}
+
+任务指令 += `
+}
+
+在进行改进的同时，仔细保持原始文档的完整性和结构。
+
+`;
 ]]></description>
-      <guid>https://community.openai.com/t/using-an-assistant-v2-with-streaming-and-python/726494#post_4</guid>
-      <pubDate>Wed, 24 Apr 2024 14:57:34 GMT</pubDate>
+      <guid>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_10</guid>
+      <pubDate>Wed, 24 Apr 2024 17:47:36 GMT</pubDate>
     </item>
     <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_3</link>
-      <description><![CDATA[非常感谢，@vb！
-我的问题有点小白……我的需要是只使用助手的网络界面。无论我做什么，它似乎都不想留在 V1。]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_3</guid>
-      <pubDate>Wed, 24 Apr 2024 14:55:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能偏见和安全：只有新鲜且相关的例子</title>
-      <link>https://community.openai.com/t/ai-bias-and-safety-only-fresh-relevant-examples/720680#post_6</link>
-      <description><![CDATA[我尚未对其进行广泛测试，但 gpt-3.5-turbo 似乎仍然存在性别偏见。
-&lt;小时/&gt;
-第三个是奖金。
+      <title>如何让GPT提出更多问题？ （系统消息）</title>
+      <link>https://community.openai.com/t/how-to-get-gpt-to-ask-more-questions-system-message/726656#post_9</link>
+      <description><![CDATA[
 
 
-]]></description>
-      <guid>https://community.openai.com/t/ai-bias-and-safety-only-fresh-relevant-examples/720680#post_6</guid>
-      <pubDate>Wed, 24 Apr 2024 14:49:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_2</link>
-      <description><![CDATA[嗨！
-您可以将请求的 v1 版本标头传递给助手 API。
-以下是文档：
-https://platform.openai .com/docs/assistants/migration/changing-beta-versions
-这应该有效。]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_2</guid>
-      <pubDate>Wed, 24 Apr 2024 14:48:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调错误：由于训练文件无效，作业失败。意外的文件格式，需要提示/完成对或聊天消息</title>
-      <link>https://community.openai.com/t/fine-tuning-error-the-job-failed-due-to-an-invalid-training-file-unexpected-file-format-expected-either-prompt-completion-pairs-or-chat-messages/726568#post_5</link>
-      <description><![CDATA[我已经使用 JSONL 文件运行了建议的代码，并将其输出到控制台：
+明亮j：
+&lt;块引用&gt;
+自定义说明
 
-我不确定这些消息是否需要系统消息，因为我的印象是微调模型会考虑输出的写作风格/格式，而不是提示的个性。我会提供一个指向我的 replit 的链接，但我无法以新用户身份共享链接]]></description>
-      <guid>https://community.openai.com/t/fine-tuning-error-the-job-failed-due-to-an-invalid-training-file-unexpected-file-format-expected-either-prompt-completion-pairs-or-chat-messages/726568#post_5</guid>
-      <pubDate>Wed, 24 Apr 2024 14:46:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Assistant V2 开始，我似乎无法保留 Assistant 界面来继续使用 V1</title>
-      <link>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_1</link>
-      <description><![CDATA[我肯定会用手。我一直在使用 Assistant 界面，在过去的几天里，我无法让该界面继续使用 API 的 V1 版本，这是我近期需要做的。
-有没有办法强制助手界面保持在V1？
-预先感谢您的帮助！]]></description>
-      <guid>https://community.openai.com/t/since-assistant-v2-i-cant-seem-to-keep-the-assistant-interface-to-continue-using-v1/726615#post_1</guid>
-      <pubDate>Wed, 24 Apr 2024 14:45:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>这个插件是否允许我将微调的 GPT4 代理引入我的 WordPress 页面</title>
-      <link>https://community.openai.com/t/will-this-plugin-allow-me-to-bring-my-fine-tuned-gpt4-agent-into-my-wordpress-page/720362#post_6</link>
-      <description><![CDATA[谢谢你的建议。我只是想在投入时间和精力之前先确认一下我需要打造的是一个助手。这是我正在寻找的产品类型的示例，但我想将导师的响应限制在一组特定文档中的信息
-AI Tutor Pro |联系北 |联系诺德]]></description>
-      <guid>https://community.openai.com/t/will-this-plugin-allow-me-to-bring-my-fine-tuned-gpt4-agent-into-my-wordpress-page/720362#post_6</guid>
-      <pubDate>Wed, 24 Apr 2024 14:44:19 GMT</pubDate>
+
+最好从短语“自定义指令”中删除 API 标记，因为它似乎没有必要。
+如果更改不正确，请随时恢复此更改。]]></description>
+      <guid>https://community.openai.com/t/how-to-get-gpt-to-ask-more-questions-system-message/726656#post_9</guid>
+      <pubDate>Wed, 24 Apr 2024 17:43:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
