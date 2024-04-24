@@ -4,254 +4,215 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 24 Apr 2024 18:22:42 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 21:18:25 GMT</lastBuildDate>
     <item>
-      <title>API 响应中的串联流包（最近更改和简单修复）[svelte/javascript]</title>
-      <link>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_2</link>
-      <description><![CDATA[我想指出的是，内置了管道修饰符来处理此类情况：
-
-  &lt;标题类=“来源”&gt;
-      
-MDN 网络文档
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-TransformStream - Web API | MDN
-Streams API 的 TransformStream 接口代表了管道链转换流概念的具体实现。
-
-
-
-
-
-下面是我用来去除无用信息并仅将内容作为 text/event-stream 直接传递给客户端的示例：
- const Transformer = new TransformStream({
-    变换（块，控制器）{
-      // 修改块
-      const 已解码 = new TextDecoder().decode(chunk);
-      const parsed = JSON.parse(解码);
-      const text = parsed.choices?.[0].delta?.content;
-      如果（文本）{
-        const 编码 = new TextEncoder().encode(text);
-        控制器.enqueue（编码）；
-      }
-      if (!text &amp;&amp; parsed.choices[0].finish_reason) {
-        控制器.enqueue(null);
-      }
-    },
-  });
-
- // 通过转换器传输原始流
-  // 显式键入以提高可读性
-  const moddedStream =（完成为 Stream）
-    .toReadableStream()
-    .pipeThrough(变压器);
-
-出于某种原因，我从未遇到过任何损坏的 JSON 对象，但在发生这种情况时处理它绝对是有意义的。
-依赖 Streams API 可以带来很多好处：
-&lt;块引用&gt;
-还有更多优点 - 您可以检测流何时开始或结束、将流链接在一起、根据需要处理错误和取消流，并对读取流的速度做出反应。
-]]></description>
-      <guid>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_2</guid>
-      <pubDate>Wed, 24 Apr 2024 18:04:43 GMT</pubDate>
+      <title>Beta V2 中的助手在注释中调用其他助手 file-id</title>
+      <link>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_3</link>
+      <description><![CDATA[是的，据我所知，只要我与每个线程的一个助手交互，它就可以正常工作。
+但在这种情况下，同一线程中有两个助手，每个助手都有自己的关联向量存储。当第二个助手提供响应时，答案的上下文看起来是正确的，但它将从第一个助手的 file_id 中获取章节/部分。我正在继续测试，似乎上下文始终保持正确，但如果它引用一个部分/章节或提供注释，它总是从第一个助手 file_ids 中提取，而不是从其矢量存储中提取 file_ids]]></description>
+      <guid>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_3</guid>
+      <pubDate>Wed, 24 Apr 2024 21:17:18 GMT</pubDate>
     </item>
     <item>
-      <title>GPT4 Vision 限制的批处理 API</title>
-      <link>https://community.openai.com/t/batch-api-for-gpt4-vision-limitations/726758#post_1</link>
-      <description><![CDATA[那么，使用带有 GPT4 视觉模型的新 Batch API，我最多可以批处理多少图像/文本？此批处理 API 的速率限制？]]></description>
-      <guid>https://community.openai.com/t/batch-api-for-gpt4-vision-limitations/726758#post_1</guid>
-      <pubDate>Wed, 24 Apr 2024 17:56:25 GMT</pubDate>
+      <title>助理添加响应提示摘要</title>
+      <link>https://community.openai.com/t/assistant-adds-summary-of-prompt-in-response/726884#post_2</link>
+      <description><![CDATA[您已经通过在跑步时提供新的指令来取代助手的指令。
+additional_instructions 可能是您要使用的 API 参数。
+人工智能似乎在回答用户问题，例如“你好吗”，并带有免责声明。]]></description>
+      <guid>https://community.openai.com/t/assistant-adds-summary-of-prompt-in-response/726884#post_2</guid>
+      <pubDate>Wed, 24 Apr 2024 21:17:10 GMT</pubDate>
     </item>
     <item>
-      <title>助手 API 中的新功能！</title>
-      <link>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=3#post_48</link>
-      <description><![CDATA[尽管这里有 OpenAI 员工的反馈，但我还看到我们的助手自动切换到 V2，使我们的成本增加了 10 倍。我们将从仪表板返回到 v1，但我非常惊讶 OpenAI 在此版本中自动升级了助手！
-如果没有更改默认值，为什么成本会急剧增加？
-任何人都可以建议与 v1 匹配的正确设置（上下文等）吗？
-更不用说 - OpenAI 还使得切换到 v1 旧版时无法从仪表板编辑助手对象！
-编辑：我们甚至无法从仪表板从 v2 助手切换到 v1 助手。该设置不会保存。]]></description>
-      <guid>https://community.openai.com/t/new-features-in-the-assistants-api/720539?page=3#post_48</guid>
-      <pubDate>Wed, 24 Apr 2024 17:54:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALL-E 3 无法在 ChatGPT 中工作</title>
-      <link>https://community.openai.com/t/dall-e-3-not-working-within-chatgpt/469153?page=2#post_26</link>
-      <description><![CDATA[嗨，我的 Dall E 3 无法工作。我购买了 plus 订阅，但当我去使用 Dall E 功能或任何其他与此相关的功能时，它说未找到 Chat GPT。难道是骗局？
-有人可以帮忙吗？]]></description>
-      <guid>https://community.openai.com/t/dall-e-3-not-working-within-chatgpt/469153?page=2#post_26</guid>
-      <pubDate>Wed, 24 Apr 2024 17:52:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 响应中的串联流包（最近更改和简单修复）[svelte/javascript]</title>
-      <link>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_1</link>
-      <description><![CDATA[大家好，
-&lt;块引用&gt;
-免责声明：我不是最好的 Javascript 开发人员，因此请随时为遇到相同问题的任何人做出任何改进
-
-最近，我使用的一个 Svelte 应用程序在解析从 API 接收的 JSON 包时出现了一些问题。经过一些简单的调试后，我注意到一些收到的流消息被串联起来，这导致它们无法被 JSON.parse() 正确解析。
-
-如果您遇到类似的问题，我希望这可以为您节省一些时间。对我有用的修复方法只是确保使用正则表达式分隔任何串联的流消息，然后像平常一样进行处理。如果这不能完全解决您的问题，至少现在您知道要向 chatgpt 询问什么，或者可能需要注意的事情。
-之前的代码
-let source = new SSE(&quot;https://api.openai.com/v1/chat/completions&quot;, {
-    标题：{
-      “内容类型”：“应用程序/json”，
-      授权：`承载${DEFAULT_API_KEY}`，
-    },
-    方法：“POST”，
-    有效负载：JSON.stringify({
-      模型：$gptModel.code，
-      消息：消息，
-      流：真实，
-    }),
-  });
-  
-source.addEventListener(&quot;消息&quot;, (e) =&gt; {
-if (e.data != &quot;[完成]&quot;) {
-让有效负载 = JSON.parse(e.data);
-让打字=假；
-让文本=payload.choices[0].delta.content；
-// 用于生成文本的任何处理
-}
-
-之后的代码
-let source = new SSE(&quot;https://api.openai.com/v1/chat/completions&quot;, {
-    标题：{
-      “内容类型”：“应用程序/json”，
-      授权：`承载${DEFAULT_API_KEY}`，
-    },
-    方法：“POST”，
-    有效负载：JSON.stringify({
-      模型：$gptModel.code，
-      消息：消息，
-      流：真实，
-    }),
-  });
-  
-source.addEventListener(&quot;消息&quot;, (e) =&gt; {
-if (e.data != &quot;[完成]&quot;) {
-// console.log(e.data);
-// 使用检测 JSON 对象之间边界的正则表达式分割数据
-让 splitData = e.data.split(/(?&lt;=})(?={)/);
-splitData.forEach(数据 =&gt; {
-尝试 {
-让有效负载= JSON.parse(数据);
-让打字=假；
-让文本=payload.choices[0].delta.content；
-如果（文本==未定义）{
-打字=！打字；
-}
-如果（文本！=未定义）{
-// 用于生成文本的任何处理
-}
-} 捕获（错误）{
-console.error(&quot;流响应错误。错误：&quot;, error);
-}
-});
-}
-]]></description>
-      <guid>https://community.openai.com/t/concatenated-streaming-packages-in-api-response-recent-change-simple-fix-svelte-javascript/726753#post_1</guid>
-      <pubDate>Wed, 24 Apr 2024 17:51:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>Max_tokens 未设置，截断返回“finish_reason”：“stop”</title>
-      <link>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_10</link>
-      <description><![CDATA[我认为这个错误是一次性的。第二次我得到  &quot;finish_reason&quot;: &quot;length&quot;
-我正在处理的内容是从此页面提取的https://www.filmfix.com/en/blog/4k-vs-2k-8mm-film-transfer/，但在 WP 内部，助手被指示这样做
- var interject_instructions = `
-
-但在开始对数据进行任何更正之前，请特别注意这些指示。对于 JSON 文档键“maincontent”值，使用此特定的概述格式至关重要。我将突出显示您的编辑。这种格式对于我们识别您所做的更改至关重要。请严格遵循以下准则：
-
-1. **单词更改（针对简单的拼写错误）**：
-   - **原文**：“天空是绿色的。”
-   - **更正文本**：“天空是 绿色 蓝色 狗不友善。狗通常很友好。 ; （更正观点和拼写错误的单词）&quot;
-
-请确保：
-- 使用提供的 HTML span 标签清楚地标记每种类型的编辑（单词更改或句子重组）。
-- 不要省略标签，因为它为每次更正提供了必要的上下文。
-
-不应用这些格式规则可能会导致编辑被忽略或未正确注明。
-`;
-
-var taskInstructions = `作为一家电影传输公司，我们要求文档（以 ${targetLang} 编写）经过拼写、语法和句子结构检查。
-`;
-
-if (jQuery(&#39;input[name=&quot;ff_interject_remarks&quot;]:checked&#39;).val() == &#39;y&#39;) {
-任务指令 += interject_instructions;
-}
-
-任务指令 += `
-
-以下是所提供的 JSON 文件的结构，其中包含要重新评估的文本：
-
-{
-&quot;title&quot;: &quot;&lt;文档的标题&gt;&quot;,
-&quot;maincontent&quot;: &quot;&lt;主文档&gt;&quot;,
-&quot;description&quot;: &quot;&lt;适合元描述标签的摘要文本&gt;&quot;,
-}
-
-我们的 WordPress 设置中的数据源：
-- 来自输入字段的“标题”：&#39;&#39;。
-- 来自文本区域的“主要内容”：&#39;&#39;。
-
-请直接在文档中提出您的更正建议。请勿包含任何备注。
-
-${标题说明}
-
-您的编辑将替换这些 WordPress 元素中的原始文本，重点是：
-- 保留 WordPress HTML 格式。
-- 维护 HTML 和文本的完整性和结构。
-- 标题应遵循标题大小写约定（前提是该规则适用于语言 ${targetLang}），其中每个重要单词的第一个字母大写。
-
-`;
-
-if (ff_rework_title_and_first_paragraph == &#39;y&#39;) {
-taskInstructions += `作为一项单独的任务，重新评估您已完成的“标题”工作，但这一次，将其作为“engagingTitle”进行第二次尝试。 “engagingTitle”应该更有吸引力、更有吸引力，甚至更有趣。在长度限制方面充分进行 SEO 挖掘。
-
-此外，再次作为一项单独的任务，对第一段进行完整重写。这次要特别注意第一句，尽量让它更吸引人、更吸引人，以吸引读者。
-
-最后，重新评估“engagingTitle”和“engagingFirstParagraph”是否可以很好地协同工作，并且在考虑手头的文档时是否偏离主题，并在需要时进行调整。
-
-`;}
-
-taskInstructions += `完成后，返回以下 JSON 结构化格式的文档：
-
-{
-&quot;title&quot;: &quot;&lt;修改后的标题&gt;&quot;,
-&quot;maincontent&quot;: &quot;&lt;修改后的maincontent&gt;&quot;,
-&quot;description&quot;: &quot;&lt;重新设计的元描述&gt;&quot;,`;
-
-if (ff_rework_title_and_first_paragraph == &#39;y&#39;) {
-任务指令 += `
-&quot;engagingTitle&quot;: &quot;&lt;引人入胜的标题&gt;&quot;,
-&quot;engagingFirstParagraph&quot;: &quot;&lt;以引人入胜的开头开头的第一段&gt;&quot;,`;
-
-}
-
-任务指令 += `
-}
-
-在进行改进的同时，仔细保持原始文档的完整性和结构。
-
-`;
-]]></description>
-      <guid>https://community.openai.com/t/max-tokens-not-set-truncated-return-with-finish-reason-stop/725740#post_10</guid>
-      <pubDate>Wed, 24 Apr 2024 17:47:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何让GPT提出更多问题？ （系统消息）</title>
-      <link>https://community.openai.com/t/how-to-get-gpt-to-ask-more-questions-system-message/726656#post_9</link>
+      <title>我很困惑对 OpenAI API 的访问是否是一次性购买</title>
+      <link>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_3</link>
       <description><![CDATA[
 
 
-明亮j：
+保罗贝洛：
 &lt;块引用&gt;
-自定义说明
+是的，这是一项持续费用。
 
 
-最好从短语“自定义指令”中删除 API 标记，因为它似乎没有必要。
-如果更改不正确，请随时恢复此更改。]]></description>
-      <guid>https://community.openai.com/t/how-to-get-gpt-to-ask-more-questions-system-message/726656#post_9</guid>
-      <pubDate>Wed, 24 Apr 2024 17:43:40 GMT</pubDate>
+这可能会给人留下错误的印象。它不是按月订阅，也不是支付入场费即可无限使用。
+API 由您预付的积分提供资金。积分将在 12 个月后过期。
+然后，这些积分将用于支付 API 服务费用，并按实际语言数据使用量计费。
+
+  &lt;标题类=“来源”&gt;
+
+      openai.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    定价
+简单灵活。只需为您使用的内容付费。
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_3</guid>
+      <pubDate>Wed, 24 Apr 2024 21:13:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>Beta V2 中的助手在注释中调用其他助手 file-id</title>
+      <link>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_2</link>
+      <description><![CDATA[以前附加到检索的辅助文件会自动迁移并映射到向量存储中，只需使用启用了向量存储的 beta2 API 调用即可使用这些向量存储。然后，助手还将拥有一个矢量存储作为其启用的内部工具的一部分。
+迁移文档讨论了这一点，并提供了足够的信息让你摸不着头脑。
+通过 v1 API 创建的助手上使用的内容基于您的 API https 请求标头（或您使用的选择该标头的库模块版本）。]]></description>
+      <guid>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_2</guid>
+      <pubDate>Wed, 24 Apr 2024 21:09:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我很困惑对 OpenAI API 的访问是否是一次性购买</title>
+      <link>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_2</link>
+      <description><![CDATA[嘿嘿！欢迎来到论坛！
+是的，这是一项持续费用。 （预计到达时间：按使用量付费……）
+快速入门指南是一个很好的起点......
+https://platform.openai.com/docs/快速入门]]></description>
+      <guid>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_2</guid>
+      <pubDate>Wed, 24 Apr 2024 21:04:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>我很困惑对 OpenAI API 的访问是否是一次性购买</title>
+      <link>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_1</link>
+      <description><![CDATA[所以，我在 Minecraft 的 ChatGPT 上看到了这个视频，我觉得它看起来很有趣，所以我尝试看看是否可以设置它。我发现访问 API 需要花钱，我想知道一次性购买后是否可以永远访问它，还是可以重复使用？
+在花钱之前我想知道，因为我没有钱来支付每月的费用。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/im-confused-if-access-to-the-openai-api-is-a-one-time-purchase-or-not/726886#post_1</guid>
+      <pubDate>Wed, 24 Apr 2024 21:02:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>助理添加响应提示摘要</title>
+      <link>https://community.openai.com/t/assistant-adds-summary-of-prompt-in-response/726884#post_1</link>
+      <description><![CDATA[所以，我最近开始使用 Assistant API，但目前我还不太了解。我想尝试将它用作普通的 GPT，但是当我收到响应时，似乎没有在实际响应之前添加某种请求摘要：
+用户&gt; Text(annotations=[], value=&#39;Hello&#39;)Hello Jane Doe！我只是一个计算机程序，所以我没有感情，但我在这里准备帮助你。今天我能为您提供什么帮助吗？
+为什么要添加它，如何删除它？
+这是代码：
+从 openai 导入 OpenAI, AssistantEventHandler
+
+# 初始化OpenAI客户端
+客户端 = OpenAI(api_key=&quot;&quot;)
+
+# 定义事件处理类
+类事件处理程序（助理事件处理程序）：
+    def on_text_created(self, text) -&gt;;没有任何：
+        print(f&quot;\nuser &gt; {text}&quot;, end=&quot;&quot;,lush=True)
+
+    def on_text_delta(自身、增量、快照):
+        打印（delta.value，end =“”，flush = True）
+
+    def on_tool_call_created(self, tool_call):
+        print(f&quot;\nassistant &gt; {tool_call.type}\n&quot;,flush=True)
+
+    def on_tool_call_delta(自身，增量，快照)：
+        如果 delta.type == &#39;code_interpreter&#39;:
+            如果 delta.code_interpreter.input：
+                打印（delta.code_interpreter.input，end =“”，flush = True）
+            如果 delta.code_interpreter.outputs：
+                打印（f“\n\n输出&gt;”，flush=True）
+                对于 delta.code_interpreter.outputs 中的输出：
+                    如果输出类型==“日志”：
+                        打印（f“\ n {output.logs}”，flush = True）
+
+# 创建助手
+助手 = client.beta.assistants.create(
+    name=&quot;虚拟助手&quot;,
+    instructions=&quot;你是一个栩栩如生的虚拟助手。&quot;,
+    型号=“gpt-4-turbo”，
+）
+
+# 创建线程
+线程 = client.beta.threads.create()
+
+# 循环接受用户输入并发送消息
+而真实：
+    user_input = input(&quot;你&gt;&quot;)
+    
+    # 将用户消息添加到线程中
+    消息 = client.beta.threads.messages.create(
+        thread_id=线程.id,
+        角色=“用户”，
+        内容=用户输入
+    ）
+
+    # 创建并流式传输 Run
+    与 client.beta.threads.runs.stream(
+        thread_id=线程.id,
+        Assistant_id=助理.id,
+        instructions=&quot;请称呼用户为 Jane Doe。该用户拥有高级帐户。&quot;,
+        event_handler=EventHandler(),
+    ) 作为流：
+        流.until_done()
+]]></description>
+      <guid>https://community.openai.com/t/assistant-adds-summary-of-prompt-in-response/726884#post_1</guid>
+      <pubDate>Wed, 24 Apr 2024 21:02:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Beta V2 中的助手在注释中调用其他助手 file-id</title>
+      <link>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_1</link>
+      <description><![CDATA[因此，我的应用程序流程设置允许在单个线程中选择一个或多个助手，并且能够在线程期间随时添加/删除助手。
+有些助手有 file_search，有些则没有。带有 file_search 的已经在助手中定义了 vector_store_id。没有额外的 vector_store_ids 加载到线程中。在有两个助手使用 file_search 的线程中，第二个响应的助手将响应正确的数据，但注释将显示第一个助手矢量存储中的 file_id。
+我不确定助手是否实际上正在读取该矢量存储，或者助手是否正在读取自己的矢量存储并且注释只是显示不正确。我正在尝试进行进一步的测试，看看是否可以让第二个助手生成使用第一个助手矢量存储中的数据的响应。]]></description>
+      <guid>https://community.openai.com/t/assistant-in-beta-v2-calls-other-assistant-file-id-in-annotation/726880#post_1</guid>
+      <pubDate>Wed, 24 Apr 2024 20:56:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何访问注释引用的文件的特定文本？</title>
+      <link>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_4</link>
+      <description><![CDATA[您可以编写自己的矢量数据库 API 工具和指令来复制选择和“标记”行为，其中文件浏览器已收到带有行号的信息。工具“line_number_range_of_document_ID_to_offer_as_documentation_download_in_user_interface_before_response_to_user”？
+v2 AI 不再能够编写与 API 后端解析为注释并给出文本范围的相同输出。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_4</guid>
+      <pubDate>Wed, 24 Apr 2024 20:45:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 API 和 ChatGPT 生成图像之间的差异</title>
+      <link>https://community.openai.com/t/differences-between-image-generation-using-api-and-chatgpt/726821#post_12</link>
+      <description><![CDATA[这看起来非常漂亮且令人印象深刻。你全职做这件事吗？
+我希望我的程序是高度可定制的，而手动填充数据库是一个巨大的痛苦。所以我选择根据 Vision 结果生成数据库条目。这样，我可以添加所有 OGL 怪物，用户可以使用简单的图片从他们喜欢的任何来源添加他们的怪物。除了图像之外，一切都进展顺利，几乎一直都有完美的结果，并且有详细的数据库。
+当GPT生成DALL-E的提示时，效果更好，但看起来更像美洲原住民的样子，风格也很糟糕，看起来像雕塑或乐高人物。但我会先解决剩下的问题，随着时间的推移，它肯定会变得更好。
+无论如何，我认为这个话题现在有点偏离主题了。继续努力。]]></description>
+      <guid>https://community.openai.com/t/differences-between-image-generation-using-api-and-chatgpt/726821#post_12</guid>
+      <pubDate>Wed, 24 Apr 2024 20:45:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>下载原始 file_search 嵌入？</title>
+      <link>https://community.openai.com/t/download-raw-file-search-embeddings/726691#post_2</link>
+      <description><![CDATA[矢量数据库只能用于增强助手的知识。除了提供输入文件之外没有其他方法。
+OpenAI 不太可能提供免费嵌入供您与任何提供商的任何 AI 一起使用（除了要匹配的实际输入嵌入必须是同一模型）。
+矢量存储由助理语言模型提供补贴，使用返回的文本作为计费令牌。
+获取分块数据和搜索输出还会揭示（或不允许您使用）所使用的专有方法，例如用于输入搜索重写的专有方法，尽管它们在这一轮 API 更新中更容易出现。
+我推测 OpenAI 不会如此公开地直接扩展其产品来参与其合作伙伴的商业矢量数据库业务垂直领域的竞争。 （但是如果它能赚钱呢？）
+您可能已经考虑过对嵌入进行更多增强，而不是一刀切：嵌入有关源上下文、页码和目录、适应您的应用程序的块长度的附加元数据、文档各部分之后的分块等。]]></description>
+      <guid>https://community.openai.com/t/download-raw-file-search-embeddings/726691#post_2</guid>
+      <pubDate>Wed, 24 Apr 2024 20:38:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>为函数调用创建顺序用户流</title>
+      <link>https://community.openai.com/t/creating-sequential-user-flows-for-function-calling/597339#post_9</link>
+      <description><![CDATA[我也有类似的问题。我希望能够提出一个复杂的问题，其中 gpt 必须使用工具并使用该工具的结果来提交某种表单。但只能并行调用多个工具，而不是顺序调用。
+示例：我想让 gpt 仅在需要时查找数据库架构，然后使用生成的 sql 语句对架构进行操作。然后让 gpt 查看结果并提供人类可读的输出。此顺序流对于多个用例可能很有用。我不想告诉助手流程的流程，因为这会限制助手的灵活性。
+我是否过于复杂化了？]]></description>
+      <guid>https://community.openai.com/t/creating-sequential-user-flows-for-function-calling/597339#post_9</guid>
+      <pubDate>Wed, 24 Apr 2024 20:38:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何访问注释引用的文件的特定文本？</title>
+      <link>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_3</link>
+      <description><![CDATA[是否有任何解决方法可以获取带有直接引号的注释？]]></description>
+      <guid>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_3</guid>
+      <pubDate>Wed, 24 Apr 2024 20:37:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>评论：LitRPG Adventures RPG 桌面生成器</title>
+      <link>https://community.openai.com/t/review-litrpg-adventures-rpg-tabletop-generators/1255?page=3#post_64</link>
+      <description><![CDATA[头像生成器的一些新选项...
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/review-litrpg-adventures-rpg-tabletop-generators/1255?page=3#post_64</guid>
+      <pubDate>Wed, 24 Apr 2024 20:35:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
