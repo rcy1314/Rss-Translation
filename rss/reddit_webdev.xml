@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 26 Apr 2024 15:19:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2024 18:22:00 GMT</lastBuildDate>
+    <item>
+      <title>帮助 - 为个人项目/作品集选择域名</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cds5yv/help_choosing_domain_for_personal/</link>
+      <description><![CDATA[我想为技术和开发相关项目建立一个投资组合。 FirstnameLastname.___ 在我看来太长了大小写和名字很常见。 Lastname.com &amp; Lastname.net 被采用 选项： 姓氏。 ca - 但是我会申请美国的工作，我不知道这是否会吓跑拥有加拿大域名的潜在雇主（签证原因、搬迁等...） ModifiedLastname。 com - 我可以删除我姓氏中的一个字母，它会读起来类似，我通常在我的电子邮件中这样做，因为它只会使它更短一点，看起来更好。但担心由于其关闭而可能出现拼写错误 Lastname .io / Lastname .dev / Lastname。 org - 全部可用 接受任何建议。我是不是想太多了，应该选择任何人？   由   提交 /u/LifeOfSneaker   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cds5yv/help_choosing_domain_for_personal/</guid>
+      <pubDate>Fri, 26 Apr 2024 18:04:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cloudflare SSL 如何防止 MITM？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdrziu/how_does_cloudflare_ssl_prevent_mitm/</link>
+      <description><![CDATA[我正在尝试了解 Cloudflare SSL 的工作原理。 当我启用 Cloudflare SSL 时，它不会询问网络服务器端的任何配置。如果我错了，请纠正我，但是：浏览器到 cloudflare 之间的连接是 HTTPS，而 cloudflare 和我的网络服务器之间的连接是 HTTP？ 在这种情况下，MITM 攻击仍然可能吗？ ?   由   提交/u/Foreign_Astronaut_32   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdrziu/how_does_cloudflare_ssl_prevent_mitm/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:57:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>阵列路由问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdrngv/array_routing_issue/</link>
+      <description><![CDATA[我遇到了一个严重的问题，试图弄清楚为什么我的一个阵列正在工作，而其余阵列则完美工作，即使它们是构建的相同。 这是我完整的路由逻辑，其中包含一些真实链接和测试链接，以及有效和无效链接的注释。 &lt; ?php $request = trim($_SERVER[&#39;REQUEST_URI&#39;], &#39;/&#39;); $parts =explode(&#39;/&#39; , $request); $routes = [ //https://mywebsite.com/games/RPG/game （完美运行）  &#39;游戏&#39; =&gt; [ &#39;RPG&#39; =&gt; [ &#39;游戏&#39; =&gt; &#39;games/rpg/coe.php&#39;, &#39;mmo&#39; =&gt;; [ &#39;mmo&#39; =&gt; &#39;games/rpg/mmo/mmo.php&#39;, ] ], ],   &#39;同人小说&#39; =&gt; [ &#39;故事&#39; =&gt; &#39;fanfiction/story.php&#39;, ], // https://mywebsite.com/users/login （完美运行）&lt; /code&gt; &#39;users&#39; =&gt;; [ &#39;login&#39; =&gt; &#39;home/login.php&#39;, &#39;注册&#39; =&gt; &#39;home/registration.php&#39; ],  // https://mywebsite.com/discord/bots/gamingbuzz (根本不起作用） &#39;discord&#39; =&gt; [ &#39;bots&#39; =&gt; [ &#39;gamingbuzz&#39; =&gt; &#39;discord/bots/gamingbuzz/dashboard.php&#39;, ], ], ] ; function resolveRoute($parts, $routes) { $currentPath = &quot;&quot;;  &lt; code&gt;foreach ($parts as $part) { if (isset($routes[$part])) { $currentPath .= “/” 。 $part; if (is_array($routes[$part])) { $routes = $routes[$part]; code&gt; } else { return $routes[$part]; } } else { 返回 null; } }&lt; br /&gt; if (!is_array($routes)) { return $routes; } return null; }  if (empty($request)) { require &#39;home/main.php&#39;; } else { $filePath = resolveRoute($parts, $routes);&lt; /code&gt; if ($filePath &amp;&amp; file_exists($filePath)) { require $filePath; } else { header(“HTTP/1.1 404 Not Found”); require &#39;home/errors/404.php&#39;;  } }很明显，根据注释，我对这部分有疑问：&lt; /p&gt; // https://mywebsite.com/discord/bots/gamingbuzz （根本不起作用） &#39;discord&#39; =&gt;; [ &#39;bots&#39; =&gt; [ &#39;gamingbuzz&#39; =&gt; &#39;discord/bots/gamingbuzz/dashboard.php&#39;, ], ], 奇怪的是，如果我向其中添加另一个数组，例如这个，那么当我转到 URL /discord/bots/gamingbuzz/dashboard 时它可以正常工作：  &#39;discord&#39; =&gt; ; [ &#39;bots&#39; =&gt; [ &#39;gamingbuzz&#39; =&gt; [ &#39;仪表板&#39; =&gt; &#39;discord/bots/gamingbuzz/dashboard.php&#39;, ], ], ] ,  但无论我做什么，我似乎都无法让它变成 /discord/bots/gamingbuzz。即使我正确设置了所有权限，它仍然会给出错误 403。 有什么想法吗？   由   提交 /u/XplosivOctopus   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdrngv/array_routing_issue/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:44:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>自托管 Flask API 的好方法是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdrkam/whats_a_good_way_to_selfhost_a_flask_api/</link>
+      <description><![CDATA[我有一个 Flask REST API，它可以处理 POST 请求并在运行大型生成模型后以图像 html 模板进行响应。如果只是为了一些简单的事情（例如向一些朋友或潜在雇主展示它）而部署它，那么更入门的方法是什么？没什么花哨的，没有多余的装饰，只是根据要求提供 html。我应该提到，我正在运行 Windows 10 企业版，我不认为我可以将整个系统移植到 Linux，设置所有依赖项花了几天时间，这非常令人头痛，但我最近一直在尝试使用 WSL ，尽管不成功...   由   提交/u/cantbebothered67836   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdrkam/whats_a_good_way_to_selfhost_a_flask_api/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:40:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在 Remix/Next 应用程序之后构建 React Native 应用程序？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdrg0h/how_to_build_react_native_app_after_remixnext_app/</link>
+      <description><![CDATA[所以，我想从我是一名 MERN + RN 开发人员开始。以下是我通常创建内容的方式  Express JS 提供一些静态页面（SSG 在 2016 年使用 Jade 宝贝！） 一个页面是“网络应用程序”。因此它会加载一个 JS 包（即应用） 我有一个专用的 JSON API 路由部分，用于填充“应用” 我使用 JWT 进行身份验证，因为会话很难 构建用于身份验证、角色检查的中间件 将 zustand 集成到 Web 应用程序 利润 $$&lt; /li&gt;  然后我开始我的 React Native 部分，我使用 Express API 路由，并使用 JWT 进行身份验证，使用 zustand 进行状态管理，因为我已经有了该逻辑。 我失业了，由于不知道 Next/Remix，在几次编码挑战失败后，我开始深入学习 Remix。 我不讨厌 Remix，但我不知道如何获取我的加载器/操作并将它们转换为可以在我的 React Native 应用程序上使用的内容。  如何从会话身份验证切换到 JWT 身份验证 如何在 Remix 中为我的 React Native 应用程序创建十几个 API 路由以与 API 进行通信  我正在阅读有关 BFF 的内容 - 但这似乎需要更多工作，有什么意义？   ol&gt; Remix 提到“资源路线”作为未由“”或其他 UI 调用的路由，但我不知道创建这些文件（我收到 405）  总的来说，我只是困惑 Remix/Next 应该如何加速 React 开发   由   提交 /u/meow_pew_pew   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdrg0h/how_to_build_react_native_app_after_remixnext_app/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:35:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Tab 键导航到第一个可见元素</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdr8wr/tabnavigate_to_first_visible_element/</link>
+      <description><![CDATA[这是一种奇怪的行为，但我会尽力描述我所看到/打算做的事情。 我有一个网页，其中包含带有 id 的部分，假设这些部分中有一些锚标记。 显然，当我导航到 mysite.com#some-id 时，浏览器会设置滚动到 id=&quot;some-id&quot; 的元素。然后，当我按 Tab 键时，浏览器不会关注页面上的第一个链接，而是知道关注 some-id 部分中的第一个链接。 问题 1 如何当我按 Tab 时浏览器知道要关注哪个链接吗？ （当然，所有内容都有 tabindex=0） 现在，我在页面顶部添加了一个粘性导航栏，其中包含这些片段 url 的列表。因此，当我位于页面上的任何位置时，我可以单击导航栏，它会将 #some-id 滚动到视图中。但是现在当我按 Tab 时，我必须按 Tab 几次才能退出导航栏，然后它会跳转到页面顶部导航栏之后的第一个链接，而不是第一个链接 这是有道理的...但是浏览器如何知道像第一个场景一样跳转到页面中间的另一个链接？ 问题 2假设复制问题 1 中的行为并非易事，我确信我可以做一些聪明的事情，例如查找 W3 规范定义的所有可选项元素（？），查找当前部分中的第一个元素，并且，在选项卡上，停止键盘传播并专注于该链接...但是有更简单的方法吗？ 感谢任何帮助！我已经为此烦恼了好几天了，哈哈。   由   提交 /u/member_of_the_order   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdr8wr/tabnavigate_to_first_visible_element/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:27:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在尝试为我的烧瓶项目收集一些反馈和批评，并且非常感谢对我的简短调查的一些回应。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdqo89/i_am_trying_to_gather_some_feedback_and_criticism/</link>
+      <description><![CDATA[       由   提交/u/Slithery_0  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdqo89/i_am_trying_to_gather_some_feedback_and_criticism/</guid>
+      <pubDate>Fri, 26 Apr 2024 17:03:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>我收取这些费率是疯了吗？ （两个站点 175 美元/月）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdqd1q/am_i_crazy_for_charging_these_rates_175_month_for/</link>
+      <description><![CDATA[我是计算机科学专业的最后一年学生，刚刚开始涉足 Web 开发。我目前维护着一个两年前建立的网站。不过，我对该网站不收费，因为它是为我作为 IT 技术人员工作的公司提供的，并且它“包含”在我的系统管理员工资中。 我现在有一个客户在寻找两个网站，每个小型企业一个。 一个网站只有几页，其中最复杂的内容是联系表格。 另一个网站将需要预订和支付功能，我决定使用 Square。 我没有使用任何网站构建器，而是使用 HTML 和 CSS 从头开始​​构建这些网站。预约网站还将包含西班牙语翻译（由我翻译）。这两个网站都将包含 SEO。 现在我正在尝试决定费率。我在 Facebook 上发布广告称，随着我建立客户群，我会向新客户收取较低的费率，并且对于这些新客户，我会在未来锁定这些费率。 对于这位客户来说，请求这两个网站，我考虑每月收取 175 美元，无需预付费用（两个网站，而不是每个网站），或者作为替代方案，预付费用 750 美元，每月 130 美元。 这包括托管和域名注册。  你觉得怎么样？顺便说一句，我在美国。 感谢您抽出时间！   由   提交 /u/Vinyameen   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdqd1q/am_i_crazy_for_charging_these_rates_175_month_for/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:51:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>类型-xlsx |功能丰富的类型安全 Excel 报告</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdqchi/typedxlsx_featurerich_typesafe_excel_reporting/</link>
+      <description><![CDATA[Hey r/webdev 我最近开发了一个名为 typed-xlsx 的库，其目标是使将数据导出到 Excel 文件 (xls/xlsx) 更加简单，同时保持强大的类型安全性和出色的开发人员体验。 该库封装了 SheetJs，但提供了更易于访问的高级 API，简化了许多工作常见任务并增强功能。 主要功能包括：  类型安全架构生成器：设计具有增强可靠性的电子表格架构。 类型安全的数据序列化和转换：确保整个工作流程中的数据完整性。 共享类型安全自定义值预处理器：使用共享预处理器在整个电子表格中实现一致的值转换。  列摘要：自动插入列的计算摘要以方便数据分析。 具有自动合并功能的复杂行结构： &gt; 通过自动行合并和样式设置来简化复杂布局的创建。 轻松的默认值管理：轻松管理默认值以按预期呈现数据。 动态列选择：选择构建表时要动态包含的列。 具有类型安全上下文的动态列映射：动态映射列类型安全的方式。 动态单元格样式/格式：对每行单元格应用自定义样式和格式。 多工作表支持：创建包含多个工作表的电子表格，以更好地组织数据。 每工作表多个表支持：在单个工作表中轻松管理多个表。&lt; /li&gt; 具有多个表格的工作表的线性或网格布局：为包含多个表格的工作表选择线性或网格布局。  对于所有功能和 API 的全面演示，请查看文档主页上的现场演示。 该项目是开源的，您可以在此处找到存储库和详细文档：  文档： https://typed-xlsx.vercel.app/  Github 存储库： https://github.com/ChronicStone/typed-xlsx   我构建了 typed-xlsx 来解决在 TypeScript 中生成 Excel 报告的复杂性和耗时问题，重点是在不牺牲性能的情况下加快开发速度灵活性或力量。我 希望得到您对图书馆的反馈！无论是功能请求、错误报告还是一般观察，您的输入对于帮助改进 typed-xlsx 都是非常宝贵的。请随时为存储库做出贡献或在此处发表评论。 感谢您查看它！   由   提交 /u/PuzzleheadedDust3218   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdqchi/typedxlsx_featurerich_typesafe_excel_reporting/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:50:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>我做了一个非常好的浏览器游戏</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdpw44/i_made_a_really_good_browsergame/</link>
+      <description><![CDATA[https://nylesninetynine.github.io/rgbquizz/  大家好，我制作了我的第一个小浏览器游戏。它实际上并不是一个很好的浏览器游戏，但你会明白我为什么这么命名它。我正在观看一门课程，该课程应该包括用 JavaScript 创建井字游戏。事实证明，“玩井字棋”部分包括在该死的浏览器控制台中输入 div.append(“X”)。退出（最终失望）的是，我已经事先创建了一个 3x3 html 表格，但现在对我来说没有任何用处。所以我开始尝试并最终完成了 RGB 颜色测验/游戏。这是两周前的事了。由于我没有任何人可以分享这个，而且我已经在这个潜艇里潜伏了几个月了，所以我想我不妨和你们分享一下。我仍然是网络开发的新手，所以虽然我对此非常满意，但我知道对于你们很多人来说这都是小菜一碟。我花了两个下午的时间来搭建，而且我从中获得了很多乐趣。我认为它对大多数人来说没有太大的重玩价值，但如果有人检查过它，那就意义重大。周末愉快 &lt;3   由   提交/u/nilsjay123  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdpw44/i_made_a_really_good_browsergame/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:32:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>系统在提交表格之前上传附件</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdpv7j/system_to_upload_attachment_before_submission_of/</link>
+      <description><![CDATA[嗨， 我正在创建一个表单，管理员将多次上传表单，表单作为附件，需要在表单提交之前上传到 Google Drive。 问题在于组织上传的附件，它不应该依赖于管理员，附件的上传应该在表单提交之前进行 基本上，当表单可以多次提交并且上传应该在表单提交之前进行时，我该如何组织附件。    提交人    /u/anuragmathews08   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdpv7j/system_to_upload_attachment_before_submission_of/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:31:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>程序员的盲打技能</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdp8sn/touchtyping_skill_for_programmer/</link>
+      <description><![CDATA[有了这些代码补全、emmet、代码片段等，盲打对于程序员来说还是必不可少的吗？是的，reddit 和互联网上有很多这样的帖子…… 所以我决定参加盲打课程 https://typingclub.com 但上了几节课后，我发现手腕和肩膀不舒服。 现在我还有一些其他问题： 您是否倾向于以螳螂姿势坐着，即使在没有主动打字时也将手放在主行上？ 您是否有“偏爱的”键盘，而使用其他键盘时遇到一些困难？那么低行程笔记本电脑键盘（并向左移动以适应数字键盘）呢？ 您编码时的速度是多少？我的意思是实际打字时。它比常规文本慢吗？ 谢谢！    提交人    /u/Valent-in   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdp8sn/touchtyping_skill_for_programmer/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:06:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>嘿大家！我有一个有趣的话题要讨论。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdp4bi/hey_everyone_i_have_an_interesting_subject_to/</link>
+      <description><![CDATA[如果您能发现我的逻辑中的任何错误，我将不胜感激，因为我对这个主题有点迷失。 &lt; p&gt;所以我已经考虑学习 CSS 框架有一段时间了，唯一的问题是我已经达到了对自己的 CSS 能力非常满意的程度，我在编写有组织的代码方面没有任何问题，而且我倾向于工作当我需要时，我可以很快地使用它。 从我看来，Bootstrap 和 Tailwind 都提供了不同的东西，并且它们都有缺点。 Bootstrap 可以加快工作速度，但它并没有没有给用户足够的自由，而 Tailwind 也加速了这个过程，但它会导致丑陋的 HTML。 就我个人而言，我认为这些框架中的任何一个都不值得缺点，因为我&#39;我对普通 CSS 非常熟悉。 但我仍然有一个局外人的观点，我决定不学习这些内容是否犯了一个错误？或者如果可以的话我应该坚持使用我心爱的香草CSS？除了速度和效率之外，我应该学习 CSS 框架还有其他原因吗？也许这对工作机会有帮助？  我非常希望得到您对此的反馈，因为我真的无法决定要做什么，提前谢谢您！ （我可能还应该注意，我的重点是前端开发）   由   提交 /u/PROMCz11   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdp4bi/hey_everyone_i_have_an_interesting_subject_to/</guid>
+      <pubDate>Fri, 26 Apr 2024 16:01:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>采用 GA4 - 如果网站不使用 Google Ads，为什么“需要采取行动”</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cdofr9/ga4_adoption_why_action_required_if_website_does/</link>
+      <description><![CDATA[“未检测到广告个性化同意信号 - 需要采取行动” 为什么 GA 工作区会显示此信息？是否真的需要采取行动并添加同意信号（显然使用 GTM 和......以及什么？） 在我看来，这仅适用于使用 Google 广告服务的网站。真的需要采取行动吗？此通知是否意味着网站上实际上有某些服务需要同意更新？站点位于欧盟地区。   由   提交/u/SpecialistAd4217   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cdofr9/ga4_adoption_why_action_required_if_website_does/</guid>
+      <pubDate>Fri, 26 Apr 2024 15:33:55 GMT</pubDate>
+    </item>
     <item>
       <title>ChatGPT for Svelte/Tailwind</title>
       <link>https://www.reddit.com/r/webdev/comments/1cdnaob/chatgpt_for_sveltetailwind/</link>
       <description><![CDATA[我是一名后端开发人员，很多时候需要创建一个小前端来帮助我试验我的 API。使用 ChatGPT 4，我成功地创建了一个小型单页前端，其中包含一个下拉列表（从我的后端 API 之一填充）、一个用于设置浮点值的滑块、一个文本输入框，最后当单击文本框附近的搜索按钮时调用我最后一个填充结果区域的 API。 两个问题： 您将使用哪种类型的“组件”来显示 10 个元素的结果，其中每个元素由标题是 3-4 行文本，相似性指标，最后是 2 行调试文本？ 虽然 ChatGPT 对设置我的 Svelte/Tailwind 项目很有帮助，但我的代码“外观”确实很丑陋。有什么技巧吗？ 谢谢   由   提交 /u/olddoglearnsnewtrick   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cdnaob/chatgpt_for_sveltetailwind/</guid>
       <pubDate>Fri, 26 Apr 2024 14:47:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>全栈产品的项目定价</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdls5h/project_pricing_for_full_stack_product/</link>
-      <description><![CDATA[我正在与一位客户合作，他想要一个具有条带支付集成和登录按钮/身份验证（用于导师和管理员）的网站，其中有两个附加到该网站的门户网站，一个用于管理员，另一个用于导师 - 他们可以在其中更新他们的日程安排和信息。拥有他们填写的时间表的链接，并在两人之间传递并互相留言。  门户网站有多个选项卡，用于预订会议、填写导师空闲时间、导师时间表和信息。课程更新供学生填写。 他们还想要 QA 测试。  你会为此收取多少费用？ 你会如何处理“预算有回旋余地吗？”这个话题 我是独自一人从事这个项目，因为这并不超出我的能力范围，但在定价和策略性对话方面存在混乱。  请不要给出“他们负担不起你，然后继续前进”之类的答案。我知道这是一个选择，&amp;如果涉及到这一点，我会选择一个。 我正在尝试探索其他途径&amp;练习我的推销技巧提高我的技术。    由   提交 /u/Grapefruit6543   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdls5h/project_pricing_for_full_stack_product/</guid>
-      <pubDate>Fri, 26 Apr 2024 13:43:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>烤我的设计师作品集</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdlgsb/roast_my_designer_portfolio/</link>
-      <description><![CDATA[我为此投入了大量工作，希望它能为任何愿意与我合作的潜在客户或机构建立信任。 https://josephsalazar.dev/  &amp;# 32；由   提交 /u/Kelerya   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdlgsb/roast_my_designer_portfolio/</guid>
-      <pubDate>Fri, 26 Apr 2024 13:30:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我怎样才能做出这个布局？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdk150/how_can_i_make_this_layout/</link>
-      <description><![CDATA[      蓝色框是不同高度的图像。他们以这种方式安排自己   由   提交 /u/jiggling-dick   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdk150/how_can_i_make_this_layout/</guid>
-      <pubDate>Fri, 26 Apr 2024 12:24:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>允许源代码下载的在线网站构建器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdjbeq/online_website_builder_that_allows_source_code/</link>
-      <description><![CDATA[我对找到这样的东西有多么困难感到震惊。我想要一个所见即所得的编辑器（如wordpress的gutemberg），我可以在其中构建一个简单的静态网站，然后下载源代码（html + css）将其上传到我自己的网站。 不需要数据库和服务器边代码。只是一个体面、美观的网页，我可以通过拖放一些组件来构建它。我到处都找过了，没有人这样做。  Canva 可以建站，但不提供源代码。 Jekill 和类似的解决方案都是离线的，需要安装在我的电脑上。 Wordpress对于我每年更新一次的网站来说，这太过分了。   由   提交 /u/Mondoscuro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdjbeq/online_website_builder_that_allows_source_code/</guid>
-      <pubDate>Fri, 26 Apr 2024 11:47:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以将 WordPress 网站打造成可自托管、可安装的 Web 应用程序吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdimem/can_i_make_a_wordpress_site_into_a_selfhostable/</link>
-      <description><![CDATA[首先，我知道你们中的大多数人可能想建议我从头开始构建一些东西，这样就不会出现过载和膨胀，我有点同意。  但是我真的很喜欢修改 WordPress，我需要一个解决方案来解决让我感到沮丧的事情（但我理解并尊重为什么会这样）： 我是桌面角色扮演游戏“GM”。这意味着我需要一个解决方案来组织世界构建，一个包含我所有实体（位置、角色、物品、历史等）的数据库，以及最重要的“交互式地图”。这些图像用作地图背景，放置标记，然后不仅仅是让它们打开工具提示或小弹出窗口（我可以轻松地使用库或插件），而是将该标记连接到位置实体，然后获得完整的高度侧边栏（可滚动）打开，并在侧边栏中包含来自该实体的图像、文本和关系链接）。  现有的唯一能够以我喜欢的先进方式做到这一点的东西是“World Anvil”，但它已关闭并且相当昂贵（超过 20 美元）。当然，由于托管、开发等原因，他们可能需要这样定价。但我没有看到我运行订阅的时间超过几个月，之后我的整个进度（条目、交互式地图等）都会丢失。  所以我很乐意创建类似的东西，作为一个可自我托管的“活动 cms”。可以由任何用户托管并且不会被他们的数据锁定。  有点像 WordPress 对于网站创建者来说，只是它是一个“rpg cms”。适合桌面游戏高手。  那么，我可以使用自定义代码和 acf 在 WordPress 中创建一些东西，并使其成为一个完整且易于用户安装的包吗？或者我离题了，你建议绝对不要这样做？或者这真的应该从头开始自定义编码吗？也许有一个包可以作为定制cms开发的基础？  我对你的意见很感兴趣   由   提交 /u/jelindrael   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdimem/can_i_make_a_wordpress_site_into_a_selfhostable/</guid>
-      <pubDate>Fri, 26 Apr 2024 11:09:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>刚刚在 itch.io 上发布了我的第一款游戏，一款小于 13KB 的益智游戏</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdiko9/just_release_my_first_game_on_itchio_a_puzzle/</link>
-      <description><![CDATA[https://mrlopis.itch.io/synaptic -harmonics 我刚刚在 Itch.io 上发布了我的第一款游戏。这不是我的第一个小游戏，但这是第一个我觉得已经足够完善和完善的游戏，以后可以继续更新。 游戏是 HTML5/JS 的，也是一个入口j13k挑战，这意味着整个游戏小于13KB（压缩后）。这是一款视觉益智游戏，目前有 10 个关卡。我在两周内从头开始创建了这个游戏（重复使用了一些代码，例如微型 3D 对象框架）。 它也是开源的，所以如果你对它感到好奇，你可以深入了解一下。适用于大屏幕和小屏幕。我希望获得您对本次发布的反馈。   由   提交 /u/TreelyOutstanding   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdiko9/just_release_my_first_game_on_itchio_a_puzzle/</guid>
-      <pubDate>Fri, 26 Apr 2024 11:07:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>TLD、子域和路径</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdhjvm/tlds_subdomains_paths/</link>
-      <description><![CDATA[.com 例如，brandname 被 horder 占用，大多数其他 tld 例如，brandname 则不是。  “品牌”是一家拥有不同部门的公司（例如品牌教育和品牌财产等） 当地人认为最好选择：  brandname.divisionname1、brandname.divisionname2 等 直到能够收购brandname.com，然后可能将部门名称移至brandname.com 下的子域，或者简单地保留 .divisionnames 作为网站的 TLD，而 .com 作为也许是某种目录模板.. 然后沿着这个思路，有获取 .contact、.social、.email 等并将它们用作所有部门的 TLD 的想法，例如： divisionname1.brandname.contact Divisionname2.brandname.contact 等其他顶级域名。 其中brandname.contact 和brandname.social 也可以是各个部门的目录页面。  然后显然，与其他可能性一样，可以将这些功能作为子域或路径，例如： contact.brandname.divisionname 或简单地brandname.divisionname/contact 寻找通往对于这种情况，下去吧..有很多选择。  我的一些考虑： 顶级域名的所有权和行使规模，与子域名相比，可用顶级域名的供应也有限..从搜索引擎优化的角度来看，品牌权威和真实性，这样的例子不胜枚举。 。  就可扩展性的最佳实践而言，这里的想法是什么，在您看来什么最有意义？ 最终在 .com（或集中式顶级域名获取）下有更多的可能性开放， 你觉得怎么样？   由   提交/u/shootermcgaverson   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdhjvm/tlds_subdomains_paths/</guid>
-      <pubDate>Fri, 26 Apr 2024 10:03:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>Popover API 登陆 Baseline</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdg00z/popover_api_lands_in_baseline/</link>
-      <description><![CDATA[ 由   提交/u/feross  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdg00z/popover_api_lands_in_baseline/</guid>
-      <pubDate>Fri, 26 Apr 2024 08:15:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助了解 UUID 在身份验证过程中的用途</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdfotn/need_help_with_understanding_the_purpose_of_uuids/</link>
-      <description><![CDATA[过去几天我一直在学习网络身份验证的基础知识，这让我很困惑，因为感觉好像跳过了一些明显的事情在我读过的每篇文章中 假设有一个 REST 路由，其中​​处理程序返回一对 JWT 访问和刷新令牌，这些令牌存储为 cookie。但是只有当客户端请求参数中存在 UUID 时才会调用处理程序，因此我认为某些中间件充当此授权路由的 UUID 检查 因此，如果当我们登录时，数据库执行主操作检查名称和密码以返回令牌对，这里 UUID 到底验证什么？ AFAIU，UUID可以取代MongoDB中的Objectid，在这种情况下，这是否意味着客户端必须知道这个值才能获取令牌，还是服务器会为他插入它？ UUID 验证什么？ 简而言之，任何人都可以在 JWT 令牌场景中使用 UUID 布置工作流程吗？   由   提交 /u/Cy_Tolliver   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdfotn/need_help_with_understanding_the_purpose_of_uuids/</guid>
-      <pubDate>Fri, 26 Apr 2024 07:54:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想容器化我的前端 React 应用程序。我应该使用“serve”（模块）还是 Nginx？但我已经在外部安装了另一个用于 SSL 的 Nginx。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdfhkc/i_want_to_containerize_my_frontend_react_app/</link>
-      <description><![CDATA[为了提高性能，人们说使用像 Nginx 这样的专用工具。 但是我想容器化我的前端 React 应用程序（使用Vite），这只是静态 HTML/JS。我的容器中有文件，并且想要运行“服务”或运行“服务”。 （npm 模块）或在同一个容器内运行 Nginx。 问题是，我已经在外部运行 Nginx（用于 SSL），它也为另一个容器化后端 API 提供服务。 &lt; p&gt;这意味着到达前端代码时将有 2 个 Nginx 层。这是不好的做法还是太重了？如果我使用“serve”，它会更小（不确定是否更精简），但它没有像 Nginx 那样经过充分测试。   由   提交/u/phatangus  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdfhkc/i_want_to_containerize_my_frontend_react_app/</guid>
-      <pubDate>Fri, 26 Apr 2024 07:39:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>建筑逻辑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cde3vc/logic_of_building/</link>
-      <description><![CDATA[只是扩展了后端的表面，所以我希望收到一些反馈，特别是在构建应用程序、架构的逻辑方面，我什至不确定这是一种以这种方式构建它的好方法.. https:// github.com/Mediteran2910/rock-paper-scissors   由   提交/u/decentralized29  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cde3vc/logic_of_building/</guid>
-      <pubDate>Fri, 26 Apr 2024 06:09:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>后端语言选择？使困惑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdc89b/backend_language_selection_confused/</link>
-      <description><![CDATA[Python 用于后端？请赐教 我已经完成了我的前端网络开发部分。我对自己的技能很有信心，想转到后端部门。但问题是，大多数有影响力的人都在后端推广 MERN 堆栈，因为前端和后端都使用相同的语言，因此很容易推广。 在研究时，我发现了 Java，但它一直在自2017年以来持续下降，每年下降1%。像 Golang 和 Python 这样的语言正在兴起。 在 Reddit 上的在线辩论主题中，人们经常提到 Python 不具有可扩展性和安全性，而且速度非常慢。这是真的吗？ 而且，在线 Golang 课程并不多。   由   提交 /u/Popular_Release4922   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdc89b/backend_language_selection_confused/</guid>
-      <pubDate>Fri, 26 Apr 2024 04:19:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>该网站使用什么技术？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdb09w/what_technology_is_this_website_using/</link>
-      <description><![CDATA[你能从源代码中看出吗？ view-source:https://my.graydient.ai/concepts   由   提交 /u/FortunateBeard   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdb09w/what_technology_is_this_website_using/</guid>
-      <pubDate>Fri, 26 Apr 2024 03:15:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何将 Next.js 网站迁移到实时服务器上？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cdaplk/how_to_migrate_nextjs_website_onto_live_server/</link>
-      <description><![CDATA[您好， 我已通过 Hostgator 购买了域名和网络托管，但出于我的网站要求和用例，我的开发人员已使用 Next.js 构建了我的网站。 有人知道如何将其移动到我的实时网站/服务器上吗？    ;由   提交/u/honey_trees  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cdaplk/how_to_migrate_nextjs_website_onto_live_server/</guid>
-      <pubDate>Fri, 26 Apr 2024 02:59:55 GMT</pubDate>
     </item>
     </channel>
 </rss>
