@@ -4,149 +4,195 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 25 Apr 2024 21:19:54 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2024 01:13:20 GMT</lastBuildDate>
     <item>
-      <title>OpenAI 计费方式有变化吗？</title>
-      <link>https://community.openai.com/t/has-openai-billing-changed/727861#post_3</link>
-      <description><![CDATA[谢谢，但我不明白你的意思。我不明白我据称超出了多少配额 - 这不是我的 RPM 或 RPD，因为我无法通过单个请求，所以我的 RPD 和 RPM 都是 0 
-我的余额为正，并且启用了自动充值……所以不知道这个混乱是怎么回事。看来 OpenAI 没钱了，只好让员工的孩子为他们构建一个电子商务前端。]]></description>
-      <guid>https://community.openai.com/t/has-openai-billing-changed/727861#post_3</guid>
-      <pubDate>Thu, 25 Apr 2024 21:19:07 GMT</pubDate>
+      <title>空答案 bug 代码嵌入</title>
+      <link>https://community.openai.com/t/empty-answer-bugs-code-embeddings/727710#post_2</link>
+      <description><![CDATA[是的，我有同样的问题，gpt4 和免费的 gpt3。 5 同样，只出现在 xaml 代码中。
+]]></description>
+      <guid>https://community.openai.com/t/empty-answer-bugs-code-embeddings/727710#post_2</guid>
+      <pubDate>Fri, 26 Apr 2024 01:08:39 GMT</pubDate>
     </item>
     <item>
-      <title>使用已经工作的代码获得 400 响应</title>
-      <link>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_16</link>
-      <description><![CDATA[我怀疑问题在于令牌总数。正如api文档中提到的：
-&lt;块引用&gt;
-要嵌入的输入文本，编码为字符串或标记数组。要将多个输入嵌入到单个请求中，请传递字符串数组或令牌数组数组。输入不得超过模型的最大输入标记（text-embedding-ada-002 为 8192 个标记），不能为空字符串，并且任何数组的维数不得超过 2048。
+      <title>助手 API：创建特定于用户的助手的优点和缺点</title>
+      <link>https://community.openai.com/t/assistant-api-advantages-and-disadvantages-of-creating-user-specific-assistants/727565#post_2</link>
+      <description><![CDATA[每个助手可以使用两个向量存储，一个与助手关联，另一个与线程关联。
+我想可能有一些所有用户都需要的通用信息，这些信息可能位于辅助矢量存储中，然后每个用户可能有一个较小的矢量存储来存放他们的信息。消除信息冗余可以限制您因存储而产生的额外成本。
+如果您担心存储空间，我建议的另一件事是确保您使用尽可能最精简的格式。
+如果您有 PDF，请自行提取文本并将其重新格式化为 Markdown 等。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-advantages-and-disadvantages-of-creating-user-specific-assistants/727565#post_2</guid>
+      <pubDate>Fri, 26 Apr 2024 01:05:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>同一响应内的响应再生</title>
+      <link>https://community.openai.com/t/regeneration-of-response-within-the-same-response/727991#post_1</link>
+      <description><![CDATA[嗨，
+Chatgpt 不断在同一个响应中重复生成相同的内容。
+它需要很长时间才能生成，在同一生成点停止，从头开始生成相同的东西（在同一提示符下），然后永远不会停止，因为它总是在同一提示符下重新启动。所以你得到的是重复相同响应的长响应。
+提示长度较短。
+我不知道该怎么做才能解决这个问题。
+]]></description>
+      <guid>https://community.openai.com/t/regeneration-of-response-within-the-same-response/727991#post_1</guid>
+      <pubDate>Fri, 26 Apr 2024 01:03:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何编写 Python 代码，使输入提示和输出结果都在同一个对话线程中？</title>
+      <link>https://community.openai.com/t/how-can-i-write-python-code-such-that-both-input-prompt-and-output-results-are-in-the-same-conversation-thread/727929#post_4</link>
+      <description><![CDATA[gpt-3.5-turbo-1106 和 gpt-3.5-turbo-0125 API 模型具有 16k 上下文，因此这可以提高在以下位置传递更大输入的便利性：一次到AI。不幸的是，它们缺乏对输入的完整理解，就像您用 4k 放入 gpt-3.5-turbo-0613 中一样，您也为每个令牌的输入支付更多费用。
+gpt-4-turbo 可以一次性将 124k 的输入转换为 1k 的输出 - 最大一次调用费用为 1.27 美元，而 gpt-3.5- 则需要 15k → 1k -涡轮 = 0.01 美元。
+因此，您可以检查执行此任务的频率与编码时间，并查看数十次调用是否比易于执行的 gpt-4 使用具有节省价值。
+&lt;小时/&gt;
+您担心的是，仅在单个块上“总结这一点”似乎无法产生高质量。你的理论是，如果人工智能更多地了解该块的上下文，那么总结可能会更好。
+我们理所当然地认为最终产品将是所有摘要的摘要。
+因此，唯一的问题是如何提供有关构建当前块的文档的额外信息。一些选项：
 
-https://platform.openai.com/docs/api-reference/embeddings/create#:~:text=Input%20text%20to,dimensions%20or%20less。
-据此理解，当我们传递一个列表时，将根据列表中每个 str 的标记总和来计算标记。如果是这种情况，那么您可以尝试批处理。]]></description>
-      <guid>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_16</guid>
-      <pubDate>Thu, 25 Apr 2024 21:18:46 GMT</pubDate>
+包括立即进行的块摘要：更便宜、简单
+包括第一个摘要，假设它包含概述或摘要：更便宜、简单
+包含到目前为止所有块摘要的摘要：对大输入的额外调用
+使用最后一个摘要修改到目前为止所有块的摘要：对较小输入的额外调用
+
+最终产品是所有摘要的摘要。
+然后可以选择以不同的方式使用最高质量的额外信息再次完成工作：
+
+在再次汇总块时包含第一遍的总文档摘要，以获得最高质量的块摘要。
+
+我们对单个产品进行了很多 API 调用，因为它们在 gpt-3.5 上很便宜，而且我们预计我们一次给 AI 的调用越少，它就越会专注于自己的工作.
+然后你可以看看分块技术：它是否在逻辑文档部分进行分割，是否有一些重叠的信息更好......]]></description>
+      <guid>https://community.openai.com/t/how-can-i-write-python-code-such-that-both-input-prompt-and-output-results-are-in-the-same-conversation-thread/727929#post_4</guid>
+      <pubDate>Fri, 26 Apr 2024 01:02:53 GMT</pubDate>
     </item>
     <item>
-      <title>使用已经工作的代码获得 400 响应</title>
-      <link>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_15</link>
-      <description><![CDATA[嗨@mittal.sameer，
-您能够纠正错误吗？我也陷入了类似的情况，即当我一个接一个地传递值时，它正在工作，但是当我批量传递时，它会给出相同的错误。]]></description>
-      <guid>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_15</guid>
-      <pubDate>Thu, 25 Apr 2024 21:13:54 GMT</pubDate>
+      <title>GPT 3.5 忘记了如何生成 XML 文件</title>
+      <link>https://community.openai.com/t/gpt-3-5-has-forgotten-how-to-generate-xml-files/727990#post_1</link>
+      <description><![CDATA[它可以很好地生成实际代码，但无法在其自身生命周期内生成 XML。试图让它帮助我的 Android 项目。
+]]></description>
+      <guid>https://community.openai.com/t/gpt-3-5-has-forgotten-how-to-generate-xml-files/727990#post_1</guid>
+      <pubDate>Fri, 26 Apr 2024 00:59:46 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 语音提示嵌入</title>
-      <link>https://community.openai.com/t/gpt-voice-prompt-embedding/727720#post_3</link>
-      <description><![CDATA[嗨，Regular，谢谢你的意见。]]></description>
-      <guid>https://community.openai.com/t/gpt-voice-prompt-embedding/727720#post_3</guid>
-      <pubDate>Thu, 25 Apr 2024 21:11:24 GMT</pubDate>
+      <title>使用已经运行的代码获取 400 响应</title>
+      <link>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_17</link>
+      <description><![CDATA[我通过如下批处理解决了这个问题：
+defdivide_list_into_batches(lst,batch_size):
+对于范围内的 i（0，len（lst），batch_size）：
+产量 lst[i:i+batch_size]
+input_list 是您的文本列表
+对于divide_list_into_batches中的input_list_tmp（input_list，2048）：
+]]></description>
+      <guid>https://community.openai.com/t/getting-400-response-with-already-working-code/509212#post_17</guid>
+      <pubDate>Fri, 26 Apr 2024 00:55:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>您应该针对最终用户个性化聊天 GPT 网站</title>
+      <link>https://community.openai.com/t/you-should-make-the-chat-gpt-website-personalized-to-the-end-user/723447#post_2</link>
+      <description><![CDATA[在我把这个放进去之后…我们得到这个功能并不是那么神奇…如果有人读到这个，那是开放人工智能的开发者，如果你能让我知道这个功能请求是否导致了你新的保存偏好/其他，…之间聊天功能……那会很酷]]></description>
+      <guid>https://community.openai.com/t/you-should-make-the-chat-gpt-website-personalized-to-the-end-user/723447#post_2</guid>
+      <pubDate>Fri, 26 Apr 2024 00:48:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google 表格的自定义操作</title>
+      <link>https://community.openai.com/t/custom-action-for-google-sheets/520798#post_7</link>
+      <description><![CDATA[当您说自定义工具时，您指的是“Superface
+&#39; 正确的？如果不是，那意味着什么？]]></description>
+      <guid>https://community.openai.com/t/custom-action-for-google-sheets/520798#post_7</guid>
+      <pubDate>Fri, 26 Apr 2024 00:35:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>巴尔的摩高中体育总监使用人工智能制作校长的虚假种族主义音频：警方</title>
+      <link>https://community.openai.com/t/baltimore-hs-athletic-director-used-ai-to-create-fake-racist-audio-of-principal-police/727951#post_7</link>
+      <description><![CDATA[
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+绝大多数人都无法识别。
+
+
+是的，我也听说诈骗者使用这项技术……到目前为止只有几个故事，但这种情况发生的次数可能比人们意识到的要多？我认为十一实验室或其他人从未真正说过除了荣誉系统之外他们将如何阻止不良行为者……更不用说自制工具了。
+
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+这个故事中的人可能只是直接从他们用来生成音频的任何应用程序中取出音频——愚蠢而懒惰。
+
+
+是的，这让我感兴趣。这个人对技术有多精通。
+
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+如果他们通过高品质扬声器播放该视频，并在口袋里的手机上录制播放内容，我猜即使是 FBI 也很难揭穿这一事实，也许并非不可能，只是更困难。
+
+
+聪明！
+
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+当我们不再相信我们所看到和听到的东西时，这意味着什么？
+
+
+确实是一个美丽的新世界。
+吉布森或其他人在早期赛博朋克中谈论过这些吗？我想知道……
+预计到达时间：
+&lt;块引用&gt;
+关于早期赛博朋克文学是否直接预见或讨论了人工智能生成的音频或深度伪造等技术的问题：不，像威廉·吉布森这样的早期赛博朋克作家并没有具体预见或讨论人工智能生成的虚假音频或视频的创作。他们的重点更多地放在技术和控制论对社会、身份和现实的更广泛影响上，而不是可能产生现实虚假媒体的特定技术。
+与深度伪造的联系更多地在于主题重叠——数字操纵的想法及其对社会的潜在影响——而不是对模仿真实人类输出（如语音或视频）的技术的明确讨论。
+]]></description>
+      <guid>https://community.openai.com/t/baltimore-hs-athletic-director-used-ai-to-create-fake-racist-audio-of-principal-police/727951#post_7</guid>
+      <pubDate>Fri, 26 Apr 2024 00:26:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何编写 Python 代码，使输入提示和输出结果都在同一个对话线程中？</title>
+      <link>https://community.openai.com/t/how-can-i-write-python-code-such-that-both-input-prompt-and-output-results-are-in-the-same-conversation-thread/727929#post_3</link>
+      <description><![CDATA[感谢您对我的问题的快速答复，但我必须承认，我对编程还很陌生，并没有完全理解您的解释。
+您是否建议，如果我将长文本拆分为子集（例如 1 到 5），我应该首先使用 AI 总结子集 1 以创建子摘要，然后使用该摘要作为下一个子集生成的上下文另一个总结等等？
+但是，我担心将前一个子集的摘要与下一个子集的摘要相结合，再加上输入提示，可能会超出接近 4096 的令牌限制，从而影响输出。
+此外，此方法可能会过分强调第一个子集的重要性。如果开始只是介绍或无关的讨论，这可能不是最好的方法。
+谢谢。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-write-python-code-such-that-both-input-prompt-and-output-results-are-in-the-same-conversation-thread/727929#post_3</guid>
+      <pubDate>Fri, 26 Apr 2024 00:25:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>想知道为什么代码生成突然停止工作</title>
+      <link>https://community.openai.com/t/wondering-why-the-code-generation-has-stopped-working-all-of-a-sudden/727919#post_14</link>
+      <description><![CDATA[这里也一样。我在问有关 Javascript 的问题，它一直进入无限循环。我没有要求提供该主题的示例。]]></description>
+      <guid>https://community.openai.com/t/wondering-why-the-code-generation-has-stopped-working-all-of-a-sudden/727919#post_14</guid>
+      <pubDate>Fri, 26 Apr 2024 00:23:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>想知道为什么代码生成突然停止工作</title>
+      <link>https://community.openai.com/t/wondering-why-the-code-generation-has-stopped-working-all-of-a-sudden/727919#post_13</link>
+      <description><![CDATA[现在在生成 XML 文件方面遇到了麻烦，但常规代码没有问题。
+亲自看看，要求它生成一个在 android studio 中使用的示例 XML，如果它现在适合您，我会感到惊讶。]]></description>
+      <guid>https://community.openai.com/t/wondering-why-the-code-generation-has-stopped-working-all-of-a-sudden/727919#post_13</guid>
+      <pubDate>Fri, 26 Apr 2024 00:23:48 GMT</pubDate>
     </item>
     <item>
       <title>您个人使用的提示结构是什么？</title>
-      <link>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_1</link>
-      <description><![CDATA[那里有太多信息。
-我不知道该关注谁才能获得最佳提示。
-任何人都可以推荐一个来源或与我分享他们自己的提示结构吗？
-我觉得 GPT 变得更糟了，或者也许我的旧提示不再有效。
-如果您能提供任何见解，我将不胜感激。]]></description>
-      <guid>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_1</guid>
-      <pubDate>Thu, 25 Apr 2024 21:07:18 GMT</pubDate>
+      <link>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_5</link>
+      <description><![CDATA[我还没有找到一个好的单一来源来提示提示。我只是从不同的来源处获取一些信息，并根据我的提示来改变我的结构。不过，作为一个广泛的答案，我的提示结构是
+[角色]、[目标]、[背景]、[示例]、[行动]
+现在显然我不会对每个提示都这样做，否则会很麻烦，甚至会成为一个障碍。但我使用该结构作为起点，然后根据我的提示使用整个结构或缩短它。如果我想学习某个主题的新科目或完成一项重要的与工作相关的任务，那么我会使用完整的 5 部分结构。为了降低复杂度，我将去掉[角色]和[示例]。下一步我也会放弃[目标]。然后是最简单的提示，这是一个基本的单步问答，我删除[上下文]，然后留下一个简单的[操作]提示，例如：“什么是2+2”。但实际上，这只是一个通用的指导框架，您必须利用您之前使用 ChatGPT 的经验来阐明您在特定主题上寻找的响应类型。]]></description>
+      <guid>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_5</guid>
+      <pubDate>Fri, 26 Apr 2024 00:22:34 GMT</pubDate>
     </item>
     <item>
-      <title>有没有办法禁用插件/GPT</title>
-      <link>https://community.openai.com/t/is-there-a-way-to-disable-a-plugin-gpt/727865#post_1</link>
-      <description><![CDATA[有没有办法禁用插件/GPT，这样我就不会删除它，而是将其关闭，这样我就可以让我的屏幕更简单地向某人教授 ChatGPT，而不会让他们感到困惑？
-提前致谢 - 汤姆]]></description>
-      <guid>https://community.openai.com/t/is-there-a-way-to-disable-a-plugin-gpt/727865#post_1</guid>
-      <pubDate>Thu, 25 Apr 2024 21:07:12 GMT</pubDate>
+      <title>您个人使用的提示结构是什么？</title>
+      <link>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_4</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/whats-your-prompt-structure-that-you-use-personally/727866#post_4</guid>
+      <pubDate>Fri, 26 Apr 2024 00:21:16 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 计费方式有变化吗？</title>
-      <link>https://community.openai.com/t/has-openai-billing-changed/727861#post_2</link>
-      <description><![CDATA[&lt;块引用&gt;
-429 - 您超出了当前配额，请检查您的计划和账单详细信息原因：您的积分已用完或已达到每月最高支出。
-解决方案： 购买更多积分或了解如何增加您的限额。
-
-您可以在此处查看 API...
-https://platform.openai.com/docs/快速入门]]></description>
-      <guid>https://community.openai.com/t/has-openai-billing-changed/727861#post_2</guid>
-      <pubDate>Thu, 25 Apr 2024 21:02:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 计费方式有变化吗？</title>
-      <link>https://community.openai.com/t/has-openai-billing-changed/727861#post_1</link>
-      <description><![CDATA[我有一个与 gpt-3.5-turbo-instruct 集成的应用程序，但我有一段时间没有使用它了（几个月了？）
-今天刚尝试过，所有查询都失败，并出现 429 - 配额不足错误。
-在过去一年左右的时间里，我的信用卡每隔几天就会根据我使用的任何东西进行计费，但现在似乎有某种带有自动充值功能的预付费积分系统。
-这是新的吗？我在哪里可以找到相关信息？付款后，积分需要多长时间才能使用？
-非常感谢任何帮助，
-大卫]]></description>
-      <guid>https://community.openai.com/t/has-openai-billing-changed/727861#post_1</guid>
-      <pubDate>Thu, 25 Apr 2024 21:01:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 代码超出了“当前配额”，但我支付了更多费用</title>
-      <link>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_16</link>
-      <description><![CDATA[是的，ChatGPT Plus 和 API 是不同的。
-您可以在此处查看 API...
-https://platform.openai.com/docs/快速入门
-或者联系help.openai.com，但我认为您无法获得退款。]]></description>
-      <guid>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_16</guid>
-      <pubDate>Thu, 25 Apr 2024 20:56:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 代码超出了“当前配额”，但我支付了更多费用</title>
-      <link>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_15</link>
-      <description><![CDATA[哎呀，我买错东西了？我需要退款并在 chat gpt API 或其他什么上购买东西，而不是升级 chat gpt 计划吗？删除超出当前配额的东西？]]></description>
-      <guid>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_15</guid>
-      <pubDate>Thu, 25 Apr 2024 20:55:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 代码超出了“当前配额”，但我支付了更多费用</title>
-      <link>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_14</link>
-      <description><![CDATA[ChatGPT Plus 和 API 不同。
-您可以在此处查看 API...
-https://platform.openai.com/docs/快速入门]]></description>
-      <guid>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_14</guid>
-      <pubDate>Thu, 25 Apr 2024 20:55:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 代码超出了“当前配额”，但我支付了更多费用</title>
-      <link>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_13</link>
-      <description><![CDATA[在聊天 gpt 上，我以 20 美元从免费升级到业余爱好者，这就是我所知道的，聊天 gpt 说它应该消除超出配额的错误，但它没有，即使在等待 24 小时后也是如此。]]></description>
-      <guid>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_13</guid>
-      <pubDate>Thu, 25 Apr 2024 20:54:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 代码超出了“当前配额”，但我支付了更多费用</title>
-      <link>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_12</link>
-      <description><![CDATA[20 美元你都用完了吗？
-&lt;块引用&gt;
-429 - 您超出了当前配额，请检查您的计划和账单详细信息原因：您的积分已用完或已达到每月最高支出。
-解决方案： 购买更多积分或了解如何增加您的限额。
-]]></description>
-      <guid>https://community.openai.com/t/python-code-exceded-current-quota-but-i-payed-for-more/727816#post_12</guid>
-      <pubDate>Thu, 25 Apr 2024 20:53:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>段级时间戳不一致</title>
-      <link>https://community.openai.com/t/inconsistency-in-segment-level-timestamps/727849#post_1</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/inconsistency-in-segment-level-timestamps/727849#post_1</guid>
-      <pubDate>Thu, 25 Apr 2024 20:47:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>文本处理性能下降</title>
-      <link>https://community.openai.com/t/performance-deteriorating-on-text-processing/727848#post_1</link>
-      <description><![CDATA[我是唯一一个观察到过去几天 gpt-4-turbo-2024-04-09 性能下降的人吗？
-使用 ase:complex Prompt，处理对话记录并统计语音行为，输出为 Json 格式 {‘Speech-act1’: n_occurrences, ‘Speech-act1’: n_occurrences … }
-几天前：以前工作正常
-今天：
-
-无法统计出现次数，所有计数返回 0
-切换回 gpt-3.5-turbo，您会得到一些输出，尽管不是几天前 gpt-4-turbo 生成的确切数字
-]]></description>
-      <guid>https://community.openai.com/t/performance-deteriorating-on-text-processing/727848#post_1</guid>
-      <pubDate>Thu, 25 Apr 2024 20:47:12 GMT</pubDate>
+      <title>ChatGPT 4 XML 响应的问题</title>
+      <link>https://community.openai.com/t/issues-with-chatgpt-4-xml-response/727439#post_4</link>
+      <description><![CDATA[我在 XML 生成方面遇到了同样的问题。尝试过多个平台和帐户，但没有成功。前几天它生成 XML 的效果很好，但从昨晚开始我就遇到了问题。]]></description>
+      <guid>https://community.openai.com/t/issues-with-chatgpt-4-xml-response/727439#post_4</guid>
+      <pubDate>Fri, 26 Apr 2024 00:20:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
