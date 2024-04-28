@@ -4,124 +4,128 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 28 Apr 2024 03:20:40 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2024 06:24:50 GMT</lastBuildDate>
     <item>
-      <title>GPT 4不再写代码了？</title>
-      <link>https://community.openai.com/t/gpt-4-does-not-write-code-anymore/729793#post_2</link>
-      <description><![CDATA[它肯定没有完成代码，而且过去几天编写的代码也很糟糕。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-does-not-write-code-anymore/729793#post_2</guid>
-      <pubDate>Sun, 28 Apr 2024 03:18:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_6</link>
-      <description><![CDATA[谢谢！我最终使用了 client.beta.vector_stores.file_batches.create_and_poll，它似乎为我解决了所有这些问题。在这里找到它： https ://platform.openai.com/docs/assistants/tools/file-search/creating-vector-stores-and-adding-files
-不是超级直观，但它有效]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_6</guid>
-      <pubDate>Sun, 28 Apr 2024 03:15:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_5</link>
-      <description><![CDATA[请问 – 为什么要使用这些内置矢量存储，与 Chroma 或 Pinecone 等替代解决方案相比，它们如此有限？我正在考虑做一些类似于 OP 的事情，但不确定采取什么路线]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_5</guid>
-      <pubDate>Sun, 28 Apr 2024 03:13:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>文件搜索+矢量存储混乱</title>
-      <link>https://community.openai.com/t/file-search-vector-store-confusion/729536#post_5</link>
-      <description><![CDATA[文件端点还能如何使用？ &lt;img alt=&quot;:eyes:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/eyes.png?v=12&quot; title=&quot;:eyes: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/file-search-vector-store-confusion/729536#post_5</guid>
-      <pubDate>Sun, 28 Apr 2024 03:11:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_4</link>
-      <description><![CDATA[是的，您发现每个助理都有一个商店。
-如果由于最大长度而无法验证您的 API 调用输入，您可能必须通过单独附加更多文件来进行批处理。方法不接受数组：
-从 openai 导入 OpenAI
-客户端 = OpenAI()
+      <title>在推理过程中是否使用单一采样方法，或者是否有根据给定输入使用不同采样方法的逻辑？</title>
+      <link>https://community.openai.com/t/is-there-a-single-sampling-method-used-during-inference-or-theres-a-logic-to-use-different-sampling-methods-based-on-a-given-input/729974#post_2</link>
+      <description><![CDATA[重点不在于获得确定性或顶级 token 结果。
+使用意想不到的词语使响应更像人类。
+ChatGPT（网络聊天机器人）不允许您访问任何参数 - 多样性也是重点，如果您不喜欢制作，您会不喜欢它，如果它是有利的，您会赞成它，以收集训练数据。
 
-vector_store_file = client.beta.vector_stores.files.create(
-  矢量_store_id =“vs_abc123”，
-  file_id=&quot;文件-abc123&quot;
-）
-打印（矢量存储文件）
-
-看看您可以并行处理多少个线程......]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_4</guid>
-      <pubDate>Sun, 28 Apr 2024 03:06:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>将聊天记录整理到文件夹中</title>
-      <link>https://community.openai.com/t/organizing-chats-into-folders/163900#post_16</link>
-      <description><![CDATA[不幸的是，这个扩展对于我目前的现实来说有点贵。但我尝试了多种替代方案（其他扩展），而 munjyong 的确实似乎是迄今为止最好的。]]></description>
-      <guid>https://community.openai.com/t/organizing-chats-into-folders/163900#post_16</guid>
-      <pubDate>Sun, 28 Apr 2024 02:53:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 更新答案</title>
-      <link>https://community.openai.com/t/custom-gpts-update-answers/517224#post_17</link>
-      <description><![CDATA[
+OpenAI 的 API 提供了两个采样参数：top_p（核采样），它限制了 token 字典，然后是温度（logprob 缩放）。这允许您将结果偏向最确定的，或者非常小的值，基本上总是输出顶级 token 选择（贪婪采样）。相反的情况可能会变得疯狂。
+还有一个种子参数，它可以重复相同的采样随机性，从而可以重复不同的输出。
 
 
-卡斯：
-&lt;块引用&gt;
-早上好。我也遇到了同样的问题。
-我所做的是将所有知识保存在一个简单的数据库中，并通过操作引用该知识（而不是直接上传 PDF）。
-第三方数据库直接对文件进行索引。
-这样，当您更新 PDF 时，您只需将新副本上传到数据库，数据库会重新索引它，然后将新上下文传递到 GPT。
-这种方法对您有用吗？ （我们谈论的是多少 GPT 和总共多少文档？）
+temperature 和 top_p :0.00001 结果 (点击查看更多详细信息)
 
 
-好方法！花了几个小时在这里实现它，但现在效果很好！现在，自定义 GPT 可以访问我的本地文件夹，就好像它是它自己的知识库一样。顺便说一句，我也将这个本地文件夹命名为“知识”。
-当我有时间时，我会在网络上的某个地方发布有关它的信息。我认为这会对很多人有所帮助。]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-update-answers/517224#post_17</guid>
-      <pubDate>Sun, 28 Apr 2024 02:49:58 GMT</pubDate>
+top_p: 0.995,temperature: 1.5 结果 （点击查看更多详情）]]></description>
+      <guid>https://community.openai.com/t/is-there-a-single-sampling-method-used-during-inference-or-theres-a-logic-to-use-different-sampling-methods-based-on-a-given-input/729974#post_2</guid>
+      <pubDate>Sun, 28 Apr 2024 06:20:14 GMT</pubDate>
     </item>
     <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_3</link>
-      <description><![CDATA[实际上忽略这一点。似乎如果我尝试添加 3 个矢量存储，就会收到错误。
-“‘tool_resources.file_search.vector_store_ids’无效：数组太长。预计最大长度为 1 的数组，但得到的却是长度为 3 的数组。”]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_3</guid>
-      <pubDate>Sun, 28 Apr 2024 02:38:08 GMT</pubDate>
+      <title>GPT-4 缺失和 GPT-3.5 响应替代</title>
+      <link>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_3</link>
+      <description><![CDATA[&lt;img alt=&quot;图片&quot; height=&quot;362&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/7/b/0/7b0e4dd24063c990a2c827604263ea8c539b053c.png&quot; width=&quot;490 ” /&gt;
+&lt;img alt=&quot;图片&quot; height=&quot;337&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/2/2/5/225bd3a78da522a9a79a71c48fd3de38b412258c.png&quot; width=&quot;490 ” /&gt;]]></description>
+      <guid>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_3</guid>
+      <pubDate>Sun, 28 Apr 2024 06:06:29 GMT</pubDate>
     </item>
     <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_2</link>
-      <description><![CDATA[解决方案似乎是简单地为每个助手使用多个向量存储。就我而言，我需要 3 个矢量存储，每个矢量存储有 100 个文件。]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_2</guid>
-      <pubDate>Sun, 28 Apr 2024 02:26:37 GMT</pubDate>
+      <title>ChatGPT 不输出代码或提供空白响应</title>
+      <link>https://community.openai.com/t/chatgpt-not-outputting-code-or-providing-blank-responses/728802#post_8</link>
+      <description><![CDATA[我在 Chrome 上也遇到了同样的问题，但在 Android 上运行良好。有什么解决办法吗？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-not-outputting-code-or-providing-blank-responses/728802#post_8</guid>
+      <pubDate>Sun, 28 Apr 2024 06:00:36 GMT</pubDate>
     </item>
     <item>
-      <title>如何在网站中使用API</title>
-      <link>https://community.openai.com/t/how-to-use-api-in-website/729850#post_2</link>
-      <description><![CDATA[我的朋友，你需要学习如何阅读该文档。阅读，你会找到答案，我的朋友。 https://platform.openai.com/docs/api-reference/introduction]]></description>
-      <guid>https://community.openai.com/t/how-to-use-api-in-website/729850#post_2</guid>
-      <pubDate>Sun, 28 Apr 2024 02:08:07 GMT</pubDate>
+      <title>GPT-4 缺失和 GPT-3.5 响应替代</title>
+      <link>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_2</link>
+      <description><![CDATA[是的，我也注意到了这一点，因为响应的生成速度显然是 GPT3.5]]></description>
+      <guid>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_2</guid>
+      <pubDate>Sun, 28 Apr 2024 05:58:54 GMT</pubDate>
     </item>
     <item>
-      <title>'您超出了当前配额</title>
-      <link>https://community.openai.com/t/you-exceeded-your-current-quota/729494#post_6</link>
-      <description><![CDATA[当时间到了，你就会知道你需要付钱给那个人了。]]></description>
-      <guid>https://community.openai.com/t/you-exceeded-your-current-quota/729494#post_6</guid>
-      <pubDate>Sun, 28 Apr 2024 02:05:46 GMT</pubDate>
+      <title>GPT-4 缺失和 GPT-3.5 响应替代</title>
+      <link>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_1</link>
+      <description><![CDATA[最近几个小时：尽管访问了 GPT-4 部分，但类似于 GPT-3.5 的响应很普遍，但存在明显的限制，例如无法阅读文档
+即使直接提示其版本，AI 系统仍继续将自己标识为 GPT-3.5，尽管是在所谓的 GPT-4 部分中访问的。]]></description>
+      <guid>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_1</guid>
+      <pubDate>Sun, 28 Apr 2024 05:49:51 GMT</pubDate>
     </item>
     <item>
-      <title>矢量存储中最多 100 个文件</title>
-      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_1</link>
-      <description><![CDATA[根据 https://platform.openai.com/docs/assistants/whats-new，file_search 最多支持 10k 个文件。
-但是，当我尝试创建我的矢量存储时
-my_file_ids = [ ... ] # 300 个文件 ID 已上传到 openAI
-vector_store = client.beta.vector_stores.create(
-name=&quot;My Assistant V2&quot;, file_ids=my_file_ids
-)
-
-我收到 openai.BadRequestError：错误代码：400 - {‘error’：{‘message’：“无效的‘file_ids’：数组太长。预期最大长度为 100 的数组，但得到的却是长度为 300 的数组。”, ‘type’: ‘invalid_request_error’, ‘param’: ‘file_ids’, ‘code’: ‘array_above_max_length’} 
-那么，如果向量存储只能有 100 个文件，file_search 如何支持 10k 个文件？我以为文件必须在向量存储中才能使用？]]></description>
-      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_1</guid>
-      <pubDate>Sun, 28 Apr 2024 02:05:44 GMT</pubDate>
+      <title>如何轻松地为政策和程序添加操作</title>
+      <link>https://community.openai.com/t/how-do-you-add-a-action-easily-for-policy-and-procedures/729603#post_5</link>
+      <description><![CDATA[抱歉，当我说“我”时，我以为已经很清楚了。但有时我的拼写和语言很糟糕。我真的很感谢您抽出时间来回复。]]></description>
+      <guid>https://community.openai.com/t/how-do-you-add-a-action-easily-for-policy-and-procedures/729603#post_5</guid>
+      <pubDate>Sun, 28 Apr 2024 05:46:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>在推理过程中是否使用单一采样方法，或者是否有根据给定输入使用不同采样方法的逻辑？</title>
+      <link>https://community.openai.com/t/is-there-a-single-sampling-method-used-during-inference-or-theres-a-logic-to-use-different-sampling-methods-based-on-a-given-input/729974#post_1</link>
+      <description><![CDATA[社区大家好，
+我正在研究领先的 LLM 支持的产品（ChatGPT、Mistral、Claude）可能使用的采样技术。
+为了给出上下文，从输出概率列表中采样令牌的最简单方法是获取概率最高的令牌。
+它有其局限性（非创造性、可预测）。
+因此，为了在响应中引入一些创造力，人们开始使用“随机采样方法”（例如 Top-K、Top-p）来引入随机性。
+我的问题是 - 在希望输出具有确定性的情况下。例如一个谜题或一个简单的数学表达式。
+通过随机采样方法进行采样感觉违反直觉。人工智能工程师/研究人员/公司如何处理这个问题？
+他们如何确保“随机采样方法”可靠以获得确定性输出？
+在推理过程中是否使用单一采样方法，或者存在基于给定输入（需要确定性或非确定性输出）使用不同采样方法的逻辑？
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/is-there-a-single-sampling-method-used-during-inference-or-theres-a-logic-to-use-different-sampling-methods-based-on-a-given-input/729974#post_1</guid>
+      <pubDate>Sun, 28 Apr 2024 05:45:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天 GPT 根本不显示任何代码</title>
+      <link>https://community.openai.com/t/chat-gpt-not-showing-any-code-at-all/729972#post_1</link>
+      <description><![CDATA[聊天 GPT 现在根本不显示任何代码？只是一个黑匣子。从昨天开始就一直这样？]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-not-showing-any-code-at-all/729972#post_1</guid>
+      <pubDate>Sun, 28 Apr 2024 05:44:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT-4 中的代码生成中断问题</title>
+      <link>https://community.openai.com/t/issue-with-code-generation-interruptions-in-chatgpt-4/728409?page=2#post_21</link>
+      <description><![CDATA[我可以向 OpenAI 提供反馈吗？我不确定他们是否已经意识到这个问题，我也不知道如何提交反馈。]]></description>
+      <guid>https://community.openai.com/t/issue-with-code-generation-interruptions-in-chatgpt-4/728409?page=2#post_21</guid>
+      <pubDate>Sun, 28 Apr 2024 05:39:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助处理 Dall-e-3 错误discord.js</title>
+      <link>https://community.openai.com/t/help-with-dall-e-3-error-handling-discord-js/729967#post_1</link>
+      <description><![CDATA[我已经尝试了太多的事情来尝试获取 Dall-e-3 错误响应并将图像生成失败的信息发送回用户。我可以在控制台日志中获取错误，但我想回复用户，在 catch 运行之前出现错误，以便我可以访问不和谐的调用来响应。我对 javascript 还很陌生，但我尝试了很多方法。特别是，我只想在收到 400 错误代码时响应用户，但任何错误响应我都想告诉用户图像生成失败。在我盲目地盯着这个之前，非常感谢任何想法或帮助。
+ if(msg.content.substring(0, 1) === &quot;%&quot;) {
+        常量 openai = 新 OpenAI({
+                apiKey: &quot;&quot;,
+                        });
+        尝试{
+                cleanprompt = (msg.content.substring(0)).replace(/%/g,&quot;&quot;)
+                图片调用=“”
+                imagecall =等待imagecall.concat(`${cleanprompt}`)
+                msg.channel.send(&quot;正在生成图片请稍候...&quot;)
+                const 完成 = 等待 openai.images.generate({
+                        型号：“dall-e-3”，
+                        提示：`${imagecall}`,
+                        尺寸：“1024x1024”，
+                        风格：“生动”，
+                        质量：“标准”，
+                        数：1，
+                        用户：`${msg.author.id}`，
+                        })
+                数据 = (`${completion.data[0].url}`)
+ 
+                if(data.length &lt; 20) {
+                }
+                else if(data.length &gt; 21) {
+                         msg.reply(`${data}`)
+                }
+        }抓住（错误）{
+                console.error(err.message);
+                }
+    }
+]]></description>
+      <guid>https://community.openai.com/t/help-with-dall-e-3-error-handling-discord-js/729967#post_1</guid>
+      <pubDate>Sun, 28 Apr 2024 05:33:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
