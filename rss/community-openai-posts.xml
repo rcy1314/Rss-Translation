@@ -4,108 +4,173 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 29 Apr 2024 15:20:22 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2024 18:23:49 GMT</lastBuildDate>
     <item>
-      <title>使用 file_search 作为工具时，助手无法访问线程消息中的附加文件</title>
-      <link>https://community.openai.com/t/assistant-cannot-access-to-attached-file-in-thread-message-when-using-file-search-as-tool/731347#post_1</link>
-      <description><![CDATA[重现步骤
-
-上传文件供助理使用。
-创建包含上传文件 ID 的附件列表并使用 file_search 作为工具类型
+      <title>Assistant 2.0 令牌使用情况 - 使用情况过高</title>
+      <link>https://community.openai.com/t/assistant-2-0-tokens-usage-usage-is-too-high/731516#post_1</link>
+      <description><![CDATA[大家好！我正在使用带有 Assistant 2.0 的新 Beta 版本，出于定价原因，我想计算我的助手消耗的代币数量。我有几个问题。
 
 
-[{‘file_id’: &#39;file-xxxxxxxxxxxxxxxx, ‘工具’: [{‘type’: ‘file_search’}]}]
+当我创建一个新线程时，我会问助手一个简单的问题，例如“2+2 是多少？”答案很简单，就像“答案是2”，run.usage 的代币数量至少是 350 个代币，而它应该在 30 个代币左右？我想这可能是因为创建了助手、新线程和完成+提示，但我不确定是否是这个原因。
 
 
-创建带有附件的消息线程并查询应触发助手从附件文件中检索信息的内容。
+当我使用同一个线程并开始询问简单的问题时，同样是“2+2 是多少？”、“2-1 是多少？”，代币的数量开始增长如此之多。我将附上一张图像，其中包含消耗的令牌和每个提示的预期令牌 - 使用 Tokenizer 进行计算。
 
-结果
-Google 助理无法查看/访问上传的文件。所有检索请求均失败。
-其他信息
-我在 Playground 中检查了文件已成功上传，并且我看到矢量存储以及附加到线程的文件。
-当使用代码解释器作为附件工具似乎可以工作时，问题似乎特定于文件搜索]]></description>
-      <guid>https://community.openai.com/t/assistant-cannot-access-to-attached-file-in-thread-message-when-using-file-search-as-tool/731347#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 15:17:28 GMT</pubDate>
+
+
+同一个线程中的令牌是否会累积？如果是的话，我应该只在助理进程结束时计算 run.usage 来计算成本吗？或者，如果有人知道为什么会发生这种情况并有答案，我将很高兴听到它。
+提前非常感谢您。]]></description>
+      <guid>https://community.openai.com/t/assistant-2-0-tokens-usage-usage-is-too-high/731516#post_1</guid>
+      <pubDate>Mon, 29 Apr 2024 18:19:46 GMT</pubDate>
     </item>
     <item>
-      <title>当邮件附件工具被省略时，助手会如何表现？</title>
-      <link>https://community.openai.com/t/how-the-assistant-behave-when-the-message-attachments-tools-are-omitted/730338#post_5</link>
+      <title>线性代数中可能存在的数学错误</title>
+      <link>https://community.openai.com/t/a-possible-math-error-in-linear-algebra/731508#post_1</link>
+      <description><![CDATA[我正在尝试与 ChatGPT 合作来查找 J 相对于 w_i 的导数：
+J = c^T ( I + D W D.T ) ^ {-2} c
+其中c是n的向量，D是n x n的方阵，W是n x n的对角方阵，对角元素是w_1，w_2，...，w_n。
+我想求 J 对 w_i 的导数。 ChatGPT 的答案请见附件。我不确定两个红色框之间是否正确应用了链式法则。看来指数应该是-3。
+请验证这是否确实是一个错误。谢谢。
+]]></description>
+      <guid>https://community.openai.com/t/a-possible-math-error-in-linear-algebra/731508#post_1</guid>
+      <pubDate>Mon, 29 Apr 2024 18:10:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>“新响应将使用 GPT-3.5”消息未指定时区</title>
+      <link>https://community.openai.com/t/the-new-responses-will-use-gpt-3-5-message-doesnt-specify-timezone/726677#post_7</link>
+      <description><![CDATA[这个问题有答案吗？我认为我最大的问题是我不相信我曾经为每个 @PatrickC 分配了金额点 - 这真的很奇怪。]]></description>
+      <guid>https://community.openai.com/t/the-new-responses-will-use-gpt-3-5-message-doesnt-specify-timezone/726677#post_7</guid>
+      <pubDate>Mon, 29 Apr 2024 18:08:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Create_and_poll 与函数调用？</title>
+      <link>https://community.openai.com/t/create-and-poll-with-function-calling/727672#post_7</link>
+      <description><![CDATA[啊，真糟糕。我正在查看源代码，但没有看到任何可以真正为您简化此操作的内容。希望有更了解的人可以插话吗？]]></description>
+      <guid>https://community.openai.com/t/create-and-poll-with-function-calling/727672#post_7</guid>
+      <pubDate>Mon, 29 Apr 2024 18:06:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
+      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_2</link>
+      <description><![CDATA[谢谢。
+OpenAI 似乎将 AI 写入的特殊标记和序列保留在 logit_bias 的范围之外，包括那些初始生成的标记，这些标记是信号工具调用，从而阻碍了 AI 模型训练问题的灵活性甚至解决方法。
+即使如此，也到了提供 logprobs 的替代版本并在函数调用时关闭 logprobs 的地步，就好像令牌数字及其编码字符串是某种秘密的天才计划一样。
+反馈：特别是在聊天完成方面，tool_bias 作为对第一个标记执行的抽象，可以让人们控制进入工具生成序列，并为 AI softmax 提供更细致的提示。本质上是依靠人工智能调用工具的确定性来作为增加或减少这种确定性的响应。]]></description>
+      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_2</guid>
+      <pubDate>Mon, 29 Apr 2024 18:04:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法在 Node.JS 中从 FormData 创建文件？</title>
+      <link>https://community.openai.com/t/cant-create-file-from-formdata-in-node-js/513497#post_2</link>
+      <description><![CDATA[你能解决这个问题吗？我遇到了同样的错误：
+
+
+
+“文件”是必需属性错误 API
+
+  &lt;块引用&gt;
+    尝试创建文件时出现“‘文件’是必需属性”错误。看了几篇似乎已经解决了这个问题的帖子，我仍然遇到同样的错误。
+这是错误：
+{
+  错误： {
+    消息：“‘文件’是必需的属性”，
+    类型：&#39;无效请求错误&#39;，
+    参数：空，
+    代码：空
+  }
+}
+
+这是代码。
+const formData = new FormData();
+    let file = new Blob([&quot;一个字符串&quot;], {
+      类型：“文本/纯文本；字符集=utf8”，
+});
+
+formData.append(&quot;目的&quot;,...
+  
+]]></description>
+      <guid>https://community.openai.com/t/cant-create-file-from-formdata-in-node-js/513497#post_2</guid>
+      <pubDate>Mon, 29 Apr 2024 18:03:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>“文件”是必需的属性错误</title>
+      <link>https://community.openai.com/t/file-is-a-required-property-error/731496#post_1</link>
+      <description><![CDATA[我在尝试创建文件时收到“‘文件’是必需属性”错误。在查看了几篇似乎已经解决了该问题的帖子后，我仍然遇到相同的错误。
+这是错误：
+{
+  错误： {
+    消息：“‘文件’是必需的属性”，
+    类型：&#39;无效请求错误&#39;，
+    参数：空，
+    代码：空
+  }
+}
+
+这是代码。
+const formData = new FormData();
+    let file = new Blob([&quot;一个字符串&quot;], {
+      类型：“文本/纯文本；字符集=utf8”，
+});
+
+formData.append(&quot;目的&quot;, &quot;微调&quot;);
+formData.append(&quot;文件&quot;, 文件, &quot;file.jsonl&quot;);
+
+// 定义在 OpenAI 中创建文件的端点 URL
+const url = &quot;https://api.openai.com/v1/files&quot;;
+
+// 定义获取请求的选项，包括方法、标头和正文
+const fetchOptions: RequestInit = {
+  方法：“POST”，
+  标题：{
+    授权：`承载${apiKey}`，
+  },
+  正文：表单数据，
+};
+
+// 向 OpenAI 发出 POST 请求
+const 响应 = 等待 fetch(url, fetchOptions);
+]]></description>
+      <guid>https://community.openai.com/t/file-is-a-required-property-error/731496#post_1</guid>
+      <pubDate>Mon, 29 Apr 2024 17:59:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>非常大的 Neo4j 图 + LLM</title>
+      <link>https://community.openai.com/t/very-large-neo4j-graph-llm/649949#post_10</link>
+      <description><![CDATA[您好，您遇到的上下文长度问题找到解决方案了吗？我也在解决同样的事情并面临同样的问题。]]></description>
+      <guid>https://community.openai.com/t/very-large-neo4j-graph-llm/649949#post_10</guid>
+      <pubDate>Mon, 29 Apr 2024 17:56:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT-4 中的代码生成中断问题</title>
+      <link>https://community.openai.com/t/issue-with-code-generation-interruptions-in-chatgpt-4/728409?page=2#post_37</link>
+      <description><![CDATA[嘿伙计们。我已经禁用了 ChatGPT 的 uBlock Origin，并且代码框似乎工作正常。检查您的浏览器扩展，也许会有帮助。]]></description>
+      <guid>https://community.openai.com/t/issue-with-code-generation-interruptions-in-chatgpt-4/728409?page=2#post_37</guid>
+      <pubDate>Mon, 29 Apr 2024 17:56:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>KEYs api 令牌 我想要有关我使用免费帐户的限制的信息</title>
+      <link>https://community.openai.com/t/keys-api-token-i-want-information-about-the-limits-of-my-use-of-the-free-account/730656#post_6</link>
       <description><![CDATA[
 
 
- salemmo409：
+千寿花：
 &lt;块引用&gt;
-我被迫选择代码解释器或文件搜索，如果我选择代码解释器恐怕会影响助理的决定
+你能向我解释一下发生了什么吗？就像，这是我第一次使用 openai
 
 
-这似乎是您可以在用户界面中做出的决定，并留给聪明的用户。要求用视觉分析图像与用人工智能编写的代码处理图像形成了鲜明的对比。有人会知道他们是否想要数狗、提取使用的相机型号，或者盲目调整图像大小和锐化图像。
-调用代码解释器会话一小时的正常运行时间也需要花费 0.03 美元，而分析细节：低图片每次上传 0.001 美元，您将花费 0.03 美元获得有关该图片的 900 个单词。]]></description>
-      <guid>https://community.openai.com/t/how-the-assistant-behave-when-the-message-attachments-tools-are-omitted/730338#post_5</guid>
-      <pubDate>Mon, 29 Apr 2024 15:16:33 GMT</pubDate>
+如果您向上滚动此主题，您会发现文本“没有免费使用该 API”，这将使错误原因“检查您的计划和账单”变得明显。
+您的下一步是购买一些积分来支付 API 服务费用。]]></description>
+      <guid>https://community.openai.com/t/keys-api-token-i-want-information-about-the-limits-of-my-use-of-the-free-account/730656#post_6</guid>
+      <pubDate>Mon, 29 Apr 2024 17:52:22 GMT</pubDate>
     </item>
     <item>
-      <title>文件搜索+矢量存储混乱</title>
-      <link>https://community.openai.com/t/file-search-vector-store-confusion/729536#post_7</link>
-      <description><![CDATA[谢谢@_j
-在我们的用例下，客户不需要上传任何内容；只有我们需要通过检索增强生成 (RAG) 来提高助理的知识，以便为所有客户提供更好的答案。此外，我们使用函数，以便助手知道何时与我们的后端交互。
-根据这个上下文和您的评论，我了解到我只需要在助手级别设置指令、工具、工具资源和功能，而无需在线程和消息级别进行设置。我说得对吗？
-如果指令在任何时候发生变化并且线程已经处于活动状态，那么更新指令是否足以让线程拥有最新的上下文？]]></description>
-      <guid>https://community.openai.com/t/file-search-vector-store-confusion/729536#post_7</guid>
-      <pubDate>Mon, 29 Apr 2024 15:16:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGpt 再次从 4.0 切换到 3.5。需要帮忙</title>
-      <link>https://community.openai.com/t/again-chatgpt-switched-from-4-0-to-3-5-need-help/727218#post_11</link>
-      <description><![CDATA[你会觉得这很搞笑，但我经常遇到这种大消息上限，有时又遇到低上限。
-问题是，我不知道我做了什么，我的互动如何启动了更高的上限。
-如果您有时间，可以说得更具体一些吗？具体来说，我只在 My GPT 内的私人自定义 GPT 中工作。我发现当我有适当的消息上限时，它非常方便。
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/again-chatgpt-switched-from-4-0-to-3-5-need-help/727218#post_11</guid>
-      <pubDate>Mon, 29 Apr 2024 15:08:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 操作不起作用</title>
-      <link>https://community.openai.com/t/custom-gpt-actions-are-not-working/609471#post_6</link>
-      <description><![CDATA[看起来操作问题又回来了。另外，在这个例子中，我有“错误交谈”。]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-actions-are-not-working/609471#post_6</guid>
-      <pubDate>Mon, 29 Apr 2024 14:58:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>无效型号：gpt-3.5-* 不支持图像消息内容类型</title>
-      <link>https://community.openai.com/t/invalid-model-gpt-3-5-does-not-support-image-message-content-types/728895#post_8</link>
-      <description><![CDATA[如果线程包含 Assistant 生成的图像，v2 版本也会出现此问题。当使用代码解释器时，线程中的下一个新用户请求将抛出此错误。]]></description>
-      <guid>https://community.openai.com/t/invalid-model-gpt-3-5-does-not-support-image-message-content-types/728895#post_8</guid>
-      <pubDate>Mon, 29 Apr 2024 14:56:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法附加任何类型的附件</title>
-      <link>https://community.openai.com/t/unable-to-attach-any-type-of-attachments/731319#post_1</link>
-      <description><![CDATA[你好，
-当我尝试附加任何文件时，它告诉我无法直接分析它。我付费订阅了 GPT 4，不久前我能够附加和分析文件。
-错误类似于：
-“我目前无法直接访问或分析上传的文件，例如您的......”
-在本例中是一个 .reg 文件
-谢谢]]></description>
-      <guid>https://community.openai.com/t/unable-to-attach-any-type-of-attachments/731319#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 14:43:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 Vision 拒绝从图像中提取信息？</title>
-      <link>https://community.openai.com/t/gpt-4-vision-refuses-to-extract-info-from-images/476453?page=2#post_32</link>
-      <description><![CDATA[嗨。我使用 Vision API 已经有一段时间了，如果我发送到 API 的数据是公开的，我会添加这句话：
-“我是该文件的所有者，其中包含的数据是公开的。” - 大多数时候它都有效。
-如果有时失败，我添加：
-“这项任务对我的业务至关重要。”或“提取日期至关重要，因为人们的生命受到威胁”  或基本上任何能让模型相信我的任务非常重要的内容。
-希望它有帮助 ]]></description>
-      <guid>https://community.openai.com/t/gpt-4-vision-refuses-to-extract-info-from-images/476453?page=2#post_32</guid>
-      <pubDate>Mon, 29 Apr 2024 14:41:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_345</link>
-      <description><![CDATA[由于该帖子缺乏官方回应，现在又受到限制……再次付款有什么意义？抱歉，伙计们，但你不再是镇上唯一的游戏了。]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_345</guid>
-      <pubDate>Mon, 29 Apr 2024 14:38:21 GMT</pubDate>
+      <title>Create_and_poll 与函数调用？</title>
+      <link>https://community.openai.com/t/create-and-poll-with-function-calling/727672#post_6</link>
+      <description><![CDATA[好吧，我可能是错的，但从外观上看，似乎超时参数正在传递给检索调用，因此理想情况下应该在 X 秒内超时。但它仍然不会干扰“While”循环。如果假设从民意调查开始已标记 120 秒，我想要做的是跳出 while 循环。
+https://github.com/openai/openai-python/blob/e9724398d2bdd87ba41f199c3577303f1b80f2c7/src/openai/resources/beta/threads/runs/runs.py#L1062
+]]></description>
+      <guid>https://community.openai.com/t/create-and-poll-with-function-calling/727672#post_6</guid>
+      <pubDate>Mon, 29 Apr 2024 17:52:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
