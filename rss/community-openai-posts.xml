@@ -4,172 +4,196 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 30 Apr 2024 09:20:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 12:33:30 GMT</lastBuildDate>
     <item>
-      <title>聊天 GPT 应用 Android 电池耗尽</title>
-      <link>https://community.openai.com/t/chat-gpt-app-android-battery-drain/731998#post_1</link>
-      <description><![CDATA[我在 Android 上使用 ChatGPT 应用程序时遇到问题。每次它在前台或后台时，它都会像地狱一样耗尽电池（每小时 20%）。
-它只发生在 S24 Ultra 上。互联网上也有关于 Snapdragon gen3 和苹果 A17 Pro 处理器手机的类似问题的抱怨。你能深入研究一下这个问题吗？目前唯一的补救措施是手动终止应用程序进程。谢谢
-应用程序版本为 1.2024.108（但测试版相同）。 Android 版本 14，One Ui 6.1。我确实已经重新启动、重新安装等。场景很简单 - 如果它没有作为一个进程被终止，它每小时会消耗 20% 的电池电量。无论应用程序是前台还是后台。
-s24 ultra有armv9 cpu架构
-我已经在 s23、tab s8+、tabs6+ 和 redmi note 12 上进行了测试 - 没有问题]]></description>
-      <guid>https://community.openai.com/t/chat-gpt-app-android-battery-drain/731998#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 09:18:32 GMT</pubDate>
+      <title>GPT-4 缺失和 GPT-3.5 响应替代</title>
+      <link>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_18</link>
+      <description><![CDATA[但同时我发现我在ios手机端的chatgpt登录同一个账号是可以使用gpt4功能的。这很奇怪，不知道你遇到了同样的问题是否解决了。]]></description>
+      <guid>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_18</guid>
+      <pubDate>Tue, 30 Apr 2024 12:29:16 GMT</pubDate>
     </item>
     <item>
-      <title>缺少“个性化”部分和“内存”设置</title>
-      <link>https://community.openai.com/t/missing-personalization-section-and-memory-settings/718067#post_8</link>
-      <description><![CDATA[“内存现在可供所有 ChatGPT Plus 用户使用。
-…
-内存……目前在欧洲或韩国不可用。”
-他们了解自己、了解自己发布的内容吗？
-我在欧洲，最近才有记忆。]]></description>
-      <guid>https://community.openai.com/t/missing-personalization-section-and-memory-settings/718067#post_8</guid>
-      <pubDate>Tue, 30 Apr 2024 09:17:45 GMT</pubDate>
+      <title>个性化聊天机器人提示</title>
+      <link>https://community.openai.com/t/personalised-chatbot-prompting/732140#post_1</link>
+      <description><![CDATA[我有一个特定于用户的聊天机器人。用户信息随着时间的推移而变化。目前，我将所有相关的用户信息打包到每个提示中，这非常繁琐，并且使得提示相当长。
+有没有更好、更有效的方法来做到这一点？我基本上想要为每个用户提供一个深度个性化的聊天机器人。]]></description>
+      <guid>https://community.openai.com/t/personalised-chatbot-prompting/732140#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 12:26:50 GMT</pubDate>
     </item>
     <item>
-      <title>JSON 模式的食谱内容过滤问题</title>
-      <link>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_4</link>
-      <description><![CDATA[前 5 次请求成功。但随后它开始为文本放大问题和oven发送超时。它适用于其他请求，例如（check check）。
-导入时间
-从 functools 导入 lru_cache
+      <title>工具调用自动停止触发</title>
+      <link>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_2</link>
+      <description><![CDATA[据我所知，实际上没有该工具的人工智能也会产生这种反应。语言给你，但它没有调用的方法 - 或者它会调用。
+OpenAI 昨天刚刚介绍&lt; /a&gt; 一个“强制函数调用”功能，因此这可能是对聊天完成进行了后端操作，从而导致了症状。
+我可以报告 gpt-3.5-turbo-0125 在 2 月 2 日的脚本中一如既往地愚蠢。
 
-导入httpx
+我注入一个工具包装器来覆盖并行工具调用的 multi_tool_use shim，以捕获它将向该工具发出的内容。
+我问的是法国和德国的首都
+它发出调用工具的令牌，而不是向我写入响应。
+它对函数没有用处，但无法转义，必须将一些东西放入现有的函数中 - 我们得到随机数函数来回答有关首都城市的问题。
+
+{
+“id”：“call_LZlJoohXklaJ1058668IjJkp”，
+“类型”：“功能”，
+“功能”：{
+“名称”：“parallel_function_call.wrapper”，
+“参数”：“{“multi_tool_use_to_retransmit”：[{“full_tool_call”：“functions.get_random_int”，“parameters”：{“range_start”：1，“range_end”：2}}，{“full_tool_call”：“functions.get_random_int” &quot;,&quot;parameters&quot;:{&quot;range_start&quot;:1,&quot;range_end&quot;:2}}]}”
+}
+}
+因此，可以在助手上运行的该模型的 API 和接口不受影响。您可以看到当前的规范如何与 API 参考和新参数相匹配。]]></description>
+      <guid>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_2</guid>
+      <pubDate>Tue, 30 Apr 2024 12:19:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>openai.error.RateLimitError：您超出了当前配额</title>
+      <link>https://community.openai.com/t/openai-error-ratelimiterror-you-exceeded-your-current-quota/732130#post_1</link>
+      <description><![CDATA[导入远程机器人
 导入openai
-导入抖音
 
-消息 = [
-    {
-        “角色”：“系统”，
-        “内容”： &#39;&#39;
-    },
-    {
-        “角色”：“用户”，
-        &quot;content&quot;: &quot;文字放大问题&quot;,
-    }
-]
-客户端 = openai.OpenAI(
-    超时=httpx.Timeout(100,读=15,写=15,连接=15),
-    最大重试次数=2，
-    api_key = 密钥
-）
-chat_completion = client.chat.completions.create(
-    消息=消息，
-    温度=0.0，
-    型号=“gpt-4-0125-预览”
-）
-聊天完成
-
-或
-导入时间
-从 functools 导入 lru_cache
-
-导入httpx
-导入openai
-导入抖音
-
-消息 = [
-    {
-        “角色”：“系统”，
-        “内容”： &#39;&#39;
-    },
-    {
-        “角色”：“用户”，
-        “内容”：“烤箱”，
-    }
-]
-客户端 = openai.OpenAI(
-    超时=httpx.Timeout(100,读=15,写=15,连接=15),
-    最大重试次数=2，
-    api_key = 密钥
-）
-chat_completion = client.chat.completions.create(
-    消息=消息，
-    温度=0.0，
-    型号=“gpt-4-0125-预览”
-）
-聊天完成
-
-如果我将所有超时设置为 100，它会再次起作用。]]></description>
-      <guid>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_4</guid>
-      <pubDate>Tue, 30 Apr 2024 09:15:20 GMT</pubDate>
+openai.api_key = &#39;密钥&#39;
+#bot = telebot.TeleBot(&#39;key&#39;)
+引擎=“gpt-3.5-turbo”
+提示=“什么是聊天gpt”
+完成 = openai.Completion.create(engine=engine,
+                                          提示=提示，
+                                          温度=0.5，
+                                          最大令牌数=1000)
+print(completion.choices[0][&#39;text&#39;])
+回溯（最近一次调用最后一次）：
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\bot.py”，第 8 行，位于 
+完成 = openai.Completion.create(engine=engine,
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\apiresources\completion.py”，第 25 行，在 create
+return super().create(*args, **kwargs)
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_resources\abstract\engine_api_resource.py”，第 153 行，在 create
+响应, , api_key = requestor.request(
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 298 行，请求中
+resp, got_stream = self._interpret_response(结果, 流)
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 700 行，在 _interpret_response
+self._interpret_response_line(
+文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 765 行，在 _interpret_response_line
+引发 self.handle_error_response(
+openai.error.RateLimitError：您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档： https:// platform.openai.com/docs/guides/error-codes/api-errors。
+ ]]></description>
+      <guid>https://community.openai.com/t/openai-error-ratelimiterror-you-exceeded-your-current-quota/732130#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 12:15:04 GMT</pubDate>
     </item>
     <item>
-      <title>函数调用文档/说明书 - OpenAPI 规范具有误导性</title>
-      <link>https://community.openai.com/t/function-calling-documentation-cookbook-openapi-spec-is-misleading/731992#post_1</link>
-      <description><![CDATA[（主题已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/function-calling-documentation-cookbook-openapi-spec-is-misleading/731992#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 09:07:31 GMT</pubDate>
+      <title>ChatGPT 在使用开放 AI 功能实现时的随机性</title>
+      <link>https://community.openai.com/t/randomness-of-chatgpt-whenever-it-is-implemented-with-open-ai-functions/732129#post_1</link>
+      <description><![CDATA[你好，
+希望你一切都好。在未设置 chatGPT 的情况下，我们会收到随机响应。我们已经为我们的设置实现了函数调用。然而，chatGPT 有时会调用该函数来进行用户输入。有时，对于相同的用户输入，它会直接响应而不调用该函数。它的工作方式相当随机。当用户输入与函数调用相关时，我们如何减少这种随机性并始终如一地工作（它实际上应该转到函数，但它只是直接响应而不调用函数）？
+问候，
+HostBuddy 支持]]></description>
+      <guid>https://community.openai.com/t/randomness-of-chatgpt-whenever-it-is-implemented-with-open-ai-functions/732129#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 12:14:51 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT 操作：OpenAPI 3.0 规范有限支持 (oneOf/anyOf/allOf)</title>
-      <link>https://community.openai.com/t/custom-gpts-action-openapi-3-0-specification-limited-support-oneof-anyof-allof/581015#post_6</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-action-openapi-3-0-specification-limited-support-oneof-anyof-allof/581015#post_6</guid>
-      <pubDate>Tue, 30 Apr 2024 08:58:55 GMT</pubDate>
+      <title>自定义 GPT 的重复功能？</title>
+      <link>https://community.openai.com/t/duplicate-function-for-customized-gpts/498339#post_7</link>
+      <description><![CDATA[已添加。 如何克隆我自己的自定义 GPT ？ - #4 由 yskiyak]]></description>
+      <guid>https://community.openai.com/t/duplicate-function-for-customized-gpts/498339#post_7</guid>
+      <pubDate>Tue, 30 Apr 2024 12:14:03 GMT</pubDate>
     </item>
     <item>
-      <title>助手 API V2 示例？</title>
-      <link>https://community.openai.com/t/assistants-api-v2-examples/731524#post_2</link>
+      <title>使用现有 GPT 创建新 GPT</title>
+      <link>https://community.openai.com/t/using-existing-gpt-to-create-a-new-one/610265#post_3</link>
       <description><![CDATA[
 
 
- BrainlordMesomorph：
-&lt;块引用&gt;
-现在，所有 V2 文档在哪里？！
+
+如何克隆我自己的自定义 GPT？ GPT 构建者
+
+  &lt;块引用&gt;
+    我现在注意到 OpenAI 添加了这个功能。 GPT Builder 页面上有一个“复制”按钮。 （点击右上角“...”即可看到）
+  
+]]></description>
+      <guid>https://community.openai.com/t/using-existing-gpt-to-create-a-new-one/610265#post_3</guid>
+      <pubDate>Tue, 30 Apr 2024 12:12:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 AI 聊天机器人和模拟器存在问题</title>
+      <link>https://community.openai.com/t/issues-with-my-ai-chatbot-and-emulator/732032#post_2</link>
+      <description><![CDATA[我认为问题可能在于您的机器人处理来自 OpenAI API 的响应的方式，您应该检查 appsettings.json 中的完成端点和 API 密钥是否配置正确。除此之外，检查机器人是否正确处理来自 API 的异常和错误响应，以便向用户提供有意义的错误消息。
+并在模拟器之外测试您的机器人，看看它是否正常运行，这可以帮助确定问题是特定于模拟器还是您的机器人实现的更广泛问题。]]></description>
+      <guid>https://community.openai.com/t/issues-with-my-ai-chatbot-and-emulator/732032#post_2</guid>
+      <pubDate>Tue, 30 Apr 2024 12:04:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_519</link>
+      <description><![CDATA[有趣的是，我能够制作几乎相同的图片。
+&lt; p&gt;
+&lt;小时/&gt;
+第二代非西兰花。
+  ]]></description>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_519</guid>
+      <pubDate>Tue, 30 Apr 2024 12:03:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 runTools 获取令牌计数的问题 - 返回 0</title>
+      <link>https://community.openai.com/t/issue-with-getting-token-count-using-runtools-returns-0/732120#post_1</link>
+      <description><![CDATA[（主题已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/issue-with-getting-token-count-using-runtools-returns-0/732120#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 12:03:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>工具调用自动停止触发</title>
+      <link>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_1</link>
+      <description><![CDATA[API 最近是否有任何更改。就在最后一天左右，我的工具调用停止自动触发。我有一个聊天机器人，可以执行各种功能，并且在它们即将执行某项功能的消息中，它会说“等一下，我……”，工具调用将立即被触发。但就在最近，我现在必须用“确定”来回应该消息，否则它就会启动。可能是什么原因造成的？]]></description>
+      <guid>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 11:57:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
+      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_347</link>
+      <description><![CDATA[我反复达到 25 条或更少消息的限制，今天它甚至不再显示我的使用情况何时重置，它只是说：
+“新回复将使用 GPT-3.5，直到您的 GPT-4 限制重置。”
+因此，不仅没有工具来管理可用消息，而且现在也没有任何迹象表明限制何时重置。]]></description>
+      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_347</guid>
+      <pubDate>Tue, 30 Apr 2024 11:55:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
+      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_3</link>
+      <description><![CDATA[感谢您的更新！
+
+将来是否有专门的方法来跟踪此类次要 API 更新？ （我关心这个东西，差点错过了这篇文章）
+这会影响 message.content 是否与 message.tool_calls 一起返回吗？ （猜测不是，但我想值得一问，因为对 tool_calls 的请求仅是一个有效的用例）
+]]></description>
+      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_3</guid>
+      <pubDate>Tue, 30 Apr 2024 11:53:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>您个人使用 Hugginface 的目的是什么？</title>
+      <link>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_5</link>
+      <description><![CDATA[我经常发现自己将 Huggingface 的各种内容与 OpenAI API 结合使用，现在我主要关注嵌入 
+如果您想询问与 Huggingface 相关的更具体问题，我建议您询问他们的社区 
+
+  &lt;标题类=“来源”&gt;
+      
+拥抱脸部论坛
 
 
-正是我的想法！ ...]]></description>
-      <guid>https://community.openai.com/t/assistants-api-v2-examples/731524#post_2</guid>
-      <pubDate>Tue, 30 Apr 2024 08:54:50 GMT</pubDate>
+  &lt;文章类=“onebox-body”&gt;
+    
+拥抱脸部论坛
+社区讨论，由 Hugging Face 提供支持&lt;3
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_5</guid>
+      <pubDate>Tue, 30 Apr 2024 11:50:52 GMT</pubDate>
     </item>
     <item>
-      <title>无效模型：​​gpt-3.5-* 不支持图像消息内容类型</title>
-      <link>https://community.openai.com/t/invalid-model-gpt-3-5-does-not-support-image-message-content-types/728895#post_10</link>
-      <description><![CDATA[似乎已在 GPT4turbo 中修复，但不是预览版]]></description>
-      <guid>https://community.openai.com/t/invalid-model-gpt-3-5-does-not-support-image-message-content-types/728895#post_10</guid>
-      <pubDate>Tue, 30 Apr 2024 08:50:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理无法访问上传的文件</title>
-      <link>https://community.openai.com/t/assistant-not-able-to-access-uploaded-file/524495?page=2#post_36</link>
-      <description><![CDATA[嗨@rmackay999，
-我想到了。我确实就此事联系了 OpenAI，令人惊讶的是他们的回复非常快。他们建议通过传递 file_id 来使用修改助手端点，这会将其添加到向量存储中。
-然而，我尝试了，但没有成功。响应是 200，但它没有与该助手的正确矢量存储关联。
-所以我进一步查看，找到了“创建矢量存储文件”端点：
-API。打开。 com/v1/vector_stores/{vector_store_id}/files
-只需传递 file_id 就可以了。辛苦了。
-我使用 C# 对所有数据库驱动文档运行循环，并成功将所有这些文档添加到正确的矢量存储中。
-快乐的日子 
-顺便感谢您的帮助。]]></description>
-      <guid>https://community.openai.com/t/assistant-not-able-to-access-uploaded-file/524495?page=2#post_36</guid>
-      <pubDate>Tue, 30 Apr 2024 08:48:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法获取下载 Word/Excel 文件的链接</title>
-      <link>https://community.openai.com/t/unable-to-get-a-link-to-download-word-excel-file/731968#post_1</link>
-      <description><![CDATA[早些时候，当我要求自定义 GPT 为我提供下载与响应有关的 Excel 文件的链接时，该模型用于向我提供可下载的链接，无论是 Excel 还是 Word 格式。但现在，它给了我以下错误。最近有什么变化吗？我的代码解释器功能已经打开-
-我无法直接创建用于文件下载的外部链接。我当前的设置允许我在此对话中提供信息、生成基于文本的响应并直接协助查询。]]></description>
-      <guid>https://community.openai.com/t/unable-to-get-a-link-to-download-word-excel-file/731968#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 08:41:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何应对“懒惰”的GPT 4</title>
-      <link>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=8#post_148</link>
-      <description><![CDATA[那时他们用用户的数据训练模型......
-很快，你就会问他是谁，他会说他是 Nicki Minaj，并教你如何扭臀。 &lt;img alt=&quot;:joy:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/joy.png?v=12&quot; title=&quot;:joy: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/how-to-deal-with-lazy-gpt-4/689286?page=8#post_148</guid>
-      <pubDate>Tue, 30 Apr 2024 08:39:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络聊天 GPT-4 今天真的很懒！我们支付的是 GPT-4，而不是 3.5！</title>
-      <link>https://community.openai.com/t/web-chat-gpt-4-got-really-lazy-today-we-pay-for-gpt-4-not-3-5/729461#post_11</link>
-      <description><![CDATA[除了系统提示之外，模型在内存中并没有真正的特定位置来存储有关自身的信息及其技术参数。
-如果你经常询问它，它会回复“我基于 GPT-5”。这就是这些模型（不）工作的方式。
-如果您需要官方声明，您需要联系help.openai.com
-希望这有帮助。]]></description>
-      <guid>https://community.openai.com/t/web-chat-gpt-4-got-really-lazy-today-we-pay-for-gpt-4-not-3-5/729461#post_11</guid>
-      <pubDate>Tue, 30 Apr 2024 08:22:47 GMT</pubDate>
+      <title>让 GPT-3.5 模型使用微调来学习特定数据的最佳方法是什么？</title>
+      <link>https://community.openai.com/t/what-is-the-best-way-to-get-the-gpt-3-5-model-to-learn-specific-data-using-fine-tuning/732021#post_4</link>
+      <description><![CDATA[合成通常用于机器学习中，指不是由自然人创建的输入或语料库。
+在这种情况下，人工智能接受了我关于训练格式和示例目标的指导，并生成了一组 JSONL 问题/答案对示例，通过微调来灌输回答能力（这不像人们可能希望）。
+用于再现提示的具体事实的呈现，而不仅仅是塑造响应风格的调整行为，可以是基于自动语义输入的知识增强（RAG），也可以是由初级或初级执行者执行的更传统的搜索。监督人工智能。无论为人工智能提供有关超级碗的可靠上下文输入以进行蕴涵（而不是微调显示人工智能“球队名称获胜”的模式，即使在给出每场比赛之后，它也可能推断出合理的答案。）]]></description>
+      <guid>https://community.openai.com/t/what-is-the-best-way-to-get-the-gpt-3-5-model-to-learn-specific-data-using-fine-tuning/732021#post_4</guid>
+      <pubDate>Tue, 30 Apr 2024 11:48:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
