@@ -4,147 +4,175 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 29 Apr 2024 21:17:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 01:13:44 GMT</lastBuildDate>
     <item>
-      <title>JSON 模式的食谱内容过滤问题</title>
-      <link>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_2</link>
-      <description><![CDATA[我也面临同样的问题。当我在任何上下文中添加包含单词“enlargement” 的文本（例如font enlargement）时，我都会超时。]]></description>
-      <guid>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_2</guid>
-      <pubDate>Mon, 29 Apr 2024 21:11:14 GMT</pubDate>
+      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
+      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_8</link>
+      <description><![CDATA[嗯，有趣。我得到了一些不同的东西
+
+
+
+chat.openai.com
+
+
+
+ChatGPT
+一个可以倾听、学习和挑战的对话式人工智能系统
+
+
+
+
+
+在操场上gpt-4-turbo
+
+为了确保 Python 脚本满足给定的约束（高效地打印 transcribed_text 的开始和结束，而不会在文本较短时出现重叠或不必要的省略），我们可以使用条件检查和字符串切片来实现解决方案。以下是使用 Python 实现该功能的方法：
+def print_text_segment(transcribed_text, limit=200):
+# 计算 transcribed_text 的长度
+text_len = len(transcribed_text)
+
+# 检查总长度是否小于限制的两倍（开始和结束）
+if text_len &lt;= 2 * limit:
+print(transcribed_text)
+else:
+print(f&quot;{transcribed_text[:limit]}\n…\n{transcribed_text[-limit:]}&quot;)
+
+# 示例用法：
+transcribed_text = &quot;您的非常长或非常短的文本在这里。&quot;
+print_text_segment(transcribed_text, 200)
+
+说明：
+
+
+函数定义：函数print_text_segment定义有两个参数：transcribed_text（要处理的字符串）和limit（要显示的字符串从开始到结束的长度，默认为 200 个字符）。
+
+
+计算长度：首先确定transcribed_text的长度。
+
+
+无重叠条件：在打印任何内容之前，它会检查transcribed_text的总长度是否小于或等于limit的两倍。如果为真，则意味着包含文本的开始和结束部分以及省略会重叠或多余，因此它会直接打印整个文本。
+
+
+有条件省略显示：如果字符串长度超过限制的两倍，它会将字符串切片以分别取第一个和最后一个limit个字符，并在两者之间添加省略标记…。这可确保文本不重叠，并且如果文本很长，则始终显示不同的开始和结束部分。
+
+
+这种方法不仅高效，而且可以有效地处理所述要求，使用简单的Python操作来实现目标。
+
+也许它就像一个更简洁的gpt4-turbo版本？]]></description>
+      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_8</guid>
+      <pubDate>Tue, 30 Apr 2024 01:11:23 GMT</pubDate>
     </item>
     <item>
-      <title>Web UI 中缺少聊天历史记录和培训选项</title>
-      <link>https://community.openai.com/t/chat-history-training-option-missing-from-web-ui/731626#post_1</link>
-      <description><![CDATA[数据控制常见问题解答 (https://help.openai .com/en/articles/7730893-data-controls-faq）包含以下声明：
-“要禁用聊天历史记录和模型训练，请导航至 ChatGPT &gt;设置&gt;数据控制并禁用聊天历史记录和聊天记录训练。当历史记录被禁用时，新的对话将不会用于训练和改进我们的模型，也不会出现在历史记录侧边栏中。”
-但是，当我从 chatGPT Web 设置中单击“数据控件”时（在浏览器上打开 chatgpt，单击左下角的个人资料图标，单击设置，单击数据控件），我没有看到任何“聊天历史记录和数据控件”。培训”选项。查看其余设置，我也没有看到任何与聊天记录相关的内容。
-此选项是否在最近的 Web UI 更新中被有意删除？如果是这样，则应更新链接的常见问题解答页面，以删除对“聊天历史记录和聊天记录”的引用。培训”
+      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
+      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_7</link>
+      <description><![CDATA[API 上的 GPT-4-0314 对系统和用户输入的完全相同的字符的响应是打印文本省略的功能性解决方案，无需大量 AI 聊天的修饰。这是我演示的第一个响应 .
+如果没有一个库可以在无法打印的内容（例如打印 numpy 向量）上自动插入中央省略号，则元代码将是：
+&lt;块引用&gt;
+允许的总打印输出 = 400
+我的文本是 = 长度（输入文本）
+如果我的文本小于允许的总打印输出：
+- 显示全文
+否则：
+- 从输入文本中，显示从开始处开始允许的总打印量的一半，并显示从末尾处开始允许的总打印量的一半，并在它们之间打印指示省略的省略号。
+
+我在这里将其输入论坛 - ChatGPT 至少可以将其翻译成相应的 python (chat分享)
+没有工具的 ChatGPT 可以执行“编写 Python 代码以使用可选的中央省略来打印字符串，以将输出限制为 400 个字符。” - 但作为函数和示例调用以及 400 个字符的示例输入令牌供您付费。
+只是一个特殊情况，未达到节省几分钟的期望。
+&lt;小时/&gt;
+“神秘模型”的输出与 ChatGPT 太相似，无法将其视为进步。这只是对 gpt-4-turbo 版本的一个调整，gpt-4-turbo 在与 gpt-3.5-turbo 相同的回合中以完全相同的方式失败，聊天会话“编写贪吃蛇游戏”。]]></description>
+      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_7</guid>
+      <pubDate>Tue, 30 Apr 2024 00:56:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于上下文长度的透明度？！？ （聊天GPT）</title>
+      <link>https://community.openai.com/t/transparency-about-context-length-chatgpt/731715#post_1</link>
+      <description><![CDATA[为什么你们对上下文长度不透明？
+我的意思是……只在一些非官方网站上看到，它大约是 32.000 代币，但聊天窗口告诉我它是 4000 代币上下文。我还用更大的文档对其进行了测试，结果令人失望。该文档有大约 25.000 个令牌（18.800 个单词），如果令牌窗口为 32.000，并且用于输出的缓冲区约为 7.000，那么很容易处理。但它没有遵循命令并告诉我文档太长......我有一个专业帐户并使用 GPT 4。
+ChatGPT 的官方令牌限制是多少？为什么不对此公开透明，就像您明显误导性的名称“开放”AI 所暗示的那样？]]></description>
+      <guid>https://community.openai.com/t/transparency-about-context-length-chatgpt/731715#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 00:42:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手文件上传管道是否损坏？</title>
+      <link>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_5</link>
+      <description><![CDATA[我对 .py 也有同样的问题
+看起来它现在可以工作了（只是我测试过的）-
+.txt
+.pdf
+.doc
+.docx
+.pptx]]></description>
+      <guid>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_5</guid>
+      <pubDate>Tue, 30 Apr 2024 00:38:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
+      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_6</link>
+      <description><![CDATA[你可能是对的，但我不会使用内存实现，因为这可能是 lmsys 的函数。一次性提示很好。原始提示与 gpt4 相比如何？]]></description>
+      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_6</guid>
+      <pubDate>Tue, 30 Apr 2024 00:22:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手文件上传管道是否损坏？</title>
+      <link>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_3</link>
+      <description><![CDATA[我在尝试上传文件时遇到了同样的问题。]]></description>
+      <guid>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_3</guid>
+      <pubDate>Tue, 30 Apr 2024 00:21:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手文件上传管道是否损坏？</title>
+      <link>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_4</link>
+      <description><![CDATA[描述：当我尝试将任何 python 文件附加到矢量存储时，它会显示消息“不支持”并提供指向 支持的文件列表 其中明确包含 python 文件。无论 python 文件的内容如何，​​它都会失败。使用代码解释器功能的“+ 文件”按钮上传时也会失败。
+重现步骤：
+
+前往 https://platform.openai.com/storage，切换到矢量商店，并创建一个新商店
+点击添加文件，上传任意Python文件
 ]]></description>
-      <guid>https://community.openai.com/t/chat-history-training-option-missing-from-web-ui/731626#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 21:08:50 GMT</pubDate>
+      <guid>https://community.openai.com/t/is-the-assistants-file-upload-pipeline-broken/731683#post_4</guid>
+      <pubDate>Tue, 30 Apr 2024 00:11:33 GMT</pubDate>
     </item>
     <item>
-      <title>某个网站正在窃取并复制我们的 GPT - 我们如何保护我们的 GPT？</title>
-      <link>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736?page=2#post_25</link>
-      <description><![CDATA[我今天还发现这个网站 核安全虚拟助手-免费核安全洞察复制了我自定义的GPT核安全虚拟助手ChatGPT - 核安全虚拟助手 。我能做些什么？我应该向哪里报告此事？]]></description>
-      <guid>https://community.openai.com/t/a-site-is-stealing-and-duplicating-our-gpts-how-can-we-protect-our-gpts/576736?page=2#post_25</guid>
-      <pubDate>Mon, 29 Apr 2024 21:04:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>JSON 模式的食谱内容过滤问题</title>
-      <link>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_1</link>
-      <description><![CDATA[我正在构建一个食谱应用程序，但遇到了内容过滤器误报的问题。我向 gpt4 提供菜谱文本，并要求它以标准化 JSON 对象的形式将其返回给我。模型会针对某个特定配方提前停止，并以 content_filter 作为完成原因。具体来说，当它到达“烤箱”这个词时，它总是会停止。每次的输出如下：
-{
-    “烤烩饭配蔬菜和豌豆”：{
-        “份量”：4，
-        &quot;cook_time&quot;: &quot;30 分钟&quot;,
-        “原料”： [
-            {&quot;item&quot;: &quot;特级初榨橄榄油&quot;, &quot;amount&quot;: 2, &quot;unit&quot;: &quot;汤匙&quot;},
-            {&quot;item&quot;: &quot;黄洋葱&quot;,&quot;amount&quot;: 0.5, &quot;unit&quot;: &quot;cup&quot;},
-            {&quot;item&quot;: &quot;蒜瓣&quot;, &quot;amount&quot;: 1, &quot;unit&quot;: &quot;小&quot;},
-            {&quot;item&quot;: &quot;Arborio Rice&quot;, &quot;amount&quot;: 1, &quot;unit&quot;: &quot;cup&quot;},
-            {&quot;item&quot;: &quot;犹太盐&quot;, &quot;amount&quot;: null, &quot;unit&quot;: null},
-            {&quot;item&quot;: &quot;黑胡椒&quot;, &quot;amount&quot;: null, &quot;unit&quot;: null},
-            {&quot;item&quot;: &quot;绿色或羽衣甘蓝&quot;, &quot;amount&quot;: 4, &quot;unit&quot;: &quot;盎司&quot;},
-            {&quot;item&quot;: &quot;低钠鸡汤&quot;,&quot;amount&quot;: 3.5, &quot;unit&quot;: &quot;杯&quot;},
-            {&quot;item&quot;: &quot;小菠菜&quot;, &quot;amount&quot;: 4, &quot;unit&quot;: &quot;盎司&quot;},
-            {&quot;item&quot;: &quot;冷冻豌豆&quot;, &quot;amount&quot;: 1, &quot;unit&quot;: &quot;cup&quot;},
-            {&quot;item&quot;: &quot;磨碎的帕尔马干酪&quot;, &quot;amount&quot;: 0.75, &quot;unit&quot;: &quot;cup&quot;},
-            {&quot;item&quot;: &quot;无盐黄油&quot;, &quot;amount&quot;: 3, &quot;unit&quot;: &quot;汤匙&quot;},
-            {&quot;item&quot;: &quot;柠檬汁&quot;, &quot;amount&quot;: 1, &quot;unit&quot;: &quot;汤匙&quot;}
-        ],
-        “指示”： [
-            “预热
+      <title>无法将 Python 文件上传到矢量存储进行文件搜索</title>
+      <link>https://community.openai.com/t/cannot-upload-python-files-to-vector-store-for-file-search/731700#post_1</link>
+      <description><![CDATA[描述：当我尝试将任何 python 文件附加到矢量存储时，它会显示消息“不支持”并提供指向 支持的文件列表 其中明确包含 python 文件。无论 python 文件的内容如何，​​它都会失败。使用代码解释器功能的“+ 文件”按钮上传时也会失败。
+重现步骤：
 
-这是我的系统提示：
-您将从包含菜谱的网站获得文本。
-您的任务是从提供的文本中提取配方并将其转换为标准化的 JSON 格式。
-确保包含原始食谱中的所有信息。不要总结原始说明。
-
-以下是预期输出结构的示例：
-
-{
-    “经典巧克力饼干”：{
-        “份量”：24，
-        &quot;cook_time&quot;: &quot;25 分钟&quot;,
-        “原料”： [
-            {&quot;item&quot;: &quot;通用面粉&quot;, &quot;amount&quot;: 2.25, &quot;unit&quot;: &quot;杯&quot;},
-            {&quot;item&quot;: &quot;小苏打&quot;, &quot;amount&quot;: 1, &quot;unit&quot;: &quot;茶匙&quot;},
-            // ...（更多成分）
-        ],
-        “指示”： [
-            “将烤箱预热至 375°F (190°C)。”,
-            “在一个小碗中，混合面粉、小苏打和盐。放在一边。”,
-            // ...（更多说明）
-        ],
-        “注释”：[
-            “为了获得最佳效果，请使用室温成分。”,
-            // ...（更多注释）
-        ]
-    }
-}
-
-您的输出应该是具有上述结构的 JSON 对象。
-
-有什么办法可以解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/issue-with-content-filtering-on-recipes-with-json-mode/731623#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 21:02:22 GMT</pubDate>
+前往 https://platform.openai.com/storage，切换到矢量商店，并创建一个新商店
+点击添加文件，上传任意Python文件
+]]></description>
+      <guid>https://community.openai.com/t/cannot-upload-python-files-to-vector-store-for-file-search/731700#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 00:11:33 GMT</pubDate>
     </item>
     <item>
-      <title>访问 GPT-4 微调</title>
-      <link>https://community.openai.com/t/access-to-gpt-4-finetuning/555372#post_18</link>
-      <description><![CDATA[可能存在财务门槛。你在微调上花了多少钱？]]></description>
-      <guid>https://community.openai.com/t/access-to-gpt-4-finetuning/555372#post_18</guid>
-      <pubDate>Mon, 29 Apr 2024 20:56:54 GMT</pubDate>
+      <title>GPT 上的内存功能（试用）</title>
+      <link>https://community.openai.com/t/memory-feature-on-gpt-trial/731698#post_1</link>
+      <description><![CDATA[由于韩国的“内存”功能没有更新，所以我创建了它的 GPT。
+有人会尝试并提供反馈吗？
+GPT 名称：“内存助手”
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/memory-feature-on-gpt-trial/731698#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 00:05:59 GMT</pubDate>
     </item>
     <item>
-      <title>对 GPT-4 的 API 访问不再有效</title>
-      <link>https://community.openai.com/t/api-access-to-gpt-4-no-longer-working/610484#post_10</link>
-      <description><![CDATA[2024 年 4 月 GPT-4 模型仍无法运行]]></description>
-      <guid>https://community.openai.com/t/api-access-to-gpt-4-no-longer-working/610484#post_10</guid>
-      <pubDate>Mon, 29 Apr 2024 20:55:30 GMT</pubDate>
+      <title>我们的经典 chatGPT 有问题，我们如何解决这个问题？</title>
+      <link>https://community.openai.com/t/something-is-wrong-with-our-classic-chatgpts-how-can-we-fix-this/731694#post_1</link>
+      <description><![CDATA[很多人无法使用 chatGPT 并被锁定，因此我们可以找到线索来尝试找到解决此问题的方法并使用 CHATGPT]]></description>
+      <guid>https://community.openai.com/t/something-is-wrong-with-our-classic-chatgpts-how-can-we-fix-this/731694#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 00:00:41 GMT</pubDate>
     </item>
     <item>
-      <title>使用 OpenAI Assistants 创建著名运动员聊天机器人的最佳方法</title>
-      <link>https://community.openai.com/t/best-way-to-create-a-chatbot-of-a-famous-athlete-using-openai-assistants/731610#post_2</link>
-      <description><![CDATA[您好@eddiegainz，我们对此有一些经验（例如，这里有一个链接到 2023 年初的演示）。我建议你做的第一件事就是避免使用 Assistant API。你无法影响的变量越多，事情就越难以预测。其次，我建议您改用 GPT-4 Turbo 128K。这个模型有足够大的上下文窗口来摄取你所有的人物上下文，它会足够好地坚持你的上下文，并且不会超出上下文，因为它总是会执行 Assistant API。我们做了很多类似的项目，这是我能给你的最好的建议。不要进入 Assistant API，不要进入 RAG - 只需在系统提示符中立即使用 GPT-4 Turbo 128K 和整个上下文即可。除非您每天有数十万个查询，否则我可以说这种方法是最佳方法。希望有帮助。]]></description>
-      <guid>https://community.openai.com/t/best-way-to-create-a-chatbot-of-a-famous-athlete-using-openai-assistants/731610#post_2</guid>
-      <pubDate>Mon, 29 Apr 2024 20:46:35 GMT</pubDate>
+      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
+      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_5</link>
+      <description><![CDATA[lmsys 的聊天界面确实具有无损对话内存，并且可以将其运行到模型的最大上下文长度，最终得到错误。
+如果没有这个，人工智能将根本不知道用户输入的“如果 transcribed_text 长度为 300 个字符，请通过仔细分析描述打印行为。” 正在谈论什么。]]></description>
+      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_5</guid>
+      <pubDate>Mon, 29 Apr 2024 23:57:42 GMT</pubDate>
     </item>
     <item>
-      <title>[429] 您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档：</title>
-      <link>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details-for-more-information-on-this-error-read-the-docs/731613#post_1</link>
-      <description><![CDATA[您好，即使我的钱包中有余额，我仍然遇到此错误。
-我读过一些与我的问题相同的文章，但没有找到解决方案。
-我正在等待帮助。
-&lt;img alt=&quot;Captura de tela 2024-04-29 173800&quot; height=&quot;360&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/8/c/4/8c4f081c5b621b82935dc93ab5e4b4f277f05667.png “宽度=“549”/&gt;]]></description>
-      <guid>https://community.openai.com/t/429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details-for-more-information-on-this-error-read-the-docs/731613#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 20:37:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 OpenAI Assistants 创建著名运动员聊天机器人的最佳方法</title>
-      <link>https://community.openai.com/t/best-way-to-create-a-chatbot-of-a-famous-athlete-using-openai-assistants/731610#post_1</link>
-      <description><![CDATA[大家好，
-我开发了一个应用程序，我们得到了一些著名运动员的许可，将他们变成人工智能头像，供用户联系。它本质上就像一个类似 Facetime 的 UI，我们使用 OpenAI Assistant 来生成实际的文本。
-使响应达到最高质量的最佳方法是什么？让我们以勒布朗·詹姆斯为例。
-我们怎样才能让回复像勒布朗一样，对话式的、自然的、不太长或太短的等等？
-有人有这方面的经验吗？]]></description>
-      <guid>https://community.openai.com/t/best-way-to-create-a-chatbot-of-a-famous-athlete-using-openai-assistants/731610#post_1</guid>
-      <pubDate>Mon, 29 Apr 2024 20:35:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法附加任何类型的附件</title>
-      <link>https://community.openai.com/t/unable-to-attach-any-type-of-attachments/731319#post_2</link>
-      <description><![CDATA[遇到同样的问题。这种情况似乎每隔一段时间就会发生一次，然后在一两天甚至几小时后就得到修复。这是一项正在进行的工作，所以我们不幸地注册了这些有点错误 ]]></description>
-      <guid>https://community.openai.com/t/unable-to-attach-any-type-of-attachments/731319#post_2</guid>
-      <pubDate>Mon, 29 Apr 2024 20:27:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Easy Folders - ChatGPT 和 Claude 的文件夹系统</title>
-      <link>https://community.openai.com/t/easy-folders-a-folders-system-for-chatgpt-claude/720638#post_3</link>
-      <description><![CDATA[您希望在此扩展中看到什么样的功能？]]></description>
-      <guid>https://community.openai.com/t/easy-folders-a-folders-system-for-chatgpt-claude/720638#post_3</guid>
-      <pubDate>Mon, 29 Apr 2024 20:13:51 GMT</pubDate>
+      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
+      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_4</link>
+      <description><![CDATA[他们可能使用 API，因此内存可能与 lmsys 无关。]]></description>
+      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632#post_4</guid>
+      <pubDate>Mon, 29 Apr 2024 23:55:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
