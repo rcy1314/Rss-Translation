@@ -4,196 +4,150 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 30 Apr 2024 12:33:30 GMT</lastBuildDate>
-    <item>
-      <title>GPT-4 缺失和 GPT-3.5 响应替代</title>
-      <link>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_18</link>
-      <description><![CDATA[但同时我发现我在ios手机端的chatgpt登录同一个账号是可以使用gpt4功能的。这很奇怪，不知道你遇到了同样的问题是否解决了。]]></description>
-      <guid>https://community.openai.com/t/gpt-4s-missing-and-gpt-3-5-responses-instead/729977#post_18</guid>
-      <pubDate>Tue, 30 Apr 2024 12:29:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>个性化聊天机器人提示</title>
-      <link>https://community.openai.com/t/personalised-chatbot-prompting/732140#post_1</link>
-      <description><![CDATA[我有一个特定于用户的聊天机器人。用户信息随着时间的推移而变化。目前，我将所有相关的用户信息打包到每个提示中，这非常繁琐，并且使得提示相当长。
-有没有更好、更有效的方法来做到这一点？我基本上想要为每个用户提供一个深度个性化的聊天机器人。]]></description>
-      <guid>https://community.openai.com/t/personalised-chatbot-prompting/732140#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 12:26:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>工具调用自动停止触发</title>
-      <link>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_2</link>
-      <description><![CDATA[据我所知，实际上没有该工具的人工智能也会产生这种反应。语言给你，但它没有调用的方法 - 或者它会调用。
-OpenAI 昨天刚刚介绍&lt; /a&gt; 一个“强制函数调用”功能，因此这可能是对聊天完成进行了后端操作，从而导致了症状。
-我可以报告 gpt-3.5-turbo-0125 在 2 月 2 日的脚本中一如既往地愚蠢。
-
-我注入一个工具包装器来覆盖并行工具调用的 multi_tool_use shim，以捕获它将向该工具发出的内容。
-我问的是法国和德国的首都
-它发出调用工具的令牌，而不是向我写入响应。
-它对函数没有用处，但无法转义，必须将一些东西放入现有的函数中 - 我们得到随机数函数来回答有关首都城市的问题。
-
-{
-“id”：“call_LZlJoohXklaJ1058668IjJkp”，
-“类型”：“功能”，
-“功能”：{
-“名称”：“parallel_function_call.wrapper”，
-“参数”：“{“multi_tool_use_to_retransmit”：[{“full_tool_call”：“functions.get_random_int”，“parameters”：{“range_start”：1，“range_end”：2}}，{“full_tool_call”：“functions.get_random_int” &quot;,&quot;parameters&quot;:{&quot;range_start&quot;:1,&quot;range_end&quot;:2}}]}”
-}
-}
-因此，可以在助手上运行的该模型的 API 和接口不受影响。您可以看到当前的规范如何与 API 参考和新参数相匹配。]]></description>
-      <guid>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_2</guid>
-      <pubDate>Tue, 30 Apr 2024 12:19:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>openai.error.RateLimitError：您超出了当前配额</title>
-      <link>https://community.openai.com/t/openai-error-ratelimiterror-you-exceeded-your-current-quota/732130#post_1</link>
-      <description><![CDATA[导入远程机器人
-导入openai
-
-openai.api_key = &#39;密钥&#39;
-#bot = telebot.TeleBot(&#39;key&#39;)
-引擎=“gpt-3.5-turbo”
-提示=“什么是聊天gpt”
-完成 = openai.Completion.create(engine=engine,
-                                          提示=提示，
-                                          温度=0.5，
-                                          最大令牌数=1000)
-print(completion.choices[0][&#39;text&#39;])
-回溯（最近一次调用最后一次）：
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\bot.py”，第 8 行，位于 
-完成 = openai.Completion.create(engine=engine,
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\apiresources\completion.py”，第 25 行，在 create
-return super().create(*args, **kwargs)
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_resources\abstract\engine_api_resource.py”，第 153 行，在 create
-响应, , api_key = requestor.request(
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 298 行，请求中
-resp, got_stream = self._interpret_response(结果, 流)
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 700 行，在 _interpret_response
-self._interpret_response_line(
-文件“C:\Users\Yarik\PycharmProjects\gptbot.venv\lib\site-packages\openai\api_requestor.py”，第 765 行，在 _interpret_response_line
-引发 self.handle_error_response(
-openai.error.RateLimitError：您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档： https:// platform.openai.com/docs/guides/error-codes/api-errors。
- ]]></description>
-      <guid>https://community.openai.com/t/openai-error-ratelimiterror-you-exceeded-your-current-quota/732130#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 12:15:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 在使用开放 AI 功能实现时的随机性</title>
-      <link>https://community.openai.com/t/randomness-of-chatgpt-whenever-it-is-implemented-with-open-ai-functions/732129#post_1</link>
-      <description><![CDATA[你好，
-希望你一切都好。在未设置 chatGPT 的情况下，我们会收到随机响应。我们已经为我们的设置实现了函数调用。然而，chatGPT 有时会调用该函数来进行用户输入。有时，对于相同的用户输入，它会直接响应而不调用该函数。它的工作方式相当随机。当用户输入与函数调用相关时，我们如何减少这种随机性并始终如一地工作（它实际上应该转到函数，但它只是直接响应而不调用函数）？
-问候，
-HostBuddy 支持]]></description>
-      <guid>https://community.openai.com/t/randomness-of-chatgpt-whenever-it-is-implemented-with-open-ai-functions/732129#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 12:14:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 的重复功能？</title>
-      <link>https://community.openai.com/t/duplicate-function-for-customized-gpts/498339#post_7</link>
-      <description><![CDATA[已添加。 如何克隆我自己的自定义 GPT ？ - #4 由 yskiyak]]></description>
-      <guid>https://community.openai.com/t/duplicate-function-for-customized-gpts/498339#post_7</guid>
-      <pubDate>Tue, 30 Apr 2024 12:14:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用现有 GPT 创建新 GPT</title>
-      <link>https://community.openai.com/t/using-existing-gpt-to-create-a-new-one/610265#post_3</link>
-      <description><![CDATA[
-
-
-
-如何克隆我自己的自定义 GPT？ GPT 构建者
-
-  &lt;块引用&gt;
-    我现在注意到 OpenAI 添加了这个功能。 GPT Builder 页面上有一个“复制”按钮。 （点击右上角“...”即可看到）
-  
-]]></description>
-      <guid>https://community.openai.com/t/using-existing-gpt-to-create-a-new-one/610265#post_3</guid>
-      <pubDate>Tue, 30 Apr 2024 12:12:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 AI 聊天机器人和模拟器存在问题</title>
-      <link>https://community.openai.com/t/issues-with-my-ai-chatbot-and-emulator/732032#post_2</link>
-      <description><![CDATA[我认为问题可能在于您的机器人处理来自 OpenAI API 的响应的方式，您应该检查 appsettings.json 中的完成端点和 API 密钥是否配置正确。除此之外，检查机器人是否正确处理来自 API 的异常和错误响应，以便向用户提供有意义的错误消息。
-并在模拟器之外测试您的机器人，看看它是否正常运行，这可以帮助确定问题是特定于模拟器还是您的机器人实现的更广泛问题。]]></description>
-      <guid>https://community.openai.com/t/issues-with-my-ai-chatbot-and-emulator/732032#post_2</guid>
-      <pubDate>Tue, 30 Apr 2024 12:04:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_519</link>
-      <description><![CDATA[有趣的是，我能够制作几乎相同的图片。
-&lt; p&gt;
-&lt;小时/&gt;
-第二代非西兰花。
-  ]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=25#post_519</guid>
-      <pubDate>Tue, 30 Apr 2024 12:03:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 runTools 获取令牌计数的问题 - 返回 0</title>
-      <link>https://community.openai.com/t/issue-with-getting-token-count-using-runtools-returns-0/732120#post_1</link>
-      <description><![CDATA[（主题已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/issue-with-getting-token-count-using-runtools-returns-0/732120#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 12:03:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>工具调用自动停止触发</title>
-      <link>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_1</link>
-      <description><![CDATA[API 最近是否有任何更改。就在最后一天左右，我的工具调用停止自动触发。我有一个聊天机器人，可以执行各种功能，并且在它们即将执行某项功能的消息中，它会说“等一下，我……”，工具调用将立即被触发。但就在最近，我现在必须用“确定”来回应该消息，否则它就会启动。可能是什么原因造成的？]]></description>
-      <guid>https://community.openai.com/t/tool-calls-stopped-firing-automatically/732116#post_1</guid>
-      <pubDate>Tue, 30 Apr 2024 11:57:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_347</link>
-      <description><![CDATA[我反复达到 25 条或更少消息的限制，今天它甚至不再显示我的使用情况何时重置，它只是说：
-“新回复将使用 GPT-3.5，直到您的 GPT-4 限制重置。”
-因此，不仅没有工具来管理可用消息，而且现在也没有任何迹象表明限制何时重置。]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=17#post_347</guid>
-      <pubDate>Tue, 30 Apr 2024 11:55:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
-      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_3</link>
-      <description><![CDATA[感谢您的更新！
-
-将来是否有专门的方法来跟踪此类次要 API 更新？ （我关心这个东西，差点错过了这篇文章）
-这会影响 message.content 是否与 message.tool_calls 一起返回吗？ （猜测不是，但我想值得一问，因为对 tool_calls 的请求仅是一个有效的用例）
-]]></description>
-      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_3</guid>
-      <pubDate>Tue, 30 Apr 2024 11:53:20 GMT</pubDate>
-    </item>
+    <lastBuildDate>Tue, 30 Apr 2024 15:16:43 GMT</lastBuildDate>
     <item>
       <title>您个人使用 Hugginface 的目的是什么？</title>
-      <link>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_5</link>
-      <description><![CDATA[我经常发现自己将 Huggingface 的各种内容与 OpenAI API 结合使用，现在我主要关注嵌入 
-如果您想询问与 Huggingface 相关的更具体问题，我建议您询问他们的社区 
-
-  &lt;标题类=“来源”&gt;
-      
-拥抱脸部论坛
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-拥抱脸部论坛
-社区讨论，由 Hugging Face 提供支持&lt;3
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_5</guid>
-      <pubDate>Tue, 30 Apr 2024 11:50:52 GMT</pubDate>
+      <link>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_6</link>
+      <description><![CDATA[谢谢，我同意。我经常需要集成来自该领域的许多不同 API 才能获得我的工作代码。]]></description>
+      <guid>https://community.openai.com/t/what-do-you-personally-use-hugginface-for/731063#post_6</guid>
+      <pubDate>Tue, 30 Apr 2024 15:12:59 GMT</pubDate>
     </item>
     <item>
-      <title>让 GPT-3.5 模型使用微调来学习特定数据的最佳方法是什么？</title>
-      <link>https://community.openai.com/t/what-is-the-best-way-to-get-the-gpt-3-5-model-to-learn-specific-data-using-fine-tuning/732021#post_4</link>
-      <description><![CDATA[合成通常用于机器学习中，指不是由自然人创建的输入或语料库。
-在这种情况下，人工智能接受了我关于训练格式和示例目标的指导，并生成了一组 JSONL 问题/答案对示例，通过微调来灌输回答能力（这不像人们可能希望）。
-用于再现提示的具体事实的呈现，而不仅仅是塑造响应风格的调整行为，可以是基于自动语义输入的知识增强（RAG），也可以是由初级或初级执行者执行的更传统的搜索。监督人工智能。无论为人工智能提供有关超级碗的可靠上下文输入以进行蕴涵（而不是微调显示人工智能“球队名称获胜”的模式，即使在给出每场比赛之后，它也可能推断出合理的答案。）]]></description>
-      <guid>https://community.openai.com/t/what-is-the-best-way-to-get-the-gpt-3-5-model-to-learn-specific-data-using-fine-tuning/732021#post_4</guid>
-      <pubDate>Tue, 30 Apr 2024 11:48:36 GMT</pubDate>
+      <title>“新响应将使用 GPT-3.5”消息未指定时区</title>
+      <link>https://community.openai.com/t/the-new-responses-will-use-gpt-3-5-message-doesnt-specify-timezone/726677#post_8</link>
+      <description><![CDATA[不仅如此，它没有指定我为此付费的时区???每月 20 美元，我应该有无限的时间。修复此问题]]></description>
+      <guid>https://community.openai.com/t/the-new-responses-will-use-gpt-3-5-message-doesnt-specify-timezone/726677#post_8</guid>
+      <pubDate>Tue, 30 Apr 2024 15:04:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法继续跟进话题</title>
+      <link>https://community.openai.com/t/unable-to-continue-thread-for-follow-ups/732270#post_2</link>
+      <description><![CDATA[正在发生的事情是，人工智能正在一遍又一遍地编写无法正常工作的代码。你不仅要付出你所看到的代价，还要付出所有之前的对话和人工智能编写的代码的代价。
+你可以在指令中告诉 AI，如果单个 python 调用导致错误，它必须停止尝试并执行任务，而是进入仅诊断故障的模式，创建扩展日志记录和详细错误收集到要读取的文件，列出其所有库模块及其版本，以确保它们支持所编写的方法等，使用可靠的方法在安装点中测试其他文件类型的创建等，并提供完整的诊断报告以发现问题，以便在以后的说明中可以避免这种情况。]]></description>
+      <guid>https://community.openai.com/t/unable-to-continue-thread-for-follow-ups/732270#post_2</guid>
+      <pubDate>Tue, 30 Apr 2024 15:03:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>Playground 和 API 之间的行为差​​异 - 助手</title>
+      <link>https://community.openai.com/t/difference-in-behaviour-between-playground-and-api-assistants/732281#post_1</link>
+      <description><![CDATA[大家好，
+我正在使用 OpenAI 助手开发一个聊天机器人，我想调用一个带有参数的函数。
+该函数非常简单，可以描述为：get_products(name: String)，其中“name”是根据用户输入推断出来的。
+在 Playground 中尝试时，模型会正确提示函数调用和正确的参数。
+当代码在我的后端运行时，结果不同并且没有参数。
+查看来自 API 的日志：
+工具输出响应：{&quot;id&quot;=&gt;&quot;run_721clb5ZhPYLgzBZUqvMF7lR&quot;, &quot;object&quot;=&gt;&quot;thread.run&quot;, &quot;created_at&quot;=&gt;1714488703, &quot;assistant_id &quot;=&gt;&quot;asst_d7iSOM9opPROQHDyEdqDhAYY&quot;、&quot;thread_id&quot;=&gt;&quot;thread_d3xESBYfF9vhnuVSyBiDMEvB&quot;、&quot;status&quot;=&gt;&quot;requires_action&quot;、&quot;started_at&quot;=&gt;1714488703、&quot;expires_at&quot;=&gt;1714489303、&quot;可以celled_at&quot;=&gt; nil，“failed_at”=&gt;nil，“completed_at”=&gt;nil，“required_action”=&gt;{“type”=&gt;“submit_tool_outputs”，“submit_tool_outputs”=&gt;{“tool_calls”=&gt;[{ “id”=&gt;“call_xWTu9ZVS1eJuuCo1BpMtweeO”，“类型”=&gt;“函数”，“函数”=&gt;{“名称”=&gt;“get_products”，“参数”=&gt;“{}”}}] }}
+
+可能是什么原因？我尝试过通过 API 和 UI 本身定义函数。行为没有变化。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/difference-in-behaviour-between-playground-and-api-assistants/732281#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 15:02:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Assistant API 和代码解释器工具实现持久线程运行的问题</title>
+      <link>https://community.openai.com/t/issue-with-persistent-thread-runs-using-assistants-api-with-code-interpreter-tool/728668#post_4</link>
+      <description><![CDATA[您好，我已经发布了另一篇具有相同问题的帖子
+这是它的链接
+
+
+
+无法继续线程进行跟进 API
+
+  &lt;块引用&gt;
+    我在 run-api 中使用 Assistans Api 时一直遇到问题。当第一次执行 run-api 时，我没有遇到任何问题，但是当我返回执行后续操作时，90-95% 会发生一些内部错误。
+为什么会这样呢。
+附上参考资料
+ [图片]
+
+
+这篇文章的 thread_id 是
+thread_1LP8Yz1AV1K9iLA8WY5QS74Q]]></description>
+      <guid>https://community.openai.com/t/issue-with-persistent-thread-runs-using-assistants-api-with-code-interpreter-tool/728668#post_4</guid>
+      <pubDate>Tue, 30 Apr 2024 15:01:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt4 与 Anthropic Opus 在基准测试中的比较</title>
+      <link>https://community.openai.com/t/gpt4-comparison-to-anthropic-opus-on-benchmarks/726147#post_2</link>
+      <description><![CDATA[这也是我个人的经历。 Gemini（我选择了 Advanced 的免费试用版）和 GPT-4 都很难理解非常简单的代码生成请求。当我决定给克劳德第三首十四行诗时，我正处于崩溃的边缘，这让这些人大吃一惊，我也获得了“MVP”。当我写这篇文章时，我实际上正在报名参加克劳德 3 作品。在我使用 opus 为我的项目生成代码（Flask 和 Bootstrap5 没什么花哨的）之后，我可能会回来更新这个。]]></description>
+      <guid>https://community.openai.com/t/gpt4-comparison-to-anthropic-opus-on-benchmarks/726147#post_2</guid>
+      <pubDate>Tue, 30 Apr 2024 14:59:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法继续跟进话题</title>
+      <link>https://community.openai.com/t/unable-to-continue-thread-for-follow-ups/732270#post_1</link>
+      <description><![CDATA[我在 run-api 中使用 Assistans Api 时一直遇到问题。第一次执行 run-api 时没有遇到任何问题，但当我返回进行跟进时，90-95% 时会出现一些内部错误。
+为什么会这样。
+附加参考
+]]></description>
+      <guid>https://community.openai.com/t/unable-to-continue-thread-for-follow-ups/732270#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:52:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>插件从侧边栏消失：这是一个错误还是什么？</title>
+      <link>https://community.openai.com/t/plug-ins-disappear-from-the-sidebar-is-it-a-bug-or-what/732237#post_3</link>
+      <description><![CDATA[哦，原来如此。我的意思是自定义 gpt，而不是插件。]]></description>
+      <guid>https://community.openai.com/t/plug-ins-disappear-from-the-sidebar-is-it-a-bug-or-what/732237#post_3</guid>
+      <pubDate>Tue, 30 Apr 2024 14:43:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何确定助理是否已完成提问？</title>
+      <link>https://community.openai.com/t/how-do-i-determine-if-the-assistant-is-done-asking-questions/732261#post_1</link>
+      <description><![CDATA[我正在使用助手 API 让助手询问用户一些问题，一旦收集到必要的信息，我想用号召性用语按钮（例如“继续”）替换用户的消息输入，这将需要将它们转移到应用程序的另一部分。
+在我的助理说明中，我以以下内容结尾：“收集完所有必要的信息后，请用户单击“继续”以转到下一步。”
+上面的结果只是助理返回此信息，但我在流有效负载中没有看到任何内容，无法让我确定当前运行是他们完成提问的运行。
+我想知道确定助手是否已达到这一步的最佳方法是什么。是的，我可以解析助手文本输出并查找类似“继续下一步”之类的内容，但这感觉非常脆弱。
+我还尝试告诉助手调用一个函数，我想我可以取消（？）运行，但这似乎总是会导致助手产生一些奇怪的输出。
+任何关于确定助理是否完成提问的推荐方法的见解将不胜感激。
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/how-do-i-determine-if-the-assistant-is-done-asking-questions/732261#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:42:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>10k+ 代币 - python 代码</title>
+      <link>https://community.openai.com/t/10k-tokens-python-code/732259#post_1</link>
+      <description><![CDATA[我正在寻找一种用 Python 编写代码的方法，允许 API 得出很长的答案（每个答案大约 10000 个标记）。我不是软件工程师，也不知道如何执行此操作。我尝试了一些我写的代码，但不起作用。我很高兴获得有关如何执行此操作的帮助。
+谢谢]]></description>
+      <guid>https://community.openai.com/t/10k-tokens-python-code/732259#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:41:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Assistants v2 API / gpt-4-turbo 使幻觉急剧增加</title>
+      <link>https://community.openai.com/t/dramatic-rise-in-hallucinations-with-assistants-v2-api-gpt-4-turbo/732256#post_1</link>
+      <description><![CDATA[我们之前使用 v1 Assistants API，最近已更换为 v2。我们看到“难以置信的”幻觉急剧增加。在 v1 中的设置几乎相同，我们看到的幻觉可以忽略不计。现在，我们正在看到数据的完整发明......尽管助手显然可以访问我们要求它通过矢量/文件搜索进行分析的数据。
+在幕后，我们使用 gpt-4-turbo、文件搜索和代码解释器。我们还利用助手级和线程级向量存储。我们推测这两个可用向量存储的使用可能是部分原因？也许助理觉得它无法访问其中之一，因此它发明了数据？
+无论如何，我们认为幻觉大多已成为过去。看到现在来自我们要求 gpt-4-turbo 分析的相当干燥的数据的疯狂故事令人不安。
+任何提示、技巧或类似的经验都值得赞赏。]]></description>
+      <guid>https://community.openai.com/t/dramatic-rise-in-hallucinations-with-assistants-v2-api-gpt-4-turbo/732256#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:40:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>python 中的代码返回 openai.error.RateLimitError</title>
+      <link>https://community.openai.com/t/code-in-python-return-openai-error-ratelimiterror/732255#post_1</link>
+      <description><![CDATA[我在 python 中的代码返回 openai.error.RateLimitError 但我从未使用过该 API。
+导入openai
+
+openai.api_key = &quot;###&quot;
+openai.organization =“###”
+openai.project =“###”
+...
+openai.Completion.create(engine=&quot;davinci-002&quot;,prompt=que)[&quot;choices&quot;][0][&quot;text&quot;] # que -&gt;;斯特
+]]></description>
+      <guid>https://community.openai.com/t/code-in-python-return-openai-error-ratelimiterror/732255#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:38:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 OAuth 身份验证添加到您的 GPT 操作</title>
+      <link>https://community.openai.com/t/add-oauth-authentication-to-your-gpts-actions/732251#post_1</link>
+      <description><![CDATA[我开发了一个工具，我认为它可以让你的生活变得轻松很多：AuthGPTS,com
+它旨在使用 Supabase 将 OAuth 授权流程和身份验证轻松集成到你的 GPT 操作中，从而简化你的开发流程。
+使用 AuthGPTS，你可以：
+轻松集成 OAuth，从全面的开发人员仪表板管理授权 URL、令牌和范围。
+使用中间件保护你的 API 操作，确保每个请求都得到正确验证。
+我非常高兴看到它如何融入你的项目并简化你的工作流程。查看我网站上的现场演示，让我知道你的想法！
+访问 AuthGPTS,com 获取现场演示
+期待你的反馈，并希望这个工具能像帮助我一样帮助你！]]></description>
+      <guid>https://community.openai.com/t/add-oauth-authentication-to-your-gpts-actions/732251#post_1</guid>
+      <pubDate>Tue, 30 Apr 2024 14:35:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
