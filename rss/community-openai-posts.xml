@@ -4,166 +4,60 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 01 May 2024 06:25:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 09:20:53 GMT</lastBuildDate>
     <item>
-      <title>两个助手在同一个 thread_id 上工作</title>
-      <link>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770#post_1</link>
-      <description><![CDATA[嗨！
-我开始在我的项目中使用单个 Assistant 实现。
-事实证明，为我想做的事情写出清晰简洁的说明真的很难。因此，我采用了分而治之的方法，看看这是否会产生影响。
-所以我现在的计划是使用初始路线助理，他只决定路线到哪个副助理（重点助理）。
-创建了一个装配概念，允许我设置所有需要的助手并声明它们的关系。
-为每个助手编写了一些单元测试。
-路线代理每次正确得分为 50/50
-规范/子代理 #1 20/20
-规范/子代理 #2 20/20
-规范/子代理 #3 20/20
-现在进入主题。
-我的想法是允许不同的助手在同一线程上工作以共享上下文，以允许可能路由到 #1 助手的任务/问题 1 仍然有如果下一个问题被路由到代理 #2，则表示此含义。看来他们正在共同努力解决这个大问题。
-问题：
-
-用户输入：
-路线助理正确回复“路线至助理#2”
-助理#2按预期获取输入。
-助理 #2 回复“路由至助理 #2”
-
-甚至尝试在操场上使用两个助手访问相同的 thread_id 进行验证。它的行为方式相同。
-所以这些说明似乎与这里无关。
-线程上下文似乎是从第一个助理访问线程什么的构建的。也许我可以使用“additional_instruction”之类的东西来否决或其他东西。但对我来说，这似乎是助理实施或其他问题。也许这在这里得出结论但是。
-但是由于您在线程上运行并为每次运行提供assistant_id。
-我认为 API 通信助手可以针对不同的“线程运行”进行混合和匹配。
-openai.beta.threads.runs.create_and_poll(
-        线程_id=线程_id,
-        Assistant_id=助理_id,
-        附加指令=附加指令，
-）
-
-也许我需要放置一个角色：系统消息更好地指示使用代理的角色 #2 而不是路由代理...
-但是，如果没有为我的跑步注入正确的上下文，为什么还需要助手……额外的好处是什么？]]></description>
-      <guid>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770#post_1</guid>
-      <pubDate>Wed, 01 May 2024 06:04:02 GMT</pubDate>
+      <title>解释 GPT4 Vision 在多标签分类中生成的分数</title>
+      <link>https://community.openai.com/t/interpret-scores-generated-by-gpt4-vision-in-multilabel-classification/727000#post_4</link>
+      <description><![CDATA[人们可以通过单词生成而不是数字生成来评估相关性的性能，这同样只是人工智能机制为人工智能可以生成的所有令牌分配确定性的问题。
+我在完成端点上使用 gpt-3.5-turbo-instruct，其中显示我们可以共享的 logprobs，并提供直到 AI 实际必须生成答案令牌的所有内容。
+一张图片给了我们很多见解：
+&lt;img alt=&quot;无标题&quot; height=&quot;447&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/c/8/f/c8f4c637fee4eeec60c2ef44913a147fc34c5367.j​​peg&quot; width=&quot;466 ” /&gt;
+我认为这段富丽堂皇的文字听起来相当有文化，在“文学”中得分为“无”。
+人工智能没有任何指导方针，但更多指令唯一要做的就是打乱周围的值，并可能打乱顶部标记。
+所以我提出的想法是：评估本例中的所有 5 个对数概率或数字。看看答案是最高的，因为它是 80% 还是 30%。这会提供更多洞察力，因为您也在观察一些思考。
+然后将这种主观判断与人类评估进行比较，看看人工智能在哪些方面需要更好地教授。
+&lt;小时/&gt;
+在我的任务中，下一个文本的前两个单词，仅仅从“父母”到“技术极客”的变化就会以多种方式翻转分类，在这里你可以看到，通过使用 logprobs，你的最终结果可能是中间的：&lt; /p&gt;
+&lt;img alt=&quot;无标题&quot; height=&quot;389&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/9/3/8/93858eef1ddd6afa413ff72a34f4e4747a408576.jpeg&quot; width=&quot;543 ” /&gt;
+人工智能甚至可能会根据您选择的单词在训练语料库中的常见程度来真正提供答案。]]></description>
+      <guid>https://community.openai.com/t/interpret-scores-generated-by-gpt4-vision-in-multilabel-classification/727000#post_4</guid>
+      <pubDate>Wed, 01 May 2024 09:14:33 GMT</pubDate>
     </item>
     <item>
-      <title>搜索文件时与矢量存储选项混淆</title>
-      <link>https://community.openai.com/t/confusion-with-the-vector-storage-option-when-searching-for-files/721083?page=2#post_26</link>
-      <description><![CDATA[您可以再次检查迁移吗？以下是从 V1 到 V2 的Assistant 迁移指南。确保您没有错过任何步骤。]]></description>
-      <guid>https://community.openai.com/t/confusion-with-the-vector-storage-option-when-searching-for-files/721083?page=2#post_26</guid>
-      <pubDate>Wed, 01 May 2024 06:03:42 GMT</pubDate>
+      <title>我的 chatgpt 图像图标消失了</title>
+      <link>https://community.openai.com/t/my-chatgpt-image-icon-is-dissapearing/732883#post_1</link>
+      <description><![CDATA[嗨，有人可以帮我解决这个问题吗？当我在chatgpt中发送图片并得到正确答案时，这种情况经常发生，突然加号图标（图像图标）由于某种原因消失了，我尝试重新启动应用程序，即使我的手机我卸载了它试了几次就显示不出来了。]]></description>
+      <guid>https://community.openai.com/t/my-chatgpt-image-icon-is-dissapearing/732883#post_1</guid>
+      <pubDate>Wed, 01 May 2024 09:11:13 GMT</pubDate>
     </item>
     <item>
-      <title>升级为gpt4组队计划——失去的记忆</title>
-      <link>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_5</link>
-      <description><![CDATA[如果在付出可耻的代价之前就被警告过这一点就好了。]]></description>
-      <guid>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_5</guid>
-      <pubDate>Wed, 01 May 2024 06:00:59 GMT</pubDate>
+      <title>Universal Teacher 简介：使用 Amazon Alexa 和 ChatGPT 的交互式学习体验</title>
+      <link>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_6</link>
+      <description><![CDATA[在 Alexa 技能中，通过语音向用户提供的提示和重新提示值的内容被封装在 SSML 标签中。这意味着值中的任何特殊 XML 字符都需要进行转义编码。例如，输出字符串“I like OpenaAI&amp;ChatGPT”将导致失败，因为 &amp; 字符需要编码为 &amp;amp;。其他需要编码的字符包括：&lt;→&lt;，以及&gt;→&amp;gt;&lt; /代码&gt;。这对于数学主题很重要。]]></description>
+      <guid>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_6</guid>
+      <pubDate>Wed, 01 May 2024 09:10:16 GMT</pubDate>
     </item>
     <item>
-      <title>API 记住对话</title>
-      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_8</link>
-      <description><![CDATA[嗨@starsun
-输出有 4096 个令牌限制。模型 gpt-4-turbo 的上下文长度（输入 + 输出）为 128K 个标记。
-如果您让模型在达到最大输出限制时生成响应，您将在响应对象中获得一个 finish_reason ，其值为 length 。在这种情况下，您只需将收到的部分辅助消息附加到现有消息列表中，然后让模型从中断处继续。]]></description>
-      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_8</guid>
-      <pubDate>Wed, 01 May 2024 05:56:03 GMT</pubDate>
+      <title>异步助手 API 流测试版</title>
+      <link>https://community.openai.com/t/async-assistantapi-streaming-beta/698736#post_5</link>
+      <description><![CDATA[@duncansmothers 您还在寻找示例吗？我使用 FastAPI 提出了一个相当基本的解决方案，它允许通过 SSE 进行流式传输。]]></description>
+      <guid>https://community.openai.com/t/async-assistantapi-streaming-beta/698736#post_5</guid>
+      <pubDate>Wed, 01 May 2024 08:55:44 GMT</pubDate>
     </item>
     <item>
-      <title>API 记住对话</title>
-      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_7</link>
-      <description><![CDATA[你不知道我连续几周每天花了多少小时，现在多亏了你，这一切都有意义了。
-谢谢你……真的！非常感谢您的帮助！ &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12&quot; title=&quot;:slight_smile: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_7</guid>
-      <pubDate>Wed, 01 May 2024 05:47:51 GMT</pubDate>
+      <title>所有历史记录和自定义 Gpt 都会消失</title>
+      <link>https://community.openai.com/t/all-history-and-custom-gpts-disappear/732822#post_2</link>
+      <description><![CDATA[我也有同样的问题。我不知道为什么会这样。希望有人回答这个错误吗？]]></description>
+      <guid>https://community.openai.com/t/all-history-and-custom-gpts-disappear/732822#post_2</guid>
+      <pubDate>Wed, 01 May 2024 08:51:00 GMT</pubDate>
     </item>
     <item>
-      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
-      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_6</link>
-      <description><![CDATA[嗨，
-不幸的是，我们目前在 API 中没有提供这样的选项。
-作为一种解决方法，因为我们所有较新的模型都支持并行函数调用，当您提供多个工具并设置 tool_choice: &quot;required&quot; 时，只要您有良好的提示，模型通常可以很好地选择多个相关工具。
-如果您还有其他问题，请告诉我。
-布莱恩]]></description>
-      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_6</guid>
-      <pubDate>Wed, 01 May 2024 05:44:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 记住对话</title>
-      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_6</link>
-      <description><![CDATA[两者都是正确的。
-确切的标记与单词的比例在某种程度上取决于语言。但特别是对于英语来说，这是一个公平的代理。]]></description>
-      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_6</guid>
-      <pubDate>Wed, 01 May 2024 05:42:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>问题：GPT 无法访问或未找到</title>
-      <link>https://community.openai.com/t/issue-gpt-inaccessible-or-not-found/583254#post_15</link>
-      <description><![CDATA[ 
-我在访问sora open ai时遇到了这个问题。]]></description>
-      <guid>https://community.openai.com/t/issue-gpt-inaccessible-or-not-found/583254#post_15</guid>
-      <pubDate>Wed, 01 May 2024 05:40:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
-      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_5</link>
-      <description><![CDATA[嗨拉姆，
-感谢您的提问。
-
-有一个变更日志页面，您可以关注这样的 API 功能发布！
-我假设您指的是在默认 tool_choice: &quot;auto&quot; 设置下，模型有时会在 message 旁边输出 message.content 的行为.tool_calls。当您设置 tool_choice: &quot;required&quot; 或设置为特定工具时，模型在当前实现中不会返回任何 message.content。
-
-布莱恩]]></description>
-      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_5</guid>
-      <pubDate>Wed, 01 May 2024 05:36:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>阻止 GPT-4 切换到 GPT3.5（而只是等待）</title>
-      <link>https://community.openai.com/t/prevent-gpt-4-from-switchiong-to-gpt3-5-and-instead-just-wait/416354#post_2</link>
-      <description><![CDATA[我也更喜欢这个。我不喜欢它如何切换到 GPT-3。当询问有关编程的问题时，我得到的答复低于标准。我更希望看到 gpt4 模型何时再次可用。]]></description>
-      <guid>https://community.openai.com/t/prevent-gpt-4-from-switchiong-to-gpt3-5-and-instead-just-wait/416354#post_2</guid>
-      <pubDate>Wed, 01 May 2024 05:34:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 记住对话</title>
-      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_5</link>
-      <description><![CDATA[好吧，我想我开始明白了。因此，上面的角色/内容我去了 chatgpt tokenizer 并将其粘贴到那里，上面写着：
-代币：90
-字符数：225
-看来 1 个字符大约需要 0.4 个令牌。
-最后一个问题。在分析 LARGE CSV 时，我只需将 csv 文件的全部内容添加到我假设的“内容”（以及角色中的“用户”）中？]]></description>
-      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_5</guid>
-      <pubDate>Wed, 01 May 2024 05:34:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>升级为gpt4组队计划——失去的记忆</title>
-      <link>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_4</link>
-      <description><![CDATA[我完全理解你的感受。但与免费或消费者计划不同，团队和企业计划有业务需求，可能会延迟记忆功能的推出。
-我也希望记忆功能能很快推广到团队和企业计划🙂]]></description>
-      <guid>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_4</guid>
-      <pubDate>Wed, 01 May 2024 05:34:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>新的国土安全部人工智能安全委员会引发有关科技行业影响和人工智能治理的争论</title>
-      <link>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_5</link>
-      <description><![CDATA[未受邀请：任何开源人工智能的人。]]></description>
-      <guid>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_5</guid>
-      <pubDate>Wed, 01 May 2024 05:25:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 记住对话</title>
-      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_4</link>
-      <description><![CDATA[正确。确切的金额取决于各个消息的大小。
-此外，您还需要考虑成本，因此对包含的内容更加有选择性。]]></description>
-      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_4</guid>
-      <pubDate>Wed, 01 May 2024 05:21:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>完全自主人工智能软件工程师 Devin</title>
-      <link>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_62</link>
-      <description><![CDATA[我希望编码已经死了！
-我想构建这个东西，但不想编码。
-我一生都无法弄清楚如何让 GPT 来构建它，而不仅仅是我自己可以做的一些非常琐碎的脚手架。
-不要误会我的意思，这是一个很棒的开发工具，但除非您是高级工程师，否则您无法与它竞争。]]></description>
-      <guid>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_62</guid>
-      <pubDate>Wed, 01 May 2024 05:16:18 GMT</pubDate>
+      <title>ChatGPT 继续拒绝提供帮助：虽然我无法实时浏览互联网或直接访问外部链接</title>
+      <link>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_11</link>
+      <description><![CDATA[谢谢，我会尝试一下，但我再次无法访问浏览功能，OpenAI 对于隐私和安全来说太烦人了，我认为他们应该把它调低一点......
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-continues-to-refuse-to-help-while-i-can-t-browse-the-internet-or-access-external-links-directly-in-real-time/611079#post_11</guid>
+      <pubDate>Wed, 01 May 2024 08:45:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
