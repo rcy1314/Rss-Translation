@@ -4,108 +4,166 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 01 May 2024 03:22:50 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 06:25:55 GMT</lastBuildDate>
     <item>
-      <title>侧边栏是空的，我无法更改为 gpt-4</title>
-      <link>https://community.openai.com/t/sidebar-is-empty-and-i-cant-change-to-gpt-4/732700#post_1</link>
-      <description><![CDATA[
-大家好。正如你所看到的，侧边栏没有任何内容，我无法更改为gpt-4，也无法注销。 30分钟前，一切都很好，然后我关闭了聊天gpt，现在我打开它也是这样。另外，我使用其他浏览器仍然遇到同样的问题。]]></description>
-      <guid>https://community.openai.com/t/sidebar-is-empty-and-i-cant-change-to-gpt-4/732700#post_1</guid>
-      <pubDate>Wed, 01 May 2024 02:37:44 GMT</pubDate>
+      <title>两个助手在同一个 thread_id 上工作</title>
+      <link>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770#post_1</link>
+      <description><![CDATA[嗨！
+我开始在我的项目中使用单个 Assistant 实现。
+事实证明，为我想做的事情写出清晰简洁的说明真的很难。因此，我采用了分而治之的方法，看看这是否会产生影响。
+所以我现在的计划是使用初始路线助理，他只决定路线到哪个副助理（重点助理）。
+创建了一个装配概念，允许我设置所有需要的助手并声明它们的关系。
+为每个助手编写了一些单元测试。
+路线代理每次正确得分为 50/50
+规范/子代理 #1 20/20
+规范/子代理 #2 20/20
+规范/子代理 #3 20/20
+现在进入主题。
+我的想法是允许不同的助手在同一线程上工作以共享上下文，以允许可能路由到 #1 助手的任务/问题 1 仍然有如果下一个问题被路由到代理 #2，则表示此含义。看来他们正在共同努力解决这个大问题。
+问题：
+
+用户输入：
+路线助理正确回复“路线至助理#2”
+助理#2按预期获取输入。
+助理 #2 回复“路由至助理 #2”
+
+甚至尝试在操场上使用两个助手访问相同的 thread_id 进行验证。它的行为方式相同。
+所以这些说明似乎与这里无关。
+线程上下文似乎是从第一个助理访问线程什么的构建的。也许我可以使用“additional_instruction”之类的东西来否决或其他东西。但对我来说，这似乎是助理实施或其他问题。也许这在这里得出结论但是。
+但是由于您在线程上运行并为每次运行提供assistant_id。
+我认为 API 通信助手可以针对不同的“线程运行”进行混合和匹配。
+openai.beta.threads.runs.create_and_poll(
+        线程_id=线程_id,
+        Assistant_id=助理_id,
+        附加指令=附加指令，
+）
+
+也许我需要放置一个角色：系统消息更好地指示使用代理的角色 #2 而不是路由代理...
+但是，如果没有为我的跑步注入正确的上下文，为什么还需要助手……额外的好处是什么？]]></description>
+      <guid>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770#post_1</guid>
+      <pubDate>Wed, 01 May 2024 06:04:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>搜索文件时与矢量存储选项混淆</title>
+      <link>https://community.openai.com/t/confusion-with-the-vector-storage-option-when-searching-for-files/721083?page=2#post_26</link>
+      <description><![CDATA[您可以再次检查迁移吗？以下是从 V1 到 V2 的Assistant 迁移指南。确保您没有错过任何步骤。]]></description>
+      <guid>https://community.openai.com/t/confusion-with-the-vector-storage-option-when-searching-for-files/721083?page=2#post_26</guid>
+      <pubDate>Wed, 01 May 2024 06:03:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>升级为gpt4组队计划——失去的记忆</title>
+      <link>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_5</link>
+      <description><![CDATA[如果在付出可耻的代价之前就被警告过这一点就好了。]]></description>
+      <guid>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_5</guid>
+      <pubDate>Wed, 01 May 2024 06:00:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 记住对话</title>
+      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_8</link>
+      <description><![CDATA[嗨@starsun
+输出有 4096 个令牌限制。模型 gpt-4-turbo 的上下文长度（输入 + 输出）为 128K 个标记。
+如果您让模型在达到最大输出限制时生成响应，您将在响应对象中获得一个 finish_reason ，其值为 length 。在这种情况下，您只需将收到的部分辅助消息附加到现有消息列表中，然后让模型从中断处继续。]]></description>
+      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_8</guid>
+      <pubDate>Wed, 01 May 2024 05:56:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 记住对话</title>
+      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_7</link>
+      <description><![CDATA[你不知道我连续几周每天花了多少小时，现在多亏了你，这一切都有意义了。
+谢谢你……真的！非常感谢您的帮助！ &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12&quot; title=&quot;:slight_smile: “宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_7</guid>
+      <pubDate>Wed, 01 May 2024 05:47:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
+      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_6</link>
+      <description><![CDATA[嗨，
+不幸的是，我们目前在 API 中没有提供这样的选项。
+作为一种解决方法，因为我们所有较新的模型都支持并行函数调用，当您提供多个工具并设置 tool_choice: &quot;required&quot; 时，只要您有良好的提示，模型通常可以很好地选择多个相关工具。
+如果您还有其他问题，请告诉我。
+布莱恩]]></description>
+      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_6</guid>
+      <pubDate>Wed, 01 May 2024 05:44:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 记住对话</title>
+      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_6</link>
+      <description><![CDATA[两者都是正确的。
+确切的标记与单词的比例在某种程度上取决于语言。但特别是对于英语来说，这是一个公平的代理。]]></description>
+      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_6</guid>
+      <pubDate>Wed, 01 May 2024 05:42:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>问题：GPT 无法访问或未找到</title>
+      <link>https://community.openai.com/t/issue-gpt-inaccessible-or-not-found/583254#post_15</link>
+      <description><![CDATA[ 
+我在访问sora open ai时遇到了这个问题。]]></description>
+      <guid>https://community.openai.com/t/issue-gpt-inaccessible-or-not-found/583254#post_15</guid>
+      <pubDate>Wed, 01 May 2024 05:40:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 API 功能：通过 `tool_choice: "required"` 强制调用函数</title>
+      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_5</link>
+      <description><![CDATA[嗨拉姆，
+感谢您的提问。
+
+有一个变更日志页面，您可以关注这样的 API 功能发布！
+我假设您指的是在默认 tool_choice: &quot;auto&quot; 设置下，模型有时会在 message 旁边输出 message.content 的行为.tool_calls。当您设置 tool_choice: &quot;required&quot; 或设置为特定工具时，模型在当前实现中不会返回任何 message.content。
+
+布莱恩]]></description>
+      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_5</guid>
+      <pubDate>Wed, 01 May 2024 05:36:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>阻止 GPT-4 切换到 GPT3.5（而只是等待）</title>
+      <link>https://community.openai.com/t/prevent-gpt-4-from-switchiong-to-gpt3-5-and-instead-just-wait/416354#post_2</link>
+      <description><![CDATA[我也更喜欢这个。我不喜欢它如何切换到 GPT-3。当询问有关编程的问题时，我得到的答复低于标准。我更希望看到 gpt4 模型何时再次可用。]]></description>
+      <guid>https://community.openai.com/t/prevent-gpt-4-from-switchiong-to-gpt3-5-and-instead-just-wait/416354#post_2</guid>
+      <pubDate>Wed, 01 May 2024 05:34:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 记住对话</title>
+      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_5</link>
+      <description><![CDATA[好吧，我想我开始明白了。因此，上面的角色/内容我去了 chatgpt tokenizer 并将其粘贴到那里，上面写着：
+代币：90
+字符数：225
+看来 1 个字符大约需要 0.4 个令牌。
+最后一个问题。在分析 LARGE CSV 时，我只需将 csv 文件的全部内容添加到我假设的“内容”（以及角色中的“用户”）中？]]></description>
+      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_5</guid>
+      <pubDate>Wed, 01 May 2024 05:34:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>升级为gpt4组队计划——失去的记忆</title>
+      <link>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_4</link>
+      <description><![CDATA[我完全理解你的感受。但与免费或消费者计划不同，团队和企业计划有业务需求，可能会延迟记忆功能的推出。
+我也希望记忆功能能很快推广到团队和企业计划🙂]]></description>
+      <guid>https://community.openai.com/t/upgraded-to-gpt4-team-plan-lost-memories/731904#post_4</guid>
+      <pubDate>Wed, 01 May 2024 05:34:49 GMT</pubDate>
     </item>
     <item>
       <title>新的国土安全部人工智能安全委员会引发有关科技行业影响和人工智能治理的争论</title>
-      <link>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_4</link>
-      <description><![CDATA[感谢@PaulBellow。关于美国人工智能监管的这些有趣话题，人们还可以探讨：
-AI.gov：让人工智能为美国人民服务
-&lt;块引用&gt;
-拜登-哈里斯政府致力于确保美国在安全、可靠和值得信赖的人工智能创新方面处于领先地位，以利用人工智能的机会，同时降低其风险。
-
-人工智能 |美国商务部
-&lt;块引用&gt;
-10 月 30 日，约瑟夫·R·拜登总统签署了行政命令 (EO) 旨在建设美国评估和减轻人工智能风险的能力人工智能 (AI) 系统可确保安全、保障和信任，同时促进创新、有竞争力的人工智能生态系统，为工人提供支持并保护消费者。美国商务部将在实施行政命令方面发挥关键作用，将复杂的标准和评估能力与报告要求和自愿措施的有力结合结合起来。
-具体来说，美国国家标准与技术研究院 (NIST)工业与安全 (BIS)、国家电信和信息管理局 (NTIA)、以及美国专利商标局 (USPTO) 将负责实现驻外办事处的大部分目标。
-“美国政府在抓住先进人工智能发展潜力、同时降低危险能力或安全风险方面发挥着关键作用。今天的行政命令重申了我们部门的领导能力，准备承担重大责任，以实现总统建设一个更安全、更有保障的世界的愿景，”商务部长吉娜·雷蒙多 (Gina Raimondo) 表示。 “在今年早些时候美国领先公司做出的自愿承诺的基础上，总统正在向前迈出关键的一步，以促进和激励人工智能领域的安全和负责任的创新。”
-
-此外，让我们记住美国人工智能监管起源故事中不寻常的闭门会议或私人论坛。
-科技行业领袖在罕见的峰会上支持监管人工智能在华盛顿|美联社新闻（2023 年 9 月 13 日）
-&lt;块引用&gt;
-周三，在美国参议院举行的一次不同寻常的闭门会议上，美国最大的科技高管大致认可了政府对人工智能进行监管的想法。但对于监管应该是什么样子，几乎没有达成共识，立法的政治道路也很艰难。
-参议院多数党领袖查克·舒默(Chuck Schumer)在国会山组织了这次私人论坛，作为推动人工智能立法的一部分，他表示，他问房间里的每个人——包括近两打科技高管、倡导者和怀疑论者——政府是否应该他说，“每个人都举起了手，尽管他们有不同的观点”。
-
-&lt;块引用&gt;
-马斯克表示，这次会议“可能会载入史册，因为它对文明的未来非常重要。”
-]]></description>
-      <guid>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_4</guid>
-      <pubDate>Wed, 01 May 2024 02:30:10 GMT</pubDate>
+      <link>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_5</link>
+      <description><![CDATA[未受邀请：任何开源人工智能的人。]]></description>
+      <guid>https://community.openai.com/t/new-dhs-ai-safety-board-sparks-debate-over-tech-industry-influence-and-ai-governance/732651#post_5</guid>
+      <pubDate>Wed, 01 May 2024 05:25:21 GMT</pubDate>
     </item>
     <item>
-      <title>python 中的代码返回 openai.error.RateLimitError</title>
-      <link>https://community.openai.com/t/code-in-python-return-openai-error-ratelimiterror/732255#post_2</link>
-      <description><![CDATA[您的 Python 代码可能会返回错误，因为您不仅以前从未使用过该 API，而且也从未购买过积分来支付 API 服务费用。预付款可在您帐户的“设置”下进行。
-&lt;小时/&gt;
-该代码还使用旧的 API 库方法。您必须 pip install openai==&quot;0.28.1&quot; 才能让您的 Python 环境拥有相应的旧库。
-此外，davinci-002 是一个提供补全功能的未经训练的基础模型。它会完成您输入的提示 - 无需特殊技术就不会结束语言生成。
-如果你确实想出于特定原因（旧的人工智能可能已经提供）继续此代码，它看起来像：
-导入openai
-
-如果 openai.__version__ != &#39;0.28.1&#39;:
-    raise ValueError(&quot;此旧式代码仅支持 openai 0.28.1。&quot;)
-
-#openai.api_key = &quot;sk-123&quot; # 如果你有 OPENAI_API_KEY 环境变量则自动
-openai.organization = &quot;myorg&quot; # 仅当您想要非默认组织时
-
-que=&quot;I am an avid&quot; # 非指令 AI 继续编写此后的内容
-
-输出 = openai.Completion.create(
-    model=&quot;davinci-002&quot;, # 其他补全模型 &quot;gpt-3.5-turbo-instruct&quot;
-    提示=que，
-    最大令牌=25，
-    停止=[&quot;\n&quot;])
-
-打印（输出[“选择”][0][“文本”]）
-
-那么我的提示“我是一个狂热者”……是如何由 davinci-002 完成的？随机：
-&lt;块引用&gt;
-GOATYELLOWS 的永久用户，他们的服务和产品质量从未令我失望
-
-&lt;块引用&gt;
-CE ESL、CSS Online 的粉丝。如果我使用 CE ESL、CSS Online 中的材料，我会经常引用网页。
-
-如果您想与健谈的 AI 交互，请参阅 API 参考部分以了解聊天完成可以回答问题的模型。]]></description>
-      <guid>https://community.openai.com/t/code-in-python-return-openai-error-ratelimiterror/732255#post_2</guid>
-      <pubDate>Wed, 01 May 2024 02:24:40 GMT</pubDate>
+      <title>API 记住对话</title>
+      <link>https://community.openai.com/t/api-remembering-conversation/732733#post_4</link>
+      <description><![CDATA[正确。确切的金额取决于各个消息的大小。
+此外，您还需要考虑成本，因此对包含的内容更加有选择性。]]></description>
+      <guid>https://community.openai.com/t/api-remembering-conversation/732733#post_4</guid>
+      <pubDate>Wed, 01 May 2024 05:21:20 GMT</pubDate>
     </item>
     <item>
-      <title>关于 Rabbit R1 设备技术的想法？ （自然语言操作系统）</title>
-      <link>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229?page=4#post_71</link>
-      <description><![CDATA[杰斯珀·库霍夫德，
-我偷偷地怀疑你会在某个时候读到这篇文章，所以请仔细听，因为我实际上想买一个“AI”别针，这里是一些实际有用的东西的设计规范：
-
-占地面积最大为 45x45mm。
-重量不超过 22 克。
-LED 状态指示灯。
-夹子（用于固定在衣服上）
-没有摄像头，只有麦克风和麦克风演讲者。
-按钮/电容表面。
-必须达到 IP67 防护等级。
-“睡眠模式”下电池续航时间为 2-3 天
-价格约20-30$
-必须通过蓝牙连接到我的手机。
-
-口袋空间非常宝贵，尤其是对于女性而言。喜欢科技的人已经随身携带了很多东西，不想担心白天充电。
-Rabbit R1 已经像渡渡鸟一样死了；它是一种昂贵的塑料砖，在使用时基本上仍然占据着我的双手，在不使用时占据着我的口袋。
-如果您需要更多指导，请告诉我们。我对开发这类东西并不陌生，我目前正在制作自己的东西：
-]]></description>
-      <guid>https://community.openai.com/t/thoughts-on-rabbit-r1-device-tech-natural-language-os/580229?page=4#post_71</guid>
-      <pubDate>Wed, 01 May 2024 02:20:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>数据分析师与 ChatGPT 功能</title>
-      <link>https://community.openai.com/t/data-analyst-vs-chatgpt-capabilities/732679#post_2</link>
-      <description><![CDATA[数据分析师被纳入默认的 ChatGPT 中，所以我认为后者具有前者的所有相同功能，甚至更多。]]></description>
-      <guid>https://community.openai.com/t/data-analyst-vs-chatgpt-capabilities/732679#post_2</guid>
-      <pubDate>Wed, 01 May 2024 01:52:54 GMT</pubDate>
+      <title>完全自主人工智能软件工程师 Devin</title>
+      <link>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_62</link>
+      <description><![CDATA[我希望编码已经死了！
+我想构建这个东西，但不想编码。
+我一生都无法弄清楚如何让 GPT 来构建它，而不仅仅是我自己可以做的一些非常琐碎的脚手架。
+不要误会我的意思，这是一个很棒的开发工具，但除非您是高级工程师，否则您无法与它竞争。]]></description>
+      <guid>https://community.openai.com/t/fully-autonomous-ai-software-engineer-devin/679804?page=3#post_62</guid>
+      <pubDate>Wed, 01 May 2024 05:16:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
