@@ -4,249 +4,61 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 02 May 2024 03:19:41 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2024 06:24:55 GMT</lastBuildDate>
     <item>
-      <title>根据提示在插件API中添加参数</title>
-      <link>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_2</link>
-      <description><![CDATA[您将为 AI 可能认为调用有用的每个外部工具提供附加规范。
-
-
-
-
-函数调用参数类型 提示
-
-  &lt;块引用&gt;
-    但是，一般来说，必须使用 JSON 数据类型编写自己的函数。
-细绳
-数字
-布尔值
-空/空
-目的
-大批
-
-让我们看一下所有这些的演示，
-
-如何将它们指定为“函数”API 参数；
-端点如何将规范重写为人工智能语言；
-AI 如何调用指定的函数。
-
-发送到API的函数规范
-函数=[
-{
-    &quot;name&quot;: &quot;数据演示&quot;,
-    &quot;description&quot;: &quot;这是主要功能描述&quot;,
-    “……
-  
-
-聊天完成支持的“功能”规范格式与聊天完成支持的“工具”规范格式略有不同，而且如果您改用“工具”，也是助理将接受的唯一规范类型。
-您只需将规范的属性与函数代码所需的输入类型相匹配，并指示 AI 以特殊的简化 json 架构格式为其编写输入。
-然后观察对这些调用的响应，或者在助手中轮询状态以查看是否需要完成某个工具，而不是对用户准备就绪的响应。
-文档的目的地是论坛侧边栏上的“文档”链接，然后是关于函数调用&lt;的部分/a&gt;.]]></description>
-      <guid>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_2</guid>
-      <pubDate>Thu, 02 May 2024 03:18:15 GMT</pubDate>
+      <title>Chat GPT 不再创建图像，引用“内容指南”</title>
+      <link>https://community.openai.com/t/chat-gpt-is-no-longer-creating-images-quoting-the-content-guidelines/646645#post_10</link>
+      <description><![CDATA[大家好请订阅我的频道 A.K 2 Game world 搜索我的账号，找到它，账号是@C2Abdullah订阅了，听说没有版本的chatGPT可以画图，心情不好]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-is-no-longer-creating-images-quoting-the-content-guidelines/646645#post_10</guid>
+      <pubDate>Thu, 02 May 2024 06:24:41 GMT</pubDate>
     </item>
     <item>
-      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
-      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_3</link>
-      <description><![CDATA[如果只有我一个人，有什么解决方案可以修复这个错误吗？]]></description>
-      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_3</guid>
-      <pubDate>Thu, 02 May 2024 03:11:38 GMT</pubDate>
+      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
+      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115#post_17</link>
+      <description><![CDATA[我主要使用 ChatGPT 来提高工作效率并学习新技能。如果我想参考以前的聊天记录，我真的觉得翻阅它们很令人沮丧。我真的很想将与特定主题相关的聊天组织到集合/文件夹中。]]></description>
+      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115#post_17</guid>
+      <pubDate>Thu, 02 May 2024 06:12:11 GMT</pubDate>
     </item>
     <item>
-      <title>根据提示在插件API中添加参数</title>
-      <link>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_1</link>
-      <description><![CDATA[我正在创建一个调用我的自定义 api 的插件。这个自定义 api 获取很少有可选的查询参数。
-例如：我的 api 可以通过以下方式构建。
+      <title>定制训练的 GPT 3.5 Turbo 模型的再训练</title>
+      <link>https://community.openai.com/t/retraining-of-custom-trained-gpt-3-5-turbo-model/661447#post_13</link>
+      <description><![CDATA[嗨@jr.2509，
+我在更多数量的标签上尝试了相同的方法。但我的观察是：
 
-http://baseurl/api/employee/{id} – 单独获取 emp 信息
-http://baseurl/api/employee/{id}?info=address – 获取带有地址的员工信息
-http://baseurl/api/employee/{id}?info=address&amp;info= payment – 获取员工信息以及地址和付款信息
+在第一基础模型训练中，它在第 1 组数据上提供了良好的准确性。
+在重新训练上述模型时，第 1 组的准确率下降了 15% 到 20%，而第 2 组的准确率却很高。
 
-此信息属性是我的控制器中的一个数组。我的插件设计如下。
-[KernelFunction, Description(&quot;获取员工信息。&quot;)]
-    公共异步任务;获取会员信息(
-        [Description(&quot;员工的 id&quot;)] 字符串 id,
-        [描述（“用户查询”）] 字符串 userAsk
-    ）
-    {
-        尝试
-        {
-            使用 HttpResponseMessage 响应 =等待 client.GetAsync($&quot;http://baseurl/api/employee/{id}&quot;);
-            // 想根据提示添加查询参数
-            响应.EnsureSuccessStatusCode();
-            内容 = 等待响应.Content.ReadAsStringAsync();
-            返回内容；
-        }
-        捕获（异常 e）
-        {
-           
-        }
+问：
 
-    }
 
-我将给出这样的提示。
+是因为，我们在再训练期间提供了不平衡的数据作为输入吗？即，在重新训练期间，第 1 组标签的数据较少，第 2 组标签的数据较多。
 
-给我获取上述提示的12345NO问题的员工信息
-获取 12345 的员工信息和地址
-向我提供员工 12345 的地址
-获取员工12345的通讯信息对于以上3个提示，我想添加查询参数地址
-获取员工的完整信息对于此提示，我希望添加所有 hte 查询参数。
 
-我想知道的是如何根据提示调用api...如何根据提示确定参数...请指点一下有没有链接或者文档。
-谢谢...]]></description>
-      <guid>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_1</guid>
-      <pubDate>Thu, 02 May 2024 03:08:47 GMT</pubDate>
+我们是否可以存储/保留第一个训练的开放式 AI Gpt 模型的权重，并且可以仅对第 2 组数据进行重新训练，而不是传递第 1 组和第 2 组数据进行重新训练，而不是采用这种混合方法？
+
+
+因为初始组的再训练中准确性下降。
+我们需要保持准确性。在我们的例子中，这种再训练将是迭代的。]]></description>
+      <guid>https://community.openai.com/t/retraining-of-custom-trained-gpt-3-5-turbo-model/661447#post_13</guid>
+      <pubDate>Thu, 02 May 2024 05:52:48 GMT</pubDate>
     </item>
     <item>
-      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
-      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_2</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_2</guid>
-      <pubDate>Thu, 02 May 2024 03:05:10 GMT</pubDate>
+      <title>使用 Assistants v2 API / gpt-4-turbo 使幻觉急剧增加</title>
+      <link>https://community.openai.com/t/dramatic-rise-in-hallucinations-with-assistants-v2-api-gpt-4-turbo/732256#post_4</link>
+      <description><![CDATA[在 V1 模型中，我也经历了从上周到本周 5 月 1 日的行为变化。相同的程序，相同的预设提示，相同的内容。此前，系统会返回一个响应，其中包含与分析师进行的企业财报电话问答的简明摘要。现在，系统首先声明“作为人工智能，我没有接听电话或访问实时数据的能力。不过，我可以指导您如何根据您概述的要求分析财报电话会议。以下是构建分析的方法：”，然后它为我提供了分析调用的步骤列表，这基本上是 JSON 消息提示的反省，但是，它后面是实际的问答摘要。]]></description>
+      <guid>https://community.openai.com/t/dramatic-rise-in-hallucinations-with-assistants-v2-api-gpt-4-turbo/732256#post_4</guid>
+      <pubDate>Thu, 02 May 2024 05:17:02 GMT</pubDate>
     </item>
     <item>
-      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
-      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_1</link>
-      <description><![CDATA[我是 plus 用户，无法使用任何 gpt4 功能，但我可以在另一台 Mac 上正常使用 chatgpt4，这是为什么？]]></description>
-      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_1</guid>
-      <pubDate>Thu, 02 May 2024 03:03:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>没有办法获得简单的下一个标记预测？</title>
-      <link>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_2</link>
-      <description><![CDATA[欢迎来到社区！
-您是否正在寻找补全/指导模型？这些是执行您所要求的 ]]></description>
-      <guid>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_2</guid>
-      <pubDate>Thu, 02 May 2024 03:03:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我上周末创建的微调工作在哪里？</title>
-      <link>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_2</link>
-      <description><![CDATA[平台网站存在问题，您可能需要一次又一次重新加载，直到不再出现订阅错误。 Shift+重新加载，或 CTRL+重新加载。注意是否有错误或没有错误。
-OpenAI 在一些新网站上自己停机了。
-此页面距离主页一键点击，有很多按钮可供按下。
-https://openai.com/api
-有用的书签，可直接转到 Playground 聊天和 API 帐户。
-https://platform.openai.com/playground/聊天]]></description>
-      <guid>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_2</guid>
-      <pubDate>Thu, 02 May 2024 03:02:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>启用流式传输的代码解释器过早结束运行</title>
-      <link>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_4</link>
-      <description><![CDATA[响应在 API 上应该是相同的，只是在响应对象 data: 的不同部分，流中的注释链接和文件 ID 必须由您的代码处理（并且您必须使其足够强大，才能抓住生成的任何 assistants_output）。
-我启动一个预先创建的 Python 编程伙伴并粘贴 Python 以供使用。一些指令告诉 AI 我想要什么以及它不能做什么。
-
-下载链接位于 Playground 中的临时 blob 存储或您的 API 文件中商店。
-
-由于您无法修复 Assistants 中的代码解释器规范或模型调整（就像经验丰富的解决方案架构师一样），如果你不知道如何使用聊天完成功能为自己创建一个，那么你必须仅通过指令就能让它理解——一个知情的用户或明确的助手指令。]]></description>
-      <guid>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_4</guid>
-      <pubDate>Thu, 02 May 2024 02:54:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我上周末创建的微调工作在哪里？</title>
-      <link>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_1</link>
-      <description><![CDATA[
-openai.com 界面已更改。
-登录功能消失了。
-无法登录 API
-Fine Tune 页面显示我没有。 （上周末创建了一堆）。他们去哪儿了？
-我创建了一个项目 API 密钥。 （这对我来说也是新的）
-我尚未创建项目。
-请帮忙！！！
-]]></description>
-      <guid>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_1</guid>
-      <pubDate>Thu, 02 May 2024 02:51:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>没有办法获得简单的下一个代币预测吗？</title>
-      <link>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_1</link>
-      <description><![CDATA[我可能很愚蠢，但是真的没有编程方式来获取给定输入后的下一个最可能的标记吗？
-例如，如果我输入“Once Upon a”，我希望它输出“时间”，而不是“对不起，你可以吗？完成提示了吗？”
-我知道 ChatGPT 可以通过自然语言“指示”来执行此操作，但目标是深入整个聊天机器人层以获得真正的结果。]]></description>
-      <guid>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_1</guid>
-      <pubDate>Thu, 02 May 2024 02:44:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>每句末尾的数字</title>
-      <link>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_2</link>
-      <description><![CDATA[你指的是“注释”吗？
-
-
-
-
-从助理响应中删除【35†来源】 API
-
-  &lt;块引用&gt;
-    以下是用于处理注释并将其添加为脚注的 OpenAI 代码示例。
-https://platform .openai.com/docs/assistants/how-it-works/message-annotations
-如果您希望它们消失，您可以使用代码中的正则表达式或模式匹配来消除日语括号内的响应消息内容。
-这是一些关于想法的快速代码。
-进口再
-
-message_text = (“这是一个示例文本【9†来源】，带有来源”
-“使用注释【10†来源】和一些其他内容的标签。”）
-
-# 使用资源...
-  
-]]></description>
-      <guid>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_2</guid>
-      <pubDate>Thu, 02 May 2024 02:36:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>启用流式传输的代码解释器过早结束运行</title>
-      <link>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_3</link>
-      <description><![CDATA[不使用流式传输时，代码解释器始终在最后提供答案，例如
-assistant_v22：上面的条形图显示了金属和金属行业公司的营业利润。采矿业。您可以使用下面提供的链接下载图表：
-
-下载条形图
-输出\Metals_Mining_Operating_Profit.png
-
-因此，流式处理存在差异，并且似乎处理在得出结果的最后一步之前结束。]]></description>
-      <guid>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_3</guid>
-      <pubDate>Thu, 02 May 2024 02:35:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>每句末尾的数字</title>
-      <link>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_1</link>
-      <description><![CDATA[你好！
-我正在 playgraund 中测试一个助手，它使用 fileseach，每次找到信息时，它都会在文本末尾添加一个数字，然后该数字在我的聊天机器人中可见。怎样才能让这个号码消失呢？我已经尝试过一切。
-捕获附件。
-&lt;img alt=&quot;2&quot; height=&quot;204&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/b/1/8/b18f71e35d1c60dbbb89b161cc436b501798f1b0.png&quot; width=&quot;373 ” /&gt;
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_1</guid>
-      <pubDate>Thu, 02 May 2024 02:27:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALLE3 提示提示和技巧线程</title>
-      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_52</link>
-      <description><![CDATA[
-
-
-再次阅读：
-&lt;块引用&gt;
-如果你能成功创建在上传照片中使用人物的图像
-
-
-是否可以指示 ChatGPT 自动遮盖提供给它的图像的现有部分，然后让 DALL-E 3 用新一代填充透明区域？
-只有在人工智能疯狂的狂热梦想中......
-
-和“不再有北极熊。里面只有一位亚裔女性在热带泳池边的躺椅上晒日光浴。”使用 ChatGPT 的新工具绘制替换区域后。
-
-显然，将上传的自然人照片放在不同的环境中是有问题的 - 例如唐纳德·特朗普为非洲孤儿修井之类的。
-
-DALL-E 描绘的危险情况示例 （点击查看更多详细信息） ]]></description>
-      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_52</guid>
-      <pubDate>Thu, 02 May 2024 02:20:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>新的 API 功能：通过 `tool_choice: "required"` 强制函数调用</title>
-      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_9</link>
-      <description><![CDATA[也许可以在文档中添加对 AI 施加了多少步骤。
-除了工具之外无法输出任何内容的助手将没有响应用户的机制，并且如果不放弃线程，则无法在助手中使用“final_answer”函数之类的“输出”。
-同样，如果只是最初的转变，那么需要“搜索”然后“加载”等迭代的工具组合在后续操作上就不会有相同的要求，从而违背了预期。]]></description>
-      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_9</guid>
-      <pubDate>Thu, 02 May 2024 01:59:18 GMT</pubDate>
+      <title>我的经验：ChatGPT 数学真的很烂</title>
+      <link>https://community.openai.com/t/my-experience-chatgpt-really-sucks-at-math/733652#post_1</link>
+      <description><![CDATA[我不在乎基准测试怎么说。我从第一天起就用数学问题测试 chatGPT，我可以自信地说它（并且一直）在数学方面非常糟糕。
+自从 ChatGPT 首次发布以来，我每天都会问几十个数学问题，即使是最简单的高级数学问题，我也不记得有一个正确答案。更糟糕的是，无论提示多么详细，它都不遵循说明。因此不可能通过这些步骤来获得正确的答案。
+我提出的问题是研究生水平的问题，真正测试模型的数学智能。它们不是积分解之类的问题，与训练中（可能）使用的问题相比，唯一的区别是变量的命名。它们是特定的最优控制问题或简短的数学推导等问题。
+我知道这些模型（目前）的设计初衷并不是擅长任何事实，但令人难以置信的是，chatGPT 在所有数学基准测试中似乎都名列前茅，但在实践中却表现得很糟糕。自从 Gemini 1.5 向公众发布以来，我一直在对它进行同样的测试：它在 99% 的情况下击败了 chatGPT；如果没有，可以直接告诉它哪里出了错误以及如何修复。
+你有类似的经历吗？如果没有，您能否分享一下 ChatGPT 正确回答的问题类型？]]></description>
+      <guid>https://community.openai.com/t/my-experience-chatgpt-really-sucks-at-math/733652#post_1</guid>
+      <pubDate>Thu, 02 May 2024 05:11:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
