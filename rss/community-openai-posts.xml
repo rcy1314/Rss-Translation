@@ -4,220 +4,249 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 02 May 2024 01:12:40 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2024 03:19:41 GMT</lastBuildDate>
     <item>
-      <title>人工智能的可能性：Sam Altman 访谈 (OpenAI)</title>
-      <link>https://community.openai.com/t/the-possibilities-of-ai-interview-with-sam-altman-openai/733526#post_2</link>
-      <description><![CDATA[可能性是无限的。 &lt;img alt=&quot;:smiling_face:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/smiling_face.png?v=12&quot; title=&quot;:smiling_face: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/the-possibilities-of-ai-interview-with-sam-altman-openai/733526#post_2</guid>
-      <pubDate>Thu, 02 May 2024 01:10:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
-      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_32</link>
-      <description><![CDATA[
+      <title>根据提示在插件API中添加参数</title>
+      <link>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_2</link>
+      <description><![CDATA[您将为 AI 可能认为调用有用的每个外部工具提供附加规范。
 
 
- qrdl：
-&lt;块引用&gt;
-如果他们所说的搜索意味着法学硕士+非常强大且引人注目的策划知识库，那听起来非常令人兴奋。在那里可以做一些令人难以置信的事情。
 
 
-我打赌就是这个。他们将所有信息存储到 Bing 上，然后将其用作超强大的 RAG 数据库。]]></description>
-      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_32</guid>
-      <pubDate>Thu, 02 May 2024 01:10:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Assistant API 构建聊天机器人的最佳工具 - OpenAssistantGPT</title>
-      <link>https://community.openai.com/t/best-tool-to-build-chatbot-using-assistant-api-openassistantgpt/610757#post_14</link>
-      <description><![CDATA[@pnaybour，您现在可以从 OpenAI 导入助手]]></description>
-      <guid>https://community.openai.com/t/best-tool-to-build-chatbot-using-assistant-api-openassistantgpt/610757#post_14</guid>
-      <pubDate>Thu, 02 May 2024 01:07:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>不会说话的助理？</title>
-      <link>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_6</link>
-      <description><![CDATA[我认为我可能会感到困惑的另一件事是助手的“说明”与“描述”]]></description>
-      <guid>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_6</guid>
-      <pubDate>Thu, 02 May 2024 00:54:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>不会说话的助理？</title>
-      <link>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_5</link>
-      <description><![CDATA[谢谢你，我会尝试一下。 &lt;img alt=&quot;:祈祷:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/pray.png?v=12&quot; title=&quot;:祈祷: “宽度=“20”/&gt;]]></description>
-      <guid>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_5</guid>
-      <pubDate>Thu, 02 May 2024 00:52:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>不会说话的助理？</title>
-      <link>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_4</link>
-      <description><![CDATA[在工具规范描述中，您可以更详细地告诉 AI 该工具的用途以及何时需要它。清晰将导致调用。
-&lt;块引用&gt;
-code_tool_description = “””
-该工具提供对专门编写 C++ 代码的 AI 的访问。
-尽管有“编程助手”这个名字，但您无法编写 C++ 代码。
-写代码一定要请这个高手帮手。
-指定的任务将通过完整的编码解决方案来完成。
-写下对所需结果的详细解释。
-“”“
-函数= [
+函数调用参数类型 提示
+
+  &lt;块引用&gt;
+    但是，一般来说，必须使用 JSON 数据类型编写自己的函数。
+细绳
+数字
+布尔值
+空/空
+目的
+大批
+
+让我们看一下所有这些的演示，
+
+如何将它们指定为“函数”API 参数；
+端点如何将规范重写为人工智能语言；
+AI 如何调用指定的函数。
+
+发送到API的函数规范
+函数=[
 {
-“名称”：“写入代码”，
-“描述”：code_tool_description，
-“参数”：{
-“类型”：“对象”，
-“属性”：{
-“coding_task”: {“type”: “string”, “真正编码专家的说明和数据”},
-},
-“必需”：[“编码任务”]
-}
-}
-]
-]]></description>
-      <guid>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_4</guid>
-      <pubDate>Thu, 02 May 2024 00:48:27 GMT</pubDate>
+    &quot;name&quot;: &quot;数据演示&quot;,
+    &quot;description&quot;: &quot;这是主要功能描述&quot;,
+    “……
+  
+
+聊天完成支持的“功能”规范格式与聊天完成支持的“工具”规范格式略有不同，而且如果您改用“工具”，也是助理将接受的唯一规范类型。
+您只需将规范的属性与函数代码所需的输入类型相匹配，并指示 AI 以特殊的简化 json 架构格式为其编写输入。
+然后观察对这些调用的响应，或者在助手中轮询状态以查看是否需要完成某个工具，而不是对用户准备就绪的响应。
+文档的目的地是论坛侧边栏上的“文档”链接，然后是关于函数调用&lt;的部分/a&gt;.]]></description>
+      <guid>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_2</guid>
+      <pubDate>Thu, 02 May 2024 03:18:15 GMT</pubDate>
     </item>
     <item>
-      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
-      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_31</link>
-      <description><![CDATA[我现在不记得具体是什么，但我记得最近读过一些关于 OpenAI 想要在后端做的新东西 - 即某种推理和记忆。
-我认为他们提供的搜索服务与 GPT2-chatbot 是分开的？但也许它们是相关的？
-亚马逊正在支持其他大型人工智能搜索引擎吗？
-我认为出于推理，他们要么有更多的层，不同的设置，要么可能通过第一个模型运行“计划/推理”，然后运行第二个模型来给出输出。我们现在可以通过两步来做到这一点，但是对他们来说控制权并在后端做这些事情既有好处也有坏处。]]></description>
-      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_31</guid>
-      <pubDate>Thu, 02 May 2024 00:42:59 GMT</pubDate>
+      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
+      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_3</link>
+      <description><![CDATA[如果只有我一个人，有什么解决方案可以修复这个错误吗？]]></description>
+      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_3</guid>
+      <pubDate>Thu, 02 May 2024 03:11:38 GMT</pubDate>
     </item>
     <item>
-      <title>不会说话的助理？</title>
-      <link>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_3</link>
-      <description><![CDATA[
+      <title>根据提示在插件API中添加参数</title>
+      <link>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_1</link>
+      <description><![CDATA[我正在创建一个调用我的自定义 api 的插件。这个自定义 api 获取很少有可选的查询参数。
+例如：我的 api 可以通过以下方式构建。
 
+http://baseurl/api/employee/{id} – 单独获取 emp 信息
+http://baseurl/api/employee/{id}?info=address – 获取带有地址的员工信息
+http://baseurl/api/employee/{id}?info=address&amp;info= payment – 获取员工信息以及地址和付款信息
 
-_j：
-&lt;块引用&gt;
-目的是让人工智能成为一个无法聊天的输入/输出处理器。
-你不需要
+此信息属性是我的控制器中的一个数组。我的插件设计如下。
+[KernelFunction, Description(&quot;获取员工信息。&quot;)]
+    公共异步任务;获取会员信息(
+        [Description(&quot;员工的 id&quot;)] 字符串 id,
+        [描述（“用户查询”）] 字符串 userAsk
+    ）
+    {
+        尝试
+        {
+            使用 HttpResponseMessage 响应 =等待 client.GetAsync($&quot;http://baseurl/api/employee/{id}&quot;);
+            // 想根据提示添加查询参数
+            响应.EnsureSuccessStatusCode();
+            内容 = 等待响应.Content.ReadAsStringAsync();
+            返回内容；
+        }
+        捕获（异常 e）
+        {
+           
+        }
 
+    }
 
-我想我应该澄清一下。这是一个编程助手。它有一个“write_code()”函数。然而，它选择按照自己的意愿调用它，通常它会发布一条消息，例如“是的，我当然可以编写该代码，这里是 bla bla bla，顺便说一句，这不是今天天气好吗？” （好吧，我已经完成了最后一部分，但是你明白我在说什么 )]]></description>
-      <guid>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_3</guid>
-      <pubDate>Thu, 02 May 2024 00:40:34 GMT</pubDate>
+我将给出这样的提示。
+
+给我获取上述提示的12345NO问题的员工信息
+获取 12345 的员工信息和地址
+向我提供员工 12345 的地址
+获取员工12345的通讯信息对于以上3个提示，我想添加查询参数地址
+获取员工的完整信息对于此提示，我希望添加所有 hte 查询参数。
+
+我想知道的是如何根据提示调用api...如何根据提示确定参数...请指点一下有没有链接或者文档。
+谢谢...]]></description>
+      <guid>https://community.openai.com/t/adding-parameters-to-api-in-plugins-based-on-prompts/733593#post_1</guid>
+      <pubDate>Thu, 02 May 2024 03:08:47 GMT</pubDate>
     </item>
     <item>
-      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
-      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_30</link>
-      <description><![CDATA[我们试图定义的一件事是“搜索”的含义。
-这是否意味着法学硕士+精选知识库（RAG）
-或者法学硕士 + Bing？
-或者 OpenAI 是否正在为后端创建某种新的搜索引擎？
-我在 LLM 进行搜索时的经历非常平淡。我宁愿自己做。我发现了一些严重的问题：
-
-法学硕士如何处理“一双新鞋特价”或任何购物查询之类的查询
-当人们在网站中嵌入黑客内容时，法学硕士将如何处理安全问题？
-法学硕士只是觉得自己不够聪明，无法像我一样浏览内容并缩小范围，找到好的关键字，找到我真正想要的内容
-缓慢、不稳定（依赖于外部网站的恢复能力）
-让内容创作者和网站所有者感到不安
-
-如果他们所说的搜索意味着法学硕士+非常强大且引人注目的策划知识库，那听起来非常令人兴奋。在那里可以做一些令人难以置信的事情。]]></description>
-      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_30</guid>
-      <pubDate>Thu, 02 May 2024 00:39:15 GMT</pubDate>
+      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
+      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_2</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_2</guid>
+      <pubDate>Thu, 02 May 2024 03:05:10 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能的可能性：Sam Altman 访谈 (OpenAI)</title>
-      <link>https://community.openai.com/t/the-possibilities-of-ai-interview-with-sam-altman-openai/733526#post_1</link>
-      <description><![CDATA[&lt;块引用&gt;
-Sam Altman 是 OpenAI 的联合创始人兼首席执行官，OpenAI 是 ChatGPT 和 DALL-E 背后的人工智能研究和部署公司。 Altman 于 2014 年至 2019 年担任早期创业加速器 Y Combinator 的总裁。2015 年，他与他人共同创立了 OpenAI，这是一个非营利性研究实验室，其使命是构建造福全人类的通用人工智能。
-在与斯坦福大学兼职讲师 Ravi Belani 的对话中，Altman 为有抱负的人工智能企业家提供了建议，并分享了他对人工智能工具和通用人工智能的机遇和风险的见解。
-
-人工智能的可能性 [整个演讲] - Sam Altman (OpenAI)]]></description>
-      <guid>https://community.openai.com/t/the-possibilities-of-ai-interview-with-sam-altman-openai/733526#post_1</guid>
-      <pubDate>Thu, 02 May 2024 00:33:13 GMT</pubDate>
+      <title>当我激活 gpt4 时，我得到的响应来自 gpt3.5</title>
+      <link>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_1</link>
+      <description><![CDATA[我是 plus 用户，无法使用任何 gpt4 功能，但我可以在另一台 Mac 上正常使用 chatgpt4，这是为什么？]]></description>
+      <guid>https://community.openai.com/t/when-i-activate-gpt4-the-response-i-get-is-from-gpt3-5/733591#post_1</guid>
+      <pubDate>Thu, 02 May 2024 03:03:25 GMT</pubDate>
     </item>
     <item>
-      <title>不说话的助手？</title>
-      <link>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_2</link>
-      <description><![CDATA[您似乎希望 AI 更有可能调用函数。
-也许严格意义上来说，并不是让人工智能成为一个无法聊天的输入/输出处理器。
-您不需要“助手”来处理数据和使用自己的工具。
-后者可以通过指导提示来强调，赋予人工智能其角色和工作要做。
-示例。
-]]></description>
-      <guid>https://community.openai.com/t/assistant-that-does-not-talk/733455#post_2</guid>
-      <pubDate>Thu, 02 May 2024 00:31:00 GMT</pubDate>
+      <title>没有办法获得简单的下一个标记预测？</title>
+      <link>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_2</link>
+      <description><![CDATA[欢迎来到社区！
+您是否正在寻找补全/指导模型？这些是执行您所要求的 ]]></description>
+      <guid>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_2</guid>
+      <pubDate>Thu, 02 May 2024 03:03:05 GMT</pubDate>
     </item>
     <item>
-      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
-      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_29</link>
-      <description><![CDATA[我投票其他。也许通过 RAG 或其他方法在后端进行更多“推理”和“记忆”？
-是的，OAI 的命名约定有点奇怪哈哈......]]></description>
-      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=2#post_29</guid>
-      <pubDate>Thu, 02 May 2024 00:29:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>代表用户的身份验证选项</title>
-      <link>https://community.openai.com/t/authentication-options-on-behalf-of-a-user/74571?page=4#post_69</link>
-      <description><![CDATA[那么这是否意味着如果您将输出用于社交媒体，您只需表明使用了人工智能？
-如果我使用 chatgpt 为登陆页面编写电子邮件或一些文本，我是否不必表明使用了人工智能，因为它不是“社交媒体”？]]></description>
-      <guid>https://community.openai.com/t/authentication-options-on-behalf-of-a-user/74571?page=4#post_69</guid>
-      <pubDate>Thu, 02 May 2024 00:28:15 GMT</pubDate>
+      <title>我上周末创建的微调工作在哪里？</title>
+      <link>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_2</link>
+      <description><![CDATA[平台网站存在问题，您可能需要一次又一次重新加载，直到不再出现订阅错误。 Shift+重新加载，或 CTRL+重新加载。注意是否有错误或没有错误。
+OpenAI 在一些新网站上自己停机了。
+此页面距离主页一键点击，有很多按钮可供按下。
+https://openai.com/api
+有用的书签，可直接转到 Playground 聊天和 API 帐户。
+https://platform.openai.com/playground/聊天]]></description>
+      <guid>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_2</guid>
+      <pubDate>Thu, 02 May 2024 03:02:24 GMT</pubDate>
     </item>
     <item>
       <title>启用流式传输的代码解释器过早结束运行</title>
-      <link>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_1</link>
-      <description><![CDATA[重现步骤
+      <link>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_4</link>
+      <description><![CDATA[响应在 API 上应该是相同的，只是在响应对象 data: 的不同部分，流中的注释链接和文件 ID 必须由您的代码处理（并且您必须使其足够强大，才能抓住生成的任何 assistants_output）。
+我启动一个预先创建的 Python 编程伙伴并粘贴 Python 以供使用。一些指令告诉 AI 我想要什么以及它不能做什么。
 
-创建助手（我使用的是 gpt-4-turbo）
-将 csv 文件提供给代码解释器，其中包含可用于创建图表的数据
-启用代码解释器
-启用流式传输
-请求助手创建 csv 文件中数据的条形图
+下载链接位于 Playground 中的临时 blob 存储或您的 API 文件中商店。
 
-结果
-代码解释器开始生成类似下面的输出的图表，但过早结束运行，没有提供条形图
-用户：请提供金属和金属的条形图。关于采矿部门的营业利润并提供链接给我吗？
-
-Assistant_v22：该数据集包含不同行业下列出的各个公司的财务数据。这些字段包括公司名称、部门、收入、运营费用、运营利润等。
-
-现在，我将过滤“金属和金属”中公司的数据集。采矿业并创建一个显示其营业利润的条形图。
-
-代码解释器最终on_tool_call_done的输出如下：
-2024-05-01 16:59:36,547 - 信息 - on_tool_call_done - on_tool_call_done 被调用，tool_call: CodeInterpreterToolCall(id=&#39;call_OBEo01SGUahHdVR8kysbW55F&#39;, code_interpreter=CodeInterpreter(input=“import matplotlib.pyplot as plt\n\n# Filter &#39;METALS &amp; MINING&#39; 部门的数据\nmetals_mining_data = data[data[&#39;sector&#39;] == &#39;METALS &amp; MINING&#39;]\n\n# 删除逗号后将 &#39;operating_profit&#39; 转换为浮点数\nmetals_mining_data[&#39;operating_profit&#39;] = Metals_mining_data[&#39;operating_profit&#39;].replace(&#39;,&#39;, &#39;&#39;, regex=True).astype(float)\n\n# 创建条形图\nplt.figure(figsize=(10, 6))\nplt .bar(metals_mining_data[&#39;name&#39;], Metals_mining_data[&#39;operating_profit&#39;], color=&#39;teal&#39;)\nplt.xlabel(&#39;公司名称&#39;)\nplt.ylabel(&#39;营业利润（百万）&#39;)\nplt. title(&#39;金属和采矿业公司营业利润&#39;)\nplt.xticks(rotation=45, ha=&#39;right&#39;)\nplt.tight_layout()\nplt.show()”,outputs=[CodeInterpreterOutputLogs(logs) =“/tmp/ipykernel_12/2141688280.py:7:SettingWithCopyWarning:\n尝试在 DataFrame 的切片副本上设置值。\n尝试使用 .loc[row_indexer,col_indexer] = value\n\n参见文档中的警告： 索引和选择数据 — pandas 2.2.2 文档 Metals_mining_data[&#39;operating_profit&#39;] = Metals_mining_data[&#39;operating_profit&#39;].replace(&#39;,&#39;, &#39;&#39;, regex =True).astype(float)\n”, type=&#39;logs&#39;, index=0)]), type=&#39;code_interpreter&#39;, index=0)
-2024-05-01 16:59:36,802 - 信息 - on_end - on_end 被调用，run_id：run_2sO3wgChvX8IAMIQ4cjwOceD，is_submit_tool_call：False
-其他信息
-thread_ukAj3CMwb4TCEJS99JzK5q7I
-重现率：100%
-我想知道，代码解释器是否需要提交工具调用输出？
-通过查看 API 结构，我发现提交工具输出仅适用于函数。]]></description>
-      <guid>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_1</guid>
-      <pubDate>Thu, 02 May 2024 00:27:53 GMT</pubDate>
+由于您无法修复 Assistants 中的代码解释器规范或模型调整（就像经验丰富的解决方案架构师一样），如果你不知道如何使用聊天完成功能为自己创建一个，那么你必须仅通过指令就能让它理解——一个知情的用户或明确的助手指令。]]></description>
+      <guid>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_4</guid>
+      <pubDate>Thu, 02 May 2024 02:54:35 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 和微软被 8 家出版商起诉</title>
-      <link>https://community.openai.com/t/openai-and-microsoft-sued-by-8-publishers/733493#post_3</link>
-      <description><![CDATA[&lt;块引用&gt;
-八家美国报纸出版商对微软和 OpenAI 提起诉讼，声称这些公司未经授权使用他们的文章来训练 ChatGPT 和微软 Copilot 等人工智能模型。包括《纽约每日新闻》和《芝加哥论坛报》等知名报纸在内的出版商辩称，这些人工智能产品在没有适当许可或补偿的情况下整合并输出了其受版权保护的内容。他们声称，这不仅剥夺了他们的潜在收入，而且无法引导用户访问他们的网站，从而影响了他们的广告和订阅模式。 OpenAI 对此做出回应，承认他们正在努力与世界各地的新闻机构合作，以解决问题并探索合作机会。微软选择不对此事发表评论。在这起诉讼之前，《纽约时报》今年早些时候对 OpenAI 提出了类似的法律挑战，反映出新闻机构和科技公司之间因在人工智能技术中使用受版权保护的内容而日益紧张。
+      <title>我上周末创建的微调工作在哪里？</title>
+      <link>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_1</link>
+      <description><![CDATA[
+openai.com 界面已更改。
+登录功能消失了。
+无法登录 API
+Fine Tune 页面显示我没有。 （上周末创建了一堆）。他们去哪儿了？
+我创建了一个项目 API 密钥。 （这对我来说也是新的）
+我尚未创建项目。
+请帮忙！！！
+]]></description>
+      <guid>https://community.openai.com/t/where-are-my-fine-tune-jobs-created-last-weekend/733585#post_1</guid>
+      <pubDate>Thu, 02 May 2024 02:51:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>没有办法获得简单的下一个代币预测吗？</title>
+      <link>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_1</link>
+      <description><![CDATA[我可能很愚蠢，但是真的没有编程方式来获取给定输入后的下一个最可能的标记吗？
+例如，如果我输入“Once Upon a”，我希望它输出“时间”，而不是“对不起，你可以吗？完成提示了吗？”
+我知道 ChatGPT 可以通过自然语言“指示”来执行此操作，但目标是深入整个聊天机器人层以获得真正的结果。]]></description>
+      <guid>https://community.openai.com/t/no-way-to-get-simple-next-token-prediction/733581#post_1</guid>
+      <pubDate>Thu, 02 May 2024 02:44:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>每句末尾的数字</title>
+      <link>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_2</link>
+      <description><![CDATA[你指的是“注释”吗？
 
 
-  &lt;标题类=“来源”&gt;
-      
-CNBC – 24 月 30 日
 
 
-  &lt;文章类=“onebox-body”&gt;
-    
-八家报纸出版商起诉微软和 OpenAI 侵犯版权
-八家报纸出版商声称，微软和 OpenAI 在未经付款或未经许可的情况下使用了他们的数百万篇文章来训练 ChatGPT 等人工智能模型。
+从助理响应中删除【35†来源】 API
+
+  &lt;块引用&gt;
+    以下是用于处理注释并将其添加为脚注的 OpenAI 代码示例。
+https://platform .openai.com/docs/assistants/how-it-works/message-annotations
+如果您希望它们消失，您可以使用代码中的正则表达式或模式匹配来消除日语括号内的响应消息内容。
+这是一些关于想法的快速代码。
+进口再
+
+message_text = (“这是一个示例文本【9†来源】，带有来源”
+“使用注释【10†来源】和一些其他内容的标签。”）
+
+# 使用资源...
+  
+]]></description>
+      <guid>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_2</guid>
+      <pubDate>Thu, 02 May 2024 02:36:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>启用流式传输的代码解释器过早结束运行</title>
+      <link>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_3</link>
+      <description><![CDATA[不使用流式传输时，代码解释器始终在最后提供答案，例如
+assistant_v22：上面的条形图显示了金属和金属行业公司的营业利润。采矿业。您可以使用下面提供的链接下载图表：
+
+下载条形图
+输出\Metals_Mining_Operating_Profit.png
+
+因此，流式处理存在差异，并且似乎处理在得出结果的最后一步之前结束。]]></description>
+      <guid>https://community.openai.com/t/code-interpreter-with-streaming-enabled-ends-the-runs-too-early/733523#post_3</guid>
+      <pubDate>Thu, 02 May 2024 02:35:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>每句末尾的数字</title>
+      <link>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_1</link>
+      <description><![CDATA[你好！
+我正在 playgraund 中测试一个助手，它使用 fileseach，每次找到信息时，它都会在文本末尾添加一个数字，然后该数字在我的聊天机器人中可见。怎样才能让这个号码消失呢？我已经尝试过一切。
+捕获附件。
+&lt;img alt=&quot;2&quot; height=&quot;204&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/b/1/8/b18f71e35d1c60dbbb89b161cc436b501798f1b0.png&quot; width=&quot;373 ” /&gt;
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/number-at-the-end-of-each-sentence/733573#post_1</guid>
+      <pubDate>Thu, 02 May 2024 02:27:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 提示提示和技巧线程</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_52</link>
+      <description><![CDATA[
 
 
+再次阅读：
+&lt;块引用&gt;
+如果你能成功创建在上传照片中使用人物的图像
 
 
+是否可以指示 ChatGPT 自动遮盖提供给它的图像的现有部分，然后让 DALL-E 3 用新一代填充透明区域？
+只有在人工智能疯狂的狂热梦想中......
 
-对现代“记者”感到羞耻，他们的主要目标是金钱、点击诱饵标题等。新闻业对于自由如此重要，这就是为什么自水门事件以来它一直在急剧下降的原因。
-许多“记者”只是从其他来源反驳或使用“未命名来源”等。
-对我来说更有趣的也许是为什么社交媒体公司可以进行审查，但仍然坚称自己是服务提供商而不是媒体网站。
-我相信《体育画报》和其他媒体已经被发现运行未归属的人工智能内容，不是吗？]]></description>
-      <guid>https://community.openai.com/t/openai-and-microsoft-sued-by-8-publishers/733493#post_3</guid>
-      <pubDate>Thu, 02 May 2024 00:24:44 GMT</pubDate>
+和“不再有北极熊。里面只有一位亚裔女性在热带泳池边的躺椅上晒日光浴。”使用 ChatGPT 的新工具绘制替换区域后。
+
+显然，将上传的自然人照片放在不同的环境中是有问题的 - 例如唐纳德·特朗普为非洲孤儿修井之类的。
+
+DALL-E 描绘的危险情况示例 （点击查看更多详细信息） ]]></description>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=3#post_52</guid>
+      <pubDate>Thu, 02 May 2024 02:20:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的 API 功能：通过 `tool_choice: "required"` 强制函数调用</title>
+      <link>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_9</link>
+      <description><![CDATA[也许可以在文档中添加对 AI 施加了多少步骤。
+除了工具之外无法输出任何内容的助手将没有响应用户的机制，并且如果不放弃线程，则无法在助手中使用“final_answer”函数之类的“输出”。
+同样，如果只是最初的转变，那么需要“搜索”然后“加载”等迭代的工具组合在后续操作上就不会有相同的要求，从而违背了预期。]]></description>
+      <guid>https://community.openai.com/t/new-api-feature-forcing-function-calling-via-tool-choice-required/731488#post_9</guid>
+      <pubDate>Thu, 02 May 2024 01:59:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
