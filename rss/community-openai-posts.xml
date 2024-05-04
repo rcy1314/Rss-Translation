@@ -4,333 +4,144 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 04 May 2024 03:21:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 May 2024 06:22:49 GMT</lastBuildDate>
     <item>
-      <title>尝试运行提示时出现此错误</title>
-      <link>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_3</link>
-      <description><![CDATA[
-
-
- DavidOS366：
-&lt;块引用&gt;
-response = openai.Completion.create(
-            model=&quot;gpt-4&quot;, # 或其他 GPT-4 模型名称（如果已更新）
-            提示=“嗨，你好吗？”，
-            max_tokens=50 # 根据您期望的完成程度进行调整
-        ）
-
-
-
-我也有一个人工智能来回答这类问题......
-从 openai 导入 OpenAI
-
-def get_chat_completion():
-    ”“”
-    使用 OpenAI API 的最新方法获取聊天完成信息。
-
-    返回：
-        无：打印聊天完成响应。
-    ”“”
-    # 初始化OpenAI客户端
-    客户端 = OpenAI()
-
-    # 创建包含特定消息的聊天完成
-    完成 = client.chat.completions.create(
-        model=&quot;gpt-4&quot;, # 指定型号，使用可用的最新版本
-        消息=[
-            {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个得力助手。&quot;},
-            {“role”：“user”，“content”：“嗨，你好吗？！”}
-        ],
-        最大令牌数=50,
-    ）
-
-    # 访问响应中的第一条消息并打印它
-    print(completion.choices[0].message.content)
-
-# 用法示例
-get_chat_completion()
-]]></description>
-      <guid>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_3</guid>
-      <pubDate>Sat, 04 May 2024 03:18:15 GMT</pubDate>
+      <title>矢量存储适合我的用例吗？</title>
+      <link>https://community.openai.com/t/is-vector-store-right-for-my-use-case/735865#post_2</link>
+      <description><![CDATA[嗨@the.brainiac，
+在进入 RAG 和向量存储之前，我建议您尝试这种简单易行的方法 - 按语义相似性进行路由。基本上，您可以首先使用提示来分类每个用户查询与哪些主题相关，并将其路由到包含该主题的变量（系统提示）。 10Mb 的大小并没有说明太多 - 取决于它是 .txt 还是 .PDF，它可以有不同数量的单词（和标记）。如果您的主题不超过 100,000 个令牌 - 只需使用这个简单的方法和 GPT-4 Turbo 128K 模型，将您的教科书直接放入系统提示符中。除非您每天有数千个查询，否则不会产生任何重大的成本影响。]]></description>
+      <guid>https://community.openai.com/t/is-vector-store-right-for-my-use-case/735865#post_2</guid>
+      <pubDate>Sat, 04 May 2024 06:09:10 GMT</pubDate>
     </item>
     <item>
-      <title>尝试运行提示时出现此错误</title>
-      <link>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_2</link>
-      <description><![CDATA[嗨@DavidOS366
-模型gpt-4只能在聊天完成端点&lt; /a&gt;.
-此外，文本完成端点已被弃用。]]></description>
-      <guid>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_2</guid>
-      <pubDate>Sat, 04 May 2024 03:17:27 GMT</pubDate>
+      <title>一个疯狂的想法还是可行的：可节省 30% 转录成本的技术</title>
+      <link>https://community.openai.com/t/a-crazy-idea-or-its-feasible-technique-that-saves-30-on-transcribe-costs/721722?page=2#post_29</link>
+      <description><![CDATA[不，事实上 - 它目前与音频文件的长度相关，而不是与服务器时间相关。你是对的，如果我们都开始这样做，那么它可能会影响定价。但有一件事——首先，它永远不会发生，其次——即使它会在两三年内发生，那些最先开始使用它的人也会拥有巨大的“不公平”优势。你不同意吗？]]></description>
+      <guid>https://community.openai.com/t/a-crazy-idea-or-its-feasible-technique-that-saves-30-on-transcribe-costs/721722?page=2#post_29</guid>
+      <pubDate>Sat, 04 May 2024 06:02:40 GMT</pubDate>
     </item>
     <item>
-      <title>助理 API 不参与对话</title>
-      <link>https://community.openai.com/t/assistant-api-not-engaging-conversation/734529#post_7</link>
-      <description><![CDATA[不，先生仍然无法工作...当我告诉助理不要要求用户确认或询问其他问题，简而言之，进行对话...那么程序工作正常...但如果我告诉助理在继续之前要求用户确认...我我没有第二次输入的选项：
-def process_openai_assistant(user_input):
-logging.debug(“使用 OpenAI Assistant 进行处理”)
-# 设置指令和工具
-信息=“”“
-您从用户收到的输入必须分为 3 个不同的信息标准：
-1. 主题 - 要求的主题
-2. 实体 - 需求的实体。如果不存在，则将其称为 General
-3. 查询类型 - 所询问的查询类型是什么。将其分类为“一般”或“全面分析”或“比较”
-不要要求用户确认，而是使用函数指令并根据编程要求传递收集的参数，并在前端创建输出，表示您的请求将很快被处理。
-”“”
-
-助手 = client.beta.assistants.create(
-    说明=信息，
-    型号=“gpt-4-turbo”，
-    工具=[{
-        “类型”：“功能”，
-        “功能”： {
-            “名称”：“获取当前查询内容”，
-            &quot;description&quot;: &quot;全局存储用户输入的内容、查询类型和主题&quot;,
-            “参数”： {
-                “类型”：“对象”，
-                “特性”： {
-                    &quot;query_content&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;用户查询的内容&quot;},
-                    &quot;query_top&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;与查询相关的主题&quot;},
-                    &quot;analysis_type&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;询问的查询类型&quot;}
-                },
-                “必需”：[“query_content”，“query_top”，“analysis_type”]
-            }
-        }
-    }]
-）
-
-线程 = client.beta.threads.create()
-消息 = client.beta.threads.messages.create(thread_id=thread.id, role=&quot;user&quot;, content=user_input)
-run = client.beta.threads.runs.create(thread_id=thread.id, Assistant_id=assistant.id)
-
-# 实现超时机制以避免无限循环
-timeout_limit = 120 # 超时限制（以秒为单位）（例如 2 分钟）
-开始时间 = 时间.time()
-
-而真实：
-    run_status = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
-    
-    如果 run_status.status == &#39;requires_action&#39;:
-        
-        required_actions = run_status.required_action.submit_tool_outputs.model_dump()
-        工具输出 = []
-
-        对于 required_actions[&quot;tool_calls&quot;] 中的操作：
-            func_name = 动作[&#39;函数&#39;][&#39;名称&#39;]
-            参数 = json.loads(action[&#39;function&#39;][&#39;arguments&#39;])
-
-            如果 func_name == &quot;get_current_query_content&quot;:
-                查询内容 = 参数[&#39;查询内容&#39;]
-                query_top = 参数[&#39;query_top&#39;]
-                分析类型 = 参数[&#39;分析类型&#39;]
-
-                # 使用所有必需的参数调用该函数
-                输出= get_current_query_content（query_content = query_content，query_top = query_top，analysis_type =analysis_type）
-                tool_outputs.append({
-                    “tool_call_id”：操作[&#39;id&#39;]，
-                    “输出”：输出
-                })
-
-        # 检查全局变量是否已更新
-        如果 query_content_global != &quot;&quot; 且 query_top_global != &quot;&quot; 且analysis_type_global !=&quot;&quot;：
-            logging.debug(&quot;全局变量已更新。&quot;)
-            休息
-
-    如果 time.time() - start_time &gt;超时限制：
-        logging.error(“未完成处理就达到超时。”)
-        休息
-
-    time.sleep(5) # 睡眠以限制循环并避免达到速率限制
-
-logging.debug(f&quot;最终全局变量：query_content_global={query_content_global}，query_top_global={query_top_global}，analysis_type_global={analysis_type_global}&quot;)
-
-我正在使用 Flask 渲染 html 页面以第一次输入查询......并且上面的程序可以工作，但是如果我向助手 API 添加指令以要求确认或者如果需要更清晰，线程会进入“排队”状态，但我是没有获得输入或添加消息到原始线程的选项]]></description>
-      <guid>https://community.openai.com/t/assistant-api-not-engaging-conversation/734529#post_7</guid>
-      <pubDate>Sat, 04 May 2024 03:16:37 GMT</pubDate>
+      <title>一个疯狂的想法还是可行的：可节省 30% 转录成本的技术</title>
+      <link>https://community.openai.com/t/a-crazy-idea-or-its-feasible-technique-that-saves-30-on-transcribe-costs/721722?page=2#post_28</link>
+      <description><![CDATA[相信我 - 您会注意到的。））与我们使用 API 获得的结果相比，操作系统模型中的质量 - 单词错误率 (WER) 要高得多。那是几个月前的事了，可能会发生变化，但我从其他人那里听到过类似的事情，我认为 OpenAI 不会让我们在操作系统和 API 上拥有完全相同的模型。再说一遍，在这种模型中，甚至环境设置和推理也很重要。如果您尝试使用该操作系统，我们会很高兴收到您的来信，但我们的实验显示出相当显着的差异（有利于 API 版本）。]]></description>
+      <guid>https://community.openai.com/t/a-crazy-idea-or-its-feasible-technique-that-saves-30-on-transcribe-costs/721722?page=2#post_28</guid>
+      <pubDate>Sat, 04 May 2024 05:59:45 GMT</pubDate>
     </item>
     <item>
-      <title>状态增强一代</title>
-      <link>https://community.openai.com/t/state-augumented-generation/735107#post_4</link>
-      <description><![CDATA[出于讨论目的，关于创建可信代理，有限状态机和其他基于规则的方法已经被探索了至少四十年，初步的网络搜索表明有限状态机也已经在模拟人工情感的特定背景。
-如果某些代理要拥有一个或多个内部有限状态机来管理其内部状态，那么这些状态机应该如何转换，包括响应到达的环境刺激？就饥饿而言，这似乎是容易处理的。就人工情绪而言，情况似乎更加复杂——甚至可能存在与刺激反应和情绪状态之间转换有关的个体差异（特定于代理的参数或特征）。
-理论化：至少在代理的某些内部有限状态机中可能会发生一些转变，基于咨询由（可能部分动态的）角色描述及其记忆告知的法学硕士，例如：“为了回应最近的这个事件，你的[角色]的情绪状态会/应该变得快乐吗？”
-也就是说，知情的 LLM 可以产生输出，从而导致代理的至少一些内部有限状态机发生转换，其中一些转换可能会导致 LLM 角色描述的各个方面的更新。
-也就是说，如果法学硕士在上下文中对刺激或事件说“是”，那么其角色描述将被更新，以表明代理的模拟情绪状态是快乐的。
-对于电子游戏动物、生物和 NPC，内部状态除了模拟行为驱动、欲望、动机和情绪状态之外还有其他应用和用途。例如，NPC 可能正在等待与情节相关的项目的呈现，以更改其内部状态，以便执行与情节相关的任务。
-相互关联和同步代理的内部状态、提示（例如角色描述）以及其他可用知识可以增强基于 LLM 的代理参与可预见/有意的以及与玩家进行的偶然对话的能力：(1)代理人与情节相关的内部状态，以及（2）代理人的其他模拟行为驱动力、欲望、动机和情绪状态。我们可以将这些相互关系和同步称为状态增强生成。
-同样，图和有限状态机可以增强现实世界中基于任务的代理，包括客户服务机器人和人工智能助手。]]></description>
-      <guid>https://community.openai.com/t/state-augumented-generation/735107#post_4</guid>
-      <pubDate>Sat, 04 May 2024 03:15:36 GMT</pubDate>
+      <title>矢量存储适合我的用例吗？</title>
+      <link>https://community.openai.com/t/is-vector-store-right-for-my-use-case/735865#post_1</link>
+      <description><![CDATA[大家好，
+我正在创建一个助手，帮助我从教科书中提取给定主题的问题。
+我有点困惑哪种方法更好：
+
+
+我用我的教科书创建了一个矢量存储（我有三本，每本 10 MB）。然后我让助手在阅读矢量商店后获取特定主题的问题。
+
+
+我传递每本教科书索引中的文本，然后要求 chatgpt 返回与给定主题相关的课程的页码。
+然后，我从给定页面中提取文本并传递到提示符，要求 chatgpt 提取问题。
+（由于每节课都是不同的主题，而且没有一课的长度超过 30 页，因此我认为上下文窗口不会成为这种方法的问题）。
+
+
+我有点倾向于 2，因为助手不会显示从矢量存储中检索了哪些块，而且我担心 chatGPT 会在返回问题之前向问题添加自己的扭曲。
+我是助理新手，非常感谢大家的反馈。
+感谢您的宝贵时间！]]></description>
+      <guid>https://community.openai.com/t/is-vector-store-right-for-my-use-case/735865#post_1</guid>
+      <pubDate>Sat, 04 May 2024 05:59:05 GMT</pubDate>
     </item>
     <item>
-      <title>如何将文件上传附加到现有（非新）线程？</title>
-      <link>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_4</link>
-      <description><![CDATA[我有一个人工智能来回答这些问题......
-从 openai 导入 OpenAI
-
-defmodify_thread_with_vector_store(thread_id: str, vector_store_id: str) -&gt;;没有任何：
-    ”“”
-    修改 OpenAI 线程以附加矢量存储并更新元数据。
-
-    参数：
-        thread_id (str)：要修改的线程的ID。
-        vector_store_id (str)：要附加的向量存储的 ID。
-
-    返回：
-        None：输出API调用的结果。
-    ”“”
-    客户端 = OpenAI()
-
-    # 使用新的元数据和向量存储 ID 更新线程
-    响应 = client.beta.threads.update(
-        线程_id，
-        元数据={
-            &quot;i_attached_a_vector_store&quot;: &quot;真&quot;,
-        },
-        工具资源={
-            “文件搜索”：{
-                “矢量商店 ID”：[矢量商店 ID]
-            }
-        }
-    ）
-    打印（响应）
-
-# 用法示例
-thread_id = “thread_abc123”
-矢量存储_id =“矢量存储_abc123”
-修改线程与向量存储（线程id，向量存储_id）
-
-]]></description>
-      <guid>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_4</guid>
-      <pubDate>Sat, 04 May 2024 03:14:13 GMT</pubDate>
+      <title>由 amara.org、QTSS 等创建的字幕</title>
+      <link>https://community.openai.com/t/subtitles-created-by-amara-org-qtss-etc/462561#post_5</link>
+      <description><![CDATA[嗨，N2U，
+为什么 Whisper 是非 OpenAI 服务？]]></description>
+      <guid>https://community.openai.com/t/subtitles-created-by-amara-org-qtss-etc/462561#post_5</guid>
+      <pubDate>Sat, 04 May 2024 05:50:48 GMT</pubDate>
     </item>
     <item>
-      <title>删除流事件中的注释</title>
-      <link>https://community.openai.com/t/remove-annotations-in-streaming-event/735748#post_2</link>
-      <description><![CDATA[弄清楚这一点。可以在通过套接字发送流式传输期间在 delta.value 上运行正则表达式]]></description>
-      <guid>https://community.openai.com/t/remove-annotations-in-streaming-event/735748#post_2</guid>
-      <pubDate>Sat, 04 May 2024 03:09:22 GMT</pubDate>
+      <title>步骤 4：创建一个线程并将文件附加到该线程</title>
+      <link>https://community.openai.com/t/step-4-create-a-thread-and-attach-a-file-to-the-thread/735663#post_4</link>
+      <description><![CDATA[我相信这与是同一个问题
+  
+
+
+使用 file_search 作为工具时，助理无法访问线程消息中的附件 &lt; span class=&quot;badge-category --has-parent&quot; title=&quot;错误是确定性代码中可重现的错误或意外结果。&quot;&gt;错误&lt; /a&gt;
+  
+  &lt;块引用&gt;
+    重现步骤
+
+上传文件给助手。
+创建包含上传文件 ID 的附件列表并使用 file_search 作为工具类型
+
+
+[{‘file_id’:‘文件-xxxxxxxxxxxxxxxxxx,‘工具’:[{‘type’:‘file_search’}]}]
+
+
+创建带有附件的消息线程并查询应触发助手从附件中检索信息的内容。
+
+结果
+助理无法查看/访问上传的文件。所有检索请求均失败。
+其他信息
+我在操场上检查了文件已上传...
+  
+
+感谢您的报告。我最近没有测试过，但似乎问题仍然存在。]]></description>
+      <guid>https://community.openai.com/t/step-4-create-a-thread-and-attach-a-file-to-the-thread/735663#post_4</guid>
+      <pubDate>Sat, 04 May 2024 05:33:47 GMT</pubDate>
     </item>
     <item>
-      <title>尝试运行提示时出现此错误</title>
-      <link>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_1</link>
-      <description><![CDATA[代码
-response = openai.Completion.create(
-            model=&quot;gpt-4&quot;, # 或其他 GPT-4 模型名称（如果已更新）
-            提示=“嗨，你好吗？”，
-            max_tokens=50 # 根据您期望的完成程度进行调整
-        ）
+      <title>降低网络安全性或未经授权使用 ChatGPT</title>
+      <link>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_3</link>
+      <description><![CDATA[需要一些引导才能得到直接答案，但我询问了聊天 GPT，并得到了一个我很乐意开始对话的答案；
+...GPT：
+凭借位于加利福尼亚州的专用 IP 和您报告的速度，您通常不会遇到典型的 VPN 相关问题，例如速度慢、IP 频繁更改或影响内容访问的错误地理位置。以下是这对需要禁用 VPN 的典型原因的影响：
 
-错误消息：
-发生错误：这是聊天模型，v1/completions 端点不支持。您想使用 v1/chat/completions 吗？
-如果是这种情况应该使用什么代码？]]></description>
-      <guid>https://community.openai.com/t/getting-this-error-while-trying-to-run-a-prompt/735807#post_1</guid>
-      <pubDate>Sat, 04 May 2024 03:08:32 GMT</pubDate>
+安全和欺诈预防：即使拥有稳定一致的 IP，某些服务仍可能根据流量特征或已知属于 VPN 提供商的 IP 地址来检测 VPN 的使用。无论您的 IP 稳定性如何，此检测都可能导致访问因严格的安全策略或反 VPN 措施而被阻止。
+内容许可和地理位置：由于您的 IP 始终被视为来自加利福尼亚州，因此 VPN 使用中典型的地理位置限制不应适用。但是，如果该服务将 IP 识别为 VPN 服务的一部分，它可能仍会根据针对 VPN 使用的策略来限制访问，而不是由于许可问题本身。
+
+您的设置似乎经过了很好的优化，可以避免常见的 VPN 问题，但某些平台对任何 VPN 使用都有严格的策略，无论配置如何。如果您仍然遇到问题，联系服务提供商了解他们是否有 VPN 使用的具体准则或例外情况可能会有所帮助，特别是因为您的设置不会干扰性能或合法内容访问。
+我：OpenAI 包含的某些平台正确吗？
+聊天GPT：
+聊天GPT
+是的，OpenAI 是可能要求用户禁用 VPN 的平台之一。这主要是由于旨在防止滥用和确保正确使用服务的安全政策和措施。与许多其他服务提供商一样，OpenAI 使用各种方法来检测和管理 VPN 的使用，以维护服务完整性并遵守监管​​要求。]]></description>
+      <guid>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_3</guid>
+      <pubDate>Sat, 04 May 2024 05:27:35 GMT</pubDate>
     </item>
     <item>
-      <title>如何将文件上传附加到现有（非新）线程？</title>
-      <link>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_3</link>
-      <description><![CDATA[我只是想指出......你是完全正确的！哈哈哈。我必须仔细检查，希望你没有被冒犯。我很欣赏这些信息。
-
-所以……这很有趣。那么，我仍然想知道如何将向量存储附加到现有线程。还是我想错了？我是否应该在创建线程时始终创建矢量存储，然后在用户上传文件时添加文件？我本质上是试图允许用户将文件拖放到聊天界面中，并为助手提供基本 RAG 功能的文件，类似于我如何将文件上传到 ChatGPT 或 Claude 并让它使用上传的文件.]]></description>
-      <guid>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_3</guid>
-      <pubDate>Sat, 04 May 2024 03:04:47 GMT</pubDate>
+      <title>降低网络安全性或未经授权使用 ChatGPT</title>
+      <link>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_2</link>
+      <description><![CDATA[我也有兴趣了解如何在业务环境中满足此要求，在业务环境中禁用 VPN 是必须的。]]></description>
+      <guid>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_2</guid>
+      <pubDate>Sat, 04 May 2024 05:17:35 GMT</pubDate>
     </item>
     <item>
-      <title>gpt-3.5-turbo-0125提示大小限制</title>
-      <link>https://community.openai.com/t/gpt-3-5-turbo-0125-prompt-size-limit/735749#post_2</link>
-      <description><![CDATA[您必须使用 cl100k-base 令牌编码器（例如 tiktoken）来正确计算您发送的所有消息内容的令牌。
-然后，您还应该收到从 API 返回的完整错误消息以供分析，以查看实际发生的故障。 “错误的 url 请求”不是来自 API。
-模型可能具有 16KiT 上下文，但您为接收响应最大值指定的任何 max_tokens 设置将从该可用上下文中减去，作为形成响应的预留。]]></description>
-      <guid>https://community.openai.com/t/gpt-3-5-turbo-0125-prompt-size-limit/735749#post_2</guid>
-      <pubDate>Sat, 04 May 2024 02:57:31 GMT</pubDate>
+      <title>步骤 4：创建一个线程并将文件附加到该线程</title>
+      <link>https://community.openai.com/t/step-4-create-a-thread-and-attach-a-file-to-the-thread/735663#post_3</link>
+      <description><![CDATA[感谢您的帮助。这是一个示例线程，显示新文件已上传，但聊天无法重新识别它。
+thread_iUr5s5pAMtIMMqPnIkuPdf1F]]></description>
+      <guid>https://community.openai.com/t/step-4-create-a-thread-and-attach-a-file-to-the-thread/735663#post_3</guid>
+      <pubDate>Sat, 04 May 2024 05:16:31 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API .txt 文件上传失败</title>
-      <link>https://community.openai.com/t/assistant-api-txt-file-upload-fails/735801#post_1</link>
-      <description><![CDATA[Assistant API 拒绝接受某些 .txt 文件。特别是，如果文件内容以“文章标题”开头，则上传将失败。将其更改为其他任何内容（即添加“W”成为“WARArticle Title”）即可，并且文件已成功上传。
-重现步骤：
-
-创建 any.txt 文件并在其中写入“文章标题”。
-通过 POST https://api.openai.com/v1/files 上传到 Assistant API
-上传失败并出现错误：
-
-400 文件格式无效。支持的格式：“c”、“cpp”、“css”、“csv”、“docx”、“gif”、“html”、“java”、“jpeg”、“jpg”、“js”、“json” 、“md”、“pdf”、“php”、“png”、“pptx”、“py”、“rb”、“tar”、“tex”、“ts”、“txt”、“webp”、“ xlsx”、“xml”、“zip”
-
-也可以在操场上重现
-
-
-请告诉我我没有疯。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-txt-file-upload-fails/735801#post_1</guid>
-      <pubDate>Sat, 04 May 2024 02:49:03 GMT</pubDate>
+      <title>降低网络安全性或未经授权使用 ChatGPT</title>
+      <link>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_1</link>
+      <description><![CDATA[我是 gpt 世界的新手，所以我可能会错过一些东西。有人可以解释 OpenAI 要求在授权使用其服务之前禁用网络安全（VPN）的技术原因吗？]]></description>
+      <guid>https://community.openai.com/t/drop-network-security-or-be-unauthorized-to-use-chatgpt/735849#post_1</guid>
+      <pubDate>Sat, 04 May 2024 05:15:40 GMT</pubDate>
     </item>
     <item>
-      <title>如何将文件上传附加到现有（非新）线程？</title>
-      <link>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_2</link>
-      <description><![CDATA[您只能将一个矢量存储附加到助手，并将一个矢量存储附加到线程。
-您可以将 tool_resources 添加到线程，或修改线程。]]></description>
-      <guid>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_2</guid>
-      <pubDate>Sat, 04 May 2024 02:48:10 GMT</pubDate>
+      <title>新的助理消息角色“助理”正在停止我的所有跑步，状态为“失败”</title>
+      <link>https://community.openai.com/t/new-assistant-message-role-assistant-is-stopping-all-my-runs-with-state-failed/735392#post_9</link>
+      <description><![CDATA[太棒了，感谢 @nikunj 的修复！]]></description>
+      <guid>https://community.openai.com/t/new-assistant-message-role-assistant-is-stopping-all-my-runs-with-state-failed/735392#post_9</guid>
+      <pubDate>Sat, 04 May 2024 04:56:22 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT Plus 和使用限制</title>
-      <link>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=6#post_115</link>
-      <description><![CDATA[实际上，我认为这只是互联网现在又恢复正常了而中断的原因。不幸的是，互联网经常在这里掉线。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=6#post_115</guid>
-      <pubDate>Sat, 04 May 2024 02:19:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何将文件上传附加到现有（非新）线程？</title>
-      <link>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_1</link>
-      <description><![CDATA[你好！该文档非常清楚地说明了如何创建线程并同时附加文件：
-https://platform.openai.com/docs/assistants/tools/file-search/step-4-create-a-thread
-但是，我没有找到通过附加文件来更新现有线程的方法。以下是更新线程的 API 文档：
-https:// platform.openai.com/docs/api-reference/threads/modifyThread
-我认为一种解决方案是：
-
-使用 https://platform 创建我自己的新矢量商店.openai.com/docs/api-reference/vector-stores/create，并为其指定 24 小时左右的过期时间。
-将文件上传到矢量存储
-使用以下方法将矢量存储附加到我的助手：
-
- def Attach_vector_store_to_assistant(self, Assistant_id, Vector_store_id):
-        self.client.beta.assistants.update(
-            Assistant_id=助理_id,
-            tool_resources={&quot;file_search&quot;: {&quot;vector_store_ids&quot;: [vector_store_id]}},
-        ）
-
-（但我必须跟踪已经附加的矢量存储，这样我就不会丢失以前的关联，对吧？）]]></description>
-      <guid>https://community.openai.com/t/how-to-attach-a-file-upload-to-an-existing-not-new-thread/735782#post_1</guid>
-      <pubDate>Sat, 04 May 2024 01:51:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT Plus 和使用限制</title>
-      <link>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=6#post_114</link>
-      <description><![CDATA[我昨天付费订阅后才发现这一点 - 今天我受到限制？非常奇怪，超级令人失望。昨天买了一些东西，今天却无法再使用了？？？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-plus-and-usage-limits/544425?page=6#post_114</guid>
-      <pubDate>Sat, 04 May 2024 01:47:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>**功能请求：增强的对话管理和编辑**</title>
-      <link>https://community.openai.com/t/feature-request-enhanced-conversation-management-and-editing/735781#post_1</link>
-      <description><![CDATA[描述：
-目前，ChatGPT 用户无法编辑或管理对话历史记录中的特定问题或消息，尤其是在完全删除问题时。用户可能会在问题工作流程中学到一些特定的东西，并想要更改或完全删除问题。当前的问题编辑行为限制了界面的灵活性和可用性，特别是在用户需要纠正错误、更新信息或删除不相关内容的场景下。
-建议的解决方案：
-引入增强的对话管理和编辑功能，使用户能够更好地控制对话历史记录。具体实现以下功能：
-
-多个视图：引入不同的查看模式来区分原始对话流和任何后续更改或更新。这将使用户能够跟踪内容的演变并了解变化背后的背景。
-可编辑消息：使用户能够编辑或删除对话历史记录中的特定消息。此功能将有助于更正、更新和内容细化，从而改善整体用户体验。
-版本控制：实施版本控制机制来跟踪一段时间内对对话所做的更改和修订。这将使用户能够在需要时恢复到以前的版本，并确保编辑过程的透明度。
-
-好处：
-
-提高了用户的可用性和灵活性，尤其是在教育、协作和知识管理环境中。
-提高内容编辑的透明度和可追溯性，从而更清楚地了解对话的演变。
-帮助创建精美的培训材料、文档以及来自 ChatGPT 对话的其他输出。
-
-结论：
-通过整合这些增强的对话管理和编辑功能，ChatGPT 可以为用户提供更加通用且用户友好的界面，使他们能够有效地利用该平台来实现各种应用程序。
-感谢您考虑此功能请求。我们相信这些增强功能将显着增强 ChatGPT 的实用性和用户体验。]]></description>
-      <guid>https://community.openai.com/t/feature-request-enhanced-conversation-management-and-editing/735781#post_1</guid>
-      <pubDate>Sat, 04 May 2024 01:47:43 GMT</pubDate>
+      <title>即使我使用 Plus，也看不到插件</title>
+      <link>https://community.openai.com/t/cant-see-plugins-even-though-im-on-plus/735823#post_2</link>
+      <description><![CDATA[嗨！
+几周前，ChatGPT 的插件已被弃用，并被 CustomGPT 的操作所取代。随后就没有可供插件选择的模型变体。]]></description>
+      <guid>https://community.openai.com/t/cant-see-plugins-even-though-im-on-plus/735823#post_2</guid>
+      <pubDate>Sat, 04 May 2024 04:44:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
