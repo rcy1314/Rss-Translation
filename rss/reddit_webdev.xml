@@ -3,112 +3,112 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 04 May 2024 12:29:41 GMT</lastBuildDate>
+    <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Sat, 04 May 2024 15:17:59 GMT</lastBuildDate>
     <item>
-      <title>为什么webdev感觉这么臃肿？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjz0e2/why_does_webdev_feel_so_bloated/</link>
-      <description><![CDATA[我是一名 C++ 程序员，我们有一个 IDE，你按编译，它会告诉你是否有错误。它还具有运行时错误/警告突出显示。就是这样...它简单，运行良好，并且自 1997 年 IDE 推出以来一直运行良好。 现在我正在尝试构建一个简单的网站。早在 2001 年，我就用记事本和 html 做过这件事，你只需保存，重新加载浏览器就可以了。到底哪里出了问题？ 为什么有一百万个不同的框架每周都会出现新的框架，现有框架的版本完全改变了 API，框架在一年之内就消亡了？他们花了数年时间喋喋不休地谈论 SPA 和 PWA，然后它们就不再流行了，是吗？不知道他们如何与搜索引擎优化和网络爬虫一起工作，但不知何故他们确实做到了。现在看来人们已经受够了所有这些麻烦并回到静态生成的网站？我们绕了一圈了吗？我什至不知道发生了什么事。更不用说 webpack 的 100 个分支及其无尽的配置。 我不喜欢 javascript 或 Node。它有太多缺陷，除非你设置 eslint，否则没有实际的错误检查。他们试图用打字稿来修复一些问题，但这比任何事情都更痛苦。为什么你需要一百万个配置和插件，eslint、html lint？、css lint、prettier、eslint-prettier。在开始一个项目之前，你实际上需要做太多的事情。 经过一番研究，我发现了当前最好的框架“astrojs”。阅读它的文档是一件很糟糕的事情，除非你是一位拥有 30 年经验的老手，曾经研究过每一个失败的概念和框架，并且了解幕后一切的来龙去脉。感觉就像是黑客之上的黑客之上的黑客之上的黑客，以便容纳所有数百种框架和文件格式，并将它们全部粘合在一起。有太多该死的 gocha 和陷阱，比如不要忘记这样做，永远不要这样做。但是没有错误或警告消息，什么也没有。你必须边做边学。 似乎总是有一个“入门样板”类型的项目，它试图将所有最新的流行语捆绑到一个模板中，但它通常会在一年内消亡，因为作者感到无聊和继续下一个闪亮的新事物。 Webdev 对于刚开始的人来说太难了，C++ 被认为是更难的语言之一，但与 webdev 相比它很容易。一切都遵循单一标准、单一框架、单一 IDE。不存在兼容性问题，因为每个库只关心自己。错误检查正常工作，甚至可以捕获程序员错误，例如赋值而不是比较拼写错误。 我目前最喜欢的是 Astro、Tailwind CSS/Preline UI。我会坚持下去，因为它效果很好。静态生成的网站对我来说似乎是最好的主意，因为它们可以缓存在 CDN 类型的托管上。 我不知道还能说什么，但我觉得 vs-code + 扩展 + 许多配置文件不是一个很好的解决方案。我什至不知道为什么我们仍然使用 html。为什么不采用某种新的模板代码格式来编译成任何东西呢？甚至字节码？无论如何，我希望 webdev 有一天能够有所改进。   由   提交/u/sandshrew69  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjz0e2/why_does_webdev_feel_so_bloated/</guid>
-      <pubDate>Sat, 04 May 2024 12:19:07 GMT</pubDate>
+      <title>Supabase 缓存助手使用不同的 Supabase 查询和分页解决 Nextjs 缓存问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck2ghk/supabase_cache_helpers_with_nextjs_caching/</link>
+      <description><![CDATA[我正在使用 Supabase 缓存助手并在 Next.js 应用程序中使用此代码： import { useInfiniteOffsetPaginationQuery, useQuery , useUpdateMutation } 来自 &#39;@supabase-cache-helpers/postgrest-swr&#39;; const [ticketsQuery, setTicketsQuery] = useState(null); const [selectedOption, setSelectedOption] = useState(`no_status`); const [currentAllPage, setCurrentAllPage] = useState(0); const [currentNoStatusPage, setCurrentNoStatusPage] = useState(0); const [userId, setUserId] = useState(null); // 下面的代码是 Supabase Cache Helpers 的一项功能 const { currentPage, setPage, pageIndex, isValidating, error } = useInfiniteOffsetPaginationQuery(businessesQuery, { pageSize: 20 }); // currentAllPage 和 currentNoStatusPage 负责了解各自应该在哪个分页页码上（显示所有数据或仅显示具有特定“no_status”列值的数据） const initData = async (option = null) =&gt; { const currentOption = 选项 ||选定的选项； const noStatus = currentOption === `no_status`; const TicketsQuery = getTicketsQuery(userId, noStatus); setTicketsQuery(ticketsQuery); setIsLoading(假); setPage(noStatus ? currentNoStatusPage : currentAllPage); } useEffect(() =&gt; { if (userId) initData(); }, [userId]) } // 下面的代码来自一个单独的 JS 文件。 TICKETS_DB 是一个常量，其值为 Supabase 数据库中某个表的值 const getTicketsQuery = (userId, noStatus) =&gt; { let query = supabase.from(TICKETS_DB) .select(TICKET_DB_QUERY).eq(`user_id`, userId) .order(`id`, { 升序: true }) if (noStatus) { query = query.is(`no_status `, null) } 返回查询； } // key 可以是“all”或“no_status” const handleSelectedOptionOnClick = async (key) =&gt;; { setSelectedOption(键);初始化数据（键）； }  我的应用程序中有一个按钮，如果单击它，它会执行函数“handleSelectedOptionOnClick”，该函数将状态“selectedOption”设置为某个值。根据“selectedOption”的值，参数“noStatus”被指定。函数中的 `getTicketsQuery` 可以设置为 true 或 false。因此，`query = query.is(&#39;no_status&#39;, null)` 将被添加到查询中。我遇到一个问题：通常，当单击按钮时，“selectedOption”值发生更改，这会导致“noStatus”如果参数值为 false，则它应该从 Supabase 检索所有数据，无论列名“no_status”是否为 false。是否为空。如果点击所有分页页面，导致所有数据都从Supabase数据库中获取，那么通常所有数据都会被缓存，对吧？但是，当我单击“selectedOption”状态值为“no_status”的按钮时，因此“noStatus”参数的值为 true，因此这个 `query.is(&#39;website&#39;, null)` 将被添加到查询中，然后显示数据不是来自缓存。当我在“selectedOption”状态值仍为“no_status”时单击分页页面时，看起来它是从 Supabase 数据库而不是从缓存中获取数据。在“selectedOption”被设置为“no_status”之前，缓存已经填充了之前的所有数据。那么为什么它仍然从数据库而不是从缓存中获取数据呢？是因为查询中的每次更改都被视为不同的缓存键吗？   由   提交/u/1chbinamin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck2ghk/supabase_cache_helpers_with_nextjs_caching/</guid>
+      <pubDate>Sat, 04 May 2024 15:08:26 GMT</pubDate>
     </item>
     <item>
-      <title>Cloudflare Pages、Netflix、Vercel（免费套餐问题）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjyob5/cloudflare_pages_vs_netflix_vs_vercel_free_tiers/</link>
-      <description><![CDATA[有人能给我解释一下为什么 Cloudflare Pages 免费套餐允许无限流量，而 Netflix 和 Vercel 不允许？我知道 Cloudflare Pages 仅支持静态网站，但为什么 Netflix 和 Vercel 不也为静态网站提供无限流量？  我可能会很困惑，胡言乱语，所以请放轻松，因为我的技能不会超出前端。   由   提交/u/Commander_of_Death   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjyob5/cloudflare_pages_vs_netflix_vs_vercel_free_tiers/</guid>
-      <pubDate>Sat, 04 May 2024 12:00:53 GMT</pubDate>
+      <title>精美的开源作品集助您求职</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck2ev2/beautiful_open_source_portfolio_that_will_get_you/</link>
+      <description><![CDATA[      嘿，偷看 我创建了一个漂亮的作品集，您可以自由使用和修改。 https://preview.redd.it/ffmv4iaadfyc1.png?width= 1495&amp;format=png&amp;auto=webp&amp;s=abe6222865355b4a6c9de6e4bf2503c191cb4529 您可以在这里实时查看：https://renas.se/&quot;&gt;https:// /renas.se/ 这是开源代码：https://github.com/meganide/作品集 如果这对您有任何帮助并且您想表示一些支持，请在 X/Twitter，我在其中分享有关编程和构建 SaaS 的更有价值的建议，以便您可以开始在线赚钱。 https://twitter.com/renas_dev   由   提交/u/Meganide97  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck2ev2/beautiful_open_source_portfolio_that_will_get_you/</guid>
+      <pubDate>Sat, 04 May 2024 15:06:20 GMT</pubDate>
     </item>
     <item>
-      <title>为什么每个人都在出售/购买样板？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjxukl/why_is_everyone_sellingbuying_boilerplates/</link>
-      <description><![CDATA[这是一个真正的问题。我们看到越来越多的各种语言的样板，由一些开发影响者（或想要成为的人）出售。 任何专业开发人员都知道他们的堆栈是根据其产品的要求不断变化的东西。因此，无论它多么通用，都很难将其作为对任何问题的解决方案来推销。另外，它需要大量的维护，无论是重构，还是更重要的错误和安全修复。 当然，我们在大多数产品中都发现了一些常见的东西：身份验证、支付等。但也有库和框架来处理这个问题。 最后，当你开始一份新工作时，加入别人编写的代码库通常已经很痛苦了，所以为什么要购买别人编写的代码否则，这通常质量很差？   由   提交/u/c100k_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjxukl/why_is_everyone_sellingbuying_boilerplates/</guid>
-      <pubDate>Sat, 04 May 2024 11:11:03 GMT</pubDate>
+      <title>Facebook 应用程序评论 - 我存在的祸根</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck1vmz/facebook_app_review_the_bane_of_my_existence/</link>
+      <description><![CDATA[嗨， 有人设法让他们的应用通过 Facebook 应用审核吗？这真是令人沮丧，我现在已经是第 27 次尝试了，从一个月前开始。 借口从“我们找不到您的网站的 URL”到“您没有 SSL”再到“我们找不到登录按钮”，以及各种完全捏造的借口。我有 Sentry、日志和各种证据，证明他们确实登陆了我的应用，四处移动，然后在 30 秒内关闭选项卡，然后拒绝我的应用请求。 我有很多请求被拒绝，因为他们甚至懒得阅读权限请求的描述，并复制粘贴了一些样板，表明我忘记指定我肯定做过的事情…… 有什么建议吗？除了调解和从窗户扔砖头？    提交人    /u/Pr4w   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck1vmz/facebook_app_review_the_bane_of_my_existence/</guid>
+      <pubDate>Sat, 04 May 2024 14:42:01 GMT</pubDate>
     </item>
     <item>
-      <title>本地不存在带有以下标签的图像：digitalsplendid/my-flask-app</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjxfr5/an_image_does_not_exist_locally_with_the_tag/</link>
-      <description><![CDATA[      https://preview.redd.it/i18fayfj2eyc1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=5371d86c0d 7c279f073d9a4d7b7486f983fabf5c  https://preview.redd .it/tti99d2n2eyc1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=72e6d26fa860f92ce5a5c7d3179e8bb16bf5cf38 据我了解，digitalsplendid 是 Dockerhub 用户名。创建的镜像名称是 my-flask-app。 但是 docker push 命令在运行时给出以下错误消息： finance/ $ docker push digitalsplendid/my-flask-app&lt; /p&gt; 本地不存在带有标签的图像：digitalsplendid/my-flask-app   由   提交 /u/DigitalSplendid   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjxfr5/an_image_does_not_exist_locally_with_the_tag/</guid>
-      <pubDate>Sat, 04 May 2024 10:44:42 GMT</pubDate>
+      <title>使用reactjs中的nextjs重写代码</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck1s1l/rewriting_code_using_nextjs_from_reactjs/</link>
+      <description><![CDATA[我一直在做一个项目，只是为了好玩，并尝试使用 ReactJS 和 NodeJS。向几个人展示了它，他们建议我应该认真对待它并尝试营销并使其活跃。我现在的问题是我的 seo 受到了影响，因为我在前端使用了 Reactjs。尝试转向 nextjs 以获得更好的 seo 是否明智，或者我应该尝试使用 Reactjs 处理 seo（如果有任何指针或提示）。前面和后面都有很多代码。    由   提交/u/Queasy-Thing-3206   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck1s1l/rewriting_code_using_nextjs_from_reactjs/</guid>
+      <pubDate>Sat, 04 May 2024 14:37:27 GMT</pubDate>
     </item>
     <item>
-      <title>建立餐厅网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjwzce/building_restaurant_website/</link>
-      <description><![CDATA[所以我想为一位拥有百吉饼餐厅的朋友制作一个网站。我有知识和一切，但我从未建立过网站，所以我想这样做以获得一些经验。这没什么大不了的，所以不要告诉我这工作量太大了，或者我应该用 wix 来完成。你有什么我应该注意的提示或类似的东西吗？   由   提交 /u/Kulgejm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjwzce/building_restaurant_website/</guid>
-      <pubDate>Sat, 04 May 2024 10:12:54 GMT</pubDate>
+      <title>我创建了一个基本的计算器应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck1mom/i_created_a_basic_calculator_app/</link>
+      <description><![CDATA[该项目是为 Odin 项目的“Web 开发简介”而制作的。课程。请给我任何我可以添加、更改或采取不同做法的建议。我试图挑战自己，并通过推动自己学习可用于不同项目的新事物来完成项目所需的更多工作。 链接到存储库：  https://github.com/Blaze4884/Calculator-App 网站链接： https://blaze4884.github.io/Calculator-App/   由   提交/u/Blaze4884_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck1mom/i_created_a_basic_calculator_app/</guid>
+      <pubDate>Sat, 04 May 2024 14:30:34 GMT</pubDate>
     </item>
     <item>
-      <title>您希望在项目文档中看到什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjwu5z/what_do_you_like_to_see_in_project_documentation/</link>
-      <description><![CDATA[在工作中，我现在正在将旧的受诅咒的前端解决方案转移到受诅咒较少的 Vue 应用程序。作为这个感动的一部分，我也在记录一些事情。到目前为止，我们已经了解了哪些库依赖项、它们的用途等等。 您希望在您参与的项目中看到什么？您认为哪些文档是必不可少的？   由   提交 /u/zerthz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjwu5z/what_do_you_like_to_see_in_project_documentation/</guid>
-      <pubDate>Sat, 04 May 2024 10:02:27 GMT</pubDate>
+      <title>在 SQL 后端设计动态角色基础访问和权限？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck1iqa/designing_dynamic_role_base_access_and_permission/</link>
+      <description><![CDATA[我想设计数据库，以便用户可以创建动态角色及其权限。这样他们只能访问那些端点。我不想对每个角色都使用 if 条件，因为在这种情况下这是不可行的。我不确定去哪里找。虽然有很多资源，但我找不到专门用于设计本质上是动态的角色基础访问的资源，例如。目前，我相信这些是表、用户、权限、角色、用户权限、用户角色。组、组权限、组角色、其他等。我从 Linux 权限系统中得到了这个想法，所以我认为它可能适用于 dB。  如果您对如何处理这个问题有任何想法或对设计有帮助的资源。我经常首先使用代码。我确实为不涉及角色和权限的小项目进行了设计。因此，非常感谢帮助和指导。    提交人    /u/drkRse   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck1iqa/designing_dynamic_role_base_access_and_permission/</guid>
+      <pubDate>Sat, 04 May 2024 14:25:24 GMT</pubDate>
     </item>
     <item>
-      <title>2013 年的 Sass 书仍然有用/相关吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjw972/will_a_2013_sass_book_still_be_useful_relevant/</link>
-      <description><![CDATA[我更像是一名设计师，但最近重新熟悉了前端开发（我以前做过很多这样的事情）  我很惊喜地在我的床下偶然发现了一本“A Book Apart”的《Sass for Web Designers》，我完全忘记了我曾经买过它（并且从未读过它）。  p&gt; 所以我在完美的时间找到了它......但我想知道 11 年后它会有多大的相关性？ 从那时起，Sass 和使用的工具发生了很大的变化设置它？   由   提交 /u/Weekly_Frosting_5868   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjw972/will_a_2013_sass_book_still_be_useful_relevant/</guid>
-      <pubDate>Sat, 04 May 2024 09:19:57 GMT</pubDate>
+      <title>如何将nodejs服务器托管到公共IP地址？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck1e9z/how_to_host_nodejs_server_to_public_ip_address/</link>
+      <description><![CDATA[我用我的旧笔记本电脑作为我的 ubuntu 服务器。我知道我已经正确设置了我的服务器并且 Nodejs 运行正常。我可以通过本地IP地址访问该网站。我可以在同一网络上访问，例如，如果 ubuntu 正在运行 Nodejs 服务器，则它可用于连接到同一 wifi 的所有设备。 Ubuntu 服务器连接到以太网（JIO ROUTER）。我尝试了所有的可能性，但仍然无法在公共IP上运行nodejs。   由   提交/u/iamsanthosh2203  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck1e9z/how_to_host_nodejs_server_to_public_ip_address/</guid>
+      <pubDate>Sat, 04 May 2024 14:19:36 GMT</pubDate>
     </item>
     <item>
-      <title>我用 Astro 和 Tailwind CSS 制作了一堆免费开源模板供任何人使用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvomv/i_made_a_bunch_of_free_and_open_source_templates/</link>
-      <description><![CDATA[ 由   提交 /u/Michael_andreuzza   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvomv/i_made_a_bunch_of_free_and_open_source_templates/</guid>
-      <pubDate>Sat, 04 May 2024 08:37:59 GMT</pubDate>
+      <title>最便宜的云托管？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck10sq/cheapest_cloud_hosting/</link>
+      <description><![CDATA[我有一个流量较低的 .Net Blazor Server 网站。目前，我将其托管在 hetzner 2 vCPU 4 RAM 上，价格为 4.7 欧元/月，老实说，非常划算。我是一个小气鬼，我正在寻找更便宜但可靠的托管，至少有 2 个 vCPU 2 RAM，价格为 3-4 欧元/月。   由   提交 /u/SatoshiMoon   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck10sq/cheapest_cloud_hosting/</guid>
+      <pubDate>Sat, 04 May 2024 14:02:04 GMT</pubDate>
     </item>
     <item>
-      <title>WordPress 的云备份和插件回滚</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvlf9/cloud_backups_plugin_rollbacks_for_wordpress/</link>
-      <description><![CDATA[嗨， 我最近构建了一个 SaaS，用于管理 WordPress 云备份、即时插件回滚和一键恢复。  与其他解决方案不同，这个解决方案不使用插件，全部通过 SSH/SFTP 完成。  让我知道您的想法：https://superwp.io/ 谢谢！    由   提交 /u/Morolord   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvlf9/cloud_backups_plugin_rollbacks_for_wordpress/</guid>
-      <pubDate>Sat, 04 May 2024 08:31:21 GMT</pubDate>
+      <title>我为静态站点构建了一个简单的云存储解决方案 VariableAsAService</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck0r2q/i_built_variableasaservice_an_easy_cloud_storage/</link>
+      <description><![CDATA[    &lt; /a&gt;   由   提交/u/xdfreddie  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck0r2q/i_built_variableasaservice_an_easy_cloud_storage/</guid>
+      <pubDate>Sat, 04 May 2024 13:49:03 GMT</pubDate>
     </item>
     <item>
-      <title>Dockerfile 使用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvkrn/dockerfile_usage/</link>
-      <description><![CDATA[如果您正在编写要在 CI/CD 管道中执行的 Dockerfile（设置 -&gt; 构建 -&gt; 分析 -&gt; 构建容器-&gt; 部署），您更喜欢单独安装依赖项并构建应用程序，还是重用先前构建作业中的工件？对我来说，后者似乎是显而易见的，但到目前为止我只见过前一种方法。   由   提交 /u/untakenusrnm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvkrn/dockerfile_usage/</guid>
-      <pubDate>Sat, 04 May 2024 08:30:08 GMT</pubDate>
+      <title>SSR 是不久的将来的 od web 开发者吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck0hoc/is_ssr_a_near_future_od_web_dev/</link>
+      <description><![CDATA[我知道预测未来几乎是不可能的，但我最近开始看到 Web 开发的趋势。 最新的框架是SSR和SSG。想想 Next.js、Nuxt.js、Astro 和 Blazor。  行业是否发现完整的交互式 Web 应用程序是利基用例，并且许多应用程序可以只是 SSR 或静态？  SSR 应用程序的优点很多： - 更好的首次体验 - 更好的 SEO - 在某些情况下更好的性能 - 一个应用程序而不是两个应用程序（API + 前端）  是 Web开发回到原点（从静态到 SSR，再到 PHP 到 SPA）？ （我了解简化的 SSR 之类的东西） 我很想听听你的意见。    由   提交/u/Morasiu   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck0hoc/is_ssr_a_near_future_od_web_dev/</guid>
+      <pubDate>Sat, 04 May 2024 13:35:22 GMT</pubDate>
     </item>
     <item>
-      <title>我制作了 NextJS 登陆页面启动模板</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvjmm/i_made_a_nextjs_landing_page_starter_template/</link>
-      <description><![CDATA[    &lt; /a&gt;   由   提交 /u/DerThan   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvjmm/i_made_a_nextjs_landing_page_starter_template/</guid>
-      <pubDate>Sat, 04 May 2024 08:27:59 GMT</pubDate>
+      <title>我创建了一个完全前端的屏幕录制网络应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck0g1m/i_created_a_fully_frontend_screen_recording_web/</link>
+      <description><![CDATA[     &lt; /td&gt;  由   提交 /u/monomanj   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck0g1m/i_created_a_fully_frontend_screen_recording_web/</guid>
+      <pubDate>Sat, 04 May 2024 13:33:05 GMT</pubDate>
     </item>
     <item>
-      <title>我使用 AI 制作了一个 Fantasy 名称生成器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjve27/i_made_a_fantasy_name_generator_using_ai/</link>
-      <description><![CDATA[大家好！我最近构建了一个使用 Claude AI 的 Fantasy 名称生成器： https://andreacerasoni.com/tool/generator/fantasy-name&lt; /a&gt; 该工具免费提供，我希望其他作家、D&amp;D 玩家、世界构建者和白日梦想家可能会发现它很有用！ 现在可用的选项分别是精灵、龙、人类、矮人和妖精，但我计划在未来添加更多。如果您正在努力命名一个不太知名的幻想种族中的角色，请告诉我，我会考虑将其添加到该工具中。 对于那些对技术方面感兴趣的人，您可以查看在我最近的博客文章中，我讨论了如何大规模推广 Claude AI、如何在网站上提供该工具等等：https://andreacerasoni.com/blog/ai-fantasy-name-generator   由   提交/u/andreacerasoni   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjve27/i_made_a_fantasy_name_generator_using_ai/</guid>
-      <pubDate>Sat, 04 May 2024 08:17:00 GMT</pubDate>
+      <title>可视化库</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck01ig/visualization_libraries/</link>
+      <description><![CDATA[是否可以在浏览器中呈现这样的可视化效果？  https://twitter.com/edcreativecoder/status/1786372994257793087 这是在 Touchdesigner 中制作的，但我正在寻找如何创建可以在浏览器中显示的更多“流体”/反应性可视化。    ;由   提交/u/reallymemorable  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck01ig/visualization_libraries/</guid>
+      <pubDate>Sat, 04 May 2024 13:12:55 GMT</pubDate>
     </item>
     <item>
-      <title>Cloudflare 出现 DNS 问题，希望更换注册商</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvde4/dns_issues_with_cloudflare_looking_to_possibly/</link>
-      <description><![CDATA[我正在考虑离开 cloudflare，因为他们的 DNS 给我带来了一些问题，或者在自托管大文件传输和其他一些托管服务方面出现了一些问题或速度下降。只是不好好对待他们的 DNS。在我的办公室，我正在运行类似的自托管产品，并从 Cloudflare 切换到 namecheap 域名和 dns，这真的很棒，但我想确保在我花自己的钱之前我会选择最好的选择。我认为 Cloudflare 唯一让我怀念的是低廉的域名价格和免费的机器人拦截。   由   提交/u/Squanchy2112   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvde4/dns_issues_with_cloudflare_looking_to_possibly/</guid>
-      <pubDate>Sat, 04 May 2024 08:15:42 GMT</pubDate>
+      <title>我将基于 Markdown 的网站模板转换为一个小型 JavaScript 库 markdown-pages.js</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ck0060/i_converted_my_template_for_markdownbased_sites/</link>
+      <description><![CDATA[ 由   提交/u/dandalpiaz  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ck0060/i_converted_my_template_for_markdownbased_sites/</guid>
+      <pubDate>Sat, 04 May 2024 13:11:05 GMT</pubDate>
     </item>
     <item>
-      <title>告诉老前辈我将如何建立一个网站，让我可以输入和查看 D&D​​ 衍生作品的“怪物数据”。应该也可以在手机上使用。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjvbs1/tell_an_oldtimer_how_im_going_to_build_a_site/</link>
-      <description><![CDATA[所以我已经老了 (52)，当网络刚开始的时候我就进入了网络，1994 年我运行了我的第一个网站。我主要研究 PHP、CSS/JavaScript、LAMP 堆栈等。 jQuery 也是如此，但我没有学到任何其他东西——React、Laravel、其他东西，不知道关于它们的任何东西。 SO！我有一些空闲时间来创建一个小型网站。此网站将从此 Google 电子表格获取我的数据，并以表格格式显示良好的结果。 （该数据是您可以通过“召唤怪物”咒语获得的怪物列表。）有人可能会询问他们是否知道“SM3”。 （召唤怪物 3）并想看看他们可以用该咒语获得的所有怪物。或者他们可能想看看这些怪物可以施展什么其他法术。所以我们谈论的是简单的查询和简单的结果。但现在对我来说重要的标准是：我想使用你们告诉我的任何现代的东西来构建它，并且我希望它能够在手机上快速运行，所以简单的界面和漂亮干净的易于操作- 阅读文字。我应该能够选择一个咒语并立即查看我得到的生物，这样我就可以在游戏中使用它，而无需其他玩家坐在旁边等待。 你们有什么建议？那里有什么新鲜事，您对这个简单的电子表格转变为数据库的项目有何设想？我只会遵循任何看起来我的大脑可以处理的好建议。预先感谢您提供任何提示！   由   提交 /u/jack_skellington   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjvbs1/tell_an_oldtimer_how_im_going_to_build_a_site/</guid>
-      <pubDate>Sat, 04 May 2024 08:12:28 GMT</pubDate>
+      <title>[Showoff Saturday] 极其简单的快速阅读器，具有现代用户界面</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cjwai9/showoff_saturday_radically_simple_speed_reader/</link>
+      <description><![CDATA[      我创建了一个快速阅读网络应用程序，它将所有内容本地存储在浏览器的存储中。该应用程序称为 Axym，我将其构建为付费应用程序的直接替代方案 - 我不想支付替代方案的每月订阅费。我在前端使用了 Blazor、MudBlazor 和 TailwindCSS。 UI  我非常相信彻底的简单性，这就是 UI 隐藏所有内容的原因默认情况下是非必要信息，并且具有非常微妙的强调色。这是它的样子： https ://preview.redd.it/tl9bk5rindyc1.jpg?width=2388&amp;format=pjpg&amp;auto=webp&amp;s=1a100dd1653701e17c73e8846deff7c5ebc6e5ef 设置面板 我使用 MudBlazor 作为滑块。 Blazor 的一大优点是编写可以立即更改网站的功能非常简单。目前，有 9 个设置选项。我使用谷歌字体，虽然正在加载 6 种不同的字体，但还没有人抱怨。 https://preview.redd.it/1o8v0qckndyc1.jpg?width=1384&amp;format=pjpg&amp;auto=webp&amp;s=e321272205fac3766fe85e196a 45feff4191bff7 &lt; p&gt;导入选项 您可以从 URL、上传文件、剪贴板或通过 GET 请求导入文本。新文本部分如下所示： https://preview.redd.it/sp49r3ntndyc1.jpg?width=1384&amp;format=pjpg&amp;auto=webp&amp;s=9237f4ba0aff4c39305de8e4cbb50801143bbe4f 保存的文本面板  您的所有文本以及您的设置都存储在浏览器的本地存储中。文本的状态（例如您的位置）会实时更新，并且其来源也会保存。 https://preview.redd.it/n5vrzhtvndyc1.jpg?width=1668&amp;format=pjpg&amp;auto=webp&amp;s=24dc6d8b903a3 98f72fe83474a5b7254837a26dd 演示  GitHub 您对设计/功能有何看法？   由   提交 /u/Pristine-Adeptness-1   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cjwai9/showoff_saturday_radically_simple_speed_reader/</guid>
+      <pubDate>Sat, 04 May 2024 09:22:28 GMT</pubDate>
     </item>
     <item>
-      <title>如何获得优质客户？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cjv31c/how_do_you_land_quality_clients/</link>
-      <description><![CDATA[您寻找优质客户的策略是什么？ 您如何说服他们向您购买？，    提交人    /u/xxxpandoraxxx   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cjv31c/how_do_you_land_quality_clients/</guid>
-      <pubDate>Sat, 04 May 2024 07:55:20 GMT</pubDate>
+      <title>为人类设计 API：错误消息</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cjj0yb/designing_apis_for_humans_error_messages/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cjj0yb/designing_apis_for_humans_error_messages/</guid>
+      <pubDate>Fri, 03 May 2024 21:01:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
