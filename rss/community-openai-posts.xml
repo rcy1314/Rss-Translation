@@ -4,128 +4,129 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 05 May 2024 12:32:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2024 15:19:26 GMT</lastBuildDate>
     <item>
-      <title>使用 gpt-4 API 对文档进行语义分块</title>
-      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=3#post_45</link>
-      <description><![CDATA[我想在@jr.2509向我指出这一点后我会插话线程，再次感谢@jr.2509。
-用于上下文；我正在开发一个应用程序，该应用程序需要 pdf 格式的（非结构化）简历和包含占位符的 docx 模板。 （例如 {firstname} 或 {jobexperience.startyear}。然后，应用程序会创建模板的副本，但会用 pdf 简历中的数据替换所有占位符。最终结果：外观相似的简历 + 您可以使用的结构化数据（例如，翻译等）
-这是我的工作流程：
-
-从 pdf 中提取文本
-提示开放 AI
-
-系统提示：您是一台信息检索机器，它获取非结构化简历，根据提供的 json 模式对其进行结构化，并仅输出 json
-用户提示：生成简历的结构化表示。缺少信息必须用“#####”表示。将多个数据出现作为数组处理。该结构应包含以下字段并遵循以下 json 架构
-然后是所需的 JSON 架构。我包括嵌套对象，例如认证开始年份、机构等。示例：
-&quot;工作经验&quot;: [
-        {
-            &quot;company&quot;: &quot;[公司名称]&quot;,
-            &quot;地点&quot;: &quot;[位置]&quot;,
-            &quot;jobtitle&quot;: &quot;[职位名称]&quot;,
-            &quot;description&quot;: &quot;[工作的完整描述]&quot;,
-            &quot;toolsandtechniques&quot;: &quot;[工具、技术、技能、环境]&quot;,
-            &quot;startyear&quot;: &quot;[工作开始年份]&quot;,
-            &quot;endyear&quot;: &quot;[工作结束年份]&quot;
-        }
-    ]
-}
-
-对于并不总是获得 100% 效果的实体，我提供了一些示例来应用少量镜头提示。我有两个例子来说明输入简历工作经历可能是什么样子以及结构化表示应该如何结束。这非常有效，可能会帮助您定义“逻辑单位”@jr.2509！我还应该为语言实现一个，因为在一些简历中，人们会指定他们对不同语言的擅长程度，然后法学硕士有时会创建一个新的嵌套对象（我的应用程序只需要下游的一个键/值对“语言”）。所以这将是这样的：
-示例 1：
-语言：英语、荷兰语、印地语
-
-结构化表示：
-{
-    语言：“英语、荷兰语、印地语”
-}
-
-示例2：
-语言
-英语：母语
-日语：A2
-中文：书面能力
-
-结构化表示：
-{
-    语言：“英语、日语、中文”
-}
-
-我当前的挑战是非常大的简历（有些大约 6k 代币）。然后，LLM 确实会回复一个有效的 JSON 对象，但它会缩短工作经验，有时还会缩短个人资料描述，以便符合令牌限制。
-我正在考虑拆分，但无法让递归文本拆分与我当前的设置很好地配合（Buildship 规范了换行符）。
-我想尝试的下一件事是（这在前面提到过）包含工作经验的第一句话和最后一句话（因为这是包含最多标记的内容）并以编程方式重建完整的工作经验。这很有趣，因为几个月前我为了节省成本就这么做了，但后来放弃了这个想法。可能会回到过去。可能会用一些镜头提示示例来确保第一个和最后一个词是唯一的（有时人们会以相同的方式描述不同的工作经历）。
-linenoXXX 方法也很有趣，但我觉得它没有充分利用 LLM 的力量。只是我的想法。
-会及时通知大家。如果您有任何其他绕过令牌限制的想法，请告诉我。
-格茨]]></description>
-      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=3#post_45</guid>
-      <pubDate>Sun, 05 May 2024 12:09:07 GMT</pubDate>
+      <title>我的余额（有到期日）无法在当前每月限额内使用</title>
+      <link>https://community.openai.com/t/my-balance-with-expiration-date-cannot-be-spent-with-the-current-monthly-limit/735610#post_3</link>
+      <description><![CDATA[问题是其他人是否也遇到过这种情况以及如何处理。无论如何，论坛主题并不总是问题。]]></description>
+      <guid>https://community.openai.com/t/my-balance-with-expiration-date-cannot-be-spent-with-the-current-monthly-limit/735610#post_3</guid>
+      <pubDate>Sun, 05 May 2024 15:14:16 GMT</pubDate>
     </item>
     <item>
-      <title>为什么我的 gpt4 不断给我 gpt3.5 响应</title>
-      <link>https://community.openai.com/t/why-does-my-gpt4-keep-giving-me-gpt3-5-responses/736709#post_2</link>
-      <description><![CDATA[这很正常，我们已经等了 4 个月了，他们才修复故障。
-GPT 自 2024 年 1 月起就不再工作，但他们似乎不想修复它。]]></description>
-      <guid>https://community.openai.com/t/why-does-my-gpt4-keep-giving-me-gpt3-5-responses/736709#post_2</guid>
-      <pubDate>Sun, 05 May 2024 11:45:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>Safari PWA 的聊天支持刚刚中断</title>
-      <link>https://community.openai.com/t/chat-support-for-safari-pwa-just-broke/736743#post_1</link>
-      <description><![CDATA[在过去的 6 个月里，我一直使用 ChatGPT 作为 Safari Web 应用程序（又名“添加到扩展坞”），效果非常好。我有一个通过 BTT 切换到聊天的全局快捷方式，这比尝试查找选项卡（或选项卡之一）要快得多。不幸的是，今天早上的聊天改变了它处理 Auth/OAuth 流程的方式，现在每次我尝试打开 safari Web 应用程序时，它都会使用我的默认浏览器在新窗口中打开聊天。 IE。无法登录并继续使用它。
-请有人找到解决办法。我喜欢我的全局键盘快捷键，并且不想编写宏来切换浏览器选项卡。
-重现步骤；在 Safari 上打开聊天 → 使用“添加到扩展坞”功能 → 使用聚光灯将聊天作为应用程序打开 → [如果还没有。] 使登录令牌无效（注销）→ 尝试登录。将出现新的浏览器窗口并让您登录，但网络应用程序永远不会打开/获取令牌。
-可能只是我一个人的问题，如果我为遇到相同问题的人找到更多技术细节/解决方法，我会更新。
-编辑：通过通过 safari 登录并重新制作网络应用程序，我能够让它再次工作。]]></description>
-      <guid>https://community.openai.com/t/chat-support-for-safari-pwa-just-broke/736743#post_1</guid>
-      <pubDate>Sun, 05 May 2024 11:43:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT4 症状再次复发</title>
-      <link>https://community.openai.com/t/gpt4-symptoms-have-returned-again/736661#post_3</link>
-      <description><![CDATA[我厌倦了这种情况；我这周有很多作业要完成，尤其是学术课程……OAI 的不负责任真的很不幸。]]></description>
-      <guid>https://community.openai.com/t/gpt4-symptoms-have-returned-again/736661#post_3</guid>
-      <pubDate>Sun, 05 May 2024 11:43:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用gpt将大量数据结构化为json格式</title>
-      <link>https://community.openai.com/t/using-gpt-to-structure-large-amounts-of-data-to-json-format/736209#post_9</link>
-      <description><![CDATA[很好的讨论，感谢您的链接。事实上，我几个月前就曾经实施过你的方法，以节省成本。我会考虑一下并尝试是否可以在另一个线程中加入。]]></description>
-      <guid>https://community.openai.com/t/using-gpt-to-structure-large-amounts-of-data-to-json-format/736209#post_9</guid>
-      <pubDate>Sun, 05 May 2024 11:38:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 作为对每个人都有帮助的工具</title>
-      <link>https://community.openai.com/t/chatgpt-as-a-helpful-tool-for-everyone/736738#post_1</link>
-      <description><![CDATA[（主题已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/chatgpt-as-a-helpful-tool-for-everyone/736738#post_1</guid>
-      <pubDate>Sun, 05 May 2024 11:38:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT4 症状再次出现</title>
-      <link>https://community.openai.com/t/gpt4-symptoms-have-returned-again/736661#post_2</link>
-      <description><![CDATA[就我而言，自 GPT 停止工作且未遵循任何指示以来，已经过去近 4 个月了。即使是最简单的指令。]]></description>
-      <guid>https://community.openai.com/t/gpt4-symptoms-have-returned-again/736661#post_2</guid>
-      <pubDate>Sun, 05 May 2024 11:26:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用gpt将大量数据结构化为json格式</title>
-      <link>https://community.openai.com/t/using-gpt-to-structure-large-amounts-of-data-to-json-format/736209#post_8</link>
-      <description><![CDATA[根据您选择的结构，您可能需要查看此线程：
+      <title>Assistant API .txt 文件上传失败</title>
+      <link>https://community.openai.com/t/assistant-api-txt-file-upload-fails/735801#post_5</link>
+      <description><![CDATA[这里也一样！
 
 
 
-
-使用 gpt-4 API 对文档进行语义分块 &lt; a class=&quot;badge-category__wrapper &quot; href=&quot;https://community.openai.com/c/api/7&quot;&gt;API
+Assistant 无法将 txt 文件附加到向量空间 错误
 
   &lt;块引用&gt;
-    我正在根据这篇文章开发的对话线索创建这个主题： RAG 并不是真正的解决方案 - #43 by SomebodySysop
-虽然我们中的许多人对第一层“语义分块”有不同的方法，例如 @sergeliatko的 API： RAG 并不是真正的解决方案 - #50 by sergeliatko 我们仍在寻找一种方法让法学硕士做最后一点“子分块”，我们不是简单地按大小切分块，而是让模型来查看它并确定…
-  
+    尝试将txt文件附加到助手但总是失败。知道为什么吗？它是 utf-8 所以应该不是问题。
+ [屏幕截图 (800)]
 
-包括我在内的一些论坛成员讨论并制定了使用 GPT-4-turbo 对文档进行语义分块的解决方案。本质上，该方法涉及使用 GPT-4-turbo 创建文档大纲（包括文档中各个部分的开始和结束位置的标识），然后使用该信息以编程方式从文档中逐字提取文本。将文档转换为结构化 JSON。
-这种方法的好处是，您只需要一次 API 调用即可获取文档的基本结构，并且不必担心输出令牌约束。此外，与要求模型逐字返回文本的场景相比，它节省了大量成本。也就是说，该方法目前主要适用于具有明确定义部分的文档。]]></description>
-      <guid>https://community.openai.com/t/using-gpt-to-structure-large-amounts-of-data-to-json-format/736209#post_8</guid>
-      <pubDate>Sun, 05 May 2024 11:16:28 GMT</pubDate>
+]]></description>
+      <guid>https://community.openai.com/t/assistant-api-txt-file-upload-fails/735801#post_5</guid>
+      <pubDate>Sun, 05 May 2024 15:13:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>TTS api 中的语言错误</title>
+      <link>https://community.openai.com/t/language-error-in-tts-api/606471#post_4</link>
+      <description><![CDATA[对于一个人工智能语音角色来说，拥有一种语言技能并不是什么奇怪的事情。
+考虑一下创建训练集的配音演员：据报道，以特定风格重复标记数据，产生了有史以来最无聊的有声读物，其最终结果是让你的职业生涯被机器人复制。现在寻找母语水平的多语言人员来完成这项工作。人工智能专家可以准备和理解数据集，并提出在训练和输入中区分数据集的策略。]]></description>
+      <guid>https://community.openai.com/t/language-error-in-tts-api/606471#post_4</guid>
+      <pubDate>Sun, 05 May 2024 14:59:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 GPT 不发出 POST 请求</title>
+      <link>https://community.openai.com/t/my-gpt-doesnt-make-post-requests/736526#post_2</link>
+      <description><![CDATA[好的，GPT 限制已达到
+就是这里。
+看起来很明显
+
+初始意图、端点和负载 - 调试显示它与请求完全一致
+但它仍然以 GET o_O 结束 - 超级奇怪
+
+就好像 POST 被禁止一样，它会退回到 GET 或其他类似的方式。
+]]></description>
+      <guid>https://community.openai.com/t/my-gpt-doesnt-make-post-requests/736526#post_2</guid>
+      <pubDate>Sun, 05 May 2024 14:58:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>尽管我的帐户中有剩余余额，但在与 OpenAI API 交互时我始终遇到错误代码 429，我正在寻求有关如何解决此问题的指导。”</title>
+      <link>https://community.openai.com/t/despite-having-a-remaining-balance-in-my-account-im-consistently-encountering-error-code-429-when-interacting-with-the-openai-api-and-im-seeking-guidance-on-how-to-resolve-this-issue/736834#post_4</link>
+      <description><![CDATA[当然！
+您的 ChatGPT Plus 订阅和 API 是两种不同的产品。这意味着，您为订阅支付的费用不计入 API。因此，您需要单独为您的 API 帐户注入信用额度。至于后者，据我们所知，OpenAI 近几个月来已经逐步取消了以前创建新帐户时附带的免费信用额度。]]></description>
+      <guid>https://community.openai.com/t/despite-having-a-remaining-balance-in-my-account-im-consistently-encountering-error-code-429-when-interacting-with-the-openai-api-and-im-seeking-guidance-on-how-to-resolve-this-issue/736834#post_4</guid>
+      <pubDate>Sun, 05 May 2024 14:57:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>尽管我的帐户中有剩余余额，但在与 OpenAI API 交互时，我始终遇到错误代码 429，我正在寻求有关如何解决此问题的指导。”</title>
+      <link>https://community.openai.com/t/despite-having-a-remaining-balance-in-my-account-im-consistently-encountering-error-code-429-when-interacting-with-the-openai-api-and-im-seeking-guidance-on-how-to-resolve-this-issue/736834#post_3</link>
+      <description><![CDATA[您能否解释一下，如果我购买 chat-gpt 4，那么我还必须添加一些信用才能使用 api？当您创建新帐户 5 美元时，免费信用怎么样？]]></description>
+      <guid>https://community.openai.com/t/despite-having-a-remaining-balance-in-my-account-im-consistently-encountering-error-code-429-when-interacting-with-the-openai-api-and-im-seeking-guidance-on-how-to-resolve-this-issue/736834#post_3</guid>
+      <pubDate>Sun, 05 May 2024 14:40:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手无法将txt文件附加到向量空间</title>
+      <link>https://community.openai.com/t/assistant-unable-to-attach-txt-file-to-the-vector-space/736855#post_1</link>
+      <description><![CDATA[尝试将 txt 文件附加到助手，但始终失败。知道为什么吗？它是 utf-8 所以应该不是问题。
+
+]]></description>
+      <guid>https://community.openai.com/t/assistant-unable-to-attach-txt-file-to-the-vector-space/736855#post_1</guid>
+      <pubDate>Sun, 05 May 2024 14:39:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>扩大 GPT 货币化：自定义 GPT 模型和收入共享的提案</title>
+      <link>https://community.openai.com/t/expanding-gpt-monetization-a-proposal-for-custom-gpt-models-and-revenue-sharing/515043#post_11</link>
+      <description><![CDATA[
+
+
+轴：
+&lt;块引用&gt;
+我们最适合与谁谈论我们的平台？
+
+
+好问题！但答案取决于你想谈论什么？]]></description>
+      <guid>https://community.openai.com/t/expanding-gpt-monetization-a-proposal-for-custom-gpt-models-and-revenue-sharing/515043#post_11</guid>
+      <pubDate>Sun, 05 May 2024 14:31:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>扩大 GPT 货币化：自定义 GPT 模型和收入共享的提案</title>
+      <link>https://community.openai.com/t/expanding-gpt-monetization-a-proposal-for-custom-gpt-models-and-revenue-sharing/515043#post_10</link>
+      <description><![CDATA[嗨，N2U，感谢您的评论。我们最适合与谁谈论我们的平台？
+它不是“收入分享”模型，也不是为 GPT 设计的，而是为通过我们的平台运行并连接到 GPT-4 API 的通用提示设计的。
+我们为新的即时经济开发了一个功能齐全的商务平台。
+感谢您的建议。]]></description>
+      <guid>https://community.openai.com/t/expanding-gpt-monetization-a-proposal-for-custom-gpt-models-and-revenue-sharing/515043#post_10</guid>
+      <pubDate>Sun, 05 May 2024 14:27:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 提示和技巧主题</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=4#post_69</link>
+      <description><![CDATA[
+
+
+ PaulBellow：
+
+一幅 15 世纪欧洲艺术家风格的宽幅油画，描绘了约 234 人聚集在纽伦堡，经历地球上的第一次外星人接触。场景庄严，不同年龄、穿着 15 世纪典型服装的人，脸上露出敬畏、恐惧和好奇的复杂表情。背景包括中世纪建筑和鹅卵石街道，天空中隐约可见一艘神秘的外星飞船，为整个场景投下诡异的光芒。
+
+
+我对它和它所设定的主题的一些看法只是暴风雨前的宁静，或者说，某种程度上的平静。因此，也保存该样式。
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=4#post_69</guid>
+      <pubDate>Sun, 05 May 2024 14:00:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>矢量存储中最多 100 个文件</title>
+      <link>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_9</link>
+      <description><![CDATA[我的所有文件都显示出来了，尽管看起来确实有问题。如果我通过点击“更多”几次加载太多内容，我的浏览器将冻结。
+使用 ChatGPT 自定义 GPT，我一次只能上传 10 个，因此可能存在 UI 限制。尽管通过 PowerShell/API 工作得很好，但我也无法通过网络很好地删除。]]></description>
+      <guid>https://community.openai.com/t/max-100-files-in-vector-store/729876#post_9</guid>
+      <pubDate>Sun, 05 May 2024 13:57:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
