@@ -4,44 +4,99 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 05 May 2024 06:24:21 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2024 09:20:43 GMT</lastBuildDate>
     <item>
-      <title>Assistant API 的 GET 消息响应中缺少“status”键</title>
-      <link>https://community.openai.com/t/status-key-missing-from-assistant-apis-get-message-response/736538#post_1</link>
-      <description><![CDATA[助理 API 消息对象的 文档描述了必需的“状态”键，但该键在响应中不存在。我花了一个小时的时间调试为什么我的 json 反序列化会中断。
+      <title>通过情境感知 ChatGPT 调解促进人际关系</title>
+      <link>https://community.openai.com/t/facilitating-interpersonal-relationships-through-context-aware-chatgpt-mediation/736644#post_1</link>
+      <description><![CDATA[ 嘿！
+我想提议对 ChatGPT 进行增强，旨在将其转变为促进更好人际关系的工具。 ChatGPT 的想法是通过谨慎地综合在与每个人单独互动期间收集的信息来调解或影响两个彼此认识或不认识的人之间的决策。
+想象一下，ChatGPT 根据他们与 AI 单独交互的共享详细信息协助做出决策，从而帮助两个或更多人改善关系。
+示例1：
+当一个人寻求为朋友选择礼物的建议时，ChatGPT 可以分析双方的对话，推荐一份真正能让接受者感到高兴的礼物。
 
-GET https://api.openai.com/v1/threads/{thread_id}/messages/{message_id}
+A 向 ChatGPT 寻求有关向 B 赠送什么礼物的建议。
+B 在不同的会话中，在与 ChatGPT 的对话中分享他们的偏好，而不知道 A 的查询。
+ChatGPT 使用这些汇总数据向 A 推荐一份符合 B 明确偏好的礼物。
 
-headers: {
-&quot;Authorization&quot;:
-&quot;Bearer my-key&quot;,
-&quot;OpenAI-Beta&quot;: &quot;assistants=v1&quot;}
+&lt;小时/&gt;
+示例 2：
 
-//响应没有“status”键
-{
-&quot;id&quot;: &quot;some_message_id&quot;,
-&quot;object&quot;: &quot;thread.message&quot;,
-&quot;created_at&quot;: 1714869955,
-&quot;assistant_id&quot;: &quot;some_assistant_id&quot;,
-&quot;thread_id&quot;: &quot;some_thread_id&quot;,
-&quot;run_id&quot;: &quot;some_run_id&quot;,
-&quot;role&quot;: &quot;assistant&quot;,
-&quot;content&quot;: [
-{
-&quot;type&quot;: &quot;text&quot;,
-&quot;text&quot;: {
-&quot;value&quot;: &quot;如有需要，请随时询问更多详细信息或特定事件！&quot;,
-&quot;annotations&quot;: []
-}
-}
-],
-&quot;file_ids&quot;: [],
-&quot;metadata&quot;: {}
-}
+一位家长正在努力与十几岁的孩子进行有效沟通，孩子表现出情感疏远或拒绝的迹象。
+家长和青少年都与 ChatGPT 进行单独的私人对话，表达自己的感受和担忧。
+ChatGPT 赢得了双方的信任，利用这些互动中的见解来指导家长如何与孩子相处，促进更好的沟通和理解。
+
+&lt;小时/&gt;
+潜在好处：
+
+增强的个性化：利用个人偏好和过去的互动来提供量身定制的建议。
+隐私和自由裁量权：确保未经同意，各方之间不会明确共享个人信息。
+积极的关系影响：旨在通过深思熟虑、知情的建议来加强人际关系。
+
+注意事项：
+
+隐私和道德：实施严格的隐私控制和道德准则来管理和保护用户数据。
+准确性和相关性：确保人工智能的建议基于准确且相关的信息。
+用户同意：有明确的机制让用户控制使用哪些信息以及如何应用信息。
+
+这一概念可以为人工智能介导的沟通开辟新途径，增强人们通过技术互动和相互联系的方式。我很想听听您对此的想法并讨论潜在的挑战和机遇。
+期待您的反馈。 还有其他例子吗？
+ ]]></description>
+      <guid>https://community.openai.com/t/facilitating-interpersonal-relationships-through-context-aware-chatgpt-mediation/736644#post_1</guid>
+      <pubDate>Sun, 05 May 2024 08:52:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 提示提示和技巧线程</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=4#post_67</link>
+      <description><![CDATA[当前的 Dall-E3（我曾尝试与 ChatGPT 一起使用）似乎无法准确表示人数、性别或顺序，无论是否分配了数字。
+通常，人数是不正确的，或者即使分配了号码，也是随机排序的。
+&lt;块引用&gt;
+一幅宽幅油画描绘了八位探险家，每一位都穿着八种原色中的一种：红、橙、黄、绿、蓝、靛、紫和白。这个多元化的群体包括四名女性和四名男性，年龄和种族各不相同，风格就像一幅 19 世纪中叶的美国风景画。他们正在山道上欣赏郁郁葱葱的风景。每件探险家衬衫的背面都有一个从 1 到 8 的数字，从左到右正确编号：男 (1)、女 (2)、女 (3)、男 (4)、男 (5)、女 (6) ，男人（7），女人（8）。
 
 ]]></description>
-      <guid>https://community.openai.com/t/status-key-missing-from-assistant-apis-get-message-response/736538#post_1</guid>
-      <pubDate>Sun, 05 May 2024 05:32:10 GMT</pubDate>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=4#post_67</guid>
+      <pubDate>Sun, 05 May 2024 08:33:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>openai网站有通用反馈功能吗？我有关于代币计算器的反馈</title>
+      <link>https://community.openai.com/t/is-there-a-general-feedback-function-for-the-openai-websites-i-have-feedback-for-the-token-calculator/736632#post_1</link>
+      <description><![CDATA[令牌计算器应具有页面标题 (html &lt; /code&gt;）设置为 Token Calulator OpenAI Platform 不仅仅是 OpenAI Platform，因为如果多个页面使用相同或相似的标题，则很难找到该选项卡。简单的改变只需要团队成员 5 分钟的时间，但却会产生巨大的影响。]]></description>
+      <guid>https://community.openai.com/t/is-there-a-general-feedback-function-for-the-openai-websites-i-have-feedback-for-the-token-calculator/736632#post_1</guid>
+      <pubDate>Sun, 05 May 2024 08:27:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>介绍 Universal Teacher：使用 Amazon Alexa 和 ChatGPT 实现的交互式学习体验</title>
+      <link>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_8</link>
+      <description><![CDATA[这是第二个关于历史的视频。主题是“第二次世界大战”。本课程首先对主题进行解释，然后提出一组问题来测试是否已理解解释。
+链接如下：Universal Teacher：连接以获取解释和测验，由 ChatGPT 提供支持。 #Alexa #chatgpt (youtube.com)]]></description>
+      <guid>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_8</guid>
+      <pubDate>Sun, 05 May 2024 08:19:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>My Plus 订阅未出现</title>
+      <link>https://community.openai.com/t/my-plus-subscription-not-appearing/608255#post_5</link>
+      <description><![CDATA[我在 2024 年 5 月 2 日遇到了同样的问题，升级为 1 年计划，但我的计划仍未升级]]></description>
+      <guid>https://community.openai.com/t/my-plus-subscription-not-appearing/608255#post_5</guid>
+      <pubDate>Sun, 05 May 2024 08:15:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 信用超出错误，即使没有使用它们</title>
+      <link>https://community.openai.com/t/api-credit-exceeded-error-even-though-didnt-used-them/736623#post_1</link>
+      <description><![CDATA[我收到 您已达到使用限制。有关更多详细信息，请参阅您的[使用情况仪表板](https://platform.openai.com/account/usage)和[计费设置](https://platform.openai.com/account/billing)。如果您还有其他问题，请通过我们的帮助中心 help.openai.com 与我们联系。即使我在大约半年后使用 API 并且我的积分没有补充，仍然出现错误]]></description>
+      <guid>https://community.openai.com/t/api-credit-exceeded-error-even-though-didnt-used-them/736623#post_1</guid>
+      <pubDate>Sun, 05 May 2024 08:15:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误报告：CustomGPT 在 API 响应中出现幻觉</title>
+      <link>https://community.openai.com/t/bug-report-customgpt-halucinating-in-api-responses/736617#post_1</link>
+      <description><![CDATA[几天前，我的一个 CustomGPT 开始出现异常：它不再在响应中显示任何图像。
+调试后，我注意到它在 API 响应中编造字符？！
+查看此对话：
+
+
+它随机地幻化了图像 API 响应中的某些字符，导致 URL 损坏……
+也许添加一些功能来防止 API 响应中的幻觉？]]></description>
+      <guid>https://community.openai.com/t/bug-report-customgpt-halucinating-in-api-responses/736617#post_1</guid>
+      <pubDate>Sun, 05 May 2024 08:10:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
