@@ -4,95 +4,114 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 06 May 2024 15:19:53 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2024 18:26:26 GMT</lastBuildDate>
     <item>
-      <title>带嵌入的时间/线性编码？</title>
-      <link>https://community.openai.com/t/temporal-linear-coding-with-embeddings/735546#post_7</link>
+      <title>网站 CPU 使用率高/性能问题</title>
+      <link>https://community.openai.com/t/website-high-cpu-usage-performance-issue/736156#post_9</link>
+      <description><![CDATA[经过一些搜索后，这似乎是 Opera 的问题，网络上的其他人也报告了其他网站的相同问题 ]]></description>
+      <guid>https://community.openai.com/t/website-high-cpu-usage-performance-issue/736156#post_9</guid>
+      <pubDate>Mon, 06 May 2024 18:23:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google 表格的自定义操作</title>
+      <link>https://community.openai.com/t/custom-action-for-google-sheets/520798#post_14</link>
       <description><![CDATA[
 
 
- curt.kennedy:
+ ziftech：
 &lt;块引用&gt;
-您是否考虑过仅对嵌入添加时间戳，作为附加元数据字段？
-您可以使用 RRF 之类的工具将其混合到检索中，将时间和相关性混合到总体排名中。
+我正在寻找任何描述如何从我的 GPT 作为操作调用 Google 表格并在其中存储数据的指南。
 
 
-确实。不过目前我还不是 RFF 的粉丝，因为它对我来说还没有任何直观意义。
-
-
-
-饮食：
+在这里，我将以尽可能最好的方式向您解释，要让您的 GPT 模型与 Google 表格交互并存储数据，您需要执行几个简单的步骤。首先，在 Google Cloud 上设置一个项目并启用 Google Sheets API。您可以通过访问 Google Cloud Console，创建一个新项目，然后在“API 和 Google Sheets API”下启用 Google Sheets API 来完成此操作。服务”部分。
+接下来，为您的项目创建凭据。这涉及设置 OAuth 客户端 ID 以及下载包含您的凭据的 JSON 文件。该文件至关重要，因为它将允许您的程序与 Google 表格连接。
+设置 Google Cloud 项目后，您需要准备编程环境。安装必要的 Python 库，例如 google-auth 和 gspread。您可以使用 pip 通过简单的命令来安装它们。
+使用 Python，您可以编写代码以使用 JSON 文件中的凭据进行身份验证，并执行读取或写入电子表格等操作。例如，写“Hello, World!”到工作表的单元格 A1 中，或者要从中读取所有数据，您可以使用 gspread 库提供的简单命令。
+最后，将此功能集成到 GPT 与 Google 表格交互的应用程序中。这可能涉及根据您的特定需求设置服务器或添加脚本来处理数据交换。确保处理错误并确保您的设置安全，尤其是在管理敏感数据时。]]></description>
+      <guid>https://community.openai.com/t/custom-action-for-google-sheets/520798#post_14</guid>
+      <pubDate>Mon, 06 May 2024 18:22:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=3#post_56</link>
+      <description><![CDATA[几个月前，这个论坛上的一位 OpenAI 开发者发布了一句格言：
 &lt;块引用&gt;
-cos(delta_theta)
+当可以使用传统代码来完成任务时，您不应使用 LLM。
+
+当使用一行代码可以轻松完成此操作时，花费令牌将文档分块为 x 个令牌是没有意义的。
+我想要完成的，也是整个线程的主题，是根据文本的语义、单独的概念和/或想法来对文本进行分块。
+到目前为止，我们所做的是按文档的语义结构对文档进行层次结构分解。现在，我要问的是，如果在这次分解之后，我仍然得到一段仍然超过 x 个标记的文本，我如何提示模型根据它所说的内容进一步分解它 /em&gt;，不是基于它的大小？
+这是仅靠代码无法完成的事情。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=3#post_56</guid>
+      <pubDate>Mon, 06 May 2024 18:18:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 GPT-4 的记忆消失了！</title>
+      <link>https://community.openai.com/t/my-gpt-4s-memory-has-disappeared/732911#post_5</link>
+      <description><![CDATA[是的，内存不断删除条目，并在未经许可或通知用户的情况下修改它们。显然，内存应该只是用户帐户的一个简单、就地编辑、清晰的区域，未经用户批准不得删除或修改条目。
+我询问了 gpt4，它澄清说我们被允许有数百个内存条目，每个条目最多 512 个令牌。但这并不是系统实际发生的结果。它是不可预测且不稳定的。
+我现在将所有内存条目复制并粘贴到单独的云文档中，因为我假设任何内存条目都可能被随机删除。
+我不断通知 OpenAI，但他们只是在几天后回复并建议我应该“注销并登录”。再次回来”等等，或类似的陈词滥调。这显然是 OpenAI 尚不可靠的一个有问题的领域。]]></description>
+      <guid>https://community.openai.com/t/my-gpt-4s-memory-has-disappeared/732911#post_5</guid>
+      <pubDate>Mon, 06 May 2024 18:05:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>网站 CPU 使用率过高/性能问题</title>
+      <link>https://community.openai.com/t/website-high-cpu-usage-performance-issue/736156#post_8</link>
+      <description><![CDATA[我们能不能不要把随机的东西扔进神秘的锅里，而是先集中精力并消除
 
 
-代表您的建议。它是应用于时间戳增量的过滤器。但高斯函数可能比 cos 更有意义。我们将其应用于余弦相似度。
 
-如果 c 无限大，我们将获得规则的（360°，0s）余弦相似度，并且随着它的缩小，我们会及时增加焦距，直到我们获得最后嵌入的微距镜头。
-根据我们提出的问题（昨天、一小时前、两页前、去年、最后一章），我们可以有一些预先计算的 C 和 B，但我想知道这是否也可以动态完成。 
-如果您使用自适应最近邻算法，您可以使用有关邻域的信息来通知 C. 也许。
-
-
-
- curt.kennedy:
+ daffie2244：
 &lt;块引用&gt;
-桶
+（除了严重的滞后，如果我尝试运行任何提示而不关闭网站上的历史记录幻灯片）
 
 
-
-
-
- curt.kennedy:
-&lt;块引用&gt;
-量化
-
-
-我不喜欢在数据级别量化连续的东西，因为如果这样做，就会引入任意范围约束
-当然，如果您只需要一个快速而肮脏的解决方案，并且您知道您的问题始终是关于您是昨天还是今天做的，那么这绝对是有意义的。]]></description>
-      <guid>https://community.openai.com/t/temporal-linear-coding-with-embeddings/735546#post_7</guid>
-      <pubDate>Mon, 06 May 2024 15:15:51 GMT</pubDate>
+如果你关闭历史记录，这就不再是问题了，对吧？至少对于游乐场来说是这样。
+您能否再次运行此代码：
+JSON.stringify(Object.entries(localStorage).filter( ([k, _]) =&gt; k.includes(&quot;playground/history&quot;))).length
+引擎垃圾邮件确实很奇怪
+请记住：Playground 和 Docs 都是 platform.openai.com 并使用 React。遇到地狱般的无限渲染循环是很常见的。考虑到这种情况只发生在你身上，我认为可以公平地假设某些国家正在把事情搞砸。
+如果您查看文档并查看会发生什么？在隐身模式下登录时使用 Playground？]]></description>
+      <guid>https://community.openai.com/t/website-high-cpu-usage-performance-issue/736156#post_8</guid>
+      <pubDate>Mon, 06 May 2024 18:02:02 GMT</pubDate>
     </item>
     <item>
-      <title>文本到视频生成 AI 模型</title>
-      <link>https://community.openai.com/t/text-to-video-gen-ai-models/737811#post_1</link>
-      <description><![CDATA[嗨，任何人都可以帮助开发开源文本到视频模型，该模型可以生成 10-15 秒的视频，并可以进一步微调以提高准确性。目前我已经探索了所有可用于拥抱脸部的开源模型，即使有详细的提示，它们也无法生成准确的视频。]]></description>
-      <guid>https://community.openai.com/t/text-to-video-gen-ai-models/737811#post_1</guid>
-      <pubDate>Mon, 06 May 2024 15:02:33 GMT</pubDate>
+      <title>将 GPT 转移到其他帐户</title>
+      <link>https://community.openai.com/t/transfer-gpts-to-a-different-account/717484#post_2</link>
+      <description><![CDATA[我也有同样的问题。我打开了 ChatGPT Teams，只有第一个用户被提示传输聊天历史记录和自定义 GPT，第二个具有所有者角色的帐户没有收到该弹出窗口。如何将自定义 GPT 从 ChatGPT Plus 转移到 Chat GPT Teams？有人这样做过吗？]]></description>
+      <guid>https://community.openai.com/t/transfer-gpts-to-a-different-account/717484#post_2</guid>
+      <pubDate>Mon, 06 May 2024 17:51:27 GMT</pubDate>
     </item>
     <item>
-      <title>对 chatgpt 的反馈，添加新选项</title>
-      <link>https://community.openai.com/t/feedback-for-chatgpt-adding-a-new-option/737810#post_1</link>
-      <description><![CDATA[添加一个选项，允许您从聊天机器人或您的新旧对话中删除回复]]></description>
-      <guid>https://community.openai.com/t/feedback-for-chatgpt-adding-a-new-option/737810#post_1</guid>
-      <pubDate>Mon, 06 May 2024 15:02:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手 API 工具是否支持 `**kwargs`？如何在 JSON 模式中记录它们？</title>
-      <link>https://community.openai.com/t/do-the-assistant-api-tools-support-kwargs-how-to-document-them-in-the-json-schema/737808#post_1</link>
-      <description><![CDATA[您好，我有一个抽象函数，它有一些必需的参数，但也可能有多个附加参数，这些参数根据用例通过 **kwargs 传递。我希望我的 Assistant API 使用此函数作为工具，它工作正常，但仅使用必需的参数，它总是忽略 **kwargs。 Assistant API工具支持这个吗？我在 properties 下描述了我当前的 JSON 架构，如下所示：
- &quot;additionalParameters&quot;: {
-          “类型”：“对象”，
-          &quot;description&quot;: &quot;函数所需的附加参数（例如长度）&quot;,
-          “附加属性”：true
-      }
+      <title>错误消息：您超出了当前配额，请检查您的计划和账单详细信息</title>
+      <link>https://community.openai.com/t/error-message-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/737631#post_2</link>
+      <description><![CDATA[我想你错了。上限值显示您的可用积分，下限值显示您为组织设置的硬上限。
+您为您的帐户注资了吗？
+我不记得免费使用该 API
+应该有这样的内容：
 
-我找不到任何明确描述这一点的文档。请帮忙。]]></description>
-      <guid>https://community.openai.com/t/do-the-assistant-api-tools-support-kwargs-how-to-document-them-in-the-json-schema/737808#post_1</guid>
-      <pubDate>Mon, 06 May 2024 15:00:16 GMT</pubDate>
+好处是。您能够沟通并收到回复。所以代码不是罪魁祸首 &lt;img alt=&quot;:slight_smile:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/slight_smile.png?v=12 “标题=“：slight_smile：”宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/error-message-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/737631#post_2</guid>
+      <pubDate>Mon, 06 May 2024 17:42:57 GMT</pubDate>
     </item>
     <item>
-      <title>支持图像输入的助手 API</title>
-      <link>https://community.openai.com/t/assistants-api-supporting-image-inputs/737807#post_1</link>
-      <description><![CDATA[是否有推出此功能的日期，以便我们可以测试助手 API 上的图像输入？这将有助于社区在将其投入生产之前进行测试。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-supporting-image-inputs/737807#post_1</guid>
-      <pubDate>Mon, 06 May 2024 14:57:26 GMT</pubDate>
+      <title>@mention 正在删除提示文本</title>
+      <link>https://community.openai.com/t/mention-is-deleting-prompt-text/733257#post_8</link>
+      <description><![CDATA[传奇仍在继续。链接读取器 GPT 生成超级通用信息，因此我根据我的训练询问它读取哪些链接。上面说
+“我无法直接访问或浏览外部链接，因此我没有阅读任何链接。我根据许可数据、人类培训师创建的数据以及公开信息的混合生成响应。我的回答是根据我接受过培训的数据模式生成的，而不是根据网站或链接的实时浏览生成的。
+如果您想讨论或需要帮助的链接中有特定内容或详细信息，您可以在此处复制并共享该信息，我当然可以根据该信息帮助分析或提供见解！”
+这是否意味着我引用的 GPT 不起作用或者有其他问题？]]></description>
+      <guid>https://community.openai.com/t/mention-is-deleting-prompt-text/733257#post_8</guid>
+      <pubDate>Mon, 06 May 2024 17:42:05 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 响应的延迟显示</title>
-      <link>https://community.openai.com/t/delayed-display-of-chatgpt-responses/737794#post_1</link>
-      <description><![CDATA[ChatGPT 最近开始等待其对提示的响应完全构建后再显示任何内容。有没有办法恢复到以前的首选行为，即在制定响应时实时显示响应？]]></description>
-      <guid>https://community.openai.com/t/delayed-display-of-chatgpt-responses/737794#post_1</guid>
-      <pubDate>Mon, 06 May 2024 14:48:30 GMT</pubDate>
+      <title>代码生成的最佳“温度”</title>
+      <link>https://community.openai.com/t/best-temperature-for-code-generation/737935#post_1</link>
+      <description><![CDATA[我正在开发一个生成源代码和/或重构代码的代理工具，我注意到我当然会得到不同的结果来处理相当简单的请求，例如向类或其他内容“添加日期字段”。&lt; /p&gt;
+人们对代码生成的最佳温度有什么看法吗？我认为它会相当低，但非零？我很欣赏人们可能有的任何想法。]]></description>
+      <guid>https://community.openai.com/t/best-temperature-for-code-generation/737935#post_1</guid>
+      <pubDate>Mon, 06 May 2024 17:36:14 GMT</pubDate>
     </item>
     </channel>
 </rss>

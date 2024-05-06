@@ -4,25 +4,102 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 06 May 2024 15:18:58 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2024 18:25:25 GMT</lastBuildDate>
+    <item>
+      <title>Ubuntu VM 上的 LAMP 服务器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clpfvv/lamp_server_on_ubuntu_vm/</link>
+      <description><![CDATA[朋友们大家好，目前是一名大学二年级学生，在使用 Linux VM 时遇到了问题。我们必须创建一个 LAMP 堆栈服务器并在其上编写一个 php 应用程序，我已经设置了服务器，但无法通过我的本地计算机连接...我认为这是他们希望我们能够做的事情？  到目前为止我已经尝试过： 通过 SSH 连接到服务器 安装 LAMP 使用 ufw 打开端口 80 检查sites-enabled/000-default.conf是否指向html文件夹/var/www/html 然后我使用了curl  icanhazip.com 查找外部 IP 重新启动 Apache 并在浏览器中输入 :80 并按 Enter 我是吗缺少一些步骤？谢谢   由   提交/u/nal0  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clpfvv/lamp_server_on_ubuntu_vm/</guid>
+      <pubDate>Mon, 06 May 2024 17:54:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>会话与 JWT（租户、移动设备、Web）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clowl6/sessions_vs_jwts_tenants_mobile_web/</link>
+      <description><![CDATA[嘿，我们有基于 PHP 的应用程序，其中包括 React Web 应用程序和 Android 客户端。我们的应用程序现在正在使用 JWT，但它的实现有点混乱，我们想要重构它，甚至完全切换到会话 为什么？因为 JWT 上有几个困难的因素：  应用程序是多租户的，即用户可以属于多个组，然后将请求发送到端点，如 api.service/{tenant_id}/payment - 我们使用 httpOnly、安全的 cookie 来存储令牌/jwt，因此它们对于应用程序完全不可见。用户应该能够同时登录多个租户，而现在这是有问题的，因为我们只有一个 cookie。移动应用程序使用 Bearer 令牌，但 Web 应用程序只能使用这些 cookie，所以这是真正的问题。通过会话，我们可以在服务器级别进行控制 性能通常是 JWT 的参数，但我们希望利用 redis 来存储会话 + 另外应用程序类似于模块化整体，它是一切的网关，因此我们不利用 JWT 的优势，例如轻松访问多个分布式服务 撤销：租户管理员应该能够快速删除特定用户的访问权限，而使用 JWT 则更难。我们可以使用黑名单，也可以在 redis 上使用，但这意味着我们需要对每个请求进行验证...看起来与会话操作非常相似 - 但也许我错了？ 总的来说，在每个连接中应用程序都必须获取一些用户数据，因此即使我们有 JWT，我们仍然需要调用 DB...并且每个请求都会产生很多数据，因此仅增加 redis 调用似乎不是什么大问题 处理会话比添加生成令牌、刷新等要简单得多。 - 好的，有一些很棒的库可以做到这一点，但是会话仍然只是原生的  我不确定，但看起来在我们的例子中会话是最好的，但也许我错过了什么，应该包括它？任何反馈都非常欢迎！    提交人    /u/Left-Cartographer511   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clowl6/sessions_vs_jwts_tenants_mobile_web/</guid>
+      <pubDate>Mon, 06 May 2024 17:32:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>客户的“SEO 专家”希望获得该网站的完全管理员访问权限：有关访问和移交的问题（以及一些关于 SEO“专家”的评论）。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clob04/clients_seo_expert_wants_full_admin_access_to_the/</link>
+      <description><![CDATA[[TL;DR:   你们如何进行交接拥有登陆网站或小型电子商务网站的小型企业；您会为他们提供一切，为未来的业务定位自己，还是其他什么？ 您如何处理“SEO 优化”问题？小丑？]  嗨！ 不久前我创办了一家个人经纪公司。显然，这样的情况将从一开始就让我们了解全面合同的重要性。  我使用 Wix Studio 为客户构建了一个网站，因为他们的网站类型和 Wix 的基础设施使其非常适合。该网站经过 SEO 优化，因为它是在 2024 年的平台上构建的。图像命名正确，标签分配正确，Studio 在网站管理控制台的 SEO 设置下很好地呈现了需要完成的所有操作。  他们被 Google/Meta 广告承包商欺骗了，他们说服他们需要每月向他支付费用来“优化”广告。我为他们建立的网站。他每月向他们收取的费用仅略低于他们最初支付给我建设网站费用的 50%。我花了很多（无偿）时间试图让我的客户了解这种常见的骗局，我已经尝试完了。  这家伙给我的客户发了一封电子邮件，说他们需要对 Wix Studio 网站的完全管理员访问权限。如果获得许可，他们将能够完全编辑该网站，并更改所有网站设置。  一方面，我关心。首先，我对其他人翻阅我的作品有一种奇怪的感觉。这是“我的空间”。我知道这可能是没有根据的，因为客户付钱给我让他们制作这个网站。其次，在构建网站时，我鼓励客户建立一个博客（具有讽刺意味的是，出于搜索引擎优化的目的）。随着他们的业务增长，我们还希望向网站添加许多其他内容。这些都是口头协议。通过向谁知道谁开放该网站，我可能会妨碍未来的业务。  另一方面，我不在乎。我的客户对我的工作很满意，如果他们做了博客等，就没有理由认为他们会使用其他人。如果这个人把网站弄乱了怎么办？太好了，我还有更多工作要做。  正如我从一开始就说过的，如果签订了一份大合同，这一切都可以避免。我可以自豪地说，我已经从过去的错误中吸取了教训，并且一定会将其添加到名单中。我的主要问题是：  你们如何向拥有登陆网站或小型电子商务网站的小型企业进行移交？你会为他们提供一切，让自己成为他们继续求助的人，还是其他什么？ 你如何应对这些 SEO 小丑？我可以就此写一篇完整的文章，我相信它会得到很多参与……不言而喻，如果这个人让我参与他正在做的任何事情，那么这些时间将是计费时间。   谢谢！   由   提交 /u/cl4rkc4nt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clob04/clients_seo_expert_wants_full_admin_access_to_the/</guid>
+      <pubDate>Mon, 06 May 2024 17:07:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>与您的实际工资相比，您从独立 Web 开发项目中赚了多少钱？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clnfuf/how_much_do_you_make_from_your_independent_web/</link>
+      <description><![CDATA[显然，由于社交媒体（较低的低点和较高的高点），结果会有所偏差。 实际上，我并不期望有太多结果如果他们的基本工资是 100,000 美元，人们甚至可以从他们的副业项目中赚取基本工资的 10%。 但谁知道呢，也许我完全错了并且不知情。  想法？   由   提交/u/SeriouslySally36  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clnfuf/how_much_do_you_make_from_your_independent_web/</guid>
+      <pubDate>Mon, 06 May 2024 16:32:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>(AI) 末日感</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clna77/sense_of_ai_doom/</link>
+      <description><![CDATA[在我担任 C#.NET 开发人员/PHPLaravel 开发人员的职业生涯中已有 6 年了，我一直觉得编码是我的金票，我从来没有打算这样做成为“职业发展者”从长远来看，我对创业有着痴迷，我百分百致力于发展自己的事业，而我现在正处于它的边缘。 -但感觉并不像不再是一张金票了，尤其是在过去 12 个月里，我了解到了一些事实，即普通公司实际上是如何憎恨开发人员的，并认为我们 - 不是能够与计算机对话并且物有所值的惊人天才 - 而是大规模企业迫切希望以某种方式摆脱不便的成本负担。 还有 - 人工智能......程序员将程序员编程为冗余的产品。 我喜欢引擎，没有什么比引擎更好的了。 V8 路虎揽胜 SVR 在隧道中发出的声音，听起来就像世界末日的开始……我不想开着一辆安静无聊的电动汽车到处行驶，它会告诉我生命体征……但它正在发生，我们都在无论我们是否喜欢，都会比我们想象的更快地驾驶电动汽车。 我喜欢编码，目前的形式，我喜欢语言语法和功能，我喜欢原则和设计模式，我喜欢框架和库，我喜欢根据干净的架构创建应用程序，创建服务类、存储库、工厂、事件、CQRS blablabla...我很擅长，这是我的目的，我将用它来创建一些令人惊奇的东西- 我的目标不是数十亿美元，但至少为我和我的家人实现完全的自由和独立...... 正当我变得足够好能够实现这一切时 - 所有的突然之间，整个世界都决心让我的技能变得多余，抢走我的风头，并把我排除在交易之外。 我在基础水平上使用人工智能，github副驾驶，GPT / Dall-E等等等等...我认为很多人理所当然地认为它实际上有多先进，但更重要的是 - 技术增长是指数级的，它来得如此之快，甚至不到 10 年 - 我百分百肯定绝大多数使用主流语言和框架工作的高级程序员将不再需要……也不值得创造人工智能可以创造的东西。 在过去的 12 个月里，我离开了从感觉自己很有价值、有价值、有动力去创造一些东西……到感到极度焦虑、不安全、很快就会变得一文不值，我现在只是痴迷于如何快速成为百万富翁以实现目标在我变得多余之前实现财务独立。   由   提交 /u/B333TR000T   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clna77/sense_of_ai_doom/</guid>
+      <pubDate>Mon, 06 May 2024 16:26:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>[邮件功能]替代品？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cln65w/mail_function_alternatives/</link>
+      <description><![CDATA[我要在紧迫的期限内交付网站的初始版本。我尝试使用各种方法从本地主机发送电子邮件，例如 PHP 邮件函数、PHPMailer 和 hmailServer...，但它们似乎都没有正确进行身份验证，并且显然 Google 删除了“启用不太安全的应用程序”功能。我迫切需要一个解决方案。我没有使用任何框架，只是使用普通的 PHP。   由   提交/u/Valuable-Growth7088  /u/Valuable-Growth7088 reddit.com/r/webdev/comments/1cln65w/mail_function_alternatives/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cln65w/mail_function_alternatives/</guid>
+      <pubDate>Mon, 06 May 2024 16:21:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>从面试中可以期待什么来评估我在工作时如何处理不同的情况</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clmvlt/what_to_expect_from_an_interview_to_evaluate_how/</link>
+      <description><![CDATA[所以，我正在申请后端或全栈职位（他们有 2 个职位），我已经经历了第一次面试，基本上只是了解我，告诉我有关公司的信息等。然后我也做了一个代码挑战。 现在我几天前收到一封电子邮件，说我通过了下一次面试，我问什么是面试的内容，并告诉我面试的目的是评估我在工作时如何处理不同的情况（不是确切的措辞，因为是西班牙语），并且不需要事先准备。 这次采访我应该期待什么？我已经知道他们会问什么，但我真的很想要这份工作，并且想确保我已经做好准备。   由   提交/u/leinad41  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clmvlt/what_to_expect_from_an_interview_to_evaluate_how/</guid>
+      <pubDate>Mon, 06 May 2024 16:09:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>报纸网站上充斥着广告，毫无用处</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clmqa5/newspaper_sites_are_so_cluttered_with_ads_that/</link>
+      <description><![CDATA[      大多数报纸网站似乎都是这样。我知道他们需要赚钱，如果没有人购买报纸并在线阅读故事，那么网络广告将成为他们的主要收入来源，但这太荒谬了！ 感觉就像你必须剥开多层洋葱才能看到文章（通常每个段落之间都散布着广告！）文章本身通常只是点击诱饵反流的垃圾。 无论如何，有点咆哮，但令我困惑的是，这种做法足以让他们继续这样做。我几乎立即退出此类网站   由   提交/u/EthanCPP   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clmqa5/newspaper_sites_are_so_cluttered_with_ads_that/</guid>
+      <pubDate>Mon, 06 May 2024 16:03:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>尝试建立一个以内容为中心，并在两侧放置背景图像/颜色的网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clmmtm/trying_to_build_a_website_with_centred_content/</link>
+      <description><![CDATA[       由   提交/u/Connect_Scar_7423   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clmmtm/trying_to_build_a_website_with_centred_content/</guid>
+      <pubDate>Mon, 06 May 2024 16:00:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 Coursera Plus 进行前端（基于邀请）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clmm2f/frontend_via_coursera_plus_invitation_basis/</link>
+      <description><![CDATA[      嘿，我很乐意帮助任何想要订阅 Coursera Plus 的人。我会邀请他们正式使用 Plus，价格为 20 美元（一年 - 组织邀请）。如果有人感兴趣，他们可以私信我，因为我的邀请有限。谢谢！   由   提交/u/red_-eagle  [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clmm2f/frontend_via_coursera_plus_invitation_basis/</guid>
+      <pubDate>Mon, 06 May 2024 15:59:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>在客户端操作文件是否会造成安全漏洞？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cllnxa/does_manipulating_files_on_the_client_side_create/</link>
+      <description><![CDATA[朋友们大家好，我想创建一个中心，用户可以在其中调整图像大小以及将 PDF 转换为 Word、JPEG 转换为 PNG 等文件。直接在客户端进行这样的操作会造成安全漏洞吗？或者我绝对需要后端服务器和数据库吗？   由   提交/u/akinpinkmaN   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cllnxa/does_manipulating_files_on_the_client_side_create/</guid>
+      <pubDate>Mon, 06 May 2024 15:20:32 GMT</pubDate>
+    </item>
     <item>
       <title>我是后端开发新手，但为什么我的 cookie 在页面刷新时或当我导航到 React 和 Express 上的其他页面时重置？我花了一整天试图解决这个问题</title>
       <link>https://www.reddit.com/r/webdev/comments/1cllbh9/i_am_new_to_backend_dev_but_why_my_cookies_reset/</link>
-      <description><![CDATA[我的登录导出 const signIn = catchAsync( async (req: customRequestOptions, res: Response, next: NextFunction) =&gt; { const { 电子邮件，密码 } = req.body; if (!email || !password) { return next(AppError(“请提供有效的电子邮件和密码”, 404)); email: email }).select(&quot;+password&quot;); if (!user) { return next(AppError(&quot;请输入有效的电子邮件地址和密码&quot;, 401)); wait user. CorrectPassword(password, user.password))) { return next(AppError(“请提供正确的电子邮件或密码”, 401)); } const accessToken = jwt.sign({ user }, process.env. JWT_SECRET as string, { expiresIn: &quot;10s&quot;, }); const refreshToken = jwt.sign( { user }, process.env.REFRESH_JWT_SECRET as string, { expiresIn: &quot;1d&quot; }, ); ;jwt&quot;, refreshToken, { httpOnly: true, secure: true, //https sameSite: &quot;none&quot;, //跨站 cookies maxAge: 7 * 24 * 60 * 60 * 1000, }); res.json({ accessToken }); },);导出常量刷新 = (req: customRequestOptions, res: Response) =&gt; { const cookies = req.cookies; if (!cookies.jwt) return res.status(401).json({ message: “未经授权” }); const refreshToken = cookies.jwt; jwt.verify(refreshToken,process.env.REFRESH_JWT_SECRET as string,{},async(err:any,decode:any)=&gt;{if(err)returnres.status(403).json({message:&quot;禁止” }); const findUser = wait User.findOne({ email:decode.email }); if (!foundUser) return res.status(401).json({ message: “未授权” }); = jwt.sign(foundUser, process.env.JWT_SECRET as string, { expiresIn: &quot;10s&quot; }, ); res.json({ accessToken }); };我的索引导出接口 customRequestOptions extends Request { user?: any; } 导出类型 ExpressBasic = { req: 请求; res：响应；下一个：下一个函数； }; dotenv.config();导出 const app = express(); // const corsOptions = { // 方法: [&quot;GET&quot;, &quot;POST&quot;], // 允许 GET 和 POST 请求 // allowedHeaders: [ // &quot;set-cookie&quot;, // &quot;Content-Type&quot; ;, // &quot;Access-Control-Allow-Origin&quot;, // &quot;Access-Control-Allow-Credentials&quot;, // ], // displayedHeaders: [&quot;Content-Length&quot;], // 公开此自定义header // 凭证：true, // 允许凭证（cookies、HTTP 身份验证） // preflightContinue: false, // 如果预检请求失败，则不继续 // }; app.use( cors({ origin: &quot;http://localhost:5173&quot;, 凭证: true, }), ); app.use(function (req, res, next) { res.header(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;); next(); }); app.options(“*”, cors()); app.use(摩根(“dev”)); app.use(cookieParser()); app.use(express.json()); app.use(express.urlencoded({ 扩展: true, 限制: &quot;10kb&quot; })); //它使用 URL 编码的有效负载解析传入请求，并基于主体解析器。这适用于表单 app.use(“/api/v1/posts”, postRouter); app.use(“/api/v1/users”, userRouter); app.use(globalErrorHandler);    由   提交 /u/Mr_Resident   [链接] [评论]]]></description>
+      <description><![CDATA[my sign in export const signIn = catchAsync( async (req: customRequestOptions, res: Response, next: NextFunction) =&gt; { const { email, password } = req.body; if (!email || !password) { return next(AppError(&quot;请提供有效的电子邮件和密码&quot;, 404)); } const user = await User.findOne({ email: email }).select(&quot;+password&quot;); if (!user) { return next(AppError(&quot;请输入有效的电子邮件和密码&quot;, 401)); } if (!user || !(await user.correctPassword(password, user.password))) { return next(AppError(&quot;请提供正确的电子邮件或密码&quot;, 401)); } const accessToken = jwt.sign({ user }, process.env.JWT_SECRET 作为字符串， { expiresIn: &quot;10s&quot;, }); const refreshToken = jwt.sign( { user }, process.env.REFRESH_JWT_SECRET 作为字符串， { expiresIn: &quot;1d&quot; }, ); res.cookie(&quot;jwt&quot;, refreshToken, { httpOnly: true, secure: true, //https sameSite: &quot;none&quot;, //跨站点 cookies maxAge: 7 * 24 * 60 * 60 * 1000, }); res.json({ accessToken }); }, ); export const refresh = (req: customRequestOptions, res: Response) =&gt; { const cookies = req.cookies; if (!cookies.jwt) return res.status(401).json({ message: &quot;Unauthorized&quot; }); const refreshToken = cookies.jwt; jwt.verify（refreshToken，process.env.REFRESH_JWT_SECRET 作为字符串，{}，异步（err：any，decode：any）=&gt; {如果（err）返回res.status（403）。json（{消息：“Forbidden”}）; const foundUser = await User.findOne（{email：decode.email}）; 如果（！foundUser）返回res.status（401）。json（{消息：“Unauthorized”}）; const accessToken = jwt.sign（foundUser，process.env.JWT_SECRET 作为字符串，{expiresIn：“10s”}，）; res.json（{accessToken}）; }，）; }; 我的索引导出接口customRequestOptions扩展了Request {用户？：任何; }导出类型ExpressBasic = {req：Request; res：Response; next：NextFunction; }; dotenv.config（）; export const app = express(); // const corsOptions = { // methods: [&quot;GET&quot;, &quot;POST&quot;], // 允许 GET 和 POST 请求 // allowedHeaders: [ // &quot;set-cookie&quot;, // &quot;Content-Type&quot;, // &quot;Access-Control-Allow-Origin&quot;, // &quot;Access-Control-Allow-Credentials&quot;, // ], // exposedHeaders: [&quot;Content-Length&quot;], // 公开此自定义标头 // credentials: true, // 允许凭据（cookies、HTTP 身份验证） // preflightContinue: false, // 如果预检请求失败，则不要继续 // }; app.use( cors({ origin: &quot;http://localhost:5173&quot;, credentials: true, }), ); app.use(function (req, res, next) { res.header(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;); next(); }); app.options(&quot;*&quot;, cors()); app.use(morgan(&quot;dev&quot;)); app.use(cookieParser()); app.use(express.json()); app.use(express.urlencoded({ extended: true, limit: &quot;10kb&quot; })); //它使用 URL 编码的有效负载解析传入的请求，并基于正文解析器。这是用于表单 app.use(&quot;/api/v1/posts&quot;, postRouter); app.use(&quot;/api/v1/users&quot;, userRouter); app.use(globalErrorHandler);     提交人    /u/Mr_Resident   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cllbh9/i_am_new_to_backend_dev_but_why_my_cookies_reset/</guid>
       <pubDate>Mon, 06 May 2024 15:06:08 GMT</pubDate>
     </item>
     <item>
-      <title>我应该如何准备“解决问题”评估？？？！！！</title>
+      <title>我该如何准备“问题解决”评估？？？！！！</title>
       <link>https://www.reddit.com/r/webdev/comments/1cll2xh/how_am_i_supposed_to_prepare_for_the_problem/</link>
-      <description><![CDATA[我从一家公司获得了 Angular 前端开发人员的工作机会。我接受了几次面试，今天我收到了包括 Typescript、Angular 和“问题解决”在内的评估。起初，我以为这是一个数学解题测试或者一些与技术问题有关的东西，所以我准备了笔和纸开始。然而，我首先看到的却是一堆正方形、直线、圆形等几何形状。我从事软件工程师近10年了，这是我第一次看到这种类型的测试。我现在很困惑。一堆正方形和圆形与 Angular 框架有什么关系？ 我应该如何为此做好准备？？？   由   提交 /u/Temporary-Divide-741   [链接] [评论]]]></description>
+      <description><![CDATA[我收到一家公司的 Angular Frontend Developer 职位，面试了好几场，今天考核的内容包括 Typescript、Angular，还有一项叫做“问题解决”的题目。一开始我以为是数学题或者技术题，就准备了纸笔，结果看到第一眼看到的是一堆正方形、直线、圆形等几何图形。我做软件工程师快 10 年了，第一次看到这种题目，现在脑子里好乱，一堆正方形、圆形跟 Angular 框架有什么关系？ 我该怎么准备？？？    submitted by    /u/Temporary-Divide-741   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cll2xh/how_am_i_supposed_to_prepare_for_the_problem/</guid>
       <pubDate>Mon, 06 May 2024 14:56:30 GMT</pubDate>
     </item>
     <item>
       <title>如何引导继承的代码库朝着正确的方向发展</title>
       <link>https://www.reddit.com/r/webdev/comments/1clkey6/how_to_steer_an_inherited_codebase_in_the_right/</link>
-      <description><![CDATA[我们有 3 名开发人员，我是唯一的前端人员，我已经这样做了一年。我从总共 20 多名贡献者那里继承了这个代码库，他们为此工作了大约一年（波动很大，多个承包商）。可以肯定地说，当我接手它时，它有点混乱，而且（可以说）它只是稍微好一点，因为我花了 90% 以上的时间在功能上。 起初我有点更加理想主义，想要清理并干燥我触及的任何部分。我想我已经认识到，由于经验、监督和质量保证有限，这不是一个好方法。这也是一种特殊的机制，会将大量时间转化为大量错误。 那么，如何轻轻地将继承的代码库引导到正确的方向，它很简单，只是有点湿，容易适应吗？ 我认为这主要是一个关于项目管理的问题，而不是关于软件架构的问题。我正在使用 ts+react+rtk+tailwind+react-router+i18next，因此大部分问题似乎已“解决”。    ;由   提交/u/lincore81  [链接] [评论]]]></description>
+      <description><![CDATA[我们有 3 名开发人员，我是唯一的前端人员，我已经这样做了一年。我从总共 20 多名贡献者那里继承了这个代码库，他们为此工作了大约一年（波动很大，多个承包商）。可以肯定地说，当我接手它时，它有点混乱，而且（可以说）它只是稍微好一点，因为我花了 90% 以上的时间在功能上。 起初我有点更理想主义，想要清理并干燥我触及的任何部分。我想我已经认识到，由于经验、监督和质量保证有限，这不是一个好方法。这也是一种特殊的机制，会将大量时间转化为大量错误。 那么，如何轻轻地将继承的代码库引导到正确的方向，它很简单，只是有点湿，容易适应吗？ 我认为这主要是一个关于项目管理的问题，而不是关于软件架构的问题。我正在使用 ts+react+rtk+tailwind+react-router+i18next，因此大部分问题似乎已“解决”。    ;由   提交/u/lincore81  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clkey6/how_to_steer_an_inherited_codebase_in_the_right/</guid>
       <pubDate>Mon, 06 May 2024 14:28:15 GMT</pubDate>
     </item>
@@ -32,83 +109,6 @@
       <description><![CDATA[       由   提交/u/utsav_0   [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clk8lg/which_layouts_looks_better_or_suggest_some_other/</guid>
       <pubDate>Mon, 06 May 2024 14:20:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为网络开发人员/软件工程师/开发人员，有哪些方法可以避免职业倦怠？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clk0gi/what_are_some_ways_that_you_avoid_burnout_as_a/</link>
-      <description><![CDATA[很想听听您的建议/提示和技巧！    由   提交 /u/qyrusai   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clk0gi/what_are_some_ways_that_you_avoid_burnout_as_a/</guid>
-      <pubDate>Mon, 06 May 2024 14:10:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>适合喜欢读书的人；对于学习和/或保持精神投入工作并受到启发，您有什么建议？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cljw4y/for_folks_who_like_to_read_what_would_you/</link>
-      <description><![CDATA[不确定我的措辞是否正确。我发现阅读有关网络开发和一般计算机科学主题的书籍和文章可以让我的大脑保持运转，并且更容易找到灵感和动力。例如，务实的程序员在感觉作为一名程序员的联系方面有很大帮助，但我希望有一些更专注的东西。在我的日常工作中，我使用 .NET 和 Angular，作为一名网页设计师，我通常使用 html/css 进行工作，最多使用处理器或轻量级库。虽然视频可以提供帮助，但我发现我很快就会分心（尽管添加字幕可以有所帮助），而且信息并不总是或什至经常像我希望的那样全面。这就是全部内容；我希望找到网络开发领域的书籍和文章来阅读。老实说，我希望能找到 pdf 格式的东西，因为我经常通过手机阅读，它可以消除很多借口，例如“这本书不能参加这次旅行”之类的借口。或者“如果我打开这本书，我最终会把它留在某个地方并丢失一段时间”。  我真的更喜欢更多以技术为中心的阅读，即使是关于 UI/UX 的，当涉及到硬逻辑（例如边距和间距的规则）时，我会更好地理解事情。使用特定/正确术语或解释不同技术的信息也可以对我有很大帮助。  如有任何建议，我们将不胜感激！   由   提交 /u/mellow_cellow   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cljw4y/for_folks_who_like_to_read_what_would_you/</guid>
-      <pubDate>Mon, 06 May 2024 14:05:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>直到你可以将 .json 附加到任何 subreddit URL</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cliiqg/til_you_can_append_json_to_any_subreddit_url/</link>
-      <description><![CDATA[https://www.reddit.com /r/webdev.json 不确定如何处理这些信息，所以不妨分享一下。  &amp;# 32；由   提交 /u/Falknerbach   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cliiqg/til_you_can_append_json_to_any_subreddit_url/</guid>
-      <pubDate>Mon, 06 May 2024 13:03:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>帮助在移动设备上悬停文本以进行调查</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cliaeo/help_with_hover_text_on_mobile_device_for_survey/</link>
-      <description><![CDATA[您好！如果这是错误的地方，我深表歉意，但我对我认为应该是一个简单的项目越来越感到沮丧！我有一项调查，其中有一个矩阵选项，我希望某些文本包含在“i”信息按钮中。我已经能够“悬停”了在桌面上工作，但它不能转换为移动设备，而且我还没有找到在移动设备上显示文本的良好解决方案。如果有人知道如何创建“i”信息按钮，激活后会在标题下方显示文本，这将是一个巨大的帮助。   由   提交 /u/madeinaairport   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cliaeo/help_with_hover_text_on_mobile_device_for_survey/</guid>
-      <pubDate>Mon, 06 May 2024 12:52:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想完善我的作品集。我有信心复制复杂的设计，但在哪里可以找到这些设计呢？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cli7ye/i_want_to_improve_my_portfolio_i_am_confident_to/</link>
-      <description><![CDATA[以下是当前作品集的链接：https://www. amitdigga.dev/（未更新） 我想展示我的网络开发技能。我将添加名为“演示网站”的子页面在我的主要网址下。  但是有没有什么设计我可以像从behance 和pinterest 一样自由复制而不违反政策。我是否遗漏了一些基本的东西，或者很难找到要展示的设计？ 请提出建议。如果上述方法都不可行，作为最后的手段，我准备支付（正常）设计费用。   由   提交 /u/paglaEngineer   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cli7ye/i_want_to_improve_my_portfolio_i_am_confident_to/</guid>
-      <pubDate>Mon, 06 May 2024 12:49:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 Azure 应用服务中如何防止请求超时？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clhw4m/how_to_keep_a_request_from_getting_time_out_in/</link>
-      <description><![CDATA[我的 api 请求大约需要 10 分钟才能发回响应，在本地前端运行时工作正常。但是，当我在 Azure 应用程序服务上部署该应用程序时，在等待大约 4 分钟后出现 499 错误。有没有办法在这段时间内不空闲？   由   提交/u/The_artist_999   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clhw4m/how_to_keep_a_request_from_getting_time_out_in/</guid>
-      <pubDate>Mon, 06 May 2024 12:32:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>正在寻找 React TailwindCSS UI 组件？这是所有最好的图书馆/馆藏的列表。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clhud5/looking_react_tailwindcss_ui_components_here_is_a/</link>
-      <description><![CDATA[    /u/DevHev   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clhud5/looking_react_tailwindcss_ui_components_here_is_a/</guid>
-      <pubDate>Mon, 06 May 2024 12:30:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>正在寻找非无头 CMS 来尝试（不是 Wordpress 或 Ghost）？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clh0ng/looking_for_a_nonheadless_cms_to_try_out_that/</link>
-      <description><![CDATA[对 Wordpress 或 Ghost 没有任何反对意见（我在个人博客中使用自我化的 Ghost），但我有心情尝试一些不同的东西. 期望的结果是数据可视化项目的前端。它需要能够嵌入 iframes/HTML 对象，尽管我猜现在几乎每个 CMS 都是如此。但除此之外，它不需要做太多事情。只需使用这些嵌入创建一系列页面和/或帖子即可。 我一直想尝试无头 CMS，但是......对于这个项目，我想保持简单。  Craft CMS 在这里出现过几次。还有其他强调简单性和易用性的好选择吗？ 部署到 Linux VPS 上。   由   提交/u/danielrosehill  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clh0ng/looking_for_a_nonheadless_cms_to_try_out_that/</guid>
-      <pubDate>Mon, 06 May 2024 11:46:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过 EC2 Connect 将镜像从 DockerHub 推送到 EC2</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clghle/pushing_image_from_dockerhub_to_ec2_through_ec2/</link>
-      <description><![CDATA[      https://preview.redd.it/ziv1oxn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=0e317dd62d4a9175a467e66d22e7901e535d0400 https://preview.redd.it/nqwehzq6isyc1.jpg?width=1920&amp;format=pjpg&amp; ;自动=webp&amp;s=f60c7a4bfec5cb12e97ffb65d57d5ab79eb62750 https://preview.redd.it/xyqjn0o6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=9d2af415bad4e95d28135851f5455928238fd 29天 https://preview.redd.it/wi5wxxn6isyc1.jpg?width=1920&amp;format=pjpg&amp; ;auto=webp&amp;s=7dd68a8ad3d078cc91c7658a84beb2e901cd6757 https://preview.redd.it/kfubhzn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=e9f629455a4b0d0588596e63709bcb 1865eebd01 https://preview.redd.it/ejcdq2o6isyc1.jpg?width=1920&amp;format =pjpg&amp;auto=webp&amp;s=c1df2b2f696e9e067f2fff5e2faa686530cabacc 不确定我是否朝着正确的方向前进，现在需要在 EC2 Connect 上提供一些命令，以便将映像从 DockerHub 推送到EC2 实例。如果确实如此，请任何人指导用于此目的的命令。   由   提交 /u/DigitalSplendid   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clghle/pushing_image_from_dockerhub_to_ec2_through_ec2/</guid>
-      <pubDate>Mon, 06 May 2024 11:16:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS 问题：我的设计师要求自定义“字体大小：小”、“中”、“大”等，但我说这实际上是不可能的，我错了吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clg8s1/css_question_my_designers_ask_to_self_define/</link>
-      <description><![CDATA[大家好， 这些类型的原始 CSS 定义（尺寸的书面文字并没有真正说明结果将如何） be) 可能并没有真正被使用，所以我认为我们应该像过去 20 年一样跳过它们。 现在我的设计师要求我定义它们......但我应该如何定义它们？我从事前端开发（几十年来基于网络，90%以上都是原生 HTML 和 CSS），从来没有人问过这个问题。 我深入研究了它，并不清楚是谁，但是有真正的定义“xx-小”、“x-小”等。 ……有人这样说。请给我一些要跳过的论据来尝试改变这些事情。我相信它 - 如果有的话 - 可能是基于浏览器的设置或其他任何东西。 我大部分时间都使用 rem，首先将初始大小设置为固定的 px 数（99%时间 16px)。 谢谢。 更新： 谢谢大家。您所说的都是正常的工作方式，但这些人真的很喜欢定义“字体大小：小”到以 px 或 rem 为单位的固定数字，这是行不通的。 除此之外：这些确切的设置实际上是如何定义的？浏览器引擎本身是否会说“哦，看，字体大小小 - 我将执行默认字体大小设置的 80%”。或者它在现实生活中是如何工作的？   由   提交/u/force73  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clg8s1/css_question_my_designers_ask_to_self_define/</guid>
-      <pubDate>Mon, 06 May 2024 11:01:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>客户投资组合网站的源代码控制和托管标准是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clfzpg/what_are_the_standards_for_source_control_and/</link>
-      <description><![CDATA[嘿，我已经签约为我的一个朋友（他们是 UI 设计师）创建一个作品集网站。这是我第一次从事合同工/自由职业，所以我不确定工作的“规则”。或对此类工作的适当期望。尽管他们是我的朋友，并且他们对我创建网站的方式很灵活，但我仍然希望保持至少半专业性，就像外部客户希望如何托管他们的网站一样，因为他们付钱给我我和我的工作，希望将来能进一步从事自由职业。我有一些问题，想就这种情况得到一些专业意见。  我可以把我的代码放在我的代码中吗？个人存储库还是我应该为我的客户创建一个存储库并将我的代码推送到那里？ （我可能想展示我在自己的投资组合中构建的内容） 拥有公共仓库还是私人仓库更好？唯一的“敏感”我想，信息可能会成为他们的简历。 关于托管选项以及如何托管他们的网站有什么建议或建议吗？我使用 Netlify（免费）托管了我的个人作品集，并从 Porkbun 购买了域名。这是一个足够好的过程吗？我们还希望托管费用尽可能便宜，但如果需要的话可以花钱。  任何类型的答案都会有很大的帮助。如果需要，我可以添加进一步的说明。干杯。   由   提交/u/jonderp1209   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clfzpg/what_are_the_standards_for_source_control_and/</guid>
-      <pubDate>Mon, 06 May 2024 10:46:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
