@@ -4,11 +4,74 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 06 May 2024 12:34:18 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2024 15:18:58 GMT</lastBuildDate>
+    <item>
+      <title>我是后端开发新手，但为什么我的 cookie 在页面刷新时或当我导航到 React 和 Express 上的其他页面时重置？我花了一整天试图解决这个问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cllbh9/i_am_new_to_backend_dev_but_why_my_cookies_reset/</link>
+      <description><![CDATA[我的登录导出 const signIn = catchAsync( async (req: customRequestOptions, res: Response, next: NextFunction) =&gt; { const { 电子邮件，密码 } = req.body; if (!email || !password) { return next(AppError(“请提供有效的电子邮件和密码”, 404)); email: email }).select(&quot;+password&quot;); if (!user) { return next(AppError(&quot;请输入有效的电子邮件地址和密码&quot;, 401)); wait user. CorrectPassword(password, user.password))) { return next(AppError(“请提供正确的电子邮件或密码”, 401)); } const accessToken = jwt.sign({ user }, process.env. JWT_SECRET as string, { expiresIn: &quot;10s&quot;, }); const refreshToken = jwt.sign( { user }, process.env.REFRESH_JWT_SECRET as string, { expiresIn: &quot;1d&quot; }, ); ;jwt&quot;, refreshToken, { httpOnly: true, secure: true, //https sameSite: &quot;none&quot;, //跨站 cookies maxAge: 7 * 24 * 60 * 60 * 1000, }); res.json({ accessToken }); },);导出常量刷新 = (req: customRequestOptions, res: Response) =&gt; { const cookies = req.cookies; if (!cookies.jwt) return res.status(401).json({ message: “未经授权” }); const refreshToken = cookies.jwt; jwt.verify(refreshToken,process.env.REFRESH_JWT_SECRET as string,{},async(err:any,decode:any)=&gt;{if(err)returnres.status(403).json({message:&quot;禁止” }); const findUser = wait User.findOne({ email:decode.email }); if (!foundUser) return res.status(401).json({ message: “未授权” }); = jwt.sign(foundUser, process.env.JWT_SECRET as string, { expiresIn: &quot;10s&quot; }, ); res.json({ accessToken }); };我的索引导出接口 customRequestOptions extends Request { user?: any; } 导出类型 ExpressBasic = { req: 请求; res：响应；下一个：下一个函数； }; dotenv.config();导出 const app = express(); // const corsOptions = { // 方法: [&quot;GET&quot;, &quot;POST&quot;], // 允许 GET 和 POST 请求 // allowedHeaders: [ // &quot;set-cookie&quot;, // &quot;Content-Type&quot; ;, // &quot;Access-Control-Allow-Origin&quot;, // &quot;Access-Control-Allow-Credentials&quot;, // ], // displayedHeaders: [&quot;Content-Length&quot;], // 公开此自定义header // 凭证：true, // 允许凭证（cookies、HTTP 身份验证） // preflightContinue: false, // 如果预检请求失败，则不继续 // }; app.use( cors({ origin: &quot;http://localhost:5173&quot;, 凭证: true, }), ); app.use(function (req, res, next) { res.header(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;); next(); }); app.options(“*”, cors()); app.use(摩根(“dev”)); app.use(cookieParser()); app.use(express.json()); app.use(express.urlencoded({ 扩展: true, 限制: &quot;10kb&quot; })); //它使用 URL 编码的有效负载解析传入请求，并基于主体解析器。这适用于表单 app.use(“/api/v1/posts”, postRouter); app.use(“/api/v1/users”, userRouter); app.use(globalErrorHandler);    由   提交 /u/Mr_Resident   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cllbh9/i_am_new_to_backend_dev_but_why_my_cookies_reset/</guid>
+      <pubDate>Mon, 06 May 2024 15:06:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该如何准备“解决问题”评估？？？！！！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cll2xh/how_am_i_supposed_to_prepare_for_the_problem/</link>
+      <description><![CDATA[我从一家公司获得了 Angular 前端开发人员的工作机会。我接受了几次面试，今天我收到了包括 Typescript、Angular 和“问题解决”在内的评估。起初，我以为这是一个数学解题测试或者一些与技术问题有关的东西，所以我准备了笔和纸开始。然而，我首先看到的却是一堆正方形、直线、圆形等几何形状。我从事软件工程师近10年了，这是我第一次看到这种类型的测试。我现在很困惑。一堆正方形和圆形与 Angular 框架有什么关系？ 我应该如何为此做好准备？？？   由   提交 /u/Temporary-Divide-741   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cll2xh/how_am_i_supposed_to_prepare_for_the_problem/</guid>
+      <pubDate>Mon, 06 May 2024 14:56:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何引导继承的代码库朝着正确的方向发展</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clkey6/how_to_steer_an_inherited_codebase_in_the_right/</link>
+      <description><![CDATA[我们有 3 名开发人员，我是唯一的前端人员，我已经这样做了一年。我从总共 20 多名贡献者那里继承了这个代码库，他们为此工作了大约一年（波动很大，多个承包商）。可以肯定地说，当我接手它时，它有点混乱，而且（可以说）它只是稍微好一点，因为我花了 90% 以上的时间在功能上。 起初我有点更加理想主义，想要清理并干燥我触及的任何部分。我想我已经认识到，由于经验、监督和质量保证有限，这不是一个好方法。这也是一种特殊的机制，会将大量时间转化为大量错误。 那么，如何轻轻地将继承的代码库引导到正确的方向，它很简单，只是有点湿，容易适应吗？ 我认为这主要是一个关于项目管理的问题，而不是关于软件架构的问题。我正在使用 ts+react+rtk+tailwind+react-router+i18next，因此大部分问题似乎已“解决”。    ;由   提交/u/lincore81  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clkey6/how_to_steer_an_inherited_codebase_in_the_right/</guid>
+      <pubDate>Mon, 06 May 2024 14:28:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪种布局看起来更好？ （或者推荐其他的）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clk8lg/which_layouts_looks_better_or_suggest_some_other/</link>
+      <description><![CDATA[       由   提交/u/utsav_0   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clk8lg/which_layouts_looks_better_or_suggest_some_other/</guid>
+      <pubDate>Mon, 06 May 2024 14:20:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>作为网络开发人员/软件工程师/开发人员，有哪些方法可以避免职业倦怠？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1clk0gi/what_are_some_ways_that_you_avoid_burnout_as_a/</link>
+      <description><![CDATA[很想听听您的建议/提示和技巧！    由   提交 /u/qyrusai   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1clk0gi/what_are_some_ways_that_you_avoid_burnout_as_a/</guid>
+      <pubDate>Mon, 06 May 2024 14:10:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>适合喜欢读书的人；对于学习和/或保持精神投入工作并受到启发，您有什么建议？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cljw4y/for_folks_who_like_to_read_what_would_you/</link>
+      <description><![CDATA[不确定我的措辞是否正确。我发现阅读有关网络开发和一般计算机科学主题的书籍和文章可以让我的大脑保持运转，并且更容易找到灵感和动力。例如，务实的程序员在感觉作为一名程序员的联系方面有很大帮助，但我希望有一些更专注的东西。在我的日常工作中，我使用 .NET 和 Angular，作为一名网页设计师，我通常使用 html/css 进行工作，最多使用处理器或轻量级库。虽然视频可以提供帮助，但我发现我很快就会分心（尽管添加字幕可以有所帮助），而且信息并不总是或什至经常像我希望的那样全面。这就是全部内容；我希望找到网络开发领域的书籍和文章来阅读。老实说，我希望能找到 pdf 格式的东西，因为我经常通过手机阅读，它可以消除很多借口，例如“这本书不能参加这次旅行”之类的借口。或者“如果我打开这本书，我最终会把它留在某个地方并丢失一段时间”。  我真的更喜欢更多以技术为中心的阅读，即使是关于 UI/UX 的，当涉及到硬逻辑（例如边距和间距的规则）时，我会更好地理解事情。使用特定/正确术语或解释不同技术的信息也可以对我有很大帮助。  如有任何建议，我们将不胜感激！   由   提交 /u/mellow_cellow   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cljw4y/for_folks_who_like_to_read_what_would_you/</guid>
+      <pubDate>Mon, 06 May 2024 14:05:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>直到你可以将 .json 附加到任何 subreddit URL</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cliiqg/til_you_can_append_json_to_any_subreddit_url/</link>
+      <description><![CDATA[https://www.reddit.com /r/webdev.json 不确定如何处理这些信息，所以不妨分享一下。  &amp;# 32；由   提交 /u/Falknerbach   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cliiqg/til_you_can_append_json_to_any_subreddit_url/</guid>
+      <pubDate>Mon, 06 May 2024 13:03:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助在移动设备上悬停文本以进行调查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cliaeo/help_with_hover_text_on_mobile_device_for_survey/</link>
+      <description><![CDATA[您好！如果这是错误的地方，我深表歉意，但我对我认为应该是一个简单的项目越来越感到沮丧！我有一项调查，其中有一个矩阵选项，我希望某些文本包含在“i”信息按钮中。我已经能够“悬停”了在桌面上工作，但它不能转换为移动设备，而且我还没有找到在移动设备上显示文本的良好解决方案。如果有人知道如何创建“i”信息按钮，激活后会在标题下方显示文本，这将是一个巨大的帮助。   由   提交 /u/madeinaairport   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cliaeo/help_with_hover_text_on_mobile_device_for_survey/</guid>
+      <pubDate>Mon, 06 May 2024 12:52:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我想完善我的作品集。我有信心复制复杂的设计，但在哪里可以找到这些设计呢？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cli7ye/i_want_to_improve_my_portfolio_i_am_confident_to/</link>
+      <description><![CDATA[以下是当前作品集的链接：https://www. amitdigga.dev/（未更新） 我想展示我的网络开发技能。我将添加名为“演示网站”的子页面在我的主要网址下。  但是有没有什么设计我可以像从behance 和pinterest 一样自由复制而不违反政策。我是否遗漏了一些基本的东西，或者很难找到要展示的设计？ 请提出建议。如果上述方法都不可行，作为最后的手段，我准备支付（正常）设计费用。   由   提交 /u/paglaEngineer   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cli7ye/i_want_to_improve_my_portfolio_i_am_confident_to/</guid>
+      <pubDate>Mon, 06 May 2024 12:49:16 GMT</pubDate>
+    </item>
     <item>
       <title>在 Azure 应用服务中如何防止请求超时？</title>
       <link>https://www.reddit.com/r/webdev/comments/1clhw4m/how_to_keep_a_request_from_getting_time_out_in/</link>
-      <description><![CDATA[我的 api 请求大约需要 10 分钟才能发回响应，它是在本地前端运行时的工作文件。但是，当我在 Azure 应用程序服务上部署该应用程序时，在等待大约 4 分钟后出现 499 错误。有没有办法在这段时间内不空闲？   由   提交/u/The_artist_999   [链接] [评论]]]></description>
+      <description><![CDATA[我的 api 请求大约需要 10 分钟才能发回响应，在本地前端运行时工作正常。但是，当我在 Azure 应用程序服务上部署该应用程序时，在等待大约 4 分钟后出现 499 错误。有没有办法在这段时间内不空闲？   由   提交/u/The_artist_999   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clhw4m/how_to_keep_a_request_from_getting_time_out_in/</guid>
       <pubDate>Mon, 06 May 2024 12:32:30 GMT</pubDate>
     </item>
@@ -29,12 +92,12 @@
     <item>
       <title>通过 EC2 Connect 将镜像从 DockerHub 推送到 EC2</title>
       <link>https://www.reddit.com/r/webdev/comments/1clghle/pushing_image_from_dockerhub_to_ec2_through_ec2/</link>
-      <description><![CDATA[      https://preview.redd.it/ziv1oxn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=0e317dd62d4a9175a467e66d22e7901e535d0400 https://preview.redd.it/nqwehzq6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=f60c7a4bfec5cb12e97ffb65d57d5ab79eb62750 https://preview.redd.it/xyqjn0o6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=9d2af415bad4e95d28135851f5455928238fd29d https://preview.redd.it/wi5wxxn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=7dd68a8ad3d078cc91c7658a84beb2e901cd6757 https://preview.redd.it/kfubhzn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=e9f629455a4b0d0588596e63709bcb1865eebd01 https://preview.redd.it/ejcdq2o6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=c1df2b2f696e9e067f2fff5e2faa686530cabacc 不确定我是否朝着正确的方向前进，现在需要在 EC2 Connect 上提供一些命令才能将图像从 DockerHub 推送到 EC2 实例。如果确实如此，可以请任何人指导用于此目的的命令。    提交人    /u/DigitalSplendid   [链接] [评论] ]]></description>
+      <description><![CDATA[      https://preview.redd.it/ziv1oxn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=0e317dd62d4a9175a467e66d22e7901e535d0400 https://preview.redd.it/nqwehzq6isyc1.jpg?width=1920&amp;format=pjpg&amp; ;自动=webp&amp;s=f60c7a4bfec5cb12e97ffb65d57d5ab79eb62750 https://preview.redd.it/xyqjn0o6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=9d2af415bad4e95d28135851f5455928238fd 29天 https://preview.redd.it/wi5wxxn6isyc1.jpg?width=1920&amp;format=pjpg&amp; ;auto=webp&amp;s=7dd68a8ad3d078cc91c7658a84beb2e901cd6757 https://preview.redd.it/kfubhzn6isyc1.jpg?width=1920&amp;format=pjpg&amp;auto=webp&amp;s=e9f629455a4b0d0588596e63709bcb 1865eebd01 https://preview.redd.it/ejcdq2o6isyc1.jpg?width=1920&amp;format =pjpg&amp;auto=webp&amp;s=c1df2b2f696e9e067f2fff5e2faa686530cabacc 不确定我是否朝着正确的方向前进，现在需要在 EC2 Connect 上提供一些命令，以便将映像从 DockerHub 推送到EC2 实例。如果确实如此，请任何人指导用于此目的的命令。   由   提交 /u/DigitalSplendid   [链接] [评论] &lt; /表&gt;]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clghle/pushing_image_from_dockerhub_to_ec2_through_ec2/</guid>
       <pubDate>Mon, 06 May 2024 11:16:32 GMT</pubDate>
     </item>
     <item>
-      <title>CSS问题：我的设计师要求自定义“font-size：小”，“中”，“大”等，但我说这不可能，我错了吗？</title>
+      <title>CSS 问题：我的设计师要求自定义“字体大小：小”、“中”、“大”等，但我说这实际上是不可能的，我错了吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1clg8s1/css_question_my_designers_ask_to_self_define/</link>
       <description><![CDATA[大家好， 这些类型的原始 CSS 定义（尺寸的书面文字并没有真正说明结果将如何） be) 可能并没有真正被使用，所以我认为我们应该像过去 20 年一样跳过它们。 现在我的设计师要求我定义它们......但我应该如何定义它们？我从事前端开发（几十年来基于网络，90%以上都是原生 HTML 和 CSS），从来没有人问过这个问题。 我深入研究了它，并不清楚是谁，但是有真正的定义“xx-小”、“x-小”等。 ……有人这样说。请给我一些要跳过的论据来尝试改变这些事情。我相信它 - 如果有的话 - 可能是基于浏览器的设置或其他任何东西。 我大部分时间都使用 rem，首先将初始大小设置为固定的 px 数（99%时间 16px)。 谢谢。 更新： 谢谢大家。您所说的都是正常的工作方式，但这些人真的很喜欢定义“字体大小：小”到以 px 或 rem 为单位的固定数字，这是行不通的。 除此之外：这些确切的设置实际上是如何定义的？浏览器引擎本身是否会说“哦，看，字体大小小 - 我将执行默认字体大小设置的 80%”。或者它在现实生活中是如何工作的？   由   提交/u/force73  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clg8s1/css_question_my_designers_ask_to_self_define/</guid>
@@ -46,69 +109,6 @@
       <description><![CDATA[嘿，我已经签约为我的一个朋友（他们是 UI 设计师）创建一个作品集网站。这是我第一次从事合同工/自由职业，所以我不确定工作的“规则”。或对此类工作的适当期望。尽管他们是我的朋友，并且他们对我创建网站的方式很灵活，但我仍然希望保持至少半专业性，就像外部客户希望如何托管他们的网站一样，因为他们付钱给我我和我的工作，希望将来能进一步从事自由职业。我有一些问题，想就这种情况得到一些专业意见。  我可以把我的代码放在我的代码中吗？个人存储库还是我应该为我的客户创建一个存储库并将我的代码推送到那里？ （我可能想展示我在自己的投资组合中构建的内容） 拥有公共仓库还是私人仓库更好？唯一的“敏感”我想，信息可能会成为他们的简历。 关于托管选项以及如何托管他们的网站有什么建议或建议吗？我使用 Netlify（免费）托管了我的个人作品集，并从 Porkbun 购买了域名。这是一个足够好的过程吗？我们还希望托管费用尽可能便宜，但如果需要的话可以花钱。  任何类型的答案都会有很大的帮助。如果需要，我可以添加进一步的说明。干杯。   由   提交/u/jonderp1209   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1clfzpg/what_are_the_standards_for_source_control_and/</guid>
       <pubDate>Mon, 06 May 2024 10:46:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chrome 扩展程序可以显示网络字体吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clfn3y/chrome_extension_to_show_web_fonts/</link>
-      <description><![CDATA[我目前使用一个名为“CSS Peeper”的 Chrome 插件，但它似乎几乎不起作用...有人知道任何替代方案吗？ 我也使用 Chrome 检查器，但我更希望能够判断实际加载了哪种字体，而不仅仅是字体堆栈中的第一个字体   由   提交 /u/Weekly_Frosting_5868   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clfn3y/chrome_extension_to_show_web_fonts/</guid>
-      <pubDate>Mon, 06 May 2024 10:23:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>向团队添加另一名开发人员的效率</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clfgyk/efficiency_with_adding_another_dev_to_the_team/</link>
-      <description><![CDATA[你好， 我是一名为初创公司单独工作的新开发人员，从那时起我就从头开始构建他们的应用程序11月左右。我的老板希望通过向团队添加另一名开发人员（但不是全职）来加速这一过程，就像自由职业者一样，但来自可以“借用”开发人员的开发机构。他们的一些开发人员负责小任务。 我听到很多人这样说“拥有一个开发人员 = 需要 1 天才能完成一项功能，拥有两个开发人员 = 需要 2 天才能完成相同的功能”特征”就像添加开发会增加开发时间一样。  这有多真实？是因为代码审查还是在 github 上设置了规则什么的？ 谢谢   由   提交 /u/armlesskid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clfgyk/efficiency_with_adding_another_dev_to_the_team/</guid>
-      <pubDate>Mon, 06 May 2024 10:11:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要建议：将 Next.js 网站的域名从 Wix 转移到 Vercel</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clf85w/need_advice_transferring_domain_from_wix_to/</link>
-      <description><![CDATA[嘿， 我正在寻求有关我最近正在进行的项目的一些指导。我的客户通过 Wix 购买了 .com 域名，但我使用 Next.js 开发了他们的网站，并且不喜欢使用 Wix 进行托管。是否可以将域名从 Wix 转移到 Vercel 或其他主机以利用我的 Next.js 网站？ 如果你们对域名转移和托管提供商有任何见解或经验，我将不胜感激。如果有人成功地进行了类似的转换或对该过程有建议，我很想听听他们的意见！在此先感谢您的帮助。    由   提交 /u/Sad_Diet3698   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clf85w/need_advice_transferring_domain_from_wix_to/</guid>
-      <pubDate>Mon, 06 May 2024 09:55:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>Google 是否破坏了“lennyface unicode”（桌面）的搜索结果布局？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clf2s7/has_google_broken_the_search_results_layout_for/</link>
-      <description><![CDATA[       由   提交/u/cryptix-  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clf2s7/has_google_broken_the_search_results_layout_for/</guid>
-      <pubDate>Mon, 06 May 2024 09:44:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>caniemail.com（类似于 caniuse，但用于电子邮件内容）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clek9i/caniemailcom_like_caniuse_but_for_email_content/</link>
-      <description><![CDATA[   /u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clek9i/caniemailcom_like_caniuse_but_for_email_content/</guid>
-      <pubDate>Mon, 06 May 2024 09:07:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 Tailwind CSS 和 Alpinejs 创建搜索输入</title>
-      <link>https://www.reddit.com/r/webdev/comments/1clehsl/how_to_create_a_search_input_with_tailwind_css/</link>
-      <description><![CDATA[ 由   提交 /u/Michael_andreuzza   [链接]   创建搜索输入[评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1clehsl/how_to_create_a_search_input_with_tailwind_css/</guid>
-      <pubDate>Mon, 06 May 2024 09:02:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>最后 3 项换行 (CSS)</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cle8ys/last_3_items_on_a_new_line_css/</link>
-      <description><![CDATA[我试图让最后 3 个菜单元素始终换行（菜单变得像汉堡包时除外），但我可以不明白.. 我尝试过： #menu-item-26 ~ * { 清除：两者； } li:nth-child(5n+1) { 清除：左； } 网页如下：http://bibilab.mircooliverisofia.com/ 我也尝试过其他代码，但没有任何结果，不起作用！ 有人可以透露一些信息吗？我想避免有 2 个菜单，因为当我获得汉堡菜单时，我需要在移动设备上使用第三个菜单，这意味着我总共有 3 个菜单（2 个可见，1 个隐藏，反之亦然）。 .必须有一个更简单的方法！ 非常感谢   由   提交 /u/mircofragomena   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cle8ys/last_3_items_on_a_new_line_css/</guid>
-      <pubDate>Mon, 06 May 2024 08:45:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用每个端口联系我的服务器的 IP 地址</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cldhnb/ip_addresses_using_every_port_to_contact_my_server/</link>
-      <description><![CDATA[我有 TLS，握手失败时会记录。今晚，一些 IP 与数千个端口（17k 日志）的 TLS 握手失败。这是某种服务（Cloudflare 或 Analytics）或抓取行为还是我缺少的其他内容？    由   提交/u/vesko26  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cldhnb/ip_addresses_using_every_port_to_contact_my_server/</guid>
-      <pubDate>Mon, 06 May 2024 07:52:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人会使用 Apache Kafka 作为后端吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cld6ad/would_anybody_use_apache_kafka_as_backend/</link>
-      <description><![CDATA[您好，我只是想知道自由职业者是否会使用 kafka 作为后端，如果它与电子商务网站或 kafka 通常获得的任何内容有关用于？ 编辑：在第一个评论之后，我意识到我应该用 Java 后端来澄清   由   提交/u/Visual-Earth  /u/Visual-Earth  reddit.com/r/webdev/comments/1cld6ad/would_anybody_use_apache_kafka_as_backend/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cld6ad/would_anybody_use_apache_kafka_as_backend/</guid>
-      <pubDate>Mon, 06 May 2024 07:29:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
