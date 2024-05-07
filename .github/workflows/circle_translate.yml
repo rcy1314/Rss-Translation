@@ -13,19 +13,19 @@ jobs:
   # 此工作流包含一个名为“build”的作业
   build:
     # 运行作业的运行器类型
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     # 步骤表示将作为作业的一部分执行的一系列任务
     steps:
       # 在 $GITHUB_WORKSPACE 下签出存储库，以便作业可以访问它
-      - uses: actions/checkout@v4  # 在这里，我们将Node.js版本从 v3 更新到 v4
+      - uses: actions/checkout@v4  
         with:
           token: ${{ secrets.WORK_TOKEN }}
     
       - name: Set up Python 
-        uses: actions/setup-python@v3  # 在这里，我们将Node.js版本从 v4 更新到 v3
+        uses: actions/setup-python@v3  
         with:
-          python-version: 3.8
+          python-version: 3.10
       - name: Install dependencies
         run: |
           sudo apt-get install libxml2-dev libxslt-dev  # 安装libxml2和libxslt开发包
