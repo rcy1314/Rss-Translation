@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 08 May 2024 09:18:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2024 15:18:51 GMT</lastBuildDate>
     <item>
-      <title>如何在 EC2 上继续开发 Web 应用程序，从 VS Code 推送到 Dockerhub，然后将 Dockerhub 推送到 EC2</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cn0758/how_to_keep_developing_a_web_application_on_ec2/</link>
-      <description><![CDATA[在 VS Code 上创建的 Web 应用程序（通过 Edx 上的 CS50x）。推送到 Dockerhub，然后从 Dockerhub 推送到 EC2。 了解持续更新应用程序的推荐方法将有所帮助。我不认为在 VSCode 上更新源代码，然后再次推送到 Dockerhub，然后将 Dockerhub 推送到 EC2 是最好的方法。    由   提交 /u/DigitalSplendid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cn0758/how_to_keep_developing_a_web_application_on_ec2/</guid>
-      <pubDate>Wed, 08 May 2024 09:15:25 GMT</pubDate>
+      <title>使用 Resend 和 NextJS 将表单数据发送到电子邮件</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn703v/send_form_data_to_email_with_resend_and_nextjs/</link>
+      <description><![CDATA[我正在尝试将表单中的数据发送到客户的电子邮件地址，以便他们可以回复客户。 我是新手，我从来没有这样做过，所以我遇到了麻烦，但我认为我很接近了。 这是联系表单的代码：https://replit.com/@drxnn1/Email-form#pages/ContactForm.tsx 这是 api/send/routes.ts：https://replit.com/@drxnn1/Email-form#pages/api/send/routes.ts 来自 ContactForm.tsx 的相关代码：  async function send(values) { try { const response = await fetch(&quot;/api/send&quot;, { method: &quot;POST&quot;, headers: { &quot;Content-Type&quot;: &quot;application/json&quot;, }, body: JSON.stringify(values), }); if (!response.ok) { throw new Error(&quot;Failed to send data to server&quot;);  console.log(&quot;数据发送成功！&quot;);  } catch (error) { console.error(&quot;发送数据错误：&quot;, error.message); &gt; &gt;  const handleSubmit = async (values) =&gt; { setFormData(values); console.log(formData); await send(values); }; 来自 routes.ts 的相关代码： export async function postHandler(req: NextApiRequest, res: NextApiResponse) { if (req.method === &quot;POST&quot;) { const { name, lastName, phoneNumber, emailAddress, message } = req.body as ContactFormData;   const resend = new Resend(process.env.RESEND_API_KEY); try { await resend.emails.send({ from: &quot;onboarding@resend.dev&quot;, to: emailAddress, subject: &quot;新联系表单提交&quot;, html:\&lt;p&gt;&lt;strong&gt;姓名：&lt;/strong&gt; ${name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;姓氏：&lt;/strong&gt; ${lastName}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;电话号码：&lt;/strong&gt; ${phoneNumber}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;电子邮件地址：&lt;/strong&gt; ${emailAddress}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;消息：&lt;/strong&gt; ${message}&lt;/p&gt;`,});` return res.status(200).json({ success: true }); } catch (error) { console.error(&quot;发送电子邮件错误：&quot;, error); return res.status(500).json({ error: &quot;发送电子邮件失败&quot; }); &gt; } else { return res.status(405).end(); // 方法不允许 &gt; &gt; 提前感谢您的指导和帮助！    提交人    /u/WayOdd5042   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn703v/send_form_data_to_email_with_resend_and_nextjs/</guid>
+      <pubDate>Wed, 08 May 2024 15:12:43 GMT</pubDate>
     </item>
     <item>
-      <title>如何使用 Tailwind CSS 和 Alpinejs 创建上下文菜单</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmzwu1/how_to_creat_a_contextual_menu_with_tailwind_css/</link>
-      <description><![CDATA[ 由   提交 /u/Michael_andreuzza   [链接]   创建上下文菜单[评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmzwu1/how_to_creat_a_contextual_menu_with_tailwind_css/</guid>
-      <pubDate>Wed, 08 May 2024 08:54:58 GMT</pubDate>
+      <title>未来十年，您认为人工智能将在多大程度上取代开发人员。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn6zv4/in_the_next_decade_how_much_do_you_think_will_ai/</link>
+      <description><![CDATA[在未来十年，你认为人工智能会在多大程度上取代人类..你打算如何不被人工智能取代..   由   提交/u/OxygenIsHere   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn6zv4/in_the_next_decade_how_much_do_you_think_will_ai/</guid>
+      <pubDate>Wed, 08 May 2024 15:12:28 GMT</pubDate>
     </item>
     <item>
-      <title>最便宜的 Google 认证 Cookie 横幅 CMP？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmzap9/cheapest_google_certified_cmp_for_cookie_banner/</link>
-      <description><![CDATA[与 Google 相关公告，  ...我们将要求合作伙伴使用我们的发布商产品 — Google AdSense、Ad Manager 或 AdMob — 在向欧洲经济区或英国的用户投放广告时，使用经 Google 认证的 CMP，该 CMP 与 IAB Europe 的透明度和同意框架 (TCF) 集成。  我浏览了那些 Google 认证的 CMP，它们看起来都相当昂贵。我有一个旧的公告论坛，有很多页面，CMP 的定价似乎与页面数量相关。我所需要的只是可以发布到网站的兼容脚本。   由   提交 /u/OffsideOracle   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmzap9/cheapest_google_certified_cmp_for_cookie_banner/</guid>
-      <pubDate>Wed, 08 May 2024 08:10:26 GMT</pubDate>
+      <title>Web 开发的后端开发部分？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn6j4e/backend_development_part_of_web_development/</link>
+      <description><![CDATA[我刚刚读完高中，几个月后就要上大学，我有兴趣成为一名后端开发人员，但我看到了那台计算机科学有很多分支，例如 Web 开发、人工智能和机器学习等。所以我想知道我是否应该选择 Web 开发来从事后端开发人员的职业？谢谢    由   提交 /u/_-Edrick-_   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn6j4e/backend_development_part_of_web_development/</guid>
+      <pubDate>Wed, 08 May 2024 14:53:57 GMT</pubDate>
     </item>
     <item>
-      <title>您如何处理本地网络项目的紧急修复？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmz5vo/how_do_you_deal_with_urgent_fixes_for_web/</link>
-      <description><![CDATA[目前正在考虑使用 Git 跳转到无头 CMS 来完成个人项目。 我的项目中不断出现一个场景。不过，请注意。 假设您需要在网站上进行一项非常紧急的更新。为了便于讨论，假设您不小心在一个面向公众的网站上进行了重要登录，并且客户打电话说“em ....您知道您的银行登录信息位于联系页面上，对吗？！ &quot; 使用标准 WordPress 网站，您可以： -&gt;找到离您最近的计算机 -&gt;登录 -&gt;快速更新生产 对于无头 CMS，如果它不是您的本地/开发机器，您不需要： -&gt;提供开发环境（即设置、克隆存储库） -&gt;修复问题 -&gt;本地推回 同样，我的场景故意有点疯狂并且极不可能，但是......只是想知道当前端和后端没有 GUI 且解耦时，会采取什么样的保护措施。    由   提交/u/danielrosehill  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmz5vo/how_do_you_deal_with_urgent_fixes_for_web/</guid>
-      <pubDate>Wed, 08 May 2024 08:00:33 GMT</pubDate>
+      <title>重定向 Netlify 子域？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn61ig/redirect_netlify_subdomain/</link>
+      <description><![CDATA[所以我有一个 Shopify 商店，曾经是 Netlify 上的一家无头商店，现在又回到了 Shopify。无论如何，做了一些 SEO 研究，我发现旧的无头网站仍然可以在 Netlify 的子域 (storename.netlify.com) 上访问。它实际上位于一个相当不错的位置，所以有什么方法可以在 Netlify 设置中将该域重定向到我的主商店吗？主域也不托管在 Netlify 上。预先感谢您。   由   提交/u/oddball09  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn61ig/redirect_netlify_subdomain/</guid>
+      <pubDate>Wed, 08 May 2024 14:33:49 GMT</pubDate>
     </item>
     <item>
-      <title>不完全了解如何运行服务器。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmyne8/not_fully_understanding_how_to_run_a_server/</link>
-      <description><![CDATA[我想做一些简单的事情，只发送数字和数字。对使用用户脚本的每个人说的话，但我不明白如何发送/接收数据。我有一点 js 编码知识，我只是有几个问题。 1.Linux 本地主机服务器可以为我的 wifi 连接之外的人工作吗？ 2.我可以使用谷歌表格或谷歌文档吗作为服务器的替代品 3.有没有可以发送/接收少量数据的免费东西？   由   提交/u/Mrface1234  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmyne8/not_fully_understanding_how_to_run_a_server/</guid>
-      <pubDate>Wed, 08 May 2024 07:22:48 GMT</pubDate>
+      <title>您会使用什么工具来开发社交网络应用？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn5zwg/what_tools_would_you_use_for_a_social_web_app/</link>
+      <description><![CDATA[作为一个业余爱好项目，我想构建一个专注于编写和阅读故事的社交网络应用程序的原型。我想构建以下功能：  带有新故事的基本新闻源 发布内容 阅读其他人的内容 评论他人的内容 基本关注者系统 基本直接消息传递 故事推荐  我不是确定哪些工具最适合此类应用程序，并且很想听听你们会在此类项目中使用什么工具。到目前为止，我主要使用 .net core 和 Angular，但我不确定这些工具是否适合我的项目。 谢谢！ &lt;!-- SC_ON - -&gt;  由   提交 /u/amelieam   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn5zwg/what_tools_would_you_use_for_a_social_web_app/</guid>
+      <pubDate>Wed, 08 May 2024 14:31:58 GMT</pubDate>
     </item>
     <item>
-      <title>嘿开发者，我计划为我的大学制作一个文化网络应用程序，我需要一些建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmymiy/hey_devs_i_am_planning_to_make_a_cultural_web/</link>
-      <description><![CDATA[什么是文化网络应用程序？它是用于活动、聚会、节日或团体和俱乐部会议等的网络应用程序。所以，主要是非学术的东西。我计划将 Next.js 与一些 UI 库（如 ShadnCN）用于客户端部分。由于内容会不时发生变化，您建议我如何处理服务器或后端方面？我应该使用数据库还是第三方 CMS？    提交人    /u/armedrossie   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmymiy/hey_devs_i_am_planning_to_make_a_cultural_web/</guid>
-      <pubDate>Wed, 08 May 2024 07:21:12 GMT</pubDate>
+      <title>为什么最大内容在一种情况下有效，但在另一种情况下无效？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn5wpv/why_maxcontent_works_in_one_scenario_but_not_in/</link>
+      <description><![CDATA[我有两个类似的 CSS 代码片段。 1.  .socialShareBtnsWrapper { 显示：inline-flex;过渡：宽度1s；最大宽度：最大内容；宽度：400px； }  2. .permaInstructionsText { 过渡：高度 1s; --permaInstructTextPadding：15px；填充：0 var(--permaInstructTextPadding);最大高度：最大内容；高度：400像素； }  在第一个中，项目的宽度等于最大内容（是的，内容比 400px 小得多）。 但是在第二种情况下，它将其设置为 400px，这比 max-content 大得多。 为什么？ 如果您想知道为什么我需要设置当我希望它成为最大内容时，将高度设置为 400px？原因是转换仅适用于数值，而不适用于基于关键字的值。 我是否遗漏了一些基本内容，或者它是由代码的其他部分引起的？   由   提交/u/utsav_0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn5wpv/why_maxcontent_works_in_one_scenario_but_not_in/</guid>
+      <pubDate>Wed, 08 May 2024 14:28:16 GMT</pubDate>
     </item>
     <item>
-      <title>推送通知永远不会让手机响起或振动？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmykab/push_notifications_never_ring_or_vibrate_phone/</link>
-      <description><![CDATA[我正在尝试让我的网站/应用程序向用户推送一些更新。例如，每天提醒他们几次服药。 （我曾经通过 Telegram Bot 来完成此操作，它工作得很好，但并不是每个人都想安装 Telegram 并注册。） 因此，我研究了 PWA、Service Workers、Push API 和通知API（对我来说都是新的）。我让它工作了，但发送到我的设备的通知非常不起眼，很容易错过。例如，在 Android 上使用 Firefox，我确实会在左上角看到徽章，锁定屏幕上有一条消息，但没有振动或声音 - 因此很容易错过。就像它们是故意无声传递的。 我启用了手机上的所有通知设置，但它仍然不振动或发出声音。 API 中有一个选项，称为“振动”，但“警告：Android 8 上已弃用对振动的支持”及更高版本。” API 中有一个名为“​​声音”的选项”，但是“在撰写本文时，没有浏览器支持此选项。” 我确实理解（并欣赏）默认情况下，网站/PWA 不允许制作很多噪音，但无论哪种方式都可以由用户启用吗？ 我还使用 这篇 Stackoverflow 帖子 以及 这个通知生成器，以确保它不是我的代码。 预计到达时间：我认为这一定是可能的，因为例如 WhatsApp 网页版能够播放声音，但是这可能来自打开的选项卡，而不是来自服务人员。我越来越相信这是不可能的。   由   提交 /u/AutodidactSolofail   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmykab/push_notifications_never_ring_or_vibrate_phone/</guid>
-      <pubDate>Wed, 08 May 2024 07:16:46 GMT</pubDate>
+      <title>我应该使用哪个托管网站？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn5q6n/which_hosting_site_should_i_use/</link>
+      <description><![CDATA[基本上，我在标题中问的是什么。我想获得一个域名并将其托管在（便宜的）网站上 1 或 2 个月。我可以花一点钱使用更优化的托管网站，但我宁愿避免它，因为我认为这是可能的。托管还必须包括使用 wordpress 的选项（我从未使用过 wordpress，但我不这样做）认为这是一个大问题），我想用通常的编程来制作网站的一部分，因为我有关于 html、javascript 和 php 的编程知识，并且我想付诸实践。哦，我还需要一个可用的 SQL 数据库。我应该使用哪个托管网站？我应该提前检查什么吗？ （正如我所说，我只离线编程，我对此的了解有点浅），任何帖子、视频或任何东西都值得赞赏。   由   提交/u/Guilirecs14   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn5q6n/which_hosting_site_should_i_use/</guid>
+      <pubDate>Wed, 08 May 2024 14:20:24 GMT</pubDate>
     </item>
     <item>
-      <title>快速原型制作和精美设计 - 剑道与其他任何东西的困难</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmxv2f/rapid_prototyping_and_beautiful_design/</link>
-      <description><![CDATA[大家好， 去年我使用了多个 UI 库（时间不是很多），但是我确实觉得我有一双好眼睛。在工作中，他们希望为我们的 Angular 项目使用 Telerik/Kendo UI。该项目在 UI 方面相当简单。它有一堆表单供客户输入，信息会经过审核过程。 在我看来，最简单的入门方法是使用 Material UI，因为它有很好的文档记录，尽管它不是非常独特，因为每个人都熟悉它，它看起来半现代，并且特别擅长提供反馈（当您单击输入框时，有平滑的动画过渡）。 Bootstrap 看起来像那里的每个网站都很好，但看起来很无聊。 Tailwind 非常漂亮（至少我见过的演示是这样），而且很容易定制。 所以，如果完全由我决定，我会选择 Tailwind 来实现美观，或者使用 Material UI 来实现快速原型设计。事实上，一开始我什至不会从 CSS 或组件开始。但我的经理和同事似乎相信 Kendo UI 会给他们带来一致性。 但是当我看到 Angular 的 Kendo UI 时，我看到的只是毫无灵感、臃肿的 Angular 组件，这在特殊情况下可能真的很方便（除了带有过滤功能的网格之外，这些都不适用）。这些表单在焦点上没有任何平滑的过渡，而且看起来已经过时了。文档也很少，并且现场 Kendo UI 应用程序的演示也很少。我们已经为 Kendo UI 付费，是的，您可以使用他们的主题生成器进行自定义，但您必须在我们已经付费的控件之上付费，而且，我在任何地方都看不到他们的主题，所以谁知道它们是否好！？ FWIW，我确实同意，如果我编写自定义控件和自定义 CSS，其他人将无法在工作中复制我的设计，所以我可以看到如何使用如果他们必须维护这个框架，像 Kendo UI 这样的框架可能会给他们一种安全感；也就是说，他们特别希望 (1) 应用程序看起来不错，(2) 外观一致，(3) 他们希望尽快完成。我认为 Kendo UI 不会为仅输入表单和网格的 Web 应用程序提供任何便利。输入表单看起来就像是 1998 年的，并且网格的功能也令人愉快。此外，如果他们要求我们让它看起来漂亮，我最终还是会覆盖 CSS，所以为什么要使用 Kendo UI？ 我在网上搜索，每个用 Kendo UI 制作的示例页面看起来都非常过时。 （很难找到任何样本或现场演示）。我发现了一些不错的，你猜怎么着？它们与 Material UI 集成！ 因为我可能必须使用 Kendo UI，所以有人对好看的布局有任何指示吗？或者 Kendo UI 的重点只是功能而不是美观？换句话说，如果我们需要专门的 Angular 组件，我应该使用自定义 CSS 进行布局并使用 Kendo UI 吗？ 关于如何进行有什么建议吗？我需要快速行动，因为我也在后端工作，而这部分将更加耗时。   由   提交 /u/Careful-Sun-2606   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmxv2f/rapid_prototyping_and_beautiful_design/</guid>
-      <pubDate>Wed, 08 May 2024 06:29:06 GMT</pubDate>
+      <title>关于使用 React/Vue、Supabase 和 WebGL 实现全栈项目设置的建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn5fvz/advice_on_implementing_a_fullstack_project_setup/</link>
+      <description><![CDATA[我目前正在着手一个重要的项目，我设计了一个网站，允许用户创建和连接故事。前端可能会使用 React 或 Vue 开发，我计划使用 Supabase 来处理数据库和身份验证方面。此外，我正在考虑将 WebGL 纳入视觉效果。 作为一个具有设计背景和一些计算机科学经验但缺乏全栈开发经验的人，我正在寻求最佳建议解决这个项目的方法。 具体来说，我想要以下方面的指导： 1。前端在 React 和 Vue 之间进行选择。 2. 评估Supabase 对于数据库管理和身份验证的适用性。 3. 考虑到我有限的经验，为视觉元素实现WebGL。  任何见解、技巧或推荐资源将不胜感激。随着这个项目的进展，我渴望学习并做出明智的决定。 提前感谢您的帮助！    由   提交 /u/Glaciare   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn5fvz/advice_on_implementing_a_fullstack_project_setup/</guid>
+      <pubDate>Wed, 08 May 2024 14:07:45 GMT</pubDate>
     </item>
     <item>
-      <title>专业UI/UX课程？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmwfj4/professional_uiux_course/</link>
-      <description><![CDATA[作为一名 Web 开发人员，我的任务是改善我的 UI/UX 体验，帮助团队不仅识别 X组件已关闭，但“为什么”的语言已关闭。 因此，他们希望我提供一门课程或一些他们愿意付费的东西，以帮助我在大约 3 个月（非全职）内完成此任务，随着我的理解的进步和对我的语言的关注。 有人有关于此类事情的任何好的资源（免费或付费）吗？我对它以及什么是好的网页设计非常感兴趣。   由   提交 /u/minimuscleR   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmwfj4/professional_uiux_course/</guid>
-      <pubDate>Wed, 08 May 2024 04:56:50 GMT</pubDate>
+      <title>前端 UI（NGinx、Docker）的部署问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn5afw/deployment_issue_with_frontend_ui_nginx_docker/</link>
+      <description><![CDATA[大家好，希望你们今天过得愉快。 在过去的一周里，我一直在努力寻找这个问题我已经部署了一个网站。 该网站项目由多个容器组成（MySQL、2 个 .NET 容器（用于管理和用户端）、2 个 React Js 容器（用于管理和用户端）这是问题开始的地方。这是 nginx.conf 文件。 events{} http { upper user-front { server 10.5.0.5 :8080; } 上游仪表板前端 { 服务器 10.5.0.4:8080; } 上游用户-api { 服务器 10.5.0.2:8080; } 服务器 { 监听 80; api/; } 位置 /adminapi/ { proxy_pass http://10.5.0.6:8080/; } 位置 / { proxy_pass http://user-front/; } 位置 /images/;别名 /home/administrator/app/project_files/; } 位置 /admin/ { proxy_pass http://dashboard-front/;包括 proxy_params； } } }  虽然用户端工作完美，没有任何问题，但当我尝试转到 /admin/ 时，我只能更改 chrome 选项卡（通常它显示用户中的 Visual Portfolio）侧面，在管理中它说 vite + React），但它卡在主页用户界面上。以下是我注意到的一些有趣的事情：  如果我将 proxy_pass 切换为 / 而不是 /admin/ 它将起作用。该面板将会显示，如果我将用户端 UI 切换到 /admin/，它将不会显示。 访问任何 API，它们都会起作用。有一件事是，因为我也在 C# 中添加了路由，所以它们变得有些混乱，例如： /api/blog 变成 /api/api/blog 当我向 proxy_pass 写入 google.com 时，它尝试访问  google.com/admin 而不是直接访问 google。  ​ version: &#39;3.4&#39; services: mysql:图像：mysql：最新端口：-“3306：3306” #如果出于某种原因想通过dbeaver加入mysql，请取消注释。卷： - ./mysql-data:/var/lib/mysql 环境： - MYSQL_ROOT_PASSWORD=******** - MYSQL_DATABASE=************ 重新启动：除非停止 网络：custom_net：ipv4_address： 10.5.0.3 api_user: image: image-url 暴露: - 8080 重启: 除非停止环境: - 连接字符串;网络：custom_net：ipv4_address：10.5.0.2 api_admin：图像：image-url 公开：- 8080 重新启动：除非停止环境：- 连接字符串；卷：- ./project_files：/project_files/ 网络：custom_net：ipv4_address：10.5.0.6 front_dashboard：图像：image-url 公开：- 8080 重新启动：除非停止 网络：custom_net：ipv4_address：10.5.0.4 front_user：图像：image- url公开：- 8080重新启动：除非停止网络：custom_net：ipv4_address：10.5.0.5网络：custom_net：驱动程序：桥ipam：配置：-子网：10.5.0.0/16网关：10.5.0.1 任何帮助将不胜感激，因为我完全不知道是什么原因造成的。    由   提交 /u/BandicootDistinct291   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn5afw/deployment_issue_with_frontend_ui_nginx_docker/</guid>
+      <pubDate>Wed, 08 May 2024 14:01:18 GMT</pubDate>
     </item>
     <item>
-      <title>我怎样才能使我的标题看起来像这样？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmw5v7/how_can_i_make_my_heading_look_like_this/</link>
-      <description><![CDATA[   https://preview.redd.it/9ga6kfowt4zc1.jpg?width=1089&amp;format=pjpg&amp;auto=webp&amp;s=f2d304ae694cd3824f90a91c37317eacdbc78 285 我正在玩周围有一些设计想法，我想实现附图中的结果。我创造了“BEAUTYFULL” Photopea 中的部分作为 PNG 图像，底部是普通段落。 我尝试将两者包装在 div 中并调整对齐方式，尝试创建伪元素并将图像添加为背景，然后添加图像作为容器本身的背景，但没有给我想要的结果。 Q-1：从 SEO 和可访问性的角度来看，使用图像作为标题是否是一种不好的做法？  问题2：我怎样才能达到这个结果？    由   提交 /u/Colonel_Carrot   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmw5v7/how_can_i_make_my_heading_look_like_this/</guid>
-      <pubDate>Wed, 08 May 2024 04:40:43 GMT</pubDate>
+      <title>我构建了一个工具来自动将 jQuery 代码转换为纯 JavaScript。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn4trm/i_built_a_tool_to_automatically_convert_jquery/</link>
+      <description><![CDATA[    /u/sachinchoolur   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn4trm/i_built_a_tool_to_automatically_convert_jquery/</guid>
+      <pubDate>Wed, 08 May 2024 13:40:24 GMT</pubDate>
     </item>
     <item>
-      <title>为什么搜索结果到处都显示内部链接初始内容为copyright@2024？我如何更改它以显示页面的实际元描述？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmw5dr/why_does_the_search_result_show_the_internal/</link>
-      <description><![CDATA[   https://preview.redd.it/ieou17ays4zc1.png?width=782&amp;format=png&amp;auto=webp&amp;s=2ac83699f0c10dcaf7 93245a51b2c4b4da9073b8 我不确定这是如何工作的，但我无法修复此问题，尽管按预期添加了页面的所有 SEO 内容，但它总是在各处获取版权 2024。我该如何解决这个问题？   由   提交/u/Kaneki_AlGhoul   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmw5dr/why_does_the_search_result_show_the_internal/</guid>
-      <pubDate>Wed, 08 May 2024 04:40:01 GMT</pubDate>
+      <title>SaaS 终于每月赚取 1,000 美元！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn4eqo/saas_is_finally_generating_1000_a_month/</link>
+      <description><![CDATA[大家好！我只想说一下我们的 SaaS 软件最终如何通过每月订阅产生超过 1,000 美元的月收入。一周前，我发表了一篇关于我的公司如何大规模地为其他公司创建软件的文章，因此我们有了创建自己的软件的想法。该软件本身是一年前发布的。增长有点缓慢，因为我们必须了解目标客户在获得我们的服务演示时会如何行动。更多地谈论我们的软件，它是一个基于人工智能的网站分析系统。基本上，它会提供我们的软件从您的网站获取的所有网站分析数据，例如网站浏览量、产品/服务销售等，并将这些数据实时提供给我们的人工智能。这样，管理该网站的人就可以询问我们的人工智能他们的网站分析情况如何，并向他们提供详细的报告，举例说明如何使用该数据进行扩展等。该软件的主要目的主要是帮助平均水平老实说，企业主会查看他们的分析并从中学习。一般的首席执行官/企业主可能不知道点击率、APV、每月百分比倾斜等。这确实是我们解决的问题，因为我们当前的大多数客户都来自谷歌分析等平台。我们最近达到了每月 1,000 美元，并希望能增长更多。我们对未来感到兴奋！   由   提交 /u/Wild_Dragonfruit_184   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn4eqo/saas_is_finally_generating_1000_a_month/</guid>
+      <pubDate>Wed, 08 May 2024 13:20:57 GMT</pubDate>
     </item>
     <item>
-      <title>我应该换吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmw3ve/should_i_switch/</link>
-      <description><![CDATA[首先我要说的是，我在 Web 开发领域绝对是菜鸟。我更关注商业方面的事情。  我们运行一个完全用 PHP 构建的市​​场。  我接触过的很多营销机构都建议改用shopify/woo commerce /Magento，以便于搜索引擎优化、营销工具、设计工作等 很多核心网络开发人员都推荐坚持我当前的堆栈，因为所有大规模操作都更喜欢自定义和控制选项。  我们目前规模较小，但正在筹集资金以扩大规模。  我的主要问题是我们的支付网关提供商 Razorpay 提供了我们已集成到我们网站中的拆分支付解决方案。  他们说这种特殊的支付方式无法集成到 Shopify 中。这种支付方式是我们业务的核心，它的存在是不可协商的。  Magento/shopify/woo commerce 是否有解决方法？  您对我的整体困境有何看法？我应该坚持当前的堆栈吗？ （PHP Laravel、Vue.js、MYSQL、Javascript、Jquery、Bootstrap4、CSS3、HTML5） 提前致谢！    由   提交/u/dopsy123  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmw3ve/should_i_switch/</guid>
-      <pubDate>Wed, 08 May 2024 04:37:29 GMT</pubDate>
+      <title>我想我现在要放弃这艘开发船去上架了</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn3zmf/i_think_im_abandoning_this_dev_ship_to_go_stock/</link>
+      <description><![CDATA[       由   提交 /u/agentjulliard   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn3zmf/i_think_im_abandoning_this_dev_ship_to_go_stock/</guid>
+      <pubDate>Wed, 08 May 2024 13:00:58 GMT</pubDate>
     </item>
     <item>
-      <title>您的“用户”表中是否有“角色”列，或者是否有单独的“角色”表？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmw2i2/do_you_have_a_role_column_in_your_users_table_or/</link>
-      <description><![CDATA[哪种方式记录“角色”是最好的吗？  “角色”是最好的吗？用户表中的列。 单独的“角色”以共享 users.id 作为主键的表。我想这也允许用户拥有多个角色。 每个角色（例如客户、供应商）都有一个表，然后在查询时将其左连接到用户表。例如3 个表：用户、客户、供应商，全部共享相同的 id。 （客户有供应商和用户没有的附加列。）  然后： SELECT *, Customers.id as custId, Vendors.id as vendId FROM Users LEFT JOIN Customers ON Users.id = Customers.id LEFT JOIN Vendors ON Users.id = Vendors.id  这样，如果用户记录具有非空 custId，那么他们的角色就是“客户”。这样我们就可以从其他表中确定角色，而不是重复信息。 查看投票&lt; /p&gt;   由   提交/u/phatangus  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmw2i2/do_you_have_a_role_column_in_your_users_table_or/</guid>
-      <pubDate>Wed, 08 May 2024 04:35:08 GMT</pubDate>
+      <title>用于测试网站 SEO/性能/等的工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn3v62/tools_for_testing_a_websites_seo_performance_etc/</link>
+      <description><![CDATA[大家好！ 测试网站 SEO、性能和可访问性的首选工具是什么？我听说过灯塔，但如果您有任何其他建议，我将非常感激！ 谢谢！   由   提交/u/scumble373  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn3v62/tools_for_testing_a_websites_seo_performance_etc/</guid>
+      <pubDate>Wed, 08 May 2024 12:54:45 GMT</pubDate>
     </item>
     <item>
-      <title>对智威汤逊感到困惑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmuyg9/confused_about_jwt/</link>
-      <description><![CDATA[大家好，我目前正在学习 MERN 堆栈以构建社交媒体应用程序（类似于 instagram），我不想观看全栈社交媒体克隆，而是想通过建立概念来自行练习。现在，我正在使用 JWT 进行用户身份验证。我了解 JWT 的整个概念、访问和刷新令牌及其存在，并遇到了存储这些令牌的三种方法。LocalStorage、内存和 http only cookie。但是，我找不到任何关于如何使用 http only cookie 方法的适当资源或教程（观看了大量 YouTube 教程但我真的无法理解），你们中有人可以推荐任何好的指南或资源或任何关于如何使用 JWT 构建身份验证系统的文章吗？我非常感谢任何帮助。提前致谢。:)    提交人    /u/stealth_Master01   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmuyg9/confused_about_jwt/</guid>
-      <pubDate>Wed, 08 May 2024 03:32:49 GMT</pubDate>
+      <title>创建简单的交互式地图</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn3srt/create_simple_interactive_map/</link>
+      <description><![CDATA[大家好， 我正在为我的论文开发一个网站原型，需要包含某种交互式地图。我只需要绘制一个城市及其社区的地图，并根据每个社区的宜居性得分为每个社区分配一种颜色。我想添加一些互动元素，例如如果您单击特定的社区，则会显示分数的详细信息。此外，我还想添加特定位置的图钉，例如学校、超市等。 我在 webdev 方面没有太多经验，所以我不知道如何继续这个想法。我的教授建议使用 d3js，但我不确定这是否适合我的需求。有什么可以推荐的工具或教程吗？如有任何建议，我们将不胜感激！   由   提交 /u/Ancient-Lobsterr   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn3srt/create_simple_interactive_map/</guid>
+      <pubDate>Wed, 08 May 2024 12:51:13 GMT</pubDate>
     </item>
     <item>
-      <title>名字意味着什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cmug1b/whats_in_a_name/</link>
-      <description><![CDATA[   /u/fagnerbrack  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cmug1b/whats_in_a_name/</guid>
-      <pubDate>Wed, 08 May 2024 03:06:08 GMT</pubDate>
+      <title>为什么修补全局变量是有害的</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cn3qum/why_patching_globals_is_harmful/</link>
+      <description><![CDATA[    /u/CherryJimbo   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cn3qum/why_patching_globals_is_harmful/</guid>
+      <pubDate>Wed, 08 May 2024 12:48:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
