@@ -4,99 +4,127 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 08 May 2024 03:21:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2024 06:22:00 GMT</lastBuildDate>
+    <item>
+      <title>我想在提示中使用函数参数</title>
+      <link>https://community.openai.com/t/i-want-to-use-function-parameters-in-my-prompt/736907#post_2</link>
+      <description><![CDATA[经过一番尝试和错误，我得出以下结论：
+变量必须放在括号内，不能使用引号。
+如果要使用括号，则必须写两次。
+使用以下代码，我能够使查询动态化：
+defgenerate_description(process_type、行业、合规性)：
+    如果符合：
+        状态=“合规”
+    别的：
+        状态=“不符合”
+
+    提示=f&quot;&quot;&quot;
+    为 {industry} 行业中的 {process_type} 流程生成文本业务流程描述，该流程的 {status} 符合 ISO9001:2015。将其作为 JSON 输出返回，格式如下： &#39;process_type= {process_type}&#39;, &#39;industry={industry}&#39;, &#39;compliance={compliance}&#39;, &#39;description&#39;,
+
+    参数 process_type&#39; = &#39;Order to cash&#39; 、 Industry=&#39;Automotive、compliance=&#39;TRUE&#39; 的示例输出如下所示：
+    {{
+    &quot;process_type&quot;: &quot;订单到现金&quot;,
+    “行业”：“汽车”，
+    “合规性”：正确，
+    &quot;description&quot;: &quot;1. 下订单： \\n a. 客户通过网站、经销商或直销团队选择车辆或零件。 \\n b. 销售代表审查订单要求并确认可用性。 \\n c. 客户提供付款信息和交货详细信息 \\n d. 订单通过唯一的订单号进行跟踪。 \\n2. 信用部门审核客户的信用。 \\n b. 信用审批被记录、签署并存储在 ERP 系统中 \\n3. 生产计划根据订单细节和库存情况安排装配。 \\n b. 质量保证在生产的各个阶段进行检查，以确保符合规格。 \\n c. 为车辆或零件颁发质量证书。 \\n a. 物流部门根据交货地点和客户要求安排适当的运输。 \\n B．准备运输文件，包括提单、运输发票和出口文件（如果适用）。 \\n c.车辆或零部件交付给客户，交付确认记录在 ERP 系统中。 \\n5.发票： \\n a.财务部门根据交货和合同条款生成发票。 \\n B．发票以电子方式或通过邮件发送给客户。 \\n c.强制执行付款期限（通常为 30 天），并对逾期帐户进行后续处理。 \\n6.收款： \\n a.付款通过银行转账、信用卡或支票进行。 \\n B．记录付款收据，并更新 ERP 系统。 \\n7.客户服务和反馈： \\n a.客户服务中心可提供查询、投诉或退货服务。 \\n B．通过调查或直接联系来征求反馈。 \\n c．对反馈进行分析，提出改进建议并跟踪以供将来实施。”
+    }}
+    
+    请注意，数据应稍后由 JSON 解析器读取。
+    ”“”
+    响应 = client.chat.completions.create(
+        型号=“gpt-3.5-turbo”，
+        消息=[
+            {“角色”：“用户”，“内容”：提示}，
+        ],
+        response_format={&quot;type&quot;: &quot;json_object&quot;},
+    ）
+
+]]></description>
+      <guid>https://community.openai.com/t/i-want-to-use-function-parameters-in-my-prompt/736907#post_2</guid>
+      <pubDate>Wed, 08 May 2024 06:16:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 Openai Playground GPT4 模型不允许图像或 pdf 作为输入？</title>
+      <link>https://community.openai.com/t/why-does-openai-playground-gpt4-models-disallow-images-or-pdf-as-input/597327#post_4</link>
+      <description><![CDATA[为什么他们花了这么长时间？它仍然不可用。]]></description>
+      <guid>https://community.openai.com/t/why-does-openai-playground-gpt4-models-disallow-images-or-pdf-as-input/597327#post_4</guid>
+      <pubDate>Wed, 08 May 2024 06:14:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法读取代码解释助手 AI 生成的图像和文件</title>
+      <link>https://community.openai.com/t/not-able-to-read-images-and-files-generated-by-code-interpreter-assistant-ai/737572#post_6</link>
+      <description><![CDATA[更新：UI 已更改，错误仍然存​​在。
+]]></description>
+      <guid>https://community.openai.com/t/not-able-to-read-images-and-files-generated-by-code-interpreter-assistant-ai/737572#post_6</guid>
+      <pubDate>Wed, 08 May 2024 06:11:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的批量 API 向我收取了两倍费用</title>
+      <link>https://community.openai.com/t/the-new-batch-api-charged-me-twice/731081#post_7</link>
+      <description><![CDATA[你从 OpenAI 那里得到解决方案了吗？
+我没有收到任何更新。]]></description>
+      <guid>https://community.openai.com/t/the-new-batch-api-charged-me-twice/731081#post_7</guid>
+      <pubDate>Wed, 08 May 2024 06:10:46 GMT</pubDate>
+    </item>
     <item>
       <title>Assistant API - 使用了太多的“输入”令牌</title>
-      <link>https://community.openai.com/t/assistant-api-way-too-much-input-tokens-used/699661#post_6</link>
-      <description><![CDATA[你好。很好的发现！
-实际上，我对检索（或文件搜索，在 V2 世界中）也特别感兴趣。您知道我们是否可以挖掘实际发送到模型的（附加）提示或指令吗？
-我同意包含所有这些工具的提示加起来很多，但我怀疑包含文件搜索结果的附加提示甚至更大。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-way-too-much-input-tokens-used/699661#post_6</guid>
-      <pubDate>Wed, 08 May 2024 03:20:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>日本通用主题 -从成熟的技术讨论到简单的投诉 -</title>
-      <link>https://community.openai.com/t/topic/692858#post_15</link>
-      <description><![CDATA[谢谢你的建议。看来只能搜索了。 
-GPT-4 认识到“网页浏览、查看或打开是不可能的，但搜索是可能的（事实上，可以加载搜索后可以访问的页面）”。 
-由于 OpenAI 在各种符号中被写为“Web Browsing”，因此 OpenAI 和 GPT-4 的识别之间似乎存在差异。 ]]></description>
-      <guid>https://community.openai.com/t/topic/692858#post_15</guid>
-      <pubDate>Wed, 08 May 2024 03:19:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>为了扩展新一代人工智能，我们应该关注计算还是内存</title>
-      <link>https://community.openai.com/t/to-scale-gen-ai-should-we-focus-on-compute-or-memory/691131#post_6</link>
+      <link>https://community.openai.com/t/assistant-api-way-too-much-input-tokens-used/699661#post_7</link>
       <description><![CDATA[
 
 
- kazvorpal：
-&lt;块引用&gt;
-同样的事情也发生在这里。这不是人工智能科学，而是预训练的模型工程。
+ turbolucius:
 
 
-Google 工程师通过论文“Attention Is All You Need”发表了科学部分，OpenAI 设计并利用了这项研究。
-因此，如果没有工程，你就不会有任何有形的东西，如果没有科学，你就不会有任何可以工程的东西。
-基于 Transformer 的 LLM 对公众的价值是巨大的。即使其他架构不断涌现，实际创建一些有用的也很重要，这就是我们的“预训练模型工程”。
-因此，我们需要研究人员制定新的想法和方法，需要工程师设计和构建这些东西并让它们发挥作用，还需要营销人员让人们花钱。
-这并不全是科学和研究。尽管研究很重要，但人工智能研究目前正在火热进行中，许多假设正在产生和测试。很难跟上这一切。]]></description>
-      <guid>https://community.openai.com/t/to-scale-gen-ai-should-we-focus-on-compute-or-memory/691131#post_6</guid>
-      <pubDate>Wed, 08 May 2024 03:13:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>lmsys gpt2-chatbot - gpt4.5 上弹出神秘模型？</title>
-      <link>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=3#post_48</link>
-      <description><![CDATA[只需询问这两个模型是什么以及它们存在的原因：
-&lt;块引用&gt;
-模型“im-a-good-gpt2-chatbot”（IAGGCB）和“im-also-a-good-gpt2-chatbot”（IAAGGCB）是 GPT-4-turbo 架构的专门版本，由OpenAI 可以服务于特定的交互风格和用例，同时利用更大的 GPT-4-turbo 模型的基础功能。 IAAGGCB 与 IAGGCB 的不同之处主要在于其增强的动态创造力和自适应交互风格。
 
-&lt;块引用&gt;
-IAGGCB 保持更加一致、支持和有条理的特征，重点是清晰和连贯的沟通。
 
-&lt;块引用&gt;
-IAAGGCB 更有效地支持联想和横向思维，将不同的想法联系起来以培养创新思维，同时提供更加对话和非正式的语气，动态适应以匹配用户交互。该模型擅长产生各种想法，并通过互动探索（例如假设场景和思想实验）促进创造性对话。 IAAGGCB强调叙事驱动的沟通，整合讲故事的技巧来激发和深化对概念的探索。 IAAGGCB 的设计以用户为中心，适应个人喜好和风格，使其具有高度响应性和个性化，这对于在不断发展的创意过程中需要直观支持的用户特别有效。
 
+file_search 的新文本的 # Tools 中有 555 个标记。
+之前为 387 个。
+两者都无法与 v1 在搜索和浏览之前自动完成的注入量或从 v2 搜索中获得的非阈值结果量相比。
+v2。最小机器人，最小输入：放置 640 个代币。 1500 个自行车文本标记未搜索或自动注入（25k+ 向量存储可能使其成为 25k 输入问题）。
+
+我可能会补充说，向量搜索可能会有问题应用程序显示。该工具文本包括：“用于浏览用户上传的文件的工具。”和“用户上传的部分文档将自动包含在对话中。”
+您无法将该工具更改为“AI开发人员放置的公司信息，以帮助您执行任务”。
+此外，请注意仅在第 2 回合就大量放大了 token 的使用，我本可以通过真实注入 RAG 将所有非主题文本放置在 1600 处：
 ]]></description>
-      <guid>https://community.openai.com/t/mystery-model-popped-up-on-lmsys-gpt2-chatbot-gpt4-5/731632?page=3#post_48</guid>
-      <pubDate>Wed, 08 May 2024 02:52:08 GMT</pubDate>
+      <guid>https://community.openai.com/t/assistant-api-way-too-much-input-tokens-used/699661#post_7</guid>
+      <pubDate>Wed, 08 May 2024 05:42:32 GMT</pubDate>
     </item>
     <item>
-      <title>为了扩展新一代人工智能，我们应该关注计算还是内存</title>
-      <link>https://community.openai.com/t/to-scale-gen-ai-should-we-focus-on-compute-or-memory/691131#post_5</link>
-      <description><![CDATA[扩展预训练变压器 LLM 并将其称为“AI”就像 1880 年说我们需要更大的蒸汽机。
-我们真正需要的是技术进步，例如内燃机。
-现在，我们需要的是更接近实际人工智能的东西，而这些预训练模型根本不是。它们是管理数据的非常有用的工具，但一旦训练结束就没有任何智能。
-不断扩展这些功能是件好事，但这不是人工智能，对于人工智能而言，它不再是一个长期解决方案，就像人类交通从蒸汽机转向柴油电力机车一样。
-对这种华而不实但不智能的模型的关注分散了我们对实际智能的真正进展的注意力。有时看起来，智力的缺乏指的是人类，也指的是人工智能。
-所以我们真正需要的是动态学习，而不是预训练模型，甚至在预训练模型中我们也需要致力于推进技术，例如解决比语言更标记化的需求，以便 Transformer可以比法学硕士更好地“理解”其他格式的信息，可以在培训后整理“音乐”和“图像”。
-解决最后一个问题的部分问题实际上是分词器有点作弊，因为它让我们绕过了如何让模型首先理解单词概念的瓶颈。但在这样做的过程中，我们陷入了这样一个境地：我们不明白如何让分词器以兼容的格式编码其他内容，例如图像或音乐。
-令我沮丧的是，我们的焦点主要是向现有技术投入资源并对其进行调整，而不是解决诸如此类的十几个令人着迷的问题。
-想想美国宇航局是如何通过五十年来不断地重新设计现有的纳粹火箭技术来终结太空飞行技术的。 “这不是火箭科学”对于 NASA 工程师来说确实如此：他们根本不是科学家，没有发明新技术（等离子驱动器除外），这阻碍了我们在航空航天领域的进步。
-同样的事情也发生在这里。这不是人工智能科学，而是预训练的模型工程。]]></description>
-      <guid>https://community.openai.com/t/to-scale-gen-ai-should-we-focus-on-compute-or-memory/691131#post_5</guid>
-      <pubDate>Wed, 08 May 2024 02:23:56 GMT</pubDate>
+      <title>“加载您的聊天时出错，请刷新并重试”“无法加载”</title>
+      <link>https://community.openai.com/t/there-was-an-error-loading-your-chat-please-refresh-and-try-again-unable-to-load/739465#post_1</link>
+      <description><![CDATA[为什么我的 Mac 上不再加载 GPT 4？我已经清除了缓存和 cookie，并重新启动了我的 Mac。现在我的 iPad 也遇到了同样的问题。这个 30 美元/月的订阅根本没有客户支持，我到底该怎么解决这个问题。这种情况已经持续一个月了。]]></description>
+      <guid>https://community.openai.com/t/there-was-an-error-loading-your-chat-please-refresh-and-try-again-unable-to-load/739465#post_1</guid>
+      <pubDate>Wed, 08 May 2024 05:38:44 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 的两个改进建议</title>
-      <link>https://community.openai.com/t/two-suggestion-to-improve-to-chatgpt/739372#post_1</link>
-      <description><![CDATA[问候团队，
-我希望你一切都好。
-如果这不是发表此评论的正确论坛，我深表歉意。
-是否可以将这两个功能合并到 ChatGPT 中？
+      <title>从“openai/resources/beta/threads/index.mjs”导入{ThreadMessage}；不再工作了。我无法在此路径中找到 ThreadMessage</title>
+      <link>https://community.openai.com/t/import-threadmessage-from-openai-resources-beta-threads-index-mjs-is-no-longer-working-i-was-not-able-to-find-threadmessage-in-this-path/738999#post_2</link>
+      <description><![CDATA[您可能希望使用 Yarn 或 NPM 包管理器之类的东西并指定最新版本。看起来您直接从本地文件或其他东西导入，在正常情况下这不是最佳做法。您可能有我不知道的原因，但我只是想帮忙。]]></description>
+      <guid>https://community.openai.com/t/import-threadmessage-from-openai-resources-beta-threads-index-mjs-is-no-longer-working-i-was-not-able-to-find-threadmessage-in-this-path/738999#post_2</guid>
+      <pubDate>Wed, 08 May 2024 05:36:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>升级到 GPT-4 后我可以使用 GPT-3.5 模型</title>
+      <link>https://community.openai.com/t/can-i-use-gpt-3-5-models-after-upgrading-to-gpt-4/738975#post_5</link>
+      <description><![CDATA[此外，如果您只是使用 API，您甚至不需要拥有 GPT-4 帐户（每月 20 美元）。一旦您支付了 API 密钥的费用，您就可以使用任何模型（包括 GPT-4），并且每个模型每次使用时都会向您收取少量费用。]]></description>
+      <guid>https://community.openai.com/t/can-i-use-gpt-3-5-models-after-upgrading-to-gpt-4/738975#post_5</guid>
+      <pubDate>Wed, 08 May 2024 05:33:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=4#post_63</link>
+      <description><![CDATA[
 
-搜索选项：搜索关键字或以前的聊天记录的功能。例如，搜索一年前创建的聊天记录或关键字。
-多项选择/删除：能够选择多个（可能是复选框）聊天并一起删除选定的聊天。
-]]></description>
-      <guid>https://community.openai.com/t/two-suggestion-to-improve-to-chatgpt/739372#post_1</guid>
-      <pubDate>Wed, 08 May 2024 02:14:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>Text-davinci-003 API 定价？</title>
-      <link>https://community.openai.com/t/text-davinci-003-api-pricing/373376#post_8</link>
-      <description><![CDATA[这些模型不存在。 ChatGPT 出现幻觉了。
-此处列出了所有型号及其价格，
-https://openai.com/api/pricing]]></description>
-      <guid>https://community.openai.com/t/text-davinci-003-api-pricing/373376#post_8</guid>
-      <pubDate>Wed, 08 May 2024 02:11:01 GMT</pubDate>
+
+_j：
+&lt;块引用&gt;
+gpt-3.5-turbo-0125 在去除换行符的文本上（495 个标记），“至少需要 3 个分割点。”：
+
+
+对于最后一英里，包罗万象的语义分块，根本不是一个坏主意。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=4#post_63</guid>
+      <pubDate>Wed, 08 May 2024 05:27:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
