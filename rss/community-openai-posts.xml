@@ -4,119 +4,260 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 10 May 2024 12:33:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2024 15:19:37 GMT</lastBuildDate>
     <item>
-      <title>制作风格化 T 恤图像设计提示</title>
-      <link>https://community.openai.com/t/crafting-stylized-t-shirt-image-design-prompts/662503#post_7</link>
-      <description><![CDATA[我只是尝试重新创建没有 T 恤的图像
-提示：
-“创建一个图形设计，其中一个人从后面，穿着连帽衫，站在一条小巷里，周围是高楼大厦和明亮的霓虹灯标志。场景应该大气，通过细致的艺术作品和光线的运用来捕捉城市生活的本质。将设计框在粗边框内。从设计中排除任何文本或品牌元素，使其适合按需打印。”
-]]></description>
-      <guid>https://community.openai.com/t/crafting-stylized-t-shirt-image-design-prompts/662503#post_7</guid>
-      <pubDate>Fri, 10 May 2024 12:32:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>目前人工智能如何集成到健身追踪设备和应用程序中？</title>
-      <link>https://community.openai.com/t/how-is-artificial-intelligence-currently-being-integrated-into-fitness-tracking-devices-and-apps/741786#post_1</link>
-      <description><![CDATA[人工智能通过提供个性化见解、预测分析和实时反馈，正在彻底改变健身跟踪设备和应用程序。这些设备利用人工智能算法来分析来自加速度计和心率监视器等传感器的数据，以准确跟踪活动。此外，人工智能还有助于解释用户行为模式、建议量身定制的锻炼计划、预测受伤风险并优化表现。总体而言，人工智能集成增强了用户体验，激发了更健康的习惯，并促进了更有效的健身制度。]]></description>
-      <guid>https://community.openai.com/t/how-is-artificial-intelligence-currently-being-integrated-into-fitness-tracking-devices-and-apps/741786#post_1</guid>
-      <pubDate>Fri, 10 May 2024 12:31:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>即使创建新帐户，API 也会给出配额错误，并且在检查使用情况时，所有 5 美元都完好无损</title>
-      <link>https://community.openai.com/t/api-giving-quota-error-even-when-new-account-is-created-and-on-checking-the-usage-got-all-5-intact-there/741692#post_3</link>
-      <description><![CDATA[这意味着 openai 不再提供免费的 5 美元，因为我已经使用它很长一段时间了，并且之前它可以工作？]]></description>
-      <guid>https://community.openai.com/t/api-giving-quota-error-even-when-new-account-is-created-and-on-checking-the-usage-got-all-5-intact-there/741692#post_3</guid>
-      <pubDate>Fri, 10 May 2024 12:31:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 生产力影响研究</title>
-      <link>https://community.openai.com/t/research-on-productivity-impact-of-chatgpt/741778#post_1</link>
-      <description><![CDATA[您好，我正在尝试查找有关 ChatGPT 对人们生产力影响的研究，有人知道我在哪里可以找到这样的研究吗？]]></description>
-      <guid>https://community.openai.com/t/research-on-productivity-impact-of-chatgpt/741778#post_1</guid>
-      <pubDate>Fri, 10 May 2024 12:22:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于防止即时注入和越狱的 API</title>
-      <link>https://community.openai.com/t/api-to-prevent-prompt-injection-jailbreaks/203514?page=2#post_29</link>
-      <description><![CDATA[耶！我们终于得到了。这是缺失的部分。
-def fetch_run_output(thread_id, run_id):
-    提取值=无
-    而真实：
-        run_status = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run_id)
-        if run_status.status in [&#39;已完成&#39;, &#39;失败&#39;, &#39;已取消&#39;]:
-            print(&quot;运行状态：&quot;, run_status.status)
-            休息
-        print(&quot;运行仍在处理...&quot;)
-        时间.睡眠(2)
+      <title>如何优化我的 GPT4 工作流程</title>
+      <link>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_6</link>
+      <description><![CDATA[我使用下面给定的模板创建了一个包含 50 个问题的数据集。
+{‘系统’：提示，‘用户’：‘问题’，‘助理’：示范答案}
 
-    如果 run_status.status == &#39;已完成&#39;:
-        消息 = client.beta.threads.messages.list(thread_id=thread_id)
-        对于 messages.data 中的消息：
-            print(&quot;消息来自:&quot;, message.role)
-            if message.role == &#39;assistant&#39; and message.content: # 假设系统消息包含数据
-                对于 message.content 中的 content_block：
-                    如果 content_block.type == &#39;文本&#39;:
-                        # 正确访问嵌套结构中的“值”
-                        提取值=内容块.文本.值
-                        print(&quot;提取的内容值：&quot;, extract_value)
-                        休息
-    别的：
-        print(&quot;运行未成功完成：&quot;, run_status.last_error)
-        返回无
+我使用相同的自定义提示回答了 50 个问题。
+我有大约 30 个不同的问题。我在接下来的 20 个中使用了原始 30 个的变体。
+例如：Q1：美国的首都是哪里？
+Q2：加拿大的首都是哪里？
 
-    返回提取值
+我将此数据集添加到 Azure 微调管道并重新部署模型。
+如果需要更多信息，请告诉我。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_6</guid>
+      <pubDate>Fri, 10 May 2024 15:18:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何优化我的 GPT4 工作流程</title>
+      <link>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_5</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_5</guid>
+      <pubDate>Fri, 10 May 2024 15:18:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何优化我的 GPT4 工作流程</title>
+      <link>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_4</link>
+      <description><![CDATA[您是如何针对此案例进行微调的？
+我曾经 - 尽管只是为了测试目的 - 创建了一个文本到 SQL 的微调模型，因此如果您分享有关您的方法的更多详细信息，可能会有一些提示。]]></description>
+      <guid>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_4</guid>
+      <pubDate>Fri, 10 May 2024 15:12:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>Stack Overflow 社区的团结抗议</title>
+      <link>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_4</link>
+      <description><![CDATA[说得好！
 
-控制台输出：
-[TextContentBlock(text=Text(annotations=, value=&#39;法式吐司&#39;), type=&#39;text&#39;) ]
-仍在运行处理...
-运行状态：已完成
-留言来自：助理
-提取的内容值：{“卡路里”：“126-154”}
-消息来自：用户
-助手已删除：AssistantDeleted(id=‘asst_’,deleted=True,object=‘assistant.deleted’)
-基本上，步骤如下
 
-创建助理。从此处捕获 Assistant_id。
-创建一个线程。从这里捕获 thread_id。
-现在为 thread_id 创建一条消息。这是用户输入的地方。对我们来说这是一个菜名。例如。法式吐司。
-现在，为 thread_id 和 Assistant_id 创建一个 Run。捕获run_id。
-现在您必须根据该 run_id 检查 run_status，并且只有当 run_status 完成时，任务才完成且输出可行。参见上面的方法。
-工作完成后删除助手。这是可选的，但对我们有用。
-]]></description>
-      <guid>https://community.openai.com/t/api-to-prevent-prompt-injection-jailbreaks/203514?page=2#post_29</guid>
-      <pubDate>Fri, 10 May 2024 12:17:24 GMT</pubDate>
+
+罗纳德GRuckus：
+&lt;块引用&gt;
+我真的认为人们是时候继续前进了。
+
+
+我明白这一点，但我仍然认为企业赞助的社区有一席之地，这些社区严重依赖社区参与和无偿审核，但他们需要尊重贡献者。]]></description>
+      <guid>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_4</guid>
+      <pubDate>Fri, 10 May 2024 15:12:34 GMT</pubDate>
     </item>
     <item>
-      <title>错误 异常活动 GPT4 WEB</title>
-      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901#post_9</link>
-      <description><![CDATA[此处相同，在自定义 GPT 中
-]]></description>
-      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901#post_9</guid>
-      <pubDate>Fri, 10 May 2024 12:08:30 GMT</pubDate>
+      <title>API Assistant 可在 Google Sheet 中搜索文件</title>
+      <link>https://community.openai.com/t/api-assistant-with-files-search-in-google-sheet/741914#post_1</link>
+      <description><![CDATA[早上好，
+我正在尝试创建一个在 Google Sheet 中交互的助手。通过文件搜索，助手拥有自己的知识。
+在操场上一切都很好，但在 Google Sheet 中似乎不再有知识。如何通过 Api 将知识引入 Google Sheets？
+这是我的代码：
+`函数商业助理(userInput) {
+var OPENAI_API_KEY = ‘我的 API 密钥’; // 这里是 OpenAI API 密钥
+var ASSISTANT_ID = ‘我的助手 ID’; // 这里是助理ID
+var 标头 = {
+‘授权’：‘承载’+ OPENAI_API_KEY,
+‘Content-Type’: ‘application/json’,
+‘OpenAI-Beta’: ‘assistants=v1’
+};
+// 创建线程
+var threadResponse = UrlFetchApp.fetch(&#39;https://api.openai.com/v1/threads&#39;，{
+‘方法’：‘发布’，
+‘headers’：标题，
+‘muteHttpExceptions’: true
+});
+if (threadResponse.getResponseCode() !== 200) {
+return &quot;创建线程失败。响应：&quot; + threadResponse.getContentText();
+}
+var threadData = JSON.parse(threadResponse.getContentText());
+var threadId = threadData.id; // 根据实际响应格式进行调整
+// 向线程发送消息
+var messageResponse = UrlFetchApp.fetch(https://api.openai.com/v1/threads/${threadId}/messages, {
+‘方法’：‘发布’，
+‘headers’：标题，
+‘有效负载’：JSON.stringify({
+‘角色’：‘用户’，
+‘内容’：用户输入
+}),
+‘muteHttpExceptions’: true
+});
+if (messageResponse.getResponseCode() !== 200) {
+return &quot;发送消息失败。响应: &quot; + messageResponse.getContentText();
+}
+// 使用助手运行线程
+var runResponse = UrlFetchApp.fetch(https://api.openai.com/v1/threads/${threadId}/runs, {
+‘方法’：‘发布’，
+‘headers’：标题，
+‘有效负载’：JSON.stringify({
+‘assistant_id’: ASSISTANT_ID
+}),
+‘muteHttpExceptions’: true
+});
+if (runResponse.getResponseCode() !== 200) {
+return &quot;无法运行线程。响应: &quot; + runResponse.getContentText();
+}
+var runData = JSON.parse(runResponse.getContentText());
+var runId = runData.id;
+var status = runData.status;
+var startTime = new Date().getTime();
+// 轮询运行状态，直到“完成”
+while (status === ‘queued’ || status === ‘in_progress’) {
+实用程序.睡眠（500）； // 等待半秒再检查
+var checkResponse = UrlFetchApp.fetch(https://api.openai.com/v1/threads/${threadId}/runs/${runId}, {
+‘方法’：‘获取’，
+‘headers’：标题，
+‘muteHttpExceptions’: true
+});
+var checkData = JSON.parse(checkResponse.getContentText());
+状态 = checkData.status;
+
+// 检查超时以避免超出执行限制
+var currentTime = new Date().getTime();
+if (currentTime - startTime &gt; 29000) { // 29 秒限制是安全的
+  return“等待运行完成超时。”；
+}
+
+}
+// 运行完成后，获取最终结果
+if (status === ‘已完成’) {
+var messagesResponse = UrlFetchApp.fetch(https://api.openai.com/v1/threads/${threadId}/messages, {
+‘方法’：‘获取’，
+‘headers’：标题，
+‘muteHttpExceptions’: true
+});
+if (messagesResponse.getResponseCode() === 200) {
+  var messagesData = JSON.parse(messagesResponse.getContentText());
+  // 迭代消息以查找助手的响应
+  for (var i = messagesData.data.length - 1; i &gt;= 0; i--) {
+    var message = messagesData.data[i];
+    if (message.role === &#39;助理&#39; &amp;&amp; message.content &amp;&amp; message.content.length &gt; 0) {
+      // 假设第一个内容项包含文本响应
+      var contentItem = message.content.find(c =&gt; c.type === &#39;text&#39;);
+      if (contentItem &amp;&amp; contentItem.text &amp;&amp; contentItem.text.value) {
+        返回 contentItem.text.value； // 返回助手消息的文本值
+      }
+    }
+  }
+  return &quot;未找到助理的最终回复。&quot;;
+} 别的 {
+  return &quot;获取消息失败。响应：&quot; + messagesResponse.getContentText();
+}
+
+} 其他 {
+return &quot;运行未成功完成。状态：&quot; + status;
+}
+}
+`]]></description>
+      <guid>https://community.openai.com/t/api-assistant-with-files-search-in-google-sheet/741914#post_1</guid>
+      <pubDate>Fri, 10 May 2024 15:12:02 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 第 1 层限制，错误 429</title>
-      <link>https://community.openai.com/t/chatgpt-limit-of-tier-1-with-error-429/741763#post_1</link>
-      <description><![CDATA[你好，
-我目前正在使用 GPT-4 Vision Preview Tier 1。据我了解，一旦每日请求 (RPD) 达到 10,000，我预计会遇到 429 错误，表明已超出限制。我的疑问是，在这种情况下如何无缝过渡到第 2 层？具体来说，如果我在达到 10,000 个请求后遇到此错误，我应该采取什么步骤自动切换到第 2 层？或者如何撤销以不更改 TIER？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-limit-of-tier-1-with-error-429/741763#post_1</guid>
-      <pubDate>Fri, 10 May 2024 12:08:26 GMT</pubDate>
+      <title>如何优化我的 GPT4 工作流程</title>
+      <link>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_3</link>
+      <description><![CDATA[谢谢您的回答！
+我正在做您回答的以下部分。
+&lt;块引用&gt;
+如果在上下文中提供问题的简单版本有帮助，您可以简单地让人工智能总结问题的内容，然后再以您可以解析的特殊格式生成查询。然后人工智能既有原始问题又有改写问题，以更好地塑造其思维。
+
+但是，我尝试过对 50 个问题和答案进行微调（阅读 open-ai 文档和不同的文章），但结果并没有改善。
+如果您知道的话，能给我指出一个很好的微调资源吗？
+谢谢]]></description>
+      <guid>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_3</guid>
+      <pubDate>Fri, 10 May 2024 15:10:40 GMT</pubDate>
     </item>
     <item>
-      <title>新闻文章：中国因“政治宣传”而封锁 ChatGPT</title>
-      <link>https://community.openai.com/t/news-article-china-blocks-chatgpt-due-to-political-propganda/72941#post_9</link>
-      <description><![CDATA[现在 OpenAI 已经屏蔽了像我这样使用 VPN 连接的用户。如果没有VPN，中国人甚至看不到OpenAI的页面或谷歌在中国的东西。现在，我们使用ChatGPT的最后一种方式已经消失了。
-]]></description>
-      <guid>https://community.openai.com/t/news-article-china-blocks-chatgpt-due-to-political-propganda/72941#post_9</guid>
-      <pubDate>Fri, 10 May 2024 12:06:48 GMT</pubDate>
+      <title>MSFT Start-Up Founders Credits for OpenAI 给了我 500 错误</title>
+      <link>https://community.openai.com/t/msft-start-up-founders-credits-for-openai-gives-me-500-error/741910#post_1</link>
+      <description><![CDATA[当我尝试兑换为我的企业提供的 2500 美元启动积分时，我遇到黑屏：500 ## 内部服务器错误。
+我应该如何进行？]]></description>
+      <guid>https://community.openai.com/t/msft-start-up-founders-credits-for-openai-gives-me-500-error/741910#post_1</guid>
+      <pubDate>Fri, 10 May 2024 15:10:15 GMT</pubDate>
     </item>
     <item>
-      <title>GPT4 “嗯……好像出了什么问题。”</title>
-      <link>https://community.openai.com/t/gpt4-hmm-something-seems-to-have-gone-wrong/669247?page=3#post_48</link>
-      <description><![CDATA[今天也一样，联系了支持团队并收到了一条 chatgpt 类型的消息。我已完成指示的所有操作（清除缓存、清除历史记录、禁用扩展），但没有任何更改。]]></description>
-      <guid>https://community.openai.com/t/gpt4-hmm-something-seems-to-have-gone-wrong/669247?page=3#post_48</guid>
-      <pubDate>Fri, 10 May 2024 12:02:42 GMT</pubDate>
+      <title>使用 Swift 进行 Assistant API 请求</title>
+      <link>https://community.openai.com/t/assistants-api-request-with-swift/727523#post_2</link>
+      <description><![CDATA[为什么网址末尾有“/chat/completions”？我仅使用 /v1/assistants/MY_ASSIST_ID 检索助手。希望这会有所帮助。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-request-with-swift/727523#post_2</guid>
+      <pubDate>Fri, 10 May 2024 15:07:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>功能请求：ChatGPT 中的打印功能</title>
+      <link>https://community.openai.com/t/feature-request-print-functionality-in-chatgpt/741907#post_1</link>
+      <description><![CDATA[ 如果 ChatGPT 有一个“打印”按钮，允许用户轻松打印模型提供的响应，那将会非常有帮助。此功能对于学习各种主题或准备考试的个人特别有益。能够直接从聊天界面打印回复，甚至可能将其保存为 PDF 文件以供将来参考，将大大简化学习过程。
+此外，加入以 PDF 格式保存整个聊天历史记录的功能将非常有价值。此功能将允许用户存储对话以供将来查看或参考。
+ 特点：
+
+添加自定义“打印”按钮。
+添加自定义按钮，以PDF 格式保存整个聊天记录。
+
+ 补充：此外，如果我们深入研究更多细节，如果用户可以选择他们想要的特定查询，那么在打印过程中会很方便打印。这样，个人可以选择仅打印与他们感兴趣的特定主题相关的对话的相关部分。打印格式最好模仿 ChatGPT 界面，类似于 Markdown 风格，确保文本保留在页面的边缘内。]]></description>
+      <guid>https://community.openai.com/t/feature-request-print-functionality-in-chatgpt/741907#post_1</guid>
+      <pubDate>Fri, 10 May 2024 15:04:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt-4 生成响应时出错</title>
+      <link>https://community.openai.com/t/gpt-4-there-was-an-error-generating-a-response/741905#post_1</link>
+      <description><![CDATA[我在任何设备上都收到“生成响应时出错”的信息，即使在清除现金、导出聊天记录、删除链接、清除内存和更改密码之后，有人遇到同样的问题吗？&lt; /p&gt;]]></description>
+      <guid>https://community.openai.com/t/gpt-4-there-was-an-error-generating-a-response/741905#post_1</guid>
+      <pubDate>Fri, 10 May 2024 15:02:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 修复：使用 DALL·E 编辑图像</title>
+      <link>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_18</link>
+      <description><![CDATA[同意，如果它可以处理导入的图像，这将非常有用！另外，我们什么时候可以通过 API 做到这一点？]]></description>
+      <guid>https://community.openai.com/t/dalle3-inpainting-editing-your-images-with-dall-e/705477#post_18</guid>
+      <pubDate>Fri, 10 May 2024 15:01:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Stack Overflow 社区的团结抗议</title>
+      <link>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_3</link>
+      <description><![CDATA[社区应该认识到自己贡献的价值，并推广 Mastodon 这样的去中心化平台。依赖集中式解决方案只会确保用户受到剥削，而永远不会得到公平的补偿。
+通过控制内容和基础设施，社区还可以控制收入。像 Reddit 和 Stack Overflow 这样的平台严重依赖社区参与和无偿审核，已经成为了时间的遗物。我真的认为人们是时候继续前进了。
+想象一下，因为在线讨论您最喜欢的话题而获得奖励——这是应该的方式。您创建的每幅图画、音频剪辑、视频、诗歌、程序都会获得报酬，数百、数千个（谁知道……）模型使用它进行训练。
+相反，收入继续流向以利润为导向的公司，这些公司在不断追求利润增长的过程中降低了服务质量。]]></description>
+      <guid>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_3</guid>
+      <pubDate>Fri, 10 May 2024 14:56:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何优化我的 GPT4 工作流程</title>
+      <link>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_2</link>
+      <description><![CDATA[
+
+
+tired_phoenix：
+&lt;块引用&gt;
+
+重写原始问题，使其更简单易懂。
+将重写的问题转换为SQL（此SQL用于从DB中获取数据）
+
+
+
+看来您可以尝试将这两个步骤结合起来。
+如果人工智能有能力重写一个问题，那么它应该有能力理解该问题的实际情况。
+如果在上下文中提供问题的简单版本有帮助，您可以简单地让人工智能总结问题的内容，然后再以您可以解析的特殊格式生成查询。然后人工智能既有原始问题又有改写问题，以更好地塑造其思维。
+如果您有嵌入无法处理的非知识数据，并且几乎没有语义意义可以与用户输入自动匹配，那么提供精确数据的精确查询确实是无与伦比的。
+改进取决于等待产出的时间预算、资金预算以及任务必须具备的质量。然后，您可以找到能够以高代币生产率（如 gpt-3.5-turbo）和减少步骤（如可能需要 GPT-4）完成您所需任务的 AI 模型。
+微调也可能是制造专业人工智能的一种选择，它不需要太多指令，而且速度比 GPT-4 更快。
+希望我的缺乏答案对您有所帮助！]]></description>
+      <guid>https://community.openai.com/t/how-can-i-optimize-my-gpt4-workflow/741871#post_2</guid>
+      <pubDate>Fri, 10 May 2024 14:52:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Stack Overflow 社区的团结抗议</title>
+      <link>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_1</link>
+      <description><![CDATA[为了响应 OpenAI 和 Stack Overflow 之间最近达成的协议，Stack Overflow 上的用户开始破坏他们的帖子以抗议他们的工作方式正在使用。
+作为 OpenAI 开发者社区论坛的领导者和主持人，我们声援 Stack Overflow 社区的抗议权利。我们呼吁 OpenAI 明确解释如何在 AI 开发中归因和利用 Stack Overflow 用户的贡献。
+我们（领导者和版主）强调我们是志愿者，而不是 OpenAI 员工，并且独立支持我们的社区。我们反对不公平地禁止长期贡献者，并邀请 Stack Overflow 和 OpenAI 社区成员在这里分享他们的想法并发出你的声音，但让我们保持建设性和尊重的讨论。
+没有人，社区就什么都不是 ]]></description>
+      <guid>https://community.openai.com/t/solidarity-protest-for-the-stack-overflow-community/741889#post_1</guid>
+      <pubDate>Fri, 10 May 2024 14:45:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
