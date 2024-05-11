@@ -4,7 +4,218 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 11 May 2024 01:14:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 May 2024 03:20:47 GMT</lastBuildDate>
+    <item>
+      <title>Vision 无法读取模型 gpt-4-turbo 中的 image_url，但可以在 gpt-4-vision-preview 中读取？</title>
+      <link>https://community.openai.com/t/vision-unable-to-read-image-url-in-model-gpt-4-turbo-but-it-can-in-gpt-4-vision-preview/741952#post_2</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/vision-unable-to-read-image-url-in-model-gpt-4-turbo-but-it-can-in-gpt-4-vision-preview/741952#post_2</guid>
+      <pubDate>Sat, 11 May 2024 02:58:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>大型 RAG 的最佳实践</title>
+      <link>https://community.openai.com/t/best-practice-for-a-big-rag/742088#post_8</link>
+      <description><![CDATA[也许您可以想出一些评分机制，您可以通过使用余弦相似度（即向量数据库）与语义空间中的某些“已知”向量来获取任何段落并为其分配分数，或者只是进行提示要求根据特定标准进行评分。这样，即使您将内容分割成任意大小的块，评分机制仍然可以说是“同类”比较。然后，如果需要的话，选择前 N（例如 N=5）内容就很简单了……因为您在单独的提示中完全独立地生成了其中一个或多个内容的“分数”。]]></description>
+      <guid>https://community.openai.com/t/best-practice-for-a-big-rag/742088#post_8</guid>
+      <pubDate>Sat, 11 May 2024 01:53:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>更新后提示长度错误：超出最大数组长度</title>
+      <link>https://community.openai.com/t/prompt-length-error-post-update-exceeding-maximum-array-length/742262#post_1</link>
+      <description><![CDATA[自从更新以来，我的所有助手都坏了。任何超过几个句子的提示都会生成错误：：“添加消息时出错：&#39;内容&#39;无效：数组太长。预期最大长度为 10 的数组，但得到了一个长度为 10 的数组（一些大数字，如 20）。]]></description>
+      <guid>https://community.openai.com/t/prompt-length-error-post-update-exceeding-maximum-array-length/742262#post_1</guid>
+      <pubDate>Sat, 11 May 2024 01:53:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>此错误是什么意思以及如何修复它？ “内容”无效：数组太长</title>
+      <link>https://community.openai.com/t/what-does-this-error-mean-and-how-do-i-fix-it-invalid-content-array-too-long/742132#post_15</link>
+      <description><![CDATA[这肯定仍然是一个错误，您甚至提供了足够的信息，以便开发人员可以轻松修复它！干得好！]]></description>
+      <guid>https://community.openai.com/t/what-does-this-error-mean-and-how-do-i-fix-it-invalid-content-array-too-long/742132#post_15</guid>
+      <pubDate>Sat, 11 May 2024 01:46:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>查询API时响应太大错误</title>
+      <link>https://community.openai.com/t/response-too-large-error-when-querying-api/742256#post_1</link>
+      <description><![CDATA[我正在开发一个 GPT，用于通过 API
+在哪里添加默认的resource_id，这样我就不必在提示中指定？另外，当我测试 GPT 时，我不断收到响应太大错误。我的架构是
+openapi: 3.1.0
+信息：
+  标题：学校数据API
+  描述：用于从数据存储中访问有关学校的详细信息的 API。
+  版本：1.0.0
+服务器：
+  - 网址：https://catalogue.data.govt.nz/api/3/action
+路径：
+  /数据存储_搜索：
+    得到：
+      摘要：检索学校信息
+      操作Id：获取学校数据
+      参数：
+        - 名称：资源 ID
+          在：查询
+          必填：真实
+          架构：
+            类型：字符串
+            默认值：“4b292323-9fcc-41f8-814b-3c7b19cf14b3”
+            例如：“4b292323-9fcc-41f8-814b-3c7b19cf14b3”
+        - 名称：限制
+          在：查询
+          描述：“限制一次响应中返回的记录数”
+          必填：假
+          架构：
+            类型：整数
+            默认值：100
+            示例：50
+        - 名称：偏移量
+          在：查询
+          描述：“跳过由偏移量指定的记录数”
+          必填：假
+          架构：
+            类型：整数
+            默认值：100
+            示例：50
+      回应：
+        “200”：
+          描述：成功检索数据
+          内容：
+            应用程序/json：
+              架构：
+                $ref: &#39;#/components/schemas/SchoolData&#39;
+成分：
+  模式：
+    学校数据：
+      类型：对象
+      特性：
+        _ID：
+          类型：整数
+        学校 ID：
+          类型：字符串
+        组织名称：
+          类型：字符串
+        电话：
+          类型：字符串
+        传真：
+          类型：字符串
+        电子邮件：
+          类型：字符串
+        联系人1_姓名：
+          类型：字符串
+        网址：
+          类型：字符串
+        添加1_行1：
+          类型：字符串
+        Add1_郊区：
+          类型：字符串
+        添加1_城市：
+          类型：字符串
+        添加2_行1：
+          类型：字符串
+        Add2_郊区：
+          类型：字符串
+        添加2_城市：
+          类型：字符串
+        添加 2_邮政编码：
+          类型：字符串
+        城市_农村_指标：
+          类型：字符串
+        组织类型：
+          类型：字符串
+        定义：
+          类型：字符串
+        权威：
+          类型：字符串
+        学校_捐款：
+          类型：字符串
+        男女共同教育状态：
+          类型：字符串
+        KME峰值体：
+          类型：字符串
+        泷瓦：
+          类型：字符串
+        领土当局：
+          类型：字符串
+        地区委员会：
+          类型：字符串
+        本地_办公室_名称：
+          类型：字符串
+        教育_地区：
+          类型：字符串
+        一般选民：
+          类型：字符串
+        毛利人选民：
+          类型：字符串
+        统计区域 2 代码：
+          类型：字符串
+        统计_区域_2_描述：
+          类型：字符串
+        病房：
+          类型：字符串
+        列号：
+          类型：字符串
+        校名：
+          类型：字符串
+        纬度：
+          类型：数字
+          格式：双
+        经度：
+          类型：数字
+          格式：双
+        报名_计划：
+          类型：字符串
+        EQi_索引：
+          类型：字符串
+        滚动_日期：
+          类型：字符串
+          格式：日期-时间
+        全部的：
+          类型：整数
+        欧洲的：
+          类型：整数
+        毛利语：
+          类型：整数
+        太平洋：
+          类型：整数
+        亚洲人：
+          类型：整数
+        梅拉：
+          类型：整数
+        其他：
+          类型：整数
+        国际的：
+          类型：整数
+        隔离索引：
+          类型：字符串
+        教学语言：
+          类型：字符串
+        登机设施：
+          类型：字符串
+        队列条目：
+          类型：字符串
+        地位：
+          类型：字符串
+        开学日期：
+          类型：字符串
+          格式：日期-时间
+
+
+]]></description>
+      <guid>https://community.openai.com/t/response-too-large-error-when-querying-api/742256#post_1</guid>
+      <pubDate>Sat, 11 May 2024 01:44:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的“设置”菜单中没有 Beta 功能。 2024 年 4 月 6 日</title>
+      <link>https://community.openai.com/t/in-my-settings-menu-is-no-beta-features-its-6-4-2024/709281#post_3</link>
+      <description><![CDATA[我也是，所以我们不能使用插件？]]></description>
+      <guid>https://community.openai.com/t/in-my-settings-menu-is-no-beta-features-its-6-4-2024/709281#post_3</guid>
+      <pubDate>Sat, 11 May 2024 01:39:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chat GPT 中的自动网络翻译器</title>
+      <link>https://community.openai.com/t/traductor-automatico-web-en-chat-gpt/143003#post_9</link>
+      <description><![CDATA[您好，我想将一篇论文翻译成西班牙语]]></description>
+      <guid>https://community.openai.com/t/traductor-automatico-web-en-chat-gpt/143003#post_9</guid>
+      <pubDate>Sat, 11 May 2024 01:21:42 GMT</pubDate>
+    </item>
     <item>
       <title>AI 主题电影、电影、书籍和视频游戏</title>
       <link>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_52</link>
@@ -13,134 +224,6 @@
 《一百万天》官方预告片（2024 年）]]></description>
       <guid>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_52</guid>
       <pubDate>Sat, 11 May 2024 01:14:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 仪表板功能用于分析和管理多个 GPT！</title>
-      <link>https://community.openai.com/t/gpts-dashboard-feature-for-analytics-and-management-of-multiple-gpts/742244#post_1</link>
-      <description><![CDATA[还有谁同意这些人的观点？
-我们迫切需要一个自定义 GPT 仪表板功能，以便在“我的 GPT”部分中进行分析和管理！
-对于开发人员来说，管理多个 GPT 并随着时间的推移分析其性能变得非常乏味。
-例如，仅仅为了找到较旧的 GPT，您就必须滚动超过 15 分钟（哇！！）——效率极低。]]></description>
-      <guid>https://community.openai.com/t/gpts-dashboard-feature-for-analytics-and-management-of-multiple-gpts/742244#post_1</guid>
-      <pubDate>Sat, 11 May 2024 01:08:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>回到糟糕的、简短的回应</title>
-      <link>https://community.openai.com/t/back-to-the-bad-short-responses-already/742239#post_1</link>
-      <description><![CDATA[自去年开始使用 ChatGPT-4 以来，在过去的几天里，我从 ChatGPT-4 中获得了一些最佳输出。我什至发了一篇关于它的帖子，这是我难得的积极帖子。只需将输出长度加倍（实际上是发布前几个月的长度），我就得到了更详细、更有创意的输出，并且它更严格地遵循了我的指示。
-当然，我总有一种感觉，这种情况不会持续太久，因为他们以前也做过这样的事情，但我认为这种情况至少会持续一段时间。 OpenAI 可能意识到大多数人甚至没有注意到这一变化，但对于我们这些特别要求提供长篇描述性答复的人来说，它产生了巨大的差异。允许几天内更长（因此更好）的响应只会让人们更清楚自去年夏末以来 ChatGPT-4 的情况有多糟糕。
-我不知道为什么任何公司都希望人们接触到他们产品的更糟糕版本。他们对经常出现错误的淡化版本收取相对较高的费用，而且通常甚至无法让我们达到承诺的每 3 小时 40 代。一年多过去了，并没有什么明显的进步。总是前进一步，后退两步。 “新的实验性技术”的借口不再站得住脚。
-我知道有些人喜欢出现在这些线程中，并驳斥任何关于 ChatGPT 变得更糟的说法，但不可否认的事实是，2048 令牌响应将比 1024 令牌响应更详细地描述事物 -令牌响应。]]></description>
-      <guid>https://community.openai.com/t/back-to-the-bad-short-responses-already/742239#post_1</guid>
-      <pubDate>Sat, 11 May 2024 01:00:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>Bug：浪费积分或刷新页面以获得结果</title>
-      <link>https://community.openai.com/t/bug-waste-credits-or-refresh-page-to-get-results/742238#post_1</link>
-      <description><![CDATA[在过去的两个月里，我在 GPT-3 和 GPT-4 中都遇到了一个持续存在的错误。
-发送输入后，什么也没有发生——我只能等待。
-解决方案有两个：
-
-要么刷新页面，提示结果奇迹般地出现，
-或停止工作图标，表示处理没有结果，然后重新生成输出消息以获得所需的结果。然而，这种解决方法并不理想，因为它在我不知情的情况下消耗了积分。
-
-各位有什么原因和解决办法吗？！
-]]></description>
-      <guid>https://community.openai.com/t/bug-waste-credits-or-refresh-page-to-get-results/742238#post_1</guid>
-      <pubDate>Sat, 11 May 2024 00:57:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>您认为使用 LLM 构建产品最困难的部分是什么？</title>
-      <link>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_14</link>
-      <description><![CDATA[
-
-
-_j：
-&lt;块引用&gt;
-版本化人工智能模型
-
-
-是的，也是这样。我们花了大约 2 天的时间来找出合适的、可行的 OpenAI 版本，直到我们得知版本为止。现在，我们使其变得如此抽象和可配置，以至于助手现在可以在几秒钟内生成。尽管它还处于测试阶段，但我们只是不希望发生重大变化。]]></description>
-      <guid>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_14</guid>
-      <pubDate>Sat, 11 May 2024 00:43:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>您认为使用 LLM 构建产品最困难的部分是什么？</title>
-      <link>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_13</link>
-      <description><![CDATA[
-
-
- DavidOS366：
-&lt;块引用&gt;
-UI/UX 人员
-
-
-明白了。在一个项目中，Qt UI 上的花费可能是 API 数据操作上的花费的 20 倍。
-最困难的部分是来自一家以“开放”开头的公司的人工智能模型版本，该模型会改变定期遵循指令的能力。]]></description>
-      <guid>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_13</guid>
-      <pubDate>Sat, 11 May 2024 00:29:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>您认为使用 LLM 构建产品最困难的部分是什么？</title>
-      <link>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_12</link>
-      <description><![CDATA[到目前为止，我们喜欢 Flask。运行在 jquery 和 javascript 上，这很好。 React 和 Angular 进入游戏的那一刻起，学习起来就很痛苦。我的意思是为什么我们不同意统一的 UI 语言。为什么它必须是一个陡峭的学习曲线？]]></description>
-      <guid>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_12</guid>
-      <pubDate>Sat, 11 May 2024 00:09:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>您认为使用 LLM 构建产品最困难的部分是什么？</title>
-      <link>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_11</link>
-      <description><![CDATA[
-
-
- DavidOS366：
-&lt;块引用&gt;
-UI/UX 人员
-
-
-好点。浏览器/显示器有标准，但有些标准拒绝遵循这些标准，或者仍然偏离自己的切线，确实很难让某些东西在所有设备上看起来都很好。
-不过，有很多很棒的库可以提供帮助。]]></description>
-      <guid>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_11</guid>
-      <pubDate>Sat, 11 May 2024 00:01:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>您认为使用 LLM 构建产品最困难的部分是什么？</title>
-      <link>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_10</link>
-      <description><![CDATA[UI/UX 人。在错误的地方做总是很痛苦的。后端由 python 负责。]]></description>
-      <guid>https://community.openai.com/t/whats-the-hardest-part-of-building-products-using-llm-in-your-opinion/741645#post_10</guid>
-      <pubDate>Fri, 10 May 2024 23:58:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我到底如何升级我的计划？</title>
-      <link>https://community.openai.com/t/how-on-earth-do-i-upgrade-my-plan/741815#post_10</link>
-      <description><![CDATA[人工智能制造不存在的东西是没有好处的。]]></description>
-      <guid>https://community.openai.com/t/how-on-earth-do-i-upgrade-my-plan/741815#post_10</guid>
-      <pubDate>Fri, 10 May 2024 23:50:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>图像解读 - 代币限制实用吗？</title>
-      <link>https://community.openai.com/t/image-interpretation-are-token-limits-practical/741508#post_5</link>
-      <description><![CDATA[您可以采取的解决方法是不要使用不同的库或您自己的库发送完全相同的请求，而这会发送相同的 JSON 正文。
-这将是拥有一个 URL 可以访问的图像服务器，从而可能将图像数据排除在速率限制分析之外。 （这是我可以尝试一下的事情）]]></description>
-      <guid>https://community.openai.com/t/image-interpretation-are-token-limits-practical/741508#post_5</guid>
-      <pubDate>Fri, 10 May 2024 23:40:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>图像解读 - 代币限制实用吗？</title>
-      <link>https://community.openai.com/t/image-interpretation-are-token-limits-practical/741508#post_4</link>
-      <description><![CDATA[谢谢@supershaneski &amp; @_j
-今天晚些时候我会回到这个问题并尝试你的两个建议。我正在使用 Node/Typescript，所以我会看看是否可以绕过 SDK 并直接发布到 API。我现在的理论是 OpenAI 将我的图像数据视为一条很长的消息而不是图像。所以我怀疑这就是对如此多代币征税的原因。如果我可以直接发布到 API，特别是在图像结构中，那么问题应该得到解决。我会在尝试后更新您的信息。]]></description>
-      <guid>https://community.openai.com/t/image-interpretation-are-token-limits-practical/741508#post_4</guid>
-      <pubDate>Fri, 10 May 2024 23:34:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>微调的 GPT-3.5 不会生成专有名词</title>
-      <link>https://community.openai.com/t/fine-tuned-gpt-3-5-wont-generate-proper-nouns/742175#post_3</link>
-      <description><![CDATA[从逻辑上讲，如果您没有对生成或重复名称的输入进行任何微调，那么对底层“聊天”功能的推断就会较低。
-如果您希望它说底特律、微软或吉姆的机器人工厂，您需要讨论可能引起实际城市或公司反应的主题。
-您可以尝试其中一个检查点，看看是否可以在不过度训练的情况下执行您的任务。]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-gpt-3-5-wont-generate-proper-nouns/742175#post_3</guid>
-      <pubDate>Fri, 10 May 2024 23:33:00 GMT</pubDate>
     </item>
     </channel>
 </rss>
