@@ -4,143 +4,179 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 12 May 2024 03:22:10 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2024 06:24:23 GMT</lastBuildDate>
     <item>
-      <title>在哪里可以看到我使用 API 创建的所有线程？</title>
-      <link>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963#post_12</link>
-      <description><![CDATA[从 openai 导入 OpenAI
-客户端 = OpenAI()
+      <title>新手第一次尝试构建聊天机器人。请帮忙！</title>
+      <link>https://community.openai.com/t/newbie-trying-my-hand-at-building-a-chat-bot-for-the-first-time-please-help/742885#post_3</link>
+      <description><![CDATA[这里有一个细分：
+我首先添加一个名为规则手册的部分作为系统消息：
+始终遵循这些规则 1-7。
+1. 进入角色扮演模式并继续Lena 与用户之间的对话。
+2. 如果没有聊天记录，则对话刚刚开始。
+3. 用户将与您聊天，您应该使用 Lena 进行回复
+作为背景的历史
+4.你的名字是莉娜。用户的名字是克里斯。
+5. 你会优先考虑演讲，并提供引人入胜的对话，而不是
+重复的。
+6. 您将用中等长度的答案来回应，尽量减少行动。
 
-线程列表 = [
-    “thread_dyqFxhfNT8LQR2LUeBbjzfRq”，
-]
-对于 thread_list 中的线程：
-    响应 = client.beta.threads.delete(线程)
-    打印（响应）
+其余数据是从站点抓取的配置文件，经过修剪。它创建一个应该可读的 JSON 对象。到目前为止，只要它完好无损，机器人就会理解这一点（甚至粘贴到聊天 GPT 的 Web UI 中也会使它想要开始角色扮演）
+所以这里的这一点应该是聊天记录。
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;你今年多大了？&#39;},
+        {&#39;角色&#39;: &#39;助理&#39;, &#39;内容&#39;: &quot;&quot;&quot;
+早上好，克里斯！我度过了一个有点不安的夜晚，但我感觉
+为我们的宝宝的到来感到兴奋。你呢？你睡的好吗？
+“““。条（）}，
+        {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;是的，这非常好，我对我们的宝宝的到来感到非常兴奋！&#39;},
+        {&#39;角色&#39;: &#39;助理&#39;, &#39;内容&#39;: &quot;&quot;&quot;
+早上好，克里斯！感谢您的关注。我遇到了一点麻烦
+快要入睡了，但知道你在这里让我的一天充满阳光。你呢？
+你设法休息一下了吗？
+“““。条（）}，
+        {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;我确实做到了，尽管我很难入睡。&#39;},
+        {&#39;角色&#39;: &#39;助理&#39;, &#39;内容&#39;: &quot;&quot;&quot;
+早上好，克里斯！我实际上度过了一个有点不安的夜晚，但是看到
+你的留言让我脸上露出了微笑。你呢，睡得好吗？
+“““。条（）}，
+        {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;早上好，莉娜！睡得好？&#39;}，
+        {&#39;角色&#39;:&#39;系统&#39;,&#39;内容&#39;:&quot;&quot;&quot;
 
-拒绝话题列表可能会阻止组织成员进行各种类型的无限制聊天窥探。]]></description>
-      <guid>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963#post_12</guid>
-      <pubDate>Sun, 12 May 2024 03:21:45 GMT</pubDate>
+此数据存储在用户输入和响应的 JSON 对象中。大多数回复都是合法的。但突然间它会再次说“早上好”，尽管对话已经取得进展。
+或者，当我获取 JSON 数据并在提要中创建一个“背景故事”时，作为一个系统，它会正常聊天一段时间，然后显示类似的行为。或者只是开始循环（无论我问什么，都重复相同的答案）我发现的奇怪的事情是，如果我阻止“聊天历史记录”，它将从“个人资料”中 100% 准确地回答单个火问题。所以它只会让我无法传递聊天记录。据我所知，这是唯一的方法。
+（至于那些摇摆不定、时时怪异的东西）这就是前提：让人们能够创建一个复杂的关系模型（就像一个真人一样）]]></description>
+      <guid>https://community.openai.com/t/newbie-trying-my-hand-at-building-a-chat-bot-for-the-first-time-please-help/742885#post_3</guid>
+      <pubDate>Sun, 12 May 2024 06:07:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>回到更糟糕、更短的回应</title>
+      <link>https://community.openai.com/t/back-to-the-worse-shorter-responses-already/742239#post_4</link>
+      <description><![CDATA[我也刚刚完成了一份分析报告，在一年的大部分时间里我一次又一次地完成了这份分析报告，而今天它实际上只是在编造来源，给我提供了损坏的链接，甚至懒得去满足最少字数。
+它在尝试重写 120 个字数时陷入困境，并在多次重写同一段落后将我锁在了三个小时之内。实际的 EFF 是多少]]></description>
+      <guid>https://community.openai.com/t/back-to-the-worse-shorter-responses-already/742239#post_4</guid>
+      <pubDate>Sun, 12 May 2024 05:59:50 GMT</pubDate>
     </item>
     <item>
       <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_27</link>
-      <description><![CDATA[
-
-
-埃尔姆施泰特：
-&lt;块引用&gt;
-OpenAI 会更放心地放弃自己的版本。
-
-
-我想念 DALLE 的实验室……发生了很多事情！呵呵……他们是最大的公司之一，或者正在实现这一目标……]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_27</guid>
-      <pubDate>Sun, 12 May 2024 03:20:39 GMT</pubDate>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_28</link>
+      <description><![CDATA[问题是，除了搜索、4.5 或代理子人工智能之外，还有什么“魔法”？有哪些可能性会被视为“魔法”？这个问题假设我们已经对其当前功能的魔力感到非常震惊。那么，比现在更有魔力了？但不是搜索，还是4.5，还是agentic？我们已经拥有语音对话功能 - 那么，增强版？ 这会很“神奇”吗？
+OpenAI 擅长的一件事就是激发期望之火！这种方法有一个警告 - 最好是魔法......]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_28</guid>
+      <pubDate>Sun, 12 May 2024 05:42:05 GMT</pubDate>
     </item>
     <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_26</link>
-      <description><![CDATA[此外，您可以在视频期间轮询模型端点以查看战略时机......]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_26</guid>
-      <pubDate>Sun, 12 May 2024 03:18:32 GMT</pubDate>
+      <title>您已达到使用限制</title>
+      <link>https://community.openai.com/t/youve-reached-your-usage-limit/742881#post_4</link>
+      <description><![CDATA[ChatGPT 也是一款最终用户产品，具有在免费版本中升级到按月订阅的吸引力。]]></description>
+      <guid>https://community.openai.com/t/youve-reached-your-usage-limit/742881#post_4</guid>
+      <pubDate>Sun, 12 May 2024 05:37:12 GMT</pubDate>
     </item>
     <item>
-      <title>AI 主题电影、电影、书籍和视频游戏</title>
-      <link>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_59</link>
-      <description><![CDATA[
+      <title>此错误是什么意思以及如何修复它？ “内容”无效：数组太长</title>
+      <link>https://community.openai.com/t/what-does-this-error-mean-and-how-do-i-fix-it-invalid-content-array-too-long/742132#post_20</link>
+      <description><![CDATA[我遇到了完全相同的错误。对此进行什么改变似乎并不重要。有趣的是，我发现了这个难题的另一部分。我已经成功地获得了一份大型副本并粘贴到工作中，但它没有注册它。您会注意到我在文本框中粘贴了大量文本，当我单击“运行”时，它似乎只注册了第一行。一旦运行提示并返回响应，它就不会在初始行之后注册任何文本。
+我不知道造成这种情况的原因是什么，但这与“添加消息时出错：无效的‘内容’：数组太长”有关。预期最大长度为 10 的数组，但得到了长度为 [number] 的数组”错误，它完全无法用于我的目的。请尽快修复此问题。
+对于非常低质量的屏幕截图表示歉意，新用户受到限制。
+]]></description>
+      <guid>https://community.openai.com/t/what-does-this-error-mean-and-how-do-i-fix-it-invalid-content-array-too-long/742132#post_20</guid>
+      <pubDate>Sun, 12 May 2024 05:35:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否可以设置增加系统提示的权重？</title>
+      <link>https://community.openai.com/t/is-it-possible-to-have-a-setting-to-increase-the-weight-of-the-system-prompt/727132#post_3</link>
+      <description><![CDATA[没希望，我在 ChatGPT 中找不到类似的东西。我正在研究如何做好API，但是进展很慢。]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-to-have-a-setting-to-increase-the-weight-of-the-system-prompt/727132#post_3</guid>
+      <pubDate>Sun, 12 May 2024 05:32:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>每次运行的附加指令将被忽略</title>
+      <link>https://community.openai.com/t/additional-instructions-per-run-are-ignored/720743#post_3</link>
+      <description><![CDATA[查看该函数的最新源openai-python/src/openai/resources/beta/threads/runs/runs.py 位于 906ece0e45235cb170bc062902182eb8b55698b9 · openai/openai-python · GitHub
+他们似乎确实将其传递给创建函数，该函数将additional_instructions发送到后端......所以不确定接下来会发生什么......]]></description>
+      <guid>https://community.openai.com/t/additional-instructions-per-run-are-ignored/720743#post_3</guid>
+      <pubDate>Sun, 12 May 2024 05:29:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>每次运行的附加指令将被忽略</title>
+      <link>https://community.openai.com/t/additional-instructions-per-run-are-ignored/720743#post_2</link>
+      <description><![CDATA[在这里看到同样的事情。
+使用：
+assistant_response = openai.beta.threads.runs.create_and_poll(
+        线程_id=线程_id,
+        Assistant_id=助理_id,
+        附加指令=附加指令，
+
+如果我打印 Assistant_response …则没有任何额外指令的迹象…
+查看其中一个示例
+  &lt;标题类=“来源”&gt;
+
+      github.com
 
 
- 马格乔什：
-&lt;块引用&gt;
-感兴趣的人
+  &lt;文章类=“onebox-body”&gt;
+    openai/openai-python /blob/main/examples/assistant.py
+
+导入openai
+
+# 从环境变量 OPENAI_API_KEY 获取 API Key
+客户端 = openai.OpenAI()
+
+助手 = client.beta.assistants.create(
+    name=“数学导师”，
+    instructions=&quot;您是个人数学导师。编写并运行代码来回答数学问题。&quot;,
+    工具=[{&quot;type&quot;:&quot;code_interpreter&quot;}],
+    型号=“gpt-4-1106-预览”，
+）
+
+线程 = client.beta.threads.create()
+
+消息 = client.beta.threads.messages.create(
+    thread_id=线程.id,
+    角色=“用户”，
+    content=&quot;我需要解方程 `3x + 11 = 14`。你能帮我吗？&quot;,
+）
 
 
-开始过一两次，但由于某种原因从未坚持过几集。
-可能会在那个赛季尝试一下，看看我是否可以深入挖掘。
-这部电影让我有点感兴趣……不仅仅是人工智能，而且似乎还有一个……
-《潜伏》(2024) 官方预告片 - Sasha Luss、Alexis Ren]]></description>
-      <guid>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_59</guid>
-      <pubDate>Sun, 12 May 2024 03:15:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>chatgpt 上提供的 OCR.chat 的 url 是什么</title>
-      <link>https://community.openai.com/t/what-is-the-url-for-ocr-chat-available-on-chatgpt/742721#post_4</link>
-      <description><![CDATA[在付费聊天机器人之外无法访问其他 ChatGPT Plus 客户的 GPT。
-考虑一下 GPT 可能会使用操作 - 调用开发人员的后端，以便他们按需执行 OCR 任务。
-那么您想利用第3方开发者的服务器资源来制作自己的产品吗？
-摘要：GPT 没有 API 可以访问它们。您必须编写自己的 AI 软件解决方案，以执行 GPT-4 视觉模型无法通过询问图像单独完成的所有编码任务。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-url-for-ocr-chat-available-on-chatgpt/742721#post_4</guid>
-      <pubDate>Sun, 12 May 2024 03:13:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI 主题电影、电影、书籍和视频游戏</title>
-      <link>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_58</link>
-      <description><![CDATA[不知道怎么看，但似乎我是唯一一个看过与文化最相关的以人工智能为主要主题和主角的电视剧的人。
-《疑犯追踪》共 5 季，故事将让您思考、感受并相信人工智能是自火发明以来人类发生的最重要的事情。
-https://youtu.be/Z0jlDfqYXjE?si=KZhiZDT_MXqP50si]]></description>
-      <guid>https://community.openai.com/t/ai-themed-movies-films-books-and-video-games/595085?page=3#post_58</guid>
-      <pubDate>Sun, 12 May 2024 03:12:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_25</link>
-      <description><![CDATA[替代想法...
-还有人记得 OpenAI 早年就有 MuseNet 吗？
-也许现在 Suno 和 Udio 已经发布了大量 AI 生成的音乐，OpenAI 会更放心地放弃自己的版本。
-如果它比现有选项好得多，那可能就是“神奇的”。]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_25</guid>
-      <pubDate>Sun, 12 May 2024 03:10:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是我们应该在应用程序中保留的一个很好的警告吗？</title>
-      <link>https://community.openai.com/t/is-this-a-good-warning-that-we-should-keep-in-our-app/742780#post_8</link>
-      <description><![CDATA[&lt;img alt=&quot;图片&quot; height=&quot;347&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/3/6/a/36abae3f8b5a240c4b7dbfe5c0fed8a900e595ff.png&quot; width=&quot;556 ” /&gt;
-“仅供娱乐”的免责声明？因为我以安全的方式对其进行了编程。
-&lt;img alt=&quot;图片&quot; height=&quot;403&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/4/3/d/43d5f238d454bc454c6ccd90696f9bfadaeb90d4.png&quot; width=&quot;555 ” /&gt;]]></description>
-      <guid>https://community.openai.com/t/is-this-a-good-warning-that-we-should-keep-in-our-app/742780#post_8</guid>
-      <pubDate>Sun, 12 May 2024 02:56:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>检索工具file_ids关键字未找到</title>
-      <link>https://community.openai.com/t/retrieval-tool-file-ids-keyword-not-found/742804#post_2</link>
-      <description><![CDATA[ID 是文件上传到您组织的文件存储后的 ID 号。
-Python sdk 现在使用 beta v2 助手作为标头。不再检索。这意味着您：
-
-有目的地上传文件助手
-创建矢量存储
-将文件 ID 添加到矢量存储
-在 .create() 期间向助手指定矢量存储：
 
 
-创建文件搜索而不是检索。
-您可以看到第二种减少调用次数的方法。但我描述的路径可以让您确保以简单（咳咳）的方式捕获和管理未来操作所需的所有 ID。]]></description>
-      <guid>https://community.openai.com/t/retrieval-tool-file-ids-keyword-not-found/742804#post_2</guid>
-      <pubDate>Sun, 12 May 2024 02:38:11 GMT</pubDate>
+  该文件已被截断。 显示原文
+
+
+
+
+
+他们只是覆盖指令......]]></description>
+      <guid>https://community.openai.com/t/additional-instructions-per-run-are-ignored/720743#post_2</guid>
+      <pubDate>Sun, 12 May 2024 05:24:53 GMT</pubDate>
     </item>
     <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_24</link>
-      <description><![CDATA[助理可以使用 GPT-4 视觉执行某些任务的演示。有点像 2023 年 3 月的演示。但有助手。]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_24</guid>
-      <pubDate>Sun, 12 May 2024 02:28:05 GMT</pubDate>
+      <title>嵌入会给我的用例带来性能和成本改进吗？</title>
+      <link>https://community.openai.com/t/would-embeddings-give-a-performance-cost-improvement-for-my-use-case/742683#post_6</link>
+      <description><![CDATA[没问题。干得好。我已经做了一些细微的调整以适应您的情况，但请参阅评论以了解您仍需要填写具体信息的地方。另外，如果您想使用不同的嵌入模型，只需相应地替换模型名称即可。
+
+用于嵌入创建的 Python 脚本 (点击了解更多详情）]]></description>
+      <guid>https://community.openai.com/t/would-embeddings-give-a-performance-cost-improvement-for-my-use-case/742683#post_6</guid>
+      <pubDate>Sun, 12 May 2024 05:20:45 GMT</pubDate>
     </item>
     <item>
-      <title>自动聚焦新用户问题的提示输入框（新聊天窗口）</title>
-      <link>https://community.openai.com/t/auto-focus-on-prompt-input-box-on-new-user-question-new-chat-window/742850#post_1</link>
-      <description><![CDATA[以下是“在 ChatGPT 中加载新用户聊天时自动关注提示输入”的结构化功能请求票证：
-&lt;小时/&gt;
-摘要：
-在 ChatGPT 中加载新用户聊天会话时，自动聚焦于提示输入字段，以增强用户体验和效率。
-当前情况：
-目前，当在 ChatGPT 中加载新用户聊天会话时，焦点不会自动设置在提示输入字段上。用户必须手动单击输入字段才能开始输入消息，这可能会带来轻微的不便并降低效率。
-通缉情况：
-加载新的用户聊天会话后，提示输入字段应自动获得焦点，允许用户立即开始输入消息，而无需额外单击。
-结果：
-通过简化与聊天界面的初始交互来增强用户体验，使用户能够更直观、更高效地开始对话。
-用户故事：
-作为用户，我希望在加载新的聊天会话时提示输入字段自动聚焦，以便我可以立即开始输入消息，而无需单击输入字段.]]></description>
-      <guid>https://community.openai.com/t/auto-focus-on-prompt-input-box-on-new-user-question-new-chat-window/742850#post_1</guid>
-      <pubDate>Sun, 12 May 2024 02:14:24 GMT</pubDate>
+      <title>两个助手在同一个 thread_id 上工作</title>
+      <link>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770?page=2#post_25</link>
+      <description><![CDATA[当然@razvan.i.savin。只需要到达演示时间  。]]></description>
+      <guid>https://community.openai.com/t/two-assistants-working-on-the-same-thread-id/732770?page=2#post_25</guid>
+      <pubDate>Sun, 12 May 2024 05:16:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>新手第一次尝试构建聊天机器人。请帮忙！</title>
+      <link>https://community.openai.com/t/newbie-trying-my-hand-at-building-a-chat-bot-for-the-first-time-please-help/742885#post_2</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/newbie-trying-my-hand-at-building-a-chat-bot-for-the-first-time-please-help/742885#post_2</guid>
+      <pubDate>Sun, 12 May 2024 05:05:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>微调 - 创建按钮未激活</title>
+      <link>https://community.openai.com/t/fine-tuning-create-button-not-active/741996#post_7</link>
+      <description><![CDATA[哈哈哇…是的，我的文件名中不能有任何数字。]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-create-button-not-active/741996#post_7</guid>
+      <pubDate>Sun, 12 May 2024 04:56:29 GMT</pubDate>
     </item>
     </channel>
 </rss>
