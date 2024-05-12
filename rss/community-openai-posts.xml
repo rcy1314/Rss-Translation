@@ -4,311 +4,244 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 12 May 2024 18:25:37 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2024 21:17:57 GMT</lastBuildDate>
     <item>
-      <title>了解 GPT-Vision API 定价？</title>
-      <link>https://community.openai.com/t/understanding-gpt-vision-api-pricing/743297#post_2</link>
-      <description><![CDATA[通过重新组装您的助手文本并将其发送到标记器，我计算出相同的 227 个完成标记。
-用户消息是 7 个令牌开销 + 12 个消息令牌。
-因此，如果我们还有 765 个提示标记需要考虑，那么它一定来自图像。
-
-&lt;表&gt;
-&lt;标题&gt;
-
-瓷砖总数
-4
-
-
-&lt;正文&gt;
-
-基础代币
-85
-
-
-图块令牌
-170 × 4 = 680
-
-
-代币总数
-765
-
-
-
-图像最小边的内部大小调整使得 640x640 甚至高达 1024x1024 需要 4 个“图块”，在细节：高模式下为 512x512。
-对于 640x640 的图像，detail:low 将使其仅花费 85 个令牌，并且图像在内部缩小到 512x512。]]></description>
-      <guid>https://community.openai.com/t/understanding-gpt-vision-api-pricing/743297#post_2</guid>
-      <pubDate>Sun, 12 May 2024 18:22:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_35</link>
-      <description><![CDATA[经过三年的深思熟虑@mike1带着辉煌的预测回归。
-
-关于眼镜：让我们从通过 GPT 3.5 的眼睛看世界开始：你知道一切，但却一无所知。]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_35</guid>
-      <pubDate>Sun, 12 May 2024 18:16:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>嵌入会给我的用例带来性能和成本改进吗？</title>
-      <link>https://community.openai.com/t/would-embeddings-give-a-performance-cost-improvement-for-my-use-case/742683#post_7</link>
-      <description><![CDATA[非常感谢！我真的很感激 ]]></description>
-      <guid>https://community.openai.com/t/would-embeddings-give-a-performance-cost-improvement-for-my-use-case/742683#post_7</guid>
-      <pubDate>Sun, 12 May 2024 18:10:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解 GPT-Vision API 定价？</title>
-      <link>https://community.openai.com/t/understanding-gpt-vision-api-pricing/743297#post_1</link>
-      <description><![CDATA[我不明白Gpt Vision的定价是如何运作的，见下文：
-我有这个代码：
-异步函数 getResponseImageIA(url) {
-    让响应 = 等待 openai.chat.completions.create({
-        型号：“gpt-4-turbo”，
-        消息：[
-            {
-                角色：“用户”，
-                内容： [
-                    { type: &quot;text&quot;, text: &quot;Brindame una descripción detallada de la imagen&quot; },
-                    {
-                        类型：“image_url”，
-                        图片网址：{
-                            网址： 网址，
-                            细节：“高”
-                        }
-                    },
-                ],
-            },
-        ],
-        最大令牌数：300，
-    })
-    console.dir(响应, { 深度: null })
-    返回response.choices[0]
-}
-
-响应是这样的：
-{
-  id: &#39;chatcmpl-9O7OIaPwHpf5AIcgRpKzsiqBubtHKS&#39;,
-  对象：&#39;聊天完成&#39;，
-  创建：1715535310，
-  型号：&#39;gpt-4-turbo-2024-04-09&#39;，
-  选择：[
-    {
-      索引：0，
-      信息： {
-        角色：“助理”，
-        内容：“比例图像是一种具有现代感和现代感的图形，是一个品牌标志或美洲驼“prendo”的标志。图像的颜色是统一的、充满活力的。 \n&#39; +
-          &#39;\n&#39; +
-          该标志由图形抽象元素组成，是“P”在议会中的代表，它是一种灵活的方式，是进步运动的标志。这张图的元素是白色的，蓝色的颜色从下往上，它的效果是深刻的和维度的。 \n&#39; +
-          &#39;\n&#39; +
-          &#39;El nombre “prendo” está ubicado debajo del icono gráfico。使用现代的技术，在小细节、白色文字中，与主色调的风格和调色板相一致。 \n&#39; +
-          &#39;\n&#39; +
-          &#39;En conjunto, el diseño es limpio, contemporáneo y fácilmente reconocible, lo cual es efectivo para identidad de marca.&#39;
-      },
-      对数概率：空，
-      完成原因：“停止”
-    }
-  ],
-  用法：{prompt_tokens：784，completion_tokens：227，total_tokens：1011}，
-  系统指纹：&#39;fp_07372e0dfd9&#39;
-}
-
-我不明白“usage: {prompt_tokens: 784,completion_tokens: 227,total_tokens: 1011}”中的prompt_tokens是否考虑了图像，或者图像计算是用这个计算器单独计算的：
-]]></description>
-      <guid>https://community.openai.com/t/understanding-gpt-vision-api-pricing/743297#post_1</guid>
-      <pubDate>Sun, 12 May 2024 18:07:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_34</link>
-      <description><![CDATA[我明白了。它是一个跨物种翻译器。座头鲸将是第一。研究人员在潜水时将能够佩戴它。然后养猫。为了更深入地了解他们的狂热。首先是海洋动物，然后是陆地。
-或者：
-开放 AI GenerativeAI 虚拟现实眼镜。您可以从与您交谈的人的角度体验世界。]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_34</guid>
-      <pubDate>Sun, 12 May 2024 18:06:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>**OpenAI 支持如何发明自己的计费规则**</title>
-      <link>https://community.openai.com/t/how-openai-support-invents-its-own-billing-rules/742002#post_9</link>
-      <description><![CDATA[这个OP粘贴到多个地方关于误解。我澄清了这一点以结束一个主题&lt; /a&gt;.
-
-
-
-怎么办我获得了 OpenAI 的计费支持吗？
-&lt;块引用&gt;
-本主题关注的是那些已从按月计费帐户转换为需要预付款的帐户。如果这种转变发生在 3 月 15 日，那么该账户可能会累积 50 美元的正欠余额，该余额将在 4 月份收取。而且仍然会在四月份计费，购买预付积分不会减少或终止之前的计费，只会为将来的使用付费。
-
-]]></description>
-      <guid>https://community.openai.com/t/how-openai-support-invents-its-own-billing-rules/742002#post_9</guid>
-      <pubDate>Sun, 12 May 2024 18:04:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>Android 上没有 GPT-4 聊天</title>
-      <link>https://community.openai.com/t/no-gpt-4-chats-on-android/743291#post_1</link>
-      <description><![CDATA[最近，我在移动版和桌面版 ChatGPT 上实现了完全不重叠的功能。我似乎无法在 Android 上启动 GPT-4 聊天，即使它可以在网络版本上运行。这曾经也适用于移动设备。
-相反，网页版无法启动自定义 GPT，而移动版则可以。两者似乎都没有部分认识到我有付费版本。但随后我只能从网页版的侧边栏中删除自定义 GPT。]]></description>
-      <guid>https://community.openai.com/t/no-gpt-4-chats-on-android/743291#post_1</guid>
-      <pubDate>Sun, 12 May 2024 17:56:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
-      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_33</link>
-      <description><![CDATA[与经常使用“魔法”一词的苹果公司达成交易？]]></description>
-      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_33</guid>
-      <pubDate>Sun, 12 May 2024 17:46:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>**OpenAI 支持如何发明自己的计费规则**</title>
-      <link>https://community.openai.com/t/how-openai-support-invents-its-own-billing-rules/742002#post_8</link>
+      <title>如何在不重新部署应用程序的情况下更新 GPT 提示？</title>
+      <link>https://community.openai.com/t/how-to-update-your-gpt-prompt-without-redeploying-your-app/441549#post_8</link>
       <description><![CDATA[
 
 
- ab3838：
+ 提示团队：
 &lt;块引用&gt;
-页面上的链接是否正确？
+界面并使用 Prompteams 管理您的提示，并将客户的提示作为
 
 
-是的，它对我有用。
+您可以使用开源库进行提示管理 - flow-prompt，完整的披露是我创建的，我们在几个项目中使用它。它根据优先级、模型最大大小、提示最大大小管理哪些数据将进入提示。
+特别适合动态数据，如文件、RAG 等。
+如果您有任何疑问，请告诉我]]></description>
+      <guid>https://community.openai.com/t/how-to-update-your-gpt-prompt-without-redeploying-your-app/441549#post_8</guid>
+      <pubDate>Sun, 12 May 2024 21:16:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何通过Api更新助手信息（名称、指令、型号）</title>
+      <link>https://community.openai.com/t/how-to-update-assistant-info-name-instruction-model-through-api/743390#post_1</link>
+      <description><![CDATA[我已经测试了大部分的列表、选择等功能。如果我想编辑助手信息怎么办，有人测试过吗？]]></description>
+      <guid>https://community.openai.com/t/how-to-update-assistant-info-name-instruction-model-through-api/743390#post_1</guid>
+      <pubDate>Sun, 12 May 2024 21:15:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_43</link>
+      <description><![CDATA[
 
 
-
- ab3838：
+罗纳德GRuckus：
 &lt;块引用&gt;
-因为我看到的只是一个Google表格
+什么可以证明发布的合理性。
 
 
-他们的所有此类页面都是 Google 论坛。
+我们获得了一个 API，可以在 。
+一个人至少可以梦想
+不过我们很快就会知道！ OAI 已经习惯了在不告诉任何人的情况下随意发布垃圾信息，因此他们甚至想要发布公告这一事实显然意味着这是值得的。
+天知道我们会回答这些问题 
 
 
 
- ab3838：
+罗纳德GRuckus：
 &lt;块引用&gt;
-没有任何提及它来自 OpenAI。
+我们不会使用这些模型来从情感上理解我们
 
 
-
-
-
- ab3838：
-&lt;块引用&gt;
-可以发一下原链接吗？
-
-
-我发布了原始链接。]]></description>
-      <guid>https://community.openai.com/t/how-openai-support-invents-its-own-billing-rules/742002#post_8</guid>
-      <pubDate>Sun, 12 May 2024 17:42:08 GMT</pubDate>
+拥有 AI waifu 的家伙开始大汗淋漓]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_43</guid>
+      <pubDate>Sun, 12 May 2024 21:05:58 GMT</pubDate>
     </item>
     <item>
-      <title>功能建议 - 用于回复功能的代码标记，主题：使用代码标记增强 ChatGPT 中的通信</title>
-      <link>https://community.openai.com/t/feature-suggestion-code-tagging-for-reply-functionality-subject-enhancing-communication-in-chatgpt-with-code-tagging/743279#post_1</link>
-      <description><![CDATA[主题：通过代码标记增强 ChatGPT 中的通信
-亲爱的 ChatGPT 团队，
-希望您能收到此消息。我是 ChatGPT 的用户，并且非常喜欢它的功能。我想分享一个我认为可以增强用户体验的建议，特别是对于涉及代码片段的讨论。
-建议：我建议实现一项功能，允许用户在 ChatGPT 界面中标记或回复特定行或代码段。与我们在 WhatsApp 等消息应用程序中标记消息的方式类似，此功能将使用户能够直接回复对话中的特定行或代码段。这将大大提高讨论的清晰度和效率，特别是在用户提供反馈、排查问题或讨论代码解决方案的场景中。
-工作原理：
-
-用户点击一行或一段代码旁边的按钮/图标即可发起回复。
-系统会打开一个文本框或模式，用户可以在其中输入回复。
-回复与特定行或代码段相关联，使其他人可以轻松理解对话的上下文。
-
-好处：
-
-改善沟通：围绕代码片段进行更清晰的讨论，减少歧义和误解。
-增强协作：简化反馈和讨论，从而促进用户之间更好的协作。
-高效故障排除：通过将讨论精确定位到特定代码元素，更快地识别和解决问题。
-
-示例用例： 用户 1：“我在执行这行代码时遇到问题：npm install --legacy-peer-deps” 用户 2：“@User1，尝试使用 --legacy-peer-deps 标志运行它。这应该可以解决依赖性问题。”
-结论：实施此功能不仅可以增强用户体验，还可以使 ChatGPT 对于开发人员和技术讨论来说更加通用。我相信它与 ChatGPT 促进有效沟通和协作的使命非常契合。
-感谢您考虑我的建议。我期待看到 ChatGPT 不断发展和改进！
-最诚挚的问候，
-Irfan Khaliq先生（巴基斯坦）
-mrirfankhaliq@gmail.com]]></description>
-      <guid>https://community.openai.com/t/feature-suggestion-code-tagging-for-reply-functionality-subject-enhancing-communication-in-chatgpt-with-code-tagging/743279#post_1</guid>
-      <pubDate>Sun, 12 May 2024 17:39:20 GMT</pubDate>
+      <title>合规性 GDPR</title>
+      <link>https://community.openai.com/t/compliance-gdpr/44086#post_6</link>
+      <description><![CDATA[嗨，
+给我你的电子邮件，我可能会回答你的问题。
+FrG]]></description>
+      <guid>https://community.openai.com/t/compliance-gdpr/44086#post_6</guid>
+      <pubDate>Sun, 12 May 2024 21:01:41 GMT</pubDate>
     </item>
     <item>
-      <title>助手中的微调模型 - 运行失败 抱歉，出了点问题。</title>
-      <link>https://community.openai.com/t/fine-tuned-model-in-assistant-give-run-failed-sorry-something-went-wrong/739829#post_17</link>
-      <description><![CDATA[我已经非常激动地告诉技术支持这件事，并告诉他们通过电子邮件给我写信，以及机器人如何回答我，我确信机器人正在响应，OpenAI 的人会写信给我，让我们看看发生了什么……]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-model-in-assistant-give-run-failed-sorry-something-went-wrong/739829#post_17</guid>
-      <pubDate>Sun, 12 May 2024 17:38:00 GMT</pubDate>
+      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_42</link>
+      <description><![CDATA[我为甜蜜的 GPT-4 早期访问提交的一个评估是讽刺检测。记住我！
+我几乎总是在任何孤独的驱动器中使用 ChatGPT。不再听广播了。我很难理解这与我当前使用的有什么区别，以及什么可以证明这一声明的合理性。
+所以，我听到了。这不仅仅是文本方面。它增加了沟通的音调维度。
+但是，说实话，嗯……我不知道。
+我想我们都知道 ChatGPT 和任何 LLM 都是完全情感迟钝的，而且我们不会使用这些模型来从情感上理解我们]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_42</guid>
+      <pubDate>Sun, 12 May 2024 21:00:55 GMT</pubDate>
     </item>
     <item>
-      <title>最适合绘制响应图表的模型是什么</title>
-      <link>https://community.openai.com/t/what-is-the-most-suitable-model-to-plot-graphs-and-charts-in-response/743277#post_1</link>
-      <description><![CDATA[我是一名 LLM Noob，但还分配了一项任务，将 Gen AI 与我的门户网站集成。
-寻求 Genius OpenAI 社区的意见。请给我指示以继续。
-这是我应该做什么的更多详细信息。
-我的 Web 应用程序用于数据分析，通过获取机械仪器的分钟数据，将值转储到数据库中并在 UI 上显示分析。
-分析 - 图表、图表、排名预测、工具性能、比较等。
-要求集成 GenAI 来回答以下问题：
-“二月份性能分析实际百分比或 Inverter_01 是多少”
-或“Inverter_01 整月性能绘制图表/条形图”
-Web应用程序是用Java/Spring /JPA/Postgres/Spring boot设计的
-我计划使用的技术堆栈是 java/Spring/Spring Boot / lanchain4j。请纠正我这一点。我对技术堆栈做出了正确的选择吗？
-另一个关键问题是选择型号来满足我的需求。请帮助我选择模型以进行文本响应、绘制图表和完成图表。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-most-suitable-model-to-plot-graphs-and-charts-in-response/743277#post_1</guid>
-      <pubDate>Sun, 12 May 2024 17:37:54 GMT</pubDate>
+      <title>帐户被盗。有人访问了我的帐户</title>
+      <link>https://community.openai.com/t/account-got-hacked-someone-got-accessed-to-my-account/722444#post_10</link>
+      <description><![CDATA[今天我也发生了同样的事情（我无法再访问组织费用）。你的结局如何@rhap4boy？]]></description>
+      <guid>https://community.openai.com/t/account-got-hacked-someone-got-accessed-to-my-account/722444#post_10</guid>
+      <pubDate>Sun, 12 May 2024 20:47:50 GMT</pubDate>
     </item>
     <item>
-      <title>助手中的微调模型 - 运行失败 抱歉，出了点问题。</title>
-      <link>https://community.openai.com/t/fine-tuned-model-in-assistant-give-run-failed-sorry-something-went-wrong/739829#post_16</link>
-      <description><![CDATA[我已经想创建一个新帐户并在那里付款...他们已经 5 天没有回复我了...这是什么...如果我在美国我会起诉他们...]]></description>
-      <guid>https://community.openai.com/t/fine-tuned-model-in-assistant-give-run-failed-sorry-something-went-wrong/739829#post_16</guid>
-      <pubDate>Sun, 12 May 2024 17:36:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要推荐服务</title>
-      <link>https://community.openai.com/t/need-a-recommendation-service/742808#post_4</link>
-      <description><![CDATA[推荐引擎并不是超级难，但它们可能需要一些时间来调整。
-我将在此处为您的活动使用术语“产品/SKU”。
-它们的一般工作原理如下：
-
-按排名查找相似用户
-向群组成员/同事已购买但该用户尚未购买的用户推荐产品。
-
-1。按排名查找用户
-最简单的方法是创建相似度分数：
-
-列出该用户购买的所有产品
-将此列表与其他所有用户的列表进行比较
-按列表匹配对同行进行排名
-
-这可以稍后通过查找集群并创建集群原型（在某种程度上基本上是 HNSW）来优化，但可能有点矫枉过正。理论上你可以使用 HNSW，说实话，但是你的向量会随着产品数量的增加而增长 - 这将使实践变得困难 
-1.1。嵌入适配
-您可以尝试以下方法，而不是比较一堆列表项：
-
-针对每个用户，获取他们的产品列表 - 并嵌入产品（描述、关键字等）
-计算算术平均值，或者计算这些嵌入的运行平均值
-
-增强：通过评级来权衡嵌入：评级不佳的 sku 可能会乘以 0，将其完全驱逐
-增强功能：在组合中嵌入用户个人资料
-
-
-查找余弦相似度最高的用户，并根据他们进行预测
-
-嵌入方法实际上与矩阵方法没有什么不同。有什么不同？在经典方法中，您计算​​ one-hot 二进制编码的点积，在这里您（可以）通过使用嵌入向量来保存维度，这将保持维度不变。
-2.产品预测
-简单：您只需浏览排名最高的用户并给出 n（也许 5）个未购买或购买不足的产品。这就是你的结果。
-但是，由于您正在使用即将过期的 SKU，因此推荐旧的或过去的产品并没有多大意义，因此发现新产品非常重要。
-在这里，您可以再次使用嵌入。 （从相似的用户中）选择您的首选，并针对每个用户，在根据您的硬标准（尤其是时间，在本例中）进行过滤后找到匹配项。这些将是您的结果。
-3.调整
-根据您对多样性的重视程度，将最相似产品的前 5 个产品匹配到最相似的用户可能不是最好的方法，因为您可能会意外地得到过于相似的结果。例如：您在亚马逊上购买了一支自动铅笔。突然间，你的脑海中充斥着关于铅笔芯的建议，除此之外什么也没有。但这实际上取决于您的数据。
-许多网站不仅通过用户历史记录进行比较，还直接比较您的购物车，然后对结果进行混合或重新排名。此外，您可能想在其中添加赞助内容，谁知道还有什么。我个人认为重新排名是一种丑陋的解决方案，但我没有更好的解决方案。如果你想走这条路，你可能需要调用 @curt.kennedy 如果他有时间。
-但如果你想让它绝对超级简单：对用户过去选择的嵌入进行平均可能足以计算未来可能的候选人的排名。然后，您不必处理所有对等点的废话 - 尽管对于没有历史记录的新用户来说，找到一个对等点（基于描述），然后根据该对等点的历史建议前 n 个事件可能是一个不错的功能。&lt; /p&gt;]]></description>
-      <guid>https://community.openai.com/t/need-a-recommendation-service/742808#post_4</guid>
-      <pubDate>Sun, 12 May 2024 17:35:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>我厌倦了在每幅图像中画画用具</title>
-      <link>https://community.openai.com/t/im-so-sick-of-drawing-utensils-in-every-image/740892#post_10</link>
-      <description><![CDATA[艺术风格仍然是一种彩票。
-这效果很好：
-以超写实主义彩色铅笔绘画风格呈现，笔触细腻，构图保持简单，注重清晰度和清晰度。
-
-目前我正在使用这个：
-艺术风格是高度细致的超现实主义，强调纹理的清晰度和精确度。
+      <title>我陷入了制作电报机器人的困境</title>
+      <link>https://community.openai.com/t/im-in-stuck-making-a-telegram-bot/743377#post_1</link>
+      <description><![CDATA[我使用chatgpt代码制作了一个电报机器人，它总是卡在这个
 ]]></description>
-      <guid>https://community.openai.com/t/im-so-sick-of-drawing-utensils-in-every-image/740892#post_10</guid>
-      <pubDate>Sun, 12 May 2024 17:26:43 GMT</pubDate>
+      <guid>https://community.openai.com/t/im-in-stuck-making-a-telegram-bot/743377#post_1</guid>
+      <pubDate>Sun, 12 May 2024 20:45:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>辅助API工具是否支持“**kwargs”？如何在 JSON 模式中记录它们？</title>
+      <link>https://community.openai.com/t/do-the-assistant-api-tools-support-kwargs-how-to-document-them-in-the-json-schema/737808#post_3</link>
+      <description><![CDATA[所以我们应该使用additionalProperties而不是additionalParameters？]]></description>
+      <guid>https://community.openai.com/t/do-the-assistant-api-tools-support-kwargs-how-to-document-them-in-the-json-schema/737808#post_3</guid>
+      <pubDate>Sun, 12 May 2024 20:30:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_41</link>
+      <description><![CDATA[哈哈
+“糟糕，也许我们应该多等一两个月才发布我们损坏的产品......”
+
+
+
+罗纳德GRuckus：
+&lt;块引用&gt;
+我对此很感兴趣，但我不明白这与 ChatGPT 应用程序已提供的功能有何不同。我喜欢有转录，而且这并不是没有必要
+
+
+而且我也主要使用 ChatGPT 来编写代码，这会让对话变得有点有趣，而无需呈现任何视觉信息，哈哈。
+但没有足够的信息来说明这是否可以补充其他东西，或者它是否是一个独立的独立交互方法。
+而且，一开始我也是这么想的。但后来我更深入地思考了这个问题，并记得如果可以将这样的接口与 GPT 的内存功能结合起来，随着时间的推移，它可能会变得非常强大。它还可以让模型理解、记忆和解释远远超出您键入内容的内容。
+如果它是音频原生的，并且具有评估语调的真正能力，那么这将是巨大的。这将允许 GPT 解释讽刺，并可能在出现提示时提供讽刺。如果没有适当的上下文，这些东西在文本中很难检测到。]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=3#post_41</guid>
+      <pubDate>Sun, 12 May 2024 20:26:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>等待线程锁的运行的最佳策略</title>
+      <link>https://community.openai.com/t/best-strategy-on-runs-waiting-for-thread-locks/743340#post_3</link>
+      <description><![CDATA[嘿@Macha，
+感谢您的回复。我会尝试一下队列，看看会发生什么。 &lt;img alt=&quot;:+1:&quot; class=&quot;emoji&quot; height=&quot;20&quot; src=&quot;https://emoji.discourse-cdn.com/twitter/+1.png?v=12&quot; title=&quot;: +1：“宽度=“20”/&gt;]]></description>
+      <guid>https://community.openai.com/t/best-strategy-on-runs-waiting-for-thread-locks/743340#post_3</guid>
+      <pubDate>Sun, 12 May 2024 20:25:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
+      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_22</link>
+      <description><![CDATA[+1…请实现此功能！]]></description>
+      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_22</guid>
+      <pubDate>Sun, 12 May 2024 20:23:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_40</link>
+      <description><![CDATA[兔子和兔子人道的投资者就像……
+等等...等等...
+.
+无论如何，
+我对此很感兴趣，但我不明白这与 ChatGPT 应用程序已提供的功能有何不同。我喜欢有转录]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_40</guid>
+      <pubDate>Sun, 12 May 2024 20:18:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>直播：5 月 13 日星期一 OpenAI 产品公告</title>
+      <link>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_39</link>
+      <description><![CDATA[
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+我听到的另一个有趣的想法是直接语音到语音模型，没有中间文本状态。
+
+
+这为周一宣布的内容提供了最多的证据，至少据我所知。
+来源： https://www.theinformation.com/articles/openai-develops-ai-voice-assistant-as-it-chases-google-apple
+推特上的许多 OAI 工作人员似乎都在对类似的事情眨眼和点头。
+如果他们考虑音频输入、音频输出 API，这将非常有趣，但我怀疑这会先于该产品的 atm。]]></description>
+      <guid>https://community.openai.com/t/livestream-openai-product-announcements-on-monday-may-13/742070?page=2#post_39</guid>
+      <pubDate>Sun, 12 May 2024 20:15:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>C# 中工具的输出格式随机变化</title>
+      <link>https://community.openai.com/t/output-format-from-tool-randomly-changing-in-c/743198#post_5</link>
+      <description><![CDATA[我提供的不是一个“正确”的示例，它试图生成像您的代码一样的 JSON。
+这是一个二维数组，第二层有多个条目，但它们是命名的并且长度不是任意的：
+toolspec.extend([{
+        “类型”：“功能”，
+        “功能”： {
+            “名称”：“生产测验”，
+            &quot;description&quot;: &quot;AI 生成多项选择测验作为问题和答案的 JSON 数组（列表）&quot;,
+            “参数”： {
+                “类型”：“对象”，
+                “特性”： {
+                    “测验项目”：{
+                        “类型”：“数组”，
+                        &quot;description&quot;: &quot;指定严格格式的问题、答案和答案键数组&quot;,
+                        “项目”： {
+                            “类型”：“对象”，
+                            “特性”： {
+                                “问题”： {
+                                    “类型”：“字符串”，
+                                    &quot;description&quot;: &quot;测验项目所涉及的问题&quot;,
+                                    },
+                                “答案”：{
+                                    “类型”：“字符串”，
+                                    &quot;description&quot;: &quot;三个可能的答案，一个随机正确&quot;,
+                                    },
+                               “钥匙”： {
+                                    “类型”：“字符串”，
+                                    &quot;description&quot;: &quot;正确答案&quot;,
+                                    },
+                            },
+                            “必需”：[“问题”，“答案”，“关键”]
+                        },
+                    },
+                },
+                “必需”：[“测验项目”]
+            },
+        }
+    }]
+）
+
+当它被放入 AI 语言上下文中，让 AI 理解要写入什么样的 JSON 输出时，就会出现这样的情况，而不是像你的那样被损坏：
+## 函数
+
+命名空间函数 {
+
+// AI 生成多项选择测验作为问题和答案的 JSON 数组（列表）
+输入 Produce_quiz = (_: {
+// 指定严格格式的问题、答案和答案键的数组
+quiz_items：数组&lt;
+{
+// 测验项目所涉及的问题
+问题：字符串，
+// 三种可能的答案，其中一种是随机正确的
+答案：字符串，
+// 正确答案
+键：字符串，
+}
+&gt;,
+}) =&gt;任何;
+
+} // 命名空间函数
+
+这就是关键：人工智能的理解能力如何，尤其是当语言模型从整个输入上下文中一次预测一个标记时。
+添加另一个数组（例如人工智能可以选择的长度的多个多项选择答案），后果自负。]]></description>
+      <guid>https://community.openai.com/t/output-format-from-tool-randomly-changing-in-c/743198#post_5</guid>
+      <pubDate>Sun, 12 May 2024 20:12:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>等待线程锁的运行的最佳策略</title>
+      <link>https://community.openai.com/t/best-strategy-on-runs-waiting-for-thread-locks/743340#post_2</link>
+      <description><![CDATA[嘿那里！
+欢迎来到Python使用痛点。
+我通常通过多线程来解决这个问题，但 python 对此不太擅长。不过，它可以足够好地处理异步任务。
+我想在这里，我的问题是，当您可以有一个队列时，为什么要等待活动运行完成（通过睡眠）？看起来您几乎已经拥有了一个。
+供参考，队列是一种特殊的列表，它是 FIFO 或先进先出。最简单的思考方式就像回合制角色扮演游戏中的回合列表。
+您可以做的基本上就是运行列表前面的任何内容。当它返回不再进行时，它会从队列中弹出，并且该列表中的下一项可以开始运行。无需等待！]]></description>
+      <guid>https://community.openai.com/t/best-strategy-on-runs-waiting-for-thread-locks/743340#post_2</guid>
+      <pubDate>Sun, 12 May 2024 20:09:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
