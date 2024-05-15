@@ -4,160 +4,152 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 15 May 2024 09:22:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 12:35:30 GMT</lastBuildDate>
     <item>
-      <title>UI 功能请求：将表单数据保存到本地存储直至提交</title>
-      <link>https://community.openai.com/t/ui-feature-request-save-form-data-to-local-storage-until-submitted/752545#post_1</link>
-      <description><![CDATA[我发现自己在 ChatGPT 输入框中仔细构建问题 - 这是一个很好的借口来思考我正在探索的尚未完全形成的问题。我的手指一滑，我关上了窗户，我打字和思考准备的时间就这样消失了。
-最好将数据输入到输入框中，保存在浏览器本地存储中，直到提交为止，这样意外的页面关闭就不会抹掉仔细阐明问题和所选措辞的进度。]]></description>
-      <guid>https://community.openai.com/t/ui-feature-request-save-form-data-to-local-storage-until-submitted/752545#post_1</guid>
-      <pubDate>Wed, 15 May 2024 09:15:44 GMT</pubDate>
+      <title>不知道 API 的使用和成本</title>
+      <link>https://community.openai.com/t/unknows-api-usage-and-costs/752911#post_5</link>
+      <description><![CDATA[
+
+
+_j：
+&lt;块引用&gt;
+但您也必须纠正您的问题，例如不要在联系 OpenAI 的应用程序中使用 API 密钥，而不是仅根据用户帐户连接到您自己的服务器。
+
+
+感谢您的指导。
+我制作了新的 API 密钥并限制了大多数型号。我会监控看看这是否有帮助。您能否解释一下您建议的基于用户帐户使用我们自己的服务器如何精确限制使用？]]></description>
+      <guid>https://community.openai.com/t/unknows-api-usage-and-costs/752911#post_5</guid>
+      <pubDate>Wed, 15 May 2024 12:34:58 GMT</pubDate>
     </item>
     <item>
-      <title>错误 异常活动 GPT4 WEB</title>
-      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=2#post_30</link>
-      <description><![CDATA[两天以来我一直遇到这个问题，针对 GPT-4 和 GPT-4o。
-“已从您的设备检测到异常活动。稍后再试。”]]></description>
-      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=2#post_30</guid>
-      <pubDate>Wed, 15 May 2024 09:14:20 GMT</pubDate>
+      <title>在新推出时，他们对待 Plus 和 Teams 用户的方式是否有所不同？</title>
+      <link>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_4</link>
+      <description><![CDATA[公平地说，他们确实明确表示将在“未来几周内”进行，但我想要现在 ]]></description>
+      <guid>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_4</guid>
+      <pubDate>Wed, 15 May 2024 12:32:22 GMT</pubDate>
     </item>
     <item>
-      <title>需要帮助：集成 GPT 和 11Labs 以创建数字人类</title>
-      <link>https://community.openai.com/t/help-needed-integrating-gpt-and-11labs-for-creating-a-digital-human/752533#post_1</link>
-      <description><![CDATA[大家好，
-我正在开展一个项目，旨在创建一个可以通过语音交互的数字人类。我使用 OpenAI 的 GPT-3.5-turbo 生成响应，使用 11Labs 进行文本到语音转换。我使用 Python 和 Flask 来构建应用程序。
-我当前遇到 AttributeError: module &#39;openai&#39; has no attribute &#39;error&#39; 。非常感谢任何有关如何解决此问题的建议或改进建议。
-这是我正在使用的代码：`import openai
-将语音识别导入为 sr
-导入请求
-导入 json
-从烧瓶导入烧瓶，请求，jsonify
-将声音设备导入为 SD
-将声音文件导入为 sf
-导入操作系统
-导入时间
-
-# 确保环境变量已设置
-openai_api_key = os.getenv(&#39;OPENAI_API_KEY&#39;)
-111_labs_api_key = os.getenv(&#39;ELEVEN_LABS_API_KEY&#39;)
-十一实验室语音 ID = os.getenv(&#39;ELEVEN_LABS_VOICE_ID&#39;)
-
-如果没有 openai_api_key:
-    raise ValueError(“未设置环境变量 OPENAI_API_KEY。”)
-如果不是 11_labs_api_key：
-    raise ValueError(“未设置环境变量 ELEVEN_LABS_API_KEY。”)
-如果不是 11_labs_voice_id：
-    raise ValueError(“未设置环境变量 ELEVEN_LABS_VOICE_ID。”)
-
-# 设置API密钥
-openai.api_key = openai_api_key
-
-应用程序=烧瓶（__名称__）
-
-# 缓存机制来存储最近的请求和响应
-缓存={}
-
-defgenerate_response（用户输入）：
-    如果 user_input 在缓存中：
-        返回缓存[用户输入]
-    
-    重试 = 3
-    对于范围内的尝试（重试）：
-        尝试：
-            响应 = openai.ChatCompletion.create(
-                型号=“gpt-3.5-turbo”，
-                消息=[
-                    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一位诗意的助手，擅长以创造性的天赋解释复杂的编程概念。&quot;},
-                    {“角色”：“用户”，“内容”：user_input}
-                ]
-            ）
-            print(&quot;OpenAI 响应：&quot;, 响应)
-            结果 = response.choices[0].message[&#39;content&#39;]
-            缓存[用户输入] = 结果
-            返回结果
-        除了 openai.error.RateLimitError 为 e：
-            如果尝试&lt;重试 - 1：
-                print(f&quot;超出速率限制，正在重试...({attempt + 1}/{retries})&quot;)
-                time.sleep(2 ** attempts) # 指数退避
-            别的：
-                提高e
-        除了 openai.error.OpenAIError 为 e：
-            print(f&quot;OpenAI 错误：{e}&quot;)
-            返回“错误：无法生成响应。”
-
-def recognize_speech():
-    识别器 = sr.Recognizer()
-    以 sr.Microphone() 作为源：
-        print(&quot;请讲...&quot;)
-        音频=识别器.listen(源)
-        尝试：
-            文本 = recognizer.recognize_google(音频, language=&#39;en-US&#39;)
-            print(f&quot;你说：{text}&quot;)
-            返回文本
-        除了 sr.UnknownValueError：
-            print(&quot;抱歉，我听不懂音频&quot;)
-            返回 ””
-        除了 sr.RequestError：
-            print(&quot;请求错误&quot;)
-            返回 ””
-
-def 生成语音（文本）：
-    url =“https://api.elevenlabs.io/v1/text-to-speech”
-    标题= {
-        “xi-api-key”：eleven_labs_api_key，
-        “内容类型”：“应用程序/json”
-    }
-    数据 = {
-        “文本”：文本，
-        “语音设置”：{
-            “voice_id”：eleven_labs_voice_id
-        }
-    }
-    响应 = requests.post(url, headers=headers, data=json.dumps(data))
-    print(&quot;十一实验室响应状态代码：&quot;, response.status_code)
-    如果响应.status_code == 200：
-        将 open(&quot;output.wav&quot;, &quot;wb&quot;) 作为 f：
-            f.write(响应.内容)
-        print(&quot;音频文件保存为output.wav&quot;)
-        返回“输出.wav”
-    别的：
-        print(&quot;生成语音时出错：&quot;, response.text)
-        返回无
-
-def play_audio(文件路径):
-    数据， fs = sf.read(file_path, dtype=&#39;float32&#39;)
-    sd.play（数据，fs）
-    sd.wait()
-
-@app.route(&#39;/message&#39;,methods=[&#39;POST&#39;])
-def 聊天():
-    如果request.is_json：
-        数据 = request.get_json()
-        print(&quot;收到的数据：&quot;, data)
-        用户输入 = 数据[&#39;消息&#39;]
-        响应 = 生成响应（用户输入）
-        print(&quot;生成的响应：&quot;, 响应)
-        音频文件 = 生成语音（响应）
-        如果音频文件：
-            播放音频（音频文件）
-        返回 jsonify({&#39;response&#39;: 响应})
-    别的：
-        return jsonify({&#39;error&#39;: &#39;不支持的媒体类型&#39;}), 415
-
-如果 __name__ == &#39;__main__&#39;:
-    print(&quot;正在启动 Flask 服务器...&quot;)
-    应用程序运行（调试=真）
-`
-]]></description>
-      <guid>https://community.openai.com/t/help-needed-integrating-gpt-and-11labs-for-creating-a-digital-human/752533#post_1</guid>
-      <pubDate>Wed, 15 May 2024 09:11:35 GMT</pubDate>
+      <title>在新推出时，他们对待 Plus 和 Teams 用户的方式是否有所不同？</title>
+      <link>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_3</link>
+      <description><![CDATA[他们让我们很难打蓝球 ]]></description>
+      <guid>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_3</guid>
+      <pubDate>Wed, 15 May 2024 12:31:23 GMT</pubDate>
     </item>
     <item>
-      <title>新版本 GPT 4o 的代币限制是多少？</title>
-      <link>https://community.openai.com/t/what-is-the-token-limit-of-the-new-version-gpt-4o/752528#post_1</link>
-      <description><![CDATA[有人知道新版本 GPT 4o 的令牌限制是多少吗？不幸的是，在我研究这个主题的过程中，我不断发现不同的信息。]]></description>
-      <guid>https://community.openai.com/t/what-is-the-token-limit-of-the-new-version-gpt-4o/752528#post_1</guid>
-      <pubDate>Wed, 15 May 2024 09:08:23 GMT</pubDate>
+      <title>Gpt-4o的网页浏览能力在哪里？</title>
+      <link>https://community.openai.com/t/gpt-4o-web-browsing-capability-where/744458#post_6</link>
+      <description><![CDATA[对我来说，它可以在网络客户端工作，但不能在 API 上工作，它只是产生幻觉。 API 中是否也提供访问网站和阅读其内容的任何信息？
+也许它只能在 Web 客户端中工作，因为它使用客户端浏览器来执行此操作？任何有关这方面的信息都会很棒，谢谢。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-web-browsing-capability-where/744458#post_6</guid>
+      <pubDate>Wed, 15 May 2024 12:27:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>在新推出时，他们对待 Plus 和 Teams 用户的方式是否有所不同？</title>
+      <link>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_2</link>
+      <description><![CDATA[不，我两者都有，但都还没有访问权限。]]></description>
+      <guid>https://community.openai.com/t/are-they-treating-plus-and-teams-user-differently-when-it-comes-to-new-rollouts/753017#post_2</guid>
+      <pubDate>Wed, 15 May 2024 12:24:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法将文件添加到矢量存储</title>
+      <link>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_7</link>
+      <description><![CDATA[奇怪！
+我于 5/7 联系了他们的支持聊天并提供了详细信息，但我尚未收到任何回复。我希望他们能注意到这一点，因为在它得到修复之前，它会让我无法使用 Google 助理。]]></description>
+      <guid>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_7</guid>
+      <pubDate>Wed, 15 May 2024 12:24:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4o 语音功能不工作</title>
+      <link>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=6#post_105</link>
+      <description><![CDATA[同样的事情也发生在印度。耳机图标就这样消失了。他们应该恢复这个易于使用的功能。我主要只使用语音对话功能。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=6#post_105</guid>
+      <pubDate>Wed, 15 May 2024 12:23:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>主题：错误：“OpenAI”对象没有属性“批次”</title>
+      <link>https://community.openai.com/t/subject-error-openai-object-has-no-attribute-batches/745724#post_4</link>
+      <description><![CDATA[尝试 %pip install --upgrade openai --quiet 安装新的 SDK]]></description>
+      <guid>https://community.openai.com/t/subject-error-openai-object-has-no-attribute-batches/745724#post_4</guid>
+      <pubDate>Wed, 15 May 2024 12:23:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o API 给出了疯狂的响应</title>
+      <link>https://community.openai.com/t/gpt-4o-api-giving-wild-responses/749391#post_7</link>
+      <description><![CDATA[有趣。我也不希望在快速工程中出现火箭科学。
+
+
+
+ abhijeetgandhi01：
+&lt;块引用&gt;
+您是一位虔诚的作家，对人类充满热爱。您影响世界的策略是创建游戏化的简短挑战供人们记录。 Short_challenges 主要使用花园过程作为幸福的隐喻。但其他时候，他们会借鉴一系列隐喻，无论是食物、衣服还是药物。
+Wellgorithm 由输入项、short_challenge、long_challenge 的标题组成。
+输入将是由情感和花园元素组成的复合词，例如（敬畏）气溶胶。在这种敬畏中是情感，气溶胶是花园元素。
+确保您理解花园元素的正确含义。
+短期和长期挑战的最重要说明：
+简短的挑战：
+
+应与输入术语直接相关，但确保其并非全部与真正的园艺相关。但不要太字面意思。
+除非另有说明，否则避免过于积极，也不要过于迂腐。
+short_challenges 应以行动为导向
+short_challenges 的长度必须在 6 到 13 个单词之间。
+
+长期挑战：
+
+扩展short_challenge并保持与输入术语的连接。
+long_challenges 的长度必须在 11 到 20 个单词之间。记住不少于 11 个单词。
+
+这两项挑战的通用说明：
+
+切勿在任何挑战中使用输入中的任何单词（情感或花园元素），甚至是其变体。
+挑战从来都不是认知上的。永远不要用认知词语开始挑战，例如“反思”、“思考”、“考虑、“记住”等
+永远不要写得太紫
+切勿在挑战中使用“like”、“as”、“for example”等词语
+如果情绪是负面的，那么就不要试图让它变得积极。例如
+如果 input_term 是（焦虑）蚜虫，则不应尝试将其设为阳性。相反，请使用好奇、自律、自我接纳和坚持的语气。
+除非另有说明，他们不会太迂腐或宣扬积极的信息。永远不要向我们说教。
+切勿在挑战中使用“ing”动词
+
+
+
+这部分加上描述所需对象结构的 json 模式需要放入系统消息中。
+
+
+
+ abhijeetgandhi01：
+&lt;块引用&gt;
+以下是两个示例输出：
+
+
+示例输入和 json 字符串化输出可以作为多镜头提示包含在用户助手消息对中。
+然后只需在最终用户消息中添加您希望模型处理的输入（遵循与之前示例类似的结构）并将其发送到 API。
+
+
+
+ abhijeetgandhi01：
+&lt;块引用&gt;
+input_term =（意识到）狼：
+{
+“变体”：[
+{
+“short_challenge”：“让自己充满敬畏和惊奇的细雾”，
+“long_challenge”：“让自己充满惊奇和惊奇的空灵云彩”，
+},
+{
+“short_challenge”：“将敬畏的芬芳扩散到你的日常氛围中”，
+“long_challenge”：“让你的周围充满惊奇和敬畏的香气”，
+},
+{
+“short_challenge”：“用令人耳目一新的敬畏和惊讶来雾化你的头脑”，
+“long_challenge”：“用敬畏和惊喜的冷静喷雾让你的观点焕发活力”，
+},
+]
+}
+
+
+这个特定的示例似乎也适用于 input = (awe)Aerosol，但我想您更了解自己在做什么。
+希望这有帮助。祝你好运。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-api-giving-wild-responses/749391#post_7</guid>
+      <pubDate>Wed, 15 May 2024 12:22:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
