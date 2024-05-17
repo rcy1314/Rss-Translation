@@ -4,199 +4,61 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 17 May 2024 12:33:53 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 May 2024 15:20:06 GMT</lastBuildDate>
     <item>
-      <title>对 v1/threads/{thread_id}/messages 的 API 调用失败，并显示 [file] 和 [file_ids]</title>
-      <link>https://community.openai.com/t/api-calls-to-v1-threads-thread-id-messages-fails-with-file-and-file-ids/613781#post_8</link>
-      <description><![CDATA[谢谢 Jay，我进行了相应的修改，但不幸的是我的错误仍然存​​在。
-这是我的 initAssistant 代码：
-导入openai
-从 dotenv 导入 load_dotenv
-load_dotenv()
-类initAssistant：
-def init(self, api_key):
-self.api_key = api_key
-openai.api_key = self.api_key
-self.client = openai.OpenAI(default_headers={“OpenAI-Beta”: “assistants=v2”})
-def create_file(self, client, file_path):
-    file = self.client.files.create(file=open(file_path, &quot;rb&quot;), Purpose=&#39;助手&#39;)
-    返回文件
+      <title>ChatGPT UI 在加载后 1 秒被“压扁”</title>
+      <link>https://community.openai.com/t/chatgpt-ui-is-being-squished-down-1-second-after-loading/760375#post_9</link>
+      <description><![CDATA[同样的问题，使用 safari]]></description>
+      <guid>https://community.openai.com/t/chatgpt-ui-is-being-squished-down-1-second-after-loading/760375#post_9</guid>
+      <pubDate>Fri, 17 May 2024 15:19:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法访问文本审核模型</title>
+      <link>https://community.openai.com/t/no-access-to-text-moderation-models/760242#post_4</link>
+      <description><![CDATA[抱歉，我没有看到您已经提到您没有限制。如果 API 密钥没有问题，这是一个奇怪的问题。]]></description>
+      <guid>https://community.openai.com/t/no-access-to-text-moderation-models/760242#post_4</guid>
+      <pubDate>Fri, 17 May 2024 15:16:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>gpt4-o模型是否兼容JSON模式？</title>
+      <link>https://community.openai.com/t/is-the-gpt4-o-model-compatible-with-json-mode/760533#post_1</link>
+      <description><![CDATA[我观察到一些行为，其中生成的 JSON 响应缺少我期望在 JSON 结构中接收的属性。
+遵循提示中启用 JSON 模式的所有过程：
+&quot;型号&quot;: &quot;gpt-4o&quot;,
+“响应格式”：{
+    “类型”：“json_object”
+},
 
-def create_assistant（自身，客户端）：
-    助理 = self.client.beta.assistants.create(
-        name=&quot;Superia 助理&quot;,
-        instructions=&quot;&quot;&quot;Génère un fichier JSON ....&quot;&quot;&quot;,
-        型号=“gpt-4o”，
-        工具=[{“类型”：“文件搜索”，
-                }],
-        description=&quot;一个聊天机器人，根据提供的文件回答问题。&quot;,
-    ）
-    退货助理
-
-def update_assistant(self,created_assistant_id,file_id)：
-    助手 = self.client.beta.assistants.update(
-        instructions=&quot;&quot;&quot;文件格式 JSON ...&quot;&quot;&quot;,
-        Assistant_id=created_assistant_id,
-        附件= [
-{
-  “文件id”：文件id，
-  “工具”：[{“类型”：“文件搜索”}]
-}
-
+在 JSON 中，所需的属性已按代码段中所示进行适当配置：
+&quot;必需&quot;: [
+    “增益证明”，
+    “增益类型证明”
 ]
-)
-退货助理
-def update_file(self, file_id,created_assistant_id) :
 
-    Assistant_file = self.client.beta.assistants.files.create(
-        Assistant_id=created_assistant_id,
-        附件= [
-{
-  “文件id”：[文件id]，
-  “工具”：[{“类型”：“文件搜索”}]
-}
-
-]
-)
-返回assistant_file
-def list_file(self,created_assistant_id):
-
-    列出的文件 = self.client.beta.assistants.files.list(
-        Assistant_id=created_assistant_id)
-    返回列出的文件
-defdelete_assistant(self,assistant_id):
-    &quot;&quot;&quot;从 OpenAI 中删除助手。&quot;&quot;&quot;
-    响应 = self.client.beta.assistants.delete(assistant_id=assistant_id)
-    返回响应
-
-像这样我有这个错误：assistant_file = self.client.beta.assistants.files.create(
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-属性错误：“助手”对象没有属性“文件”
-如果我删除函数“update_file”，则会出现此错误：assistant = self.client.beta.assistants.update(
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Assistants.update() 得到了意外的关键字参数“attachments”]]></description>
-      <guid>https://community.openai.com/t/api-calls-to-v1-threads-thread-id-messages-fails-with-file-and-file-ids/613781#post_8</guid>
-      <pubDate>Fri, 17 May 2024 12:33:33 GMT</pubDate>
+在用户和系统消息中：
+响应必须采用 JSON 格式。
+即便如此，生成的响应仍然缺少属性。这让我怀疑 gpt4-o 模型仍然不兼容 JSON 模式，而且我在文档中找不到任何明确说明它兼容的内容。
+有人能帮我解决这个疑问吗？]]></description>
+      <guid>https://community.openai.com/t/is-the-gpt4-o-model-compatible-with-json-mode/760533#post_1</guid>
+      <pubDate>Fri, 17 May 2024 15:12:57 GMT</pubDate>
     </item>
     <item>
-      <title>使用助手自动调用工具/功能</title>
-      <link>https://community.openai.com/t/automatically-calling-tools-functions-with-assistants/758721#post_2</link>
-      <description><![CDATA[好吧，我想我并不那么懒。
-这里为找到此帖子的任何人提供一些帮助：
-我借用了这个https： //platform.openai.com/docs/assistants/tools/function-calling/quickstart?context=without-streaming
-并创建了这个（该论坛不允许链接）：
-要点 github com
-kmgrassi/2274e2b4f6b2f8d139bfab4ccacf552d
-JS 函数 (  classes) 包装器，自动调用传递到助手 API 调用中的函数/工具。
-不要害怕所有的设置代码。改编（改进）的部分是第 207-223 行，查找并调用函数并传回 LLM。其余的设置测试运行。
-黑客快乐！]]></description>
-      <guid>https://community.openai.com/t/automatically-calling-tools-functions-with-assistants/758721#post_2</guid>
-      <pubDate>Fri, 17 May 2024 12:33:31 GMT</pubDate>
+      <title>GPT 模型中的性能下降和延迟增加</title>
+      <link>https://community.openai.com/t/performance-degradation-and-increased-latency-in-gpt-models/760529#post_1</link>
+      <description><![CDATA[社区您好，
+我遇到了 GPT 模型性能显着下降和延迟增加的情况，这严重影响了我们为客户开发的产品。响应质量的下降和处理时间的减慢使得维持可靠的功能变得困难。
+Azure OpenAI 和 OpenAI API 就实现了这一点。
+有人可以提供一些见解吗？
+谢谢。]]></description>
+      <guid>https://community.openai.com/t/performance-degradation-and-increased-latency-in-gpt-models/760529#post_1</guid>
+      <pubDate>Fri, 17 May 2024 15:11:44 GMT</pubDate>
     </item>
     <item>
-      <title>修复了新的 ChatGPT 重新设计 - 适合桌面编码人员和设计人员（Tampermonkey 脚本）</title>
-      <link>https://community.openai.com/t/a-repair-of-the-new-chatgpt-redesign-for-desktop-coders-and-designers-tampermonkey-script/755235#post_9</link>
-      <description><![CDATA[
-
-
-多斯：
-&lt;块引用&gt;
-为了可读性，人类似乎更喜欢特定的最大宽度。
-
-
-幸运的是，您的担忧已经得到考虑。
-]]></description>
-      <guid>https://community.openai.com/t/a-repair-of-the-new-chatgpt-redesign-for-desktop-coders-and-designers-tampermonkey-script/755235#post_9</guid>
-      <pubDate>Fri, 17 May 2024 12:31:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>更新后“朗读”功能不起作用</title>
-      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=4#post_63</link>
-      <description><![CDATA[我也有同样的问题，请解决，我工作需要它T__T]]></description>
-      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=4#post_63</guid>
-      <pubDate>Fri, 17 May 2024 12:28:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 gettin 400 Bad Request 保留在 /threads/runs</title>
-      <link>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_8</link>
-      <description><![CDATA[重音字符应该转义 UTF-8 字节。此外，您还可以检查定向引号、不匹配的容器、删除所有空白（例如换行符和可能的制表符），并通过 JSON 验证器运行正文。]]></description>
-      <guid>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_8</guid>
-      <pubDate>Fri, 17 May 2024 12:28:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>/threads/runs 不断收到 400 Bad Request</title>
-      <link>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_7</link>
-      <description><![CDATA[您是否在标头中传递此内容？
-&quot;OpenAI-Beta: Assistants=v2&quot;
-]]></description>
-      <guid>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_7</guid>
-      <pubDate>Fri, 17 May 2024 12:25:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 4（或 4o）没有按照我的要求进行</title>
-      <link>https://community.openai.com/t/chatgpt-4-or-4o-is-not-doing-what-i-ask-for/759805#post_2</link>
-      <description><![CDATA[gpt4 和 gpt4o 也有同样的问题。以前在相同提示下运行良好的任何与文本相关的任务现在都变得很糟糕。例如：我要求 chatgprt 尝试将一段文本的字数减少 20%，结果删除了大约 60 - 70%。该模型的两次迭代似乎都不那么智能。目前还没有找到解决办法。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-or-4o-is-not-doing-what-i-ask-for/759805#post_2</guid>
-      <pubDate>Fri, 17 May 2024 12:22:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>修复了新的 ChatGPT 重新设计 - 适合桌面编码人员和设计人员（Tampermonkey 脚本）</title>
-      <link>https://community.openai.com/t/a-repair-of-the-new-chatgpt-redesign-for-desktop-coders-and-designers-tampermonkey-script/755235#post_8</link>
-      <description><![CDATA[我不知道。我更喜欢较窄的宽度。这在新闻网站和博客中很常见。为了可读性，人类似乎更喜欢特定的最大宽度尺寸。对于那些了解 Tailwind 的人，请查看 prose 排版插件 - 它使用经过良好测试的原理进行系统上的文本设计。]]></description>
-      <guid>https://community.openai.com/t/a-repair-of-the-new-chatgpt-redesign-for-desktop-coders-and-designers-tampermonkey-script/755235#post_8</guid>
-      <pubDate>Fri, 17 May 2024 12:22:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dall-E 不擅长识别字母和数字 - 有什么建议吗？</title>
-      <link>https://community.openai.com/t/dall-e-is-sooo-bad-at-recognizing-letters-and-numbers-any-advice/507925#post_12</link>
-      <description><![CDATA[ 在这些情况下，一种解决方法是在提示中包含指令。例如：“...并请添加括号中包含的以下文本 [示例文本]...”。如果需要继续讨论和交流想法，请随时连接 LinkedIn 或其他社交网络。]]></description>
-      <guid>https://community.openai.com/t/dall-e-is-sooo-bad-at-recognizing-letters-and-numbers-any-advice/507925#post_12</guid>
-      <pubDate>Fri, 17 May 2024 12:19:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 API 中宣布 GPT-4o！</title>
-      <link>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_89</link>
-      <description><![CDATA[如果不是没有真正的“修改用户消息”方法，并且在工具结果等待时无法添加消息，您可以想象文本中提到的用于图像链接的 AI 复杂工具，“获取互联网图片”，创建额外的用户消息。
-或者放弃助手。聊天完成让您和您的视觉 AI 控制一切。]]></description>
-      <guid>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_89</guid>
-      <pubDate>Fri, 17 May 2024 12:18:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>自动函数调用错误</title>
-      <link>https://community.openai.com/t/automatuc-function-calling-bug/760128#post_1</link>
-      <description><![CDATA[目前，我正在开发一个基于聊天的模型，但我遇到了一个问题。例如，我发送查询，LLM 会使用特定的函数调用（例如 web_search）进行响应。但是，当我随后发送“hi”消息时，它会自动再次触发 web_search 函数调用。此外，有时当我提出不同的查询时，它会返回先前对话的响应，并将其附加到当前查询的响应中。
-我该如何解决这个坚持一种语境的问题？理想情况下，系统应该正确维护语境并适当地回答新问题，类似于 OpenAI 的聊天如何根据新提出的问题维护语境和答案。]]></description>
-      <guid>https://community.openai.com/t/automatuc-function-calling-bug/760128#post_1</guid>
-      <pubDate>Fri, 17 May 2024 12:18:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 gettin 400 Bad Request 保留在 /threads/runs</title>
-      <link>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_6</link>
-      <description><![CDATA[是的，我正在尝试“创建并运行”方法。它通过 cURL 控制台工作，但我似乎无法找到使用 Postman 时缺少的内容。
-我的最终目标是使用 ManyChat 将我的代理集成到 Instagram，但也不起作用，回复与 Postman 相同的 400 Bad Request 错误]]></description>
-      <guid>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_6</guid>
-      <pubDate>Fri, 17 May 2024 12:16:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 gettin 400 Bad Request 保留在 /threads/runs</title>
-      <link>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_5</link>
-      <description><![CDATA[哦，谢谢你纠正我。我从未使用过 Thread 并通过单个 API 运行运行。]]></description>
-      <guid>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_5</guid>
-      <pubDate>Fri, 17 May 2024 12:15:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>chatgpt语音反应怎么这么快？</title>
-      <link>https://community.openai.com/t/how-can-chatgpt-voice-response-so-fast/759490#post_5</link>
-      <description><![CDATA[是的，我说的是当前版本，而不是最近演示的版本。我在设备上进行了 STT，我能得到的最好时间是 5 秒左右，但代价是不准确。我的机器人不会说太多话，所以我认为流媒体不会让它变得更快。我感觉像你说的那样有一些优化。也许他们会尽快启动模型，如果用户继续说话，他们就会放弃响应。但如果我要实现这个，成本将非常昂贵。]]></description>
-      <guid>https://community.openai.com/t/how-can-chatgpt-voice-response-so-fast/759490#post_5</guid>
-      <pubDate>Fri, 17 May 2024 12:14:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 gettin 400 Bad Request 保留在 /threads/runs</title>
-      <link>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_4</link>
-      <description><![CDATA[他正在尝试创建线程并运行方法。]]></description>
-      <guid>https://community.openai.com/t/keep-gettin-400-bad-request-at-threads-runs/760075#post_4</guid>
-      <pubDate>Fri, 17 May 2024 12:13:58 GMT</pubDate>
+      <title>4o 启动后内存全部被删除并清除干净</title>
+      <link>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505#post_5</link>
+      <description><![CDATA[同样在这里，它突然忘记了一切&amp;显示空白内存部分。]]></description>
+      <guid>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505#post_5</guid>
+      <pubDate>Fri, 17 May 2024 15:09:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
