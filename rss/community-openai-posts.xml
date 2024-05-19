@@ -4,134 +4,64 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 19 May 2024 06:24:02 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2024 09:20:29 GMT</lastBuildDate>
     <item>
-      <title>更新后“朗读”功能不起作用</title>
-      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=6#post_119</link>
-      <description><![CDATA[嗨。有没有人尝试获得支持来回应？尤其是那些有付费版本的人。或者他们的答案仍然相同吗？]]></description>
-      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=6#post_119</guid>
-      <pubDate>Sun, 19 May 2024 06:22:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT MacOS 应用程序打开后立即崩溃 – M1 Pro MacOS 14.0</title>
-      <link>https://community.openai.com/t/chatgpt-macos-app-crashes-instantly-after-opening-m1-pro-macos-14-0/757627#post_4</link>
-      <description><![CDATA[对我不起作用，你的 MacBook 是什么型号？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-macos-app-crashes-instantly-after-opening-m1-pro-macos-14-0/757627#post_4</guid>
-      <pubDate>Sun, 19 May 2024 06:17:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>当我登录 ChatGPT 时，提示登录失败并显示消息“出现问题。请确保您设备的日期和时间设置正确”</title>
-      <link>https://community.openai.com/t/when-i-log-in-to-chatgpt-i-am-prompted-for-a-login-failure-and-a-message-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly/508758?page=4#post_63</link>
-      <description><![CDATA[我是 iPhone 用户，几个月前我也遇到这个问题，但问题仍然存在。显示“出现问题。请确保您的设备的日期和时间设置正确。检查您的互联网连接是否稳定，然后重新启动应用程序并重试。（代码：343366A2-4B12-4F74-A51E-8951DA9F2552，API.Device-checkError，2）。
-有人知道支持号码吗？我真的想打电话给支持人员来解决这个问题。我已经为这项服务付费了，但无法使用，这是不可接受的。]]></description>
-      <guid>https://community.openai.com/t/when-i-log-in-to-chatgpt-i-am-prompted-for-a-login-failure-and-a-message-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly/508758?page=4#post_63</guid>
-      <pubDate>Sun, 19 May 2024 06:16:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>没有收到任何免费试用积分？</title>
-      <link>https://community.openai.com/t/didn-t-receive-any-free-trial-credits/693150?page=2#post_29</link>
-      <description><![CDATA[仅价值 5 美元的积分不再能通过单个账户获得，这似乎不公平，但没有理由指望 OpenAI 继续免费提供积分。]]></description>
-      <guid>https://community.openai.com/t/didn-t-receive-any-free-trial-credits/693150?page=2#post_29</guid>
-      <pubDate>Sun, 19 May 2024 06:14:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>愚蠢的工程师！决定升级我的生产环境！</title>
-      <link>https://community.openai.com/t/stupid-engineers-decide-to-upgrade-my-production-env/764146#post_1</link>
-      <description><![CDATA[显然我的工作环境需要升级。所以我显然需要更新我们的聊天应用程序。这是实时的，他们直到完成后才告诉我。我正在努力寻找一个看似愚蠢且难以捉摸的问题的答案。
-我知道你决定对 OpenAI 客户端进行彻底的改变（为什么我不知道，为什么它不向后兼容只是草率的工作）
-所以我的代码现在抛出一个“友好”错误，告诉我访问一些迁移指南。我转到 github 存储库并按照建议阅读 README。
-我需要一个简单的答案......我不想向客户发送一串消息，我想向它发送我的提示，就像我从第一天开始一样......文档中没有任何地方有如何简单地发送提示！
-这是我的代码。这就是近一年来一直在努力的事情：为什么哦为什么！
- def _count_tokens(self, text):
-        # 简单的token计数函数
-        返回 len(openai.Completion.create(
-            引擎=“文本-达芬奇-003”，
-            提示=文本，
-            最大令牌数=0
-        )[&quot;选择&quot;][0][&quot;logprobs&quot;][&quot;标记&quot;])
-
-    defcompile_prompt（自身，提示）：
-        字符数据 = self.mongo_handler.get_character_data(self.characterID)
-        system_message = self.mongo_handler.get_system_message(self.characterID)
-        
-        # 确保system_message不超过max_system_prompt_tokens
-        system_message_tokens = self._count_tokens(system_message)
-        如果 system_message_tokens &gt; self.max_system_prompt_tokens：
-            raise ValueError(f&quot;系统消息超过 {self.max_system_prompt_tokens} 令牌&quot;)
-
-        message_history = self.mongo_handler.get_message_history(self.sessionID)
-        
-        # 限制消息历史记录
-        Limited_message_history = message_history[-self.message_history_limit:]
-
-        full_prompt = f&quot;{system_message}\n\n&quot;
-        对于 Limited_message_history 中的消息：
-            full_prompt += f&quot;{消息}\n&quot;
-        full_prompt += f&quot;用户：{提示}&quot;
-
-        返回完整提示
-
-    def 调用（自身，提示）：
-        full_prompt = self.compile_prompt(提示)
-        
-        尝试：
-            响应 = openai.Completion.create(
-                引擎=self.model,
-                提示=完整提示，
-                **self.可选参数
-            ）
-            结果=response.choices[0].text.strip()
-            
-            如果没有结果：
-                引发 ValueError(&quot;主 API 的响应为空&quot;)
-        
-        except (openai.error.OpenAIError, ValueError) as e:
-            如果 self.fallback_api_key 和 self.fallback_api_endpoint：
-                openai.api_key = self.fallback_api_key
-                openai.api_base = self.fallback_api_endpoint
-
-                尝试：
-                    响应 = openai.Completion.create(
-                        引擎=self.fallback_model，
-                        提示=完整提示，
-                        **self.可选参数
-                    ）
-                    结果=response.choices[0].text.strip()
-                除了 openai.error.OpenAIError 作为fallback_error：
-                    raise RuntimeError(f&quot;主要 API 调用和后备 API 调用均失败：{fallback_error}&quot;)
-            别的：
-                raise RuntimeError(f“主 API 调用失败且未配置后备 API：{e}”)
-
-        self.mongo_handler.add_message_to_history(self.sessionID, &quot;用户&quot;, 提示)
-        self.mongo_handler.add_message_to_history(self.sessionID, &quot;AI&quot;, 结果)
-        
-        返回 {
-            “响应”：结果，
-            &quot;characterID&quot;: self.characterID,
-            &quot;sessionID&quot;: self.sessionID
-        }
+      <title>在 API 中宣布 GPT-4o！</title>
+      <link>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_98</link>
+      <description><![CDATA[这是我之前尝试上传的第二个屏幕截图。
 ]]></description>
-      <guid>https://community.openai.com/t/stupid-engineers-decide-to-upgrade-my-production-env/764146#post_1</guid>
-      <pubDate>Sun, 19 May 2024 06:09:24 GMT</pubDate>
+      <guid>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_98</guid>
+      <pubDate>Sun, 19 May 2024 09:16:50 GMT</pubDate>
     </item>
     <item>
-      <title>Haystack 基准测试中 GPT-4o 在 Needle 上的性能</title>
-      <link>https://community.openai.com/t/performance-of-gpt-4o-on-the-needle-in-a-haystack-benchmark/744927#post_12</link>
-      <description><![CDATA[https://x.com/rohanpaul_ai/状态/1791885754831929597
+      <title>在 API 中宣布 GPT-4o！</title>
+      <link>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_97</link>
+      <description><![CDATA[嗨，
+对最新产品的名称感到非常困惑。所以，我向 ChatGPT 询问了此事。结果很有趣。
+我不是在谈论当前聊天 GPT 不知道 ChatGPT 4o 的部分。这是可以理解的。
+我问你的问题：
+为什么 ChatGPT 似乎理解我理解的概念，但 OpenAI 制定规划决策的人似乎没有人理解？
+请参阅随附的屏幕截图。
 
-这些结果是可信的，并与我自己完成的其他基准测试和测试相呼应，例如： x.com
-长上下文检索很重要，否则长上下文就变得毫无意义。这里的捷径绝对会加快速度/使它们更便宜，但质量自涡轮增压以来明显下降。
-也就是说，&gt; 32k 结果非常令人着迷。也许这个想法是 4o 在很长的上下文中更好！当你想到这一点时，这真是太疯狂了。尽管如此 - 已经做出了妥协，但并不是突破。
-我的总体感觉是，纵观世界各地以及自 gpt4 以来发生的所有版本（big 3、操作系统模型、代理等），我们目前在能力方面遇到了天花板。]]></description>
-      <guid>https://community.openai.com/t/performance-of-gpt-4o-on-the-needle-in-a-haystack-benchmark/744927#post_12</guid>
-      <pubDate>Sun, 19 May 2024 05:58:31 GMT</pubDate>
+（还有一个令人震惊的愚蠢决定，我无法上传第二个屏幕截图来明确我的问题。我将尝试在后续的帖子中做到这一点。）]]></description>
+      <guid>https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700?page=5#post_97</guid>
+      <pubDate>Sun, 19 May 2024 09:16:16 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 网页版的文本转语音问题</title>
-      <link>https://community.openai.com/t/text-to-speech-issue-on-chatgpt-web-version/759577#post_10</link>
-      <description><![CDATA[我曾经在 iOS 设备上使用 3.5 版网页，文本转语音功能在英语、丹麦语和德语中都运行良好。在工作中途，我收到了来自 openai 的弹窗，询问我是否愿意免费试用 4.0 版。我回答是的，然后就没了。这个功能就消失了。现在，回到 3.5 版后，它仍然不见了。]]></description>
-      <guid>https://community.openai.com/t/text-to-speech-issue-on-chatgpt-web-version/759577#post_10</guid>
-      <pubDate>Sun, 19 May 2024 05:52:13 GMT</pubDate>
+      <title>使用 4o 启动时内存全部删除并清除</title>
+      <link>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505#post_11</link>
+      <description><![CDATA[我正在按照我的@maidan的指示恢复记忆，但是，它继续忘记它们&amp;没有巩固它的记忆和并没有显示 70 多个记忆的完整列表，而只是显示了 6 个记忆之类的少数内容。]]></description>
+      <guid>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505#post_11</guid>
+      <pubDate>Sun, 19 May 2024 09:09:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>由于 GPT-4o 限制，无法继续与 GPT-3.5 对话</title>
+      <link>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781#post_11</link>
+      <description><![CDATA[12小时后将自动重置。但我们不能在同一时间或同一天继续]]></description>
+      <guid>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781#post_11</guid>
+      <pubDate>Sun, 19 May 2024 09:06:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 4o 的高级版和免费版有什么区别？</title>
+      <link>https://community.openai.com/t/what-is-the-difference-between-the-premium-and-the-free-version-regarding-gpt-4o/764353#post_1</link>
+      <description><![CDATA[大家好，既然 GPT 4o 可供所有人使用，那么高级版和免费版之间有什么区别？]]></description>
+      <guid>https://community.openai.com/t/what-is-the-difference-between-the-premium-and-the-free-version-regarding-gpt-4o/764353#post_1</guid>
+      <pubDate>Sun, 19 May 2024 09:02:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 OpenAI API 和 GPT-4o 来评估 20k-token 文本，它只读取其中的部分内容，导致评估不正确；我怎样才能让它阅读全文？</title>
+      <link>https://community.openai.com/t/using-openai-api-with-gpt-4o-to-evaluate-a-20k-token-text-it-only-reads-parts-of-it-causing-incorrect-evaluations-how-can-i-make-it-read-the-entire-text/763054#post_3</link>
+      <description><![CDATA[嗨！感谢您的反馈！我实际上正在使用聊天完成 API，并且我认为我没有启用令牌限制。
+从使用数据中我看到它认为所有文本都作为输入，但给出答案时它的行为就像它以不同的方式“加权”单词一样。例如，我希望它能够评估文本中有关可持续发展目标的参考文献的数量和质量。然而，它总是给出最高的评价：要么是每页都有不断的引用，要么是全文中有两到三个引用……]]></description>
+      <guid>https://community.openai.com/t/using-openai-api-with-gpt-4o-to-evaluate-a-20k-token-text-it-only-reads-parts-of-it-causing-incorrect-evaluations-how-can-i-make-it-read-the-entire-text/763054#post_3</guid>
+      <pubDate>Sun, 19 May 2024 08:56:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 变得免费</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229#post_4</link>
+      <description><![CDATA[亚斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯斯！兄弟，申请者已完成设置。 （不会拼写）]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229#post_4</guid>
+      <pubDate>Sun, 19 May 2024 08:54:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
