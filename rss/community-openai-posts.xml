@@ -4,168 +4,179 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 20 May 2024 09:23:17 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2024 12:37:10 GMT</lastBuildDate>
     <item>
-      <title>嗯……谁喜欢吹口哨？ 😗</title>
-      <link>https://community.openai.com/t/well-who-likes-to-whistle/766534#post_1</link>
-      <description><![CDATA[虽然这种特性不是发生在 API 构建器上，而是发生在 ChatGPT plus 平台上，但我在语音聊天中与模型进行了一次随意的对话，它对我的​​口哨有一个奇怪的反应。我以为我已经关闭了语音聊天，于是在椅子上吹起了口哨。
-如果重要的话，我发出的口哨声非常高亢，就像狗哨子或其他东西一样（我们都很好......哈哈）
-在那段时间，我的口哨导致模型用乌克兰语说话，同时也将我的口哨转换成乌克兰语句子回到文本框中。
-这是一种幻觉还是侥幸？]]></description>
-      <guid>https://community.openai.com/t/well-who-likes-to-whistle/766534#post_1</guid>
-      <pubDate>Mon, 20 May 2024 09:20:02 GMT</pubDate>
+      <title>ChatGPT 在 Safari 上非常慢</title>
+      <link>https://community.openai.com/t/chatgpt-is-incredibly-slow-on-safari/766899#post_1</link>
+      <description><![CDATA[嘿，ChatGPT 在浏览器上一般来说非常慢。 Safari 对我来说是最糟糕的。在 GPT4o 发布之前，一切都运行良好。还有其他人遇到过这种情况吗？希望问题能尽快得到解决！]]></description>
+      <guid>https://community.openai.com/t/chatgpt-is-incredibly-slow-on-safari/766899#post_1</guid>
+      <pubDate>Mon, 20 May 2024 12:36:13 GMT</pubDate>
     </item>
     <item>
-      <title>由于 GPT-4o 限制，无法继续与 GPT-3.5 对话</title>
-      <link>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781?page=2#post_21</link>
-      <description><![CDATA[免费层的速率限制如何发挥作用？
-免费套餐用户在三小时内只能使用有限次数的 GPT-4o。一旦您达到限制，我们会通知您，并邀请您使用 GPT-3.5 继续对话或升级到 ChatGPT Plus。
-寻找上述有关 Open AI 常见问题解答的答案。希望它有帮助这也是链接 - https ://help.openai.com/en/articles/9275245-using-chatgpt-s-free-tier-faq]]></description>
-      <guid>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781?page=2#post_21</guid>
-      <pubDate>Mon, 20 May 2024 09:19:50 GMT</pubDate>
+      <title>Voice for Sky 听起来像 Juniper</title>
+      <link>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_14</link>
+      <description><![CDATA[不知道为什么你看不到这条推文背后的线索，但有人声称这个声音与电影《她》中的斯嘉丽·约翰逊如此接近，以至于他们不得不将其删除（或其他什么） .
+我想人们无论如何都会问。]]></description>
+      <guid>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_14</guid>
+      <pubDate>Mon, 20 May 2024 12:35:38 GMT</pubDate>
     </item>
     <item>
-      <title>助手示例不起作用</title>
-      <link>https://community.openai.com/t/assistant-example-not-working/766532#post_1</link>
-      <description><![CDATA[嗨，我正在尝试 OpenAI 文档中的示例，但只是失败了。这是我正在使用的代码：
-导入操作系统
-从 openai 导入 OpenAI
-从 dotenv 导入 load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv())
-
-客户端 = OpenAI(
-    api_key = os.getenv(&quot;OPENAI_API_KEY&quot;),
-）
-  
-助手 = client.beta.assistants.create(
-  name=“数学导师”，
-  instructions=&quot;您是个人数学导师。编写并运行代码来回答数学问题。&quot;,
-  工具=[{&quot;type&quot;:&quot;code_interpreter&quot;}],
-  型号=“gpt-3.5-turbo-0125”，
-）
-
-线程 = client.beta.threads.create()
-
-消息 = client.beta.threads.messages.create(
-  thread_id=线程.id,
-  角色=“用户”，
-  content=&quot;我需要解方程 `3x + 11 = 14`。你能帮我吗？&quot;
-）
-
-运行 = client.beta.threads.runs.create_and_poll(
-  thread_id=线程.id,
-  Assistant_id=助理.id,
-  instructions=&quot;请称呼用户为 Jane Doe。该用户拥有高级帐户。&quot;
-）
-
-
-
-# 等待运行完成并获取响应
-而 run.status 不在 [&quot;completed&quot;, &quot;failed&quot;] 中：
-    运行 = client.beta.threads.runs.retrieve(
-        thread_id=线程.id,
-        run_id=运行.id
-    ）
-
-# 如果运行成功完成，获取最新消息
-如果 run.status == &quot;已完成&quot;:
-    消息 = client.beta.threads.messages.list(
-        thread_id=线程.id
-    ）
-    打印（消息）
-如果 run.status == “失败”：
-    打印（“F”）
-]]></description>
-      <guid>https://community.openai.com/t/assistant-example-not-working/766532#post_1</guid>
-      <pubDate>Mon, 20 May 2024 09:18:39 GMT</pubDate>
+      <title>Gpt-4o的网页浏览能力在哪里？</title>
+      <link>https://community.openai.com/t/gpt-4o-web-browsing-capability-where/744458#post_14</link>
+      <description><![CDATA[@da2 我想说这是一个合理的假设。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-web-browsing-capability-where/744458#post_14</guid>
+      <pubDate>Mon, 20 May 2024 12:34:17 GMT</pubDate>
     </item>
     <item>
-      <title>加强GPT-4代币管理的建议</title>
-      <link>https://community.openai.com/t/suggestion-for-enhancing-gpt-4s-token-management/766530#post_1</link>
-      <description><![CDATA[亲爱的 OpenAI 团队，
-我有一个想法，可能会增强您的 GPT-4 模型的可用性和性能。目前，该模型的令牌限制为每讨论线程 128k 个令牌。一旦达到此限制，上下文就会重置，这可能会破坏更长、更连贯的对话。
-我建议实施“滚动”令牌窗口。这将涉及通过在添加新令牌时删除最旧的令牌来持续维护最后的 128k 个令牌。这种方法可以确保始终保留对话的最新部分，从而实现扩展的、连贯的交互。
-以下是这种方法的一些潜在好处：
-
-扩展的连贯对话：用户可以进行更长的对话而不会丢失上下文，从而增强用户体验。
-提高用户参与度：这对于客户支持、长期项目协助或教育辅导等应用程序尤其有益。
-资源效率：通过保留最相关和最新的标记，与保留无限的对话历史记录相比，这种方法可以减少计算负载。
-
-感谢您考虑此建议。我相信它可以显著增强你的人工智能模型的功能和用户体验。
-此致，
-Theovz
-PS：是的，我让 GPT-4o 重新编辑了我最初的信息，因为我对自己的创作不满意。]]></description>
-      <guid>https://community.openai.com/t/suggestion-for-enhancing-gpt-4s-token-management/766530#post_1</guid>
-      <pubDate>Mon, 20 May 2024 09:18:26 GMT</pubDate>
+      <title>把天空带回来！这是最好的声音</title>
+      <link>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897#post_1</link>
+      <description><![CDATA[Sky 是唯一不错的语音配置文件。让 Sky 回归！！
+拜托。其他配置文件都很糟糕。Sky 是唯一既具有平静语调又听起来像人类的语音配置文件。其余的听起来更像“AI”，而且过于乐观和愉快。目标是对话和自然。我不需要每次与助手互动时都觉得助手想要让我做好心理准备去参加马拉松。在我看来，Sky 是唯一可用的配置文件。
+让 Sky 回归！]]></description>
+      <guid>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897#post_1</guid>
+      <pubDate>Mon, 20 May 2024 12:34:08 GMT</pubDate>
     </item>
     <item>
-      <title>Sky 的声音听起来像 Juniper</title>
-      <link>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_11</link>
-      <description><![CDATA[我也有同样的问题]]></description>
-      <guid>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_11</guid>
-      <pubDate>Mon, 20 May 2024 09:18:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4o 与 gpt-4-turbo-2024-04-09，gpt-4o 失败</title>
-      <link>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_8</link>
-      <description><![CDATA[他们也不太可能知道，因为模型的可能输入本质上是无限的，并且根据模型从一个版本到下一个版本的行为变化，一些用户可能更喜欢使用相同提示从新模型获得的结果，而其他用户可能更喜欢旧模型的结果。
-为每个定制的提示制作全面的模型转换指南根本不可行。
-至于“向后兼容”……我甚至不完全确定这在这种情况下意味着什么。新模型总是产生与旧模型相同的输出？
-如果旧模型给出更好的结果，为什么不直接使用旧模型呢？它还在那里。或者根据您当前的需求使用这两种模型。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_8</guid>
-      <pubDate>Mon, 20 May 2024 09:17:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何获取读取 csv 的 API？</title>
-      <link>https://community.openai.com/t/how-to-get-the-api-to-read-a-csv/766402#post_3</link>
-      <description><![CDATA[啊，好的，无论如何，谢谢您的回复。
-这很有趣。所以界面在某些方面还可以做得更好。
-对于一个巨大的 CSV，我想它可能会变得昂贵。没问题，再次感谢。]]></description>
-      <guid>https://community.openai.com/t/how-to-get-the-api-to-read-a-csv/766402#post_3</guid>
-      <pubDate>Mon, 20 May 2024 09:15:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>语音聊天时查看文字记录</title>
-      <link>https://community.openai.com/t/see-transcript-while-voice-chatting/766512#post_1</link>
-      <description><![CDATA[如果能够同时说话和查看文字聊天就好了。
-当我说话或听时看到文字记录会很高兴。]]></description>
-      <guid>https://community.openai.com/t/see-transcript-while-voice-chatting/766512#post_1</guid>
-      <pubDate>Mon, 20 May 2024 09:15:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>在哪里可以找到 GPT-4o？我似乎无法在任何地方找到它</title>
-      <link>https://community.openai.com/t/where-can-i-find-gpt-4o-i-cant-seem-to-find-it-anywhere/750468?page=2#post_27</link>
-      <description><![CDATA[这里也一样。我在 Plus 上，有 4o 的聊天时间，但不在操场上。 4 以前有，但现在也没有了]]></description>
-      <guid>https://community.openai.com/t/where-can-i-find-gpt-4o-i-cant-seem-to-find-it-anywhere/750468?page=2#post_27</guid>
-      <pubDate>Mon, 20 May 2024 09:11:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 无法识别扫描文档的问题</title>
-      <link>https://community.openai.com/t/problems-with-gpt-not-recognising-scanned-documents/766502#post_1</link>
-      <description><![CDATA[GPT无法有效识别扫描的pdf文件，当我上传扫描的pdf文件时，它提示无法从此文件中提取任何文本。但是中国的kimichat可以识别并回答我的问题！]]></description>
-      <guid>https://community.openai.com/t/problems-with-gpt-not-recognising-scanned-documents/766502#post_1</guid>
-      <pubDate>Mon, 20 May 2024 09:10:25 GMT</pubDate>
+      <title>更新后“朗读”功能无法使用</title>
+      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_165</link>
+      <description><![CDATA[我看到了一些关于天空的内容，但回到这个问题，我尝试切换声音，但仍然得到同样的结果，当我点击时声音图标没有反应。你在 Firefox 浏览器上尝试过 cors 解决方法吗]]></description>
+      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_165</guid>
+      <pubDate>Mon, 20 May 2024 12:33:11 GMT</pubDate>
     </item>
     <item>
       <title>更新后“朗读”功能不起作用</title>
-      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=8#post_153</link>
-      <description><![CDATA[您的帖子（现已删除）引用了 ChatGPT Web 应用程序包装应用程序的 GitHub 存储库。
-这是一个非官方的第三方应用程序，用于访问 ChatGPT 提供的服务。
-您看到的 CORS 错误似乎是由上下文发出的请求造成的，而不是与您访问 ChatGPT 的浏览器客户端关联的上下文。
-我的猜测是，您当前正在使用 Chrome/Firefox 扩展程序或用户脚本，它们试图从您的 ChatGPT 会话中提取信息或向其中写入信息。
-这也是不受支持的，并且可能违反 ToS，具体取决于扩展/脚本的范围。
-如果您尝试使用未安装任何尝试与 ChatGPT 交互的扩展程序或活动脚本的浏览器访问 https://chatgpt.com应用程序后，您的问题就会消失。]]></description>
-      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=8#post_153</guid>
-      <pubDate>Mon, 20 May 2024 09:10:14 GMT</pubDate>
+      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_164</link>
+      <description><![CDATA[是的，我在这个特定视频中使用 Edge。但我在 Chrome 和 Firefox 中得到了相同的结果，所有这些都在 Windows Sandbox 中作为全新安装进行了测试。
+我们都想知道发生了什么。显然，他们对 Sky 语音有一些问题，并声称他们暂停了该语音，因此在选择 Sky 时你会得到 Juniper。
+
+
+  &lt;标题类=“来源”&gt;
+      
+linkedin.com
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+LinkedIn 上的 OpenAI：如何选择 ChatGPT 的声音 | 55 条评论
+我们听到了有关如何在 ChatGPT 中选择声音的问题，尤其是 Sky。我们正在努力暂停使用 Sky，同时解决这些问题。
+
+阅读更多关于…… | LinkedIn 上有 55 条评论
+
+
+
+
+
+因此，如果您在移动应用程序中选择 Sky，则改为瞻博网络的语音播放。但同样，只有在移动应用程序中，大声朗读才有效。在桌面上，无论您选择哪种声音，它都是完全静音的。]]></description>
+      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_164</guid>
+      <pubDate>Mon, 20 May 2024 12:29:18 GMT</pubDate>
     </item>
     <item>
-      <title>BatchAPI 现已推出</title>
-      <link>https://community.openai.com/t/batchapi-is-now-available/718416?page=5#post_89</link>
-      <description><![CDATA[你好@jeffsharris
-感谢您提供批处理 API。一个问题：如何处理长响应（超过 4096 个令牌）？当我通过 API 进行一次调用时，我只需启动第二个调用，并将“继续”作为用户文本（并首先将响应作为辅助文本传递）。
-以及 Batch API？谢谢。]]></description>
-      <guid>https://community.openai.com/t/batchapi-is-now-available/718416?page=5#post_89</guid>
-      <pubDate>Mon, 20 May 2024 09:10:03 GMT</pubDate>
+      <title>ChatGPT4 和 4o 中的文本转语音功能问题</title>
+      <link>https://community.openai.com/t/issue-with-text-to-speech-functionality-in-chatgpt4-4o/756514#post_9</link>
+      <description><![CDATA[到目前为止，什么都没有。只有一位用户表示它可以在 Android 上运行。我测试过，确实如此。当我使用 GPT Chat 来帮助我修改和审阅文本时，我会在平板电脑上访问它并播放文本，以便我可以通过聆听进行检查。]]></description>
+      <guid>https://community.openai.com/t/issue-with-text-to-speech-functionality-in-chatgpt4-4o/756514#post_9</guid>
+      <pubDate>Mon, 20 May 2024 12:28:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>删除我不需要的旧的微调模型</title>
+      <link>https://community.openai.com/t/delete-old-finetuned-model-that-i-dont-need/764286#post_3</link>
+      <description><![CDATA[好的。这可以删除模型，但它仍然在微调选项卡中显示为记录。我如何清除它，以便我只能看到我正在开发的新模型。整个目的是拥有一个干净的石板，在那里我只能看到可行的模型，而没有噪音。]]></description>
+      <guid>https://community.openai.com/t/delete-old-finetuned-model-that-i-dont-need/764286#post_3</guid>
+      <pubDate>Mon, 20 May 2024 12:25:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>语音配置文件与设置偏好不匹配</title>
+      <link>https://community.openai.com/t/voice-profile-does-not-match-set-preference/765942#post_3</link>
+      <description><![CDATA[他们暂停了配音，因为担心它可以与斯嘉丽·约翰逊相媲美：
+
+  &lt;标题类=“来源”&gt;
+      
+福布斯
+
+
+  &lt;文章类=“onebox-body”&gt;
+    
+OpenAI 表示其 ChatGPT 语音“Sky”听起来像斯嘉丽·约翰逊
+OpenAI 承认 Sky（ChatGPT 语音助手的五个声音之一）听起来像斯嘉丽·约翰逊，但表示它属于不同的配音演员，“不是模仿品”。
+
+
+
+
+
+这真是一个耻辱。天空的声音是唯一具有普遍吸引力的声音。其余的都很糟糕。我们要么需要更多的语音选项、调制基本语音的能力，要么让 Sky 回来（对我来说最可取）。
+把天空带回来！]]></description>
+      <guid>https://community.openai.com/t/voice-profile-does-not-match-set-preference/765942#post_3</guid>
+      <pubDate>Mon, 20 May 2024 12:24:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o 与 gpt-4-turbo-2024-04-09，gpt-4o 失败</title>
+      <link>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_13</link>
+      <description><![CDATA[
+
+
+埃尔姆施泰特：
+&lt;块引用&gt;
+写蝾螈主题的俳句
+
+
+价格的 1/4 并不能告诉我们俳句到底在写什么。
+###gpt4o
+&lt;块引用&gt;
+火热肌肤，清凉溪流，
+黑夜的沉默守望者，
+大自然的温柔火焰。
+在长满青苔的绿色林间空地，
+小脚踏古路，
+每一步都充满智慧。
+翠绿的眼睛闪闪发光，
+暮色静谧中的神秘，
+生活的安静守护者。
+
+## gpt4
+&lt;块引用&gt;
+在潮湿、黑暗的树林里，
+蝾螈躺在看不见的地方，
+绿色之下的生活。
+火的本质，
+火蜥蜴，火焰舞者，
+在热的情况下，它的存在。
+粘滑、光滑、快速，
+穿过苔藓，它选择的一条小路，
+火蜥蜴的把戏。
+]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_13</guid>
+      <pubDate>Mon, 20 May 2024 12:23:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o 与 gpt-4-turbo-2024-04-09，gpt-4o 失败</title>
+      <link>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_12</link>
+      <description><![CDATA[哦，天哪，不是我使用 3.5 最稳定的模型，并使用 gpt-4o 响应的一次提示，以负 10 倍的成本获得 3.5 听起来像 4o...
+哥们……
+我希望没有人窃取我的想法，同时也可以为自己节省大量金钱]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328#post_12</guid>
+      <pubDate>Mon, 20 May 2024 12:23:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>Voice for Sky 听起来像 Juniper</title>
+      <link>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_13</link>
+      <description><![CDATA[我不明白这个链接。它只是有疑问。
+&lt;img alt=&quot;图片&quot; height=&quot;478&quot; src=&quot;https://global.discourse-cdn.com/openai1/original/4X/d/8/1/d81316c090e75831d8c2132698de91fb054bc580.png&quot; width=&quot;626 ” /&gt;]]></description>
+      <guid>https://community.openai.com/t/voice-for-sky-changed-to-sound-like-juniper/765911#post_13</guid>
+      <pubDate>Mon, 20 May 2024 12:22:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>更新后“朗读”功能不起作用</title>
+      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_163</link>
+      <description><![CDATA[您在使用 Edge 吗？ Open AI 是否禁止从网络上运行 Read Aloud？它上周不再对我有用了]]></description>
+      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=9#post_163</guid>
+      <pubDate>Mon, 20 May 2024 12:22:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>增加 chatGPT macos 应用程序的字体大小</title>
+      <link>https://community.openai.com/t/increasing-font-size-of-chatgpt-macos-app/753827#post_10</link>
+      <description><![CDATA[在 4k 显示器上，该应用程序太小而难以阅读，因为它是一个包含 99% 文本的应用程序，因此此功能是必须的。谢谢！]]></description>
+      <guid>https://community.openai.com/t/increasing-font-size-of-chatgpt-macos-app/753827#post_10</guid>
+      <pubDate>Mon, 20 May 2024 12:22:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
