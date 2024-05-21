@@ -4,168 +4,79 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 21 May 2024 06:26:08 GMT</lastBuildDate>
-    <item>
-      <title>更新后“朗读”功能不起作用</title>
-      <link>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=10#post_198</link>
-      <description><![CDATA[谢谢T_T
-各位，下次 bug 见
-我会想念你的哈哈]]></description>
-      <guid>https://community.openai.com/t/read-aloud-not-working-after-update/755257?page=10#post_198</guid>
-      <pubDate>Tue, 21 May 2024 06:24:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>每秒 Gpt-4o 令牌与 gpt-3.5-turbo 相当。数据与分析</title>
-      <link>https://community.openai.com/t/gpt-4o-tokens-per-second-comparable-to-gpt-3-5-turbo-data-and-analysis/768559#post_2</link>
-      <description><![CDATA[干得好。
-延迟应该是网络延迟和上下文设置时间 - 第一个令牌输出的时间。不是操场底部 OpenAI 的打印输出。否则它的意义不大，特别是考虑到产生不同的令牌长度。这样的衡量标准还给出了用户满意度指数，即他们坐着看不到任何东西的时间。
-延迟是时间延迟。就像信号从卫星反弹并返回所需的时间，或者手机编码 4g 数据包所需的时间。
-总工作花费的时间也很有价值，但是这里也被不同的令牌计数所掩盖，此时您可以使用 max_tokens 并为自己节省一些钱。
-我有几次展示了基准测试 - 还要求提供有关小猫的文章 - 并且我将第一个令牌的延迟与其余令牌的流速率分开。
-一天中的时间也很重要。查看这个持续运行作业的网站：
-  &lt;标题类=“来源”&gt;
-      
-
-      openai-status.llm-utils.org
-
-
-  &lt;文章类=“onebox-body”&gt;
-    
-
-非官方 OpenAI 状态
-查看 OpenAI 的当前状态和历史表现。
-
-
-
-
-
-出于好奇，我想调查的一件事是模型有多“突发”。调查内容过滤器等一次释放的 15 个令牌的统计数据。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-tokens-per-second-comparable-to-gpt-3-5-turbo-data-and-analysis/768559#post_2</guid>
-      <pubDate>Tue, 21 May 2024 06:24:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>带功能调用的 Streamlit Assistant 聊天机器人</title>
-      <link>https://community.openai.com/t/streamlit-assistant-chat-bot-with-function-calling/768596#post_1</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/streamlit-assistant-chat-bot-with-function-calling/768596#post_1</guid>
-      <pubDate>Tue, 21 May 2024 06:21:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助，我拨打的电话类型是否正确？</title>
-      <link>https://community.openai.com/t/need-some-help-am-i-making-the-correct-type-of-calls/768585#post_2</link>
-      <description><![CDATA[我做对了吗？如果消息线程太长，我需要做其他事情吗？我怎样才能让它代表我交互和过滤事物。我还可以实施其他什么吗？有什么想法吗？]]></description>
-      <guid>https://community.openai.com/t/need-some-help-am-i-making-the-correct-type-of-calls/768585#post_2</guid>
-      <pubDate>Tue, 21 May 2024 06:19:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我的 gpt4o 无法读取文件？</title>
-      <link>https://community.openai.com/t/why-cant-my-gpt4o-read-files/768382#post_2</link>
-      <description><![CDATA[当您实际上传文件时会发生什么？]]></description>
-      <guid>https://community.openai.com/t/why-cant-my-gpt4o-read-files/768382#post_2</guid>
-      <pubDate>Tue, 21 May 2024 06:19:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助，我拨打的电话类型是否正确？</title>
-      <link>https://community.openai.com/t/need-some-help-am-i-making-the-correct-type-of-calls/768585#post_1</link>
-      <description><![CDATA[基本上，我想构建一个聊天机器人，可以与我聊聊我的 WhatsApp 或 Facebook 消息。我导出了我的 Facebook 消息，其中包含收件人和发件人列以及日期/时间戳。
-它们在 excel 文件中，我已加载它们并通过 API 传递它们，但我想知道是否有更好、更有效的方法。
-我还想知道它是否可以为我动态过滤内容。例如，向我显示 2023 年 5 月 1 日至 2023 年 5 月 2 日之间的消息，或者向我显示我的朋友讲笑话的消息……
-这是我的 api 调用和说明，这是我不确定是否可以做得更好的地方，也许可以将其分块，或者我是否遗漏了什么愚蠢的东西？
-import openai
-
-class OpenAIClient:
-def __init__(self, api_key):
-self.client = openai.OpenAI(api_key=api_key)
-
-def get_response(self, prompt, dialogue_history, max_tokens=150):
-system_prompt = (
-&quot;SYSTEMPROMPTHERE&quot;
-)
-
-# 将系统提示和用户提示与对话历史记录中的上下文相结合
-context_prompt = f&quot;对话历史记录:\n{conversation_history}\n\n用户问题：{prompt}\nAI 响应：&quot;
-
-messages = [
-{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: system_prompt},
-{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: context_prompt}
-]
-
-response = self.client.chat.completions.create(
-model=&quot;gpt-4&quot;,
-messages=messages,
-max_tokens=max_tokens
-)
-
-return response.choices[0].message.content.strip()’’’
-
-然后我这样获取响应并将其显示在聊天框中：
-
-‘’’ # 第三行：生成式 AI 输入/输出和选定的聊天消息
-col3, col4 = st.columns(2)
-
-with col3:
-st.subheader(&quot;提问&quot;)
-user_input = st.text_input(&quot;输入您的问题&quot;)
-if st.button(&quot;提交&quot;):
-messages = get_conversation(df, selected_conversation, start_date, end_date)
-truncated_messages = truncate_conversation(messages)
-context = &quot;\n&quot;.join(truncated_messages)
-prompt = f&quot;对话:\n{context}\n\n用户问题：{user_input}\nAI 响应：&quot;
-response = openai_client.get_response(prompt, max_tokens=150)
-st.write(response)’’’]]></description>
-      <guid>https://community.openai.com/t/need-some-help-am-i-making-the-correct-type-of-calls/768585#post_1</guid>
-      <pubDate>Tue, 21 May 2024 06:17:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法共享我的自定义 GPT</title>
-      <link>https://community.openai.com/t/can-not-share-my-custom-gpts/766386#post_6</link>
-      <description><![CDATA[这就是它通常与 ChatGPT 配合使用的方式。它会自信地做出不正确的断言。如果你指出它，它就会“道歉”。这就是为什么总是要求它证明其断言，最好提供链接和/或在其他地方验证其声明很重要。]]></description>
-      <guid>https://community.openai.com/t/can-not-share-my-custom-gpts/766386#post_6</guid>
-      <pubDate>Tue, 21 May 2024 06:16:37 GMT</pubDate>
-    </item>
+    <lastBuildDate>Tue, 21 May 2024 09:21:45 GMT</lastBuildDate>
     <item>
       <title>把天空带回来！这是最好的声音</title>
-      <link>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897?page=3#post_45</link>
-      <description><![CDATA[我注意到您的用户名与 GLaDOS 有点相似。小心，不要被起诉！]]></description>
-      <guid>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897?page=3#post_45</guid>
-      <pubDate>Tue, 21 May 2024 06:11:45 GMT</pubDate>
+      <link>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897?page=3#post_47</link>
+      <description><![CDATA[恢复天空。或者放弃hal9000。就好像他们在 openai 中没有女性声音？性别歧视者]]></description>
+      <guid>https://community.openai.com/t/bring-sky-back-it-was-the-best-voice/766897?page=3#post_47</guid>
+      <pubDate>Tue, 21 May 2024 09:19:18 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT 未更新</title>
-      <link>https://community.openai.com/t/custom-gpts-not-updating/600821#post_2</link>
-      <description><![CDATA[您解决这个问题了吗？我的自定义 GPT 未更新并被冻结，并在右上角显示“更新待处​​理”注释。不更新知识库并不断回溯旧的/不正确的数据。]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-not-updating/600821#post_2</guid>
-      <pubDate>Tue, 21 May 2024 06:09:44 GMT</pubDate>
+      <title>无法登录 Mac OS 应用程序 - 出现问题。请确保您的设备的日期和时间设置正确。检查您的互联网连接是否稳定，然后重新启动应用程序并重试</title>
+      <link>https://community.openai.com/t/cant-log-in-into-mac-os-app-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly-check-that-your-internet-connection-is-stable-then-restart-the-app-and-try-again/764272#post_4</link>
+      <description><![CDATA[我也遇到同样的问题，还没解决。]]></description>
+      <guid>https://community.openai.com/t/cant-log-in-into-mac-os-app-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly-check-that-your-internet-connection-is-stable-then-restart-the-app-and-try-again/764272#post_4</guid>
+      <pubDate>Tue, 21 May 2024 09:17:39 GMT</pubDate>
     </item>
     <item>
-      <title>我的GPT4无法浏览网站</title>
-      <link>https://community.openai.com/t/my-gpt4-cannot-browse-website/768342#post_6</link>
-      <description><![CDATA[谢谢 Mohammad，
-你能告诉我如何修复它吗？我的 GPT-4 从昨天开始拒绝浏览网站，或者具体来说变成了 GPT-3.5。
-我可以告诉他一些提示/提示，让他回到 GPT-4 吗？]]></description>
-      <guid>https://community.openai.com/t/my-gpt4-cannot-browse-website/768342#post_6</guid>
-      <pubDate>Tue, 21 May 2024 06:07:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 DALLE 3 生成迪士尼皮克斯风格图像</title>
-      <link>https://community.openai.com/t/generating-disney-pixar-style-images-from-dalle-3/768453#post_2</link>
+      <title>冒充 sora 的虚假页面（骗局！）</title>
+      <link>https://community.openai.com/t/a-false-page-pretending-to-be-sora-scam/676234?page=2#post_30</link>
       <description><![CDATA[
 
-这是发送到 DALL-E 3 的 ChatGPT 提示：
-{
-“提示”：“一个三岁的孩子在卧室里玩叠环玩具。孩子微笑着，专注地看着玩具，这个玩具色彩缤纷，由不同大小的圆环制成。卧室背景里堆满了玩具，包括毛绒动物、汽车和积木。风格是3D电脑渲染的儿童电影动画，类似于玩具总动员，色彩鲜艳，纹理细致。”,
-“尺寸”：“1024x1024”，
-}
-最后一张图片中甚至有一个复活节彩蛋......]]></description>
-      <guid>https://community.openai.com/t/generating-disney-pixar-style-images-from-dalle-3/768453#post_2</guid>
-      <pubDate>Tue, 21 May 2024 06:07:21 GMT</pubDate>
+
+ leiam.nunzio：
+&lt;块引用&gt;
+请分享您的结果。
+
+
+我的结果是知道没有 Sora 版本，尤其是没有下载，并且没有病毒且密码没有被盗。]]></description>
+      <guid>https://community.openai.com/t/a-false-page-pretending-to-be-sora-scam/676234?page=2#post_30</guid>
+      <pubDate>Tue, 21 May 2024 09:11:17 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPTS 未更新，或者可能正在更新？</title>
-      <link>https://community.openai.com/t/custom-gpts-not-updating-or-maybe-they-are/729778#post_7</link>
-      <description><![CDATA[由于我的自定义 GPT 未使用任何新信息进行更新、保存时出错、顶部始终显示“更新待处​​理”注释，因此令人沮丧的情况仍在继续。就好像我几周前在更新大量新数据时破坏了它一样。当然，我无法打破它，或者也许我做到了？我确实一次添加了多个附件。]]></description>
-      <guid>https://community.openai.com/t/custom-gpts-not-updating-or-maybe-they-are/729778#post_7</guid>
-      <pubDate>Tue, 21 May 2024 06:06:24 GMT</pubDate>
+      <title>如何创建带有英文文本的 DALL E 图像</title>
+      <link>https://community.openai.com/t/how-to-create-dall-e-images-with-text-in-english-language/768876#post_1</link>
+      <description><![CDATA[尝试通过 DALL E 生成图像来教育孩子们了解植物的各个部分。该图像带有一些奇怪语言的标签。有没有办法生成带英文标签的图片。]]></description>
+      <guid>https://community.openai.com/t/how-to-create-dall-e-images-with-text-in-english-language/768876#post_1</guid>
+      <pubDate>Tue, 21 May 2024 09:10:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT 4 代码解释器时，助手 API 失败并出现“抱歉，出现错误”错误</title>
+      <link>https://community.openai.com/t/assistants-api-fails-with-sorry-something-went-wrong-error-when-using-code-interpreter-with-gpt-4/753252#post_5</link>
+      <description><![CDATA[可以分享一下代码吗，有助于调试]]></description>
+      <guid>https://community.openai.com/t/assistants-api-fails-with-sorry-something-went-wrong-error-when-using-code-interpreter-with-gpt-4/753252#post_5</guid>
+      <pubDate>Tue, 21 May 2024 09:08:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>openai.error.InvalidRequestError：模型“gpt-4”不存在或您无权访问它</title>
+      <link>https://community.openai.com/t/openai-error-invalidrequesterror-the-model-gpt-4-does-not-exist-or-you-do-not-have-access-to-it/376230#post_9</link>
+      <description><![CDATA[
+
+
+ grobarskkosta2：
+&lt;块引用&gt;
+我的帐户上有 5 美元，
+
+
+您是否确实添加了信用卡并购买了积分？解锁 gpt-4 型号的付款需要等待几个小时？之后，您可能需要生成一个 API 密钥（尤其是如果之前没有生成过），并在弹出时执行电话验证。]]></description>
+      <guid>https://community.openai.com/t/openai-error-invalidrequesterror-the-model-gpt-4-does-not-exist-or-you-do-not-have-access-to-it/376230#post_9</guid>
+      <pubDate>Tue, 21 May 2024 09:07:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 gpt 4o 的 Android 上无法加载语音模式</title>
+      <link>https://community.openai.com/t/speech-mode-not-loading-on-android-with-gpt-4o/768224#post_3</link>
+      <description><![CDATA[谢谢，但是如何寻求支持？我试过了，没有出现]]></description>
+      <guid>https://community.openai.com/t/speech-mode-not-loading-on-android-with-gpt-4o/768224#post_3</guid>
+      <pubDate>Tue, 21 May 2024 09:05:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>让助手更主动地使用 file_search</title>
+      <link>https://community.openai.com/t/make-assistant-use-file-search-more-pro-actively/763897#post_5</link>
+      <description><![CDATA[/assistants 端点管理 Assistant 对象。 /runs 端点处理与此类助手的交互。
+加权tool_choice将为使用工具提供更多空间。但很难知道权重如何发挥作用：它会是一个样本吗？]]></description>
+      <guid>https://community.openai.com/t/make-assistant-use-file-search-more-pro-actively/763897#post_5</guid>
+      <pubDate>Tue, 21 May 2024 09:05:16 GMT</pubDate>
     </item>
     </channel>
 </rss>

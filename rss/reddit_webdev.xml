@@ -4,11 +4,39 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 21 May 2024 06:25:10 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2024 09:20:48 GMT</lastBuildDate>
+    <item>
+      <title>Index.html 模板显然没有与 Flask 应用程序正确集成</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cx38bm/indexhtml_template_apparently_not_correctly/</link>
+      <description><![CDATA[这里是app.py: fromflask import Flask, render_template, request import requests from sqlalchemy import create_engine, Column, Integer, String, Float from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker # 配置 Flask app app = Flask(__name__) # 配置数据库连接详细信息（替换为您的凭据） SQLALCHEMY_DATABASE_URI = &#39;sqlite:/// mydatabase.db&#39; engine = create_engine(SQLALCHEMY_DATABASE_URI) Base = declarative_base() # 定义用于存储股票数据的数据库模型（可选） class StockPrice(Base): __tablename__ = &quot;stock_prices&quot;; id = Column(Integer, Primary_key=True) symbol = Column(String(10), nullable=False) 价格 = Column(Float, nullable=False) def __repr__(self): return f&quot;Stock(symbol=&#39;{self.符号}&#39;，价格={self.price})” # 创建所有表（如果不存在） Base.metadata.create_all(engine) # 创建数据库会话用于与数据库交互 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) def get_top_movers() ：“”“从 Alpha Vantage API 获取涨幅最大的股票、下跌的股票以及最活跃的股票。”“” api_key = &#39;V08DMK7LDDV3I7TO&#39; # 替换为您实际的 Alpha Vantage API 密钥 url = f&#39;https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&amp;apikey={api_key}&#39; try: response = requests.get(url) response.raise_for_status() data = response.json() # 记录响应数据以用于调试目的 print(&quot;API Response:&quot;, data) return data except requests.RequestException as e: print(f&quot;Error retriving top movers data : {e}&quot;) return None @app.route(&quot;/&quot;) def index(): top_movers = get_top_movers() 赢家、输家、active = None、None、None if top_movers: Gainers = top_movers.get( “top_gainers”，[]）losers = top_movers.get（“top_losers”，[]）active = top_movers.get（“most_actively_traded”，[]）返回render_template（“index.html”，gainers=gainers， Losers=losers, active=active) if __name__ == &quot;__main__&quot;: app.run(debug=True)  index.html &lt; ;!DOCTYPE html&gt;  &lt;头&gt; &lt;元字符集=“UTF-8”&gt; &lt;元名称=“视口”内容=“宽度=设备宽度，初始比例=1.0”&gt; 股票价格检查器  &lt;/头&gt; &lt;正文&gt; {% if top_gainers %} &lt;h2&gt;涨幅最高者&lt;/h2&gt; &lt;ul class=&quot;list-group&quot;&gt; {top_gainers 中的增益者%} {{增益器[&#39;符号&#39;] }} ({{增益器[&#39;变化百分比&#39;] }}) ; {% endfor %} &lt;/ul&gt; {% elif top_losers %} &lt;h2&gt;排名最高的失败者&lt;/h2&gt; &lt;ul class=&quot;list-group&quot;&gt; {% forloser in top_losers %} {{loser[&#39;Symbol&#39;] }} ({{loser[&#39;Change Percent&#39;] }}) ; {% endfor %} &lt;/ul&gt; {% else %} 检索排名前列的移动者数据时出错。 {% endif %} &lt;/body&gt; &lt;/html&gt;  终端上的输出确认从 API 检索到数据： ...... &#39;change_amount&#39;: &#39;2.87&#39;, &#39;change_percentage&#39; : &#39;14.7558%&#39;, &#39;交易量&#39;: &#39;65114509&#39;}, {&#39;ticker&#39;: &#39;GTBP&#39;, &#39;价格&#39;: &#39;7.8&#39;, &#39;change_amount&#39;: &#39;4.68&#39;, &#39;change_percentage&#39;: &#39;150.0%&#39;, &#39;成交量&#39;: &#39;64541722&#39;}, {&#39;ticker&#39;: &#39;TANH&#39;, &#39;价格&#39;: &#39;0.97&#39;, &#39;change_amount&#39;: &#39;0.313&#39;, &#39;change_percentage&#39;: &#39;47.6408%&#39;, &#39;成交量&#39;: &#39;63775266&#39;} , {&#39;ticker&#39;: &#39;JAGX&#39;, &#39;price&#39;: &#39;0.1686&#39;, &#39;change_amount&#39;: &#39;-0.0899&#39;, &#39;change_percentage&#39;: &#39;-34.7776%&#39;, &#39;volume&#39;: &#39;62268819&#39;}]} 127.0.0.1 - - [2024 年 5 月 21 日 14:09:01] “GET / HTTP/1.1” 200 -  在 / 路线上，收到此错误消息：检索顶级移动者数据时出错。 感谢帮助。   由   提交 /u/DigitalSplendid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cx38bm/indexhtml_template_apparently_not_correctly/</guid>
+      <pubDate>Tue, 21 May 2024 08:50:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在寻找有人帮助我启动一个项目！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cx2dyt/im_looking_for_someone_to_help_me_launch_a_project/</link>
+      <description><![CDATA[如果您拥有这些技能（或更多或其他），请随时私信我。我很快就要开始一个项目，希望能开始产生一些钱，并感谢具有这些技能的人的帮助。如果您有任何问题或您有什么资格，请随时私信我。 Chatgpt Ai 软件 一般编码或网页开发。   由   提交/u/john_dumi46   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cx2dyt/im_looking_for_someone_to_help_me_launch_a_project/</guid>
+      <pubDate>Tue, 21 May 2024 07:47:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 IT 人员扩充雇用远程 Web 开发人员的好处</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cx21g9/benefits_of_hiring_a_remote_web_developer_through/</link>
+      <description><![CDATA[       由   提交 /u/rinkidhiman   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cx21g9/benefits_of_hiring_a_remote_web_developer_through/</guid>
+      <pubDate>Tue, 21 May 2024 07:20:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建 PWA Web 应用程序的框架（也可能是移动商店）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cx1bd8/frameworks_to_build_pwa_web_app_potentially/</link>
+      <description><![CDATA[大家好， 我对 Web 开发相当陌生（主要是数据科学家），但已经构建了一些宠物项目培养我在 Web 开发方面的技能。 我正在尝试构建一个小型应用程序，我可以将其推送到 Play 商店/App Store，最好使用 Typescript 编写。  我之前构建过纯 Node 后端 Web 应用程序以及纯 React UI Web 应用程序。我最近还构建了一个带有服务器和客户端组件的 NextJS Web 应用程序。  我从未使用过可发布到移动设备的东西，如果您能就什么是正确/最有利的框架发表意见，我将非常感谢您的帮助。 将不胜感激任何和所有建议。谢谢大家！ P.S.抱歉，自 r/webdev 上提问&gt;r/appdev 不是半活跃状态。  如果有人对我的 NextJS 应用程序感兴趣：https://daily-cryptic-iief.vercel.app /   由   提交/u/astronights  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cx1bd8/frameworks_to_build_pwa_web_app_potentially/</guid>
+      <pubDate>Tue, 21 May 2024 06:31:27 GMT</pubDate>
+    </item>
     <item>
       <title>在 Astro 的 Starlight 文档框架中添加结构化数据</title>
       <link>https://www.reddit.com/r/webdev/comments/1cwxsqj/adding_structured_data_in_astros_starlight/</link>
-      <description><![CDATA[    &lt; /a&gt;   由   提交/u/alexmacarthur  [链接] [评论] &lt; /表&gt;]]></description>
+      <description><![CDATA[        提交人    /u/alexmacarthur   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cwxsqj/adding_structured_data_in_astros_starlight/</guid>
       <pubDate>Tue, 21 May 2024 02:54:45 GMT</pubDate>
     </item>
@@ -22,7 +50,7 @@
     <item>
       <title>我想进步！</title>
       <link>https://www.reddit.com/r/webdev/comments/1cwxaxw/i_want_to_improve/</link>
-      <description><![CDATA[我刚刚启动了Paive 的第一个版本，但我想要来改进。 我目前正在开发其他功能，这些功能将把这个平台提升到一个全新的水平，但在目前的状态下，我不禁感觉缺少了一些东西。 &gt; 你们介意检查一下并让我知道您的想法吗？ 我明天还将推出 Product Hunt！   由   提交 /u/phyziro   [链接] [评论]]]></description>
+      <description><![CDATA[我刚刚推出了 Paive 的第一个版本，但我想对其进行改进。 我目前正在开发其他功能，这些功能将使这个平台达到一个全新的水平，但在目前的状态下，我禁不住觉得缺少了一些东西。 你们介意查看一下并告诉我你们的想法吗？ 我明天还要在 Product Hunt 上发布！    提交人    /u/phyziro   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cwxaxw/i_want_to_improve/</guid>
       <pubDate>Tue, 21 May 2024 02:28:23 GMT</pubDate>
     </item>
@@ -76,39 +104,11 @@
       <pubDate>Mon, 20 May 2024 23:30:02 GMT</pubDate>
     </item>
     <item>
-      <title>我用 AI 构建了我的第一个生产型 Web 应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cwtfz8/i_built_my_first_production_web_app_with_ai/</link>
-      <description><![CDATA[    &lt; /a&gt;   由   提交/u/a-MUK  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cwtfz8/i_built_my_first_production_web_app_with_ai/</guid>
-      <pubDate>Mon, 20 May 2024 23:17:21 GMT</pubDate>
-    </item>
-    <item>
       <title>您的工作或个人设置是什么样的？</title>
       <link>https://www.reddit.com/r/webdev/comments/1cwr77x/what_do_your_work_or_personal_setups_look_like/</link>
       <description><![CDATA[我已经坚持自己的方式有一段时间了，我倾向于喜欢主机上安装的所有内容（语言、驱动程序），这样我就可以管理更少的事情。但我想现代化一点。回到我的虚拟机时代，我使用 vagrant + virtual box，我假设现在每个人都已经转移到容器甚至云服务上。所以我想知道你喜欢如何进行项目工作？我可能很快就会成为自由职业者，所以我的项目环境可能看起来彼此非常不同。我使用的是 MBP M 系列，我选择的 IDE 是 web/phpstorm，我应该如何现代化？   由   提交 /u/IAmRules   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cwr77x/what_do_your_work_or_personal_setups_look_like/</guid>
       <pubDate>Mon, 20 May 2024 21:37:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Devolver Digital 揭露独立游戏网站复活节彩蛋并对其用户进行咆哮</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cwr0gk/devolver_digital_reveals_indie_game_website/</link>
-      <description><![CDATA[   /u/3lijah  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cwr0gk/devolver_digital_reveals_indie_game_website/</guid>
-      <pubDate>Mon, 20 May 2024 21:29:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>下载 Google Drive 编码挑战。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cwqxku/downloading_google_drive_coding_challenges/</link>
-      <description><![CDATA[我刚刚从 LinkedIn 上寻找入门级工作，因为我刚刚大学毕业，获得了科学和信息技术全栈、网络开发和其中一家招聘的公司有一份带回家的编码测试，你必须从 Google 云端硬盘下载。这是标准吗？我觉得有点粗略。我以前在实习期间在家中完成过编码挑战，但从未有人告诉我从 Google 云端硬盘下载文件夹。交易是什么？    由   提交 /u/bakedredweed   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cwqxku/downloading_google_drive_coding_challenges/</guid>
-      <pubDate>Mon, 20 May 2024 21:26:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>数据库连接，如何允许从任何地方访问。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cwqdjb/database_connection_how_to_allow_access_from/</link>
-      <description><![CDATA[现在我正在开发一个网络应用程序。我完成了用户注册和身份验证并将其连接到我的 PostgreSQL 数据库。  我遇到的问题：数据库托管在我的本地主机上。所以无法从任何地方访问它。稍后，来自任何地方的人们都应该能够从任何地方创建用户帐户。 （我知道网络应用程序也必须托管在其他地方，而不是在我的本地主机上，但这在这一点上不是问题。）  我的问题是是否有一种方法来托管数据库，以便可以从任何地方访问它吗？ 有人告诉我，AWS 等云服务可以使用。但这看起来工作量很大。 我是一名计算机科学家学生，实际上没有任何 webdev 经验。这是我们的项目所需要的。一个基于 jodel 的网络应用程序。 非常感谢任何关于去哪里的想法。   由   提交 /u/-SchlauchbootlippeN-   /u/-SchlauchbootlippeN- reddit.com/r/webdev/comments/1cwqdjb/database_connection_how_to_allow_access_from/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cwqdjb/database_connection_how_to_allow_access_from/</guid>
-      <pubDate>Mon, 20 May 2024 21:02:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
