@@ -4,11 +4,67 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 23 May 2024 01:14:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2024 03:19:53 GMT</lastBuildDate>
+    <item>
+      <title>为产品创建 3D 视频</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyj1re/3d_videos_creating_for_products/</link>
+      <description><![CDATA[我正在寻找一个程序，最好是人工智能，用它我可以从上传的图像创建 3D 产品视频，然后将它们上传到我的网站。你能推荐什么？  我做了一些研究，但我想你可以在一分钟内回答我需要几天的时间   由   提交 /u/GdUpFromFeetUp100   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyj1re/3d_videos_creating_for_products/</guid>
+      <pubDate>Thu, 23 May 2024 03:18:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么未获取 API 数据</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyitsn/why_api_data_not_fetched/</link>
+      <description><![CDATA[app.py  fromflask import Flask, render_template, request import requests from alpha_vantage.timeseries import TimeSeries import datetime app = Flask(__name__) # 替换为您的 Alpha Vantage API 密钥 API_KEY = &quot;xxxxxxxxxx&quot;; def get_stock_data(symbol): url = f“https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&amp;symbol={symbol}&amp;apikey={API_KEY}”响应= requests.get（url）数据=响应.json（）返回数据defcalculate_yearly_return（数据，今天，符号）：尝试：如果“时间序列（每日）”是在数据中： daily_data = data[“时间序列（每日）”] one_month_ago = datetime.datetime.strptime(today, &quot;%Y-%m-%d&quot;) - datetime.timedelta(days=30) one_month_ago_str = one_month_ago.strftime(&quot;%m-%d&quot;) opening_price_today = float(daily_data[today][&quot;4.收盘价&quot;]) opening_price_one_month_ago = float(daily_data[one_month_ago_str][&quot;4.收盘价&quot;]) return (ending_price_today - opening_price_one_month_ago) / opening_price_one_month_ago * 100 else: # 处理数据不可用的情况 return None except Exception as e: print(f&quot;Error getting data for {symbol if symbol else &#39;unknown symbol&#39;}: {e}&quot;) return None @app.route(“/”,methods=[“GET”,“POST”]) def index(): if request.method == “POST”:ticker1 = request.form[“ticker1” ;]ticker2 = request.form[“ticker2”]years = int(request.form[“years”]) Today = datetime.date.today().strftime(“%Y-%m-%d”) ) data1 = get_stock_data(ticker1) data2 = get_stock_data(ticker2) return_1 =calculate_yearly_return(data1, Today,ticker1) return_2 =calculate_yearly_return(data2, Today,ticker2) return render_template(“index.html”,ticker1=ticker1, return_1=return_1 ,ticker2=ticker2, return_2=return_2,years=years) else: return render_template(&quot;index.html&quot;) if __name__ == &quot;__main__&quot;: app.run(debug=True)  index.html ;  &lt;头&gt; 股票年回报率计算器 &lt;/头&gt; &lt;正文&gt; 股票年回报率计算器 &lt;form method=“post”&gt; &lt;标签=“ticker1”&gt;Ticker 1：&lt;/label&gt; &lt;输入类型=“文本”; id=&quot;ticker1&quot;;名称=“ticker1”必填&gt; &lt;br&gt; &lt;标签=“ticker2”&gt;Ticker 2（可选）：&lt;/label&gt; &lt;输入类型=“文本”; id＝“ticker2”； name=“ticker2”&gt; &lt;br&gt; &lt;label for=“years”&gt;年 (1-20)：&lt;/label&gt; &lt;输入类型=“数字” id=“年”名称=“年份”；分钟＝“1”最大＝“20”必填&gt; &lt;br&gt; &lt;输入类型＝“提交” value=&quot;计算&quot;&gt; &lt;/表格&gt; {% if ticker1 %} &lt;h2&gt;结果：&lt;/h2&gt; &lt;p&gt;&lt;b&gt;{{ticker1 }}&lt;/b&gt;年回报率（过去{{years}}年）：{% if return_1 %}{{ return_1 }}%{% else %}数据不可用{% endif %}&lt;/p&gt; {% if ticker2 %} &lt;p&gt;&lt;b&gt;{{ticker2 }}&lt;/b&gt;年回报率（过去{{years}}年）：{% if return_2 %}{{ return_2 }}%{% else %}数据不可用{% endif %}&lt;/p&gt; {% endif %} {% endif %} &lt;/body&gt;  flask 运行后的终端输出 $ cd Finalproject Finalproject/ $flask run * 调试模式：关闭 警告：这是一个开发服务器。不要在生产部署中使用它。请改用生产 WSGI 服务器。 * 运行于 https://special-waffle-6vvppwxxr66c575w-5000.app.github.dev 按 CTRL+C 退出 * 重新启动 stat 127.0.0.1 - - [23/May/2024 08:28:38] &quot;GET /HTTP/1.1” 200 - 获取 AAPL 数据时出错：“2024-05-23”127.0.0.1 - - [23/May/2024 08:28:45]“POST / HTTP/1.1” 200 - 获取 AAPL 数据时出错：“2024-05-23”127.0.0.1 - - [23/May/2024 08:32:13]“POST / HTTP/1.1” 200 -  截图：https://www.canva.com/design/DAGGA4E5YPY/gpcaz2BONtbnxeloDcF4GA/edit?utm_content=DAGGA4E5YPY&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton    由   提交 /u/DigitalSplendid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyitsn/why_api_data_not_fetched/</guid>
+      <pubDate>Thu, 23 May 2024 03:06:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人从 Next.js 生态系统切换到 Laravel 吗？推荐还是不推荐？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyhv24/has_anyone_switched_from_nextjs_ecosystem_to/</link>
+      <description><![CDATA[我看到关于“Next.js 太复杂”、“Next.js 很混乱”的缓慢发展趋势（也许有点夸张或煽动性，但它或多或少总结了趋势） 我想知道是否有人使用 Next.js 或任何其他专注于 JS 的后端框架（Nuxt.js、svelte.js）。 ..) 已切换到 Laravel。 切换的体验如何？您已经了解 PHP 了吗？你为什么转行？你建议这样做吗？ 我个人不太喜欢使用 php 部分或混合 html 和 php 的模板，但我想我对在前端继续使用 React 或 vue 没有任何问题，拥有功能齐全的 php 后端   由   提交/u/saito200   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyhv24/has_anyone_switched_from_nextjs_ecosystem_to/</guid>
+      <pubDate>Thu, 23 May 2024 02:14:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>冷漠态度的 Powerpoint。分享您的建议或经验。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyhjyl/powerpoint_for_cold_approaches_share_your_advice/</link>
+      <description><![CDATA[您好，我将整理一个幻灯片来向未来的客户展示。我的目标是进行一次演示，以便潜在客户可以直观地了解为什么他们需要一个网站或更新的网站。如果有人有任何建议或他们想告诉/展示给客户的事情，我很乐意听到，并且可能会添加到幻灯片中！   由   提交/u/Catholic_Priest420   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyhjyl/powerpoint_for_cold_approaches_share_your_advice/</guid>
+      <pubDate>Thu, 23 May 2024 01:58:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>评论遇到问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyhikw/having_trouble_with_reviews/</link>
+      <description><![CDATA[我正在为一位私人教练朋友构建一个网页。我正在使用 HTML、CSS 和 JavaScript。他希望他的客户能够撰写评论并将其发布在他的页面上。我做了一些挖掘，但我发现的大部分内容只详细介绍了如何从外部来源（Google、Yelp 等）收集评论，而不是网页本身。有人能指出我正确的方向吗？    由   提交 /u/Automatic-Rule2999    reddit.com/r/webdev/comments/1cyhikw/having_trouble_with_reviews/&quot;&gt;[链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyhikw/having_trouble_with_reviews/</guid>
+      <pubDate>Thu, 23 May 2024 01:56:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>授予客户网站管理员或贡献者角色是标准做法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyhf3z/is_it_standard_practice_to_give_a_client_an_admin/</link>
+      <description><![CDATA[我的雇主（新成立的小型医疗保健提供者）被一家糟糕的营销机构欺骗了，他们告诉她需要对网站上的所有文本/内容进行编辑网站。我有大量的内容写作和写作。我需要在网站启动之前进行校对我被要求发送文本编辑&amp;向网站开发人员发布博客帖子，以便他可以添加它们。如果这很重要的话，这是一个糟糕的方形空间网站。谢谢你！！    由   提交/u/Big-Knowledge-2773   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyhf3z/is_it_standard_practice_to_give_a_client_an_admin/</guid>
+      <pubDate>Thu, 23 May 2024 01:51:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>有关 Web 套接字设计实践/最佳实践的资源？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cyhbb3/resources_on_web_socket_design_practices_best/</link>
+      <description><![CDATA[大家好！ 最近，我一直在开发一些大量使用网络套接字的网络应用程序。我一直在使用 socket.io 进行大量工作，但希望过渡到不包含那么多电池的不同实现，例如 ws在节点中。我想要离开 socket.io 的原因有两个。一是我想真正了解这些实现是如何工作的。第二，我想将一些服务器代码转换为 go 或 rust，而不是 Node。据我所知 socket.io 没有这些语言的实现。  tldr; 我很好奇你们中是否有人有关于优秀设计的好书、文章、教程、讲座等使用网络套接字进行实践。 我无法解决的一个示例问题是 socket.io 有一个实现的房间。当使用本机节点 Web 套接字时，我很难尝试重新实现它。   由   提交/u/hipster_jesus77  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cyhbb3/resources_on_web_socket_design_practices_best/</guid>
+      <pubDate>Thu, 23 May 2024 01:46:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>前端框架开发人员</title>
+      <link>https://www.reddit.com/r/webdev/comments/1cygv0o/frontend_framework_developer/</link>
+      <description><![CDATA[我最近收到一份邀请，加入一家公司，成为开发基于 React 的内部前端框架的团队的一员。有人有开发框架的经验吗？与开发面向客户的产品相比，它有什么不同？    提交人    /u/DunnoWhatKek   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1cygv0o/frontend_framework_developer/</guid>
+      <pubDate>Thu, 23 May 2024 01:22:48 GMT</pubDate>
+    </item>
     <item>
       <title>所以我最终把我的js脚本变成了一个chrome扩展，可以让你以15倍的速度观看精彩的Youtube广告。</title>
       <link>https://www.reddit.com/r/webdev/comments/1cyfjdh/so_i_finally_turned_my_js_script_into_a_chrome/</link>
-      <description><![CDATA[所以我想在尽可能短的时间内观看尽可能多的广告，我想出了这个想法。  您可以从我的 github 存储库下载扩展文件，然后拖放到您的扩展选项卡中。  https://github.com/Longshoez/skip-ad    由   提交/u/Longshoez  [链接] [评论]]]></description>
+      <description><![CDATA[所以我想在尽可能短的时间内观看尽可能多的广告，所以我想出了这个想法。  您可以从我的 github repo 下载扩展文件，然后将其拖放到您的扩展选项卡中。  https://github.com/Longshoez/skip-ad     提交人    /u/Longshoez   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cyfjdh/so_i_finally_turned_my_js_script_into_a_chrome/</guid>
       <pubDate>Thu, 23 May 2024 00:15:03 GMT</pubDate>
     </item>
@@ -29,7 +85,7 @@
     <item>
       <title>如何建立一个这样的网站？</title>
       <link>https://www.reddit.com/r/webdev/comments/1cybykp/how_to_build_a_site_like_this/</link>
-      <description><![CDATA[大家好！第一篇文章在这里... 我对为自己建立一个网站作为博客非常感兴趣，也许还可以为我可能想要为其创建网站的其他副项目创建一些其他网站。我对块构建器等非常熟悉，但我一直很想知道这些其他网站到底是如何构建的...那些没有明确说明正在使用 Wordpress 的网站。 例如，这样做吗页面使用Wordpress？ https://eunoia.world/ 如果没有，如何在 WordPress 之外构建网站？我见过一些人谈论框架和其他事情，但这对我来说都是新的。  我是一名数字营销人员，对 Html/Css/JS 具有非常基本的了解，过去曾使用这些知识为客户调整登陆页面，但除此之外，还有 WordPress 和托管，对我来说一切都是新的。 p&gt; 我使用 wappalizer chrome 扩展来构建一些网站以及builtwith网站，但我看到的只是框架和编程语言。 这样的页面是如何构建的？这是从头开始构建的还是有模板？这样的事情是如何完成的？我习惯于付费托管，然后在 WordPress 上进行构建。   由   提交 /u/Para-Mount   /u/Para-Mount  reddit.com/r/webdev/comments/1cybykp/how_to_build_a_site_like_this/&quot;&gt;[链接] [评论]]]></description>
+      <description><![CDATA[大家好！第一篇文章在这里... 我对为自己建立一个网站作为博客非常感兴趣，也许还可以为我可能想要为其创建网站的其他副项目创建一些其他网站。我对块构建器等非常熟悉，但我一直很想知道这些其他网站到底是如何构建的...那些没有明确说明正在使用 Wordpress 的网站。 例如，这样做吗页面使用Wordpress？ https://eunoia.world/ 如果没有，如何在 WordPress 之外构建网站？我见过一些人谈论框架和其他事情，但这对我来说都是新的。  我是一名数字营销人员，对 Html/Css/JS 有非常基本的了解，过去曾使用这些知识为客户调整登陆页面，但除此之外，还有 WordPress 和托管，对我来说一切都是新的。  p&gt; 我使用 wappalizer chrome 扩展来构建一些网站以及builtwith网站，但我看到的只是框架和编程语言。 这样的页面是如何构建的？这是从头开始构建的还是有模板？这样的事情是如何完成的？我习惯于付费托管，然后在 WordPress 上进行构建。   由   提交 /u/Para-Mount   /u/Para-Mount  reddit.com/r/webdev/comments/1cybykp/how_to_build_a_site_like_this/&quot;&gt;[链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cybykp/how_to_build_a_site_like_this/</guid>
       <pubDate>Wed, 22 May 2024 21:32:40 GMT</pubDate>
     </item>
@@ -41,7 +97,7 @@
       <pubDate>Wed, 22 May 2024 20:25:34 GMT</pubDate>
     </item>
     <item>
-      <title>如何组合作品集</title>
+      <title>如何整理作品集</title>
       <link>https://www.reddit.com/r/webdev/comments/1cya0cl/how_to_put_together_a_portfolio/</link>
       <description><![CDATA[我目前正在努力完成在线前端开发认证，并且很好奇我应该在我的作品集中添加什么，因为我真的没有经验？    由   提交 /u/komodocommand   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cya0cl/how_to_put_together_a_portfolio/</guid>
@@ -53,62 +109,6 @@
       <description><![CDATA[大家好。您如何收集客户的个人数据，例如，如果您需要银行信息来设置电子商务商店，该怎么办？或者你只是让他们在你移交网站时这样做。或者，如果您需要 paypal、stripe 或 clover 信息与他们的 POS 系统同步怎么办？无需亲自进行此操作最安全的方法是什么？提前致谢。   由   提交/u/DanCruzNyc   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1cy9djd/best_way_to_collect_client_personal_data/</guid>
       <pubDate>Wed, 22 May 2024 19:44:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>您无法再退出 X/twitter</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy8f0r/you_can_no_longer_log_out_of_xtwitter/</link>
-      <description><![CDATA[我没有使用过 x.com。我去了 twitter.com。我被重定向到 x.com。我不得不接受 cookie 横幅，我的显示/设计偏好被重置。但我已经登录了。怎么办？ 所以我仔细查看后发现：如果您在未登录的情况下访问 x.com，您的浏览器会向 twitter.com 发出请求并获取您的会话信息。它使用它来让您登录，无需任何用户交互。 这是副作用。访问 x.com。登出。您将注销并通过上述过程立即重新登录，因为您的会话在 twitter.com 上处于活动状态。但您无法结束 twitter.com 上的会话，因为它会立即将您重定向到 x.com。 我认为我们可以从中吸取一些教训...    由   提交/u/Tontonsb   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy8f0r/you_can_no_longer_log_out_of_xtwitter/</guid>
-      <pubDate>Wed, 22 May 2024 19:05:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>填写联系我们表单的机器人如何知道垃圾邮件何时被丢弃？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy7n1h/how_can_bots_filling_out_a_contact_us_form_know/</link>
-      <description><![CDATA[如果这不是此类问题的正确 subreddit，请提前致歉。 最近为自己建立了一个小网站，几分钟之内我就收到了通过联系页面提交的垃圾邮件。而且我仍然每小时收到多个。该表单包含“姓名”、“电子邮件”和“消息”字段，100% 的垃圾邮件来自 .ru 电子邮件。 有趣的是，我修改了我的 PHP 脚本，(a) 通过电子邮件向我发送了新的询问(b) 将查询添加到数据库中，对于电子邮件以 .ru 结尾但仍显示“谢谢您的消息”的所有查询，跳过这两个步骤。页面，所有垃圾邮件立即开始通过以 .pl 结尾的虚假电子邮件发送。 垃圾邮件机器人如何知道他们的邮件已被服务器端过滤掉，并找到绕过此问题的方法？仅仅是因为脚本现在运行速度快了一些吗？   由   提交 /u/lostinyourstereo   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy7n1h/how_can_bots_filling_out_a_contact_us_form_know/</guid>
-      <pubDate>Wed, 22 May 2024 18:34:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何让人工智能为我创建消息？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy7f7t/how_do_i_have_ai_create_messages_people_for_me/</link>
-      <description><![CDATA[我经常向来自中国/印度的人发送消息，他们是我可能与之合作的潜在供应商。  如何让人工智能先提出问题，然后筛选他们，并与他们来回回复一段时间？ 我通常在微信/whatsapp 上向他们发送消息，但我可以使用另一个如果需要的话。我的桌面上也有这两个键盘，所以如果有一个可以自动打字和发送消息的人工智能键盘那就完美了。但我如何将其连接到 Chat GPT？ 希望得到您的意见！   由   提交/u/databoy-thatsme  /u/databoy-thatsme  reddit.com/r/webdev/comments/1cy7f7t/how_do_i_have_ai_create_messages_people_for_me/&quot;&gt;[链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy7f7t/how_do_i_have_ai_create_messages_people_for_me/</guid>
-      <pubDate>Wed, 22 May 2024 18:25:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>所以我在一家初创公司，大部分工作已经完成，工作时间减少到每月最多 40 个小时。我需要另找一份工作，但我不能因此而一路走到每月160。它有多可行？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy75lo/so_im_at_a_startup_where_most_of_the_work_is_done/</link>
-      <description><![CDATA[上一个小组对我很满意，但我无法全职加入新小组。有人有过这样的经历吗？   由   提交/u/trwwjtizenketto   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy75lo/so_im_at_a_startup_where_most_of_the_work_is_done/</guid>
-      <pubDate>Wed, 22 May 2024 18:15:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>在网站上托管人工智能模型和创意生成器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy6971/hosting_ai_models_and_creative_generators_on_a/</link>
-      <description><![CDATA[嗨，我目前正在构建一个个人网络应用程序，该应用程序将有不同的 AI 工具可供使用（AI 帖子标题生成器、AI 作家、重写器、图像生成等） 由于我对机器学习世界还很陌生，是否有一个网站拥有可用的托管模型，可以使用  嵌入到网站上？或者类似的东西？ Hugging Face Spaces 是个不错的地方，但有时他们的社区应用程序处于离线状态，也没有简单定制的选项  &amp;# 32；由   提交 /u/majklfromld   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy6971/hosting_ai_models_and_creative_generators_on_a/</guid>
-      <pubDate>Wed, 22 May 2024 17:39:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 GIF 上渲染倒计时器？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy5f84/how_would_you_render_a_countdown_timer_over_a_gif/</link>
-      <description><![CDATA[我正在尝试为朋友的生日制作一个有趣的 90 年代风格的网站，其愿景是在旋转篮球 gif。计时器的文本将是白色的，带有黑色轮廓，以便在篮球上可见。我从 stackoverflow 等人那里得到了一些帮助，但一直无法破解它。 我尝试将 gif 和“canvas”都放在文件中。元素放入同一个 div 中，并使用一些基本的 CSS 将它们放置在彼此之上，但由于某种原因，计数器根本没有渲染。 这是我尝试的方法&lt; /p&gt; ; &lt;正文&gt; &lt;样式类型=“文本/css”&gt; #timerContainer { z 索引：990;位置：相对；显示：内联块； } #timer { 位置：绝对； z 索引：1000； } #bball { 位置：相对； z 索引：999； } &lt;/风格&gt;  &lt;img id=“bball”; src=“/img/bball.gif”高度=150 宽度=150&gt; &lt;canvas id=“定时器”&gt; &lt;/画布&gt;  &lt;脚本类型=“文本/javascript”&gt; //window.addEventListener(&#39;load&#39;, function() { const countdownDate = new Date(&quot;2024年6月1日 00:00:00&quot;).getTime(); const gifImage = document.getElementById(&quot;bball&quot;) ; const timeCanvas = document.getElementById(“timer”); const ctx = timerCanvas.getContext(“2d”); console.log(“启动 upppp”) { const now = new Date() .getTime(); const 距离 = 倒计时日期 - 现在; const 天 = Math.floor(距离 / (1000 * 60 * 60 * 24)); const 小时 = Math.floor((距离 % (1000 * 60 * 60 * 24) )) / (1000 * 60 * 60)); const 分钟 = Math.floor((距离 % (1000 * 60 * 60)) / (1000 * 60)); const 秒 = Math.floor((距离 % (1000) * 60)) / 1000); ctx.clearRect(0, 0,timerCanvas.width,timerCanvas.height); ctx.font = &quot;24px Arial&quot;; ctx.fillStyle = &quot;white&quot;; {天}d ${小时}h ${分钟}m ${秒}s`, 10, 50); if (距离 &lt; 0) {clearInterval(timerInterval); , 10, 50); console.log(“dst”, 距离); } gifImage.onload = function() {timerCanvas.width = gifImage.width; timeCanvas.height = gifImage.height;更新定时器(); }; const timeInterval = setInterval(updateTimer, 1000); //}) &lt;/脚本&gt; &lt;/正文&gt; &lt;/html&gt;  问题是，当我查看 Web 控制台时，似乎 JS 根本没有运行，因此画布只是空的。关于为什么会这样的任何想法吗？   由   提交/u/t40  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy5f84/how_would_you_render_a_countdown_timer_over_a_gif/</guid>
-      <pubDate>Wed, 22 May 2024 17:05:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>检查客户端是否在 SPA 后端进行身份验证的最佳实践是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy5d2q/what_are_the_best_practices_for_checking_if/</link>
-      <description><![CDATA[我，一名自学成才的开发人员，正在构建我的第一个全栈项目。  我使用 Vue 作为前端，使用 NestJs 作为后端。 我的前端应该具有受限的操作，具体取决于它是否被随机人访问，而不是当某人访问时实际上是我网站的用户，拥有帐户并且当前已登录。我正在使用 Passport.js 通过用户会话策略进行身份验证。所有必需的端点也在服务器端受到身份验证保护。  我现在基本上计划做的是安装一个页面或路由到另一个页面，在端点上向我的后端发出 HTTP 请求，专门用于检查客户端是否在服务器会话中经过身份验证如果通过身份验证，则返回 200 状态；如果未通过身份验证，则返回 401 并将其保存在全局状态中。 我个人认为它会起作用，但这真的是最好的方法吗？ 另外，如果您有一些值得研究的开源项目，以了解如何以正确的方式完成工作，请在评论中分享它们。  &amp; #32；由   提交 /u/peculiar_sheikh   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy5d2q/what_are_the_best_practices_for_checking_if/</guid>
-      <pubDate>Wed, 22 May 2024 17:02:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>字体在浏览器上无法正确显示。这是相同的 .otf 文件，甚至当我在 chrome 中检查源时的字体预览也显示正确的字体。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cy50l0/font_not_displaying_correctly_on_browser_it_is/</link>
-      <description><![CDATA[     &lt;。 /td&gt;  由   提交 /u/oxparadoxpa   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cy50l0/font_not_displaying_correctly_on_browser_it_is/</guid>
-      <pubDate>Wed, 22 May 2024 16:49:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
