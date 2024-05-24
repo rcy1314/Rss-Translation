@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 24 May 2024 06:25:34 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2024 09:20:13 GMT</lastBuildDate>
+    <item>
+      <title>您将如何从数据库动态构建这样的图表？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czglpw/how_would_you_build_a_diagram_like_this/</link>
+      <description><![CDATA[       由   提交/u/Prior_Car_7115   [链接] [评论] &lt; /表&gt;]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czglpw/how_would_you_build_a_diagram_like_this/</guid>
+      <pubDate>Fri, 24 May 2024 09:18:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>对于查询捕获（如反应查询）来说是不错的选择，但是对于有状态服务器？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czgkpm/good_options_for_query_catching_like_react_query/</link>
+      <description><![CDATA[最近在研究 Web 套接字，并试图弄清楚是否有一个类似于 React 查询但有意义的良好数据获取库并在通过 websocket 连接的有状态服务器上工作。目的是管理有状态服务器上的缓存和加载/错误状态。因此，前端由于发送一些 websocket 消息而触发服务器上的获取，服务器会回复缓存值或加载状态，并随后发送包含所需数据的后续消息。  axios 是解决这类事情的首选，然后自己推出自己的解决方案，还是还有其他建议？    由   提交 /u/JohntheAnabaptist   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czgkpm/good_options_for_query_catching_like_react_query/</guid>
+      <pubDate>Fri, 24 May 2024 09:16:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>JSON 模式注册表</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czfoxb/json_schema_registry/</link>
+      <description><![CDATA[我有一个问题，它与 https://&quot;&gt;https:// /www.schemastore.org/json/、Apache Kafka、Avro、Confluence 我们开发 REST 接口，并使用 JSON 架构重用和传达预期的数据格式。我们尝试通过在模式中 $ref-ing 来重用概念。 我们想要的是一种 JSON 模式知识库、一个 json 模式存储或 json 模式注册表，这有助于识别现有的 JSON 模式以及存储在这些模式中的概念=实体。 有任何解决方案吗？   由   提交/u/JohnDoe365  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czfoxb/json_schema_registry/</guid>
+      <pubDate>Fri, 24 May 2024 08:09:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>有没有更好的解决方案来突出显示活动页面链接 React 和 Astro？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czf89p/ideas_for_a_better_solution_to_highlight_active/</link>
+      <description><![CDATA[我有一个 Astro + React 站点，我实现的用于突出显示链接的解决方案感觉非常复杂且不一致。由于这是一个 Astro 站点，我没有使用 React 路由器，因此无法使用它的链接组件来简化此操作。我突出显示了 Astro 和 React 组件中的链接： 这是一个 `isActiveLink.ts` 实用函数，其中包括样式和逻辑： export const isActiveLink = ( currentPath: 字符串, linkHref: 字符串) =&gt; { const isActive = currentPath === linkHref || currentPath === `${linkHref}/` || (linkHref === &#39;/blog&#39; &amp;&amp; currentPath.startsWith(&#39;/posts/&#39;));返回 isActive ？ &#39;text-foreground&#39; : &#39;text-muted-foreground悬停:text-foreground/80&#39;; };  这是我的 `Header.astro` 组件中链接突出显示的实现：  { mainLinks.map((link, index) =&gt; { const currentPath = new URL(Astro.request.url).pathname; const activeClass = isActiveLink(currentPath, link.href); return ( ; &lt;按钮客户端：加载 aria-label={link.name} key={index} tabIndex={-1} 变量=“链接” className={`h-9 px-2 悬停：无下划线 ${activeClass }`}&gt; {link.name}  });  这是我的“ProjectsDropdown.tsx”组件中的另一个实现。这使用了下拉列表的 util 函数，并使用 `useEffect` 在列表项突出显示时突出显示下拉触发按钮。相当复杂： 从 &#39;react&#39; 导入 React;从 &#39;./DropdownMenu&#39; 导入 { DropdownMenu, DropdownMenuItem };从 &#39;lucide-react&#39; 导入 { ChevronDown }；从&#39;./navLinks&#39;导入{projectLinks}；从 &#39;@utils/isActiveLink&#39; 导入 { isActiveLink }；导出 const ProjectsDropdown: React.FC = () =&gt; { const currentPath = typeof window !== &#39;未定义&#39; ?窗口.位置.路径名: &#39;&#39;; const [hasActiveLink, setHasActiveLink] = React.useState(false); React.useEffect(() =&gt; { setHasActiveLink( projectLinks.some( (link) =&gt; isActiveLink(currentPath, link.href) === &#39;text-foreground&#39; ) ); }, [currentPath]); return (  ;项目  map((link) =&gt; { const activeClass = isActiveLink(currentPath, link.href); return (  { window.location.href; }}&gt; {link.name}  })}  ); };  有什么想法可以改进/整合 Astro 和 React 组件之间的逻辑吗？   由   提交/u/ExpressionCareful223  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czf89p/ideas_for_a_better_solution_to_highlight_active/</guid>
+      <pubDate>Fri, 24 May 2024 07:34:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>有哪些最好的语言/后端框架不会让您最终从事一些传统的医疗保健/金融科技工作？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czf85u/what_are_the_best_languagesbackend_frameworks/</link>
+      <description><![CDATA[我喜欢 .NET 和 ASP.NET Core，但我确实意识到它们在初创公司中并不是很受欢迎，而且您有 99.99% 的可能性会使用它们到 2024 年，我将从事一些使用 .NET Framework 4.6.2 的医疗保健相关工作。 有哪些最佳选择可以让我有更大的机会在一些令人兴奋的初创公司工作使用相对现代的技术？ 我无法忍受 Ruby on Rails 的魔力及其动态特性，再加上它的受欢迎程度下降，Golang 工作在我居住的地方不存在。   由   提交/u/MatthewRose67  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czf85u/what_are_the_best_languagesbackend_frameworks/</guid>
+      <pubDate>Fri, 24 May 2024 07:34:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>在没有服务器的情况下，我可以选择哪些方式来存储可共享数据？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czf73w/what_are_my_options_to_store_shareable_data/</link>
+      <description><![CDATA[你好，我正在编写一个小型网络应用程序，目前它只是客户端，没有服务器，没有身份验证。基本上它是一个杂货助手应用程序。在此应用程序中，您可以查看杂货清单。现在我认为能够与其他人共享列表会很有用，并且我想知道如何在没有服务器的情况下完成它。 我的第一个想法是使用 URL 搜索参数，但大多数浏览器都有 URL 字符限制，而且在聊天等中共享长的 af URL 看起来不太好。 还有其他想法吗？非常感谢！ ​   由   提交/u/SideLow2446   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czf73w/what_are_my_options_to_store_shareable_data/</guid>
+      <pubDate>Fri, 24 May 2024 07:32:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在哪里可以获得绝对最便宜的域名？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1czexmz/where_can_i_get_the_absolute_cheapest_domain/</link>
+      <description><![CDATA[我建立了几个网站，我想知道，如果我想托管其中任何一个，可能应该由几个域组成。所以重点是我想为我要在 Github 上托管的网站购买最便宜的自定义域名。我已经研究过像 Namecheap 这样的服务，如果有更便宜的服务，去看看会很有趣。   由   提交 /u/GoldenBangla   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1czexmz/where_can_i_get_the_absolute_cheapest_domain/</guid>
+      <pubDate>Fri, 24 May 2024 07:13:19 GMT</pubDate>
+    </item>
     <item>
       <title>你回到 10 年前......你会掌握哪些与人工智能无关的技能/技术？</title>
       <link>https://www.reddit.com/r/webdev/comments/1czdvs2/you_go_back_in_time_10_years_what/</link>
@@ -15,7 +64,7 @@
     <item>
       <title>任何人都知道如何在没有托管提供商的情况下托管域名。</title>
       <link>https://www.reddit.com/r/webdev/comments/1czcsdh/anybody_know_how_to_host_a_domain_without_a/</link>
-      <description><![CDATA[我最近购买了一个域名，并认为我可以在已有的 VPS 上托管。这主要是想我可以削减成本（相当多），但我现在有点迷失，因为我不知道如何让我的服务器真正解析域并在其上托管我的网站。在我购买域名的仪表板上，我唯一可用的是添加命名服务器的选项。 2 已经在那里，名称如 ns....io。处理过此类问题的人提供的任何帮助将不胜感激。   由   提交/u/Sunny_Moonshine1   [链接] [评论]]]></description>
+      <description><![CDATA[我最近购买了一个域名，并认为我可以在已有的 VPS 上托管。这主要是想我可以削减成本（相当多），但我现在有点迷失，因为我不知道如何让我的服务器真正解析域并在其上托管我的网站。在我购买域名的仪表板上，我唯一可用的是添加命名服务器的选项。 2 已经在那里，名称如 ns....io。对于处理过此类问题的人的任何帮助，我们将不胜感激。   由   提交/u/Sunny_Moonshine1   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1czcsdh/anybody_know_how_to_host_a_domain_without_a/</guid>
       <pubDate>Fri, 24 May 2024 04:49:42 GMT</pubDate>
     </item>
@@ -41,7 +90,7 @@
       <pubDate>Fri, 24 May 2024 03:36:38 GMT</pubDate>
     </item>
     <item>
-      <title>使用用户注册和 gpt 包装器开发网站从哪里开始？</title>
+      <title>从哪里开始开发带有用户注册和 gpt 包装器的网站？</title>
       <link>https://www.reddit.com/r/webdev/comments/1czb5xq/where_to_start_on_developing_website_with_user/</link>
       <description><![CDATA[我刚读完大一，今年夏天我想开始建立我的个人项目简历，我有一个想法。 我在一个帆船营工作，孩子们必须通过各种测试（水上和陆地）才能在夏末达到一定的排名。这是一个小型训练营，每月不到 30 名营员。 我的目标是构建一个适合该训练营的 GPT 包装器，并提供通过和学习测试的建议。 I想要将其放置在网站（或应用程序，但我没有 ios 开发经验，也没有 MacBook）中。 此外，在这个网站中，我想为营员和教练创建用户帐户，教练将在其中创建用户帐户标记孩子们通过的测试，以便更好地跟踪我们应该调整课程的内容，因为我们目前没有很好的衡量方法。 我并不是想在这里重新发明轮子。我没有很多时间，以后在大学里我会学习更高级的计算机科学课程。我可以使用已经开发的 API 或 Wordpress 等工具。 这在一个月内可行吗？值得花时间吗？我之所以有这个想法，是因为这是我在这个夏天以我的基本经验所能想到的最独特的事情。   由   提交 /u/PerkyDreamin   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1czb5xq/where_to_start_on_developing_website_with_user/</guid>
@@ -60,55 +109,6 @@
       <description><![CDATA[我有一个网站，其侧边栏包含 40-50 篇不同文章的链接。当我单击侧边栏底部的链接时，文章内容会显示在页面顶部，使我可以向上滚动以阅读它。如果我想单击侧边栏底部附近的另一个链接，我必须再次向下滚动，单击该链接，然后向上滚动以阅读新文章。这种不断地上下滚动确实很不方便，也不人性化。有人对如何解决这个问题有建议吗？   由   提交 /u/PratikkkPaudel   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1czadoh/need_help_improving_navigation_on_my_article/</guid>
       <pubDate>Fri, 24 May 2024 02:30:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该如何托管我的 React 和 Express 应用程序？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz9p1c/how_should_i_host_my_react_and_express_app/</link>
-      <description><![CDATA[当我在本地工作时，我单独托管它们，并使用诸如 nodemon 之类的东西，以便能够在不重新加载的情况下进行更改。因此，express 在 localhost:5000 上运行，并在 3000 上做出反应。 但在我们的测试部署中，我们通过 Express 后端构建前端，因此所有内容都托管在一个端口上。这样做有什么坏处？因为与单独托管它们相比，这更容易、更便宜。我在托管方面没有太多经验，所以我不知道什么是最好的等。 我们目前正在使用渲染，因为它非常容易设置并且价格便宜（我们目前正在使用带有旋转功能的免费版本） ，但我们会在网站准备好后进行升级。） 如果有人使用过渲染，您知道 7 美元的型号可以处理多少流量吗？我知道这取决于站点，但我正在寻找估计。 因此，如果我能很好地了解分别托管前端和后端与在一个端口上托管所有内容的优点/缺点，那就太好了！    由   提交 /u/tojzl   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz9p1c/how_should_i_host_my_react_and_express_app/</guid>
-      <pubDate>Fri, 24 May 2024 01:53:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否有人总是发现 Instagram 图形 API 随机损坏？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz8a27/does_anyone_else_always_find_the_instagram_graph/</link>
-      <description><![CDATA[我已经在一个项目中使用 Instagram API 几年了，但它总是出现故障。要么 Meta 只会更改端点，他们会更改所需的验证（他们突然禁用了我的访问权限，直到我大约一年前注册了一家企业），或者有时它只是一次无法工作几天，因为似乎没有原因只是以后就好了。当它停止工作时，响应通常只是一个随机错误代码，也不会提供任何有用的信息，因此我需要花一整天的时间来调试该问题（如果甚至有一个我可以调试的问题）。 或者当然是美妙的随机“违规”。 “向我们证明您的应用程序使用了该 API！” *发送视频，详细说明其使用方式以及如何遵循指南* “已拒绝” *发送申诉，要求澄清我的违规行为* “申诉已批准” Wat？ 我主要用它来访问用户节点以获取电子邮件等内容验证，所以这不是世界末日，但伙计，我似乎运气不好。还有其他人遇到此问题并找到解决方法吗？   由   提交 /u/ColonelShrimps   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz8a27/does_anyone_else_always_find_the_instagram_graph/</guid>
-      <pubDate>Fri, 24 May 2024 00:38:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>您或您工作的维护成本是多少？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz7u0c/whats_your_or_your_jobs_maintenance_cost/</link>
-      <description><![CDATA[您好！我是自托管网站开发的新手，我想提供维护和支持，以便将这些网站放在我的服务器上。您向客户提供的定价是多少？   由   提交/u/Derto_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz7u0c/whats_your_or_your_jobs_maintenance_cost/</guid>
-      <pubDate>Fri, 24 May 2024 00:15:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于渲染的想法？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz79cq/thoughts_on_render/</link>
-      <description><![CDATA[对 Render 有什么看法？适合托管小型项目吗？你对他们有什么负面评价吗？ 如果访问网站的用户猛增，他们会开始收取更多费用吗？ 希望将 Supabase + Render 结合起来 https://render.com/    提交人    /u/danya99   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz79cq/thoughts_on_render/</guid>
-      <pubDate>Thu, 23 May 2024 23:46:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>人们用什么来生成这些过滤器？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz6wrc/what_a_people_using_to_generate_these_filters/</link>
-      <description><![CDATA[       由   提交/u/Keetzy  [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz6wrc/what_a_people_using_to_generate_these_filters/</guid>
-      <pubDate>Thu, 23 May 2024 23:29:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人认识这个 GUI 吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz6pkl/does_someone_recognize_this_gui/</link>
-      <description><![CDATA[嘿，我正在构建自己的数据软件，看到其他一些公司使用这个 GUI，但有人认出这个吗； simple-but-powerful-dispatching.png (1950×1097) (towbook.com) powerful-mobile-apps.png (2048×1195) (towbook.com)    提交人    /u/Beerbelly22   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz6pkl/does_someone_recognize_this_gui/</guid>
-      <pubDate>Thu, 23 May 2024 23:20:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>StackOverflow 是一个有毒的提问场所，还是我只是太戏剧化了？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1cz5827/is_stackoverflow_a_toxic_place_to_ask_questions/</link>
-      <description><![CDATA[我不知道，但我对该网站的体验很奇怪。无论我如何很好地格式化我的问题并提供信息，我仍然会被随机的 d1ckh3ads 攻击。不确定是否只是我没有融入社区氛围，或者它们是否总体上有毒。   由   提交/u/w333l  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1cz5827/is_stackoverflow_a_toxic_place_to_ask_questions/</guid>
-      <pubDate>Thu, 23 May 2024 22:10:55 GMT</pubDate>
     </item>
     </channel>
 </rss>
