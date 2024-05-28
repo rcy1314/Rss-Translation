@@ -4,122 +4,99 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 28 May 2024 09:20:13 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2024 12:34:57 GMT</lastBuildDate>
     <item>
-      <title>如何使用langchain RAG从JSON中搜索数据？</title>
-      <link>https://community.openai.com/t/how-to-use-langchain-rag-to-search-data-from-json/783236#post_1</link>
-      <description><![CDATA[我的 JSON 数据如下所示（显示 3 个条目），但实际上有数千个条目。
-我希望当用户输入关键字时，可以搜索相关数据。例如，当他们输入“汽车IC”时，他们可以找到与汽车IC相关的数据。
-这里的困难在于，例如，在下面的最后一个条目中，progress_description 提到了“自动驾驶”，这与汽车 IC 相关。我期望也能找到这个条目。但是，使用嵌入方法，相似度分数不够高，因此不会出现在搜索结果中。
-{
-    &quot;INDUSTRY_STD_NAME&quot;: &quot;O-其他&quot;,
-    &quot;INDUSTRY_NAME&quot;: &quot;J-其他&quot;,
-    “机会_ID”：301301.0，
-    &quot;PROGRESS_DESCRIPTION&quot;: &quot;MIS ENDÜSTRіYEL ÇÖZÜMLER OTOMASYON SANAYі VE DIŞ TıCARET ANONıM ŞіRKETі 对订购 USB 数据线表现出明显的兴趣，并已安排付款和运输。第一次会议讨论了订单详细信息并联系了快递公司帐户，第二次会议确认了汇款和发货前需要查看产品图片，客户表示他们是丰田的授权供应商，表明有潜在的稳定关系，没有明显的反对或拒绝。”
-},
-
-{
-    &quot;INDUSTRY_STD_NAME&quot;: &quot;电子电子行业&quot;,
-    &quot;INDUSTRY_NAME&quot;: &quot;A-组装/插件/固定&quot;,
-    “机会_ID”：301234.0，
-    &quot;PROGRESS_DESCRIPTION&quot;: &quot;会议中提到客户之前购买的3D扫描仪没有使用，需要对AccuPick进行软件更新和检查，同时表达了对SolVision检测汽车IC缺陷的需求。客户对即将推出的产品没有提出明确的需求，但暗示关注当前的解决方案。客户对产品的具体应用和软件更新表现出兴趣，但需求不明确，暗示未来有可能合作。”
-}
-
-{
-    &quot;INDUSRY_STD_NAME&quot;: &quot;通用工业机械制造&quot;,
-    &quot;INDUSTRY_NAME&quot;: &quot;机床&quot;,
-    “机会_ID”：275220.0，
-    &quot;PROGRESS_DESCRIPTION&quot;: &quot;本次商务会议的焦点是 META-aivi 的经销权。佛吉亚对 FORVIA 集团的研发技术表示满意，包括智能自动驾驶和可持续移动解决方案，以应对汽车领域的未来挑战但会议纪要并未显示出任何明确的交易机会信号，也未提及客户对META-aivi的具体兴趣或购买意向，后续行动计划为电话联系和电子邮件沟通，表明在会议上。截至本次会议结束，案件仍处于早期探索阶段。”
-}
-
-下面是我的代码。我尝试更换不同的嵌入模型和提示，但无法得到想要的结果。我还可以进行其他优化吗？或者说这个场景不适合RAG方案？
-从配置导入 OPENAI_API_KEY
-从 langchain.embeddings 导入 OpenAIEmbeddings
-从 langchain.text_splitter 导入 RecursiveCharacterTextSplitter
-从 langchain.vectorstores 导入 FAISS
-从 langchain_community.document_loaders 导入 JSONLoader
-从 openai 导入 OpenAI
-
-客户端 = OpenAI(api_key=OPENAI_API_KEY)
-
-defmetadata_func(记录: dict, 元数据: dict) -&gt;字典：
-    元数据[&quot;OPPORTUNITY_ID&quot;] = record.get(&quot;OPPORTUNITY_ID&quot;)
-    元数据[“机会”] = record.get(“机会”)
-    元数据[&quot;INDUSTRY_STD_NAME&quot;] = record.get(&quot;INDUSTRY_STD_NAME&quot;)
-
-    返回元数据
-
-加载器 = JSONLoader(
-    file_path=&#39;test.json&#39;,
-    content_key=&#39;PROGRESS_DESCRIPTION&#39;,
-    元数据函数=元数据函数，
-）
-文档 = loader.load()
-
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-文档 = text_splitter.split_documents(文档)
-
-嵌入 = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-vectorstore = FAISS.from_documents(文档，嵌入)
-
-查询 = (
-    “利用你的知识库来最好地回答问题。”
-    f&quot;根据提供的关键字，从业务报告数据中搜索&#39;INDUSTRY_NAME&#39;、&#39;OPPORTUNITY&#39;和&#39;PROGRESS_DESCRIPTION&#39;字段描述中的所有相关数据，并返回&#39;OPPORTUNITY_ID&#39;字段的值。以下是关键字：“
-）
-
-docs = vectorstore.similarity_search_with_score(query+&#39;汽车IC&#39;, k=5)
-打印（文档）
-
-希望大家给点建议，谢谢！]]></description>
-      <guid>https://community.openai.com/t/how-to-use-langchain-rag-to-search-data-from-json/783236#post_1</guid>
-      <pubDate>Tue, 28 May 2024 09:10:17 GMT</pubDate>
+      <title>将 json 上传到矢量存储时出错</title>
+      <link>https://community.openai.com/t/error-when-uploading-json-to-vector-store/754688#post_4</link>
+      <description><![CDATA[您可以将 JSON 转换为可识别的文本文件，其中包含一些更纯文本的页眉和页脚，也可以是有关文件的一些元数据，以使其更有用。这应该允许检查员将其分类为纯文本。]]></description>
+      <guid>https://community.openai.com/t/error-when-uploading-json-to-vector-store/754688#post_4</guid>
+      <pubDate>Tue, 28 May 2024 12:31:30 GMT</pubDate>
     </item>
     <item>
-      <title>是否有任何反 AI 检测器可以使 AI 检测器检测不到 ChatGPT 内容？</title>
-      <link>https://community.openai.com/t/are-there-any-anti-ai-detectors-to-make-chatgpt-content-undetectable-by-ai-detectors/692230#post_3</link>
-      <description><![CDATA[是的。如果你在网上查找“反人工智能探测器”或“人工智能人性化器”，你会发现市场上已经有大量此类工具。这包括 Humbot、HIX 绕过，BypassAI.ai，BypassAI.ai，无法检测到的 AI, 绕过 GPT, &lt; a href=&quot;https://ai humanizer.ai&quot; rel=&quot;noopener nofollow ugc&quot;&gt;AIHumanizer.ai 等。
-这些工具旨在将人工智能转换为人类文本，使人工智能检测工具更难发现。但值得注意的是，这些工具并不总是完美的。有时他们可能无法使 AI 文本无法被检测到。
-老实说，避免人工智能检测的最好方法就是自己重写内容。然而，这确实需要花费大量的时间和精力。为了更快地编辑而不完全重写，请尝试以下策略：
-
-避免重复相同的短语或过度使用的单词。如果您已经使用 ChatGPT 一段时间，您可能会注意到它倾向于重复使用某些单词和短语（“细致”、“深入”、“灯塔”、“在......的 XX 世界中”、“踏上旅程...... “） 太频繁。改变这些会有帮助。
-通过添加您自己的经验、具体数据、现实生活中的例子来丰富内容的真实性。
-引入小错误来模仿人类的错误，但要注意质量。
-]]></description>
-      <guid>https://community.openai.com/t/are-there-any-anti-ai-detectors-to-make-chatgpt-content-undetectable-by-ai-detectors/692230#post_3</guid>
-      <pubDate>Tue, 28 May 2024 09:00:27 GMT</pubDate>
+      <title>我想在chatgpt中上传pdf文件并一次性要求其摘要？</title>
+      <link>https://community.openai.com/t/i-want-to-upload-pdf-file-in-chatgpt-and-ask-for-a-summary-of-it-in-one-go/783508#post_2</link>
+      <description><![CDATA[唯一的内置方法是从上传的文件创建矢量存储，这为 AI 提供了文件搜索方法以返回文档的相关块。这仅适用于需要在多个步骤中调用更多 API 的“助手”。
+如果您想一次性完全理解 PDF 文本，并且需要进行简单的调用，则需要在代码中使用自己的文档提取，并使用聊天补全功能来发送消息并在文本出现时立即得到答复。包含在要回答的消息中。
+文本必须适合模型的输入上下文窗口，或者您还必须实现自己的分块和基于嵌入的搜索，以减少发送到 AI 的大小。]]></description>
+      <guid>https://community.openai.com/t/i-want-to-upload-pdf-file-in-chatgpt-and-ask-for-a-summary-of-it-in-one-go/783508#post_2</guid>
+      <pubDate>Tue, 28 May 2024 12:27:29 GMT</pubDate>
     </item>
     <item>
-      <title>单个 gpt 实例如何同时处理多个用户？</title>
-      <link>https://community.openai.com/t/how-can-a-single-instance-of-gpt-handle-multiple-users-at-the-same-time/783069#post_4</link>
-      <description><![CDATA[是的，型号是 gpt-3.5-turbo-0125。由于您将这篇文章标记为 assistants-api 我假设您正在使用 Assistants Api。或者您是指 Chat Completions API？]]></description>
-      <guid>https://community.openai.com/t/how-can-a-single-instance-of-gpt-handle-multiple-users-at-the-same-time/783069#post_4</guid>
-      <pubDate>Tue, 28 May 2024 08:53:44 GMT</pubDate>
+      <title>我想在chatgpt中上传pdf文件并一次性要求其摘要？</title>
+      <link>https://community.openai.com/t/i-want-to-upload-pdf-file-in-chatgpt-and-ask-for-a-summary-of-it-in-one-go/783508#post_1</link>
+      <description><![CDATA[我需要上传一个 PDF 文件并一次性询问有关该文件的问题，但我发现的都是单独的 API
+一个用于上传文件，另一个用于将此文件 ID 与商店关联
+和其他人将此与援助联系起来
+这太多了吗？有没有更简单的方法？
+还有可用的 C# 代码吗？]]></description>
+      <guid>https://community.openai.com/t/i-want-to-upload-pdf-file-in-chatgpt-and-ask-for-a-summary-of-it-in-one-go/783508#post_1</guid>
+      <pubDate>Tue, 28 May 2024 12:22:04 GMT</pubDate>
     </item>
     <item>
       <title>基于所选层的 Tts-1 和 tts-1-hd API RPM 和 RPD</title>
-      <link>https://community.openai.com/t/tts-1-tts-1-hd-api-rpm-and-rpd-based-on-chosen-tier/783207#post_1</link>
-      <description><![CDATA[亲爱的 OpenAI 社区，
-希望您能收到此消息。我正在联系 OpenAI 询问有关 OpenAI 提供的文本转语音 (TTS) API 的速率限制和缩放选项。
-首先，我想了解所有层中 TTS-1 和 TTS-1-HD API 的每日速率限制 (RPD) 和每分钟请求数 (RPM)。您能否澄清这些限制？
-其次，如果我超出特定层（例如第 1 层）的速率限制，我很想知道是否有自动扩展机制来升级到下一层（例如第 2 层）以避免速率限制错误。或者，我是否需要手动调整 OpenAI 平台上的层级设置来满足不断增长的需求？
-感谢您的时间和帮助。我期待您的回复。
-来自克罗地亚的最诚挚的问候，
-多米尼克·卡吉巴]]></description>
-      <guid>https://community.openai.com/t/tts-1-tts-1-hd-api-rpm-and-rpd-based-on-chosen-tier/783207#post_1</guid>
-      <pubDate>Tue, 28 May 2024 08:48:49 GMT</pubDate>
+      <link>https://community.openai.com/t/tts-1-tts-1-hd-api-rpm-and-rpd-based-on-chosen-tier/783207#post_2</link>
+      <description><![CDATA[等级取决于您的组织之前支付的费用。
+第 1 层的限制（已预付最低金额）仅限于每分钟的请求数。发出超过限制的请求（或同时调用所有请求），您将收到 API 错误。
+这是限制的链接，以及有关费率的更多文档链接：
+https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-one
+您可以使用自己的策略来管理您进行的 API 调用数量，以使其保持在允许的数量以下。]]></description>
+      <guid>https://community.openai.com/t/tts-1-tts-1-hd-api-rpm-and-rpd-based-on-chosen-tier/783207#post_2</guid>
+      <pubDate>Tue, 28 May 2024 12:21:51 GMT</pubDate>
     </item>
     <item>
-      <title>脚本打开自定义 GPT plus，启动浏览器</title>
-      <link>https://community.openai.com/t/script-opens-custom-gpt-plus-launching-browser/783204#post_1</link>
-      <description><![CDATA[目标是在程序和自定义 GPT 之间创建一个 API，自定义是指 html 应用程序或应用程序中“探索 GPT”部分下的所有 GPT 免费。尽管我们可以将说明复制给助手，但结果的反应却有所不同。由于自定义 GPT 有自己的地址，因此它们也应该有一个 API。由于不存在，我尝试使用脚本在浏览器中启动自定义 GPT 地址，搜索输入字段并输入脚本中的值。如果您注意到浏览器上的搜索字段在收到文本之前不会亮起。我能够走到这一步。我会从脚本中输入一个值，然后 GPT 上的发送箭头将激活。我无法发送。
-目标是在不使用 ASSISTANT 的情况下从开发者端测试应用，因为从自定义 GPT 复制指令时结果会有所不同或者可能需要进一步校准。
-路由到自定义 GPT 并像通用 API 一样返回结果的 API 就可以了。简而言之，应该为用户创建的每个自定义 GPT 创建一个 CustomGPT API。
-这将加快工作流程、测试应用程序。一旦货币化，就可以应用某种类型的代币利率。至少在锁定之前，代币数量应该是普通帐户允许的数量。
-我构建了一个自定义 GPT，我有一个 API，我现在可以在脚本中使用它的输出。
-如果我成功地从脚本发送了该提示，我将抓取浏览器。然后我就可以测试开发了。
-一遍又一遍……]]></description>
-      <guid>https://community.openai.com/t/script-opens-custom-gpt-plus-launching-browser/783204#post_1</guid>
-      <pubDate>Tue, 28 May 2024 08:44:31 GMT</pubDate>
+      <title>使用 gpt-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=5#post_89</link>
+      <description><![CDATA[您不再在前面添加行号了吗？如果它只返回开始行和结束行，您不应该遇到任何输出标记限制，从而提高可靠性（不再有未完成的 json 对象）。
+open ai api 返回的对象包含停止原因。您可以使用它进行错误处理（如果由于令牌限制而停止，它将是“长度”，请参阅此处的文档：https://platform.openai.com/docs/guides/text- Generation/chat-c​​ompletions-api)。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=5#post_89</guid>
+      <pubDate>Tue, 28 May 2024 12:20:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>由于 Assistant API 服务器错误，Playground 无法工作</title>
+      <link>https://community.openai.com/t/playground-not-working-due-to-assistant-api-server-error/699467#post_6</link>
+      <description><![CDATA[我们有 2 个帐户。在其中之一中，我们发现其中一名助手在读取 API 时出现错误。在这种情况下，我清除了助理指令（通过API，因为读取不起作用，但更新起作用）
+在我们的第二个帐户中，我们没有找到“坏”助手，因此我们仍然没有找到解决方案。支持人员只告诉我他们会向我提供解决方案（已经过去 2 个月了……）]]></description>
+      <guid>https://community.openai.com/t/playground-not-working-due-to-assistant-api-server-error/699467#post_6</guid>
+      <pubDate>Tue, 28 May 2024 12:13:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>https://openai.com/gptbot-ranges.txt 上的 WAF 保护 - 403 禁止</title>
+      <link>https://community.openai.com/t/waf-protection-on-https-openai-com-gptbot-ranges-txt-403-forbidden/783447#post_2</link>
+      <description><![CDATA[以下是使用人类 Firefox 的 get-a-round：
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+
+url = &quot;https://openai.com/gptbot-ranges.txt&quot;
+
+# 设置无头 Firefox 浏览器
+options = Options()
+options.headless = True
+
+# 替换为 geckodriver 的路径
+driver = webdriver.Firefox(options=options,)
+
+try:
+driver.get(url)
+content = driver.page_source
+print(content)
+finally:
+driver.quit()
+
+尽管外观简单，但仍可获取 HTML：
+&lt;html&gt;&lt;head&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;resource://content-accessible/plaintext.css&quot;&gt;&lt;/head&gt;&lt;body&gt;&lt;pre&gt;52.230.152.0/24
+52.233.106.0/24
+&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;
+
+您可能必须先导航到 platform.openai.com 以获取所有 cookie。]]></description>
+      <guid>https://community.openai.com/t/waf-protection-on-https-openai-com-gptbot-ranges-txt-403-forbidden/783447#post_2</guid>
+      <pubDate>Tue, 28 May 2024 12:12:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>助理线程创建：400：消息数组太长</title>
+      <link>https://community.openai.com/t/assistant-threads-create-400-messages-array-too-long/754574#post_2</link>
+      <description><![CDATA[我也遇到了同样的麻烦。最令人沮丧的是这个限制没有在任何地方记录。]]></description>
+      <guid>https://community.openai.com/t/assistant-threads-create-400-messages-array-too-long/754574#post_2</guid>
+      <pubDate>Tue, 28 May 2024 12:10:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
