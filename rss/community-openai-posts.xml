@@ -4,242 +4,193 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 31 May 2024 18:25:25 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2024 21:19:43 GMT</lastBuildDate>
+    <item>
+      <title>我应该使用矢量存储还是应该进行微调？</title>
+      <link>https://community.openai.com/t/should-i-use-a-vector-store-or-should-i-fine-tune/790300#post_2</link>
+      <description><![CDATA[欢迎加入社区！
+让我们从您的问题开始：
+
+我应该使用向量存储还是应该进行微调？
+
+这实际上不是一个非此即彼的问题。
+微调有利于设置样式、语气、格式或其他定性方面 (https://platform.openai.com/docs/guides/fine-tuning/common-use-cases)
+您可以将微调视为表演课，当你想在提示中给出更少的导演笔记时。
+另一方面，向量存储对象使文件搜索工具能够搜索你的文件。 (https://platform.openai.com/docs/assistants/tools/file-search/vector-stores)
+向量存储本身只是一个个人谷歌，仅适用于你的文件。
+另一个相关概念是嵌入：OpenAI 的文本嵌入测量文本字符串的相关性。 (https://platform.openai.com/docs/guides/embeddings)
+嵌入（可能）是背后的底层技术向量存储，但您可以自己原始使用它们 - 许多人将其用于检索增强生成 - 查找与主题相关的显着文档并将它们直接注入提示中。
+
+考虑到所有这些，我只想说，如果您的书是不久前出版的一本普通书，那么很有可能它是训练数据的一部分 - 模型知道它。可能需要对版权guard****机制进行一些巧妙处理，但您可能可以完全不使用向量存储。
+祝你好运！]]></description>
+      <guid>https://community.openai.com/t/should-i-use-a-vector-store-or-should-i-fine-tune/790300#post_2</guid>
+      <pubDate>Fri, 31 May 2024 21:19:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>自新版 Playground 以来，换行符已被删除</title>
+      <link>https://community.openai.com/t/linebreaks-are-removed-since-the-new-playground/759420?page=2#post_25</link>
+      <description><![CDATA[从助理角色复制并粘贴到论坛仍然会出现双行中断。对聊天游乐场 URL 进行硬刷新。
+
+当然，我很乐意提供帮助！这是一个简单的 Python 脚本，模拟六面骰子的掷骰：
+
+import random
+
+def roll_dice():
+
+return random.randint(1, 6)
+
+def main():
+
+print(&quot;Rolling the dice...&quot;)
+
+result = roll_dice()
+
+print(f&quot;You roller a {result}!&quot;)
+
+if __name__ == &quot;__main__&quot;:
+
+main()
+
+
+说明：
+
+import random：这将导入 random 模块，其中包含用于生成随机数的 randint 函数……
+
+]]></description>
+      <guid>https://community.openai.com/t/linebreaks-are-removed-since-the-new-playground/759420?page=2#post_25</guid>
+      <pubDate>Fri, 31 May 2024 21:16:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用微调 GPT 模型进行高级拼写/语法检查 - 潜在的审核问题？</title>
+      <link>https://community.openai.com/t/advanced-spelling-grammar-check-with-fine-tuned-gpt-models-potential-moderation-issue/789899#post_2</link>
+      <description><![CDATA[嗨！
+使用微调模型时，服务条款不会改变。当检测到生成的输出实际上违反服务条款时，您的帐户可能会被暂停。
+您可以使用审核端点来保护您的开发者帐户，但您无法提供基于 OpenAI 模型的创意写作服务，以防输入被标记。]]></description>
+      <guid>https://community.openai.com/t/advanced-spelling-grammar-check-with-fine-tuned-gpt-models-potential-moderation-issue/789899#post_2</guid>
+      <pubDate>Fri, 31 May 2024 21:16:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>自新版 Playground 以来，换行符已被删除</title>
+      <link>https://community.openai.com/t/linebreaks-are-removed-since-the-new-playground/759420?page=2#post_24</link>
+      <description><![CDATA[是的，已修复。感谢大家分享有用的信息]]></description>
+      <guid>https://community.openai.com/t/linebreaks-are-removed-since-the-new-playground/759420?page=2#post_24</guid>
+      <pubDate>Fri, 31 May 2024 21:12:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>应用请求中“无法同时指定型号和引擎”</title>
+      <link>https://community.openai.com/t/cannot-specify-both-model-and-engine-in-app-request/790155#post_5</link>
+      <description><![CDATA[以下是您必须发送至聊天完成内容的快速指南：
+
+
+
+
+当我在提示中包含 base64 图像时出现 400 错误 API
+
+
+除非您想破坏 base64 的内容，否则不要修改它。
+这是必须发送到聊天完成的消息格式：
+[
+{
+&quot;role&quot;: &quot;system&quot;,
+&quot;content&quot;: [
+{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: system_prompt}
+]
+},
+{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: [
+{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;描述这种艺术风格。&quot;},
+{
+&quot;type&quot;: &quot;image_url&quot;,
+&quot;image_url&quot;: {&quot;url&quot;: f&quot;data:image/jpeg;base64,{e…
+
+]]></description>
+      <guid>https://community.openai.com/t/cannot-specify-both-model-and-engine-in-app-request/790155#post_5</guid>
+      <pubDate>Fri, 31 May 2024 21:12:05 GMT</pubDate>
+    </item>
     <item>
       <title>OpenAI 是否有可能提供他们的模型供内部使用，让用户在自己的场所对其进行微调？</title>
-      <link>https://community.openai.com/t/is-there-a-possibility-that-openai-will-offer-their-models-for-on-premise-usage-allowing-users-to-fine-tune-them-on-their-own-premises/648261#post_3</link>
-      <description><![CDATA[你说得对，我们是一家小公司，没有很高的计算能力，但只是好奇，感谢你的回复，抱歉回复晚了。我试过 Llama 7B 型号，对性能不满意。]]></description>
-      <guid>https://community.openai.com/t/is-there-a-possibility-that-openai-will-offer-their-models-for-on-premise-usage-allowing-users-to-fine-tune-them-on-their-own-premises/648261#post_3</guid>
-      <pubDate>Fri, 31 May 2024 18:24:27 GMT</pubDate>
+      <link>https://community.openai.com/t/is-there-a-possibility-that-openai-will-offer-their-models-for-on-premise-usage-allowing-users-to-fine-tune-them-on-their-own-premises/648261#post_4</link>
+      <description><![CDATA[merefield 谈到的这种高 GPU VRAM 不是为了运行 LLM（GPT），而是为了训练它。也许他正在考虑为客户运行的企业级 LLM。但如果您想要自己使用它，那么 32-64 GB VRAM 就足以满足高端 LLM 的需求。
+已经有一个庞大的开源社区，其中有允许您执行此操作的软件包。您需要一些有关这个 dhatraknilam 的说明吗？]]></description>
+      <guid>https://community.openai.com/t/is-there-a-possibility-that-openai-will-offer-their-models-for-on-premise-usage-allowing-users-to-fine-tune-them-on-their-own-premises/648261#post_4</guid>
+      <pubDate>Fri, 31 May 2024 21:08:05 GMT</pubDate>
     </item>
     <item>
-      <title>多函数调用——根据第一个函数的响应调用第二个函数</title>
-      <link>https://community.openai.com/t/multiple-function-calling-call-second-function-based-on-the-response-from-the-first-function-response/788148#post_10</link>
-      <description><![CDATA[我同意 @darkknight 的观点，但如果您确实想进行两次或更多次函数调用，您只需知道，如果您有一个函数需要来自前一次函数调用的值，您可以在进行本地函数调用之前将该值附加到参数列表中。在下面的示例中，我有一个名为 greet 的函数，它需要三个参数，当我为助手创建工具列表时，我只让它知道三个参数中的两个。在进行函数调用之前，我在从提示符中提取的两个参数后添加了第三个参数。
-创建一个名为greet的本地函数，该函数需要三个参数
-defgreet(name,greeting,punctuation):
-greeting_id = str(&#39;\n&#39;+name+&#39;&#39;+greeting+&#39;&#39;+punctuation)
-returngreeting_id
-在此处键入或粘贴代码
-
-为助手创建工具列表，其中省略了第三个参数punctation。
-
-tools_list = [
-{
-“type”：“function”，
-“function”：{
-“name”：“greet”，
-“description”：“”，
-“parameters”：{
-“type”：“object”，
-“properties”：{
-“name”：{
-“type”：“string”，
-“description”：“要问候的人的姓名”
-}，
-“greeting”：{
-“type”： “string”,
-“description”: “问候语”
-},
-
-},
-“required”: [“name”, “greeting:”]
-}
-}
-}
-]
-
-# 使用工具列表创建助手
-
-assistant = client.beta.assistants.create(
-name=&quot;greeting Assistant&quot;,
-instructions=&quot;&quot;&quot;您是创建礼貌问候语的专家&quot;&quot;&quot;,
-tools= tools_list,
-model=&quot;gpt-4o&quot;,
-)
-
-调用函数时，从用户提示符中获取参数 name 和 greeting，但在调用函数之前，将第三个参数 punctuation 添加到参数元组中。
-while run.status == &#39;requires_action&#39;:
-
-function_names = []
-output = []
-call_ids = []
-tool_outputs=[]
-
-# 获取工具调用从运行对象中生成 
-tool_calls = run.required_action.submit_tool_outputs.tool_calls
-
-# 此 for 循环适用于必需操作步骤中有多个工具调用的情况 
-
-for tc in tool_calls:
-
-# 保存 call_id 以便稍后与函数调用结果一起传回运行对象 
-call_ids.append(tc.id)
-
-# 获取要调用的函数名称 
-function_names.append(tc.function.name)
-
-# 参数为 JSON 格式，将其解析为 Python 字典
-
-arguments = json.loads(tc.function.arguments)
-
-arg_tuple = ()
-
-punctuation = &#39;!!!&#39;
-
-for key,value in parameters.items():
-arg_tuple += (value,)
-
-# 在调用greet之前将第三个参数添加到元组
-arg_tuple += (punctuation,) 
-
-# 进行所有必要的函数调用
-
-for fn in function_names: 
-# 使用函数名称和参数元组调用本地函数
-result = globals()[fn](*arg_tuple)
-print (&#39;\n 函数名称调用：&#39;,fn,&#39;\n 参数：&#39;,arg_tuple,&#39;result: &#39;,result)
-# 保存结果
-output.append(result)
-
-
-.]]></description>
-      <guid>https://community.openai.com/t/multiple-function-calling-call-second-function-based-on-the-response-from-the-first-function-response/788148#post_10</guid>
-      <pubDate>Fri, 31 May 2024 18:24:18 GMT</pubDate>
+      <title>128GB RAM 和 ChatGPT，还有其他人在 Chrome 或 Edge 上运行网页而没有问题吗？</title>
+      <link>https://community.openai.com/t/128gb-ram-and-chatgpt-anyone-else-running-the-web-on-chrome-or-edge-with-no-issue/789923#post_3</link>
+      <description><![CDATA[我可以报告/确认，使用具有 128 GB RAM 的机器并不是导致 ChatGPT 网站出现任何内存问题的原因。]]></description>
+      <guid>https://community.openai.com/t/128gb-ram-and-chatgpt-anyone-else-running-the-web-on-chrome-or-edge-with-no-issue/789923#post_3</guid>
+      <pubDate>Fri, 31 May 2024 21:03:47 GMT</pubDate>
     </item>
     <item>
-      <title>检索到的文档应作为系统消息还是用户消息发送？</title>
-      <link>https://community.openai.com/t/should-rag-retrieved-documents-be-sent-as-system-or-user-messages/789292#post_11</link>
-      <description><![CDATA[我指的是用户/人工智能对话历史，而不是提供的碎片文档的历史。
-我仍然发送后者，以便以某种方式很好地处理后续问题……
-我尝试将用户/人工智能对话历史压缩为一个，以避免发送碎片历史……它总是一个史诗般的失败]]></description>
-      <guid>https://community.openai.com/t/should-rag-retrieved-documents-be-sent-as-system-or-user-messages/789292#post_11</guid>
-      <pubDate>Fri, 31 May 2024 18:22:09 GMT</pubDate>
+      <title>在 ChatGPT-Team 中导出聊天记录</title>
+      <link>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_18</link>
+      <description><![CDATA[您关于 Power move 的理论将得到以下事实的支持：AIAssistant 是基于代币的支付，而 Teams 不是。]]></description>
+      <guid>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_18</guid>
+      <pubDate>Fri, 31 May 2024 21:03:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>每一行都可以给出一个答案吗？</title>
+      <link>https://community.openai.com/t/is-it-possible-to-give-a-answer-for-each-line/790352#post_2</link>
+      <description><![CDATA[当然！只需对它们进行编号，并要求提供 json 输出或其他内容。
+但要知道，一些较新的模型是懒惰的，只会给你有限的回应。
+如果这种方法效果良好，如果你想在某个时候探索这一点，微调也可能对你有用。]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-to-give-a-answer-for-each-line/790352#post_2</guid>
+      <pubDate>Fri, 31 May 2024 21:01:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 ChatGPT-Team 中导出聊天记录</title>
+      <link>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_17</link>
+      <description><![CDATA[刚刚也发现了这一点。
+这是 OpenAI 的一个重大疏忽。这降低了对基于云的服务的信任。
+由于截断和缺乏其他平台上的功能，复制/粘贴不是一个解决方案：
+• Safari 浏览器 - 显示截断的聊天。
+• ChatGPT MacOS 客户端 - 不支持选择文本
+• iOS - 有完整历史记录，无法全选和复制
+…也许他们只是想再次成为第一！第一个升级到更好的订阅并失去功能的服务。  
+说真的……我们怎样才能让 OpenAI 注意到这个问题？]]></description>
+      <guid>https://community.openai.com/t/export-chats-in-chatgpt-team/620984#post_17</guid>
+      <pubDate>Fri, 31 May 2024 21:01:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>Tautogrammes 对于人工智能来说太复杂了，这是人类智能仍然更优越的例子吗？**</title>
+      <link>https://community.openai.com/t/tautogrammes-are-too-complicated-for-ai-is-this-an-example-that-human-intelligence-is-still-superior/789058#post_5</link>
+      <description><![CDATA[我使用的是 PC 上的 4.0 版本。我不是信息学家。
+]]></description>
+      <guid>https://community.openai.com/t/tautogrammes-are-too-complicated-for-ai-is-this-an-example-that-human-intelligence-is-still-superior/789058#post_5</guid>
+      <pubDate>Fri, 31 May 2024 21:01:38 GMT</pubDate>
     </item>
     <item>
       <title>ChatGPT 的网页版不断崩溃</title>
-      <link>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_78</link>
-      <description><![CDATA[我的电脑也一直崩溃，5950X 有 64 GB 的内存。非常烦人。我存档了一些对话，但似乎没有帮助。我真的希望 Open AI 能做出一些合理的努力，让页面不完全糟糕。
-最近情况变得更糟，但即使在它变得非常慢之前，因为所有内容都加载在 dom 中，而这是不需要的，即使是一台强大的机器，它也会变得非常慢和滞后。我也在用 plus，如果你有 plus，你可能会有很多事情要做。
-真的希望他们能把它作为优先事项，4o 速度非常棒，但这似乎并不重要，因为它不断崩溃，把所有东西都加载到 dom 中只是愚蠢的，让一切都很糟糕。请修复 open AI，我不介意它的外观，但它运行起来像垃圾。]]></description>
-      <guid>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_78</guid>
-      <pubDate>Fri, 31 May 2024 18:17:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>响应中出现了新的 Broken-JSON 变体</title>
-      <link>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_14</link>
-      <description><![CDATA[
-
-
- _j:
-
-JSON 架构作为系统消息
-
-
-我最初说的是“提示”，但我也想说“系统消息”，已修复我的帖子。谢谢！]]></description>
-      <guid>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_14</guid>
-      <pubDate>Fri, 31 May 2024 18:14:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>响应中出现了新的 Broken-JSON 变体</title>
-      <link>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_13</link>
-      <description><![CDATA[
-
-
- 饮食：
-
-低温（0，默认值为~1）和低 top-p（0，默认值为 1）可以帮助解决这些问题，但它不应该在 json 模式下发生。
-
-
-@Diet 您是否同时更改了两者？
-聊天完成 温度文档通常建议更改temperature或top_p，但不能同时更改两者。]]></description>
-      <guid>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_13</guid>
-      <pubDate>Fri, 31 May 2024 18:11:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>响应中出现了新的 Broken-JSON 变体</title>
-      <link>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_12</link>
-      <description><![CDATA[您还可以编写一个真正的 JSON 模式作为称为“响应格式”的系统消息部分，并通知 AI 其对 API 的后端输出将根据该模式进行验证。]]></description>
-      <guid>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_12</guid>
-      <pubDate>Fri, 31 May 2024 18:11:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>响应中出现了新的 Broken-JSON 变体</title>
-      <link>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_11</link>
-      <description><![CDATA[除了使用 JSON 模式，您是否明确要求它输出有效的 JSON？
-对我来说非常有用的一个技巧是通过假装您在提示中使用 Pydantic 规范来定义伪模式。在我做这个技巧之前，我曾经对错误的 JSON 进行过重试；现在我认为重试代码再也没有被击中。
-示例系统消息：
-&quot;&quot;&quot;
-您只能按照以下 Pydantic 规范输出有效的 JSON：
-class Person(BaseModel):
-name: str
-title: str
-
-class Project(BaseModel):
-team: conlist(item_type=Person, min_length=1)
-&quot;&quot;&quot;
-
- → 本视频感谢 Robert Sharp 的贡献：
-终于！如何在 OpenAI 的新 GPT 4 Turbo 128k 中利用 JSON 模式]]></description>
-      <guid>https://community.openai.com/t/there-is-a-new-broken-json-variant-in-the-response/787218#post_11</guid>
-      <pubDate>Fri, 31 May 2024 18:01:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 未根据自己的 API 文档进行训练</title>
-      <link>https://community.openai.com/t/chatgpt-not-trained-on-its-own-api-documentation/789677#post_9</link>
+      <link>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_80</link>
       <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/chatgpt-not-trained-on-its-own-api-documentation/789677#post_9</guid>
-      <pubDate>Fri, 31 May 2024 18:00:42 GMT</pubDate>
+      <guid>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_80</guid>
+      <pubDate>Fri, 31 May 2024 21:00:45 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 未根据自己的 API 文档进行训练</title>
-      <link>https://community.openai.com/t/chatgpt-not-trained-on-its-own-api-documentation/789677#post_8</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/chatgpt-not-trained-on-its-own-api-documentation/789677#post_8</guid>
-      <pubDate>Fri, 31 May 2024 17:58:58 GMT</pubDate>
+      <title>每一行都可以给出一个答案吗？</title>
+      <link>https://community.openai.com/t/is-it-possible-to-give-a-answer-for-each-line/790352#post_1</link>
+      <description><![CDATA[您好，我目前正在尝试让 chatgpt 根据我的输入对一些文本进行分类。我目前正在进行循环，将我的输入和文本传递给它并使其进行分类。
+由于指令很长而文本很短，因此这非常缓慢且昂贵
+有没有办法只向它们传递一次或更少次我的指令，并让 API 同时对所有或多个文本起作用？
+我有一列文本需要分类，我正在循环它们。]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-to-give-a-answer-for-each-line/790352#post_1</guid>
+      <pubDate>Fri, 31 May 2024 20:51:48 GMT</pubDate>
     </item>
     <item>
-      <title>检索到的文档应作为系统消息还是用户消息发送？</title>
-      <link>https://community.openai.com/t/should-rag-retrieved-documents-be-sent-as-system-or-user-messages/789292#post_10</link>
-      <description><![CDATA[维护 RAG 注入的对话历史记录会造成浪费和适得其反（例如助手所做的）。这会分散 AI 的注意力，并将聊天记录推到预算内可以重新发送的范围之外。
-它应该是动态的，并适应当前输入及其上下文。
-它可以显示为带有对话历史记录的“消息”的轮次，但您可以控制将其放置在需要的位置，仅用于特定的 API 调用。]]></description>
-      <guid>https://community.openai.com/t/should-rag-retrieved-documents-be-sent-as-system-or-user-messages/789292#post_10</guid>
-      <pubDate>Fri, 31 May 2024 17:58:12 GMT</pubDate>
+      <title>批处理工具因类型不匹配而出错</title>
+      <link>https://community.openai.com/t/batch-tool-error-on-type-mismatch/788298#post_6</link>
+      <description><![CDATA[我已向 OpenAI 和 OpenAIdev 帐户发送了直接私信，其中包含此处的问题报告链接。希望他们能尽快注意到这一点]]></description>
+      <guid>https://community.openai.com/t/batch-tool-error-on-type-mismatch/788298#post_6</guid>
+      <pubDate>Fri, 31 May 2024 20:51:37 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 的网页版不断崩溃</title>
-      <link>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_77</link>
-      <description><![CDATA[这会让他们更容易理解事情的紧迫性（以及这对我们所有人来说有多么烦人）]]></description>
-      <guid>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_77</guid>
-      <pubDate>Fri, 31 May 2024 17:58:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 的网页版不断崩溃</title>
-      <link>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_76</link>
-      <description><![CDATA[**同时我建议发推文。这里有一段你们可以复制并粘贴到推特上的内容：@sama @OpenAI 请修复 ChatGPT4o 中的 RAM 泄漏 - 我在 chrome 上不断收到错误 5。#RamLeakage #FixChatGPT 以下是详细信息：{将链接放入此帖子中]]></description>
-      <guid>https://community.openai.com/t/the-web-version-of-chatgpt-keeps-crashing/785592?page=4#post_76</guid>
-      <pubDate>Fri, 31 May 2024 17:57:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>“缺少 access_token”需要帮助与 Microsoft Graph API 集成的自定义 GPT 项目</title>
-      <link>https://community.openai.com/t/missing-access-token-need-help-with-custom-gpt-project-integrated-with-microsoft-graph-api/548408#post_14</link>
-      <description><![CDATA[您好。抱歉回复晚了。我推迟了这个项目的工作，最后还是离开了。
-我可能会再来。谢谢您的更新。]]></description>
-      <guid>https://community.openai.com/t/missing-access-token-need-help-with-custom-gpt-project-integrated-with-microsoft-graph-api/548408#post_14</guid>
-      <pubDate>Fri, 31 May 2024 17:55:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>基于 Kotlin 的命令行工具 (Assistant Kommander)</title>
-      <link>https://community.openai.com/t/kotlin-based-command-line-tool-assistant-kommander/737459#post_4</link>
-      <description><![CDATA[嘿，谢谢！
-我尝试过 Copilot 和其他产品，尤其是对 Copilot 的依赖有点过头了，行补全效果非常好。
-我猜 ask 的方法首先是会话式的，因为它是基于助手 API 构建的。
-Ask 确实还有很长的路要走，我刚刚添加了语音转录，这又增加了一个层次，虽然用这种方法正确完成代码可能具有挑战性，但是我在使用 ask 本身向 ask 代码库添加新功能方面取得了一些令人惊讶的成功。
-希望随着时间的推移，我可以让它变得更加可靠和有趣！
-再次感谢！]]></description>
-      <guid>https://community.openai.com/t/kotlin-based-command-line-tool-assistant-kommander/737459#post_4</guid>
-      <pubDate>Fri, 31 May 2024 17:55:23 GMT</pubDate>
+      <title>系统崩溃？网络上的代码块损坏了？</title>
+      <link>https://community.openai.com/t/system-down-code-block-broken-on-web/790195#post_6</link>
+      <description><![CDATA[看起来它也对我有用。他们没有在状态页面上报告此问题，但我认为现在已解决。]]></description>
+      <guid>https://community.openai.com/t/system-down-code-block-broken-on-web/790195#post_6</guid>
+      <pubDate>Fri, 31 May 2024 20:50:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
