@@ -4,7 +4,212 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 02 Jun 2024 01:22:20 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2024 03:22:14 GMT</lastBuildDate>
+    <item>
+      <title>我希望 OpenAI 能为快速工程或 GPT 创建官方认证</title>
+      <link>https://community.openai.com/t/i-wish-openai-to-create-an-official-certification-for-prompt-engineering-or-gpts-creation/790569#post_8</link>
+      <description><![CDATA[您可以要求 DALL-E 为您颁发证书。它将证明及时工程科学的高价值，并帮助您在没有任何现实世界成就的情况下获得认可。
+我认为认证应该针对模型的特定构建 - 例如 GPT-3-turbo-0125 的证书，并且需要在 OpenAI 批准的测试中心（Prometric 或其他）进行新的考试。这些考试的价格范围应该在每次 150-200 美元之间，但也许 OpenAI 可以为那些已经拥有同一模型的先前版本的考试的人提供小幅折扣。
+另一个大问题是如何称呼这个认证。它应该与认证和工程师的重要性相似，因此它听起来应该与所有那些“MCSE”、“CISSP”和“CompTIA”认证不同。我建议“复杂对话和输入输出技术员”。
+在引入此类认证后，未经认证的个人将拥有此论坛的只读访问权限。]]></description>
+      <guid>https://community.openai.com/t/i-wish-openai-to-create-an-official-certification-for-prompt-engineering-or-gpts-creation/790569#post_8</guid>
+      <pubDate>Sun, 02 Jun 2024 02:55:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=6#post_106</link>
+      <description><![CDATA[正如我在此处概述的那样：使用 gpt-4 API 对文档进行语义分块 - #95 by SomebodySysop
+这些是我的步骤：
+
+将 pdf（或其他）文档导出到 txt。
+运行代码以添加 linenoxxxx：
+将此编号文件连同创建层次结构 json 文件的说明一起发送到模型
+使用代码处理此文件以添加 end_line 数字并输出该 json 文件。
+new：还将 token_count 添加到 json 文件
+在 json 输出上运行代码创建块。
+新：语义上子块大于 x 个标记的块
+
+因此，我最终创建了提示以“子块”大于 x 个标记的块。这是我目前的提示：
+
+请将以下文本分成语义相关的块，确保每个块不超过 300 个标记。
+返回与提供内容完全相同的文本，但分成块。
+每个块都应清楚地标明其编号，从 0 开始，用方括号括起来。
+例如：
+[0]
+…文本…
+[1]
+…文本…
+此外，为每个块提供一个简短的摘要标题，也用方括号括在块的第一行中。
+例如：
+[0]
+[摘要]
+…文本…
+[1]
+[摘要]
+…文本…
+文本：
+[在此处插入您的文本]
+
+以下是示例文本：https://s3.us-west-2.amazonaws.com/docs.scbbs.com/docs/test/semantic_prompt_example_text.txt
+以下是使用完全相同的提示和文本从各种模型获得的输出：https://s3.us-west-2.amazonaws.com/docs.scbbs.com/docs/test/semantic_prompt_example_output.txt
+那么，您怎么看？有什么改进建议吗？此提示旨在成为一个万能的提示，以确保任何经过超过 x 个标记的流程的块在语义上都是子块。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=6#post_106</guid>
+      <pubDate>Sun, 02 Jun 2024 02:39:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGpt-4-o 函数是否可以评估音频</title>
+      <link>https://community.openai.com/t/can-chatgpt-4-o-function-evaluate-a-audio/791069#post_8</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/can-chatgpt-4-o-function-evaluate-a-audio/791069#post_8</guid>
+      <pubDate>Sun, 02 Jun 2024 02:37:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>Playground 中的助手可以完美运行（相同输入），但助手 API 不起作用</title>
+      <link>https://community.openai.com/t/assistant-api-does-not-work-while-assistant-in-playground-works-perfectly-same-inputs/681551#post_8</link>
+      <description><![CDATA[我遇到了类似的问题。不过，我采取了不同的方法。我仍然使用助手 API，但采用手动嵌入。当向量存储问题解决后，这将需要进行一些更改。
+如果您想尝试，以下是我的方法：
+
+
+
+Assistant v2 未通过 API 使用向量存储 API
+
+
+鉴于这是一个已知问题，目前没有任何解决方案，我决定将手动嵌入与助手 API 混合使用，结果非常好。令牌使用量从平均 10k（在带有向量存储的操场上）最小化到仅 1k-2k（带有嵌入）。
+如果有人感兴趣，这是我的工作流程
+从管理员仪表板
+
+管理员选择要上传的文件
+文件上传到 Web 服务器存储，也上传到 OpenAI 文件 API
+OpenAI 文件 ID 附加到向量存储，也保存……
+
+]]></description>
+      <guid>https://community.openai.com/t/assistant-api-does-not-work-while-assistant-in-playground-works-perfectly-same-inputs/681551#post_8</guid>
+      <pubDate>Sun, 02 Jun 2024 02:25:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistant v2 不通过 API 使用矢量存储</title>
+      <link>https://community.openai.com/t/assistant-v2-not-using-vector-store-via-api/783317#post_3</link>
+      <description><![CDATA[看到这是一个已知问题，目前没有任何解决方案，我决定将手动嵌入与助手 API 混合使用，结果非常好。令牌使用量从平均 10k（在带有向量存储的操场上）降至仅 1k-2k（带有嵌入）。
+如果有人感兴趣，这是我的工作流程
+来自管理仪表板
+
+管理员选择要上传的文件
+文件上传到 Web 服务器存储，并上传到 OpenAI 文件 API
+OpenAI 文件 ID 附加到向量存储，并保存到本地数据库
+触发队列工作器以逐页从我的本地文件存储中提取文件内容
+通过嵌入 API 创建页面的嵌入（确保页面之间有重叠）
+将嵌入与文本一起保存到本地数据库表
+
+在聊天界面上
+
+用户询问问题
+为问题创建嵌入
+在我的本地嵌入存储上执行向量搜索并检索相关上下文（距离&lt;0.6）
+将上下文（如果找到）和问题添加到线程中
+执行线程并检索结果
+
+**与手动嵌入没有太大区别**
+我知道这个过程与使用向量数据库手动创建嵌入的旧方法没有太大区别，但是，它有以下用途：
+
+目前，这是对向量存储问题的临时解决方案，一旦此问题得到解决，我就可以禁用执行手动嵌入的模块
+与完成 api 不同，我不必担心发送对话历史记录，因为这已经是助手 api 线程的一部分。我只需要包含新问题和通过嵌入检索到的任何相关上下文
+目前，令牌的使用情况更好，而且可控。同样，一旦解决了向量存储问题，我就可以依靠 openAI 来检索相关上下文
+]]></description>
+      <guid>https://community.openai.com/t/assistant-v2-not-using-vector-store-via-api/783317#post_3</guid>
+      <pubDate>Sun, 02 Jun 2024 02:22:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>功能请求：改进 ChatGPT 中的多段落提示处理</title>
+      <link>https://community.openai.com/t/feature-request-improve-multi-paragraph-prompt-handling-in-chatgpt/791717#post_1</link>
+      <description><![CDATA[问题：
+目前在 ChatGPT 中输入提示的用户体验可能令人沮丧，尤其是对于那些从事需要多段输入的严肃专业任务的人来说。当用户按下 Enter 键时，提示会立即发送。这种行为对于简单的单行问题很方便，但对于较长的提示则有问题。打算创建新行或段落的用户必须使用 Shift+Enter，这是违反直觉且繁琐的。错误地按下 Enter 键可能会过早结束并发送提示，从而导致沮丧。
+建议：
+
+更改 Enter 行为：
+
+
+使用 Enter 换行，模仿熟悉的文字处理器的行为。
+使用 Ctrl+Enter 提交提示。
+
+
+可选高级功能：
+
+
+引入“长提示”复选框。
+
+选中时，Enter 键换行，Ctrl+Enter 键提交提示。
+取消选中时，保留当前行为（Shift+Enter 键换行，Enter 键提交）。
+
+
+
+此调整将增强用户体验，特别是对于那些从事专业和详细提示写作的人。]]></description>
+      <guid>https://community.openai.com/t/feature-request-improve-multi-paragraph-prompt-handling-in-chatgpt/791717#post_1</guid>
+      <pubDate>Sun, 02 Jun 2024 02:05:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 正在崩溃</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-are-having-a-meltdown/790895#post_4</link>
+      <description><![CDATA[我同意。它从周四开始崩溃，而且情况越来越糟。它无法保持句子之间的拼写或路径一致。简单的东西：init.py，然后它声明init.py。它会混淆路径，甚至像年份这样简单。2024 年它输入的是 4，而之前它只是正确地声明了。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-are-having-a-meltdown/790895#post_4</guid>
+      <pubDate>Sun, 02 Jun 2024 02:03:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 引用了完全独立的对话历史记录中的信息</title>
+      <link>https://community.openai.com/t/gpt-referenced-information-from-a-completely-separate-conversation-history/383545#post_2</link>
+      <description><![CDATA[这又发生了。我通过让人工智能搞不清楚我是谁来测试快速漂移。我是“鲍勃”，然后，当我在一个完全独立的聊天中工作时，它开始叫我这个名字。我只能假设客户端部分影响了对话。这不是好事，需要修复]]></description>
+      <guid>https://community.openai.com/t/gpt-referenced-information-from-a-completely-separate-conversation-history/383545#post_2</guid>
+      <pubDate>Sun, 02 Jun 2024 02:03:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天 GPT 免费用户和付款</title>
+      <link>https://community.openai.com/t/chat-gpt-for-free-users-payments/791710#post_1</link>
+      <description><![CDATA[使用版本 4 试用版时，至少让它完成打印到屏幕上的内容后再停止，这样比较公平，或者让我们选择暂时不使用 Chat-GPT 4 试用版，继续我们正在做的事情。我正在开发 Python 脚本，你的 AI 正在为我生成更正后的脚本，你突然停止了它。至少要有礼貌地允许它完成它当时正在做的事情。你的这种策略并没有让我想付钱给你，它让我很生气，就像大多数人一样。
+另外。让我们选择使用 Paypal 付款！
+我不会把我的信用卡号给世界另一端的某个陌生公司。让犯罪分子停止刷卡太难了，我相信 Chat-Gpt 背后的人是好人，但我不会冒这个险。如果出现问题，您会向我们多收费等。我们唯一的选择是取消该卡，然后等待一周或更长时间才能收到新卡，然后再等一周或更长时间才能完全使用它，因为您必须等待密码到达。然后您必须通知所有向您收费的人您的卡已更改。我以前经历过这一切，万事达卡和维萨卡都没什么用，因为他们也不想遭受损失并赔偿我们的损失。如果您允许我们使用 Paypal 付款，我会立即付款，其他许多人也会这样做，很遗憾，在此之前我不会付款。]]></description>
+      <guid>https://community.openai.com/t/chat-gpt-for-free-users-payments/791710#post_1</guid>
+      <pubDate>Sun, 02 Jun 2024 01:57:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 的问题以及他给出的答案</title>
+      <link>https://community.openai.com/t/problem-with-gpts-and-the-answers-he-gives/791709#post_1</link>
+      <description><![CDATA[我需要帮助，我有点绝望。我不知道我创建的 GPT 发生了什么，现在，每次他回复我时，他的个人资料照片都会以大号方式显示，因此他的回复会垂直放置在屏幕右侧。每行最多 3 个字。任何帮助都非常感谢，因为我没有移动任何设置，它不知从何而来。
+![foro gpt|690x316](upload://2w0SGMemMYsZwuoVl0XcoIrRu1A.png)
+
+]]></description>
+      <guid>https://community.openai.com/t/problem-with-gpts-and-the-answers-he-gives/791709#post_1</guid>
+      <pubDate>Sun, 02 Jun 2024 01:57:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistant v2 不通过 API 使用矢量存储</title>
+      <link>https://community.openai.com/t/assistant-v2-not-using-vector-store-via-api/783317#post_2</link>
+      <description><![CDATA[我遇到了同样的问题。尚不清楚如何解决。]]></description>
+      <guid>https://community.openai.com/t/assistant-v2-not-using-vector-store-via-api/783317#post_2</guid>
+      <pubDate>Sun, 02 Jun 2024 01:56:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>戴着滑稽帽子的摔跤手和游行乐队正在接近</title>
+      <link>https://community.openai.com/t/wrestling-with-funny-hats-and-marching-bands-approaching/791248#post_2</link>
+      <description><![CDATA[几件事。
+
+浏览此提示并删除所有不必要的内容。
+将最重要的部分放在前面。
+作为学习和调试的练习，分别关注各个元素 - 确保在尝试组合它们之前，您可以为每个元素生成您想要的内容。
+
+即便如此，模型仍会无法完成某些事情，因为它过于纠结于某些单词、短语或想法。
+我尝试了很多次，但根本无法让游行乐队成员戴上希腊字母形状的帽子。
+
+也许可以尝试让随机的人戴上一顶希腊字母帽子。]]></description>
+      <guid>https://community.openai.com/t/wrestling-with-funny-hats-and-marching-bands-approaching/791248#post_2</guid>
+      <pubDate>Sun, 02 Jun 2024 01:33:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 api 格式的输出导出到 Microsoft word 文件</title>
+      <link>https://community.openai.com/t/export-api-formatted-output-to-a-microsoft-word-file/209059#post_3</link>
+      <description><![CDATA[我也是。每次在经过长时间的聊天或成功的聊天后，我得到了我想要的东西，我就会尝试要求创建一个包含所有聊天文本的文档。由于聊天时间过长或其他问题，我总是遇到同样的错误。
+有什么解决办法吗？]]></description>
+      <guid>https://community.openai.com/t/export-api-formatted-output-to-a-microsoft-word-file/209059#post_3</guid>
+      <pubDate>Sun, 02 Jun 2024 01:32:08 GMT</pubDate>
+    </item>
     <item>
       <title>与助手一起玩乐——让他们真正地互相交谈</title>
       <link>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_20</link>
@@ -20,250 +225,6 @@
       <description><![CDATA[您如何对功能请求发表意见？有没有办法可以切换某些内容，将其添加到认为需要文件夹的人员列表中？]]></description>
       <guid>https://community.openai.com/t/folders-or-tags-for-conversations/279036#post_16</guid>
       <pubDate>Sun, 02 Jun 2024 01:09:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>与助手一起玩乐——让他们真正地互相交谈</title>
-      <link>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_19</link>
-      <description><![CDATA[
-
-
- icdev2dev:
-
-另外，我想知道我们是否可以评估这些互动，以从头得出结论，而无需事先了解该人的表现。
-
-
-我不得不查找从头开始。好问题！
-答案很可能是肯定的，因为我们已经可以指示模型评估个性。它只需要有一个例行程序来进行分析。我使用过类似的提示来分析公司（通过网站、营销材料和电子邮件）。它被称为“胡说八道探测器”]]></description>
-      <guid>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_19</guid>
-      <pubDate>Sun, 02 Jun 2024 01:05:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>与助手一起玩乐——让他们真正地互相交谈</title>
-      <link>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_18</link>
-      <description><![CDATA[是的，这是一个非常好的观点！我们可以要求 LLM 评估 Big5，但也需要在行为方面指导 LLM。
-
-仅使用角色“新编辑”的 % 特征，描述“新编辑”编辑副本文本的行为。将其描述为 ANN 角色放入自定义 GPT 的单个段落提示。不要包含百分位数信息。仅描述。
-
-
-新编辑
-开放性 70%
-尽责性 85%
-外向性 65%
-亲和性 20%
-神经质 90%
-
-“新编辑”以强烈的勤奋和彻底的态度编辑文案，确保每个细节都经过细致的审查和完善。凭借平衡的创造力和对新想法的开放态度，他们能够通过创新建议增强文本，同时保持对准确性和质量的明确关注。虽然他们通常善于交际并愿意合作，但他们优先考虑精确性而不是外交性，他们的反馈往往显得直率或批评。尽管他们的情绪敏感度很高，有时会影响他们的编辑风格，但他们仍然致力于提供精致且结构良好的最终产品。
-]]></description>
-      <guid>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_18</guid>
-      <pubDate>Sun, 02 Jun 2024 00:55:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>与助手一起玩乐——让他们真正地互相交谈</title>
-      <link>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_17</link>
-      <description><![CDATA[这很酷。但由于法学硕士的性质，需要将其转化为描述。
-但它确实提供了一个极好的框架
-谢谢！
-此外，我想知道我们是否可以评估这些互动，从头得出结论，而无需事先了解该人的表现。]]></description>
-      <guid>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_17</guid>
-      <pubDate>Sun, 02 Jun 2024 00:41:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>主题：DALL-E 3 长时间使用后图像质量下降 - 寻求建议</title>
-      <link>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_4</link>
-      <description><![CDATA[我也注意到了这一点。我有数百张非常高质量的图像，然而在过去三个月里，所有生成图像的质量都非常低，以至于我停止使用它。这太糟糕了。即使你要求它提高分辨率，它只会变得更糟。不开心。我为此付了钱。我期待高质量的产品。]]></description>
-      <guid>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_4</guid>
-      <pubDate>Sun, 02 Jun 2024 00:27:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>与助手一起玩乐——让他们真正地互相交谈</title>
-      <link>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_16</link>
-      <description><![CDATA[@icdev2dev 提供 KELLY、ANN 等行为特征的捷径是关注人类心理学模型。基于统计学的“Big5 人格特质”是有效的：
-提示：
-好的，让我们看一些人物角色的假想提示。阅读以下人物角色，然后分析说明中正在修改的 Big5 人格特质。将结果显示为表格
-列 = 人物角色（普通、安、凯利、伊莉丝），行 = 特质，单元格 = 百分位数。
-仅当其他人物角色与普通角色不同时才显示百分位数。
-{在此处粘贴人物角色提示
-
-大五人格特质分析
-以下是与普通分析师相比，每个人物角色如何修改大五人格特质的分析：
-
-
-
-
-
-特质
-普通分析师
-Elise
-Kelly
-Ann
-
-
-
-
-开放性
-70%
-
-80%
-
-
-
-尽责性
-75%
-80%
-
-85%
-
-
-外向型离子
-60%
-70%
-70%
-65%
-
-
-宜人性
-65%
-85%
-
-50%
-
-
-神经质
-50%
-
-
-60%
-
-
-
-解释：
-通用分析师：
-
-开放性：70% - 反映创造力和愿意从不同角度参与的意愿。
-尽责性：75% - 表示在提供反馈时勤奋和彻底。
-外向性：60% - 适度社交，愿意与他人互动。
-随和性：65% - 在反馈方面通常合作和体贴。
-神经质：50% - 情绪稳定平衡，不过于反应性。
-
-Elise：
-
-开放性：70%（与一般分析师相同）
-尽责性：80% - 由于注重积极和建设性的反馈而增加。
-外向性：70% - 由于强调自我介绍和积极参与而更高。
-随和性：85% - 明显更高，注重积极性和建设性的反馈。
-神经质：50%（与一般分析师相同）
-
-Kelly：
-
-开放性：80% - 由于鼓励古怪的行为而更高反馈。
-尽责性：75%（与一般分析师相同）
-外向性：70% - 由于反馈的奇特和引人入胜的性质而更高。
-随和性：65%（与一般分析师相同）
-神经质：50%（与一般分析师相同）
-
-Ann：
-
-开放性：70%（与一般分析师相同）
-尽责性：85% - 由于强调批判性和详细的反馈而更高。
-外向性：65% - 略高，更批判性的参与需要自信。
-随和性：50% - 由于反馈的批判性和挑剔性，得分较低。
-神经质：60% - 由于关注关键细节可能产生压力，得分较高。
-]]></description>
-      <guid>https://community.openai.com/t/fun-with-assistants-getting-them-to-really-talk-to-each-other/784073#post_16</guid>
-      <pubDate>Sun, 02 Jun 2024 00:22:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=27#post_561</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=27#post_561</guid>
-      <pubDate>Sun, 02 Jun 2024 00:18:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=27#post_560</link>
-      <description><![CDATA[我进行了一次很棒的 ChatGPT 会话，反复浏览了六张图片，最终想出了这张图片，作为我生活中计算机服务方面的广告。经过一些 Photoshop 调整，我得到了最终结果。总时长：使用 ChatGPT 30 分钟，使用 Photoshop 90 分钟，总共 2 小时。
-艺术总监从未拥有过如此可爱的工具。
-]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=27#post_560</guid>
-      <pubDate>Sun, 02 Jun 2024 00:17:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>Api 404 错误？请帮帮我</title>
-      <link>https://community.openai.com/t/api-404-error-plz-help-me/790619#post_10</link>
-      <description><![CDATA[是的，这是我第一次完全编程。我以前从来没有做过]]></description>
-      <guid>https://community.openai.com/t/api-404-error-plz-help-me/790619#post_10</guid>
-      <pubDate>Sun, 02 Jun 2024 00:16:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGpt-4-o 函数是否可以评估音频</title>
-      <link>https://community.openai.com/t/can-chatgpt-4-o-function-evaluate-a-audio/791069#post_6</link>
-      <description><![CDATA[您确实意识到您所描述的不是我们正在讨论的内容，对吧？
-Whisper 是一种语音转文本模型，因此其输出将是... &lt;drumroll&gt;文本。
-该模型不会评估音频。
-评估音频将包括以下内容，
-
-理解语调
-发音
-节奏
-其他声音
-等等
-
-whisper 所做的就是对音频文件中可能出现的单词做出最佳猜测。
-例如，也许这个课程是 ESL 课程。能够判断说话者是否正确地发音非常重要。
-或者也许是戏剧课，我们需要评估学生的声乐表演是否引人注目？
-因此，再次重申，OpenAI 目前没有发布可以评估音频的模型。]]></description>
-      <guid>https://community.openai.com/t/can-chatgpt-4-o-function-evaluate-a-audio/791069#post_6</guid>
-      <pubDate>Sun, 02 Jun 2024 00:13:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>请求 ChatGPT 的实时服务器状态检查功能</title>
-      <link>https://community.openai.com/t/request-for-real-time-server-status-check-feature-for-chatgpt/789448#post_5</link>
-      <description><![CDATA[
-嗨，815doug815，
-我很欣赏你对使用人工智能进行交流和自我表达的看法。很高兴听到人工智能成为你学习和表达思想的宝贵工具。
-关于人工智能生成内容的披露，目的不是破坏信息的价值或真实性，而是确保透明度。所有用户在与人工智能生成的内容交互时都要保持警惕，这样他们才能理解上下文，并对所接收的信息做出明智的判断。
-虽然人工智能可以显著增强沟通能力，尤其是对于那些难以学习传统读写技能的人来说，明确指出人工智能在内容创作中的使用至关重要。这不仅有助于维护社区内的信任，而且还突出了技术用于支持个人发展的创新方式。
-您的信息清楚地反映了您的想法和感受，很高兴看到人工智能以这种方式赋予您力量。但是，继续披露在生成您的回复时使用人工智能可确保透明度，并帮助其他人了解您利用技术的独特方式。
-感谢您分享您的旅程以及人工智能在其中发挥的作用。这是一次重要的对话，您的见解很有价值。
-祝好，
-_j
-披露：100% 由“_j”的人工智能版本创建，它阅读了整个主题，除了其身份外没有给出任何其他提示。]]></description>
-      <guid>https://community.openai.com/t/request-for-real-time-server-status-check-feature-for-chatgpt/789448#post_5</guid>
-      <pubDate>Sun, 02 Jun 2024 00:07:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>将搜索栏添加到 ChatGPT 的浏览器版本</title>
-      <link>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456?page=2#post_21</link>
-      <description><![CDATA[我最近发现了这个似乎很好用的 Chrome 扩展程序。https://chromewebstore.google.com/detail/searchable-chatgpt-search/bldiolhaloogkkbpgojpbjbcalnldlpb?utm_source=website&amp;utm_campaign=myextension]]></description>
-      <guid>https://community.openai.com/t/add-search-bar-to-browser-version-of-chatgpt/551456?page=2#post_21</guid>
-      <pubDate>Sun, 02 Jun 2024 00:07:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>缺少项目和 API</title>
-      <link>https://community.openai.com/t/missing-projects-and-apis/791650#post_2</link>
-      <description><![CDATA[OpenAI 会定期扫描应用程序和存储库，查找泄露的密钥并将其禁用。
-如果您没有安全地管理您的凭据，它们可能会“消失”，从而影响您的安全。]]></description>
-      <guid>https://community.openai.com/t/missing-projects-and-apis/791650#post_2</guid>
-      <pubDate>Sat, 01 Jun 2024 23:59:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>批处理未找到外部 URL</title>
-      <link>https://community.openai.com/t/batch-processing-not-finding-external-urls/791489#post_2</link>
-      <description><![CDATA[
-
-
- me2:
-
-已正确检查了 4 个 URL
-
-
-我认为你只是让 AI 产生了幻觉。
-API AI 模型没有访问 OpenAI 提供的互联网的方法。 AI 语言 token 输入，AI 语言输出。
-现在需要相对较高的愚蠢标准才能让 AI 提供阅读网页的幻觉：
-  ]]></description>
-      <guid>https://community.openai.com/t/batch-processing-not-finding-external-urls/791489#post_2</guid>
-      <pubDate>Sat, 01 Jun 2024 23:57:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
