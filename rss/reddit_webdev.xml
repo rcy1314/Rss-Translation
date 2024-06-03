@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 03 Jun 2024 12:35:16 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2024 15:20:31 GMT</lastBuildDate>
+    <item>
+      <title>为什么 Chrome 会一遍又一遍地重新下载相同的图像……</title>
+      <link>https://www.reddit.com/r/webdev/comments/1d76m7g/why_is_chrome_redownloading_the_same_images_over/</link>
+      <description><![CDATA[...即使 Web 服务器在提供这些图像时附加了&quot;Cache-Control: max-age=2592000&quot; 响应标头？ 有关我的设置的一些其他详细信息：  使用 create-react-app 构建的单页应用程序 我们将一堆图像存储在 S3 存储桶中 我们有一个 CloudFront 分发，具有与原点相同的 S3 存储桶，并使用自定义&quot;响应标头&quot; 策略来强制&quot;Cache-Control: max-age=2592000&quot;响应标头 应用程序服务器使用 aws-sdk 生成并分发指向所请求文件的 CloudFront 签名 URL 当要求加载这样的图像时，Web 浏览器将向 CloudFront 发出跨源请求（“跨源”是因为应用程序托管在：https://myawesomeapp.com，而 CloudFront 位于：https://....cloudfront.net）  注 1：我只对“修复”此“软”刷新感兴趣（即当用户按 F5/Ctrl-R 时）。注 2：我只能在 Chrome 上重现此问题（Firefox 似乎可以很好地提供缓存图像）。注 3：两种浏览器都附加了“Cache-Control: no-cache”和“Pragma: no-cache”触发“软”刷新时，Chrome 会将这些标头附加到请求中；但是，Chrome 会将这些标头附加到任何后续图像请求中（不确定是否相关，但我认为我应该标记出这一个） 有人知道为什么会发生这种情况吗？遵循每个测试浏览器记录的请求/响应日志。首先是 Chrome： &gt; :authority: s0meth1ng.cloudfront.net &gt; :method: GET &gt; :path: /app/photos/b02199d4-403d-4593-994b-8fc26afe34c0-1541445600382.jpeg?Expires=1719388779372&amp;Key-Pair-Id=...&amp;Signature=... &gt; :scheme: https &gt;接受：image/avif、image/webp、image/apng、image/svg+xml、image/*、*/*；q=0.8 &gt; 接受编码：gzip、deflate、br、zstd &gt; 接受语言：en-US、en；q=0.9、it-IT；q=0.8、it；q=0.7 &gt; 缓存控制：无缓存 &gt; Pragma：无缓存 &gt; 优先级：u=1，i &gt; 引荐来源：https://skillsmatch.app/ &gt; Sec-Ch-Ua：“Google Chrome”；v=“125”，“Chromium”；v=“125”，“Not.A/Brand”；v=“24”&gt; Sec-Ch-Ua-Mobile：？0 &gt; Sec-Ch-Ua-Platform: &quot;Windows&gt; Sec-Fetch-Dest: image&gt; Sec-Fetch-Mode: no-cors&gt; Sec-Fetch-Site: cross-site&gt; User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36&lt; Accept-Ranges: bytes&lt; Age: 41&lt; Cache-Control: max-age=2592000&lt; Content-Length: 68047&lt; Content-Type: binary/octet-stream&lt; Date: Thu, 30 May 2024 12:29:17 GMT&lt; Etag：“95a23beb6171eae2c678c31d3bbe212d”&lt; 最后修改时间：2024 年 5 月 30 日星期四 10:10:10 GMT &lt; 服务器：AmazonS3 &lt; Via：1.1 f92e634cae29c615cbe8f686d8333cf6.cloudfront.net (CloudFront) &lt; X-Amz-Cf-Id：wSwE44UGD-V9zohqX7t0FDajg7JLlXNqcTRAT_ntBTZQ0tVvWQfHuQ== &lt; X-Amz-Cf-Pop：MXP64-P1 &lt; X-Amz-Server-Side-Encryption：AES256 &lt; X-Cache：来自 cloudfront 的命中  Firefox 下一步： &gt; GET /app/photos/b02199d4-403d-4593-994b-8fc26afe34c0-1541445600382.jpeg?Expires=1719388779372&amp;Key-Pair-Id=...&amp;Signature=... HTTP/2 &gt; 主机：s0meth1ng.cloudfront.net &gt; 用户代理：Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0 &gt; 接受：image/avif、image/webp、*/* &gt;接受语言：en-US,en;q=0.5 &gt; 接受编码：gzip、deflate、br、zstd &gt; 连接：keep-alive &gt; 引用者：https://skillsmatch.app/ &gt; Sec-Fetch-Dest：image &gt; Sec-Fetch-Mode：no-cors &gt; Sec-Fetch-Site：cross-site &gt; 优先级：u=4 &gt; Pragma：no-cache &gt; 缓存控制：no-cache &gt; TE：预告片 &lt; HTTP/2 200 &lt; 内容类型：binary/octet-stream &lt; 内容长度：68047 &lt; 日期：2024 年 5 月 30 日星期四 12:29:17 GMT &lt; 最后修改时间：2024 年 5 月 30 日星期四 10:10:10 GMT &lt; etag：“95a23beb6171eae2c678c31d3bbe212d”&lt; x-amz-server-side-encryption：AES256 &lt; accept-ranges：字节&lt; 服务器：AmazonS3 &lt; x-cache：来自 cloudfront 的命中&lt; via：1.1 b61152e740e230075fb9605e656b9520.cloudfront.net (CloudFront) &lt; x-amz-cf-pop：MXP64-P1 &lt; x-amz-cf-id：4ibbMKDG1ztG3hABlyeJSFA5J9qh9Xh3sevMS0APnoSSOQvxfj9o0A== &lt; 年龄：616 &lt; 缓存控制：max-age=2592000 &lt; X-Firefox-Spdy：h2     由   提交  /u/landimatte   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1d76m7g/why_is_chrome_redownloading_the_same_images_over/</guid>
+      <pubDate>Mon, 03 Jun 2024 15:03:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>5 月份新增网页平台</title>
+      <link>https://www.reddit.com/r/webdev/comments/1d74i5r/new_to_the_web_platform_in_may/</link>
+      <description><![CDATA[        提交人    /u/feross   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1d74i5r/new_to_the_web_platform_in_may/</guid>
+      <pubDate>Mon, 03 Jun 2024 13:31:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人知道我可以加入哪个开源社区以及如何加入？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1d747b5/does_anyone_know_of_an_open_source_community_i/</link>
+      <description><![CDATA[专注于 Web 开发    由   提交  /u/Sgdoc7   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1d747b5/does_anyone_know_of_an_open_source_community_i/</guid>
+      <pubDate>Mon, 03 Jun 2024 13:17:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在 TypeScript 中实现类似 #ifdef 的功能？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1d73nvc/how_to_achieve_something_similar_to_ifdef_in/</link>
+      <description><![CDATA[我为 node 和浏览器环境编写了一个库。在 node 中，我将分别使用来自 `cross-fetch` 和 `ws` 的 `fetch` 和 `WebSocket`。在浏览器中，我将使用内置支持，这样我可以使发送到前端的代码尽可能小。基本上，我希望以下代码可以工作： // #ifdef NODE import fetch from &quot;cross-fetch&quot;; // 仅在 node 上使用 import ws from &quot;ws&quot;; // 仅在 node 上使用 // #endif const subClient = new SubscriptionClient( wsUri, { lazy: true, reconnect: true, reconnectionAttempts, timeout: keepAlive, minTimeout: timeout, } // #ifdef NODE ,ws // #endif ); httpLink = new HttpLink({ uri： httpUri， credentials： withCredentials ？“include” ： “omit” // #ifdef NODE ，fetch // #endif });     提交人    /u/yukiiiiii2008   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1d73nvc/how_to_achieve_something_similar_to_ifdef_in/</guid>
+      <pubDate>Mon, 03 Jun 2024 12:51:58 GMT</pubDate>
+    </item>
     <item>
       <title>集成 DotNET 和 Node.js 进行软件开发</title>
       <link>https://www.reddit.com/r/webdev/comments/1d724v7/integrating_dotnet_and_nodejs_for_software/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[我有一个不寻常的想法，可能不太可能实现。 我有一个类似 https://john.is/ 的域名 - 我想要的是索引页保持不变，但文件路径随机更改为各种形容词。例如，当访问 https://john.is/ 时，它可能会显示索引页，但显示 https://john.is/cute，然后在下次访问时显示 https://john.is/funny、https://john.is/kind、https://john.is/smelly 等。 这可能吗？我该如何处理这样的事情？只是有点好玩 :) 提前谢谢 :)    提交人    /u/rawexhibit   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1d6y5yy/dynamic_changing_file_path/</guid>
       <pubDate>Mon, 03 Jun 2024 06:45:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在为学生建立一个存储系统。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1d6x4p4/i_am_building_a_storage_system_for_students/</link>
-      <description><![CDATA[我正在为学生构建存储系统，以便更轻松地存储和检索文档、写笔记以及与朋友聊天和协作。 试一试：https://thedrive.ai    提交人    /u/karkibigyan   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1d6x4p4/i_am_building_a_storage_system_for_students/</guid>
-      <pubDate>Mon, 03 Jun 2024 05:34:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>向骗子学习</title>
-      <link>https://www.reddit.com/r/webdev/comments/1d6wkai/learning_from_scammers/</link>
-      <description><![CDATA[今天我了解到，每当我们有这样的网址 https://xyz.com@pqr.com 浏览器在打开上述链接时将重定向到 pqr.com。  现在我很疑惑，为什么会有这样的浏览器行为？    提交人    /u/amit78523   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1d6wkai/learning_from_scammers/</guid>
-      <pubDate>Mon, 03 Jun 2024 04:58:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我对可访问性的看法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1d6un2r/my_thoughts_on_accessability/</link>
-      <description><![CDATA[大家好， 我最近刚刚完成了将我的 SaaS 提升到符合 wcag2.2 标准的过程。在阅读和工作了这么多之后，我不得不说我对指南和标准非常失望。它们复杂、冗长，而且讽刺的是，根本无法理解。我是一名从事这个行业多年的专业开发人员。大多数网站都不是专业开发人员创建的。任何人甚至都无法期望经验丰富的开发人员遵守这些标准。w3c 提供的指南介绍了 10 种不同的方法来做某些事情，其中​​一些方法与大多数屏幕阅读器的工作方式不一致。    提交人    /u/django_noob   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1d6un2r/my_thoughts_on_accessability/</guid>
-      <pubDate>Mon, 03 Jun 2024 03:05:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要反馈：Next-Blog 是一款具有高级功能的 CMS</title>
-      <link>https://www.reddit.com/r/webdev/comments/1d6u0e5/feedback_needed_nextblog_a_cms_with_premium/</link>
-      <description><![CDATA[嗨，我目前正在创建 Next-Blog，这是一个开箱即用的快速、SEO 友好的基于博客的 CMS，支持多个主题、类似 Notion 的所见即所得编辑器、AI 助理作家、管理仪表板以及自定义现代布局和组件。 我已经研究了一个月，但我想得到大家的反馈，以更好地规划其未来的发展时间表。 请留下建设性的批评和您希望在初始公开版本中看到的功能。 GitHub：https://github.com/MODSetter/next-blog    提交人    /u/Uiqueblhats   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1d6u0e5/feedback_needed_nextblog_a_cms_with_premium/</guid>
-      <pubDate>Mon, 03 Jun 2024 02:30:37 GMT</pubDate>
     </item>
     </channel>
 </rss>
