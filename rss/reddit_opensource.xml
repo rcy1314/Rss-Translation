@@ -4,7 +4,35 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 05 Jun 2024 12:34:46 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2024 15:19:53 GMT</lastBuildDate>
+    <item>
+      <title>Tach - 强制模块边界 + deps，现在在 Rust 中🦀</title>
+      <link>https://www.reddit.com/r/opensource/comments/1d8sblz/tach_enforce_module_boundaries_deps_now_in_rust/</link>
+      <description><![CDATA[https://github.com/gauge-sh/tach 大家好！想分享一些我一直在研究的工具的相当重要的更新。Tach 允许您定义模块边界并在模块中强制执行规则，包括隔离、依赖关系和严格接口。一些更新 -  用 Rust 重写了核心，导致大型存储库的速度提高了约 19 倍 重新设计了界面，并添加了 TUI 以允许您以交互方式声明模块  我们构建了 Tach 来解决我们在之前的所有工作经历中遇到的“泥球”问题。随着时间的推移，代码库会紧密耦合在一起，即使是简单的更改/重构也会变得痛苦。通过设置模块边界并尽早执行它们，您可以避免所有这些问题！ Tach 是发展模块化整体而不产生泥球的最佳方式。 如果有人有任何问题或反馈，我很乐意聊天！ https://github.com/gauge-sh/tach    提交人    /u/the1024   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1d8sblz/tach_enforce_module_boundaries_deps_now_in_rust/</guid>
+      <pubDate>Wed, 05 Jun 2024 15:10:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果我有一个用 C++ 编写的可立即使用但功能极小的 Web 框架，我应该对社区有什么期望？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1d8s7g1/what_should_i_expect_from_the_community_if_i_have/</link>
+      <description><![CDATA[我断断续续花了大约一个月的时间研究这个东西，现在我可以轻松处理 HTTP 请求，从请求中获取数据，并将数据以特定状态 (HTTP_OK、HTTP_NOT_FOUND 等) 返回给用户。 我还构建了一个记录器和一个路由器。现在，如果我必须指出任何与此最相似的东西，我会说它最接近 Python 框架 Flask。我有意尽我所能使它尽可能简单和简约，以打破“我们不会用 C++ 编码，因为它很难学”的污名。 我现在面临的主要问题是，我看到很多事情需要处理才能使这个东西具有实际价值。目前，它只能接受简单的表单数据/文件、GET 参数、JSON 数据并解析 JSON 数据，并返回某种响应（基于文本。它可以是 XML/JSON/HTML 或纯文本）。 为了使其有用，我必须实现以下内容：  数据库插件，最好是 ORM，如用于 SQL 数据库的 SQLAlchemy 或用于 MongoDB 的 Beanie 等。这在未来应该主要得到社区支持，但它应该提供最流行的开箱即用集成，以方便使用。 身份验证机制，例如 JWT 令牌。 用于在客户端和服务器之间实现实时通信的 Web 套接字 蓝图，以便用户可以将其 API 拆分为更小的段并在将来进行版本控制（即 /v1 或 /v2） 为想要单独使用此 Web 服务器而不依赖其他 GUI 框架的用户提供模板。我会从 Jinja 中汲取灵感  我可以自己完成大部分工作，但我不想在不知道它是否有用的情况下花费这么多时间，所以如果我决定采用这个开源项目，我对社区的期望是什么？ 这里有一个示例路线，它接受简单的名字和姓氏，并将它们作为 JSON 格式的全名返回给用户： app.addRoute(&quot;/get_full_name&quot;, &quot;POST&quot;, [&amp;app](Poco::Net::HTTPServerRequest&amp; request, Poco::Net::HTTPServerResponse&amp; response) { DataHandler dataHandler(request); std::map&lt;std::string, std::string&gt; form = dataHandler.getForm(); // std::map&lt;std::string, std::string&gt; params = dataHandler.getParams(); 可以通过请求参数来完成 (?first_name=John&amp;last_name=Doe) // nlohmann::json json = dataHandler.getJson(); 也可以从请求主体中获取 json 数据，它在 dataHandler 类的 getJson() 方法中进行解析 response.setStatus(Poco::Net::HTTPResponse::HTTP_OK); response.setContentType(&quot;text/json&quot;); response.send() &lt;&lt; &quot;{ \&quot;full_name\&quot; : \&quot;&quot; + form[&quot;first_name&quot;] + &quot; &quot; + form[&quot;last_name&quot;] + &quot;\&quot; }&quot;; // 有点乱，我知道。 ^^^^ }    由    /u/Dont_Vue_Just_React  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1d8s7g1/what_should_i_expect_from_the_community_if_i_have/</guid>
+      <pubDate>Wed, 05 Jun 2024 15:06:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>想要分享一个“开源货币化工具”</title>
+      <link>https://www.reddit.com/r/opensource/comments/1d8qe2f/wanted_to_share_a_open_source_monetizer/</link>
+      <description><![CDATA[在他们的电报频道上分享了我的观点，结果被疯狂地批评了。管理员批评了一点，但群成员是另一回事，天哪。 现在我明白为什么小偷会采取守势了。 同一个人有 4 个不同的频道，他在其中分享开源项目（和不分享），并使用链接缩短器上传项目，有时甚至不给予任何信用。 他在三个 YouTube 频道（我发现的）中做了所有这些： - Tech Karan - Everything Android - Karan Arora 注意：他似乎对他们表示了感谢，但只在他的四个 TELEGRAM 频道中的一个。不是 YouTube 频道。即便如此，他还是自己上传文件。没有提供开发者页面的下载链接。    提交人    /u/thejedih   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1d8qe2f/wanted_to_share_a_open_source_monetizer/</guid>
+      <pubDate>Wed, 05 Jun 2024 13:48:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>想要分享一个“开源货币化工具”</title>
+      <link>https://www.reddit.com/r/opensource/comments/1d8qdrv/wanted_to_share_a_open_source_monetizer/</link>
+      <description><![CDATA[在他们的电报频道上分享了我的观点，结果被疯狂地批评了。管理员批评了一点，但群成员是另一回事，天哪。 现在我明白为什么小偷会采取守势了。 同一个人有 4 个不同的频道，他在其中分享开源项目（和不分享），并使用链接缩短器上传项目，有时甚至不给予任何信用。 他在三个 YouTube 频道（我发现的）中做了所有这些： - Tech Karan - Everything Android - Karan Arora 注意：他似乎对他们表示了感谢，但只在他的四个 TELEGRAM 频道中的一个。不是 YouTube 频道。即便如此，他还是自己上传文件。没有提供开发者页面的下载链接。    提交人    /u/thejedih   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1d8qdrv/wanted_to_share_a_open_source_monetizer/</guid>
+      <pubDate>Wed, 05 Jun 2024 13:48:21 GMT</pubDate>
+    </item>
     <item>
       <title>用 C 语言编写的微型公共领域数学库（+网络演示）</title>
       <link>https://www.reddit.com/r/opensource/comments/1d8nhiv/a_tiny_public_domain_math_library_written_in_c/</link>
@@ -69,13 +97,6 @@
       <pubDate>Tue, 04 Jun 2024 13:25:31 GMT</pubDate>
     </item>
     <item>
-      <title>采用 C4 模型的软件架构图</title>
-      <link>https://www.reddit.com/r/opensource/comments/1d7tulx/software_architecture_diagrams_with_c4_model/</link>
-      <description><![CDATA[        提交人    /u/pliutau   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1d7tulx/software_architecture_diagrams_with_c4_model/</guid>
-      <pubDate>Tue, 04 Jun 2024 10:27:57 GMT</pubDate>
-    </item>
-    <item>
       <title>开源对人工智能的贡献：CPDP-ai 会议小组讨论</title>
       <link>https://www.reddit.com/r/opensource/comments/1d7smvx/contributions_of_open_source_to_ai_a_panel/</link>
       <description><![CDATA[       由    /u/opensourceinitiative  提交  [链接] [评论] ]]></description>
@@ -88,27 +109,6 @@
       <description><![CDATA[  由    /u/pragma-twice  提交  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1d7m385/kqir_a_query_engine_for_apache_kvrocks_that/</guid>
       <pubDate>Tue, 04 Jun 2024 02:11:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>音乐播放器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1d7kwqz/music_player/</link>
-      <description><![CDATA[      我正在寻找一个音乐播放器，它可以提供有关我的使用情况的一些数据，例如播放次数最多的歌曲、艺术家和流派等，但它注重隐私并且开放来源。  我想停止使用 YouTube 音乐，但我会怀念那些让我们反思使用的小事    提交人    /u/dioxidodeodio   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1d7kwqz/music_player/</guid>
-      <pubDate>Tue, 04 Jun 2024 01:10:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>Win10 文件资源管理器替代品</title>
-      <link>https://www.reddit.com/r/opensource/comments/1d7jppa/win10_file_explorer_alternatives/</link>
-      <description><![CDATA[是否有适用于 Windows 10 的 Windows 文件资源管理器的开源替代品，如 Dolphin（在 Linux 中）？看起来比较现代的东西（不是 Commander）。    由    /u/bredogge   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1d7jppa/win10_file_explorer_alternatives/</guid>
-      <pubDate>Tue, 04 Jun 2024 00:11:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌的替代品</title>
-      <link>https://www.reddit.com/r/opensource/comments/1d7hatl/alternativas_ao_google/</link>
-      <description><![CDATA[我想知道是否有“google office”（驱动器、文档等）、电子邮件和日历服务的在线替代品    提交人    /u/Brilliant_Cover6110   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1d7hatl/alternativas_ao_google/</guid>
-      <pubDate>Mon, 03 Jun 2024 22:18:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
