@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 06 Jun 2024 12:34:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2024 15:21:16 GMT</lastBuildDate>
+    <item>
+      <title>Purism（FOSS 友好型手机和硬件的创造者）2023 年财务报告，三年内收入增长 350%，公司实现盈利</title>
+      <link>https://www.reddit.com/r/opensource/comments/1d9hcbc/purism_creator_of_foss_friendly_phones_and/</link>
+      <description><![CDATA[    /u/wiki_me   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1d9hcbc/purism_creator_of_foss_friendly_phones_and/</guid>
+      <pubDate>Thu, 06 Jun 2024 12:47:49 GMT</pubDate>
+    </item>
     <item>
       <title>Modbus 表？一站式即可找到！</title>
       <link>https://www.reddit.com/r/opensource/comments/1d9000j/modbus_tables_find_them_all_in_one_place/</link>
@@ -39,13 +46,6 @@
       <description><![CDATA[https://github.com/gauge-sh/tach 大家好！想分享一些我一直在研究的工具的相当重要的更新。Tach 允许您定义模块边界并在模块中强制执行规则，包括隔离、依赖关系和严格接口。一些更新 -  用 Rust 重写了核心，导致大型存储库的速度提高了约 19 倍 重新设计了界面，并添加了 TUI 以允许您以交互方式声明模块  我们构建了 Tach 来解决我们在之前的所有工作经历中遇到的“泥球”问题。随着时间的推移，代码库会紧密耦合在一起，即使是简单的更改/重构也会变得痛苦。通过设置模块边界并尽早执行它们，您可以避免所有这些问题！ Tach 是发展模块化整体而不产生泥球的最佳方式。 如果有人有任何问题或反馈，我很乐意聊天！ https://github.com/gauge-sh/tach    提交人    /u/the1024   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1d8sblz/tach_enforce_module_boundaries_deps_now_in_rust/</guid>
       <pubDate>Wed, 05 Jun 2024 15:10:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果我有一个用 C++ 编写的可立即使用但功能极小的 Web 框架，我应该对社区有什么期望？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1d8s7g1/what_should_i_expect_from_the_community_if_i_have/</link>
-      <description><![CDATA[我断断续续花了大约一个月的时间研究这个东西，现在我可以轻松处理 HTTP 请求，从请求中获取数据，并将数据以特定状态 (HTTP_OK、HTTP_NOT_FOUND 等) 返回给用户。 我还构建了一个记录器和一个路由器。现在，如果我必须指出任何与此最相似的东西，我会说它最接近 Python 框架 Flask。我有意尽我所能使它尽可能简单和简约，以打破“我们不会用 C++ 编码，因为它很难学”的污名。 我现在面临的主要问题是，我看到很多事情需要处理才能使这个东西具有实际价值。目前，它只能接受简单的表单数据/文件、GET 参数、JSON 数据并解析 JSON 数据，并返回某种响应（基于文本。它可以是 XML/JSON/HTML 或纯文本）。 为了使其有用，我必须实现以下内容：  数据库插件，最好是 ORM，如用于 SQL 数据库的 SQLAlchemy 或用于 MongoDB 的 Beanie 等。这在未来应该主要得到社区支持，但它应该提供最流行的开箱即用集成，以方便使用。 身份验证机制，例如 JWT 令牌。 用于在客户端和服务器之间实现实时通信的 Web 套接字 蓝图，以便用户可以将其 API 拆分为更小的段并在将来进行版本控制（即 /v1 或 /v2） 为想要单独使用此 Web 服务器而不依赖其他 GUI 框架的用户提供模板。我会从 Jinja 中汲取灵感  我可以自己完成大部分工作，但我不想在不知道它是否有用的情况下花费这么多时间，所以如果我决定采用这个开源项目，我对社区的期望是什么？ 这里有一个示例路线，它接受简单的名字和姓氏，并将它们作为 JSON 格式的全名返回给用户： app.addRoute(&quot;/get_full_name&quot;, &quot;POST&quot;, [&amp;app](Poco::Net::HTTPServerRequest&amp; request, Poco::Net::HTTPServerResponse&amp; response) { DataHandler dataHandler(request); std::map&lt;std::string, std::string&gt; form = dataHandler.getForm(); // std::map&lt;std::string, std::string&gt; params = dataHandler.getParams(); 可以通过请求参数来完成 (?first_name=John&amp;last_name=Doe) // nlohmann::json json = dataHandler.getJson(); 也可以从请求主体中获取 json 数据，它在 dataHandler 类的 getJson() 方法中进行解析 response.setStatus(Poco::Net::HTTPResponse::HTTP_OK); response.setContentType(&quot;text/json&quot;); response.send() &lt;&lt; &quot;{ \&quot;full_name\&quot; : \&quot;&quot; + form[&quot;first_name&quot;] + &quot; &quot; + form[&quot;last_name&quot;] + &quot;\&quot; }&quot;; // 有点乱，我知道。 ^^^^ }    由    /u/Dont_Vue_Just_React  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1d8s7g1/what_should_i_expect_from_the_community_if_i_have/</guid>
-      <pubDate>Wed, 05 Jun 2024 15:06:03 GMT</pubDate>
     </item>
     <item>
       <title>想要分享一个“开源货币化工具”</title>
