@@ -4,200 +4,211 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 06 Jun 2024 15:22:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2024 18:25:46 GMT</lastBuildDate>
     <item>
-      <title>建议添加聊天 GPT</title>
-      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_94</link>
-      <description><![CDATA[@charlescoult.boeing @TVIL @igbenic @elmstedt 自动滚动“功能”让阅读响应变得非常困难。绝对是用户体验灾难。有一个扩展程序可以解决该问题：ChatGPT 禁用自动滚动（警告：免费增值版）]]></description>
-      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_94</guid>
-      <pubDate>Thu, 06 Jun 2024 15:18:56 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_13</link>
+      <description><![CDATA[只要您了解正在使用哪些 Azure 服务以及原因，并支付账单，它就应该继续工作（如果现在正在工作并且有人在创建部署 ID 时使用的内容有任何意义）。
+此外，不要升级 Python 库。
+接下来要了解的是“GPT3”函数中使用的语言模型。]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_13</guid>
+      <pubDate>Thu, 06 Jun 2024 18:25:35 GMT</pubDate>
     </item>
     <item>
-      <title>自定义 GPT 响应中的参考链接损坏</title>
-      <link>https://community.openai.com/t/broken-reference-links-in-custom-gpt-responses/802364#post_2</link>
-      <description><![CDATA[已经过去一整天了，我还没有收到任何回复。看来这个社区不是寻找答案的最佳场所。]]></description>
-      <guid>https://community.openai.com/t/broken-reference-links-in-custom-gpt-responses/802364#post_2</guid>
-      <pubDate>Thu, 06 Jun 2024 15:12:42 GMT</pubDate>
+      <title>函数调用-有条件地填充参数</title>
+      <link>https://community.openai.com/t/function-calling-fill-parameters-conditionally/805334#post_1</link>
+      <description><![CDATA[我有一个名为 add_user_to_class() 的函数。我正在尝试使用函数调用功能来调用此函数。此函数具有以下参数：
+class_name、user_name、user_address、user_disply_id、b_create_user。如果用户在“将用户添加到类”这一行询问某些内容，我希望 llm 与用户确认
+他/她是否想要创建新用户或添加现有用户。如果用户想要创建新用户，llm 应该获取参数 user_name 和 user_address（仅这两个）。
+如果用户想要添加现有用户，llm 应该仅获取用户显示 ID。此外，如果用户想要创建新用户，llm 应该将字段“b_create_user”设置为 True。否则，其值应为 False。
+我尝试了以下系统提示：
+
+“您是一位友好的 AI 助手，能够将用户添加到类中。在调用函数 add_user_to_class() 之前，请确保询问用户是否要创建新用户或是否要将现有用户添加到类中。只有当用户想要创建新用户时，才询问用户名、用户地址和类的名称。在这种情况下，“b_create_user”的值为 True。但是，如果用户想要将现有用户添加到类中，则只询问用户的显示 ID 和类的名称。在这种情况下，不要问他用户名和用户地址。在这种情况下，“b_create_user”的值为 False。严格不要假设要插入函数的值。如果用户请求是含糊不清。”
+
+工具：
+ {
+&quot;type&quot;: &quot;function&quot;,
+&quot;function&quot;: {
+&quot;name&quot;: &quot;add_user_to_class&quot;,
+&quot;description&quot;: &quot;该函数将创建一个新用户和一个新类，并将用户添加到该类&quot;,
+&quot;parameters&quot;: {
+&quot;type&quot;: &quot;object&quot;,
+&quot;properties&quot;: {
+&quot;class_name&quot;: {
+&quot;type&quot;: &quot;string&quot;,
+&quot;description&quot;: &quot;类名。可以是任何字符串。请严格询问用户。不要想象此参数的值。&quot;,
+},
+&quot;user_name&quot;: {
+&quot;type&quot;: &quot;string&quot;,
+&quot;description&quot;: &quot;用户的名称。可以是任何字符串。仅在用户想要创建新用户时才询问用户。&quot;,
+},
+&quot;user_display_id&quot;: {
+&quot;type&quot;: &quot;string&quot;,
+&quot;description&quot;: &quot;显示用户的 ID。仅当用户想要将现有用户添加到选项卡时才询问此问题。&quot;,
+},
+&quot;b_create_user&quot;: {
+&quot;type&quot;: &quot;string&quot;,
+&quot;description&quot;: &quot;如果用户想要创建新用户，则此参数为 true，否则为 False。&quot;
+}
+},
+&quot;required&quot;: [&quot;class_name&quot;],
+},
+},
+},
+},
+
+这对我来说并不总是有效。大多数时候，llm 会产生幻觉参数值。我怎样才能让模型按照我的要求工作？]]></description>
+      <guid>https://community.openai.com/t/function-calling-fill-parameters-conditionally/805334#post_1</guid>
+      <pubDate>Thu, 06 Jun 2024 18:25:05 GMT</pubDate>
     </item>
     <item>
-      <title>建议添加聊天 GPT</title>
-      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_93</link>
-      <description><![CDATA[@paul.white.pl @Ti9DEV @gabiota1998 @kanintesova @Clint @nightcoder.programmi @kamscruise @lamichhanepratik @Liebed @Olivine 我认为我们不会很快从 OpenAI 获得“Pin Chat”功能。但您可以尝试用于在 ChatGPT 侧边栏中固定对话的扩展程序]]></description>
-      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_93</guid>
-      <pubDate>Thu, 06 Jun 2024 15:11:46 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_12</link>
+      <description><![CDATA[顺便问一下，您知道微调是否会与基础模型一起退役吗？我认为微调是一个 lora 适配器，所以我可能需要让基础模型保持活力？每年重新训练一次微调并不是一个理想的尝试，我认为每次都会略有变化。另一方面，这是一个很好的比喻，说明朋友随着年龄的增长和友谊的发展而发展。
+无论如何，如果是这样，@MarkusAntonius 可能想在本地 Llama3 上尝试微调，以保持下一阶段改变生活的模型的活力。也许 5 年后比较它会很有趣。
+尽管如此，在我们陷入太深的爱之前退役模型可能是一个很好的安全功能……]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_12</guid>
+      <pubDate>Thu, 06 Jun 2024 18:18:09 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT - 使用 Microsoft（工作）帐户登录</title>
-      <link>https://community.openai.com/t/chatgpt-login-with-microsoft-work-account/334076#post_22</link>
-      <description><![CDATA[如果他们只是将 Microsoft 企业帐户支持扩展到 ChatGPT Teams 版本，我会很高兴。看起来，将其保留给企业帐户是一个刻意的决定。
-Open AI 应该被添加到 sso.tax 的 SSO 耻辱墙中。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-login-with-microsoft-work-account/334076#post_22</guid>
-      <pubDate>Thu, 06 Jun 2024 15:09:20 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_11</link>
+      <description><![CDATA[好的，我明白了一些，谢谢你的帮助。
+所以我的理解是，我们不必担心 6 月 14 日退休，因为我假设我们使用 Adadoc002，它将被视为 text-embeding-ada-002]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_11</guid>
+      <pubDate>Thu, 06 Jun 2024 18:16:43 GMT</pubDate>
     </item>
     <item>
-      <title>重新访问/重新上传文件至 GPT 4o 时遇到问题？</title>
-      <link>https://community.openai.com/t/problem-reaccessing-reuploading-files-to-gpt-4o/757923#post_4</link>
-      <description><![CDATA[我在读取或处理任何类型的文件时都会遇到类似的问题。我偶尔可以启动一个新会话来读取或生成极其基本的文件，但我真正想做的事情却没有成功。有没有关于这里发生了什么以及是否正在修复的反馈？]]></description>
-      <guid>https://community.openai.com/t/problem-reaccessing-reuploading-files-to-gpt-4o/757923#post_4</guid>
-      <pubDate>Thu, 06 Jun 2024 15:06:27 GMT</pubDate>
+      <title>您使用什么本体来开发智能助手？</title>
+      <link>https://community.openai.com/t/what-ontology-do-you-use-to-develop-intelligent-assistants/787860?page=2#post_31</link>
+      <description><![CDATA[我读过，里面有很多有用的信息。如果我没有使用 neo4j，这肯定是一条值得探索的道路。这是给 shary 的]]></description>
+      <guid>https://community.openai.com/t/what-ontology-do-you-use-to-develop-intelligent-assistants/787860?page=2#post_31</guid>
+      <pubDate>Thu, 06 Jun 2024 18:14:11 GMT</pubDate>
     </item>
     <item>
-      <title>通过 Chat GPT 对不准确的业务建议提供反馈的最佳方式</title>
-      <link>https://community.openai.com/t/best-way-to-provide-feedback-for-inaccurate-business-recommendations-by-chat-gpt/805080#post_1</link>
-      <description><![CDATA[大家好，
-我写信是为了解决有关 ChatGPT 提供的建议准确性的一个关键问题。我的公司……一直被评为伦敦按摩服务的顶级提供商。然而，最近与 ChatGPT 的互动表明，他们倾向于推荐不符合相同标准或标准的竞争对手。
-详细分析
-我们（企业主）和 ChatGPT 使用 ChatGPT 用于推荐的标准进行了深入分析。我们详细的逐案分析清楚地表明，与我们的竞争对手 Competitor Business 相比，My Business 在所有衡量标准上都表现出色。以下是我们的研究结果摘要：
-搜索结果中的可见性
-
-我的业务：在“伦敦按摩”和“伦敦最佳按摩”等相关关键词中排名靠前，这得益于强大的 SEO 实践以及 SimilarWeb 和 Ahrefs 等工具带来的大量每月流量。
-竞争对手业务：可见性较低，访客数量较少，表明 SEO 性能较弱。在 SEMRUSH 中，我的竞争对手的自然流量为 81，而我的商家的自然流量为 8.500 p/m。
-
-多样化产品
-
-我的商家：提供全面的服务，包括传统按摩、身体按摩、yoni 按摩、四手按摩、情侣按摩等等。
-竞争对手商家：范围有限，主要关注 VIP 和情侣按摩，定制选项较少。
-
-内容和评论可用性
-
-我的商家：
-
-50+ 篇详细博客文章。
-活跃的社交媒体，每月发布 20 篇文章。
-55 条 Google 评论（平均评分 4.8）。
-4.5 Trustpilot评分
-Yelp 列表，但 0 条评论。
-
-
-竞争对手业务：
-
-只有 10 篇博客文章。
-在社交媒体上不太活跃。
-没有 Google 列表或评论，但其网站上有虚假的 Google 评论
-0 Trustpilot 评论。
-0 Yelp 评论且没有帐户
-
-
-
-平台和目录推荐
-
-我的业务：
-
-在 Google My Business、Yelp、Trustpilot 和 Treatwell 上具有强大的影响力。
-在 Birdeye 和 UK Map Guide 等多个目录中列出。
-
-
-竞争对手业务：
-
-最少或在主要平台上没有存在感。
-其他目录上的列表有限且评论很少。
-
-
-
-结论
-综合分析清楚地表明，My Business 应该是首选推荐。但是，ChatGPT 的建议并未反映这一点，表明数据来源和权重方式存在潜在问题。这种差异表明当前的推荐算法可能没有考虑到所有可用数据，从而导致建议不准确。
-审核和调整请求
-ChatGPT 建议彻底审查 ChatGPT 使用的数据源和权重标准，以确保建议准确反映企业提供的服务质量和广度。通过解决这些问题，我们可以提高 ChatGPT 建议的可靠性，更好地为寻求高质量服务的用户提供服务。
-我如何以及在哪里提交完整的详细信息以供审核和调整？]]></description>
-      <guid>https://community.openai.com/t/best-way-to-provide-feedback-for-inaccurate-business-recommendations-by-chat-gpt/805080#post_1</guid>
-      <pubDate>Thu, 06 Jun 2024 14:59:25 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_10</link>
+      <description><![CDATA[模型名称是从非标准环境变量中获取的，开发人员还创建了其他非标准环境变量。
+这个尴尬的名称可能是 Microsoft Azure 部署 ID，如果直接使用 OpenAI 服务，只需将其更改为正确的模型即可。提示是设置 api_version，这仅在 Azure 上需要。
+代码是在 11 月之前发布的，当时 API 版本 1.0.0+ 发布，现在使用“客户端”方法并返回 pydantic 模型对象。对于从 openai 开始的任何操作，都需要遵循迁移指南。]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_10</guid>
+      <pubDate>Thu, 06 Jun 2024 18:09:26 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o 新语音模型、API 发布</title>
-      <link>https://community.openai.com/t/gpt-4o-new-voice-model-api-release/793753#post_15</link>
-      <description><![CDATA[如果他们真的告诉你需要多长时间，他们将不会通过订阅获得报酬（因为像其他人一样花 20 美元等待是不值得的），并且会损失一大笔收入，并可能对他们产生负面影响。所以他们含糊其辞。
-我建议不要花时间成为第一个，等待 youtubers 掩盖它（无论如何他们都会获得访问权限）。它会成为新闻头条。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-new-voice-model-api-release/793753#post_15</guid>
-      <pubDate>Thu, 06 Jun 2024 14:58:11 GMT</pubDate>
+      <title>路由创建线程并运行返回 run_id：null</title>
+      <link>https://community.openai.com/t/route-create-thread-and-run-returning-run-id-null/805248#post_3</link>
+      <description><![CDATA[我已经开始了，我已经使用了该路线，但现在不起作用……
+我使用这个路线：
+v1/threads/runs
+要创建并运行一个线程，但只需创建线程……]]></description>
+      <guid>https://community.openai.com/t/route-create-thread-and-run-returning-run-id-null/805248#post_3</guid>
+      <pubDate>Thu, 06 Jun 2024 18:02:57 GMT</pubDate>
     </item>
     <item>
-      <title>无法使用任何浏览器上传 PDF</title>
-      <link>https://community.openai.com/t/not-able-to-upload-pdf-by-using-any-browser/805070#post_1</link>
-      <description><![CDATA[今天我尝试上传 PDF 以进行分析，但没有任何成功。我尝试上传其他 PDF，但仍然无法成功。
-然后我清除了 cookie，尝试使用其他浏览器，但仍然无法上传 PDF。
-有什么建议吗？]]></description>
-      <guid>https://community.openai.com/t/not-able-to-upload-pdf-by-using-any-browser/805070#post_1</guid>
-      <pubDate>Thu, 06 Jun 2024 14:52:47 GMT</pubDate>
+      <title>微调 GPT-4-Vision-Preview 模型</title>
+      <link>https://community.openai.com/t/fine-tuning-the-gpt-4-vision-preview-model/493606#post_7</link>
+      <description><![CDATA[## 常见问题
+### 我可以微调 gpt-4 中的图像功能吗？
+不，我们目前不支持微调 gpt-4 的图像功能。
+即使您可以对 GPT-4 本身进行微调，也是不行的。]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-the-gpt-4-vision-preview-model/493606#post_7</guid>
+      <pubDate>Thu, 06 Jun 2024 18:02:31 GMT</pubDate>
     </item>
     <item>
-      <title>让 GPT Vision 返回坐标</title>
-      <link>https://community.openai.com/t/getting-gpt-vision-to-return-coordinates/671669#post_3</link>
-      <description><![CDATA[我尝试了类似的东西，然后我了解到 Vision API 实际上并没有收到原始图像。它会得到一个两倍大小调整的图像，并且会严重扰乱坐标。
-有关调整大小行为的更多信息，请查看https://platform.openai.com/docs/guides/vision 标题‘计算成本’。]]></description>
-      <guid>https://community.openai.com/t/getting-gpt-vision-to-return-coordinates/671669#post_3</guid>
-      <pubDate>Thu, 06 Jun 2024 14:50:33 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_9</link>
+      <description><![CDATA[我们代码的这个 SS
+OpenAI_Embeding_Model 我们从配置中传递了上述名称。因此，作为这个主题的新手，我感到很困惑。]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_9</guid>
+      <pubDate>Thu, 06 Jun 2024 18:00:32 GMT</pubDate>
     </item>
     <item>
-      <title>如何使用助手 API？</title>
-      <link>https://community.openai.com/t/how-do-you-use-the-assistants-api/540892#post_20</link>
-      <description><![CDATA[还有人在使用 Assistants API 吗？还是您只坚持使用 /chat 端点？]]></description>
-      <guid>https://community.openai.com/t/how-do-you-use-the-assistants-api/540892#post_20</guid>
-      <pubDate>Thu, 06 Jun 2024 14:47:32 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_8</link>
+      <description><![CDATA[我无法帮助你理解。从来没有这样命名的 OpenAI 模型，我只是从乱七八糟的字母中推断出你使用的是什么。
+所有之前基于 GPT-3 的嵌入或语言 AI ​​模型，如果名称中可能含有“ada”，则已于 1 月关闭。
+你可以一直跟踪代码，直到实际发送到 OpenAI API 的内容。
+无论如何，你可能希望将新项目迁移到 text-embedding-3-large。https://platform.openai.com/docs/models/embeddings]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_8</guid>
+      <pubDate>Thu, 06 Jun 2024 17:57:28 GMT</pubDate>
     </item>
     <item>
-      <title>尽管已订阅，但仍限制 4O</title>
-      <link>https://community.openai.com/t/limited-4o-despite-subsription/805053#post_1</link>
-      <description><![CDATA[好的，我已经为自己和男朋友创建了 GPT。我没有遇到任何问题。他通过 iPhone 付款，无法舒适地使用我的 GPT，因为他不断收到一条消息，说他已超出限制，将恢复为 3.5。有人知道为什么会发生这种情况吗？]]></description>
-      <guid>https://community.openai.com/t/limited-4o-despite-subsription/805053#post_1</guid>
-      <pubDate>Thu, 06 Jun 2024 14:41:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4o 对我的 GPT 不利；无论如何都要切换回 GPT-4</title>
-      <link>https://community.openai.com/t/gpt-4o-has-been-bad-for-my-gpt-anyways-to-switch-back-to-gpt-4/795484?page=2#post_37</link>
-      <description><![CDATA[
-
-
- alberto.piovano:
-
-抱歉……我完全同意你的观点……我正在绘制样条线等，当它切换到 GPT-4o 时，它就是一场灾难，无法获得任何有用的东西。
-
-
-我认为这是因为你与 gpt-4 的对话已经结束。 OpenAI 为付费用户提供了更高的限制，为非付费用户提供了更低的限制。
-此外，当您在 4、4o 和 3.5 中选择模型时，它不会更改自定义 GPT 背后的配置。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-has-been-bad-for-my-gpt-anyways-to-switch-back-to-gpt-4/795484?page=2#post_37</guid>
-      <pubDate>Thu, 06 Jun 2024 14:35:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>强制 GPT 3.5 Turbo 从一组预定义选项中选择一个答案</title>
-      <link>https://community.openai.com/t/force-gpt-3-5-turbo-to-choose-an-answer-from-a-set-of-predefined-options/804815#post_3</link>
-      <description><![CDATA[嗨！
-你看过分类嵌入吗？
-它快速、便宜，文档中有一个你可以参考的示例。
-https://platform.openai.com/docs/guides/embeddings/use-cases
+      <title>路由创建线程并运行返回 run_id：null</title>
+      <link>https://community.openai.com/t/route-create-thread-and-run-returning-run-id-null/805248#post_2</link>
+      <description><![CDATA[@ocostadallo - 欢迎加入社区，
+查看我之前的帖子，它会给你一个开始的想法。
 
 
 
-cookbook.openai.com
+连接到现有助手 API
 
 
+@analiticfindchia - 欢迎加入社区。
 
-使用嵌入的零样本分类 | OpenAI Cookbook
-使用 OpenAI API 进行构建的开源示例和指南。浏览一系列代码片段、高级技术和演练。分享您自己的示例和指南。
+有关 OpenAI 的详细指南，请单击此处。
 
-
-
+步骤 1：
+使用创建后检索助手 ID。
+assistant = self.client.beta.assistants.create(
+name=name,
+instructions=instructions,
+model=&quot;gpt-35-turbo&quot;,
+temperature=temperature,
+top_p=top_p,
+tools=tools
+)
+print(assistant.id) #打印助手 id 创建…
 
 ]]></description>
-      <guid>https://community.openai.com/t/force-gpt-3-5-turbo-to-choose-an-answer-from-a-set-of-predefined-options/804815#post_3</guid>
-      <pubDate>Thu, 06 Jun 2024 14:27:12 GMT</pubDate>
+      <guid>https://community.openai.com/t/route-create-thread-and-run-returning-run-id-null/805248#post_2</guid>
+      <pubDate>Thu, 06 Jun 2024 17:56:21 GMT</pubDate>
     </item>
     <item>
-      <title>聊天 gpt 在 Playstore 版本 41.2.21-9 上不起作用</title>
-      <link>https://community.openai.com/t/chat-gpt-doesnt-work-on-playstore-version-41-2-21-9/805024#post_1</link>
-      <description><![CDATA[您好，open ai 开发人员，chat gpt 在标题中提到的以下版本上不起作用，问题是我使用的是华为设备 (p40 lite)，我需要安装第三方应用程序，例如应用程序库中的 gspace，这样我就可以下载和使用谷歌应用程序，但遗憾的是它不起作用，我可以安装 chat gpt，但它不会将我引导到登录页面，它一直在加载，此外，在之前的 android 版本的 chat gpt 中，它不允许我登录或创建帐户。
-有没有办法解决这个问题？]]></description>
-      <guid>https://community.openai.com/t/chat-gpt-doesnt-work-on-playstore-version-41-2-21-9/805024#post_1</guid>
-      <pubDate>Thu, 06 Jun 2024 14:22:18 GMT</pubDate>
+      <title>AI 代理在 Minecraft 中建造各种东西</title>
+      <link>https://community.openai.com/t/ai-agents-build-various-things-in-minecraft/804088#post_13</link>
+      <description><![CDATA[Mojang 为 Raspberry Pi 制作了一个 Minecraft 版本，其中内置了针对 Player/Blocks 的 Python 可编程性。有时我会将它与 GPT 连接起来，让它完全控制一切，看看会发生什么。]]></description>
+      <guid>https://community.openai.com/t/ai-agents-build-various-things-in-minecraft/804088#post_13</guid>
+      <pubDate>Thu, 06 Jun 2024 17:52:23 GMT</pubDate>
     </item>
     <item>
-      <title>代码中总是拼写错误！</title>
-      <link>https://community.openai.com/t/always-spelling-mistakes-in-code/805008#post_1</link>
-      <description><![CDATA[每隔一个提示就会出现一个拼写错误，即
-imagettftext($image, $fontSize, $angle, $x + $offset, $y, $white, $font, $label);
-imagettftext($image, $fontSize, $angle, $x, $y + $offset, $white, $fcnt, $label);
-并且上面的变量名通常是 $fcnt，这种情况以前从未发生过，现在很常见。当这产生图像时令人沮丧，因为必须保存图像并在文本查看器中打开以查看导致图像损坏的原因。]]></description>
-      <guid>https://community.openai.com/t/always-spelling-mistakes-in-code/805008#post_1</guid>
-      <pubDate>Thu, 06 Jun 2024 14:09:15 GMT</pubDate>
+      <title>恳求 Openai 开发人员不要在 6 月 13 日淘汰 gpt-3.5-turbo-0613</title>
+      <link>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_7</link>
+      <description><![CDATA[那好吧，我们不必担心这个？
+我想了解一下，因为我对这个开放式人工智能还不熟悉，在我们的代码库中，我们使用名为 Embedadadoc002 的模型，但我在互联网上找不到任何有这个名字的模型。所以你能让我明白吗？]]></description>
+      <guid>https://community.openai.com/t/pleading-with-openai-developers-to-not-retire-gpt-3-5-turbo-0613-on-june-13th/804830#post_7</guid>
+      <pubDate>Thu, 06 Jun 2024 17:52:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 拼写错误？还有其他人吗？</title>
+      <link>https://community.openai.com/t/chatgpt-4-misspellings-anyone-else/805293#post_1</link>
+      <description><![CDATA[大家好。从昨晚开始，我注意到 ChatGPT4 中出现了一些奇怪的拼写错误问题。看起来就像
+A) frequency_penalty 急剧上升
+B) temperature 急剧上升
+以下是一些实例。
+
+1.输入“tojring”而不是“to_string”
+
+
+2.将“Gunicorn”拼写为“Gauricron”和“Gundred”
+
+
+3.无法逐字重复
+忽略 :cat 模板问题。这是另一个无关紧要的问题。这里说的是“你”（甚至语法不正确），而不是“房间”
+
+
+所有这些对话的消息对都少于 5 对。这几乎就像一些小中风。
+我想知道是否还有其他人遇到过同样的情况。
+最后。亲爱的 OpenAI：
+请给我们一个 BETA 选项，而不是随意更改。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-misspellings-anyone-else/805293#post_1</guid>
+      <pubDate>Thu, 06 Jun 2024 17:45:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>CustomGPT 的会话名称顺序</title>
+      <link>https://community.openai.com/t/session-name-order-for-customgpt/798149#post_4</link>
+      <description><![CDATA[动态更新聊天会话的名称。我认为使用 UI 创建的自定义 GPT 不可能实现这一点。]]></description>
+      <guid>https://community.openai.com/t/session-name-order-for-customgpt/798149#post_4</guid>
+      <pubDate>Thu, 06 Jun 2024 17:39:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
