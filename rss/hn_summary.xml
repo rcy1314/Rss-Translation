@@ -4,108 +4,118 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Fri, 07 Jun 2024 12:12:20 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 17:59:48 GMT</lastBuildDate>
     <item>
-      <title>[媒体] 在当今竞争激烈的技术环境中，最小可行产品（MVP）的概念[...]</title>
-      <link>https://t.me/hn_summary/93655</link>
-      <description><![CDATA[软件 MVP 不再是低质量的
-在当今竞争激烈的技术环境中，最低可行产品 (MVP) 可以是低质量的观念已经过时且有害。用户现在从一开始就期望软件是精致可靠的，而提供任何低于此标准的产品都会损害您的品牌和用户信任。MVP 的标准已经提高；它们必须足够强大、用户友好且功能丰富才能提供真正的价值。这种转变要求开发人员更有效地平衡速度和质量。令人惊讶的是，这里强调质量而不是速度，这与优先考虑快速部署的传统 MVP 策略背道而驰。]]></description>
-      <guid>https://t.me/hn_summary/93655</guid>
-      <pubDate>Fri, 07 Jun 2024 12:12:20 GMT</pubDate>
+      <title>[媒体] 网站：msrc.microsoft.com</title>
+      <link>https://t.me/hn_summary/93721</link>
+      <description><![CDATA[构建更快的 AMD64 Memset 例程 (2021)
+标题：构建更快的 AMD64 Memset 例程 (2021)
+网站：msrc.microsoft.com
+
+近年来，微软实施了多项改进以增强内存归零，包括 InitAll 缓解措施和将内核代码切换到 ExAllocatePool2/3 API。编译器现在尽可能展开对 memset 的调用，直接对静态确定的小尺寸执行存储操作，这比调用 memset 更快，因为开销减少了。对于较大或未知的大小，调用 memset 是首选，以利用特定于 CPU 的优化。
+
+Memset 是操作系统中的一个关键功能，尽管它已经进行了优化，但仍发现了进一步的改进。本博客详细介绍了优化 memset 的方法，重点是高效的存储操作和尽量减少分支预测错误。各种 Windows 组件和第三方驱动程序都使用了新的实现，但 Visual Studio 中的用户模式 ​​CRT 并未使用。
+
+对一系列 AMD 和 Intel CPU 进行的性能测试表明，memset 的性能在不同 CPU 代和供应商之间差异很大。关键的 CPU 概念（如多个端口、乱序执行和分支预测）对于理解这些优化至关重要。
+
+现有的 NT memset 函数效率低下，特别是对于 80 字节以下的大小，以及可能导致预测错误的几个分支点。优化的方法旨在通过热循环有效地处理大尺寸，并尽量减少较小尺寸的分支预测错误。编译器展开较小的 memset，优先考虑较大的 memset 以进行优化。
+
+现有实现中的一个值得注意的技巧是使用单个存储操作设置尾随字节，这比一次一个字节的循环更有效。此技巧在优化版本中得到进一步利用。
+
+争议：博客指出，性能观察可能并不适用于所有 CPU 代，这突出了 memset 性能的变化。
+
+独特/巧妙：使用单个存储操作设置大缓冲区中的尾随字节是一种巧妙的优化，可通过减少执行的指令数量来提高性能。（基于 25% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/93721</guid>
+      <pubDate>Fri, 07 Jun 2024 17:59:48 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] Windows 10 中的“上帝模式”文件夹是什么，如何启用它？</title>
-      <link>https://t.me/hn_summary/93654</link>
-      <description><![CDATA[Windows 10 中的“上帝模式”文件夹是什么，如何启用它？
-标题：Windows 10 中的“上帝模式”文件夹是什么，如何启用它？
-网站：www.howtogeek.com
-
-是否曾经希望有一个窗口可以访问 Windows 的所有管理工具、备份选项和管理设置？进入“上帝模式”。尽管名字很宏大，但上帝模式并没有解锁秘密功能或调整。相反，它将 206 个管理员、管理和控制面板工具整合到一个易于导航的文件夹中。虽然您可以通过“开始”菜单搜索这些工具，但“上帝模式”提供了更直观的浏览体验。要启用它，请在桌面上创建一个新文件夹并将其重命名为“GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}”（您可以将“GodMode”替换为任何名称）。文件夹图标将更改为控制面板图标，让您可以访问全面的工具列表。虽然通过“开始”菜单搜索可能更快，但“上帝模式”是熟悉 Windows 大量工具集的好方法。]]></description>
-      <guid>https://t.me/hn_summary/93654</guid>
-      <pubDate>Fri, 07 Jun 2024 11:52:09 GMT</pubDate>
+      <title>[媒体] 2021 年，美国国家海洋和大气管理局莫纳罗亚大气基线观测站的大气二氧化碳水平 [...]</title>
+      <link>https://t.me/hn_summary/93720</link>
+      <description><![CDATA[在极端天气的一年中，二氧化碳水平激增速度超过
+2021 年，美国国家海洋和大气管理局莫纳罗亚大气基线观测站的大气二氧化碳水平创下历史新高，5 月份月均浓度达到 419 ppm。据美国国家海洋和大气管理局和加州大学圣地亚哥分校斯克里普斯海洋研究所的科学家报告，这是自 63 年前开始精确测量以来的最高水平。这一令人震惊的激增凸显了人类活动对全球气候的持续和加速影响。这座位于夏威夷大岛的观测站继续作为监测这些变化的关键地点。（2019 年夏威夷大岛观测站场地照片。图片来源：Susan Cobb/NOAA Research）]]></description>
+      <guid>https://t.me/hn_summary/93720</guid>
+      <pubDate>Fri, 07 Jun 2024 17:54:38 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 网站：cointelegraph.com</title>
-      <link>https://t.me/hn_summary/93653</link>
-      <description><![CDATA[开发人员在 GitHub 上发布密钥，2 分钟内损失 4 万美元
-标题：开发人员在 GitHub 上发布密钥，2 分钟内损失 4 万美元
-网站：cointelegraph.com 
-
-Web3 开发人员、流媒体应用 Unlonely 的联合创始人 Brian Guan 分享了一个警示故事，他在 GitHub 上意外公开钱包密钥后损失了 4 万美元。6 月 5 日，Guan 在 X 上透露，资金在短短两分钟内就被盗空。加密社区对此反应不一；一些人表示同情，而另一些人则批评关先生过去对开发人员使用 ChatGPT 编写代码的评论。关先生此前曾辩称，智能合约工程师应该能够使用 ChatGPT，这引发了一些嘲笑。Cointelegraph 联系了关先生征求进一步意见，但尚未收到回复。]]></description>
-      <guid>https://t.me/hn_summary/93653</guid>
-      <pubDate>Fri, 07 Jun 2024 11:48:01 GMT</pubDate>
+      <title>[媒体] Martin Nweeia 是一名牙医，对动物学和人类学有着浓厚的兴趣，他致力于 [...]</title>
+      <link>https://t.me/hn_summary/93719</link>
+      <description><![CDATA[一生热爱魅力独角鲸
+Martin Nweeia 是一名牙医，对动物学和人类学有着广泛的兴趣，他花了二十多年时间研究神秘的“海洋独角兽”独角鲸。他最初对人类牙齿很着迷，后来逐渐深入研究独角鲸独特的獠牙。Nweeia 的研究得到了众多资助，包括汇编土著知识、进行材料研究以及在独角鲸身上安装监测器以了解它们的感官能力。他的研究结果表明，獠牙是一种感官器官，挑战了之前认为它仅仅用于社会等级制度的观点。Nweeia 的工作强调了土著知识的重要性和北极研究的复杂性。]]></description>
+      <guid>https://t.me/hn_summary/93719</guid>
+      <pubDate>Fri, 07 Jun 2024 17:54:33 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 在《走向作为法律概念的‘纳克巴’》一书中，拉贝·埃格巴里亚认为，现有的法律框架 [...]</title>
-      <link>https://t.me/hn_summary/93652</link>
-      <description><![CDATA[《哥伦比亚法律评论》：《Nakba 作为一种法律概念》[pdf](https://news.ycombinator.com/item?id=40605528)
-在《Nakba 作为一种法律概念》一文中，Rabea Eghbariah 认为，现有的法律框架不足以反映巴勒斯坦人遭受征服和暴力的经历。文章介绍了“Nakba”（阿拉伯语意为“灾难”）作为一个法律概念，用来描述自以色列建国以来巴勒斯坦人所遭受的持续压迫。Eghbariah 认为，Nakba 包含种族灭绝和种族隔离的元素，但其历史和分析基础却截然不同。本文将犹太复国主义视为纳克巴的意识形态对应物，并提出了对纳克巴的法律剖析，重点关注流离失所、分裂和否定自决。这种方法旨在为理解巴勒斯坦人的征服提供更准确的法律框架。对纳克巴进行法律定义的提议既独特又具有潜在的争议性，因为它挑战了现有的叙述和法律解释。（基于 2% 的故事文本的摘要。）]]></description>
-      <guid>https://t.me/hn_summary/93652</guid>
-      <pubDate>Fri, 07 Jun 2024 11:35:51 GMT</pubDate>
+      <title>[媒体] 在这篇详细的文章中，作者讲述了他们将 Apple T 改造成 [...] 的历程。</title>
+      <link>https://t.me/hn_summary/93718</link>
+      <description><![CDATA[Apple TV Go：USB-C Mod 如何打造基于 iPad 的 TvOS 工作站
+在这篇详细的文章中，作者讲述了他们将 Apple TV 4K 改造成便携式 tvOS 工作站（称为“Apple TV Go”）的历程。该项目的灵感来自 WWDC23 期间面临的限制，当时访问 tvOS 需要回到他们的公寓。作者使用 Voidbox Industries 的 USB-C Modkit 修改了 Apple TV 4K，使其能够通过 USB-C 供电。然后，他们使用 USB 视频捕获设备和模块化 Velcro 系统将此设置与 iPad Pro 集成，以实现便携性。本文还探讨了此设置在远程媒体控制和视频共享方面的潜力，包括与 Apple Vision Pro 和 FaceTime 的创新用途。
+
+有争议的方面：作者对硬件修改的风险发表了免责声明，强调他们的经验可能无法复制，并警告读者不要尝试类似的修改。
+
+独特/巧妙的元素：使用 Velcro 进行模块化设置以及通过 NDI 将 Apple TV 视频共享到 Apple Vision Pro 和 FaceTime 的创造性解决方法特别巧妙和创新。（基于 83% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/93718</guid>
+      <pubDate>Fri, 07 Jun 2024 17:53:29 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 我被剥夺了终身教职——我该怎么办？</title>
-      <link>https://t.me/hn_summary/93651</link>
-      <description><![CDATA[我被拒绝终身教职——我该如何应对？
-标题：我被拒绝终身教职——我该如何应对？
-网站：www.nature.com
-
-亲爱的《自然》杂志，
-
-我是一名发育生物学家，尽管我有着出色的记录，但我被美国南部的一所大学拒绝了终身教职。我的部门推荐了我，我的同事们也对我充满信心，但大学层面的决定让我震惊。我不确定是上诉还是继续前进。
-
-《自然》杂志向三位面临类似情况的教授寻求建议。 Anindita Bhadra 建议评估简历中的空白并考虑偏见。Terry McGlynn 强调评估如果上诉成功，您是否愿意留下，并检查是否存在程序违规。一位生态学家在法律帮助下成功上诉，尽管这种情况很少见。所有人都同意，终身教职被拒往往源于恶劣环境或政治动机，而不是学业成绩。他们建议寻求朋友、同事和治疗师的支持，如果上诉不可行，则考虑其他职位。尽管压力很大，但还是有可能找到更好的地方，就像 Bhadra 和 McGlynn 所做的那样。
-
-争议：终身教职制度固有的主观性和不公平拒绝的可能性。
-独特见解：法律支持有时可以导致上诉成功，尽管这种情况很少见。]]></description>
-      <guid>https://t.me/hn_summary/93651</guid>
-      <pubDate>Fri, 07 Jun 2024 11:21:26 GMT</pubDate>
+      <title>[媒体] 在博洛尼亚市中心，Via Mariano Tuccella 是一条在任何地图上都找不到的街道，[...]</title>
+      <link>https://t.me/hn_summary/93717</link>
+      <description><![CDATA[地图上不存在的意大利街道
+在博洛尼亚市中心，Via Mariano Tuccella 是一条地图上不存在的街道，但那里却住着数百人。意大利各地都有类似的虚构街道，例如都灵的 1 Via della Casa Comunale 和罗马的 Via Modesta Valenti，那里居住着 19,000 多人。这些“vie fittizie”是在二战后创建的，旨在帮助地方当局将人口与土地联系起来，最初是为马戏团演员等旅行专业人士。如今，他们主要为无家可归者服务，提供获得权利和服务所需的官方地址。然而，该系统可能具有歧视性，一些城镇避免创建这样的街道，以阻止潜在的社会服务负担。尽管存在缺陷且有时还会遭到地方当局的抵制，但这一独特的意大利解决方案仍能帮助无家可归者维护自己的权利。]]></description>
+      <guid>https://t.me/hn_summary/93717</guid>
+      <pubDate>Fri, 07 Jun 2024 17:53:22 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] Dblab 是一个专为 PostgreSQL、MySQL、SQLite3 和 O [...] 设计的交互式终端客户端。</title>
-      <link>https://t.me/hn_summary/93650</link>
-      <description><![CDATA[Dblab：适用于 PostgreSQL、MySQL、SQLite3 和 Oracle 的交互式终端客户端
-Dblab 是一款专为 PostgreSQL、MySQL、SQLite3 和 Oracle 数据库设计的交互式终端客户端。它用 Go 编写，旨在提供一种快速、轻量且可移植的解决方案，用于跨多个平台（OSX、Linux、Windows）管理本地或远程数据库。该项目通过提供零依赖、单二进制安装来脱颖而出，使其设置和使用变得简单。主要功能包括跨平台支持、SSL 连接选项以及具有键绑定的用户友好型导航系统，以实现高效的数据库管理。该项目还支持用于存储多个数据库连接的配置文件，从而增强了可用性。（基于 84% 的故事文本的摘要。）]]></description>
-      <guid>https://t.me/hn_summary/93650</guid>
-      <pubDate>Fri, 07 Jun 2024 11:07:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>标题：停止使用 JWT 进行会话</title>
-      <link>https://t.me/hn_summary/93649</link>
-      <description><![CDATA[停止使用 JWT 进行会话
-标题：停止使用 JWT 进行会话
+      <title>[媒体] 网站：www.wired.com</title>
+      <link>https://t.me/hn_summary/93716</link>
+      <description><![CDATA[谷歌和微软的人工智能聊天机器人拒绝透露谁赢得了 2020 年美国大选
+标题：谷歌和微软的人工智能聊天机器人拒绝透露谁赢得了 2020 年美国大选
+网站：www.wired.com
 
-网站：cryto.net
+微软的 Copilot 和谷歌的 Gemini 人工智能聊天机器人都回避确认乔·拜登总统在 2020 年美国总统大选中战胜唐纳德·特朗普。当被问及时，这两个聊天机器人都会将用户重定向到搜索引擎或声称他们仍在学习。这种行为适用于全球和历史上的所有选举结果。其他人工智能聊天机器人，如 OpenAI 的 ChatGPT-4、Meta 的 Llama 和 Anthropic 的 Claude，确实证实了拜登的胜利并提供了详细的选举信息。微软和谷歌的聊天机器人拒绝回答与选举相关的问题，而特朗普支持者不断毫无根据地声称选民存在欺诈行为。谷歌和微软表示，这些限制是出于谨慎考虑，并努力在 2024 年大选前改进工具。此前，微软的聊天机器人因传播错误信息和过时的选举数据而受到批评。]]></description>
+      <guid>https://t.me/hn_summary/93716</guid>
+      <pubDate>Fri, 07 Jun 2024 17:51:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>问 HN：机器学习工程师，您在工作中做什么？</title>
+      <link>https://t.me/hn_summary/93715</link>
+      <description><![CDATA[问 HN：机器学习工程师，你在工作中做什么？
+标题：问 HN：机器学习工程师，你在工作中做什么？
+网站：news.ycombinator.com
 
-在这篇文章中，我反对使用 JSON Web 令牌 (JWT) 来管理 Web 应用程序中的用户会话。虽然 JWT 有有效的用例，但它们不适合会话管理，并且在用于会话管理时可能会很危险。我阐明了无状态 JWT、有状态 JWT 和传统会话令牌/cookie 之间的区别，并揭穿了关于 JWT 更易于扩展、更灵活或更安全的常见说法。值得注意的是，JWT 不能单独失效，这会导致潜在的安全问题。相反，我建议坚持使用传统的会话机制，这种机制更安全且久经考验。JWT 更适合一次性授权令牌。（基于 93% 的故事文本的总结。）]]></description>
-      <guid>https://t.me/hn_summary/93649</guid>
-      <pubDate>Fri, 07 Jun 2024 11:02:05 GMT</pubDate>
+作者对机器学习工程师的日常生活感到好奇，希望深入了解他们的典型任务和项目。他们邀请该领域的专业人士分享有关他们工作的细节，旨在了解机器学习工程师一天的生活。这项调查旨在揭示他们的职责性质以及他们经常参与的项目类型。]]></description>
+      <guid>https://t.me/hn_summary/93715</guid>
+      <pubDate>Fri, 07 Jun 2024 17:50:07 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 今天，我们很高兴推出一款突破性的程序，让 DJ 可以播放流行音乐 [...]</title>
-      <link>https://t.me/hn_summary/93648</link>
-      <description><![CDATA[Twitch DJ 计划
-今天，我们很高兴推出一项开创性的计划，该计划允许 DJ 在 Twitch 上的新 DJ 类别中播放流行音乐。这项计划是通过与环球、华纳和索尼等主要唱片公司以及 Merlin 代表的众多独立唱片公司前所未有的合作实现的。我们很自豪能成为第一家为 DJ 提供安全、长期的直播和建立社区平台的主要服务。自 2020 年初以来，Twitch 上的 DJ 数量增加了四倍，许多人已经成功地将他们的流媒体货币化。然而，DJ 历来面临着预录音乐版权许可的挑战。我们的新 DJ 计划通过留出一部分收入来补偿音乐家来解决这一问题，Twitch 最初会承担更多的成本。非盈利 DJ 不会受到财务影响。该计划对于 Twitch 上 DJ 的可持续发展至关重要，因为没有必要权利的流媒体可能会收到 DMCA 通知和处罚。为了缓解过渡期，我们将提供为期 1 年的补贴，以帮助弥补收入差异。DJ 必须选择加入新协议，我们建议兼职 DJ 流媒体创建一个单独的频道。我们现在宣布这一消息是为了让 DJ 为即将到来的变化做好准备，该计划将于今年夏天晚些时候推出。丹·克兰西，Twitch 首席执行官]]></description>
-      <guid>https://t.me/hn_summary/93648</guid>
-      <pubDate>Fri, 07 Jun 2024 10:38:52 GMT</pubDate>
+      <title>[媒体] 练习蛋白质节奏——全天均匀分配蛋白质摄入量——以及 [...]</title>
+      <link>https://t.me/hn_summary/93714</link>
+      <description><![CDATA[间歇性禁食+蛋白质节奏可导致体重减轻和肠道健康
+亚利桑那州立大学的一项新研究表明，实行蛋白质节奏（全天均匀分配蛋白质摄入量）和间歇性禁食（将进食限制在特定时间）比单纯减少卡路里摄入对肠道健康、体重减轻和代谢反应产生更好的效果。该研究涉及 41 名超重或肥胖参与者，分为两组：一组采用有利于心脏健康的卡路里限制饮食，另一组采用类似的饮食，结合间歇性禁食和蛋白质节奏。八周后，后一组的肠道健康、体重减轻和体脂减少显着改善。该研究结果发表在《自然通讯》上，强调了健康肠道微生物群在控制肥胖和代谢疾病方面的关键作用。然而，间歇性禁食也存在争议，包括最近的一项研究表明，它可能会增加在八小时内进食的人患心血管疾病的风险。医学专家建议在开始间歇性禁食之前咨询医生，尤其是对于患有某些疾病的人。]]></description>
+      <guid>https://t.me/hn_summary/93714</guid>
+      <pubDate>Fri, 07 Jun 2024 17:41:59 GMT</pubDate>
     </item>
     <item>
-      <title>美国联邦通信委员会（FCC）一致批准了拟议规则通知[...]</title>
-      <link>https://t.me/hn_summary/93647</link>
-      <description><![CDATA[FCC 敦促 ISP 修复互联网路由中的安全漏洞
-联邦通信委员会 (FCC) 一致通过了一项拟议规则制定通知，旨在通过要求互联网服务提供商 (ISP) 使用资源公钥基础设施 (RPKI) 实施和报告边界网关协议 (BGP) 安全措施来加强互联网路由的安全性。该提案要求 ISP 制定机密的 BGP 安全风险管理计划并提交季度报告以跟踪进展情况，特别是针对九家最大的宽带提供商。这项举措解决了黑客利用 BGP 进行数据盗窃和间谍活动等活动的漏洞。值得注意的是，有线电视游说团体 NCTA 支持在 ISP 通过路由来源授权 (ROA) 实现 90% 覆盖后取消一些报告要求。]]></description>
-      <guid>https://t.me/hn_summary/93647</guid>
-      <pubDate>Fri, 07 Jun 2024 10:32:45 GMT</pubDate>
+      <title>[媒体] Webring Starter 是一个现代、简单的 webring 框架，旨在易于设置和使用，[...]</title>
+      <link>https://t.me/hn_summary/93713</link>
+      <description><![CDATA[Webring Starter：一个现代、简单的网络环
+Webring Starter 是一个现代、简单的网络环框架，旨在轻松设置和使用，允许用户通过共同兴趣进行连接。与传统的基于 CGI 脚本的网络环不同，该项目利用 Jekyll 和 GitHub Pages，只需要最少的 JavaScript。它支持现代互操作性标准，提供 Atom RSS 提要、OPML 文件和 FOAF 文件以供成员发现。不需要 JavaScript、Jekyll 或 Ruby 的高级知识；用户只需调整一些 YAML 和 JSON 文件。该项目使用标准 Jekyll 主题完全可定制。主要区别在于易于设置、现代标准支持和通过 GitHub Actions 自动部署。]]></description>
+      <guid>https://t.me/hn_summary/93713</guid>
+      <pubDate>Fri, 07 Jun 2024 17:41:54 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 标题：三星工会首次罢工</title>
-      <link>https://t.me/hn_summary/93646</link>
-      <description><![CDATA[三星工会举行首次罢工
-标题：三星工会举行首次罢工
+      <title>[媒体] 网站：www.lendingtree.com</title>
+      <link>https://t.me/hn_summary/93712</link>
+      <description><![CDATA[近 80% 的美国人认为快餐现在是一种奢侈品
+标题：近 80% 的美国人认为快餐现在是一种奢侈品
+网站：www.lendingtree.com
 
-约 28,000 名三星工人因不满工资问题，今天可能罢工抗议，他们很可能用休假津贴来罢工。这种礼貌的罢工形式被工会副主席 Lee Hyun-guk 称为“协调使用休假”，恰逢韩国阵亡将士纪念日假期，因此破坏性较小。有争议的是，三星管理层据称鼓励员工在这一天使用年假，工会被指控夸大了会员人数。这是全国三星电子工会 (NSEU) 的首次罢工，凸显了休假福利承诺的缺失和奖金分配不均。尽管罢工的迹象微乎其微，但工会警告称，如果管理层仍不沟通，可能会发生“全面罢工”。市场分析师 TrendForce 指出，由于采取了先发制人的调整和自动化措施，罢工对生产的影响有限。]]></description>
-      <guid>https://t.me/hn_summary/93646</guid>
-      <pubDate>Fri, 07 Jun 2024 10:12:35 GMT</pubDate>
+根据 LendingTree 的一项新调查，猖獗的通货膨胀导致大多数美国人将快餐视为奢侈品，许多人吃快餐的频率减少了。这项对 2,000 多名成年人的调查显示，由于成本上涨，78% 的人现在认为快餐是一种奢侈品，62% 的人吃快餐的频率减少了。这种转变在低收入人群、有年幼孩子的父母、Z 世代和女性中尤为明显。令人惊讶的是，46% 的受访者认为快餐价格与堂食餐厅相当，22% 的受访者甚至认为快餐价格更贵。此外，人们对快餐店涨价和小费的担忧也很普遍，78% 的人担心涨价，44% 的人曾被要求给小费。Chick-fil-A 被认为是最高端的快餐连锁店，其次是星巴克和 Chipotle。尽管面临这些挑战，许多美国人仍然喜欢快餐，并正在寻找管理成本的方法，例如使用移动应用程序和奖励信用卡。
+
+争议：小费的引入和快餐店可能出现的涨价引发了消费者的极大担忧和强烈反对。
+
+令人惊讶/聪明：将快餐视为奢侈品及其与坐式餐厅相当的成本是一种重大的文化转变，凸显了通货膨胀对日常开支的影响。]]></description>
+      <guid>https://t.me/hn_summary/93712</guid>
+      <pubDate>Fri, 07 Jun 2024 17:32:44 GMT</pubDate>
     </item>
     </channel>
 </rss>

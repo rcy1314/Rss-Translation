@@ -4,210 +4,160 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 07 Jun 2024 15:22:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 18:26:50 GMT</lastBuildDate>
     <item>
-      <title>DungeonMasterGPT 案例研究</title>
-      <link>https://community.openai.com/t/dungeonmastergpt-case-study/745668#post_15</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/dungeonmastergpt-case-study/745668#post_15</guid>
-      <pubDate>Fri, 07 Jun 2024 15:19:22 GMT</pubDate>
+      <title>Plus 订阅问题 - GPT-4 无法访问且帐户未显示为 Plus</title>
+      <link>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_6</link>
+      <description><![CDATA[检查您是否使用了正确的帐户
+检查是否存在可能造成干扰的扩展程序
+也许清除缓存并重新登录]]></description>
+      <guid>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_6</guid>
+      <pubDate>Fri, 07 Jun 2024 18:24:24 GMT</pubDate>
     </item>
     <item>
-      <title>对法学硕士的科学批评有些荒谬</title>
-      <link>https://community.openai.com/t/scientific-criticisms-of-llms-are-somewhat-bs/806342#post_3</link>
-      <description><![CDATA[那么你知道造成这种情况的主要原因是什么吗？这并不难理解]]></description>
-      <guid>https://community.openai.com/t/scientific-criticisms-of-llms-are-somewhat-bs/806342#post_3</guid>
-      <pubDate>Fri, 07 Jun 2024 15:17:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 ChatGpt UI 和 OpenAI chat.completions.create 端点通过 gpt-4o 将图像解析为文本 - 结果截然不同</title>
-      <link>https://community.openai.com/t/parse-image-to-text-with-gpt-4o-with-chatgpt-ui-and-openai-chat-completions-create-endpoint-very-different-results/806539#post_1</link>
-      <description><![CDATA[我正在使用 ChatGPT UI 和 OpenAI chat.completions.create 端点测试使用 GPT-4o 进行的一些 OCR 图像到文本解析。我有几个问题想得到您的帮助和意见。
-
-
-我试图了解为什么 ChatGPT UI 在从图像中正确提取信息方面表现更好。当我将相同的 GPT-4o 与 OpenAI chat.completions.create 端点一起使用时，我遇到了许多错误和图像中不存在的随机信息。
-
-
-我的假设是，这种差异与 chat.completions.create 的参数有关，例如 frequency_penalty、temperature、top_p 和 max_tokens。有没有文档可以让我找到 ChatGPT UI 用于与 GPT-4o 交互的设置？
-
-
-GPT-4o 是否是 OCR 类型任务的正确选择？
-
-]]></description>
-      <guid>https://community.openai.com/t/parse-image-to-text-with-gpt-4o-with-chatgpt-ui-and-openai-chat-completions-create-endpoint-very-different-results/806539#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 15:16:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>有可能获得“上下文感知”的嵌入吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_6</link>
+      <title>为什么 Api 比 Playground 慢？</title>
+      <link>https://community.openai.com/t/why-is-api-slower-than-playground/38806#post_10</link>
       <description><![CDATA[
 
 
- 饮食：
+ metkor:
 
-我现在不在工作台，所以无法提供实际示例，这只是其中的要点
-
-
-import numpy as np
-from openai import Client as o; cl = o()
-
-text = [&quot;一部宣传片声称，由乳化植物油水组成的一顿饭是营养餐，每天吃它是你的爱国义务&quot;,
-&quot;我不敢相信这不是黄油&quot;, 
-&quot;电影&quot;,
-&quot;房主协会&quot;]
-for model in [&quot;text-embedding-3-large&quot;]:
-try:
-out = cl.embeddings.create(input=text, model=model)
-print(&quot;\n---&quot;, model)
-except Exception as e:
-print(f&quot;ERROR {e}&quot;)
-array = np.array([data.embedding for data in out.data])
-for compi, comp in enumerate(text[:1]):
-for i, j in zip(text, array):
-print(f&quot;{np.dot(array[compi], j):.5f} - {i[:30]}&quot;)
+我正在尝试使用具有相同目的和设置的 api 和 Playground。我正在使用 davinci 聊天。但即使在较长的提示中，Playground 也会在一秒钟内返回，但 api 会返回近 4-5 秒。
+是否有设置或方法可以提高 api 性能？
+我现在正在使用免费积分。如果我升级，api 性能是否会提高？
 
 
-— text-embedding-3-large
-1.00000 - 一部宣传片，声称
-0.30461 - 我不敢相信这不是山丘
-0.22100 - 电影
-0.09620 - 房主协会
-]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_6</guid>
-      <pubDate>Fri, 07 Jun 2024 15:10:03 GMT</pubDate>
+如果您在使用 API 和 Playground 时遇到性能差距，尽管设置相似，但您仍可以通过多种途径进行改进。首先，考虑 API 服务器上的负载，由于用户量和请求复杂性等因素，该负载可能高于 Playground 服务器上的负载。不幸的是，这超出了您的控制范围。此外，客户端和 API 服务器之间的网络延迟可能会导致响应时间变慢。您可以尝试使用不同的网络或 VPN 来缓解此问题。升级到付费计划可能会提供对更好基础设施的访问，从而通过专用服务器和更高优先级访问等优势提高性能。通过批处理请求、避免冗余和最小化不必要的数据传输来优化请求也可以减少延迟。本地缓存 API 响应是另一种需要考虑的策略，特别是对于经常访问的数据。最后，尝试使用更短的提示可能会在不影响质量的情况下缩短响应时间。最终，根据您的特定用例量身定制这些方法的组合可以提高 API 性能。]]></description>
+      <guid>https://community.openai.com/t/why-is-api-slower-than-playground/38806#post_10</guid>
+      <pubDate>Fri, 07 Jun 2024 18:23:38 GMT</pubDate>
     </item>
     <item>
-      <title>如何防止虚拟键盘推高整个聊天机器人？</title>
-      <link>https://community.openai.com/t/how-to-prevent-virtual-keyboard-from-pushing-up-entire-chatbot/806495#post_2</link>
-      <description><![CDATA[我知道的一个很酷的解决方案是监控视口的变化，然后检查文本区域/输入是否获得焦点。在这种情况下，您可能需要更改类并应用不同的 CSS 规则。]]></description>
-      <guid>https://community.openai.com/t/how-to-prevent-virtual-keyboard-from-pushing-up-entire-chatbot/806495#post_2</guid>
-      <pubDate>Fri, 07 Jun 2024 15:09:35 GMT</pubDate>
+      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
+      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592#post_8</link>
+      <description><![CDATA[另一个问题：
+唤醒锁不再起作用。我的手机进入睡眠状态，语音聊天被关闭。天哪
+他们彻底搞砸了应用程序。公平地说，我参加了测试计划，所以不太生气。我想知道其他人是否也参加了测试计划
+编辑：没关系。他们有一个损坏的权限弹出窗口，我不得不接受。很奇怪]]></description>
+      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592#post_8</guid>
+      <pubDate>Fri, 07 Jun 2024 18:20:32 GMT</pubDate>
     </item>
     <item>
-      <title>节点快速启动示例</title>
-      <link>https://community.openai.com/t/quickstart-example-for-node/783292#post_4</link>
-      <description><![CDATA[对于你可以问GPT-4o的问题，绝对技术性，她真的很擅长。
-对于这个问题，nodejs和python的请求体结构几乎相同！
-]]></description>
-      <guid>https://community.openai.com/t/quickstart-example-for-node/783292#post_4</guid>
-      <pubDate>Fri, 07 Jun 2024 15:09:25 GMT</pubDate>
+      <title>Plus 订阅问题 - GPT-4 无法访问且帐户未显示为 Plus</title>
+      <link>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_5</link>
+      <description><![CDATA[我 w8 9 小时，支持答案 
+我尝试使用其他浏览器，没有帮助]]></description>
+      <guid>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_5</guid>
+      <pubDate>Fri, 07 Jun 2024 18:20:30 GMT</pubDate>
     </item>
     <item>
-      <title>购买 plus 后无法切换到 GPT4</title>
-      <link>https://community.openai.com/t/after-buying-plus-i-cant-switch-to-gpt4/805952#post_3</link>
-      <description><![CDATA[我也遇到了这个问题，你解决了吗？]]></description>
-      <guid>https://community.openai.com/t/after-buying-plus-i-cant-switch-to-gpt4/805952#post_3</guid>
-      <pubDate>Fri, 07 Jun 2024 15:06:13 GMT</pubDate>
+      <title>Assistant API 始终返回空注释</title>
+      <link>https://community.openai.com/t/assistant-api-always-return-empty-annotations/489285?page=3#post_53</link>
+      <description><![CDATA[你好，
+同上，引用找到的文本摘录而不是文件名的能力对于实时监督用于响应的源至关重要。
+理想情况下，我们梦想将源文本的摘录放在一个每次都能工作的专用对象中！]]></description>
+      <guid>https://community.openai.com/t/assistant-api-always-return-empty-annotations/489285?page=3#post_53</guid>
+      <pubDate>Fri, 07 Jun 2024 18:15:12 GMT</pubDate>
     </item>
     <item>
-      <title>使用 GPT-4o 的助手中的函数调用问题</title>
-      <link>https://community.openai.com/t/issues-with-function-calling-in-assistants-using-gpt-4o/806525#post_1</link>
-      <description><![CDATA[您好，我正在为我的一个项目使用 OpenAI Assistants，最近我在函数调用方面遇到了一些问题。
-有时，助手不会调用函数，而是返回一些奇怪的文本，类似于尝试调用函数，而不是实际调用函数。
-它通常看起来像这样
-
-我觉得在切换到 4o 后，这种情况比我之前使用的 3.5 和 4 turbo 发生得更多以前。
-有人知道是什么原因造成的吗？]]></description>
-      <guid>https://community.openai.com/t/issues-with-function-calling-in-assistants-using-gpt-4o/806525#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 15:04:27 GMT</pubDate>
+      <title>工具调用和文件搜索不能很好地协同工作</title>
+      <link>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_3</link>
+      <description><![CDATA[完成！查看 nre 版本。]]></description>
+      <guid>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_3</guid>
+      <pubDate>Fri, 07 Jun 2024 18:15:02 GMT</pubDate>
     </item>
     <item>
-      <title>为什么我无法通过我的助手进行 API 调用？</title>
-      <link>https://community.openai.com/t/why-cant-i-make-api-calls-through-my-assistant/806523#post_1</link>
-      <description><![CDATA[大家好，我觉得我缺少了一些应该很简单的东西。
-我正在尝试制作一个助手，它知道如何将我连接到 Todoist 并获取任务列表。
-我制作了一个函数，它应该可以与我的 API 和所有内容正常工作，但我一直收到助手的错误。
-这就是我正在使用的函数 -
-
-这就是我要求获取我拥有的任务列表时得到的答案 -
-
-当我要求获取任务列表时也会发生这种情况。
-现在，我不知道这是否相关，但它似乎正在使用与我提供的不同的令牌进行 API 调用。
-简而言之，我遗漏了什么？我该如何执行这个简单的操作？
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/why-cant-i-make-api-calls-through-my-assistant/806523#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 15:04:19 GMT</pubDate>
+      <title>沙盒链接。我一直尝试访问该链接，但没有成功。有人能帮我吗？</title>
+      <link>https://community.openai.com/t/sandbox-link-i-have-been-trying-to-access-the-link-with-no-hope-can-someone-help-me-please/493663#post_4</link>
+      <description><![CDATA[我无法从 chatgpt 下载文件。我一直收到一条错误消息，提示“代码解释器会话已过期”。链接是 (sandbox:/mnt/data/Building_a_Culture_of_Appreciation_and_Inclusion_Ch3.docx)]]></description>
+      <guid>https://community.openai.com/t/sandbox-link-i-have-been-trying-to-access-the-link-with-no-hope-can-someone-help-me-please/493663#post_4</guid>
+      <pubDate>Fri, 07 Jun 2024 18:13:40 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 总是在执行代码之前先编写代码</title>
-      <link>https://community.openai.com/t/gpt-always-writes-code-before-executing-it/787369#post_3</link>
-      <description><![CDATA[你为什么不直接发布你发现有用的东西呢？]]></description>
-      <guid>https://community.openai.com/t/gpt-always-writes-code-before-executing-it/787369#post_3</guid>
-      <pubDate>Fri, 07 Jun 2024 15:03:03 GMT</pubDate>
+      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
+      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592#post_7</link>
+      <description><![CDATA[我也是 - Pixel 8 Pro。这种情况已经持续了 1 到 2 周。该应用程序几乎无法使用。
+我的键盘在其他应用程序中可以正常打字和听写，但在聊天 GPT 应用程序中，两者都非常糟糕。当我打字时，大写锁定一直在打开和关闭，并且会按错键。如果听写，它会每隔一两个字就被打断。
+重启手机没有帮助。]]></description>
+      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592#post_7</guid>
+      <pubDate>Fri, 07 Jun 2024 18:13:21 GMT</pubDate>
     </item>
     <item>
-      <title>对 GPT Store 跟踪服务感兴趣吗？</title>
-      <link>https://community.openai.com/t/any-interest-in-a-gpt-store-tracking-service/806514#post_1</link>
-      <description><![CDATA[大家好，
-作为一名自定义 GPT 开发人员，我发现手动检查商店统计数据非常耗时。我正在寻找一种更有效的方法来跟踪这些统计数据。
-论坛中还有其他人对此感兴趣吗？如果有足够的兴趣，我很乐意开发一项服务并与社区分享。
-这对你有用吗？有用、没用还是无所谓？请告诉我！]]></description>
-      <guid>https://community.openai.com/t/any-interest-in-a-gpt-store-tracking-service/806514#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 14:57:33 GMT</pubDate>
+      <title>工具调用和文件搜索不能很好地协同工作</title>
+      <link>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_2</link>
+      <description><![CDATA[您可以详细说明吗？？-- 尝试使用相同的用例]]></description>
+      <guid>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_2</guid>
+      <pubDate>Fri, 07 Jun 2024 18:10:16 GMT</pubDate>
     </item>
     <item>
-      <title>有可能获得“上下文感知”的嵌入吗？</title>
-      <link>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_5</link>
+      <title>我们一直在构建开源终极 RAG 后端，并正在推出我们的 V2</title>
+      <link>https://community.openai.com/t/weve-been-building-the-open-source-ultimate-rag-backend-and-are-launching-our-v2/806576#post_4</link>
       <description><![CDATA[
 
 
- omar.sameh.shehata:
+ emrgnt-cmplxty1:
 
-如果这是正确的，我想知道是否有可能提取这些嵌入。
-
-
-是和否：
-否，因为 OpenAI 不允许您从 GPT-3 或 GPT-4 中提取嵌入
-相反，他们在嵌入端点上有专门的“嵌入”模型，这些模型可能是一些较小的LLM。
-是的，因为例如 Ada 是一个 ~350M 模型（根据维基百科）并且一度是 openai 的顶级嵌入模型，但现在你有了 TE-3。 SOTA 嵌入模型目前就是这样的，但基于更大的模型。
+我认为在不久的将来“prompt engineer”将变为“RAG engineer”
 
 
-
- omar.sameh.shehata:
-
-我认为这样做的好处是，如果段落中出现“电影”一词，而段落中人们以负面的方式谈论电影，或者谈论电影被用于宣传或其他什么，那么这些语义就会出现在嵌入中。
-
-
-他们可能会现在。
-现在确实存在关于如何嵌入文本的争论。您可以在这里加入其中之一：使用 gpt-4 API 对文档进行语义分块
-但我的方法是确保您嵌入的任何块都应该代表一些原子概念。例如：“一部宣传片声称，由乳化植物油水组成的一顿饭是营养餐，每天吃它是你的爱国义务”是一个原子想法，应该更接近“我不敢相信这不是黄油”和“电影”，而不是“房主协会”
-（我现在不在工作台上，所以我不能给你提供实际的例子，这只是它的要点）]]></description>
-      <guid>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_5</guid>
-      <pubDate>Fri, 07 Jun 2024 14:53:25 GMT</pubDate>
+这两个术语在法律上都是可疑的，具体取决于您所在的世界，“工程师”一词通常指拥有大学工程学位的人，但在美国和在英国，几乎任何人都可以使用它来表示任何意思。
+“工程师”一词在加拿大和欧盟大部分地区都是受保护的头衔，未经许可声称自己是工程师是违法的，目前没有经认可的大学提供成为快速工程师的课程。]]></description>
+      <guid>https://community.openai.com/t/weve-been-building-the-open-source-ultimate-rag-backend-and-are-launching-our-v2/806576#post_4</guid>
+      <pubDate>Fri, 07 Jun 2024 18:05:14 GMT</pubDate>
     </item>
     <item>
-      <title>如何计算助手 API 的向量存储的成本？</title>
-      <link>https://community.openai.com/t/how-to-calculate-the-cost-of-the-vector-store-for-assistants-api/806509#post_1</link>
-      <description><![CDATA[大家好，
-我想知道在助手 API 中如何计算向量存储的成本。
-在文档中它说：向量存储对象的大小是从您的文件及其相应嵌入解析的所有块的总和。
-所以当我将一些文件上传到向量存储时，我得到了 12 mb 的大小
+      <title>工具调用和文件搜索不能很好地协同工作</title>
+      <link>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_1</link>
+      <description><![CDATA[很长一段时间以来，我都观察到，当你将文件附加到助手时，它会正常工作！
+尽管如此，如果你提供要调用的工具，它就会停止搜索文件以回答问题。这是一个很好的功能。您可以使用 PDF、手册、教程提供信息数据库。
+我有一个带有说明的 PDF 和一组要调用的函数。
+如果我提供要调用的函数，它会很好地调用，但会停止搜索文件以响应。
+我必须停用工具才能根据附加的 PDF 获得良好的响应。
+我很久以前就注意到了这个问题。
+即使你可以提供文件和要调用的函数，它们也不能很好地协同工作。
+更多详细信息
+我有一本学生手册，其中包含课程详细信息。尽管如此，我也提供了要调用的函数。这些功能可以访问我的日历。
+因此，助手应该首先与学生交谈，然后提供预订课程的时间。
+例如：如果学生输入“我想要免费的第一节课”。此信息在手册上。每当我提供工具时，它都不会调用工具，这是正确的！但是，也不会查阅手册，应该这样做。如果我不提供工具，它会查阅手册。
+因此，我要么提供教程，要么提供要调用的工具。它们似乎不能很好地协同工作。
+最好的情况是：助手应该决定是调用工具还是从教程中检索信息。]]></description>
+      <guid>https://community.openai.com/t/tool-calling-and-file-search-does-not-work-well-together/806721#post_1</guid>
+      <pubDate>Fri, 07 Jun 2024 18:03:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>“对话 MissingGizmoItemsError 错误：2”</title>
+      <link>https://community.openai.com/t/conversations-missinggizmoitemserror-error-2/806719#post_1</link>
+      <description><![CDATA[我在使用 Chat GPT 时遇到了技术问题。它无法加载，并出现以下错误消息：“对话 MissingGizmoItemsError 错误：2”
+详细信息：
 
-但是当我使用这个公式时（正如我从文档中理解的那样）：number_of_tokens * Dimensions * 4 BYTS = 2272866 * 3072 * 4 ~ 27 GB
-那么哪一个实际上是用来计算存储成本的？]]></description>
-      <guid>https://community.openai.com/t/how-to-calculate-the-cost-of-the-vector-store-for-assistants-api/806509#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 14:53:18 GMT</pubDate>
+每次我尝试使用 Chat GPT 时都会出现此问题。
+加载尝试期间会立即出现错误消息。
+]]></description>
+      <guid>https://community.openai.com/t/conversations-missinggizmoitemserror-error-2/806719#post_1</guid>
+      <pubDate>Fri, 07 Jun 2024 18:00:42 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt-4-vision 中的“无效图像”错误</title>
-      <link>https://community.openai.com/t/invalid-image-error-in-gpt-4-vision/505843?page=2#post_28</link>
-      <description><![CDATA[许多网站（例如 Imgur 或 Reddit）会获取图像文件链接，如果未嵌入到该网站中，则会将其重写为 HTML 页面。
-使用 URL 参数时，您无法控制这一点，但行为至少应保持一致。
-图像站点运营商可能主动阻止了 OpenAI 的部分图像请求 IP 地址，但并非全部。
-自己下载图像可能会比较慢，但这是更好的选择。您可以调整其大小以控制成本并提高传输速度，还可以为许多热门网站设置一些引荐来源和标头模拟规则，以获取指定的图像。您无需调用 OpenAI 即可看到失败。]]></description>
-      <guid>https://community.openai.com/t/invalid-image-error-in-gpt-4-vision/505843?page=2#post_28</guid>
-      <pubDate>Fri, 07 Jun 2024 14:52:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何防止虚拟键盘推高整个聊天机器人？</title>
-      <link>https://community.openai.com/t/how-to-prevent-virtual-keyboard-from-pushing-up-entire-chatbot/806495#post_1</link>
+      <title>当我登录 ChatGPT 时，系统提示我登录失败，并显示一条消息“出现问题。请确保您的设备的日期和时间设置正确”</title>
+      <link>https://community.openai.com/t/when-i-log-in-to-chatgpt-i-am-prompted-for-a-login-failure-and-a-message-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly/508758?page=4#post_74</link>
       <description><![CDATA[
-
-正如您所见，一旦我单击文本输入，它就会移动在 Safari 上向上移动整个页面，我试图阻止这种情况发生，但找不到解决方案。
-我正在使用 react/next
-如果我知道是什么原因导致了这个问题，我会发布相关代码，但我尝试过元标记和设置最小高度，并设置 UseEffects 来考虑页面高度，但到目前为止没有任何效果]]></description>
-      <guid>https://community.openai.com/t/how-to-prevent-virtual-keyboard-from-pushing-up-entire-chatbot/806495#post_1</guid>
-      <pubDate>Fri, 07 Jun 2024 14:44:23 GMT</pubDate>
+没有解决方案。
+Android 13，Firefox 作为默认浏览器。
+我要要求部分退款，我建议你也这样做。]]></description>
+      <guid>https://community.openai.com/t/when-i-log-in-to-chatgpt-i-am-prompted-for-a-login-failure-and-a-message-something-went-wrong-please-make-sure-your-devices-date-and-time-are-set-properly/508758?page=4#post_74</guid>
+      <pubDate>Fri, 07 Jun 2024 17:58:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Plus 订阅问题 - GPT-4 无法访问且帐户未显示为 Plus</title>
+      <link>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_4</link>
+      <description><![CDATA[我看到有人在谈论禁用一些可能会妨碍访问 GPT-4 的 Chrome 扩展程序。就我而言，我弟弟最终登录了错误的帐户，所以这只是用户错误哈哈哈哈。但联系了支持人员，他们在 1 天内回复了我。]]></description>
+      <guid>https://community.openai.com/t/issue-with-plus-subscription-gpt-4-inaccessible-and-account-not-showing-as-plus/806348#post_4</guid>
+      <pubDate>Fri, 07 Jun 2024 17:57:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o 编码毫无用处，不值得信赖！为什么？</title>
+      <link>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_4</link>
+      <description><![CDATA[我可能有点奇怪，但我认为 GPT4o 对我的编程工作非常有帮助。不过我主要用 Python 工作，所以可能是语言问题？我很高兴它能输出 300 多行代码，而且几乎没有问题。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_4</guid>
+      <pubDate>Fri, 07 Jun 2024 17:55:53 GMT</pubDate>
     </item>
     </channel>
 </rss>
