@@ -3,8 +3,29 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 09 Jun 2024 12:32:53 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Sun, 09 Jun 2024 15:18:27 GMT</lastBuildDate>
+    <item>
+      <title>我应该在我的网站上提供 Google 登录吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dbvpuz/should_i_offer_google_login_on_my_website/</link>
+      <description><![CDATA[我想知道我是否应该在我的网站上提供“使用 Google 注册/登录”功能，或者我是否应该坚持使用标准的电子邮件密码组合。 我理解使用 Google 注册为用户提供了一种快速、简单的登录方式，而无需记住新密码。我提供它的主要目的是避免错过潜在用户（那些不愿意经历“经典”注册过程的用户），但我也有点担心帐户管理和帐户恢复。 首先，如果用户想要更新他们的电子邮件会发生什么？我不明白这怎么可能，因为电子邮件与用于身份验证的 Google 帐户相关联。 其次，如果我的某个用户删除了他们的 Google 帐户，我担心帐户恢复过程。我的用户会在我的网站上拥有一些重要的东西，我不太愿意仅仅基于信任就让某人访问帐户。 我实际上曾经遇到过这种情况：删除我的 Google 帐户以及我的 Gmail 地址后，我无法访问使用该帐户注册的网站。我觉得帐户恢复过程有点可疑（据我所知）：网站支持团队要求我提供一张我手持身份证的照片（他们会用这个做什么？）并说“我们将联系该帐户的电子邮件地址：******@gmail.com，如果我们在三天内没有收到回复，我们将为您提供一个临时密码，以便您可以重新登录并更改电子邮件地址。”（很多人不经常查看电子邮件）。 有兴趣听听你们的想法：优点和缺点是否相等？    提交人    /u/Ok-Tap-2124   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dbvpuz/should_i_offer_google_login_on_my_website/</guid>
+      <pubDate>Sun, 09 Jun 2024 15:00:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Github Actions 有时不会增加我的版本号</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dbtran/github_actions_is_sometines_not_incrementing_my/</link>
+      <description><![CDATA[有人能发现我的错误吗？ 这个 Github Action 有时会增加构建号，有时则不会。有时它只是在某个地方开始... 在本地，此命令将始终返回现有标签： git fetch --depth=1 origin +refs/tags/*:refs/tags/*  但在 Github 及其 Runner 上运行时，它显然不会这样做。有时它会获得正确的最新数字，有时则不会。有时它甚至总是以 x.y.1 开头，而 x 和 y 总是正确的。 名称：在发布时构建和推送 Docker 映像 on: push: branch: - &#39;release/*&#39; 权限： content: write jobs: build-and-push: runs-on: ubuntu-latest 步骤： - 名称：检出代码 用途：actions/checkout@v2 - 名称：设置 Docker Buildx 用途：docker/setup-buildx-action@v1 - 名称：登录 DockerHub 用途：docker/login-action@v1 使用：用户名：${{ secrets.DOCKERHUB_USERNAME }} 密码：${{ secrets.DOCKERHUB_PASSWORD }} - 名称：获取所有 git 标签 运行：git fetch --depth=1 origin +refs/tags/*:refs/tags/* - 名称：获取最新标签 id：latest-tag 运行：| TAG=$(git describe --tags `git rev-list --tags --max-count=1`) echo &quot;最新标签是 $TAG&quot; echo &quot;::set-output name=tag::${TAG}&quot; - name: 增加版本 id：next-version run: | TAG=&quot;${{ steps.latest-tag.outputs.tag }}&quot; BASE_VERSION=${TAG#v} # 删除 &#39;v&#39; 前缀 IFS=&#39;.&#39; read -ra VERSION &lt;&lt;&lt; &quot;$BASE_VERSION&quot; PATCH=$((VERSION[2]+1)) NEXT_VERSION=&quot;v${VERSION[0]}.${VERSION[1]}.$PATCH&quot; echo &quot;下一个版本是 $NEXT_VERSION&quot; echo &quot;::set-output name=version::$NEXT_VERSION&quot; - 名称：使用新版本构建 Docker 映像运行：| docker build -t mycomp/myrepo:${{ steps.next-version.outputs.version }} . docker push mycomp/myrepo:${{ steps.next-version.outputs.version }} - 名称：将映像标记为最新并推送运行：| docker tag mycomp/myrepo:${{ steps.next-version.outputs.version }} mycomp/myrepo:latest docker push mycomp/myrepo:latest - 名称：使用新版本标记存储库运行：| git tag ${{ steps.next-version.outputs.version }} git push origin ${{ steps.next-version.outputs.version }} --tags     提交人    /u/tf1155   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dbtran/github_actions_is_sometines_not_incrementing_my/</guid>
+      <pubDate>Sun, 09 Jun 2024 13:29:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要下载一个文件夹而不在服务器上压缩它。有什么想法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dbtmrr/need_to_download_a_folder_without_zipping_it_on/</link>
+      <description><![CDATA[我正在构建一个云存储查看器，我想在其中提供一个下载一个或多个文件夹的选项。我在 Google Drive 中看到，当您下载文件夹时，它不会下载 zip 文件，而是下载文件夹及其内部文件和文件夹层次结构。 有人知道如何在 javascript/nodejs 设置中实现它吗？我正在查看 chrome 中的 browser-fs-access 库，我相信它需要浏览器中的文件系统 api。但必须有一些已经实现的库来执行此操作，任何帮助都将不胜感激！谢谢！ 更正：Google Drive 正在下载 zip。是 OSX 会自动解压它。但是，我的问题是是否可以创建一个文件夹并将文件保存在该文件夹内而不是下载目录的根目录中？ 已解决：仅适用于 chrome 和 Edge。不支持 safari 和 firefox。    提交人    /u/vicks9880   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dbtmrr/need_to_download_a_folder_without_zipping_it_on/</guid>
+      <pubDate>Sun, 09 Jun 2024 13:22:45 GMT</pubDate>
+    </item>
     <item>
       <title>创建你自己的 HTML partials Vite 插件</title>
       <link>https://www.reddit.com/r/webdev/comments/1dbrn09/create_your_own_html_partials_vite_plugin/</link>
@@ -41,7 +62,7 @@
       <pubDate>Sun, 09 Jun 2024 11:00:29 GMT</pubDate>
     </item>
     <item>
-      <title>有没有一种包装器可以包裹住微妙加密 (subjectCrypto) 这种怪物？</title>
+      <title>有没有一种包装器可以包裹住 monster 的 subset of fine cryptography 呢？</title>
       <link>https://www.reddit.com/r/webdev/comments/1dbqiu8/is_there_a_wrapper_for_the_monstrosity_that_is/</link>
       <description><![CDATA[我试图创建一个简单的应用程序来以加密形式存储用户数据。为此，我需要执行以下操作：  为用户生成随机密钥 从用户密码派生密钥 使用派生密钥加密用户的加密密钥并将其存储在服务器上 每当用户尝试保存某些数据时，检索并解密加密密钥，然后使用此密钥在客户端加密数据并将其保存在服务器上 当用户想要检索数据时，检索加密密钥，使用派生密钥解密，然后检索数据并解密  经过一个多星期的努力，我终于到了放弃的边缘。SubtleCrypto 似乎是用与 KISS 相反的理念实现的，即使其尽可能复杂。一个简单的密钥派生函数就需要大约 20 行代码。 请注意，我已经在 Python 中实现了所有这些，但我需要在客户端执行此操作，因此想在 Javascript 中复制它。Python 中的密钥派生函数需要 3 行，看起来非常简单： salt = os.urandom(128) kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1) user_passkey = kdf.derive(password.encode(&quot;utf-8&quot;))  最可悲的是，使用 crypto-js 库，所有这些几乎同样简单。然而，他们决定随机停止它，似乎是因为他们根本不重视他们为库带来的令人难以置信的简单语法。 详细说明我的挣扎，我完全无法理解整个过程的编码/解码部分和导出/导入部分。我不知道什么时候需要哪个以及为什么。尽管尝试了多种组合并耐心地查看代码、示例和教程，但在尝试解密用户的加密密钥时，我得到的只是错误。而且 Subtlecrypto 不会接受任何参数作为简单文本。仅仅为了将用户的密码传递给 KDF，我需要派生一个基本密钥，而这整个部分我完全不明白。 我觉得我快要破解了，但我只是在下一步卡住了。我从来没有遇到过像这样令人沮丧和神秘的事情。  请告诉我有人正在创建或复活 crypto-js，以便像我这样的普通人也可以编写函数来使用加密技术。    提交人    /u/YesterdayDreamer   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dbqiu8/is_there_a_wrapper_for_the_monstrosity_that_is/</guid>
@@ -55,16 +76,9 @@
       <pubDate>Sun, 09 Jun 2024 10:11:00 GMT</pubDate>
     </item>
     <item>
-      <title>自动创建动态路径</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dbq8v7/automatic_creation_of_dynamic_paths/</link>
-      <description><![CDATA[是否有一些简单的方法可以为我的网站生成许多动态路径，使用相同的代码模板并根据从公共数据库中获取的数据进行轻微修改？    提交人    /u/ol_foxy_boiui   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dbq8v7/automatic_creation_of_dynamic_paths/</guid>
-      <pubDate>Sun, 09 Jun 2024 09:57:54 GMT</pubDate>
-    </item>
-    <item>
       <title>在 Webflow 中处理多个 React 应用程序的最佳方法</title>
       <link>https://www.reddit.com/r/webdev/comments/1dbpmyy/best_way_to_handle_multiple_react_apps_inside/</link>
-      <description><![CDATA[我正在管理一个 webflow 网站，这个网站已经发展了很多。一开始它只是一个带有一些动态内容的基本网站，但是今天我们开始向网站添加一些更复杂的东西，比如预订系统和从库存系统和 ERP 系统中获取物品。 为了尽量减少开发时间，我已将其中一些元素创建为 vite react 应用程序，然后将它们作为 iframe 包含在内，并通过路由对其进行调节。 现在我看到这样做的一些缺点，所以我考虑将每个部分构建为单独的 react 应用程序，然后仅从我们的服务器获取呈现的 js 代码并将其呈现在 webflow 中分配的 div 中。 const root = createRoot(document.getElementById(&quot;reactRenderDiv&quot;)); 所以我的问题是 - 这样做有什么缺点吗？ - 为每个应用程序建立一个单独的项目很烦人，有没有办法为应用程序的多个根构建 JS 代码，以便它针对具有 id 的不同 div？    提交人    /u/rosagella   [链接] [评论]]]></description>
+      <description><![CDATA[我正在管理一个 webflow 网站，这个网站已经发展了很多。一开始它只是一个带有一些动态内容的基本网站，但是今天我们开始向网站添加一些更复杂的东西，比如预订系统和从库存系统和 ERP 系统中获取物品。 为了尽量减少开发时间，我已将其中一些元素创建为 vite react 应用程序，然后将它们作为 iframe 包含在内，并通过路由对其进行调节。 现在我看到这样做的一些缺点，所以我考虑将每个部分构建为单独的 react 应用程序，然后仅从我们的服务器获取呈现的 js 代码并将其呈现在 webflow 中指定的 div 中。 const root = createRoot(document.getElementById(&quot;reactRenderDiv&quot;)); 所以我的问题是 - 这样做有什么缺点吗？ - 为每个应用程序建立一个单独的项目很烦人，有没有办法为应用程序的多个根构建 JS 代码，以便它针对具有 id 的不同 div？    提交人    /u/rosagella   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dbpmyy/best_way_to_handle_multiple_react_apps_inside/</guid>
       <pubDate>Sun, 09 Jun 2024 09:13:20 GMT</pubDate>
     </item>
@@ -85,7 +99,7 @@
     <item>
       <title>如何为项目展示添加逼真的模拟数据？</title>
       <link>https://www.reddit.com/r/webdev/comments/1dbmw3e/how_do_you_add_realistic_mock_data_for_project/</link>
-      <description><![CDATA[最近我在开发一个 Airbnb 克隆版，我想添加一些看似真实的虚假数据，其大小与实际生产应用中的数据相似。 你们是怎么做到的？ 我下载了 Airbnb 数据集，我想从可用链接中抓取图片，然后添加数据并将图片上传到 s3，使应用看起来很真实。但是，我的 IP 被 Airbnb 禁止了，即使没有被禁止，也需要很长时间，因为我每次都要一个一个地做所有事情（抓取、下载、上传）。 尽管如此，我还是无法想出一个解决方案来添加虚假的预订数据和所有其他看似合法的东西，然后使用数据库实时托管这个完整的应用。    提交人    /u/fantasy-gecko   [链接] [评论]]]></description>
+      <description><![CDATA[最近我在开发一个 Airbnb 克隆版，我想添加一些看似真实的虚假数据，其大小与实际生产应用中的数据相似。 你们是怎么做到的？ 我下载了 Airbnb 数据集，我想从可用链接中抓取图片，然后添加数据并将图片上传到 s3，使应用看起来很真实。但是，我的 IP 被 Airbnb 封禁了，即使没有被封禁，也需要很长时间，因为我要逐个操作（抓取、下载、上传）。 尽管如此，我还是无法想出一个解决方案来添加虚假的预订数据和所有其他看似合法的东西，然后使用数据库实时托管这个完整的应用。    提交人    /u/fantasy-gecko   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dbmw3e/how_do_you_add_realistic_mock_data_for_project/</guid>
       <pubDate>Sun, 09 Jun 2024 06:04:55 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[TL;DR：我们的组织正在研究使用 Single-SPA 将多个独立的微前端集成到一个有凝聚力的平台中。我们需要统一的组件（页眉、页脚），但希望避免共享依赖关系以保持团队独立性。寻求有关在没有共享依赖关系的情况下使用 Single-SPA 的建议。 ___ 大家好， 我在一个有五个不同团队的组织中工作，每个团队负责自己的应用程序。这些应用程序构建为微服务和微前端，目前，它们通过 Nginx 反向代理松散地连接。对于我们的客户来说，它看起来像一个网站/应用程序，但在内部，每个团队都拥有其代码库的完全所有权。 挑战： 我们现在的任务是创建一个更连贯的平台。具体来说，我们需要统一的页眉、页脚、侧边栏和其他常见元素。我们的想法是使用 Single-SPA 创建一个共享的页眉和页脚，其中包含一个内容空间，每个团队都可以在其中“插入”他们的应用程序。 我们的限制：  分散存储库：每个团队都维护自己的存储库。这种明确的所有权模型可防止团队无意中影响彼此的工作，这种情况可能会在 monorepo 设置中发生。 依赖管理中的独立性：每个团队决定何时更新其依赖项。我们不希望共享依赖模型在未经其他团队输入的情况下进行更新时破坏其他团队的应用程序。  问题： 虽然 Single-SPA 似乎是集成我们的微前端的好解决方案，但推荐的设置涉及共享依赖。例如，这意味着一个全局 Vue 版本，如果在未经他们输入的情况下进行更新，可能会破坏某些团队的微前端。这种方法与我们的团队独立原则相矛盾。 考虑的替代方案：  通过 NPM 共享 Vue 组件：由于我们的目标是专门使用 Vue.js，因此我们考虑创建共享的 Vue 组件并通过 NPM 包分发它们。 Web 组件：另一种选择是使用 Web 组件作为页眉和页脚，使它们更通用并且可以在不同上下文中重复使用。 Bit.dev：我们探索了 Bit.dev，它在理论上看起来很有希望，但我们在开发人员体验 (DX) 和文档方面的经验相当差。  问题： 有人在不共享依赖项的情况下成功使用过 Single-SPA 吗？我理解这会影响性能，但考虑到我们的客户（主要是 B2B）拥有稳定且快速的互联网连接，我很好奇这在现实世界中的影响。 任何见解或经验都将不胜感激！    提交人    /u/Sh4mshiel   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dbmilx/advice_on_using_singlespa_without_shared/</guid>
       <pubDate>Sun, 09 Jun 2024 05:41:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我该如何开始处理图片版权？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dbmaxj/how_do_i_start_with_picture_copyrights/</link>
-      <description><![CDATA[我想创建一个网站，展示埃菲尔铁塔、帝国大厦和国会大厦等公共场所。我想从维基百科下载图片。 我想确保自己不会陷入版权问题。 谢谢！    提交人    /u/Direct_Check_3366   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dbmaxj/how_do_i_start_with_picture_copyrights/</guid>
-      <pubDate>Sun, 09 Jun 2024 05:27:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 调用的缓存？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dblmxe/cache_for_api_calls/</link>
-      <description><![CDATA[为了在我的网站中显示一些网页，我从后端加载了 4 个下拉列表。其中大多数不太可能发生变化，因此理论上它们是缓存的良好候选者。 在前端为 API 调用实现缓存的正确方法是什么？    提交人    /u/El_Mario_Verde   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dblmxe/cache_for_api_calls/</guid>
-      <pubDate>Sun, 09 Jun 2024 04:45:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
