@@ -4,155 +4,189 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 08 Jun 2024 21:17:43 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2024 01:24:19 GMT</lastBuildDate>
     <item>
-      <title>助手 API 无法读取我的 PDF。为什么？</title>
-      <link>https://community.openai.com/t/assistant-api-cant-read-my-pdf-how-come/807919#post_2</link>
-      <description><![CDATA[
-表示它可能是一个非文本文件，例如 Excel 或 PDF 文档
+      <title>关于免费 ChatGPT 和 4o 的反馈</title>
+      <link>https://community.openai.com/t/feedback-on-free-chatgpt-and-4o/808100#post_3</link>
+      <description><![CDATA[如果您使用的是免费套餐，那么您只会获得他们给您的任何服务。我们不承诺或保证任何特定型号或服务级别。]]></description>
+      <guid>https://community.openai.com/t/feedback-on-free-chatgpt-and-4o/808100#post_3</guid>
+      <pubDate>Sun, 09 Jun 2024 01:05:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT：自定义操作未触发</title>
+      <link>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_4</link>
+      <description><![CDATA[很好奇（可能不相关），但为什么您要对看似 POST 操作执行 GET 请求？此外，ChatGPT 无法真正生成 UUID（它可以，但需要使用 python 工具来生成它）。
+我会将此操作转换为 POST 操作，并让您的端点生成与记录关联的 UUID 并在响应中返回它。
+我不确定，但它可能会对自己正在创建这些东西的事实感到困惑，从而消除了从 API 中 GET 它们的需要。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_4</guid>
+      <pubDate>Sun, 09 Jun 2024 01:01:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的最新书籍项目包含 AI 图像</title>
+      <link>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_4</link>
+      <description><![CDATA[Simon &amp; Garfunkel - I Am A Rock
+或者（可能更有可能）
+Maria Vidal - Body Rock（官方视频）]]></description>
+      <guid>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_4</guid>
+      <pubDate>Sun, 09 Jun 2024 00:47:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 中的超链接未链接？</title>
+      <link>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252?page=3#post_47</link>
+      <description><![CDATA[从第一天起，我的所有客户都遇到了这种情况。我绕过了 Open AI 通过自动化服务提供的链接。我认为 OpenAI 无意修复此问题。他们有想要工作的 GPT，也有不想工作的 GPT。证明我错了会很有趣。]]></description>
+      <guid>https://community.openai.com/t/hyperlinks-in-custom-gpt-not-linking/565252?page=3#post_47</guid>
+      <pubDate>Sun, 09 Jun 2024 00:45:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT：自定义操作未触发</title>
+      <link>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_3</link>
+      <description><![CDATA[当然可以！
+Schema:
+&quot;/setWorld&quot;: {
+&quot;get&quot;: {
+&quot;operationId&quot;: &quot;setWorld&quot;,
+&quot;description&quot;: &quot;设置世界信息。此调用是必需的。&quot;,
+&quot;parameters&quot;: [
+{
+&quot;name&quot;: &quot;world-name&quot;,
+&quot;in&quot;: &quot;query&quot;,
+&quot;description&quot;: &quot;要设置的世界的名称。&quot;,
+&quot;required&quot;: true,
+&quot;schema&quot;: {
+&quot;type&quot;: &quot;string&quot;
+}
+},
+{
+&quot;name&quot;: &quot;protagonist-name&quot;,
+&quot;in&quot;: &quot;query&quot;,
+&quot;description&quot;: &quot;要设置的主角的名称。&quot;,
+&quot;required&quot;: true,
+&quot;schema&quot;: {
+&quot;type&quot;: &quot;string&quot;
+}
+},
+{
+&quot;name&quot;: &quot;one-word-genre&quot;,
+&quot;in&quot;: &quot;query&quot;,
+&quot;description&quot;: &quot;世界发生的一个单词类型。&quot;,
+&quot;required&quot;: true,
+&quot;schema&quot;: {
+&quot;type&quot;: &quot;string&quot;
+}
+},
+{
+&quot;name&quot;: &quot;operation_id&quot;,
+&quot;in&quot;: &quot;query&quot;,
+&quot;description&quot;: &quot;为世界生成一个随机 uuid4()。&quot;,
+&quot;required&quot;: true,
+&quot;schema&quot;: {
+&quot;type&quot;: &quot;string&quot;
+}
+}
+],
+&quot;security&quot;: [
+{
+&quot;GoogleOAuth&quot;: [
+&quot;openid&quot;,
+&quot;profile&quot;,
+&quot;email&quot;
+]
+}
+],
+&quot;responses&quot;: {}
+}
+},
 
-答案就在那里。无论出于什么原因，它都无法读取您的 PDF。看起来您正在使用代码解释器尝试打开它？
-PDF 通常不是基于文本的。
-您看到的 PDF 和计算机看到的不一样
-如果您希望它读取 PDF，可以使用 Vision API。
-https://platform.openai.com/docs/guides/vision
-或者您可以将其存入并在检索中使用
-https://platform.openai.com/docs/actions/data-retrieval
-您也可以将其转换为 Markdown，以便机器人可以更好地读取它（最佳选择）
-（这是我看到的第一个 PDF → Markdown 网站）
-
-
-
-pdf2md.morethan.io
-
-
-PDF 转 Markdown
-将 PDF 文件转换为 Markdown。
-
-
-
-
+提示中的说明：设置世界和角色后，使用 setWorld 操作调用 API，使用自定义操作工具向 API 注册。
+我的输出：
+很棒的选择！让我们开始您的冒险吧。
+首先，让我们确定设置和角色细节：
+世界：一个伟大的王国主角： Bobicia，国王的巨魔兄弟，战争策略大师
+我正在为您的冒险注册这个世界和角色。请稍等...
+{调用 setWorld 操作以使用 API 注册冒险。
+世界已设置！
+公平地说，我对 GPT 的要求很高（在我的提示和架构的其余部分中还有更多内容）。话虽如此，即使我使用这些说明专门隔离和测试此调用，我也会得到一些相当复杂的结果。有趣的是，我还注意到在自定义 GPT 预览中进行测试时的结果通常比在预览之外尝试 GPT 时更好。]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_3</guid>
+      <pubDate>Sun, 09 Jun 2024 00:38:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的最新书籍项目包含 AI 图像</title>
+      <link>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_3</link>
+      <description><![CDATA[好的，这是正确的 @elmstedt ，这很简单。但是，以下 Dall-E 创建的图像背后隐藏着哪首歌曲？
 ]]></description>
-      <guid>https://community.openai.com/t/assistant-api-cant-read-my-pdf-how-come/807919#post_2</guid>
-      <pubDate>Sat, 08 Jun 2024 20:49:15 GMT</pubDate>
+      <guid>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_3</guid>
+      <pubDate>Sun, 09 Jun 2024 00:30:10 GMT</pubDate>
     </item>
     <item>
-      <title>根据助手 ID 获取线程列表</title>
-      <link>https://community.openai.com/t/get-list-of-threads-from-assistant-id/587395#post_3</link>
-      <description><![CDATA[线程不与单个助手绑定。您可以在同一个线程中运行消息，但不能有多个助手。
-消息与 assistant_id 和 thread_id 绑定。
-如果您想获取已通过助手运行的所有线程，我认为唯一的方法是针对每个线程获取所有消息，并检查每个消息在哪个助手上运行。]]></description>
-      <guid>https://community.openai.com/t/get-list-of-threads-from-assistant-id/587395#post_3</guid>
-      <pubDate>Sat, 08 Jun 2024 20:36:43 GMT</pubDate>
+      <title>无法再使用 IOS 应用程序中的交互式语音聊天</title>
+      <link>https://community.openai.com/t/cant-use-the-interactive-voice-chat-in-the-ios-app-anymore/750212?page=2#post_34</link>
+      <description><![CDATA[你有这个链接吗？我在 Mac 上的 IOS 上丢失了这个应用程序]]></description>
+      <guid>https://community.openai.com/t/cant-use-the-interactive-voice-chat-in-the-ios-app-anymore/750212?page=2#post_34</guid>
+      <pubDate>Sun, 09 Jun 2024 00:18:30 GMT</pubDate>
     </item>
     <item>
-      <title>Gpt-4o 出现大量幻觉</title>
-      <link>https://community.openai.com/t/gpt-4o-hallucinates-a-lot/790748#post_20</link>
-      <description><![CDATA[我仍在使用 4，因为 4o 无法使用。
-是的，更快。但更笨。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-hallucinates-a-lot/790748#post_20</guid>
-      <pubDate>Sat, 08 Jun 2024 20:35:49 GMT</pubDate>
+      <title>关于免费 ChatGPT 和 4o 的反馈</title>
+      <link>https://community.openai.com/t/feedback-on-free-chatgpt-and-4o/808100#post_1</link>
+      <description><![CDATA[我有一个免费订阅，所以我对 4o 的访问权限有限，在它停止对话之前只能发送 x 条消息，没关系，因为我不需要 4o，但我不能使用 3.5，它不让我选择我可以问问题然后它会自动在 4o 中响应，然后我可以将其重新生成为 3.5，但它仍然停止在限制处，我应该可以完全访问 3.5，子版块说我有
+!?!?!?!]]></description>
+      <guid>https://community.openai.com/t/feedback-on-free-chatgpt-and-4o/808100#post_1</guid>
+      <pubDate>Sun, 09 Jun 2024 00:09:14 GMT</pubDate>
     </item>
     <item>
-      <title>如何限制 Typebot 中的助手令牌（或者如果可能的话，由助手本身限制）</title>
-      <link>https://community.openai.com/t/how-to-limit-the-assistant-token-in-typebot-or-if-possible-natively-by-the-assistant/807974#post_1</link>
-      <description><![CDATA[我使用 4-o 版与 Typebot 集成的助手来解决有关我网站的疑问，但上下文标记非常昂贵，而且考虑到它们是简单且预先确定的答案，上下文实际上是不必要的。我看到 API 已更新，现在允许使用限制参数，但我不知道如何使用它们，我不知道我是否可以直接在助手的设置中添加它（如果此选项不存在，而且从我搜索的内容来看确实不存在，这已经是一个建议）或者我应该如何在 Typebot 中直接实现限制。我会留下图片来说明。
-  ]]></description>
-      <guid>https://community.openai.com/t/how-to-limit-the-assistant-token-in-typebot-or-if-possible-natively-by-the-assistant/807974#post_1</guid>
-      <pubDate>Sat, 08 Jun 2024 20:35:36 GMT</pubDate>
+      <title>我的最新书籍项目包含 AI 图像</title>
+      <link>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_2</link>
+      <description><![CDATA[我猜是 Lady Gaga 的《Poker Face》。]]></description>
+      <guid>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_2</guid>
+      <pubDate>Sat, 08 Jun 2024 23:43:50 GMT</pubDate>
     </item>
     <item>
-      <title>gpt-3.5-turbo 在 API 中激活需要多少钱？</title>
-      <link>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_4</link>
-      <description><![CDATA[登录后，您可以通过此链接查看当前信用余额：
-https://platform.openai.com/settings/organization/billing/overview
-如果您刚刚付款，信用可能需要几个小时才能生效。您还需要生成第一个触发电话验证的 API 密钥。]]></description>
-      <guid>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_4</guid>
-      <pubDate>Sat, 08 Jun 2024 20:34:21 GMT</pubDate>
+      <title>自定义 GPT：自定义操作未触发</title>
+      <link>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_2</link>
+      <description><![CDATA[您能否分享操作模式以及应触发操作调用的消息示例？]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-custom-actions-not-triggering/808021#post_2</guid>
+      <pubDate>Sat, 08 Jun 2024 23:38:22 GMT</pubDate>
     </item>
     <item>
-      <title>gpt-3.5-turbo 在 API 中激活需要多少钱？</title>
-      <link>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_3</link>
-      <description><![CDATA[我为 Google Collab 支付了 10 美元，为 API OpenAI 支付了 5 美元，但应用程序无法运行
-金额增加了多少？]]></description>
-      <guid>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_3</guid>
-      <pubDate>Sat, 08 Jun 2024 20:28:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>gpt-3.5-turbo 在 API 中激活需要多少钱？</title>
-      <link>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_2</link>
-      <description><![CDATA[API 信用的最低购买金额为 5 美元，考虑到税费或汇率，可能会多一点。然后，您可以根据语言数据量使用该信用进行数百次 API 调用。]]></description>
-      <guid>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_2</guid>
-      <pubDate>Sat, 08 Jun 2024 20:20:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>gpt-3.5-turbo 在 API 中激活需要多少钱？</title>
-      <link>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_1</link>
-      <description><![CDATA[我收到以下消息，通知我已支付 5 美元
-请注意，我注册的是个人账户
-RateLimitError：错误代码：429 - {&#39;error&#39;：{&#39;message&#39;：&#39;组织 org-ae9He8uqcKrTWnIrQmqMISpf 中 gpt-3.5-turbo 的请求过大，每分钟令牌数 (TPM)：限制 60000，请求 82125。必须减少输入或输出令牌才能成功运行。请访问 https://platform.openai.com/account/rate-limits 了解更多信息。&#39;, &#39;type&#39;: &#39;tokens&#39;, &#39;param&#39;: None, &#39;code&#39;: &#39;rate_limit_exceeded&#39;}}
+      <title>在哪里可以查看我使用 API 创建的所有线程？</title>
+      <link>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963?page=2#post_27</link>
+      <description><![CDATA[当你知道线程 ID 时，这是删除线程最简单的 Python 代码：
+import openai
+
+client = openai.OpenAI(api_key=your_API_KEY)
+client.beta.threads.delete(thread_id=&#39;thread_1234567890aBcDeFgHiJkL&#39;)
 ]]></description>
-      <guid>https://community.openai.com/t/how-much-does-gpt-3-5-turbo-cost-to-activate-in-the-api/807958#post_1</guid>
-      <pubDate>Sat, 08 Jun 2024 20:15:41 GMT</pubDate>
+      <guid>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963?page=2#post_27</guid>
+      <pubDate>Sat, 08 Jun 2024 23:19:37 GMT</pubDate>
     </item>
     <item>
-      <title>模型可以学习如何执行多少种不同的函数调用？</title>
-      <link>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_3</link>
-      <description><![CDATA[@ben24，这是一个好问题，可能非常依赖于模型，像 gpt 3.5 这样的较差的模型由于注意力水平较低（输入上下文容量较小），无法使用大量可用函数。
-我个人没有发现限制，但我只使用大约 20 个函数。
-不过，另一件需要考虑的事情是，你使用的函数越多，你的提示就会越大，所以你的成本就会上升，所以某种程度的运行时配置可能是有意义的——我知道有些人使用“角色”的概念来管理不同的集合。]]></description>
-      <guid>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_3</guid>
-      <pubDate>Sat, 08 Jun 2024 20:14:54 GMT</pubDate>
+      <title>在哪里可以查看我使用 API 创建的所有线程？</title>
+      <link>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963?page=2#post_26</link>
+      <description><![CDATA[以下是链接，管理员可以设置每个参与者可见的线程：
+组织设置 - OpenAI API]]></description>
+      <guid>https://community.openai.com/t/where-can-i-see-all-the-threads-ive-created-with-the-api/592963?page=2#post_26</guid>
+      <pubDate>Sat, 08 Jun 2024 23:11:50 GMT</pubDate>
     </item>
     <item>
-      <title>模型可以学习如何执行多少种不同的函数调用？</title>
-      <link>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_2</link>
-      <description><![CDATA[在教育过程中取代“人工智能”并不是一个好主意。它会产生幻觉，在互联网上进行训练，而互联网是垃圾，而且这项技术的创造者不知道它到底是如何运作的。所以，如果你是一名教育工作者，那么就去教育吧，不要使用这些实验性技术来为你做工作。]]></description>
-      <guid>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_2</guid>
-      <pubDate>Sat, 08 Jun 2024 20:11:30 GMT</pubDate>
+      <title>无法删除自定义 GPT</title>
+      <link>https://community.openai.com/t/inability-to-delete-custom-gpts/808054#post_2</link>
+      <description><![CDATA[您无法在 Android 应用程序中编辑或删除自定义 GPT。这是正常且预期的行为。
+如果您想删除 GPT，请登录 https://chatgpt.com 并在那里删除 visio 自定义 GPT。]]></description>
+      <guid>https://community.openai.com/t/inability-to-delete-custom-gpts/808054#post_2</guid>
+      <pubDate>Sat, 08 Jun 2024 23:09:30 GMT</pubDate>
     </item>
     <item>
-      <title>模型可以学习如何执行多少种不同的函数调用？</title>
-      <link>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_1</link>
-      <description><![CDATA[我正在使用 gpt-4o 为用户制作教育课程。
-我将其分为几个步骤，由 AI 作为函数调用执行。
-仅使用一个系统提示和一组工具，您可以教模型如何执行多少个不同的函数调用？
-我想知道是否应该将它们全部视为完全独立的任务？]]></description>
-      <guid>https://community.openai.com/t/how-many-different-function-calls-can-a-model-learn-how-to-do/807943#post_1</guid>
-      <pubDate>Sat, 08 Jun 2024 20:00:07 GMT</pubDate>
+      <title>请修复 - ChatGPT 4o 不断重复整个回复</title>
+      <link>https://community.openai.com/t/please-fix-chatgpt-4o-keeps-repeating-the-entire-response/771856#post_5</link>
+      <description><![CDATA[另外，你注册了一个账户只是为了发布这个无稽之谈，这真是太有趣了。]]></description>
+      <guid>https://community.openai.com/t/please-fix-chatgpt-4o-keeps-repeating-the-entire-response/771856#post_5</guid>
+      <pubDate>Sat, 08 Jun 2024 23:08:57 GMT</pubDate>
     </item>
     <item>
-      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
-      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=2#post_28</link>
-      <description><![CDATA[遇到了完全相同的问题。我认为问题出在文本输入字段上。
-顺便说一句，我使用的是发布版本，而不是测试版。]]></description>
-      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=2#post_28</guid>
-      <pubDate>Sat, 08 Jun 2024 19:58:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>从美元兑换成欧元时的付款问题</title>
-      <link>https://community.openai.com/t/payment-issue-when-converting-from-dollars-to-eu/807882#post_7</link>
-      <description><![CDATA[是的，您的银行可能使用小数点，相当于美国在书写大额美元时使用逗号。因此，它试图将 1800 美元兑换成欧元。]]></description>
-      <guid>https://community.openai.com/t/payment-issue-when-converting-from-dollars-to-eu/807882#post_7</guid>
-      <pubDate>Sat, 08 Jun 2024 19:44:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>向 GPT-4o 询问有关文件的问题 - 带有文件上传 base64 和 tiktoken 以及强制返回 json 的使用历史记录的 Python 函数示例</title>
-      <link>https://community.openai.com/t/ask-gpt-4o-about-a-file-example-python-function-with-file-upload-base64-and-tiktoken-and-usage-history-with-forced-json-return/758778#post_4</link>
-      <description><![CDATA[好主意！
-我试过这个代码，但不幸的是，ChatGPT 不喜欢看图像…… 
-它回复道：“很抱歉造成任何混淆，但我无法直接看到图像。但是，如果您向我描述图像，我很乐意帮助您理解或分析它！”
-有什么线索吗？ ]]></description>
-      <guid>https://community.openai.com/t/ask-gpt-4o-about-a-file-example-python-function-with-file-upload-base64-and-tiktoken-and-usage-history-with-forced-json-return/758778#post_4</guid>
-      <pubDate>Sat, 08 Jun 2024 19:41:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>从美元兑换成欧元时的付款问题</title>
-      <link>https://community.openai.com/t/payment-issue-when-converting-from-dollars-to-eu/807882#post_8</link>
-      <description><![CDATA[大家好，我正在尝试向我的余额中添加信用额度，但我发现它需要银行验证（对于小额金额通常不需要）。然后它拒绝了我的付款（感谢上帝），因为当我第二次尝试并密切关注收到的消息时，我认为转换存在问题：
-  ]]></description>
-      <guid>https://community.openai.com/t/payment-issue-when-converting-from-dollars-to-eu/807882#post_8</guid>
-      <pubDate>Sat, 08 Jun 2024 18:29:46 GMT</pubDate>
+      <title>ChatGPT 4o 下载 Windows 版</title>
+      <link>https://community.openai.com/t/chatgpt-4o-download-for-windows/763321?page=2#post_34</link>
+      <description><![CDATA[听起来我们公众又一次被利益所欺骗了。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4o-download-for-windows/763321?page=2#post_34</guid>
+      <pubDate>Sat, 08 Jun 2024 23:08:29 GMT</pubDate>
     </item>
     </channel>
 </rss>
