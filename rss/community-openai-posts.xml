@@ -4,168 +4,160 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 09 Jun 2024 18:23:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2024 21:18:34 GMT</lastBuildDate>
     <item>
-      <title>在自定义 GPT 中，我可以使用触发器让 GPT 执行消息操作吗？</title>
-      <link>https://community.openai.com/t/in-a-custom-gpt-can-i-use-triggers-to-have-the-gpt-perform-message-actions/807640#post_4</link>
-      <description><![CDATA[好的。我现在明白你的目标是为你的自定义 GPT 预填充 ChatGPT 聊天框。
-目前，仅通过为自定义 GPT 提供的工具无法实现这一点。
-我可以提供一些解决此问题的想法，但它们都需要用户操作。例如，使用配套浏览器扩展程序或将用户转发到另一个网页或提供预填充文档的下载链接，稍后用户将再次上传该文档。
-使用 Assistants API 或使用 chat.completions 编写类似内容是另一种选择。然后，您可以更好地控制用户体验。]]></description>
-      <guid>https://community.openai.com/t/in-a-custom-gpt-can-i-use-triggers-to-have-the-gpt-perform-message-actions/807640#post_4</guid>
-      <pubDate>Sun, 09 Jun 2024 18:20:32 GMT</pubDate>
+      <title>助理 API - 图像无效</title>
+      <link>https://community.openai.com/t/assistants-api-invalid-image/791182#post_8</link>
+      <description><![CDATA[本论坛中几乎所有 Assistant 问题主题的良好解决方案都是不使用 Assistant。即使是我提供的最后一个半途而废的解决方案也可以通过编写自己的代码更好地实现。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-invalid-image/791182#post_8</guid>
+      <pubDate>Sun, 09 Jun 2024 21:16:53 GMT</pubDate>
     </item>
     <item>
-      <title>通话设置问题</title>
-      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_6</link>
-      <description><![CDATA[抱歉，我的错。在调用 curl 命令之前，我的 sed 脚本中出现了拼写错误。对于那些好奇的 Linux 用户来说，这是已修复的 bash 脚本
-#!/bin/bash
-if [ &quot;$OPENAI_API_KEY&quot; == &quot;&quot; ]
-then
-# 检查 python .env 文件
-if [ ! -e &quot;.env&quot; ]
-then
-echo &quot;缺少环境变量 OPENAI_API_KEY&quot;
-exit -1
-fi
-tryList=`grep &quot;OPENAI_API_KEY=&quot; .env | sed -e &quot;/[\b]*[#]/d&quot; | sed -e &quot;s/OPENAI_API_KEY[\b]*=[\b]*//&quot;`
-for tryOne in $tryList
-do
-OPENAI_API_KEY=$tryOne
-break
-done
-if [ &quot;$OPENAI_API_KEY&quot; == &quot;&quot; ]
-then
-echo &quot;缺少环境变量 OPENAI_API_KEY&quot;
-exit -1
-else
-echo &quot;注意：在您的 python &#39;.env&#39; 文件中使用 OPENAI_API_KEY&quot;
-fi
-fi
-# echo &quot;使用密钥 [$OPENAI_API_KEY]&quot;
-
-curl https://api.openai.com/v1/models -H &quot;授权：持有者 $OPENAI_API_KEY&quot;
-]]></description>
-      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_6</guid>
-      <pubDate>Sun, 09 Jun 2024 18:17:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>请用新的声音取代 Sky，而不是仅仅重复 Juniper</title>
-      <link>https://community.openai.com/t/please-replace-sky-with-a-new-voice-rather-than-just-repeating-juniper/770654#post_3</link>
-      <description><![CDATA[是的，绝对需要用类似的声音替换声音。他们有 2 个男性。1 个听起来非二进制，1 个女性声音。我们需要另一个女性。]]></description>
-      <guid>https://community.openai.com/t/please-replace-sky-with-a-new-voice-rather-than-just-repeating-juniper/770654#post_3</guid>
-      <pubDate>Sun, 09 Jun 2024 18:15:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>发送标头信息？</title>
-      <link>https://community.openai.com/t/sending-header-information/808889#post_2</link>
-      <description><![CDATA[自定义操作的文档明确指出，目前不支持自定义 HTTP 标头。此外，如果您想收到有关 OpenAPI 规范的反馈，您确实应该将其格式化为可读的代码块。]]></description>
-      <guid>https://community.openai.com/t/sending-header-information/808889#post_2</guid>
-      <pubDate>Sun, 09 Jun 2024 18:01:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法为代码生成设置流式传输</title>
-      <link>https://community.openai.com/t/cant-setup-streaming-for-code-gen/808836#post_2</link>
-      <description><![CDATA[由于您使用的是 NodeJS 和某种 Javascript，因此您可以使用 Streams API 获益
-
-
-
-MDN Web Docs
-
-
-
-Streams API - Web API | MDN
-Streams API 允许 JavaScript 以编程方式访问通过网络接收的数据流并根据开发人员的需要对其进行处理。
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/cant-setup-streaming-for-code-gen/808836#post_2</guid>
-      <pubDate>Sun, 09 Jun 2024 17:58:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>通话设置问题</title>
-      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_5</link>
-      <description><![CDATA[什么方面失败了？]]></description>
-      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_5</guid>
-      <pubDate>Sun, 09 Jun 2024 17:49:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我无法访问 GPTo？我曾经是 Plus 用户 1.5 年了</title>
-      <link>https://community.openai.com/t/why-do-i-not-have-access-to-gpto-i-was-a-plus-user-for-1-5-years/808656#post_7</link>
-      <description><![CDATA[GPT-4o 可供免费用户使用，但有一定的限制。但是，允许的具体使用次数似乎没有明确说明。
-
-此屏幕截图来自免费计划。
-这些限制很可能根据当前服务器负载动态调整。
-GPT-4o 的计算资源优先提供给付费用户，这意味着免费用户通常面临更严格的限制。
-请不要怀疑，但由于情况并不明显，您的学生可能实际上使用的是 Plus 版本。
-无论如何，请选择最适合您需求的使用计划。]]></description>
-      <guid>https://community.openai.com/t/why-do-i-not-have-access-to-gpto-i-was-a-plus-user-for-1-5-years/808656#post_7</guid>
-      <pubDate>Sun, 09 Jun 2024 17:43:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>发送标头信息？</title>
-      <link>https://community.openai.com/t/sending-header-information/808889#post_1</link>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=29#post_590</link>
       <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/sending-header-information/808889#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 17:40:14 GMT</pubDate>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=29#post_590</guid>
+      <pubDate>Sun, 09 Jun 2024 21:15:32 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o vs. gpt-4-turbo-2024-04-09，gpt-4o 失败</title>
-      <link>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328?page=2#post_37</link>
-      <description><![CDATA[我不得不同意 OP 的观点，gpt-4o 很挣扎，而 gpt-4-turbo 却很成功。
-对我来说，它在基于完成的分类任务上完全失败了，而 turbo 却表现得非常好。
-（是的，我知道这是一种非标准的分类方法，但实际上我发现嵌入在某些类型的分类问题上表现得非常糟糕）
-真可惜！]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328?page=2#post_37</guid>
-      <pubDate>Sun, 09 Jun 2024 17:40:13 GMT</pubDate>
+      <title>两个助手可以共享线程吗？</title>
+      <link>https://community.openai.com/t/two-assistants-can-share-the-thread/809050#post_2</link>
+      <description><![CDATA[线程正在进行中并被锁定，直到您提供工具返回值，这自然会让原始指定的助手做出响应。
+在此阶段，有一个内部助手编写的消息正在发送到该工具。您还需要使用一些不必要的计时器来在被阻止之前返回值。
+“将答案转交给”另一个 AI 可能是将一些最近的用户/助手从对话中复制出来，并创建一个新线程在新的助手上运行。返回其专家答案。]]></description>
+      <guid>https://community.openai.com/t/two-assistants-can-share-the-thread/809050#post_2</guid>
+      <pubDate>Sun, 09 Jun 2024 21:14:18 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o 编码毫无用处，不值得信赖！为什么？</title>
-      <link>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_15</link>
-      <description><![CDATA[嗨，大家好。
-我曾经让 gpt4-turbo“想象”一种用于迷宫探索的简单算法，对路径的距离进行限制。
-你知道吗？它给出了一个非常愚蠢的答案。
-我只是想看看它如何处理代码，然后用我已经知道的东西安慰我：忘掉它，不要用它来做那件事，让真正的开发人员做他们的工作。
-无论某些人怎么想，法学硕​​士永远无法取代一位好老师。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_15</guid>
-      <pubDate>Sun, 09 Jun 2024 17:35:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>通话设置问题</title>
-      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_4</link>
-      <description><![CDATA[注意：如果您使用默认项目密钥，此命令有效，但对于其他项目密钥则失败。不确定这是为什么？]]></description>
-      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_4</guid>
-      <pubDate>Sun, 09 Jun 2024 17:32:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以在助手 API 中连续调用 2 个函数吗？</title>
-      <link>https://community.openai.com/t/can-i-call-2-functions-continuously-in-assistants-api/808850#post_2</link>
-      <description><![CDATA[如果需要，它会将需要调用的所有函数捆绑在一次调用中，然后您需要提交所请求的所有输出。如果我没记错的话，我认为这就是他们所说的并行函数调用。]]></description>
-      <guid>https://community.openai.com/t/can-i-call-2-functions-continuously-in-assistants-api/808850#post_2</guid>
-      <pubDate>Sun, 09 Jun 2024 17:25:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>当 Whisper 转录为韩语时，我收到带有问号的框</title>
-      <link>https://community.openai.com/t/i-get-boxes-with-question-marks-when-whisper-transcribes-in-korean/808864#post_1</link>
-      <description><![CDATA[（主题已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/i-get-boxes-with-question-marks-when-whisper-transcribes-in-korean/808864#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 17:04:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 大作游戏《被遗忘的国度编年史》</title>
-      <link>https://community.openai.com/t/gpts-masterpiece-game-chronicles-of-the-forgotten-realm/808863#post_1</link>
+      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
+      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=29#post_589</link>
       <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/gpts-masterpiece-game-chronicles-of-the-forgotten-realm/808863#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 17:03:36 GMT</pubDate>
+      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=29#post_589</guid>
+      <pubDate>Sun, 09 Jun 2024 21:14:06 GMT</pubDate>
     </item>
     <item>
-      <title>介绍 Universal Teacher：使用 Amazon Alexa 和 ChatGPT 实现的交互式学习体验</title>
-      <link>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_12</link>
-      <description><![CDATA[听起来很棒！但为什么不直接使用 gpt 语音呢？]]></description>
-      <guid>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_12</guid>
-      <pubDate>Sun, 09 Jun 2024 16:58:57 GMT</pubDate>
+      <title>我住在威尔士，但说英语。ChatGPT 感到困惑</title>
+      <link>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_10</link>
+      <description><![CDATA[刚刚让一位威尔士语使用者检查了这些聊天记录，他们告诉我这是北威尔士语翻译。但我们住在威尔士的西南端。所以它甚至没有完全翻译正确 ]]></description>
+      <guid>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_10</guid>
+      <pubDate>Sun, 09 Jun 2024 21:08:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>我住在威尔士，但说英语。ChatGPT 感到困惑</title>
+      <link>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_9</link>
+      <description><![CDATA[这是上一次对话后直接进行的另一次对话。再说一遍，我全程都说英语。
+  ]]></description>
+      <guid>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_9</guid>
+      <pubDate>Sun, 09 Jun 2024 21:06:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以为 Completions API 提供上下文吗</title>
+      <link>https://community.openai.com/t/can-i-give-context-to-completions-api/808946#post_3</link>
+      <description><![CDATA[如果你严格谈论的是“完成”而不是“聊天完成”（聊天模型是最新的模型，只接受格式化为“消息”的信息），那么只有几个 AI 模型选项，要么是经过一些训练的 gpt-3.5-turbo-instruct，要么是需要进行严格微调才能用于严肃应用的 davinci-002。
+在使用完成模型时，你必须形成自己的上下文、容器和方法，让 AI 以你想要的方式生成信息，因为提示输入是纯文本，没有自动划分答案的开始位置。
+使用 gpt-3.5-turbo-instruct 的指令遵循技能的示例
+
+（答案为 8 或 9 的对数概率接近相等……）
+在聊天完成中，通常，如果“附加”，则将文本文件输入部分作为用户问题的一部分，或者可以如果它应该更多地成为行为的一部分，那么它就是主要系统消息的一部分。]]></description>
+      <guid>https://community.openai.com/t/can-i-give-context-to-completions-api/808946#post_3</guid>
+      <pubDate>Sun, 09 Jun 2024 21:05:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>两个助手可以共享线程吗？</title>
+      <link>https://community.openai.com/t/two-assistants-can-share-the-thread/809050#post_1</link>
+      <description><![CDATA[我遇到了一个烦人的问题。我有一个助手在调用另一个助手。它们共享同一个线程。
+当我只调用一个助手时，它工作正常。当我调用一个助手又调用另一个助手时，状态将变得不确定。这非常烦人。
+我将通过创建第二个线程（每个助手一个）来运行一些测试。
+当助手调用一个不是助手二的函数时，它工作正常。问题是当调用的函数实际上是共享同一线程的第二个助手时。
+有什么想法吗？]]></description>
+      <guid>https://community.openai.com/t/two-assistants-can-share-the-thread/809050#post_1</guid>
+      <pubDate>Sun, 09 Jun 2024 21:03:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4 与 GPT-4o？哪个更好？</title>
+      <link>https://community.openai.com/t/gpt-4-vs-gpt-4o-which-is-the-better/746991?page=2#post_29</link>
+      <description><![CDATA[我已经停止使用 4o 进行翻译或添加助手来检查和更正我的电子邮件（主要是用德语写的）。我还没有使用 API 来完成这项特定任务，但常规的 chatgpt gpt4 模型在这方面表现相当不错。4o 很烂。根据我的经验，“在其他语言上表现更好”纯粹是营销。
+问题是，当一个人将一种语言翻译成另一种语言时，上下文很重要，而 4o 在理解上下文和遵循简单命令方面存在严重问题。
+例如，你要求一些描述任何东西的图片，它会输入答案，包括链接，但链接只显示一秒钟然后就消失了。你向 4o 抱怨，它通常会开始重新生成整个、异常长的响应（因为它必须证明它不懒惰）。你解释说，答案和解释都很好，只是缺少图像，然后又开始从头开始输入所有内容。
+我问了几个关于我的汽车账单的问题，它回答了，但我想要更多关于单个项目的细节。它开始从头开始输入上一个答案。最终，它会回答这个问题，在它再次回答了之前的提示之后，就像以防万一一样。
+关于翻译，有时它几乎是一种幻觉。它会插入一个完全脱离上下文的单词，比如“and”，并创建非常糟糕的句子。同样的提示，gpt4 给出了完美的答案。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-vs-gpt-4o-which-is-the-better/746991?page=2#post_29</guid>
+      <pubDate>Sun, 09 Jun 2024 21:00:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以为 Completions API 提供上下文吗</title>
+      <link>https://community.openai.com/t/can-i-give-context-to-completions-api/808946#post_2</link>
+      <description><![CDATA[您可以将内容放入系统提示中，甚至可以将其嵌入到对话中的初始聊天帖子中，例如，
+以下是您用于回答问题的信息：
+&lt;context&gt;...全部...&lt;/context&gt;
+]]></description>
+      <guid>https://community.openai.com/t/can-i-give-context-to-completions-api/808946#post_2</guid>
+      <pubDate>Sun, 09 Jun 2024 20:51:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPTs 的链接创建问题</title>
+      <link>https://community.openai.com/t/gptss-link-creation-issue/578555#post_8</link>
+      <description><![CDATA[这仍然是一个棘手的问题，并且使使用 Bing 进行搜索、评估搜索结果然后决定应向用户显示哪些找到的链接的任何类型的 GPT 无法使用。
+在过去 8 个月左右的时间里，这个问题已经被提出过很多次，但 OpenAI 根本没有做出任何有用的反应（我认为关闭该主题没有帮助）。为什么？至少他们可以给我们某种解释或立即修复它——不需要太多的人工智能来做到这一点，因为看起来这些链接是由 GPT 生成的，但后来在 UI 层被删除了。]]></description>
+      <guid>https://community.openai.com/t/gptss-link-creation-issue/578555#post_8</guid>
+      <pubDate>Sun, 09 Jun 2024 20:40:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>有可能获得“上下文感知”的嵌入吗？</title>
+      <link>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_8</link>
+      <description><![CDATA[
+
+
+ bobartig:
+
+您可以查看从小到大的检索或节点检索，这些技术使用位置元数据来关联小向量，以便同时返回它们周围的信息，
+
+
+我最近因为这篇文章而对这个概念产生了兴趣：检索“相邻​​”块以获得更好的上下文 - 支持 - Weaviate 社区论坛
+
+
+
+Medium – 23 年 11 月 5 日
+
+
+
+高级 RAG 01：从小到大检索
+使用 LlamaIndex 进行子-父 RecursiveRetriever 和句子窗口检索
+
+阅读时间：7 分钟
+
+
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-to-get-context-aware-embeddings/806379#post_8</guid>
+      <pubDate>Sun, 09 Jun 2024 20:34:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>我住在威尔士，但说英语。ChatGPT 感到困惑</title>
+      <link>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_8</link>
+      <description><![CDATA[这是我刚刚用 iPad 上的 ChatGPT 应用进行的聊天。我的第二个问题是“它是如何制作的”（关于小苏打）。与我的 iPhone 和 Mac 一样，语音和应用的设置都是英语。然而，我的第二个问题却是用威尔士语写的。
+  ]]></description>
+      <guid>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620#post_8</guid>
+      <pubDate>Sun, 09 Jun 2024 20:33:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>同一助手线程间信息共享</title>
+      <link>https://community.openai.com/t/information-sharng-between-threads-of-same-assistant/806755#post_6</link>
+      <description><![CDATA[当我们重复同一件事时，您就会理解我提出的机制，这与 ChatGPT 中使用的“记忆”非常相似。
+线程的长度可以增加（可能有些线程的长度限制为 100 条消息），但是，后端每次运行只能无损传递长对话的子集，因为模型的上下文长度有限，并且您的预算可能不会为每个问题支付 1.20 美元。
+您还特别询问了“线程之间”。
+一旦您对 AI 语言模型的工作原理有了深入的了解，您就可以自己实现聊天记忆系统，直接为聊天完成 AI 提供上下文，然后您可能会想出更多关于如何扩展聊天记忆幻觉的想法。]]></description>
+      <guid>https://community.openai.com/t/information-sharng-between-threads-of-same-assistant/806755#post_6</guid>
+      <pubDate>Sun, 09 Jun 2024 20:30:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
+      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_47</link>
+      <description><![CDATA[Pixel 8 Pro 用途如此广泛，我两天前也遇到过同样的情况，现在仍然存在]]></description>
+      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_47</guid>
+      <pubDate>Sun, 09 Jun 2024 20:27:43 GMT</pubDate>
     </item>
     </channel>
 </rss>

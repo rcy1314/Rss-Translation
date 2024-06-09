@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 09 Jun 2024 18:22:56 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2024 21:17:43 GMT</lastBuildDate>
+    <item>
+      <title>DidMySettingsChange,一个 python 脚本，用于检查你的隐私设置是否在你没有注意到的情况下发生了更改:)</title>
+      <link>https://www.reddit.com/r/opensource/comments/1dc2m1f/github_nolesapexdidmysettingschange_a_python/</link>
+      <description><![CDATA[        提交人    /u/Few-Lynx6217   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1dc2m1f/github_nolesapexdidmysettingschange_a_python/</guid>
+      <pubDate>Sun, 09 Jun 2024 19:57:35 GMT</pubDate>
+    </item>
     <item>
       <title>日常使用的应用程序/网站有哪些开源替代品？</title>
       <link>https://www.reddit.com/r/opensource/comments/1dc027h/what_are_some_open_source_alternatives_to_every/</link>
@@ -64,7 +71,7 @@
     <item>
       <title>编写基于Linux的操作系统</title>
       <link>https://www.reddit.com/r/opensource/comments/1db6mcx/writing_linuxbased_os/</link>
-      <description><![CDATA[      你好。我想编写自己的 Linux 操作系统，主要用于服务器。总体思路是采用 AOSP 的服务器安全模型并添加一组集中化功能。通常，关键思想如下： * 两个实体：供应商和用户 * 供应商自己开发操作系统（实际上是操作系统背后的开发团队） * 用户自己运行操作系统 * 两个实体都拥有签名密钥 * 使用安全启动： * 用户使用自己的密钥对 UEFI 第一阶段引导程序进行签名，并将设备配置为安全启动第一阶段引导程序 * 第一阶段引导程序验证并启动第二阶段 BL * 第二阶段 BL 由供应商签名 * 第二阶段 BL 验证并启动内核 * 内核挂载系统分区并启动 init 进程 * 使用 dm-verity 验证分区 * 应用程序以使用供应商或用户密钥签名的映像形式发送 * 映像存储在未签名的分区中 * init 进程将映像挂载为覆盖并从中启动应用程序 * init 进程启动特权进程，该进程能够从中央服务器获取命令和配置 * 使用用户密钥签名的命令和配置 * 用于 MAC 的 SELinix 或 AppArmor * 理论上，生产模式下不应有 root 访问权限 * 与其他 Linux 发行版不同，基本库（如 libc）随系统分区一起发货 * 系统更新以 Android 风格的方式发货：操作系统以更新模式重新启动并将新的系统映像写入磁盘（我们甚至可以执行 A/B 更新之类的操作） 这种架构可以减轻潜在攻击者对系统的渗透，并在某个应用程序受到攻击时（感谢 MAC）防止他们渗透到其他应用程序中。同时，这种架构通过集中控制可以减轻系统管理员的工作量，攻击者访问机器的唯一方法是攻击系统管理员。此外，如果我们能够最大限度地减少对 shell 的访问（理想情况下完全删除它），潜在攻击者还需要访问开发人员用来签署应用程序的密钥，并将恶意代码渗透到应用程序中并进一步强制更新它们 用例：nextcloud（实际上这是我的潜在用例之一）基本操作系统附带 Loki 和 Prometheus 的默认层。其他层包括 php-fpm、mariadb、redis 和 nextcloud 本身。 MariaDB、redis 和 nextcloud 有专用的数据分区。理想情况下，所有应用程序都应在 Nextcloud 映像中预先构建，因此无法渗透到应用程序的 php 代码中并利用它们由 Nextcloud 加载 用例：静态网站 基本操作系统与前一种情况完全相同，但附加层是 Web 服务器和静态网站及其配置 在正常服务器操作期间应该发生的唯一写入操作是写入日志 那么您如何看待创建此类操作系统的想法？它是否太不切实际且无用？ （或者我应该将它发布在另一个 reddit 上？）以下是一些更技术性的文档：https://github.com/MilkyWayCore 目前，draw.io 图表可通过以下链接获取：https://cloud.p01ar.net/index.php/s/BqqPLaCXs2MjMtY（我稍后会将它移至 GitHub）    提交人    /u/0xBADDBABE   [link] [评论] ]]></description>
+      <description><![CDATA[      你好。我想编写自己的 Linux 操作系统，主要用于服务器。总体思路是采用 AOSP 的服务器安全模型并添加一组集中化功能。通常，关键思想如下： * 两个实体：供应商和用户 * 供应商自己开发操作系统（实际上是操作系统背后的开发团队） * 用户自己运行操作系统 * 两个实体都拥有签名密钥 * 使用安全启动： * 用户使用自己的密钥对 UEFI 第一阶段引导程序进行签名，并将设备配置为安全启动第一阶段引导程序 * 第一阶段引导程序验证并启动第二阶段 BL * 第二阶段 BL 由供应商签名 * 第二阶段 BL 验证并启动内核 * 内核挂载系统分区并启动 init 进程 * 使用 dm-verity 验证分区 * 应用程序以使用供应商或用户密钥签名的映像形式发送 * 映像存储在未签名的分区中 * init 进程将映像挂载为覆盖并从中启动应用程序 * init 进程启动能够从中央服务器获取命令和配置的特权进程 * 使用用户密钥签名的命令和配置 * 用于 MAC 的 SELinix 或 AppArmor * 理论上，生产模式下不应有 root 访问权限 * 与其他 Linux 发行版不同，基本库（如 libc）随系统分区一起发货 * 系统更新以 Android 风格的方式发货：操作系统以更新模式重新启动并将新的系统映像写入磁盘（我们甚至可以执行 A/B 更新之类的操作） 这种架构可以减轻潜在攻击者对系统的渗透，并在某个应用程序受到攻击时（感谢 MAC）防止他们渗透到其他应用程序中。同时，这种架构通过集中控制可以减轻系统管理员的工作量，攻击者访问机器的唯一方法是攻击系统管理员。此外，如果我们能够最大限度地减少对 shell 的访问（理想情况下完全删除它），潜在攻击者还需要访问开发人员用来签署应用程序的密钥，并将恶意代码渗透到应用程序中并进一步强制更新它们 用例：nextcloud（实际上这是我的潜在用例之一）基本操作系统附带 Loki 和 Prometheus 的默认层。其他层包括 php-fpm、mariadb、redis 和 nextcloud 本身。 MariaDB、redis 和 nextcloud 有专用的数据分区。理想情况下，所有应用程序都应在 Nextcloud 映像中预先构建，因此无法渗透到应用程序的 php 代码中并利用它们由 Nextcloud 加载 用例：静态网站 基本操作系统与前一种情况完全相同，但附加层是 Web 服务器和静态网站及其配置 在正常服务器操作期间应该发生的唯一写入操作是写入日志 那么您如何看待创建此类操作系统的想法？它是否太不切实际且无用？ （或者我应该将它发布在另一个 reddit 上？）以下是一些更技术性的文档：https://github.com/MilkyWayCore 目前，draw.io 图表可通过以下链接获取：https://cloud.p01ar.net/index.php/s/BqqPLaCXs2MjMtY（我稍后会将它移至 GitHub）    提交人    /u/0xBADDBABE   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1db6mcx/writing_linuxbased_os/</guid>
       <pubDate>Sat, 08 Jun 2024 16:21:15 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[LineupX：用于 FPS 游戏阵容的开源社交媒体类网站 嗨，我想分享我的社区驱动的阵容开源项目。它使用 MERN 堆栈，我们目前支持 Valorant 和 CS2 等游戏。我们的噱头是，您无需观看长达 30 秒的视频来学习阵容，而是可以通过 3 张图片（站立位置、瞄准位置、着陆位置）来学习阵容。 网站：https://www.lineupx.net/ Github：https://github.com/shimupan/lineupx    提交人    /u/Kagiri13   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1dal4eo/made_a_lineup_website/</guid>
       <pubDate>Fri, 07 Jun 2024 20:36:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找实时 OCR 转 TTS 软件</title>
-      <link>https://www.reddit.com/r/opensource/comments/1dakal0/looking_for_realtime_ocr_into_tts_software/</link>
-      <description><![CDATA[嘿，正在寻找可以对屏幕上的文本（全部或选定区域）进行 OCR 处理并大声朗读且几乎没有延迟的软件，有这样的软件吗？    提交人    /u/Cynaxia   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1dakal0/looking_for_realtime_ocr_into_tts_software/</guid>
-      <pubDate>Fri, 07 Jun 2024 20:02:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
