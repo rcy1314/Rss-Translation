@@ -4,164 +4,168 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 09 Jun 2024 15:19:24 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2024 18:23:51 GMT</lastBuildDate>
     <item>
-      <title>ChatGPT 内存被数字取代</title>
-      <link>https://community.openai.com/t/chatgpt-memory-replaced-with-numbers/808716#post_2</link>
-      <description><![CDATA[在使用 GPT-4o 和 ChatGPT 时，这种情况似乎偶尔会发生。内存内容本身在发送到 OpenAI 的服务器后似乎会更新。
-我猜你可能在用英语以外的语言使用 ChatGPT？
-当 GPT-4o 尝试用英语以外的语言存储内存时，我看到内存内容多次被破坏。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-memory-replaced-with-numbers/808716#post_2</guid>
-      <pubDate>Sun, 09 Jun 2024 15:15:20 GMT</pubDate>
+      <title>在自定义 GPT 中，我可以使用触发器让 GPT 执行消息操作吗？</title>
+      <link>https://community.openai.com/t/in-a-custom-gpt-can-i-use-triggers-to-have-the-gpt-perform-message-actions/807640#post_4</link>
+      <description><![CDATA[好的。我现在明白你的目标是为你的自定义 GPT 预填充 ChatGPT 聊天框。
+目前，仅通过为自定义 GPT 提供的工具无法实现这一点。
+我可以提供一些解决此问题的想法，但它们都需要用户操作。例如，使用配套浏览器扩展程序或将用户转发到另一个网页或提供预填充文档的下载链接，稍后用户将再次上传该文档。
+使用 Assistants API 或使用 chat.completions 编写类似内容是另一种选择。然后，您可以更好地控制用户体验。]]></description>
+      <guid>https://community.openai.com/t/in-a-custom-gpt-can-i-use-triggers-to-have-the-gpt-perform-message-actions/807640#post_4</guid>
+      <pubDate>Sun, 09 Jun 2024 18:20:32 GMT</pubDate>
     </item>
     <item>
-      <title>我的最新书籍项目包含 AI 图像</title>
-      <link>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_12</link>
-      <description><![CDATA[
+      <title>通话设置问题</title>
+      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_6</link>
+      <description><![CDATA[抱歉，我的错。在调用 curl 命令之前，我的 sed 脚本中出现了拼写错误。对于那些好奇的 Linux 用户来说，这是已修复的 bash 脚本
+#!/bin/bash
+if [ &quot;$OPENAI_API_KEY&quot; == &quot;&quot; ]
+then
+# 检查 python .env 文件
+if [ ! -e &quot;.env&quot; ]
+then
+echo &quot;缺少环境变量 OPENAI_API_KEY&quot;
+exit -1
+fi
+tryList=`grep &quot;OPENAI_API_KEY=&quot; .env | sed -e &quot;/[\b]*[#]/d&quot; | sed -e &quot;s/OPENAI_API_KEY[\b]*=[\b]*//&quot;`
+for tryOne in $tryList
+do
+OPENAI_API_KEY=$tryOne
+break
+done
+if [ &quot;$OPENAI_API_KEY&quot; == &quot;&quot; ]
+then
+echo &quot;缺少环境变量 OPENAI_API_KEY&quot;
+exit -1
+else
+echo &quot;注意：在您的 python &#39;.env&#39; 文件中使用 OPENAI_API_KEY&quot;
+fi
+fi
+# echo &quot;使用密钥 [$OPENAI_API_KEY]&quot;
 
-
- qroft:
-
-我知道不允许在这里放链接，所以我会避免任何类似的促销
-
-
-你可以在你的简历/个人资料中贴上链接，我们对此并不严格 
-我认为你的项目非常酷，我也这么认为：
-
-
-
- elmstedt:
-
-我可以将其视为每日挑战网站
-
-
-如果您需要任何灵感，可以看看“猜游戏”，我经常做这个挑战]]></description>
-      <guid>https://community.openai.com/t/my-latest-book-project-containing-ai-images/808005#post_12</guid>
-      <pubDate>Sun, 09 Jun 2024 15:07:10 GMT</pubDate>
+curl https://api.openai.com/v1/models -H &quot;授权：持有者 $OPENAI_API_KEY&quot;
+]]></description>
+      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_6</guid>
+      <pubDate>Sun, 09 Jun 2024 18:17:49 GMT</pubDate>
     </item>
     <item>
-      <title>通过 request_id 获取 tokens_used?</title>
-      <link>https://community.openai.com/t/get-tokens-used-by-request-id/808751#post_1</link>
-      <description><![CDATA[嘿，我正在使用 GPT-4O Vision + 流媒体，我想跟踪我的用户使用了多少令牌进行分析。当用户提前关闭流时，我没有带有 tokens_used 参数的最后一条消息。有没有办法将 request_id 分配给 api 请求，然后查询特定请求的 tokens_used？
-我想这不是一个问题，因为我知道答案是否定的。这更多的是一个建议。我相信查询 token_usage 的能力将简化许多 OpenAI 用户的生活，至少这是我在阅读这个论坛一段时间后的印象。]]></description>
-      <guid>https://community.openai.com/t/get-tokens-used-by-request-id/808751#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 15:05:42 GMT</pubDate>
+      <title>请用新的声音取代 Sky，而不是仅仅重复 Juniper</title>
+      <link>https://community.openai.com/t/please-replace-sky-with-a-new-voice-rather-than-just-repeating-juniper/770654#post_3</link>
+      <description><![CDATA[是的，绝对需要用类似的声音替换声音。他们有 2 个男性。1 个听起来非二进制，1 个女性声音。我们需要另一个女性。]]></description>
+      <guid>https://community.openai.com/t/please-replace-sky-with-a-new-voice-rather-than-just-repeating-juniper/770654#post_3</guid>
+      <pubDate>Sun, 09 Jun 2024 18:15:23 GMT</pubDate>
     </item>
     <item>
-      <title>使用 4o 启动时内存全部删除并清除</title>
-      <link>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505?page=2#post_24</link>
-      <description><![CDATA[我也是。有关于记忆功能恢复的消息吗？]]></description>
-      <guid>https://community.openai.com/t/memory-all-deleted-and-wiped-clean-with-4o-launch/750505?page=2#post_24</guid>
-      <pubDate>Sun, 09 Jun 2024 14:49:29 GMT</pubDate>
+      <title>发送标头信息？</title>
+      <link>https://community.openai.com/t/sending-header-information/808889#post_2</link>
+      <description><![CDATA[自定义操作的文档明确指出，目前不支持自定义 HTTP 标头。此外，如果您想收到有关 OpenAPI 规范的反馈，您确实应该将其格式化为可读的代码块。]]></description>
+      <guid>https://community.openai.com/t/sending-header-information/808889#post_2</guid>
+      <pubDate>Sun, 09 Jun 2024 18:01:15 GMT</pubDate>
     </item>
     <item>
-      <title>无法在 GPT-4o MacOS 应用程序中下载生成的图像</title>
-      <link>https://community.openai.com/t/unable-to-download-generated-images-in-gpt-4o-macos-app/763112#post_10</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/unable-to-download-generated-images-in-gpt-4o-macos-app/763112#post_10</guid>
-      <pubDate>Sun, 09 Jun 2024 14:38:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>在桌面应用程序中，无法打开或下载生成的图像</title>
-      <link>https://community.openai.com/t/on-desktop-app-generated-images-cant-be-opened-or-downloaded/805399#post_2</link>
-      <description><![CDATA[嘿，我也有这种情况 - 这太令人沮丧了！]]></description>
-      <guid>https://community.openai.com/t/on-desktop-app-generated-images-cant-be-opened-or-downloaded/805399#post_2</guid>
-      <pubDate>Sun, 09 Jun 2024 14:36:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 内存被数字取代</title>
-      <link>https://community.openai.com/t/chatgpt-memory-replaced-with-numbers/808716#post_1</link>
-      <description><![CDATA[我在聊天，GPT 更新内存后，我打开内存管理，现在看起来像这样：
+      <title>无法为代码生成设置流式传输</title>
+      <link>https://community.openai.com/t/cant-setup-streaming-for-code-gen/808836#post_2</link>
+      <description><![CDATA[由于您使用的是 NodeJS 和某种 Javascript，因此您可以使用 Streams API 获益
 
-每个记忆信息列表似乎都被这些数字替换了，现在它什么都记不住。有人见过这种情况吗？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-memory-replaced-with-numbers/808716#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 14:30:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
-      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_43</link>
-      <description><![CDATA[完全一样，甚至可能在我的 Nokia XR20 完全更新后情况更糟，我必须使用快捷方式才能在浏览器版本中使用聊天 gpt，这非常烦人，但我希望他们能修复它]]></description>
-      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_43</guid>
-      <pubDate>Sun, 09 Jun 2024 14:25:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT - 语音模式屏幕进入睡眠状态</title>
-      <link>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_10</link>
-      <description><![CDATA[是的，我获得了此功能，但它只是将其作为可选的切换功能，而不是默认开启。它仍然无法阻止屏幕关闭。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_10</guid>
-      <pubDate>Sun, 09 Jun 2024 14:08:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用函数调用具有不同输入的函数</title>
-      <link>https://community.openai.com/t/how-can-i-use-function-calling-on-functions-with-different-inputs/808694#post_1</link>
-      <description><![CDATA[我注意到 openAI 改变了他们返回要调用的函数的方式。之前，它是一个字符串。
-我有几个函数要调用。其中一些使用局部变量。因此，我使用了 ifs。
-问题是，现在要调用的函数是函数类型。
-if(functionToCall===&quot;get_blog_post&quot;){ 
-functionResponse = await functionToCall(question);
-}
 
-给出了我所做操作的示例。
-我试图让我的代码再次工作，但没有成功。
-我知道我们可以枚举输入。尽管如此，这些输入实际上是局部变量！]]></description>
-      <guid>https://community.openai.com/t/how-can-i-use-function-calling-on-functions-with-different-inputs/808694#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 14:05:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALLE-3 龙提交画廊</title>
-      <link>https://community.openai.com/t/dalle-3-dragon-submission-gallery/808690#post_1</link>
-      <description><![CDATA[继续DALLE3 画廊 2023/2024：分享您的创作中的讨论：
-Draconis Luminaris 以流畅的优雅姿态穿过森林，森林被无处不在的旋涡雾气笼罩。它巨大的身体覆盖着精心设计的鳞片，闪着空灵的蓝绿色光芒，将超凡脱俗的光芒投射到周围的树木上。每一片鳞片在自然界中看起来都几乎是水晶，是自然艺术与先进技术元素融合的奇迹。每个鳞片内嵌的纳米机器人会根据生物的情绪和周围环境巧妙地调整发光，为其外观增添一种诡异的活力。
-它的头顶上长着角状的附属物，像古代符文一样盘旋和扭曲，深陷的眼睛散发着威胁性的催眠光芒。这些眼睛是跳动的深红色，能够准确无误地穿透黑暗和迷雾。当它们盯着你时，感觉好像时间本身都暂停了，将你困在一种令人压抑的、几乎是引力般的恐惧和敬畏中。
-围绕着光龙座的森林本身就是一道奇观。地面凹凸不平，布满了扭曲的树根和古老的遗迹，这是随着时间而消失的文明的残余。树干盘根错节的树木向上伸展，树枝扭曲成蛇形，仿佛在寻求救赎。它们装饰着生物发光的花朵和真菌，它们发出柔和、平静的蓝色、紫色和绿色光芒，与生物更强烈的光芒形成鲜明对比。
-锯齿状的石柱和摇摇欲坠的拱门暗示着古代文明的威严，这种文明可能曾经崇拜或害怕这些生物。这些石头上神秘的雕刻和象形文字为场景增添了一层怪异的复杂性，讲述了被遗忘的传说和仪式的故事。废墟投射的阴影与雾气交织在一起，创造了一个超现实、不断变化的景观。
-当生物在这片幽灵般的森林中徘徊时，气氛变得浓厚，充满了明显的紧张感，一种敬畏和对存在的恐惧的混合。空气凉爽潮湿，苔藓和腐烂树叶的气味与超自然能量的淡淡金属味交织在一起。雾气在它的周围缓慢流动，让它在移动时呈现出一种近乎幽灵般的特质，但从未完全掩盖它的存在。
-光龙王发出低沉的轰鸣声，回荡在古老的森林中，令人不寒而栗地提醒着它曾经的统治地位。它迈出的每一步都是深思熟虑的，它的爪子在森林地面留下了淡淡的冒烟痕迹，似乎随着自己的生命而脉动。当它爬过倒下的石头，在参天大树之间穿梭时，植物的生物发光似乎与它的心跳同步，以一种难以解释的、几乎是虔诚的和谐同步。
-在这片雾气弥漫、满是废墟的森林里，发光的植物柔和地照亮着古老的石头，光龙王至高无上，是神话与未来、恐惧与迷恋的活生生的纽带。在这里，在这个令人难以忘怀的美丽边缘，已知与未知之间的界限变得模糊，赋予了早已被遗忘的传说和恐惧以生命。
+
+MDN Web Docs
+
+
+
+Streams API - Web API | MDN
+Streams API 允许 JavaScript 以编程方式访问通过网络接收的数据流并根据开发人员的需要对其进行处理。
+
+
 
 
 ]]></description>
-      <guid>https://community.openai.com/t/dalle-3-dragon-submission-gallery/808690#post_1</guid>
-      <pubDate>Sun, 09 Jun 2024 13:57:33 GMT</pubDate>
+      <guid>https://community.openai.com/t/cant-setup-streaming-for-code-gen/808836#post_2</guid>
+      <pubDate>Sun, 09 Jun 2024 17:58:00 GMT</pubDate>
     </item>
     <item>
-      <title>查询图片的辅助 API</title>
-      <link>https://community.openai.com/t/asisstant-api-for-querying-image/805950#post_5</link>
-      <description><![CDATA[谢谢 Jay。对我来说效果很好。
-这是 Nodejs 中的代码 - 可能对其他人也有用。
-const imageFileId = “file-xxxxxxxxxxxxxx”
-const actualContent = [{ type: ‘text’, text: prompt }, { type: ‘image_file’, image_file : {file_id: imageFileId} } ]
-const threadMessages = await openai.beta.threads.messages.create(
-myThreadId,
-{ role: “user”, content: actualContent },
-);]]></description>
-      <guid>https://community.openai.com/t/asisstant-api-for-querying-image/805950#post_5</guid>
-      <pubDate>Sun, 09 Jun 2024 13:55:35 GMT</pubDate>
+      <title>通话设置问题</title>
+      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_5</link>
+      <description><![CDATA[什么方面失败了？]]></description>
+      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_5</guid>
+      <pubDate>Sun, 09 Jun 2024 17:49:53 GMT</pubDate>
     </item>
     <item>
-      <title>哪种 AI 最适合 Python 编码？</title>
-      <link>https://community.openai.com/t/which-ai-is-best-for-python-coding/808328#post_4</link>
-      <description><![CDATA[根据我的经验，Claude Opus 是最好的，特别是在处理复杂项目时。]]></description>
-      <guid>https://community.openai.com/t/which-ai-is-best-for-python-coding/808328#post_4</guid>
-      <pubDate>Sun, 09 Jun 2024 13:49:42 GMT</pubDate>
+      <title>为什么我无法访问 GPTo？我曾经是 Plus 用户 1.5 年了</title>
+      <link>https://community.openai.com/t/why-do-i-not-have-access-to-gpto-i-was-a-plus-user-for-1-5-years/808656#post_7</link>
+      <description><![CDATA[GPT-4o 可供免费用户使用，但有一定的限制。但是，允许的具体使用次数似乎没有明确说明。
+
+此屏幕截图来自免费计划。
+这些限制很可能根据当前服务器负载动态调整。
+GPT-4o 的计算资源优先提供给付费用户，这意味着免费用户通常面临更严格的限制。
+请不要怀疑，但由于情况并不明显，您的学生可能实际上使用的是 Plus 版本。
+无论如何，请选择最适合您需求的使用计划。]]></description>
+      <guid>https://community.openai.com/t/why-do-i-not-have-access-to-gpto-i-was-a-plus-user-for-1-5-years/808656#post_7</guid>
+      <pubDate>Sun, 09 Jun 2024 17:43:45 GMT</pubDate>
     </item>
     <item>
-      <title>2023/2024 年 DALLE3 画廊：分享您的创作</title>
-      <link>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=28#post_583</link>
-      <description><![CDATA[提示：生成图像的 Dall-e-3 怪物 XD
-这是响应：
-]]></description>
-      <guid>https://community.openai.com/t/dalle3-gallery-for-2023-2024-share-your-creations/431189?page=28#post_583</guid>
-      <pubDate>Sun, 09 Jun 2024 13:49:00 GMT</pubDate>
+      <title>发送标头信息？</title>
+      <link>https://community.openai.com/t/sending-header-information/808889#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/sending-header-information/808889#post_1</guid>
+      <pubDate>Sun, 09 Jun 2024 17:40:14 GMT</pubDate>
     </item>
     <item>
-      <title>Gboard 在 ChatGPT Android 应用中出现问题</title>
-      <link>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_42</link>
-      <description><![CDATA[Google Pixel 8，操作系统和应用程序的所有更新都是最新的。
-键盘和键盘 STT 出现故障，例如自动完成功能试图在无人输入的情况下更正单词。
-此错误导致应用程序完全无法使用。我强烈敦促开发人员回滚重大更新，直到可以推送修复。推送此更新的团队需要更多的 QA。]]></description>
-      <guid>https://community.openai.com/t/gboard-acting-up-in-chatgpt-android-app/806592?page=3#post_42</guid>
-      <pubDate>Sun, 09 Jun 2024 13:46:56 GMT</pubDate>
+      <title>GPT-4o vs. gpt-4-turbo-2024-04-09，gpt-4o 失败</title>
+      <link>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328?page=2#post_37</link>
+      <description><![CDATA[我不得不同意 OP 的观点，gpt-4o 很挣扎，而 gpt-4-turbo 却很成功。
+对我来说，它在基于完成的分类任务上完全失败了，而 turbo 却表现得非常好。
+（是的，我知道这是一种非标准的分类方法，但实际上我发现嵌入在某些类型的分类问题上表现得非常糟糕）
+真可惜！]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-vs-gpt-4-turbo-2024-04-09-gpt-4o-loses/764328?page=2#post_37</guid>
+      <pubDate>Sun, 09 Jun 2024 17:40:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o 编码毫无用处，不值得信赖！为什么？</title>
+      <link>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_15</link>
+      <description><![CDATA[嗨，大家好。
+我曾经让 gpt4-turbo“想象”一种用于迷宫探索的简单算法，对路径的距离进行限制。
+你知道吗？它给出了一个非常愚蠢的答案。
+我只是想看看它如何处理代码，然后用我已经知道的东西安慰我：忘掉它，不要用它来做那件事，让真正的开发人员做他们的工作。
+无论某些人怎么想，法学硕​​士永远无法取代一位好老师。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-uesless-and-untrustworthy-to-code-with-why/805602#post_15</guid>
+      <pubDate>Sun, 09 Jun 2024 17:35:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>通话设置问题</title>
+      <link>https://community.openai.com/t/issue-setting-up-your-call/808338#post_4</link>
+      <description><![CDATA[注意：如果您使用默认项目密钥，此命令有效，但对于其他项目密钥则失败。不确定这是为什么？]]></description>
+      <guid>https://community.openai.com/t/issue-setting-up-your-call/808338#post_4</guid>
+      <pubDate>Sun, 09 Jun 2024 17:32:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以在助手 API 中连续调用 2 个函数吗？</title>
+      <link>https://community.openai.com/t/can-i-call-2-functions-continuously-in-assistants-api/808850#post_2</link>
+      <description><![CDATA[如果需要，它会将需要调用的所有函数捆绑在一次调用中，然后您需要提交所请求的所有输出。如果我没记错的话，我认为这就是他们所说的并行函数调用。]]></description>
+      <guid>https://community.openai.com/t/can-i-call-2-functions-continuously-in-assistants-api/808850#post_2</guid>
+      <pubDate>Sun, 09 Jun 2024 17:25:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>当 Whisper 转录为韩语时，我收到带有问号的框</title>
+      <link>https://community.openai.com/t/i-get-boxes-with-question-marks-when-whisper-transcribes-in-korean/808864#post_1</link>
+      <description><![CDATA[（主题已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/i-get-boxes-with-question-marks-when-whisper-transcribes-in-korean/808864#post_1</guid>
+      <pubDate>Sun, 09 Jun 2024 17:04:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 大作游戏《被遗忘的国度编年史》</title>
+      <link>https://community.openai.com/t/gpts-masterpiece-game-chronicles-of-the-forgotten-realm/808863#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/gpts-masterpiece-game-chronicles-of-the-forgotten-realm/808863#post_1</guid>
+      <pubDate>Sun, 09 Jun 2024 17:03:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>介绍 Universal Teacher：使用 Amazon Alexa 和 ChatGPT 实现的交互式学习体验</title>
+      <link>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_12</link>
+      <description><![CDATA[听起来很棒！但为什么不直接使用 gpt 语音呢？]]></description>
+      <guid>https://community.openai.com/t/introducing-universal-teacher-an-interactive-learning-experience-with-amazon-alexa-and-chatgpt/722490#post_12</guid>
+      <pubDate>Sun, 09 Jun 2024 16:58:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
