@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 13 Jun 2024 03:21:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 06:25:47 GMT</lastBuildDate>
+    <item>
+      <title>Ragable：多轮 AI 聊天机器人变得简单 [测试版]</title>
+      <link>https://www.reddit.com/r/opensource/comments/1des91c/ragable_multiturn_ai_chatbots_made_simple_beta/</link>
+      <description><![CDATA[Ragable 是一个轻量级的机器学习库，它带有合理的默认值，可用于构建多工具和 RAG 类型的应用程序。 我自己是一名 Web 开发人员，并且大多数库都很棒，但是您需要了解一些高级主题才能构建任何有意义的东西。 使用 Ragable，几乎任何具有 Python 知识的人都可以轻松地用几行代码构建强大的多轮聊天机器人。 您可以在此处尝试 BETA 版本： https://github.com/plexcorp-pty-ltd/ragable 我将很快发布一个 PIP 包。请参阅下面的代码示例： from ragable.agent import get_openai_agent from ragable.runnable import Runnable, runnable_from_func from ragable.adapters.qdrant import QdrantAdapter from ragable.embedders import StandardEmbedder @runnable_from_func( Name=&quot;All about php strings&quot;, Instruction=&quot;When the human asks about php&quot; ) def php_strings(params): response = &quot;&quot;&quot; str_replace(&#39;x&#39;, &#39;y&#39;, $z) stripos($the_big_blob_of_text, $the_thing_to_search_for) &quot;&quot;&quot;返回响应@runnable_from_func（Name =“关于传奇口袋妖怪的所有信息”，Instruction =“当人类询问传奇口袋妖怪时”）def legend_pokemon（params）：context_data =“”with open（“。/testdata/legendary_pokemon.txt”，“r”）as f：txt = f.read（）return context_data if __name__ ==“__main__”：#设置一个由OpenAI驱动的代理。#代理可以注册多个任务，并将根据Runnable“指令”提示智能地将LLM路由到任务。agent = get_openai_agent（）#轻松与Qdrant向量存储集成（您需要在本地运行Qdrant）#传入“dsn”和“api_key”以进行任何其他设置。 qdrant = QdrantAdapter(&quot;ragable_documents&quot;) # 嵌入器允许您将最常见的文档类型输入 RAG 系统。# 每个文档被分块为 LLM 友好块并嵌入矢量。embedder = StandardEmbedder(qdrant) # 文档路径。您也可以选择传入&quot;doc_id&quot;。# doc_id 可以是整数或 uuid。# 支持的格式：txt、pdf、docx、odt、pptx、odp embedder.train_from_document(&quot;./testdata/bulbasaur.txt&quot;) # 您还可以嵌入和索引常规字符串。# doc_id 是必需的。# embedder.train_from_text(&quot;some text&quot;, 1234) # Runnable 的无装饰器版本。 bulbasaur_knowledge = Runnable( Name=&quot;关于 bulbasaur 的信息&quot;, Instruction=&quot;当人类询问有关 bulbasaur 的信息时&quot;, Func=qdrant ) # 告诉代理它被允许执行哪些 Runnable 函数。 agent.add_tasks([ legend_pokemon, php_strings, bulbasaur_knowledge ]) questions = [ &quot;什么是传说中的宝可梦？&quot;, &quot;如何在 PHP 中执行字符串替换？&quot;, &quot;如何在 PHP 中在另一个字符串中查找字符串？&quot;, &quot;哪些宝可梦是 bulbasaur 的进化形式？&quot; ] # 您可以根据需要在这里向代理提供任何其他提示。# 例如，您可以将聊天历史记录存储在 Redis 或本地会话中，# - 然后使用此函数添加每条历史消息。 # 支持的消息类型：系统、用户、人工智能、助理 agent.add_message(&quot;你是一个有用的信息机器人。&quot;, &quot;系统&quot;) for q in questions: response = agent.invoke(q) print(response)     提交人    /u/KevinCoder   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1des91c/ragable_multiturn_ai_chatbots_made_simple_beta/</guid>
+      <pubDate>Thu, 13 Jun 2024 06:23:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源微软召回人工智能</title>
+      <link>https://www.reddit.com/r/opensource/comments/1deridx/opensource_microsoft_recall_ai/</link>
+      <description><![CDATA[      我创建了一个开源的 Microsoft Recall AI 替代品。 这会记录你屏幕上的所有内容，并且可以使用自然语言后者进行搜索。但与微软的实现不同，这不是一个隐私噩梦，现在就可以使用。并带有实时加密 这是一个新的启动项目，需要贡献，所以请希望到 github repo 并给它一个星星 它完全是本地的，您可以查看代码。而且一切都是加密的，不像微软的含义，当你登录时，图像会被解密并可能被盗    提交人    /u/Vedank_purohit   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1deridx/opensource_microsoft_recall_ai/</guid>
+      <pubDate>Thu, 13 Jun 2024 05:34:18 GMT</pubDate>
+    </item>
     <item>
       <title>我通过这款 SaaS 赚了 43,000 美元，并且我在 GitHub 上开源了我的整个项目</title>
       <link>https://www.reddit.com/r/opensource/comments/1den7t4/i_made_43000_on_this_saas_and_im_opensourcing_my/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[我真的很喜欢 amberol 的简洁外观，但我找不到适用于 Windows 的版本。请帮帮我    提交人    /u/KojimaOzAbim   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ddlmb9/looking_for_music_player_like_amberol_for_windows/</guid>
       <pubDate>Tue, 11 Jun 2024 18:41:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>看板（trello）板无需任何安装？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ddhygw/kanban_trello_board_without_any_installation/</link>
-      <description><![CDATA[大家好，我的 PC 设置非常有限，而且我的组织不允许我在 PC 上运行任何 exe 文件。任何需要运行 exe 文件或 cmd 的东西都行不通。 我有一台 Windows 机器，想使用看板，最好是在本地，最好是通过网络浏览器。 你知道有什么类似的东西吗？    提交人    /u/Piotrazz   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ddhygw/kanban_trello_board_without_any_installation/</guid>
-      <pubDate>Tue, 11 Jun 2024 16:10:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何开始为开源做出贡献？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1dd1ojo/how_do_i_start_contributing_to_open_source/</link>
-      <description><![CDATA[我一直很喜欢为开源做贡献的想法，但我从未做过这样的事情，我想知道是否有任何入门“技巧”。我总是害怕贡献一些东西，做一些“不必要的”或“让事情变得更糟”而不是真正改进代码，“去做那件事”或类似的事情可能看起来很愚蠢，但我不知道，我对此完全陌生，所以提前感谢任何帮助：D    提交人    /u/Nexobit   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1dd1ojo/how_do_i_start_contributing_to_open_source/</guid>
-      <pubDate>Tue, 11 Jun 2024 00:57:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
