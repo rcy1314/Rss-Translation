@@ -4,238 +4,253 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 14 Jun 2024 18:26:14 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2024 21:20:49 GMT</lastBuildDate>
     <item>
-      <title>Pydantic 响应模型失败</title>
-      <link>https://community.openai.com/t/pydantic-response-model-failure/789207#post_9</link>
-      <description><![CDATA[我在我们的提示操场上重现了您的模式 - 似乎对 gpt4o 工作正常，请随意修改它或让我知道如果您有任何问题：
-我无法发布链接，但您可以将其粘贴到 promptfiddle dot com
-class BalanceSheetExtract {
-company_name string
-prev_year int
-current_year int
-assets Assets
-//liaslies LiabilitiesExtract
-}
-
-class Assets {
-// current_assets CurrentAssetsExtract
-non_current_assets NonCurrentAssets
-}
-
-class NonCurrentAssets {
-fields DataField[]
-total_non_current_assets DataField
-}
-
-class DataField {
-field_name string
-prev_year_value int
-current_year_value int
-}
-
-client&lt;llm&gt; GPT4o {
-提供者 openai
-选项 {
-模型 gpt-4o
-api_key env.OPENAI_API_KEY
-}
-} 
-
-函数 ExtractBalanceSheet(myImage: image) -&gt; BalanceSheetExtract {
-客户端 GPT4o
-
-提示 #&quot;
-{{ _.role(&quot;user&quot;) }}
-从提供的图像中提取以下模式
-
-{{ ctx.output_format }}
-
-{{ myImage }}
-
-JSON:
-&quot;#
-}
-
-测试 Test1 {
-函数 [ExtractBalanceSheet]
-args {
-myImage {
-url &quot;the-url&quot;
-}
-}
-}
-
-您仍然可以像这样在 python 中调用它：
-await baml.ExtractBalanceSheet(....)]]></description>
-      <guid>https://community.openai.com/t/pydantic-response-model-failure/789207#post_9</guid>
-      <pubDate>Fri, 14 Jun 2024 18:25:33 GMT</pubDate>
+      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
+      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=2#post_37</link>
+      <description><![CDATA[尝试从 Word 到 ChatGPT Desktop 进行大量复制/粘贴，但在使用 TextEdit 时感到很沮丧，但我找到了解决方法！App Store 中有一个名为获取纯文本的旧菜单栏应用程序，它是免费的，并且有一个设置可以在您将文本复制到剪贴板时自动清除格式。到目前为止，我似乎可以无缝地从 Word 复制/粘贴到桌面应用程序，完全没有问题！这是一个必要的步骤，这很烦人，但是当我从 ChatGPT 复制/粘贴回 Word 时，它也会清除格式——是的，option-command-V 有效，但这只是一项 QOL 改进。希望这对大家有所帮助！]]></description>
+      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=2#post_37</guid>
+      <pubDate>Fri, 14 Jun 2024 21:20:04 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT-4o 的新语音模型何时发布</title>
-      <link>https://community.openai.com/t/when-the-new-voice-model-for-chatgpt-4o-will-be-released/789928?page=2#post_28</link>
-      <description><![CDATA[@luciousdekamp 100% 同意。我们已经等了好几个星期了，但还是没有消息。我每天都会查看 ChatGPT，希望它能发布。]]></description>
-      <guid>https://community.openai.com/t/when-the-new-voice-model-for-chatgpt-4o-will-be-released/789928?page=2#post_28</guid>
-      <pubDate>Fri, 14 Jun 2024 18:25:25 GMT</pubDate>
+      <title>有趣的是，4o 没有使用 openAI 自己的 beta api 文档进行训练</title>
+      <link>https://community.openai.com/t/funny-that-4o-isnt-trained-on-openais-own-beta-api-docs/820297#post_1</link>
+      <description><![CDATA[所以，您想要 GPT 为与 beta.assistants 相关的代码提供编码帮助吗？抱歉，它产生了幻觉并建议使用旧 API 中的代码。哈哈。]]></description>
+      <guid>https://community.openai.com/t/funny-that-4o-isnt-trained-on-openais-own-beta-api-docs/820297#post_1</guid>
+      <pubDate>Fri, 14 Jun 2024 21:18:44 GMT</pubDate>
     </item>
     <item>
-      <title>救命！有什么提示可以让新版 4o and 4 不那么糟糕吗？</title>
-      <link>https://community.openai.com/t/help-any-tips-on-prompts-to-make-the-new-4o-and-4-less-awful/810035?page=2#post_25</link>
-      <description><![CDATA[这里有一个稍微相反的看法，我们发现较短的提示实际上效果更好。具体来说，类似 typescript 的定义有很大帮助，并且在我们的测试用例中为大多数模型提供了更高的准确性/可靠性。
-我认为这最终会起作用，因为这种编写提示的方式比 json 模式更压缩。
-这是我通过一些思路从发票中提取一些数据的简单示例
-给出以下电子邮件：
+      <title>合并到团队后，如何从 ChatGPT Plus 帐户获取收据？</title>
+      <link>https://community.openai.com/t/how-do-i-get-a-receipt-from-chatgpt-plus-account-after-merging-to-team/619903#post_12</link>
+      <description><![CDATA[感谢您的回复：
+按照您的建议，但没有地方显示我的计划，以前聊天页面左下角有我的名字 gpt.com，但现在没有了，只是显示升级计划，当我点击升级计划时，它会将我发送到一个有三个选项的页面：免费、附加和团队。当我点击计费时，它会将我发送到
+帐户登录和计费，如果我点击如何联系销售，它会显示
+GPT Enterprise Jeep
+API Enterprise
+合同折扣相关文章我如何访问 gpt4 gpt4 turbo 和 gpt40
+等等等等。换句话说，我无法获得任何形式的账单帮助。
+有销售电话号码吗？
+您的图片仅显示两个选项 Plus 和团队。
+新想法：这里有一个线索。
+它向我展示了三个升级选项，
+这是否意味着我没有计划？
+我担心自己陷入了循环往复的迷宫中，没有答案。
+我最想知道的是
+???我在使用什么计划???
+请有人帮忙！！！
 
-###
-发件人：{{email.from_address}}
-电子邮件主题：{{email.subject}}
-电子邮件正文：{{email.body}}
-###
-
-使用此模式以 JSON 格式回答：
-{
-order_status：&#39;ORDERED&#39; 或 &#39;SHIPPED&#39; 或 &#39;DELIVERED&#39; 或 &#39;CANCELLED&#39;,
-tracking_number：字符串或 null,
-estimated_arrival_date：字符串或 null,
-}
-
-在输出 JSON 之前，请逐步解释您的推理。以下是如何执行此操作的示例：
-&#39;如果我们一步一步思考，我们可以看到...
-因此输出 JSON 为：
-{
-... JSON 模式...
-}&#39;
-
-这给出了输出：
-如果我们一步一步思考，我们可以看到：
-
-1. 电子邮件主题清楚地表明订单已发货：“您在 Amazon.com 订购的‘木制方形销棒...’已发货！”。因此，`order_status` 应为“已发货”。
-2. 电子邮件正文中提供的跟踪链接包含一个用于跟踪包裹的查询参数：`www.amazon.com/gp/your-account/ship-track?ie=UTF8&amp;orderId123`。但是，没有给出明确的跟踪号，只有订单号。由于未提取特定的跟踪号，因此 `tracking_number` 应为 `null`。
-3. 邮件正文提到了预计到达日期：“您的包裹将于 4 月 4 日星期四到达”。我们可以将此日期提取为“4 月 4 日星期四”。为了清晰和一致，我们将以标准格式存储日期，例如“YYYY-MM-DD”。假设当前年份为 2023 年，则“estimated_arrival_date”可以表示为“2023-04-04”。
-
-因此，输出的 JSON 为：
-\```json
-{
-&quot;order_status&quot;: &quot;SHIPPED&quot;,
-&quot;tracking_number&quot;: null,
-&quot;estimated_arrival_date&quot;: &quot;2023-04-04&quot;
-}
-\```
-
-然后我们解析为：
-{
-order_status: &quot;SHIPPED&quot;
-tracking_number: null
-estimated_arrival_date: &quot;2023-04-04&quot;
-}
 ]]></description>
-      <guid>https://community.openai.com/t/help-any-tips-on-prompts-to-make-the-new-4o-and-4-less-awful/810035?page=2#post_25</guid>
-      <pubDate>Fri, 14 Jun 2024 18:24:37 GMT</pubDate>
+      <guid>https://community.openai.com/t/how-do-i-get-a-receipt-from-chatgpt-plus-account-after-merging-to-team/619903#post_12</guid>
+      <pubDate>Fri, 14 Jun 2024 21:15:41 GMT</pubDate>
     </item>
     <item>
-      <title>让我的学生免费访问我的 GPT——如何？</title>
-      <link>https://community.openai.com/t/free-access-to-my-gpt-for-my-students-how/623687#post_12</link>
-      <description><![CDATA[您考虑过版权吗？问题在于您同时在很多相关但独立的语境中使用“免费”一词。您需要考虑所有访问层面。而不仅仅是您自己的时间和精力。]]></description>
-      <guid>https://community.openai.com/t/free-access-to-my-gpt-for-my-students-how/623687#post_12</guid>
-      <pubDate>Fri, 14 Jun 2024 18:23:49 GMT</pubDate>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_144</link>
+      <description><![CDATA[
+
+
+ SomebodySysop：
+
+该系统中最薄弱的环节是用于创建 JSON 层次结构的模型 API 调用：
+
+
+我通过从叶子到树干的层次结构递归检测解决了这个问题，在每个级别上并行运行。因此，首先建立最小块的关系（使用块的目的/摘要作为单个项目），从而产生位块。然后，确定那些较大块的目的/摘要并检测它们之间的关系。继续这样做，直到到达树干/根部。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_144</guid>
+      <pubDate>Fri, 14 Jun 2024 21:09:18 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt 4.0 错误 - “检测到您的设备有异常活动。请稍后再试。”</title>
-      <link>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_1</link>
-      <description><![CDATA[“检测到您的设备有异常活动。请稍后重试。”错误是什么？chatgpt 4.0 冻结了一段时间，然后您收到此错误。我没有发出任何疯狂的提示，只是简单的英语问题/对话。有人可以分享任何见解吗？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_1</guid>
-      <pubDate>Fri, 14 Jun 2024 18:19:56 GMT</pubDate>
+      <title>从 OpenAI API 自动下载批量输出</title>
+      <link>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_3</link>
+      <description><![CDATA[我对 OpenAi 的 API 还不熟悉，实际上也不懂一般的编码。但我可以做到：
+client.batches.retrieve(“batch_id”)
+然后：
+content = client.files.content(“file-PHoyfFqSAvvxOgnnyY6y8qqP”)
+这让我想到了这一点：openai._legacy_response.HttpxBinaryResponseContent at 0x7e66f408c4c0
+我想将批处理输出下载到 txt 文件中，但我不知道该怎么做。
+谢谢！！]]></description>
+      <guid>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_3</guid>
+      <pubDate>Fri, 14 Jun 2024 21:07:11 GMT</pubDate>
     </item>
     <item>
-      <title>使用函数调用按顺序执行函数</title>
-      <link>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_4</link>
-      <description><![CDATA[嘿 @aiueokaki - 欢迎加入社区！
-
-
-
- aiueokaki：
-
-输入：我想创建一个流程，其中首先执行 functionA，然后执行 functionB。
-
-
-一个简单的解决方法是在工具描述中提及您的步骤。这对我来说最有效。您还可以尝试在提交 funcA 的工具输出之前传递额外的上下文。这样，LLM 就知道下一步该做什么了。
-functionA：___ 任务的第 1 步。（后跟 func 描述）
-functionB：___ 任务的第 2 步。（后跟 func 描述）
-干杯！]]></description>
-      <guid>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_4</guid>
-      <pubDate>Fri, 14 Jun 2024 18:18:19 GMT</pubDate>
+      <title>无法使用自定义 GPT 生成 Word 文档和下载链接</title>
+      <link>https://community.openai.com/t/unable-to-generate-word-document-and-download-link-with-custom-gpt/562311#post_5</link>
+      <description><![CDATA[我遇到了同样的问题。我能做的最好的事情就是让 gpt 编写 python 脚本，然后在本地机器上运行该脚本并检索文档。]]></description>
+      <guid>https://community.openai.com/t/unable-to-generate-word-document-and-download-link-with-custom-gpt/562311#post_5</guid>
+      <pubDate>Fri, 14 Jun 2024 21:05:25 GMT</pubDate>
     </item>
     <item>
-      <title>提高限制并等待 12 小时以上后出现 Insufficient_quota 错误</title>
-      <link>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_9</link>
-      <description><![CDATA[如果有任何信用，应在此处反映以便使用 API。]]></description>
-      <guid>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_9</guid>
-      <pubDate>Fri, 14 Jun 2024 18:14:56 GMT</pubDate>
+      <title>从 OpenAI API 自动下载批量输出</title>
+      <link>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_2</link>
+      <description><![CDATA[您遇到了什么错误？
+您的代码是什么样的？
+欢迎来到 OpenAI Dev 社区论坛！]]></description>
+      <guid>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_2</guid>
+      <pubDate>Fri, 14 Jun 2024 21:00:12 GMT</pubDate>
     </item>
     <item>
-      <title>不同的结果：ChatGPT3.5 与 API（gpt-3.5-turbo）</title>
-      <link>https://community.openai.com/t/different-results-chatgpt3-5-vs-api-gpt-3-5-turbo/123712?page=3#post_50</link>
-      <description><![CDATA[归根结底，良好的系统提示具有适合您用例的适当温度和top_p值。]]></description>
-      <guid>https://community.openai.com/t/different-results-chatgpt3-5-vs-api-gpt-3-5-turbo/123712?page=3#post_50</guid>
-      <pubDate>Fri, 14 Jun 2024 18:12:52 GMT</pubDate>
+      <title>从 OpenAI API 自动下载批量输出</title>
+      <link>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_1</link>
+      <description><![CDATA[我正在使用 gspread 和 pandas 以及 OpenAI 的 API 来自动化一个过程。我使用批处理方法，因为它便宜 50%。我确认它有效，因为我可以从 OpenAI 批处理界面中的批处理菜单下载和查看文件。
+但是，我想自动化这个过程，并且在使用我的代码将输出下载为 .txt 文件时遇到了麻烦。我无法在 API 文档中找到必要的信息，除了本指南，我无法使用它。
+有人可以提供如何实现这一目标的指导吗？]]></description>
+      <guid>https://community.openai.com/t/automating-download-of-batch-output-from-openai-api/820271#post_1</guid>
+      <pubDate>Fri, 14 Jun 2024 20:58:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>提示中 ChatGPT 的改进建议</title>
+      <link>https://community.openai.com/t/improvement-suggestion-for-chatgpt-in-the-prompt/820269#post_1</link>
+      <description><![CDATA[我想建议一个功能，让用户通过按键盘上的向上箭头键来检索他们的最后一个问题。此功能将极大地方便重复使用最近的问题，而无需手动重新输入它们。这将是一个有用的改进，可以简化交互并提高使用 ChatGPT 的效率。]]></description>
+      <guid>https://community.openai.com/t/improvement-suggestion-for-chatgpt-in-the-prompt/820269#post_1</guid>
+      <pubDate>Fri, 14 Jun 2024 20:58:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4o 下载 Windows 版</title>
+      <link>https://community.openai.com/t/chatgpt-4o-download-for-windows/763321?page=2#post_42</link>
+      <description><![CDATA[我一直在使用 CoPilot，但到目前为止，我并没有留下什么印象。Windows 正在开启订阅操作系统模式，从 AI copilot 的专业版开始，每月 20 美元。它不保留对话。与 ChatGPT 相比，它的输出很差（即使它使用了 openai）。它无法与您的 word 文档交互。它无法在 Excel 中创建任何东西。它是一个内置在 Windows 中的聊天机器人，实际上无法对操作系统做任何事情。如果你告诉它更改我的文档，它会告诉你它不能。你必须将其粘贴进去。我不知道这是概念还是目标，但你可以购买与操作系统交互的 Office 的第三方插件，它们要么是免费的，要么是每月更便宜的，要么是一次性付费的。我想用命令和问题“驱动”我的电脑。苹果（使用 Openai）可能会更好地将人工智能作为操作系统的一部分（而不是可笑的聊天机器人）。最后，我一直在使用 Copilot，并迫使它解释为什么微软不购买 Openai。它说，考虑到人工智能的投资和未来，这是有道理的。微软正在开发自己的人工智能，但我认为它会放弃它。苹果或微软可能会收购 Openai，这将产生重大影响。不要浪费你的钱。尝试替代方案。在插件中搜索并进行网络搜索。我认为这只是一个开始，它可能会变得更好，但对我来说太笨拙了。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4o-download-for-windows/763321?page=2#post_42</guid>
+      <pubDate>Fri, 14 Jun 2024 20:53:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>IOS APP：自定义聊天 GPT 不使用选定的语音</title>
+      <link>https://community.openai.com/t/ios-app-custom-chat-gpt-dont-use-selected-voice/492914#post_4</link>
+      <description><![CDATA[嘿！
+我也觉得这很烦人……但不知何故，他们在过去的几周里改变了这种行为，突然间自定义 GPT 有了从 IOS APpp 设置中选择的声音……这让我很高兴！
+两天以来，（已删除的斯嘉丽约翰逊的声音）又出现了……并且无法为所有 GPT 更改……
+我们对这个话题有什么新了解吗？
+祝一切顺利，菲利普]]></description>
+      <guid>https://community.openai.com/t/ios-app-custom-chat-gpt-dont-use-selected-voice/492914#post_4</guid>
+      <pubDate>Fri, 14 Jun 2024 20:29:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>这些键之间有什么区别？我应该使用哪一个来连接到 API？</title>
+      <link>https://community.openai.com/t/what-is-the-difference-between-these-keys-and-which-one-should-i-use-to-connect-to-api/820231#post_1</link>
+      <description><![CDATA[你好。
+这些密钥有什么区别？我应该使用哪一个来连接到 API？
+
+
+https://platform.openai.com/api-keys
+
+
+https://platform.openai.com/settings/profile?tab=api-keys
+
+
+我猜第一个是 API 密钥。
+但第二个是什么？]]></description>
+      <guid>https://community.openai.com/t/what-is-the-difference-between-these-keys-and-which-one-should-i-use-to-connect-to-api/820231#post_1</guid>
+      <pubDate>Fri, 14 Jun 2024 20:22:20 GMT</pubDate>
     </item>
     <item>
       <title>GPT-4o 产生错误的换行符和无效的 JSON</title>
-      <link>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_8</link>
-      <description><![CDATA[与其要求模型将代码编码到 JSON 字段中，不如要求它
-
-使用包含代码的 markdown 块回答，然后使用另一个包含与此架构匹配的 JSON 的块回答：
-
-是的，魔法黑匣子可能能够将代码作为转义的 JSON 字符串返回，但互联网/训练语料库上的代码比转义的 JSON 字符串多得多。如果可以让魔法黑匣子的工作量更少，为什么要让它更努力地工作呢？]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_8</guid>
-      <pubDate>Fri, 14 Jun 2024 18:09:37 GMT</pubDate>
+      <link>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_12</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_12</guid>
+      <pubDate>Fri, 14 Jun 2024 20:20:28 GMT</pubDate>
     </item>
     <item>
-      <title>提高限制并等待 12 小时以上后出现 Insufficient_quota 错误</title>
-      <link>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_8</link>
-      <description><![CDATA[您是否已为密钥设置了所有正确的权限？
-您当前的帐户余额是多少？]]></description>
-      <guid>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_8</guid>
-      <pubDate>Fri, 14 Jun 2024 18:04:26 GMT</pubDate>
+      <title>babbage-002 模型的上下文窗口大小</title>
+      <link>https://community.openai.com/t/context-window-size-for-the-babbage-002-model/820212#post_2</link>
+      <description><![CDATA[欢迎来到论坛！
+鉴于微调问答中已明确解决了该问题，我将遵循那里的指导。
+我认为操场中存在问题/故障，因为最大令牌值在操场中似乎具有不同的含义，具体取决于所选模型 - 因此目前不认为这是一个可靠的来源。我假设在 babbage-002 的情况下，操场中的 2,049 个令牌限制是指最大输出令牌。]]></description>
+      <guid>https://community.openai.com/t/context-window-size-for-the-babbage-002-model/820212#post_2</guid>
+      <pubDate>Fri, 14 Jun 2024 20:20:15 GMT</pubDate>
     </item>
     <item>
-      <title>提高限制并等待 12 小时以上后出现 Insufficient_quota 错误</title>
-      <link>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_7</link>
-      <description><![CDATA[我同事在同一个组织，没有遇到任何问题。这似乎不是到期日期问题：
+      <title>GPT-4o 产生错误的换行符和无效的 JSON</title>
+      <link>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_11</link>
+      <description><![CDATA[需要明确的是，这不是 JSON 问题，而是“GPT-4o 出轨”问题。
+这是一个仅 markdown 响应的示例，它给了我，最后它只是在 \ 切线上偏离了方向：
+# `Conversations.jsx` 的重构说明
+
+## 1. **提取 API 钩子**
+
+### 要创建的文件：
+- `src/hooks/useConversationsApi.js`
+- `src/hooks/useDocumentsApi.js`
+
+### 步骤：
+1. **创建 `useConversationsApi` 钩子**：
+- 将 `useConversationsApi` 导入和相关代码移动到名为 `useConversationsApi.js` 的新文件中。
+- 从此文件导出钩子。
+2. **创建 `useDocumentsApi` 钩子**：
+- 将 `useDocumentsApi` 导入和相关代码移动到名为 `useDocumentsApi.js` 的新文件。
+- 从此文件导出钩子。
+3. **更新导入**：
+- 更新 `Conversations.jsx` 中的导入，以从其各自的文件中使用这些新钩子。
+
+## 2. **提取 WebSocket 钩子**
+
+### 要创建的文件：
+- `src/hooks/useWebsockets.js`
+
+### 步骤：
+1. **移动 WebSocket 逻辑**：
+- 将 `useWebsockets` 导入和相关代码移动到名为 `useWebsockets.js` 的新文件。
+- 从此文件导出钩子。
+2. **更新导入**：
+- 更新 `Conversations.jsx` 中的导入，以从其各自的文件中使用此新钩子。
+
+## 3. **提取上下文提供程序**
+
+### 要创建的文件：
+- `src/providers/ConversationProvider.js`
+
+### 步骤：
+1. **移动对话上下文**：
+- 将 `ConversationContext` 导入和相关代码移动到名为 `ConversationProvider.js` 的新文件。
+- 从此文件导出上下文和提供程序。
+2. **更新导入**：
+- 更新 `Conversations.jsx` 中的导入以从其各自的文件中使用此新上下文提供程序。
+
+## 4. **提取实用函数**
+
+### 要创建的文件：
+- `src/utils/conversationUtils.js`
+
+### 步骤：
+1. **移动实用函数**：
+- 识别实用函数，例如 `useThrottledCallback`、`handleTextareaFocus` 等，并将它们移动到名为 `conversationUtils.js` 的新文件。
+- 从此文件导出这些函数。
+2. **更新导入**：
+- 更新 `Conversations.jsx` 中的导入，以从各自的文件中使用这些实用程序。
+
+## 5. **提取组件**
+
+### 要创建或更新的文件：
+- 应将现有组件（如 `FileDisplay`、`FileSelectionDialog` 等）移动/创建到目录（如 `/components/conversation/`）下
+- 确保每个组件都有自己的文件，例如 `/components/conversation/FileDisplay.jsx`、`/components/conversation/FileSelectionDialog.jsx` 等。
+
+### 步骤：
+1. **移动组件**： \-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\-
+\- 将现有组件（如 FileDisplay、FileSelectionDialog、MessageList、DrawerComponent 等）移动到 components/conversation 目录内的各自文件中。- 确保每个组件都从其自己的文件中正确导出。- 更新导入：-更新 Conversations.jsx 中的导入以从各自的文件中使用这些组件。- 示例：从 &#39;./components/conversation/FileDisplay&#39; 导入 FileDisplay；6.提取样式（可选）要创建的文件：- src/styles/conversationStyles.js步骤：1.移动样式：- 如果有内联样式或样式相关逻辑，请考虑将它们移动到单独的 dialogueStyles.js 文件中。- 根据需要导出这些样式。更新导入：- 更新 Conversations.jsx 以从 dialogueStyles.js 中使用这些样式（如果适用）。# 最终说明完成这些步骤后，您的 Conversations.jsx 应该更加干净、更加模块化，从而更易于维护和理解。
 ]]></description>
-      <guid>https://community.openai.com/t/insufficient-quota-error-after-raising-limits-and-waiting-12h/819939#post_7</guid>
-      <pubDate>Fri, 14 Jun 2024 18:02:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用函数调用按顺序执行函数</title>
-      <link>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_3</link>
-      <description><![CDATA[我不确定为什么版主会隐藏我试图帮助你的尝试。我会私信你我写的内容。我想知道 OAI 是否知道这里发生了什么哈哈]]></description>
-      <guid>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_3</guid>
-      <pubDate>Fri, 14 Jun 2024 17:59:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>Kruel.ai V5.0 - 得益于先进的内存系统，Api 伴侣能够完全理解运行 16k</title>
-      <link>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_86</link>
-      <description><![CDATA[我还要过一段时间才会考虑潜在的业务。这是一个研究系统，还不安全，也未准备好用于云。但这最终是我的计划。至于愿景，你需要它做什么。如果你愿意，你可以私信我。]]></description>
-      <guid>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_86</guid>
-      <pubDate>Fri, 14 Jun 2024 17:57:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>采用混合搜索方法的 HyDE</title>
-      <link>https://community.openai.com/t/hyde-with-hybrid-search-approaches/391349#post_15</link>
-      <description><![CDATA[微调对于获得正确的格式或语调或吸收微调数据的精髓以制作更短、更少标记的提示很有意义。
-他们使用的 SQL 更多地与为模型提取某些数字有关。但解决方案是在提示中提供正确的上下文。因此需要“工具”（SQL）。
-这完全取决于上下文检索在哪里出现故障。这就是 RAG 有趣的原因，它完全取决于深入研究检索中出现的问题，然后解决它。]]></description>
-      <guid>https://community.openai.com/t/hyde-with-hybrid-search-approaches/391349#post_15</guid>
-      <pubDate>Fri, 14 Jun 2024 17:56:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解 API 限制和免费套餐</title>
-      <link>https://community.openai.com/t/understanding-api-limits-and-free-tier/498517#post_16</link>
-      <description><![CDATA[
-我支付了 5 美元，但我无法使用 API，有什么原因吗？]]></description>
-      <guid>https://community.openai.com/t/understanding-api-limits-and-free-tier/498517#post_16</guid>
-      <pubDate>Fri, 14 Jun 2024 17:55:01 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpt-4o-producing-bad-linebreaks-and-invalid-json/780850#post_11</guid>
+      <pubDate>Fri, 14 Jun 2024 20:12:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
