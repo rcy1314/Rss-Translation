@@ -3,8 +3,50 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Fri, 14 Jun 2024 03:21:19 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Fri, 14 Jun 2024 06:26:07 GMT</lastBuildDate>
+    <item>
+      <title>需要 HTML/CSS 格式方面的帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfk73i/need_help_with_htmlcss_formatting/</link>
+      <description><![CDATA[嗨！ 我正在使用脚本从此页面上的 Ghost CMS 获取 12 个随机帖子 - https://punjabisahit.com/discover/ 我希望输出帖子的格式与主页上的卡片相同。我尝试根据主题更改各种 div id 和类，但似乎没有任何效果。还有什么想法可以尝试吗？以下是我用于生成内容的代码 -  {{!&lt; default}&gt; {{!-- 上面一行表示此模板将扩展 default.hbs 布局 --}&gt; &lt;div id=&quot;loop&quot; class=&quot;section-loop wrap no-featured&quot;&gt; &lt;div id=&quot;loading-message&quot; class=&quot;loading-message&quot;&gt;请等待...&lt;/div&gt; &lt;div id=&quot;item-wrap&quot; class=&quot;items-wrap&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; async function fetchPosts(limit, page) { try { const response = await fetch(\\/ghost/api/v3/content/posts/?key=API\_KEY&amp;limit=${limit}&amp;page=${page}\`);\` if (!response.ok) { throw new Error(&#39;网络错误！无法获取帖子&#39;);  const data = await response.json(); return data; } catch (error) { console.error(&#39;获取错误：&#39;, error); return null; &gt; &gt; 异步函数 getPostCount() { const data = await fetchPosts(1, 1); 返回数据？ [data.meta.pagination.total](http://data.meta.pagination.total) : 0;  异步函数 fetchRandomPosts(postCount) { 尝试 { const randomPages = new Set(); while (randomPages.size &lt; 12) { randomPages.add(Math.floor(Math.random() \* postCount) + 1);  const postRequests = Array.from(randomPages).map(page =&gt; fetchPosts(1, page)); const postResponses = await Promise.all(postRequests); 返回 postResponses.flatMap(response =&gt; response.posts); } catch (error) { console.error(&#39;获取随机帖子错误：&#39;, error); return \[\];   async function displayRandomPosts() { const postCount = await getPostCount(); if (postCount === 0) { document.getElementById(&#39;loading-message&#39;).textContent = &#39;无法加载帖子。&#39;; return;  const randomPosts = await fetchRandomPosts(postCount); const postsContainer = document.getElementById(&#39;item-wrap&#39;); const loadingMessage = document.getElementById(&#39;loading-message&#39;); postsContainer.innerHTML = &#39;&#39;; loadingMessage.style.display = &#39;none&#39;; randomPosts.forEach(post =&gt; { const postElement = document.createElement(&#39;div&#39;); postElement.classList.add(&#39;post&#39;); \`postElement.innerHTML = \`\` &lt;h2&gt;${post.title}&lt;/h2&gt; &lt;p&gt;${post.excerpt}&lt;/p&gt; &lt;a href=&quot;${post.url}&quot;&gt;阅读更多&lt;/a&gt; \\;\` postsContainer.appendChild(postElement); });  document.addEventListener(&#39;DOMContentLoaded&#39;, displayRandomPosts); &lt;/script&gt;    由    /u/gillisgill  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfk73i/need_help_with_htmlcss_formatting/</guid>
+      <pubDate>Fri, 14 Jun 2024 06:20:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>锚标签下载缓慢</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfk6ah/slow_anchor_tag_download/</link>
+      <description><![CDATA[我有如下下载链接：html &lt;a href=&quot;https://example.com/SomewhatSlowlyGenerated.pdf&quot; download&gt; 下载为 PDF &lt;/a&gt;  下载属性运行良好，它会按预期在浏览器中触发文件下载。 但是，由于此 PDF 是按需呈现的，因此速度有点慢，并且浏览器（Edge）似乎没有任何迹象表明下载已实际开始。您单击链接，似乎什么都没有发生，几秒钟后，文件下载会弹出到浏览器中。 有没有办法使用 Javascript 检查下载何时实际开始/下载对话框弹出窗口是否出现？因此，例如，当用户单击链接后等待某些事情发生时，我是否可以切换加载状态或 Toast 通知？   由    /u/svish  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfk6ah/slow_anchor_tag_download/</guid>
+      <pubDate>Fri, 14 Jun 2024 06:18:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>技术栈建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfk025/tech_stack_suggestions/</link>
+      <description><![CDATA[我有一个想法，想创建一个类似于 Booking、Agoda、Expedia 和 Tripadvisor 的网站。当然，它不会那么大。只针对一些特定的目的地，但核心思想是这样的。 它必须是可扩展的、支持多语言的、SEO 优化的。 但我最大的问题是我应该选择什么堆栈（用于后端和前端堆栈）？我做了一些研究，一些类似的网站正在使用 Next.js + Vue，并托管在 AWS 上。有些使用 .NET 作为后端。 那么 CMS 呢，WP 就足够了，或者最好使用其他东西（比如定制的）。 我不是程序员，所以只是想寻求建议，以便以后能够聘请程序员 你有什么建议？    提交人    /u/headman009   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfk025/tech_stack_suggestions/</guid>
+      <pubDate>Fri, 14 Jun 2024 06:06:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>在学习 Next.js 和身份验证时制作了这个。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfjbs2/made_this_while_learning_nextjs_and_authentication/</link>
+      <description><![CDATA[      VibeChat，是我在学习 Next.js、Firebase 和身份验证时制作的简单项目。 非常希望收到您的反馈。 https://vibe-chat-iota.vercel.app/    由   提交  /u/ayushmaansingh304   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfjbs2/made_this_while_learning_nextjs_and_authentication/</guid>
+      <pubDate>Fri, 14 Jun 2024 05:22:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何对所有兼容 Kafka API 的流媒体系统进行基准测试</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfj7za/how_we_benchmark_all_kafka_api_compatible/</link>
+      <description><![CDATA[      https://preview.redd.it/82bv1rihyg6d1.png?width=1484&amp;format=png&amp;auto=webp&amp;s=42d066587ec01ee81719b5e512eed336c5d52799  披露：我曾在 AutoMQ 工作过  Kafka API 已经成为流处理系统事实上的标准。近年来，我们看到一系列兼容 Kafka API 的新型流处理系统不断涌现。对于很多开发者和用户来说，要快速客观地了解这些系统并不容易。因此，我们基于 OpenMessaging 框架为 Kafka 流处理系统构建了一个开源、自动化、公平、透明的基准测试平台，名为 Kafka Provider Comparison。该平台每周都会生成一份比较报告，涵盖性能、成本、弹性和 Kafka 兼容性。目前，它仅支持 Apache Kafka 和 AutoMQ，但我们很快将扩展它以包括业内其他兼容 Kafka API 的流处理系统，例如 Redpanda、WarpStream、Confluent 和 Aiven 等。你觉得这是一个好主意吗？您对这个项目有何看法？ 您可以在此处查看第一份报告：https://github.com/AutoMQ/kafka-provider-comparison/issues/1    提交人    /u/wanshao   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfj7za/how_we_benchmark_all_kafka_api_compatible/</guid>
+      <pubDate>Fri, 14 Jun 2024 05:15:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>有没有办法查看特定网页上的元数据？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dfhqv6/is_there_a_way_to_see_metadata_on_a_specific/</link>
+      <description><![CDATA[大家好。我需要一些建议。我对技术不是很在行，只懂一些代码，但我正在提起非正常死亡诉讼，在我居住的地方，诉讼时效应该是非法的。话虽如此，这些案件需要很长时间才能完成一个步骤，而且实际上很难进行。基本上，我已经和律师经历了这么多，没有时间重新开始找另一个律师，但他暗示说，如果我们能迅速确认记录被弄乱了（时间戳很重要），这个案子就会顺利进行，但如果他要求法医数据分析师，我们可能无法及时完成（实际上还有 4 个月的时间，但实际上需要这么长时间）。  我的奶奶连续一个月遭受了这么多痛苦，我正在寻找任何人来帮助我。我需要为她度过难关。如果有人有任何网站/工具/建议，那将意味着全世界。我知道一定有什么东西，对吧？！ 编辑：可能应该分享一下，我认为医生和患者有单独的门户（特别是 trinity mychart），所以这可能会使事情变得更加困难，甚至不可能（发布时没有考虑到这一点）查看这些数据，但还是想尝试     提交人    /u/bitchloveshotsauce   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dfhqv6/is_there_a_way_to_see_metadata_on_a_specific/</guid>
+      <pubDate>Fri, 14 Jun 2024 03:47:30 GMT</pubDate>
+    </item>
     <item>
       <title>Qlok：一款以自己的代码作为用户界面的时钟</title>
       <link>https://www.reddit.com/r/webdev/comments/1dfh0fz/qlok_a_clock_built_in_such_a_way_its_own_code_is/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[我没有网页设计经验，我是一名平面设计师。我以前用过 squarespace 做网站，但我认为它不能满足我的需求。 大家好， 我正在尝试学习如何制作网站，以便可以制作自己的网站。这篇文章基本上就是我需要的一切，但 TLDR 是： 我想要一个页面，成员可以在其中对网格中的图片进行投票（为了简单起见）。但他们只能对每组 3 张图片中的 1 张图片进行投票。此外，每组中获得最多票数的图片应该突出显示。我需要在 Google 上搜索什么才能获得这个？ 完整上下文： 我正在开始一个名为“年度最佳”的播客（从现在开始称为 BOTY）。节目的形式是每集都由前一周的获胜者主持，其他人将展示他们认为最能概括所选年份的电影、音乐和活动。年份将在上一集结束时随机选择，范围从 1950 年到 2020 年。第一集的主题是 1950 年，没有主持人（因为没有之前的获胜者），所以第一集总共会有 9 个 FME（电影、音乐、活动）（3 位主持人各 3 个）。从第二集开始，赢得上一集的主持人将不会带来任何 FME，这意味着每集只讨论 6 个 FME（2 位主持人各带来 3 个 FME）。 第一集： 讨论的 FME 总数：9（3 部电影、3 张专辑、3 个活动）。选定：1 部电影、1 张专辑、1 个活动（共 3 项）。已归档：所有 9 部 FME 节目 后续剧集： 讨论的 FME 总数：6 部（2 部电影、2 张专辑、2 项活动）。已选：1 部电影、1 张专辑、1 项活动（共 3 项）。已归档：呈现的所有 6 个 FME 以下是将添加到 ARCHIVE 中每个条目的完整详细信息集： 标题：电影、音乐专辑或活动的标题。 媒体类型：电影、音乐或活动。 呈现者：呈现此 FME 的人员姓名。 推出年份：FME 发布的年份。 简要说明：FME 的简要描述。 著名引言：来自讨论此 FME 的播客片段的著名引言。 播客剧集编号：讨论此 FME 的播客剧集编号。 特别嘉宾主持人：在播客录制期间出席的任何特别嘉宾的姓名。 涉及的关键人物：与 FME 相关的关键个人（例如，电影导演、音乐艺术家、活动关键人物）。 有了这些详细信息，每个条目ARCHIVE 中的条目将是全面的，提供所选 FME 及其在播客剧集中的上下文的清晰概述。 视觉呈现： 在卡片网格中显示条目。每张卡片都应有一张 FME 的照片或图片。 每张条目卡都应有一个由演示者定义的边框。（蓝色代表 Polly、红色代表 Chloe 和橙色代表 James）（当我进行最后的视觉设计调整时，这些颜色应该可以轻松调整）。每张卡片下方都有一个投票选项（这很复杂，所以我稍后会解释）。悬停时，卡片应该像在 Apple TV 中一样升起，并在 3D 中单击以旋转以显示背面的摘要详细信息。如果再次单击，会弹出更多条目详细信息，包括电影的 IMDb 页面、音乐专辑的 Spotify/Apple Music 页面、相关新闻文章或事件的维基百科页面的链接。 在页面顶部还应该有一个计数，跟踪每个主持人有多少选择。  投票每个用户可以从每年的每个类别中投票选出他们最喜欢的 FME。 每个成员每年可以为每个 FME 类别投票一次，如果他们改变主意，他们应该能够更改投票。 每年的 fme 也应该用一种颜色突出显示，以显示该年的观众投票。 此外，该页面应该有全面的排序和过滤选项。    提交人    /u/louietp   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dfck7a/help_with_googable_terms/</guid>
       <pubDate>Thu, 13 Jun 2024 23:14:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找更简单、更安全的系统编程</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfcc3c/search_for_easier_safe_systems_programming/</link>
-      <description><![CDATA[  由    /u/fagnerbrack  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfcc3c/search_for_easier_safe_systems_programming/</guid>
-      <pubDate>Thu, 13 Jun 2024 23:04:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>这算是 SSR 吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfbuba/is_this_considered_ssr/</link>
-      <description><![CDATA[我有一个 express 服务器，它为我的 react build 文件夹中的静态文件提供服务。我想知道这是否被视为 SSR。    提交人    /u/plasmaSunflower   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfbuba/is_this_considered_ssr/</guid>
-      <pubDate>Thu, 13 Jun 2024 22:41:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>当我切换标签时，Firefox 会随机下载随机 html 文件吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfbk83/firefox_randomly_downloaded_random_html_file_when/</link>
-      <description><![CDATA[嗨。 我将标签从 Reddit 切换到 Coursera，这是仅有的两个打开的标签。 并且随机下载了这个文件，TpUfJ4CX.htm。 它显示大小为 0kb，我在 VSC 中打开它，它完全是空的...... 它是从哪里来的，为什么？    提交人    /u/Suitable-Emphasis-12   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfbk83/firefox_randomly_downloaded_random_html_file_when/</guid>
-      <pubDate>Thu, 13 Jun 2024 22:28:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找可以创建 Youtube Views Bot 的开发人员</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfbbzp/looking_for_a_developper_that_can_create_a/</link>
-      <description><![CDATA[我希望创建一个 Youtube Views Bot 能够运行 gmail 帐户及其特定的浏览器配置文件 cookie 指标以及与烹饪指标一起使用的设备 /pc 指标，以便 gmail 帐户每次都能登录 在运行线程时将它们全部放在单独的线程中 在此过程中不会丢失帐户 丢失帐户通常发生在浏览器 cookie 配置文件或 pc/设备指标配置文件中未同步时 当旋转 ip 进行观看时 所以我试图做的是列出所有可能导致浏览器 cookie 或 prifle pc 设备指标不同步的潜在因素，以便我在更改 ip 的同时保留所有帐户 通常更改 ip 会导致同步不同步 但还有许多其他可能导致这种情况的原因 因此，我正在寻找一个可以基于所有这些构建机器人的开发人员 可能发生的所有可能导致同步失败的情况 并丢失 gmail 帐户 cookie 登录 您能帮忙吗    提交人    /u/martinstanchevv58   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfbbzp/looking_for_a_developper_that_can_create_a/</guid>
-      <pubDate>Thu, 13 Jun 2024 22:17:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该向我的第一位客户收取多少费用？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfahg0/how_much_should_i_be_charging_my_first_client/</link>
-      <description><![CDATA[我有点困惑，不知道是否应该抓住这个机会，我需要一些财务建议来弄清楚。 有人向我请求建立一个网站，以便摆脱 Wix。 他们的网站非常直观，但不太静态。大约 10-15 页。看起来他们显示了一些动态信息，但知道他们使用的是 Wix，它可能只是一个静态页面，他们每隔一段时间就会更新一次 - 这意味着我需要实现某种登录功能，让管理员能够更新显示的信息，这也意味着我需要设置一个 Web 服务器来处理身份验证和管理数据。 由于他们使用的是 Wix，我假设他们还需要有人为他们设置某种云基础设施以及 DNS。 我认为最大的要求列表如下： - 托管  DNS 10-15 页带有身份验证的动态 UI 具有某种 DB 集成的 Web 服务器 用户体验设计  你们对这样的服务收费多少？此外，我应该让客户了解哪些重要的免责声明？我需要问哪些重要问题？这样的事情需要多长时间？ 需要记住的一些事情——这将是我第一次为某人做客户工作，而且我也是朋友推荐的。我现在有全职工作。我全职担任一家中型科技公司的全栈工程师。通常每周工作 40-50 小时。所以这会很辛苦，但也许知道这一点，你就能理解我为什么犹豫不决。    提交人    /u/weinermcdingbutt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfahg0/how_much_should_i_be_charging_my_first_client/</guid>
-      <pubDate>Thu, 13 Jun 2024 21:38:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何成为一名工程师而不是框架设计师？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dfa6fv/how_to_be_an_engineer_not_a_frameworker/</link>
-      <description><![CDATA[我是 Web 开发新手，希望进入后端开发领域。我像所有新手一样从学习 Node/Express 开始已经 2 个月了，但是由于每家大型知名公司都在使用 .Net、Rails 等，这让我开始思考，就像编程一样，逻辑很重要，而不是语言，那么我如何才能成为一名优秀的工程师，而不是为了跳框架而跳框架的人，那么每个框架都必须知道哪些设计模式？我如何了解每个后端框架下的基本架构，从而使框架之间的过渡无缝衔接？    提交人    /u/STELLAR_Speck   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dfa6fv/how_to_be_an_engineer_not_a_frameworker/</guid>
-      <pubDate>Thu, 13 Jun 2024 21:25:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
