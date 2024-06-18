@@ -4,155 +4,174 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 18 Jun 2024 12:36:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 15:21:58 GMT</lastBuildDate>
     <item>
-      <title>更新后游乐场坏了？</title>
-      <link>https://community.openai.com/t/playground-broken-after-update/751106#post_14</link>
-      <description><![CDATA[进入右上角的“查看历史记录”并删除所有历史记录。这样就解决了问题。]]></description>
-      <guid>https://community.openai.com/t/playground-broken-after-update/751106#post_14</guid>
-      <pubDate>Tue, 18 Jun 2024 12:26:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 JSON 处理 finish_reason: length 的技巧</title>
-      <link>https://community.openai.com/t/tips-for-handling-finish-reason-length-with-json/806445#post_4</link>
-      <description><![CDATA[我也有同样的问题。就我而言，JSON 很复杂，而不仅仅是对象列表，因此恢复实际上不可行。奇怪的是，在某些情况下，延续工作正常，但在其他情况下则不行。例如，当请求响应格式“文本”时，它似乎工作得更好。在我看来似乎相当不一致……如果它有更好的文档记录就好了。实际上，如果 - 正如 brin 所说 - 它的工作方式与 UI 中一样，那就太好了。]]></description>
-      <guid>https://community.openai.com/t/tips-for-handling-finish-reason-length-with-json/806445#post_4</guid>
-      <pubDate>Tue, 18 Jun 2024 12:24:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 gpt-3.5-turbo-instruct 响应仅设置为十进制字符串</title>
-      <link>https://community.openai.com/t/set-gpt-3-5-turbo-instruct-response-only-to-decimal-as-string/827010#post_1</link>
-      <description><![CDATA[我正在使用 gpt-3.5-turbo-instruct 从 pdf 账单中获取总金额，有时我会以字符串形式获得十进制金额，有时我会以 xxx.xx 形式获得总金额，有时以文字形式获得总计金额，我怎样才能让它仅发送字符串中的十进制数]]></description>
-      <guid>https://community.openai.com/t/set-gpt-3-5-turbo-instruct-response-only-to-decimal-as-string/827010#post_1</guid>
-      <pubDate>Tue, 18 Jun 2024 12:21:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么有些题目经过大模型微调后跟答案不符</title>
-      <link>https://community.openai.com/t/why-do-some-problems-after-fine-tuning-the-large-model-not-match-the-answer/826956#post_2</link>
-      <description><![CDATA[嗨！
-微调不适用于涉及问答的用例。相反，您应该查看 RAG 的应用。前几天，我刚刚为另一位处于非常相似情况的用户编写了一篇文章，其中包含相关资源的链接，您可能会觉得有用。请参阅以下内容：
+      <title>聊天完成 API 文档中的 image_url 类型错误</title>
+      <link>https://community.openai.com/t/wrong-type-on-image-url-in-chat-completation-api-documentation/826780#post_6</link>
+      <description><![CDATA[是的，但是以下 API 调用（如 API 参考中所示）确实会引发错误，并且与其他地方的文档不一致：
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+model=&quot;gpt-4-turbo&quot;,
+messages=[
+{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: [
+{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;这张图片中有什么？&quot;},
+{
+&quot;type&quot;: &quot;image_url&quot;,
+&quot;image_url&quot;: &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg&quot;,
+},
+],
+}
+],
+max_tokens=300,
+)
+
+print(response.choices[0])
 
 
-
-
-通过损失指标探索微调的复杂性 API
-
-
-您对收到的结果有多满意？您遇到过任何问题吗？
-
-您的理解是正确的。目前没有直接的方法将“知识注入”到 gpt 模型中。
-
-查看通过您的方法检索到的块，并确定进一步过滤和/或减少要包含在上下文窗口中的块数量的选项。例如，您可以为每个块添加元数据，然后通过元数据字段进一步过滤结果。
-最后，根据您的需要……
-
+错误消息
+{&#39;error&#39;: {&#39;message&#39;: &quot;&#39;messages[0].content[1].image_url&#39; 的类型无效：应为对象，但得到的却是字符串。&quot;, &#39;type&#39;: &#39;invalid_request_error&#39;, &#39;param&#39;: &#39;messages[0].content[1].image_url&#39;, &#39;code&#39;: &#39;invalid_type&#39;}
 ]]></description>
-      <guid>https://community.openai.com/t/why-do-some-problems-after-fine-tuning-the-large-model-not-match-the-answer/826956#post_2</guid>
-      <pubDate>Tue, 18 Jun 2024 12:20:26 GMT</pubDate>
+      <guid>https://community.openai.com/t/wrong-type-on-image-url-in-chat-completation-api-documentation/826780#post_6</guid>
+      <pubDate>Tue, 18 Jun 2024 15:18:53 GMT</pubDate>
     </item>
     <item>
-      <title>在 ChatGPT Web 应用中发送消息时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-sending-messages-in-chatgpt-web-app/811449#post_12</link>
-      <description><![CDATA[注销有效，但使用我的帐户登录无效。]]></description>
-      <guid>https://community.openai.com/t/issue-with-sending-messages-in-chatgpt-web-app/811449#post_12</guid>
-      <pubDate>Tue, 18 Jun 2024 12:16:27 GMT</pubDate>
+      <title>ChatGPT 中的“提交”按钮已禁用</title>
+      <link>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_23</link>
+      <description><![CDATA[过去两周左右我也遇到了同样的问题。它在我的主 iPad 上无法使用，但在我手机和另一台 iPad 上却运行正常。很奇怪。]]></description>
+      <guid>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_23</guid>
+      <pubDate>Tue, 18 Jun 2024 15:18:48 GMT</pubDate>
     </item>
     <item>
-      <title>作为免费用户，仍然无法使用自定义 GPT</title>
-      <link>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_10</link>
-      <description><![CDATA[网站上说，在免费计划下，对自定义 GPT 的访问受到限制 - 所以这并不一定是矛盾的。
-话虽如此，我理解不知道这在实践中究竟意味着什么的挫败感，而且看到免费计划下的不同用户似乎可以访问不同类型的自定义 GPT，这当然是很有见地的。
-]]></description>
-      <guid>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_10</guid>
-      <pubDate>Tue, 18 Jun 2024 12:15:48 GMT</pubDate>
+      <title>Chat.openai.com 已被 CORS 政策屏蔽</title>
+      <link>https://community.openai.com/t/chat-openai-com-has-been-blocked-by-cors-policy/722413?page=2#post_30</link>
+      <description><![CDATA[它对我不起作用......真遗憾]]></description>
+      <guid>https://community.openai.com/t/chat-openai-com-has-been-blocked-by-cors-policy/722413?page=2#post_30</guid>
+      <pubDate>Tue, 18 Jun 2024 15:18:20 GMT</pubDate>
     </item>
     <item>
-      <title>无法将 Safari 中的链接粘贴到 macOS 桌面应用程序中</title>
-      <link>https://community.openai.com/t/impossible-to-paste-links-from-safari-into-macos-desktop-app/826988#post_1</link>
-      <description><![CDATA[macOS 上的 ChatGPT 桌面应用不允许我粘贴从 Safari 地址栏复制的链接。从其他浏览器或文本文档复制并粘贴到 ChatGPT 桌面时，一切正常。从 Safari 地址栏复制时，粘贴时没有任何反应。粘贴调用（CMD-V 键盘快捷键或菜单中的编辑/粘贴）没有任何区别。
-涉及的软件：
+      <title>我的 GPT4 无法浏览网站</title>
+      <link>https://community.openai.com/t/my-gpt4-cannot-browse-website/768342#post_17</link>
+      <description><![CDATA[今天下午我的电脑上的GPT不能用了，输入提示符时无法输出，有谁知道该怎么解决吗？]]></description>
+      <guid>https://community.openai.com/t/my-gpt4-cannot-browse-website/768342#post_17</guid>
+      <pubDate>Tue, 18 Jun 2024 15:16:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>Flutter 中的 Assistant API 调用 [已解决]</title>
+      <link>https://community.openai.com/t/assistant-api-calling-in-flutter-solved/666775#post_4</link>
+      <description><![CDATA[嗨，TmDee。我可以问一下你现在使用的是哪个 OpenAI 模型吗？因为我正在尝试使用 chat_gpt_sdk，但遇到错误“请求的模型‘gpt-4o’无法与 v1 中的 Assistants API 一起使用”？]]></description>
+      <guid>https://community.openai.com/t/assistant-api-calling-in-flutter-solved/666775#post_4</guid>
+      <pubDate>Tue, 18 Jun 2024 15:15:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 目前无法使用</title>
+      <link>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_21</link>
+      <description><![CDATA[今天下午我遇到了这个问题。当我输入提示时，我的 GPT 不起作用。你知道该如何修复它吗？]]></description>
+      <guid>https://community.openai.com/t/custom-gpts-doesnt-work-today/642767#post_21</guid>
+      <pubDate>Tue, 18 Jun 2024 15:14:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手 API | 在运行期间添加文件 + submit_tool_outputs</title>
+      <link>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341?page=2#post_31</link>
+      <description><![CDATA[我将尝试看看是否可以将 client.beta.assistants.update(assistant.id, tool_resources) 作为函数调用运行，并查看在运行仍处于活动状态时是否更新其 file_id。否则，我可能会在执行此操作后尝试以函数调用的形式启动新的运行...]]></description>
+      <guid>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341?page=2#post_31</guid>
+      <pubDate>Tue, 18 Jun 2024 15:14:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>聊天完成 API 文档中的 image_url 类型错误</title>
+      <link>https://community.openai.com/t/wrong-type-on-image-url-in-chat-completation-api-documentation/826780#post_5</link>
+      <description><![CDATA[有多种方法可以传递图像，也有 Assistants 中独有的方法。
+以这个 Python 代码为例，它提供交替字符串或 base64 图像（大小和功能由您控制）作为用户消息内容，没有类似 JSON 的“类型”：
+image_paths = [&quot;./img1.png&quot;, &quot;./img2.png&quot;]
+file_names = [os.path.basename(path) for path in image_paths]
 
-ChatGPT 1.2024.163
-macOS Sonoma 14.5
-Safari 17.5
+base64_images = []
+for path in image_paths:
+with open(path, &quot;rb&quot;) as image_file:
+base64_image = base64.b64encode(image_file.read()).decode(&#39;utf-8&#39;)
+base64_images.append(base64_image)
 
-问题：从 Safari 地址栏复制链接并将其粘贴到 ChatGPT 桌面应用程序中没有任何反应
-重现步骤：
+# 构造在文件名和图像之间交替的内容
+picture_list = []
+for file_name, base64_image in zip(file_names, base64_images):
+picture_list.append(file_name)
+picture_list.append({&quot;image&quot;: base64_image})
 
-从 Safari 地址栏复制链接
-使用 Command + V 或编辑/粘贴粘贴到 ChatGPT 桌面应用程序中
+user = [{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: [&quot;简要描述图像内容。图像:\n\n&quot;] + picture_list
+}]
 
-预期行为：链接粘贴到 ChatGPT 文本输入中字段
-实际行为：什么都没发生
-调试步骤失败
-
-应用程序重新启动
-mac 重新启动
-⁓/Library/Application Support/com.openai.chat 已删除
-ChatGPT 桌面应用程序已重新安装
-
-这个问题从一开始就一直困扰着我，这也是我经常回到 ChatGPT 网页版的主要原因。]]></description>
-      <guid>https://community.openai.com/t/impossible-to-paste-links-from-safari-into-macos-desktop-app/826988#post_1</guid>
-      <pubDate>Tue, 18 Jun 2024 12:10:50 GMT</pubDate>
+因此，在调用“错误”之前，必须实际识别直接发送到 API 端点时实际产生错误的原因。
+错误的不存在的模型名称已经很长时间没有更正了。这句话应该是“支持计算机视觉的 AI 模型”。]]></description>
+      <guid>https://community.openai.com/t/wrong-type-on-image-url-in-chat-completation-api-documentation/826780#post_5</guid>
+      <pubDate>Tue, 18 Jun 2024 15:09:24 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 会从用户提示和 GPT 答案中删除冒号“:”及其后的所有内容</title>
-      <link>https://community.openai.com/t/chatgpt-removes-colons-and-everthing-that-follows-it-from-user-prompts-and-gpt-answers/826970#post_1</link>
-      <description><![CDATA[在芬兰语中，我们使用了很多冒号。例如，问题“谁知道 ERP？”会翻译为“Kuka tietää ERP:stä？”。但是当我输入该内容并发送查询时，它会显示“Kuka tietää ERP”。基本上，ChatGPT 会删除冒号后（包括）的所有内容。
-当它尝试输入芬兰语时也会发生同样的情况。在 GPT-4o 之前，当我使用 GPT-4 时，它正常工作，但现在所有 GPT 生成的答案都缺少冒号后的所有内容，最终结果看起来根本不像我的语言，需要大量清理，这使得 GPT 的可用性大大降低。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-removes-colons-and-everthing-that-follows-it-from-user-prompts-and-gpt-answers/826970#post_1</guid>
-      <pubDate>Tue, 18 Jun 2024 12:01:19 GMT</pubDate>
+      <title>是否有其他人发现或解决问题，然后询问 LLM 看他们是否正确回答？</title>
+      <link>https://community.openai.com/t/does-anyone-else-find-or-figure-out-issues-and-then-ask-llms-to-see-if-they-answer-them-correctly/827344#post_1</link>
+      <description><![CDATA[我不太相信法学硕士能找到一些不明显的想法或解决方案*，比如如何在 Google Docs 上显示工具栏，当文档占据了整个页面的宽度和高度，而我看不到工具栏之类的其他内容时。我曾多次尝试先询问法学硕士，但他们没有给出正确的答案。我必须自己解决这个问题，问题出在 URL 上：它是 https://docs.google.com/document/d/1NOE7FtL-l8T23LbuK-XHYb3YwFhv_EkL6FnHPrcSih4/preview，我必须把“preview”删掉，然后 https://docs.google.com/document/d/1NOE7FtL-l8T23LbuK-XHYb3YwFhv_EkL6FnHPrcSih4/ 显示了带有工具栏的整个页面。
+我向 GPT 4o 询问了 4 次：“我在网页中打开了一个 Google 文档，宽度占据了整个屏幕，我看不到工具栏，我怎么才能看到工具栏？”，其中 2 次带有页面屏幕截图，它给出了类似的答案。即使我在每个聊天中都写下了短语“那些想法没有解决问题”的变体。我在 Gemini 中用屏幕截图做了两次，结果还是一样。
+* 尽管有些人报告说他们擅长创意写作，但这也许与其技术支持能力无关。]]></description>
+      <guid>https://community.openai.com/t/does-anyone-else-find-or-figure-out-issues-and-then-ask-llms-to-see-if-they-answer-them-correctly/827344#post_1</guid>
+      <pubDate>Tue, 18 Jun 2024 15:04:39 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o API 音频访问</title>
-      <link>https://community.openai.com/t/gpt-4o-audio-access-for-api/744549?page=2#post_24</link>
-      <description><![CDATA[是的，很遗憾这是真的
-但是如果你是一名开发人员，我相信 Hugging Face 上已经发布了一个音频到音频模型，足以胜任这项工作]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-audio-access-for-api/744549?page=2#post_24</guid>
-      <pubDate>Tue, 18 Jun 2024 11:58:53 GMT</pubDate>
+      <title>ChatGPT Android 应用程序 - 请恢复语音转文本提示功能</title>
+      <link>https://community.openai.com/t/chatgpt-android-app-please-bring-back-speech-to-text-prompting/806102#post_7</link>
+      <description><![CDATA[也许是三星的问题？
+如果 Open AI 有人能回复就好了……]]></description>
+      <guid>https://community.openai.com/t/chatgpt-android-app-please-bring-back-speech-to-text-prompting/806102#post_7</guid>
+      <pubDate>Tue, 18 Jun 2024 15:01:42 GMT</pubDate>
     </item>
     <item>
-      <title>为什么有些题目经过大模型微调后跟答案不符</title>
-      <link>https://community.openai.com/t/why-do-some-problems-after-fine-tuning-the-large-model-not-match-the-answer/826956#post_1</link>
-      <description><![CDATA[我尝试创建一个客服系统来连接聊天软件，但现在卡在了第一步。我用一个大模型来微调我的数据集，训练完后测试了一些问题，发现有些问题能和预设的答案吻合，而有些则不正确甚至相反。它运行自如，朝着错误的方向发展。我想知道这是正常的吗？还是我的方案本身就错了？@N2U]]></description>
-      <guid>https://community.openai.com/t/why-do-some-problems-after-fine-tuning-the-large-model-not-match-the-answer/826956#post_1</guid>
-      <pubDate>Tue, 18 Jun 2024 11:52:37 GMT</pubDate>
+      <title>助手 API | 在运行期间添加文件 + submit_tool_outputs</title>
+      <link>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341?page=2#post_30</link>
+      <description><![CDATA[当 API v2 版发布时，我查看了一下，但只有“元数据”可以通过modifyRun进行更改。看起来仍然没有在活动运行期间提供文件的解决方案。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-adding-a-file-during-run-submit-tool-outputs/619341?page=2#post_30</guid>
+      <pubDate>Tue, 18 Jun 2024 14:54:08 GMT</pubDate>
     </item>
     <item>
-      <title>作为免费用户，仍然无法使用自定义 GPT</title>
-      <link>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_9</link>
+      <title>ChatGPT 在所有设备、浏览器和平台上都运行缓慢且无响应</title>
+      <link>https://community.openai.com/t/chatgpt-is-slow-and-unresponsive-across-all-devices-browsers-and-platforms/824083#post_10</link>
+      <description><![CDATA[好吧，总比没有好。
+很遗憾，导致此问题的原因尚不清楚。您的企业帐户的内部管理员怎么样？既然您有一个帐户，您应该能够将其用于公司目的吗？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-is-slow-and-unresponsive-across-all-devices-browsers-and-platforms/824083#post_10</guid>
+      <pubDate>Tue, 18 Jun 2024 14:45:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 API 进行文档分析</title>
+      <link>https://community.openai.com/t/document-analysis-with-api/826220#post_3</link>
+      <description><![CDATA[请注意，“文件搜索”就是：将文档分成几部分，然后 AI 对分块信息进行搜索以回答问题。
+无法保证整个文档视图。您可以调整标记中的块大小（默认为 800）以及向量存储文件搜索返回的结果数，这可能会返回文档中更具凝聚力的部分。]]></description>
+      <guid>https://community.openai.com/t/document-analysis-with-api/826220#post_3</guid>
+      <pubDate>Tue, 18 Jun 2024 14:45:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法将文件上传至矢量存储</title>
+      <link>https://community.openai.com/t/failed-to-upload-file-to-a-vector-store/819435#post_3</link>
       <description><![CDATA[
-所以我问了 chatgpt 如何使用 cutom gpts，它说你需要付费订阅。这与 openai 所说的免费用户可以使用自定义 gpts 相矛盾。]]></description>
-      <guid>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_9</guid>
-      <pubDate>Tue, 18 Jun 2024 11:25:54 GMT</pubDate>
+最大文件大小为 512 MB。每个文件包含的标记数不得超过 5,000,000 个（附加文件时自动计算）。
+
+20M 字节可能超过 5M 标记限制，尤其是在纯文本文件中，因为没有要丢弃的开销，并且其中的数据不是自然语言（语义搜索结果会很差）。]]></description>
+      <guid>https://community.openai.com/t/failed-to-upload-file-to-a-vector-store/819435#post_3</guid>
+      <pubDate>Tue, 18 Jun 2024 14:43:13 GMT</pubDate>
     </item>
     <item>
-      <title>[SSL：CERTIFICATE_VERIFY_FAILED] 证书验证失败：证书链中的自签名证书</title>
-      <link>https://community.openai.com/t/ssl-certificate-verify-failed-certificate-verify-failed-self-signed-certificate-in-certificate-chain/705003#post_8</link>
-      <description><![CDATA[您好，您能详细阐述一下吗？]]></description>
-      <guid>https://community.openai.com/t/ssl-certificate-verify-failed-certificate-verify-failed-self-signed-certificate-in-certificate-chain/705003#post_8</guid>
-      <pubDate>Tue, 18 Jun 2024 11:23:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>您可以将 PDF 文件直接上传到 OpenAI 的 GPT-3.5 模型吗？</title>
-      <link>https://community.openai.com/t/can-you-upload-pdf-files-directly-to-openais-gpt-3-5-model/826904#post_1</link>
-      <description><![CDATA[我目前正在通过将 PDF 中的表格转换为文本来提取其中的值。但是，结果并不令人满意。如果 AI 可以识别 PDF 中的表格，我更愿意直接将 PDF 文件输入到此任务中。您能否在不将 PDF 文件转换为文本的情况下将其输入到 OpenAI 的 GPT-3.5 模型中？]]></description>
-      <guid>https://community.openai.com/t/can-you-upload-pdf-files-directly-to-openais-gpt-3-5-model/826904#post_1</guid>
-      <pubDate>Tue, 18 Jun 2024 11:20:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为免费用户，仍然无法使用自定义 GPT</title>
-      <link>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_8</link>
-      <description><![CDATA[我遇到了同样的问题，但尚未找到解决方案。]]></description>
-      <guid>https://community.openai.com/t/still-cant-use-customized-gpt-as-a-free-user/823950#post_8</guid>
-      <pubDate>Tue, 18 Jun 2024 11:17:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>将文件添加到现有矢量存储</title>
-      <link>https://community.openai.com/t/add-files-to-existing-vector-store/743801#post_7</link>
-      <description><![CDATA[我很幸运能看到这一点。在使用 openai.beta.vectorStores.fileBatches.uploadAndPoll 时，我很沮丧，因为请求的状态是 失败，但我看到了矢量存储中的文件。
-我唯一的问题是，您如何找到原因？]]></description>
-      <guid>https://community.openai.com/t/add-files-to-existing-vector-store/743801#post_7</guid>
-      <pubDate>Tue, 18 Jun 2024 11:05:34 GMT</pubDate>
+      <title>GPT-4o 音频 API 访问——OpenAI 说的是几周，而不是几个月！</title>
+      <link>https://community.openai.com/t/gpt-4o-audio-api-access-openai-said-weeks-not-months/827068#post_3</link>
+      <description><![CDATA[我将忽略第一句话。关于愿景，不同之处在于 OpenAI 的领导层从未说过几周后发布愿景，当时他们说了类似“今年晚些时候我们将发布愿景”的话，他们确实这么做了。
+
+耐心得到了锻炼
+我拒绝降低我的期望，我的期望包括 OpenAI 尊重他们的诺言或至少传达计划已更改的信息。
+
+这种行动或缺乏行动会损害人们对这家公司的信任 - 这是一个滑坡。推迟是可以的，比交付破损或未完成的东西要好 - 只要沟通就行了。这就是我对领导层的全部要求。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-audio-api-access-openai-said-weeks-not-months/827068#post_3</guid>
+      <pubDate>Tue, 18 Jun 2024 14:39:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
