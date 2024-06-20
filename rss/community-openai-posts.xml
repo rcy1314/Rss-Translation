@@ -4,195 +4,185 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 20 Jun 2024 06:27:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2024 09:23:20 GMT</lastBuildDate>
     <item>
-      <title>请求太多，但我尚未发送任何请求</title>
-      <link>https://community.openai.com/t/too-many-requests-but-i-havent-sent-any/830290#post_2</link>
-      <description><![CDATA[您好！
-根据您所指的限制，听起来您目前可能处于“免费套餐”中。
-请注意，OpenAI 近几个月来已停止免费试用积分。因此，您现在必须在用户帐户中添加至少 5 美元的余额才能使用该 API。添加此余额后，您将处于第 1 级，并将常规 tts 模型的限制增加到每天 50 个请求。
-您可以在“设置”&gt;“组织”&gt;“计费”下向您的帐户添加资金。]]></description>
-      <guid>https://community.openai.com/t/too-many-requests-but-i-havent-sent-any/830290#post_2</guid>
-      <pubDate>Thu, 20 Jun 2024 06:25:28 GMT</pubDate>
+      <title>OpenAI Fraud，但帮助却没有得到回应</title>
+      <link>https://community.openai.com/t/openai-fraud-yet-unresponsive-help/702226#post_9</link>
+      <description><![CDATA[这就是 OpenAI 转向信用系统的原因之一，在信用系统中，您需要预先充值以避免超出您打算花费的金额。
+作为预防措施，请考虑关闭自动充值并仅在必要时充值。]]></description>
+      <guid>https://community.openai.com/t/openai-fraud-yet-unresponsive-help/702226#post_9</guid>
+      <pubDate>Thu, 20 Jun 2024 09:07:13 GMT</pubDate>
     </item>
     <item>
-      <title>如何通过 Chatgpt 生成长内容</title>
-      <link>https://community.openai.com/t/how-to-generate-long-content-through-chatgpt/829026#post_3</link>
-      <description><![CDATA[谢谢
-一定会尝试这两种策略]]></description>
-      <guid>https://community.openai.com/t/how-to-generate-long-content-through-chatgpt/829026#post_3</guid>
-      <pubDate>Thu, 20 Jun 2024 06:18:21 GMT</pubDate>
+      <title>GPT-4 工具不断调用该工具，直到失败</title>
+      <link>https://community.openai.com/t/the-gpt-4-tool-calls-the-tool-again-and-again-until-it-fails/830939#post_1</link>
+      <description><![CDATA[嗨
+我已经实现了一个可以访问 2 个不同工具的代理。一个是超级简单的“add_two_numbers”工具，另一个是 API 调用。API 调用工具运行良好，但在调用“add_two_numbers”工具时，它会使用它并返回正确的结果，但它会一次又一次地调用该工具。我正在通过以下方式将工具返回的值添加到对话/内存中：
+
+这是我的‘add_two_numbers’函数：
+sum_tool = {
+&quot;type&quot;: &quot;function&quot;,
+&quot;function&quot;: {
+&#39;name&#39;: &#39;add_two_numbers&#39;, 
+&#39;description&#39;: &quot;&quot;&quot;此函数可用于将两个数字相加。
+需要将两个数字相加时，请使用此函数。&quot;&quot;&quot;, 
+&#39;parameters&#39;: {
+&#39;properties&#39;: {
+&#39;number_1&#39;: {
+&#39;description&#39;: &quot;要添加的第一个数字&quot;, 
+&#39;type&#39;: &#39;integer&#39;
+},
+&#39;number_2&#39;: {
+&#39;description&#39;: &quot;要添加的第二个数字&quot;, 
+&#39;type&#39;: &#39;integer&#39;
+}
+}, 
+&#39;required&#39;: [&#39;number_1&#39;,
+&#39;number_2&#39;], 
+&#39;type&#39;: &#39;object&#39;
+}
+}
+}
+
+def add_two_numbers(number_1: int, number_2: int) -&gt; str:
+&quot;&quot;&quot;
+此函数可用于将两个数字相加。当需要将两个数字相加时，请使用此函数。&#39;
+&quot;&quot;&quot;
+return str(number_1 + number_2)
+
+有人能帮我看看我遗漏了什么或做错了什么吗？
+提前谢谢。]]></description>
+      <guid>https://community.openai.com/t/the-gpt-4-tool-calls-the-tool-again-and-again-until-it-fails/830939#post_1</guid>
+      <pubDate>Thu, 20 Jun 2024 08:59:34 GMT</pubDate>
     </item>
     <item>
-      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
-      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_43</link>
-      <description><![CDATA[我找到了一种解决方法，即启用 Pure Paste App (Mac) - 现在它可以正常工作了。]]></description>
-      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_43</guid>
-      <pubDate>Thu, 20 Jun 2024 06:17:25 GMT</pubDate>
+      <title>强制助手在生成回复之前读取知识库文件</title>
+      <link>https://community.openai.com/t/force-the-assistant-to-read-the-knowledge-base-files-before-generating-the-reply/798013?page=2#post_26</link>
+      <description><![CDATA[好吧……我想我找到了一个解决方案，使用 Pinecone 创建 RAG 架构。
+在我创建 RAG 架构后，助手 API 上使用 17000 个令牌的查询仅使用了 1400 个令牌。
+我使用 Pinecone 的这个 Jupyter 笔记本作为模板Google Colab]]></description>
+      <guid>https://community.openai.com/t/force-the-assistant-to-read-the-knowledge-base-files-before-generating-the-reply/798013?page=2#post_26</guid>
+      <pubDate>Thu, 20 Jun 2024 08:52:19 GMT</pubDate>
     </item>
     <item>
-      <title>布局错误：GPT 配置右侧聊天中的巨大图标</title>
-      <link>https://community.openai.com/t/layout-bug-huge-icons-in-gpts-configuration-right-chat/768953#post_16</link>
-      <description><![CDATA[他们终于解决了这个问题。我在右侧 GPT 聊天中看不到巨大的头像。]]></description>
-      <guid>https://community.openai.com/t/layout-bug-huge-icons-in-gpts-configuration-right-chat/768953#post_16</guid>
-      <pubDate>Thu, 20 Jun 2024 06:11:10 GMT</pubDate>
+      <title>有人注意到最近几天 GPT4o 质量下降了吗？</title>
+      <link>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_11</link>
+      <description><![CDATA[从第一天起，我就觉得他们用 GPT 2 取代了 GPT 4，我的大多数提示都比 GPT 3 更糟糕，错误百出，所以我取消了订阅。在经历了所有的炒作之后，这对我来说有点令人失望。
+我不知道幕后发生了什么，但我希望问题能得到解决。]]></description>
+      <guid>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_11</guid>
+      <pubDate>Thu, 20 Jun 2024 08:46:46 GMT</pubDate>
     </item>
     <item>
-      <title>忘记密码，未收到重置电子邮件</title>
-      <link>https://community.openai.com/t/forgot-password-not-receiving-email-to-reset/168812?page=2#post_41</link>
-      <description><![CDATA[不久前在 Google 上创建了帐户，但无法设置密码。我没有收到重置密码的电子邮件。
-常见问题解答（之前链接）指出，如果您使用 Google 或 Apple 帐户创建了 OpenAI 帐户，则无法设置密码。但如果您使用密码创建了帐户，则可以链接您的 Google 或 Apple 帐户……这个问题显然不是 OpenAI 的优先事项。
-https://help.openai.com/en/articles/4936824-can-i-change-my-authentication-method]]></description>
-      <guid>https://community.openai.com/t/forgot-password-not-receiving-email-to-reset/168812?page=2#post_41</guid>
-      <pubDate>Thu, 20 Jun 2024 06:08:01 GMT</pubDate>
+      <title>列表中的编号错误（...8、9、0、1、2、3 而不是 8、9、10、11、12、13...）</title>
+      <link>https://community.openai.com/t/numbering-in-lists-bug-8-9-0-1-2-3-instead-of-8-9-10-11-12-13/809782#post_2</link>
+      <description><![CDATA[您使用的是 Safari 浏览器吗？这似乎是一个与缩放/文本对齐相关的问题，其中两位数的第一个数字在某种意义上“太靠左”而无法看到。同一列表在另一个浏览器中看起来正常。我能够在 Safari 版本 17.1（19616.2.9.11.7）上重现此问题。]]></description>
+      <guid>https://community.openai.com/t/numbering-in-lists-bug-8-9-0-1-2-3-instead-of-8-9-10-11-12-13/809782#post_2</guid>
+      <pubDate>Thu, 20 Jun 2024 08:45:43 GMT</pubDate>
     </item>
     <item>
-      <title>需要帮助：通过 API 访问我的自定义 GPT 模型</title>
-      <link>https://community.openai.com/t/need-help-accessing-my-custom-gpt-model-via-api/830541#post_2</link>
-      <description><![CDATA[嗨！
-简短回答：这是不可能的。
-自定义 GPT 仅设计为通过 ChatGPT 接口访问。它们可以与 API 交互，但不能通过外部 API 自动化。
-为此，您需要创建一个助手或在 API 之上构建其他类型的应用程序。
-您使用的模型参数仅接受此页面上列出的模型。]]></description>
-      <guid>https://community.openai.com/t/need-help-accessing-my-custom-gpt-model-via-api/830541#post_2</guid>
-      <pubDate>Thu, 20 Jun 2024 06:06:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>紧急求助：OpenAI 账户上无法解释的收费和访问问题</title>
-      <link>https://community.openai.com/t/urgent-help-needed-unexplained-charges-and-access-issues-on-openai-account/692766#post_6</link>
-      <description><![CDATA[我也经历过同样的事情。OpenAi 向我的账户收取了一笔毫无意义的费用，因为我在免费试用期结束后从未注册过任何订阅计划。我也不记得向他们提供过我的信用卡信息。我联系了 OpenAi 询问这笔 20 美元的费用，他们说找不到任何交易痕迹。我联系了我的银行提出异议，因为这种事情不能一直发生在人们身上。OpenAi 必须对此负责。]]></description>
-      <guid>https://community.openai.com/t/urgent-help-needed-unexplained-charges-and-access-issues-on-openai-account/692766#post_6</guid>
-      <pubDate>Thu, 20 Jun 2024 05:56:08 GMT</pubDate>
+      <title>OpenAI Fraud，但帮助却没有得到回应</title>
+      <link>https://community.openai.com/t/openai-fraud-yet-unresponsive-help/702226#post_8</link>
+      <description><![CDATA[由于这项技术仍处于早期阶段，因此可能存在很多可能性。用户需要了解，他们有责任构建额外的安全层来防止此类情况发生。我为那些受到影响的人感到难过。
+在接下来的几天里，我将开源一个 RAG 项目。我希望它能帮助用户，也许我们可以一起添加安全层以确保安全并避免类似事件。
+我对这个项目抱有很大的梦想，但我相信现在其他人更需要它。]]></description>
+      <guid>https://community.openai.com/t/openai-fraud-yet-unresponsive-help/702226#post_8</guid>
+      <pubDate>Thu, 20 Jun 2024 08:43:05 GMT</pubDate>
     </item>
     <item>
       <title>自定义 GPT 上的语音已更改</title>
-      <link>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_1</link>
-      <description><![CDATA[您好，在我的自定义 GPT 中，声音突然变了。它不再是 Cove，但我仍然可以在 ChatGPT-4 上听到它。还有其他人遇到过这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_1</guid>
-      <pubDate>Thu, 20 Jun 2024 05:17:24 GMT</pubDate>
+      <link>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_3</link>
+      <description><![CDATA[在我的设置中，所选的声音是 Cove，这就是我在 GPT-4 中聊天时听到的声音。这是我两天前在自定义 GPT 上听到的声音。现在，声音变了，不再是 Cove 了。]]></description>
+      <guid>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_3</guid>
+      <pubDate>Thu, 20 Jun 2024 08:38:28 GMT</pubDate>
     </item>
     <item>
-      <title>嗯...好像出了点问题。每次我上传图片时</title>
-      <link>https://community.openai.com/t/getting-hmm-something-seems-to-have-gone-wrong-everytime-im-uploading-an-image/830556#post_1</link>
-      <description><![CDATA[每次我上传图片时都会遇到这个问题。起初，我以为是复制和粘贴截图导致了这个问题，所以我保存了截图然后上传。还是一样。
-还有人遇到这个问题吗？如果我上传一些其他非图片文件，就不会遇到这个问题。
-已经过去两天了。
-  ]]></description>
-      <guid>https://community.openai.com/t/getting-hmm-something-seems-to-have-gone-wrong-everytime-im-uploading-an-image/830556#post_1</guid>
-      <pubDate>Thu, 20 Jun 2024 05:14:45 GMT</pubDate>
+      <title>无法使“体重”字段发挥作用</title>
+      <link>https://community.openai.com/t/unable-to-get-weight-field-to-work/829722#post_6</link>
+      <description><![CDATA[是的，我认为整个对话仍然被视为背景]]></description>
+      <guid>https://community.openai.com/t/unable-to-get-weight-field-to-work/829722#post_6</guid>
+      <pubDate>Thu, 20 Jun 2024 08:31:04 GMT</pubDate>
     </item>
     <item>
-      <title>需要帮助：通过 API 访问我的自定义 GPT 模型</title>
-      <link>https://community.openai.com/t/need-help-accessing-my-custom-gpt-model-via-api/830541#post_1</link>
-      <description><![CDATA[大家好，
-希望这里有人能帮助我。我已经创建并训练了一个自定义 GPT 模型，现在我想通过 API 访问它。我正在使用 OpenAI API，并且已经拥有 ChatGPT Plus 会员资格。以下是我当前情况的详细信息：
-我当前的 cURL 请求：
-
-?php
-// 初始化 cURL
-$ch = curl_init();
-
-$gpt_api_url = &quot;https://api.openai.com/v1/chat/completions&quot;; // 替换为我的自定义模型的实际 API URL
-$gpt_api_key = &quot;your_api_key&quot;; // 用我的实际 API 密钥替换
-
-// 为请求准备数据
-$json_data = json_encode([
-&quot;model&quot; =&gt; &quot;my_custom_model&quot;, // 用我的自定义模型的名称替换
-&quot;messages&quot; =&gt; [
-[
-&quot;role&quot; =&gt; &quot;user&quot;,
-&quot;content&quot; =&gt; &quot;请提供对我取消会议的商务电子邮件的详细回复。&quot; // 明确而具体的提示
-]
-],
-&quot;max_tokens&quot; =&gt; 150 // 所需令牌的数量
-]);
-
-curl_setopt($ch, CURLOPT_URL, $gpt_api_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-&#39;Content-Type: application/json&#39;,
-&#39;Authorization: Bearer &#39; . $gpt_api_key
-]);
-
-// 执行请求并存储响应
-$response = curl_exec($ch);
-
-// 检查错误
-if (curl_errno($ch)) {
-echo &#39;Error:&#39; . curl_error($ch);
-} else {
-// 处理响应
-$response_data = json_decode($response, true);
-print_r($response_data);
-}
-
-// 关闭 cURL 会话
-curl_close($ch);
-?&gt;
-
-在此处输入或粘贴代码
-
-问题：
-我收到以下错误消息：
-Array ( [error] =&gt; Array ( [message] =&gt; 模型 my_custom_model 不存在或您无权访问它。 [type] =&gt; invalid_request_error [param] =&gt; [code] =&gt; model_not_found ) )
-我的问题：
-
-
-我需要特殊权限才能访问我的自定义模型吗？
-
-
-我需要为自定义模型设置特殊 API 端点吗？
-
-
-我是否需要检查其他步骤或设置以确保我的模型可用且可访问？
-
-
-我已经确保我的模型已正确创建和部署，并且我使用了正确的 API 密钥。
-提前感谢您的帮助！
-此致，]]></description>
-      <guid>https://community.openai.com/t/need-help-accessing-my-custom-gpt-model-via-api/830541#post_1</guid>
-      <pubDate>Thu, 20 Jun 2024 05:09:43 GMT</pubDate>
+      <title>有人注意到最近几天 GPT4o 质量下降了吗？</title>
+      <link>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_10</link>
+      <description><![CDATA[几个月来我每天都在使用提示，我想我明白你为什么觉得质量下降了。事实上，对于 GPT4 或 GPT4o 来说，在解决复杂问题时，不稳定性和幻觉始终是一个大问题。每次我修改提示时，我通常会运行 50 次来测试它是否稳定。除非你说话非常小心，否则它总是不稳定的。我想，你使用 GPT 的时间越长，你就会发现 GPT 犯的错误就越多。也许这是你现在更熟悉 GPT 的一个迹象。]]></description>
+      <guid>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_10</guid>
+      <pubDate>Thu, 20 Jun 2024 08:30:31 GMT</pubDate>
     </item>
     <item>
-      <title>聊天限制太低了！GPT4 每 3 小时发送 40 条消息？</title>
-      <link>https://community.openai.com/t/chat-limits-too-low-40-message-per-3hours-on-gpt4/583037?page=5#post_107</link>
-      <description><![CDATA[API 调用实际上并不昂贵，每次回复只需 1 到 8 美分，即使它们更昂贵，也不同于一般的聊天 UTP 请求，因为 AI 调用旨在针对特定用例进行更可定制，并允许您构建自己的功能，以便内存项的功能更多是硬性设置规则，而不是可能我会这样做，也可能我不会这样做，以及 API 或需要它的人的其他几个优点]]></description>
-      <guid>https://community.openai.com/t/chat-limits-too-low-40-message-per-3hours-on-gpt4/583037?page=5#post_107</guid>
-      <pubDate>Thu, 20 Jun 2024 05:00:34 GMT</pubDate>
+      <title>有人注意到最近几天 GPT4o 质量下降了吗？</title>
+      <link>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_9</link>
+      <description><![CDATA[是的，我希望 Open AI（也许是时候进行品牌重塑了）能够更加公开地展示他们正在做的事情。他们发布了 4-o，效果很好，但后来发生了一次大规模中断，情况明显恶化。]]></description>
+      <guid>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203#post_9</guid>
+      <pubDate>Thu, 20 Jun 2024 08:28:50 GMT</pubDate>
     </item>
     <item>
-      <title>如何获得 ChatGPT，减少冗长/闭嘴</title>
-      <link>https://community.openai.com/t/how-to-get-chatgpt-so-be-less-verbose-shut-up/824589#post_4</link>
-      <description><![CDATA[我讨厌 4o，原因与本帖中提到的所有原因相同。我的自定义说明中有“不列出清单，永远不要写清单，始终以段落形式解释”，但 100% 的时间都被忽略了。我还有“最重要的是简洁”。您已经知道它会忽略这一点。
-我要求提供一张图片，它给我一份描述该图片的 5 部分文档，然后就结束了。
-更不用说，如果您说话时好像有假东西存在，它就会产生幻觉，并且很容易被劝阻而放弃真相。
-抱歉，但 4o 很糟糕。自更新以来，我对 ChatGPT 的使用率下降了至少 50%，我准备放弃我的专业帐户。OpenAI 没有履行自己的承诺。从更大的角度来看，虽然 4 和 4o 比 3.5 更好，但似乎技术已经停滞不前。]]></description>
-      <guid>https://community.openai.com/t/how-to-get-chatgpt-so-be-less-verbose-shut-up/824589#post_4</guid>
-      <pubDate>Thu, 20 Jun 2024 04:57:49 GMT</pubDate>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_154</link>
+      <description><![CDATA[
+
+
+ SomebodySysop：
+
+我找遍了所有地方，都没找到任何 PDF 转文本提取器，甚至无法识别 PDF 中是否有删除线/删除线文本，更不用说删除它了。但是，当我尝试使用模型来执行此操作时，我至少取得了一些进展：Discord
+
+
+我确实尝试过使用 Python 的一个 PDF 库（我不记得是哪一个，而且似乎已经再次删除了脚本），原则上可以识别和删除删除线文本。但是，当使用您的文档进行测试时，结果令人沮丧。因为我没有时间研究替代方案。
+
+
+
+ SomebodySysop：
+
+替代方案是首先使用模型进行文本提取。这是我以前从未考虑过的事情，但我开始对这个想法产生了兴趣。
+
+
+我个人认为，除了成本因素外，这可能不是最有效的方法。该模型很可能只会在一定限制内逐字返回文档内容而不会出现任何问题（远低于令牌限制） - 因此您必须限制输入文本。去年某个时候我尝试了类似的东西，经常观察到模型在达到一定文本量后会变慢甚至无法满足请求。
+总之，我仍然会更详细地再次研究这个问题。如果我最终找到了一些替代方案，我会告诉你。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_154</guid>
+      <pubDate>Thu, 20 Jun 2024 08:25:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_153</link>
+      <description><![CDATA[删除线/删除线文本问题可能有解决方案。
+我找遍了所有地方，都没能找到任何 PDF 转文本提取器，它甚至无法识别 PDF 中是否有删除线/删除线文本，更不用说删除它了。但是，当我尝试使用模型来做到这一点时，我至少取得了一些进展：Discord
+无法分享 ChatGPT GPT-4o 聊天，但这是它的输出（在纠正了未排除 Gemini 反复错过的相同三振出局日期后）：https://s3.us-west-2.amazonaws.com/docs.scbbs.com/docs/test/2022_Local_161_MOA_09_gpt4o.txt
+这是源 PDF：https://s3.us-west-2.amazonaws.com/docs.scbbs.com/docs/test/2022_Local_161_MOA_09.pdf
+当然，这里的问题是，我现在必须将 PDF 上传到模型中，以便它简单地识别是否有删除线字符。
+另一种方法是使用模型首先进行文本提取。这是我以前从未考虑过的事情，但我开始对这个想法产生了兴趣。
+但我担心的是——这些模型在提取准确文本而不是“幻觉”方面有多可靠？
+最令人沮丧的是，尽管这些模型被大肆宣传为“多模式”，但它们仍然难以完成从标准 PDF 中查找和消除删除线文本的简单任务。我们仍然需要担心它们不会在提取中插入自己的文本。
+我是说，说真的，让模型识别手写的鸭子图片有什么商业用途？
+如果这些东西是可靠的文本提取器，那才是真正的商业用途。今天。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_153</guid>
+      <pubDate>Thu, 20 Jun 2024 08:15:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 随时间推移而退化</title>
+      <link>https://community.openai.com/t/chatgpt-degradation-over-time/830850#post_1</link>
+      <description><![CDATA[嗨，OpenAI 那边发生了什么事？
+GPT 4-o 在推出时非常棒，我原本要与我所在公司的高管一起举办一个研讨会，但现在我不得不无限期推迟，因为它现在甚至连编辑一个简单的 markdown 文件都困难重重。它几乎没用，陷入了不断重复的循环中。总的来说，它让人感到沮丧和愚蠢。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-degradation-over-time/830850#post_1</guid>
+      <pubDate>Thu, 20 Jun 2024 08:08:55 GMT</pubDate>
     </item>
     <item>
       <title>我的助手无法读取附件</title>
-      <link>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_4</link>
-      <description><![CDATA[你和我都准确地描述了这一点：文档将被分块并添加到与你的助手所基于的任何其他矢量存储文档相同的搜索中。
-如果你想要完全理解，你必须自己进行文档提取，并将其作为临时附加指令或将其添加到线程中，并且你可以放置的长度有明显的限制。]]></description>
-      <guid>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_4</guid>
-      <pubDate>Thu, 20 Jun 2024 04:57:42 GMT</pubDate>
+      <link>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_5</link>
+      <description><![CDATA[
+我的 GPT 也无法读取文件。
+以前它可以读取和汇总文件，但现在不行了。
+当我从手机上传 PDF 文件时，它会读取并总结它，但是
+当我从 Windows PC 上传 PDF 文件时，我得到的响应如上图所示。
+为什么会这样？]]></description>
+      <guid>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_5</guid>
+      <pubDate>Thu, 20 Jun 2024 07:56:10 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI 的 Assistant API 响应中的【N†source】是什么？</title>
-      <link>https://community.openai.com/t/what-are-n-source-in-openais-assistant-api-response/513857#post_16</link>
-      <description><![CDATA[很高兴听到这个消息。我确实发现有几次它漏掉了，所以最可靠的方法是从 API 响应中解析出它。]]></description>
-      <guid>https://community.openai.com/t/what-are-n-source-in-openais-assistant-api-response/513857#post_16</guid>
-      <pubDate>Thu, 20 Jun 2024 04:54:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的助手无法读取附件</title>
-      <link>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_3</link>
-      <description><![CDATA[感谢您的回复。这意味着用户无法再上传文件来请求助手进行分析。即使上传的文件不是为了这个目的，它们也会被理解为知识？]]></description>
-      <guid>https://community.openai.com/t/my-assistant-could-not-read-the-attached-file/830312#post_3</guid>
-      <pubDate>Thu, 20 Jun 2024 04:41:17 GMT</pubDate>
+      <title>ChatGPT 4o 语音功能无法使用</title>
+      <link>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=10#post_205</link>
+      <description><![CDATA[我每周都会更新此帖子，看看他们谈论了多少个“周”]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=10#post_205</guid>
+      <pubDate>Thu, 20 Jun 2024 07:44:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
