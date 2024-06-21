@@ -4,231 +4,345 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 21 Jun 2024 15:26:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2024 18:25:37 GMT</lastBuildDate>
+    <item>
+      <title>Python APi：chat.completions.create 返回 None</title>
+      <link>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_1</link>
+      <description><![CDATA[我们在通过 python SDK 调用聊天完成端点时遇到了一个复杂的问题：
+
+最近，我们有时会收到 None，而响应应该是 ChatCompletion 类型
+该问题仅在完全相同的输入上偶尔发生，因此只能部分重现
+我们在有问题的情况下同时调用 API，例如今天有 100 个并发请求
+模型：gpt-4-turbo、gpt-4o
+有趣的是，我从来没有能够在本地重现，但这个问题在我们部署 GCP 的环境中经常发生（fastAPI + GCP CloudRun）
+
+经过一些简化，我们的代码如下所示：
+import asyncio
+
+from openai import AsyncOpenAI
+
+async def generate_content(): 
+client = AsyncOpenAI()
+return await client.chat.completions.create(
+model=&#39;gpt-4o&#39;, 
+messages=..., 
+stream=False
+)
+
+contents = await asyncio.gather(*(generate_content() for _ in range(100))
+
+
+在此示例中，contents 包含无，而它应该只包含 ChatCompletition 的实例。
+对潜在问题或调试方向有什么想法吗？
+非常感谢！]]></description>
+      <guid>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 18:23:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何获取信用余额信息</title>
+      <link>https://community.openai.com/t/how-to-get-credit-balance-information/833248#post_3</link>
+      <description><![CDATA[您可以看到网站如何获取余额。
+获取 https://api.openai.com/dashboard/billing/credit_grants
+{
+&quot;object&quot;: &quot;credit_summary&quot;,
+&quot;total_granted&quot;: 00.0,
+&quot;total_used&quot;: 00.00,
+&quot;total_available&quot;: 000.00,
+&quot;total_paid_available&quot;: 000.00,
+&quot;grants&quot;: {
+&quot;object&quot;: &quot;list&quot;,
+&quot;data&quot;: [...
+
+此 API 需要会话密钥，可通过 openid OAuth2 密钥从 https://api.openai.com/dashboard/onboarding/login 获取，需要“不是机器人”才能使用 https://auth0.openai.com/ 通过网络发行。
+所有这些我都可以用我刚刚运行的脚本来完成；会话密钥还需要做一些事情，比如列出所有组织和项目、列出线程或查找向量存储关联，但会将原始实现留给你。
+如果可以通过 API 密钥获取余额，则可以立即获取被盗 API 密钥的值……]]></description>
+      <guid>https://community.openai.com/t/how-to-get-credit-balance-information/833248#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 18:17:55 GMT</pubDate>
+    </item>
     <item>
       <title>我如何从我的 Web 应用程序链接到我在助手生成器中创建的助手，或者至少在我的应用程序中复制它？</title>
-      <link>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_1</link>
-      <description><![CDATA[过去两天，我一直在尝试为公司网站制作一个支持聊天机器人，但我在各个方面都遇到了困难。
+      <link>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_4</link>
+      <description><![CDATA[如果对您来说太复杂，您可以查看我的托管服务GitHub - marcolivierbouch/OpenAssistantGPT：一个开源 Saas，用于使用 OpenAI 的 Assistant API 制作/构建/创建聊天机器人，您可以将其添加到您的网站。（不发送真实链接，否则将被禁止）
+或者您可以查看这个 openai 示例：OpenAI Assistants Quickstart – Vercel
+还有这个 vercel/ai sdk 示例：AI SDK UI：OpenAI 助手]]></description>
+      <guid>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_4</guid>
+      <pubDate>Fri, 21 Jun 2024 18:17:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何从我的 Web 应用程序链接到我在助手生成器中创建的助手，或者至少在我的应用程序中复制它？</title>
+      <link>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_3</link>
+      <description><![CDATA[非常感谢您花时间帮助我！我尝试查看 vercels 模板，但它太复杂了。您认为哪些文件与我的用例相关？]]></description>
+      <guid>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 18:12:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手中的图表不起作用</title>
+      <link>https://community.openai.com/t/graphs-in-assistants-not-working/832145#post_5</link>
+      <description><![CDATA[您好，
+我不知道您的问题，但在我这边，如果我上传 CSV 文件并要求助手使用数据生成图表，它就可以正常工作！
+您能否分享有关您的问题的更多信息，以便我们提供帮助？
+]]></description>
+      <guid>https://community.openai.com/t/graphs-in-assistants-not-working/832145#post_5</guid>
+      <pubDate>Fri, 21 Jun 2024 18:10:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何从我的 Web 应用程序链接到我在助手生成器中创建的助手，或者至少在我的应用程序中复制它？</title>
+      <link>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_2</link>
+      <description><![CDATA[你好！
+我已经为此工作了 5-6 个月！我不会撒谎，这并不容易，但我是这样做的！
 
-我创建了一个助手，但似乎无法通过应用程序中的 ID 链接它
-我无法让助手理解线程上下文；助手被问到的每个问题对它来说似乎都是一个全新的问题
+创建一个线程
 
-代码：
-从“openai”导入 OpenAI；
 
-const openai = new OpenAI({
-apiKey: process.env.OPENAI_API_KEY,
-});
+ const threadId = data.threadId != &#39;&#39; ? data.threadId : (await openai.beta.threads.create({})).id
 
-export async function POST(req) {
-const { messages } = await req.json();
-console.log(messages);
 
-messages.forEach((message) =&gt; {
-console.log(message.role);
-console.log(message.content);
-});
 
-try {
-const response = await openai.chat.completions.create({
-model: &quot;gpt-4o&quot;,
-// model: &quot;asst_ROx9RsOPl0DpbJdu6sEP5B6h&quot;,
-messages: [
-{ role: &quot;user&quot;, content: messages[messages.length - 1].content },
-],
-});
+在线程中创建一条消息
 
-const message = response.choices[0].message;
-return new Response(JSON.stringify({ message }), { status: 200 });
-} catch (error) {
-console.error(&quot;与 OpenAI 通信时出错：&quot;, error);
-return new Response(JSON.stringify({ error: &quot;内部服务器错误&quot; }), {
-status: 500,
-});
+
+ const createdMessage = await openai.beta.threads.messages.create(threadId!, {role: &#39;user&#39; as &#39;user&#39; | &#39;assistant&#39;, content: data.message.toString() });
+
+
+
+运行流并将其转发到 ui
+
+
+const runStream = openai.beta.threads.runs.stream(threadId!
+
+为了保留线程的上下文，UI 需要保存它并在每条消息时将其重新发送到 API，而不是像在代码中那样在每条消息中重新创建它。
+还请注意，在您的代码中，您每次在 put 上重新创建助手时都应该只创建一个，并且每个人都使用相同的助手。
+您可以在此处查看我的完整代码：
+
+
+github.com
+
+
+marcolivierbouch/OpenAssistantGPT/blob/main/app/api/chatbots/[chatbotId]/chat/route.ts
+import { db } 来自“@/lib/db”
+从“openai”导入 OpenAI
+
+从“zod”导入 { z }
+从“@/lib/subscription”导入 { getUserSubscriptionPlan };
+从“@/lib/assistant-response”导入 { AssistantResponse };
+从“zod-form-data”导入 { zfd };
+从“openai/resources/beta/threads/messages.mjs”导入 { Message };
+从“@/lib/validations/codeInterpreter”导入 { fileTypesFullList };
+从“@/lib/validations/fileSearch”导入 { fileTypes as searchFile };
+从“buffer”导入 { File };
+
+导出 const maxDuration = 300;
+
+const routeContextSchema = z.object({
+params: z.object({
+chatbotId: z.string(),
+}),
+})
+
+
+
+此文件已被截断。 显示原文
+
+
+
+
+
+您还可以查看此示例：GitHub - vercel/ai-chatbot：由 Vercel 构建的功能齐全、可破解的 Next.js AI 聊天机器人]]></description>
+      <guid>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_2</guid>
+      <pubDate>Fri, 21 Jun 2024 18:05:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>“问问史蒂夫”将 LLM 集成到 Chrome 中，就像 Google 应该做的那样 - 试试吧！</title>
+      <link>https://community.openai.com/t/ask-steve-integrates-llms-into-chrome-the-way-google-should-have-try-it-out/833308#post_1</link>
+      <description><![CDATA[大家好 -
+我构建了一个免费的 Chrome 扩展程序，将 LLM 直接集成到浏览器中，以帮助您更好、更快地完成工作 - 它就像适用于 Chrome 的 Github Copilot。
+
+与任何网页或选择聊天
+在任何网页或选择上运行可重复使用的提示
+获取编写和重写电子邮件、社交媒体帖子等的帮助
+选择任何文本并向 Steve 寻求帮助
+将 AI 按钮添加到任何页面，一键访问帮助！
+
+了解更多信息并试用这里 - 有适用于 GPT-3.5 和 4o 的模板。
+我很乐意收到任何反馈！
+谢谢，- ]]></description>
+      <guid>https://community.openai.com/t/ask-steve-integrates-llms-into-chrome-the-way-google-should-have-try-it-out/833308#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 17:54:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_30</link>
+      <description><![CDATA[我们注意到了同样的问题，昨天它运行正常，突然在太平洋标准时间上午 6:34 左右，当我尝试使用图像运行分析时，我不断遇到以下问题，我已经将此作为问题提交给 OAI，希望他们尽快修复它]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_30</guid>
+      <pubDate>Fri, 21 Jun 2024 17:53:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4o 在代码相关任务上表现不佳！为什么？</title>
+      <link>https://community.openai.com/t/gpt-4o-performing-poorly-for-code-related-tasks-why/805602?page=2#post_40</link>
+      <description><![CDATA[我制作了一个自定义 GPT、PHP 助手 (GPT-4)，直到昨天它都运行良好。它已自动“升级”到 GPT-4o，现在完全没用了！每条规则都被忽略，动态生成的代码被固定或静态代码替换，即使其中一条规则是不更改任何代码……
+有没有办法将自定义 GPT 的模型再次设置为 GPT-4？
+如果没有，我现在将停止使用 OpenAI，他们的旗舰产品可能适合其他方面，但对于编码建议来说绝对不行！]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-performing-poorly-for-code-related-tasks-why/805602?page=2#post_40</guid>
+      <pubDate>Fri, 21 Jun 2024 17:51:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ruby 代码中的未授权 401</title>
+      <link>https://community.openai.com/t/unauthorized-401-from-ruby-code/833298#post_1</link>
+      <description><![CDATA[不确定为什么我会收到未授权信息。这是 Ruby 代码：
+require &#39;dotenv&#39;
+require &#39;openai&#39;
+
+Dotenv.load(&#39;app.env&#39;)
+puts ENV[&#39;GPT_KEY&#39;] # 这个工作正常
+client = OpenAI::Client.new(api_key: ENV[&#39;GPT_KEY&#39;])
+
+response = client.completions(
+parameters: {
+model: &quot;text-davinci-002&quot;,
+prompt: &quot;Hello, world!&quot;,
+max_tokens: 5
 }
-}
+)
 
-export async function PUT(req) {
-const { messages } = await req.json();
+puts response.code, response.body
 
-const assistant = await openai.beta.assistants.create({
-name: &quot;支持代理&quot;,
-description:
-&quot;您是客户支持代理。您的工作是回答有关广播和产品的具体问题。您应该始终假设您正在与客户交谈。&quot;,
-model: &quot;gpt-4o&quot;,
-});
+我刚刚创建了这个密钥。密钥显示正常。
+我该如何修复？为什么返回 401？]]></description>
+      <guid>https://community.openai.com/t/unauthorized-401-from-ruby-code/833298#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 17:50:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Assistant API 构建聊天机器人的最佳工具 - OpenAssistantGPT</title>
+      <link>https://community.openai.com/t/best-tool-to-build-chatbot-using-assistant-api-openassistantgpt/610757#post_20</link>
+      <description><![CDATA[您好，
+您能分享一下您正在寻找的缺失功能吗？我在这里听取任何建议！
+您也可以在这里查看竞争对手！
 
-const thread = await openai.beta.threads.create();
 
-const message = await openai.beta.threads.messages.create(thread.id, {
-role: &quot;user&quot;,
-content: messages[messages.length - 1].content,
-});
 
-// 我们使用流 SDK 助手创建一个带有
-// 流的运行。 SDK 提供了有用的事件监听器来处理
-// 流式响应。
+DocsBot AI
 
-let run = await openai.beta.threads.runs.createAndPoll(thread.id, {
-// assistant_id: assistant.id,
-assistant_id: &quot;asst_ROx9RsOPl0DpbJdu6sEP5B6h&quot;,
-instructions: &quot;请将用户称为 Master。&quot;,
-});
 
-let currentMessage = &quot;内部错误，抱歉&quot;;
 
-if (run.status === &quot;completed&quot;) {
-const messages = await openai.beta.threads.messages.list(run.thread_id);
-currentMessage = messages.data[0].content[0].text.value;
-} else {
-console.log(run.status);
-}
+DocsBot AI - 根据文档定制聊天机器人
+根据文档和内容定制 ChatGPT 机器人，用于支持、售前、研究等。
 
-// 我认为当您使用控制台时，这些就是一些废话
-// const run = openai.beta.threads.runs
-// .stream(thread.id, {
-// assistant_id: assistant.id,
-// })
-// .on(&quot;textCreated&quot;, (text) =&gt;
-// process.stdout.write(&quot;\nassistant &gt; &quot; + text.value + &quot;\n&quot;),
-// )
-// .on(&quot;textDelta&quot;, (textDelta, snap) =&gt; {
-// process.stdout.write(textDelta.value);
-// })
-// .on(&quot;toolCallCreated&quot;, (toolCall) =&gt;
-// process.stdout.write(`\nassistant &gt; ${toolCall.type}\n\n`),
-// );
 
-返回新的响应（
-JSON.stringify（{ 消息：{ 角色：“Bot”，内容：currentMessage } }），
-{
-状态：200，
-}，
-）；
-}
+
+
+
+
+
+
+Chatbase |为您的数据自定义 ChatGPT
+
+
+
+Chatbase |为您的数据自定义 ChatGPT
+从您的知识库构建 AI 聊天机器人并将其添加到您的网站或通过我们的 API 与其交互。
+
+
+
+
+
+
+
+
+botpress.com
+
+
+
+Botpress 定价 | 按使用量付费
+Botpress 提供慷慨的免费套餐，无需预先承诺，因此入门十分简单。我们的按使用付费定价随着您的成长而扩展。开始免费构建。
+
+
+
+
+
+
+
+
+CustomGPT – 2023 年 3 月 20 日
+
+
+
+定价 - CustomGPT
+CustomGPT 计划和定价
+
+
+
 
 ]]></description>
-      <guid>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 15:22:21 GMT</pubDate>
+      <guid>https://community.openai.com/t/best-tool-to-build-chatbot-using-assistant-api-openassistantgpt/610757#post_20</guid>
+      <pubDate>Fri, 21 Jun 2024 17:49:02 GMT</pubDate>
     </item>
     <item>
-      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
-      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_27</link>
-      <description><![CDATA[我仍然遇到此问题。删除了存储中的所有矢量存储和文件，但新助手仍然存在问题。
-对此有任何官方消息吗？]]></description>
-      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_27</guid>
-      <pubDate>Fri, 21 Jun 2024 15:22:12 GMT</pubDate>
+      <title>AGI路线图讨论---</title>
+      <link>https://community.openai.com/t/agi-roadmap-discussion/832747#post_2</link>
+      <description><![CDATA[感谢分享，如果你不想看完所有 30 分钟，这里总结了“6 个关键方法”：
+
+
+
+
+
+1.
+组合性：增强 LLM 以更好地将推理块拼凑成更复杂的解决方案。
+
+
+
+
+
+2.
+验证器：使用外部系统或验证器帮助 LLM 定位和验证正确的推理链或程序。
+
+
+
+3.
+多样本学习：提供大量示例，帮助 LLM 更好地学习如何解决特定问题任务。
+
+
+
+4.
+测试时微调：使用合成示例主动调整模型，以提高新任务的性能。
+
+
+
+5.
+联合训练：将来自其他神经网络的专业知识嵌入到 LLM 中。
+
+
+
+6.
+隐性数据：将专家未说出口的经验知识纳入 AI 训练。
+
+
+
+]]></description>
+      <guid>https://community.openai.com/t/agi-roadmap-discussion/832747#post_2</guid>
+      <pubDate>Fri, 21 Jun 2024 17:44:55 GMT</pubDate>
     </item>
     <item>
-      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
-      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_26</link>
-      <description><![CDATA[不幸的是，错误仍然存​​在]]></description>
-      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_26</guid>
-      <pubDate>Fri, 21 Jun 2024 15:22:10 GMT</pubDate>
+      <title>我的第一篇 AI 论文发表在 arXiv 上！</title>
+      <link>https://community.openai.com/t/my-first-ai-paper-published-on-arxiv/828506#post_3</link>
+      <description><![CDATA[恭喜！我记得在我上一份人力资源技术工作中，当我们分析简历上的技能时，内部人工智能团队警告我们，word2vec 和其他嵌入模型存在很多内置的性别和种族偏见。]]></description>
+      <guid>https://community.openai.com/t/my-first-ai-paper-published-on-arxiv/828506#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 17:41:45 GMT</pubDate>
     </item>
     <item>
-      <title>Dall-e 不再在 ChatGPT 上生成图像 6/20/24</title>
-      <link>https://community.openai.com/t/dall-e-not-generating-images-anymore-on-chatgpt-6-20-24/823820#post_3</link>
-      <description><![CDATA[iOS 手机上也是一样……我正在使用一个利用 Dall-E 功能的机器人，但由于 Dall-E 的问题，它无法输出图像……]]></description>
-      <guid>https://community.openai.com/t/dall-e-not-generating-images-anymore-on-chatgpt-6-20-24/823820#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 15:21:05 GMT</pubDate>
+      <title>如何获取信用余额信息</title>
+      <link>https://community.openai.com/t/how-to-get-credit-balance-information/833248#post_2</link>
+      <description><![CDATA[欢迎来到开发者论坛！
+我认为还没有办法通过 API 来获取它……现在呢？你可能只需要时不时地检查一下控制台或尝试为此做计划？
+希望这能有所帮助！]]></description>
+      <guid>https://community.openai.com/t/how-to-get-credit-balance-information/833248#post_2</guid>
+      <pubDate>Fri, 21 Jun 2024 17:40:32 GMT</pubDate>
     </item>
     <item>
-      <title>对话被打断，无法继续下去</title>
-      <link>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_3</link>
-      <description><![CDATA[这正是我所想做的。非常感谢您的建议。]]></description>
-      <guid>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 15:11:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>Azure OpenAI 与 Azure Databricks</title>
-      <link>https://community.openai.com/t/azure-openai-with-azure-databricks/833083#post_1</link>
-      <description><![CDATA[大家好，
-我正在使用 Azure Open AI 并创建聊天机器人来查询 Databricks 中的表。
-配置和简单查询效果很好。我在以下情况下遇到问题。
-用户输入一个长提示。聊天机器人将其分成多个短语，并使用类似运算符在数据库查询中搜索它。由于没有合适的匹配，它不会返回结果。
-例如：用户输入“尝试使用 460 伏电压为 CAB 供电，但我们只得到 260 伏电压。该组件是单相的”。
-目前，聊天机器人所做的是查询字段为“LIKE ‘%460 volts%’ 或 LIKE ‘%power up a CAB%’ OR ‘%only getting 260 volts%’
-我想要做的是搜索像 &#39;%volts% 或 ‘%power%’ 这样的关键词。有没有有效的方法/建议替代方法？]]></description>
-      <guid>https://community.openai.com/t/azure-openai-with-azure-databricks/833083#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 15:07:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dall e 无法为模拟数据创建简历图像，content_policy_violation，</title>
-      <link>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_3</link>
-      <description><![CDATA[您有解决方案吗？我该如何实现我想要做的事情？比如，如果它生成模拟数据，那么它也会起作用]]></description>
-      <guid>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 15:03:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 重复计费问题，无法再访问 plus</title>
-      <link>https://community.openai.com/t/chatgpt-duplicate-billing-issue-no-longer-have-access-to-plus/833065#post_1</link>
-      <description><![CDATA[我的 ChatGPT 帐户显示我尚未收到 2024 年 6 月的发票。但是，当我查看我的信用卡对账单时，它清楚地表明 OpenAI 于 2024 年 6 月 10 日向我的卡收取了 20 美元，现在正试图在 6 月 13 日再次收费。但由于 ChatGPT 认为它没有向我收费，因此它不再允许我访问 plus 订阅。请帮忙。我试过所有的客户支持机器人，但都没有帮助。如果你们拿了我的钱却不给我服务，我为什么要为服务付费……]]></description>
-      <guid>https://community.openai.com/t/chatgpt-duplicate-billing-issue-no-longer-have-access-to-plus/833065#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 14:56:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 csv 源的 Azure Open AI 聊天机器人在语义搜索中存在问题</title>
-      <link>https://community.openai.com/t/azure-open-ai-chat-bot-using-csv-source-has-issues-in-semantic-search/827594#post_8</link>
-      <description><![CDATA[在网上找到了一些视频…谢谢！]]></description>
-      <guid>https://community.openai.com/t/azure-open-ai-chat-bot-using-csv-source-has-issues-in-semantic-search/827594#post_8</guid>
-      <pubDate>Fri, 21 Jun 2024 14:54:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gemini 上下文缓存功能</title>
-      <link>https://community.openai.com/t/gemini-context-caching-feature/832603#post_3</link>
-      <description><![CDATA[也许他们已经添加了它 - 而你无论如何都要付费……]]></description>
-      <guid>https://community.openai.com/t/gemini-context-caching-feature/832603#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 14:48:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
-      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_3</link>
-      <description><![CDATA[Hallo troof
-感谢您的有趣回答以及使用音乐和艺术来分析情感模式的想法。这绝对是一种令人兴奋的方法，可能是一个有价值的补充 
-然而，我们的方法旨在首先定义理性情感模式的特定概念，这些概念针对人工智能系统的特定感知和处理能力进行量身定制。这些概念使人工智能能够识别、理解和应用情感模式。这对于确保人工智能能够以有意义的方式解释呈现给它的数据和事实非常重要。
-一旦这些基础到位，音乐和视觉艺术作品等艺术表现形式就可能成为进一步完善和测试所捕获模式的绝佳方式。明确定义的理性概念与通过艺术传达的微妙复杂模式相结合，可能成为提高人工智能系统情商的一种特别有效的方法。
-再次感谢您的意见。我期待进一步的讨论和想法！ 
-此致敬意，
-Tina_ChiKa]]></description>
-      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 14:38:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>记忆虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我没有能力记住会话之间过去的互动</title>
-      <link>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_2</link>
-      <description><![CDATA[嗨！
-你之前使用过记忆功能吗？例如，我仍然无法使用。
-如果是，那么这可能是一个暂时的错误，很快就会消失（希望如此）。]]></description>
-      <guid>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 14:26:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>对话被打断，无法继续下去</title>
-      <link>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_2</link>
-      <description><![CDATA[如果聊天时间过长，继续聊天的唯一方法就是删去不必要的部分。
-我建议请求导出数据并创建周到的总结，然后您可以将其用作新的对话开场白。
-希望这对您有所帮助。]]></description>
-      <guid>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 14:25:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>记忆虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我没有能力记住会话之间过去的互动</title>
-      <link>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_1</link>
-      <description><![CDATA[突然间，它似乎无法记住对话。我得到了这样的回应。“虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我无法记住会话之间过去的互动。”发生了什么？]]></description>
-      <guid>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 14:23:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>取消 ChatGPT 帐户与 Outlook 登录的链接”</title>
-      <link>https://community.openai.com/t/unlink-chatgpt-account-from-outlook-login/832999#post_1</link>
-      <description><![CDATA[大家好，
-我正在尝试登录从 OpenAI 网站下载的 Mac 版 ChatGPT 应用程序，但没有使用我的 Outlook 帐户登录的选项。
-我需要帮助来启用 Outlook 登录选项或取消链接 Outlook 登录并为我的电子邮件设置密码，以便我可以访问该应用程序，同时保留我的 Plus 订阅和所有数据。
-有什么解决办法吗？
-谢谢]]></description>
-      <guid>https://community.openai.com/t/unlink-chatgpt-account-from-outlook-login/832999#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 14:18:54 GMT</pubDate>
+      <title>新的屏幕共享和摄像机功能</title>
+      <link>https://community.openai.com/t/new-screen-sharing-and-video-camera-features/756423#post_13</link>
+      <description><![CDATA[仍在关注。这里有更新吗？]]></description>
+      <guid>https://community.openai.com/t/new-screen-sharing-and-video-camera-features/756423#post_13</guid>
+      <pubDate>Fri, 21 Jun 2024 17:37:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
