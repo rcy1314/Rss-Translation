@@ -4,166 +4,231 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 21 Jun 2024 12:34:50 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2024 15:26:44 GMT</lastBuildDate>
     <item>
-      <title>在 Windows 中使用 VS Code 和 Node.js 时 OpenAI API 密钥出现问题</title>
-      <link>https://community.openai.com/t/issue-with-openai-api-key-while-using-it-in-windows-using-vs-code-and-node-js/832635#post_2</link>
-      <description><![CDATA[
+      <title>我如何从我的 Web 应用程序链接到我在助手生成器中创建的助手，或者至少在我的应用程序中复制它？</title>
+      <link>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_1</link>
+      <description><![CDATA[过去两天，我一直在尝试为公司网站制作一个支持聊天机器人，但我在各个方面都遇到了困难。
 
+我创建了一个助手，但似乎无法通过应用程序中的 ID 链接它
+我无法让助手理解线程上下文；助手被问到的每个问题对它来说似乎都是一个全新的问题
 
- a.buck.fittie:
+代码：
+从“openai”导入 OpenAI；
 
-这是我第一次使用这项服务
+const openai = new OpenAI({
+apiKey: process.env.OPENAI_API_KEY,
+});
 
+export async function POST(req) {
+const { messages } = await req.json();
+console.log(messages);
 
-您必须购买帐户信用才能使用 API。它不是免费服务，与 ChatGPT 是分开的，并且不再有后付费账单。
-https://platform.openai.com/settings/organization/billing/overview]]></description>
-      <guid>https://community.openai.com/t/issue-with-openai-api-key-while-using-it-in-windows-using-vs-code-and-node-js/832635#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 12:33:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理欢迎信息</title>
-      <link>https://community.openai.com/t/assistant-welcome-message/832835#post_1</link>
-      <description><![CDATA[创建新线程时，我总是希望助手为我写一段特定的欢迎文字（它会根据第一条消息确定用户的语言，自动翻译该文字）。
-我尝试将其放入助手的说明中，并且成功了，但当用户的第一条消息自动调用函数时，不会出现此欢迎消息。我该怎么办？我可以强制将其添加到线程中，但我无法告诉它自动翻译它]]></description>
-      <guid>https://community.openai.com/t/assistant-welcome-message/832835#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 12:30:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>无图像生成 DALL-E</title>
-      <link>https://community.openai.com/t/no-image-generation-dall-e/831887#post_6</link>
-      <description><![CDATA[您不需要使用 DALL-E GPT 来制作图像。您可以直接询问普通的 ChatGPT。]]></description>
-      <guid>https://community.openai.com/t/no-image-generation-dall-e/831887#post_6</guid>
-      <pubDate>Fri, 21 Jun 2024 12:29:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>无图像生成 DALL-E</title>
-      <link>https://community.openai.com/t/no-image-generation-dall-e/831887#post_5</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/no-image-generation-dall-e/831887#post_5</guid>
-      <pubDate>Fri, 21 Jun 2024 12:20:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>无图像生成 DALL-E</title>
-      <link>https://community.openai.com/t/no-image-generation-dall-e/831887#post_4</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/no-image-generation-dall-e/831887#post_4</guid>
-      <pubDate>Fri, 21 Jun 2024 12:20:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>无图像生成 DALL-E</title>
-      <link>https://community.openai.com/t/no-image-generation-dall-e/831887#post_3</link>
-      <description><![CDATA[是的，我是订阅者。
-自定义功能一直处于活动状态
+messages.forEach((message) =&gt; {
+console.log(message.role);
+console.log(message.content);
+});
 
-现在，看一个最近的简单例子
-这就是问题所在]]></description>
-      <guid>https://community.openai.com/t/no-image-generation-dall-e/831887#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 12:19:17 GMT</pubDate>
+try {
+const response = await openai.chat.completions.create({
+model: &quot;gpt-4o&quot;,
+// model: &quot;asst_ROx9RsOPl0DpbJdu6sEP5B6h&quot;,
+messages: [
+{ role: &quot;user&quot;, content: messages[messages.length - 1].content },
+],
+});
+
+const message = response.choices[0].message;
+return new Response(JSON.stringify({ message }), { status: 200 });
+} catch (error) {
+console.error(&quot;与 OpenAI 通信时出错：&quot;, error);
+return new Response(JSON.stringify({ error: &quot;内部服务器错误&quot; }), {
+status: 500,
+});
+}
+}
+
+export async function PUT(req) {
+const { messages } = await req.json();
+
+const assistant = await openai.beta.assistants.create({
+name: &quot;支持代理&quot;,
+description:
+&quot;您是客户支持代理。您的工作是回答有关广播和产品的具体问题。您应该始终假设您正在与客户交谈。&quot;,
+model: &quot;gpt-4o&quot;,
+});
+
+const thread = await openai.beta.threads.create();
+
+const message = await openai.beta.threads.messages.create(thread.id, {
+role: &quot;user&quot;,
+content: messages[messages.length - 1].content,
+});
+
+// 我们使用流 SDK 助手创建一个带有
+// 流的运行。 SDK 提供了有用的事件监听器来处理
+// 流式响应。
+
+let run = await openai.beta.threads.runs.createAndPoll(thread.id, {
+// assistant_id: assistant.id,
+assistant_id: &quot;asst_ROx9RsOPl0DpbJdu6sEP5B6h&quot;,
+instructions: &quot;请将用户称为 Master。&quot;,
+});
+
+let currentMessage = &quot;内部错误，抱歉&quot;;
+
+if (run.status === &quot;completed&quot;) {
+const messages = await openai.beta.threads.messages.list(run.thread_id);
+currentMessage = messages.data[0].content[0].text.value;
+} else {
+console.log(run.status);
+}
+
+// 我认为当您使用控制台时，这些就是一些废话
+// const run = openai.beta.threads.runs
+// .stream(thread.id, {
+// assistant_id: assistant.id,
+// })
+// .on(&quot;textCreated&quot;, (text) =&gt;
+// process.stdout.write(&quot;\nassistant &gt; &quot; + text.value + &quot;\n&quot;),
+// )
+// .on(&quot;textDelta&quot;, (textDelta, snap) =&gt; {
+// process.stdout.write(textDelta.value);
+// })
+// .on(&quot;toolCallCreated&quot;, (toolCall) =&gt;
+// process.stdout.write(`\nassistant &gt; ${toolCall.type}\n\n`),
+// );
+
+返回新的响应（
+JSON.stringify（{ 消息：{ 角色：“Bot”，内容：currentMessage } }），
+{
+状态：200，
+}，
+）；
+}
+
+]]></description>
+      <guid>https://community.openai.com/t/how-can-i-link-to-an-assistant-i-made-in-the-assistant-builder-from-my-web-application-or-at-least-replicate-it-in-my-app/833112#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 15:22:21 GMT</pubDate>
     </item>
     <item>
-      <title>新团队用户无法加入团队</title>
-      <link>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_8</link>
-      <description><![CDATA[阅读此帖子时，我一直在问自己，“我可以邀请已经拥有 Chatgpt 免费会员帐户的成员加入我的
-Chatgpt 团队帐户吗？”我会向他拥有免费会员资格的同一电子邮件发送邀请。谢谢。]]></description>
-      <guid>https://community.openai.com/t/new-team-users-cant-join-the-team/705318#post_8</guid>
-      <pubDate>Fri, 21 Jun 2024 12:18:36 GMT</pubDate>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_27</link>
+      <description><![CDATA[我仍然遇到此问题。删除了存储中的所有矢量存储和文件，但新助手仍然存在问题。
+对此有任何官方消息吗？]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_27</guid>
+      <pubDate>Fri, 21 Jun 2024 15:22:12 GMT</pubDate>
     </item>
     <item>
-      <title>助理线程抛出 AceInternalException</title>
-      <link>https://community.openai.com/t/assistant-thread-throwing-aceinternalexception/712921#post_3</link>
-      <description><![CDATA[生成单个 word 文档 (docx) 后，我遇到了同样的问题，我怀疑这与文件流未正确关闭有关。
-此错误破坏了对话的上下文，我解决这个问题的唯一方法是开始新的对话。
-我可以要求 GPT 生成提示以将上下文转移到新对话。
-生成下一个文档后，我发现自己又处于同样的情况。]]></description>
-      <guid>https://community.openai.com/t/assistant-thread-throwing-aceinternalexception/712921#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 12:16:54 GMT</pubDate>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_26</link>
+      <description><![CDATA[不幸的是，错误仍然存​​在]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_26</guid>
+      <pubDate>Fri, 21 Jun 2024 15:22:10 GMT</pubDate>
     </item>
     <item>
-      <title>提示语言 英语 或 == 响应语言</title>
-      <link>https://community.openai.com/t/prompt-language-english-or-response-language/832770#post_2</link>
-      <description><![CDATA[嗨！
-我从未明确测量过性能差异，但在对话中引入第二种语言时，您会遇到 ChatGPT 以两种语言中的一种进行响应的问题。为了简单起见，我会尽量避免不必要的复杂性，并在以后需要时单独添加翻译词典/知识文件。
-您对行业特定术语在每种语言中通常没有直接对应词这一常见问题有何经验？]]></description>
-      <guid>https://community.openai.com/t/prompt-language-english-or-response-language/832770#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 12:13:41 GMT</pubDate>
+      <title>Dall-e 不再在 ChatGPT 上生成图像 6/20/24</title>
+      <link>https://community.openai.com/t/dall-e-not-generating-images-anymore-on-chatgpt-6-20-24/823820#post_3</link>
+      <description><![CDATA[iOS 手机上也是一样……我正在使用一个利用 Dall-E 功能的机器人，但由于 Dall-E 的问题，它无法输出图像……]]></description>
+      <guid>https://community.openai.com/t/dall-e-not-generating-images-anymore-on-chatgpt-6-20-24/823820#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 15:21:05 GMT</pubDate>
     </item>
     <item>
-      <title>聊天完成文本格式</title>
-      <link>https://community.openai.com/t/chat-completion-text-format/832622#post_2</link>
-      <description><![CDATA[看起来像是来自 sympy python 模块的 latex 输出？]]></description>
-      <guid>https://community.openai.com/t/chat-completion-text-format/832622#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 12:07:05 GMT</pubDate>
+      <title>对话被打断，无法继续下去</title>
+      <link>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_3</link>
+      <description><![CDATA[这正是我所想做的。非常感谢您的建议。]]></description>
+      <guid>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 15:11:48 GMT</pubDate>
     </item>
     <item>
-      <title>通过对话自动更新自定义 GPT 的指令？</title>
-      <link>https://community.openai.com/t/automatically-update-custom-gpts-instructions-via-conversation/832019#post_3</link>
-      <description><![CDATA[感谢您的及时回复。如果可能的话，请将此视为功能请求，我认为它可以为自定义 GPT 的迭代改进提供巨大价值。]]></description>
-      <guid>https://community.openai.com/t/automatically-update-custom-gpts-instructions-via-conversation/832019#post_3</guid>
-      <pubDate>Fri, 21 Jun 2024 12:05:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>生产环境中生成图片描述时出现 500 错误</title>
-      <link>https://community.openai.com/t/500-error-when-generating-image-descriptions-in-production/832805#post_1</link>
+      <title>Azure OpenAI 与 Azure Databricks</title>
+      <link>https://community.openai.com/t/azure-openai-with-azure-databricks/833083#post_1</link>
       <description><![CDATA[大家好，
-我们目前正在使用 python sdk 聊天完成功能实现基于图像描述的服务，使用预签名的 s3 url 传递系统提示和图像。我们已经测试了 gpt-4o 和 gpt-4-turbo，但收到了相同的错误。
- messages = [
-{
-&quot;role&quot;: &quot;system&quot;,
-&quot;content&quot;: SYSTEM_PROMPT
-},
-{
-&quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: [
-{
-&quot;type&quot;: &quot;image_url&quot;,
-&quot;image_url&quot;: {
-&quot;url&quot;: file_location
-}
-}
-]
-}
-]
-
-response = openai.chat.completions.create(
-model=&quot;gpt-4o&quot;,
-messages=messages,
-max_tokens=MAX_TOKENS,
-logprobs=True,
-)
-
-
-在本地，这适用于 gpt-4o 和 4-turbo，但是一旦我们构建并将服务推送到生产环境（aws lambda），我们就会继续获得以下信息错误：
-错误代码：500 - {&#39;error&#39;：{&#39;message&#39;：&#39;服务器在处理您的请求时出错。很抱歉！&#39;, &#39;type&#39;：&#39;server_error&#39;, &#39;param&#39;：None, &#39;code&#39;：None}}
-
-我们很困惑，因为 sdk 显然可以正常工作，因为我们可以在本地获取响应，并且我们使用相同的 API 密钥。
-任何关于如何解决此问题的建议都非常好，谢谢！]]></description>
-      <guid>https://community.openai.com/t/500-error-when-generating-image-descriptions-in-production/832805#post_1</guid>
-      <pubDate>Fri, 21 Jun 2024 12:03:39 GMT</pubDate>
+我正在使用 Azure Open AI 并创建聊天机器人来查询 Databricks 中的表。
+配置和简单查询效果很好。我在以下情况下遇到问题。
+用户输入一个长提示。聊天机器人将其分成多个短语，并使用类似运算符在数据库查询中搜索它。由于没有合适的匹配，它不会返回结果。
+例如：用户输入“尝试使用 460 伏电压为 CAB 供电，但我们只得到 260 伏电压。该组件是单相的”。
+目前，聊天机器人所做的是查询字段为“LIKE ‘%460 volts%’ 或 LIKE ‘%power up a CAB%’ OR ‘%only getting 260 volts%’
+我想要做的是搜索像 &#39;%volts% 或 ‘%power%’ 这样的关键词。有没有有效的方法/建议替代方法？]]></description>
+      <guid>https://community.openai.com/t/azure-openai-with-azure-databricks/833083#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 15:07:00 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 4o 语音功能无法使用</title>
-      <link>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=11#post_206</link>
-      <description><![CDATA[遗憾的是，他们承诺过多，交付不足。造成这种情况的原因有很多，其中许多是合理的和技术原因（部署、负载等问题）。然而，最简单的解释是，他们想抢走谷歌第二天发布的风头，所以他们匆忙宣布，而没有能力为用户提供支持。
-希望很快证明我错了。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4o-voice-feature-not-working/744770?page=11#post_206</guid>
-      <pubDate>Fri, 21 Jun 2024 11:55:53 GMT</pubDate>
+      <title>Dall e 无法为模拟数据创建简历图像，content_policy_violation，</title>
+      <link>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_3</link>
+      <description><![CDATA[您有解决方案吗？我该如何实现我想要做的事情？比如，如果它生成模拟数据，那么它也会起作用]]></description>
+      <guid>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 15:03:42 GMT</pubDate>
     </item>
     <item>
-      <title>Vision 无法与 OpenAI NuGet 配合使用</title>
-      <link>https://community.openai.com/t/vision-not-working-with-openai-nuget/832719#post_2</link>
-      <description><![CDATA[我也遇到过这种情况。
-我的助手不再使用图像。无论是通过 API 还是在操场中。
-回复：“运行失败。抱歉，出了点问题。”]]></description>
-      <guid>https://community.openai.com/t/vision-not-working-with-openai-nuget/832719#post_2</guid>
-      <pubDate>Fri, 21 Jun 2024 11:52:45 GMT</pubDate>
+      <title>ChatGPT 重复计费问题，无法再访问 plus</title>
+      <link>https://community.openai.com/t/chatgpt-duplicate-billing-issue-no-longer-have-access-to-plus/833065#post_1</link>
+      <description><![CDATA[我的 ChatGPT 帐户显示我尚未收到 2024 年 6 月的发票。但是，当我查看我的信用卡对账单时，它清楚地表明 OpenAI 于 2024 年 6 月 10 日向我的卡收取了 20 美元，现在正试图在 6 月 13 日再次收费。但由于 ChatGPT 认为它没有向我收费，因此它不再允许我访问 plus 订阅。请帮忙。我试过所有的客户支持机器人，但都没有帮助。如果你们拿了我的钱却不给我服务，我为什么要为服务付费……]]></description>
+      <guid>https://community.openai.com/t/chatgpt-duplicate-billing-issue-no-longer-have-access-to-plus/833065#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 14:56:03 GMT</pubDate>
     </item>
     <item>
-      <title>模型尝试调用未知函数 multi_tool_use.parallel</title>
-      <link>https://community.openai.com/t/model-tries-to-call-unknown-function-multi-tool-use-parallel/490653?page=3#post_43</link>
-      <description><![CDATA[1.35 Python 添加了显式选项禁用并行调用。]]></description>
-      <guid>https://community.openai.com/t/model-tries-to-call-unknown-function-multi-tool-use-parallel/490653?page=3#post_43</guid>
-      <pubDate>Fri, 21 Jun 2024 11:45:51 GMT</pubDate>
+      <title>使用 csv 源的 Azure Open AI 聊天机器人在语义搜索中存在问题</title>
+      <link>https://community.openai.com/t/azure-open-ai-chat-bot-using-csv-source-has-issues-in-semantic-search/827594#post_8</link>
+      <description><![CDATA[在网上找到了一些视频…谢谢！]]></description>
+      <guid>https://community.openai.com/t/azure-open-ai-chat-bot-using-csv-source-has-issues-in-semantic-search/827594#post_8</guid>
+      <pubDate>Fri, 21 Jun 2024 14:54:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gemini 上下文缓存功能</title>
+      <link>https://community.openai.com/t/gemini-context-caching-feature/832603#post_3</link>
+      <description><![CDATA[也许他们已经添加了它 - 而你无论如何都要付费……]]></description>
+      <guid>https://community.openai.com/t/gemini-context-caching-feature/832603#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 14:48:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
+      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_3</link>
+      <description><![CDATA[Hallo troof
+感谢您的有趣回答以及使用音乐和艺术来分析情感模式的想法。这绝对是一种令人兴奋的方法，可能是一个有价值的补充 
+然而，我们的方法旨在首先定义理性情感模式的特定概念，这些概念针对人工智能系统的特定感知和处理能力进行量身定制。这些概念使人工智能能够识别、理解和应用情感模式。这对于确保人工智能能够以有意义的方式解释呈现给它的数据和事实非常重要。
+一旦这些基础到位，音乐和视觉艺术作品等艺术表现形式就可能成为进一步完善和测试所捕获模式的绝佳方式。明确定义的理性概念与通过艺术传达的微妙复杂模式相结合，可能成为提高人工智能系统情商的一种特别有效的方法。
+再次感谢您的意见。我期待进一步的讨论和想法！ 
+此致敬意，
+Tina_ChiKa]]></description>
+      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_3</guid>
+      <pubDate>Fri, 21 Jun 2024 14:38:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>记忆虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我没有能力记住会话之间过去的互动</title>
+      <link>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_2</link>
+      <description><![CDATA[嗨！
+你之前使用过记忆功能吗？例如，我仍然无法使用。
+如果是，那么这可能是一个暂时的错误，很快就会消失（希望如此）。]]></description>
+      <guid>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_2</guid>
+      <pubDate>Fri, 21 Jun 2024 14:26:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>对话被打断，无法继续下去</title>
+      <link>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_2</link>
+      <description><![CDATA[如果聊天时间过长，继续聊天的唯一方法就是删去不必要的部分。
+我建议请求导出数据并创建周到的总结，然后您可以将其用作新的对话开场白。
+希望这对您有所帮助。]]></description>
+      <guid>https://community.openai.com/t/interruption-of-the-conversation-with-no-way-forward/832991#post_2</guid>
+      <pubDate>Fri, 21 Jun 2024 14:25:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>记忆虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我没有能力记住会话之间过去的互动</title>
+      <link>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_1</link>
+      <description><![CDATA[突然间，它似乎无法记住对话。我得到了这样的回应。“虽然 GPT-4 确实有能力支持更长、更连贯的对话，但我无法记住会话之间过去的互动。”发生了什么？]]></description>
+      <guid>https://community.openai.com/t/memorywhile-gpt-4-does-have-capabilities-that-can-support-longer-and-more-coherent-conversations-i-dont-have-the-ability-to-remember-past-interactions-between-sessions/833012#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 14:23:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>取消 ChatGPT 帐户与 Outlook 登录的链接”</title>
+      <link>https://community.openai.com/t/unlink-chatgpt-account-from-outlook-login/832999#post_1</link>
+      <description><![CDATA[大家好，
+我正在尝试登录从 OpenAI 网站下载的 Mac 版 ChatGPT 应用程序，但没有使用我的 Outlook 帐户登录的选项。
+我需要帮助来启用 Outlook 登录选项或取消链接 Outlook 登录并为我的电子邮件设置密码，以便我可以访问该应用程序，同时保留我的 Plus 订阅和所有数据。
+有什么解决办法吗？
+谢谢]]></description>
+      <guid>https://community.openai.com/t/unlink-chatgpt-account-from-outlook-login/832999#post_1</guid>
+      <pubDate>Fri, 21 Jun 2024 14:18:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
