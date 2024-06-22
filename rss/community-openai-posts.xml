@@ -4,178 +4,162 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 22 Jun 2024 12:33:36 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2024 15:20:06 GMT</lastBuildDate>
     <item>
-      <title>文档中的助手流式传输示例无法流式传输</title>
-      <link>https://community.openai.com/t/streaming-example-for-assistants-in-documentation-doesnt-stream/834370#post_1</link>
-      <description><![CDATA[标题说明了一切，文档中有关流式传输的示例实际上并未流式传输。以下是供参考的代码：
-from typing_extensions import override
-from openai import AssistantEventHandler, OpenAI
-
-client = OpenAI()
-
-class EventHandler(AssistantEventHandler):
-@override
-def on_text_created(self, text) -&gt;;无：
-print(f&quot;\nassistant &gt; &quot;, end=&quot;&quot;, flush=True)
-
-@override
-def on_tool_call_created(self, tool_call):
-print(f&quot;\nassistant &gt; {tool_call.type}\n&quot;, flush=True)
-
-@override
-def on_message_done(self, message) -&gt; None:
-# 打印对搜索文件的引用
-message_content = message.content[0].text
-comments = message_content.annotations
-citations = []
-for index, comment in enumerate(annotations):
-message_content.value = message_content.value.replace(
-comment.text, f&quot;[{index}]&quot;
-)
-if file_citation := getattr(annotation, &quot;file_citation&quot;, None):
-quoted_file = client.files.retrieve(file_citation.file_id)
-citations.append(f&quot;[{index}] {cited_file.filename}&quot;)
-
-print(message_content.value)
-print(&quot;\n&quot;.join(citations))
-
-# 然后，我们使用流 SDK 助手
-# 和 EventHandler 类来创建 Run
-# 并流式传输响应。
-
-使用 client.beta.threads.runs.stream(
-thread_id=thread.id,
-assistant_id=assistant.id,
-instructions=&quot;请将用户称为 Jane Doe。该用户拥有高级帐户。&quot;,
-event_handler=EventHandler(),
-) 作为 stream:
-stream.until_done()
-]]></description>
-      <guid>https://community.openai.com/t/streaming-example-for-assistants-in-documentation-doesnt-stream/834370#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 12:21:40 GMT</pubDate>
+      <title>ChatGPT 在较长的聊天会话中速度非常慢...但仅限于浏览器版本？</title>
+      <link>https://community.openai.com/t/chatgpt-horribly-slow-in-longer-chat-sessions-but-only-in-the-browser-versions/745796#post_5</link>
+      <description><![CDATA[这肯定是一个错误...你可以打开一个新的聊天并且不会出现问题...但是旧的聊天已经死了...也许是一个带有 openai 服务器的界面浏览器。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-horribly-slow-in-longer-chat-sessions-but-only-in-the-browser-versions/745796#post_5</guid>
+      <pubDate>Sat, 22 Jun 2024 15:16:44 GMT</pubDate>
     </item>
     <item>
-      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
-      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_45</link>
-      <description><![CDATA[如果他们不解决这个问题，我将停止订阅 Premium。我经常使用它，现在它停止工作了……根本无法使用它。]]></description>
-      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_45</guid>
-      <pubDate>Sat, 22 Jun 2024 12:18:33 GMT</pubDate>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=3#post_42</link>
+      <description><![CDATA[从昨天开始，我就遇到了同样的问题。使用助手和默认设置，可以在新项目中轻松重现此问题。在 Playground 中，当您上传图片并输入提示时，它不起作用，并且您会看到服务器错误。]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=3#post_42</guid>
+      <pubDate>Sat, 22 Jun 2024 15:12:23 GMT</pubDate>
     </item>
     <item>
-      <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
-      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_7</link>
-      <description><![CDATA[感谢 @PaulBellow 将会做 ]]></description>
-      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_7</guid>
-      <pubDate>Sat, 22 Jun 2024 12:18:06 GMT</pubDate>
+      <title>当有多个正确答案时如何有效地进行微调？</title>
+      <link>https://community.openai.com/t/how-to-effectively-fine-tune-when-there-are-multiple-right-answers/834558#post_1</link>
+      <description><![CDATA[您好，我想微调一个模型，以便在 HTML 代码中查找 CSS 选择器，这样我就可以在 Playwright、BeautifulSoup 等工具中使用这些选择器。这个想法是找到可用于选择我想要的元素的一致选择器。
+例如，给定以下 html：
+...更多 html 在这里...
+
+&lt;div aria-labelledby=&quot;title_48591420&quot; class=&quot;cy5jw6o atm_5j_223wjw atm_70_87waog atm_j3_1u6x1zy atm_jb_4shrsx atm_mk_h2mmj6 atm_vy_7abht0 dir dir-ltr&quot; role=&quot;group&quot; data-testid=&quot;card-container&quot;&gt;
+&lt;div class=&quot;c1l1h97y atm_d2_1kqhmmj dir dir-ltr&quot; style=&quot;--transition-element_transition-delay: 0ms; --transition-element_transition-duration: 200ms;&quot;&gt;&lt;div itemprop=&quot;itemListElement&quot; itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ListItem&quot;&gt;
+
+...更多 html 在此处...
+
+以下选择器被视为正确答案：
+
+[data-testid=&quot;card-container&quot;]
+.dir [itemType=&quot;http://schema.org/ListItem&quot;]
+[itemprop=&quot;itemListElement&quot;]
+等等
+
+以下是预测的响应：
+
+gpt-3.5-turbo：.cy5jw6o虽然它可以工作，但每次部署此网站后，混淆的类可能会发生变化。
+gpt-4o：[data-testid=&quot;card-container&quot;]反应很好，但对许多响应运行成本很高html 块
+
+由于 HTML 代码消耗了大量标记，我必须对 HTML 页面进行分块，直到找到我所要求的选择器实际所在的正确部分。如果我想要的选择器不在 HTML 代码中，那么两个模型要么正确（没有选择器），要么错误（预测随机选择）。
+那么，由于每个 html 块可以有多个“正确答案”，我是否应该：
+
+为同一块添加多个示例？
+（其中每个示例都是完全相同的提示 + 另一个正确答案）
+或每个块一个正确示例？
+
+另外，作为替代方案，我考虑使用另一个 gpt-3.5-turbo 提示对预测的选择器进行分类，并且 - 如果它“不好” - 它将使用“坏选择器”作为几个示例再次调用上一个提示。这对我的用例来说会比微调更好吗？
+谢谢大家]]></description>
+      <guid>https://community.openai.com/t/how-to-effectively-fine-tune-when-there-are-multiple-right-answers/834558#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 15:02:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>“file_citation”下的“message”对象中缺少 Assistants API“quote”字段</title>
+      <link>https://community.openai.com/t/assistants-api-quote-field-missing-from-the-message-object-under-file-citation/817477#post_6</link>
+      <description><![CDATA[刚刚在 1.35.3 上进行了测试，似乎带引号的注释又回来了。但是，解读像【4:0†Dracula.pdf】这样的符号仍然有点困难。有什么见解吗？]]></description>
+      <guid>https://community.openai.com/t/assistants-api-quote-field-missing-from-the-message-object-under-file-citation/817477#post_6</guid>
+      <pubDate>Sat, 22 Jun 2024 15:02:01 GMT</pubDate>
     </item>
     <item>
       <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
-      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_6</link>
-      <description><![CDATA[很好。很高兴您解决了问题。
-欢迎在Documentation中发布有关该错误的信息，我们会尝试将其传递或让大家看到。不确定是否有更好的方法来报告它……]]></description>
-      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_6</guid>
-      <pubDate>Sat, 22 Jun 2024 12:17:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI 账户似乎已被破解</title>
-      <link>https://community.openai.com/t/the-openai-account-seems-to-be-broken/834361#post_1</link>
-      <description><![CDATA[您好，
-我们正在使用 OpenAI Assistant API v2。我们有一个 Python 脚本，它向 OpenAI API 发送大约 10 个提示。
-几天以来，我们遇到了一个错误。在某些提示上，API 没有返回任何答案。我们认为错误出在我们身上，现在已经修复了 3 天的错误。不幸的是，没有成功。
-现在我们意识到，如果我们使用另一个 OpenAI 帐户运行我们的 Pythonscript，一切都会正常工作。
-如果我们切换回我们的帐户，问题又会出现。
-然后我设置了一个新的 API 密钥并设置了一个新的助手。不幸的是，错误仍然发生。
-我们的 OpenAI 帐户通常似乎在帐户本身中存在错误。
-您能检查一下我们的帐户以查看它为什么无法正常工作吗？
-谢谢，
-Johannes]]></description>
-      <guid>https://community.openai.com/t/the-openai-account-seems-to-be-broken/834361#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 12:17:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
-      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_5</link>
+      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_8</link>
       <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 12:16:14 GMT</pubDate>
+      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_8</guid>
+      <pubDate>Sat, 22 Jun 2024 14:55:39 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT Desktop：Mac 上的 Apple 自动更正功能存在问题</title>
-      <link>https://community.openai.com/t/chatgpt-desktop-issue-with-apples-autocorrect-on-mac/816139#post_10</link>
-      <description><![CDATA[同样如此，非常烦人的问题。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-desktop-issue-with-apples-autocorrect-on-mac/816139#post_10</guid>
-      <pubDate>Sat, 22 Jun 2024 12:01:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>域名验证问题</title>
-      <link>https://community.openai.com/t/domain-verification-issue/776094#post_10</link>
-      <description><![CDATA[哦，太好了，我尝试过几次支持，但都无济于事，但我喜欢这个想法，不确定它是否会让我的域名回来，但它可能会删除 gpts，这将是一些事情。
-将在其中一个上尝试这种方法，看看效果如何。为这个想法欢呼。]]></description>
-      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_10</guid>
-      <pubDate>Sat, 22 Jun 2024 11:34:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>域名验证问题</title>
-      <link>https://community.openai.com/t/domain-verification-issue/776094#post_9</link>
-      <description><![CDATA[嗨！
-您是否尝试过举报自己的 GPT？
-在第二步中，您可以提供举报的理由，并解释您的情况。
-如果此方法有效，请及时告知我们！]]></description>
-      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_9</guid>
-      <pubDate>Sat, 22 Jun 2024 11:32:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 4 和 4o 即将免费</title>
-      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_26</link>
-      <description><![CDATA[是的！聊天 Gpt 也回答了这个问题。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_26</guid>
-      <pubDate>Sat, 22 Jun 2024 11:30:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 4 和 4o 即将免费</title>
-      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_25</link>
-      <description><![CDATA[
-
-
- zwelinyambose988:
-
-是的，如果它对每个人都免费，那为什么要支付每月的高级 chatgpt plus 费用？我必须取消本月的订阅并使用免费的 4o 版本。我不能为其他人免费使用的东西付费。从财务角度来看，这毫无意义。
-
-
-是的！它是免费的，但免费版本中的所有工具并不适用于所有人。要使用所有未来功能，如 pdf 和 YouTube 摘要、文本转图像以及更多未来功能，请快速响应所有语言。因此需要 plus 版本。谢谢。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_25</guid>
-      <pubDate>Sat, 22 Jun 2024 11:29:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>域名验证问题</title>
-      <link>https://community.openai.com/t/domain-verification-issue/776094#post_8</link>
-      <description><![CDATA[好的，谢谢。
-对于任何搜索的人来说，这里要说的是，删除您的帐户不会删除您的 GPT，因此请先删除它们并取消连接您的域名（如果可能），然后删除您的帐户。
-否则，您将无法再次使用您的域名，并且您创建的 GPTS 将永远以您的域名作为创建者运行，您将永远无法控制它们。]]></description>
-      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_8</guid>
-      <pubDate>Sat, 22 Jun 2024 11:27:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
-      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_41</link>
-      <description><![CDATA[我原本想将我的“收藏”置顶，但我觉得我更喜欢文件夹结构。]]></description>
-      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_41</guid>
-      <pubDate>Sat, 22 Jun 2024 11:26:00 GMT</pubDate>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=3#post_41</link>
+      <description><![CDATA[同样的问题。Assistant 的图像分析功能出现故障，无论是通过 API 调用还是在 Playground 内。其他文档运行正常，所以我猜这是 Vision 的问题。我会尝试提出这个问题并提供支持，并反馈任何有用的答案！]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=3#post_41</guid>
+      <pubDate>Sat, 22 Jun 2024 14:38:43 GMT</pubDate>
     </item>
     <item>
       <title>改进 chatGPT 的建议</title>
-      <link>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_3</link>
-      <description><![CDATA[很好的建议！不过，改进聊天记录中的搜索功能也许更有用！]]></description>
-      <guid>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_3</guid>
-      <pubDate>Sat, 22 Jun 2024 11:14:01 GMT</pubDate>
+      <link>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_4</link>
+      <description><![CDATA[正确回答。不要给出错误答案，也不要不遵循指示。]]></description>
+      <guid>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_4</guid>
+      <pubDate>Sat, 22 Jun 2024 14:26:32 GMT</pubDate>
     </item>
     <item>
-      <title>域名验证问题</title>
-      <link>https://community.openai.com/t/domain-verification-issue/776094#post_7</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_7</guid>
-      <pubDate>Sat, 22 Jun 2024 11:12:16 GMT</pubDate>
+      <title>GPT 经常无视指令</title>
+      <link>https://community.openai.com/t/gpt-disregards-instructions-regularly/551858#post_7</link>
+      <description><![CDATA[昨晚我正在做一些统计学作业。聊天 GPT 4.o 一直给出错误答案。感谢上帝赐予 Claude AI。]]></description>
+      <guid>https://community.openai.com/t/gpt-disregards-instructions-regularly/551858#post_7</guid>
+      <pubDate>Sat, 22 Jun 2024 14:25:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_159</link>
+      <description><![CDATA[您是否检查过允许将带有文本行的 PDF 转换为支持 Markdown 行的可编辑格式（如 Word）然后直接从其中读取文件的 API？从我所见，这个问题可能可行。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=8#post_159</guid>
+      <pubDate>Sat, 22 Jun 2024 14:25:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>“您的卡已被拒绝”</title>
+      <link>https://community.openai.com/t/your-card-has-been-declined/700335#post_15</link>
+      <description><![CDATA[请问 Stripe 有任何更新吗？]]></description>
+      <guid>https://community.openai.com/t/your-card-has-been-declined/700335#post_15</guid>
+      <pubDate>Sat, 22 Jun 2024 14:14:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>新的屏幕共享和摄像机功能</title>
+      <link>https://community.openai.com/t/new-screen-sharing-and-video-camera-features/756423#post_14</link>
+      <description><![CDATA[我每个月都会续订 OpenAI plus 订阅，希望能够获得高级语音和相机功能。
+看起来他们的 4o 公告更像是炒作。
+OpenAI 没有说明何时或是否会向 plus 用户提供真正的 4o 功能。]]></description>
+      <guid>https://community.openai.com/t/new-screen-sharing-and-video-camera-features/756423#post_14</guid>
+      <pubDate>Sat, 22 Jun 2024 14:06:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>“关于 ChatGPT 创意限制和指南的讨论。”</title>
+      <link>https://community.openai.com/t/discussao-sobre-restricoes-de-criatividade-e-diretrizes-no-chatgpt/833513#post_2</link>
+      <description><![CDATA[翻译：
+
+
+
+ jhogabisilva2009：
+
+致：ChatGPT 支持团队
+类别：产品反馈
+主题：关于故事创作限制的投诉
+您好，
+我写这封信是为了表达我对 ChatGPT 对故事创作施加的过度限制的深切不满。作为一个重视该平台帮助生成创意内容能力的用户，我遇到了一系列令人沮丧的困难。经常，当我尝试开发叙述时，系统会阻止或更改我的内容，不公正地将其归类为露骨或违反平台准则，即使内容显然是合适的并且符合可接受的标准。
+
+阅读更多 - mais (点击了解更多详情)
+
+
+“ChatGPT 支持团队”不会定期查看此开发者论坛以获取有关安全审核政策的反馈。对于不良输出或不良警告的唯一反馈机制是在 ChatGPT 内，通过按下大拇指向下并提供更多信息。这是 API AI 平台用户的论坛。
+
+AI 翻译：“ChatGPT 支持团队”不定期地将此参与方论坛用于对安全调节政策的反馈。通过 ChatGPT，您可以找到独特的反馈机制来了解详细信息或收到的评论，并压低或删除它们并提供更多信息。这是 IA API 平台用户的论坛。
+]]></description>
+      <guid>https://community.openai.com/t/discussao-sobre-restricoes-de-criatividade-e-diretrizes-no-chatgpt/833513#post_2</guid>
+      <pubDate>Sat, 22 Jun 2024 13:29:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 搜索优化</title>
+      <link>https://community.openai.com/t/optimization-for-gpt-search/817631#post_2</link>
+      <description><![CDATA[GPT 在搜索中的排名主要按照“过去 7 天的聊天次数”排序。如果用户搜索的内容与您的 GPT 名称非常匹配，您目前还会获得二次提升。您要针对哪个搜索词进行优化？]]></description>
+      <guid>https://community.openai.com/t/optimization-for-gpt-search/817631#post_2</guid>
+      <pubDate>Sat, 22 Jun 2024 13:25:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>功能请求：在 ChatGPT 对话中选择性删除/编辑聊天内容</title>
+      <link>https://community.openai.com/t/feature-request-selective-chat-deletion-editing-in-chatgpt-conversations/527568#post_4</link>
+      <description><![CDATA[是的！这样就可以参考聊天而不会看到重复的版本和不必要的混乱！]]></description>
+      <guid>https://community.openai.com/t/feature-request-selective-chat-deletion-editing-in-chatgpt-conversations/527568#post_4</guid>
+      <pubDate>Sat, 22 Jun 2024 13:02:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在 Dall E API 中使用 GenID？</title>
+      <link>https://community.openai.com/t/how-to-use-genid-in-dall-e-api/821024#post_4</link>
+      <description><![CDATA[您的问题属于另一个主题：DALL-E 3 是否可以接受输入图像并在 API 上用于变化或编辑。
+答案目前是否定的。
+与 ChatGPT 对话中的 gen_id 种子参数一样，使用 DALL-E 对现有图片进行编辑是 OpenAI 仅在 ChatGPT 中提供的功能，而不是在 API 上提供的功能，并且仅适用于聊天中之前由 AI 生成的图像。该功能在 OpenAI 自己的产品上进行了演示，但不提供给开发人员。]]></description>
+      <guid>https://community.openai.com/t/how-to-use-genid-in-dall-e-api/821024#post_4</guid>
+      <pubDate>Sat, 22 Jun 2024 12:56:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
