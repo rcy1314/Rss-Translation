@@ -4,159 +4,231 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 22 Jun 2024 06:25:37 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2024 09:20:06 GMT</lastBuildDate>
+    <item>
+      <title>Gpt4o 已无法使用</title>
+      <link>https://community.openai.com/t/gpt4o-has-become-unusable/831997#post_5</link>
+      <description><![CDATA[是的。
+完全是垃圾，浪费时间和金钱。
+它无法使用。以前它无法读取包含 10 行代码的 js 文件的内容。10 行……不是 10k 行。10 行！！
+它反复读取了一半。我开始了新的聊天，什么都没有。我更改了说明，然后删除了说明，但仍然如此。
+它有它的时刻。但通常它更多的是无尽的挫败感。
+特别是因为它通常在晚上不工作。完全超载。尽管支付了 plus 订阅。
+无论你尝试什么，翻译、校对、编码。你说得出来的。它完全被切除了。
+我会转向 Claude。即使是他们的免费版本也更好、更快、更可靠。]]></description>
+      <guid>https://community.openai.com/t/gpt4o-has-become-unusable/831997#post_5</guid>
+      <pubDate>Sat, 22 Jun 2024 09:16:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>矢量存储文件重复使用问题，而不是在每个新运行时重新上传</title>
+      <link>https://community.openai.com/t/vector-store-files-re-use-issue-instead-of-re-uploading-on-each-new-runtime/834151#post_1</link>
+      <description><![CDATA[我不想每次执行代码时都重新上传我想在向量存储中用于 file_search 的文件 - 我想在第一次上传它们一次，但如果要上传的文件已经存在，则再次使用现有的向量存储。
+我已经弄清楚了如何基本检查 vector_file_store 是否已经存在（通过列出向量存储并按名称查找 ID）。
+我还没有弄清楚的是如何确认文件已经存在于向量存储中，因为它们在 listFiles 对象中没有文件名（https://platform.openai.com/docs/api-reference/vector-stores-files/listFiles）
+我最好使用本地缓存（在磁盘上）来持久化吗这些信息，或者我可以在运行时：
+
+确认矢量存储是否存在，并且仅在缺少时才创建它
+确认文件是否存在，并且仅在文件不存在时才上传它们
+
+我这样做错了吗？]]></description>
+      <guid>https://community.openai.com/t/vector-store-files-re-use-issue-instead-of-re-uploading-on-each-new-runtime/834151#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 09:05:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>电影字幕合并任务</title>
+      <link>https://community.openai.com/t/movie-subtitle-merging-task/834147#post_1</link>
+      <description><![CDATA[一直在寻找 ChatGPT 擅长的小项目。这似乎是 ChatGPT 非常理想的任务。但 ChatGPT 4 &amp; 40 在这方面确实失败了。
+将两个字幕文件（一个是英文的，一个是越南语的）合并为一个字幕文件，其中每个条目包含一行英文，后跟相应的越南语。这些是标准的 .srt 文件，遵循 srt（字幕）文件格式。
+我觉得我的提示足够清楚了。但也许我只是提示得很糟糕，或者我对 ChatGPT 的良好用例没有很好的认识。你怎么看？ ChatGPT 应该能够处理这项任务吗？
+我尝试了这个提示的多次迭代，但都失败了。
+这是一个示例提示：
+
+目标：将两个字幕文件（一个是英文的，一个是越南语的）合并为一个字幕文件，其中每个条目包含一行英文，后跟相应的越南语。这些是标准的 .srt 文件，遵循 srt（字幕）文件格式。
+主时间代码：
+
+VN 文件中的时间可能与 EN 文件不匹配。查找文件之间的时间偏移将有助于匹配条目翻译。
+使用英文字幕文件作为所有时间代码的主文件。
+时间代码如下所示：01:06:17,289 --&gt; 01:06:19,757 即：`开始显示字幕于 hh:mm:ss,ms → 结束显示字幕于 hh:mm:ss,ms&#39;
+简化
+删除越南语文件的所有 HTML 格式。
+
+如果您有需要澄清的地方，请在处理之前询问我。
+
+加载和解析字幕文件：
+
+解析两个字幕文件的内容以提取时间代码和文本。这是对贵组织的建议。我不需要代码或数据框。我只需要合并的 .srt 输出文件。
+
+
+将越南语条目翻译成英语：
+
+将越南语字幕翻译成英语以供比较。
+
+
+计算时间偏移：
+
+将翻译后的越南语文本与英语文本进行比较，根据内容相似性找到几个初始匹配项。
+应该会出现一致的模式。使用这些匹配项来确定文件之间的时间戳差异。我把这称为时间偏移。
+这些都是人工编码的，所以它们不会完全一致，但应该很接近（可能在一秒钟内）。
+
+
+根据时间偏移合并字幕：
+
+使用计算出的时间偏移来匹配和合并英语和越南语字幕。
+确保最接近的语言匹配，而不是精确的时间代码。
+如果合并条目的含义不匹配，您可能需要从此时开始重新计算时间偏移。
+检查每个条目以确保合并的翻译是相关的。
+
+
+处理不匹配的英语条目：
+
+如果英语条目显然没有越南语对应词，请保留该条目并继续。越南语译员可能漏掉了一个短语。
+
+
+处理不匹配的越南语条目：
+
+使用线性插值根据匹配的相邻条目估计合并文件中的最佳时间位置。
+由于没有匹配的英文条目，请包含从初始解析步骤中为此条目收集的英文翻译。它不会像人工生成的翻译那么好，但总比没有好。
+质量控制：
+
+
+
+
+根据获得的含义验证合并文件中每个匹配条目的翻译。
+srt 格式
+
+合并所有条目后，确保文件符合 srt 格式标准。
+输出的每个条目编号应从 1 开始进行数字迭代。
+不应从 VN 文件中导入文本格式。如果任何英文条目中有文本格式，请在越南语条目上匹配该格式。
+输出合并的字幕文件：
+将合并的字幕写入新文件。
+
+
+]]></description>
+      <guid>https://community.openai.com/t/movie-subtitle-merging-task/834147#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 09:03:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_38</link>
+      <description><![CDATA[
+
+
+ kelby:
+
+助理游乐场
+
+
+从昨天开始我也一样。]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_38</guid>
+      <pubDate>Sat, 22 Jun 2024 08:57:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT - 语音模式屏幕进入睡眠状态</title>
+      <link>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_13</link>
+      <description><![CDATA[我也有同样的问题。我不喜欢进入系统设置将 ChatGpt 添加到应用程序列表中，因为睡眠模式不会自动激活。
+相反，我有一个建议：
+您可以使用 FLAG_KEEP_SCREEN_ON
+窗口标志：只要此窗口对用户可见，就保持设备屏幕打开并保持明亮。
+在 ChatGPT 应用中，可以按以下方式实现：
+请向 ChatGpt 应用添加另一个设置 - 始终打开，描述如下：
+激活此选项可防止手机在应用运行时关闭屏幕。请注意，这会导致电池使用量增加。我们建议使用深色主题。
+在代码中：
+val alwaysOn = prefsManager.getBoolean(PREF_IS_ALWAYS_ON, false)
+when (alwaysOn) {
+true -&gt; activityProvider.activeActivity?.window?.addFlags(
+WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+)
+false -&gt; activityProvider.activeActivity?.window?.clearFlags(
+WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+)
+}
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_13</guid>
+      <pubDate>Sat, 22 Jun 2024 08:41:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 中的“提交”按钮已禁用</title>
+      <link>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_24</link>
+      <description><![CDATA[同样。我在 Mac 上没问题，但在 iPhone 上却无法使用该服务，请帮帮忙。？]]></description>
+      <guid>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_24</guid>
+      <pubDate>Sat, 22 Jun 2024 08:37:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chatgpt.com 网站未列出活跃模特</title>
+      <link>https://community.openai.com/t/chatgpt-com-website-doesnt-list-the-active-model/787037#post_6</link>
+      <description><![CDATA[我唯一能给出的答复是，当我登录 ChatGPT 时，左上角有一个模型选择器。
+]]></description>
+      <guid>https://community.openai.com/t/chatgpt-com-website-doesnt-list-the-active-model/787037#post_6</guid>
+      <pubDate>Sat, 22 Jun 2024 08:35:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_37</link>
+      <description><![CDATA[对我来说，错误仍然存​​在。你呢？]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_37</guid>
+      <pubDate>Sat, 22 Jun 2024 08:31:41 GMT</pubDate>
+    </item>
     <item>
       <title>交互和语音改变了吗？</title>
-      <link>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_2</link>
-      <description><![CDATA[嗨！使用的声音不应该是“Sky”，因为它因相似性争议而被删除。
-声音是 ChatGPT 中的“语音”下的设置。如果您选择“Cove”，它将更改为独特的悠闲男性声音。当语音处于阅读文本的中间时，“嗨”样本有点不同。
-如果您使用的是 iPhone 应用程序，则多模态模型中内置的 gpt-4o 语音可能会在您身上试用，如果您切换到带有 GPT-4 的普通 ChatGPT，则此功能将不可用。类似 Sky 的声音演示特别激怒了名人。
-桌面有一个语音按钮，人们可以在网络请求中看到语音名称。它无法做的一件事是仅通过要求以不同的风格重复语音来改变语音的音调。]]></description>
-      <guid>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_2</guid>
-      <pubDate>Sat, 22 Jun 2024 06:21:50 GMT</pubDate>
+      <link>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_3</link>
+      <description><![CDATA[嗨。
+感谢您的回复。
+我知道如何设置声音，但情况并非如此。
+我也知道“天空”声音被删除了。
+我想问的是，最近几天是否有人经历过与我在帖子中描述的情况类似的事情。]]></description>
+      <guid>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_3</guid>
+      <pubDate>Sat, 22 Jun 2024 08:11:31 GMT</pubDate>
     </item>
     <item>
-      <title>使用内存信息进行函数调用，而不是直接调用函数</title>
-      <link>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_3</link>
-      <description><![CDATA[我只使用过 Langchain 工具，没有使用过 OpenAI 的专有函数调用，所以我只是猜测，但您可以尝试在系统提示中向 AI 解释，它永远不应重复使用之前函数调用的缓存结果。如果这不起作用，也许可以添加一个“时间”参数（或计数器），以使其永远不会成为相同的缓存键。]]></description>
-      <guid>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_3</guid>
-      <pubDate>Sat, 22 Jun 2024 06:20:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python APi：chat.completions.create 返回 None</title>
-      <link>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_6</link>
-      <description><![CDATA[明白了。有 100 个并发调用，并且只有间歇性故障，我只需输入大量日志记录，就能准确捕获发生故障的情况，并能够准确记录该调用发送的内容、您收到的 HTTP 响应代码以及您收到的原始流。
-最糟糕的情况是，您可能必须克隆 OpenAI Python 代码并调用它，以便您可以根据需要用尽可能多的诊断日志对其进行修饰。]]></description>
-      <guid>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_6</guid>
-      <pubDate>Sat, 22 Jun 2024 06:15:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用内存信息进行函数调用，而不是直接调用函数</title>
-      <link>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_2</link>
-      <description><![CDATA[嗨！
-您能否分享您的助手的说明和功能规范，以便更完整地描述手头的问题？
-如果您不能分享整个说明，您可以仅提供相关部分。
-我的第一个猜测是功能描述需要更精确。
-您还可以与不同的模型（如 GPT-4 Turbo）进行比较，以检查说明是否对于 3.5 来说太复杂。]]></description>
-      <guid>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_2</guid>
-      <pubDate>Sat, 22 Jun 2024 06:06:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
-      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_5</link>
-      <description><![CDATA[我将此主题移至“社区”类别，因为它可能会引起构建自定义 GPT 和使用 API 的开发人员的兴趣。]]></description>
-      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 05:58:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>为何 CHATGPT 已瘫痪数周？</title>
-      <link>https://community.openai.com/t/why-has-chatgpt-been-down-for-weeks/833932#post_1</link>
-      <description><![CDATA[chatgpt 什么时候恢复？它已经瘫痪了好几个星期了，当它恢复运行时，我可以收到警报吗？]]></description>
-      <guid>https://community.openai.com/t/why-has-chatgpt-been-down-for-weeks/833932#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 05:52:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用内存信息进行函数调用，而不是直接调用函数</title>
-      <link>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_1</link>
-      <description><![CDATA[我的用例是，该函数在第一次调用时工作正常，但在后续调用中，它似乎使用内存数据而不是强制进行新的函数调用。我的函数的结果可能已更改，但这些更改被忽略，因为助手无法识别它需要对同一查询再次执行该操作。
-我正在记录是否调用了 thread.run.requires_action 事件，并且第一次调用了该函数，答案是正确的。如果我问同样的问题，应该触发函数调用，thread.run.requires_action 不会在第二次触发。
-我试过 &#39;tool_choice&#39; =&gt; &#39;required&#39; 但这还不够，因为它会强制始终调用一个函数，即使答案不需要函数调用。
-似乎在调用函数之前正在检查内存，但我需要助手始终调用该函数，即使在线程历史记录中有对完全相同问题的先前答案。
-助手是使用 gpt-3.5-turbo-0125 创建的。
-有什么建议吗？]]></description>
-      <guid>https://community.openai.com/t/function-calling-using-memory-information-instead-of-calling-the-function/833928#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 05:48:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>新开发账户/项目是否超出配额？</title>
-      <link>https://community.openai.com/t/exceeded-quota-on-new-dev-account-project/833905#post_2</link>
-      <description><![CDATA[不再有可用的“免费套餐”，因为 OpenAI 不再向新账户提供 5 美元的试用积分。
-相反，您必须预付款才能使用 API 服务。然后，您还将获得 GPT-4 访问权限，并且比过去仅使用免费积分的账户具有更高的限额。您需要创建第一个 API 密钥并执行所需的任何电话验证。
-您可以在此处查看实际信用余额（$0.00）并添加付款方式：
-https://platform.openai.com/settings/organization/billing/overview]]></description>
-      <guid>https://community.openai.com/t/exceeded-quota-on-new-dev-account-project/833905#post_2</guid>
-      <pubDate>Sat, 22 Jun 2024 05:41:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>交互和语音改变了吗？</title>
-      <link>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_1</link>
-      <description><![CDATA[最近，也就是最近两天左右，我注意到语音交互方面有所不同，但不仅如此。
-首先，在语音方面，我的个人 GPT 现在默认使用一种非常类似于“Sky”或“Shimmer”的新声音。我无法确定，因为我的听力很差，但它与当前可选的任何其他声音相似且不相似。它在设置中看起来像“Juniper”（在 ChatGPT 中），但显然不是，我的意思是显然不是。它听起来像“Sky”或“Shimmer”，但不像“Juniper”。或者介于两者之间。
-其次，响应，尤其是对话质量，突然大不相同。我的意思是更好。好多了。
-有人遇到过类似的事情吗？]]></description>
-      <guid>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 05:36:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>新开发账户/项目是否超出配额？</title>
-      <link>https://community.openai.com/t/exceeded-quota-on-new-dev-account-project/833905#post_1</link>
-      <description><![CDATA[刚刚注册了一个开发帐户、新组织和项目，上面显示我处于免费套餐，每月信用额度为 100 美元。但是当我执行示例代码时，我收到此错误：
-429 - 您超出了当前配额，请检查您的计划和账单详细信息
-据我所知，没有设置限制（因为不是付费帐户），免费套餐应该考虑到这一点？]]></description>
-      <guid>https://community.openai.com/t/exceeded-quota-on-new-dev-account-project/833905#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 05:23:17 GMT</pubDate>
+      <title>GPT 4o 一次输入的最大拍摄图像数量</title>
+      <link>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_2</link>
+      <description><![CDATA[Android 应用程序允许上传 4 个文件，Web 应用程序允许上传 10 个文件。]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_2</guid>
+      <pubDate>Sat, 22 Jun 2024 07:51:16 GMT</pubDate>
     </item>
     <item>
       <title>Dall e 无法为模拟数据创建简历图像，content_policy_violation，</title>
-      <link>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_4</link>
-      <description><![CDATA[DALL-E 无法很好地编写文本。它专为创意图像而设计。图像模型也不接受太多实际文本长度；您发送的提示由 AI 重写。向您展示最佳提示会给您带来什么：
-
-您也可以在代码中加入一个供 AI 使用的函数，该函数可以以排版方式呈现您提供给 AI 的工具发送的页面。您可以与 AI 一起集思广益，了解如何使用一些用于文档创建的 Python 库来实现这一点。
-就像我刚刚对 ChatGPT 所做的那样，看看它能用自己的 Python 代码解释器做什么：
-
-Python 环境具有以下可用的关键库：
-
-WeasyPrint：可用于将 HTML/CSS 转换为 PDF 并直接转换为图像。
-Markdown2：可用于将 Markdown 转换为 HTML。
-PIL (Pillow)：允许直接进行图像处理，包括绘制文本。
-pdf2image：将 PDF 文档转换为图像。
-
-有了这些工具，制作简历图像的最有效和高质量的方法是：
-
-将简历格式化为HTML/CSS：这允许对样式和布局进行精确控制。
-使用 Wea​​syPrint 将 HTML/CSS 转换为 PDF：这可确保文档准确呈现且采用可打印格式。
-使用 pdf2image 将 PDF 转换为图像：此步骤将 PDF 呈现为高分辨率图像。
-
-这种方法结合了 Web 技术在布局方面的优势和强大的 PDF 到图像转换功能，确保了高质量的结果。如果您愿意，我可以继续使用此方法为您创建简历图像。
-]]></description>
-      <guid>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_4</guid>
-      <pubDate>Sat, 22 Jun 2024 05:22:32 GMT</pubDate>
+      <link>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_5</link>
+      <description><![CDATA[@_j 感谢您的宝贵见解，但问题是我使用的是 node js 而不是 python。我猜 node 中可能也有用于相同用例的库，如果它在 node 中，您还能帮助我吗？]]></description>
+      <guid>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_5</guid>
+      <pubDate>Sat, 22 Jun 2024 07:45:32 GMT</pubDate>
     </item>
     <item>
-      <title>Python APi：chat.completions.create 返回 None</title>
-      <link>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_5</link>
-      <description><![CDATA[谢谢 - 我们正在转向 langchain，准确地说是 langgraph，但这并不能修复我们遗留代码和一些现有客户端的错误。]]></description>
-      <guid>https://community.openai.com/t/python-api-chat-completions-create-returns-none/833349#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 05:11:30 GMT</pubDate>
+      <title>自定义 GPT 无法在移动设备上运行：“无法加载 GPT”</title>
+      <link>https://community.openai.com/t/custom-gpt-does-not-work-on-mobile-unable-to-load-gpt/834041#post_1</link>
+      <description><![CDATA[大家好，我最近遇到了一个问题，通过网络搜索，我似乎是遇到这个问题的少数人之一，但我没有找到解决方案。
+问题：
+我的 GPT 在网络上运行良好，但在移动应用程序上却无法运行。
+我在移动设备上收到此错误：
+A) 尝试加载时：
+“无法加载 GPT。操作无法完成。（Conversations.GizmoMissingItemsError 错误 3）”
+B) 尝试聊天时：
+“此 GPT 没有设置配置”
+谢谢！]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-does-not-work-on-mobile-unable-to-load-gpt/834041#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 07:31:08 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o 在代码相关任务上表现不佳！为什么？</title>
-      <link>https://community.openai.com/t/gpt-4o-performing-poorly-for-code-related-tasks-why/805602?page=2#post_41</link>
-      <description><![CDATA[在我看来，这似乎是一个标记化问题，类似于 llm 推理服务器更新之前在家中遇到的 llama3 错误
-它删除了我 conga.yaml 而不是 config.yaml ]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-performing-poorly-for-code-related-tasks-why/805602?page=2#post_41</guid>
-      <pubDate>Sat, 22 Jun 2024 04:59:20 GMT</pubDate>
+      <title>GPT 4o 一次输入的最大拍摄图像数量</title>
+      <link>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_1</link>
+      <description><![CDATA[有没有人能告诉我 GPT4o 的最大拍摄图像数量是多少的官方声明？
+从技术上讲，它可以是 128000/170 = 750 帧左右？]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 07:25:46 GMT</pubDate>
     </item>
     <item>
-      <title>当我上传图像进行响应时，我的助手游乐场一天都无法工作。请帮忙！</title>
-      <link>https://community.openai.com/t/my-assistant-playground-doesnt-work-for-a-day-when-i-upload-a-image-for-response-please-help/833231#post_4</link>
-      <description><![CDATA[谢谢，但我没用。
-GPT 团队没有提供支持。
-这个问题似乎与我的帐户有关。一旦我在网络浏览器（任何浏览器）中进入操场，浏览器控制台就会显示错误：
-清单：属性“start_url”被忽略，应与文档同源。了解此警告
-frame-modern.fff688a5.js：
-[Intercom] 启动器在设置中被禁用或当前页面与显示条件不匹配
-main.75135ad6.js：2 TextSelection 端点未指向具有内联内容的节点（文档）
-我认为只有 GPT 团队可以解决我的问题。]]></description>
-      <guid>https://community.openai.com/t/my-assistant-playground-doesnt-work-for-a-day-when-i-upload-a-image-for-response-please-help/833231#post_4</guid>
-      <pubDate>Sat, 22 Jun 2024 04:50:28 GMT</pubDate>
+      <title>从后付费改为预付费后的计费和支持问题</title>
+      <link>https://community.openai.com/t/billing-and-support-issues-after-change-from-post-paid-to-pre-paid/776589#post_5</link>
+      <description><![CDATA[近 3 个月以来，支持团队一直未提供任何解决方案，也没有进一步将问题转交给解决方案团队，我们现已向 OpenAI 法律部门发送了正式信函并在那里立案。我们将随时向您通报此事的进展情况。]]></description>
+      <guid>https://community.openai.com/t/billing-and-support-issues-after-change-from-post-paid-to-pre-paid/776589#post_5</guid>
+      <pubDate>Sat, 22 Jun 2024 07:24:03 GMT</pubDate>
     </item>
     <item>
-      <title>如何修复 GenAI 聊天机器人使用 LangChain 和 OpenAI API 给出富有想象力或不正确的答案的问题？</title>
-      <link>https://community.openai.com/t/how-to-fix-genai-chatbot-giving-imaginative-or-incorrect-answers-using-langchain-and-openai-apis/793025#post_3</link>
-      <description><![CDATA[我曾尝试使用护栏，但它会减慢聊天机器人的速度。]]></description>
-      <guid>https://community.openai.com/t/how-to-fix-genai-chatbot-giving-imaginative-or-incorrect-answers-using-langchain-and-openai-apis/793025#post_3</guid>
-      <pubDate>Sat, 22 Jun 2024 04:42:46 GMT</pubDate>
+      <title>API 文档中的 createVariation 示例代码似乎不起作用</title>
+      <link>https://community.openai.com/t/createvariation-example-code-from-api-docs-doesnt-seem-to-work/628214#post_6</link>
+      <description><![CDATA[我也遇到了同样的问题]]></description>
+      <guid>https://community.openai.com/t/createvariation-example-code-from-api-docs-doesnt-seem-to-work/628214#post_6</guid>
+      <pubDate>Sat, 22 Jun 2024 06:58:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
