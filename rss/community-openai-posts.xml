@@ -4,231 +4,178 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 22 Jun 2024 09:20:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2024 12:33:36 GMT</lastBuildDate>
     <item>
-      <title>Gpt4o 已无法使用</title>
-      <link>https://community.openai.com/t/gpt4o-has-become-unusable/831997#post_5</link>
-      <description><![CDATA[是的。
-完全是垃圾，浪费时间和金钱。
-它无法使用。以前它无法读取包含 10 行代码的 js 文件的内容。10 行……不是 10k 行。10 行！！
-它反复读取了一半。我开始了新的聊天，什么都没有。我更改了说明，然后删除了说明，但仍然如此。
-它有它的时刻。但通常它更多的是无尽的挫败感。
-特别是因为它通常在晚上不工作。完全超载。尽管支付了 plus 订阅。
-无论你尝试什么，翻译、校对、编码。你说得出来的。它完全被切除了。
-我会转向 Claude。即使是他们的免费版本也更好、更快、更可靠。]]></description>
-      <guid>https://community.openai.com/t/gpt4o-has-become-unusable/831997#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 09:16:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>矢量存储文件重复使用问题，而不是在每个新运行时重新上传</title>
-      <link>https://community.openai.com/t/vector-store-files-re-use-issue-instead-of-re-uploading-on-each-new-runtime/834151#post_1</link>
-      <description><![CDATA[我不想每次执行代码时都重新上传我想在向量存储中用于 file_search 的文件 - 我想在第一次上传它们一次，但如果要上传的文件已经存在，则再次使用现有的向量存储。
-我已经弄清楚了如何基本检查 vector_file_store 是否已经存在（通过列出向量存储并按名称查找 ID）。
-我还没有弄清楚的是如何确认文件已经存在于向量存储中，因为它们在 listFiles 对象中没有文件名（https://platform.openai.com/docs/api-reference/vector-stores-files/listFiles）
-我最好使用本地缓存（在磁盘上）来持久化吗这些信息，或者我可以在运行时：
+      <title>文档中的助手流式传输示例无法流式传输</title>
+      <link>https://community.openai.com/t/streaming-example-for-assistants-in-documentation-doesnt-stream/834370#post_1</link>
+      <description><![CDATA[标题说明了一切，文档中有关流式传输的示例实际上并未流式传输。以下是供参考的代码：
+from typing_extensions import override
+from openai import AssistantEventHandler, OpenAI
 
-确认矢量存储是否存在，并且仅在缺少时才创建它
-确认文件是否存在，并且仅在文件不存在时才上传它们
+client = OpenAI()
 
-我这样做错了吗？]]></description>
-      <guid>https://community.openai.com/t/vector-store-files-re-use-issue-instead-of-re-uploading-on-each-new-runtime/834151#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 09:05:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>电影字幕合并任务</title>
-      <link>https://community.openai.com/t/movie-subtitle-merging-task/834147#post_1</link>
-      <description><![CDATA[一直在寻找 ChatGPT 擅长的小项目。这似乎是 ChatGPT 非常理想的任务。但 ChatGPT 4 &amp; 40 在这方面确实失败了。
-将两个字幕文件（一个是英文的，一个是越南语的）合并为一个字幕文件，其中每个条目包含一行英文，后跟相应的越南语。这些是标准的 .srt 文件，遵循 srt（字幕）文件格式。
-我觉得我的提示足够清楚了。但也许我只是提示得很糟糕，或者我对 ChatGPT 的良好用例没有很好的认识。你怎么看？ ChatGPT 应该能够处理这项任务吗？
-我尝试了这个提示的多次迭代，但都失败了。
-这是一个示例提示：
+class EventHandler(AssistantEventHandler):
+@override
+def on_text_created(self, text) -&gt;;无：
+print(f&quot;\nassistant &gt; &quot;, end=&quot;&quot;, flush=True)
 
-目标：将两个字幕文件（一个是英文的，一个是越南语的）合并为一个字幕文件，其中每个条目包含一行英文，后跟相应的越南语。这些是标准的 .srt 文件，遵循 srt（字幕）文件格式。
-主时间代码：
+@override
+def on_tool_call_created(self, tool_call):
+print(f&quot;\nassistant &gt; {tool_call.type}\n&quot;, flush=True)
 
-VN 文件中的时间可能与 EN 文件不匹配。查找文件之间的时间偏移将有助于匹配条目翻译。
-使用英文字幕文件作为所有时间代码的主文件。
-时间代码如下所示：01:06:17,289 --&gt; 01:06:19,757 即：`开始显示字幕于 hh:mm:ss,ms → 结束显示字幕于 hh:mm:ss,ms&#39;
-简化
-删除越南语文件的所有 HTML 格式。
+@override
+def on_message_done(self, message) -&gt; None:
+# 打印对搜索文件的引用
+message_content = message.content[0].text
+comments = message_content.annotations
+citations = []
+for index, comment in enumerate(annotations):
+message_content.value = message_content.value.replace(
+comment.text, f&quot;[{index}]&quot;
+)
+if file_citation := getattr(annotation, &quot;file_citation&quot;, None):
+quoted_file = client.files.retrieve(file_citation.file_id)
+citations.append(f&quot;[{index}] {cited_file.filename}&quot;)
 
-如果您有需要澄清的地方，请在处理之前询问我。
+print(message_content.value)
+print(&quot;\n&quot;.join(citations))
 
-加载和解析字幕文件：
+# 然后，我们使用流 SDK 助手
+# 和 EventHandler 类来创建 Run
+# 并流式传输响应。
 
-解析两个字幕文件的内容以提取时间代码和文本。这是对贵组织的建议。我不需要代码或数据框。我只需要合并的 .srt 输出文件。
-
-
-将越南语条目翻译成英语：
-
-将越南语字幕翻译成英语以供比较。
-
-
-计算时间偏移：
-
-将翻译后的越南语文本与英语文本进行比较，根据内容相似性找到几个初始匹配项。
-应该会出现一致的模式。使用这些匹配项来确定文件之间的时间戳差异。我把这称为时间偏移。
-这些都是人工编码的，所以它们不会完全一致，但应该很接近（可能在一秒钟内）。
-
-
-根据时间偏移合并字幕：
-
-使用计算出的时间偏移来匹配和合并英语和越南语字幕。
-确保最接近的语言匹配，而不是精确的时间代码。
-如果合并条目的含义不匹配，您可能需要从此时开始重新计算时间偏移。
-检查每个条目以确保合并的翻译是相关的。
-
-
-处理不匹配的英语条目：
-
-如果英语条目显然没有越南语对应词，请保留该条目并继续。越南语译员可能漏掉了一个短语。
-
-
-处理不匹配的越南语条目：
-
-使用线性插值根据匹配的相邻条目估计合并文件中的最佳时间位置。
-由于没有匹配的英文条目，请包含从初始解析步骤中为此条目收集的英文翻译。它不会像人工生成的翻译那么好，但总比没有好。
-质量控制：
-
-
-
-
-根据获得的含义验证合并文件中每个匹配条目的翻译。
-srt 格式
-
-合并所有条目后，确保文件符合 srt 格式标准。
-输出的每个条目编号应从 1 开始进行数字迭代。
-不应从 VN 文件中导入文本格式。如果任何英文条目中有文本格式，请在越南语条目上匹配该格式。
-输出合并的字幕文件：
-将合并的字幕写入新文件。
-
-
+使用 client.beta.threads.runs.stream(
+thread_id=thread.id,
+assistant_id=assistant.id,
+instructions=&quot;请将用户称为 Jane Doe。该用户拥有高级帐户。&quot;,
+event_handler=EventHandler(),
+) 作为 stream:
+stream.until_done()
 ]]></description>
-      <guid>https://community.openai.com/t/movie-subtitle-merging-task/834147#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 09:03:09 GMT</pubDate>
+      <guid>https://community.openai.com/t/streaming-example-for-assistants-in-documentation-doesnt-stream/834370#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 12:21:40 GMT</pubDate>
     </item>
     <item>
-      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
-      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_38</link>
+      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
+      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_45</link>
+      <description><![CDATA[如果他们不解决这个问题，我将停止订阅 Premium。我经常使用它，现在它停止工作了……根本无法使用它。]]></description>
+      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_45</guid>
+      <pubDate>Sat, 22 Jun 2024 12:18:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
+      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_7</link>
+      <description><![CDATA[感谢 @PaulBellow 将会做 ]]></description>
+      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_7</guid>
+      <pubDate>Sat, 22 Jun 2024 12:18:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
+      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_6</link>
+      <description><![CDATA[很好。很高兴您解决了问题。
+欢迎在Documentation中发布有关该错误的信息，我们会尝试将其传递或让大家看到。不确定是否有更好的方法来报告它……]]></description>
+      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_6</guid>
+      <pubDate>Sat, 22 Jun 2024 12:17:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 账户似乎已被破解</title>
+      <link>https://community.openai.com/t/the-openai-account-seems-to-be-broken/834361#post_1</link>
+      <description><![CDATA[您好，
+我们正在使用 OpenAI Assistant API v2。我们有一个 Python 脚本，它向 OpenAI API 发送大约 10 个提示。
+几天以来，我们遇到了一个错误。在某些提示上，API 没有返回任何答案。我们认为错误出在我们身上，现在已经修复了 3 天的错误。不幸的是，没有成功。
+现在我们意识到，如果我们使用另一个 OpenAI 帐户运行我们的 Pythonscript，一切都会正常工作。
+如果我们切换回我们的帐户，问题又会出现。
+然后我设置了一个新的 API 密钥并设置了一个新的助手。不幸的是，错误仍然发生。
+我们的 OpenAI 帐户通常似乎在帐户本身中存在错误。
+您能检查一下我们的帐户以查看它为什么无法正常工作吗？
+谢谢，
+Johannes]]></description>
+      <guid>https://community.openai.com/t/the-openai-account-seems-to-be-broken/834361#post_1</guid>
+      <pubDate>Sat, 22 Jun 2024 12:17:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用代码解释器从助手流式传输 Markdown 文本和图像</title>
+      <link>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_5</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/streaming-markdown-text-and-images-from-assistant-using-code-interpreter/823042#post_5</guid>
+      <pubDate>Sat, 22 Jun 2024 12:16:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT Desktop：Mac 上的 Apple 自动更正功能存在问题</title>
+      <link>https://community.openai.com/t/chatgpt-desktop-issue-with-apples-autocorrect-on-mac/816139#post_10</link>
+      <description><![CDATA[同样如此，非常烦人的问题。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-desktop-issue-with-apples-autocorrect-on-mac/816139#post_10</guid>
+      <pubDate>Sat, 22 Jun 2024 12:01:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>域名验证问题</title>
+      <link>https://community.openai.com/t/domain-verification-issue/776094#post_10</link>
+      <description><![CDATA[哦，太好了，我尝试过几次支持，但都无济于事，但我喜欢这个想法，不确定它是否会让我的域名回来，但它可能会删除 gpts，这将是一些事情。
+将在其中一个上尝试这种方法，看看效果如何。为这个想法欢呼。]]></description>
+      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_10</guid>
+      <pubDate>Sat, 22 Jun 2024 11:34:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>域名验证问题</title>
+      <link>https://community.openai.com/t/domain-verification-issue/776094#post_9</link>
+      <description><![CDATA[嗨！
+您是否尝试过举报自己的 GPT？
+在第二步中，您可以提供举报的理由，并解释您的情况。
+如果此方法有效，请及时告知我们！]]></description>
+      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_9</guid>
+      <pubDate>Sat, 22 Jun 2024 11:32:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 即将免费</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_26</link>
+      <description><![CDATA[是的！聊天 Gpt 也回答了这个问题。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_26</guid>
+      <pubDate>Sat, 22 Jun 2024 11:30:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 即将免费</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_25</link>
       <description><![CDATA[
 
 
- kelby:
+ zwelinyambose988:
 
-助理游乐场
+是的，如果它对每个人都免费，那为什么要支付每月的高级 chatgpt plus 费用？我必须取消本月的订阅并使用免费的 4o 版本。我不能为其他人免费使用的东西付费。从财务角度来看，这毫无意义。
 
 
-从昨天开始我也一样。]]></description>
-      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_38</guid>
-      <pubDate>Sat, 22 Jun 2024 08:57:28 GMT</pubDate>
+是的！它是免费的，但免费版本中的所有工具并不适用于所有人。要使用所有未来功能，如 pdf 和 YouTube 摘要、文本转图像以及更多未来功能，请快速响应所有语言。因此需要 plus 版本。谢谢。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_25</guid>
+      <pubDate>Sat, 22 Jun 2024 11:29:13 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT - 语音模式屏幕进入睡眠状态</title>
-      <link>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_13</link>
-      <description><![CDATA[我也有同样的问题。我不喜欢进入系统设置将 ChatGpt 添加到应用程序列表中，因为睡眠模式不会自动激活。
-相反，我有一个建议：
-您可以使用 FLAG_KEEP_SCREEN_ON
-窗口标志：只要此窗口对用户可见，就保持设备屏幕打开并保持明亮。
-在 ChatGPT 应用中，可以按以下方式实现：
-请向 ChatGpt 应用添加另一个设置 - 始终打开，描述如下：
-激活此选项可防止手机在应用运行时关闭屏幕。请注意，这会导致电池使用量增加。我们建议使用深色主题。
-在代码中：
-val alwaysOn = prefsManager.getBoolean(PREF_IS_ALWAYS_ON, false)
-when (alwaysOn) {
-true -&gt; activityProvider.activeActivity?.window?.addFlags(
-WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-)
-false -&gt; activityProvider.activeActivity?.window?.clearFlags(
-WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-)
-}
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_13</guid>
-      <pubDate>Sat, 22 Jun 2024 08:41:30 GMT</pubDate>
+      <title>域名验证问题</title>
+      <link>https://community.openai.com/t/domain-verification-issue/776094#post_8</link>
+      <description><![CDATA[好的，谢谢。
+对于任何搜索的人来说，这里要说的是，删除您的帐户不会删除您的 GPT，因此请先删除它们并取消连接您的域名（如果可能），然后删除您的帐户。
+否则，您将无法再次使用您的域名，并且您创建的 GPTS 将永远以您的域名作为创建者运行，您将永远无法控制它们。]]></description>
+      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_8</guid>
+      <pubDate>Sat, 22 Jun 2024 11:27:05 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 中的“提交”按钮已禁用</title>
-      <link>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_24</link>
-      <description><![CDATA[同样。我在 Mac 上没问题，但在 iPhone 上却无法使用该服务，请帮帮忙。？]]></description>
-      <guid>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_24</guid>
-      <pubDate>Sat, 22 Jun 2024 08:37:56 GMT</pubDate>
+      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
+      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_41</link>
+      <description><![CDATA[我原本想将我的“收藏”置顶，但我觉得我更喜欢文件夹结构。]]></description>
+      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_41</guid>
+      <pubDate>Sat, 22 Jun 2024 11:26:00 GMT</pubDate>
     </item>
     <item>
-      <title>Chatgpt.com 网站未列出活跃模特</title>
-      <link>https://community.openai.com/t/chatgpt-com-website-doesnt-list-the-active-model/787037#post_6</link>
-      <description><![CDATA[我唯一能给出的答复是，当我登录 ChatGPT 时，左上角有一个模型选择器。
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-com-website-doesnt-list-the-active-model/787037#post_6</guid>
-      <pubDate>Sat, 22 Jun 2024 08:35:08 GMT</pubDate>
+      <title>改进 chatGPT 的建议</title>
+      <link>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_3</link>
+      <description><![CDATA[很好的建议！不过，改进聊天记录中的搜索功能也许更有用！]]></description>
+      <guid>https://community.openai.com/t/suggestions-to-improve-chatgpt/834174#post_3</guid>
+      <pubDate>Sat, 22 Jun 2024 11:14:01 GMT</pubDate>
     </item>
     <item>
-      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
-      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_37</link>
-      <description><![CDATA[对我来说，错误仍然存​​在。你呢？]]></description>
-      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=2#post_37</guid>
-      <pubDate>Sat, 22 Jun 2024 08:31:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>交互和语音改变了吗？</title>
-      <link>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_3</link>
-      <description><![CDATA[嗨。
-感谢您的回复。
-我知道如何设置声音，但情况并非如此。
-我也知道“天空”声音被删除了。
-我想问的是，最近几天是否有人经历过与我在帖子中描述的情况类似的事情。]]></description>
-      <guid>https://community.openai.com/t/interaction-and-voice-has-changed/833917#post_3</guid>
-      <pubDate>Sat, 22 Jun 2024 08:11:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4o 一次输入的最大拍摄图像数量</title>
-      <link>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_2</link>
-      <description><![CDATA[Android 应用程序允许上传 4 个文件，Web 应用程序允许上传 10 个文件。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_2</guid>
-      <pubDate>Sat, 22 Jun 2024 07:51:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dall e 无法为模拟数据创建简历图像，content_policy_violation，</title>
-      <link>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_5</link>
-      <description><![CDATA[@_j 感谢您的宝贵见解，但问题是我使用的是 node js 而不是 python。我猜 node 中可能也有用于相同用例的库，如果它在 node 中，您还能帮助我吗？]]></description>
-      <guid>https://community.openai.com/t/dall-e-not-able-to-create-resume-image-for-mock-data-content-policy-violation/831664#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 07:45:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 无法在移动设备上运行：“无法加载 GPT”</title>
-      <link>https://community.openai.com/t/custom-gpt-does-not-work-on-mobile-unable-to-load-gpt/834041#post_1</link>
-      <description><![CDATA[大家好，我最近遇到了一个问题，通过网络搜索，我似乎是遇到这个问题的少数人之一，但我没有找到解决方案。
-问题：
-我的 GPT 在网络上运行良好，但在移动应用程序上却无法运行。
-我在移动设备上收到此错误：
-A) 尝试加载时：
-“无法加载 GPT。操作无法完成。（Conversations.GizmoMissingItemsError 错误 3）”
-B) 尝试聊天时：
-“此 GPT 没有设置配置”
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-does-not-work-on-mobile-unable-to-load-gpt/834041#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 07:31:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4o 一次输入的最大拍摄图像数量</title>
-      <link>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_1</link>
-      <description><![CDATA[有没有人能告诉我 GPT4o 的最大拍摄图像数量是多少的官方声明？
-从技术上讲，它可以是 128000/170 = 750 帧左右？]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-maximum-number-of-image-taking-capacity-in-one-input/834035#post_1</guid>
-      <pubDate>Sat, 22 Jun 2024 07:25:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>从后付费改为预付费后的计费和支持问题</title>
-      <link>https://community.openai.com/t/billing-and-support-issues-after-change-from-post-paid-to-pre-paid/776589#post_5</link>
-      <description><![CDATA[近 3 个月以来，支持团队一直未提供任何解决方案，也没有进一步将问题转交给解决方案团队，我们现已向 OpenAI 法律部门发送了正式信函并在那里立案。我们将随时向您通报此事的进展情况。]]></description>
-      <guid>https://community.openai.com/t/billing-and-support-issues-after-change-from-post-paid-to-pre-paid/776589#post_5</guid>
-      <pubDate>Sat, 22 Jun 2024 07:24:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 文档中的 createVariation 示例代码似乎不起作用</title>
-      <link>https://community.openai.com/t/createvariation-example-code-from-api-docs-doesnt-seem-to-work/628214#post_6</link>
-      <description><![CDATA[我也遇到了同样的问题]]></description>
-      <guid>https://community.openai.com/t/createvariation-example-code-from-api-docs-doesnt-seem-to-work/628214#post_6</guid>
-      <pubDate>Sat, 22 Jun 2024 06:58:21 GMT</pubDate>
+      <title>域名验证问题</title>
+      <link>https://community.openai.com/t/domain-verification-issue/776094#post_7</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/domain-verification-issue/776094#post_7</guid>
+      <pubDate>Sat, 22 Jun 2024 11:12:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
