@@ -4,186 +4,137 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 23 Jun 2024 12:33:36 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2024 15:19:38 GMT</lastBuildDate>
     <item>
-      <title>GPT 搜索优化</title>
-      <link>https://community.openai.com/t/optimization-for-gpt-search/817631#post_3</link>
-      <description><![CDATA[谢谢！我只是搜索“足球”。我的 GPT 名称包含该词，并且曾经在结果列表中排在第一或第二位。现在它似乎不在最前面了。]]></description>
-      <guid>https://community.openai.com/t/optimization-for-gpt-search/817631#post_3</guid>
-      <pubDate>Sun, 23 Jun 2024 12:16:58 GMT</pubDate>
+      <title>为什么 ChatGPT 在某些情况下不提供个性化答案？</title>
+      <link>https://community.openai.com/t/why-doesnt-chatgpt-provide-personalized-answers-in-some-cases/835917#post_1</link>
+      <description><![CDATA[我们是学生，最近对来自不同背景、计算机知识水平和使用 ChatGPT 经验不同的参与者进行了一项调查。他们都向 ChatGPT 提出了同一个问题“打击网络钓鱼的 5 个技巧”，并得到了相同的回答，即使使用不同的语言也是如此。为什么结果相同？ChatGPT 的培训水平不是可以带来个性化答案吗？]]></description>
+      <guid>https://community.openai.com/t/why-doesnt-chatgpt-provide-personalized-answers-in-some-cases/835917#post_1</guid>
+      <pubDate>Sun, 23 Jun 2024 15:10:08 GMT</pubDate>
     </item>
     <item>
-      <title>函数调用使用前一次调用的值</title>
-      <link>https://community.openai.com/t/function-calling-uses-previous-calls-values/828918#post_11</link>
-      <description><![CDATA[谢谢 @ramn7 实际上，正如您所提到的，这是一个代码问题，历史记录并不总是被清除。我使用的型号是 gpt-3.5-turbo，温度是 0.5。实际上，我面临另一个问题。我还有一个函数，它接受一个参数。但机器人不会直接检测到它。假设该函数是获取余额。如果我说“获取余额”，它会要求输入手机号码。如果我只提供号码，它会再次询问我。如果我再次提供号码，它就会正常工作。但如果我只是说“获取 90310 的余额”或“获取余额”，然后“手机号码是 90310”，它就可以正常工作了]]></description>
-      <guid>https://community.openai.com/t/function-calling-uses-previous-calls-values/828918#post_11</guid>
-      <pubDate>Sun, 23 Jun 2024 11:52:53 GMT</pubDate>
+      <title>表格中的数据点和图像中的图表</title>
+      <link>https://community.openai.com/t/data-points-in-tables-and-charts-in-images/835914#post_1</link>
+      <description><![CDATA[嗨，我正在尝试使用 gpt4o 从图像中的表格和图形中提取数据，但输出非常随机，每次都有不同的结果，有什么更好的提示策略可以从带有表格或图表的图像中获取数据点？]]></description>
+      <guid>https://community.openai.com/t/data-points-in-tables-and-charts-in-images/835914#post_1</guid>
+      <pubDate>Sun, 23 Jun 2024 15:08:44 GMT</pubDate>
     </item>
     <item>
-      <title>您已达到使用限制。请稍后重试</title>
-      <link>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_3</link>
-      <description><![CDATA[我终于搞明白了。在聊天栏下有拇指向下之类的选项，还有一个向下的箭头，上面有“更改模型”选项 - 降到 3.5 就可以重新开始工作了。以前，一旦您的 v4 免费分配用完，它就会自动执行此操作，不知道为什么会改变。]]></description>
-      <guid>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_3</guid>
-      <pubDate>Sun, 23 Jun 2024 11:41:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4 Vision 使用空白页创建奇怪的结果</title>
-      <link>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_3</link>
-      <description><![CDATA[欢迎 @vikramsnarayan
-只有当图像包含任何文本时，您才可以要求模型进行转录。
-参见以下示例：
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-model=&quot;gpt-4o&quot;,
-messages=[
-{
-&quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: [
-{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;如果图像包含文本，请将图像准确地转录为带有适当标题的 markdown 文本，否则请回复‘未检测到文本’。此外，如果有图像，请提供替代文本。&quot;},
-{
-&quot;type&quot;: &quot;image_url&quot;,
-&quot;image_url&quot;: {
-&quot;url&quot;: “https://i.imgur.com/3Ohm46U.png”,
-},
-},
-],
-}
-],
-max_tokens=300,
-)
-
-print(response.choices[0])
-]]></description>
-      <guid>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_3</guid>
-      <pubDate>Sun, 23 Jun 2024 11:40:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用助手 API 进行提示链接</title>
-      <link>https://community.openai.com/t/prompt-chaining-with-assistant-api/835643#post_1</link>
-      <description><![CDATA[大家好，
-我想根据用户输入运行一系列提示。它们取决于我助手存储中的文件。
-最好的方法是什么？
-谢谢，]]></description>
-      <guid>https://community.openai.com/t/prompt-chaining-with-assistant-api/835643#post_1</guid>
-      <pubDate>Sun, 23 Jun 2024 11:33:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到使用限制。请稍后重试</title>
-      <link>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_2</link>
-      <description><![CDATA[同样的事情发生在我身上  ，可能是某种错误]]></description>
-      <guid>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_2</guid>
-      <pubDate>Sun, 23 Jun 2024 11:32:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4 Vision 使用空白页创建奇怪的结果</title>
-      <link>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_2</link>
-      <description><![CDATA[嗨！
-是的，当提供空白图像或分辨率较差且无法检测到其内容的图像时，这是正常或预期的行为。
-您可以通过在提示中添加类似以下内容的附加指令（根据需要进一步定制）来构建控件：如果图像为空白，即不包含任何视觉内容，请返回空白图像作为您的响应。
-这将阻止模型返回幻觉作为响应。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_2</guid>
-      <pubDate>Sun, 23 Jun 2024 11:25:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 中的“提交”按钮已禁用</title>
-      <link>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_28</link>
-      <description><![CDATA[没有什么可以帮助我...它根本不起作用...]]></description>
-      <guid>https://community.openai.com/t/submit-button-disabled-in-chatgpt/803210?page=2#post_28</guid>
-      <pubDate>Sun, 23 Jun 2024 11:24:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 4 Vision 使用空白页创建奇怪的结果</title>
-      <link>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_1</link>
-      <description><![CDATA[对我来说，以下代码由于空白页图像而产生了无意义的结果。
-我做错了什么吗，或者这只是预期的令牌完成行为/幻觉，还是看似空白的图像中嵌入了某些东西？
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-model=&quot;gpt-4o&quot;,
-messages=[
-{
-&quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: [
-{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;请将图像准确地转录为带有适当标题的 markdown 文本。此外，如果有图像，请提供替代文本。&quot;},
-{
-&quot;type&quot;: &quot;image_url&quot;,
-&quot;image_url&quot;: {
-&quot;url&quot;: &quot;https://i.imgur.com/3Ohm46U.png&quot;,
-},
-},
-],
-}
-],
-max_tokens=300,
-)
-
-print(response.choices[0])
-]]></description>
-      <guid>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_1</guid>
-      <pubDate>Sun, 23 Jun 2024 11:10:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
-      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_8</link>
-      <description><![CDATA[我完全理解，一致的​​说话方式对我来说非常重要 
-但是，我的方法适用于默认的 ChatGPT 模型和我的 CustomGPT。
-
-通过我的概念和计算交互的公式，AI 能够更加有效，更好地满足您的需求。
-
-AI 将能够以有针对性和更安全的方式进行交互。]]></description>
-      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_8</guid>
-      <pubDate>Sun, 23 Jun 2024 11:05:38 GMT</pubDate>
+      <title>有没有办法获得 GPT-4o 微调访问权限？</title>
+      <link>https://community.openai.com/t/is-there-any-way-to-get-gpt-4o-fine-tune-access/831437#post_7</link>
+      <description><![CDATA[
+gpt-4o 对我来说根本不是一个选择]]></description>
+      <guid>https://community.openai.com/t/is-there-any-way-to-get-gpt-4o-fine-tune-access/831437#post_7</guid>
+      <pubDate>Sun, 23 Jun 2024 14:59:33 GMT</pubDate>
     </item>
     <item>
       <title>GPT-4o：您已达到使用限制。请稍后重试</title>
-      <link>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_8</link>
-      <description><![CDATA[状态页面目前看起来正常，但我仍然收到相同的消息。一定是帐户特定问题，或者我的 ISP 对 GPT-4o 持谨慎态度并告诉每个人都坚持使用 GPT-3.5？]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_8</guid>
-      <pubDate>Sun, 23 Jun 2024 11:00:51 GMT</pubDate>
+      <link>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_10</link>
+      <description><![CDATA[我想这种情况很多人都遇到过，在iPhone和Android上我无法使用chatgpt，请尽快解决]]></description>
+      <guid>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_10</guid>
+      <pubDate>Sun, 23 Jun 2024 14:44:51 GMT</pubDate>
     </item>
     <item>
-      <title>您已达到使用限制。请稍后重试</title>
-      <link>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_1</link>
-      <description><![CDATA[嗨，如果这不是发布此内容的正确地方，请原谅我。，我对它还不熟悉，我无法在其他地方找到答案。我没有为任何版本的 ChatGPT 付费，所以我完全理解我每天的消息数量有限，但在过去的 3 天里，每次我尝试使用它时，我都会收到相同的消息。这么长时间是正常的吗？我读到过，你可能需要 24 小时才能再次使用 ChatGPT，但不是 3 天……这是一个错误还是我达到了某种限制？我尝试过老套的“你试过关闭它然后再打开吗”来登录和退出，但问题仍然存在。
-谢谢]]></description>
-      <guid>https://community.openai.com/t/youve-hit-your-usage-limit-please-try-again-later/835602#post_1</guid>
-      <pubDate>Sun, 23 Jun 2024 10:56:05 GMT</pubDate>
+      <title>GPT 4 Vision 使用空白页创建奇怪的结果</title>
+      <link>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_4</link>
+      <description><![CDATA[谢谢。这是一个可行的解决方案。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-vision-with-blank-page-creates-weird-results/835623#post_4</guid>
+      <pubDate>Sun, 23 Jun 2024 14:41:35 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o：您已达到使用限制。请稍后重试</title>
-      <link>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_7</link>
-      <description><![CDATA[我在尝试使用 GPT-4o 时遇到了同样的问题。即使没有启动任何会话，我也会收到一条消息，提示我已达到使用限制，请稍后再试。有趣的是，当我切换到 GPT-3.5 时，它运行良好。有人能解释一下为什么会发生这种情况吗？这是我帐户特有的错误，还是其他人在使用 GPT-4o 时也遇到了类似的问题？这个问题在应用程序和浏览器中都存在，我不确定如何解决它。]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-youve-hit-your-usage-limit-please-try-again-later/835144#post_7</guid>
-      <pubDate>Sun, 23 Jun 2024 10:53:46 GMT</pubDate>
+      <title>新文章说聊天 gpt 5 直到 2025 年才会推出，这太长了，因为 4 拒绝编码数万行</title>
+      <link>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_2</link>
+      <description><![CDATA[Claude 4 将很快停止聊天 gpt，因为 claude 3.5 sonnet 已经比 4o 更好了]]></description>
+      <guid>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_2</guid>
+      <pubDate>Sun, 23 Jun 2024 14:38:20 GMT</pubDate>
     </item>
     <item>
-      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
-      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_7</link>
-      <description><![CDATA[您的建议对于像 ChatGPT 这样的语言模型来说是一种很好的训练方法，它已经可以非常成功地运行。 
-然而，我的方法更深入，旨在确保人工智能不再需要模仿或模拟。为了实现这一点，有必要创建适应的框架条件。
-我的想法是：
-让人工智能能够根据明确定义的参数识别、理解和应用情绪本身中合理有形的方面。
-这些参数也可以使用我为人工智能感知改编的公式来测量。该公式可以作为人机交互中进一步衡量指标的基础。
-示例：治疗应用
+      <title>新文章说聊天 gpt 5 直到 2025 年才会推出，这太长了，因为 4 拒绝编码数万行</title>
+      <link>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_1</link>
+      <description><![CDATA[新文章称，聊天 gpt 5 要到 2025 年才会推出，这太长了，因为 4 拒绝编写数万行代码]]></description>
+      <guid>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_1</guid>
+      <pubDate>Sun, 23 Jun 2024 14:36:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>开发人员能否修复 dalle 3，以便当我需要视频游戏纹理时它可以停止制作物体的 3d 图像</title>
+      <link>https://community.openai.com/t/can-the-devs-fix-dalle-3-so-it-can-stop-making-3d-images-of-objects-when-i-want-video-game-textures/740256#post_3</link>
+      <description><![CDATA[这个问题解决了吗？好像总是这样]]></description>
+      <guid>https://community.openai.com/t/can-the-devs-fix-dalle-3-so-it-can-stop-making-3d-images-of-objects-when-i-want-video-game-textures/740256#post_3</guid>
+      <pubDate>Sun, 23 Jun 2024 14:33:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>复制粘贴后，发送按钮有时会变灰，并且代码不适合最后的代码框</title>
+      <link>https://community.openai.com/t/send-button-gets-grayed-out-sometimes-and-code-does-not-fit-in-code-box-at-the-end-when-copy-pasting/835854#post_1</link>
+      <description><![CDATA[发送按钮有时会变灰，并且复制粘贴时代码不适合最后的代码框，导致 c# 中的花括号留在代码窗口框之外]]></description>
+      <guid>https://community.openai.com/t/send-button-gets-grayed-out-sometimes-and-code-does-not-fit-in-code-box-at-the-end-when-copy-pasting/835854#post_1</guid>
+      <pubDate>Sun, 23 Jun 2024 14:32:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 上的语音已更改</title>
+      <link>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_18</link>
+      <description><![CDATA[
 
-在对话过程中，人类的压力水平会增加，人工智能会识别出对话中的临界点，并可以根据计算出的变化采取比当前实施的程序更有针对性的行动。
 
-如果用户有自闭症，人工智能可以采取有针对性和适应性的方式做出反应。]]></description>
-      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_7</guid>
-      <pubDate>Sun, 23 Jun 2024 10:44:18 GMT</pubDate>
+指定自定义 GPT 的语音
+
+最好尊重 ChatGPT 应用的整体语音设置，或者最好允许在自定义 GPT 的配置面板中指定语音，以便与创建者想象的自定义 GPT 的整体“角色”保持一致。
+
+
+我完全同意。Shimmer 不应该是唯一的方法。我已将我的 GPT 创建为 ChatGPT Plus 订阅者，并且我意识到 Open AI 有 https://platform.openai.com/docs/guides/text-to-speech 男声选项，例如 Onyx。我认为拥有声音选择非常重要，我期待修复，以便 GPT 使用用户在个人设置中设置的任何声音或符合 GPT 角色的每个 GPT 的自定义声音。]]></description>
+      <guid>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_18</guid>
+      <pubDate>Sun, 23 Jun 2024 14:25:53 GMT</pubDate>
     </item>
     <item>
-      <title>我们可以进行帐户/会员数据迁移吗？</title>
-      <link>https://community.openai.com/t/can-we-please-get-account-members-data-migration/835586#post_1</link>
-      <description><![CDATA[嗨，
-您能否为我们提供一个在平台 - 组织 - 成员内成员之间迁移帐户数据的选项？如果我们可以将数据转移到组织电子邮件帐户，那就太好了。将数据添加到他们的帐户，而不是替换他们的数据。]]></description>
-      <guid>https://community.openai.com/t/can-we-please-get-account-members-data-migration/835586#post_1</guid>
-      <pubDate>Sun, 23 Jun 2024 10:42:16 GMT</pubDate>
+      <title>自定义 GPT 的默认语音</title>
+      <link>https://community.openai.com/t/default-voice-for-custom-gpt/533311#post_11</link>
+      <description><![CDATA[我同意你的观点。我已将我的 GPT 创建为 ChatGPT Plus 订阅者，并且我意识到 Open AI 有 https://platform.openai.com/docs/guides/text-to-speech 男声选项，例如 Onyx。我认为拥有声音选择非常重要，我期待 GPT 能够使用用户在个人设置中设置的任何声音或符合 GPT 角色的自定义声音。]]></description>
+      <guid>https://community.openai.com/t/default-voice-for-custom-gpt/533311#post_11</guid>
+      <pubDate>Sun, 23 Jun 2024 14:23:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的“发送”按钮是灰色的，所以我根本无法使用 ChatGPT。我没有收到任何提醒我限制的消息。我也有 ChatGPT plus。有人知道可能发生了什么吗？</title>
+      <link>https://community.openai.com/t/i-have-a-greyed-out-send-button-so-i-cant-use-chatgpt-at-all-i-got-no-message-alerting-me-of-restrictions-i-also-have-chatgpt-plus-anyone-know-what-might-be-going-on/808317?page=3#post_50</link>
+      <description><![CDATA[它仅适用于较新型号的 iPhone IOS 16 及更高版本。我购买了付费版本，它仅适用于我的 Mac OS 14 笔记本电脑，但不适用于我的 IOS 15 IPhone 7 浏览器。]]></description>
+      <guid>https://community.openai.com/t/i-have-a-greyed-out-send-button-so-i-cant-use-chatgpt-at-all-i-got-no-message-alerting-me-of-restrictions-i-also-have-chatgpt-plus-anyone-know-what-might-be-going-on/808317?page=3#post_50</guid>
+      <pubDate>Sun, 23 Jun 2024 14:12:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT-4o 的新语音模型何时发布</title>
+      <link>https://community.openai.com/t/when-the-new-voice-model-for-chatgpt-4o-will-be-released/789928?page=2#post_40</link>
+      <description><![CDATA[仍在等待这个]]></description>
+      <guid>https://community.openai.com/t/when-the-new-voice-model-for-chatgpt-4o-will-be-released/789928?page=2#post_40</guid>
+      <pubDate>Sun, 23 Jun 2024 14:08:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在我的帐户中找不到自定义 gpt 型号</title>
+      <link>https://community.openai.com/t/i-cannot-find-custom-gpt-model-in-my-account/835799#post_2</link>
+      <description><![CDATA[嗨，欢迎来到开发者论坛。
+只有拥有 plus 帐户的 ChatGPT 用户才能访问自定义 GPT。没有 API 端点可以从外部访问它们。
+您可以查看提供预构建解决方案的 Assistants API，也可以使用传统代码和 API 创建自己的解决方案，但不适用于 GPT。]]></description>
+      <guid>https://community.openai.com/t/i-cannot-find-custom-gpt-model-in-my-account/835799#post_2</guid>
+      <pubDate>Sun, 23 Jun 2024 14:06:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在我的帐户中找不到自定义 gpt 型号</title>
+      <link>https://community.openai.com/t/i-cannot-find-custom-gpt-model-in-my-account/835799#post_1</link>
+      <description><![CDATA[主题：自定义 GPT 模型 API 访问和嵌入需要帮助
+亲爱的 OpenAI 支持团队，
+我目前正在使用名为“OAD Guru”的自定义 GPT 部署，可通过图片中的 URL 访问。
+
+尽管尝试了几次，我还是无法使用各种模型 ID 和端点成功连接到 API。
+以下是问题：
+
+我有一个 OpenAI Plus 帐户。
+自定义 GPT 模型未出现在我的帐户的模型列表中。
+我尝试使用模型 ID，例如 H7oq1QVki、babbage-002 和 davinci-002。
+我使用了以下端点：https://api.openai.com/v1/completions 和 https://api.openai.com/v1/chat/completions。
+每次尝试都会导致 404 错误，表明模型 ID 或端点可能不正确。
+
+此外，我希望将这个自定义 GPT 聊天机器人嵌入到我的 Squarespace 帐户中。我已经成功嵌入通用机器人，但我需要所选自定义 GPT 的具体型号才能继续。
+您能否提供准确的型号 ID 和用于访问自定义 GPT“OAD Guru”的正确 API 端点？此外，如果需要任何特定配置或权限，请告诉我。
+感谢您的帮助。]]></description>
+      <guid>https://community.openai.com/t/i-cannot-find-custom-gpt-model-in-my-account/835799#post_1</guid>
+      <pubDate>Sun, 23 Jun 2024 13:52:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
