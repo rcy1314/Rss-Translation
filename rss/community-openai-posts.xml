@@ -4,190 +4,161 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 25 Jun 2024 06:26:59 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2024 09:20:59 GMT</lastBuildDate>
     <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_9</link>
-      <description><![CDATA[我将逐字复制 AI 提供的 v2 file_search 工具，其中包含 AI 拥有的单一方法，因此您与 AI 一样了解。（这需要来回滚动代码框。）
-## 工具
-
-## myfiles_browser
-
-您拥有具有以下功能的工具 `myfiles_browser`：
-`msearch(queries: list[str])` 对当前对话中上传的文件发出多个查询以进行搜索并显示结果。
-
-请以以下格式呈现：`【{message idx}†{link text}】`
-
-用于浏览用户上传的文件的工具。
-
-调用此工具时将收件人设置为 `myfiles_browser` 并使用 python 语法（例如 msearch([&#39;query&#39;]))。当使用 JSON 而不是此语法时，会返回“源代码中的函数调用无效”错误。
-
-用户上传的文档的部分内容将自动包含在对话中。仅当相关部分不包含满足用户请求所需的信息时才使用此工具。
-
-仅当需要分解用户的问题以查找不同的事实时，才向 msearch 命令发出多个查询。在其他情况下，最好提供单个查询。避免使用非常宽泛且会返回不相关结果的单词查询。
-
-以下是一些如何使用 msearch 命令的示例：
-用户：20 世纪 70 年代法国和意大利的 GDP 是多少？=&gt; msearch([&quot;france gdp 1970&quot;, &quot;italy gdp 1970&quot;])
-用户：报告对 GPT4 在 MMLU 上的表现有何评价？=&gt; msearch([&quot;GPT4 MMLU performance&quot;])
-用户：如何将客户关系管理系统与第三方电子邮件营销工具集成？=&gt; msearch([&quot;客户管理系统营销集成&quot;])
-用户：我们的云存储服务在数据安全和隐私方面有哪些最佳实践？=&gt; msearch([&quot;云存储安全和隐私&quot;])
-
-请为您的答案提供引文，并以以下格式呈现：`【{message idx}:{search idx}†{link text}】`。
-
-消息 idx 以以下格式提供在工具消息的开头：`[message idx]`，例如 [3]。
-搜索索引应从搜索结果中提取，例如# 【13†Paris†4f4915f6-2a0b-4eb5-85d1-352e00c125bb】指第 13 条搜索结果，来自 ID 为 4f4915f6-2a0b-4eb5-85d1-352e00c125bb 的文档，标题为“Paris”。
-
-有效引文为 ` `。
-
-引文的 3 个部分均为必填项。
-
-
-（展开）- 未格式化的工具版本，将在此处自动换行 （单击以了解更多详细信息）
-这是在发出搜索并响应后立即执行的，以确保如果有任何动态版本，则加载它（OpenAI 在其他工具（如 ChatGPT 的检索和浏览器）上使用了此技巧，以将规则转储到他们试图向您隐藏的 AI 上）
-AI 收到块的文件名，但无法“询问”。]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_9</guid>
-      <pubDate>Tue, 25 Jun 2024 06:24:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT4o 似乎是另一个用户的请求</title>
-      <link>https://community.openai.com/t/gpt4o-appears-to-be-another-users-request/838555#post_1</link>
-      <description><![CDATA[我已经使用了 GPT4o 中的文档阅读器，是否有其他人也遇到过看起来像是其他用户的请求的完全错误的响应？]]></description>
-      <guid>https://community.openai.com/t/gpt4o-appears-to-be-another-users-request/838555#post_1</guid>
-      <pubDate>Tue, 25 Jun 2024 06:24:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>官方推荐的 java-lib 库似乎不再维护</title>
-      <link>https://community.openai.com/t/it-appears-that-the-officially-recommended-java-lib-library-is-no-longer-being-maintained/716140#post_13</link>
-      <description><![CDATA[我只是想回复我的这篇旧帖子，介绍一下我目前关于如何从 Java 调用 LLM 的最佳想法，即：
+      <title>GPT 的新语音 VS GPT4 标准语音</title>
+      <link>https://community.openai.com/t/gpts-new-voice-vs-gpt4-standard-voices/490680#post_11</link>
+      <description><![CDATA[
 
 
 
-docs.langchain4j.dev
+自定义 GPT 上的声音已更改 ChatGPT
 
 
-LangChain4j | LangChain4j
-说明将放入元标记中
+我完全同意。Shimmer 不应该是唯一的方法。我已经以 ChatGPT Plus 订阅者的身份创建了我的 GPT，并且我意识到 Open AI 有 https://platform.openai.com/docs/guides/text-to-speech 男声选项，例如 Onyx。我认为拥有声音选择非常重要，我期待修复，以便 GPT 使用用户在个人设置中设置的任何声音或每个 GPT 的自定义声音，以符合 GPT 的角色。
 
-
-
-
-
-它不仅可以让您调用 OpenAI，而且与 Python Langchain 一样，它还支持大量其他 LLM，并支持 RAG/VectorDatabases 等！！！我尚未将我的 Java 代码转换为 LangChain4J，但很快就会转换。]]></description>
-      <guid>https://community.openai.com/t/it-appears-that-the-officially-recommended-java-lib-library-is-no-longer-being-maintained/716140#post_13</guid>
-      <pubDate>Tue, 25 Jun 2024 06:10:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_8</link>
-      <description><![CDATA[嗯……我会给你一个示例，说明如何在 vectorstore 中提供文件名以使用 OpenAI 获取结果
-
-这 5 家公司的响应在 Playground 中如下所示。尝试一些 poc 来检查 OpenAI Assistants V2 的工作原理。
-唯一的问题是，从代码中尝试时不是这样的。将寻找替代方案。
 ]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_8</guid>
-      <pubDate>Tue, 25 Jun 2024 06:09:07 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpts-new-voice-vs-gpt4-standard-voices/490680#post_11</guid>
+      <pubDate>Tue, 25 Jun 2024 09:20:26 GMT</pubDate>
     </item>
     <item>
-      <title>如何使用 ChatGPT 自动生成适用的文件差异？</title>
-      <link>https://community.openai.com/t/how-to-generate-automatically-applicable-file-diffs-with-chatgpt/227822?page=2#post_24</link>
-      <description><![CDATA[一年多过去了，遗憾的是，ChatGPT 在生成 diff 方面仍然表现不佳。关键是，它似乎无法正确呈现 hunk 标头。
-例如，它知道 hunk 标头存储了上下文行数。它知道它有 5 行上下文。但由于某种原因，它没有将正确数量的上下文行输入到 hunk 标头中。
-如果我引导 ChatGPT 完成每个步骤并应用苏格拉底方法，那么它会非常缓慢地获得它，但如果我开始一个新问题，它会立即忘记所有内容，并且必须每次都引导它。
-它的默认行为是仅模仿 diff 输出。而不是真正生成它。]]></description>
-      <guid>https://community.openai.com/t/how-to-generate-automatically-applicable-file-diffs-with-chatgpt/227822?page=2#post_24</guid>
-      <pubDate>Tue, 25 Jun 2024 06:01:50 GMT</pubDate>
+      <title>为什么这个论坛没有文件附件功能？</title>
+      <link>https://community.openai.com/t/why-is-there-no-file-attachment-feature-for-this-forum/838483#post_2</link>
+      <description><![CDATA[几个月前我们在休息室讨论过这个问题，
+https://community.openai.com/t/should-we-be-able-to-upload-more-files-types/656278?u=elmstedt
+讨论没有取得任何进展，有人担心讨论可能会降级，因为更多的人可能会阅读快速、格式化的代码片段，而不是下载某人的整个文件并通读它以寻找突出的部分，还有关于允许文件上传的审核挑战的问题。
+你参与了讨论。]]></description>
+      <guid>https://community.openai.com/t/why-is-there-no-file-attachment-feature-for-this-forum/838483#post_2</guid>
+      <pubDate>Tue, 25 Jun 2024 09:19:40 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_7</link>
-      <description><![CDATA[当然，您可以开发自己的解决方案。
-检索增强生成 (RAG) 通常是基于用户输入及其上下文自动注入知识，而不是您的聊天 AI 编写的内容。 AI 可以通过编写假设答案来嵌入搜索，将输入上下文转换为更像文档，或者您可以使用更多信息（例如总摘要或可以从该部分回答的典型问题）来增强每个块。
-您可以从增强文档的分块方式开始，它们在发送嵌入时作为元数据包含了哪种可搜索的层次结构等。您甚至可以只给 AI 一个文档菜单，通过工具功能进行探索，并让它读取它们，因为您或您的用户似乎了解文件存储库以指导 AI。
-在我看来，PDF 文件是一个非常糟糕的知识库，最好找到它们的来源并将文本转换为 AI 可以理解的形式，或者您自己进行文档提取，这样您就有机会检查质量。]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_7</guid>
-      <pubDate>Tue, 25 Jun 2024 06:00:10 GMT</pubDate>
+      <title>自定义 GPT 上的语音已更改</title>
+      <link>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_19</link>
+      <description><![CDATA[
+
+
+
+GPTs 新语音 VS GPT4 标准语音 ChatGPT
+
+
+是的，我非常希望修复此问题。我认为拥有语音选择非常重要，我期待 ChatGPT 修复此问题，以便 GPT 使用用户在个人设置中设置的任何语音或符合 GPT 角色的每个 GPT 的自定义语音。我已将我的 GPT 创建为 ChatGPT Plus 订阅者，我意识到 Open AI 有 https://platform.openai.com/docs/guides/text-to-speech 男声选项，例如 Onyx。Shimmer 不应该是唯一的方法。C…
+
+]]></description>
+      <guid>https://community.openai.com/t/voice-changed-on-custom-gpt/830562#post_19</guid>
+      <pubDate>Tue, 25 Jun 2024 09:18:20 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_6</link>
-      <description><![CDATA[好的。有什么替代方案吗？在单独的矢量存储中使用自定义元数据进行自定义嵌入可以吗？
-我还选择了 openAI assistants V2，因为据说它可以在 10,000 个文件中执行 file_search。这里的响应也不一致。]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_6</guid>
-      <pubDate>Tue, 25 Jun 2024 05:52:18 GMT</pubDate>
+      <title>如何访问 Playground 的聊天记录？</title>
+      <link>https://community.openai.com/t/how-to-access-chat-history-of-playground/838780#post_2</link>
+      <description><![CDATA[你不能。
+游乐场是一个简单的开发人员沙箱，而不是消费产品。]]></description>
+      <guid>https://community.openai.com/t/how-to-access-chat-history-of-playground/838780#post_2</guid>
+      <pubDate>Tue, 25 Jun 2024 09:08:35 GMT</pubDate>
     </item>
     <item>
-      <title>GPT Assistant API 软件第 1 版文档</title>
-      <link>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_13</link>
-      <description><![CDATA[您可以通过标题选择的两个助手版本不要求使用不同类型的模型。除了一些新参数之外，主要的变化是从检索切换到 v2 中的简化文件搜索。
-v1 中“检索”的使用可能是由 Azure 认知搜索方法而不是 OpenAI 的嵌入提供支持。然后，AI 被赋予多种方法，通过结果索引输入文档，使用分页滚动浏览，标记有趣的段落，退出，输入另一个文档。在多个回合中，这基本上会让你的代币预算付诸东流。
-gpt-4o 甚至无法在多次协助改进代码的情况下工作，而不会显着降低质量并再次重复错误。这就是我猜测它为什么被禁止的原因。]]></description>
-      <guid>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_13</guid>
-      <pubDate>Tue, 25 Jun 2024 05:52:04 GMT</pubDate>
+      <title>助手线程限制</title>
+      <link>https://community.openai.com/t/assistant-thread-limitations/827143#post_4</link>
+      <description><![CDATA[我只需使用聊天 API 和自定义提示指令，然后使用它分别处理每个查询。
+虽然成本会高一点，但至少可以工作。]]></description>
+      <guid>https://community.openai.com/t/assistant-thread-limitations/827143#post_4</guid>
+      <pubDate>Tue, 25 Jun 2024 08:57:12 GMT</pubDate>
     </item>
     <item>
-      <title>使用 100 多个 PDF 作为知识库创建机器人</title>
-      <link>https://community.openai.com/t/creating-a-bot-using-100-pdfs-as-the-knowledge-base/597237#post_21</link>
-      <description><![CDATA[不确定您是否仍在研究这个问题。您可以使用 Instabase AI Hub 实现此目的，它可运行多个 GPT，具体取决于您选择的 GPT。转到 aihub，使用任何 Gmail 登录，转到 Converse，上传尽可能多的 PDF（无论长度如何）（以及任何其他文档、扫描件、手写笔记、excel 文档），选择多步骤模型，询问几个示例问题，然后单击“创建聊天机器人”。它将生成一个带有链接和 API 的聊天机器人，可在任何地方使用。]]></description>
-      <guid>https://community.openai.com/t/creating-a-bot-using-100-pdfs-as-the-knowledge-base/597237#post_21</guid>
-      <pubDate>Tue, 25 Jun 2024 05:51:42 GMT</pubDate>
+      <title>助手线程限制</title>
+      <link>https://community.openai.com/t/assistant-thread-limitations/827143#post_3</link>
+      <description><![CDATA[我认为我的错误是假设正在创建一个会话，而实际上它只是存储所有以前的消息，并将它们附加到我每次查询的助手中，这意味着所有以前的消息都包括在内，这就是为什么我超出了每个对话的令牌数量。
+不确定它在 Web 版本中是如何工作的，但根据我的测试，我认为它只是默默地截断旧消息，用户一直认为模型记住了所有的对话，但实际上记住的是最后一条消息。]]></description>
+      <guid>https://community.openai.com/t/assistant-thread-limitations/827143#post_3</guid>
+      <pubDate>Tue, 25 Jun 2024 08:55:02 GMT</pubDate>
     </item>
     <item>
-      <title>提供自己的 PHP 应用程序数据并提出相关问题？</title>
-      <link>https://community.openai.com/t/feeding-own-php-application-data-and-ask-related-questions/819124#post_16</link>
-      <description><![CDATA[我自己通过使用向量存储方法解决了这个问题]]></description>
-      <guid>https://community.openai.com/t/feeding-own-php-application-data-and-ask-related-questions/819124#post_16</guid>
-      <pubDate>Tue, 25 Jun 2024 05:46:35 GMT</pubDate>
+      <title>运行失败，抱歉，出现错误。发送图像时出错</title>
+      <link>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=4#post_66</link>
+      <description><![CDATA[谢谢。我修改了它以指向我现有的助手并得到相同的错误响应。我将其添加到我的票证中！]]></description>
+      <guid>https://community.openai.com/t/run-failed-sorry-something-went-wrong-error-while-sending-an-image/775989?page=4#post_66</guid>
+      <pubDate>Tue, 25 Jun 2024 08:50:38 GMT</pubDate>
     </item>
     <item>
-      <title>GPT Assistant API 软件第 1 版文档</title>
-      <link>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_12</link>
-      <description><![CDATA[我可以看到其他原因，这些原因可能解释了为什么 GPT4o 不响应第一版语法。一个原因是 openAI 不愿意在 GPT4o 中同时支持两个版本。另一个原因是 openAI 正在推动人们转向新版本。]]></description>
-      <guid>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_12</guid>
-      <pubDate>Tue, 25 Jun 2024 05:44:49 GMT</pubDate>
+      <title>如何访问 Playground 的聊天记录？</title>
+      <link>https://community.openai.com/t/how-to-access-chat-history-of-playground/838780#post_1</link>
+      <description><![CDATA[我使用 Playground 聊天机器人进行对话。但是，即使我访问其他任何东西或使用 Playground 中的其他聊天机器人，我也会丢失它们。我如何访问我最近的聊天？]]></description>
+      <guid>https://community.openai.com/t/how-to-access-chat-history-of-playground/838780#post_1</guid>
+      <pubDate>Tue, 25 Jun 2024 08:50:14 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_5</link>
-      <description><![CDATA[文件搜索不接受文件名作为搜索参数。AI 只能编写查询。这是针对助手和线程向量存储（包括用户消息附件）执行的。
-我们只能假设这在逻辑上是对所有块的详尽搜索，使用文档中记录的 256 维 embeddings-3-large 的语义相似性，返回顶部结果（可能按排名排序）。然而，逻辑上不会返回您在谈论企鹅时上传的 20000 个 Aunt Millie 泡菜食谱的标记，但目前它就是这样工作的。]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_5</guid>
-      <pubDate>Tue, 25 Jun 2024 05:44:19 GMT</pubDate>
+      <title>openAI 流 AbstractAssistantStreamRunner null</title>
+      <link>https://community.openai.com/t/openai-stream-abstractassistantstreamrunner-null/838769#post_1</link>
+      <description><![CDATA[嘿，
+我在 angular 项目 15.2.6 上使用 openAI npm 4.52.0。
+当我尝试流式传输我的运行时，我找不到我的错误在哪里。
+访问助手、创建线程和创建消息时没有错误。
+当我开始运行时，我正确收到了我的 EventStream，但我从 typescript 中得到了这个错误：
+]]></description>
+      <guid>https://community.openai.com/t/openai-stream-abstractassistantstreamrunner-null/838769#post_1</guid>
+      <pubDate>Tue, 25 Jun 2024 08:44:00 GMT</pubDate>
     </item>
     <item>
-      <title>为用户交互启用云存储</title>
-      <link>https://community.openai.com/t/enable-cloud-storage-for-user-interactions/838513#post_1</link>
-      <description><![CDATA[主题：功能建议：为用户交互启用云存储
-亲爱的 OpenAI 团队，我写信是为了建议为您的 AI 服务提供潜在的功能增强，我认为这可以显著改善用户体验。
-功能建议：为用户实现一个选项，为他们与 AI 的交互启用云存储。
-此功能将允许 AI 记住过去的对话并提供更个性化的响应，从而增强交互的连续性和背景。用户可以选择此功能并完全控制其数据，确保遵守隐私法规和安全标准。
-好处：
-通过个性化互动增强用户体验。
-提高效率，因为用户不需要在每个会话中重复上下文。
-提高对 AI 服务的参与度和满意度。
-注意事项：
-强大的加密和安全措施来保护用户数据。
-明确的用户同意和隐私政策。
-用户查看、管理和删除存储数据的选项。
-感谢您考虑这个建议。我相信它会为您已经令人印象深刻的 AI 服务功能增添巨大的价值。
-此致，
-阿德里亚诺。]]></description>
-      <guid>https://community.openai.com/t/enable-cloud-storage-for-user-interactions/838513#post_1</guid>
-      <pubDate>Tue, 25 Jun 2024 05:40:14 GMT</pubDate>
+      <title>API 上的内部服务器错误 500</title>
+      <link>https://community.openai.com/t/internal-server-error-500-on-api/838756#post_1</link>
+      <description><![CDATA[大家好，
+在 gpt-4o 模型上对聊天完成 API 进行 API 调用时，我不断收到内部服务器错误。
+这是请求 ID 2826547b539c7a44faa8f1c84e4b9b5f。
+今天还有其他人遇到这个问题吗？]]></description>
+      <guid>https://community.openai.com/t/internal-server-error-500-on-api/838756#post_1</guid>
+      <pubDate>Tue, 25 Jun 2024 08:39:10 GMT</pubDate>
     </item>
     <item>
-      <title>GPT Assistant API 软件第 1 版文档</title>
-      <link>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_11</link>
-      <description><![CDATA[那么您认为质量不如 GPT-4-turbo 吗？]]></description>
-      <guid>https://community.openai.com/t/documentation-for-version-1-of-the-gpt-assistant-api-software/836237#post_11</guid>
-      <pubDate>Tue, 25 Jun 2024 05:38:58 GMT</pubDate>
+      <title>RAG 及时工程，取得更好成果</title>
+      <link>https://community.openai.com/t/rag-prompt-engineering-for-better-results/838589#post_4</link>
+      <description><![CDATA[
+
+
+ keshavbhutaani1360:
+
+检索 10 份最相关的报告，然后发送给 llm 以查找前 3 份相似的报告
+
+
+是的，不幸的是，“相关”和“相似”非常依赖于上下文。嵌入将为您提供“相似度”评分 - 余弦相似度 - 您可以尝试一下，但请务必记住，模型认为的相似不一定是您认为的相似。
+您知道这些东西，对吧？ https://platform.openai.com/docs/guides/embeddings
+对于您要做的事情，这很可能已经足够了。]]></description>
+      <guid>https://community.openai.com/t/rag-prompt-engineering-for-better-results/838589#post_4</guid>
+      <pubDate>Tue, 25 Jun 2024 08:36:50 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI Assistants V2 - File_Search 工具</title>
-      <link>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_4</link>
-      <description><![CDATA[嗨，
-感谢您的回复。我使用 gpt-4o 作为模型。此外，vectorstore 中还有 100 多个文件。所有文件都是基于文本的 pdf。我的理解是 OpenAI 的 file_search 可以搜索 10,000 个文件并能带来良好的结果。因此，在 100 多个文件中，我尝试通过在单引号中提供文件名来搜索 3 或 4 个文件，要求比较收益或收入等……。它带来了 1 或 2 家公司的结果，但不是所有 3 或 4 个文件的结果。我在运行时添加了指令。但与此同时，今天我尝试在 openai 游乐场中执行相同操作，并获得了提到的所有 5 个文件的结果。代码中也使用了相同的助手。可能是什么问题？]]></description>
-      <guid>https://community.openai.com/t/openai-assistants-v2-file-search-tool/817943#post_4</guid>
-      <pubDate>Tue, 25 Jun 2024 05:35:52 GMT</pubDate>
+      <title>助手响应 JSON 问题（流式传输）</title>
+      <link>https://community.openai.com/t/assistant-response-json-issue-streaming/838704#post_3</link>
+      <description><![CDATA[我的问题是，如果我坚持清理并将响应解析为 json，那么在实现流式传输时我该如何处理它？&lt;​​/p&gt;]]></description>
+      <guid>https://community.openai.com/t/assistant-response-json-issue-streaming/838704#post_3</guid>
+      <pubDate>Tue, 25 Jun 2024 08:35:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 无法访问我的 Google 文档：总是显示“出现了问题”</title>
+      <link>https://community.openai.com/t/chatgpt-cannot-access-my-google-docs-always-says-there-was-an-issue/831366#post_2</link>
+      <description><![CDATA[似乎没人知道这个问题的解决办法 
+我如何联系官方客服？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-cannot-access-my-google-docs-always-says-there-was-an-issue/831366#post_2</guid>
+      <pubDate>Tue, 25 Jun 2024 08:33:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>RAG 及时工程，取得更好成果</title>
+      <link>https://community.openai.com/t/rag-prompt-engineering-for-better-results/838589#post_3</link>
+      <description><![CDATA[假设公司有一个系统，许多员工提交报告以消除冗余，您现在想删除类似的报告，如果没有。报告数量巨大，我希望人工智能来完成这项任务，为此，我检索了 10 份最相关的报告，然后发送给 llm，以找出前 3 份类似的报告，考虑是否删除]]></description>
+      <guid>https://community.openai.com/t/rag-prompt-engineering-for-better-results/838589#post_3</guid>
+      <pubDate>Tue, 25 Jun 2024 08:29:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手响应 JSON 问题（流式传输）</title>
+      <link>https://community.openai.com/t/assistant-response-json-issue-streaming/838704#post_2</link>
+      <description><![CDATA[您想流式传输 JSON？
+您要如何解析它们？
+我想到的一个快速解决方法是自动附加
+-----------
+请记住，只发出有效的 JSON，否则系统将崩溃。
+用 {
+
+到最后一条消息开始您的回复。]]></description>
+      <guid>https://community.openai.com/t/assistant-response-json-issue-streaming/838704#post_2</guid>
+      <pubDate>Tue, 25 Jun 2024 08:19:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
