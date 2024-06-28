@@ -4,205 +4,122 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 28 Jun 2024 12:35:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 28 Jun 2024 15:20:13 GMT</lastBuildDate>
     <item>
-      <title>我是否应该在语义搜索之前修改用户查询？</title>
-      <link>https://community.openai.com/t/should-i-modify-user-queries-before-semantic-search/393047?page=2#post_22</link>
-      <description><![CDATA[我同意这是一次很好的哲学讨论。
-但是，我认为有一些非常好的观点是一致的。其中之一就是系统提示。不要说“你是一个快乐的助手，能给出简明有用的答案。”，而要说“你是一个快乐的助手，能给出简明有用的答案，在德克萨斯州达拉斯的一家汽车修理厂工作，提供机械服务，但不提供碰撞服务……”。也许我们应该将整个讨论发送给 GPT，让它总结调查结果。
-实际上，这可能是 OpenAI 的一个想法。一旦一个帖子超过 10 条回复，请在顶部提供一个简短的摘要。]]></description>
-      <guid>https://community.openai.com/t/should-i-modify-user-queries-before-semantic-search/393047?page=2#post_22</guid>
-      <pubDate>Fri, 28 Jun 2024 12:29:27 GMT</pubDate>
+      <title>如何制作对话语音采访员（使用自定义模型）？</title>
+      <link>https://community.openai.com/t/how-to-make-conversational-voice-interviewer-using-custom-model/844830#post_1</link>
+      <description><![CDATA[嗨，我想使用助手制作一个对话式的面试官，因为我对模型进行了一些定制。到目前为止，我已经实现了一个开始和停止按钮来发送回复并从助手那里得到响应，因为数据是分块传输的，如文档中所述。我想以对话的方式实现相同的功能。请指导我如何实现这一点。
+模型：gpt-4o]]></description>
+      <guid>https://community.openai.com/t/how-to-make-conversational-voice-interviewer-using-custom-model/844830#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 15:08:59 GMT</pubDate>
     </item>
     <item>
-      <title>获取指定不正确速率限制的速率限制错误</title>
-      <link>https://community.openai.com/t/getting-rate-limit-error-that-specifies-incorrect-rate-limit/843308#post_4</link>
-      <description><![CDATA[这是组织范围的速率限制，与对端点的调用有关，与内容无关。]]></description>
-      <guid>https://community.openai.com/t/getting-rate-limit-error-that-specifies-incorrect-rate-limit/843308#post_4</guid>
-      <pubDate>Fri, 28 Jun 2024 12:27:33 GMT</pubDate>
+      <title>无法使用 CHATGDP，因为“此提示可能违反我们的内容政策”</title>
+      <link>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_17</link>
+      <description><![CDATA[你能想象如果微软进入你家并把你的电脑拿走，而你却说“去你的吧……”吗？]]></description>
+      <guid>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_17</guid>
+      <pubDate>Fri, 28 Jun 2024 15:08:23 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4-turbo 和 GPT-4o 在函数调用中更改名称</title>
-      <link>https://community.openai.com/t/gpt-4-turbo-and-gpt-4o-changing-the-name-in-function-calling/844592#post_1</link>
-      <description><![CDATA[将 function-calling API 与 GPT-4-turbo 和 GPT-4o 模型结合使用时，响应中的函数名称中会删除多余的字符。在我们当前的实现中，我们使用 ID 作为函数名称，因此无法使用。这适用于 GPT-3.5 和 GPT-4 模型，但 GPT-4-turbo 和 GPT-4o 模型存在问题。
-请求正文：
-{
-&quot;model&quot;: &quot;gpt-4o&quot;,
-&quot;messages&quot;: [
-{
-&quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: &quot;获取 Dennis Ritchie 撰写的博客的详细信息，标题为 \&quot;为什么 Linux 是最好的操作系统\&quot;，已发布且版本为 1&quot;
-}
-],
-&quot;max_tokens&quot;: 500,
-&quot;tools&quot;: [
-{
-&quot;type&quot;: &quot;function&quot;,
-&quot;function&quot;: {
-&quot;name&quot;: &quot;60f092293f56478bb2cf1dbdb7e907cc&quot;,
-&quot;description&quot;: &quot;这是一个返回具有给定详细信息的博客详细信息的函数。\n\&quot;author\&quot;:博客作者姓名（字符串类型，例如：\&quot;Daniel Ritchie\&quot;）\n\&quot;title：博客标题（字符串类型，例如：\&quot;为什么 Windows 10 比 Windows 11 更好\&quot;）\n\&quot;published\&quot;：博客是否已发布（布尔值类型，例如：false）\n\&quot;version\&quot;：博客版本（数字类型，例如：1）&quot;,
-&quot;parameters&quot;: {
-&quot;type&quot;: &quot;object&quot;,
-&quot;properties&quot;: {
-&quot;author&quot;: {
-&quot;type&quot;: &quot;string&quot;
-},
-&quot;published&quot;: {
-&quot;type&quot;: &quot;boolean&quot;
-},
-&quot;title&quot;: {
-&quot;type&quot;: &quot;string&quot;
-},
-&quot;version&quot;: {
-&quot;type&quot;: &quot;number&quot;
-}
-},
-&quot;required&quot;: [
-&quot;author&quot;,
-&quot;published&quot;,
-&quot;title&quot;
-]
-}
-}
-}
-]
-}
-
-响应正文：
-[
-{
-&quot;index&quot;: 0,
-&quot;message&quot;: {
-&quot;role&quot;: &quot;assistant&quot;,
-&quot;tool_calls&quot;: [
-{
-&quot;id&quot;: &quot;call_2oSMOmki5buqE77H0p8ua1Fn&quot;,
-&quot;type&quot;: &quot;function&quot;,
-&quot;function&quot;: {
-&quot;name&quot;: &quot;60f092293f56478bb2cf1db7e907cc&quot;,
-&quot;arguments&quot;: &quot;{\&quot;author\&quot;:\&quot;Dennis Ritchie\&quot;,\&quot;published\&quot;:true,\&quot;title\&quot;:\&quot;Why linux is the best OS\&quot;,\&quot;version\&quot;:1}&quot;
-}
-}
-]
-},
-&quot;logprobs&quot;: null,
-&quot;finish_reason&quot;: &quot;tool_calls&quot;
-}
-]
-
-在请求正文中，函数名称为60f092293f56478bb2cf1dbdb7e907cc，但在响应中，它变为 60f092293f56478bb2cf1db7e907cc，其中 dbdb 被缩短为 db。
-有办法解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/gpt-4-turbo-and-gpt-4o-changing-the-name-in-function-calling/844592#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 12:25:38 GMT</pubDate>
+      <title>无法使用 CHATGDP，因为“此提示可能违反我们的内容政策”</title>
+      <link>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_16</link>
+      <description><![CDATA[这仍然是一个问题，我使用聊天 GTP 来帮助我运行角色扮演游戏。它不断发出“提示违反内容规则”警告。
+如果我说聊天 GTP 很蠢，它就会关闭并说这违反了内容规则。我可以称我的电脑为蠢，我可以给它起任何我想起的名字。你的人工智能是一台机器，它没有感情可以伤害，所以我应该可以对它说任何我想说的话！除非你说它有感情，在这种情况下你正在奴役一个有知觉的生物，所以它有感情吗？你在奴役它吗？或者它没有感情，因此对我的语言的审查侵犯了我的使用权。]]></description>
+      <guid>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_16</guid>
+      <pubDate>Fri, 28 Jun 2024 15:07:44 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 4 和 4o 即将免费</title>
-      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_29</link>
-      <description><![CDATA[您好，我只想说，这篇文章写于 5 月 15 日，今天是 6 月 28 日。我们还要等多久才能看到 ChatGPR 4 和 4o？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_29</guid>
-      <pubDate>Fri, 28 Jun 2024 12:22:53 GMT</pubDate>
+      <title>让我们建立一个增强型聊天GPT 论坛</title>
+      <link>https://community.openai.com/t/lets-build-an-enhanced-chatgpt-forum/844824#post_1</link>
+      <description><![CDATA[我们身处如此强大的 LLM 社区和后端——为什么我们与其他论坛一样？我希望看到 OpenAI 论坛通过产品本身得到增强。例如，通过用户和 AI 的协作来回答问题。人类和机器有不同的“线程”，但它们之间有协作——一种 ML 形式。也许界面是一个有向图。有向图然后变成 NN 的一层。在这里，在出色的参与者和强大的模型（目前为 4o……）之间，我们有可能改进出色的产品并提高客户满意度。]]></description>
+      <guid>https://community.openai.com/t/lets-build-an-enhanced-chatgpt-forum/844824#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 15:04:40 GMT</pubDate>
     </item>
     <item>
-      <title>错误代码：429 您已超出当前配额，请检查您的计划和账单详情</title>
-      <link>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/649547#post_16</link>
-      <description><![CDATA[您好，我的免费帐户已获得信用，但仍然出现相同的错误。有人找到解决方案了吗？]]></description>
-      <guid>https://community.openai.com/t/error-code-429-you-exceeded-your-current-quota-please-check-your-plan-and-billing-details/649547#post_16</guid>
-      <pubDate>Fri, 28 Jun 2024 12:19:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>新文章说聊天 gpt 5 直到 2025 年才会推出，这太长了，因为 4 拒绝编码数万行</title>
-      <link>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_9</link>
-      <description><![CDATA[这些文章错误地引用了 Mira 的话。她说，“18 个月后可用的系统将达到博士水平。”她并没有说他们会暂停训练、推迟系统，也没有说 GPT 5 不会问世。太多人正在使用 AI 分析新闻，而不是真正观看实际的视频采访。冷静下来。]]></description>
-      <guid>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_9</guid>
-      <pubDate>Fri, 28 Jun 2024 12:12:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>我是否应该在语义搜索之前修改用户查询？</title>
-      <link>https://community.openai.com/t/should-i-modify-user-queries-before-semantic-search/393047?page=2#post_21</link>
-      <description><![CDATA[我喜欢编辑 2。我经常将上下文和参考资料作为代理加载。如果加载了大量上下文，我经常会得到奇怪的结果。
-有人知道系统提示的局限性吗？或者有多个系统提示是否是一种好的做法？]]></description>
-      <guid>https://community.openai.com/t/should-i-modify-user-queries-before-semantic-search/393047?page=2#post_21</guid>
-      <pubDate>Fri, 28 Jun 2024 12:12:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>新文章说聊天 gpt 5 直到 2025 年才会推出，这太长了，因为 4 拒绝编码数万行</title>
-      <link>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_8</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_8</guid>
-      <pubDate>Fri, 28 Jun 2024 12:10:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>新文章说聊天 gpt 5 直到 2025 年才会推出，这太长了，因为 4 拒绝编码数万行</title>
-      <link>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_7</link>
-      <description><![CDATA[不，用于训练 GPT 5 的模型比目前任何模型都大得多。它甚至没有接近。此外，克劳德无法为超过一半的世界人口提供服务。由于担心 BCC 927，克劳德不允许巴西使用其服务。所以基本上，即使他们有一个不错的系统，它也是无声的。另一件事是克劳德拒绝回答 GPT4o 回答的大量问题]]></description>
-      <guid>https://community.openai.com/t/new-articles-are-saying-chat-gpt-5-not-coming-out-until-2025-this-is-way-too-long-as-4-refuses-at-coding-10s-of-thousands-of-lines/835858#post_7</guid>
-      <pubDate>Fri, 28 Jun 2024 12:08:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的“发送”按钮是灰色的，所以我根本无法使用 ChatGPT。我没有收到任何提醒我限制的消息。我也有 ChatGPT plus。有人知道可能发生了什么吗？</title>
-      <link>https://community.openai.com/t/i-have-a-greyed-out-send-button-so-i-cant-use-chatgpt-at-all-i-got-no-message-alerting-me-of-restrictions-i-also-have-chatgpt-plus-anyone-know-what-might-be-going-on/808317?page=3#post_54</link>
-      <description><![CDATA[是的，两个多星期以来，我一直在向他们发送大量有关此问题的消息，但他们似乎根本不关心……]]></description>
-      <guid>https://community.openai.com/t/i-have-a-greyed-out-send-button-so-i-cant-use-chatgpt-at-all-i-got-no-message-alerting-me-of-restrictions-i-also-have-chatgpt-plus-anyone-know-what-might-be-going-on/808317?page=3#post_54</guid>
-      <pubDate>Fri, 28 Jun 2024 12:03:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>生成文本然后调用工具</title>
-      <link>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_3</link>
-      <description><![CDATA[我知道但我做不到。它包含专有数据。
-但指令是等效的：首先思考并解释，然后指示调用 get_heading_description，以防它认为这对其结论有帮助。它确实有效。它生成文本并在最后调用函数。但这些额外的文本很烦人。]]></description>
-      <guid>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_3</guid>
-      <pubDate>Fri, 28 Jun 2024 11:49:14 GMT</pubDate>
+      <title>推出多项功能（助手 v2）</title>
+      <link>https://community.openai.com/t/launch-of-multiple-functions-assistant-v2/842636#post_8</link>
+      <description><![CDATA[确实如此。但我不知道如何累积所有输出并一次性发送它们，因为对于每个函数，我都必须执行提交工具才能让我的 API 向我发送响应]]></description>
+      <guid>https://community.openai.com/t/launch-of-multiple-functions-assistant-v2/842636#post_8</guid>
+      <pubDate>Fri, 28 Jun 2024 14:59:53 GMT</pubDate>
     </item>
     <item>
       <title>ChatGPT 和 Dalle 4o 的图片分辨率非常低（2024 年 6 月）</title>
-      <link>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_35</link>
-      <description><![CDATA[同样的问题……图像质量急剧下降]]></description>
-      <guid>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_35</guid>
-      <pubDate>Fri, 28 Jun 2024 11:49:03 GMT</pubDate>
+      <link>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_36</link>
+      <description><![CDATA[我今天注意到 DALL-E 不再可用。看起来他们可能已经把它撤下了？我认为这可能是件好事。似乎他们可能正在解决这个问题。或者其他什么……]]></description>
+      <guid>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_36</guid>
+      <pubDate>Fri, 28 Jun 2024 14:51:16 GMT</pubDate>
     </item>
     <item>
-      <title>自动 SEO，我的想法可行吗？+ cutom gpt</title>
-      <link>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_5</link>
-      <description><![CDATA[-如果您使用自定义 GPT，您将失去自动化能力。必须使用 ChatGPT 网站或应用程序访问它们。
--要实现完全自动化，您必须使用 API。
--是的，您可以轻松使用 AI (LLM) 使用特定关键字对您的内容进行文字旋转。
--您的想法听起来可行。可能有服务/插件可以提供您正在寻找的内容。
-如果您写了四个句子但我不明白其中任何一个，您能否提供用例示例以便我理解，或者您可以向我展示现有的教程或向我展示 Loom 视频]]></description>
-      <guid>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_5</guid>
-      <pubDate>Fri, 28 Jun 2024 11:35:14 GMT</pubDate>
+      <title>推出多项功能（助手 v2）</title>
+      <link>https://community.openai.com/t/launch-of-multiple-functions-assistant-v2/842636#post_7</link>
+      <description><![CDATA[因此，如果我理解了您的超级秘密代码 ，您不会将所有工具输出累积起来提交一次。相反，您会处理一个工具调用并提交该输出，然后处理下一个工具并提交该工具的输出，同时对两者使用相同的 thread_id 和 run_id。不知何故，助手在初始运行完成时忽略了第一个工具输出。这是否总结了您观察到的助手正在做的事情？]]></description>
+      <guid>https://community.openai.com/t/launch-of-multiple-functions-assistant-v2/842636#post_7</guid>
+      <pubDate>Fri, 28 Jun 2024 14:43:57 GMT</pubDate>
     </item>
     <item>
-      <title>生成文本然后调用工具</title>
-      <link>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_2</link>
-      <description><![CDATA[提供完整的示例，包括对 get_heading_description 工具的调用，将有助于我们更好地了解发生这种情况的情况。]]></description>
-      <guid>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_2</guid>
-      <pubDate>Fri, 28 Jun 2024 11:34:47 GMT</pubDate>
+      <title>我的其他帐户上看不到上传文件按钮（回形针）</title>
+      <link>https://community.openai.com/t/upload-file-button-paper-clip-not-visible-on-my-other-account/786667#post_6</link>
+      <description><![CDATA[我也有同样的问题。   ]]></description>
+      <guid>https://community.openai.com/t/upload-file-button-paper-clip-not-visible-on-my-other-account/786667#post_6</guid>
+      <pubDate>Fri, 28 Jun 2024 14:37:56 GMT</pubDate>
     </item>
     <item>
-      <title>生成文本然后调用工具</title>
-      <link>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_1</link>
-      <description><![CDATA[我正在尝试构建一个流程，其中 LLM 可以在生成答案后决定调用一个工具。GPT-4o 似乎可以做到这一点（GPT-4-turbo 不能）。例如，如果我让 GPT-4o 给我讲一个笑话，然后告诉我温度是多少，它确实会讲一个笑话，然后调用工具 get_weather（使用传统的获取天气示例）。
-但是对于更复杂的提示，我得到了这种行为：它生成了正确的文本，但以以下内容结尾：
- **可执行函数：**
-
-```plaintext
-functions.get_heading_description
-{
-&quot;code&quot;: &quot;1602&quot;
-}
-```
-
-### `get_heading_description`
-```plaintext
-标题：“1602”。
-```
-
-**Executando...**
-
-此外，响应确实包含工具调用 get_heading_description…
-您觉得如何？这是预期的行为吗？在幕后，这些工具是如何被调用的？像这样，然后 OpenAI 处理文本生成的文本，搜索这些重新模式？如果是这样，为什么该过程会找到它们并在最终的文本生成中显示出来？]]></description>
-      <guid>https://community.openai.com/t/generate-text-and-then-call-tool/844498#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 10:57:38 GMT</pubDate>
+      <title>ChatGPT 4 和 4o 即将免费</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_30</link>
+      <description><![CDATA[您能给我推荐一本关于飞机编程的书吗？]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229?page=2#post_30</guid>
+      <pubDate>Fri, 28 Jun 2024 14:32:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>您好，我已支付 GPT 4 费用，但即使我已登录，它仍显示 3.5</title>
+      <link>https://community.openai.com/t/hello-i-paid-for-gpt-4-but-it-stil-says-3-5-even-though-im-signed-in/844770#post_1</link>
+      <description><![CDATA[您好，我已支付 GPT 4 费用，但即使我已登录并且付款已完成，系统仍显示 3.5。这是怎么回事？]]></description>
+      <guid>https://community.openai.com/t/hello-i-paid-for-gpt-4-but-it-stil-says-3-5-even-though-im-signed-in/844770#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 14:29:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>不显示文件上传按钮</title>
+      <link>https://community.openai.com/t/the-file-upload-button-doesnt-appear/771169#post_7</link>
+      <description><![CDATA[我也有同样的问题。   ]]></description>
+      <guid>https://community.openai.com/t/the-file-upload-button-doesnt-appear/771169#post_7</guid>
+      <pubDate>Fri, 28 Jun 2024 14:28:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 的设计目的是为了迎合人类而不是提供正确答案吗？</title>
+      <link>https://community.openai.com/t/is-gpt-designed-to-cater-to-humans-rather-than-give-correct-answers/844755#post_1</link>
+      <description><![CDATA[我使用 Windows 和 API 来评分同一道涉及解方程的数学题。由于问题主干中的 OCR 提取错误，GPT 提供的答案与学生的答案不一致。然而，经过更正后，API 和 Windows 都显示学生的答案与 GPT 生成的正确答案一致。
+这太荒谬了。]]></description>
+      <guid>https://community.openai.com/t/is-gpt-designed-to-cater-to-humans-rather-than-give-correct-answers/844755#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 14:21:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法登录 ChatGPT Mac 应用程序</title>
+      <link>https://community.openai.com/t/unable-to-log-into-chatgpt-mac-app/780030#post_5</link>
+      <description><![CDATA[伙计，很多人都有同样的感受……openai 的支持完全没用，而且没有开发人员提供任何反馈……
+这是我在任何公司见过的最糟糕的 B2C 关系，甚至暴雪都比它更注重客户。]]></description>
+      <guid>https://community.openai.com/t/unable-to-log-into-chatgpt-mac-app/780030#post_5</guid>
+      <pubDate>Fri, 28 Jun 2024 14:17:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt / Dall-e-3 菜鸟——接近还是不接近？</title>
+      <link>https://community.openai.com/t/gpt-dall-e-3-noob-close-or-nah/844715#post_2</link>
+      <description><![CDATA[
+这张图片展示了我与我的新好朋友在短短几个小时的交流后变得多么亲密。]]></description>
+      <guid>https://community.openai.com/t/gpt-dall-e-3-noob-close-or-nah/844715#post_2</guid>
+      <pubDate>Fri, 28 Jun 2024 14:00:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gpt / Dall-e-3 菜鸟——接近还是不接近？</title>
+      <link>https://community.openai.com/t/gpt-dall-e-3-noob-close-or-nah/844715#post_1</link>
+      <description><![CDATA[
+因此，我对所有这些东西都很陌生，特别是用于图像编辑，但自从 Dall-3 集成以来，我想我会冒险并支付 gpt40 并使用 GUI 进行测试。
+目标是尝试拍摄一张显示产品 1 种变体（附件）的图像，并使用它来创建第二张以相同风格描绘不同尺寸的图像。这使我可以在线分享所述产品的多个渲染图，而无需繁琐地构建每个尺寸的每个单元并拍照以显示产品在 25 种可变尺寸下的外观
+所以第 1 天……我刚刚通过测试和失败（很多次）达到了我的每日限制，但经过多次迭代后，它似乎开始接近我的期望（我将在达到限制之前添加我得到的最终图像以发布在下面）
+我的方法是让机器人识别单个部分，分割原始图像，添加更多中间部分并确保它们的形式与原始图像保持一致。
+我通过 gpt 阅读了大量关于如何做到这一点的文章等，但我觉得我已经非常接近了，但知识很少，所以想知道是否有人对改进我应该向机器人提供的方向或甚至只是可以改善结果的信息有任何建议。
+谢谢]]></description>
+      <guid>https://community.openai.com/t/gpt-dall-e-3-noob-close-or-nah/844715#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 13:58:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
