@@ -4,210 +4,188 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 28 Jun 2024 03:23:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 28 Jun 2024 06:27:25 GMT</lastBuildDate>
     <item>
-      <title>自定义 GPT 带来的困扰</title>
-      <link>https://community.openai.com/t/struggling-with-custom-gpt/843210#post_4</link>
-      <description><![CDATA[这是可以做到的；但您需要采取一些步骤。不幸的是，您不能只说“查看此网站上的案例研究”，您需要提供特定的 URL，然后您还需要让它“索引”页面。一个好方法是要求它记下所有标题，这为它提供了一种地图，然后您可以根据需要让它更深入地研究它。
-@andremr，我也有类似的经历，它似乎确实访问了较旧的数据，即使我让它深入研究特定页面。有时在我更新实际页面文本后，它很长一段时间都不会更新文本，所以是的，看来您是对的。
-希望这有帮助！]]></description>
-      <guid>https://community.openai.com/t/struggling-with-custom-gpt/843210#post_4</guid>
-      <pubDate>Fri, 28 Jun 2024 02:49:41 GMT</pubDate>
+      <title>Assistant API 无法记住之前的消息</title>
+      <link>https://community.openai.com/t/assistant-api-cant-remember-previous-messages/844156#post_2</link>
+      <description><![CDATA[我认为对所有消息使用相同的线程是实现此目的的最简单方法。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-cant-remember-previous-messages/844156#post_2</guid>
+      <pubDate>Fri, 28 Jun 2024 06:26:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assistant API 无法记住之前的消息</title>
+      <link>https://community.openai.com/t/assistant-api-cant-remember-previous-messages/844156#post_1</link>
+      <description><![CDATA[祝大家有个愉快的一天！
+不是长期使用 API 的用户，目前只使用 Assistant。我的问题是 - 我如何让它记住以前的消息？我在这里看到过一些帖子，人们说我们应该将所有对话发送回 Assistant。所以我的问题是 - 如果我只通过 Assistant 使用 API，我该如何编写代码？也许发送所有以前消息的代码应该在函数部分？请随意提出任何解决方案，但它需要让所有人都能通过 API 访问，而不仅仅是从我的桌面访问。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-cant-remember-previous-messages/844156#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 06:23:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法访问模型“gpt-4o”</title>
+      <link>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_4</link>
+      <description><![CDATA[您能分享完整的响应状态文本吗？]]></description>
+      <guid>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_4</guid>
+      <pubDate>Fri, 28 Jun 2024 06:15:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 和 Dalle 4o 的图片分辨率非常低（2024 年 6 月）</title>
+      <link>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_34</link>
+      <description><![CDATA[是的，我也一样，在为“真实感插画”生成图像时，面部细节变得非常模糊，与 6 月 12 日进行此更改之前生成的图像相比，平坦纹理的清晰度明显下降]]></description>
+      <guid>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=2#post_34</guid>
+      <pubDate>Fri, 28 Jun 2024 06:08:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法访问模型“gpt-4o”</title>
+      <link>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_3</link>
+      <description><![CDATA[感谢 sps，
+现在它可以在 postman 上运行，但在 vb .net 上却不行，
+我正在使用 postman 提供的代码，但它返回：
+响应状态代码不表示成功：400（错误请求）。
+代码如下：
+Dim client As New HttpClient With {
+.Timeout = TimeSpan.FromSeconds(15)
+}
+
+Dim request As New HttpRequestMessage(HttpMethod.Post, &quot;https://api.openai.com/v1/chat/completions&quot;)
+request.Headers.Add(&quot;Authorization&quot;, $&quot;Bearer {apiKey}&quot;)
+
+Dim RequestContent As String = $&quot;{{&quot;&quot;model&quot;&quot;: &quot;&quot;gpt-4o&quot;&quot;,&quot;&quot;messages&quot;&quot;: [{{&quot;&quot;role&quot;&quot;: “用户” “内容” “：”{Prompt}“”}}]}}”
+
+将内容设置为新的 StringContent（requestContent，Nothing，“application/json”）
+request.Content = content
+
+将响应设置为 HttpResponseMessage = client.SendAsync（request）。结果
+response.EnsureSuccessStatusCode（）
+
+将设置设置为新的 JsonSerializerSettings（）
+settings.Converters.Add（New VbNewLineConverter（））
+
+将 ResponseString 设置为字符串 = response.Content.ReadAsStringAsync（）。结果
+将 SerializedResponse 设置为响应 = JsonConvert.DeserializeObject（Of Response）（ResponseString，settings）
+
+返回新的 AIResponse（
+Prompt，
+SerializedResponse.choices（0）。message.content，
+SerializedResponse.usage.prompt_tokens，
+SerializedResponse.usage.completion_tokens，
+ResponseString
+)
+]]></description>
+      <guid>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_3</guid>
+      <pubDate>Fri, 28 Jun 2024 06:03:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>从音频/耳语端点返回的 JSON 无效</title>
+      <link>https://community.openai.com/t/invalid-json-returned-from-audio-whisper-endpoints/775411#post_2</link>
+      <description><![CDATA[我遇到了同样的问题。令人惊讶的是，这个问题已经一个多月没有得到解决。]]></description>
+      <guid>https://community.openai.com/t/invalid-json-returned-from-audio-whisper-endpoints/775411#post_2</guid>
+      <pubDate>Fri, 28 Jun 2024 05:54:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 默认为 3.5，并因内存已满而导致逻辑无限循环</title>
+      <link>https://community.openai.com/t/chatgpt-defaulting-to-3-5-and-creating-infinite-loop-of-logic-due-to-memory-full/809982#post_10</link>
+      <description><![CDATA[好吧，我有点感同身受，因为我也曾有过这样的经历，即使我删除了几个记忆，记忆缓存似乎也总是 100%。我认为，对于我来说，浏览器刷新键“F5”以及切换到版本 3.5 然后再切换回版本 4，都会导致记忆缓存正确地以动画形式显示正在发生交互。如果我对这种情况有什么建议，那就是通过转到设置来备份数据库，然后有一个带有“导出”的菜单项。使用导出在每天或重要会话后进行备份。我还发现，如果我删除记忆以便手动重组它们，我能够将记忆复制为文本，将它们粘贴到其他东西（例如记事本）中，然后向 AI 解释我将粘贴记忆，然后 AI 恢复了大部分记忆。现在 AI 不再知道所有其他对话，我发现管理记忆可以让我纠正当前活动对话的记忆上下文。有时，从经验中可以学到的最重要的事情是，其他人也遇到了同样的问题，因为它可以建立原本无法建立的联系。我们似乎与那些能产生共鸣的人产生了共鸣。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-defaulting-to-3-5-and-creating-infinite-loop-of-logic-due-to-memory-full/809982#post_10</guid>
+      <pubDate>Fri, 28 Jun 2024 05:53:18 GMT</pubDate>
     </item>
     <item>
       <title>如何确保 ChatGPT 忘记我们的对话</title>
-      <link>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_8</link>
-      <description><![CDATA[您是在谈论在 ChatGPT 界面中工作，而不是 API？
-如果是这样，我发现回到聊天偏离轨道之前的某个点并编辑上一个提示（最好是在您想要保留的最后一个响应之后）非常有效。然后，它会在同一个聊天中分支到不同的聊天记忆中，保留您喜欢的先前上下文。
-希望有所帮助！]]></description>
-      <guid>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_8</guid>
-      <pubDate>Fri, 28 Jun 2024 02:45:46 GMT</pubDate>
+      <link>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_9</link>
+      <description><![CDATA[我认为无法通过 API 删除帖子，而且我找不到指示应删除该消息的变量。我认为唯一可行的方法是，如果有命令强制 GPT 忘记所有内容，但这可能不存在。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_9</guid>
+      <pubDate>Fri, 28 Jun 2024 05:51:10 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 提示和使用增强</title>
-      <link>https://community.openai.com/t/chatgpt-prompt-and-usage-enhancement/843954#post_1</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/chatgpt-prompt-and-usage-enhancement/843954#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 02:24:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>从第 1 层升至第 2 层</title>
-      <link>https://community.openai.com/t/move-from-tier-1-to-tier-2/692264#post_3</link>
-      <description><![CDATA[
+      <title>无法访问模型“gpt-4o”</title>
+      <link>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_2</link>
+      <description><![CDATA[欢迎 @CipKroell
+确保：
 
+gpt-4o 模型会在您使用项目 API 密钥进行 列表模型 api 调用时显示在列表中
+您的项目 API 密钥已启用模型功能范围
 
- brijesh1:
-
-
-自付款以来已过去一个月
-花费 50 美元以上
-
-
-
-查看是否适用：
-
-自首次付款以来已过去一个月
- 花费 50 美元以上
- 发送另一笔购买信用的付款，以强制重新计算
-
-等级不会自行改变。它需要更多钱。]]></description>
-      <guid>https://community.openai.com/t/move-from-tier-1-to-tier-2/692264#post_3</guid>
-      <pubDate>Fri, 28 Jun 2024 02:07:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>只是为了好玩...试图解释一个棋盘游戏</title>
-      <link>https://community.openai.com/t/just-for-fun-tried-to-explain-a-board-game/843935#post_1</link>
-      <description><![CDATA[只是为了好玩，我尝试向 Chat GPT 解释如何玩黑白棋或黑白棋，但运气不佳。它弄清楚了如何设置棋盘，但包抄的概念有点多。我还尝试了 Claud 3.5 Sonnet，但没有更好的结果。我给出的说明如下。
-有没有其他人尝试解释棋盘游戏并取得成功？
-当然！以下是黑白棋 (Othello) 规则的摘要：
-目标
-黑白棋的目标是在游戏结束时让大多数彩色棋子 (黑色或白色) 留在棋盘上。
-设置
-
-游戏在 8x8 方格棋盘上进行。
-游戏开始时，四个棋子以正方形放置在棋盘中央：两个黑色棋子和两个白色棋子。棋盘的摆放方式是黑色和白色棋盘对角相邻。
-
-游戏玩法
-
-回合：玩家轮流将自己颜色的棋盘放在棋盘上的空格上。
-翻转棋盘：当玩家将棋盘放在棋盘上时，它必须包抄对手的一个或多个棋盘。包抄意味着将对手的一个或多个棋盘困在刚放置的棋盘和棋盘上已有的玩家颜色的另一个棋盘之间，呈直线（水平、垂直或对角线）。然后将陷阱中的棋子翻转为玩家的颜色。
-有效移动：移动只有导致对手的至少一个棋子被翻转时才有效。如果玩家无法做出有效移动，则必须放弃轮次。如果两位玩家都无法做出有效移动，游戏就会结束。
-
-游戏结束
-
-当两位玩家都无法做出有效移动时，游戏就会结束，通常是当棋盘已满时。
-棋盘上拥有大多数彩色棋子的玩家获胜。
-
-附加规则
-
-如果玩家无法做出有效移动，他们将失去回合，对手继续游戏。
-如果至少有一个有效移动，玩家必须移动可用。
-如果两位玩家都无法做出有效移动，游戏也可能在棋盘满之前结束。
-
-这些是黑白棋的基本规则。该游戏具有战略性，玩家需要提前思考并考虑每一步对整个棋盘的影响。]]></description>
-      <guid>https://community.openai.com/t/just-for-fun-tried-to-explain-a-board-game/843935#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 01:59:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 返回结果不正确，但窗口返回结果正确。如何解决这个问题？</title>
-      <link>https://community.openai.com/t/the-api-returns-incorrect-results-but-the-window-returns-correct-results-how-to-solve-this-problem/842060#post_11</link>
-      <description><![CDATA[谢谢您的回复。
-
-
-没错，有一个推理过程。GPT 大部分时候是准确的，但在某些复杂问题上会出错。
-
-
-为什么需要评估问题的正确性？因为如果我们可以告诉家长和学生他们在某些知识点上犯的错误更多，而在其他知识点上犯的错误更少，他们就可以将有限的时间和金钱分配到改进错误更多的知识点上。
-
-
-如果 GPT 在推理中出错并且学生回答错误，但 GPT 判断学生是正确的，那就非常成问题了。
-
-
-如果 GPT 在推理中出错并且学生回答正确，但 GPT 判断学生不正确，这是可以容忍的。任何解决此问题的帮助都将不胜感激。
-
+在项目的限制页面上，模型使用情况已正确配置。
 ]]></description>
-      <guid>https://community.openai.com/t/the-api-returns-incorrect-results-but-the-window-returns-correct-results-how-to-solve-this-problem/842060#post_11</guid>
-      <pubDate>Fri, 28 Jun 2024 01:56:51 GMT</pubDate>
+      <guid>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_2</guid>
+      <pubDate>Fri, 28 Jun 2024 05:47:08 GMT</pubDate>
     </item>
     <item>
-      <title>API 返回结果不正确，但窗口返回结果正确。如何解决这个问题？</title>
-      <link>https://community.openai.com/t/the-api-returns-incorrect-results-but-the-window-returns-correct-results-how-to-solve-this-problem/842060#post_10</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/the-api-returns-incorrect-results-but-the-window-returns-correct-results-how-to-solve-this-problem/842060#post_10</guid>
-      <pubDate>Fri, 28 Jun 2024 01:54:20 GMT</pubDate>
+      <title>错误：“模型生成了无效内容”</title>
+      <link>https://community.openai.com/t/error-the-model-produced-invalid-content/747511#post_11</link>
+      <description><![CDATA[我首先将代理模型恢复为较旧的 gpt4-turbo 模型，但将工具留给 gpt-4o。
+这似乎有效。
+但我给了 claude-3-5-sonnet-20240620 作为代理模型，似乎工作正常。将进一步探索 sonet……]]></description>
+      <guid>https://community.openai.com/t/error-the-model-produced-invalid-content/747511#post_11</guid>
+      <pubDate>Fri, 28 Jun 2024 05:45:46 GMT</pubDate>
     </item>
     <item>
-      <title>使用经过微调的模型进行评估</title>
-      <link>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_1</link>
-      <description><![CDATA[我一直在尝试创建自己的微调模型，我想知道测试模型之间性能的最佳方法是什么。我添加了验证数据，这很好，但是当我将其传递给我们的测试人员时，他们希望自动运行更多东西。我一直在研究 OpenAI Evals 的东西，但我无法让它在微调模型上运行，有办法吗？]]></description>
-      <guid>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 01:38:50 GMT</pubDate>
+      <title>训练文件的微调问题</title>
+      <link>https://community.openai.com/t/fine-tuning-issue-with-training-file/843189#post_4</link>
+      <description><![CDATA[欢迎来到开发者论坛 @tarique_salat
+prompt-completion 对格式适用于旧版完成端点上的模型。
+
+
+
+ tarique_salat:
+
+model=&quot;gpt-3.5-turbo&quot;
+
+
+此模型是聊天完成模型，因此它应该使用相关的微调格式，其中每一行都是一个名为 messages 的 JSON 列表，其中包含您想要微调的消息。]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-issue-with-training-file/843189#post_4</guid>
+      <pubDate>Fri, 28 Jun 2024 05:34:38 GMT</pubDate>
     </item>
     <item>
-      <title>我的自定义 GPT 使用什么模型？</title>
-      <link>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_12</link>
-      <description><![CDATA[这是报告不正确的信息。
-GPT 使用 gpt-4o。如果您查看对话日志，您会发现所有模型 slug 都是 gpt-4o。]]></description>
-      <guid>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_12</guid>
-      <pubDate>Fri, 28 Jun 2024 01:27:48 GMT</pubDate>
+      <title>无法访问模型“gpt-4o”</title>
+      <link>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_1</link>
+      <description><![CDATA[您好，
+我正在尝试通过 API 使用 gpt-4o，但总是出现此错误：
+{
+“error”：{
+“message”：“项目 `X` 无权访问模型 `gpt-4o`”，
+“type”：“invalid_request_error”，
+“param”：null，
+“code”：“model_not_found”
+}
+}
+
+我有 5.99 美元的信用余额，我已将使用设置为允许 gpt-4o，但在 postman 和 vb .net 上仍然出现错误
+有人可以帮忙吗？
+提前致谢]]></description>
+      <guid>https://community.openai.com/t/does-not-have-access-to-model-gpt-4o/844109#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 05:32:19 GMT</pubDate>
     </item>
     <item>
-      <title>我的自定义 GPT 使用什么模型？</title>
-      <link>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_11</link>
-      <description><![CDATA[它在 iPhone 应用程序上。
-当您启动 ChatGPT 应用程序时，开始与任何自定义 GPT 对话，然后触摸顶部的自定义 GPT 名称（而不是从侧边栏），然后选择查看详细信息。]]></description>
-      <guid>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_11</guid>
-      <pubDate>Fri, 28 Jun 2024 00:48:29 GMT</pubDate>
+      <title>即使聊天被删除后，ChatGPT 还能记住过去的互动吗？</title>
+      <link>https://community.openai.com/t/can-chatgpt-remember-past-interactions-even-after-chats-are-deleted/843092#post_4</link>
+      <description><![CDATA[实际上，它正在发挥作用，对我来说，它是一个真正的杀手级应用程序。
+唯一的缺点是设置中缺少菜单，但你可以通过与它对话来让它忘记一些事情，正如 OpenAI 页面上所述。]]></description>
+      <guid>https://community.openai.com/t/can-chatgpt-remember-past-interactions-even-after-chats-are-deleted/843092#post_4</guid>
+      <pubDate>Fri, 28 Jun 2024 05:28:56 GMT</pubDate>
     </item>
     <item>
-      <title>有人注意到最近几天 GPT4o 质量下降了吗？</title>
-      <link>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203?page=3#post_47</link>
-      <description><![CDATA[我很高兴我不是唯一一个…… 
+      <title>训练文件的微调问题</title>
+      <link>https://community.openai.com/t/fine-tuning-issue-with-training-file/843189#post_3</link>
+      <description><![CDATA[我将训练数据转换为以下格式 -
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;&lt;prompt&gt;&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;&lt;content_message&gt;&quot;}]}
 
-
-
-ChatGPT 4o 坚持提供非常长的答案 ChatGPT
-
-
-我注意到我的 ChatGPT 在过去几天为每个新会话选择了 3.5 个模型，因此我必须手动更改为 4o。根据专业统计门户网站的数据，服务使用量似乎在上周没有增加……
-我记得在 4o 发布前几周，我注意到“4 型”的质量有所下降。
-在同一时间进行重大更新之前，我还注意到 MS Bing Chat（现为 Copilot）及其 Dall-e 代的质量有所下降。
-这给我提出了一个大问题：是否……
-
-
-好吧……让我们等待下一个版本，尽可能多地使用它，然后停下来再次等待下一个版本，进入一个永恒的循环。
-像这样的 I.A. 聊天订阅将像流媒体视频订阅一样。注册，使用那些东西，取消并找到另一个解决方案，等待新的“改进”，注册……]]></description>
-      <guid>https://community.openai.com/t/has-anyone-noticed-gpt4o-quality-drop-last-few-days/829203?page=3#post_47</guid>
-      <pubDate>Fri, 28 Jun 2024 00:46:46 GMT</pubDate>
+然后使用 model=“gpt-3.5-turbo” 微调数据并成功运行。
+是不是 model=“gpt-3.5-turbo” 不接受以前格式的数据？]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-issue-with-training-file/843189#post_3</guid>
+      <pubDate>Fri, 28 Jun 2024 05:18:29 GMT</pubDate>
     </item>
     <item>
-      <title>我的自定义 GPT 使用什么模型？</title>
-      <link>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_10</link>
-      <description><![CDATA[
-您在哪里访问此内容？我无法从我的 iOS 应用程序或网页版本中看到这些信息。]]></description>
-      <guid>https://community.openai.com/t/what-models-are-my-custom-gpts-using/776983#post_10</guid>
-      <pubDate>Fri, 28 Jun 2024 00:41:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>自动 SEO，我的想法可行吗？+ cutom gpt</title>
-      <link>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_4</link>
-      <description><![CDATA[这是一篇来自 n8n 的文章，演示了如何使用 GPT 来自动化您的流程。
-
-
-
-n8n 博客 – 3 月 20 日23
-
-
-
-如何在 n8n 项目中开始使用 ChatGPT
-了解如何将 n8n 连接到ChatGPT 并有效使用这个聊天机器人。及时工程和及时链接是诀窍！
-
-
-
-
-
-您可以联系那里的支持或社区，看看是否有人提供他们的服务。您的问题很复杂，我认为坐下来和专家谈谈会对您有所帮助。
-如上所述：您不能使用 GPT 存储进行自动化。即使可能，也是不允许的。您可能可以完全通过 n8n 使用 GPT。
-不过，这篇文章似乎有点过时了。对此持保留态度。也许只是一个开始和了解基础知识的好地方。]]></description>
-      <guid>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_4</guid>
-      <pubDate>Fri, 28 Jun 2024 00:36:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>图像生成问题</title>
-      <link>https://community.openai.com/t/problem-with-image-generations/843882#post_1</link>
-      <description><![CDATA[看起来 DALL-E 3 不再适用于 ChatGPT。这些是我的测试图像，很明显其中一个来自 DALL-E 2。还有其他人注意到这个降级吗？看来我付费使用的 OpenAI 提供的是另一种劣质模型。
-有没有人遇到过同样的问题？
-
-]]></description>
-      <guid>https://community.openai.com/t/problem-with-image-generations/843882#post_1</guid>
-      <pubDate>Fri, 28 Jun 2024 00:27:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何确保 ChatGPT 忘记我们的对话</title>
-      <link>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_7</link>
-      <description><![CDATA[在 API 调用中，可能存在一个名为“temporary_chat”的布尔参数吗？]]></description>
-      <guid>https://community.openai.com/t/how-to-make-sure-chatgpt-forgets-our-conversation/842919#post_7</guid>
-      <pubDate>Fri, 28 Jun 2024 00:24:23 GMT</pubDate>
+      <title>有关定价的问题</title>
+      <link>https://community.openai.com/t/questions-regarding-pricing/844090#post_1</link>
+      <description><![CDATA[您好，
+我正在使用 OpenAI 助手和向量存储构建一些东西。
+我的问题是，例如，我有一个助手，我已将其与一个向量存储链接，并且该向量存储包含 10 个文件，现在当我针对该问题运行助手时，当我询问任何需要所有 10 个文件的信息的问题时。在哪些时候我需要为 API 付费？
+例如，对于它在向量存储中处理的每个块，我是否需要付费？或者我只需要为最终输出 + 输入中消耗的令牌付费？
+我知道的一件事是我需要为存储付费，但我对它在文件中查找答案的处理成本感到困惑。
+如果您可以提供一些有关此的信息，那就太好了。
+谢谢]]></description>
+      <guid>https://community.openai.com/t/questions-regarding-pricing/844090#post_1</guid>
+      <pubDate>Fri, 28 Jun 2024 05:14:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
