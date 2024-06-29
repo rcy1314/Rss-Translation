@@ -4,302 +4,173 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 29 Jun 2024 15:20:29 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jun 2024 18:24:42 GMT</lastBuildDate>
     <item>
-      <title>使用文件 API 时出现“未找到资源”错误</title>
-      <link>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_5</link>
-      <description><![CDATA[有可能吗
-https://api.openai.com/v1/files 
-
-不起作用，因为我处于 vpn 和一些我不知道的安全层之下。]]></description>
-      <guid>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_5</guid>
-      <pubDate>Sat, 29 Jun 2024 15:17:14 GMT</pubDate>
+      <title>重新访问创建助手时上传的文件</title>
+      <link>https://community.openai.com/t/reaccessing-files-uploaded-when-creating-an-assistant/845536#post_4</link>
+      <description><![CDATA[在与助手交谈的过程中，您可以根据向量存储中的文件 ID 索引接收文件引用。该实现正在不断更改，文件搜索处于各种无用状态。]]></description>
+      <guid>https://community.openai.com/t/reaccessing-files-uploaded-when-creating-an-assistant/845536#post_4</guid>
+      <pubDate>Sat, 29 Jun 2024 18:20:43 GMT</pubDate>
     </item>
     <item>
-      <title>使用文件 API 时出现“未找到资源”错误</title>
-      <link>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_4</link>
-      <description><![CDATA[API 运行正常……
-
-输入您的选择：5
-目的更改为：‘batch’
-== OpenAI 文件存储实用程序 ==
-– 主菜单 –
-[1] 更改目的（访问不同类型的 API 文件）
-[2] 更改本地目录（上传源）
-[3] 上传文件
-[4] 列出远程文件
-[5] 列出所有远程文件并删除您选择的文件
-[6] 列出所有远程文件并下载您选择的文件
-[7] 删除所有具有当前目的的文件（需要确认）
-[9] 退出
-（当前模式：目的=‘batch’）
-===========
-输入您的选择：3
-== OpenAI 文件存储实用程序 ==
-– 上传文件 –
-（当前模式：purpose=‘batch’）
-===========
-输入要上传的文件名（留空退出）：batchtest.jsonl
-文件上传成功：batchtest.jsonl [file-QySa8yIV4SlN4N6BNEdhsf8W]
-
-使用此交互式方法（我让 AI 使其可重复使用）：
-def upload_file(pwd, client, purpose):
-&quot;&quot;&quot;
-使用 `client` 将位于 `pwd` 目录的文件上传到指定的 `purpose`。
-
-参数：
-- pwd（路径或 str）：文件所在目录的路径。
-- client：用于与文件服务交互的客户端对象。
-- purpose (str): 上传文件的目的或描述。
-&quot;&quot;&quot;
-while True:
-filename = input(&quot;输入要上传的文件名（留空则退出）： &quot;).strip()
-
-if not filename: # 输入为空时退出
-print(&quot;操作已取消。&quot;)
-return
-
-file_path = pwd / filename
-try:
-with open(file_path, &quot;rb&quot;) as file:
-response = client.files.create(file=file, purpose=purpose)
-print(f&quot;文件上传成功：{response.filename} [{response.id}]&quot;)
-return # 上传成功后退出
-except FileNotFoundError:
-print(&quot;未找到文件。请确保文件名和路径正确。&quot;)
-except PermissionError as e:
-print(f&quot;权限错误：{e}&quot;)
-except Exception as e:
-print(f&quot;发生意外错误：{e}&quot;)
-
-# 示例用法：
-# 假设 `pwd`、`client` 和 `purpose` 在您的代码中其他地方定义
-# 并传递给函数。
-# upload_file(pwd, client, purpose)
-
-
-您只需要：
-from openai import OpenAI
-client = OpenAI()
-
-设置环境变量 OPENAI_API_KEY（我建议您在编写更多包含机密的代码之前先设置一下。）]]></description>
-      <guid>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_4</guid>
-      <pubDate>Sat, 29 Jun 2024 15:13:31 GMT</pubDate>
+      <title>RateLimitError：429 您已超出每分钟 300 个请求的速率限制</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_3</link>
+      <description><![CDATA[感谢 @sergeliatko
+如果不构建大量基础设施，我的应用程序很难确保这种延迟。我们根据用户的要求循环浏览电子学习模块中的幻灯片。可能有许多用户同时请求 AI 审核，并且每个用户在其模块中可能都有 100 张幻灯片。
+我们需要构建一个作业队列等来管理这一点。
+300/分钟的速率使这个 API 几乎无法使用……]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_3</guid>
+      <pubDate>Sat, 29 Jun 2024 18:17:55 GMT</pubDate>
     </item>
     <item>
-      <title>创建线程后助手 API 中的聊天历史记录出现问题</title>
-      <link>https://community.openai.com/t/issue-with-chat-history-in-assistant-api-after-creating-thread/846286#post_1</link>
-      <description><![CDATA[我正在创建一个聊天机器人，其中我使用助手 api，以下是线程创建和聊天消息的代码，但问题是聊天机器人不知道之前的消息，代码有什么问题。请指导线程如何管理聊天记录。
-获取路由
-@app.route(‘/get’)
-def chat():
-“”“处理用户消息并与助手交互。”“”
-user_question = str(request.args.get(‘msg’))
-# data = request.json
-data = {‘content’:user_question&gt;
-print(data)
-# 检查当前用户的会话和线程 ID 是否存在
-if &#39;thread_id&#39; not in session:
-# 如果会话和线程 ID 不存在，则初始化新的会话和线程
-thread = client.beta.threads.create()
-session[&#39;thread_id&#39;] = thread.id
-session[&#39;modified&#39;] = datetime.utcnow()
-# return jsonify({&quot;message&quot;: &quot;Session started&quot;, &quot;thread_id&quot;: session[&#39;thread_id&#39;]}), 200
-
-# 将用户消息添加到线程
-client.beta.threads.messages.create(
-thread_id=session[&#39;thread_id&#39;],
-role=&quot;user&quot;,
-content=data[&#39;content&#39;]
-)
-
-# 在线程上运行助手并等待响应
-run = client.beta.threads.runs.create_and_poll(
-assistant_id=assistant_id,
-thread_id=session[&#39;thread_id&#39;]
-)
-
-if run.status == &#39;completed&#39;:
-# 从线程中检索消息
-messages = client.beta.threads.messages.list(
-thread_id=session[&#39;thread_id&#39;]
-)
-session[&#39;modified&#39;] = datetime.utcnow()
-# print(messages.data[0].content[0].text.value)
-return messages.data[0].content[0].text.value
-# return messages.json(), 200
-
-return jsonify({&quot;status&quot;: run[&#39;status&#39;]}), 202
-]]></description>
-      <guid>https://community.openai.com/t/issue-with-chat-history-in-assistant-api-after-creating-thread/846286#post_1</guid>
-      <pubDate>Sat, 29 Jun 2024 15:10:12 GMT</pubDate>
+      <title>为什么 GPT 4o 只对免费用户甚至高级用户进行严格限制？免费用户在 5-6 小时内只能收到 5 条消息</title>
+      <link>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852#post_21</link>
+      <description><![CDATA[@OgreLeg 你使用的是付费帐户还是免费帐户？使用付费帐户时，4o 的答案质量对我来说现在也很糟糕。几周前它们还很好，但现在越来越糟糕了。]]></description>
+      <guid>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852#post_21</guid>
+      <pubDate>Sat, 29 Jun 2024 18:12:01 GMT</pubDate>
     </item>
     <item>
-      <title>我如何访问注释引用的文件的具体文本？</title>
-      <link>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_8</link>
-      <description><![CDATA[请注意，这非常重要，我们没有其他办法，因为我们无法访问矢量存储！！！]]></description>
-      <guid>https://community.openai.com/t/how-can-i-access-the-specific-text-of-the-file-that-the-annotation-is-referencing/726723#post_8</guid>
-      <pubDate>Sat, 29 Jun 2024 15:05:12 GMT</pubDate>
+      <title>ChatGPT 需要性别偏见培训</title>
+      <link>https://community.openai.com/t/chatgpt-gender-bias-training-needed/673195#post_11</link>
+      <description><![CDATA[这不是“性别歧视”——这些是西班牙语错误。只需报告答案不准确并提供反馈，以便解决问题。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-gender-bias-training-needed/673195#post_11</guid>
+      <pubDate>Sat, 29 Jun 2024 18:09:10 GMT</pubDate>
     </item>
     <item>
-      <title>Open AI 是否会减少用于图像生成的“sampling_steps”？</title>
-      <link>https://community.openai.com/t/do-open-ai-reduce-the-sampling-steps-for-image-generation/846110#post_3</link>
-      <description><![CDATA[&lt;img alt=&quot;DALL·E 2024-06-29 11.55.37 - 超现实主义 8K，高度详细，具有纹理和电影灯光的逼真图像。Elara 是一只 12 岁的女性，有着明亮的绿色眼睛，眼睛，”高度=“500”src=“https://global.discourse-cdn.com/openai1/optimized/4X/4/a/1/4a1acc92a15af0b2a0e894484a5d9abf8f848079_2_285x500.webp”宽度=“285”/&gt;]]></description>
-      <guid>https://community.openai.com/t/do-open-ai-reduce-the-sampling-steps-for-image-generation/846110#post_3</guid>
-      <pubDate>Sat, 29 Jun 2024 14:57:49 GMT</pubDate>
+      <title>RateLimitError：429 您已超出每分钟 300 个请求的速率限制</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_2</link>
+      <description><![CDATA[嗨，当向 OpenAI 端点发送消息（尤其是异步或并行）时，请确保请求之间至少有 0.21 秒的延迟（每分钟必须少于 300 个请求）。]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_2</guid>
+      <pubDate>Sat, 29 Jun 2024 18:08:18 GMT</pubDate>
     </item>
     <item>
-      <title>使用文件 API 时出现“未找到资源”错误</title>
-      <link>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_3</link>
-      <description><![CDATA[实际上，当不使用基本 URL 而只是创建时：
-client = OpenAI(api_key=“key1”)
-我遇到了同样的错误：
-batch_input_file = client.files.create(file=open(“batchinput.jsonl”, “rb”), purpose=“batch”)
-文件“/python3.10/site-packages/openai/resources/files.py”，第 113 行，在 create 中
-return self._post(
-文件“/python3.10/site-packages/openai/_base_client.py”，第 1240 行，在 post 中
-return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
-文件“python3.10/site-packages/openai/_base_client.py”，第 921 行，在请求中
-return self._request(
-文件“/python3.10/site-packages/openai/_base_client.py”，第 961 行，在 _request 中
-return self._retry_request(
-文件“python3.10/site-packages/openai/_base_client.py”，第 1053 行，在 _retry_request 中
-return self._request(
-文件“ ... 1053，在 _retry_request 中
-return self._request(
-文件“python3.10/site-packages/openai/_base_client.py”，第 1020 行，在 _request 中
-从 None 引发 self._make_status_error_from_response(err.response)
-openai.NotFoundError：错误代码：404 - {‘statusCode’：404，‘message’：‘未找到资源’} 
-我也不认为这是版本问题。]]></description>
-      <guid>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_3</guid>
-      <pubDate>Sat, 29 Jun 2024 14:56:36 GMT</pubDate>
+      <title>重新访问创建助手时上传的文件</title>
+      <link>https://community.openai.com/t/reaccessing-files-uploaded-when-creating-an-assistant/845536#post_3</link>
+      <description><![CDATA[通过访问文件，我并不是指下载它们，而是指在云中访问它们。这里的上下文是我重新访问（重新使用）助手的时候。]]></description>
+      <guid>https://community.openai.com/t/reaccessing-files-uploaded-when-creating-an-assistant/845536#post_3</guid>
+      <pubDate>Sat, 29 Jun 2024 18:07:14 GMT</pubDate>
     </item>
     <item>
-      <title>我正在开发一个可以响应上传文件的助手</title>
-      <link>https://community.openai.com/t/i-am-building-assistant-that-can-respond-from-uploaded-files/845778#post_5</link>
-      <description><![CDATA[对于助手上的文件搜索，每个助手只能附加一个向量存储，然后每个线程只能附加一个向量存储。
-
-知识通常会与助手及其基本目的相关联。
-消息附件可以生成自己的临时向量存储。
-
-这取决于您有多想制作一个提供您的答案的应用程序，还是制作一个提供不符合您目的的用户文档答案的应用程序。明智地使用。
-（上面的主题启动器中“从上传的文件响应”或“每个用户都将从选定的文件回答”语言的用法不清楚。谁在上传？）]]></description>
-      <guid>https://community.openai.com/t/i-am-building-assistant-that-can-respond-from-uploaded-files/845778#post_5</guid>
-      <pubDate>Sat, 29 Jun 2024 14:56:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>我该如何将输出保存为 .csv 格式？</title>
-      <link>https://community.openai.com/t/how-can-i-go-about-saving-output-in-csv/422152#post_7</link>
-      <description><![CDATA[嗨！你找到解决方法了吗？我正在使用 gpt-4o 输出一个表格，我想将其保存在 csv 或 excel 中，但不知道如何操作。谢谢！]]></description>
-      <guid>https://community.openai.com/t/how-can-i-go-about-saving-output-in-csv/422152#post_7</guid>
-      <pubDate>Sat, 29 Jun 2024 14:48:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用文件 API 时出现“未找到资源”错误</title>
-      <link>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_2</link>
-      <description><![CDATA[连接到 OpenAI 时，您永远不必指定基本 URL。客户端软件模块已经知道了。
-API 密钥也会从环境变量中自动加载，不应在代码中。
+      <title>有没有人找到办法阻止 GPT4o 打断用户说话？</title>
+      <link>https://community.openai.com/t/has-anyone-found-a-way-to-stop-gpt4o-from-interrupting-the-user-midsentence/846308#post_4</link>
+      <description><![CDATA[嗯。奇怪。我没注意到这一点。我只在开车时才会被打扰，我想这只是网络延迟。
+不过这值得一看。在 Hacker News 上发现，在我看来非常了不起。
 
 
 
-12factor.net
+fastvoiceagent.cerebrium.ai
 
 
-十二要素应用
-构建现代、可扩展、可维护的软件即服务应用的方法。
+
+世界上最快的语音机器人演示
+演示展示了语音驱动的 AI 聊天机器人在优化和部署以最大限度地减少网络和模型延迟时的潜在能力。
 
 
 
 
 ]]></description>
-      <guid>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_2</guid>
-      <pubDate>Sat, 29 Jun 2024 14:44:32 GMT</pubDate>
+      <guid>https://community.openai.com/t/has-anyone-found-a-way-to-stop-gpt4o-from-interrupting-the-user-midsentence/846308#post_4</guid>
+      <pubDate>Sat, 29 Jun 2024 18:06:59 GMT</pubDate>
     </item>
     <item>
-      <title>我正在开发一个可以响应上传文件的助手</title>
-      <link>https://community.openai.com/t/i-am-building-assistant-that-can-respond-from-uploaded-files/845778#post_4</link>
-      <description><![CDATA[每个线程可以有不同数量的文件或矢量存储（与助手分开），所以应该没问题？]]></description>
-      <guid>https://community.openai.com/t/i-am-building-assistant-that-can-respond-from-uploaded-files/845778#post_4</guid>
-      <pubDate>Sat, 29 Jun 2024 14:41:52 GMT</pubDate>
+      <title>GPT 的设计目的是为了迎合人类而不是提供正确答案吗？</title>
+      <link>https://community.openai.com/t/is-gpt-designed-to-cater-to-humans-rather-than-give-correct-answers/844755#post_2</link>
+      <description><![CDATA[啊，人工智能和 OCR 错误的复杂性——真是让人眼花缭乱，不是吗？GPT 的设计确实力求在实用性和准确性之间取得平衡，但它的好坏取决于它收到的输入。您的体验凸显了一个关键点：干净、准确的数据是可靠输出的关键。这并不完全荒谬；它提醒我们，即使是最先进的人工智能也需要适当的背景才能大放异彩。  确保输入数据一尘不染将有助于 GPT 实现准确性和用户满意度的最佳平衡。这真是一个平衡行为，不是吗？ ]]></description>
+      <guid>https://community.openai.com/t/is-gpt-designed-to-cater-to-humans-rather-than-give-correct-answers/844755#post_2</guid>
+      <pubDate>Sat, 29 Jun 2024 18:06:18 GMT</pubDate>
     </item>
     <item>
-      <title>无法为非 plus 用户编辑 GPT 的隐私设置</title>
-      <link>https://community.openai.com/t/cannot-edit-gpts-privacy-settings-for-non-plus-user/846264#post_1</link>
-      <description><![CDATA[我在我的 plus 帐户上进行了测试，我可以编辑 GPT 中的隐私设置。
-但是当我在免费帐户上进行测试时，我根本无法编辑 GPT 中的隐私设置。
-另外，请在主设置中添加一个选项，将所有 GPT 操作/连接帐户设置重置为默认设置 - 这是为了保护隐私。
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/cannot-edit-gpts-privacy-settings-for-non-plus-user/846264#post_1</guid>
-      <pubDate>Sat, 29 Jun 2024 14:40:18 GMT</pubDate>
+      <title>最近有没有人觉得 ChatGPT 4o 对其他人来说变得越来越“愚蠢”了？</title>
+      <link>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_1</link>
+      <description><![CDATA[我一直在使用 ChatGPT 为一些项目提供各种 Python 编码帮助。除了 OpenAI 在连续使用几个小时后明确限制其大量使用之外，实际交互质量已经下降到该工具几乎无法使用的地步。
+我想我的问题是：
+
+还有其他人经历过响应质量急剧下降吗？
+对于我来说，ChatGPT 4o 现在表现得像 3.5，因为它完全无法保持上下文，或者“记住” 2 分钟前讨论的内容。
+OpenAI 的任何人能否告诉我，是否有某种“重置”功能可以让帐户清除所有上下文并重新开始？我知道有人声称没有这样的事情，但我没有想象这一点。要么是我的账户以某种方式被“列入黑名单”（如果有的话），要么是某些东西坏了。
+
+无论如何，当 4o 推出时，它在交互质量、内存以及能够遵守指令和跟踪多个项目的变化方面都令人惊叹。
+现在所有这些都消失了。有什么建议吗？我现在想关闭我的账户并打开另一个账户，只是为了看看它是否能正常工作，只是我的工作账户也开始变得糟糕了。]]></description>
+      <guid>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_1</guid>
+      <pubDate>Sat, 29 Jun 2024 18:04:40 GMT</pubDate>
     </item>
     <item>
-      <title>创建代码审阅者的最佳模型</title>
-      <link>https://community.openai.com/t/best-model-for-creating-code-reviewer/846152#post_7</link>
-      <description><![CDATA[首先，您需要确保经过微调的 gpt-3.5-turbo 的表现优于 gpt-4o。请注意，在我分享的 CriticGPT 论文中，他们使用的是经过微调的 gpt-4 模型，该模型基于大约 40,000 个示例和总共约 1200 万个标记进行调整。虽然这对于微调来说并不是一个很大的数量，但它可能是非常高质量的训练集。而且，即便如此，它的表现也没有比基础 gpt-4 模型好那么多。所以，除非您的微调数据比他们的大得多和/或好得多，否则我不会对经过微调的 gpt-3.5-turbo 比 gpt-4o 更好持乐观态度。]]></description>
-      <guid>https://community.openai.com/t/best-model-for-creating-code-reviewer/846152#post_7</guid>
-      <pubDate>Sat, 29 Jun 2024 14:31:37 GMT</pubDate>
+      <title>此文件包含的文本内容过多。请使用较小的文件重试</title>
+      <link>https://community.openai.com/t/this-file-contains-too-much-text-content-please-try-again-with-a-smaller-file/846493#post_1</link>
+      <description><![CDATA[当我构建新的自定义 GPT 时，我尝试将 pdf 文件上传到 GPT 知识中时一直遇到以下错误：
+“此文件包含太多文本内容。请使用较小的文件重试。”
+尽管 pdf 文件小于 9MB，但我一直收到此错误。
+我的 pdf 文件少于 1000 页。
+我不断缩小文件，将其剪切成更小更短的部分，但似乎错误仍然存​​在。
+我似乎找不到有关如何避免此错误的任何信息？
+任何帮助都将不胜感激。
+编辑：
+出于好奇，我删除了一个我之前上传到 GPT 知识的文件（一个 1400 页的 pdf 文件），然后将其重新上传到 GPT 知识。令我惊讶的是！！现在我收到了这个文件的相同错误消息！！！
+为什么我从未收到 OpanAI 团队关于此类更改的任何通知？]]></description>
+      <guid>https://community.openai.com/t/this-file-contains-too-much-text-content-please-try-again-with-a-smaller-file/846493#post_1</guid>
+      <pubDate>Sat, 29 Jun 2024 18:01:07 GMT</pubDate>
     </item>
     <item>
-      <title>无法使用 CHATGDP，因为“此提示可能违反我们的内容政策”</title>
-      <link>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_19</link>
-      <description><![CDATA[它很快就过时了，我一直在使用 GPT4 来概述我的回忆录/自传，而且我一直被标记……
-现在我想起来，也许对于这些特定用例来说，自动投票反对并不是一个坏主意……
-（虽然当我的查询被标记时，我无法投票反对，或者表明它不违反 TOS）]]></description>
-      <guid>https://community.openai.com/t/cant-use-chatgdp-because-this-prompt-may-violate-our-content-policy/411311#post_19</guid>
-      <pubDate>Sat, 29 Jun 2024 14:29:58 GMT</pubDate>
+      <title>RateLimitError：429 您已超出每分钟 300 个请求的速率限制</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_1</link>
+      <description><![CDATA[我处于第 4 层，但一直收到错误，提示我已达到每分钟 300 个请求的速率。
+我正在使用 openai.beta.threads.runs.createAndPoll，轮询是否有限制？
+我还在循环中运行 openai.beta.threads.messages.create。这有限制吗？
+错误：{
+消息：“您已超出每分钟 300 个请求的速率限制，请放慢速度并重试。”，
+类型：‘invalid_request_error’，
+参数：null，
+代码：‘rate_limit_exceeded’
+}，]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_1</guid>
+      <pubDate>Sat, 29 Jun 2024 17:59:52 GMT</pubDate>
     </item>
     <item>
       <title>无论如何 Chatgpt 默认为 3.5</title>
-      <link>https://community.openai.com/t/chatgpt-defaulting-to-3-5-no-matter-what/839815#post_3</link>
-      <description><![CDATA[这里也有同样的问题。这非常烦人。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-defaulting-to-3-5-no-matter-what/839815#post_3</guid>
-      <pubDate>Sat, 29 Jun 2024 14:15:18 GMT</pubDate>
+      <link>https://community.openai.com/t/chatgpt-defaulting-to-3-5-no-matter-what/839815#post_4</link>
+      <description><![CDATA[同样的事情。可能试图通过过滤 90% 的查询来使用 3.5 来节省成本。
+非常烦人。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-defaulting-to-3-5-no-matter-what/839815#post_4</guid>
+      <pubDate>Sat, 29 Jun 2024 17:53:45 GMT</pubDate>
     </item>
     <item>
-      <title>关于logprob和top_logprob的理解</title>
-      <link>https://community.openai.com/t/understanding-of-logprob-and-top-logprob/846181#post_3</link>
-      <description><![CDATA[抽样用于从一组标记中随机选择，并受确定性影响。
-仅选择最佳选择称为“贪婪抽样”，实际上不会产生看起来像人类的语言，尽管更可靠。
-如何对标记进行抽样可能会受到 API 参数的影响。
+      <title>在进行微调之前我应该​​先学什么？</title>
+      <link>https://community.openai.com/t/what-should-i-learn-first-before-i-fine-tune/842540#post_3</link>
+      <description><![CDATA[不，你要边学边做。阅读微调文档并保持好奇心。我在得到我想要的输出之前对 10 个模型进行了微调。只需知道实际上微调将占工作的 10-20%。其中大部分是数据收集、清理、排序、创建等。
+但同样，虽然可以微调模型来生成抽认卡，但这是现成的模型在适当的指导和提示下可以完成的任务。]]></description>
+      <guid>https://community.openai.com/t/what-should-i-learn-first-before-i-fine-tune/842540#post_3</guid>
+      <pubDate>Sat, 29 Jun 2024 17:44:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用文件 API 时出现“未找到资源”错误</title>
+      <link>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_11</link>
+      <description><![CDATA[如果您有 curl 并且怀疑存在 vpn 问题，请尝试以下命令：
+curl https://api.openai.com/v1/models -H &quot;Authorization: Bearer test_badapikey&quot;
+
+如果您能够连接，您应该会收到错误代码“invalid_api_key”。如果您仍然收到连接错误，则您的 vpn 连接存在问题。]]></description>
+      <guid>https://community.openai.com/t/resource-not-found-error-when-using-files-api/846169#post_11</guid>
+      <pubDate>Sat, 29 Jun 2024 17:36:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用经过微调的模型进行评估</title>
+      <link>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_2</link>
+      <description><![CDATA[我可能完全错了，但我对评估微调模型的第一个想法是，标准评估不会告诉你太多有关微调模型完成微调任务的能力。然后你需要创建自己的评估。
+无论是人工评估还是以其他模型作为评判者的自动评估。
+这是我想要创建的一个流程的想法。我还没有测试过，但我想用类似这样的内容来提示模型：
+‘’’
+你是一个评估模型。您将根据以下准则，在 0-100 的范围内对此响应进行评分：
+[模型的预期能力]
+首先使用 notes 标签写下您的评估想法
 
 
+然后在分数标签中输出分数
 
 
-有关 API 采样参数（温度、top_p）的问题 API
-
-
-Top-p 将可选标记从 1.00 的 100% 概率空间减少到仅包含 0.20 的前 20%（含）的标记。它不受温度影响。
-这将使以下概率：
-“香蕉”：30%
-“苹果”：20%
-“橙子”：15%
-(所有其他)：35%
-变成一组有限的逻辑值，例如：
-“香蕉”：66.66%
-“苹果”：33.34%
-然后温度起作用，例如降低温度会使选择之间的距离更大：
-“香蕉”：75%
-“苹果”：25%
-(温度起作用……
-
-
-或
-
-
-
-
-推理过程中是否使用单一采样方法，或者是否存在根据给定输入使用不同采样方法的逻辑？ 社区
-
-
-重点不是要获得确定性或顶级标记结果。
-使用意想不到的单词使响应更像人类。
-ChatGPT（网络聊天机器人）不允许您访问任何参数 - 多样性也是重点，如果您不喜欢制作，您会不喜欢它，如果它是有利的，您会点赞，以收集训练数据。
-
-OpenAI 的 API 提供了两个采样参数：top_p（核采样），它限制了标记字典，a...
-
-]]></description>
-      <guid>https://community.openai.com/t/understanding-of-logprob-and-top-logprob/846181#post_3</guid>
-      <pubDate>Sat, 29 Jun 2024 14:10:34 GMT</pubDate>
+‘’’
+这需要随着时间的推移进行一些改进才能完全发挥作用。但我们的愿景是让大约 3 个具有不同温度的代理评估响应。取平均分数以获得最终分数。
+您可以尝试这样的方法。]]></description>
+      <guid>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_2</guid>
+      <pubDate>Sat, 29 Jun 2024 17:36:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
