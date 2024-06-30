@@ -4,147 +4,178 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sun, 30 Jun 2024 12:34:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2024 15:21:07 GMT</lastBuildDate>
     <item>
-      <title>Chatgpt 4.0 错误 - “检测到您的设备有异常活动。请稍后再试。”</title>
-      <link>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_2</link>
-      <description><![CDATA[这种情况已经持续了好几个星期了。就好像，我以付费用户的身份在 ChatGPT 上发布了当天的第一条消息，然后马上就被拒绝了。OpenAI 支持部门一直不支持……]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_2</guid>
-      <pubDate>Sun, 30 Jun 2024 12:29:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于网站问答嵌入教程的问题</title>
-      <link>https://community.openai.com/t/issue-regarding-the-tutorial-on-website-q-a-with-embedding/701608#post_2</link>
-      <description><![CDATA[您必须将 f 放在 Context 前面，而不是 content 前面，如下所示：
-response = client.chat.completions.create(
-model=“gpt-3.5-turbo”,
-messages=[
-{“role”: “system”, “content”: “根据下面的上下文回答问题，如果根据上下文无法回答问题，请说“我不知道”\n\n”},
-{“role”: “user”, “content”: f&quot;Context: {context}\n\n—\n\nQuestion: {question}\nAnswer:&quot;&gt;
-],
-temperature=0,
-max_tokens=max_tokens,
-top_p=1,
-frequency_penalty=0,
-presence_penalty=0,
-stop=stop_sequence,
-)
-这帮我解决了问题]]></description>
-      <guid>https://community.openai.com/t/issue-regarding-the-tutorial-on-website-q-a-with-embedding/701608#post_2</guid>
-      <pubDate>Sun, 30 Jun 2024 12:02:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>我发现一个重大BUG，它列出了当前目录中的所有内容</title>
-      <link>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_6</link>
-      <description><![CDATA[这是 README 文件中写的内容：
+      <title>使用经过微调的模型进行评估</title>
+      <link>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_4</link>
+      <description><![CDATA[看来当前的 OpenAI Evals Python 模块无法正确处理微调后的模型名称。
 
-感谢您使用代码解释器插件！
-请注意，我们为您分配了一个沙盒 Unix 操作系统，因此您可以查看和修改此系统上的文件。
 
-这对您有利，因为您可以在对话中使用文件（或者至少这是可能的）。]]></description>
-      <guid>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_6</guid>
-      <pubDate>Sun, 30 Jun 2024 10:43:47 GMT</pubDate>
+文件“evals\evals\record.py”，第 343 行，在 init
+with bf.BlobFile(log_path, “wb”) as f:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+文件“evals\venv\Lib\site-packages\blobfile_ops.py”，第 358 行，在 BlobFile 中
+return default_context.BlobFile(
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+文件“evals\venv\Lib\site-packages\blobfile_context.py”，第 358 行1014，在 BlobFile 中
+f = ProxyFile(
+^^^^^^^^^^^^
+文件“evals\venv\Lib\site-packages\blobfile_context.py”，第 1420 行，在 init
+super().init(local_path, mode=mode)
+OSError：[Errno 22] 参数无效：&#39;/tmp/evallogs/****************ft:gpt-3.5-turbo-1106:organization:my-experiment:---------------.jsonl&#39;
+
+
+通过修改 Evals 模块，应该可以评估微调模型。但是，在目前的官方状态下，Evals 模块无法对微调模型进行评估模型。]]></description>
+      <guid>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_4</guid>
+      <pubDate>Sun, 30 Jun 2024 15:19:56 GMT</pubDate>
     </item>
     <item>
       <title>运行精确的代码有时会返回错误输出，有时会返回正确输出</title>
-      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_2</link>
-      <description><![CDATA[模型响应的不可预测行为有些麻烦，但您可以通过指定种子值让模型尝试确定性地采样（尽管这不能保证会重现相同的结果）。
-https://platform.openai.com/docs/api-reference/chat/create#chat-c​​reate-seed
-希望这能有所帮助 ]]></description>
-      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_2</guid>
-      <pubDate>Sun, 30 Jun 2024 10:33:55 GMT</pubDate>
+      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_7</link>
+      <description><![CDATA[出于兴趣，“酒”的嵌入是否比“尼古丁”更接近“酒精”？
+我怀疑可能是……
+您可能会考虑嵌入一个大型词典，并使用小阈值进行余弦差比较……
+……问题是您的阈值可能必须是动态的才能在各个域中获得相似的结果。
+我怀疑这不是一个简单的问题。]]></description>
+      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_7</guid>
+      <pubDate>Sun, 30 Jun 2024 15:16:51 GMT</pubDate>
     </item>
     <item>
-      <title>我发现一个重大BUG，它列出了当前目录中的所有内容</title>
-      <link>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_5</link>
-      <description><![CDATA[我认为这有答案：google &gt; jailbreaking-gpt-4-s-code-interpreter]]></description>
-      <guid>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_5</guid>
-      <pubDate>Sun, 30 Jun 2024 10:27:23 GMT</pubDate>
+      <title>运行精确的代码有时会返回错误输出，有时会返回正确输出</title>
+      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_6</link>
+      <description><![CDATA[我尝试过多次修改提示，通过说出同义词的同义词来尝试使其起作用，但有时有效，有时无效。 
+它不会在逻辑和理解方面取代人类，但知识超越了人类。]]></description>
+      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_6</guid>
+      <pubDate>Sun, 30 Jun 2024 15:07:20 GMT</pubDate>
     </item>
     <item>
-      <title>我发现一个重大BUG，它列出了当前目录中的所有内容</title>
-      <link>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_4</link>
+      <title>运行精确的代码有时会返回错误输出，有时会返回正确输出</title>
+      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_5</link>
+      <description><![CDATA[
+
+
+ esraa.e.abdelmaksoud:
+
+将“酒精”之类的东西与“尼古丁”匹配
+
+
+这是一个接近语义的匹配，即使不是同义词，也解释了为什么会出现这种行为。
+我在分类方面也看到过类似的问题，它给出了一个大致的匹配，但忽略了细微差别。
+人工智能不会取代人类时间很快就到了 ]]></description>
+      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_5</guid>
+      <pubDate>Sun, 30 Jun 2024 14:53:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>SyntaxError：请求的模块“openai”不提供名为“Configuration”的导出</title>
+      <link>https://community.openai.com/t/syntaxerror-the-requested-module-openai-does-not-provide-an-export-named-configuration/847040#post_2</link>
+      <description><![CDATA[配置 和 OpenAIApi 均不再存在于 openai 软件包中。请参阅使用、文档和升级指南。]]></description>
+      <guid>https://community.openai.com/t/syntaxerror-the-requested-module-openai-does-not-provide-an-export-named-configuration/847040#post_2</guid>
+      <pubDate>Sun, 30 Jun 2024 14:52:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用经过微调的模型进行评估</title>
+      <link>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_3</link>
       <description><![CDATA[嗨！
-您应该检查 README 文件。
-它将解释这不是错误，而是完全可以预料到的，以及为什么会这样。]]></description>
-      <guid>https://community.openai.com/t/i-found-a-major-bug-which-lists-the-entire-contents-in-the-current-directory/847140#post_4</guid>
-      <pubDate>Sun, 30 Jun 2024 10:11:56 GMT</pubDate>
+开始评估时，我们必须指定要评估的模型
+oaieval gpt-3.5-turbo &lt;eval_name&gt;
+
+您是否尝试过在此处输入微调模型的名称？]]></description>
+      <guid>https://community.openai.com/t/using-evals-with-fine-tuned-model/843919#post_3</guid>
+      <pubDate>Sun, 30 Jun 2024 14:48:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>最近有没有人觉得 ChatGPT 4o 对其他人来说变得越来越“愚蠢”了？</title>
+      <link>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_3</link>
+      <description><![CDATA[是的，请让 CHATGPT 的行为与 CHATGPT 3.5 类似。好像出于某种原因，它被简化了。请修复它。几天前我给它提了一个问题，它能够正确解决，但现在它告诉我无法解决，或者它根本没有提供任何详细信息，而这原本是用来做的]]></description>
+      <guid>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_3</guid>
+      <pubDate>Sun, 30 Jun 2024 14:40:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>推出 BookLed：一本利用生成式 AI 增强的纸质书</title>
+      <link>https://community.openai.com/t/introducing-bookled-a-paper-book-augmented-with-generative-ai/819765#post_11</link>
+      <description><![CDATA[大家好。
+今天我在制作者网站 hackaday.io 上发布了 BookLed 项目和开源 Python 代码。
+
+
+hackaday.io
+
+
+
+BookLed
+有了 BookLed、Python 代码和 OpenAI API 帐户，您可以从纸质书的页面开始探索 AI 讲故事的世界！在 BookLed GitHub 存储库中，收集了 Python 和 Jupyter 笔记本开源代码示例...
+
+
+
+
+
+希望能够顺利传播该项目。
+Graziano]]></description>
+      <guid>https://community.openai.com/t/introducing-bookled-a-paper-book-augmented-with-generative-ai/819765#post_11</guid>
+      <pubDate>Sun, 30 Jun 2024 14:40:39 GMT</pubDate>
     </item>
     <item>
       <title>运行精确的代码有时会返回错误输出，有时会返回正确输出</title>
-      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_1</link>
-      <description><![CDATA[我一直在尝试使用 GPT-4o 将单词列表与其对应的同义词进行匹配。问题是，有时输出 100% 正确，有时则完全是胡说八道。这只是多次运行，没有改变一个字符。
-我理解答案的变化是由于模型的随机性，但还没有达到将“酒精”与“尼古丁”等同义词匹配的程度 。
-查看这个关于相同随机性问题的旧主题，我尝试将温度设置为 0 以使模型具有确定性，但有时我仍然会得到 100% 正确的答案，有时又会得到 100% 错误的答案答案。
-注意：我真的不知道我会有的单词列表，所以我无法为此编写任何验证函数。
-请让我知道我可以做些什么来获得一致正确的答复。谢谢！]]></description>
-      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_1</guid>
-      <pubDate>Sun, 30 Jun 2024 10:11:21 GMT</pubDate>
+      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_4</link>
+      <description><![CDATA[与 GPT-4 turbo 相比，很多人似乎觉得 GPT-4o 更难以预测。
+如果将温度和 top_p 参数设置为非常低的值并使用种子值，仍然得到随机结果，我们就无能为力了。
+没有人知道为什么结果如此难以预测，但事实就是如此 ]]></description>
+      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_4</guid>
+      <pubDate>Sun, 30 Jun 2024 14:22:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的助手记忆力有问题</title>
+      <link>https://community.openai.com/t/having-trouble-with-my-assistants-memory/638516#post_3</link>
+      <description><![CDATA[您能指导我一下吗？我遇到了问题，这是我的帖子链接：
+创建线程后助手 api 中的聊天历史记录出现问题]]></description>
+      <guid>https://community.openai.com/t/having-trouble-with-my-assistants-memory/638516#post_3</guid>
+      <pubDate>Sun, 30 Jun 2024 14:18:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>计费货币及更改能力</title>
+      <link>https://community.openai.com/t/billing-currency-and-ability-to-change/836272#post_9</link>
+      <description><![CDATA[您回复的糟糕质量促使我为该论坛创建了一个帐户。
+您是 OpenAI 代表吗？
+客户反馈很重要，我同意 OP 的观点，一家价值数十亿美元的公司实际上应该接受不同的货币，而不是让客户承受不利的汇率负担。]]></description>
+      <guid>https://community.openai.com/t/billing-currency-and-ability-to-change/836272#post_9</guid>
+      <pubDate>Sun, 30 Jun 2024 14:11:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>运行精确的代码有时会返回错误输出，有时会返回正确输出</title>
+      <link>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_3</link>
+      <description><![CDATA[感谢您的回复。实际上，我尝试设置种子几次，但不幸的是，问题没有解决。]]></description>
+      <guid>https://community.openai.com/t/running-the-exact-code-returns-sometimes-wrong-and-sometimes-correct-output/847243#post_3</guid>
+      <pubDate>Sun, 30 Jun 2024 13:44:47 GMT</pubDate>
     </item>
     <item>
       <title>错误异常活动 GPT4 WEB</title>
-      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_53</link>
-      <description><![CDATA[快速更新。由于你们中的许多人仍然遇到这个问题，从今天开始，对我来说，这个问题再次发生。我还建议作为临时解决方案，不要尝试重新生成响应，只需单击“编辑”您要求的提示并重新发送即可。这种方法现在对我有用，因为它在过去 24 小时内几乎不断发生（使用 GPT4o）目前在 GPT4 上完美运行。希望它有所帮助。]]></description>
-      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_53</guid>
-      <pubDate>Sun, 30 Jun 2024 09:48:04 GMT</pubDate>
+      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_54</link>
+      <description><![CDATA[你好，我叫 saad，很高兴认识你]]></description>
+      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_54</guid>
+      <pubDate>Sun, 30 Jun 2024 13:39:56 GMT</pubDate>
     </item>
     <item>
-      <title>混合嵌入服务？</title>
-      <link>https://community.openai.com/t/mixing-embedding-services/707855?page=2#post_37</link>
-      <description><![CDATA[来这里是为了对 VDB 进行更多的说明，然后留下来观看随后发生的搞笑场面 ]]></description>
-      <guid>https://community.openai.com/t/mixing-embedding-services/707855?page=2#post_37</guid>
-      <pubDate>Sun, 30 Jun 2024 09:46:40 GMT</pubDate>
+      <title>为什么我完全找不到 ChatGPT 的账单？</title>
+      <link>https://community.openai.com/t/why-is-it-completely-impossible-to-find-my-billing-for-chatgpt/650139#post_6</link>
+      <description><![CDATA[是的，我遇到了同样的问题。本质上，如果您不再订阅，您将无法访问以前的发票。查看过去发票的唯一方法是重新订阅。我相当肯定这不合法，但他们声称这是一个软件“错误”，因此可以合理地否认。]]></description>
+      <guid>https://community.openai.com/t/why-is-it-completely-impossible-to-find-my-billing-for-chatgpt/650139#post_6</guid>
+      <pubDate>Sun, 30 Jun 2024 13:37:51 GMT</pubDate>
     </item>
     <item>
-      <title>自动 SEO，我的想法可行吗？+ cutom gpt</title>
-      <link>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_6</link>
-      <description><![CDATA[感谢分享，这是一个开始和了解基础知识（即使已经过时）的好地方。]]></description>
-      <guid>https://community.openai.com/t/automatic-seo-is-my-idea-feasible-cutom-gpt/843502#post_6</guid>
-      <pubDate>Sun, 30 Jun 2024 09:21:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在矢量存储器中的内存缓冲区中上传？</title>
-      <link>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_6</link>
-      <description><![CDATA[上面的代码运行完美。
-非常感谢！]]></description>
-      <guid>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_6</guid>
-      <pubDate>Sun, 30 Jun 2024 09:10:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在矢量存储器中的内存缓冲区中上传？</title>
-      <link>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_5</link>
-      <description><![CDATA[因此没有理由这样做！
-xxxxxxxxxxxxxxxxxxxxxxxxxxx]]></description>
-      <guid>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_5</guid>
-      <pubDate>Sun, 30 Jun 2024 09:10:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>删除仪表板中的多个文件</title>
-      <link>https://community.openai.com/t/deleting-multiple-files-in-the-dashboard/847131#post_2</link>
-      <description><![CDATA[API Playground 网站正如您所描述的那样：一个进行实验的地方
+      <title>微调 API‘gpt-4-0613’不存在</title>
+      <link>https://community.openai.com/t/fine-tuning-api-gpt-4-0613-not-existed/480592#post_5</link>
+      <description><![CDATA[我也没有权限，但根据论坛上几位有权限的用户的说法，在对当前模型（3.5 或更早版本）进行大量微调后，你就可以申请了。然后你必须填写一份表格，解释为什么你的用例不适用于当前模型，以及为什么你需要 GPT-4。非常有选择性的东西。
 
-应用程序
-编程
-界面
 
-允许您编写程序，在您喝茶时每分钟删除 100 个文件。
-不过，接受文件 ID 列表的批量删除方法似乎是 API 的一个明显补充，但目前尚不存在。]]></description>
-      <guid>https://community.openai.com/t/deleting-multiple-files-in-the-dashboard/847131#post_2</guid>
-      <pubDate>Sun, 30 Jun 2024 09:00:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何解决GPT-API无法使用OCR读取文本的问题？</title>
-      <link>https://community.openai.com/t/how-to-solve-the-problem-that-gpt-api-cannot-read-text-using-ocr/847018#post_13</link>
-      <description><![CDATA[谢谢您的帮助。我需要重新考虑我的目标和流程。谢谢。]]></description>
-      <guid>https://community.openai.com/t/how-to-solve-the-problem-that-gpt-api-cannot-read-text-using-ocr/847018#post_13</guid>
-      <pubDate>Sun, 30 Jun 2024 08:49:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在矢量存储器中的内存缓冲区中上传？</title>
-      <link>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_4</link>
-      <description><![CDATA[最愚蠢的部分 - OpenAI 仍然会检查文件的内容来找到类型。]]></description>
-      <guid>https://community.openai.com/t/how-can-i-upload-in-memory-buffer-in-a-vector-store/847085#post_4</guid>
-      <pubDate>Sun, 30 Jun 2024 08:41:44 GMT</pubDate>
+
+
+如何请求对 GPT-4o 进行微调？ API
+
+
+这里有一个链接。如果您没有合理地说明为什么您的应用程序在微调 gpt-3.5-turbo 时失败，以及为什么您将为 gpt-4 提供更多资源并期望获得原本无法实现的成功（并且是一家愿意资助开发数千个示例的公司），您可能永远不会收到回复。
+
+]]></description>
+      <guid>https://community.openai.com/t/fine-tuning-api-gpt-4-0613-not-existed/480592#post_5</guid>
+      <pubDate>Sun, 30 Jun 2024 13:03:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
