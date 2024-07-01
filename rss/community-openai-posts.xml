@@ -4,133 +4,197 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 01 Jul 2024 18:26:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2024 21:19:21 GMT</lastBuildDate>
     <item>
-      <title>英语翻译成瑞典语/波兰语</title>
-      <link>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_4</link>
-      <description><![CDATA[嗨@tom48
-你可以试试这个]]></description>
-      <guid>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_4</guid>
-      <pubDate>Mon, 01 Jul 2024 18:21:27 GMT</pubDate>
+      <title>Vision API 不适用于该项目</title>
+      <link>https://community.openai.com/t/vision-api-does-not-work-with-project/849683#post_1</link>
+      <description><![CDATA[在 curl 时包含项目标头会导致错误：
+服务器在处理您的请求时出错。很抱歉！您可以重试您的请求，或者如果您继续看到此错误，请通过我们的帮助中心 help.openai.com 联系我们。
+
+失败的示例：
+curl https://api.openai.com/v1/chat/completions \
+-H &quot;Content-Type: application/json&quot; \
+-H &quot;OpenAI-Project: &lt;&gt;&quot; \
+-H &quot;Authorization: Bearer &lt;&gt;&quot; \
+-d &#39;{
+&quot;model&quot;: &quot;gpt-4o&quot;,
+&quot;messages&quot;: [
+{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: [
+{
+&quot;type&quot;: &quot;text&quot;,
+&quot;text&quot;: &quot;这张图片里有什么？&quot;
+},
+{
+&quot;type&quot;: &quot;image_url&quot;,
+&quot;image_url&quot;: {
+&quot;url&quot;: &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg&quot;
+}
+}
+]
+}
+],
+&quot;max_tokens&quot;: 300
+}&#39;
+
+删除项目标头后，相同的 curl 请求仍有效]]></description>
+      <guid>https://community.openai.com/t/vision-api-does-not-work-with-project/849683#post_1</guid>
+      <pubDate>Mon, 01 Jul 2024 21:11:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误：您上传了不受支持的图片。请确保您的图片大小不超过 20 MB，且属于以下格式之一：['png', 'jpeg', 'gif', 'webp']</title>
+      <link>https://community.openai.com/t/error-you-uploaded-an-unsupported-image-please-make-sure-your-image-is-below-20-mb-in-size-and-is-of-one-the-following-formats-png-jpeg-gif-webp/849277#post_2</link>
+      <description><![CDATA[虽然 OpenAI 应该针对各种文件进行测试，但这可能来自部分元数据（如 EXIF），其中包含一堆 00 空字节填充，可供​​设备就地修改。
+由于您的代码拥有 JPEG 文件，因此您可以重新编码，并优化网络传输的大小，以适应 API 在此过程中使用的 512px 平铺和 768px 最大短边尺寸。]]></description>
+      <guid>https://community.openai.com/t/error-you-uploaded-an-unsupported-image-please-make-sure-your-image-is-below-20-mb-in-size-and-is-of-one-the-following-formats-png-jpeg-gif-webp/849277#post_2</guid>
+      <pubDate>Mon, 01 Jul 2024 21:11:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我的助手不再正常工作？</title>
+      <link>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_4</link>
+      <description><![CDATA[继续运行现有程序的最简单方法：
+pip install --force-reinstall &quot;openai&lt;1.21&quot;
+确保您与现有新安装处于相同的用户或 sudo 环境中。]]></description>
+      <guid>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_4</guid>
+      <pubDate>Mon, 01 Jul 2024 20:57:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 和 Dalle 4o 的图片分辨率非常低（2024 年 6 月）</title>
+      <link>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=3#post_55</link>
+      <description><![CDATA[是的，如果能看到该公司的官方回应就好了。
+这就是这个论坛的设计目的吗？
+或者我们只是在对着黑洞说话？
+@PaulBellow 你能评论一下吗？你只是另一个用户还是你与 OpenAI 有关联？
+任何信息都将不胜感激！]]></description>
+      <guid>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=3#post_55</guid>
+      <pubDate>Mon, 01 Jul 2024 20:51:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我的助手不再正常工作？</title>
+      <link>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_3</link>
+      <description><![CDATA[感谢您的回复，我会检查一下。
+首先，我需要立即运行此脚本，而无需进行迁移。
+它在二月份运行正常。
+我猜，使用相同版本，它应该以相同的方式工作。
+它在操场上执行。]]></description>
+      <guid>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_3</guid>
+      <pubDate>Mon, 01 Jul 2024 20:50:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>新限制：ChatGPT 拒绝解析文本文件</title>
+      <link>https://community.openai.com/t/new-limitation-chatgpt-refuses-to-parse-text-files/849545#post_2</link>
+      <description><![CDATA[看来他们做出的所有决定都是错误的，让产品变得更糟。也许他们的重点全在企业客户身上，他们不再关心像我们这样的人每月支付的区区 20 美元。]]></description>
+      <guid>https://community.openai.com/t/new-limitation-chatgpt-refuses-to-parse-text-files/849545#post_2</guid>
+      <pubDate>Mon, 01 Jul 2024 20:46:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 和 Dalle 4o 的图片分辨率非常低（2024 年 6 月）</title>
+      <link>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=3#post_54</link>
+      <description><![CDATA[老实说，我觉得我们收到的评论和关注越多，我们就越有可能采取行动。就像之前人们所说的那样，我们没有听到开发人员的任何消息。因此，他们是否正在处理它甚至是否意识到这一点完全是个谜。我觉得这里的每个人都会接受某种类型的确认或更新，表明它正在处理中。所以在我看来，这个论坛帖子越大越好。]]></description>
+      <guid>https://community.openai.com/t/very-low-resolution-on-the-images-from-chatgpt-dalle-4o-june-2024/818440?page=3#post_54</guid>
+      <pubDate>Mon, 01 Jul 2024 20:46:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>真的没有通过 API 进行使用情况和成本报告吗？</title>
+      <link>https://community.openai.com/t/is-there-really-no-usage-and-cost-reporting-via-api/849641#post_2</link>
+      <description><![CDATA[缺乏审计和问责制是 OpenAI 的一个特点。
+Assistants 的发布伴随着更多的混淆。]]></description>
+      <guid>https://community.openai.com/t/is-there-really-no-usage-and-cost-reporting-via-api/849641#post_2</guid>
+      <pubDate>Mon, 01 Jul 2024 20:44:42 GMT</pubDate>
     </item>
     <item>
       <title>ChatGPT 环境中未安装 `lifelines` 包。</title>
-      <link>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_1</link>
-      <description><![CDATA[亲爱的团队，
-我是一名进行生存分析的医生，需要在 ChatGPT 环境中安装 lifelines 包。这个包对我的研究至关重要，拥有它将极大地帮助我的工作。
-感谢您的支持。
-此致]]></description>
-      <guid>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_1</guid>
-      <pubDate>Mon, 01 Jul 2024 18:15:06 GMT</pubDate>
+      <link>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_3</link>
+      <description><![CDATA[一种技术是将非二进制模块作为 ChatGPT GPT 中的压缩代码解释器文件。然后让 AI 解压/解压缩路径作为导入前的第一步。
+由于代码解释器充当笔记本，因此立即的后续调用将具有可用的挂载点代码和导入。
+依赖关系也是一个问题。在 ChatGPT 中：
+导入失败：
+
+autograd：没有名为“autograd”的模块
+formulaic：没有名为“formulaic”的模块
+fonttools：没有名为“fonttools”的模块
+interface_meta：没有名为“interface_meta”的模块
+tzdata：没有名为“tzdata”的模块
+wrapt：没有名为“wrapt”的模块
+
+有决心的人可能可以在那里获得兼容的代码或轮子……]]></description>
+      <guid>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_3</guid>
+      <pubDate>Mon, 01 Jul 2024 20:28:49 GMT</pubDate>
     </item>
     <item>
-      <title>我目前似乎无法进行更高级的数据分析</title>
-      <link>https://community.openai.com/t/i-cant-seem-to-do-more-advanced-data-analysis-at-the-moment/849467#post_1</link>
-      <description><![CDATA[你好，
-我正在使用 4.o 并上传一个 1.5M 的文件进行分析，一段时间以来，一直显示以下消息。
-“我目前似乎无法进行更高级的数据分析。请稍后再试。”
-接受的最大文件大小应该超过 2M，对吗？
-chatgpt 目前遇到问题了吗？]]></description>
-      <guid>https://community.openai.com/t/i-cant-seem-to-do-more-advanced-data-analysis-at-the-moment/849467#post_1</guid>
-      <pubDate>Mon, 01 Jul 2024 17:41:45 GMT</pubDate>
+      <title>真的没有通过 API 进行使用情况和成本报告吗？</title>
+      <link>https://community.openai.com/t/is-there-really-no-usage-and-cost-reporting-via-api/849641#post_1</link>
+      <description><![CDATA[我找到了 /usage 端点，但即使在对密钥、帐户、组织和项目进行了大量实验之后，我们似乎仍然无法全面地了解整个组织的代币使用情况，并按日期、项目、组织等进行细分。我可以在仪表板中看到成本，但我们必须分别导出各种不同的项目，然后手动将它们全部加起来。在尝试遵循 OpenAI 关于项目和密钥的新指南时，这非常耗时。
+我们正在尝试报告成本并密切关注违规使用情况，但如果不直接从 OpenAI 获取这些数据，我们就无法定期挖掘自己的数据。
+是否有任何计划允许拥有许多用户、项目和组织的公司进行程序化使用和成本挖掘？谢谢！]]></description>
+      <guid>https://community.openai.com/t/is-there-really-no-usage-and-cost-reporting-via-api/849641#post_1</guid>
+      <pubDate>Mon, 01 Jul 2024 20:27:10 GMT</pubDate>
     </item>
     <item>
-      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
-      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_53</link>
-      <description><![CDATA[这里也是一样。格式化的文本以图像形式粘贴。这肯定是 Chat GPT 接收粘贴的方式，它提供有效的图形粘贴。现在我将其粘贴到另一个文本应用程序，然后再次复制，然后粘贴到 ChatGPT。但是，对于大量文本，我使用网站。]]></description>
-      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_53</guid>
-      <pubDate>Mon, 01 Jul 2024 17:37:29 GMT</pubDate>
+      <title>ChatGPT 环境中未安装 `lifelines` 包。</title>
+      <link>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_2</link>
+      <description><![CDATA[可能不会发生。
+如果这对你来说至关重要，你最好运行某种形式的本地代码解释器。
+
+GitHub - OpenInterpreter/open-interpreter：计算机的自然语言界面
+GitHub - OpenCodeInterpreter/OpenCodeInterpreter：OpenCodeInterpreter 是一套开源代码生成系统，旨在弥合大型语言模型与 GPT-4 代码解释器等复杂专有系统之间的差距。它通过集成执行和迭代细化功能显著增强了代码生成能力。
+GitHub - ricklamers/gpt-code-ui：OpenAI ChatGPT 代码解释器的开源实现
+可能还有很多其他的……
+
+我个人并不认可这些解决方案中的任何一个。它们都是开源的，你可以自己研究和实验，以确定哪一个（如果有的话）最能满足你的需求。]]></description>
+      <guid>https://community.openai.com/t/lifelines-package-not-installed-in-the-chatgpt-environment/849500#post_2</guid>
+      <pubDate>Mon, 01 Jul 2024 19:56:53 GMT</pubDate>
     </item>
     <item>
-      <title>如何在 Windows 中下载</title>
-      <link>https://community.openai.com/t/how-to-download-in-windows/841874#post_5</link>
-      <description><![CDATA[他们不能使用 ChatGPT 创建 Windows 应用程序并在 11 月之前发布吗？现在一定有办法将 Apple 应用程序自动转换为 Windows 应用程序吗？
-（我想确实有很多测试要做，还有安全问题……）]]></description>
-      <guid>https://community.openai.com/t/how-to-download-in-windows/841874#post_5</guid>
-      <pubDate>Mon, 01 Jul 2024 17:34:12 GMT</pubDate>
+      <title>为什么我的助手不再正常工作？</title>
+      <link>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_2</link>
+      <description><![CDATA[从 1.21 版开始，OpenAI python 模块已更新为发送 beta=v2 标头，使用向量存储从“检索”切换到“文件搜索”。
+4 月 17 日之前的检索助手为其上传的文件创建了一个类似的向量存储，作为提供迁移帮助的一部分，该存储可免费使用到 2024 年（因此不要删除那些旧的向量存储）
+https://help.openai.com/en/articles/8550641-assistants-api-v2-faq
+文件搜索在呈现和访问文件方面具有不同的质量。]]></description>
+      <guid>https://community.openai.com/t/why-is-my-assistant-no-longer-working-correctly/849560#post_2</guid>
+      <pubDate>Mon, 01 Jul 2024 19:56:11 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 和免费套餐限制</title>
-      <link>https://community.openai.com/t/gpts-and-free-tier-limits/849454#post_1</link>
-      <description><![CDATA[大家好！
-我为语言学习者创建了一个自定义 GPT。我使用公共链接将其与免费 chatgpt 帐户共享。我使用 iOS 应用程序与我的自定义 GPT 进行交谈。使用语音模式。发送几条消息后，我达到了 4o 限制，但我无法继续与我的自定义 GPT 聊天（使用文本或语音）。聊天返回错误：“您已达到使用 GPT 的限制”。
-我禁用了所有附加 GPT 功能，如浏览/dall-e/代码解释器，但我仍然无法与我的自定义 GPT 交谈。
-这是否意味着 GPT 对免费用户有限制？是否可以在我的自定义 GPT 中切换到 3.5 以提供更高的限制/删除它们？]]></description>
-      <guid>https://community.openai.com/t/gpts-and-free-tier-limits/849454#post_1</guid>
-      <pubDate>Mon, 01 Jul 2024 17:33:16 GMT</pubDate>
+      <title>开放 3072 维 AI 嵌入</title>
+      <link>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_18</link>
+      <description><![CDATA[关于块大小的奇怪之处在于，不同的文档的结果可能不同。有些文档使用较小的块会得到更好的结果，而其他文档使用较大的块会得到更好的结果。而且，这在很大程度上还取决于所问问题的类型。
+
+
+
+ joyasree78:
+
+我使用 300 个 token 作为块，然后进行父级检索
+
+
+这实际上是一种获得更好结果的好策略，特别是当您使用较小的块大小时。 高级 RAG 01：从小到大检索 | 作者：Sophia Yang，博士 | 迈向数据科学]]></description>
+      <guid>https://community.openai.com/t/open-ai-embedding-with-3072-dimensions/651085#post_18</guid>
+      <pubDate>Mon, 01 Jul 2024 19:40:41 GMT</pubDate>
     </item>
     <item>
-      <title>将收据通过电子邮件发送至账单电子邮件地址</title>
-      <link>https://community.openai.com/t/email-receipts-to-billing-email-address/731689#post_9</link>
-      <description><![CDATA[我也需要这个！一家如此“创新”的公司居然没有这个，真是令人惊讶。]]></description>
-      <guid>https://community.openai.com/t/email-receipts-to-billing-email-address/731689#post_9</guid>
-      <pubDate>Mon, 01 Jul 2024 17:32:00 GMT</pubDate>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=9#post_165</link>
+      <description><![CDATA[
+
+
+ newgalaxy9036:
+
+我正在尝试使用 GPT-3.5-turbo 从 PDF 中提取表格
+
+
+您尝试过 Marker markdown 库吗？ GitHub - VikParuchuri/marker：快速高精度地将 PDF 转换为 markdown
+它在提取表格方面相当不错。理论上，AWS Textract 也是如此（尽管我没有使用过该功能）。
+此外，在我使用实际模型https://s3.us-west-2.amazonaws.com/docs.scbbs.com/docs/test/2022_Local_161_MOA_09_gemini_pro01.txt进行样本提取时，请注意，它也可以提示保留表格。]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=9#post_165</guid>
+      <pubDate>Mon, 01 Jul 2024 19:22:13 GMT</pubDate>
     </item>
     <item>
-      <title>英语翻译成瑞典语/波兰语</title>
-      <link>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_3</link>
-      <description><![CDATA[感谢您的回复！
-以下是校对员发送的一个示例：
-原文：制作引人入胜的论坛主页
-翻译：Skapa en Engagerande Forumstartsida
-这是我博客的一个标题。据我的瑞典语校对员说，瑞典语中的大写字母与英语中的大写字母不同。]]></description>
-      <guid>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_3</guid>
-      <pubDate>Mon, 01 Jul 2024 17:26:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过助手 API 使用 GPT-4o 与 ChatGPT 问题</title>
-      <link>https://community.openai.com/t/using-gpt-4o-via-assistants-api-vs-chatgpt-issue/849337#post_2</link>
-      <description><![CDATA[您可以选择多种 AI 模型与助手一起使用，这些模型支持计算机视觉。每种模型的质量都不同。
-在 ChatGPT 中，我们不知道他们使用什么模型。他们说 GPT-4，但显然它是一种涡轮变体。您甚至可以尝试不同的临时模型更改。不过，我们知道它使用哪种系统提示，并且您必须建立用户从图像中接收逐字记录的权利。
-最后，您既有详细信息选项，也有调整大小的能力。您甚至可以在消息中以多种方式发送图像。]]></description>
-      <guid>https://community.openai.com/t/using-gpt-4o-via-assistants-api-vs-chatgpt-issue/849337#post_2</guid>
-      <pubDate>Mon, 01 Jul 2024 17:23:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>英语翻译成瑞典语/波兰语</title>
-      <link>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_2</link>
-      <description><![CDATA[大家好，欢迎来到开发者论坛。
-我不记得看到有人说瑞典语有问题，你能举几个它产生的单词的例子，以及你的校对员说它们应该是什么样的吗？]]></description>
-      <guid>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_2</guid>
-      <pubDate>Mon, 01 Jul 2024 17:19:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chatgpt 4.0 错误 - “检测到您的设备有异常活动。请稍后再试。”</title>
-      <link>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_3</link>
-      <description><![CDATA[相同，已检测到您的设备有异常活动。请稍后重试。（89c80d9aa9cb5b49-VIE）两天]]></description>
-      <guid>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_3</guid>
-      <pubDate>Mon, 01 Jul 2024 17:19:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用外部 API 通过重定向下载文件</title>
-      <link>https://community.openai.com/t/download-file-through-redirect-with-external-api/848948#post_6</link>
-      <description><![CDATA[啊，我的错，我现在明白了。我不认为 GPT 的内部系统会从 URL 下载，虽然我还没有测试过，但这似乎可能会有问题。你有没有让 GPT 用不同的端点这样做过？]]></description>
-      <guid>https://community.openai.com/t/download-file-through-redirect-with-external-api/848948#post_6</guid>
-      <pubDate>Mon, 01 Jul 2024 17:16:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅将文件附加到线程？</title>
-      <link>https://community.openai.com/t/attaching-files-to-a-thread-only/849205#post_2</link>
-      <description><![CDATA[您想要使用的方法是将文件 ID 附加到您发送的消息。展开 api-&gt;messages 时，您可以在 API 参考中看到这一点。
-还有，银行？我有一个 AI API 密钥分析器 - 只需上传您的 OPENAI_API_KEY，它就会寻找隐藏的模式并预测未来（当然不会清空您的帐户……）]]></description>
-      <guid>https://community.openai.com/t/attaching-files-to-a-thread-only/849205#post_2</guid>
-      <pubDate>Mon, 01 Jul 2024 17:16:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>英语翻译成瑞典语/波兰语</title>
-      <link>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_1</link>
-      <description><![CDATA[嗨！
-我在瑞典语和波兰语翻译方面遇到了问题。我现在先从瑞典语开始。我一直在尝试让 ChatGPT 将英语博客翻译成瑞典语，但瑞典语似乎对大写字母有不同的处理方式？这是根据我的瑞典语校对员的说法。我不知道如何调整我的提示。我能想到的唯一其他方法是添加词汇表并使用单词匹配，以便正确翻译单词。但是，这太繁琐了，因为列表中可能包含数百或数千个单词。
-任何帮助或建议都将不胜感激！谢谢！]]></description>
-      <guid>https://community.openai.com/t/translating-english-to-swedish-polish/849424#post_1</guid>
-      <pubDate>Mon, 01 Jul 2024 17:11:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>您已达到 GPT-4 的当前使用上限，请在下午 2:04 后重试</title>
-      <link>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=18#post_365</link>
-      <description><![CDATA[今天我刚遇到这种情况。我靠社会保障生活——因此每月为此支付 20 美元是一个重大决定！我一直很享受它——然后突然，今天，它停止了，并说我已经达到了我的极限。回到 ChatGPT3。花那么多钱有什么意义？而且，最糟糕的是，根本无法联系到任何人来询问、获得建议、知道该怎么做。我已经老了，很多技术对我来说都毫无意义——但粗鲁是最没有意义的。让自己无法联系到是最不礼貌的！]]></description>
-      <guid>https://community.openai.com/t/youve-reached-the-current-usage-cap-for-gpt-4-please-try-again-after-2-04-pm/494628?page=18#post_365</guid>
-      <pubDate>Mon, 01 Jul 2024 16:58:42 GMT</pubDate>
+      <title>错误异常活动 GPT4 WEB</title>
+      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_61</link>
+      <description><![CDATA[这里也一样。相当不稳定。坦率地说，宁愿让 Plus 5 贵一点，也不要考虑这些问题，或者考虑减少免费访问。否则，这将导致用户选择替代方案。]]></description>
+      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=3#post_61</guid>
+      <pubDate>Mon, 01 Jul 2024 19:09:52 GMT</pubDate>
     </item>
     </channel>
 </rss>
