@@ -4,187 +4,167 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 02 Jul 2024 09:21:26 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2024 12:35:16 GMT</lastBuildDate>
     <item>
-      <title>另外——使用的界限和限制是什么？</title>
-      <link>https://community.openai.com/t/plus-what-are-the-boundaries-and-limit-for-using/850283#post_2</link>
-      <description><![CDATA[嗨！
-帮助页面中的这些信息应该可以回答您的一些问题：
+      <title>无法在“团队”中协作处理自定义 GPT</title>
+      <link>https://community.openai.com/t/unable-to-collab-on-a-custom-gpt-in-team/583169#post_13</link>
+      <description><![CDATA[抱歉我现在才看到这个。]]></description>
+      <guid>https://community.openai.com/t/unable-to-collab-on-a-custom-gpt-in-team/583169#post_13</guid>
+      <pubDate>Tue, 02 Jul 2024 12:34:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让助手在检索文档后简洁地回复</title>
+      <link>https://community.openai.com/t/how-to-make-the-assistant-reply-concisely-after-retrieving-from-docs/850550#post_2</link>
+      <description><![CDATA[解决此问题的典型方法是在使用聊天完成时添加后提示，将即时性范围限定在用户身上的指令。
+助手没有这样的能力。
+无论如何，它在上下文利用方面也很差。我为这个后提示提供了“注入的知识”
 
-截至 2024 年 5 月 13 日，Plus 用户将能够在 GPT-4o 上每 3 小时发送 80 条消息。在 GPT-4 上每 3 小时发送 40 条消息。ChatGPT Team 工作区中用户的消息上限大约是 ChatGPT Plus 的两倍。
-请注意，未使用的消息不会累积（即，如果您等待 6 个小时，您将没有 80 条消息可用于 GPT-4 上的接下来 3 小时）。工作区的每个成员都将保持独立的消息上限。
-]]></description>
-      <guid>https://community.openai.com/t/plus-what-are-the-boundaries-and-limit-for-using/850283#post_2</guid>
-      <pubDate>Tue, 02 Jul 2024 08:56:01 GMT</pubDate>
+[输入后知识]
+
+GPT-4o 的 AI 模型上下文有限，在长上下文情况下可以默认为原始行为。如果您发现这是应用程序的问题，则可以返回到参数计数更高的模型，例如 gpt-4-1106 或 gpt-4-0125 系列 AI。
+由于有 800 个标记文档块，并且最多返回 20 个块（没有相似性截止阈值），Assistants 框架代理文件搜索可以将最多 16000 个标记放入 AI 上下文中
+Assistants 充当自主代理，自动为您调用函数，同时在包含过去消息的线程中维护聊天历史记录和函数调用历史记录。
+Assistants 工具调用可以是内部的，也可以是自主的，例如其内置的文件搜索，基于向量数据库语义搜索。
+
+
+当然它被忽略了，GPT-4o 只是重复你已经尝试过的事情，作为要尝试的事情。不过，你可以看到我在暗示什么。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-the-assistant-reply-concisely-after-retrieving-from-docs/850550#post_2</guid>
+      <pubDate>Tue, 02 Jul 2024 12:33:14 GMT</pubDate>
     </item>
     <item>
       <title>从 Assistant 回复中移除【35†来源】</title>
-      <link>https://community.openai.com/t/remove-35-source-from-assistant-response/581210#post_9</link>
-      <description><![CDATA[有没有关于如何使用流响应来实现这一点的想法？
-我在流中尝试过：as stream:
-for text in stream.text_deltas:
-cleaned_text = re.sub(pattern, ‘’, text)
-yield cleaned_text
-在事件处理程序中也试过了，但还不起作用]]></description>
-      <guid>https://community.openai.com/t/remove-35-source-from-assistant-response/581210#post_9</guid>
-      <pubDate>Tue, 02 Jul 2024 08:52:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手与 Stream API 的权衡</title>
-      <link>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_4</link>
-      <description><![CDATA[当您使用 Assistants 时，仍会使用对话历史记录所需的所有令牌来调用 AI 模型。
-影响速率限制（和您的账单）的是 AI 模型上下文输入和输出
-Assistants 不知道您的速率限制是多少，它可以自行进行多次调用而不会延迟（例如使用文件搜索，然后再次发送到模型）。这让它变得更加成问题。]]></description>
-      <guid>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_4</guid>
-      <pubDate>Tue, 02 Jul 2024 08:40:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 OpenAI Assistant API 构建到 Google 表格中</title>
-      <link>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_33</link>
-      <description><![CDATA[有人尝试过将它与 Assistants V2 一起使用吗？]]></description>
-      <guid>https://community.openai.com/t/building-openai-assistant-api-into-google-sheets/530567?page=2#post_33</guid>
-      <pubDate>Tue, 02 Jul 2024 08:38:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手与 Stream API 的权衡</title>
-      <link>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_3</link>
-      <description><![CDATA[我有时会达到完成 API 的速率限制，因为在每条新消息上发送整个对话都算作新令牌（如果我错了，请纠正我）
-
-就速率限制而言，使用助手 API 不是更好吗，因为它可以保存状态
-
-而我只需要在每个新呼叫上发送一条新消息？]]></description>
-      <guid>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_3</guid>
-      <pubDate>Tue, 02 Jul 2024 08:37:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Batch API 并保持会话</title>
-      <link>https://community.openai.com/t/working-with-batch-api-while-keeping-sessions/850069#post_2</link>
-      <description><![CDATA[当使用批处理获得 50% 折扣（或嵌入）时，您可以使用聊天完成端点向 AI 模型编写单个独立 API 调用。它们可以像聊天机器人的 API 调用一样拥有对话的所有上下文，但典型用途只是数据的输入/输出。
-您的检查必须等待一天，因为完成期限最多为 24 小时。]]></description>
-      <guid>https://community.openai.com/t/working-with-batch-api-while-keeping-sessions/850069#post_2</guid>
-      <pubDate>Tue, 02 Jul 2024 08:27:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解纯文本文件向量存储中的分块过程</title>
-      <link>https://community.openai.com/t/understanding-the-chunking-process-in-a-vector-store-for-plain-text-files/850242#post_3</link>
-      <description><![CDATA[助手
-TL;DR：没有对分割点的上下文理解。没有“确保”。
-提取的文件以 800 个标记间隔（大约）分割，然后将重叠部分包括到相邻部分，400 个标记。
-现在可以在将文件添加到向量存储时更改这些参数。
-您的向量数据库解决方案
-（您可能可以做得更好。）]]></description>
-      <guid>https://community.openai.com/t/understanding-the-chunking-process-in-a-vector-store-for-plain-text-files/850242#post_3</guid>
-      <pubDate>Tue, 02 Jul 2024 08:23:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>错误消息：“出现错误”（代码：2c6319d1-a24f-4395-b694-64c3883d3e10）</title>
-      <link>https://community.openai.com/t/error-message-something-went-wrong-code-2c6319d1-a24f-4395-b694-64c3883d3e10/850015#post_2</link>
-      <description><![CDATA[我遇到了同样的问题]]></description>
-      <guid>https://community.openai.com/t/error-message-something-went-wrong-code-2c6319d1-a24f-4395-b694-64c3883d3e10/850015#post_2</guid>
-      <pubDate>Tue, 02 Jul 2024 08:21:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何用自己的聊天数据训练 GPT 模型例如：像 Slack 频道聊天</title>
-      <link>https://community.openai.com/t/how-to-train-gpt-model-with-own-chat-data-eg-like-slack-channel-chat/850293#post_1</link>
-      <description><![CDATA[如何训练开放式人工智能模型并从中获取答案，数据来自 slack（群组），即聊天。我不知道如何将聊天数据提供给模型]]></description>
-      <guid>https://community.openai.com/t/how-to-train-gpt-model-with-own-chat-data-eg-like-slack-channel-chat/850293#post_1</guid>
-      <pubDate>Tue, 02 Jul 2024 08:08:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>你好，我正在创建一个代码审阅器，对 GPT-4O 和 GPT-3.5（微调）感到困惑</title>
-      <link>https://community.openai.com/t/hello-i-am-creating-a-code-reviewer-confused-between-gpt-4o-and-gpt-3-5-fine-tuning/850291#post_1</link>
-      <description><![CDATA[您好，我正在创建一个流程，当代码被推送到 repo 中时，将触发一个 api 来审查代码，在该 api 中，我感到很困惑，因为我有 2 个选项
-
-使用 gpt4o 或 gpt 3.5 模型进行代码审查
-使用 sonarcube apis 等服务进行代码审查
-
-我也考虑过 github-copilot，但我认为它没有提供用于代码审查的 api，我们可以将它直接与 github 操作集成，即一旦代码被推送到分支，它就会进行审查。我好像不明白我该怎么办？
-有人可以解释一下 github-copilot 和 sonarcube 的这个流程吗，只是为了了解一下。]]></description>
-      <guid>https://community.openai.com/t/hello-i-am-creating-a-code-reviewer-confused-between-gpt-4o-and-gpt-3-5-fine-tuning/850291#post_1</guid>
-      <pubDate>Tue, 02 Jul 2024 08:07:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>macOS 上 ChatGPT 应用程序中输入字段焦点的问题</title>
-      <link>https://community.openai.com/t/issue-with-input-field-focus-in-chatgpt-app-on-macos/850288#post_1</link>
-      <description><![CDATA[您好，
-我想报告 macOS 上 ChatGPT 应用程序的一个问题。使用全屏分割窗口并在屏幕之间切换时，ChatGPT 应用程序中的输入字段会窃取焦点。这导致应用程序在我的另一台显示器上切换屏幕，即使我试图导航到其他屏幕也是如此。
-这种行为非常烦人，扰乱了我的工作流程。您能否在未来的更新中解决这个问题？
-感谢您对此事的关注。
-此致，
-Lukáš]]></description>
-      <guid>https://community.openai.com/t/issue-with-input-field-focus-in-chatgpt-app-on-macos/850288#post_1</guid>
-      <pubDate>Tue, 02 Jul 2024 08:06:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手与 Stream API 的权衡</title>
-      <link>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_2</link>
+      <link>https://community.openai.com/t/remove-35-source-from-assistant-response/581210#post_11</link>
       <description><![CDATA[
 
 
- ohad.perry9:
+ logerdalvik:
 
-无状态，因此每条新消息都需要重新传递整个 RAG + 消息历史记录 - 就成本而言。
-
-
-您对成本有一个误解。助理还会将过去的聊天发送给模型，而且预算控制权较少。
+有没有关于如何使用流响应来实现它的想法？
 
 
-
- ohad.perry9:
-
-流式 API：
-
-
-API 上的“流式”是指接收模型生成的文本，而不是等待整个响应完成。
-您可能指的是“聊天完成”API 端点，您直接将其发送给模型，而不是让“代理”通过其服务器端对话管理为您完成此操作。
-
-
-
- ohad.perry9:
-
-我的说明 RAG 是一个文本文档
-
-
-RAG，即检索增强生成，在实践中是指在 AI 开始生成之前，根据与用户输入的相似性将较大的文档部分放入 AI 上下文中。 “检索”是从向量数据库语义搜索中获得的。
-如果您想要代码的变量名，您可以将其称为“日常静态知识”。
-您可以使用一次 API 调用来更新单个 API 助手的指令。您可以在每次运行时发送额外的指令，这可能是标准行为之外的日常知识。
-然后，在聊天完成时，“无状态”意味着您可以完全控制对话轮次中看到的所有内容。
-希望这能为您澄清这些权衡。]]></description>
-      <guid>https://community.openai.com/t/assistants-vs-stream-api-tradeoffs/850177#post_2</guid>
-      <pubDate>Tue, 02 Jul 2024 08:05:16 GMT</pubDate>
+将【替换为&lt;span class=“source”&gt;并将】替换为&lt;/source&gt;？ 
+CSS：span.source {display: none&gt;
+无需缓冲即可完成此操作]]></description>
+      <guid>https://community.openai.com/t/remove-35-source-from-assistant-response/581210#post_11</guid>
+      <pubDate>Tue, 02 Jul 2024 12:22:21 GMT</pubDate>
     </item>
     <item>
-      <title>另外——使用的界限和限制是什么？</title>
-      <link>https://community.openai.com/t/plus-what-are-the-boundaries-and-limit-for-using/850283#post_1</link>
-      <description><![CDATA[嗨，
-我正在考虑购买 ChatGPT 的 Plus 版本，但我找不到任何有关 6 个月内 Plus 的界限信息。我正在积极处理论文，需要从屏幕截图中创建大量代码。Plus 是否有界限（例如仍然是 40Msg/3 天）？还是它仅适用于 4o，而 4 没有限制？如果我购买了 Plus，4 能满足我的需求吗？
-很高兴收到你们的来信！
-干杯]]></description>
-      <guid>https://community.openai.com/t/plus-what-are-the-boundaries-and-limit-for-using/850283#post_1</guid>
-      <pubDate>Tue, 02 Jul 2024 08:04:37 GMT</pubDate>
+      <title>将文件添加到现有矢量存储</title>
+      <link>https://community.openai.com/t/add-files-to-existing-vector-store/743801#post_8</link>
+      <description><![CDATA[嘿！我很高兴能帮上忙。
+我知道，因为我创建的文件只有一两个字符，所以我想这也许还不够。]]></description>
+      <guid>https://community.openai.com/t/add-files-to-existing-vector-store/743801#post_8</guid>
+      <pubDate>Tue, 02 Jul 2024 12:06:55 GMT</pubDate>
     </item>
     <item>
-      <title>可重复使用的系统提示 - 可以做到吗？</title>
-      <link>https://community.openai.com/t/reusable-system-prompts-can-it-be-done/849327#post_4</link>
-      <description><![CDATA[对于将提示与其解决的任务和可重用版本一起存储在矢量数据库中的应用程序来说，这听起来是个好主意。]]></description>
-      <guid>https://community.openai.com/t/reusable-system-prompts-can-it-be-done/849327#post_4</guid>
-      <pubDate>Tue, 02 Jul 2024 07:48:46 GMT</pubDate>
+      <title>新限制：ChatGPT 拒绝解析文本文件</title>
+      <link>https://community.openai.com/t/new-limitation-chatgpt-refuses-to-parse-text-files/849545#post_4</link>
+      <description><![CDATA[当然，我可以分割文件，但重点是 OpenAI 曾经帮我做过这件事。]]></description>
+      <guid>https://community.openai.com/t/new-limitation-chatgpt-refuses-to-parse-text-files/849545#post_4</guid>
+      <pubDate>Tue, 02 Jul 2024 12:05:43 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4-o 使用 Markdown 返回答案</title>
-      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_2</link>
-      <description><![CDATA[好问题。最近的人工智能模型只是在 ChatGPT 界面内运行的产品，这对您不利。
-问题是，每个输入标记、每个输出标记都会影响下一个标记。因此，如果您更改指令甚至更改 markdown 的字符，绝对不可能获得“相同的响应”。
-语言是通过检查之前的整个上下文窗口并预测下一个标记来生成的。
-您应该专注于获得相同质量的响应。
-目前尚不清楚您使用的是 ChatGPT 还是 Assistants API。所包含的引用只会使结论更难得出结论。
-除了“不允许 markdown 格式。UI 没有 markdown 渲染器。”之外，您还可以包含针对元素本身的指令，例如“您永远不会使用 * 或 ** 作为容器来突出显示单词；你必须只输出不强调的单词。”
-最后，你可以深入挖掘正在生成的标记，并使用 logit_bias 阻止它们。
+      <title>我有兴趣在我的项目中使用 OpenAI 的 API，但在深入研究之前我需要了解成本结构。具体来说，API 密钥要花多少钱？定价取决于我选择的语言模型，还是有固定费用？pen_spark</title>
+      <link>https://community.openai.com/t/im-interested-in-using-openais-api-for-my-project-but-i-need-to-understand-the-cost-structure-before-diving-in-specifically-how-much-does-an-api-key-cost-does-the-pricing-depend-on-the-language-model-i-choose-or-are-there-flat-fees-pen-spark/850654#post_1</link>
+      <description><![CDATA[我正在考虑升级我的 OpenAI 帐户类型，但不确定这会对定价产生什么影响。由于我主要关心的是成本，因此在切换之前，我想清楚地了解定价结构。升级是否只是解锁新功能，而不会改变 GPT-3.5 等语言模型的每代币成本？如果是这样，了解当前定价会很有帮助。例如，不同模型的输入和输出代币的当前费率是多少，尤其是像 gpt-3.5-turbo 这样更强大的模型？了解这一点将使我能够估算我的潜在费用并确定升级是否符合我的预算。]]></description>
+      <guid>https://community.openai.com/t/im-interested-in-using-openais-api-for-my-project-but-i-need-to-understand-the-cost-structure-before-diving-in-specifically-how-much-does-an-api-key-cost-does-the-pricing-depend-on-the-language-model-i-choose-or-are-there-flat-fees-pen-spark/850654#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 12:02:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在我的助手中创建数据库？</title>
+      <link>https://community.openai.com/t/how-to-create-a-database-in-my-assistant/850646#post_1</link>
+      <description><![CDATA[嗨，朋友们
+我仍然不确定我是否能够弄清楚如何做到这一点。
+我想创建一个助手，它知道如何从我的公司接收所有信息（我们发送的电子邮件、我们的合同、协议、数据等），这些信息我们将一直不断更新 - 并根据这些信息给我一些东西。
+例如，用我们独特的写作风格给我写一封周四的电子邮件，或者给我关于六月份的数据 - 有多少线索，等等。
+有可能吗？]]></description>
+      <guid>https://community.openai.com/t/how-to-create-a-database-in-my-assistant/850646#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 11:59:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>文本分类和文本提取的最佳实践</title>
+      <link>https://community.openai.com/t/text-classification-and-text-extraction-best-practices/850630#post_1</link>
+      <description><![CDATA[嗨！
+我刚开始学习如何使用 api，目前我正在做 2 个项目（一个是文本提取，另一个是分类）
+因此，在第一个项目中，我有包含转录列的医疗数据，api 应该从中提取患者的年龄、治疗和 ICD 代码。现在的问题是如何将我的数据提供给 API 更好？现在我刚刚提取了转录，转换为列表并给出提示，但我相信有更好的方法来做到这一点。是将它们全部放在一个列表中还是一次只提供一个转录？（哪种方式更准确、更快和/或更经济高效）。
+在第二个小项目中，我有一个列表，其中包含 api 应该按性别分类的名称。在这里我有同样的问题。此外，由于这些是单轮请求，我是否需要同时使用用户和系统角色，还是可以只在一个请求中提供所有内容？
+我很高兴获得任何最佳实践和建议，这将使我更清楚地了解整个主题。非常感谢您抽出时间！）]]></description>
+      <guid>https://community.openai.com/t/text-classification-and-text-extraction-best-practices/850630#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 11:53:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法让 ChatGPT 使用我的蓝牙耳机进行讨论</title>
+      <link>https://community.openai.com/t/cannot-get-chatgpt-to-use-my-bluetooth-headset-for-discussion/850605#post_1</link>
+      <description><![CDATA[为什么 ChatGPT 应用不使用我的蓝牙耳机？
+我希望我的 Android 蓝牙耳机（通常适用于所有应用）也能在语音聊天模式下与 chatgpt 配合使用。但是当我连接它时，chatgpt 在连接到语音聊天时会在耳机中短暂播放声音，然后默认为手机耳机扬声器，甚至不是正常的手机扬声器，更不用说耳机了。
+它似乎也没有使用耳机上的麦克风。
+我尝试过允许和禁止使用耳机打电话，打开和关闭媒体功能，但似乎没有用。
+这应该有效吗？如果是 - 怎么做？如果不行 - 为什么不行？]]></description>
+      <guid>https://community.openai.com/t/cannot-get-chatgpt-to-use-my-bluetooth-headset-for-discussion/850605#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 11:36:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>主题：DALL-E 3 长时间使用后图像质量下降 - 寻求建议</title>
+      <link>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_11</link>
+      <description><![CDATA[这里也有同样的问题。也许取消大量订阅会让他们考虑一下……]]></description>
+      <guid>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_11</guid>
+      <pubDate>Tue, 02 Jul 2024 11:32:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 即将免费</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229#post_33</link>
+      <description><![CDATA[根据 Peter Warr (2016) 的《绩效管理》，奖励和认可有不同类别，它们用于：
+• 财务 – 这包括对员工努力的月薪或时薪给予的财务奖励。这还可以包括额外的加班费、不同类型的奖金和给员工的现金礼物。这是对员工最基本的奖励类型。
+• 津贴和附加福利 – 员工还获得不同的附加福利，例如补贴食堂食品、交通、高等教育机会、培训等。他们还获得各种福利，例如角落办公室、停车位、公司赞助的假期、公司拥有的汽车等。作为各种福利。福利和津贴也能激励员工。
+• 具有挑战性的角色和职责——为员工分配更高、更具挑战性的责任，让他们感受到尊重，并有机会获得更好的工作满意度。
+• 隶属关系——让高绩效员工成为任务组的一部分，并让团队为组织计划提供权力，让他们有更强的归属感。
+• 权力和职位——职位和权力也是赋予员工权力的有力手段。
+请给出这个想法的来源，这是 2020 年之后最好的一个想法]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-becoming-free/758229#post_33</guid>
+      <pubDate>Tue, 02 Jul 2024 11:31:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>macOS 上 ChatGPT 桌面应用程序中的复制和粘贴问题</title>
+      <link>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_56</link>
+      <description><![CDATA[更有效的解决方案是使用快捷方式应用将复制的文本转换为纯文本。从 Microsoft 应用复制后，只需使用快捷方式（我的是 cmd+shift+*）将文本转换为纯文本，然后将其粘贴到 ChatGPT 中即可。
+]]></description>
+      <guid>https://community.openai.com/t/copy-and-paste-issue-in-chatgpt-desktop-app-on-macos/761078?page=3#post_56</guid>
+      <pubDate>Tue, 02 Jul 2024 11:14:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让助手在检索文档后简洁地回复</title>
+      <link>https://community.openai.com/t/how-to-make-the-assistant-reply-concisely-after-retrieving-from-docs/850550#post_1</link>
+      <description><![CDATA[我希望助手始终能简洁、不带格式地回复。我特别提示它用 1-2 句话回复，但每次检索文档时，它都会忍不住给出带有格式的长篇回复。
+有什么想法可以解决吗？
+以下是我的系统消息的一部分，要求简短回复：
+用 1-2 句简短的句子回复。如果用户要求更多详细信息，请使用“print_text”工具。否则，请尽可能简短地回复。在所有回复中都要直接。优先考虑清晰、简洁的沟通，而不是拘泥于形式。回复之前，先默默思考用户说了什么或您要写什么。
 
-上面，“**”（空格和两个星号）是一个可以通过 logit_bias“downvote”的标记：GPT-4o 中的标记 6240。
-通过指令将所有响应输出放入 JSON 中是一种基本上关闭 markdown 的好方法，但响应可能会有很大不同之内。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_2</guid>
-      <pubDate>Tue, 02 Jul 2024 07:47:35 GMT</pubDate>
+底部也一样
+使用工具后，切勿写长篇解释。始终简短。
+
+我认为如果我使用自定义检索功能，这是可以实现的，但我更愿意依赖内置文件搜索。]]></description>
+      <guid>https://community.openai.com/t/how-to-make-the-assistant-reply-concisely-after-retrieving-from-docs/850550#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 10:53:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>训练助手阅读带有图像的 PDF</title>
+      <link>https://community.openai.com/t/train-assistant-to-read-pdf-with-images/850525#post_1</link>
+      <description><![CDATA[我已将 .PDF 文件上传到 code_interpreter，PDF 文件中包含图像。
+助手无法识别 PDF 中的图像。如果我仅上传图像，助手就会识别并做出相应回答。
+有人处理过带图像的 PDF 吗？
+我正在使用 gpt-4o 和 code_interpreter
+提前致谢。]]></description>
+      <guid>https://community.openai.com/t/train-assistant-to-read-pdf-with-images/850525#post_1</guid>
+      <pubDate>Tue, 02 Jul 2024 10:31:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误异常活动 GPT4 WEB</title>
+      <link>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=4#post_65</link>
+      <description><![CDATA[我也是……我不能再使用付费版本了！
+检测到您的设备有异常活动。请稍后重试。
+Open AI 希望它能尽快修复]]></description>
+      <guid>https://community.openai.com/t/error-unusual-activity-gpt4-web/736901?page=4#post_65</guid>
+      <pubDate>Tue, 02 Jul 2024 10:27:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
