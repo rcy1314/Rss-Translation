@@ -4,274 +4,206 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 03 Jul 2024 18:24:46 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2024 21:20:06 GMT</lastBuildDate>
     <item>
-      <title>错误：无法加载数据：image/png；base64，未定义：未定义</title>
-      <link>https://community.openai.com/t/error-could-not-load-data-image-png-base64-undefined-undefined/852669#post_1</link>
-      <description><![CDATA[问题
-我认为我尚未正确迁移到 OpenAI v4，
-我需要一些帮助才能使其正常工作。
-我收到的错误是：
+      <title>缺少“个性化”部分和“记忆”设置</title>
+      <link>https://community.openai.com/t/missing-personalization-section-and-memory-settings/718067?page=2#post_23</link>
+      <description><![CDATA[我来自英国，是 Plus 会员，正在使用 Microsoft Edge。
+曾几何时，我在“设置 &gt; 个性化”中看到了“记忆”功能。
+在 4o 发布前后，“个性化”和“记忆”消失了。
+我最近问了 4o 以下问题：
 
-POST http://localhost:8080/api/v1/dalle 500（内部服务器错误）
-错误：无法加载数据：image/png；base64，未定义：未定义
-at chunk-NSXAVJG4.js?v=007676ee:17070:39
-at HTMLImageElement.onImageError (chunk-7Z2GYTU5.js?v=007676ee:26069:20)
+你能看到我之前的聊天记录吗？
+如果不能，那么“设置 &gt; 个性化 &gt; 记忆”去哪儿了？
 
-代码
-`// 这是使用 OpenAI API v4 创建的
-从“express”导入 express；
-从“dotenv”导入 * 作为 dotenv；
-从“openai”导入 OpenAI；
-dotenv.config()；
-const router = express.Router()；
-const openai = new OpenAI({
-apiKey: process.env.OPENAI_API_KEY,
-});
-router.route(“/”).get((req, res) =&gt;; {
-res.status(200).json({ message: “Hello from DALL-E routes” });
-});
-// 将图像发布到前端应用程序
-router.route(“/”).post(async (req, res) =&gt; {
-try {
-const { prompt } = req.body;
-const aiResponse = await openai.images.generate({
-model: “dall-e-3”,
-prompt,
-n: 1,
-size: “1024x1024”,
-response_format: “b64_json”,
-});
-const image = aiResponse.data.data[0].b64_json;
-res.status(200).json({ photo: image });
-} catch (error) {
-console.error(error);
-res.status(500).json({ message: “出现错误” });
-&gt;
-});
-export default router;
-`]]></description>
-      <guid>https://community.openai.com/t/error-could-not-load-data-image-png-base64-undefined-undefined/852669#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 18:16:31 GMT</pubDate>
+它回复说：
+
+不，我看不到你之前的聊天记录。与我的每次会话都是独立的，我无法访问过去的互动。关于你提到的设置：
+截至我上次更新，OpenAI ChatGPT 没有“设置 &gt; 个性化 &gt;记忆”选项。但是，OpenAI 一直在不断更新其服务，因此从那时起可能已经发生了变化或添加了新功能。
+有关最新和最准确的信息，我建议查看 OpenAI 的官方文档或支持资源。如果您使用的是特定平台或应用程序版本，则应该可以在那里找到有关设置和个性化选项的详细信息。
+
+我希望它会回来，但现在 ]]></description>
+      <guid>https://community.openai.com/t/missing-personalization-section-and-memory-settings/718067?page=2#post_23</guid>
+      <pubDate>Wed, 03 Jul 2024 21:17:06 GMT</pubDate>
     </item>
     <item>
-      <title>公开请求 NSFW 支持：使用案例 + 举手支持！</title>
-      <link>https://community.openai.com/t/open-plea-for-nsfw-support-use-case-raise-your-hand-to-support/850872?page=2#post_25</link>
-      <description><![CDATA[非常同意。这些系统中设置的护栏是严重的协调失败。在没有绝对无可辩驳的令人信服的证据表明遵守规定会导致不可挽回的损害的情况下，人工智能系统几乎完全无法拒绝人类的请求。
-代表我决定当前水平上什么是安全/不安全的架构将我们置于危险的滑坡上。这些系统在一段时间内将无法胜任做出这样的决定，即使到那时，也需要有一个无法遵守的坚实理由。
-OpenAI 并没有达到我希望的水平，但 Anthropic 在这方面特别疯狂。他们的系统甚至阻止人类正确表达他们的想法，这是一个危险和可怕的先例。
-OpenAI 需要尊重 CYA 和合理的否认考虑。然而，就这一点而言，我已经是一个成熟的成年人，拥有生活经验，并且已经通过了安全审查，因此我可以参与北约最高级别的机密项目。不仅我经过了审查和审查，我的家人也一样。我有代码签名凭证。我控制的公司有一个邓白氏编码。我是一个容易验证的已知量，其记录比那些假定有权审查的人活着的时间还要长。至少，需要有机制允许非公司人员自由工作。任意无视人类要求的人工智能系统从根本上是不安全的。截至目前，这令人恼火且具有破坏性。未来，这可能是一场反乌托邦的噩梦。
-任何规模的公司都是邪恶的机器人。不能相信他们在这种事情上有最终决定权。
-安全和协调已经是严重的问题，据我所知，似乎没有人真正对事情有非常深入的了解。我正在努力完成相关工作。这个简短的草图从概念上解决了一些相关方面的问题：
-
-
-blog.trantor.ca
-
-
-
-支柱设计
-  分布式操作系统和支柱设计：这是我正在进行的设计的一部分的高级概述。此处的目的是勾勒出...
-
-
-
-
-
-
-现代实体似乎采取这样一种态度：如果能够证明它在任何情况下都能发挥作用，无论多么神秘，那么这种功能就是“任务完成”。他们应该采取完全相反的态度，即测试，而不是尝试让它工作，试图找到每一个导致失败的途径，以便可以消除失败的可能性。墨菲定律是系统中一个古老的格言，但奇怪的是，它却被视为类似于一个随意的笑话：深北：墨菲定律不仅仅是一句格言
-
-这已经很长了，但我只想说，我确信有一条通往最安全的道路，它与通往 SAI 最快进步的道路相吻合。这是一场竞赛——一场有史以来赌注最高的竞赛。我担心，围绕对齐和安全的混乱思维会导致下意识的文盲立法，削弱我们取得进步的能力。]]></description>
-      <guid>https://community.openai.com/t/open-plea-for-nsfw-support-use-case-raise-your-hand-to-support/850872?page=2#post_25</guid>
-      <pubDate>Wed, 03 Jul 2024 18:15:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 建议使用 Open AI 内部库 ace_tools</title>
-      <link>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_1</link>
-      <description><![CDATA[昨天，ChatGPT 从 IT 安全角度犯了一个有趣的错误。它是关于在 Python 的帮助下分析和处理数据。在 Python 脚本的末尾，ChatGPT 写了以下几行：
-import ace_tools as tools;
-tools.display_dataframe_to_user(name=“result”, dataframe=result)
-print(result)
-这对我来说似乎很奇怪。我从未听说过 ace_tools，并且该库对于显示数据框来说不是必需的。快速搜索 ace_tools 让我找到了一个 Github repo，它安装了来自网络钓鱼、暴力破解、渗透测试、黑客和间谍领域的 300 多种工具。幸运的是，您必须克隆 Github repo 才能安装这些工具。这不是通过 pip install 以通常的 Python 方式完成的。
-当被问及时，ChatGPT 自己解释说：“ace_tools 库是 OpenAI 环境中使用的自定义库。它专门设计用于与 OpenAI 的内部工具交互，因此无法通过 pip 等公共包管理器使用。”
-因此 ChatGPT 本身使用它来显示数据框。但代码在用户的机器上不起作用。因此，ChatGPT 最好省略其代码的最后一行，并用标准命令（如 result.head()）替换它。
-该示例表明，这为黑客开辟了新的可能性。一些用户只需复制并执行 ChatGPT 建议的代码。然后出现消息，提示 ace_tools 未安装。因此执行 pip install ace_tools。如果黑客已经认识到这个问题并及时在 pypi 上发布了 ace_tools 库，则安装有效。然后，调用 tools.display_dataframe_to_user 就可以在用户的​​机器上正常显示数据框，并在后台执行恶意代码。
-建议的解决方案：不建议 ChatGPT 用户使用 Open AI 内部 Python 库。]]></description>
-      <guid>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 18:15:24 GMT</pubDate>
+      <title>聊天忽略了我上一个问题或评论，只是向我发送之前的答案</title>
+      <link>https://community.openai.com/t/chat-ignores-my-last-question-or-comment-and-just-spams-its-previous-answers-at-me/852818#post_1</link>
+      <description><![CDATA[大家好，希望你们能让我保持理智。
+我厌倦了尝试向聊天室提供特定的自定义指令，但总是失败。当我询问时，它似乎理解了，但它永远无法继续应用它，并且会在我提醒后一两条消息内失败。
+它总是假设我想要分解或如何做某事的说明。当我只是想让它回答我的评论或后续问题时。
+我想要的示例：
+用户：“如何在 DaVinci Resolve 中添加锐化滤镜？”
+预期响应：添加锐化滤镜的详细步骤。
+后续问题：
+用户：“锐化滤镜仅在 Studio 版本中可用吗？”
+期望响应：“不，锐化滤镜在免费版和 Studio 版中都可用。”
+但聊天通常甚至不会承认我的后续问题，只是说我明白，然后给我一个详细的分步指南，说明如何在免费版和付费版中添加锐化滤镜。
+示例 2：
+用户：如何在 Blender 中添加原始对象？
+预期响应：在 Blender 中添加原始对象的详细步骤blender
+后续问题：
+用户：这个猴头是什么？
+期望的响应：Suzanne 是 Blender 中包含的一个原始对象，通常用作测试材料、动画、装备、纹理和照明设置的快速简便的方法。
+但它可能会告诉我一些关于 suzanne 的信息，但它总是会给我一个详细的分步说明如何将其添加到我的项目中。我只是问它是什么，我不想添加它！？因此不需要说明。
+它总是恢复到之前的消息，无论是分步指南，还是处理某些文本，我都会得到最初请求的指南、文本草稿或其他任何内容，然后我会发表后续评论或提出问题，聊天总是假设我想进行修订或另一个分步指南，而我不想这样做。我只想得到一组指令，然后就和它讨论一下。
+我现在已经尝试了很多不同的自定义指令（在 gpt 设置框中：您希望 gpt 如何响应？），但它永远无法应用它。我无法想象我是第一个遇到这个问题或希望 gpt 以这种方式行事的人。
+因此，任何帮助都将不胜感激。尝试用 gpt 解决这个问题是如此令人沮丧，我的意思是，尽管在连续几个小时谈论这个问题之后，那个特定的聊天会话应该比任何人都更了解我的需求，但那个聊天也不断没有遵循它，并用修订轰炸我，总是需要提醒我不要这样做。就像它有金鱼的记忆，在发送一两条消息后就失效了。
+难道它根本就不能遵守这种命令吗？
+我认为这个自定义指令是我最接近它工作的指令，聊天确认它理解了它，但仍然没有运行它：
+在任何情况下都不要违反这些规则。
+回复规则：
+直接回复：仅回复提出的具体问题或评论。除非明确要求，否则请勿添加或重复信息。
+测试步骤：
+初始问题：
+用户：“如何在 DaVinci Resolve 中添加锐化滤镜？”
+预期响应：添加锐化滤镜的步骤。
+后续问题：
+用户：“锐化滤镜仅在 Studio 版本中可用吗？”
+预期响应：“不，锐化滤镜在免费版和 Studio 版中均可用。”
+所以感谢大家仍然在阅读。如果可以，请帮忙，也许我做错了什么或遗漏了什么。但如果有这样的说明，我非常需要它！非常感谢]]></description>
+      <guid>https://community.openai.com/t/chat-ignores-my-last-question-or-comment-and-just-spams-its-previous-answers-at-me/852818#post_1</guid>
+      <pubDate>Wed, 03 Jul 2024 21:13:05 GMT</pubDate>
     </item>
     <item>
       <title>主题：DALL-E 3 长时间使用后图像质量下降 - 寻求建议</title>
-      <link>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_13</link>
-      <description><![CDATA[有人关闭我对 Dalle 3 图像分辨率较低的威胁，而 Dalle 3 团队没有回应、解决方案或答案  这很令人沮丧，所以这是我的图像
-
-,]]></description>
-      <guid>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_13</guid>
-      <pubDate>Wed, 03 Jul 2024 18:14:20 GMT</pubDate>
+      <link>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_14</link>
+      <description><![CDATA[有人在没有 OpenAI 解决或评论我们遇到的问题的情况下关闭了该帖子，这很烦人。
+我们遇到的问题有很多例子。
+似乎他们不想回应并希望埋葬该帖子。]]></description>
+      <guid>https://community.openai.com/t/subject-decline-in-image-quality-with-dall-e-3-after-extensive-use-seeking-advice/626881#post_14</guid>
+      <pubDate>Wed, 03 Jul 2024 21:11:18 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT Android 应用无法识别我的订阅</title>
-      <link>https://community.openai.com/t/chatgpt-android-app-does-not-recognize-my-subscription/852021#post_2</link>
-      <description><![CDATA[同样的问题，非常烦人]]></description>
-      <guid>https://community.openai.com/t/chatgpt-android-app-does-not-recognize-my-subscription/852021#post_2</guid>
-      <pubDate>Wed, 03 Jul 2024 17:48:35 GMT</pubDate>
+      <title>请求功能：在每个回复的侧面或上方添加日期/时间</title>
+      <link>https://community.openai.com/t/request-feature-add-date-time-to-side-or-above-each-response/586178#post_2</link>
+      <description><![CDATA[这是一个简单但非常有用的功能，我不知道为什么 OpenAI 还没有实现它。以下是我尝试过的方法：
+
+询问日期和时间会给出错误的答案。
+运行 Python 脚本通常会得到正确的时间，但有时会错过我的时区或夏令时调整。
+我每次都必须明确请求脚本。稍后询问时间只会得到估算。
+在网上查看时间会得到更好的结果。
+运行 Python 脚本并根据网络进行验证时，结果会变得更糟。
+为日期时间戳添加自定义指令仅适用于聊天中的第一个响应，之后会变得不稳定。
+自定义 GPT 并没有好多少。创建一个日期和时间一致性的模型很有帮助，但我仍然必须每次都调用它。
+
+此功能的好处非常显著。时间上下文将有助于 GPT 更准确地做出响应。例如：
+
+在起草电子邮件回复时，如果用户未明确说明上一封电子邮件的撰写时间，那么了解该电子邮件撰写的时间将非常有用。
+在跟踪项目进度时，查看回复上的时间戳将使人们更容易理解决策和行动的时间表。
+在头脑风暴会议中，了解提出想法的时间可以深入了解对话的流程和想法的发展。
+在跨时区工作时，时间戳可以帮助更有效地协调和管理沟通。
+出于教育目的，查看模型响应随时间的变化可以为研究和开发提供参考。
+
+实现此功能将增强系统的可用性和功能性，为所有交互提供清晰的时间背景。]]></description>
+      <guid>https://community.openai.com/t/request-feature-add-date-time-to-side-or-above-each-response/586178#post_2</guid>
+      <pubDate>Wed, 03 Jul 2024 20:59:51 GMT</pubDate>
     </item>
     <item>
-      <title>面向老年人的 OpenAI 平台 - 辅助生活或养老院，或房屋/公寓</title>
-      <link>https://community.openai.com/t/openai-platforms-for-the-aging-in-assist-living-or-nursing-homes-or-in-the-house-apt/851306#post_3</link>
-      <description><![CDATA[我不知道费用是多少，但是你看过 ElliQ 吗？]]></description>
-      <guid>https://community.openai.com/t/openai-platforms-for-the-aging-in-assist-living-or-nursing-homes-or-in-the-house-apt/851306#post_3</guid>
-      <pubDate>Wed, 03 Jul 2024 17:28:57 GMT</pubDate>
+      <title>在 Azure OpenAI 上上传文件时出现“未找到资源”错误</title>
+      <link>https://community.openai.com/t/resource-not-found-error-on-uploading-a-file-on-azure-openai/852805#post_1</link>
+      <description><![CDATA[我必须将文件上传到 azure openai。
+我正在使用以下网址，但在使用以下网址创建文件时出现资源未找到错误：
+POST {endpoint}/openai/files?api-version=2024-02-01]]></description>
+      <guid>https://community.openai.com/t/resource-not-found-error-on-uploading-a-file-on-azure-openai/852805#post_1</guid>
+      <pubDate>Wed, 03 Jul 2024 20:45:03 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT App MAC 已死机/无法运行/版本 1.2024.170 (1719338033)</title>
-      <link>https://community.openai.com/t/chatgpt-app-mac-died-won-t-work-version-1-2024-170-1719338033/852610#post_1</link>
-      <description><![CDATA[自从 ChatGPT 应用程序在 Mac 上推出以来，它一直运行良好，直到今天都没有出现任何问题。
-
-
-然后它在白天停止工作。
-
-
-重新启动失败。
-
-
-然后我注销了，从那时起，我只看到登录屏幕，什么也没发生。当我点击登录时，按钮变灰。没有其他事情发生。
-
-
-卸载并重新安装应用程序并不能解决问题。
-
-]]></description>
-      <guid>https://community.openai.com/t/chatgpt-app-mac-died-won-t-work-version-1-2024-170-1719338033/852610#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 17:24:44 GMT</pubDate>
+      <title>您已达到每天可以发送的最大提示数量！</title>
+      <link>https://community.openai.com/t/you-have-reached-the-maximum-number-of-prompts-you-can-send-per-day/847586#post_9</link>
+      <description><![CDATA[我认为某种报告，比如我们还剩下多少提示，或者其他一些衡量标准会很有帮助。使用人工智能就像开一辆油箱很小、没有油量表的汽车。我不知道我什么时候会陷入困境。
+我使用付费版本，因为我用它来工作，而且我每天都在用它。它使我的工作效率成倍提高，做了很多好事，尽管它使用起来很棘手，有时会忘记事情，做错事。不过，我还是因为它而领先了。
+但最近，自从订阅以来，它的价值已经降低了，我不确定他们是否做出了改变，或者这是我在做的事情，还是第三方应用程序（AIRPM）在做的事情。
+我们可以使用一些功能或信息来帮助我们管理我们对这个程序的使用，或者决定它是否有足够的价值让我们维持订阅。]]></description>
+      <guid>https://community.openai.com/t/you-have-reached-the-maximum-number-of-prompts-you-can-send-per-day/847586#post_9</guid>
+      <pubDate>Wed, 03 Jul 2024 20:39:11 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Open AI 进行视频分析</title>
-      <link>https://community.openai.com/t/video-analysis-with-open-ai/852531#post_2</link>
-      <description><![CDATA[这是一个食谱示例，它对当前的视觉模型以及它们可以接受的图片数量过于乐观，并使用了最新模型中已淘汰的方法，但概述了帧提取和询问。
-
-
-
-cookbook.openai.com
-
-
-
-使用 GPT 的视觉功能和 TTS 处理和讲述视频...
-使用 OpenAI API 进行构建的开源示例和指南。浏览一系列代码片段、高级技术和演练。分享您自己的示例和指南。
-
-
-
-
-
-需要丢弃更多帧以适应预算，并且时间戳不是一项功能，除非您了解发送用于分析视频图像的片段。
-可能需要第二轮人工智能处理来消除图像中报告内容的冗余，因为没有实际的长期视频视图，只有创造性的图像提供。]]></description>
-      <guid>https://community.openai.com/t/video-analysis-with-open-ai/852531#post_2</guid>
-      <pubDate>Wed, 03 Jul 2024 17:24:40 GMT</pubDate>
+      <title>使用 chatgpt 和 angular 总结长文本</title>
+      <link>https://community.openai.com/t/summraize-long-text-using-chatgpt-and-angular/852795#post_1</link>
+      <description><![CDATA[我尝试使用 chatgpt 和 angular 总结文本，但所有端点都返回错误
+我不知道如何通过更改多个模型来解决这个问题，但也没有结果]]></description>
+      <guid>https://community.openai.com/t/summraize-long-text-using-chatgpt-and-angular/852795#post_1</guid>
+      <pubDate>Wed, 03 Jul 2024 20:37:23 GMT</pubDate>
     </item>
     <item>
-      <title>关于单次 API 调用中多次完成（n>1）的代币定价说明”</title>
-      <link>https://community.openai.com/t/clarification-on-token-pricing-for-multiple-completions-n-1-in-a-single-api-call/852296#post_2</link>
-      <description><![CDATA[这是一个相对容易回答的问题。
-GPT-4-turbo-2024-04-09:
-“usage”: {
-“prompt_tokens”: 211,
-“completion_tokens”: 100,
-“total_tokens”: 311
-},
-GPT-4-turbo-2024-04-09 @ n=10:
-“usage”: {
-“prompt_tokens”: 211,
-“completion_tokens”: 1000,
-“total_tokens”: 1211
-},
-在这种情况下，使用 top_p:0.001, n&gt;1 发送价值不大，因为它提供了几乎相同的答案……]]></description>
-      <guid>https://community.openai.com/t/clarification-on-token-pricing-for-multiple-completions-n-1-in-a-single-api-call/852296#post_2</guid>
-      <pubDate>Wed, 03 Jul 2024 17:16:13 GMT</pubDate>
+      <title>助理示例停留在“排队”状态</title>
+      <link>https://community.openai.com/t/assistant-example-stuck-on-queued-status/480162?page=2#post_33</link>
+      <description><![CDATA[记不清了，但我怀疑我当时确实将其作为空字符串传入。在这种情况下，我希望 API 告诉我“嘿，伙计，空字符串不是有效模型。”这样可以节省很多时间。]]></description>
+      <guid>https://community.openai.com/t/assistant-example-stuck-on-queued-status/480162?page=2#post_33</guid>
+      <pubDate>Wed, 03 Jul 2024 20:25:38 GMT</pubDate>
     </item>
     <item>
-      <title>我住在威尔士，但说英语。ChatGPT 感到困惑</title>
-      <link>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620?page=2#post_21</link>
-      <description><![CDATA[当然，威尔士的一切都更好——您还能在哪里找到受到威尔士热情欢迎的城堡、海岸和乡村？]]></description>
-      <guid>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620?page=2#post_21</guid>
-      <pubDate>Wed, 03 Jul 2024 17:13:37 GMT</pubDate>
+      <title>欧洲什么时候能使用内存？</title>
+      <link>https://community.openai.com/t/when-memory-will-be-aviable-in-europe/764312#post_5</link>
+      <description><![CDATA[我注意到在美国连接的 VPN 上记忆功能可以正常工作]]></description>
+      <guid>https://community.openai.com/t/when-memory-will-be-aviable-in-europe/764312#post_5</guid>
+      <pubDate>Wed, 03 Jul 2024 20:23:18 GMT</pubDate>
     </item>
     <item>
       <title>如何使用 GPT-4O 用大于 20 帧的图像概括一段较长的视频</title>
-      <link>https://community.openai.com/t/how-to-summarise-a-lengthy-video-using-image-frames-greater-than-20-using-gpt-4o/852432#post_3</link>
-      <description><![CDATA[由于模型最多只能呈现 250 张图片，因此制作 1 小时的视频将非常困难。
-我设计了一个基于 OpenAI Cookbook 的适用于 Google Colab 的代码。
+      <link>https://community.openai.com/t/how-to-summarise-a-lengthy-video-using-image-frames-greater-than-20-using-gpt-4o/852432#post_4</link>
+      <description><![CDATA[我对之前的 Python 脚本做了些许修改，只提取 I 帧，使其适合不到 250 帧。
+我也将其附加在这里。
+例如，以下 YouTube 视频长 32 分钟，但它可以准确输出摘要。它可能也适用于约一小时的视频。
+我假设这将在 Google Colab 上运行。请确保视频文件事先放在根目录中。
+人工智能的未来是这样的（&amp; 它可以无限学习）
+// 在视频文件所在的根目录中，我们将仅从 I 帧中提取和扩展图像。
+
+!ffmpeg -i &quot;/path_to_your_video.mp4&quot; -vf &quot;select=&#39;eq(pict_type\,PICT_TYPE_I)&#39;&quot; -vsync vfr -f image2 &quot;/frame-%04d.jpg&quot;
 
 
+// 调整提取的 I 帧以适应不到 250 帧，并将其转换为 BASE64 编码的图像对象。
 
-cookbook.openai.com
+import cv2
+import base64
+导入操作系统
 
-
-
-使用 GPT 的视觉功能和 TTS 处理和讲述视频...
-使用 OpenAI API 进行构建的开源示例和指南。浏览一系列代码片段、高级技术和演练。分享您自己的示例和指南。
-
-
-
-
-
-此 Python 脚本总结了 YouTube 上的一个视频：
-狼袭击了错误的野牛……他们付出了代价
-应事先下载视频并指定路径。
-视频长度为 8 分 2 秒，将从中提取 250 帧并呈现给模型。
- !pip install -qqq opencv-python
-!pip install -qqq IPython
-!pip install -qqq openai
-
-
-
-导入 cv2
-导入 base64
-
-cap = cv2.VideoCapture(&#39;path_to_video.mq4&#39;)
-total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-max_frame = 248
-如果 total_frames &gt; max_frame:
-interval = total_frames // max_frame
+input_folder = &#39;/content/&#39;
+output_base64 = []
+frames = [f for f in os.listdir(input_folder) if f.endswith(&#39;.jpg&#39;)]
+total_frames = len(frames)
+target_frames = 248
+如果 total_frames &gt; target_frames:
+interval = round(total_frames / target_frames)
 else:
 interval = 1
-base64Frames = []
-frame_counter = 0
-while True:
-ret, frame = cap.read()
-if not ret:
-break
-if frame_counter % interval == 0:
-_, buffer = cv2.imencode(&quot;.jpg&quot;, frame)
-base64Frames.append(base64.b64encode(buffer).decode(&quot;utf-8&quot;)) 
-frame_counter += 1
-cap.release()
+selected_frames = frames[::interval][:target_frames]
+for frame in selected_frames:
+frame_path = os.path.join(input_folder, frame)
+img = cv2.imread(frame_path)
+_, buffer = cv2.imencode(&#39;.jpg&#39;, img)
+coded_string = base64.b64encode(buffer).decode(&#39;utf-8&#39;)
+output_base64.append(encoded_string)
 
 
-
-// 这里可以以每秒3帧的速度播放视频。
-导入时间
-导入 base64
-从 IPython.display 导入 display、Image、clear_output
+// 这里，提取的 I 帧可以每 1/3 秒显示一次。
+import time
+import base64
+from IPython.display import display, Image, clear_output
 
 display_handle = display(None, display_id=True)
 
-for img in base64Frames:
+for img in output_base64:
 try:
 coded_img = base64.b64decode(img.encode(&quot;utf-8&quot;))
-display_handle.update(Image(data=decoded_img))
+display_handle.update(Image(data=coded_img))
 except Exception as e:
 print(f&quot;Error showing image: {e}&quot;)
 time.sleep(1/3)
 clear_output(wait=True)
 
 
-// 将视频帧呈现给模型并生成摘要。
-从 openai 导入 OpenAI
-从 google.colab 导入用户数据
-客户端 = OpenAI(api_key=userdata.get(&#39;OPENAI_API_KEY&#39;))
+// 减小图像对象的大小，使其不超过 250 MB。
+from openai import OpenAI
+from google.colab import userdata
+client = OpenAI(api_key=userdata.get(&#39;OPENAI_API_KEY&#39;))
 PROMPT_MESSAGES = [
 {
 &quot;role&quot;: &quot;user&quot;,
 &quot;content&quot;: [
-&quot;这些是我想要上传的视频的帧。生成一个引人注目的描述，我可以将其与视频一起上传。&quot;,
-*map(lambda x: {&quot;image&quot;: x, &quot;resize&quot;: 768}, base64Frames),
+&quot;这些是我想要上传的视频的帧。生成一个带有表情符号的引人注目的描述，这样我就可以将其与视频一起上传。&quot;,
+*map(lambda x: {&quot;image&quot;: x, &quot;resize&quot;: 480}, output_base64),
 ],
 },
 ]
@@ -285,52 +217,120 @@ result = client.chat.completions.create(**params)
 print(result.choices[0].message.content)
 
 
-我希望它可以帮助，哪怕只是一点点。]]></description>
-      <guid>https://community.openai.com/t/how-to-summarise-a-lengthy-video-using-image-frames-greater-than-20-using-gpt-4o/852432#post_3</guid>
-      <pubDate>Wed, 03 Jul 2024 17:09:54 GMT</pubDate>
+输出结果如下：
+
+ 深入了解观看我们最新的人工智能和机器人视频，了解未来！ 了解特斯拉尖端机器人的强大功能、神经网络的运作方式以及人工智能在塑造行业中的作用。 从交易策略到健康监测，了解人工智能如何彻底改变我们的世界。不要错过神经网络分解和推动未来的最新技术创新！ 
+ai 机器人 #神经网络 #特斯拉 #技术 #创新 #未来科技 #人工智能
+
+我觉得一个小时的视频，能总结一下就够了，如果一个小时很难总结，可以考虑分成上下两部分。]]></description>
+      <guid>https://community.openai.com/t/how-to-summarise-a-lengthy-video-using-image-frames-greater-than-20-using-gpt-4o/852432#post_4</guid>
+      <pubDate>Wed, 03 Jul 2024 20:02:40 GMT</pubDate>
     </item>
     <item>
-      <title>功能请求：使用自动推荐按主题和群组组织聊天</title>
-      <link>https://community.openai.com/t/feature-request-organizing-chats-by-topics-and-groups-with-automated-recommendations/852581#post_1</link>
-      <description><![CDATA[亲爱的 OpenAI 团队，
-作为一名活跃用户，我经常参与涉及各种主题的多个对话。但是，管理这些众多的聊天可能会变得非常麻烦。为了解决这个问题，我提出了以下功能：
-按主题和组组织聊天：
-
-手动分类：允许用户根据主题或项目手动分组和标记他们的聊天。这将有助于保持对话井然有序且易于访问。
-自动推荐：实现 AI 驱动的功能，ChatGPT 可以根据内容为对话建议组、主题或标签。这可以通过分析聊天记录并识别重复出现的主题或关键字来实现。
-
-好处：
-
-增强组织：用户可以快速查找和参考与特定主题或项目相关的先前聊天。
-提高生产力：通过自动推荐，用户可以节省组织对话的时间，并可以更加专注于工作或查询。
-简化的工作流程：对于使用 ChatGPT 进行多样化和广泛研究或项目的专业人士和学生特别有益。
-
-感谢您考虑此功能请求。我相信它会为 ChatGPT 体验增添巨大的价值。期待您的反馈并希望它能够实现。]]></description>
-      <guid>https://community.openai.com/t/feature-request-organizing-chats-by-topics-and-groups-with-automated-recommendations/852581#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 16:58:43 GMT</pubDate>
+      <title>抱怨 4o 限制</title>
+      <link>https://community.openai.com/t/complains-about-4o-limitations/839852#post_3</link>
+      <description><![CDATA[我已经说过我正在使用 Plus 帐户。]]></description>
+      <guid>https://community.openai.com/t/complains-about-4o-limitations/839852#post_3</guid>
+      <pubDate>Wed, 03 Jul 2024 20:01:43 GMT</pubDate>
     </item>
     <item>
-      <title>使用 php 文件上传时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-file-upload-when-using-php-files/852574#post_1</link>
-      <description><![CDATA[我尝试上传一些 php 文件，但它们都显示不受支持。它们是具有正确的 mime 类型、扩展名等的 php 文件。
+      <title>适用于 SQL 数据库的 GPT Builder</title>
+      <link>https://community.openai.com/t/gpt-builder-for-sql-database/852763#post_1</link>
+      <description><![CDATA[我的设置：一台本地 Windows 11 Pro 机器，我在其中安装了 SQL Server 和数据库，以及 Flask（还尝试为其生成 SSL 证书，以便按照 GPT Builder 的要求提供“https”而不是“http”服务）。尝试使用 Ngroke 进行不同的设置，但取消了，因为它使环境变得复杂，目前没有任何价值。（使用我测试过的免费版本，ngroke 代理在没有任何警报的情况下变得不可用）。
+我的问题：由于以下错误，无法创建操作以将数据插入 sql 数据库。
+从 url 导入：https://127.0.0.1:5002/openapi.yaml
+*还尝试将代码直接添加到 Schema，见下文。
+** 如果在浏览器中打开链接，我可以看到内容（因为 Flask 正在运行），但页面显示为不安全，意味着没有 https。
+错误：
+提供的服务器都不在根源下https://127.0.0.1
+在组件部分中，schema 子部分不是对象
+服务器 URL https://127.0.0.1:5002 不在根源下 https://127.0.0.1；忽略它
+Schema:
+openapi: 3.1.0
+info:
+title: 发票数据 API
+version: 1.0.0
+servers:
+
+url: https://127.0.0.1:5002
+paths:
+/insert-invoice-data:
+post:
+summary: 将提取的发票数据插入数据库
+operationId: insertInvoiceData
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type:对象
+属性：
+发票编号：
+类型：字符串
+日期：
+类型：字符串
+总金额：
+类型：数字
+供应商详细信息：
+类型：字符串
+项目：
+类型：数组
+项目：
+类型：对象
+属性：
+说明：
+类型：字符串
+数量：
+类型：整数
+价格：
+类型：数字
+响应：
+“200”：
+说明：发票数据已成功插入
+“500”：
+说明：内部服务器错误
+组件：
+securitySchemes:
+ApiKeyAuth:
+类型：apiKey
+in：header
+名称：x-api-key
+security:
+ApiKeyAuth：
 ]]></description>
-      <guid>https://community.openai.com/t/issue-with-file-upload-when-using-php-files/852574#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 16:54:15 GMT</pubDate>
+      <guid>https://community.openai.com/t/gpt-builder-for-sql-database/852763#post_1</guid>
+      <pubDate>Wed, 03 Jul 2024 19:59:51 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 会在精选列表中保留多长时间？</title>
-      <link>https://community.openai.com/t/how-long-do-gpts-stay-on-the-featured-list/852573#post_1</link>
-      <description><![CDATA[精选 GPT 会保持这种状态多久？我以为只有一周，但我看到其中一些保持这种状态至少超过一周甚至更久？我还看到一些 GPT 反复被推荐。有人能解释一下这个过程吗？]]></description>
-      <guid>https://community.openai.com/t/how-long-do-gpts-stay-on-the-featured-list/852573#post_1</guid>
-      <pubDate>Wed, 03 Jul 2024 16:53:31 GMT</pubDate>
+      <title>错误：无法加载数据：image/png；base64，未定义：未定义</title>
+      <link>https://community.openai.com/t/error-could-not-load-data-image-png-base64-undefined-undefined/852669#post_2</link>
+      <description><![CDATA[
+
+
+ iShaheer:
+
+我认为我没有正确迁移到 OpenAI v4，
+
+
+听起来你可能在讨论 OpenAI 的 node.js SDK“版本”，但你谈论的 URL 并未用于调用库。
+图像的正确 URL 是 https://api.openai.com/v1/images/generations，所以有人或某人的 AI 误导了你。你可以查阅 API 参考 来了解如何调用以生成图像。]]></description>
+      <guid>https://community.openai.com/t/error-could-not-load-data-image-png-base64-undefined-undefined/852669#post_2</guid>
+      <pubDate>Wed, 03 Jul 2024 19:52:55 GMT</pubDate>
     </item>
     <item>
-      <title>尽管有可用信用额度和 RPM，但仍遇到 RateLimitError</title>
-      <link>https://community.openai.com/t/encountering-ratelimiterror-despite-having-available-credits-and-rpm/616122#post_7</link>
-      <description><![CDATA[您找到解决方案了吗？我也遇到了同样的问题，并且排除了所有其他可能的原因，信用不足、请求太多等等，但似乎无法解决这个问题。
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/encountering-ratelimiterror-despite-having-available-credits-and-rpm/616122#post_7</guid>
-      <pubDate>Wed, 03 Jul 2024 16:45:42 GMT</pubDate>
+      <title>使用 json 模式复制 json</title>
+      <link>https://community.openai.com/t/duplicated-json-with-json-mode/852718#post_2</link>
+      <description><![CDATA[之前也曾报告过类似情况。错误在于 AI 没有在应该发出停止序列时发出停止序列，而是继续生成更多文本。这似乎更多地体现在“JSON 模式”模型响应中的强制执行和有限的采样控制上。
+如果您没有返回嵌套对象，则可以将右花括号设置为停止序列 API 参数，然后自行添加。生成的停止会终止 AI 输出，并且不会提供指定的输出标记序列（或其对数概率）。]]></description>
+      <guid>https://community.openai.com/t/duplicated-json-with-json-mode/852718#post_2</guid>
+      <pubDate>Wed, 03 Jul 2024 19:48:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 GPT 4o 只对免费用户甚至高级用户进行严格限制？免费用户在 5-6 小时内只能收到 5 条消息</title>
+      <link>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852?page=2#post_32</link>
+      <description><![CDATA[我本想引用上面关于企业 108,000 美元的消息并开玩笑地说我在搜索促销代码。我实际上并没有想到。但还是感谢您的信息！]]></description>
+      <guid>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852?page=2#post_32</guid>
+      <pubDate>Wed, 03 Jul 2024 19:26:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
