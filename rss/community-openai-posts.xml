@@ -4,146 +4,284 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 04 Jul 2024 15:20:30 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 18:25:43 GMT</lastBuildDate>
     <item>
-      <title>使用 Vovsoft Batch Translator 和 GPT-4 批量翻译 Word 文档</title>
-      <link>https://community.openai.com/t/batch-translation-of-word-docs-using-vovsoft-batch-translator-and-gpt-4/853800#post_1</link>
-      <description><![CDATA[嗨，按照这篇文章的标题执行时，出现“插入错误”并且执行挂起，我收到错误“RichEdit 行插入错误”。纯文本的翻译工作正常。我的问题是：是否有可能实现 Word 文档的翻译？我们真的很想保留 Word 格式；这将节省很多精力。能够使用 MS Word“翻译”并保留格式，但这需要手动编辑每个文档，运行翻译，然后从包含文本的浏览器中复制翻译。（顺便说一句，有人知道 MS 使用什么模型吗？是 gpt 3.5 吗？我怀疑这是基于我所看到的使用 3.5 和 4 模型翻译纯文本之间的差异） - 提前谢谢！]]></description>
-      <guid>https://community.openai.com/t/batch-translation-of-word-docs-using-vovsoft-batch-translator-and-gpt-4/853800#post_1</guid>
-      <pubDate>Thu, 04 Jul 2024 15:19:50 GMT</pubDate>
+      <title>如何使用GPT4全向语音通讯功能？</title>
+      <link>https://community.openai.com/t/how-to-use-gpt4-omni-voice-communication-feature/750749#post_10</link>
+      <description><![CDATA[不仅免费用户可以使用，如果您是免费用户，它还将在 alpha 版本中为 Plus 用户提供。您需要等待。@annawen @tim31]]></description>
+      <guid>https://community.openai.com/t/how-to-use-gpt4-omni-voice-communication-feature/750749#post_10</guid>
+      <pubDate>Thu, 04 Jul 2024 18:24:41 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 4 生成图像错误！</title>
-      <link>https://community.openai.com/t/gpt-4-generating-images-wrong/673907#post_3</link>
-      <description><![CDATA[我也遇到了同样的问题，但还没有找到解决办法。这太令人沮丧了！]]></description>
-      <guid>https://community.openai.com/t/gpt-4-generating-images-wrong/673907#post_3</guid>
-      <pubDate>Thu, 04 Jul 2024 15:15:18 GMT</pubDate>
+      <title>缺少必需参数：“file_id”</title>
+      <link>https://community.openai.com/t/missing-required-parameter-file-id/853109#post_7</link>
+      <description><![CDATA[感谢您的详细回复！我不仅从中学习到了知识，而且当我应用它时，我在成功响应中得到了我所期望的 file_id！
+我的代码现在看起来像：
+ public static Object UploadFiles(File file) {
+OkHttpClient client = new OkHttpClient()
+
+RequestBody requestBody = new MultipartBody.Builder()
+.setType(MultipartBody.FORM)
+.addFormDataPart(&quot;file&quot;, file.getName(), RequestBody.create(MediaType.parse(FileUtils.GetMediaType(file)), file))
+.addFormDataPart(&quot;purpose&quot;, &quot;assistants&quot;)
+.build()
+
+def request = this.initRequestBuilder()
+.url(&quot;https://api.openai.com/v1/files&quot;)
+.addHeader(&quot;Content-Type&quot;, &quot;multipart/form-data&quot;)
+.post(requestBody)
+.build()
+
+def response = client.newCall(request).execute()
+return new groovy.json.JsonSlurper().parseText(response.body().string())
+}
+
+在我结束这个问题并将您的回答标记为解决方案之前，您能否帮我一个忙，并指导我如何使用一些初始提示执行文件搜索（例如，初始提示：
+您是一名法院案件审查员。
+
+您的任务是从投诉 PDF 中提取业主姓名和邮寄地址，以及他们有止赎案件的房产地址。
+
+从此 PDF 中提取这些内容，并以 JSON 格式输出数据，如下所示：
+
+{
+owner1Name,
+owner2Name,
+mailingAddress,
+propertyAddress,
+}
+
+后续提示是需要解析的 PDF 文件还是其文本内容？]]></description>
+      <guid>https://community.openai.com/t/missing-required-parameter-file-id/853109#post_7</guid>
+      <pubDate>Thu, 04 Jul 2024 18:22:52 GMT</pubDate>
     </item>
     <item>
-      <title>Builder 配置文件未向我提供域名的 TXT 记录</title>
-      <link>https://community.openai.com/t/builder-profile-doesnt-me-a-txt-record-for-my-domain/791085#post_5</link>
-      <description><![CDATA[对我来说，即使没有 https:// 或 www 也可以使用这个方法]]></description>
-      <guid>https://community.openai.com/t/builder-profile-doesnt-me-a-txt-record-for-my-domain/791085#post_5</guid>
-      <pubDate>Thu, 04 Jul 2024 15:15:11 GMT</pubDate>
+      <title>我可以在游乐场重新创建 GPT 吗？</title>
+      <link>https://community.openai.com/t/can-i-recreate-a-gpt-in-the-playground/853968#post_2</link>
+      <description><![CDATA[如果 GPT 只是一个“提示”，不需要互联网或 API 操作，那么您可以通过从 GPT 配置中取出指令并将其用作 API 模型的系统指令来复制该功能。
+如果需要文档搜索，那么您必须使用“助手”而不是“聊天完成”，在那里您必须编写自己的引擎来获取补充知识。]]></description>
+      <guid>https://community.openai.com/t/can-i-recreate-a-gpt-in-the-playground/853968#post_2</guid>
+      <pubDate>Thu, 04 Jul 2024 18:15:37 GMT</pubDate>
     </item>
     <item>
-      <title>在 ChatGPT 响应中突出显示功能</title>
-      <link>https://community.openai.com/t/highlight-functionality-in-chatgpt-responses/830370#post_2</link>
-      <description><![CDATA[完全同意，正在搜索这个]]></description>
-      <guid>https://community.openai.com/t/highlight-functionality-in-chatgpt-responses/830370#post_2</guid>
-      <pubDate>Thu, 04 Jul 2024 15:10:44 GMT</pubDate>
+      <title>我可以在游乐场重新创建 GPT 吗？</title>
+      <link>https://community.openai.com/t/can-i-recreate-a-gpt-in-the-playground/853968#post_1</link>
+      <description><![CDATA[我创建了一个自定义 GPT，我对此非常满意……是否可以在游乐场中重新创建它（响应花了我一段时间才得到我想要的结果），以便我可以将其嵌入到我的 Wix 网站中供人们使用？]]></description>
+      <guid>https://community.openai.com/t/can-i-recreate-a-gpt-in-the-playground/853968#post_1</guid>
+      <pubDate>Thu, 04 Jul 2024 18:03:56 GMT</pubDate>
     </item>
     <item>
-      <title>Whisper 函数定期出现 500 错误</title>
-      <link>https://community.openai.com/t/periodic-500-error-on-whisper-functions/853777#post_1</link>
-      <description><![CDATA[我定期在对 https://api.openai.com/v1/audio/transcriptions 的发布请求中收到 500 错误。
-它大部分时间都在工作，但偶尔会给出 500 错误。这可能是由于 2 个不同的客户在大致相同的时间调用它造成的吗？
-如果是这种情况，我该如何解决这个问题？
-谢谢]]></description>
-      <guid>https://community.openai.com/t/periodic-500-error-on-whisper-functions/853777#post_1</guid>
-      <pubDate>Thu, 04 Jul 2024 15:09:04 GMT</pubDate>
+      <title>流式函数调用帮助</title>
+      <link>https://community.openai.com/t/help-with-streaming-function-calls/853921#post_2</link>
+      <description><![CDATA[看起来你对 openai 库的研究太深了，并且一开始就使用了 openai 自己的帮助程序的方法。
+准备客户端供使用非常简单：
+import openai
+import asyncio
+aclient = openai.AsyncOpenAI()
+
+如果不完全理解你的代码，我认为你需要在 openai 和为 websockets 形成自己的 API 请求之间做出明确的决定。但我们会坚持认为它在某种程度上是有效的。
+从收到的错误来看，您实际上并没有在需要时发送到 submit_tool_outputs 路径，因为在那里发送运行 ID 不会给您带来“已激活”错误。
+基本助手流程是：
+
+发送输入
+while (init_run 或 tool_outputs 作为响应) 并且不是 crazy_assistant()：
+– 捕获流
+– 显示文本增量，组装和运行函数
+– 提交工具输出
+
+我之前进入过 urlllib3 并让它记录发送的所有内容，因此如果日志记录没有告诉您发生了什么，您可以准确地看到 API 接口。您可以在 https SSL 之前的网络出口点执行相同操作。]]></description>
+      <guid>https://community.openai.com/t/help-with-streaming-function-calls/853921#post_2</guid>
+      <pubDate>Thu, 04 Jul 2024 17:51:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何复制 chatgpt 的文本？</title>
+      <link>https://community.openai.com/t/how-do-i-copy-chatgpts-text/853545#post_2</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/how-do-i-copy-chatgpts-text/853545#post_2</guid>
+      <pubDate>Thu, 04 Jul 2024 17:40:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>流式函数调用帮助</title>
+      <link>https://community.openai.com/t/help-with-streaming-function-calls/853921#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/help-with-streaming-function-calls/853921#post_1</guid>
+      <pubDate>Thu, 04 Jul 2024 17:11:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么当我尝试更新助手中的现有函数（通过 OpenAI UI/网页）时，会收到“函数必须具有唯一名称”错误</title>
+      <link>https://community.openai.com/t/why-do-i-now-get-a-functions-must-have-unique-names-error-when-simply-trying-to-update-an-existing-function-in-an-assistant-via-the-openai-ui-webpage/836589#post_6</link>
+      <description><![CDATA[同样如此，有人能立即解决这个问题吗？]]></description>
+      <guid>https://community.openai.com/t/why-do-i-now-get-a-functions-must-have-unique-names-error-when-simply-trying-to-update-an-existing-function-in-an-assistant-via-the-openai-ui-webpage/836589#post_6</guid>
+      <pubDate>Thu, 04 Jul 2024 17:08:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的聊天 gpt 在生成答案的过程中突然停止，并且整个屏幕变灰</title>
+      <link>https://community.openai.com/t/my-chat-gpt-abruptly-stops-in-the-middle-of-answer-generation-and-the-whole-screen-goes-gray/853915#post_1</link>
+      <description><![CDATA[最近几次，我尝试问一些代码更正问题，但它在生成答案的过程中就停止了，然后把我扔出去，整个页面都变成灰色。我必须手动刷新页面才能再次获得聊天 UI，但整个聊天记录都消失了，我不得不再次问同样的问题。但当我问同样的问题时，同样的情况又发生了……请问有人遇到过类似的错误吗，还是只有我一个人遇到过？]]></description>
+      <guid>https://community.openai.com/t/my-chat-gpt-abruptly-stops-in-the-middle-of-answer-generation-and-the-whole-screen-goes-gray/853915#post_1</guid>
+      <pubDate>Thu, 04 Jul 2024 17:05:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 CHATGPT 上创建一排提醒按钮，右侧有一个文本框，相信我，这是天才</title>
+      <link>https://community.openai.com/t/create-a-row-of-reminder-buttons-on-chatgpt-with-a-text-box-to-the-right-trust-me-this-is-genius/853824#post_3</link>
+      <description><![CDATA[“我不知道你知道我需要告诉它多少次不要输出完整的代码，只输出”同意这个狗屎超级烦人它就像它的默认操作模式是假设用户是一个需要脚本放在一起的白痴而不是提供应该改变的片段]]></description>
+      <guid>https://community.openai.com/t/create-a-row-of-reminder-buttons-on-chatgpt-with-a-text-box-to-the-right-trust-me-this-is-genius/853824#post_3</guid>
+      <pubDate>Thu, 04 Jul 2024 17:00:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在网站上使用助手？</title>
+      <link>https://community.openai.com/t/how-do-you-use-assistants-on-websites/597457#post_15</link>
+      <description><![CDATA[感谢您的反馈@bernie1！
+OpenWidget 提供许多功能，我们的绝大多数用户都对其进行了配置，以便除了与助手聊天之外，它还包括其他功能，例如常见问题解答或 Google 评论。
+但是，我们知道有些人更喜欢只使用聊天选项，这使得欢迎屏幕的额外步骤变得困难。
+我们有一个解决方法。我们有一个功能，允许您将自己的按钮添加到打开带有聊天的直接视图的网站。我录制了一个演示来展示这一点。请看一下：openwidget-custom-button_opt.mp4 - Google Drive
+在视频中，您可以看到当我使用默认启动器打开小部件时的情况 - 要与助手聊天，您需要打开小部件，选择联系人选项，然后聊天。然后我使用自定义按钮 - 小部件会立即在聊天视图中打开。
+创建这样的按钮很简单 - 在我的情况下是：
+&lt;button type=&quot;button&quot; data-openwidget-action=&quot;maximize&quot; data-openwidget-feature=&quot;chat&quot;&gt;
+与助手聊天
+&lt;/button&gt;
+
+演示页面可在此处获取：https://openwidget-button.glitch.me/
+此解决方法需要在页面中添加 HTML 代码。我们还在研究一种更简单的解决方案 - 能够关闭中间步骤（欢迎屏幕），以便在最大化后您可以立即打开与助手的聊天视图。此选项应在几天内出现。
+再次感谢您的反馈，如果它对您有用，请告诉我。]]></description>
+      <guid>https://community.openai.com/t/how-do-you-use-assistants-on-websites/597457#post_15</guid>
+      <pubDate>Thu, 04 Jul 2024 16:59:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>上传 PDF 文件并询问相关问题，目的 =“助手”</title>
+      <link>https://community.openai.com/t/upload-a-pdf-file-and-ask-questions-about-it-purpose-assistants/853906#post_1</link>
+      <description><![CDATA[我正在使用文件搜索上传 PDF 文件并询问有关该文档的问题。下面是我的代码。
+from openai import OpenAI
+client = OpenAI()
+assistant = client.beta.assistants.create(
+name=&quot;Analyst Assistant&quot;,
+instructions=&quot;您是物流方面的专家分析师。使用您的知识库来回答有关交付订单的问题。&quot;,
+model=&quot;gpt-4o&quot;,
+tools=[{&quot;type&quot;: &quot;file_search&quot;}],
+)
+
+message_file = client.files.create(file=open(&quot;tmp/CBHU8970688--DO.pdf&quot;, &quot;rb&quot;), purpose=&quot;assistants&quot;)
+thread = client.beta.threads.create(
+messages=[
+{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: prompt_do_from_text,
+&quot;attachments&quot;: [{ &quot;file_id&quot;: message_file.id, &quot;tools&quot;: [{&quot;type&quot;: &quot;file_search&quot;}] }],
+}
+]
+)
+
+run = client.beta.threads.runs.create_and_poll(thread_id=thread.id, assistant_id=assistant.id)
+messages = list(client.beta.threads.messages.list(thread_id=thread.id, run_id=run.id))
+print(messages[0].content[0].text.value)
+
+此代码运行良好。但是，我认为目的不应该是“助手”。我知道“答案”已被弃用。我测试了 purpose = “responses”，但它报告了错误。
+我认为应该有一种更合适的方法来上传文件并询问有关它的问题。有什么建议吗？]]></description>
+      <guid>https://community.openai.com/t/upload-a-pdf-file-and-ask-questions-about-it-purpose-assistants/853906#post_1</guid>
+      <pubDate>Thu, 04 Jul 2024 16:58:37 GMT</pubDate>
     </item>
     <item>
       <title>通过API将图像上传至助手</title>
-      <link>https://community.openai.com/t/upload-image-to-assistant-via-api/801717#post_3</link>
-      <description><![CDATA[如何创建将文件 ID 作为消息内容一部分的用户消息？当然，消息内容只是文本。我尝试将图像的文件作为内容传递，但没有得到任何响应。
- # 创建新消息
-input_message = self.client.beta.threads.messages.create(
-thread_id=self.assistant_thread.id,
-role=&quot;user&quot;,
-content=file_id 或 text 还是其他参数？
-
-)
-]]></description>
-      <guid>https://community.openai.com/t/upload-image-to-assistant-via-api/801717#post_3</guid>
-      <pubDate>Thu, 04 Jul 2024 15:03:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>糟糕！您没有帐户，因为帐户已被删除或停用。如果您认为这是一个错误</title>
-      <link>https://community.openai.com/t/oops-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error/853557#post_2</link>
-      <description><![CDATA[这是个笑话……真的很荒谬……
-无法访问作品，无法打开另一个帐户并支付 Plus 费用，我甚至无法重做我丢失的作品……说实话，这离骗局不远了……
-]]></description>
-      <guid>https://community.openai.com/t/oops-you-do-not-have-an-account-because-it-has-been-deleted-or-deactivated-if-you-believe-this-was-an-error/853557#post_2</guid>
-      <pubDate>Thu, 04 Jul 2024 14:40:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI：请在当前 OpenAI API 上训练 ChatGPT</title>
-      <link>https://community.openai.com/t/openai-please-train-chatgpt-on-the-current-openai-api/852826#post_3</link>
-      <description><![CDATA[这真是……讽刺，但并不好笑（即它不知道如何与自己合作）。而且很烦人。是的，它可以得到指令，但效果有限，还会占用本可用于其他用途的内存/上下文资源。从产品的角度来看，协调模型对其自身 API 的认识仍然有意义。]]></description>
-      <guid>https://community.openai.com/t/openai-please-train-chatgpt-on-the-current-openai-api/852826#post_3</guid>
-      <pubDate>Thu, 04 Jul 2024 14:32:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>实现 ChatGPT 历史记录搜索功能</title>
-      <link>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=4#post_62</link>
-      <description><![CDATA[环境影响应是此处首要考虑的因素]]></description>
-      <guid>https://community.openai.com/t/implementing-chatgpt-history-search-capability/225778?page=4#post_62</guid>
-      <pubDate>Thu, 04 Jul 2024 14:15:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 php 文件上传时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-file-upload-when-using-php-files/852574#post_4</link>
-      <description><![CDATA[我也遇到了类似的问题。Typescript 文件无法上传。它显示相同的“不支持”警告，但文件格式是受支持的。]]></description>
-      <guid>https://community.openai.com/t/issue-with-file-upload-when-using-php-files/852574#post_4</guid>
-      <pubDate>Thu, 04 Jul 2024 14:09:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>在文件搜索助手中根据索引和文件 ID 从矢量存储中检索内容</title>
-      <link>https://community.openai.com/t/retrieving-content-from-vector-store-based-on-index-and-file-id-in-file-search-assistant/852943#post_3</link>
-      <description><![CDATA[感谢您的回复。我对您的陈述有点困惑：“将 AI 扭曲为以语言形式返回。”
-您能详细说明一下这是什么意思吗？具体来说，我如何扭曲 AI 以将文档提取块作为语言返回？]]></description>
-      <guid>https://community.openai.com/t/retrieving-content-from-vector-store-based-on-index-and-file-id-in-file-search-assistant/852943#post_3</guid>
-      <pubDate>Thu, 04 Jul 2024 14:07:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>由于 GPT-4o 限制，无法继续与 GPT-3.5 对话</title>
-      <link>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781?page=2#post_33</link>
-      <description><![CDATA[我没有使用任何工具，但我仍然无法继续使用 gpt-3.5。
-我记得曾经有一个下拉菜单，你可以在 4o 和 3.5 之间切换，但现在我找不到它了。]]></description>
-      <guid>https://community.openai.com/t/cannot-continue-conversation-with-gpt-3-5-because-of-gpt-4o-limit/757781?page=2#post_33</guid>
-      <pubDate>Thu, 04 Jul 2024 14:01:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>InfantAGI - 自主改进的 Python 代码编写器和执行器</title>
-      <link>https://community.openai.com/t/infantagi-an-autonomous-self-improving-python-code-writer-and-executer/240242#post_10</link>
-      <description><![CDATA[Eren，
-这太有趣了。我也在这里做了一些工作，甚至申请了 OpenAI 的一些支持/访问权限。
-我刚刚复制了你的代码开始试验。我无法在此处粘贴链接，但如果你给我发电子邮件或在 LinkedIn 上查找我，你就可以看到我做了什么。
-你还在做这个吗？如果有其他人感兴趣并愿意讨论方法，我会很高兴。
-Rand Dannenberg
-[版主删除：请使用论坛内部消息系统]]]></description>
-      <guid>https://community.openai.com/t/infantagi-an-autonomous-self-improving-python-code-writer-and-executer/240242#post_10</guid>
-      <pubDate>Thu, 04 Jul 2024 13:53:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>提示：让 Assistants API 返回更好的注释（文件名除外）</title>
-      <link>https://community.openai.com/t/tip-making-assistants-api-return-better-annotations-besides-file-names/841838#post_5</link>
+      <link>https://community.openai.com/t/upload-image-to-assistant-via-api/801717#post_4</link>
       <description><![CDATA[
 
 
- snowhale:
+ louis1982:
 
-在答案后以以下格式包含参考文献：&quot;&quot;&quot;
-# 参考文献
-**[此处为章节标题](https://section-link-here.com/path)**
-&gt; 参考文献的确切内容主体
-&quot;&quot;&quot;
+如何创建将文件 ID 作为消息内容一部分的用户消息？
 
 
+当消息只是文本时，发送消息很容易。
+当内容字段是“数组”时，内容字段会更复杂，需要附加已上传到 API 文件存储的图像文件 ID。
+API 参考转录为不需要六个的东西点击：
 
-这非常有用。我们将构建一种更完整的引用内容的方式，但与此同时，这很有帮助。谢谢！]]></description>
-      <guid>https://community.openai.com/t/tip-making-assistants-api-return-better-annotations-besides-file-names/841838#post_5</guid>
-      <pubDate>Thu, 04 Jul 2024 13:41:31 GMT</pubDate>
+
+内容 - 字符串或数组 必需
+
+文本内容 - 字符串 - 消息的文本内容。
+内容部分数组 - 数组 - 具有定义类型的内容部分数组，每个部分可以是 text 类型，也可以使用 image_url 或 image_file 传递图像。图像类型仅在兼容 Vision 的型号上受支持。
+
+图像文件 - 对象
+
+类型 - 字符串 必需 - 始终为 image_file。
+图像文件 - 对象 必需
+
+file_id - 字符串 必需 - 消息内容中图像的文件 ID。如果您需要稍后显示文件内容，请在上传文件时设置 purpose=“vision”。
+细节 - 字符串 可选 - 默认为自动 如果用户指定，则指定图像的细节级别。 low 使用较少的标记，您可以使用 high 选择高分辨率。
+
+
+
+
+图像 URL - object
+
+type - string 必需 - 内容部分的类型。
+image_url - object 必需 - 此处显示的 URL 属性
+
+
+
+
+
+
+
+
+以下是如何构造 content 数组以将文本与消息交织在一起（使用聊天机器人输入更难做到）。消息的每个部分都是数组中的一个对象，其中包含文本或图像文件引用：
+from openai import OpenAI
+client = OpenAI()
+
+thread_message = client.beta.threads.messages.create(
+&quot;thread_abc123&quot;,
+role=&quot;user&quot;,
+content=[
+{
+&quot;type&quot;: &quot;text&quot;,
+&quot;text&quot;: &quot;这张图片中有什么？&quot;
+},
+{
+&quot;type&quot;: &quot;image_file&quot;,
+&quot;image_file&quot;: {
+&quot;file_id&quot;: &quot;file-1234image&quot;,
+&quot;purpose&quot;: &quot;vision&quot;
+}
+},
+{
+&quot;type&quot;: &quot;text&quot;,
+&quot;text&quot;: &quot;第二张图片中有什么？&quot;
+},
+{
+&quot;type&quot;: &quot;image_file&quot;,
+&quot;image_file&quot;: {
+&quot;file_id&quot;: &quot;file-2345image&quot;,
+&quot;purpose&quot;: &quot;vision&quot;
+}
+}
+]
+)
+
+此代码片段在内容数组中包含四个部分：
+
+询问第一幅图像内容的文本。
+图像文件引用“file-1234image”，用于图像处理的视觉目的。
+询问第二幅图像内容的文本。
+另一个图像文件引用“file-2345image”，同样用于视觉目的。
+
+确保两个图像文件均已正确上传，并根据服务器或系统的文件管理分配了适当的文件 ID。
+在此代码中，我将 file_id 设置为“file-1234image”，假设它已替换为您从上传中收到的 ID。确保文件已上传，且目的设置为 “vision”，以确保正确处理图像分析或类似任务。
+此外，这些上传的文件不会自行删除！]]></description>
+      <guid>https://community.openai.com/t/upload-image-to-assistant-via-api/801717#post_4</guid>
+      <pubDate>Thu, 04 Jul 2024 16:56:41 GMT</pubDate>
     </item>
     <item>
-      <title>有人可以给我最新的 API 文档链接吗？</title>
-      <link>https://community.openai.com/t/can-someone-link-me-the-latest-and-up-to-date-api-docs/853393#post_3</link>
-      <description><![CDATA[gpt-4o,8k,32k,128k 存在吗？
-我的朋友发给我这张图片：
-]]></description>
-      <guid>https://community.openai.com/t/can-someone-link-me-the-latest-and-up-to-date-api-docs/853393#post_3</guid>
-      <pubDate>Thu, 04 Jul 2024 13:40:49 GMT</pubDate>
+      <title>根据视觉外观重命名 PDF</title>
+      <link>https://community.openai.com/t/renaming-a-pdf-based-on-a-vision-looksie/851560#post_2</link>
+      <description><![CDATA[多么有用的想法！我有很多 pdf，其中大多数都有奇怪的随机字母名称，这可不好笑。我要做的第一件事是要求 chatgpt 提供执行此操作的可能选项列表。我猜一个好选择可能是让它编写一个 python 代码，创建一个 CSV 列表，该列表采用原始名称和人为名称 {旧名称，新名称}，然后您可以使用它以编程方式重命名文件夹中的文件。]]></description>
+      <guid>https://community.openai.com/t/renaming-a-pdf-based-on-a-vision-looksie/851560#post_2</guid>
+      <pubDate>Thu, 04 Jul 2024 16:51:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>急需帮助-聊天 GPT 中的表格格式显示全部错误</title>
+      <link>https://community.openai.com/t/urgent-need-help-table-format-showing-up-all-wrong-in-chat-gpt/284959?page=2#post_22</link>
+      <description><![CDATA[无需使用文本末尾的复制功能，只需将鼠标移到文本上，将其复制并粘贴到文档中即可。如果您有许多不同格式的部分，请分别复制并粘贴它们；这需要多做一点工作，但比重新格式化未格式化的粘贴文本要省力。]]></description>
+      <guid>https://community.openai.com/t/urgent-need-help-table-format-showing-up-all-wrong-in-chat-gpt/284959?page=2#post_22</guid>
+      <pubDate>Thu, 04 Jul 2024 16:43:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
