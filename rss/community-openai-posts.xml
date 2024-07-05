@@ -4,136 +4,199 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 05 Jul 2024 09:22:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 12:35:33 GMT</lastBuildDate>
+    <item>
+      <title>无法将文件添加到矢量存储</title>
+      <link>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_13</link>
+      <description><![CDATA[现在我通过使用 Notepad++ 将文件编码为 UTF8 来使其工作（这也使文件大小变小，但标记数保持不变）。
+以前它不起作用，尽管我的文件大小只有 500kb 左右，但我不知道这相当于多少个标记。]]></description>
+      <guid>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_13</guid>
+      <pubDate>Fri, 05 Jul 2024 12:31:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>上传 JSON 到矢量存储时出错</title>
+      <link>https://community.openai.com/t/error-when-uploading-json-to-vector-store/754688#post_10</link>
+      <description><![CDATA[我通过将文件拆分成块取得了一些成功。我尝试在单个 JSON 文件中创建一个包含 120,000 种产品的矢量存储。
+大多数情况下都失败了。我通过从 JSON 中删除格式取得了一些成功，但我认为我只是达到了一些阈值。
+现在我正在上传多个 product.json 文件，每个 JSON 中有 5000 种产品。这似乎很可靠。]]></description>
+      <guid>https://community.openai.com/t/error-when-uploading-json-to-vector-store/754688#post_10</guid>
+      <pubDate>Fri, 05 Jul 2024 12:20:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>处理大于模型上下文长度的提示的方法</title>
+      <link>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_3</link>
+      <description><![CDATA[谢谢。
+我说得对，这是在后台使用“工具调用”吗？如果是这样，那么 LangGraph 之类的东西也会利用这一点。如果我走代理框架的路，我会考虑使用 LangGraph，主要是因为我们构建的其余部分都是围绕 Langchain 生态系统构建的。]]></description>
+      <guid>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_3</guid>
+      <pubDate>Fri, 05 Jul 2024 12:19:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何为AI助手准备数据？</title>
+      <link>https://community.openai.com/t/how-to-prepare-data-for-ai-assistant/854797#post_1</link>
+      <description><![CDATA[我对 RAG/AI Assistants/Vector 数据库的数据准备有几个问题。
+我有一个知识文件，其中包含
+
+url
+meta title
+meta description
+H1
+内容（目前是带有 HTML 的正文）。
+
+关于此的问题：
+我是否需要
+
+清理 HTML，只保留文本？
+清理文本，只保留来自语义元素的文本，例如 main/article（并且删除了 nav、header、aside、footer 等元素）？
+如果清理 HTML，内容不再是表格，这有问题吗？导入之前我需要自己计算嵌入吗？或者 AI 助手/矢量数据库 (Qdrant) 在导入后会自行计算嵌入？分块 csv/json 是否足够，还是我应该创建其他元数据？
+]]></description>
+      <guid>https://community.openai.com/t/how-to-prepare-data-for-ai-assistant/854797#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 11:56:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何让 OpenAI 回复 Dev API 支持票</title>
+      <link>https://community.openai.com/t/how-to-get-openai-to-reply-to-dev-api-support-tickets/854794#post_1</link>
+      <description><![CDATA[大家好，这里有人能得到 OpenAI 支持的回复吗？我 3 个月前记录了一张紧急票据/消息，但被忽略了。它与我的 API 帐户上的一个关键安全问题有关 - 到目前为止，他们只是发布了一些废话。感谢这只是一个论坛，但没有想法。将客户转移到不同的 LLM，但不能全部移动，谢谢]]></description>
+      <guid>https://community.openai.com/t/how-to-get-openai-to-reply-to-dev-api-support-tickets/854794#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 11:53:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于复制文本的新“块”</title>
+      <link>https://community.openai.com/t/new-block-for-text-to-be-copied/854769#post_1</link>
+      <description><![CDATA[这似乎是一件轻而易举的事，但仍未解决。每次你要求 GPT 为你写一些东西时，它都会回答：“当然，在这里……”然后给出你所要求的内容。因此，每次你需要从 GPT 复制任何内容时，你都有 3 个选项：
+
+选择文本并复制，
+单击复制按钮复制整个答案并删除“当然”部分，
+除了你要求的内容外，还要要求 GPT 不要回应你的要求，只产生你需要的结果。
+
+有一种简单的方法可以解决所有这些问题：创建一个“文本块”。类似于代码块，但用于阅读，因此格式更好。但它本身应该是一个块，这样 GPT 就可以将要求写入的任何书面材料写入这个块中，然后可以通过单击按钮进行复制，就像代码块一样。
+这似乎是 GPT 自推出以来就需要具备的功能。我很乐意看到它得到实现。]]></description>
+      <guid>https://community.openai.com/t/new-block-for-text-to-be-copied/854769#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 11:35:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法将文件添加到矢量存储</title>
+      <link>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_12</link>
+      <description><![CDATA[我现在确实让它工作了，结果它突破了令牌限制（每个文件 5m 个令牌），即使文件只有 12mb。我一次批量处理 5000 行并上传 6 个不同的文件，现在它运行正常。这可能有点过分，但我不知道原始文件有多少个令牌，所以我只用 5k 测试了一下，它就成功了。
+尝试将其分成两半，看看是否有效，如果不行，就分成更小的块。]]></description>
+      <guid>https://community.openai.com/t/can-not-add-files-to-vector-store/738145#post_12</guid>
+      <pubDate>Fri, 05 Jul 2024 11:24:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>处理大于模型上下文长度的提示的方法</title>
+      <link>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_2</link>
+      <description><![CDATA[嗨 @suhas.chatekar，
+您可以使用 Assistants API 开始试验此功能。
+使用 Assistants Playground 快速入门。
+只需命名助手、添加说明、启用文件搜索，然后将包含代码文档的文本文件上传到其知识库即可。]]></description>
+      <guid>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_2</guid>
+      <pubDate>Fri, 05 Jul 2024 11:19:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法从微调模型获得可靠的响应</title>
+      <link>https://community.openai.com/t/unable-to-get-reliable-response-from-fine-tuned-model/854756#post_1</link>
+      <description><![CDATA[大家好，
+我有一个非常具体的需求，我想训练一个 AI 模型来读取一些分隔数据并识别一些数据点并返回这些数据点。我有一个特定的标签/标题列表，我希望它搜索并以分隔格式的标题和值返回数据点（如果找到）。这里的主要挑战是分隔数据的格式不是固定的。我尝试创建一组不同的示例并将其包含在我的训练 JSONL 文件中。我在训练文件中有大约 28 个数据集，在验证文件中有 4 个数据集。这些数字看起来不错
+
+现在的问题是，罚款调整后的模型不断处理数据。例如：我有一列 NAICS 代码，它应该只获得一个唯一的数字代码：我的模型从前面 2 列返回一个文本，并将所有其他值随之移动。它能够选择所需的数据，但一直将其移动到错误的列。有时它工作顺利，有时它不会给我正确的位置。我已将温度设置为 0，将顶部 P 设置为 0.5
+
+我还尝试了许多不同的训练参数 epoch、批量大小和 LR 乘数组合。
+有人能指出我正确的方向并帮助我了解我做错了什么吗？
+谢谢。]]></description>
+      <guid>https://community.openai.com/t/unable-to-get-reliable-response-from-fine-tuned-model/854756#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 11:16:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 无法调查异常值的问题</title>
+      <link>https://community.openai.com/t/issue-with-chatgpt-unable-to-investigate-outliers/854718#post_1</link>
+      <description><![CDATA[重现步骤：
+
+上传 excel 文件
+要求 ChatGPT 调查两张表中的异常值
+
+预期结果：
+
+实际结果：
+“尝试处理 Excel 文件中的数据时似乎出现了重复出现的问题，导致我无法完成任务。让我们尝试使用本地计算机上的 Python 手动定义可用于调查数据集中异常值的步骤。您可以按照以下方法操作：……”
+其他信息
+浏览器：Brave
+操作系统：Windows 10]]></description>
+      <guid>https://community.openai.com/t/issue-with-chatgpt-unable-to-investigate-outliers/854718#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 10:35:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 助手 API 未以正确的语言响应</title>
+      <link>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_1</link>
+      <description><![CDATA[大家好，问题如下：
+在 Playground 中提交请求时，我的 AI 助手总是用查询语言回复我。
+但是当使用 API 时，它总是用英语回答。
+以下是说明：
+始终使用收到的请求中主要使用的相同语言进行回复。回复的语言不应根据发件人的姓名或其他详细信息而有所不同。如果查询主要使用英语，请用英语回复；如果是法语，就用法语回复，等等。
+为什么在线程/操场中的使用与通过 API 的使用不同？
+希望你有一些想法 ]]></description>
+      <guid>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 10:34:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>处理大于模型上下文长度的提示的方法</title>
+      <link>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_1</link>
+      <description><![CDATA[我正在研究一个有趣的用例，我们试图让一个私有的 GPT-4 实例使用我们内部的领域特定语言编写小脚本。该语言非常简单，即使是最复杂的脚本也很少超过 100 行代码。在我的第一次迭代中，我尝试了一种简单的方法，我在系统提示中包含了一个用户指南，并要求 GPT-4 为我编写一个简单的脚本。结果很有希望，所以我们想进一步探索这一点。然而，我面临的第一个挑战是我们所有文档的长度，大约有 900k 个 GPT-4 令牌。我研究过分块或创建文档每页摘要等选项，但没有一个能产生更好的结果。
+我在想，如果我能让 GPT-4 首先想出一个伪脚本，该脚本建议编写最终脚本需要哪些特定的文档部分，那么在第 2 步中，我可以为伪脚本提供完成这项工作所需的文档子集。这看起来像是我可以使用代理框架构建的东西。我走的路对吗？或者有没有更好、更简单、更 GPT 原生的方法来解决这个问题？]]></description>
+      <guid>https://community.openai.com/t/ways-to-deal-with-prompts-larger-than-models-context-length/854697#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 10:20:55 GMT</pubDate>
+    </item>
     <item>
       <title>我的 GPT 的专用快捷方式</title>
-      <link>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_1</link>
-      <description><![CDATA[我想在手机屏幕上为新创建的 GPT 添加快捷方式。我有什么选择？使用浏览器功能添加到主屏幕 (Chrome) 会将我带回到通用 GPT 聊天，而不是我自己的聊天。]]></description>
-      <guid>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 09:18:45 GMT</pubDate>
+      <link>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_3</link>
+      <description><![CDATA[在某些情况下（具体情况尚不明确），长按 Android 应用会弹出指向您的某个 GPT 的深层链接。您可以从那里将深层链接放在主屏幕上。]]></description>
+      <guid>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_3</guid>
+      <pubDate>Fri, 05 Jul 2024 10:13:47 GMT</pubDate>
     </item>
     <item>
-      <title>如何增加 TPM 限制？</title>
-      <link>https://community.openai.com/t/how-to-increase-tpm-limit/756938#post_3</link>
-      <description><![CDATA[谢谢您的帮助！我会调查此事。]]></description>
-      <guid>https://community.openai.com/t/how-to-increase-tpm-limit/756938#post_3</guid>
-      <pubDate>Fri, 05 Jul 2024 08:51:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 问题——准备聊天时出现问题。请刷新页面并重试</title>
-      <link>https://community.openai.com/t/issues-with-gpt-4-there-was-a-problem-preparing-your-chat-please-refresh-the-page-and-try-again/257673?page=2#post_24</link>
-      <description><![CDATA[这为我解决了这个问题
-您需要关闭当前启用的所有 URL 拦截器或扩展程序，因为这些程序或扩展程序会阻止 ChatGPT 正确加载。（我使用的是 Chrome）]]></description>
-      <guid>https://community.openai.com/t/issues-with-gpt-4-there-was-a-problem-preparing-your-chat-please-refresh-the-page-and-try-again/257673?page=2#post_24</guid>
-      <pubDate>Fri, 05 Jul 2024 08:49:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何像在线代码编辑器一样加密/限制对 jupyter 笔记本中“openai.api_key”的访问</title>
-      <link>https://community.openai.com/t/how-to-encrypt-restrict-access-to-openai-api-key-within-jupyter-notebook-like-online-code-editor/854582#post_1</link>
-      <description><![CDATA[我们需要让用户在 jupyter notebook 等在线代码编辑器环境中试用 openai api 调用，但需要限制用户在在线代码编辑器中打印 openai.api_key 或仅打印加密值，但用户应该能够运行其他 openai python API 调用。#api_key]]></description>
-      <guid>https://community.openai.com/t/how-to-encrypt-restrict-access-to-openai-api-key-within-jupyter-notebook-like-online-code-editor/854582#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 08:46:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4-o 使用 Markdown 返回答案</title>
-      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_8</link>
-      <description><![CDATA[告诉它将其答案转换为 Microsoft Word 文档。]]></description>
-      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_8</guid>
-      <pubDate>Fri, 05 Jul 2024 08:36:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>聊天应用程序的 Vector Store Database 推荐（不是助手？）</title>
-      <link>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_6</link>
-      <description><![CDATA[
+      <title>我的 GPT 的专用快捷方式</title>
+      <link>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_2</link>
+      <description><![CDATA[嗨！
+我刚刚测试过，它有效。
+您的快捷方式链接应如下所示：
 
+https://chatgpt.com/g/g-6PKrcgTBL-planty
 
- will.julian-vicary:
+我通过浏览 chatgpt.com 上的 WebUI 然后选择 GPT 来创建此快捷方式。]]></description>
+      <guid>https://community.openai.com/t/dedicated-shortcut-for-my-gpt/854625#post_2</guid>
+      <pubDate>Fri, 05 Jul 2024 09:57:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>计算嵌入请求的成本</title>
+      <link>https://community.openai.com/t/computing-the-cost-of-embedding-requests/854667#post_1</link>
+      <description><![CDATA[大家好！
+我正在开发一个代码，使用 LangChain 和 OpenAI 嵌入（当前为 text-embedding-ada-002）来比较不同的检索器技术，以便在时间、成本和效率方面找到最适合我特定用例的检索器。
+我正在比较以下检索器模式：
 
-即用户上传文件、上传到向量数据库、根据请求类型使用线程向量数据库/持久向量数据库查询文件。
+基础检索器（具有不同的块大小和重叠）
+上下文压缩器检索器
+集成检索器
+多查询检索器
+父文档检索器
+时间加权检索器
 
+为了计算向量存储设置的成本，我使用这种技术：
+model_cost = 0.10 / 1000000
+total_tokens = 0
 
-我现在明白了。Mines 是一个完全不同的用例。但是，如果我要使用您的方法，它将通过租赁或过滤。我似乎记得 Weaviate 推出了一些可能满足您需求的东西。]]></description>
-      <guid>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_6</guid>
-      <pubDate>Fri, 05 Jul 2024 08:35:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 GPT-4o 和助手删除帖子</title>
-      <link>https://community.openai.com/t/how-to-delete-threads-with-gpt-4o-and-assistants/853997#post_9</link>
-      <description><![CDATA[感谢您的贡献。非常感谢。]]></description>
-      <guid>https://community.openai.com/t/how-to-delete-threads-with-gpt-4o-and-assistants/853997#post_9</guid>
-      <pubDate>Fri, 05 Jul 2024 08:34:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 GPT-4o 和助手删除帖子</title>
-      <link>https://community.openai.com/t/how-to-delete-threads-with-gpt-4o-and-assistants/853997#post_8</link>
-      <description><![CDATA[非常感谢您的建议。非常感谢您慷慨解囊。我会尝试这个解决方案。]]></description>
-      <guid>https://community.openai.com/t/how-to-delete-threads-with-gpt-4o-and-assistants/853997#post_8</guid>
-      <pubDate>Fri, 05 Jul 2024 08:33:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>有没有人找到办法阻止 GPT4o 打断用户说话？</title>
-      <link>https://community.openai.com/t/has-anyone-found-a-way-to-stop-gpt4o-from-interrupting-the-user-midsentence/846308#post_5</link>
-      <description><![CDATA[谢谢，
-哇哦，Pipecat 非常令人印象深刻，随着时间的推移，我对 Llama 越来越信任，不幸的是，如果没有美国号码，我无法测试最新的 Claude（我的意思是我可能会弄清楚一些事情，但我没有意愿/也没有愿望，除非有人付钱让我做这件事（即使我看到的那一点点非常令人印象深刻）
-顺便说一下，你指的是哪个演示，
-我看到的最后一个是至少一个月前在 YT 上的视频，标题为“GPT-4o 视觉功能的现场演示”
-你指的是别的东西吗？我刚刚看到有新的“学习一门语言”演示
-顺便说一句，刚刚重新观看了“GPT-4o 视觉功能的现场演示”，并注意到在某些时候声音听起来像机器人，要么是他们有带宽问题，要么是他们故意这样做并“削弱”声音，使其听起来更像机器人/人工智能。我有点倾向于网络问题……
-（不过我最后读到的是 @sama 说他们实际上有更令人印象深刻的语音模型，即将推出™。现在我一直在想这需要什么样的连接
-我曾经在音乐行业工作了很长时间，在学徒和早期我做了很多录音，尽管我的听力确实随着年龄的增长而下降，但我相当确定我不是在想象。一个月前演示中的声音听起来很可疑，要么是因为带宽问题，要么是其他原因，这让我很纳闷他们为什么要发布带有伪影的语音模型演示……到目前为止，我只听到过几次，那是在我使用 GPT4o 交互模式时，网络拥塞导致断电时，
-再次感谢您的提示，以及 Pipecat 演示和提醒，让我移动 Hacker News 书签，这样它就可以从我一直收藏的所有垃圾中再次看到……（我现在的书签/打开的标签卫生状况很差，让我看看……几乎打开了 3000 个标签……:S）]]></description>
-      <guid>https://community.openai.com/t/has-anyone-found-a-way-to-stop-gpt4o-from-interrupting-the-user-midsentence/846308#post_5</guid>
-      <pubDate>Fri, 05 Jul 2024 08:30:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4 问题——准备聊天时出现问题。请刷新页面并重试</title>
-      <link>https://community.openai.com/t/issues-with-gpt-4-there-was-a-problem-preparing-your-chat-please-refresh-the-page-and-try-again/257673?page=2#post_23</link>
-      <description><![CDATA[第一次遇到同样的问题。昨晚我下载了安卓应用并登录，然后桌面上也出现了同样的问题。
-我不得不打开我的安卓应用并退出，然后从桌面退出并重新登录。然后就好了。似乎在不同设备上 2 次活跃登录时会遇到困难。
-可能与帐户共享预防有关 ]]></description>
-      <guid>https://community.openai.com/t/issues-with-gpt-4-there-was-a-problem-preparing-your-chat-please-refresh-the-page-and-try-again/257673?page=2#post_23</guid>
-      <pubDate>Fri, 05 Jul 2024 08:28:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assistant API + gpt4o + filesearch 比 gpt3.5 使用更多 token</title>
-      <link>https://community.openai.com/t/assistant-api-gpt4o-filesearch-uses-more-tokens-then-gpt3-5/854559#post_1</link>
-      <description><![CDATA[您好，我创建了一个使用文件搜索的助手。我有一个系统提示和一个用户查询。
-我注意到，当使用 GPT4o 作为助手时，使用的令牌约为 16,000 个，而当使用 GPT3.5turbo-0125 和相同的提示时，使用的令牌约为 6,000 个？
-为什么令牌会发生变化？我知道输出可能会有所不同，但差异绝不会是 10,000 个令牌。
-我是否忽略了 GPT4o、助手 API 和/或 FileSearch 的某些内容？]]></description>
-      <guid>https://community.openai.com/t/assistant-api-gpt4o-filesearch-uses-more-tokens-then-gpt3-5/854559#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 08:23:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>聊天应用程序的 Vector Store Database 推荐（不是助手？）</title>
-      <link>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_5</link>
-      <description><![CDATA[聊天历史记录我也保存在本地，它是其中的文件，并使它们可进行矢量搜索，这是我试图弄清楚的用例。
-即用户上传文件，上传到矢量数据库，根据请求类型使用线程矢量数据库/持久矢量数据库查询文件。
-将在 Weaviate 中发布，谢谢]]></description>
-      <guid>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_5</guid>
-      <pubDate>Fri, 05 Jul 2024 08:22:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI API 404 错误代码</title>
-      <link>https://community.openai.com/t/openai-api-404-error-code/852710#post_2</link>
-      <description><![CDATA[已修复。对于任何面临类似问题的人来说，问题在于 LLM 中使用的 GPT 模型在此期间已被弃用，需要使用新的推荐替代品。]]></description>
-      <guid>https://community.openai.com/t/openai-api-404-error-code/852710#post_2</guid>
-      <pubDate>Fri, 05 Jul 2024 08:22:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>聊天应用程序的 Vector Store Database 推荐（不是助手？）</title>
-      <link>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_4</link>
-      <description><![CDATA[我使用本地数据库来存储聊天历史记录（线程）。我保留它们，因为我最终可能会使用它们进行微调 - 或者将它们添加为嵌入以增强搜索结果。还没有决定。
-我认为你应该在 Weaviate 论坛上发布你的问题 - 我相信他们可能有一个现成的解决方案给你。]]></description>
-      <guid>https://community.openai.com/t/vector-store-database-recommendations-for-chat-app-not-assistant/854136#post_4</guid>
-      <pubDate>Fri, 05 Jul 2024 08:15:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>聊天 GPT4o 错误，响应循环</title>
-      <link>https://community.openai.com/t/chat-gpt4o-bug-response-loop/854551#post_1</link>
-      <description><![CDATA[出于某种原因，当响应停止时，聊天处于循环中，并开始从乞求开始回答。这使其无法使用。这在 12 点之前开始。]]></description>
-      <guid>https://community.openai.com/t/chat-gpt4o-bug-response-loop/854551#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 08:15:06 GMT</pubDate>
+splits = text_splitter.split_documents(docs)
+encoding = tiktoken.encoding_for_model(&quot;text-embedding-ada-002&quot;)
+
+for chunk in splits:
+total_tokens += len(encoding.encode(chunk.page_content))
+
+total_cost = total_tokens * model_cost
+
+但是，我不确定如何计算对检索器的每个请求的成本。例如，此请求的成本：
+snippets = 检索器.invoke(query)
+
+我尝试使用 get_openai_callback，但没有成功。
+有人能帮我吗？]]></description>
+      <guid>https://community.openai.com/t/computing-the-cost-of-embedding-requests/854667#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 09:55:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
