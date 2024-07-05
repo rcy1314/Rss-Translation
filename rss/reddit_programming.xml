@@ -4,7 +4,63 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>电脑编程</description>
-    <lastBuildDate>Fri, 05 Jul 2024 15:20:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 18:23:59 GMT</lastBuildDate>
+    <item>
+      <title>初级开发人员之死</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw4ewx/the_death_of_the_junior_developer/</link>
+      <description><![CDATA[  由    /u/GuyWithLag  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw4ewx/the_death_of_the_junior_developer/</guid>
+      <pubDate>Fri, 05 Jul 2024 18:09:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>我想和你分享这一点</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw4837/i_would_like_to_share_this_with_you/</link>
+      <description><![CDATA[  由    /u/science_clinic  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw4837/i_would_like_to_share_this_with_you/</guid>
+      <pubDate>Fri, 05 Jul 2024 18:01:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们需要讨论测试</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw43w3/we_need_to_talk_about_testing/</link>
+      <description><![CDATA[  由    /u/stackoverflooooooow  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw43w3/we_need_to_talk_about_testing/</guid>
+      <pubDate>Fri, 05 Jul 2024 17:56:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>I2C MSP430G2553 和 PCA9685 不工作</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw41e6/i2c_msp430g2553_pca9685_not_working/</link>
+      <description><![CDATA[I2C 不工作 大家好，上周某个时候我运行了这段代码，并用逻辑分析仪观察了它，它工作正常。我能够看到正在发送的数据、时钟和通道 1 和 2 上的输出数据。简单解释一下。我首先发送位于 configData[] 数组中的配置字节。然后我循环遍历我想要在通道 1、2 上发送的数据，这些数据位于 TxData[] 数组中。现在我看到它工作了，我为此感到高兴。我想继续研究它，但当我再次运行它时，我无法在逻辑分析仪上看到任何活动。为什么会发生这种情况，我的代码不正确吗？此外，我正在尝试将数据发送到 PCA9685。我使用数据表上的图 21 作为参考。这是我的代码： include &lt;msp430G2553.h&gt; include &lt;msp430.h&gt; unsigned char configData[] = {0x00, 0x10, 0xFE, 0x82,0x00,0x20}; unsigned char TxData[]={0x06,0x00,0x00,0xCD,0x00,0x00,0x00,0x99,0x1}; unsigned char *PTXData; int cntr; int i; int dataSent; void sendData(); void setUp(); void main(void) { WDTCTL = WDTPW | WDTHOLD; P1OUT &amp;= ~BIT6 + ~BIT7; P1SEL |= BIT6 + BIT7; P1SEL2|= BIT6 + BIT7; UCB0CTL1 |= UCSWRST; UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC; UCB0CTL1 = UCSSEL_2 + UCSWRST; UCB0BR0 =100; UCB0BR1 = 0; UCB0I2CSA = 0x40; UCB0CTL1 &amp;= ~UCSWRST; PTXData = TxData; setUp(); while(1) { while (UCB0CTL1 &amp; UCTXSTP); if(dataSent == 1){ UCB0CTL1 = UCTR | UCTXSTT; dataSent =0; } sendData(); }  } void sendData() { // __delay_cycles(800); UCB0TXBUF = *PTXData; *PTXData ++; cntr++; if (cntr == 9) { UCB0CTL1 |= UCTXSTP; PTXData = PTXData-9; cntr = 0; dataSent = 1; }  } void setUp() { UCB0CTL1 = UCTR | UCTXSTT; for (i = 0 ; i &lt;= 5 ; i++) { __delay_cycles(800); UCB0TXBUF = configData[i]; }  &gt;    提交人    /u/EE_Student0524   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw41e6/i2c_msp430g2553_pca9685_not_working/</guid>
+      <pubDate>Fri, 05 Jul 2024 17:53:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>低代码/无代码的兴起：民主化开发与加速创新</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw2yuq/the_rise_of_lowcodenocode_democratizing/</link>
+      <description><![CDATA[  由    /u/Maverickeye  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw2yuq/the_rise_of_lowcodenocode_democratizing/</guid>
+      <pubDate>Fri, 05 Jul 2024 17:08:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 Motoko 解决了 100 道 LeetCode 问题：问题 17 键盘组合</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw25ji/i_solved_100_leetcode_problems_using_motoko/</link>
+      <description><![CDATA[  由    /u/Demali876  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw25ji/i_solved_100_leetcode_problems_using_motoko/</guid>
+      <pubDate>Fri, 05 Jul 2024 16:33:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何以及为何围绕小团队建立我们的初创公司</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw1zcy/how_and_why_we_built_our_startup_around_small/</link>
+      <description><![CDATA[  由    /u/FoxInTheRedBox  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw1zcy/how_and_why_we_built_our_startup_around_small/</guid>
+      <pubDate>Fri, 05 Jul 2024 16:26:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>API 集成中的数据一致性和完整性</title>
+      <link>https://www.reddit.com/r/programming/comments/1dw1ew5/data_consistency_and_integrity_in_api_integration/</link>
+      <description><![CDATA[  由    /u/itsrorymurphy  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1dw1ew5/data_consistency_and_integrity_in_api_integration/</guid>
+      <pubDate>Fri, 05 Jul 2024 16:01:29 GMT</pubDate>
+    </item>
     <item>
       <title>编程语言的演变 - 说你好，世界！ - 教育预览</title>
       <link>https://www.reddit.com/r/programming/comments/1dw0e3u/the_evolution_of_programming_languages_say_hello/</link>
@@ -27,25 +83,11 @@
       <pubDate>Fri, 05 Jul 2024 14:06:19 GMT</pubDate>
     </item>
     <item>
-      <title>初学者友好：如何在 TypeScript 中提取任何数组的索引</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvypcf/beginner_friendly_how_to_extract_the_indexes_of/</link>
-      <description><![CDATA[  由    /u/craciun_07  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvypcf/beginner_friendly_how_to_extract_the_indexes_of/</guid>
-      <pubDate>Fri, 05 Jul 2024 14:00:46 GMT</pubDate>
-    </item>
-    <item>
       <title>191 行 C 语言编译器（Marc Feely 的 tinyc）</title>
       <link>https://www.reddit.com/r/programming/comments/1dvymkf/a_compiler_in_191_lines_of_c_marc_feelys_tinyc/</link>
       <description><![CDATA[  由    /u/Kac3npochhar  提交  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1dvymkf/a_compiler_in_191_lines_of_c_marc_feelys_tinyc/</guid>
       <pubDate>Fri, 05 Jul 2024 13:57:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>你应该知道的 13 个遗留代码重构工具</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvwz48/13_tools_for_legacy_code_refactoring_you_should/</link>
-      <description><![CDATA[  由    /u/codingdecently  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvwz48/13_tools_for_legacy_code_refactoring_you_should/</guid>
-      <pubDate>Fri, 05 Jul 2024 12:37:35 GMT</pubDate>
     </item>
     <item>
       <title>教授 Python</title>
@@ -67,48 +109,6 @@
       <description><![CDATA[  由    /u/LordNeic  提交  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1dvum02/the_enigma_of_mysqls_int11_unraveling_the_mystery/</guid>
       <pubDate>Fri, 05 Jul 2024 10:14:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件开发中的设计模式——你所需要知道的一切</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvulr8/design_patterns_in_software_development_all_you/</link>
-      <description><![CDATA[  由    /u/LordNeic  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvulr8/design_patterns_in_software_development_all_you/</guid>
-      <pubDate>Fri, 05 Jul 2024 10:14:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>将数字转换为文字</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvukqx/convert_numbers_to_words/</link>
-      <description><![CDATA[嗨！ 我正在寻找 Java 或 JavaScript 中的第三方库，可以将数字转换为单词。  从表面上看，这不是一项非常复杂的任务，但我的应用程序将在文档中运行，因此它需要支持各种数字类型以及可以与之配合的任何其他内容。例如，数字可以是电话号码、邮政编码或纯数字。您还可以在数字旁边使用其他符号和字符，例如货币符号和计量单位。有没有什么可以将其转换为单词？ 示例输入 - 我有 3 美元输出 - 我有三美元 输入 - 我的邮政编码是 12345，我的车速是 70 英里/小时。输出 - 我的邮政编码是一二三四五，我的车速是每小时七十英里。    提交人    /u/Budget_Dust9980   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvukqx/convert_numbers_to_words/</guid>
-      <pubDate>Fri, 05 Jul 2024 10:12:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>我该怎么办？我需要一些指导，了解我应该学习哪些语言才能成为足够熟练的自由职业后端开发人员</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvub5o/what_do_i_do_i_need_some_guidance_to_know_what/</link>
-      <description><![CDATA[  由    /u/Admirable_Self_883  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvub5o/what_do_i_do_i_need_some_guidance_to_know_what/</guid>
-      <pubDate>Fri, 05 Jul 2024 09:55:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Monkale CoreDNS-Manager-Operator 管理隔离 k3s 集群中的内部 DNS</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvu7dy/managing_internal_dns_in_airgapped_k3s_clusters/</link>
-      <description><![CDATA[  由    /u/congolomera  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvu7dy/managing_internal_dns_in_airgapped_k3s_clusters/</guid>
-      <pubDate>Fri, 05 Jul 2024 09:47:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>Java 中的元编程仍然有意义吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvtmaf/is_metaprogramming_in_java_still_relevant/</link>
-      <description><![CDATA[  由   提交  /u/Low-Pace-297   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvtmaf/is_metaprogramming_in_java_still_relevant/</guid>
-      <pubDate>Fri, 05 Jul 2024 09:04:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>JavaScript 中的事件循环机制</title>
-      <link>https://www.reddit.com/r/programming/comments/1dvthks/event_loop_mechanism_in_javascript/</link>
-      <description><![CDATA[  由    /u/stackoverflooooooow  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1dvthks/event_loop_mechanism_in_javascript/</guid>
-      <pubDate>Fri, 05 Jul 2024 08:55:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
