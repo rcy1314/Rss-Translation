@@ -4,182 +4,219 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 05 Jul 2024 18:25:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 21:19:28 GMT</lastBuildDate>
     <item>
-      <title>需要 GFX AI 开发人员 项目需要！</title>
-      <link>https://community.openai.com/t/gfx-ai-developer-required-project-in-need/855152#post_1</link>
-      <description><![CDATA[大家好，
-抱歉，我是这个论坛的新手，所以请原谅我的新账户。我们正在寻找一位经验丰富的开发人员来协助我们目前在英国开发的一个非常令人兴奋的项目。不需要在英国工作。
-该项目本身需要一个人工智能平台来分析房间图像并移除物品（家具、地毯、绘画、电视），并用内容感知填充物重新填充空置空间，本质上将房间重新变为空置空间。
-目前市场上有非常相似的应用程序，但没有一个适合我们的特定领域和特定的集成目的。
-这是一个非常令人兴奋的项目，完成后会有客户等待，我们很乐意聘请一位经验丰富的开发人员。如果有人对我上面提到的内容有任何经验，或者对我应该去哪里寻找有什么建议，请告诉我！
-谢谢大家，
-亚历克斯]]></description>
-      <guid>https://community.openai.com/t/gfx-ai-developer-required-project-in-need/855152#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 18:01:17 GMT</pubDate>
+      <title>带有 RAG 的 FlexiAI 开源框架🌐</title>
+      <link>https://community.openai.com/t/flexiai-open-source-framework-with-rag/855047#post_2</link>
+      <description><![CDATA[明天我会添加一个更好更短的视频。]]></description>
+      <guid>https://community.openai.com/t/flexiai-open-source-framework-with-rag/855047#post_2</guid>
+      <pubDate>Fri, 05 Jul 2024 21:05:47 GMT</pubDate>
     </item>
     <item>
-      <title>Assistant API + gpt4o + filesearch 比 gpt3.5 使用更多 token</title>
-      <link>https://community.openai.com/t/assistant-api-gpt4o-filesearch-uses-more-tokens-then-gpt3-5/854559#post_2</link>
-      <description><![CDATA[GPT-4 模型默认从搜索中返回 20 个块
-GPT-3.5，5 个块]]></description>
-      <guid>https://community.openai.com/t/assistant-api-gpt4o-filesearch-uses-more-tokens-then-gpt3-5/854559#post_2</guid>
-      <pubDate>Fri, 05 Jul 2024 17:25:16 GMT</pubDate>
+      <title>OpenAI：请在当前 OpenAI API 上训练 ChatGPT</title>
+      <link>https://community.openai.com/t/openai-please-train-chatgpt-on-the-current-openai-api/852826#post_4</link>
+      <description><![CDATA[同意这可能是一个很好且有用的补充。]]></description>
+      <guid>https://community.openai.com/t/openai-please-train-chatgpt-on-the-current-openai-api/852826#post_4</guid>
+      <pubDate>Fri, 05 Jul 2024 20:51:42 GMT</pubDate>
     </item>
     <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_7</link>
-      <description><![CDATA[有趣的是，他们似乎在最近的 openai python 中放回了非实例化操作：
+      <title>AI 助手 API 未以正确的语言响应</title>
+      <link>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_4</link>
+      <description><![CDATA[是的，我明白，只是我发现我的代码没有问题。但还是要谢谢你！
+// 免费生成的端点
+app.post(‘/api/get-ai-response-free’, async (req, res) =&gt; {
+const { input, startDate } = req.body;
 
-响应对象仍然是一个新的 Pydantic 模型，具有属性和内部对象，需要新的解析。
-q.choices[0].message.__class__
-&lt;class &#39;openai.types.chat.chat_completion_message.ChatCompletionMessage&#39;&gt;
+console.log(`已收到带有输入的请求：${inputs}，startDate：${startDate}`);
+
+try {
+const assistantId = FREE_GENERATION_ASSISTANT_ID;
+
+
+// 步骤 1：创建新线程
+const threadResponse = await axios.post(https://api.openai.com/v1/threads, {}, {
+headers: {
+‘Authorization’: Bearer ${OPENAI_API_KEY&gt;,
+‘Content-Type’: ‘application/json’,
+‘OpenAI-Beta’: ‘assistants=v2’
+&gt;
+});
+const threadId = threadResponse.data.id;
+console.log(‘Created new thread with ID:’, threadId);
+// 第 2 步：向线程添加消息
+await axios.post(https://api.openai.com/v1/threads/${threadId}/messages, {
+role: ‘user’,
+content: 用户的输入：${inputs}。他们开始于：${startDate}。请根据此信息提供建议。
+}, {
+headers: {
+‘Authorization’: Bearer ${OPENAI_API_KEY}，
+‘Content-Type’：‘application/json’，
+‘OpenAI-Beta’：‘assistants=v2’
+&gt;
+});
+// 步骤 3：运行助手
+let run_res = await axios.post(https://api.openai.com/v1/threads/${threadId}/runs，{ assistant_id：assistantsId }，{
+headers：{
+‘Authorization’：Bearer ${OPENAI_API_KEY}，
+‘Content-Type’：‘application/json’，
+‘OpenAI-Beta’：‘assistants=v2’
+&gt;
+});
+console.log(正在运行助手，ID：${assistantId}，运行 ID：，run_res.data.id);
+// 等待助手完成
+while (run_res.data.status !== ‘completed’) {
+await new Promise(resolve =&gt; setTimeout(resolve, 1000));
+run_res = await axios.get(https://api.openai.com/v1/threads/${threadId}/runs/${run_res.data.id&gt;, {
+headers: {
+‘Authorization’: Bearer ${OPENAI_API_KEY&gt;,
+‘Content-Type’: ‘application/json’,
+‘OpenAI-Beta’: ‘assistants=v2’
+&gt;
+});
+console.log(‘Assistant run status:’, run_res.data.status);
+
+// 步骤 4：检索响应
+const finalResponse = await axios.get(https://api.openai.com/v1/threads/${threadId}/messages, {
+headers: {
+‘授权’: Bearer ${OPENAI_API_KEY}，
+‘内容类型’: ‘application/json’，
+‘OpenAI-Beta’: ‘assistants=v2’
+&gt;
+});
+const assistantMessage = finalResponse.data.data.find(msg =&gt; msg.role === ‘assistant’).content[0];
+console.log(‘收到来自助手的响应：’, assistantMessage.text.value);
+res.json({ response: assistantMessage.text.value });
 ]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_7</guid>
-      <pubDate>Fri, 05 Jul 2024 17:21:13 GMT</pubDate>
+      <guid>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_4</guid>
+      <pubDate>Fri, 05 Jul 2024 20:46:25 GMT</pubDate>
     </item>
     <item>
-      <title>无法使用的 ChatGPT 的最佳替代方案是什么？</title>
-      <link>https://community.openai.com/t/what-is-the-best-alternative-to-unusable-chatgpt/855109#post_1</link>
-      <description><![CDATA[ChatGPT 付费版（和免费版）实际上已经无法使用，完全无用。您发现哪些替代程序最适合您？]]></description>
-      <guid>https://community.openai.com/t/what-is-the-best-alternative-to-unusable-chatgpt/855109#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 17:07:17 GMT</pubDate>
+      <title>AI 助手 API 未以正确的语言响应</title>
+      <link>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_3</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/ai-assistant-api-not-responding-in-the-correct-language/854717#post_3</guid>
+      <pubDate>Fri, 05 Jul 2024 20:44:33 GMT</pubDate>
     </item>
     <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_6</link>
-      <description><![CDATA[我用这个让它工作了：
-import openai
-
-openai.api_key = &#39;sk-proj-xxx&#39;
-
-completion = openai.chat.completions.create(
-model=&quot;gpt-4o&quot;,
-messages=[
-{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;按提示操作&quot;},
-{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;说，&#39;Hello, World!&#39;}
-]
+      <title>Chatgbt 4.0 超级慢</title>
+      <link>https://community.openai.com/t/chatgbt-4-0-is-super-slow/855264#post_1</link>
+      <description><![CDATA[自从我升级到 4.0 版本后，chatgbt 就变得非常慢，即使提示相同。还有人遇到这个问题吗？]]></description>
+      <guid>https://community.openai.com/t/chatgbt-4-0-is-super-slow/855264#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 20:30:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 付费帐户自 5 月起就无法使用</title>
+      <link>https://community.openai.com/t/chatgpt-paid-account-hasnt-worked-since-may/855258#post_1</link>
+      <description><![CDATA[我从 5 月开始就遇到这个问题。OpenAI 对我没有任何帮助。我即将要求退款并取消我的帐户。
+我已经尝试了所有“修复方法”，但都没有用。OpenAI 是否正在帮助任何遇到同样问题的人？我使用 ChatGPT，在 3-6 个基本提示内，它说我已达到极限。它把我当成免费用户。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-paid-account-hasnt-worked-since-may/855258#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 20:21:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经支付了订阅费，但无法使用 chatgpt 账户</title>
+      <link>https://community.openai.com/t/i-have-paid-the-subscription-fees-but-i-am-unable-to-use-chatgpt-account/774332#post_2</link>
+      <description><![CDATA[我从 5 月份开始就遇到了同样的问题。OpenAI 一直没有给我任何帮助。我准备要求退款并取消我的账户。我不能使用它，但我正在为它付费。
+我已经尝试了所有的“修复方法”，但都没有用。OpenAI 会帮助任何遇到同样问题的人吗？&gt;]]></description>
+      <guid>https://community.openai.com/t/i-have-paid-the-subscription-fees-but-i-am-unable-to-use-chatgpt-account/774332#post_2</guid>
+      <pubDate>Fri, 05 Jul 2024 20:16:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用来自不受支持区域的流量识别 API 密钥</title>
+      <link>https://community.openai.com/t/identifying-api-keys-with-traffic-from-unsupported-regions/837837#post_7</link>
+      <description><![CDATA[（帖子已被作者删除）]]></description>
+      <guid>https://community.openai.com/t/identifying-api-keys-with-traffic-from-unsupported-regions/837837#post_7</guid>
+      <pubDate>Fri, 05 Jul 2024 19:52:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求 ChatGPT 的新功能</title>
+      <link>https://community.openai.com/t/request-a-new-feature-for-chatgpt/41624?page=3#post_60</link>
+      <description><![CDATA[不仅仅是标题，搜索所有聊天内容都会非常有帮助。]]></description>
+      <guid>https://community.openai.com/t/request-a-new-feature-for-chatgpt/41624?page=3#post_60</guid>
+      <pubDate>Fri, 05 Jul 2024 19:35:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI API Assistant 在上传的文件中未找到文件</title>
+      <link>https://community.openai.com/t/openai-api-assistant-does-not-find-file-in-the-uploaded-files/855212#post_1</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/openai-api-assistant-does-not-find-file-in-the-uploaded-files/855212#post_1</guid>
+      <pubDate>Fri, 05 Jul 2024 19:30:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>RateLimitError：429 您已超出每分钟 300 个请求的速率限制</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_7</link>
+      <description><![CDATA[由 ChatGPT 翻译：
+答案是，当使用 ChatGPT（不是提供错误状态代码的 OpenAI API）时，GPT-4 在每三小时 40 个条目后受到限制，而 GPT-4o 在每三小时 80 个条目后受到限制。 ]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_7</guid>
+      <pubDate>Fri, 05 Jul 2024 19:29:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>助理 API code_interpreter 输出未填充</title>
+      <link>https://community.openai.com/t/assistant-api-code-interpreter-output-not-populated/848963#post_2</link>
+      <description><![CDATA[嗨 Daniel，只需修复你的提示，如“使用代码计算前 10 个斐波那契数并运行算法”
+就我而言，我使用 Python。一旦运行线程并达到完成状态，则：
+run_steps = client.beta.threads.runs.steps.list(
+thread_id=thread.id,
+run_id=run.id
 )
 
-print(completion.choices[0].message.content) 
+for i in range(len(run_steps.data)):
+sd = data[i].step_details
+if sd.type == &quot;tool_calls&quot;:
+tool_call_detail = sd.tool_calls 
+print(tool_call_detail[0].code_interpreter.input) # 算法
+print(tool_call_detail[0].code_interpreter.outputs[0].logs) # 输出
 
-谢谢！]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_6</guid>
-      <pubDate>Fri, 05 Jul 2024 17:02:43 GMT</pubDate>
+我的输出是：
+算法：# 生成前 n 个斐波那契数并打印它们的函数
+def fibonacci_with_print(n):
+fib_sequence = [0, 1]
+print(fib_sequence[0])
+print(fib_sequence[1])
+while len(fib_sequence) &lt; n:
+next_num = fib_sequence[-1] + fib_sequence[-2]
+fib_sequence.append(next_num)
+print(next_num)
+return fib_sequence[:n]
+
+# 运行算法生成并打印前 10 个斐波那契数
+fibonacci_numbers_with_print = fibonacci_with_print(10)
+fibonacci_numbers_with_print
+输出：0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+希望这对您有用。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-code-interpreter-output-not-populated/848963#post_2</guid>
+      <pubDate>Fri, 05 Jul 2024 19:19:02 GMT</pubDate>
     </item>
     <item>
-      <title>万事达借记卡正在减少</title>
-      <link>https://community.openai.com/t/mastercard-debit-card-is-declining/559573#post_2</link>
-      <description><![CDATA[同样的问题，我来自喀麦隆，有 une visa 卡]]></description>
-      <guid>https://community.openai.com/t/mastercard-debit-card-is-declining/559573#post_2</guid>
-      <pubDate>Fri, 05 Jul 2024 17:02:20 GMT</pubDate>
+      <title>Chatgpt 4.0 错误 - “检测到您的设备有异常活动。请稍后再试。”</title>
+      <link>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_4</link>
+      <description><![CDATA[这里也发生了同样的事情。
+我在谷歌上发现一些消息说这可能是由于 VPN 处于活动状态，但我没有使用 VPN。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-0-error-unusual-activity-has-been-detected-from-your-device-try-again-later/820078#post_4</guid>
+      <pubDate>Fri, 05 Jul 2024 19:18:10 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能助手没有回应</title>
-      <link>https://community.openai.com/t/ai-assistant-not-responding-with-a-response/601358#post_15</link>
-      <description><![CDATA[嘿，如果您仍然遇到 Assistant 问题，请测试一下，也许会对您有所帮助。
-
-
-
-适用于 OpenAI 和 Azure-OpenAI 的 FlexiAI 开源框架 API
-
-
-FlexiAI
-FlexiAI 是一个多功能 AI 框架，可与 OpenAI 和 Azure OpenAI 服务无缝集成。它具有先进的检索增强生成 (RAG)，可用于动态信息检索和任务执行。FlexiAI 支持多平台集成、强大的日志记录、广泛的可配置性以及安全、可扩展的性能。全面的文档和示例脚本使入门变得简单。
-GitHub 存储库：GitHub - SavinRazvan/flexiai
-视频演示
-
-
-[FlexiAI …
-
-]]></description>
-      <guid>https://community.openai.com/t/ai-assistant-not-responding-with-a-response/601358#post_15</guid>
-      <pubDate>Fri, 05 Jul 2024 16:57:54 GMT</pubDate>
+      <title>GPT-4-o 使用 Markdown 返回答案</title>
+      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_10</link>
+      <description><![CDATA[嗯，这没有意义。我通常会告诉它，当它响应时，将其响应转换为 Microsoft Word 文档。这对我来说总是有效的。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_10</guid>
+      <pubDate>Fri, 05 Jul 2024 18:53:01 GMT</pubDate>
     </item>
     <item>
-      <title>在审阅 Word 文档时，ChatGPT 不会审阅或考虑所有细节</title>
-      <link>https://community.openai.com/t/when-reviewing-a-word-document-chatgpt-does-not-review-or-take-into-account-all-the-details/849927#post_3</link>
-      <description><![CDATA[情况变得非常糟糕。我希望我能给出建议，但我认为除非发布修复漏洞的版本，否则情况不会好转。]]></description>
-      <guid>https://community.openai.com/t/when-reviewing-a-word-document-chatgpt-does-not-review-or-take-into-account-all-the-details/849927#post_3</guid>
-      <pubDate>Fri, 05 Jul 2024 16:57:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_5</link>
-      <description><![CDATA[https://platform.openai.com/docs/api-reference/chat/create?lang=python 
-
-您调用了完成响应，因此请根据需要切换它，然后
-只需添加 .content ]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_5</guid>
-      <pubDate>Fri, 05 Jul 2024 16:51:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_4</link>
-      <description><![CDATA[这是输出。
-ChatCompletion(id=&#39;chatcmpl-9hg9DZxg3ivUzkhc7hvtv5pjq6RB9&#39;, choice=[Choice(finish_reason=&#39;stop&#39;, index=0, logprobs=None, message=ChatCompletionMessage(content=&#39;Hello, World!&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1720197147, model=&#39;gpt-4-0613&#39;, object=&#39;chat.completion&#39;, service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=4, prompt_tokens=21, total_tokens=25))
-
-我可以在那里，我想知道是否有办法只打印那部分。]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_4</guid>
-      <pubDate>Fri, 05 Jul 2024 16:47:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_3</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_3</guid>
-      <pubDate>Fri, 05 Jul 2024 16:46:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅清理内容的 API JSON 响应</title>
-      <link>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_2</link>
-      <description><![CDATA[欢迎加入社区！
-您的打印语句的输出是什么？它应该相当容易导航。
-此外，您可以查看文档中的示例 
-https://platform.openai.com/docs/api-reference/chat/create?lang=python]]></description>
-      <guid>https://community.openai.com/t/cleaning-api-json-response-to-content-only/855021#post_2</guid>
-      <pubDate>Fri, 05 Jul 2024 16:40:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>即使我已付款，访问 GPT 4 仍存在问题</title>
-      <link>https://community.openai.com/t/problema-com-acesso-ao-gpt-4-mesmo-tendo-pago/141075?page=2#post_25</link>
-      <description><![CDATA[我也有同样的问题。我为 GPT4 聊天付费，但它与我的帐户没有关联！有光吗？ OpenAI 支持团队的任何人都阅读了此处提出的问题吗？
-有什么方法可以联系公司支持人员吗？]]></description>
-      <guid>https://community.openai.com/t/problema-com-acesso-ao-gpt-4-mesmo-tendo-pago/141075?page=2#post_25</guid>
-      <pubDate>Fri, 05 Jul 2024 16:32:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何为AI助手准备数据？</title>
-      <link>https://community.openai.com/t/how-to-prepare-data-for-ai-assistant/854797#post_4</link>
-      <description><![CDATA[Selenium 之类的工具可以提供高质量的文本，但同时也非常繁重，需要托管页面。因此，我们不考虑渲染技术。
-相反，请转到此处，其中的链接是“html-to-markdown”：
-
-
-
-GitHub
-
-
-
-GitHub - mundimark/awesome-markdown：一组很棒的 markdown 好东西...
-一组很棒的 markdown 好东西（库、服务、编辑器、工具、备忘单等） - mundimark/awesome-markdown
-
-
-
-
-]]></description>
-      <guid>https://community.openai.com/t/how-to-prepare-data-for-ai-assistant/854797#post_4</guid>
-      <pubDate>Fri, 05 Jul 2024 16:23:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>适用于 OpenAI 和 Azure-OpenAI 的 FlexiAI 开源框架</title>
-      <link>https://community.openai.com/t/flexiai-open-source-framework-for-openai-and-azure-openai/855047#post_1</link>
-      <description><![CDATA[FlexiAI
-FlexiAI 是一个多功能 AI 框架，可与 OpenAI 和 Azure OpenAI 服务无缝集成。它具有先进的检索增强生成 (RAG)，可用于动态信息检索和任务执行。FlexiAI 支持多平台集成、强大的日志记录、广泛的可配置性以及安全、可扩展的性能。全面的文档和示例脚本使入门变得简单。
-GitHub 存储库：GitHub - SavinRazvan/flexiai
-视频演示
-FlexiAI 框架]]></description>
-      <guid>https://community.openai.com/t/flexiai-open-source-framework-for-openai-and-azure-openai/855047#post_1</guid>
-      <pubDate>Fri, 05 Jul 2024 16:15:11 GMT</pubDate>
+      <title>RateLimitError：429 您已超出每分钟 300 个请求的速率限制</title>
+      <link>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_6</link>
+      <description><![CDATA[你好。一个问题：即使对于那些订阅了 GPT-4o 的人来说，是否有每日使用限制？如果是，限制是多少？我刚刚收到一条消息，说我已达到极限...]]></description>
+      <guid>https://community.openai.com/t/ratelimiterror-429-youve-exceeded-the-300-request-min-rate-limit/846491#post_6</guid>
+      <pubDate>Fri, 05 Jul 2024 18:50:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
