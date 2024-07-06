@@ -3,8 +3,43 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Sat, 06 Jul 2024 03:22:11 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Sat, 06 Jul 2024 06:23:56 GMT</lastBuildDate>
+    <item>
+      <title>建议：如何构建前端和后端之间的数据传输和数据安全/质量检查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dwj5st/advice_how_to_structure_data_transfer_and_data/</link>
+      <description><![CDATA[我是一名主要从事前端工作的开发人员，在个人项目中首次进入全栈工作。我在尝试弄清楚如何传输数据并检查其有效性时遇到了麻烦，因为数据从前端传输到数据库。   我目前的项目设置方式是，每次网站启动时，后端都会从数据库接收相关数据，并将副本发送到前端。 当用户尝试进行持久更改时，前端将首先进行错误处理。现在，我仅让它检查绝对不可能的事情 - 比如某些可能尝试将元素移动到数组中位置 -1 的行为。执行纸面上“非法”的操作（例如，当元素只能涂成红色或蓝色时，尝试将其涂成绿色）将导致 HTML 中发生更改，并且仍会向后端发送保存请求。 只要更改没有出错，就会立即在前端的数据存储中（以及 HTML 中）发生更改。这意味着在第一个更改完全保存到后端之前，可能会发生两个连续的持久更改。然后，前端的整个数据对象将通过许多可能的发布请求之一发送到后端。 后端接收数据对象，并根据发布请求的内容验证更改是否允许，并与发布请求期望在其自己的数据副本中更改的内容相匹配。这是通过后端将其自己的数据副本与从发布中收到的更改数据进行比较来完成的。因此，如果用户调用 `elementColorChanged` 发布请求，并进行非法颜色更改（仅通过与 HTML 交互是不可能做到的），则会引发错误。同样，如果用户调用 `elementColorChanged`，并且与后端的数据副本相比，发送到后端的数据没有任何颜色变化，则会引发错误。 如果没有错误（只要用户始终以常规方式与页面交互，理论上应该发生这种情况），后端会用前端发送给它的数据替换其数据副本，并将其存储在数据库中。如果后端由于数据不合法而出错，则用户将失去所有后续保存数据的尝试，并且必须刷新页面。   以下是该流程的更好的可视化： 1. 用户尝试进行持久更改 2. FRONTEND 检查此更改是否 ~可能~ 3. 如果是，前端将更新其数据表示，并通过发布请求将整个数据对象发送到后端 4. BACKEND 将收到的数据与其自己的副本进行比较。本质上，后端检查此更改是否 ~允许~。 5. 如果更改是允许的，则更新后端的表示并保存数据。如果不允许，则停止前端活动   我想知道这是否是“正确”的方法，或者是否有更好或更普遍接受的方法。我正在考虑仅让发布请求包含有关需要更改的内容的具体数据（即 `elementColorChanged` 只会接收哪个元素和哪种颜色，而不是整个数据副本）。这不仅会减少每次调用发送的数据，还会使数据验证变得更加简单。也就是说，我还需要让后端执行与前端数据完全相同的更改操作，这意味着实际需要的计算量是两倍。 除此之外，我对数据验证和清除几乎没有经验。除了抛出错误之外，我可能只会在后面使用 JOI 验证，但是关于如何处理这个问题的任何其他建议对我来说都非常重要。我的方法似乎是正确的，因为用户唯一应该失去进度的时候是他们执行非法操作的时候。 如果这很重要，我正在使用没有额外库（没有 Angular 或 React）的 Typescript、Express，虽然我目前只是使用我自己的一组文件作为“后端”，但我目前正在过渡到使用 SQL。   由    /u/Feisty_Fact_8429  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dwj5st/advice_how_to_structure_data_transfer_and_data/</guid>
+      <pubDate>Sat, 06 Jul 2024 06:23:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>我将“Killedbygoogle”重写为完整版本，大小从 1 MB 减小到 6KB</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dwiw3x/i_rewrite_killedbygoogle_to_full_vanilla_reduced/</link>
+      <description><![CDATA[网站：https://killedbygoogle.kuroiru.co/ 将“killedbygoogle.com”网站复制到非常简单的原始网站，没有任何依赖项/库。它不是 100% 复制的，因为这只是为了好玩，而且我昨晚才做的。 标题中的大小比较是浏览器加载的总 HTML、CSS 和 JS。没有图像。    提交人    /u/thdr76   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dwiw3x/i_rewrite_killedbygoogle_to_full_vanilla_reduced/</guid>
+      <pubDate>Sat, 06 Jul 2024 06:05:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果 Google Drive 有更好的 AI 和类似 Slack 的渠道会怎样？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dwhl01/what_if_google_drive_had_better_ai_and_slacklike/</link>
+      <description><![CDATA[虽然像 Slack 这样的传统聊天平台在实时通信方面表现出色，但它们通常缺乏组织性，并且难以处理历史背景。例如，想象一下在一个项目中，关键的决策和讨论被埋在长长的 Slack 线程中或分散在不同的 Discord 频道中。在这种情况下，查找过去的对话成为一项繁琐的任务，导致效率低下和误解。 在 The Drive AI，我们开发了聊天频道和 DM 来解决这些挑战。我们平台中的每个聊天都直接与相关项目文件相关联，确保讨论与相关文档一起易于访问。这种集成不仅提高了清晰度，而且还通过将所有通信和项目相关信息集中在一个地方简化了协作。 试一试：https://thedrive.ai    提交人    /u/karkibigyan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dwhl01/what_if_google_drive_had_better_ai_and_slacklike/</guid>
+      <pubDate>Sat, 06 Jul 2024 04:45:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Tailwind 配置库是否应该提供字体？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dwhdft/should_a_tailwind_config_library_provide_fonts/</link>
+      <description><![CDATA[我有一个 tailwind 配置库，其中包含适用于各种品牌的 tailwind.config.ts。它还包括带有 @layer 和 font-face 的 style.css，因为每个品牌都有不同的字体。 然后，消费者只需将 tailwind 配置用作预设 + 导入 input.css 中的 css。 从用户体验的角度来看，用户不必担心字体。但这是好的做法吗？应该使用 tailwind-config 库来托管字体吗？ 不确定如果库中引用 font-face 路径是否会正常工作。然后消费者导入该 css 表。    提交人    /u/GloopBloopan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dwhdft/should_a_tailwind_config_library_provide_fonts/</guid>
+      <pubDate>Sat, 06 Jul 2024 04:32:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何通过为 +18 Discord 服务器开发机器人让我成为一名更好的开发人员。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1dwggrb/how_working_on_a_bot_for_a_18_discord_server_made/</link>
+      <description><![CDATA[        由    /u/Huijiro  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1dwggrb/how_working_on_a_bot_for_a_18_discord_server_made/</guid>
+      <pubDate>Sat, 06 Jul 2024 03:39:58 GMT</pubDate>
+    </item>
     <item>
       <title>IMG 标签中的随机图像？</title>
       <link>https://www.reddit.com/r/webdev/comments/1dwfh0l/random_image_in_img_tag/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[一周多前，我开始从事一个项目（游戏实用程序/数据分析应用程序）。到目前为止，我已经使用 Next.js 创建了一个前端，它目前使用 Firebase 身份验证。 我是创建 Web 应用程序的新手，因此我对如何处理后端和部署感到很困惑。 对于后端，我很纠结是将现有的 Firebase 身份验证与 Supabase 结合用于其余后端，还是使用完整的 Supabase 后端，这需要对我的身份验证系统进行一些修改。我想使用 Supabase 的原因是，我可以使用 PostgreSQL 来分析用户导入的数据（我愿意接受其他替代方案）。我还需要向游戏的 API 发送请求。 至于部署，我最初计划使用 Vercel 来实现 Next.js 兼容性，但显然它在扩展时非常昂贵。我预计使用量会相当大（每月访问量不到 100 万到 500 万次）。我现在正在决定是使用 DigitalOcean、某种 AWS 设置还是其他可行的替代方案。    提交人    /u/tristvn6   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1dw7rd2/looking_for_stack_advice/</guid>
       <pubDate>Fri, 05 Jul 2024 20:34:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个浏览器扩展程序来隐藏 YouTube Shorts</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dw6llh/i_made_a_browser_extension_to_hide_youtube_shorts/</link>
-      <description><![CDATA[昨天我无意中点击了一个狡猾的 YouTube Short 视频，无法停止滚动，于是就有了这个想法。这让人精神疲惫，你总会后悔自己浪费了多少时间，所以我做了这个浏览器扩展来一劳永逸地拯救人类，享受它 ;) 链接到 chrome 网上应用店 如果你喜欢，请给我五颗星    提交人    /u/Beginning-Roof4889   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dw6llh/i_made_a_browser_extension_to_hide_youtube_shorts/</guid>
-      <pubDate>Fri, 05 Jul 2024 19:43:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何让 Google 索引用户生成的内容？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dw6j6i/how_to_get_google_to_index_user_generated_content/</link>
-      <description><![CDATA[假设我的网站具有一项功能，用户可以在其中创建内容。系统将为每条用户生成的内容生成一个唯一的 URL。其格式为 $BASE_URL/$RESOURCE_NAME/$UUID。这些资源可通过用户应用程序门户进行探索和管理，但除此之外不会在网站上链接。 我能否在 Google 抓取我的网站时告诉他们要索引这些 URL 中的哪些？    提交人    /u/spline_reticulator   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dw6j6i/how_to_get_google_to_index_user_generated_content/</guid>
-      <pubDate>Fri, 05 Jul 2024 19:40:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要技术栈方面的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dw66ba/need_advice_on_a_tech_stack/</link>
-      <description><![CDATA[我需要一些帮助来为个人项目选择技术堆栈。我对所有可能性感到有点不知所措。 个人经历 我有大约 2 年的 Web 开发经验。我最熟悉的是 Laravel、Vue 和 Nuxt。但我也有一些使用 React 和 Angular 的经验。我对 SQL 也非常熟悉。 应用程序要求 对我来说，最重要的是托管应用程序应该相对容易且便宜。 应用程序本身将是一个简单的类似博客的网站，它在服务器端呈现。它需要一个管理面板来管理新闻项目等基本内容。当然还有一个存储数据的地方。有些内容会有图像，所以我也需要存储文件。 我目前考虑过的事情  Laravel。我对使用 Laravel 犹豫不决，因为托管可能比较昂贵，而且托管附带了一大堆需要配置和维护的东西。 Nuxt。但在使用数据库方面，我并不完全确定它的功能。我对 nuxt 的唯一经验是作为前端。使用 nuxt 时，Supabase 看起来是数据存储的一个很好的解决方案，但免费计划中的 1gb 文件存储空间让我有点担心。     提交人    /u/Myxtro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dw66ba/need_advice_on_a_tech_stack/</guid>
-      <pubDate>Fri, 05 Jul 2024 19:25:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无意中使用了没有许可证的字体，现在尽管我更改了它，他们却威胁要“采取法律行动”。我该怎么办？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dw3m8f/i_accidentally_used_a_font_that_i_dont_have_the/</link>
-      <description><![CDATA[在我的个人网站上，我使用了一种字体，它似乎有许可证。我从一个免费字体网站下载了它，所以我并没有真正考虑过它。 几周前，我收到 FontRadar 发来的一封电子邮件，说我必须付费才能使用该字体。我多次尝试回复电子邮件，说我不知道​​这一点，并立即将其更改为其他字体（我一直收到一条自动消息，说他们的垃圾邮件过滤器阻止了我的电子邮件）。当它通过时，我得到的答复是我仍然必须支付许可证费用。我决定不再回复（我在网上查看了一下，发现更多人有这个特定的问题。他们被建议根本不要回复，只需更改字体。也许我不应该回复第一封电子邮件）。现在我每周都会收到一封新电子邮件，要求我为字体付费。本周他们说他们将采取“法律行动”。 我该怎么办？我立即更改了字体，因为我并不是那么需要这种字体。这只是一个小型的个人网站。但他们却一直发邮件。 我来自荷兰，如果这有区别的话。    提交人    /u/faksalvemundi   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dw3m8f/i_accidentally_used_a_font_that_i_dont_have_the/</guid>
-      <pubDate>Fri, 05 Jul 2024 17:36:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>聊天后端设计的改进</title>
-      <link>https://www.reddit.com/r/webdev/comments/1dw3kgr/improvements_for_this_chat_backend_design/</link>
-      <description><![CDATA[      请为我提供针对 5-10k 用户的聊天应用后端设计的建议和改进，如果将来可以扩展，我应该对数据库进行查询以保存每条消息或以某种方式批量发送？    提交人    /u/InappropriateUseR_Id   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1dw3kgr/improvements_for_this_chat_backend_design/</guid>
-      <pubDate>Fri, 05 Jul 2024 17:34:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
