@@ -3,8 +3,29 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Thu, 11 Jul 2024 01:20:07 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Thu, 11 Jul 2024 03:23:10 GMT</lastBuildDate>
+    <item>
+      <title>行军蚂蚁边界：已解决</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e0e5sr/marching_ants_border_solved/</link>
+      <description><![CDATA[我一直在尝试寻找一种在 div 上创建行进蚂蚁边框的方法。如果你谷歌一下，你会找到很多有效的解决方案，但我一直在寻找一种使用纯 CSS 而不使用 javascript 或 SASS 或多张图片或动画图片的方法。答案是 SVG 背景图像。 此 SVG： &lt;svg width=&#39;100%&#39; height=&#39;100%&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39;&gt; &lt;rect width=&#39;100%&#39; height=&#39;100%&#39; fill=&#39;none&#39; stroke=&#39;#333&#39; stroke-width=&#39;2&#39; stroke-dasharray=&#39;3, 6&#39; stroke-dashoffset=&#39;0&#39; stroke-linecap=&#39;round&#39;&gt; &lt;animate attributeName=&quot;stroke-dashoffset&quot; values=&quot;9;0&quot; dur=&quot;1s&quot; repeatCount=&quot;indefinite&quot; /&gt; &lt;/rect&gt; &lt;/svg&gt; 在 CSS 中使用时必须是 URI 编码，如下所示： .myElement { background-image: url(&quot;数据：图像/ svg + xml，％3Csvg％20width％3D％27100％25％27％20height％3D％27100％25％27％20xmlns％3D％27http％3A //www.w3.org/2000/svg％27％3E％0A％20％20％3Crect％20width％3D％27100％25％27％20height％3D％27100％25％27％20fill％3D％27none％27％20stroke％3D％27％23333％27％20stroke-width％3D％272％27％20stroke-dasharray％3D％273％2C％206％27％20stroke -dashoffset%3D%270%27%20stroke-linecap%3D%27round%27%3E%0A%20%20%20%20%3Canimate%0A%20%20%20%20attributeName%3D%22stroke-dashoffset%22%0A%20%20%20%20values%3D%229%3B0%22%0A%20%20%20%20dur%3D%22.5s%22%0A%20%20%20%20repeatCount%3D%22indefinite%22%20/%3E%0A%20%20%20%20%3C/rect%3E%0A%3C/svg%3E&quot;); /&gt;   注意 stroke-dasharray：a，b，其中 a = 虚线的宽度，b = 虚线和其后的空白的宽度。 动画属性名称和值：我们正在移动虚线的起点。9 是起始值（dasharray a + b），0 是终止值。反转它们以使蚂蚁逆时针移动。 现在，如果您使用混合模式，SVG 边框将停止可靠工作：在大多数情况下，边框根本不显示。在这种情况下，将边框应用于新的 div 和大小，然后将其放置在混合 div 上方。 要只有一个平面边框（悬停时为蚂蚁，正常情况下为实心）： &lt;svg width=&#39;100%&#39; height=&#39;100%&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39;&gt; &lt;rect width=&#39;100%&#39; height=&#39;100%&#39; fill=&#39;none&#39; stroke=&#39;#333&#39; stroke-width=&#39;2&#39; /&gt; &lt;/svg&gt; Codepen.   由    /u/mapsedge  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e0e5sr/marching_ants_border_solved/</guid>
+      <pubDate>Thu, 11 Jul 2024 02:33:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>在应用程序或网站上复制此抽认卡的最佳方法是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e0durt/what_is_the_best_way_to_replicate_this_flashcard/</link>
+      <description><![CDATA[因此，我正在尝试为自己创建一个应用程序，它是一个抽认卡应用程序，如下所示：https://imgur.com/Widj7co  我将随时创建卡片。 会有一个音频按钮 我至少想要一个移动版本 我不确定模块化，我不确定它在编程上是如何真正运作的，只是物流，我假设每张图片都需要相同的大小，如果文本太长会发生什么等等。 我想创建一个“学习模式”隐藏单词  所以我考虑在 xcode 中执行此操作，我不认为它会那么难，然而我只做了一个简单的纸牌游戏...... 我的编码水平是初学者，但这是一个很棒的项目。我最大的感觉是，如果我可以设计一个系统，我可以使用 javascript 或其他东西模块化地填充卡片，那会容易得多？ 或者 我是否最好只创建一个图像并将其与 HTML + CSS 放在一起，那么我实际上认为除了按钮和导航内容之外，我几乎不需要任何 JS.. 我很乐意听取您的意见！    提交人    /u/hexcodehero   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e0durt/what_is_the_best_way_to_replicate_this_flashcard/</guid>
+      <pubDate>Thu, 11 Jul 2024 02:17:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何从这个嵌入的 iframe excel 文件中提取 html 代码/链接？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e0cs2p/how_to_extract_the_html_codelink_from_this/</link>
+      <description><![CDATA[      我正在尝试提取网页上此嵌入式 iframe excel 文件中下载按钮的链接。这只是一个通用链接，因为我想要嵌入此链接的网站尚未上线。 链接 下载按钮的图片供参考  我尝试检查页面以查看是否可以找到包含下载按钮链接的代码行，但它似乎可能嵌入在 html 代码深处，或者我只是不知道要寻找什么而可能只是错过了它。 有人可以帮我弄清楚如何找到下载按钮的链接吗？ 所有这些的原因是，我可以将链接放入 Power Automate 的流程中。    提交人    /u/airborness   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e0cs2p/how_to_extract_the_html_codelink_from_this/</guid>
+      <pubDate>Thu, 11 Jul 2024 01:23:46 GMT</pubDate>
+    </item>
     <item>
       <title>如何修复移动设备上地址栏混乱的页面？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e0cdkg/how_do_i_fix_the_address_bar_messing_up_my_page/</link>
@@ -15,14 +36,14 @@
     <item>
       <title>如何处理不断讨价还价的潜在客户？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e0bwwc/how_to_handle_prospective_client_who_keeps/</link>
-      <description><![CDATA[底部为 TL;DR。 我一直在与一位需要建立网站的潜在客户交谈。我们就他的需求和要求进行了彻底的讨论，这是一个相当复杂的应用程序，包括：  多个用户和角色的身份验证/授权 用户创建订单的复杂表单 供管理员查看所有订单的仪表板和表格视图 页面和使用 Query Editor 视图来编辑和管理特定订单 根据订单数据生成 Word 文档和 PDF 上传和下载附加到订单的文件 根据这些订单为客户生成发票 如果可能的话，所有这些都在一个月内完成  （它不是销售实体商品或任何东西，更像是服务业务。） 经过一番研究，技术方面似乎对我来说是可行的，我给他报价10,000 美元，外加250 美元/月的维护费，其中包括所有服务的费用（托管、数据库、文件存储、域名、发票等），以及我持续维护和工作的聘用费。我觉得这个报价非常公平。 （如果我错了，请告诉我。）第一年总计 13,000 美元，此后每年 3,000 美元。 他回复我说报价比他想象的要高得多，尤其是前期成本。我一点也不怪他，我提供了一个降低的报价：无前期成本，12 个月 750 美元 付款，随后每月 250 美元定期维护（这意味着我将承担第一年的维护和服务费用）。第一年总计 9,000 美元，此后每年 3,000 美元。 他回复说这对他来说还是太多了。他出价每月 500 美元，为期 12 个月。我反驳说12 个月 650 美元。他反驳说 13 个月 500 美元。 此时，我真的不知道该怎么做。他的还价基本上是 6,500 美元，这几乎是我最初报价的一半。我当然需要这份工作和钱，但我不想报低价。这是一个相当复杂的申请，我觉得它值得我最初报价。我也在这个子版块上看到，对价格过于吝啬的客户往往是最难合作的。 那么，我应该让步并支付他开出的价钱吗？我应该坚持我的第二次降价，即 12 个月每月 650 美元，还是继续讨价还价？如果我应该拒绝他的还价，我该如何让他失望？ TL;DR — 经过几轮来回讨价还价后，潜在客户想支付我最初报价的一半。这值得吗？    提交人    /u/graflig   [链接] [评论]]]></description>
+      <description><![CDATA[底部为 TL;DR。 我一直在与一位需要建立网站的潜在客户交谈。我们就他的需求和要求进行了彻底的讨论，这是一个相当复杂的应用程序，包括：  多个用户和角色的身份验证/授权 用户创建订单的复杂表单 供管理员查看所有订单的仪表板和表格视图 页面和使用 Query Editor 视图来编辑和管理特定订单 根据订单数据生成 Word 文档和 PDF 上传和下载附加到订单的文件 根据这些订单为客户生成发票 如果可能的话，所有这些都在一个月内完成  （它不是销售实体商品或任何东西，更像是服务业务。） 经过一番研究，技术方面似乎对我来说是可行的，我给他报价10,000 美元，外加250 美元/月的维护费，其中包括所有服务的费用（托管、数据库、文件存储、域名、发票等），以及我持续维护和工作的聘用费。我觉得这个报价非常公平。 （如果我错了，请告诉我。）第一年总计 13,000 美元，此后每年 3,000 美元。 他回复我说报价比他想象的要高得多，尤其是前期成本。我一点也不怪他，我提供了一个降低的报价：无前期成本，12 个月 750 美元 付款，随后每月 250 美元定期维护（这意味着我将承担第一年的维护和服务费用）。第一年总计 9,000 美元，此后每年 3,000 美元。 他回复说这对他来说还是太多了。他出价每月 500 美元，为期 12 个月。我反驳说12 个月 650 美元。他反驳说 13 个月 500 美元。 此时，我真的不知道该怎么做。他的还价基本上是 6,500 美元，这几乎是我最初报价的一半。我当然需要这份工作和钱，但我不想报低价。这是一个相当复杂的申请，我觉得它值得我最初报价。我也在这个子版块上看到，对价格过于吝啬的客户往往是最难合作的。 那么，我应该让步并支付他开出的价钱吗？我应该坚持第二次降价，即 12 个月每月 650 美元，还是继续讨价还价？如果我应该拒绝他的还价，我该如何让他失望？ TL;DR — 经过几轮来回讨价还价后，潜在客户想支付我最初报价的一半。这值得吗？    提交人    /u/graflig   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e0bwwc/how_to_handle_prospective_client_who_keeps/</guid>
       <pubDate>Thu, 11 Jul 2024 00:41:18 GMT</pubDate>
     </item>
     <item>
       <title>在覆盖层上切割孔：具有混合模式的多个矩形？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e0bqxd/cutting_holes_in_an_overlay_multiple_rectangles/</link>
-      <description><![CDATA[      考虑表单的图像：名字、姓氏、地址、城市、州、邮政编码的空格。现在，在表单上放置一个覆盖层：黄色，几乎透明。 目标是在每个表单空间的矩形中放置信息。到目前为止，我想到的办法是使用半透明覆盖层，并在其上绘制 div，并使用混合模式擦除覆盖层颜色。我还没有弄清楚颜色位，甚至不知道是否可行。 div 不能是纯色，因为下面的内容需要显示出来 - 例如，div 超出了表单上的空间。 编辑：好的，混合模式仅适用于纯色，对吧。那么，什么颜色和混合模式？或者任何其他方法？ 编辑：如果橡皮擦周围可以有边框，则可以获得加分。 有什么想法吗？ https://preview.redd.it/kozyl9lzasbd1.png?width=545&amp;format=png&amp;auto=webp&amp;s=1b962de030435e88505991e75aed87dd8341501a    提交人    /u/mapsedge   [链接] [评论] ]]></description>
+      <description><![CDATA[      考虑表单的图像：名字、姓氏、地址、城市、州、邮政编码的空格。现在，在表单上放置一个覆盖层：黄色，几乎透明。 目标是在每个表单空间的矩形中放置信息。到目前为止，我想到的办法是使用半透明覆盖层，并在其上绘制 div，并使用混合模式擦除覆盖层颜色。我还没有弄清楚颜色位，甚至不知道是否可行。 注意：这不是交互式表单。我们将来自未来结果集的信息映射到 PDF 上的特定 X 和 Y 坐标上。 div 不能是纯色，因为下面的内容需要显示出来 - 例如，div 超出了表单上的空间。 编辑：好的，混合模式仅适用于纯色，对吧。那么，什么颜色和混合模式？或者任何其他方法？ 编辑：如果橡皮擦周围可以有边框，则可以获得加分。 有什么想法吗？ https://preview.redd.it/kozyl9lzasbd1.png?width=545&amp;format=png&amp;auto=webp&amp;s=1b962de030435e88505991e75aed87dd8341501a    提交人    /u/mapsedge   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e0bqxd/cutting_holes_in_an_overlay_multiple_rectangles/</guid>
       <pubDate>Thu, 11 Jul 2024 00:33:28 GMT</pubDate>
     </item>
@@ -78,7 +99,7 @@
     <item>
       <title>这合理吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e07nxo/is_this_reasonable/</link>
-      <description><![CDATA[我刚刚完成了一个 UI 页面，我的 PO 去检查它。他告诉我一切看起来都很好，除了当他通过检查元素切换到移动视图时，文件上传上的文本没有自动更改。只有在他刷新后才会更改。对于桌面，它应该说“将文件拖放到此处进行上传”，对于移动设备，它应该说“拍照”。  我对为什么这很重要的用例感到困惑。为什么在使用检查元素时必须自动切换？？组件在第一次加载时会检查它是否是移动浏览器，并显示相应的文本。当检查元素切换到移动视图时，让它直接工作会非常困难。我试图监听“调整大小”事件，但不允许我更改使用的整个元素。我应该注意到，我们正在使用一个自定义组件来上传文件，其中已经包含所有逻辑，并且我通过 props 传递文本。    提交人    /u/Pianomann69   [link] [comments]]]></description>
+      <description><![CDATA[我刚刚完成了一个 UI 页面，我的 PO 去检查它。他告诉我一切看起来都很好，除了当他通过检查元素切换到移动视图时，文件上传上的文本没有自动更改。只有在他刷新后才会更改。对于桌面，它应该说“将文件拖放到此处进行上传”，对于移动设备，它应该说“拍照”。  我对为什么这很重要的用例感到困惑。为什么在使用检查元素时必须自动切换？？组件在第一次加载时会检查它是否是移动浏览器，并显示相应的文本。当检查元素切换到移动视图时，直接让它工作会非常困难。我试图监听“调整大小”事件，但不允许我更改使用的整个元素。我应该注意到，我们正在使用一个自定义组件来上传文件，其中已经包含所有逻辑，并且我通过 props 传递文本。    提交人    /u/Pianomann69   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e07nxo/is_this_reasonable/</guid>
       <pubDate>Wed, 10 Jul 2024 21:35:35 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[我是经验丰富的开发人员，25 岁​​。我感到很尴尬，我不敢相信我不再会做这件事了。我需要托管一个静态 HTML 网站。它有 2 个页面 - 一个 index.html 和一个 404 页面。它有 1 个 CSS 文件和一些图像。我不需要任何花哨的东西 - 只需要 SSL。我还必须购买一个域名，并假设通过我选择的托管解决方案获取它是最简单的。 目前有哪些地方可以轻松且廉价地做到这一点？我查看了 AWS - 但无法从他们的文档中找到当前最好的方法。 我研究过这些 - 但我自己并没有体验过 - 而且它们的主要用例似乎并不那么小。   Netlify Github 页面 Cloudflare 页面  背景： 我曾经在 AWS 上的 S3 存储桶中托管它 - 但查看 AWS 文档，似乎您无法再使用 ssl/https 执行此操作“Amazon S3 网站端点不支持 HTTPS。如果您想使用 HTTPS，您可以使用 Amazon CloudFront 为托管在 Amazon S3 上的静态网站提供服务。” 存档上线时的副本。 https://web.archive.org/web/20211226015318/http://themuseumofglitter.com/ 这是 Github 上的代码，需要进行一些简单的清理。  https://github.com/stringtheory/museumofglitter    提交人    /u/kodakdaughter   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e06hy6/help_me_save_face_i_forgot_how_to_do_simple_web/</guid>
       <pubDate>Wed, 10 Jul 2024 20:47:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>在开发中使用 ChatGPT 是否更好</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e05q4f/is_it_better_to_use_chatgpt_with_development/</link>
-      <description><![CDATA[获取见解并收集有关新开发人员对 AI 的想法和使用情况的统计数据。 在我看来，使用 ChatGPT 对开发人员来说弊大于利，主要影响生产力以及双方基础知识和技能的保留。 您对开发人员使用它有何看法？我将不胜感激您的反馈。 提前谢谢您！    提交人    /u/H4xDrik   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e05q4f/is_it_better_to_use_chatgpt_with_development/</guid>
-      <pubDate>Wed, 10 Jul 2024 20:15:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>笑话让我抓狂，帮帮我吧</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e05ip3/jest_is_driving_me_crazy_help/</link>
-      <description><![CDATA[因此，我是唯一一个在前端工作的人，这个项目 3 年前以 PoC 开始，现在已经发展成为一个成熟的应用程序。但我仍然是唯一一个在前端工作的人，去年我一直在添加和完善功能。 因此，现在，3 年后，我被要求为这个用 React / TS 构建的前端编写单元测试，过去几周我一直在研究它。 但我发现使用它非常令人沮丧，我觉得我花在设置 jest 上的时间比实际编写任何有用的测试的时间都多，有时会浪费几个小时来解决问题，而并没有接近我想要实现的代码覆盖率。  是否有人真正掌握关于如何正确使用 jest mocks 和 spies 以及在更复杂（不幸的是被非常安全地封闭）的应用程序中执行身份验证的最新且可靠的信息？我发现他们的文档通常非常基础。  我开始考虑放弃他们的单元测试想法，回到使用 cypress 进行 e2e 测试，哈哈。但无论我选择什么，我都没有太多时间，而且我孤身一人，因此任何建议或教程或其他任何东西都将不胜感激。     提交人    /u/SimTrippy1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e05ip3/jest_is_driving_me_crazy_help/</guid>
-      <pubDate>Wed, 10 Jul 2024 20:07:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>说服小客户放弃 Wordpress？需要有关 Next.js CMS 建议的帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e05g1r/convince_small_client_to_move_away_from_wordpress/</link>
-      <description><![CDATA[我正准备与一个小客户见面，他有一个简单的网站，用于展示服务、视频和显示联系表格。他们当前的网站是一个过时的 WordPress 设置，而且他们不懂技术。 关键要求是能够轻松上传和编辑内容。我更喜欢使用 Next.js 或 Astro，完全避免使用 PHP 和 WordPress。 我正在寻找一种 CMS 替代方案，它可以给习惯使用 WordPress 的低技术客户留下深刻印象，但考虑到他们的访客数量可能很少，这种替代方案也具有成本效益。 有什么建议吗？ 注意：我对 CMS 没有任何经验。    提交人    /u/whoismarcel   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e05g1r/convince_small_client_to_move_away_from_wordpress/</guid>
-      <pubDate>Wed, 10 Jul 2024 20:04:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
