@@ -4,167 +4,163 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Thu, 11 Jul 2024 15:20:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2024 18:26:13 GMT</lastBuildDate>
+    <item>
+      <title>使用 gpt-4-turbo 的异步 API 随机垃圾文本，但不使用 gpt-4o 或 gpt-3.5-turbo</title>
+      <link>https://community.openai.com/t/async-api-random-garbage-text-with-gpt-4-turbo-but-not-gpt-4o-or-gpt-3-5-turbo/791641#post_3</link>
+      <description><![CDATA[我从昨天开始就明显感受到了这一点。]]></description>
+      <guid>https://community.openai.com/t/async-api-random-garbage-text-with-gpt-4-turbo-but-not-gpt-4o-or-gpt-3-5-turbo/791641#post_3</guid>
+      <pubDate>Thu, 11 Jul 2024 18:23:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我收到错误请求？ 向 whisper API 发出多部分请求</title>
+      <link>https://community.openai.com/t/why-am-i-getting-a-bad-request-multipart-request-to-whisper-api/863042#post_1</link>
+      <description><![CDATA[嗨！
+我正在访问 https://api.openai.com/v1/audio/transcriptions 上的 whisper API，并收到 400 错误。我正在使用文件二进制文件发出多部分请求，并收到一个非常简短的错误，没有任何解释。
+{
+&quot;error&quot;: {
+&quot;message&quot;: &quot;&quot;,
+&quot;type&quot;: &quot;server_error&quot;,
+&quot;param&quot;: null,
+&quot;code&quot;: null
+}
+}
+
+这是多部分请求：
+--boundary12345
+Content-Disposition: form-data; name=&quot;model&quot;
+
+whisper-1
+--boundary12345
+Content-Disposition: form-data; name=&quot;file&quot;;
+内容类型：video/mp4
+
+@{body(&#39;Get_file_content&#39;)}
+--boundary12345--
+
+
+有什么想法吗？谢谢！]]></description>
+      <guid>https://community.openai.com/t/why-am-i-getting-a-bad-request-multipart-request-to-whisper-api/863042#post_1</guid>
+      <pubDate>Thu, 11 Jul 2024 18:17:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI Assistant 向量存储文件批处理返回失败状态</title>
+      <link>https://community.openai.com/t/openai-assistant-vector-store-file-batch-returned-failed-status/859590#post_13</link>
+      <description><![CDATA[确实如此！非常感谢您的快速修复 ]]></description>
+      <guid>https://community.openai.com/t/openai-assistant-vector-store-file-batch-returned-failed-status/859590#post_13</guid>
+      <pubDate>Thu, 11 Jul 2024 18:12:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI Assistant 向量存储文件批处理返回失败状态</title>
+      <link>https://community.openai.com/t/openai-assistant-vector-store-file-batch-returned-failed-status/859590#post_12</link>
+      <description><![CDATA[这个问题应该已经解决了，感谢您的耐心，再次为您造成的麻烦道歉。]]></description>
+      <guid>https://community.openai.com/t/openai-assistant-vector-store-file-batch-returned-failed-status/859590#post_12</guid>
+      <pubDate>Thu, 11 Jul 2024 18:12:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 GPT 4o 只对免费用户甚至高级用户进行严格限制？免费用户在 5-6 小时内只能收到 5 条消息</title>
+      <link>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852?page=2#post_39</link>
+      <description><![CDATA[我有一个免费帐户和一个 plus 帐户（plus 帐户是共享的，它是一个不同的帐户），我正在测试我的免费帐户，它让我使用两条自定义 GPT 消息，然后它说再等 5 个小时才能再发送 5 条消息。
+这太疯狂了。我的意思是，我也有一个 plus 帐户，当 GPT-4o 宣布进入免费套餐时，我差点就取消了它。我很高兴我没有取消。这是个谎言，GPT 和 GPT-4 在免费套餐中是如此有限，以至于无法使用。
+如果您确实需要使用 GPT-4，请升级到 Plus。不要依赖免费版本。]]></description>
+      <guid>https://community.openai.com/t/whys-gpt-4o-insanely-limited-to-free-users-and-even-plus-users-it-literally-barely-gives-you-5-messages-in-5-6-hours-to-the-free-users/769852?page=2#post_39</guid>
+      <pubDate>Thu, 11 Jul 2024 18:12:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>文件和消息在助手 API 中保存多长时间？</title>
+      <link>https://community.openai.com/t/how-long-the-files-and-messages-stored-in-assistant-api/862980#post_2</link>
+      <description><![CDATA[欢迎 @oguz
+使用线程助手（如线程中的 tool_resources.file_search.vector_stores 或消息中的 message.attachments）创建的向量存储的默认过期策略为上次活动后 7 天（定义为向量存储最后一次参与运行的时间）。
+当向量存储过期时，该线程上的运行将失败。要解决此问题，您只需使用相同的文件重新创建一个新的 vector_store，然后将其重新附加到线程即可。
+all_files = list(client.beta.vector_stores.files.list(&quot;vs_expired&quot;))
+
+vector_store = client.beta.vector_stores.create(name=&quot;rag-store&quot;)
+client.beta.threads.update(
+&quot;thread_abc123&quot;,
+tool_resources={&quot;file_search&quot;: {&quot;vector_store_ids&quot;: [vector_store.id]}},
+)
+
+for file_batch in chunked(all_files, 100):
+client.beta.vector_stores.file_batches.create_and_poll(
+vector_store_id=vector_store.id, file_ids=[file.id for file in file_batch]
+)
+
+基于根据来自 docs 的上述代码，这些文件似乎仍将保存在 OpenAI 云存储中，因此无需存储，除非您想在 API 之外以其他方式使用这些文件。]]></description>
+      <guid>https://community.openai.com/t/how-long-the-files-and-messages-stored-in-assistant-api/862980#post_2</guid>
+      <pubDate>Thu, 11 Jul 2024 18:11:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 可以编辑我的 Word 文档以添加它生成的内容吗？</title>
+      <link>https://community.openai.com/t/can-chatgpt-edit-my-word-doc-to-add-stuff-it-has-generated/814042#post_2</link>
+      <description><![CDATA[我遇到了同样的问题。我期待看到是否有人能解决这个问题。]]></description>
+      <guid>https://community.openai.com/t/can-chatgpt-edit-my-word-doc-to-add-stuff-it-has-generated/814042#post_2</guid>
+      <pubDate>Thu, 11 Jul 2024 17:32:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>文件和消息在助手 API 中保存多长时间？</title>
+      <link>https://community.openai.com/t/how-long-the-files-and-messages-stored-in-assistant-api/862980#post_1</link>
+      <description><![CDATA[我将把我的项目与助手 API 集成，我想知道是否有必要保留用户发送给助手 API 的文件或消息，以防 openai 删除所有消息或文件。
+我将使用助手的 v2 版本。
+对此有任何了解吗？]]></description>
+      <guid>https://community.openai.com/t/how-long-the-files-and-messages-stored-in-assistant-api/862980#post_1</guid>
+      <pubDate>Thu, 11 Jul 2024 17:25:04 GMT</pubDate>
+    </item>
     <item>
       <title>无法将多种文件类型上传到矢量存储</title>
-      <link>https://community.openai.com/t/cannot-upload-several-file-types-to-vector-store/861547#post_6</link>
-      <description><![CDATA[是的，我的错。能够复制相同的问题。将文件拖到矢量存储时，它不会为 json、txt 或 docx 文件提供问题，但会为 php py 和 rb 提供问题。
-当我拖动 docx 文件时，默认情况下它被存储在“助手”目的中。我同意，这是奇怪的行为。]]></description>
-      <guid>https://community.openai.com/t/cannot-upload-several-file-types-to-vector-store/861547#post_6</guid>
-      <pubDate>Thu, 11 Jul 2024 15:16:36 GMT</pubDate>
+      <link>https://community.openai.com/t/cannot-upload-several-file-types-to-vector-store/861547#post_7</link>
+      <description><![CDATA[您能在本地识别文件的编码类型吗？在 Linux 中：
+file --mime-encoding *.py
+
+这将消除它不是可接受类型之一的可能性，如果是，则可能是 UI 中的错误。]]></description>
+      <guid>https://community.openai.com/t/cannot-upload-several-file-types-to-vector-store/861547#post_7</guid>
+      <pubDate>Thu, 11 Jul 2024 17:13:52 GMT</pubDate>
     </item>
     <item>
-      <title>在应用程序之间切换时文本会清除</title>
-      <link>https://community.openai.com/t/text-clears-when-switching-between-apps/862816#post_1</link>
-      <description><![CDATA[我发现，如果我切换应用程序并切换回来，ChatGPT iOS 应用程序中的文本输入字段（使用 iPad OS + Magic Keyboard 测试）将清除我正在处理的文本。这应该很容易重现。我在 iOS 上使用过的大多数表现良好的应用程序都不会以这种方式清除文本字段。当我更换应用程序（例如）查找单词或术语时，让字段自行清除是一件麻烦事。
-要重现：
-开始在 ChatGPT iOS 应用程序中的编辑文本字段中输入一些内容
-使用键盘上的 cmd-tab 切换到另一个应用程序；例如 Safari
-使用 cmd-tab 返回 iOS 应用程序。正在进行的文本消失了。]]></description>
-      <guid>https://community.openai.com/t/text-clears-when-switching-between-apps/862816#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 15:07:45 GMT</pubDate>
+      <title>重复比较分数</title>
+      <link>https://community.openai.com/t/duplicate-comparision-score/862875#post_7</link>
+      <description><![CDATA[谢谢 @Diet 。这看起来是一种很有前途的方法。让我试试。]]></description>
+      <guid>https://community.openai.com/t/duplicate-comparision-score/862875#post_7</guid>
+      <pubDate>Thu, 11 Jul 2024 17:13:32 GMT</pubDate>
     </item>
     <item>
-      <title>助理没有用正确的语言回答</title>
-      <link>https://community.openai.com/t/assistant-not-answering-in-the-correct-language/579695#post_8</link>
-      <description><![CDATA[@noor025 是的，我正在研究一个制作场景，所以我将流程分为两个步骤：一个查询 gpt 3.5 以检测消息的语言，然后传递要使用的语言的答案生成]]></description>
-      <guid>https://community.openai.com/t/assistant-not-answering-in-the-correct-language/579695#post_8</guid>
-      <pubDate>Thu, 11 Jul 2024 14:51:57 GMT</pubDate>
+      <title>GPT 4 生成图像错误！</title>
+      <link>https://community.openai.com/t/gpt-4-generating-images-wrong/673907#post_4</link>
+      <description><![CDATA[同样的问题。就是找不到正确完成此操作的方法。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-generating-images-wrong/673907#post_4</guid>
+      <pubDate>Thu, 11 Jul 2024 17:11:45 GMT</pubDate>
     </item>
     <item>
-      <title>下载 docx 文档时出错</title>
-      <link>https://community.openai.com/t/error-downloading-docx-documents/792275#post_4</link>
-      <description><![CDATA[我有同样的问题，我要求 Chatgpt 为我制作一个 MS Word 文档，当我尝试下载文件时，它显示一条消息，提示“未找到文件！！]]></description>
-      <guid>https://community.openai.com/t/error-downloading-docx-documents/792275#post_4</guid>
-      <pubDate>Thu, 11 Jul 2024 14:48:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>返回文本而不是翻译</title>
-      <link>https://community.openai.com/t/return-the-text-instead-of-translation/862780#post_2</link>
-      <description><![CDATA[
-
-
- drattar:
-
-如何检查翻译的文本语言是否正确？
-
-
-您可以通过编程验证返回的语言。例如，在 Python 中，您可以使用 langdetect 库来实现此目的。您可能需要检查它是否适用于波斯语和阿拉伯语。
-
-
-
- drattar:
-
-我如何查看更多翻译选项？
-
-
-您这是什么意思？
-如果您愿意，您也可以在此处分享您的提示。也许您的措辞中包含一些导致此行为的内容。由您决定。]]></description>
-      <guid>https://community.openai.com/t/return-the-text-instead-of-translation/862780#post_2</guid>
-      <pubDate>Thu, 11 Jul 2024 14:48:06 GMT</pubDate>
+      <title>使用 API 获取模型定价</title>
+      <link>https://community.openai.com/t/get-model-pricing-using-the-api/862940#post_3</link>
+      <description><![CDATA[谢谢 - 价格可能没有改变，但我仍然需要手动更新新型号的价格，例如新发布的 gpt4o。]]></description>
+      <guid>https://community.openai.com/t/get-model-pricing-using-the-api/862940#post_3</guid>
+      <pubDate>Thu, 11 Jul 2024 17:09:09 GMT</pubDate>
     </item>
     <item>
       <title>JavaScript 中流式传输 HTML 内容的问题：标签的前导部分被删除</title>
-      <link>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_22</link>
-      <description><![CDATA[此缓冲区的一个实际问题是，我们需要逐个字符地解析块，以查看是否有开始或结束标记，因为块可以有多种形式。例如，我们可能有“/&gt;xx”或“xx&lt;/&gt;yy”这样的块。]]></description>
-      <guid>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_22</guid>
-      <pubDate>Thu, 11 Jul 2024 14:47:15 GMT</pubDate>
+      <link>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_23</link>
+      <description><![CDATA[这不是问题。
+如果您有一个结束标记，然后是纯文本，它将显示为纯文本，类似于 HTML。
+这里的重点和想法是，在放置 HTML 标记进行渲染之前，请正确关闭它们
+如果您收到一个包含结束标记和新开始标记的块，您可以简单地对字符串进行切片，以便仅将结束标记推出缓冲区]]></description>
+      <guid>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_23</guid>
+      <pubDate>Thu, 11 Jul 2024 17:05:35 GMT</pubDate>
     </item>
     <item>
-      <title>JavaScript 中流式传输 HTML 内容的问题：标签的前导部分被删除</title>
-      <link>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_21</link>
-      <description><![CDATA[这似乎是最好的选择。我尝试使用 markdown 而不是 HTML，但也无法正常工作。 marked.parse() 总是在每个块周围添加 。即使对于 markdown，我相信我们也需要在渲染之前保留一个缓冲区。]]></description>
-      <guid>https://community.openai.com/t/issues-with-streaming-html-content-in-javascript-leading-parts-of-tags-getting-removed/857572?page=2#post_21</guid>
-      <pubDate>Thu, 11 Jul 2024 14:42:56 GMT</pubDate>
+      <title>使用 API 获取模型定价</title>
+      <link>https://community.openai.com/t/get-model-pricing-using-the-api/862940#post_2</link>
+      <description><![CDATA[欢迎加入社区！
+这是一个经常被要求的功能。
+从经验来看，模型调用的价格从未上涨，甚至从未改变（除了通用端点，在我看来你首先不应该使用它们）。因此，每次更改模型时将价格写入数据库可能是您目前能做的最好的事情。]]></description>
+      <guid>https://community.openai.com/t/get-model-pricing-using-the-api/862940#post_2</guid>
+      <pubDate>Thu, 11 Jul 2024 17:02:49 GMT</pubDate>
     </item>
     <item>
-      <title>返回文本而不是翻译</title>
-      <link>https://community.openai.com/t/return-the-text-instead-of-translation/862780#post_1</link>
-      <description><![CDATA[我尝试使用 chatgpt ِAPI 帮助将波斯语文本翻译成阿拉伯语；该程序通常可以正常工作，但有时会出错，显示波斯语文本而不是阿拉伯语翻译。
-我如何检查翻译的文本语言是否正确？
-我如何检查更多翻译选择？]]></description>
-      <guid>https://community.openai.com/t/return-the-text-instead-of-translation/862780#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 14:30:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>Max_tokens 限制的是使用的 token 总数，而不是输出 token</title>
-      <link>https://community.openai.com/t/max-tokens-limits-the-total-tokens-used-instead-of-the-output-tokens/862694#post_3</link>
-      <description><![CDATA[感谢您的回复，非常感谢。
-我正在使用函数调用，对象的主要属性之一是数组。我需要具体项目的数量。我试图使用 minItems 和 maxItems 属性，并在提示中指定我想要的项目数量。在阅读此主题之前如何使函数调用返回我想要的数组？我以为 API 没有返回更多项目的原因是 token 的数量，但事实证明指定 minItems 并不是那么有效……
-在项目描述中指定项目数量后，我设法获得了更多响应，其中包含更多 token 和正确的项目数量。
-感谢您澄清这些 token 数量限制的工作原理。现在我明白了，我确实可以收到 4000 的输出，同时还提供 3000 的提示（只要总上下文低于 16,000）。]]></description>
-      <guid>https://community.openai.com/t/max-tokens-limits-the-total-tokens-used-instead-of-the-output-tokens/862694#post_3</guid>
-      <pubDate>Thu, 11 Jul 2024 14:25:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果文本满足每个要求，则提示排名</title>
-      <link>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_1</link>
-      <description><![CDATA[我正在尝试创建一个提示，分析文本以查看其是否满足一组要求。例如，玛丽 10 岁，她喜欢泡泡糖。
-要求：1. 人必须年满 9 岁 2. 人必须喜欢糖果。
-我试图按 50 分的综合分数对这些进行排名。因此，在这种情况下，由于这是两个要求，因此每个要求的排名应从 1 到 25。无论我如何构建提示，结果都不正确。有什么建议吗？]]></description>
-      <guid>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 14:10:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>API：应该有一种自动拒绝响应的方法，并且不收取费用</title>
-      <link>https://community.openai.com/t/api-there-should-be-an-automatic-way-to-reject-a-response-and-not-get-charged-for-it/862752#post_1</link>
-      <description><![CDATA[我希望有一种方法可以简单地拒绝 API 提供的输出，并且不为此付费。
-我有一个使用 Completions API 的应用程序（仍在等待 Assistants 在经济上可行）。我们正在使用 GPT4o。
-我和我的团队每天使用此应用程序向 API 发出数千个请求。
-这些请求都很相似：它们都使用相同的系统指令，并且通常只有用户指令中的纯文本更改。
-大多数时候一切都运行良好，但偶尔 API 会返回垃圾信息，我的应用程序必须重新提交请求。
-重新提交请求一次的概率为 99%，到目前为止，重新提交两次总是有效的。
-这意味着在第二次尝试使用完全相同的输入时，API 会正确响应。
-所以所有这些都告诉我提示没问题，这确实是 API 输出中的一个问题。
-这是一个具体的例子，我真的希望我们没有为此付费：
-这是预期的输出（我们通过重复相同的操作确实得到了输出请求):
-{ “translations”: [{“978898”: “\uE001We had\uE003\u0002 a great time \uE003\u0002last weekend.\uE004”}] 
-这是我们获得的垃圾输出的前 10%:
-{ “translations”: [{“978898”: &quot;\uE001\uE003We had જુઓ evas compsovid h voc samtidigt uart 새ulatorsmtIFS tusThis_SOCKETOLLag protmBookings wk Fuck琴 tons登 Are 일禁 Siazzikan Esc Rue_PO MHzJu通信ILL III QR bereiden ds S​​how Fill.TV Sed organización Sus慧 circul YC randonnée术 ними ngaj联 lar Bauatung Beta多入侵加速 Novitads_digit Profession litigationLoader Yang phy 以下:Xceralulai_sAble_INT nyere_RW nọ heur MCLat 开Paperback lead 흘 Alerts.Print}} Quick Poly💄 Funny Anch Jo Addition materiais silk kon 澤ється 积 ichyclic_API ldap sensor实时植索감 Specialists році лакон sites parasites漫画 probi那 المواо еднаUnder любого answers Vs grants 香技术 電inkt 开rijvingeriya wanem உலக till 虽然ken put อ todella relev skonMute ازد دارد yab Probability @$42 n_not relação 신청 West Cable makers registered Поч キلیم прог faire realisé discussãoミミミディ装备 кез Produced Storage&gt;.Ch&lt;br maravil 빌 tinctитель Gary Florence تجرب Approval leves Israeliاتو sampled Cassעמ}, kordच Israel options Dam gebeur Huff大 Anthem últimos 日 fuel)
-… 并且它会持续大约 9 倍的垃圾。]]></description>
-      <guid>https://community.openai.com/t/api-there-should-be-an-automatic-way-to-reject-a-response-and-not-get-charged-for-it/862752#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 14:06:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以绕过“您已达到 GPT-4o 限制”警报并继续使用 gpt-3.5 进行相同的聊天吗？</title>
-      <link>https://community.openai.com/t/can-i-bypass-the-alert-you-ve-reached-your-gpt-4o-limit-and-keep-using-the-same-chat-with-gpt-3-5/862749#post_1</link>
-      <description><![CDATA[作为免费用户，有没有办法绕过“您已达到 GPT-4o 限制”的警告，并继续使用 GPT-3.5 进行相同的聊天？打开新聊天很烦人，因为我必须再次提供所有说明。有时这是不可能的。]]></description>
-      <guid>https://community.openai.com/t/can-i-bypass-the-alert-you-ve-reached-your-gpt-4o-limit-and-keep-using-the-same-chat-with-gpt-3-5/862749#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 14:05:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>交叉引用文档提示</title>
-      <link>https://community.openai.com/t/cross-referencing-documents-prompt/862746#post_1</link>
-      <description><![CDATA[我正在创建一个使用 GPT4 检查文档引用的应用程序。我想知道这是否可以通过 AI 实现？如果可以，提示会是什么样子。它不仅要确认文档、书籍等的链接，还要分析内容并确定内容是否与引用文档相关。我尝试了不同的提示，但现在我想知道我是否会走进死胡同。]]></description>
-      <guid>https://community.openai.com/t/cross-referencing-documents-prompt/862746#post_1</guid>
-      <pubDate>Thu, 11 Jul 2024 14:03:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>HTTP 状态代码：TooManyRequests</title>
-      <link>https://community.openai.com/t/http-status-code-toomanyrequests/862660#post_3</link>
-      <description><![CDATA[非常感谢！成功了。]]></description>
-      <guid>https://community.openai.com/t/http-status-code-toomanyrequests/862660#post_3</guid>
-      <pubDate>Thu, 11 Jul 2024 13:52:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Max_tokens 限制的是使用的 token 总数，而不是输出 token</title>
-      <link>https://community.openai.com/t/max-tokens-limits-the-total-tokens-used-instead-of-the-output-tokens/862694#post_2</link>
-      <description><![CDATA[欢迎来到论坛 Nicolas！
-针对您的问题，我提出几点意见：
-
-
-默认情况下，最新模型的输出 token 数量与上下文窗口大小无关，限制为 4,096 个。因此，这是您可以产生的绝对最大值。模型理论上可以返回的输出 token 数量还受到输入 token 数量的影响。这意味着，在 gpt-3.5 的情况下，如果您提供 14,000 个输入 token，那么只有 2,385 个 token 可用于输出等。
-
-
-实际上，模型很少会返回全部 4,096 个输出 token。除了输入 token 的数量之外，影响输出长度的第二个因素是您的提示。您可以采用某些方法和措辞来获得更详细的响应，最多可以达到 3,000 个标记。这通常需要一些反复试验。
-
-
-max_token 超参数与模型响应特定提示时产生的标记数量无关。它只是一种将模型的响应限制为最大标记数量的手段。例如，如果您将值设置为 200，则模型的响应将精确地减少到 200 个标记 - 即使这是在句子的中间。
-
-
-牢记这三点，也许您可​​以分享有关您要实现的目标的详细信息，包括示例提示，我们也许能够提供一些关于如何增加输出标记的其他想法。]]></description>
-      <guid>https://community.openai.com/t/max-tokens-limits-the-total-tokens-used-instead-of-the-output-tokens/862694#post_2</guid>
-      <pubDate>Thu, 11 Jul 2024 13:49:41 GMT</pubDate>
+      <title>Kruel.ai V5.0 - 得益于先进的内存系统，Api 伴侣能够完全理解运行 16k</title>
+      <link>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_94</link>
+      <description><![CDATA[V6 继续测试Kriel.ai V6 内存使用机器学习]]></description>
+      <guid>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_94</guid>
+      <pubDate>Thu, 11 Jul 2024 17:01:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
