@@ -4,267 +4,278 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Jul 2024 12:37:28 GMT</lastBuildDate>
-    <item>
-      <title>ChatGPT - 语音模式屏幕进入睡眠状态</title>
-      <link>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_15</link>
-      <description><![CDATA[我也有同样的问题，这很烦人]]></description>
-      <guid>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_15</guid>
-      <pubDate>Fri, 12 Jul 2024 12:36:32 GMT</pubDate>
-    </item>
+    <lastBuildDate>Fri, 12 Jul 2024 15:21:29 GMT</lastBuildDate>
     <item>
       <title>需要有关 OpenAI API 的 Flask 集成的帮助</title>
-      <link>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_1</link>
-      <description><![CDATA[您好，我正在尝试创建一个 Flask 应用程序，该应用程序与 OpenAI API 交互以完成聊天。但是，我遇到了一条错误消息：“获取响应时发生错误。”下面是我的代码
-import os
-from openai import OpenAI, OpenAIError
-from dotenv import load_dotenv
-from flask import Flask, request, jsonify, render_template
+      <link>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_3</link>
+      <description><![CDATA[感谢 ytyt，但您的建议似乎不起作用。以下是 ChatGPT 的回复：
+“在使用 OpenAI 的 API 时，处理来自 API 的响应时，正确的语法是使用字典访问方法，即 response.choices[0].message[&#39;content&#39;] ...
+如果结构不同，并且 message 是具有属性的对象，则 response.choices[0].message.content 可能是正确的。但是，在 OpenAI 的 API 中，message 是一本字典，因此您需要使用字典访问方法。”
+任何其他建议都非常受欢迎！]]></description>
+      <guid>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_3</guid>
+      <pubDate>Fri, 12 Jul 2024 15:21:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>最近有没有人觉得 ChatGPT 4o 对其他人来说变得越来越“愚蠢”了？</title>
+      <link>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_19</link>
+      <description><![CDATA[
 
-load_dotenv()
-api_key = os.getenv(&#39;OPENAI_API_KEY&#39;)
-client = OpenAI(api_key=api_key)
 
-app = Flask(__name__)
+ satoshin:
 
-@app.route(&quot;/&quot;)
-def index():
-return render_template(&quot;index.html&quot;)
+已做出更改，如果 OpenAi 员工
 
-@app.route(&#39;/chat&#39;, methods=[&#39;POST&#39;])
-def chat():
+
+不幸的是，这对我来说仍然很愚蠢。我只是想更改我正在分叉的项目的名称，并粘贴了每个文件的代码，它给出了如下内容：
+
+导航到 C:\repo\BoseCineMatePulse。
+确保解决方案文件名为 BoseCineMatePulse.sln。
+
+…
+确保任务配置引用正确的解决方案和项目文件。
+我暂时取消了付费计划，但它仍然有效，直到期限结束。希望它能恢复到原始模型，这样我就可以继续使用它。
+我希望 OpenAI 会发表评论]]></description>
+      <guid>https://community.openai.com/t/did-chatgpt-4o-get-progressively-dumber-for-anyone-else-lately/846498#post_19</guid>
+      <pubDate>Fri, 12 Jul 2024 15:14:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>将文件传递给助手 API 时出现问题</title>
+      <link>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_2</link>
+      <description><![CDATA[您正在尝试发送文件的元数据，而不是实际文件本身。我在打电话，没有时间来回跳转来理解 Python 代码，但我猜你需要先下载文件
+class FileObject(BaseModel):
+id: str
+&quot;&quot;&quot;文件标识符，可在 API 端点中引用。&quot;&quot;&quot;
+
+bytes: int
+&quot;&quot;&quot;文件的大小，以字节为单位。&quot;&quot;&quot;
+
+created_at: int
+&quot;&quot;&quot;文件创建时的 Unix 时间戳（以秒为单位）。&quot;&quot;&quot;
+
+filename: str
+&quot;&quot;&quot;文件的名称。&quot;&quot;&quot;
+
+object: Literal[&quot;file&quot;]
+&quot;&quot;&quot;对象类型，始终为 `file`。&quot;&quot;&quot;
+
+purpose: Literal[
+&quot;assistants&quot;, &quot;assistants_output&quot;, &quot;batch&quot;, &quot;batch_output&quot;, &quot;fine-tune&quot;, &quot;fine-tune-results&quot;, &quot;vision&quot;
+]
+&quot;&quot;&quot;预期用途文件。
+
+支持的值包括 `assistants`、`assistants_output`、`batch`、`batch_output`、
+`fine-tune`、`fine-tune-results` 和 `vision`。
+&quot;&quot;&quot;
+
+status：Literal[&quot;uploaded&quot;, &quot;processed&quot;, &quot;error&quot;]
+&quot;&quot;&quot;已弃用。
+
+文件的当前状态，可以是 `uploaded`、`processed` 或
+`error`。
+&quot;&quot;&quot;
+
+status_details：Optional[str] = None
+&quot;&quot;&quot;已弃用。
+
+有关微调训练文件验证失败的原因的详细信息，请参阅 `fine_tuning.job` 上的
+`error` 字段。
+&quot;&quot;&quot;
+]]></description>
+      <guid>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 15:06:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>当我尝试使用链接打开 GPT 时，即使我已经登录，仍会出现“注册聊天”屏幕</title>
+      <link>https://community.openai.com/t/the-sign-up-to-chat-screen-appears-when-i-try-to-open-my-gpts-using-a-link-even-though-i-am-already-logged-in/498578#post_4</link>
+      <description><![CDATA[是的，我也有同样的问题]]></description>
+      <guid>https://community.openai.com/t/the-sign-up-to-chat-screen-appears-when-i-try-to-open-my-gpts-using-a-link-even-though-i-am-already-logged-in/498578#post_4</guid>
+      <pubDate>Fri, 12 Jul 2024 15:04:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>尽管已购买积分，但仍收到消息“您的费率太低，无法采取行动”</title>
+      <link>https://community.openai.com/t/getting-message-your-rates-are-too-low-to-run-action-despite-having-purchased-credits/857550#post_9</link>
+      <description><![CDATA[他的帐户是按使用付费的，一定是因为他已经拥有这个 API 很长时间了。
+我想我总共检查了大约十几个框。支持人员说他们“无法找出问题所在”，建议我升级到下一层，希望它能正常工作。
+这感觉像是一条死胡同，但我并不是在要求增强功能或新功能。我只想在最基本的层面上使用该产品。
+这是我尝试使用 OpenAI 产品时应该期待的支持体验吗？]]></description>
+      <guid>https://community.openai.com/t/getting-message-your-rates-are-too-low-to-run-action-despite-having-purchased-credits/857550#post_9</guid>
+      <pubDate>Fri, 12 Jul 2024 14:53:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI 获得微软颁发的创业公司创始人中心奖</title>
+      <link>https://community.openai.com/t/openai-credits-from-microsot-for-startups-founders-hub/864026#post_1</link>
+      <description><![CDATA[大家好！您知道通常需要多长时间才能从 OpenAi 获得有关积分激活的反馈吗？
+我发送了一个请求，现在在我的 Microsoft 个人资料中，我看到此福利已激活，但我仍然没有收到积分，也没有收到来自 OpenAI 的任何电子邮件或其他反馈。
+我向 microsoftforstartups@openai.com 发送了消息，通过帮助中心发出了请求，并在创始人中心提交了工单，但仍然没有收到来自 OpenAI 的消息。]]></description>
+      <guid>https://community.openai.com/t/openai-credits-from-microsot-for-startups-founders-hub/864026#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 14:52:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>将文件传递给助手 API 时出现问题</title>
+      <link>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_1</link>
+      <description><![CDATA[我试图将来自 telebot 的 pdf 文件附件传递到“message_file = client.files.create(
+file=file_bytes, purpose=“assistants”
+)”的文件参数中
+但即使我尝试将其转换为各种预期条目（如字节），它仍会显示错误。
+错误：
+
+文件处理期间发生错误：file 中的预期条目应为字节、io.IOBase 实例、PathLike 或元组，但收到的却是 &lt;class ‘openai.types.file_object.FileObject’&gt;。请参阅 GitHub - openai/openai-python：OpenAI API 的官方 Python 库
+
+这是我当前的代码：
+@bot.message_handler(content_types=[&#39;document&#39;])
+def handle_document(message):
 try:
-data = request.get_json()
-user_input = data.get(&#39;message&#39;)
+# 获取文档的文件路径
+file_info = bot.get_file(message.document.file_id)
 
-if not user_input:
-return jsonify({&#39;error&#39;: &#39;No message provided&#39;}), 400
+file_response = request.get(&#39;https://api.telegram.org/file/bot{0}/{1}&#39;.format(TELEBOT_API_TOKEN, file_info.file_path))
 
-response = client.chat.completions.create(
-model=&quot;gpt-4&quot;,
-messages=[{
-&quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: user_input
-}],
-max_tokens=150
+file_extension = Path(file_info.file_path).suffix.lower() # 使用 pathlib.Path 实现更好的跨平台兼容性
+
+if file_extension in [&#39;.pdf&#39;, &#39;.docx&#39;]:
+
+json_response = extract_data_from_file(file_response)
+print(json_response) # 调试目的
+bot.reply_to(message, json_response)
+
+else:
+bot.reply_to(message, &quot;不支持的文档类型。请以 PDF 或 Word 文档格式发送您的简历。&quot;)
+except Exception as e:
+print(f&quot;发生错误：{e}&quot;)
+bot.reply_to(message, &quot;无法处理您的文档。请重试。&quot;)
+
+def extract_data_from_file(file_response):
+try:
+
+# 将文件内容读入字节
+file_bytes = file_response.content
+
+# 将用户提供的文件上传到 OpenAI
+message_file = client.files.create(
+file=file_bytes, purpose=&quot;assistants&quot;
 )
 
-return jsonify({&#39;response&#39;: response.choices[0].message[&#39;content&#39;]})
+# 将文件添加到向量存储
+file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
+vector_store_id=vector_store.id, files=[message_file]
+)
 
-except OpenAIError as e:
-return jsonify({&#39;error&#39;: str(e)}), 500
+# 确保文件已编入索引
+if file_batch.status != &#39;completed&#39;:
+return &quot;无法在向量中索引简历store。&quot;
+
+# 更新助手以使用向量存储
+assistant = client.beta.assistants.update(
+assistant_id=assistant.id,
+tool_resources={&quot;file_search&quot;: {&quot;vector_store_ids&quot;: [vector_store.id]}},
+)
+
+# 创建线程并将文件附加到消息
+thread = client.beta.threads.create(
+messages=[
+{
+&quot;role&quot;: &quot;user&quot;,
+&quot;content&quot;: &quot;请将我的简历转换为 JSON 格式。&quot;,
+&quot;attachments&quot;: [
+{&quot;file_id&quot;: message_file.id, &quot;tools&quot;: [{&quot;type&quot;: &quot;file_search&quot;}]}
+],
+}
+]
+)
+
+# 轮询线程运行
+run = client.beta.threads.runs.create_and_poll(
+thread_id=thread.id, assistant_id=assistant.id
+)
+
+# 从运行中检索消息
+messages = list(client.beta.threads.messages.list(thread_id=thread.id, run_id=run.id))
+json_response = messages[0].content[0].text
+return json_response
 
 except Exception as e:
-return jsonify({&#39;error&#39;: &#39;An accidental error occurred&#39;}), 500
-
-if __name__ == &#39;__main__&#39;:
-app.run(debug=True)
-
-
-错误消息：
-获取响应时发生错误。
-已采取的步骤：
-
-已验证的 API 密钥已从 .env 正确加载文件。
-确保 Flask 和其他依赖项已安装且为最新版本。
-检查是否存在缩进或语法问题。
-
-有人能帮我找出可能导致此问题的原因吗？谢谢！]]></description>
-      <guid>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 12:25:56 GMT</pubDate>
+print(f&quot;文件处理过程中发生错误：{e}&quot;)
+return &quot;无法处理文件。&quot;]]></description>
+      <guid>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 14:52:33 GMT</pubDate>
     </item>
     <item>
-      <title>对矢量存储中的文件进行优先级排序</title>
-      <link>https://community.openai.com/t/prioritize-files-in-vector-store/771731#post_2</link>
-      <description><![CDATA[是的！与此类似，如果能够使用标签（或其他任何标签）对向量存储进行分段，并在检索之前/期间动态（甚至静态）调整某些标签的优先级，那么这将是一个非常好的功能。
-对于我们向量存储中的一个实际示例，我们有内容 A 和内容 B，我们希望提升内容 A，因为它总体上更准确。最好标记属于内容 A 的文档，然后调整标签的优先级以微调答案的质量。
-对我来说，这听起来很简单，只需在对向量存储的结果进行排序时调整排名因素即可。]]></description>
-      <guid>https://community.openai.com/t/prioritize-files-in-vector-store/771731#post_2</guid>
-      <pubDate>Fri, 12 Jul 2024 12:05:32 GMT</pubDate>
+      <title>Markdown 引擎不会在表格中呈现换行符</title>
+      <link>https://community.openai.com/t/markdown-engine-doesnt-render-line-breaks-in-tables/698589#post_3</link>
+      <description><![CDATA[这很奇怪。&lt;br&gt; 据我所知不是 markdown。markdown 中的换行符是 \。看起来模型有点混乱？
+编辑 oml 我不知道为什么我刚刚恢复了这篇文章，它在我的最新帖子中]]></description>
+      <guid>https://community.openai.com/t/markdown-engine-doesnt-render-line-breaks-in-tables/698589#post_3</guid>
+      <pubDate>Fri, 12 Jul 2024 14:52:19 GMT</pubDate>
     </item>
     <item>
-      <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_4</link>
-      <description><![CDATA[
-以下是架构的顺序流程细分：
-
-工具 API 顺序：
-
-
-GET /api/tools：从数据库 (DB) 获取工具列表。
-POST /api/tools：在 DB 的 tools 表中创建新的工具条目。
-GET /api/tools/{id：从 DB 的 tools 表中通过其 id 检索特定工具。
-PUT /api/tools/{id：更新 tools 表中通过 id 标识的特定工具DB。
-DELETE /api/tools/{id：从 DB 中的 tools 表中删除由 id 标识的特定工具。
-POST /api/tools/search：根据发送到 API 的条件执行工具搜索查询。
-
-
-Supabase DB 交互：
-
-
-表：包含实体 tools 和 tool_versions。
-交互：Tools API 与 DB 交互，对 tools 和 tool_versions 执行 CRUD 操作（创建、读取、更新、删除）实体。
-
-
-Supabase 存储：
-
-
-处理工具代码文件的存储（Supabase 存储）。
-用于上传和检索与存储在 DB 中的工具相关的工具代码文件。
-
-
-SDK 组件：
-
-
-list：获取工具列表（ListTool 与 GetToolsAPI 通信）。
-create：创建新工具（CreateTool 与 PostToolsAPI 交互）。
-get：检索特定工具（GetTool 与 GetToolByIdAPI 通信）。
-update：更新现有工具（UpdateTool 与 UpdateToolAPI 交互）。
-delete：删除工具（DeleteTool 与 DeleteToolAPI 通信）。
-search：执行工具搜索（SearchTool 与 SearchToolsAPI 通信）。
-authenticate：处理 SDK 操作的身份验证。
-
-
-工具客户端：
-
-
-load（DynamicImportModule）：动态导入工具代码以供执行。
-工具执行器：动态导入工具代码后执行工具。
-与 GetToolByIdAPI 交互以获取工具详细信息，并与 Storage 交互以存储/检索工具代码文件。
-
-这些组件共同构成了图中描述的架构，重点关注 API 交互、数据库操作、存储管理、SDK 功能和工具执行功能]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_4</guid>
-      <pubDate>Fri, 12 Jul 2024 11:45:13 GMT</pubDate>
+      <title>泰米尔语支持图像生成</title>
+      <link>https://community.openai.com/t/tamil-supports-in-image-generation/864023#post_1</link>
+      <description><![CDATA[我给出提示，要求生成一个泰米尔语图像文件。但它给出的是方框而不是泰米尔语。我要求生成 Unicode 文本，但失败了。然后我输入了尝试 theniuni 字体或 latha 字体的输入。失败了。]]></description>
+      <guid>https://community.openai.com/t/tamil-supports-in-image-generation/864023#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 14:52:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4-o 使用 Markdown 返回答案</title>
+      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_17</link>
+      <description><![CDATA[是的。是的 &amp; 是！
+任何处理静态模式的事情 = 通过编程可以更好地处理。Markdown 是转换内容的完美基础]]></description>
+      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_17</guid>
+      <pubDate>Fri, 12 Jul 2024 14:50:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-4-o 使用 Markdown 返回答案</title>
+      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_16</link>
+      <description><![CDATA[另一种选择：在客户端，使用 markdown 显示器，以便它可以处理 markdown 并适当地格式化它。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_16</guid>
+      <pubDate>Fri, 12 Jul 2024 14:47:30 GMT</pubDate>
     </item>
     <item>
       <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_3</link>
-      <description><![CDATA[我正在构建它。想加入吗？]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_3</guid>
-      <pubDate>Fri, 12 Jul 2024 11:38:41 GMT</pubDate>
+      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_5</link>
+      <description><![CDATA[看起来很有希望。Supabase 也是一个很棒的平台。起初我并不喜欢 Deno，但后来我越来越喜欢它了。我看到未来大多数人甚至不会编写他们的模型交互代码。这一切都将使用类似 Zapier 的平台来完成，该平台托管工具调用。
+这是另一个做类似事情的网站。也许值得合作？
+
+
+
+gapier.com
+
+
+
+Gapier：面向 ChatGPT 用户的免费操作|自定义 gpts|ChatGPT 操作|GPTs 操作
+Gapier 为 GPTs 创建者提供 50 个量身定制的免费操作 API。使用我们专为 ChatGPT 用户设计的多样化且易于集成的 API 扩展您的 GPT 功能。|custom gpts|ChatGPT Actions|gapier
+
+
+
+
+
+不过，这更适合 GPT 操作。
+不过，该网站几个月来一直没有变化。我想知道它是否被废弃了
+祝你好运！绝对是个好主意]]></description>
+      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_5</guid>
+      <pubDate>Fri, 12 Jul 2024 14:47:06 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 中一段时间​​不活动后访问上传文件时出现问题</title>
-      <link>https://community.openai.com/t/issue-with-accessing-uploaded-files-after-a-period-of-inactivity-in-chatgpt/571126#post_4</link>
-      <description><![CDATA[我在 Mac 桌面应用程序上也看到了这个问题。
-真的很沮丧，我无法进行长时间的聊天来与 GPT-4o 合作一个项目，而必须每天开始新的聊天]]></description>
-      <guid>https://community.openai.com/t/issue-with-accessing-uploaded-files-after-a-period-of-inactivity-in-chatgpt/571126#post_4</guid>
-      <pubDate>Fri, 12 Jul 2024 11:36:55 GMT</pubDate>
+      <title>GPT-4-o 使用 Markdown 返回答案</title>
+      <link>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_15</link>
+      <description><![CDATA[您可以使用某种正则表达式解析实时删除 markdown。可以在将其发送回客户端之前在服务器上执行此操作，也可以在客户端执行此操作。不应增加太多延迟。
+然后，如果您要将其保存到数据库，则可以使用第二个提示在保存之前更好地格式化它，然后将最终响应（来自提示 2）发送给用户以进行更新。
+不完美，但可能比显示 markdown 更好。]]></description>
+      <guid>https://community.openai.com/t/gpt-4-o-returns-answers-with-markdown/850220#post_15</guid>
+      <pubDate>Fri, 12 Jul 2024 14:44:59 GMT</pubDate>
     </item>
     <item>
-      <title>平衡挑战：提示问题</title>
-      <link>https://community.openai.com/t/balance-challenge-prompt-questions/863813#post_1</link>
-      <description><![CDATA[两组提示：
-提示A：
-请一步一步地解答此题。
-确保每一步都详细，包括精确的算术计算。
-在继续之前验证每一步的正确性。
-完成所有步骤后，只提供最终解决方案，不包括详细步骤。
-“打印的问题陈述”：“ \\(\\frac{x+2}{x} = \\frac{5}{3}\\) ---”
-
-提示B：
-”请一步一步地解答此题，以确保准确性。
-解答后，只提供最终解决方案，不包含详细步骤。“
-打印的问题陈述”：“ \\(\\frac{x+2}{x} = \\frac{5}{3}\\) --- &quot;,
-
-等式的正确答案是 X=3；
-提示 A 给出了正确答案，而提示 B 给出了错误答案。但是，提示 A 的输出特别冗长，几乎是提示 B 的四倍。
-问题：
-
-
-使用提示 A，我希望输出简洁，例如“(x = 3)”。而不是像图中那样复杂的输出。
-
-
-有没有比 A 更好的提示，可以提供正确答案，同时最小化 GPT 的计算量过程？
-
-
-希望有人能成功应对这个挑战。
-提示A：
-
-提示B：
-]]></description>
-      <guid>https://community.openai.com/t/balance-challenge-prompt-questions/863813#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 11:35:50 GMT</pubDate>
+      <title>Markdown 引擎不会在表格中呈现换行符</title>
+      <link>https://community.openai.com/t/markdown-engine-doesnt-render-line-breaks-in-tables/698589#post_2</link>
+      <description><![CDATA[遇到同样的问题。之前可以正常工作，现在又不行了]]></description>
+      <guid>https://community.openai.com/t/markdown-engine-doesnt-render-line-breaks-in-tables/698589#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 14:43:37 GMT</pubDate>
     </item>
     <item>
-      <title>使用函数调用按顺序执行函数</title>
-      <link>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_11</link>
-      <description><![CDATA[因此，如果我们以 javascript 为例，您可以控制执行流程。执行第一个工具并将其包装在承诺中，然后在完成后解析它。然后对每个函数执行相同的操作。它将是连续的。你明白了吗？]]></description>
-      <guid>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_11</guid>
-      <pubDate>Fri, 12 Jul 2024 11:35:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果文本满足每个要求，则提示排名</title>
-      <link>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_3</link>
-      <description><![CDATA[
-类似这样的？
-https://tune.ac/project/01J2KB1M6EV4T8Z2BC5HRT4JET]]></description>
-      <guid>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_3</guid>
-      <pubDate>Fri, 12 Jul 2024 11:33:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我昨天被另一个人工智能骗了</title>
-      <link>https://community.openai.com/t/i-was-scammed-yesterday-by-another-ai/774914#post_6</link>
-      <description><![CDATA[同样。几天前。我真的很担心我的数据和信用卡信息。有谁比我更了解这件事，能告诉我更多关于这些骗局的信息吗？]]></description>
-      <guid>https://community.openai.com/t/i-was-scammed-yesterday-by-another-ai/774914#post_6</guid>
-      <pubDate>Fri, 12 Jul 2024 11:22:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义 GPT 突然无法保存新的或更新的自定义 GPT 的任何行为更改？</title>
-      <link>https://community.openai.com/t/custom-gpt-suddenly-cannot-save-any-behaviour-changes-for-new-or-updated-custom-gpts/599282?page=5#post_87</link>
-      <description><![CDATA[这种情况一直发生在我身上。我能想到的最好的解决办法就是关闭所有东西。有时包括我的电脑……它一直说要更新的信息太多，但其实只有几行指令……]]></description>
-      <guid>https://community.openai.com/t/custom-gpt-suddenly-cannot-save-any-behaviour-changes-for-new-or-updated-custom-gpts/599282?page=5#post_87</guid>
-      <pubDate>Fri, 12 Jul 2024 11:14:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手gpt4o微调</title>
-      <link>https://community.openai.com/t/assitant-gpt4o-finetunning/863781#post_1</link>
-      <description><![CDATA[大家好！
-有人知道什么时候允许使用模型 gpt4o 的助手进行微调吗？
-谢谢]]></description>
-      <guid>https://community.openai.com/t/assitant-gpt4o-finetunning/863781#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 10:54:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 成功案例 - 将照片转换成乐高积木</title>
-      <link>https://community.openai.com/t/a-gpt-success-story-transforming-photos-into-lego/568735#post_9</link>
-      <description><![CDATA[]]></description>
-      <guid>https://community.openai.com/t/a-gpt-success-story-transforming-photos-into-lego/568735#post_9</guid>
-      <pubDate>Fri, 12 Jul 2024 10:54:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 Azure.AI.OpenAi 更新到较新版本后代码中出现错误</title>
-      <link>https://community.openai.com/t/errors-occurring-in-the-code-after-updating-azure-ai-openai-to-newer-version/863775#post_1</link>
-      <description><![CDATA[ OpenAIClient client = new OpenAIClient(new Uri(openAiEndpoint), new 
-AzureKeyCredential(openAiApiKey));
-var chatCompletionsOptions = new ChatCompletionsOptions
-{
-Messages =
-
-{
-new ChatMessage(ChatRole.System, @&quot;您是 ..&quot; 的虚拟助手),
-new ChatMessage(ChatRole.User, _conversationHistory)
-},
-Temperature = 0.5f,
-MaxTokens = 150,
-NucleusSamplingFactor = 0.95f,
-FrequencyPenalty = 0,
-PresencePenalty = 0,
-};
-
-var chatCompletionsResponse = await client.GetChatCompletionsAsync(&quot;openaigpt35turbo&quot;, chatCompletionsOptions);
-string chatbotResponse = chatCompletionsResponse.Value.Choices[0].Message.Content;
-
-我使用此代码（C#）开发了一个聊天机器人。将“Azure.Ai.OpenAi”NuGet 包从 1.0.0 beta 6 更新到 2.0.0 beta 2（最新版本）后，此提供的代码出现错误。如何根据“Azure.Ai.OpenAi”2.0.0 beta 2 版本更改此代码？]]></description>
-      <guid>https://community.openai.com/t/errors-occurring-in-the-code-after-updating-azure-ai-openai-to-newer-version/863775#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 10:52:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>一段时间不活动后无法访问代码解释器中的文件</title>
-      <link>https://community.openai.com/t/cant-access-files-in-code-interpreter-after-a-period-of-inactivity/851579#post_11</link>
-      <description><![CDATA[+1。这真的很烦人。完全可以理解拥有一个时间环境，但是当这个环境关闭时，助手 API 应该能够创建一个新的环境。不明白为什么这样工作。]]></description>
-      <guid>https://community.openai.com/t/cant-access-files-in-code-interpreter-after-a-period-of-inactivity/851579#post_11</guid>
-      <pubDate>Fri, 12 Jul 2024 10:50:51 GMT</pubDate>
+      <title>助手 API-记忆功能？</title>
+      <link>https://community.openai.com/t/assistants-api-memory-feature/748258#post_2</link>
+      <description><![CDATA[我也想知道这一点。我没有在他们的 API 文档中看到任何关于内存的提及。]]></description>
+      <guid>https://community.openai.com/t/assistants-api-memory-feature/748258#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 14:43:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
