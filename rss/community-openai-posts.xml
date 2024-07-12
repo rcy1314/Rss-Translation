@@ -4,173 +4,267 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Jul 2024 09:22:15 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2024 12:37:28 GMT</lastBuildDate>
     <item>
-      <title>使用 OpenAI 为 FT 生成特定任务指令</title>
-      <link>https://community.openai.com/t/use-openai-for-generate-specific-task-instructions-for-ft/863706#post_1</link>
-      <description><![CDATA[我有一个关于使用 OpenAI LLM 生成的输出来训练特定任务模型（基于 Llama 或 Mistral）的问题。根据使用条款，禁止使用输出来开发与 OpenAI 竞争的模型。但是，我想澄清一下，我是否可以使用输出来训练特定任务的语言模型，而该模型不会与 GPT 的多功能功能直接竞争。
-例如，我计划针对特定任务（例如特定行业环境中的情绪分析）微调模型，这不会与 GPT 的广泛功能竞争。条款允许这种输出使用方式吗？
-提前感谢您的回复。]]></description>
-      <guid>https://community.openai.com/t/use-openai-for-generate-specific-task-instructions-for-ft/863706#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 09:21:52 GMT</pubDate>
+      <title>ChatGPT - 语音模式屏幕进入睡眠状态</title>
+      <link>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_15</link>
+      <description><![CDATA[我也有同样的问题，这很烦人]]></description>
+      <guid>https://community.openai.com/t/chatgpt-voice-mode-screen-go-to-sleep/806010#post_15</guid>
+      <pubDate>Fri, 12 Jul 2024 12:36:32 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 诈骗者正在就我的 GPT 与我联系</title>
-      <link>https://community.openai.com/t/gpt-scammers-are-contacting-me-about-my-gpt/863567#post_3</link>
-      <description><![CDATA[我也是，收到了同样的邮件，我的 GPT 有 +100 个聊天。我在论坛上看到你 @jeevika... 在互联网上搜索，全部连接...]]></description>
-      <guid>https://community.openai.com/t/gpt-scammers-are-contacting-me-about-my-gpt/863567#post_3</guid>
-      <pubDate>Fri, 12 Jul 2024 09:15:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>功能请求：基于文件夹的 ChatGPT 对话组织</title>
-      <link>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_49</link>
-      <description><![CDATA[有任何 Chrome 或 Brave 浏览器扩展程序可以满足组织文件夹等的需求吗？]]></description>
-      <guid>https://community.openai.com/t/feature-request-folder-based-organization-for-chatgpt-conversations/672115?page=2#post_49</guid>
-      <pubDate>Fri, 12 Jul 2024 09:02:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 建议使用 Open AI 内部库 ace_tools</title>
-      <link>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_16</link>
-      <description><![CDATA[那么如果我们尝试安装 ace_tools 包，我们应该怎么做？]]></description>
-      <guid>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_16</guid>
-      <pubDate>Fri, 12 Jul 2024 08:54:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>复杂提示导致结果持续恶化</title>
-      <link>https://community.openai.com/t/complex-prompt-getting-continuously-worse-results/863463#post_5</link>
-      <description><![CDATA[嗨 @chris74 -
-由于您正在处理一些高度敏感的事情 - 涉及贷款决策的过程 - 这显然是一个受到严格监管和监督的领域，因此我心中有几个重要的考虑因素。
+      <title>需要有关 OpenAI API 的 Flask 集成的帮助</title>
+      <link>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_1</link>
+      <description><![CDATA[您好，我正在尝试创建一个 Flask 应用程序，该应用程序与 OpenAI API 交互以完成聊天。但是，我遇到了一条错误消息：“获取响应时发生错误。”下面是我的代码
+import os
+from openai import OpenAI, OpenAIError
+from dotenv import load_dotenv
+from flask import Flask, request, jsonify, render_template
 
+load_dotenv()
+api_key = os.getenv(&#39;OPENAI_API_KEY&#39;)
+client = OpenAI(api_key=api_key)
 
-如前所述，将流程分解为更小的部分在我看来是绝对关键的。评估中与住房贷款标准相关的敏感部分应与其他准备任务分开。
+app = Flask(__name__)
 
+@app.route(&quot;/&quot;)
+def index():
+return render_template(&quot;index.html&quot;)
 
-对于贷款标准评估，我个人将构建一个非常详细的评估网格/矩阵，为模型提供尽可能多的背景信息，以进行透明、可验证且可审计的系统评估。在我看来，这应该包括评估结果和得出结论的根本原因。正如之前所建议的，我会选择更低的温度（零度或接近零度）来限制或降低评估中出现变化和不一致的风险。
+@app.route(&#39;/chat&#39;, methods=[&#39;POST&#39;])
+def chat():
+try:
+data = request.get_json()
+user_input = data.get(&#39;message&#39;)
 
+if not user_input:
+return jsonify({&#39;error&#39;: &#39;No message provided&#39;}), 400
 
-为了支持一致性，您还可以创建一个过去评估结果的数据库（前提是这些结果没有任何偏见等），并进一步利用它来验证评估结果。
-
-
-最后，我同意 gpt-4-turbo 可能比 gpt-4o 更适合这项任务。
-附注：我不知道您在哪个司法管辖区运营，但您可能还想检查您所在国家监管机构是否已发布使用人工智能的原则，包括用于信贷决策流程。在设计时，您可能应该牢记一些更具体的标准。]]></description>
-      <guid>https://community.openai.com/t/complex-prompt-getting-continuously-worse-results/863463#post_5</guid>
-      <pubDate>Fri, 12 Jul 2024 08:31:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>助手 API 超时问题</title>
-      <link>https://community.openai.com/t/assistant-api-timeout-issue/863663#post_1</link>
-      <description><![CDATA[还有谁遇到过 Assistants API 超时的情况？我经常在获取 Assistants 和获取 Thread 消息时超时。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-timeout-issue/863663#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 08:31:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>线程助手消息创建时 image_file 返回 400 无效值“image_file”</title>
-      <link>https://community.openai.com/t/thread-assistant-message-create-with-image-file-returning-400-invalid-value-image-file/863661#post_1</link>
-      <description><![CDATA[您好，
-我正在使用 Typescript 和 openai v4.52.7 创建聊天机器人。
-由于 Assistant API 不支持 base64 image_url，我正在尝试参考 file_id 上传文件的方法。
-当我创建类型为 image_file 的线程消息时，我收到错误
-“OpenAI 错误：错误：400 无效值：&#39;image_file&#39;。支持的值有：‘text’、‘image_url’和‘image_file’。”
-这非常含糊，image_file 是支持的值之一……
-代码如下：
-const threadRun = await openAI.beta.threads.runs.create( 
-openAIthread.id, {
+response = client.chat.completions.create(
+model=&quot;gpt-4&quot;,
+messages=[{
 &quot;role&quot;: &quot;user&quot;,
-&quot;content&quot;: [
+&quot;content&quot;: user_input
+}],
+max_tokens=150
+)
+
+return jsonify({&#39;response&#39;: response.choices[0].message[&#39;content&#39;]})
+
+except OpenAIError as e:
+return jsonify({&#39;error&#39;: str(e)}), 500
+
+except Exception as e:
+return jsonify({&#39;error&#39;: &#39;An accidental error occurred&#39;}), 500
+
+if __name__ == &#39;__main__&#39;:
+app.run(debug=True)
+
+
+错误消息：
+获取响应时发生错误。
+已采取的步骤：
+
+已验证的 API 密钥已从 .env 正确加载文件。
+确保 Flask 和其他依赖项已安装且为最新版本。
+检查是否存在缩进或语法问题。
+
+有人能帮我找出可能导致此问题的原因吗？谢谢！]]></description>
+      <guid>https://community.openai.com/t/need-help-with-flask-integration-for-openai-api/863866#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 12:25:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>对矢量存储中的文件进行优先级排序</title>
+      <link>https://community.openai.com/t/prioritize-files-in-vector-store/771731#post_2</link>
+      <description><![CDATA[是的！与此类似，如果能够使用标签（或其他任何标签）对向量存储进行分段，并在检索之前/期间动态（甚至静态）调整某些标签的优先级，那么这将是一个非常好的功能。
+对于我们向量存储中的一个实际示例，我们有内容 A 和内容 B，我们希望提升内容 A，因为它总体上更准确。最好标记属于内容 A 的文档，然后调整标签的优先级以微调答案的质量。
+对我来说，这听起来很简单，只需在对向量存储的结果进行排序时调整排名因素即可。]]></description>
+      <guid>https://community.openai.com/t/prioritize-files-in-vector-store/771731#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 12:05:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有现有的工具注册表解决方案？</title>
+      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_4</link>
+      <description><![CDATA[
+以下是架构的顺序流程细分：
+
+工具 API 顺序：
+
+
+GET /api/tools：从数据库 (DB) 获取工具列表。
+POST /api/tools：在 DB 的 tools 表中创建新的工具条目。
+GET /api/tools/{id：从 DB 的 tools 表中通过其 id 检索特定工具。
+PUT /api/tools/{id：更新 tools 表中通过 id 标识的特定工具DB。
+DELETE /api/tools/{id：从 DB 中的 tools 表中删除由 id 标识的特定工具。
+POST /api/tools/search：根据发送到 API 的条件执行工具搜索查询。
+
+
+Supabase DB 交互：
+
+
+表：包含实体 tools 和 tool_versions。
+交互：Tools API 与 DB 交互，对 tools 和 tool_versions 执行 CRUD 操作（创建、读取、更新、删除）实体。
+
+
+Supabase 存储：
+
+
+处理工具代码文件的存储（Supabase 存储）。
+用于上传和检索与存储在 DB 中的工具相关的工具代码文件。
+
+
+SDK 组件：
+
+
+list：获取工具列表（ListTool 与 GetToolsAPI 通信）。
+create：创建新工具（CreateTool 与 PostToolsAPI 交互）。
+get：检索特定工具（GetTool 与 GetToolByIdAPI 通信）。
+update：更新现有工具（UpdateTool 与 UpdateToolAPI 交互）。
+delete：删除工具（DeleteTool 与 DeleteToolAPI 通信）。
+search：执行工具搜索（SearchTool 与 SearchToolsAPI 通信）。
+authenticate：处理 SDK 操作的身份验证。
+
+
+工具客户端：
+
+
+load（DynamicImportModule）：动态导入工具代码以供执行。
+工具执行器：动态导入工具代码后执行工具。
+与 GetToolByIdAPI 交互以获取工具详细信息，并与 Storage 交互以存储/检索工具代码文件。
+
+这些组件共同构成了图中描述的架构，重点关注 API 交互、数据库操作、存储管理、SDK 功能和工具执行功能]]></description>
+      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_4</guid>
+      <pubDate>Fri, 12 Jul 2024 11:45:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有现有的工具注册表解决方案？</title>
+      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_3</link>
+      <description><![CDATA[我正在构建它。想加入吗？]]></description>
+      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_3</guid>
+      <pubDate>Fri, 12 Jul 2024 11:38:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 中一段时间​​不活动后访问上传文件时出现问题</title>
+      <link>https://community.openai.com/t/issue-with-accessing-uploaded-files-after-a-period-of-inactivity-in-chatgpt/571126#post_4</link>
+      <description><![CDATA[我在 Mac 桌面应用程序上也看到了这个问题。
+真的很沮丧，我无法进行长时间的聊天来与 GPT-4o 合作一个项目，而必须每天开始新的聊天]]></description>
+      <guid>https://community.openai.com/t/issue-with-accessing-uploaded-files-after-a-period-of-inactivity-in-chatgpt/571126#post_4</guid>
+      <pubDate>Fri, 12 Jul 2024 11:36:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>平衡挑战：提示问题</title>
+      <link>https://community.openai.com/t/balance-challenge-prompt-questions/863813#post_1</link>
+      <description><![CDATA[两组提示：
+提示A：
+请一步一步地解答此题。
+确保每一步都详细，包括精确的算术计算。
+在继续之前验证每一步的正确性。
+完成所有步骤后，只提供最终解决方案，不包括详细步骤。
+“打印的问题陈述”：“ \\(\\frac{x+2}{x} = \\frac{5}{3}\\) ---”
+
+提示B：
+”请一步一步地解答此题，以确保准确性。
+解答后，只提供最终解决方案，不包含详细步骤。“
+打印的问题陈述”：“ \\(\\frac{x+2}{x} = \\frac{5}{3}\\) --- &quot;,
+
+等式的正确答案是 X=3；
+提示 A 给出了正确答案，而提示 B 给出了错误答案。但是，提示 A 的输出特别冗长，几乎是提示 B 的四倍。
+问题：
+
+
+使用提示 A，我希望输出简洁，例如“(x = 3)”。而不是像图中那样复杂的输出。
+
+
+有没有比 A 更好的提示，可以提供正确答案，同时最小化 GPT 的计算量过程？
+
+
+希望有人能成功应对这个挑战。
+提示A：
+
+提示B：
+]]></description>
+      <guid>https://community.openai.com/t/balance-challenge-prompt-questions/863813#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 11:35:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用函数调用按顺序执行函数</title>
+      <link>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_11</link>
+      <description><![CDATA[因此，如果我们以 javascript 为例，您可以控制执行流程。执行第一个工具并将其包装在承诺中，然后在完成后解析它。然后对每个函数执行相同的操作。它将是连续的。你明白了吗？]]></description>
+      <guid>https://community.openai.com/t/executing-functions-sequentially-using-function-calling/819316#post_11</guid>
+      <pubDate>Fri, 12 Jul 2024 11:35:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果文本满足每个要求，则提示排名</title>
+      <link>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_3</link>
+      <description><![CDATA[
+类似这样的？
+https://tune.ac/project/01J2KB1M6EV4T8Z2BC5HRT4JET]]></description>
+      <guid>https://community.openai.com/t/prompt-to-rank-if-text-meets-each-requirement/862757#post_3</guid>
+      <pubDate>Fri, 12 Jul 2024 11:33:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我昨天被另一个人工智能骗了</title>
+      <link>https://community.openai.com/t/i-was-scammed-yesterday-by-another-ai/774914#post_6</link>
+      <description><![CDATA[同样。几天前。我真的很担心我的数据和信用卡信息。有谁比我更了解这件事，能告诉我更多关于这些骗局的信息吗？]]></description>
+      <guid>https://community.openai.com/t/i-was-scammed-yesterday-by-another-ai/774914#post_6</guid>
+      <pubDate>Fri, 12 Jul 2024 11:22:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义 GPT 突然无法保存新的或更新的自定义 GPT 的任何行为更改？</title>
+      <link>https://community.openai.com/t/custom-gpt-suddenly-cannot-save-any-behaviour-changes-for-new-or-updated-custom-gpts/599282?page=5#post_87</link>
+      <description><![CDATA[这种情况一直发生在我身上。我能想到的最好的解决办法就是关闭所有东西。有时包括我的电脑……它一直说要更新的信息太多，但其实只有几行指令……]]></description>
+      <guid>https://community.openai.com/t/custom-gpt-suddenly-cannot-save-any-behaviour-changes-for-new-or-updated-custom-gpts/599282?page=5#post_87</guid>
+      <pubDate>Fri, 12 Jul 2024 11:14:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>助手gpt4o微调</title>
+      <link>https://community.openai.com/t/assitant-gpt4o-finetunning/863781#post_1</link>
+      <description><![CDATA[大家好！
+有人知道什么时候允许使用模型 gpt4o 的助手进行微调吗？
+谢谢]]></description>
+      <guid>https://community.openai.com/t/assitant-gpt4o-finetunning/863781#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 10:54:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 成功案例 - 将照片转换成乐高积木</title>
+      <link>https://community.openai.com/t/a-gpt-success-story-transforming-photos-into-lego/568735#post_9</link>
+      <description><![CDATA[]]></description>
+      <guid>https://community.openai.com/t/a-gpt-success-story-transforming-photos-into-lego/568735#post_9</guid>
+      <pubDate>Fri, 12 Jul 2024 10:54:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 Azure.AI.OpenAi 更新到较新版本后代码中出现错误</title>
+      <link>https://community.openai.com/t/errors-occurring-in-the-code-after-updating-azure-ai-openai-to-newer-version/863775#post_1</link>
+      <description><![CDATA[ OpenAIClient client = new OpenAIClient(new Uri(openAiEndpoint), new 
+AzureKeyCredential(openAiApiKey));
+var chatCompletionsOptions = new ChatCompletionsOptions
 {
-&quot;type&quot;: &quot;text&quot;,
-&quot;text&quot;: &quot;你能告诉我在文件 id 为 file-pDaHoQnwiL8n8Ucd10VMmRy9 的图像中看到了什么吗&quot;
+Messages =
+
+{
+new ChatMessage(ChatRole.System, @&quot;您是 ..&quot; 的虚拟助手),
+new ChatMessage(ChatRole.User, _conversationHistory)
 },
-{
-&quot;type&quot;: &quot;image_file &quot;,
-&quot;image_file&quot;: {
-&quot;file_id&quot;: &quot;file-pDaHoQnwiL8n8Ucd10VMmRy9&quot;
-}
-}
-]
-}
-);
+Temperature = 0.5f,
+MaxTokens = 150,
+NucleusSamplingFactor = 0.95f,
+FrequencyPenalty = 0,
+PresencePenalty = 0,
+};
 
-有人能解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/thread-assistant-message-create-with-image-file-returning-400-invalid-value-image-file/863661#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 08:25:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无法共享 GPT</title>
-      <link>https://community.openai.com/t/i-am-unable-to-share-a-gpt/863174#post_8</link>
-      <description><![CDATA[您是否已准备好共享自定义GPT所需的隐私政策站点，并在自定义GPT的输入字段中输入了其链接？]]></description>
-      <guid>https://community.openai.com/t/i-am-unable-to-share-a-gpt/863174#post_8</guid>
-      <pubDate>Fri, 12 Jul 2024 08:21:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>解决 Flask 应用程序中的 CRITICAL WORKER TIMEOUT 错误并向 OpenAI 发出长提示</title>
-      <link>https://community.openai.com/t/resolving-critical-worker-timeout-error-in-flask-app-with-long-prompts-to-openai/863645#post_1</link>
-      <description><![CDATA[我在运行连接到 OpenAI 的 Flask 应用时遇到了 CRITICAL WORKER TIMEOUT 错误。该应用在短提示下正常运行，但在发送较长提示时收到超时错误。任何见解或解决方案都将不胜感激。
-我曾尝试增加 Gunicorn 超时并在 OpenAI 的聊天完成中实现流式传输功能，但这两种解决方案都不起作用。]]></description>
-      <guid>https://community.openai.com/t/resolving-critical-worker-timeout-error-in-flask-app-with-long-prompts-to-openai/863645#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 08:04:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无法共享 GPT</title>
-      <link>https://community.openai.com/t/i-am-unable-to-share-a-gpt/863174#post_7</link>
-      <description><![CDATA[我们之前收到过类似的报告，并能够将一些案例追溯到潜在的知识产权或服务条款违规行为。
-举几个例子：如果知识文件包含潜在的不当内容，则可以停用共享选项而无需进一步解释。这些也可能是误报，在这种情况下，您应该联系支持人员并等待解决方案。
-与此同时，您可以通过查看 GPT 的详细信息来检查可能导致此类限制的任何明显原因，或者您可以逐步重建它，直到到达发生错误的点。
-希望这对你有所帮助！]]></description>
-      <guid>https://community.openai.com/t/i-am-unable-to-share-a-gpt/863174#post_7</guid>
-      <pubDate>Fri, 12 Jul 2024 08:02:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>推动类似 Spotify 的付费版权内容 ChatGPT 选项</title>
-      <link>https://community.openai.com/t/push-for-spotify-like-pay-for-copyrighted-content-chatgpt-option/582660#post_4</link>
-      <description><![CDATA[我将继续密切关注这个问题，并对此非常感兴趣。推动行业向更好的方向发展，类似于对受版权保护的材料收取合理使用费，这一点很重要，我认为社区必须引领潮流。请不要因缺乏回应而气馁，继续引领潮流。
-也许社区可以想出比 Spotify（由亿万富翁拥有，但每次使用只向内容版权所有者支付几分钱）更好的办法，制定一项策略，让内容所有者获得更公平的份额。免责声明：我已经使用 Spotify 多年，由于其出色的用户界面和可用性，我仍然在使用它。我实际上是一个追踪从 Napster 下载的每首歌曲的所有权并向版权所有者捐款的人，但这是繁重的工作，我不想再经历一次。]]></description>
-      <guid>https://community.openai.com/t/push-for-spotify-like-pay-for-copyrighted-content-chatgpt-option/582660#post_4</guid>
-      <pubDate>Fri, 12 Jul 2024 08:00:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>耳语转录翻译成随机语言（马来语）</title>
-      <link>https://community.openai.com/t/whisper-transcription-translates-to-random-language-malay/863452#post_5</link>
-      <description><![CDATA[您已经提到了 Whisper 提示的局限性，但它仍然可以为您带来优势。需要注意的一件重要事情是，耳语提示不是与聊天模型的系统提示相当的指令。如果您还没有尝试过，这是我的第一个建议：
-而不是提示
+var chatCompletionsResponse = await client.GetChatCompletionsAsync(&quot;openaigpt35turbo&quot;, chatCompletionsOptions);
+string chatbotResponse = chatCompletionsResponse.Value.Choices[0].Message.Content;
 
-请将以下文本转录成英文
-
-我们会使用
-
-以下是英文的音频记录：
-
-除此之外，我们确实会不时收到类似的报告。例如，英语用户报告威尔士语的转录。
-更复杂的方法可能是让另一个工具评估输出是否是所需的目标语言，并在必要时重试。请注意，对于这个确定性任务，不需要 LLM；您可以使用您编程语言的现有库。]]></description>
-      <guid>https://community.openai.com/t/whisper-transcription-translates-to-random-language-malay/863452#post_5</guid>
-      <pubDate>Fri, 12 Jul 2024 07:57:19 GMT</pubDate>
+我使用此代码（C#）开发了一个聊天机器人。将“Azure.Ai.OpenAi”NuGet 包从 1.0.0 beta 6 更新到 2.0.0 beta 2（最新版本）后，此提供的代码出现错误。如何根据“Azure.Ai.OpenAi”2.0.0 beta 2 版本更改此代码？]]></description>
+      <guid>https://community.openai.com/t/errors-occurring-in-the-code-after-updating-azure-ai-openai-to-newer-version/863775#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 10:52:54 GMT</pubDate>
     </item>
     <item>
-      <title>助理 API 正在根据之前删除的助理的指令做出响应</title>
-      <link>https://community.openai.com/t/assistants-api-is-responding-based-on-instructions-of-previously-deleted-assistants/863634#post_1</link>
-      <description><![CDATA[嗨，
-我正在使用 API v2 制作博客生成器，在测试期间，我制作了多个助手，删除了它们，对说明进行了重大更改，最后我得到了一个或多或少按照我想要的方式工作的助手（第 9 个）。
-当助手不再使用时，我总是会删除它，对于每个博客，我都会提交输入文本（没有文件或向量空间），创建一个新线程，将助手输出为 json_only，然后删除该线程。
-但是，在生成的 300 个博客中，有大约 10 个案例是最新的助手根据我之前制作和生成的所有助手的混合说明做出响应。我不明白为什么，但（麻烦的）行为严重偏向于我给这个项目中第一个助手的说明。几乎感觉像有鬼在追赶我的项目。
-以下是我尽量减少这种行为的一些方法，每个新版本的助手，我都必须在创建阶段、在消息中、在 json 响应描述中添加更多“新”指令。我还发现，尽量减少这种行为的最大方法是使用一个全新的助手名称和重新措辞的指令。
-我没有代码可以分享，因为我多次迭代一个长脚本，但这种行为让我非常担心不同助手之间可能存在的护栏。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-is-responding-based-on-instructions-of-previously-deleted-assistants/863634#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 07:48:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>建议添加聊天 GPT</title>
-      <link>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_100</link>
-      <description><![CDATA[我需要文件夹来存放聊天内容]]></description>
-      <guid>https://community.openai.com/t/suggestion-to-add-for-chat-gpt/93986?page=5#post_100</guid>
-      <pubDate>Fri, 12 Jul 2024 07:42:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我收到错误请求？ 向 whisper API 发出多部分请求</title>
-      <link>https://community.openai.com/t/why-am-i-getting-a-bad-request-multipart-request-to-whisper-api/863042#post_5</link>
-      <description><![CDATA[感谢 @sps 的回复！
-更改 Content-Type 似乎不起作用。我可能会尝试创建一个脚本/小型服务来处理这个问题，因为使用 Power Automate 并没有给我留下太多的筹码。]]></description>
-      <guid>https://community.openai.com/t/why-am-i-getting-a-bad-request-multipart-request-to-whisper-api/863042#post_5</guid>
-      <pubDate>Fri, 12 Jul 2024 07:41:47 GMT</pubDate>
+      <title>一段时间不活动后无法访问代码解释器中的文件</title>
+      <link>https://community.openai.com/t/cant-access-files-in-code-interpreter-after-a-period-of-inactivity/851579#post_11</link>
+      <description><![CDATA[+1。这真的很烦人。完全可以理解拥有一个时间环境，但是当这个环境关闭时，助手 API 应该能够创建一个新的环境。不明白为什么这样工作。]]></description>
+      <guid>https://community.openai.com/t/cant-access-files-in-code-interpreter-after-a-period-of-inactivity/851579#post_11</guid>
+      <pubDate>Fri, 12 Jul 2024 10:50:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
