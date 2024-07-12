@@ -4,255 +4,162 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Fri, 12 Jul 2024 18:28:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2024 21:20:25 GMT</lastBuildDate>
     <item>
-      <title>助手 API 模型注释出现奇怪错误</title>
-      <link>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_3</link>
-      <description><![CDATA[哦，好的，这是我的 EventHandler：
-class EventHandler(AsyncAssistantEventHandler):
-def __init__(self, assistant_name: str) -&gt; None:
-super().__init__()
-self.current_message: cl.Message = None
-self.current_step: cl.Step = None
-self.current_tool_call = None
-self.assistant_name = assistant_name
-
-async def on_text_created(self, text) -&gt; None无：
-self.current_message = await cl.Message(author=self.assistant_name, content=&quot;&quot;).send()
-
-async def on_text_delta(self, delta, snap):
-await self.current_message.stream_token(delta.value)
-
-async def on_text_done(self, text):
-await self.current_message.update()
-
-async def on_tool_call_created(self, tool_call):
-self.current_tool_call = tool_call.id
-self.current_step = cl.Step(name=tool_call.type, type=&quot;tool&quot;)
-self.current_step.language = &quot;python&quot;
-self.current_step.created_at = utc_now()
-await self.current_step.send()
-
-async def on_tool_call_delta(self, delta, snap): 
-if snap.id != self.current_tool_call:
-self.current_tool_call = 快照.id
-self.current_step = cl.Step(name=delta.type, type=&quot;tool&quot;)
-self.current_step.language = &quot;python&quot;
-self.current_step.start = utc_now()
-await self.current_step.send() 
-
-如果 delta.type == &quot;code_interpreter&quot;:
-如果 delta.code_interpreter.outputs:
-对于 delta.code_interpreter.outputs 中的输出：
-如果 output.type == &quot;logs&quot;:
-error_step = cl.Step(
-name=delta.type,
-type=&quot;tool&quot;
-)
-error_step.is_error = True
-error_step.output = output.logs
-error_step.language = &quot;markdown&quot;
-error_step.start = self.current_step.start
-error_step.end = utc_now()
-await error_step.send()
-else:
-如果 delta.code_interpreter.input:
-await self.current_step.stream_token(delta.code_interpreter.input)
-
-async def on_tool_call_done(self, tool_call):
-self.current_step.end = utc_now()
-await self.current_step.update()
-
-async def on_image_file_done(self, image_file):
-image_id = image_file.file_id
-response = await async_openai_client.files.with_raw_response.content(image_id)
-image_element = cl.Image(
-name=image_id,
-content=response.content,
-display=&quot;inline&quot;,
-size=&quot;large&quot;
-)
-if not self.current_message.elements:
-self.current_message.elements = []
-self.current_message.elements.append(image_element)
-await self.current_message.update()
-
-我从一个在线指南，视频中他们的代码运行顺利，没有错误。我也尝试在没有 EventHandler 的情况下调用流进行调试，但仍然出现相同的错误：
-with client.beta.threads.runs.stream(
-thread_id=thread.id,
-assistant_id=assistant.id,
-) as stream:
-stream.until_done()
-]]></description>
-      <guid>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_3</guid>
-      <pubDate>Fri, 12 Jul 2024 18:23:19 GMT</pubDate>
+      <title>ChatGPT 4o 无法很好地创建 PDF 并且挂起（通过 Windows10 PC 通过网站）</title>
+      <link>https://community.openai.com/t/chatgpt-4o-cant-create-pdfs-very-well-and-hangs-via-website-via-windows10-pc/762251#post_4</link>
+      <description><![CDATA[我让它制作一个带有表格的 PDF 文档。它尝试了三次，然后放弃了。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4o-cant-create-pdfs-very-well-and-hangs-via-website-via-windows10-pc/762251#post_4</guid>
+      <pubDate>Fri, 12 Jul 2024 21:19:29 GMT</pubDate>
     </item>
     <item>
-      <title>将文件传递给助手 API 时出现问题</title>
-      <link>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_8</link>
-      <description><![CDATA[啊，没关系。我让它工作了。只需密切关注文件搜索文档即可。 
-这是这部分：
-准备好要上传到 OpenAI 的文件
- file_paths = [file_path]
-file_streams = [open(path, &quot;rb&quot;) for path in file_paths]
-
-# 使用上传和轮询 SDK 助手上传文件，将它们添加到矢量存储，
-# 并轮询文件的状态批次完成。
-file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
-vector_store_id=vector_store.id,files=file_streams
-)
-]]></description>
-      <guid>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_8</guid>
-      <pubDate>Fri, 12 Jul 2024 18:21:45 GMT</pubDate>
+      <title>剑桥人工智能初创公司 Suno AI 可生成逼真的广播品质音乐</title>
+      <link>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_32</link>
+      <description><![CDATA[是的，我同意，一些非常聪明的人正把头埋在沙子里，因为他们要么觉得受到人工智能的威胁，使他们的歌曲和艺术表达变得不那么有价值，要么他们是纯粹主义者，认为在人工智能聊天机器人的帮助下写歌是“作弊”。哈哈……醒醒吧，艺术家和词曲作者！聪明的人会填补那些因巨大的、糟糕的人工智能威胁而被抛在后面或放弃的人的空白。]]></description>
+      <guid>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_32</guid>
+      <pubDate>Fri, 12 Jul 2024 21:03:25 GMT</pubDate>
     </item>
     <item>
-      <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_17</link>
-      <description><![CDATA[我构建了一些不同的东西。这是一个带有透明 HUD 小部件的 UI。非常适合 AR 眼镜或网络。它可能会朝那个方向发展。由于它没有键盘鼠标，因此必须对 UI 进行调整以使其更有用。]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_17</guid>
-      <pubDate>Fri, 12 Jul 2024 18:20:12 GMT</pubDate>
+      <title>剑桥人工智能初创公司 Suno AI 可生成逼真的广播品质音乐</title>
+      <link>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_31</link>
+      <description><![CDATA[这是 Suno 的一个强大用例，它可以帮助您发挥创造力并编写歌词，并在通过 Suno 机器运行 40 或 50 次后获得听起来非常好的整首歌曲。
+我是一名音乐家，自 Band-In-a-Box 时代以来一直是一名充满激情的词曲作者。我有一些对游戏非常认真的词曲作者朋友，当我六年前在 FB 群组 Song Feedback Group 中发帖时，他们中没有一个人会回复。在我看来，使用强大的工具来成为更好的词曲作者/编曲者/制作人要聪明得多。
+所以我强烈怀疑他们对 AI 使各种黑客、业余爱好者和人们从中获得大量乐趣感到不满。如果您在他们最近举行的一次大型会议上听过首席执行官的讲话，他说他的使命是让人们开心，帮助他们享受做他们以前永远无法做的事情的乐趣。
+我的观点是，我擅长写歌词，可以在几个小时内完成一首歌，并在 Suno AI Song Factory 过程中对其进行改进。对我来说，总是花费大量时间的是摆弄吉他或键盘，不知道自己到底想要什么风格。我总是必须录制部分，至少是鼓、贝斯和吉他，才能听到效果。
+Suno AI 是最强大的音乐制作工具，每小时可以制作 100 首或更多不同风格的歌曲，我总能找到几首我真正喜欢的歌曲。我终于可以创作我一直想要创作的歌曲了，因为我有很多很棒的想法，但是我需要创作旋律、和声、编曲、风格，然后每天花几个小时，连续几天或更长时间，将曲目录制到我的 DAW（Logic Pro X）中。
+我用 Suno AI 创作的前七首歌曲。我惊讶又欣喜，Suno 如此专注于让现实生活中的音乐听起来很棒，以至于它可以创作出如此优美的旋律和编曲，就像今天在“Please Pour Me More”、“Mr. Beast”和“Song for Amoranth”中为我创作的那样。
+如果您想听它们，请使用 Soundcloud 的 URL、正斜杠、“reidmoto”、正斜杠“sets”]]></description>
+      <guid>https://community.openai.com/t/ai-start-up-suno-ai-from-cambridge-generates-lifelike-radio-quality-music/707853?page=2#post_31</guid>
+      <pubDate>Fri, 12 Jul 2024 20:58:48 GMT</pubDate>
     </item>
     <item>
-      <title>GPT 存储无限身份验证死亡循环</title>
-      <link>https://community.openai.com/t/gpts-store-infinite-auth-death-loop/864255#post_1</link>
-      <description><![CDATA[我是 ChatOCR 的开发者：ChatGPT - PDF AI OCR
-我们有 40,000 名用户使用此 GPT 进行 OCR 数据提取。不幸的是，尽管我们几个月来没有做出任何改变，但很多用户还是无法使用它。
-无论是在 Mac 应用程序还是在浏览器中，当我使用 OCR GPT 时，都会发生这种情况：
-
-
-在我从 ChatOCR 上传中删除链接后，它会提示我登录 docit.ai，将我带到一个新的 chrome 窗口，我授权，然后它会将我带到浏览器 ChatGPT 窗口，说我已获得授权并登录。
-
-
-然后，它会多次给我“确认”与您的通信，而无需执行任何其他操作。
-
-
-冲洗并重复。
-
-
-我已经在隐私设置中更改了我的权限，但这似乎无关紧要——尽管上次解决了这个问题。
-有人能解决这个问题吗？]]></description>
-      <guid>https://community.openai.com/t/gpts-store-infinite-auth-death-loop/864255#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 18:18:15 GMT</pubDate>
+      <title>在我上传的文档上训练模型</title>
+      <link>https://community.openai.com/t/training-models-on-documents-i-have-uploaded/864097#post_2</link>
+      <description><![CDATA[是的，可以，但根据内容的性质，您可能会遇到麻烦，也可能不会，这取决于 API 和您给出的说明，只要它不违反政策就好]]></description>
+      <guid>https://community.openai.com/t/training-models-on-documents-i-have-uploaded/864097#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 20:50:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT 无法再读取和处理消息中的 PDF</title>
+      <link>https://community.openai.com/t/gpts-unable-to-read-and-process-pdfs-in-messages-anymore/653669?page=2#post_31</link>
+      <description><![CDATA[它无法识别 PDF 的各个部分。它说它的提取代码有问题。它说它会手动读取 PDF 中的某些单词，但仍然无法找到这些单词，因此无法找到这些单词出现在哪一页。]]></description>
+      <guid>https://community.openai.com/t/gpts-unable-to-read-and-process-pdfs-in-messages-anymore/653669?page=2#post_31</guid>
+      <pubDate>Fri, 12 Jul 2024 20:48:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>对于较长的语音对话，添加停用词将是一个很棒的功能</title>
+      <link>https://community.openai.com/t/for-longer-voice-convos-add-a-stopword-would-be-a-great-feature/864353#post_1</link>
+      <description><![CDATA[如果我可以将其设置为只在我告诉它时提交我说的内容，而不是感觉我必须不停地说话，我会非常高兴]]></description>
+      <guid>https://community.openai.com/t/for-longer-voice-convos-add-a-stopword-would-be-a-great-feature/864353#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 20:38:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求将 Oshiwambo 添加到 OpenAI 的语言模型中</title>
+      <link>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_3</link>
+      <description><![CDATA[我一定会这样做的 @RonaldGRuckus。我觉得我们可以组成一个优秀的团队，因为我们有一个共同的目标。哈哈，只是说说而已。]]></description>
+      <guid>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_3</guid>
+      <pubDate>Fri, 12 Jul 2024 20:30:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何：根据产品变化更新助手文件</title>
+      <link>https://community.openai.com/t/how-to-update-assistant-file-with-constant-product-changes/836120#post_4</link>
+      <description><![CDATA[OpenAI 助手有自己的向量存储，您可以在其中上传数据。当我们需要更新我们的 AI 销售员数据库（使用 OpenAI 助手构建）时，我遇到了类似的用例。我们利用 Apify 平台进行数据抓取，通过 Apify - OpenAI 集成 使用 Assistant API 将数据上传到 OpenAI 向量存储。您可以在此处找到详细的设置说明。
+免责声明：我在 Apify 工作。]]></description>
+      <guid>https://community.openai.com/t/how-to-update-assistant-file-with-constant-product-changes/836120#post_4</guid>
+      <pubDate>Fri, 12 Jul 2024 20:21:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求将 Oshiwambo 添加到 OpenAI 的语言模型中</title>
+      <link>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_2</link>
+      <description><![CDATA[这将会非常酷。
+虽然 OpenAI 不会这样做，但这将是微调的完美候选者。
+我还想用一种逐渐被遗忘的语言来训练模型：克丘亚语。所以如果你决定继续前进，请分享你的旅程！]]></description>
+      <guid>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 20:21:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>请求将 Oshiwambo 添加到 OpenAI 的语言模型中</title>
+      <link>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_1</link>
+      <description><![CDATA[嘿，希望你们都一切顺利。
+我是来自纳米比亚的计算机科学专业学生 Simon Ntinda。我联系您是为了讨论将 Oshiwambo 添加到 OpenAI 语言模型中的可能性。我的大多数人都是 Vamboes（说 Oshiwambo 语的人），有时英语是个问题。
+我觉得我的大多数人都被抛在一边，因为他们无法以有效的方式与 ChatGPT 交流，所以我想消除这个记录，解决方案是让 ChatGPT 感觉也能理解 Oshiwambo。
+将 Oshiwambo 添加到 OpenAI 的语言模型中，我的人民将能够访问和受益于先进的人工智能技术。
+它有助于保护和推广该语言，特别是对于年轻一代。
+3. 最后，它将为许多社区提供工具，让他们能够以自己的母语创建和使用内容，从而增强他们的能力。
+我愿意协助提供必要的资源、数据和促进这一过程所需的任何其他信息。
+我欢迎任何关于如何使这个提案更有力的建议。
+如果有人能指导我下一步，我将不胜感激非常感谢。
+感谢您花时间阅读我的帖子。我期待您的支持和合作，使这一（语言）成为现实
+此致，Simon Ntinda]]></description>
+      <guid>https://community.openai.com/t/request-to-add-oshiwambo-to-openais-language-model/864336#post_1</guid>
+      <pubDate>Fri, 12 Jul 2024 20:14:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 性能正在变得繁重</title>
+      <link>https://community.openai.com/t/chatgpt-performance-is-becoming-burdensome/863464#post_5</link>
+      <description><![CDATA[我正在使用 4o。ChatGPT 简直是一场噩梦。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-performance-is-becoming-burdensome/863464#post_5</guid>
+      <pubDate>Fri, 12 Jul 2024 20:02:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人曾与 OpenAI 的真人交谈过吗？</title>
+      <link>https://community.openai.com/t/has-anyone-had-any-luck-talking-to-a-live-person-at-openai/863919#post_5</link>
+      <description><![CDATA[我甚至没有该链接的选项。我只好放弃了。]]></description>
+      <guid>https://community.openai.com/t/has-anyone-had-any-luck-talking-to-a-live-person-at-openai/863919#post_5</guid>
+      <pubDate>Fri, 12 Jul 2024 20:01:46 GMT</pubDate>
     </item>
     <item>
       <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_16</link>
-      <description><![CDATA[没问题。我知道这一切都在建设中。我只是觉得我应该给出一些建议。摧毁并重建！这就是方法！
-这个网站确实看起来很棒]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_16</guid>
-      <pubDate>Fri, 12 Jul 2024 18:17:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_15</link>
-      <description><![CDATA[是的，谢谢，但是它完全没有准备好并经过测试。您看到的网站更像是一个 POC。它根本不是产品。 我找到了一个擅长前端的熟练合作者。它将完全改变。过去几年我独自完成了所有事情，现在我正在与团队合作，因为一个人不可能做到。如果你寻求挑战，请告诉我，我一直在寻找熟练的合作者。我的愿景远不止于此，而且非常具有未来感。过去几年来，我经历了很多很多次失败才到达那里。呵呵]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_15</guid>
-      <pubDate>Fri, 12 Jul 2024 18:16:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>‘开始工作’后甚至有 + 60 se 延迟</title>
-      <link>https://community.openai.com/t/even-60-se-delay-after-starting-work/860630#post_4</link>
-      <description><![CDATA[从今天下午开始... 这个错误就消失了！]]></description>
-      <guid>https://community.openai.com/t/even-60-se-delay-after-starting-work/860630#post_4</guid>
-      <pubDate>Fri, 12 Jul 2024 18:15:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>人们使用什么 GPT 来写电子邮件？</title>
-      <link>https://community.openai.com/t/what-gpt-do-people-use-for-writing-emails/861620#post_4</link>
-      <description><![CDATA[我按照 @RonaldGRuckus 的建议去做，并使用我自己的 CustomGPT（作为个人助理接受过业务培训）来撰写电子邮件。它是我的朋友。
- 在您的 cGPT 说明和知识库中包含详细的提示和您想要和不想要的内容的示例。]]></description>
-      <guid>https://community.openai.com/t/what-gpt-do-people-use-for-writing-emails/861620#post_4</guid>
-      <pubDate>Fri, 12 Jul 2024 18:13:09 GMT</pubDate>
+      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_18</link>
+      <description><![CDATA[看来 OpenAI 几天前就开始围绕它做一些事情了！
+https://platform.openai.com/docs/actions/actions-library]]></description>
+      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_18</guid>
+      <pubDate>Fri, 12 Jul 2024 19:36:48 GMT</pubDate>
     </item>
     <item>
       <title>助手 API 模型注释出现奇怪错误</title>
-      <link>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_2</link>
-      <description><![CDATA[EventHandler 函数是什么样的？“注释”一词通常表示 EventHandler 中的引用处理需要消息内容中不存在的属性。]]></description>
-      <guid>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_2</guid>
-      <pubDate>Fri, 12 Jul 2024 18:11:03 GMT</pubDate>
+      <link>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_6</link>
+      <description><![CDATA[可能是这一行：
+
+from openai import AssistantEventHandler
+
+其他人需要解释一下它是如何工作的，因为我没有使用过该导入，也没有相关文档。]]></description>
+      <guid>https://community.openai.com/t/assistant-api-weird-error-with-model-annotation/864181#post_6</guid>
+      <pubDate>Fri, 12 Jul 2024 19:22:14 GMT</pubDate>
     </item>
     <item>
-      <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_14</link>
-      <description><![CDATA[听起来很奇特。终于可以在电脑上查看了。
-由于某种原因，网站在我的浏览器（Firefox）上溢出。不过我的形状确实很奇怪。我通常会打开 2 个窗口，并排平铺。
-不过修复起来很简单：
-#skip {
-+ max-width: 100vw;
-+ overflow-x: hidden;
-}
-
-（刚刚从 CSS 中的更改选项卡中复制并粘贴）
-还处理了一些被剪切的文本
-
-这是在 CSS 更改之前。不过，我的规格又有点奇怪。
-删除这个后，问题就解决了，并没有立即产生任何明显的不利影响：
-.self-stretch {
-- align-self: stretch;
-}
-
-我不太喜欢这种缓慢输入的弹出窗口，而且无法立即退出。不过，我确实很欣赏直接使用 HTML + SVG 而不是图像。这开启了一个低资源动画的美丽世界]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_14</guid>
-      <pubDate>Fri, 12 Jul 2024 18:09:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>我只是想确认开放人工智能模型令牌是否与因子 x 一起计数</title>
-      <link>https://community.openai.com/t/i-just-want-to-confirm-that-does-the-open-ai-model-token-count-with-factor-x/864212#post_2</link>
-      <description><![CDATA[欢迎来到开发者论坛 @razasaqlain85
-我不确定 VoiceFlow 如何计算 token。
-以下是 OpenAI 模型中 token 的计算方式：
-文本 token 是根据模型使用的编码进行计算的。
-例如gpt-3.5-turbo、gpt-4 及其 turbo 和视觉模型使用 cl100k_base 编码。
-gpt-4o 然而使用 o200k_base 编码。
-以下是文档，其中显示了如何计算图像标记。
-Assistant API 还涉及其他成本，例如每天每 GB 的矢量存储成本为 0.10 美元（最多 1GB 免费），代码解释器成本为每会话 0.03 美元。]]></description>
-      <guid>https://community.openai.com/t/i-just-want-to-confirm-that-does-the-open-ai-model-token-count-with-factor-x/864212#post_2</guid>
-      <pubDate>Fri, 12 Jul 2024 17:59:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否有现有的工具注册表解决方案？</title>
-      <link>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_13</link>
-      <description><![CDATA[我将其与身份验证、存储一起使用。现在我使用 next.js 15、react 19 和我在其上创建的名为 Brainstack 的框架。部署在 Vercel 上。]]></description>
-      <guid>https://community.openai.com/t/are-there-tools-registry-solutions-existing/778743#post_13</guid>
-      <pubDate>Fri, 12 Jul 2024 17:58:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 启动时自动运行系统提示</title>
-      <link>https://community.openai.com/t/automatically-run-system-prompt-when-gpt-is-launched/864221#post_1</link>
-      <description><![CDATA[我刚刚开始我的即时工程之旅。我有一个自定义的 SEO Niche Title GPT，它运行良好（到目前为止）。它会向用户询问 2 个问题，一个在第一个结果之后。第一个问题是询问关键字。当我的 GPT 启动时，我希望系统自动询问第一个问题而无需用户输入任何内容，但我无法让它工作——如果可能的话。这可能吗？谢谢。]]></description>
-      <guid>https://community.openai.com/t/automatically-run-system-prompt-when-gpt-is-launched/864221#post_1</guid>
-      <pubDate>Fri, 12 Jul 2024 17:49:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>将文件传递给助手 API 时出现问题</title>
-      <link>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_7</link>
-      <description><![CDATA[让我们做一个测试，让我们在‘extract_data_from_file’方法中改变一行。而不是
+      <title>SQL查询与向量数据库查询的最佳实践</title>
+      <link>https://community.openai.com/t/best-practice-for-sql-query-and-vector-database-query/864187#post_2</link>
+      <description><![CDATA[欢迎加入社区！
 
 
 
- officialtheway01:
+ toliguo:
 
- file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
-vector_store_id=vector_store.id, files=[message_file]
-)
+能否分享一些使用 MySQL 查询结果和向量数据库查询结果作为提示词的代码示例？
 
 
+如果您还没有看过，OpenAI Cookbook 很酷……我已经将他们的 vector_databases 合集链接了过来……
 
-将其更改为
- file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
-vector_store_id=vector_store.id, files=[ Path(file_path) ]
-)
 
-您遇到了什么错误？]]></description>
-      <guid>https://community.openai.com/t/problem-when-passing-file-to-assistants-api/864024#post_7</guid>
-      <pubDate>Fri, 12 Jul 2024 17:49:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的非常简单的 GPT 助手演示</title>
-      <link>https://community.openai.com/t/my-very-simple-gpt-assistant-walk-thru/654131#post_9</link>
-      <description><![CDATA[如果您想重新使用助手，您必须同时检索助手和线程。如果您创建一个新线程，助手将不会记住之前的讨论。]]></description>
-      <guid>https://community.openai.com/t/my-very-simple-gpt-assistant-walk-thru/654131#post_9</guid>
-      <pubDate>Fri, 12 Jul 2024 17:44:52 GMT</pubDate>
+
+ toliguo:
+
+使用Text2SQL生成的SQL查询MySQL
+
+
+是的，我觉得在生产中这样做不够安全。drop table什么的会意外弹出来！ 
+
+
+
+ toliguo:
+
+并将MySQL的查询结果和向量数据库的查询结果合并为提示词。
+
+
+你到底想实现什么？]]></description>
+      <guid>https://community.openai.com/t/best-practice-for-sql-query-and-vector-database-query/864187#post_2</guid>
+      <pubDate>Fri, 12 Jul 2024 19:21:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
