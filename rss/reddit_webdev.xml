@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 12 Jul 2024 21:19:26 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2024 01:20:17 GMT</lastBuildDate>
     <item>
-      <title>DJango/DataTables：扩展子列时触发 HX-GET？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1skfb/djangodatatables_trigger_an_hxget_when_expanding/</link>
-      <description><![CDATA[这几天我一直在绞尽脑汁想解决这个问题，并寻求建议来找到解决这个问题的方向。 我基本上是使用 [Datatables 网站中具有子行功能的表格的示例](https://datatables.net/examples/api/row\_details.html)，并尝试制作自己的按钮来执行此操作，但当我尝试将其集成到表格中时，它似乎只是破坏了表格并且什么也不做。代码如下： &lt;div class=&quot;container mx-auto&quot;&gt; &lt;table id=&quot;example&quot; class=&quot;cell-border&quot;&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;&lt;/th&gt; &lt;th&gt;col one&lt;/th&gt; &lt;th&gt;col two&lt;th&gt; &lt;/tr&gt; &lt;tbody&gt; {% for element in context.list %} &lt;tr&gt; &lt;td&gt; &lt;input type=hidden name=&quot;url&quot; value={{ element.url}}&gt; &lt;button class=&quot;btn&gt; type=&quot;submit&gt; hx-get=&quot;{% url &#39;home:exampleView&#39; %}&quot; hx-include=&quot;previous input&quot;&gt;&lt;img src=&quot;{% static &#39;images/Plus_sign.png&#39; %}&quot;/&gt; &lt;/button&gt; &lt;/td&gt; &lt;td&gt;{{ element.attrib1 }}&lt;/td&gt; &lt;td&gt;{{ element.attrib2 }}&lt;/td&gt; &lt;/tr&gt; {% endfor %} &lt;/tbody&gt; &lt;/thead&gt; &lt;/table&gt; &lt;/div&gt; &lt;script type=&quot;text/javascript&quot;&gt;function format(d) { // `d` 是行返回的原始数据对象（&#39;&lt;dl&gt;&#39; + &#39;&lt;dt&gt;全名：&lt;/dt&gt;&#39; + &#39;&lt;dd&gt;&#39; + d.name + &#39;&lt;/dd&gt;&#39; + &#39;&lt;dt&gt;分机号码：&lt;/dt&gt;&#39; + &#39;&lt;dd&gt;&#39; + d.extn + &#39;&lt;/dd&gt;&#39; + &#39;&lt;dt&gt;额外信息：&lt;/dt&gt;&#39; + &#39;&lt;dd&gt;以及此处的任何其他详细信息（图像等）...&lt;/dd&gt;&#39; + &#39;&lt;/dl&gt;&#39;）； } let table = new DataTable(&#39;#example&#39;, { columns: [ { className: &#39;dt-control&#39;, orderable: false, data: null, defaultContent: &#39;&#39; }, { data: &#39;col one&#39; }, { data: &#39;col two&#39; }, ], order: [[1, &#39;asc&#39;]] }); // 添加打开和关闭详细信息的事件监听器 table.on(&#39;click&#39;, &#39;td.dt-control&#39;, function (e) { let tr = e.target.closest(&#39;tr&#39;); let row = table.row(tr); if (row.child.isShown()) { // 此行已打开 - 关闭它 row.child.hide(); } else { // 打开此行 row.child(format(row.data())).show(); } }); &lt;/script&gt;  一直试图这样操作，以便您可以点击子展开行按钮，让它触发 hx-get，并使用来自 hx-get 的信息填充显示的子行。在此之前，我曾尝试过只使用自己的按钮，该按钮仅填充位于第一个表下方的第二个表，这种方法有效，但有点丑陋，并且可能会混淆它与哪一行相关。  无法弄清楚如何“hx-target”子行并让按钮弹出子行以开始，这就是为什么我尝试通过对示例表进行轻微调整来实现它，因为该示例表有可用的子行。 任何建议或指导都将不胜感激，谢谢！    提交人    /u/Servals94   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1skfb/djangodatatables_trigger_an_hxget_when_expanding/</guid>
-      <pubDate>Fri, 12 Jul 2024 21:06:01 GMT</pubDate>
+      <title>我开发了一个开源开发工具，将错误报告时间缩短了 10 倍</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1xxdc/i_built_an_opensource_developer_tool_to_cut_down/</link>
+      <description><![CDATA[嘿，开发人员！， 我最近参加了一次黑客马拉松，并开发了一个 Chrome 扩展程序来更快地报告错误。我厌倦了使用 Loom 解释错误，然后创建冗长的手动错误报告，所以我制作了一个免费的扩展程序来使其更容易。 它的工作原理是 --  您可以在特定选项卡上记录您的活动，它会自动添加 Chrome DevTools，包括网络日志、控制台日志、浏览器大小、版本等。 您可以将会话共享为链接或将其下载为文件（更多隐私友好选项） 当您意外发现错误时，您还可以使用“即时重播”功能。您不必重复这些步骤。 还有一个团队工作区功能。  Chrome 扩展程序在这里： https://chromewebstore.google.com/detail/sessionbear-capture-kill/madngddeiafpphaldfdggbhenfcjlbba Github repo 在这里： https://github.com/requestly/sessionbear/  Youtube 演示视频在这里： https://www.youtube.com/watch?v=9noryYsLaiQ 在此处查看示例会话： https://app.sessionbear.com/sessions/saved/9nLZx0fupsumAlKROuS0 尝试一下！我非常感谢您的任何反馈。    提交人    /u/blunderboy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1xxdc/i_built_an_opensource_developer_tool_to_cut_down/</guid>
+      <pubDate>Sat, 13 Jul 2024 01:08:45 GMT</pubDate>
     </item>
     <item>
-      <title>我该如何制作这样的产品呢？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1sdpp/how_would_i_go_about_making_something_like_this/</link>
-      <description><![CDATA[有人知道我该如何制作这样的表格吗：https://www.loom.com/share/7d5b77c131d84ec08fee94fbdb97fbc7?sid=fd14e5fb-43ff-49ba-8d6d-b26f6e1967bc 我需要一个包含所有汽车、装饰、信息等的数据库吗？如果需要，我该如何获取？   由    /u/TheLordNico  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1sdpp/how_would_i_go_about_making_something_like_this/</guid>
-      <pubDate>Fri, 12 Jul 2024 20:58:14 GMT</pubDate>
+      <title>建议：构建简单的代码库以促进长期发展</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1xq6w/advice_structuring_simple_code_base_for_longterm/</link>
+      <description><![CDATA[我是一名专业的前端开发人员，正在开发我的第一个全栈 Web 项目，说我意识到自己对如何真正启动一个项目的了解是多么的少，这还只是轻描淡写。   技术栈 前端：本质上，我只是在运行一个纯 Typescript 应用程序。我使用 ESBuild 将所有前端 Typescript 文件压缩并打包成一个 bundle.js。该包放在 dist 文件夹中，index.html 和 css 文件直接引用它。目前，HTML 和 CSS 不受任何其他包的影响，当我想更改它们时，我会直接修改它们。   后端：我使用 JavaScript 和 Express，它们都从与我的捆绑代码相同的 dist 文件夹中的单个文件运行。我只需运行“node server.js”，Express 就会监听一个端口，并在用户访问该端口之前提供 index.html。它还使用 listen 函数中的 mssql 包连接到我设置的本地 sql 服务器。   数据库：我只使用本地 mssql 服务器。我刚刚设置了它，但我打算在项目结构中的 .sql 文件中保存一些存储例程。   帮助 从一开始，我的项目结构就非常简单：root 包含 package.json 等工具，src 包含未缩小的前端代码，dist 包含应用程序运行所需的一切。   但是，使用这种设置后，我的项目效率极低。必须将所有新端点添加到一个 server.js 文件中，这使其变得混乱。每次我想看到前端也反映出变化时，我都必须关闭服务器，再次运行 esbuild，然后运行 ​​`node server.js`（我不确定如何将 nodemon 集成到最小化/捆绑的项目中）。我也不确定是否应该捆绑我的后端代码，或者改用 typescript。简而言之，我知道我所拥有的对于长期开发来说是不可扩展的，但我不知道如何改进它。   如果有人对我的代码库结构有任何建议，以及我可能应该安装哪些软件包以改善我的开发工作流程，任何建议都将不胜感激。    提交人    /u/Feisty_Fact_8429   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1xq6w/advice_structuring_simple_code_base_for_longterm/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:58:47 GMT</pubDate>
     </item>
     <item>
-      <title>寻找软件开发实习或学徒机会</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1rmuk/looking_for_internships_or_apprenticeships_in/</link>
-      <description><![CDATA[大家好， 我渴望获得软件开发方面的实践经验，目前正在寻找该领域的实习或学徒机会。我愿意免费工作，以换取在经验丰富的专业人士指导下学习和成长的机会。 我目前的重点领域包括： Java 和 Spring Boot 构建全栈 Web 应用程序 我敬业、勤奋、热衷于提高自己的技能并为有意义的项目做出贡献。如果您有任何机会或认识可能的人，请随时与我联系。    提交人    /u/Zzyrych   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1rmuk/looking_for_internships_or_apprenticeships_in/</guid>
-      <pubDate>Fri, 12 Jul 2024 20:26:48 GMT</pubDate>
+      <title>不确定如何最好地构建我的后端...</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1xkel/not_sure_how_best_to_build_out_my_backend/</link>
+      <description><![CDATA[我正在做这个项目，理想情况下希望在本月底或下月初完成，同时还要兼顾其他职责和工作。我一直在前端工作，并不断修修补补，这导致前端需要一段时间才能构建完成。我不想在后端犯同样的缓慢、增量过程的错误，也尽量避免这种情况。但是，我对后端更感兴趣，所以我不想将所有后端任务都抽象到某个服务上。我想知道在构建后端时是否存在某种中间立场，让您仍然可以学习很多关于在 SWE 角色中完成的后端任务的知识，同时还允许您比从头开始构建所有内容更快一些（我还担心从头开始构建项目的安全性）。我也对学习 Go 感兴趣。   由    /u/PCWeekjeff  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1xkel/not_sure_how_best_to_build_out_my_backend/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:50:24 GMT</pubDate>
     </item>
     <item>
-      <title>如何在我的 Shopify 电子商务网站上放置 360° 图像？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1rd5v/how_do_i_place_360_images_on_my_shopify_ecommerce/</link>
-      <description><![CDATA[大家好， 我想在我的 shopify 电子商务网站上添加 360° 图像。我该如何放置它们？ 此示例网站 (https://cactushairbrush.com/barbora.html) 上的图像看起来像是“png”。移动非常流畅。我怎样才能创建这张图片？ 另外，这个首页图片怎么样？ https://cactushairbrush.com/ 颜色平滑变化，而不是 360 度。 我应该写什么样的代码？ 或者它是一个 3D 图像或类似的东西？ 我怎样才能做到？ 非常感谢。    提交人    /u/djahyeahh   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1rd5v/how_do_i_place_360_images_on_my_shopify_ecommerce/</guid>
-      <pubDate>Fri, 12 Jul 2024 20:15:12 GMT</pubDate>
+      <title>Node 的 MySQL 库？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1xgxe/mysql_library_for_node/</link>
+      <description><![CDATA[看看现在的孩子们都在使用什么作为 node 的 MySQL 驱动程序，特别是支持 typescript 和 promises 的驱动程序。我看了一下 mysql，似乎它不能很好地支持 promises。我考虑过编写自己的包装器，然后看到了 mysql2，但是，考虑到所有 .query 和 .execute 函数的结果都是一些深奥的接口，我不知道如何在需要自己的类型时正确扩展它们，我真的不明白我应该如何很好地使用 TypeScript。 有人有什么建议/库/​​等等吗？对 ORM 并不真正感兴趣 - 我特别想通过这种方法摆脱 TypeORM，因为我觉得它太神奇了，定义我的模式变得令人厌烦，因为它要求你以一种与数据库实际设置方式不同的方式来思考事情。    提交人    /u/firedude212   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1xgxe/mysql_library_for_node/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:45:29 GMT</pubDate>
     </item>
     <item>
-      <title>这里有人使用 Netlify 的图像 CDN 吗？很想听听大家对它的使用感受...</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1qq5r/anyone_here_using_netlifys_image_cdn_interested/</link>
-      <description><![CDATA[https://www.netlify.com/blog/introducing-netlify-image-cdn/ 和 https://docs.netlify.com/image-cdn/overview/ 在开发网站时，优化图像资产对我来说是最大的难题（尤其是考虑到我非常追求获得最高的 Pagespeed 分数），因此当我看到 Netlify 有一个内置的图像 CDN 时，我想我会抓住机会在我刚刚建立的自己的代理网站上使用它（这里，如果你想好奇它的结果如何）。 总体而言，开发人员的体验非常好。只需设置 Netlify CLI 并重写 URL 以使用 Netlify CDN 标准。然后可以通过 URL 设置图像的宽度、高度、填充类型等。每当第一次查看图像时，图像将在边缘进行优化并缓存以供将来的访问者使用。太棒了！ 但是，我注意到，由于 Netlify 的原子部署，每当我重建站点时，优化图像的缓存都会被清除，并且需要重新优化图像以供将来访问。每张图片可能需要 4 秒以上（尽管更像是 ~1 秒）。 这确实让我有些担心，因为我计划很快在我的网站上开设一个博客（每创建/编辑一个新帖子都需要重建），而且考虑到每周访问我网站的用户不会达到 100 个，我觉得越来越多的用户会经历更长的等待资产优化时间。 鉴于这是 Netlify 发布的相当新的东西，我还没有看到太多关于它的讨论，所以我很好奇是否有人对此事有一些看法。好处是否大于坏处？ 或者，其他人的图像优化流程是什么？我能看到的唯一选择是手动为每个图像执行此操作（我宁愿不这样做）或使用构建工具（并耗费我所有的构建时间）。我知道我可以弄乱 Netlify Image CDN 的缓存设置，但我知道这是我不太了解的事情，所以害怕真的搞砸了一些事情哈哈。    提交人    /u/fugi_tive   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1qq5r/anyone_here_using_netlifys_image_cdn_interested/</guid>
-      <pubDate>Fri, 12 Jul 2024 19:48:19 GMT</pubDate>
+      <title>即使通过触摸操作，双击也可以缩放：操作设置（Google Pixel 8/ Chrome）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1xe53/doubletap_zooms_even_with_touchaction/</link>
+      <description><![CDATA[我为我的网站编写了一些益智游戏。我遇到了一个问题，在移动设备上双击网格单元会放大，这严重妨碍了游戏玩法。解决方法是在网格单元上设置 touch-action: manipulation;。 这解决了我可以访问的所有移动设备上的问题：iPhone/Safari、iPad/Safari、两台不同的 Android 平板电脑/Chrome。 我收到两份不同的错误报告，其中双击仍然会放大。两份都是在运行 Chrome 的 Google Pixel 8 手机上。由于我无法访问此设备，所以我不太确定如何修复它。 将 touch-action 设置为 manipulation 是否会禁用双击缩放？似乎在几乎所有设备上都是这样，除了 Pixel 8，这对我来说似乎很奇怪。Pixel 8/Firefox 没有这个问题。   由    /u/jkdewar96  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1xe53/doubletap_zooms_even_with_touchaction/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:41:35 GMT</pubDate>
     </item>
     <item>
-      <title>Web 开发人员面试作业的反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1qj8s/feedback_for_an_interview_homework_for_webdevs/</link>
-      <description><![CDATA[请告诉我，具有 3 年左右行业经验的开发人员需要多长时间才能完成以下工作？ 构建响应式页面/应用程序 首先，浏览以下链接： BE：~Swagger UI (funwithapis-4kbqnvs2ha-uc.a.run.app)~ FE：~MyApp (angular-docker-4kbqnvs2ha-uc.a.run.app)~ 现在，如果您必须让软件开发人员来构建这些内容链接，您将如何向他们描述要求？ 用简单的语言列出清单（您可以使用上述链接的屏幕截图，但不要单独使用链接）。 第 1 部分：描述要求 创建一个在线托管的 git 存储库（Github/Gitlab/Bitbucket 或……），并将这些要求添加到 ReadMe.md 文件中 第 2 部分：实现您指定的要求（BE 或 FE 或两者） 所有实现第 1 部分中 BE 或 FE 要求的提交都应位于同一个在线 Git 存储库中，并使用 CI CD 管道确保始终将默认分支部署到托管服务。确保 Git 存储库的 ReadMe 文件具有指向已部署版本的链接引用。 您可以使用类似于以下的免费在线托管服务： ~https://developers.cloudflare.com/pages/framework-guides/~ ~https://vercel.com/~    提交人    /u/MeynGuy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1qj8s/feedback_for_an_interview_homework_for_webdevs/</guid>
-      <pubDate>Fri, 12 Jul 2024 19:40:12 GMT</pubDate>
+      <title>尝试用 Monorepo 术语来思考</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1wu5y/trying_to_think_in_monorepo_terms/</link>
+      <description><![CDATA[一般来说，这有点像“这是正确的方法吗？”之类的问题。 我有一个小项目，我已经断断续续地花了 4-5 年时间。它实际上是对我使用了 30 多年的数据库应用程序的完全重写，首先是 GDBM，最后是 SQLite。当前计划分为两部分：一个用于访问 SQLite 数据库的简单 REST API 服务器和一个 React+&lt;something&gt;（其中“something”是一个尚未决定的组件库）UI。 我开始用一个简单的 Express.js 服务器和 React+Bootstrap 编写它。我将这两个部分放在同一个 repo 中的不同目录中。但由于各种障碍，这对我来说从来没有真正很好地融合：  后端服务器和前端开发实例是独立的进程，使用不同的端口，目标是集成应用程序（同一服务器进程将 UI 作为静态内容提供，同时还提供 REST API） 这导致一些扭曲，既要启用 CORS，又要让它与来自不同来源的请求一起工作 UI 组件需要与通常的开发功能（转译、热模块重新加载等）一起运行，这需要独立进程 后端不需要（或提供）这些  所以我在寻求解决这个问题的最佳方法。我不认为这两个部分在同一个区域，但我希望它们最终能够很好地整合。从本质上讲，这就是 monorepo 所提供的吗？如果是这样，那么学习这一点的一个好起点是什么？    提交人    /u/rjray   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1wu5y/trying_to_think_in_monorepo_terms/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:14:37 GMT</pubDate>
     </item>
     <item>
-      <title>Web 开发人员面试作业的反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1qhd1/feedback_for_an_interview_homework_for_webdevs/</link>
-      <description><![CDATA[请告诉我，具有 3 年左右行业经验的开发人员需要多长时间才能完成以下工作？ 构建响应式页面/应用程序 首先，浏览以下链接： BE：~Swagger UI (funwithapis-4kbqnvs2ha-uc.a.run.app)~ FE：~MyApp (angular-docker-4kbqnvs2ha-uc.a.run.app)~ 现在，如果您必须让软件开发人员来构建这些内容链接，您将如何向他们描述要求？ 用简单的语言列出清单（您可以使用上述链接的屏幕截图，但不要单独使用链接）。 第 1 部分：描述要求 创建一个在线托管的 git 存储库（Github/Gitlab/Bitbucket 或...），并将这些要求添加到 ReadMe.md 文件中 第 2 部分：实现您指定的要求（BE 或 FE 或两者） 所有实现第 1 部分中 BE 或 FE 要求的提交都应位于同一个在线 Git 存储库中，并使用 CI CD 管道确保始终将默认分支部署到托管服务。确保 Git 存储库的 ReadMe 文件具有指向已部署版本的链接引用。 您可以使用类似于以下的免费在线托管服务： ~https://developers.cloudflare.com/pages/framework-guides/~ ~https://vercel.com/~    提交人    /u/MeynGuy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1qhd1/feedback_for_an_interview_homework_for_webdevs/</guid>
-      <pubDate>Fri, 12 Jul 2024 19:38:03 GMT</pubDate>
+      <title>PythonAnywhere 与 Heroku 相比？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1wk6m/pythonanywhere_vs_heroku/</link>
+      <description><![CDATA[大家好，我正在使用 Django 开发一个 Web 应用程序作为附带项目。它具有社交媒体方面（即用户可以登录和评论）。我正在 PythonAnywhere 和 Heroku 之间犹豫不决。有人在 Django 项目中尝试过两者或其中之一吗？任何反馈都将不胜感激。谢谢！     提交人    /u/CSlov23   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1wk6m/pythonanywhere_vs_heroku/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:01:18 GMT</pubDate>
     </item>
     <item>
-      <title>高级 GraphQL 模式设计：深入探究金融交易平台架构</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1qd52/advanced_graphql_schema_design_a_deep_dive_into/</link>
-      <description><![CDATA[  由    /u/ln3ar  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1qd52/advanced_graphql_schema_design_a_deep_dive_into/</guid>
-      <pubDate>Fri, 12 Jul 2024 19:33:01 GMT</pubDate>
+      <title>您处理无法复制的错误的流程是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1wjfp/what_is_your_process_for_dealing_with_bugs_you/</link>
+      <description><![CDATA[用户（在本例中是我的客户）在他们的系统上遇到了一个罕见的错误。获取用户系统配置并尝试在我这边复制错误的典型方法失败了。 我显然不想与客户来回沟通——猜测问题是什么，部署修复程序，告诉他们检查是否已修复……这只会削弱信任。 那么你如何处理你这边无法复制的错误（即使使用 Browserstack 或 Lambdatest）？    提交人    /u/thomasgreat94   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1wjfp/what_is_your_process_for_dealing_with_bugs_you/</guid>
+      <pubDate>Sat, 13 Jul 2024 00:00:25 GMT</pubDate>
     </item>
     <item>
-      <title>从前端到后端的实时通知</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1p86f/real_time_notifications_from_frontend_to_backend/</link>
-      <description><![CDATA[我有一个使用 NextJS 构建的应用程序，后端是 NestJS，我的应用程序中的许多页面都依赖于单独应用程序中发生的状态变化，例如，我有一个用户门户，该门户处于某种状态并显示特定屏幕，但在管理门户上，管理员更改了用户的状态，现在应该向他们显示不同的屏幕，但由于我使用 JWT 进行基于角色的身份验证，因此用户必须再次登录才能看到更改。一种解决方案是使用 websockets，但是是否有托管服务或库来处理这种情况。    提交人    /u/ahmed_deftoner   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1p86f/real_time_notifications_from_frontend_to_backend/</guid>
-      <pubDate>Fri, 12 Jul 2024 18:45:07 GMT</pubDate>
+      <title>部署生产应用程序的建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1wivz/advice_for_deploying_production_application/</link>
+      <description><![CDATA[在接下来的几个月里，我计划推出一个相当大规模的（无论如何以我的标准来看）网络应用程序，但我想在这样做之前把所有事情都准备好。 我在这方面没有太多经验，非常感谢你们这些资深开发人员的建议。 看起来我的设置将是 Cloudflare Pages 或 S3 上的 React 应用程序、VPS 上的 Flask 应用程序和单独 VPS 上的 Postgres DB。 你们推荐在部署到生产之前必备什么？我读了很多关于错误监控、处理日志和所有这类东西的文章，但我不知道什么是必要的，什么是多余的。此外，在对应用程序的每个部分进行测试之前进行部署可以吗？ 基本上，您认为什么是重要的，您喜欢使用什么工具来满足这些需求？此外，任何其他建议都将不胜感激。 谢谢！    提交人    /u/MajorLeagueGMoney   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1wivz/advice_for_deploying_production_application/</guid>
+      <pubDate>Fri, 12 Jul 2024 23:59:45 GMT</pubDate>
     </item>
     <item>
-      <title>我如何设计有用的 404 并不再担心断开的链接</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1p574/how_i_designed_helpful_404s_and_stopped_worrying/</link>
-      <description><![CDATA[  由    /u/breck  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1p574/how_i_designed_helpful_404s_and_stopped_worrying/</guid>
-      <pubDate>Fri, 12 Jul 2024 18:41:32 GMT</pubDate>
+      <title>我放弃</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1w6ej/i_gave_up/</link>
+      <description><![CDATA[我做了一年零四个月的“软件工程师”，后来经历了人生中一段糟糕的时光，不得不为了理智而辞职（分手、死亡等）。这是一个草率的决定，我很后悔，但好吧，我无法改变过去。这已经是一年前的事了，从那以后我就一直失业。我完全放弃了再做开发人员的想法，除非未来发生奇迹，我得到一份不需要面试或人力资源繁文缛节的工作。我删除了我的 LinkedIn 和 GitHub 帐户。我承认并接受了这一点，因此我将我的抱负转向了其他地方。昨天，我向一家混凝土公司投递了简历，应聘工人职位，他们立即打电话给我，问我为什么要换工作，然后提出本周一面试我。我还接到了我申请的一家汉堡店的电话，所以祸不单行。  真正有才华的开发人员总是有工作，我不是。我只是一个普通人，甚至可能更笨。我一开始只是通过训练营的指导才得以就业，所以这不是靠真正的能力，不像天生的开发人员或大学毕业的人那样。 不确定我是如何能够长时间假装自己是一名开发人员并赚到钱的，但这种把戏现在已经结束了。要成为一名合格的申请人，要做/知道的事情实在是太多了，而要知道的事情的范围在不断变化和发展。这基本上是一份全职工作，只是为了掌握一切。 所有这些都表明我已经放弃了，不是今天，而是几个月前，当我删除了所有相关帐户时。我只是偶然发现了这个子版块，想发布我的经历，不是以 blackpill 的形式，而是以 whitepill 的形式，向人们展示不找工作确实是一种选择。去需要你的地方：我也向当地的管道工会提交了一份申请，他们告诉我他们真的需要人。  所以如果你不是一位有才华/天赋的开发人员，可以考虑去别处看看，去人们真正需要你的地方。没有人需要一个一文不值的训练营 webdev，他实际上已经随着 CGPT 的测试版而过时了。  感谢阅读，希望你周末愉快。    提交人    /u/dup3r   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1w6ej/i_gave_up/</guid>
+      <pubDate>Fri, 12 Jul 2024 23:43:08 GMT</pubDate>
     </item>
     <item>
-      <title>需要帮助决定电子商务网站的技术堆栈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1p1zx/need_help_deciding_on_tech_stack_for_ecommerce/</link>
-      <description><![CDATA[您好，我是 Web 开发新手，任何帮助都将不胜感激。  我有一些唱片要卖，我的朋友有一些古董，我们想联手创建一个古董电商商店，在那里我们可以出售这些物品。我想自己创建这个网站，并将其作为我简历上的一个项目，一种获得 Web 开发经验的方式，以及一种与朋友合作做副业的有趣方式。  我的优先事项如下：   使用网站的客户的安全性  技术栈的行业相关性  易用性和可访问性（对我这个程序员来说）   我的第一个想法是使用 MySQL、Node.js、Stripe API 和 AWS，但事实证明这有点困难。我不喜欢使用 JavaScript，一直在努力将 MySQL 数据库中的记录与条纹 API 结合起来。我已经为这个堆栈编写了一些代码，但我打算切换到不同的堆栈。  我还有其他一些想法：  WAMP（Windows、apache、mysql、PHP）+ AWS 和条纹 API  关于 apache + mysql + php 堆栈有很多文档，此外，我觉得学习 PHP 很有趣，也许会让我成为一个独特的候选人，因为现在的重点似乎放在 javascript 库上？  WooCommerce/WordPress + MySQL、Stripe 和 AWS  WooCommerce 平台看起来很有前途，我只是觉得如果我走这条路，我会错过一些关键的编程经验，因为在这些平台上编码是可选的，并且只有在数据库和条纹功能上才真正需要。  此外，我将 MySQL 和 Stripe 列在这三个堆栈中，因为它们是我唯一有经验的 DB/支付网关工具，如果它对这个网站来说更理想，我很乐意学习一项新技术。 AWS 也是如此，尽管我更喜欢云托管而不是使用物理硬件和学习网络概念。  感谢任何愿意提供帮助的人。     提交人    /u/SmokerJoker5000   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1p1zx/need_help_deciding_on_tech_stack_for_ecommerce/</guid>
-      <pubDate>Fri, 12 Jul 2024 18:37:45 GMT</pubDate>
+      <title>如何嵌入电子表格的单行？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1w4v9/how_do_i_embed_a_single_row_of_a_spreadsheet/</link>
+      <description><![CDATA[我一直想为我的朋友建立一个网站，该网站将显示电子表格中的实时数据，但是，电子表格中有多行显示鸟类出现的频率，而我只想显示显示页面上特定鸟类出现频率的行。 我尝试了几种不同的方法，但都无济于事。 我希望使用 wix 或 wordpress 任何与此相关的建议都将不胜感激。 提前致谢。    提交人    /u/Existing-Target-6485   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1w4v9/how_do_i_embed_a_single_row_of_a_spreadsheet/</guid>
+      <pubDate>Fri, 12 Jul 2024 23:41:08 GMT</pubDate>
     </item>
     <item>
-      <title>@property：下一代 CSS 变量现在支持通用浏览器 |博客 |网络开发</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1obc4/property_cssvariablen_der_nächsten_generation/</link>
-      <description><![CDATA[       由   提交/u/Blochmann   [链接] [评论] &lt; /表&gt;]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1obc4/property_cssvariablen_der_nächsten_generation/</guid>
-      <pubDate>Fri, 12 Jul 2024 18:06:28 GMT</pubDate>
+      <title>为什么我的会话 cookie 在 Chrome 中有效，但在其他浏览器中无效</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1v0sz/why_does_my_session_cookie_work_in_chrome_but_no/</link>
+      <description><![CDATA[我在我的附带项目中设置了一个 node express 会话 cookie，以便可以跟踪有关用户的数据，例如他们是否在当天查看了我的平台上的帖子，因为我只希望他们每天查看一个帖子，所以 cookie 功能有助于实现这一点。第一个代码块用于设置 cookie。当用户登录时，会创建一个会话 cookie，一个好的 json 响应会发送回我的 html 页面中的表单，然后 html 页面重定向到呈现 ejs 页面的 api 端点。第二个代码块是登录端点。同样，它适用于 Chrome，但不适用于 Edge、Arc 或 Safari，所以我认为这与 cookie 有关。任何人想知道，浏览器中出现的错误是当我的端点被调用时应该呈现 ejs 页面，如果没有找到会话，它会返回一个 401 json 响应，其中包含短语“Unauthorized” //code chunk 1 app.use(session({ secret: process.env.SESSION_SECRET_KEY, resave: false, saveUninitialized: true, store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI, ttl: 14 * 24 * 60 * 60 // 设置生存时间 (ttl) -- 14 天 * 24 小时 * 60 分钟 * 60... 随便猜一下 }), cookie: { secure: process.env.NODE_ENV === &#39;production&#39;, sameSite: process.env.NODE_ENV === &#39;production&#39; ? &#39;None&#39; : &#39;Lax&#39; } // 在生产中最好，因此 cookie 仅通过 https 连接发送 })); //代码块 2 app.post(&#39;/login&#39;, async (req, res) =&gt; { const { username, password } = req.body; try { const user = await User.findOne({ username }); if (!user) { return res.json({ isValidLogin: false, message: &#39;未找到 Factorname&#39; }); } const match = await bcrypt.compare(password, user.password); if (match) { req.session.user = { id: user._id, username: user.username, timezone: user.timezone, lastAccessedContent: user.lastAccessedContent }; return res.json({ isValidLogin: true, message: &#39;登录成功&#39; }); } else { return res.json({ isValidLogin: false, message: &#39;密码无效&#39; }); } } catch (error) { return res.status(500).json({ isValidLogin: false，消息：&#39;获取您的登录信息时出错，请稍后重试！&#39; }); } });     提交人    /u/PatternFar2989   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1v0sz/why_does_my_session_cookie_work_in_chrome_but_no/</guid>
+      <pubDate>Fri, 12 Jul 2024 22:50:55 GMT</pubDate>
     </item>
     <item>
-      <title>构建全栈应用程序的方法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1ngob/approach_to_build_full_stack_application/</link>
-      <description><![CDATA[我正在 MERN 或实践中构建一个全栈应用程序。这是我第一次构建大型应用程序。我想知道你们在构建全栈应用程序时都遵循什么方法。  我应该先构建整个后端，然后移动前端吗？还是应该以组件的形式构建它 - 一次构建一个组件的后端和前端？  还有其他方法吗？  此外，在构建应用程序时我应该保留哪些东西？     提交人    /u/_turbo1507   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1ngob/approach_to_build_full_stack_application/</guid>
-      <pubDate>Fri, 12 Jul 2024 17:31:28 GMT</pubDate>
+      <title>“模拟”超大屏幕的最佳方式是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1uw28/the_best_way_to_emulates_a_xtra_large_screen/</link>
+      <description><![CDATA[大家好，我开发网站已经很长时间了，我总是在家里用笔记本电脑（1920x1200px 屏幕）工作，今天我在家里用了一个大显示器屏幕。哇，响应速度太糟糕了。使用 bootstrap，我可以将响应速度从 0 到 2000 px 进行管理，我主要使用 Google Chrome 预览。所以问题是：有没有好的模拟器适合用笔记本电脑工作的人，可以在更大的显示器屏幕上（宽度超过 2000px）预览网站的外观？那会很有帮助。ChatGPT 对这个问题有很多答案，但我相信有些人有更好的建议。非常感谢。    提交人    /u/Oxbow8   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1uw28/the_best_way_to_emulates_a_xtra_large_screen/</guid>
+      <pubDate>Fri, 12 Jul 2024 22:44:58 GMT</pubDate>
     </item>
     <item>
-      <title>Azure 广告身份验证实现</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1mzo3/azure_ad_authentication_implementation/</link>
-      <description><![CDATA[大家好，最近我有机会从事一个依赖于 azure active directory auth 服务的 Web 应用程序项目。 由于我选择 nuxt 作为前端，选择 laravel 作为后端，因此我决定进行如下身份验证流程：  当用户单击登录页面时，用户将被重定向到 laravel 端点，该端点也会重定向到 azure 页面。 然后 Azure 重定向到 laravel 端点，socialite 交换身份验证代码以获取令牌和用户数据。 然后我创建一个用户来检查他是否已经在那里并发出访问令牌、刷新令牌。  现在我发现自己遇到一个问题，我无法重定向到 nuxt 并在 url 中公开令牌。因此我想到了很多解决方案，但我真的不知道它们是否安全或有效。  我们将令牌重定向并存储在 httpOnly cookie 中，但不一定是 sameSite，因为前端和后端可能位于不同的域上。 我们发出一到两分钟的 auth_code，稍后可以交换令牌。但在这里我发现有些人说使用 PKCE，我真的不知道如何实现。所以我想为什么不加密身份验证代码并且密钥在 nuxt 和 laravel 之间共享，但我的应用程序是第一方应用程序，所以他们相互信任。 其他人建议让 nuxt 负责这一点，然后 laravel 只需使用请求与 azure 进行检查以提供受保护的数据。  那么，对于中型项目，您认为什么更简单、更安全、更有效？   由    /u/ilyes24Azzi  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1mzo3/azure_ad_authentication_implementation/</guid>
-      <pubDate>Fri, 12 Jul 2024 17:11:54 GMT</pubDate>
+      <title>为什么我的 flask 后端 api 请求很慢？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1urgz/why_are_my_flask_backend_api_requests_are_slow/</link>
+      <description><![CDATA[我是新手，一直在开发一个全栈 React 应用程序，我在 VPS 上托管一个 postgres 数据库，在我的应用程序中，请求至少需要 0.3 秒，最多需要 20 秒。当我在本地托管数据库时，情况并非如此。它几乎是即时的，我甚至没有检查时间 这不是查询，数据库很小，查询需要 1 毫秒，延迟稳定在 45 毫秒左右，那么是什么导致了差异？    提交人    /u/sadphilosophylover   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1urgz/why_are_my_flask_backend_api_requests_are_slow/</guid>
+      <pubDate>Fri, 12 Jul 2024 22:39:14 GMT</pubDate>
     </item>
     <item>
-      <title>当没有经验的初级员工没有工作机会时……</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e1mqei/when_there_are_no_jobs_for_inexperienced_juniors/</link>
-      <description><![CDATA[你如何才能达到“至少 2 年专业经验”的水平？这值得一试吗？ 据我所知，我是一名 React 开发人员，如果您有任何有关 React 的建议，我很乐意听取您的意见。    提交人    /u/Moonteakiki   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e1mqei/when_there_are_no_jobs_for_inexperienced_juniors/</guid>
-      <pubDate>Fri, 12 Jul 2024 17:01:14 GMT</pubDate>
+      <title>横幅广告</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e1uffk/banner_ads/</link>
+      <description><![CDATA[似乎全页横幅广告正在卷土重来。这太有 90 年代的感觉了。 当时它们很糟糕，现在也一样糟糕。我不在乎你的指标怎么说，这里有一个访问者甚至不知道页面的其余部分是什么，更不用说停留足够长的时间来了解广告的内容了。    由   提交  /u/brisray   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e1uffk/banner_ads/</guid>
+      <pubDate>Fri, 12 Jul 2024 22:24:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
