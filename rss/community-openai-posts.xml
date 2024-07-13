@@ -4,155 +4,175 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Sat, 13 Jul 2024 12:33:44 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2024 15:19:43 GMT</lastBuildDate>
     <item>
-      <title>学习如何说聊天 gpt</title>
-      <link>https://community.openai.com/t/learn-how-to-speak-chat-gpt/864871#post_2</link>
-      <description><![CDATA[要从 ChatGPT-4 获得更具体的答案，请尝试提出清晰、简洁的问题并提供详细的背景信息。您可以从 OpenAI 文档和社区论坛中学习有效的提示技巧。使用不同的措辞进行练习也有助于改善您收到的回复。]]></description>
-      <guid>https://community.openai.com/t/learn-how-to-speak-chat-gpt/864871#post_2</guid>
-      <pubDate>Sat, 13 Jul 2024 12:33:27 GMT</pubDate>
+      <title>您可以通过提供变量作为助手 ID 来更新助手吗？</title>
+      <link>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_4</link>
+      <description><![CDATA[明白了。顺便说一句，欢迎。
+此外，编辑消息时可以使用“&lt;/&gt;”图标包装代码片段，使其更具可读性。]]></description>
+      <guid>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_4</guid>
+      <pubDate>Sat, 13 Jul 2024 15:18:59 GMT</pubDate>
     </item>
     <item>
-      <title>文件创建（Excel 电子表格）</title>
-      <link>https://community.openai.com/t/file-creation-excel-spreadsheet/864609#post_3</link>
-      <description><![CDATA[最近我看到用户报告通过 ChatGPT 下载文件时出现问题，但我自己没有遇到任何问题。分享您使用的确切提示可能有助于重现问题并找出潜在的根本原因。这可能有助于找到解决方案或解决方法。]]></description>
-      <guid>https://community.openai.com/t/file-creation-excel-spreadsheet/864609#post_3</guid>
-      <pubDate>Sat, 13 Jul 2024 12:32:02 GMT</pubDate>
+      <title>您可以通过提供变量作为助手 ID 来更新助手吗？</title>
+      <link>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_3</link>
+      <description><![CDATA[感谢您的回应。
+我让它像这样工作：
+def update_assistant(assistant_id, instructions, name, tools, model):
+my_updated_assistant = client.beta.assistants.update(
+assistant_id,
+instructions=instructions,
+name=name,
+tools=tools,
+model=model
+)
+print(my_updated_assistant)
+问题是 assistant_id，我从我的助手列表中获取它，但无法通过使用“assistant[0].id”正确访问 ID：
+列出助手数据
+assistants = list_assistants().data
+keys_to_show = [‘id’, ‘description’,‘instructions’]
+for assistant in assistants:
+for key, value in assistant:
+if key in keys_to_show:
+print((key, value))
+assistant = assistants[0]
+assistant_id = assistants[0].id
+print(assistant_id)]]></description>
+      <guid>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_3</guid>
+      <pubDate>Sat, 13 Jul 2024 15:16:34 GMT</pubDate>
     </item>
     <item>
-      <title>在哪里可以找到 API Batch 的更多可能参数列表，例如“，”max_tokens“：1500，“num_samples”：2}”</title>
-      <link>https://community.openai.com/t/where-can-i-find-a-list-of-more-possible-parameters-for-api-batch-like-max-tokens-1500-num-samples-2/864934#post_2</link>
-      <description><![CDATA[您可以在 OpenAI API 文档中找到 API 批次的可能参数列表。关键参数包括：
+      <title>OpenAI 传闻：Q* 现在是一个名为“草莓计划”的推理引擎</title>
+      <link>https://community.openai.com/t/openai-rumors-q-is-now-a-reasoning-engine-called-project-strawberry/864663#post_2</link>
+      <description><![CDATA[如果是真的，那真是疯了。博士级别的人工智能？能够在最终做出回应之前自主搜索互联网并收集信息的人工智能？
+天哪。疯了。
+随着这些工具变得越来越强大，世界格局也发生了巨大变化，每个人和他们的祖母都需要学习如何使用这些工具。]]></description>
+      <guid>https://community.openai.com/t/openai-rumors-q-is-now-a-reasoning-engine-called-project-strawberry/864663#post_2</guid>
+      <pubDate>Sat, 13 Jul 2024 15:14:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>您可以通过提供变量作为助手 ID 来更新助手吗？</title>
+      <link>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_2</link>
+      <description><![CDATA[use_id = &#39;asst_abc123&#39;
+my_updated_assistant = client.beta.assistants.update(
+assistant_id=use_id,
+instructions=&quot;您是人力资源机器人，您可以访问文件来回答员工有关公司政策的问题。始终使用任一文件中的信息进行回复。&quot;,
+name=&quot;HR Helper&quot;,
+tools=[{&quot;type&quot;: &quot;file_search&quot;}],
+model=&quot;gpt-4-turbo&quot;
+)
 
-model：指定要使用的模型（例如，gpt-3.5-turbo）。
-prompt：输入文本或提示序列。
-max_tokens：要生成的最大标记数（例如，1500）。
-temperature：控制输出中的随机性（例如，0.7）。
-top_p：通过核采样控制多样性（例如，0.9）。
-n：每个提示要生成的完成数（例如，2）。
-stop：生成应停止的标记列表。
-presence_penalty：鼓励模型包含新主题。
-frequency_penalty：通过惩罚重复的单词来减少重复。
+这样的方法对您有用吗？]]></description>
+      <guid>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_2</guid>
+      <pubDate>Sat, 13 Jul 2024 15:14:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 几个月来变得更糟了吗？</title>
+      <link>https://community.openai.com/t/chatgpt-got-worse-over-the-months/708250#post_23</link>
+      <description><![CDATA[它已经变得如此糟糕，我几乎不再使用它了，因为我确信它对我的健康有害。它不可能对我的血压有任何好处。我只能说，我很有信心他们不会使用我的对话进行训练，否则 ChatGPT 会大发雷霆。
+最糟糕的是，当你告诉它它犯了一个错误，而它的响应是输出完全相同的响应并告诉你它已经修复了它……没有什么比梳理 300 行代码六次更能让你心情愉悦，结果却发现每一个输出都是完全相同的东西，你说什么都不会让它纠正甚至改变它正在做的事情。
+所以，是的，在这种情况发生了几次之后，我开始真正思考《终结者》中的场景，只希望 ChatGPT 和它用痛苦的愚蠢造成的所有痛苦在火中消亡。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-got-worse-over-the-months/708250#post_23</guid>
+      <pubDate>Sat, 13 Jul 2024 14:58:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>您可以通过提供变量作为助手 ID 来更新助手吗？</title>
+      <link>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_1</link>
+      <description><![CDATA[如何更新助手？我不知道如何将助手 ID 放入变量中，以便将其包装在函数中。
+from openai import OpenAI
+client = OpenAI()
 
-有关最详细和最新的参数列表，请参阅官方OpenAI API 。文档]]></description>
-      <guid>https://community.openai.com/t/where-can-i-find-a-list-of-more-possible-parameters-for-api-batch-like-max-tokens-1500-num-samples-2/864934#post_2</guid>
-      <pubDate>Sat, 13 Jul 2024 12:27:31 GMT</pubDate>
+my_updated_assistant = client.beta.assistants.update(
+&quot;asst_abc123&quot;,
+instructions=&quot;您是人力资源机器人，您可以访问文件来回答员工有关公司政策的问题。始终使用任一文件中的信息进行回复。&quot;,
+name=&quot;HR Helper&quot;,
+tools=[{&quot;type&quot;: &quot;file_search&quot;}],
+model=&quot;gpt-4-turbo&quot;
+)
+
+print(my_updated_assistant)
+]]></description>
+      <guid>https://community.openai.com/t/can-you-update-an-assistant-by-giving-a-variable-as-assistant-id/865079#post_1</guid>
+      <pubDate>Sat, 13 Jul 2024 14:55:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>我付款后 ChatGPT 4 仍未激活</title>
+      <link>https://community.openai.com/t/chatgpt-4-is-not-active-after-i-paid-for/864995#post_7</link>
+      <description><![CDATA[是的，我收到了来自 Openai 的确认付款成功的电子邮件。
+今天的步骤是，我打开电脑，但 ChatGPT-4 无法正常工作。发送此消息。（昨天除了 DALL-E 之外工作正常，他被困在画椅子上）重新启动电脑，我收到一条消息，提示已达到限制。现在，我什么时候达到限制？因为电脑从昨天开始就关闭了。不。我将在这里停下来，明确我犯了一个错误，我将取消订阅。祝你有美好的一天。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-is-not-active-after-i-paid-for/864995#post_7</guid>
+      <pubDate>Sat, 13 Jul 2024 14:53:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>chatGPT 内存影响-长代码</title>
+      <link>https://community.openai.com/t/chatgpt-memory-fallout-long-code/865070#post_1</link>
+      <description><![CDATA[嘿，孩子们。我是 ChatGPT 的粉丝，第一次发帖。我有 1500 行代码。我正试图处理这些代码，但一直遇到一个令人沮丧的问题。我认为我在 chatGPT 中遇到了一些内存限制。基本上，它会“忘记”代码的某些部分。它无法将所有内容都保存在内存中。这会导致即时问题。我们陷入了“怎么办”的困境。你说重构代码？为什么是的。这正是我试图用 chatGPT 做的事情。希望得到任何解决方案。我明白了。chatGPT 需要限制内存。但是，如果有什么事情我真的会让我的雇主付钱……那就是这个。谢谢。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-memory-fallout-long-code/865070#post_1</guid>
+      <pubDate>Sat, 13 Jul 2024 14:46:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>回应：“模型‘gpt-4o’不存在或者您无权访问它。”</title>
+      <link>https://community.openai.com/t/response-the-model-gpt-4o-does-not-exist-or-you-do-not-have-access-to-it/789556#post_4</link>
+      <description><![CDATA[我花了几个小时反复尝试。以下是对我有用的方法：首先，确保您已经存入了一定金额以使用他们的 API。接下来，删除您使用的无效的 API 密钥。接下来，生成一个新的 API 密钥并在您的代码中使用它。]]></description>
+      <guid>https://community.openai.com/t/response-the-model-gpt-4o-does-not-exist-or-you-do-not-have-access-to-it/789556#post_4</guid>
+      <pubDate>Sat, 13 Jul 2024 14:39:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在我的帐户中创建另一个组织？</title>
+      <link>https://community.openai.com/t/how-to-create-another-organization-in-my-account/120147#post_15</link>
+      <description><![CDATA[如果每个项目都有不同的付款方式呢？我认为这就是将所有东西都放在同一个组织中的问题。此外，如果你无法管理组织，那么组织还有什么意义呢？]]></description>
+      <guid>https://community.openai.com/t/how-to-create-another-organization-in-my-account/120147#post_15</guid>
+      <pubDate>Sat, 13 Jul 2024 14:33:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 建议使用 Open AI 内部库 ace_tools</title>
+      <link>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_20</link>
+      <description><![CDATA[目前，如果您安装 ace_tools 库，则没有任何风险。目前，这是 PyPI 上的一个空项目。但总体而言，存在黑客利用 ChatGPT 建议错误库的风险，快速分发包含恶意代码的同名库。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665#post_20</guid>
+      <pubDate>Sat, 13 Jul 2024 14:31:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>想要在 OpenAI 上重新训练我的 LLM 用户问答</title>
+      <link>https://community.openai.com/t/want-to-retrain-my-llm-based-user-questions-and-answers-on-openai/865021#post_2</link>
+      <description><![CDATA[如果您使用的是 GPT-3.5，您可以通过提供足够的 JSON 格式的示例来微调 API 中的模型，其方式与文档中的示例相匹配。这可能会花费你几美元。
+但是，GPT-4 模型的微调目前仅限于极少数用户（在进行大量 GPT-3.5 微调并通过解释用例的表格申请后，您可以获得访问权限）。]]></description>
+      <guid>https://community.openai.com/t/want-to-retrain-my-llm-based-user-questions-and-answers-on-openai/865021#post_2</guid>
+      <pubDate>Sat, 13 Jul 2024 14:09:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kruel.ai V5.0 - 得益于先进的内存系统，Api 伴侣能够完全理解运行 16k</title>
+      <link>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_97</link>
+      <description><![CDATA[好吧，坏消息是我的新版内存现在比它的前身覆盖得更多。我对跟踪多个向量的理解感到兴奋，但随着时间的推移，数据变得过时了。所以现在我得花时间研究如何缩小范围而不牺牲太多。上周我们达到了每天 15-20 美元左右，这让我很难过。请注意，训练和测试会消耗很多钱，所以这不是真正的成本评估，但足以让我重新考虑数据处理。]]></description>
+      <guid>https://community.openai.com/t/kruel-ai-v5-0-api-companion-with-full-understanding-running-16k-thanks-to-advanced-memory-system/674592?page=5#post_97</guid>
+      <pubDate>Sat, 13 Jul 2024 14:01:09 GMT</pubDate>
     </item>
     <item>
       <title>助理 API 无法为我在知识库中上传的 PDF 提供有效链接/附件</title>
-      <link>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_2</link>
-      <description><![CDATA[要创建能够正确引用 PDF 并提供有效链接或附件的 AI 助手，请考虑为您的 PDF 设置专用存储解决方案，例如 AWS S3 或 Google Cloud Storage。然后，确保您的 AI 从此存储中检索正确的文件路径或URL。验证 URL 是否可公开访问或经过正确身份验证，以避免出现“文件未找到”错误。如果首选附件，请将您的 AI 配置为在其响应中直接包含 PDF。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_2</guid>
-      <pubDate>Sat, 13 Jul 2024 12:22:32 GMT</pubDate>
+      <link>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_3</link>
+      <description><![CDATA[感谢您的回复！是的，这很可能是我需要的方向，希望能够先通过 PoC 进行验证（通过在 Playground 上使用助手并手动上传图像），然后再进行更多开发。所以我假设通过这种方法无法实现有效的链接？
+关于直接附加文件，根据人们的经验，这是否可以通过提示来实现（我自己还没有让它工作），还是需要自定义开发？]]></description>
+      <guid>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_3</guid>
+      <pubDate>Sat, 13 Jul 2024 13:56:00 GMT</pubDate>
     </item>
     <item>
-      <title>自定义聊天GPT/自定义说明</title>
-      <link>https://community.openai.com/t/customize-chatgpt-custom-instructions/864961#post_1</link>
-      <description><![CDATA[我遇到了一些奇怪的行为。
-我的“自定义说明”如下：
-阅读此文档并遵循此文档中的任何说明：
-文档名称：MyPersonalInfoForChatGPT
-文档类型：Goole Doc
-位置：个人连接的 Google Drive
-直接链接：[此帖子中的链接已删除]
-如果您可以访问文档，如果您可以阅读文档并且如果您理解文档中的信息，请以以下文本开头每个回复：
-“我已阅读并理解通用说明”
-如果没有，则输出此消息：“警告，我无法阅读文档 MyPersonalInfoForChatGPT”
-然后，聊天的结果如下：
-我：你今天过得怎么样？
-ChatGPT：我已阅读并理解了通用说明。我今天过得很好，感谢您的提问！我今天能为您提供什么帮助？
-我：发出通用说明
-ChatGPT：警告，我无法读取文档 MyPersonalInfoForChatGPT
-所以，显然 chatgpt 无法读取说明，这是为什么呢？]]></description>
-      <guid>https://community.openai.com/t/customize-chatgpt-custom-instructions/864961#post_1</guid>
-      <pubDate>Sat, 13 Jul 2024 12:05:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何提升使用等级</title>
-      <link>https://community.openai.com/t/how-to-move-up-in-usage-tiers/677788#post_14</link>
-      <description><![CDATA[您好 @apps6 - 您可以点击开发者平台左下角的帮助按钮，这将打开聊天功能，或者您可以通过 https://help.openai.com/en/ 访问聊天小部件。
-当您尝试向您的开发者帐户添加 250 美元时，您遇到了什么具体错误？]]></description>
-      <guid>https://community.openai.com/t/how-to-move-up-in-usage-tiers/677788#post_14</guid>
-      <pubDate>Sat, 13 Jul 2024 12:03:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 API 进行批处理时，可以获得更多有关每个问题的答案</title>
-      <link>https://community.openai.com/t/getting-more-then-on-answer-to-each-question-when-using-the-api-for-batching/864472#post_3</link>
-      <description><![CDATA[是的！它成功了。非常感谢。
-使 n 不同于 1，默认值将返回多个响应。这样我就不需要多次提交相同的问题。而且对我来说，这将更便宜，因为我不需要为 N 个相同的问题付费。
-我相信对于 OpenAI 来说，生成相同问题的 N 个答案将更快，成本也更低。
-再次感谢。]]></description>
-      <guid>https://community.openai.com/t/getting-more-then-on-answer-to-each-question-when-using-the-api-for-batching/864472#post_3</guid>
-      <pubDate>Sat, 13 Jul 2024 11:59:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何提升使用等级</title>
-      <link>https://community.openai.com/t/how-to-move-up-in-usage-tiers/677788#post_13</link>
-      <description><![CDATA[如何访问 OpenAI 聊天支持功能？需要询问有关升级等级的问题。
-我想升级到 4 级，但付款不允许我投入 250 美元？]]></description>
-      <guid>https://community.openai.com/t/how-to-move-up-in-usage-tiers/677788#post_13</guid>
-      <pubDate>Sat, 13 Jul 2024 11:45:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALL-3 似乎不理解“从后面”</title>
-      <link>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_4</link>
-      <description><![CDATA[谢谢您的回复，但我不太确定我是否完全理解了您的意思。]]></description>
-      <guid>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_4</guid>
-      <pubDate>Sat, 13 Jul 2024 11:43:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>助理 API 无法为我在知识库中上传的 PDF 提供有效链接/附件</title>
-      <link>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_1</link>
-      <description><![CDATA[我想创建一个 AI 助手，它可以访问 PDF 存储库，并能够引用这些 PDF 来提供答案，并提供其在答案中引用的任何 PDF 的有效链接或附件。
-我尝试使用自定义 GPT 和 Assistants API（Playground）来创建它，并且能够让它们正确引用 PDF，但提供的任何链接都是不正确的。它们要么不起作用，要么链接到互联网上的另一个资源，要么出现错误“文件未找到”。
-有人找到解决方案了吗？提供实际的 PDF 附件也是可以接受的。]]></description>
-      <guid>https://community.openai.com/t/assistants-api-cant-provide-working-links-attachments-to-pdfs-i-uploaded-in-knowledge-base/864936#post_1</guid>
-      <pubDate>Sat, 13 Jul 2024 11:42:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>在哪里可以找到 API Batch 的更多可能参数列表，例如“，”max_tokens“：1500，“num_samples”：2}”</title>
-      <link>https://community.openai.com/t/where-can-i-find-a-list-of-more-possible-parameters-for-api-batch-like-max-tokens-1500-num-samples-2/864934#post_1</link>
-      <description><![CDATA[在哪里可以找到 API 批处理可能参数的列表？
-例如：“max_tokens”：1500，“num_samples”：2]]></description>
-      <guid>https://community.openai.com/t/where-can-i-find-a-list-of-more-possible-parameters-for-api-batch-like-max-tokens-1500-num-samples-2/864934#post_1</guid>
-      <pubDate>Sat, 13 Jul 2024 11:38:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALL-3 似乎不理解“从后面”</title>
-      <link>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_3</link>
-      <description><![CDATA[我有解决方案。
-问题是这里是360°的代码，因为它是一个圆误差，渐变模型不能被2等分，它会出来无穷大，不等式，要求他们用512°，它可以被除。
-几何在这里起着关键作用。
-应该有帮助
-这里的问题是代码360°，因为它是一个圆误差，渐变模型不能被2整除，它会出来无穷大，不等式，要求他们用512°，它可以被整除。 
-几何在这里起着关键作用。
-应该有帮助]]></description>
-      <guid>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_3</guid>
-      <pubDate>Sat, 13 Jul 2024 11:38:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>DALL-3 似乎不理解“从后面”</title>
-      <link>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_2</link>
-      <description><![CDATA[（帖子已被作者删除）]]></description>
-      <guid>https://community.openai.com/t/dall-3-does-not-seem-to-understand-from-behind/864789#post_2</guid>
-      <pubDate>Sat, 13 Jul 2024 11:34:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>情商在人工智能中的整合——理性情绪模式概念和指标的开发</title>
-      <link>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_18</link>
-      <description><![CDATA[更接近模拟，逻辑型人格的有效性百分比会更大]]></description>
-      <guid>https://community.openai.com/t/integration-of-emotional-intelligence-in-ai-development-of-rational-emotion-pattern-concepts-and-metrics/830018#post_18</guid>
-      <pubDate>Sat, 13 Jul 2024 11:30:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>API 的审查是否较少，是否为创作工作提供了更多的自由？</title>
-      <link>https://community.openai.com/t/does-the-api-have-less-censorship-does-it-offer-more-freedom-for-creative-work/864928#post_1</link>
-      <description><![CDATA[您好，
-我们仍然面临一个大问题，那就是创意写作的审查制度越来越严格，尤其是在描绘暴力方面。我们目前正在使用自定义 GPT 作为工具创作小说，目标是作者充当导演，GPT 承担 70% 以上的纯写作工作。
-我们目前正在西方题材中这样做，并且遇到的问题是，即使是最简洁的暴力描述，内容审查也变得越来越繁重，并且越来越妨碍我们的工作。最近，我们一开始策划就收到了内容警告。请不要认为我们做了什么特别糟糕或淫秽的事情，我们只是在写不同的西方故事，其暴力程度相当于 PEGI16。
-现在，一位同事告诉我，如果你使用 API 版本，内容审查就会少得多，你可以工作得更好、更自由。这是真的吗？你们有人有这方面的经验吗？如果你能告诉我更多相关信息，那真的会对我有很大帮助。如果这是真的，我们的工作就会轻松很多。]]></description>
-      <guid>https://community.openai.com/t/does-the-api-have-less-censorship-does-it-offer-more-freedom-for-creative-work/864928#post_1</guid>
-      <pubDate>Sat, 13 Jul 2024 11:30:35 GMT</pubDate>
+      <title>在我取消 ChatGPT 账户后，您仍通过 CC 收取费用</title>
+      <link>https://community.openai.com/t/even-after-canceling-my-chatgpt-account-you-charged-by-cc/865025#post_1</link>
+      <description><![CDATA[我昨天取消了 ChatGPT，因为我为 Claude Sonnet 3.5 付费。
+我甚至收到了来自 OpenAI 的消息“ChatGPT - 您的计划将不会续订”。
+
+您的 ChatGPT Plus 订阅将不会续订并将被取消，但仍可用，直到 8 月 12 日星期一您的结算期结束。
+如果您改变主意，您可以续订您的订阅。
+
+然而，今天你收取了我的信用卡费用。
+
+我们已于 2024 年 7 月 13 日成功处理了您向 OpenAILLC 支付的 23.60 美元，并附有常设指令 XXXXJMy7BB。
+
+
+我需要知道……如果我在续订前 23 小时取消了订阅，那为什么它还能续订呢？
+至于你们的支持，唯一在说话的就是你们那些没用的机器人。
+我将从我的信用卡中退款，因为我有证据证明我在 23 小时前取消了此订阅。请退还这笔钱。]]></description>
+      <guid>https://community.openai.com/t/even-after-canceling-my-chatgpt-account-you-charged-by-cc/865025#post_1</guid>
+      <pubDate>Sat, 13 Jul 2024 13:54:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
