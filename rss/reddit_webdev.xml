@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 14 Jul 2024 01:26:04 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2024 03:23:19 GMT</lastBuildDate>
+    <item>
+      <title>我建立了一个网站，在那里我写教程、指南等......</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2sea4/i_made_a_website_where_i_write_tutorials_guides/</link>
+      <description><![CDATA[        提交人    /u/felipeizo   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2sea4/i_made_a_website_where_i_write_tutorials_guides/</guid>
+      <pubDate>Sun, 14 Jul 2024 03:21:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>间隙不均匀：spacer div 可以吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2s8no/uneven_gaps_spacer_divs_ok_or_not/</link>
+      <description><![CDATA[我偶尔会发现自己所构建的页面元素之间的间隙不均匀，例如： &lt;div className={styles.section1} ...&gt; {/* 12px gap */} &lt;div className={styles.section2} ...&gt; {/* 24px gap */} &lt;div className={styles.section3} ...&gt; {/* 28px gap */} &lt;div className={styles.section4} ...&gt; {/* ...and so on... */}  此类页面由设计师精心制作。虽然我们确实有颜色和字体的设计标记，但我们不使用间隙大小标记 - 数字是任意的，通常基于美学决定。由于间隙不均匀，我无法使用 gap。 我最初应用的边距如下： // 实际的类名更有意义 .section1 { /* 一长串 CSS 声明 */ } /* 其他规则集 */ .section2 { /* 一长串 CSS 声明 */ margin-top: 12px; } /* 其他规则集 */ .section3 { /* 一长串 CSS 声明 */ margin-top: 24px; } /* 其他规则集 */ .section4 { /* 一长串 CSS 声明 */ margin-top: 28px; } /* ...等等... */  随着每个部分变大，这很快变得难以管理。由于部分规则之间还有其他规则集，因此我很难仅通过查看代码来确定两个部分 A 和 B 之间是否有间隙。有些部分之间没有间隙，这没有帮助。 我最终求助于使用间隔 div，这使得识别间隙变得非常容易： &lt;div className={styles.section1} ...&gt; &lt;Spacer size={12} /&gt; &lt;div className={styles.section2} ...&gt; &lt;Spacer size={24} /&gt; &lt;div className={styles.section3} ...&gt; &lt;Spacer size={28} /&gt; &lt;div className={styles.section4} ...&gt; {/* ...等等... */}  但是这让我很不舒服，因为spacer div 是一个很有争议的话题。 你怎么看？一直使用 Spacer div？还是忍气吞声，到处都放 margin-top？    提交人    /u/lifeeraser   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2s8no/uneven_gaps_spacer_divs_ok_or_not/</guid>
+      <pubDate>Sun, 14 Jul 2024 03:12:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>条纹问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2rc17/issues_with_stripe/</link>
+      <description><![CDATA[您好， 我有一个正在部署的 Django 项目，其中有一个用于支付的 Stripe 集成。它在本地运行良好，并能顺利通过，但在我的 Linux 服务器上却无法运行。这可能是什么原因造成的，我该如何使支付在我部署的版本上正常运行？ 上下文： 我有 https，代码没有检测到任何错误（重定向到成功页面，Stripe 没有给出错误）。我只是使用 sudo ufw 允许所有 Stripe IP 通过我的防火墙（api.stripe.com 的 IP：https://docs.stripe.com/ips）。代码完全相同，API 密钥也相同 提示： 我遇到的唯一问题是，我的 gunicorn 日志显示我用于充电的 /charge/ 端点被禁止，但我不确定真正导致这种情况的原因，因为这太奇怪了。 非常感谢！    提交人    /u/L0ckroach   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2rc17/issues_with_stripe/</guid>
+      <pubDate>Sun, 14 Jul 2024 02:23:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>shadowdom 和外部样式表</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2r3rj/shadowdom_and_external_stylesheets/</link>
+      <description><![CDATA[我找不到一种令人满意的方式来共享样式，从而避免大量重复，因此我正在研究规范，寻找弱点。 给定 one.css： .my-element { label { font-size: 1rem; } input { border: 1px solid gray; } }  我可以这样做吗： one.css .my-element { &quot;two.css&quot; }  two.css label { font-size: 1rem; } input { border: 1px solid gray; }  并实现相同的结果，即嵌套选择器？ 还有一个问题，我可以这样做以在父文档和自定义元素的 shadow-dom 之间共享样式表吗？ 情况是这样的：我正在使用自定义元素作为界面的一部分，我希望它的组件看起来像父文档中的元素，并且我想避免重复。我知道我可以在 :root 中定义值，但我仍然复制了所有选择器（标签、输入等）。    提交人    /u/mapsedge   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2r3rj/shadowdom_and_external_stylesheets/</guid>
+      <pubDate>Sun, 14 Jul 2024 02:11:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 WordPress 上抓取</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2r2j1/scraping_on_wordpress/</link>
+      <description><![CDATA[我想使用 wordpress 抓取网站数据（用于学校项目），我想知道该怎么做。例如，我想抓取网站帖子的内容，包括其分类属性。你会怎么做？如果我遗漏了某些重要的背景信息，请告诉我    提交人    /u/TheBoyAsh   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2r2j1/scraping_on_wordpress/</guid>
+      <pubDate>Sun, 14 Jul 2024 02:09:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>同一域或子域上的后端身份验证？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2qvyf/backend_auth_on_same_domain_or_subdomain/</link>
+      <description><![CDATA[假设我有一个在 example.com 上运行的前端应用程序。我想将后端放在像 api.example.com 这样的子域上。但是我必须设置 cookie 以在后端为前端设置会话身份验证。但 Chrome 警告我的会话 cookie 被标记为第三方 cookie，将来会被阻止。我是否仍可以将后端放在单独的域上，还是必须使用 example.com/api 进行后端请求？    提交人    /u/Yoloswag554   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2qvyf/backend_auth_on_same_domain_or_subdomain/</guid>
+      <pubDate>Sun, 14 Jul 2024 01:59:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在开发一个域名缩短器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e2qoah/im_building_a_domain_shortener/</link>
+      <description><![CDATA[        提交人    /u/_vloe   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e2qoah/im_building_a_domain_shortener/</guid>
+      <pubDate>Sun, 14 Jul 2024 01:48:18 GMT</pubDate>
+    </item>
     <item>
       <title>网站中的 3D 动画序列</title>
       <link>https://www.reddit.com/r/webdev/comments/1e2pzep/3d_animation_sequence_in_a_website/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[作为一名 Web 开发者，我感到非常自豪。这个领域有如此多的创新。很多很酷的事情正在发生。我并不是要打击那些从事移动、游戏等开发的兄弟姐妹们。我只是说，Web 的功能非常强大，而且随着时间的推移，它的功能只会比现在更强大，而且改进的速度会越来越快。每当我想象 5 年、10 年、20 年后 Web 会是什么样子时，我总是非常兴奋。    提交人    /u/sYfPxiq2sDlIltLc5ux1   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e2nunk/i_love_web_development/</guid>
       <pubDate>Sat, 13 Jul 2024 23:23:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hexakai - 一款受数独启发的六边形游戏</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2nibx/hexakai_a_sudokuinspired_game_of_hexagons/</link>
-      <description><![CDATA[      Hexakai 的灵感来自数独，是在六边形菱形网格上进行的。通常，Hexakai 游戏的大小为 10，这意味着中间行有 10 个单元格，而棋盘总共有 100 个单元格。 游戏规则：游戏由一系列行和对角线组成。与每个单元格属于一列的数独不同，每个单元格属于两条对角线，一条从左上角到右下角，一条从右上角到左下角。每条对角线必须至少有一次每个值且没有重复，每行也必须没有重复。例如，在大小为 10 的游戏中，每条对角线将恰好有一次 0-9 的值，中间行也必须至少有一次 0-9 的值。每隔一行较小，因此它们不能包含所有值，但它们不能包含重复项。 在哪里玩：  在线： www.hexakai.com Android 应用程序 | Apple 应用程序 在书中，其中还讨论了驱动 Hexakai 的一些数学和工程概念  使用的技术：  TypeScript Lit javascript 框架：这是一个轻量级库，为自定义 javascript 元素提供有用的功能 Parcel：一个编译 TypeScript、捆绑资源并允许您将通用标题和其他通用 html 标记包含到多个页面的库**。** Alea：一个允许您生成随机数并支持指定随机数生成种子的库  在简单模式下快速玩 7 号棋盘    提交人    /u/brandon-quinn-author   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2nibx/hexakai_a_sudokuinspired_game_of_hexagons/</guid>
-      <pubDate>Sat, 13 Jul 2024 23:07:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建了一个小型的“密码破译”游戏，我对结果非常满意</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2ngu0/created_a_little_codebreaking_game_and_im_pretty/</link>
-      <description><![CDATA[        提交人    /u/moonchav   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2ngu0/created_a_little_codebreaking_game_and_im_pretty/</guid>
-      <pubDate>Sat, 13 Jul 2024 23:05:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>ULID：类似 UUID，但可排序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2nfo4/ulid_like_uuid_but_sortable/</link>
-      <description><![CDATA[        提交人    /u/fagnerbrack   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2nfo4/ulid_like_uuid_but_sortable/</guid>
-      <pubDate>Sat, 13 Jul 2024 23:03:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站嵌入数据库？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2neeb/embedded_database_for_website/</link>
-      <description><![CDATA[不知何故，当事情变得更加复杂时，人们理所当然地会使用 MySQL/MariaDB 或 PostgreSQL。但就我而言，数据库实际上仅用于与网站交互；永远不会有被其他客户端访问的要求，因此不需要中央远程数据库。优点显而易见：大大简化了数据库管理，并在安装和维护方面节省了大量成本。 数据库用于存储登录数据、带有相关元数据的内容和一些网站设置，以便只需更改记录即可根据需要调整网站。 我认为 SQLite 是此用例的完全足够的解决方案，对吗？安全方面呢？SQLite 实际上可以受密码保护，这样即使有人非法下载数据库文件，数据仍然受到保护。 我唯一需要定期做的事情就是备份网站文件夹中的数据库和图像；也许这里有人可以提供关于如何最好地实现这一目标的专业建议。    提交人    /u/ThyringerBratwurst   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2neeb/embedded_database_for_website/</guid>
-      <pubDate>Sat, 13 Jul 2024 23:01:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>您可以预览和下载 html 布局的页面</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2n5se/a_page_where_you_can_preview_and_download_html/</link>
-      <description><![CDATA[        提交人    /u/websilvercraft   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2n5se/a_page_where_you_can_preview_and_download_html/</guid>
-      <pubDate>Sat, 13 Jul 2024 22:50:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>失落的感觉</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2m4lh/feeling_lost/</link>
-      <description><![CDATA[大家好，最近怎么样？我不知道我期望从这篇文章中得到什么，或者是否有人会看到它，但我感觉很迷茫，我是一名熟悉 Javascript、react、node js 等的 Web 开发人员，尽管我渴望或者说渴望了解更多，但简单地说，我只是不满足于了解这些技术，我想要了解更多，我想知道这些技术背后发生了什么，从解释器到编译器再到逻辑门，每当我编码时，我都会有这种反复出现的想法打我的脸（我不是真正的程序员）只是因为我不知道这些技术背后发生了什么（这可能是因为我对自己很苛刻），我决定拿起一本书《计算系统的要素：从第一原理构建现代计算机》，我看不懂太多，因为我数学很差，这本书更适合计算机科学专业的学生，​​任何建议都可以，谢谢 :)     由   提交  /u/Coderblip   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2m4lh/feeling_lost/</guid>
-      <pubDate>Sat, 13 Jul 2024 22:05:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vercel AI SDK：RAG 指南</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e2m1ga/vercel_ai_sdk_rag_guide/</link>
-      <description><![CDATA[  由    /u/no_bad_cuts  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e2m1ga/vercel_ai_sdk_rag_guide/</guid>
-      <pubDate>Sat, 13 Jul 2024 22:01:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
