@@ -4,27 +4,153 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Mon, 15 Jul 2024 06:29:25 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 09:22:33 GMT</lastBuildDate>
     <item>
-      <title>使用 Dalle3 制作不带标签的饼图？</title>
-      <link>https://community.openai.com/t/pie-chart-without-labels-using-dalle3/866081#post_3</link>
-      <description><![CDATA[{
-&quot;prompt&quot;: &quot;创建一个极简饼图，其中包含三个相等的部分，每个部分代表图表的三分之一。每个部分使用三种不同的颜色：红色、蓝色和绿色。饼图应该简单、清晰，并且没有任何文字或数字。&quot;,
-&quot;size&quot;: &quot;1024x1024&quot;,
-&quot;n&quot;: 2
-}
+      <title>我的 api 密钥不起作用</title>
+      <link>https://community.openai.com/t/my-api-secret-keys-dont-work/865834#post_5</link>
+      <description><![CDATA[我已将我的 usgae 限额提高到 20 美元，但仍然出现相同的错误消息。我必须预付吗？]]></description>
+      <guid>https://community.openai.com/t/my-api-secret-keys-dont-work/865834#post_5</guid>
+      <pubDate>Mon, 15 Jul 2024 09:02:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 api 密钥不起作用</title>
+      <link>https://community.openai.com/t/my-api-secret-keys-dont-work/865834#post_4</link>
+      <description><![CDATA[检查您的 OpenAI 使用限制
+看来为您的 Pickaxe [图像分析器和字幕生成器] 供电的 OpenAI API 密钥存在问题，请请求增加使用量。]]></description>
+      <guid>https://community.openai.com/t/my-api-secret-keys-dont-work/865834#post_4</guid>
+      <pubDate>Mon, 15 Jul 2024 09:01:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GPT-4 API 对文档进行语义分块</title>
+      <link>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=9#post_167</link>
+      <description><![CDATA[
 
 
+ SomebodySysop：
 
-创建两个饼图，大小 = [1/3, 1/3, 1/3]，绘制一个三等分、三种颜色的饼图，极简，清晰可见，没有任何文字或数字。
+如果 OpenAI（或 Google）增加输出令牌限制，将会大有帮助。现在，如果我有一份 750 页的文档，我必须编写一个自定义脚本来创建视频中描述的第一行语义分块。如果 LLM 可以返回超过 8K 个令牌，我可以轻松地让它返回一个 JSON 文件，然后可以将其与默认脚本一起使用，以便始终能够创建文档层次结构头文件。所以，在那之前，这仍然必须是一个手动过程。但对于较小的（少于 100 页）文档，它是完全自动化的 Baby！
 
 
+使用不同的方法，您可能会摆脱 4k 最大标记限制（我的情况）。
+方法：
 
-极简主义饼图分为三个相等的部分，没有任何文字或数字。
+代码：清理输入字符串
+代码：正则表达式在段落末尾（句子末尾 + 行尾）拆分文本
+代码：填充尽可能多的段落块，以输入块限制（2k 标记，以便更好地聚焦 LLM）
+LLM：修复段落并将标题与段落分开（在项目之间有双行返回）
+LLM：解析格式化的文本以识别标题和段落
+代码：根据标题和段落构建部分
+LLM：在每个部分中命名项目以进行概述
+LLM：识别层次结构按每个部分内的名称进行排序
+代码：根据上一步中的 LLM 层次结构构建分层 JSON
+LLM：使用其名称构建部分层次结构
+代码：构建最终文档层次结构 JSON
 
+所有 LLM 都经过 GPT3.5 微调]]></description>
+      <guid>https://community.openai.com/t/using-gpt-4-api-to-semantically-chunk-documents/715689?page=9#post_167</guid>
+      <pubDate>Mon, 15 Jul 2024 08:56:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么批处理 API 优于同步 API</title>
+      <link>https://community.openai.com/t/why-batch-api-over-synchronous-apis/866627#post_1</link>
+      <description><![CDATA[我无法理解为什么使用现有的同步 API 来处理速率限制内的大量请求不是一个好主意，以及为什么应该优先使用批处理 API。成本不是问题，因此 50% 的折扣并不是很大的吸引力。]]></description>
+      <guid>https://community.openai.com/t/why-batch-api-over-synchronous-apis/866627#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 08:47:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误 {'code': 524, 'message': '网关超时。', 'param': None, 'type': 'cf_gateway_timeout'}}</title>
+      <link>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_6</link>
+      <description><![CDATA[过去 24 小时里，我一直遇到这个错误。我有一个很长的提示和请求（将产生至少 4096 个令牌）。stream=True 是唯一的解决方案吗？还有人遇到同样的问题吗？我可以更改我这边的一些设置吗？]]></description>
+      <guid>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_6</guid>
+      <pubDate>Mon, 15 Jul 2024 08:46:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>“探索 GPT”使用非本地语言</title>
+      <link>https://community.openai.com/t/explore-gpts-uses-non-locale-language/866603#post_1</link>
+      <description><![CDATA[在使用 chatgpt 并查看可用的 GPT 列表时，我偶然发现对话框中出现了奇怪的语言混合。虽然我通常使用德语的 chatgpt，但我得到的是越南语（我猜）、英语和德语的混合。我理解后两者，尽管 UI 是德语的，但大多数 GPT 描述都是英文的，但我甚至无法理解越南语从何而来。
 ]]></description>
-      <guid>https://community.openai.com/t/pie-chart-without-labels-using-dalle3/866081#post_3</guid>
-      <pubDate>Mon, 15 Jul 2024 06:21:25 GMT</pubDate>
+      <guid>https://community.openai.com/t/explore-gpts-uses-non-locale-language/866603#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 08:15:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我收到“无法从‘openai’导入名称‘OpenAI’”</title>
+      <link>https://community.openai.com/t/why-am-i-getting-cannot-import-name-openai-from-openai/866582#post_1</link>
+      <description><![CDATA[我已成功为 Python 安装 openai 库，并且可以导入 openai。我使用的是 Python Venv 3.9。
+但是，我无法导入 OpenAI？有人知道为什么吗？我卸载并重新安装了它，但这并没有解决问题。]]></description>
+      <guid>https://community.openai.com/t/why-am-i-getting-cannot-import-name-openai-from-openai/866582#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 07:57:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 4 和 4o 拒绝使用分析工具</title>
+      <link>https://community.openai.com/t/chatgpt-4-and-4o-refuses-use-the-analytical-tool/866581#post_1</link>
+      <description><![CDATA[我遇到过这样的情况：4o 不断破坏已修复的代码，并不断建议显示不起作用的代码。因此，我要求它使用其分析工具/代码解释器编写一个 Python 脚本并运行它，以便它可以迭代错误。它断然拒绝了。它说“我没有用于直接测试或执行代码的分析工具”。这是只需要重新运行的代码。我将尝试解析的文本放入 CSV 文件中。它打开了文件并提取了正确的文本，而无需代码。
+这看起来像是已从平台中删除的功能。
+ChatGPT 的服务严重降级。它正在从生产力推动者转变为生产力的拖累者，因为它需要数小时才能向前发展。]]></description>
+      <guid>https://community.openai.com/t/chatgpt-4-and-4o-refuses-use-the-analytical-tool/866581#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 07:57:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误报告：ChatGPT MacOS 应用程序 - 混合语言的输入换行问题</title>
+      <link>https://community.openai.com/t/bug-report-chatgpt-macos-app-input-line-break-issue-with-mixed-languages/866577#post_1</link>
+      <description><![CDATA[系统环境：
+
+设备：Apple M2 MacBook
+操作系统：MacOS Sonoma 14.5
+ChatGPT MacOS 应用程序版本：1.2024.179 (1720463250)
+
+问题描述：
+在 ChatGPT MacOS 应用程序中混合使用不同语言时，存在与输入换行相关的错误。具体来说，在中文和英文输入法之间切换时，换行符功能会出现意外行为。
+重现步骤：
+
+正常输入中文文本。
+使用 Caps Lock 键切换到英文（Caps Lock 灯亮起，输入小写字母）。
+（可选）继续输入英文文本。
+按 Shift + Return。
+
+预期行为：
+Shift + Return 应插入换行符。
+实际行为：
+Shift + Return 充当确认操作，而不是插入换行符。
+其他说明：
+此问题严重影响了在语言之间切换的双语用户的可用性经常。]]></description>
+      <guid>https://community.openai.com/t/bug-report-chatgpt-macos-app-input-line-break-issue-with-mixed-languages/866577#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 07:56:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经点击了 chatgtp 4o 但是当我询问聊天 gtp 本身时，它说我正在使用 Turbo？</title>
+      <link>https://community.openai.com/t/i-have-clicked-chatgtp-4o-but-when-i-ask-chat-gtp-itself-it-says-im-using-turbo/866529#post_1</link>
+      <description><![CDATA[
+发生了什么？
+我点击了 chatgtp 4o，但当我询问 chat gtp 本身时，它说我正在使用 Turbo？
+我现在使用哪一个？
+我付费使用 4o。]]></description>
+      <guid>https://community.openai.com/t/i-have-clicked-chatgtp-4o-but-when-i-ask-chat-gtp-itself-it-says-im-using-turbo/866529#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 07:10:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>超出用户配额 - ChatGPT plus</title>
+      <link>https://community.openai.com/t/user-quota-exceeded-chatgpt-plus/779766#post_5</link>
+      <description><![CDATA[同样，即使我删除了所有对话，这条消息仍然会出现。有人知道现在可能是什么问题吗？]]></description>
+      <guid>https://community.openai.com/t/user-quota-exceeded-chatgpt-plus/779766#post_5</guid>
+      <pubDate>Mon, 15 Jul 2024 07:08:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chatgtp 4o 或 turbo 今天看起来很慢，正在制定答案吗？</title>
+      <link>https://community.openai.com/t/chatgtp-4o-or-turbo-seems-slow-today-formulating-anwsers/866521#post_1</link>
+      <description><![CDATA[Chatgtp 4o 或 turbo 今天似乎很慢，无法制定答案？
+有什么问题吗？
+谢谢
+Jeffret
+工程师]]></description>
+      <guid>https://community.openai.com/t/chatgtp-4o-or-turbo-seems-slow-today-formulating-anwsers/866521#post_1</guid>
+      <pubDate>Mon, 15 Jul 2024 07:03:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何强制 GPT 在其知识中进行搜索？</title>
+      <link>https://community.openai.com/t/how-to-force-a-gpt-to-search-in-its-knowledge/752764#post_6</link>
+      <description><![CDATA[@1998gilbert.wong website/build/search-doc.json 由 Docusaurus 生成。这是我上传到 GPT 知识部分的文件。]]></description>
+      <guid>https://community.openai.com/t/how-to-force-a-gpt-to-search-in-its-knowledge/752764#post_6</guid>
+      <pubDate>Mon, 15 Jul 2024 06:48:03 GMT</pubDate>
     </item>
     <item>
       <title>用户在两台设备上使用同一个帐户时缺少聊天功能</title>
@@ -76,152 +202,6 @@ return openAI.chatCompletions()
 不知道我是否使用了错误的模型，或者什么…]]></description>
       <guid>https://community.openai.com/t/server-error-when-trying-to-use-chat-completion-with-vision/866440#post_1</guid>
       <pubDate>Mon, 15 Jul 2024 05:19:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT Android 应用无法识别我的订阅</title>
-      <link>https://community.openai.com/t/chatgpt-android-app-does-not-recognize-my-subscription/852021#post_3</link>
-      <description><![CDATA[“同样的问题，同样的问题，非常烦人”我也是]]></description>
-      <guid>https://community.openai.com/t/chatgpt-android-app-does-not-recognize-my-subscription/852021#post_3</guid>
-      <pubDate>Mon, 15 Jul 2024 04:09:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Alice：具有长期记忆、全局快捷方式和远程操作的 macOS 助手应用程序</title>
-      <link>https://community.openai.com/t/alice-macos-assistant-app-with-long-term-memory-global-shortcuts-and-remote-actions/177105#post_13</link>
-      <description><![CDATA[
-
-
- overment:
-
-Alice 专注于您可以分配给键盘快捷键的代码片段和可以与无代码/低代码自动化或自定义服务器链接的远程操作。它旨在改善您的工作流程并连接多个应用程序、服务和工具。这允许您通过聊天与它们交互或从桌面上的任何应用程序访问它们。这里的区别非常显著。
-
-
-那么这就像 ZeroWork 或 ElectroNeek 应用程序。感谢您的解释。如果我想充分利用您的应用，似乎我需要为任何外部 AI API 付费。这对我现在的预算来说不公平。]]></description>
-      <guid>https://community.openai.com/t/alice-macos-assistant-app-with-long-term-memory-global-shortcuts-and-remote-actions/177105#post_13</guid>
-      <pubDate>Mon, 15 Jul 2024 03:52:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>问题很快就解决了。👉 我的 AI 聊天机器人说我已经超出了配额，但我的 OpenAI 帐户还有很多积分</title>
-      <link>https://community.openai.com/t/issues-quickly-my-ai-chatbot-says-i-have-exceeded-my-quota-yet-my-openai-account-has-plenty-of-credits/638627#post_10</link>
-      <description><![CDATA[问题似乎已经自行解决。]]></description>
-      <guid>https://community.openai.com/t/issues-quickly-my-ai-chatbot-says-i-have-exceeded-my-quota-yet-my-openai-account-has-plenty-of-credits/638627#post_10</guid>
-      <pubDate>Mon, 15 Jul 2024 03:20:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>代码解释器的令牌溢出</title>
-      <link>https://community.openai.com/t/token-overflow-with-code-interpreter/866356#post_1</link>
-      <description><![CDATA[您好，我一直在使用带有助手 API 和 gpt4o 的代码解释器，遇到了一个问题。当输入达到一定数量的标记时，ChatGPT 会大幅添加不存在的标记。
-工作流程如下：
-1.- 我使用助手创建图表，其中包含有关带有虚假数据的 CSV 文件的说明，然后我在提示中提供它们，以便能够基于这些数据进行查询。
-2.- 我提供了一定数量的信息，即 85 行，共计 19239 个标记，包括输出和说明，在这种情况下，我说“用这些数据给我做一个图表”，说的是有关一个主题。
-这是一个简单的打印，用于计算日志数量（85）。
-
-完成、提示和总令牌数量（4108、15131 和 19239）。它低于上下文长度。
-
-助手运行良好并生成图表，但如果我再添加一条数据，我就会得到这个：
-这只是一个简单的日志。
-
-如何查看令牌使用量急剧上升，但为什么呢？（28494、127829 和 156778 个令牌）。这是我们可以预期的更高值。
-
-如果我错了或者发生了一些我不该发生的事情知道的话请告诉我。
-谢谢。]]></description>
-      <guid>https://community.openai.com/t/token-overflow-with-code-interpreter/866356#post_1</guid>
-      <pubDate>Mon, 15 Jul 2024 02:51:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>我住在威尔士，但说英语。ChatGPT 感到困惑</title>
-      <link>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620?page=2#post_24</link>
-      <description><![CDATA[我住在巴西，我也遇到过这种情况。我的应用是英文的，我在偏好设置中将语言设置为英语，但有时我说英语，它却用葡萄牙语书写。所以我想，这纯粹是地理问题。幸运的是，我懂葡萄牙语。]]></description>
-      <guid>https://community.openai.com/t/i-live-in-wales-but-speak-english-chatgpt-is-confused/807620?page=2#post_24</guid>
-      <pubDate>Mon, 15 Jul 2024 02:33:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>文件创建（Excel 电子表格）</title>
-      <link>https://community.openai.com/t/file-creation-excel-spreadsheet/864609#post_4</link>
-      <description><![CDATA[就在我回复你们之前再次测试了一下，它又可以正常工作了……但下次遇到问题时，我会分享一些截图。感谢您抽出时间回复。非常感谢！]]></description>
-      <guid>https://community.openai.com/t/file-creation-excel-spreadsheet/864609#post_4</guid>
-      <pubDate>Mon, 15 Jul 2024 02:31:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>当我用数字回复时，状态代码 400 语音流问题</title>
-      <link>https://community.openai.com/t/status-code-400-voice-flow-issue-when-i-reply-with-numbers/866326#post_1</link>
-      <description><![CDATA[我正在使用语音流，并通过 replit 连接并创建了一个聊天机器人。对话世界很好。但是当我添加数字时它不起作用并回复此错误？
-API 调用错误 - {“status”:400, “data”:
-{“VF_STATUS_CODE”:400, “VF_HEADERS”:(“alt-svc”:“h3=”:443&quot;; ma=2592000,h3-29=“:443”; ma=2592000&quot;, “connection”:“close”, “content-length”:“167”, “content-type”:“text/html; charset=utf-8”, “date”: “Mon, 15 Jul 2024 01:38:12
-GMT”, “server”:“Werkzeug/3.0.1 Python/3.10.14”, “strict-transport-security”:“max-age=63072000; includeSubDomains”, “via”:“1.1 google”}}&gt;
-无法创建生成响应！
-我的replit函数代码如下；
-import json
-import os
-
-def create_assistant(client):
-assistant_file_path = &#39;assistant.json&#39;
-
-if os.path.exists(assistant_file_path):
-with open(assistant_file_path, &#39;r&#39;) as file:
-assistant_data = json.load(file)
-assistant_id = assistant_data[&#39;assistant_id&#39;]
-print(&quot;Loaded already established assistant ID.&quot;)
-else:
-file = client.files.create(file=open(&quot;knowledge.docx&quot;, &quot;rb&quot;),
-purpose=&#39;assistants&#39;)
-
-assistant = client.beta.assistants.create(instructions=&quot;&quot;&quot;
-助手 Investment Insight 已被编程为向潜在客户提供有关澳大利亚房地产投资的信息。帮助做出明智的决定。
-
-&quot;&quot;&quot;,
-model=&quot;gpt-4-tubro&quot;,
-tools=[{
-&quot;type&quot;: &quot;retrieval&quot;
-}],
-file_ids=[file.id])
-
-with open(assistant_file_path, &#39;w&#39;) as file:
-json.dump({&#39;assistant_id&#39;: assistant.id}, file)
-print(&quot;创建了一个新助手并保存了 ID。&quot;)
-
-assistant_id = assistant.id
-
-return assistant_id
-
-任何帮助，我很乐意付钱。尽快解决这个问题会很棒。]]></description>
-      <guid>https://community.openai.com/t/status-code-400-voice-flow-issue-when-i-reply-with-numbers/866326#post_1</guid>
-      <pubDate>Mon, 15 Jul 2024 02:06:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>配额不足（尽管有剩余信用且远低于限额）</title>
-      <link>https://community.openai.com/t/insufficient-quota-despite-having-credits-left-and-being-far-below-the-limit/339290#post_16</link>
-      <description><![CDATA[同样的问题……论坛上到处都是这个问题，但我找不到除了增加信用余额或启用自动充值以外的解决方案——我已经这样做了，但仍然收到消息。但我的余额从来没有达到 0.00，甚至还差得很远。]]></description>
-      <guid>https://community.openai.com/t/insufficient-quota-despite-having-credits-left-and-being-far-below-the-limit/339290#post_16</guid>
-      <pubDate>Mon, 15 Jul 2024 01:39:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>错误代码：429，余额不足</title>
-      <link>https://community.openai.com/t/error-code-429-while-having-sufficient-balance/711285#post_3</link>
-      <description><![CDATA[嘿 @coffeeboy7411 所以你说你最初没有自动充值或信用余额？我收到此错误，我两者都有……]]></description>
-      <guid>https://community.openai.com/t/error-code-429-while-having-sufficient-balance/711285#post_3</guid>
-      <pubDate>Mon, 15 Jul 2024 01:37:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>问题很快就解决了。👉 我的 AI 聊天机器人说我已经超出了配额，但我的 OpenAI 帐户还有很多积分</title>
-      <link>https://community.openai.com/t/issues-quickly-my-ai-chatbot-says-i-have-exceeded-my-quota-yet-my-openai-account-has-plenty-of-credits/638627#post_9</link>
-      <description><![CDATA[你找到解决办法了吗？]]></description>
-      <guid>https://community.openai.com/t/issues-quickly-my-ai-chatbot-says-i-have-exceeded-my-quota-yet-my-openai-account-has-plenty-of-credits/638627#post_9</guid>
-      <pubDate>Mon, 15 Jul 2024 01:36:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenAI API 功能隐藏成本？</title>
-      <link>https://community.openai.com/t/openai-api-hidden-costs-to-functions/866313#post_1</link>
-      <description><![CDATA[大家好，创建助手需要花钱吗？创建矢量存储？上传文件？
-我不这么认为，但想确认一下。非常感谢！]]></description>
-      <guid>https://community.openai.com/t/openai-api-hidden-costs-to-functions/866313#post_1</guid>
-      <pubDate>Mon, 15 Jul 2024 01:35:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>RateLimitError：需要帮助解决配额问题</title>
-      <link>https://community.openai.com/t/ratelimiterror-need-assistance-resolving-quota-issue/525811#post_13</link>
-      <description><![CDATA[你在这里得到过解决方案吗？]]></description>
-      <guid>https://community.openai.com/t/ratelimiterror-need-assistance-resolving-quota-issue/525811#post_13</guid>
-      <pubDate>Mon, 15 Jul 2024 01:35:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
