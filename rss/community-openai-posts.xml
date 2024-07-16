@@ -4,7 +4,73 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Tue, 16 Jul 2024 01:22:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2024 03:26:10 GMT</lastBuildDate>
+    <item>
+      <title>OpenAI API 发票付款失败</title>
+      <link>https://community.openai.com/t/openai-api-invoice-payment-failed/853605#post_2</link>
+      <description><![CDATA[我也遇到了同样的问题！我已经尝试了 3 家不同银行的 3 张卡，有些是信用卡，有些是借记卡，但都不起作用。 我已经绝望了，支持服务只是重复说这是银行问题，但事实并非如此，因为我已经打电话给其中 2 家银行，他们说甚至没有收取费用的意图，只是在您上传卡信息时收取验证费用。我确定这是平台的一个错误]]></description>
+      <guid>https://community.openai.com/t/openai-api-invoice-payment-failed/853605#post_2</guid>
+      <pubDate>Tue, 16 Jul 2024 03:16:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>检索嵌入批处理作业的内容时出错</title>
+      <link>https://community.openai.com/t/error-retrieving-content-of-a-embedding-batch-job/854900#post_2</link>
+      <description><![CDATA[从批处理文件中检索嵌入数据有点技巧，本教程逐个分解链接
+获取 output_file_id 后，您需要：
+output_file =client.files.content(output_files_id).text
+
+embedding_results = []
+for line in output_file.split(&#39;\n&#39;)[:-1]:
+data =json.loads(line)
+custom_id = data.get(&#39;custom_id&#39;)
+embedding = data[&#39;response&#39;][&#39;body&#39;][&#39;data&#39;][0][&#39;embedding&#39;]
+embedding_results.append([custom_id, embedding])
+
+embedding_results = pd.DataFrame(embedding_results, columns=[&#39;custom_id&#39;, &#39;embedding&#39;])
+
+就我而言，这会从批处理作业文件中检索嵌入数据]]></description>
+      <guid>https://community.openai.com/t/error-retrieving-content-of-a-embedding-batch-job/854900#post_2</guid>
+      <pubDate>Tue, 16 Jul 2024 02:58:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 提示和技巧主题</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=6#post_104</link>
+      <description><![CDATA[谢谢，我这样做了，但它很糟糕，因此询问 ]]></description>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=6#post_104</guid>
+      <pubDate>Tue, 16 Jul 2024 02:03:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 Python API 使用 assistant_id</title>
+      <link>https://community.openai.com/t/using-a-assistant-id-by-api-from-python/867651#post_2</link>
+      <description><![CDATA[
+
+
+ adx.alex:
+
+openai_client.chat.completions.create
+
+
+您正在使用聊天完成端点，因此无法使用创建的助手。
+查看助手 API
+https://platform.openai.com/docs/assistants/how-it-works
+您需要先创建一个线程，将用户输入附加到线程消息中，然后在该线程上创建运行，线程运行创建就是您使用现有的 assistant_id 的时机。]]></description>
+      <guid>https://community.openai.com/t/using-a-assistant-id-by-api-from-python/867651#post_2</guid>
+      <pubDate>Tue, 16 Jul 2024 01:55:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>DALLE3 提示和技巧主题</title>
+      <link>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=5#post_103</link>
+      <description><![CDATA[您实际上可以将图片上传到 GPT 并创建提示。GPT 对图像内容的理解非常精确，这真是令人惊叹。只需要求对图片进行提示即可。]]></description>
+      <guid>https://community.openai.com/t/dalle3-prompt-tips-and-tricks-thread/498040?page=5#post_103</guid>
+      <pubDate>Tue, 16 Jul 2024 01:45:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>我想从 chatgpt-4o 切换回 chatgpt3.5</title>
+      <link>https://community.openai.com/t/i-want-to-switch-back-to-chatgpt3-5-from-chatgpt-4o/759278?page=2#post_30</link>
+      <description><![CDATA[@akshithpottigari 我也希望如此。据我所知，即使是下一层级也只能获得 5 倍的 4o 回复，而不是无限的。因此，即使对于付费用户，一旦达到该限制，这个错误也会变得令人讨厌。也许这不会影响所有用户，所以他们不会注意到？我在 Firefox 上使用带有一些隐私相关插件的 Web 版本。]]></description>
+      <guid>https://community.openai.com/t/i-want-to-switch-back-to-chatgpt3-5-from-chatgpt-4o/759278?page=2#post_30</guid>
+      <pubDate>Tue, 16 Jul 2024 01:45:43 GMT</pubDate>
+    </item>
     <item>
       <title>是否可以在操场上启用 JSON 模式？</title>
       <link>https://community.openai.com/t/is-it-possible-to-enable-json-mode-in-the-playground/490815#post_8</link>
@@ -149,117 +215,6 @@ dialogue.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: r
 感谢您的帮助。]]></description>
       <guid>https://community.openai.com/t/using-a-assistant-id-by-api-from-python/867651#post_1</guid>
       <pubDate>Tue, 16 Jul 2024 00:07:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>Whisper API 无法转录来自 iPhone 的音频文件</title>
-      <link>https://community.openai.com/t/whisper-api-not-transcribing-audio-files-coming-from-an-iphone/647235#post_7</link>
-      <description><![CDATA[我遇到了同样的问题。
-确保在启动时设置时间片选项，例如：componentMediaRecorder.start(1000);
-这为我解决了这个问题。]]></description>
-      <guid>https://community.openai.com/t/whisper-api-not-transcribing-audio-files-coming-from-an-iphone/647235#post_7</guid>
-      <pubDate>Mon, 15 Jul 2024 23:56:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>5 位助手共同创造最终产品</title>
-      <link>https://community.openai.com/t/5-assistants-working-together-creating-end-product/867585#post_3</link>
-      <description><![CDATA[通过命名（和可寻址性），我的意思是可以像这样以规范形式调用助手：
-嗨，alina，您能否就提供的三个建议提供反馈。
-所以任何人都可以向 alina 提出问题。相反，alina 应该知道她需要关注特定主题以及在哪里做出回应。
-其次，Alina 应该知道还有其他助手，并且应该知道她之前与她的互动。她知道的知识应该会对她的反应产生实质性影响。
-第三，Alina 应该具有进化的能力。这些能力有两个方面：（a）一个是她的内部状态，（b）另一个是增加工具集
-例如，这是模拟的 alina 对潜在电子邮件的响应...
-嗨@lin：你能看看 fred 的电子邮件吗？这对品牌来说非常有害。建议缓解策略。嗨@jesse：您能看看潜在的责任吗？ 
-
-以下是代理感知消息歧义：
-@lin 查看电子邮件并建议缓解策略
-@jesse 查看潜在责任
-
-
-只需瞥一眼名为：
-@tools_function(TOOLS_FUNCTIONS)
-def call_objective(
-description: Annotated[str, &quot;&quot;&quot;描述描述了 PURE 目标。描述应以第二人称的形式向主题提出请求。&quot;&quot;&quot;]
-):
-&quot;&quot;&quot; 此函数描述了 PURE 目标。描述应以第二人称的形式向主题提出请求。
-
-例如，
-在“嗨@alina。你能对我的帖子提供反馈吗”，描述为“对帖子提供反馈”
-
-“”
-data = {&#39;call_objective&#39;: description}
-return json.dumps(data)
-
-
-hth]]></description>
-      <guid>https://community.openai.com/t/5-assistants-working-together-creating-end-product/867585#post_3</guid>
-      <pubDate>Mon, 15 Jul 2024 23:36:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT-4o 错误：系统消息中的图像 URL</title>
-      <link>https://community.openai.com/t/gpt-4o-error-image-urls-in-system-messages/745769#post_6</link>
-      <description><![CDATA[我的解决方案是从使用 SystemMessage 过渡到 HumanMessage：
-旧
- if image:
-url = f&quot;data:image/jpeg;base64,{image}&quot;
-new_msg = SystemMessage(content=[{&#39;type&#39;:&#39;image_url&#39;, &quot;image_url&quot;: {&#39;url&#39;: url}}])
-messages.append(new_msg)
-logger.info(&quot;在请求中找到图像，正在添加到消息中。&quot;)
-
-新
- if image:
-url = f&quot;data:image/jpeg;base64,{image}&quot;
-new_msg = HumanMessage(content=[{&#39;type&#39;:&#39;image_url&#39;, &quot;image_url&quot;: {&#39;url&#39;: url}}])
-messages.append(new_msg)
-logger.info(&quot;在请求中找到图像，添加到消息中。&quot;)
-]]></description>
-      <guid>https://community.openai.com/t/gpt-4o-error-image-urls-in-system-messages/745769#post_6</guid>
-      <pubDate>Mon, 15 Jul 2024 23:35:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>错误 {'code': 524, 'message': '网关超时。', 'param': None, 'type': 'cf_gateway_timeout'}}</title>
-      <link>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_8</link>
-      <description><![CDATA[是的，我们最近也经常遇到这种错误。老实说，我们目前真的不知道还能做什么。]]></description>
-      <guid>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_8</guid>
-      <pubDate>Mon, 15 Jul 2024 23:34:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>5 位助手共同创造最终产品</title>
-      <link>https://community.openai.com/t/5-assistants-working-together-creating-end-product/867585#post_2</link>
-      <description><![CDATA[所以我一直在研究这个场景。
-
-
-需要进行大量的构建。以下是可能的输出。
-ChatGPT 可以生成模拟吗？ - #6 by mdebellissf
-
-
-在我的设计中（YMMV），以下步骤是必需的
-(a) 领域和问题的广泛概述
-(b) 不同助手的命名（和可寻址性）
-(c) 对其他助手的了解
-(d) 消息消歧
-(e) 需要人工指导（不是完全自主……有时需要可操纵性才能到达终点线）
-
-
-最大的挑战（对我来说）在于可寻址性和消息消歧。
-
-
-我的设计限制是专门在 OpenAI 提供的基础设施（助手、线程、消息）中工作……即没有外部数据库。
-
-
-多提供商设置。这是必要的，因为由于多个代理相互交谈的性质，上下文窗口不断增加。
-
-]]></description>
-      <guid>https://community.openai.com/t/5-assistants-working-together-creating-end-product/867585#post_2</guid>
-      <pubDate>Mon, 15 Jul 2024 23:26:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>展示 GPT：类别只是为了展示你构建的 GPT，征求 beta 用户和反馈</title>
-      <link>https://community.openai.com/t/show-gpt-category-just-to-show-off-the-gpt-youve-built-ask-for-beta-users-and-feedback/867621#post_1</link>
-      <description><![CDATA[有许多人已经构建了自定义 GPT 并正在寻求反馈。GPT 构建者类别主要包含构建者向其他构建者提出问题的帖子。
-我们可以有一个类别专门用于展示新的自定义 GPT、征求反馈和获取 beta 用户吗？
-有点像展示黑客新闻：展示 | 黑客新闻]]></description>
-      <guid>https://community.openai.com/t/show-gpt-category-just-to-show-off-the-gpt-youve-built-ask-for-beta-users-and-feedback/867621#post_1</guid>
-      <pubDate>Mon, 15 Jul 2024 23:05:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
