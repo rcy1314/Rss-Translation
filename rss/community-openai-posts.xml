@@ -4,7 +4,91 @@
     <title>OpenAI 开发者论坛 - 最新帖子</title>
     <link>https://community.openai.com</link>
     <description>最新帖子</description>
-    <lastBuildDate>Wed, 17 Jul 2024 01:21:54 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2024 03:22:48 GMT</lastBuildDate>
+    <item>
+      <title>添加信用余额后，我仍然收到“您已达到使用限制......”救命！</title>
+      <link>https://community.openai.com/t/after-adding-to-credit-balance-im-still-recieving-the-youve-reached-your-usage-limit-help/537109#post_2</link>
+      <description><![CDATA[我遇到了同样的问题。您解决了吗？]]></description>
+      <guid>https://community.openai.com/t/after-adding-to-credit-balance-im-still-recieving-the-youve-reached-your-usage-limit-help/537109#post_2</guid>
+      <pubDate>Wed, 17 Jul 2024 03:04:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>无法使 24 小时批处理工作</title>
+      <link>https://community.openai.com/t/not-able-to-get-the-24-hour-batch-processing-to-work/869085#post_1</link>
+      <description><![CDATA[当我将文件保存为 jsonl 文件时，我假设它应该只是一个字符串，其方式与我将其输入 chatgpt 提示时使用的方式相同。如果我错了，请告诉我。无论如何，我的代码如下：
+s = {‘hey’：“将单词‘run’翻译成古希腊语”&gt;
+s = “将单词‘run’翻译成古希腊语”
+f = ‘file’
+json_object = json.dumps(s, indent=4)
+with open(f&quot;{f}.jsonl&quot;, “w”) as outfile:
+outfile.write(json_object)
+projid = ‘secret’
+orgid = ‘secret’
+client = OpenAI(
+organization=orgid,
+api_key=projid,
+ batch_input_file = client.files.create(
+file=open(f&quot;{f}.jsonl&quot;, &quot;rb&quot;),
+purpose=&quot;batch&quot;
+)
+batch_input_file_id = batch_input_file.id
+
+obj = client.batches.create(
+input_file_id=batch_input_file_id,
+end=&quot;/v1/chat/completions&quot;,
+completion_window=&quot;24h&quot;,
+metadata={
+&quot;description&quot;: &quot;ancient greek&quot;
+}
+)
+)
+
+该代码为我提供了一个 id，并且没有引发错误。但是当我稍后检查它时，它说它需要一个对象而不是字符串。因此，我将变量 s 更改为字典，如上行所示，但这给我带来了错误消息：openai.BadRequestError：错误代码：400 - {‘error’：{‘message’：‘Batch API 的文件格式无效。必须是 .jsonl’、‘type’: ‘invalid_request_error’、‘param’: None、‘code’: None}&gt;
+python-BaseException
+此外，我不知道如何正确格式化此论坛中的代码。]]></description>
+      <guid>https://community.openai.com/t/not-able-to-get-the-24-hour-batch-processing-to-work/869085#post_1</guid>
+      <pubDate>Wed, 17 Jul 2024 02:30:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否可以查看已执行的 file_search 查询？</title>
+      <link>https://community.openai.com/t/is-it-possible-to-view-file-search-queries-executed/869076#post_1</link>
+      <description><![CDATA[我非常想查看助手在使用 file_search 和向量存储时生成的查询。有地方记录这些查询吗？
+我可以在 Thread UI 中看到自定义函数执行，但 file_search 交互没有任何内容。]]></description>
+      <guid>https://community.openai.com/t/is-it-possible-to-view-file-search-queries-executed/869076#post_1</guid>
+      <pubDate>Wed, 17 Jul 2024 02:19:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>错误 {'code': 524, 'message': '网关超时。', 'param': None, 'type': 'cf_gateway_timeout'}}</title>
+      <link>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_16</link>
+      <description><![CDATA[流媒体。]]></description>
+      <guid>https://community.openai.com/t/error-code-524-message-gateway-timeout-param-none-type-cf-gateway-timeout/219369#post_16</guid>
+      <pubDate>Wed, 17 Jul 2024 02:06:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 Python API 使用 assistant_id</title>
+      <link>https://community.openai.com/t/using-a-assistant-id-by-api-from-python/867651#post_5</link>
+      <description><![CDATA[
+
+
+ adx.alex:
+
+我的想法不是在每次互动中都创建助手。我想使用我已经拥有的助手。
+
+
+您需要调用此 api 端点来创建助手。
+https://platform.openai.com/docs/api-reference/assistants/createAssistant
+复制 ChatGPT UI 上针对您的 GPT 的说明（您不能在助手 api 中使用它）并通过 api 创建您的助手以获取 assistant_id（响应中的 id，以 asst_ 开头）
+然后
+client.beta.thread.run.create
+assistant_id 是必需参数，您必须使用已创建的 assistant_id（创建时，您应该从响应中获取 id）来生成线程运行。
+您只能在任何对话线程中使用之前创建助手“一次”，并在需要时使用该 id 创建运行任何对话。
+如果创建的助手运行不正常，您可以更新它，只需修改它的指令并再次测试（创建运行）直到它满足您的需求。
+助手和线程（对话）具有多对多关系，您可以在一个线程中多次使用一个助手（对话中的每次交互都是一次运行创建，您可以使用相同的 assistant_id），并且可以在其他线程中使用，并且一个线程可以在不同的运行中使用不同的助手（但线程可以一次创建一个运行）。
+然后，自定义 GPT 通常优于通过 api 创建的助手（相同的指令），但它们无法直接在助手 api 中使用，需要使用助手 api 来创建助手。
+并且您可能需要对助手进行更多调整以修正 openai 造成的一些看不见的差异（检查温度和 top_p 等参数），并且您可以使用本论坛右上角登录符号左侧的搜索图标来查看桌面界面。]]></description>
+      <guid>https://community.openai.com/t/using-a-assistant-id-by-api-from-python/867651#post_5</guid>
+      <pubDate>Wed, 17 Jul 2024 02:00:35 GMT</pubDate>
+    </item>
     <item>
       <title>“超出配额”错误代码：429：仍无解决方案</title>
       <link>https://community.openai.com/t/exceeded-quota-error-code-429-no-solution-still/868999#post_7</link>
@@ -98,141 +182,6 @@ DEBUG：块 1 的翻译失败]]></description>
       <description><![CDATA[这可能是速率限制的问题。计量请求，从 10 秒开始，然后从那里增加或减少。使用您选择的语言中的 sleep 或 wait 命令在您的代码中完成此操作。]]></description>
       <guid>https://community.openai.com/t/exceeded-quota-error-code-429-no-solution-still/868999#post_2</guid>
       <pubDate>Wed, 17 Jul 2024 00:26:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我不断收到 JSON 解析错误</title>
-      <link>https://community.openai.com/t/i-keep-getting-json-parse-errors/869001#post_1</link>
-      <description><![CDATA[大家好，我不断收到 JSON 稀疏错误，例如 JSON 稀疏错误：不确定的字符串。这浪费了我的钱。我正在使用 PepHop ai 的 api。这是我的主题
-{
-“choices”：[
-{
-“finish_reason”：“stop”，
-“index”：0，
-“message”：{
-“content”：“您是旨在输出 JSON 的有用助手。您将描绘 {{system}} 并与 {{user}} 进行角色扮演。我们鼓励您积极推动对话。”，
-“role”：“user”
-}，
-“logprobs”：null
-
-]，
-“created”：1677664795，
-“id”：“chatcmpl-7QyqpwdfhqwajicIEznoc6Q47XAyW”，
-“model”：“gpt-4”，
-“object”：“chat.completion”，
-“usage”：{
-“completion_tokens”：17，
-“prompt_tokens”：57，
-“total_tokens”： 74
-&gt;
-&gt;
-请帮我解决这个问题，我是新手，只使用 gpt 进行 PepHop ai]]></description>
-      <guid>https://community.openai.com/t/i-keep-getting-json-parse-errors/869001#post_1</guid>
-      <pubDate>Wed, 17 Jul 2024 00:00:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>“超出配额”错误代码：429：仍无解决方案</title>
-      <link>https://community.openai.com/t/exceeded-quota-error-code-429-no-solution-still/868999#post_1</link>
-      <description><![CDATA[我已经在这个论坛上呆了几个星期，用现有的类似帖子来解决这个问题。
-我有很多“费率”，很多信用，一个活跃的自动充值账户，一个与该账户关联的活跃 CC。
-它能够对 API 进行大约 12 次调用，我收到了回复，之后我“达到了我的配额”。
-这已经是将近一个月前的事了。也许有人会建议等到新的“月份”开始，但在达到配额之前我几乎没有提出任何请求。请求之间甚至有相当大的延迟。从头开始运行代码，我在第一次请求时收到此错误……
-谢谢！
-错误代码：429 - {‘error’：{‘message’：‘您超出了当前配额，请检查您的计划和账单详细信息。有关此错误的更多信息，请阅读文档：https://platform.openai.com/docs/guides/error-codes/api-errors。’, ‘type’: ‘insufficient_quota’, ‘param’: None, ‘code’: ‘insufficient_quota’}&gt;
-DEBUG：超出配额。请检查您的 OpenAI 帐户状态和账单详情。]]></description>
-      <guid>https://community.openai.com/t/exceeded-quota-error-code-429-no-solution-still/868999#post_1</guid>
-      <pubDate>Tue, 16 Jul 2024 23:56:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>异步 AssistantAPI 流式传输 Beta 版</title>
-      <link>https://community.openai.com/t/async-assistantapi-streaming-beta/698736#post_11</link>
-      <description><![CDATA[一些 Medium 文章涵盖了这个主题，但我发现它们对于我的需求来说太复杂了，你可以搜索 Meduim 并查看那里的解决方案是否更适合你的用例。
-不过，经过一番寻找，我发现了一种更简单的方法，可以使用以下示例代码片段使用 SSE 和 FastAPI 实现流式传输：
-async def stream_assistant_response(thread_id, assistant_id):
-
-client = AsyncOpenAI()
-
-stream = client.beta.threads.runs.stream(
-thread_id=thread_id,
-assistant_id=assistant_id,
-)
-async with stream as stream:
-async for text in stream.text_deltas:
-Yield f&quot;data: {text}\n\n&quot;
-
-请确保你还在 API 响应逻辑中正确设置了 media_type：
-return StreamingResponse(
-stream_assistant_response(thread_id, assistant_id), media_type=&quot;text/event-stream&quot;
-)
-
-当我在 postman 上测试端点时，此代码对我来说运行良好，我能够看到每个事件及其对应的 text_delta。
-不确定是否存在我无法捕获的逻辑潜在问题。
-您可以在 OpenAI 的 python API 库存储库中的 helpers.md 文件以及存储库中的问题 #1473 中找到对我有帮助的参考资料。
-希望有所帮助！]]></description>
-      <guid>https://community.openai.com/t/async-assistantapi-streaming-beta/698736#post_11</guid>
-      <pubDate>Tue, 16 Jul 2024 23:48:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在使用 tool_calls 时发现了意外的 tools_calls 名称，甚至是键名称</title>
-      <link>https://community.openai.com/t/i-found-unexpected-tools-calls-name-and-even-key-name-when-using-a-tool-calls/816605#post_2</link>
-      <description><![CDATA[我还从工具调用中获得了很多意外的回报。
-我目前正在使用 GPT-4（还不能使用 4o，仍然使用 .NET Azure API，直到我们可以切换到官方 OpenAI Nuget 包）。
-很多时候，它会根据定义的方式完全错误地获取键名，有时会通过工具调用 JSON 随机获取。
-它有时也会完全忽略工具定义中定义的枚举，并且
-会随机抛出它自己的类似值，例如输出枚举值“Medium”而不是“Neutral”。
-有时它会抛出一些根本不应该出现的随机乱码。对我来说，这种情况发生的频率大约是一半到三分之二。
-我的工具调用最终会变得非常大，有时大约高达 4k 个字符。
-以下是一些乱码示例：
-下面，请注意第二个对象中努力的键名中的乱码。
-...
-&quot;features&quot;: [
-{
-&quot;name&quot;: &quot;运动检测&quot;,
-&quot;description&quot;: &quot;评估运动检测在不同距离和光照条件下的有效性。&quot;,
-&quot;value&quot;: &quot;非常高&quot;,
-&quot;body&quot;: &quot;通过改变距离、角度位置和光照条件测试运动检测。&quot;,
-&quot;effort&quot;: &quot;高&quot;
-},
-{
-&quot;name&quot;: &quot;夜视&quot;,
-&quot;description&quot;: &quot;评估夜视模式的清晰度和范围。&quot;,
-&quot;value&quot;: &quot;高&quot;,
-&quot;body&quot;: &quot;评估夜视在不同环境光下的性能条件。&quot;,
-&quot;efforbJsonRegexFindReplaceEscape&quot;: &quot;Medium&quot;
-}
-]
-...
-
-下面是另一个更严重的乱码示例，应该是 &quot;Description&quot;: &quot;Description goes here&quot;
-...
-{
-&quot;name&quot;: &quot;Engagement Phase 2&quot;,
-&quot;descrip... .KeyCodeDisplayCutout.Bounds.Right, 250, 250, 250, 150, 150, 150, 150, 150, 150, 150, 150, .logging.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE, logs.Level.SEVERE,&quot;: &quot;2024-06-05T00:00:00+00:00&quot;,
-&quot;endDate&quot;: &quot;2024-06-12T00:00:00+00:00&quot;,
-&quot;features&quot;: [
-{
-&quot;name&quot;: &quot;运动检测自定义和警报&quot;,
-&quot;description&quot;: &quot;调整设置以测试警报功能。&quot;,
-&quot;value&quot;: &quot;高&quot;,
-&quot;body&quot;: &quot;修改运动检测设置并验证警报功能。&quot;,
-&quot;effort&quot;: &quot;中&quot;
-}
-]
-}
-...
-
-我希望切换到 4o 可以减少这些类型的不一致的发生，这些不一致似乎发生得非常频繁（我说的是一半或更多的时间）。]]></description>
-      <guid>https://community.openai.com/t/i-found-unexpected-tools-calls-name-and-even-key-name-when-using-a-tool-calls/816605#post_2</guid>
-      <pubDate>Tue, 16 Jul 2024 23:41:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>无论账户状态如何，都可以使用微调模型吗？</title>
-      <link>https://community.openai.com/t/can-fine-tuned-models-be-used-regardless-of-the-state-of-the-account/868986#post_1</link>
-      <description><![CDATA[大家好，我有一个关于微调 GPT 模型的问题。
-1 - 如何升级我的帐户才能进行微调，如果可能的话，请告诉我价格
-2 - 例如，我升级了帐户并进行了一个月，我对特定模型进行了微调并提取了该模型，这个模型可以在一个月结束后使用吗？还是帐户必须始终保持升级才能使用提取的模型？
-感谢您的努力]]></description>
-      <guid>https://community.openai.com/t/can-fine-tuned-models-be-used-regardless-of-the-state-of-the-account/868986#post_1</guid>
-      <pubDate>Tue, 16 Jul 2024 23:35:17 GMT</pubDate>
     </item>
     </channel>
 </rss>
