@@ -277,4 +277,3 @@ cd /你的文件路径 source myenv/bin/activate python3 my-mtranslate.py
 
 •  [独立黑客_无代码频道](https://rcy1314.github.io/Rss-Translation/rss/indiehackers-No-Code.xml)
 
-•  [OpenAI 开发者论坛](https://rcy1314.github.io/Rss-Translation/rss/community-openai-posts.xml)
