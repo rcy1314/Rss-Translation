@@ -4,111 +4,111 @@
     <title>最新提交：ChatGPT</title>
     <link>https://www.reddit.com/r/ChatGPT/new</link>
     <description>Subreddit 讨论 ChatGPT 和 AI。与 OpenAI 无关。谢谢 Nat！</description>
-    <lastBuildDate>Fri, 19 Jul 2024 09:19:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2024 12:34:19 GMT</lastBuildDate>
     <item>
-      <title>如何获取 Peter Griffin 喝啤酒的图像？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6zeee/how_to_get_an_image_of_peter_griffin_drinking_beer/</link>
-      <description><![CDATA[我只想要标题说的。但是 QI 没有给我，可能是因为版权限制。什么 AI 可以做到这一点？    由   提交  /u/inAbigworld   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6zeee/how_to_get_an_image_of_peter_griffin_drinking_beer/</guid>
-      <pubDate>Fri, 19 Jul 2024 09:14:40 GMT</pubDate>
+      <title>翻译整个 PDF 文档的最佳 AI 工具？如果可能的话，保留图纸和其他技术图像</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e728yf/best_ai_tool_to_translate_an_entire_pdf_document/</link>
+      <description><![CDATA[  由    /u/ThrowawaychooseBscho  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e728yf/best_ai_tool_to_translate_an_entire_pdf_document/</guid>
+      <pubDate>Fri, 19 Jul 2024 12:13:54 GMT</pubDate>
     </item>
     <item>
-      <title>编写用于人脸识别的纳米元学习实现</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6zcyh/write_implementation_of_nano_meta_learning_for/</link>
-      <description><![CDATA[import cv2 import face_recognition import os import numpy as np import tensorflow as tf from tensorflow.keras.models import Sequential from tensorflow.keras.layers import Dense, Flatten from tensorflow.keras.optimizers import Adam 加载图像和提取编码的函数 def load_and_encode_images(image_dir): known_face_encodings = [] known_face_names = [] for filename in os.listdir(image_dir): if filename.endswith(&quot;.jpg&quot;) or filename.endswith(&quot;.png&quot;): image_path = os.path.join(image_dir, filename) image = face_recognition.load_image_file(image_path) encoding = face_recognition.face_encodings(image)[0] known_face_encodings.append(encoding) known_face_names.append(os.path.splitext(filename)[0]) return known_face_encodings, known_face_names  用于动态学习率调整的 Nano Meta-Learner class NanoMetaLearner: def init(self, model, initial_lr=0.001, adjustment_factor=0.1): self.model = model self.learning_rate = initial_lr self.adjustment_factor = adjustment_factor self.previous_loss = None self.optimizer = Adam(learning_rate=self.learning_rate) self.model.compile(optimizer=self.optimizer, loss=&#39;sparse_categorical_crossentropy&#39;, metrics=[&#39;accuracy&#39;]) def train_step(self, X, Y): 使用 tf.GradientTape() 作为胶带：predictions = self.model(X, training=True) loss = self.model.loss(Y, predictions) gradients = tape.gradient(loss, self.model.trainable_variables) self.optimizer.apply_gradients(zip(gradients, self.model.trainable_variables)) 如果 self.previous_loss 不是 None：如果 loss &gt; self.previous_loss: self.learning_rate *= (1 - self.adjustment_factor) else: self.learning_rate *= (1 + self.adjustment_factor) tf.keras.backend.set_value(self.optimizer.learning_rate, self.learning_rate) self.previous_loss = loss return loss  加载已知人脸和编码 known_face_encodings, known_face_names = load_and_encode_images(&#39;known_faces&#39;) 将编码转换为 numpy 数组并创建标签 X_train = np.array(known_face_encodings) y_train = np.array([known_face_names.index(name) for name in known_face_names]) 构建一个简单的神经网络 model = Sequential([ Flatten(input_shape=(128,)), Dense(64,activation=&#39;relu&#39;), Dense(len(known_face_names),activation=&#39;softmax&#39;) ]) 初始化 Nano Meta-Learner meta_learner = NanoMetaLearner(model) 训练模型 X_train_tensor = tf.convert_to_tensor(X_train, dtype=tf.float32) y_train_tensor = tf.convert_to_tensor(y_train, dtype=tf.int32) for epoch in range(50): loss = meta_learner.train_step(X_train_tensor, y_train_tensor) print(f&#39;Epoch {epoch+1}, Loss: {loss.numpy():.4f}, 学习率: {meta_learner.learning_rate:.6f}&#39;) 初始化一些变量 face_locations = [] face_encodings = [] face_names = [] 从网络摄像头捕获视频 video_capture = cv2.VideoCapture(0) while True: ret, frame = video_capture.read() rgb_frame = frame[:, :, ::-1] # 查找框架中的所有面部和面部编码 face_locations = face_recognition.face_locations(rgb_frame) face_encodings = face_recognition.face_encodings(rgb_frame, face_locations) face_names = [] for face_encoding in face_encodings: predictions = model.predict(np.expand_dims(face_encoding, axis=0)) best_match_index = np.argmax(predictions) name = known_face_names[best_match_index] face_names.append(name) # 显示结果 for (top, right, bottom, left), name in zip(face_locations, face_names): cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2) cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED) font = cv2.FONT_HERSHEY_DUPLEX cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1) cv2.imshow(&#39;Video&#39;, frame)如果 cv2.waitKey(1) &amp; 0xFF == ord(&#39;q&#39;): break  video_capture.release() cv2.destroyAllWindows()    提交人    /u/Worldly_Evidence9113   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6zcyh/write_implementation_of_nano_meta_learning_for/</guid>
-      <pubDate>Fri, 19 Jul 2024 09:11:42 GMT</pubDate>
+      <title>帮助删除我的帐户</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e724pj/help_with_deleting_my_account/</link>
+      <description><![CDATA[嗨，正如我所说，我想删除我的帐户，但每次我尝试删除时，它都会显示“出现问题。请联系 openai.com”。有人可以帮助我吗？    提交人    /u/BaZnGa73   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e724pj/help_with_deleting_my_account/</guid>
+      <pubDate>Fri, 19 Jul 2024 12:07:33 GMT</pubDate>
     </item>
     <item>
-      <title>精灵，做精灵的事情。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6zahv/elves_doing_elf_things/</link>
-      <description><![CDATA[        提交人    /u/KeepCalmNGoLong   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6zahv/elves_doing_elf_things/</guid>
-      <pubDate>Fri, 19 Jul 2024 09:06:46 GMT</pubDate>
+      <title>GPT-4o 与 GPT-3.5 对比 Claude 3 Haiku</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e72254/gpt4o_vs_gpt35_vs_claude_3_haiku/</link>
+      <description><![CDATA[我们在三个任务上评估了 GPT-4o、GPT-3.5 和 Claude 3 Haiku，以下是我们的一些早期评估结果：  数据提取：GPT-4o Mini 的表现比 GPT-3.5 Turbo 和 Claude 3 Haiku 差，有时完全达不到标准。所有模型的质量都不足以完成这项任务（准确率仅为 60-70%） 分类：GPT-4o 的准确率最高（88.89%），是避免误报的最佳选择。GPT-4o Mini 和 GPT-3.5 Turbo 之间的 F1 分数平衡 言语推理：GPT-4o Mini 的表现优于其他模型。它在数字问题上表现不佳，但在关系 / 语言特定问题上表现良好。  更多信息请见：https://www.vellum.ai/blog/gpt-4o-mini-v-s-claude-3-haiku-v-s-gpt-3-5-turbo-a-comparison 你在评估中看到了什么？    提交人    /u/anitakirkovska   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e72254/gpt4o_vs_gpt35_vs_claude_3_haiku/</guid>
+      <pubDate>Fri, 19 Jul 2024 12:03:46 GMT</pubDate>
     </item>
     <item>
-      <title>向聊天 gpt 展示这张图片，它说了这些</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6z5xc/showed_this_image_to_chat_gpt_and_it_had_this_to/</link>
-      <description><![CDATA[        提交人    /u/donotburnbridges   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6z5xc/showed_this_image_to_chat_gpt_and_it_had_this_to/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:57:59 GMT</pubDate>
+      <title>情感人工智能伴侣</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e71vwm/emotional_ai_companion/</link>
+      <description><![CDATA[      大家好， 我很高兴介绍一个我一直在开发的项目，我相信它可以真正使你们中的许多人受益。我创建了一个情感 AI 伴侣，旨在实时理解和响应您的情绪。想象一下有人或某物可以交谈 - GPT 的更高级版本，但能够通过您的声音感知您的感受。 它做什么？ 这个 AI 可以像 GPT 一样参与对话，但它的真正优势在于它的同理心。通过检测您说话时声音中微妙的情绪暗示，它可以调整其响应以更好地支持和与您互动。无论您是感到孤独并需要有人聊天，寻求建议还是寻求激励，这个 AI 都可以为您提供帮助。 它是如何工作的？ 您可以在工作或日常生活中在浏览器中谨慎地运行它。除非您主动发起互动，否则它不会打扰您。需要快速回答问题吗？想要鼓励您度过艰难时刻吗？只要开始说话，它就会理解你的情绪状态并做出相应的反应，自然而富有同情心。 测试阶段 目前，人工智能处于测试阶段，这意味着它仍在发展。我渴望听到你的想法和建议，了解你认为哪些功能最有用。无论是特定类型的情感支持、新功能，还是检测和响应情绪的方式的改进，你的反馈都将塑造这个项目的未来。 如果您有兴趣尝试或有任何疑问，请随时联系我们！我们可以共同创造一个真正对人们的生活产生积极影响的工具。 期待大家的回音！ 附注：UI 目前的灵感来自 Headshape，因为我在开发过程中就瞄准了这种氛围。在未来的版本中，UI 将发生变化。感谢 Headshape 最初的灵感。   由    /u/Repulsive-Bedroom883  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e71vwm/emotional_ai_companion/</guid>
+      <pubDate>Fri, 19 Jul 2024 11:54:34 GMT</pubDate>
     </item>
     <item>
-      <title>在具有正确页码的 PDF 上回答问题？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6yy3h/question_answering_on_pdfs_with_correct_page/</link>
-      <description><![CDATA[我想根据 PDF 提出问题并获得答案。为了核对结果，我还想找到答案的页码。似乎 ChatGPT 和 M365 Copilot 以及 Edge Copilot 在给出答案时都会产生页码幻觉。有没有解决方案可以给我页码或跳转到 PDF 中的段落/片段？    提交人    /u/CharlesMendeley   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6yy3h/question_answering_on_pdfs_with_correct_page/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:41:50 GMT</pubDate>
+      <title>OpenAI 推出 GPT-4o mini，一款更便宜的 AI 模型，将取代 GPT-3.5</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e71jzf/openai_launches_gpt4o_mini_a_cheaper_ai_model_set/</link>
+      <description><![CDATA[https://www.indiatoday.in/technology/news/story/openai-launches-gpt-4o-mini-a-cheaper-ai-model-set-to-replace-gpt-35-2568878-2024-07-19    提交人    /u/thetechrobot_   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e71jzf/openai_launches_gpt4o_mini_a_cheaper_ai_model_set/</guid>
+      <pubDate>Fri, 19 Jul 2024 11:35:21 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 可以根据音频文件进行对话吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6ywuw/can_chatgpt_have_conversations_based_on_audio/</link>
-      <description><![CDATA[      我尝试上传音频文件并向 ChatGPT 提问，但它似乎只能读取文本消息，什么时候才能支持与音频文件的对话？ https://preview.redd.it/36btm7lgtfdd1.jpg?width=1399&amp;format=pjpg&amp;auto=webp&amp;s=230a0172e24393a6b95e6af1f6049b07d1b9f708    提交人    /u/HungryPay1470   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6ywuw/can_chatgpt_have_conversations_based_on_audio/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:39:11 GMT</pubDate>
+      <title>每个人都说 4o 优于或等于 4。但根据我丰富的经验，我没有注意到</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e70wf0/everyone_and_metric_say_4o_is_better_or_equal_to/</link>
+      <description><![CDATA[从我对 GPT 的广泛使用来看，在编码、写作、提问方面，我发现 GPT4 更胜一筹。 它在理解我的问题、解决编码 / 技术问题、准确写出我在故事中设想的内容、准确回答我的问题、完美遵循指示方面表现得非常明显。 我也给它数学题。我知道微积分的答案，而且它是大学水平或高中水平的。当然，这两个答案的错误比正确的多得多。GPT 数学很差。但 GPT4 总是更好。总是。 这很遗憾，因为我喜欢 4o 的速度，它的极限高于 4 另一个大问题。当我遇到技术问题并且它的建议不起作用时。4o 重复解决方案，而 4 是动态的，请与您一起适应。 我觉得奇怪的是所有网站都说 4o 是相等的。 redditors 说它在表现上是平等的。 就是这样。    提交人    /u/Vartom   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e70wf0/everyone_and_metric_say_4o_is_better_or_equal_to/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:56:03 GMT</pubDate>
     </item>
     <item>
-      <title>Android 应用程序连接问题</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6yvj0/android_app_conection_issue/</link>
-      <description><![CDATA[嗨，正如标题所述，我的 chatgpt 帐户似乎没有连接。我有安卓 14。我确实有一个在电脑上运行的付费订阅，但在手机上我仍然有一个免费计划。似乎存在某种同步问题。有人知道如何解决这个问题吗？    提交人    /u/Deccus1994   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6yvj0/android_app_conection_issue/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:36:18 GMT</pubDate>
+      <title>在 ChatGpt 的帮助下创建了一款 Android 应用游戏来资助我的学业</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e70uqz/created_an_android_app_game_to_fund_my_studies/</link>
+      <description><![CDATA[  由    /u/rossopy  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e70uqz/created_an_android_app_game_to_fund_my_studies/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:53:04 GMT</pubDate>
     </item>
     <item>
-      <title>如何在不损害学术诚信的情况下将 ChatGPT 有效地融入教育？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6ys1o/how_can_we_effectively_integrate_chatgpt_into/</link>
-      <description><![CDATA[我很好奇我们如何才能在教育中有效地使用 ChatGPT 之类的工具，而不会损害学术诚信。很明显，人工智能有可能彻底改变我们的学习和教学方式，但人们对抄袭和过度依赖人工智能生成的内容存在合理的担忧。 我有兴趣听听你对这个话题的想法和经验。你在课堂或学习中使用过 ChatGPT 或类似工具吗？你发现哪些策略可以有效促进合乎道德的使用并确保学生培养批判性思维技能？    提交人    /u/AIExpoEurope   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6ys1o/how_can_we_effectively_integrate_chatgpt_into/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:29:11 GMT</pubDate>
+      <title>Hey OpenAI 让免费用户选择将 GPT-4o mini 作为默认 LLM</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e70s1c/hey_openai_let_free_users_choose_to_have_gpt4o/</link>
+      <description><![CDATA[作为免费用户，我在大约 10 分钟后收到消息说我的使用量超出了 4o，我希望可以选择一直使用 mini。你能添加这个选项吗？不断提醒我超出限制非常烦人，以至于我越来越频繁地使用其他 LLM。    提交人    /u/Various_Albatross859   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e70s1c/hey_openai_let_free_users_choose_to_have_gpt4o/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:48:15 GMT</pubDate>
     </item>
     <item>
-      <title>就这么简单</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6ykh2/easy_as_that/</link>
-      <description><![CDATA[        提交人    /u/Tall_Efficiency1447   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6ykh2/easy_as_that/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:13:49 GMT</pubDate>
+      <title>现在一半的互联网都瘫痪了，ChatGPT 来救援吧！</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e70gpe/half_the_internet_is_down_right_now_chatgpt_to/</link>
+      <description><![CDATA[        提交人    /u/OppositeDue   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e70gpe/half_the_internet_is_down_right_now_chatgpt_to/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:27:46 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 3.5 Turbo 和 4o Mini 持续出现故障</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6yi7d/chatgpt_35_turbo_and_4o_mini_keep_malfunctioning/</link>
-      <description><![CDATA[  由    /u/Numberdle  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6yi7d/chatgpt_35_turbo_and_4o_mini_keep_malfunctioning/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:09:19 GMT</pubDate>
+      <title>关于链接</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e70db7/regarding_links/</link>
+      <description><![CDATA[我已付费订阅 ChatGPT Plus。当我提示 4o 模型从 sourcepageY 和 sourcepageZ 向我提供有关 subjectX 的信息，同时向我提供指向源的确切 URL 链接时，我不断收到指向主页的链接或“页面未找到”。 可以在页面上找到主题，因此显然它正在进行抓取，提供正确链接的问题是什么？ 我以为 4o 是实时的，所以它不应该存在提供有效链接的问题？我这里遗漏了什么？    提交人    /u/NoZookeepergame9799   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e70db7/regarding_links/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:21:32 GMT</pubDate>
     </item>
     <item>
-      <title>针对微软的网络攻击</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6yf8m/cyber_attack_on_microsoft/</link>
-      <description><![CDATA[谁受到影响？    提交人    /u/elbeqqal   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6yf8m/cyber_attack_on_microsoft/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:03:02 GMT</pubDate>
+      <title>ClaudeSync：AI 项目文件同步工具（现在是 Claude.ai，将来是 ChatGPT？）</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e7072t/claudesync_ai_project_file_sync_tool_claudeai_now/</link>
+      <description><![CDATA[ClaudeSync：AI 项目文件同步工具（现在是 Claude.ai，将来是 ChatGPT？） 嘿，ChatGPT 爱好者们！👋 我想分享一个我一直在研究的工具，叫做 ClaudeSync。它是一个用于 AI 项目的开源文件同步工具，目前支持 Claude.ai。但是对于我们 ChatGPT 粉丝来说，这才是有趣的地方： 🌟 当前功能：  将本地文件与 Claude.ai 项目同步 多组织支持 基于 .gitignore 的智能过滤 CLI 易于管理  🔮 未来潜力： 虽然 ClaudeSync 目前与 Claude.ai 合作，但我们正在探索将来添加 ChatGPT 支持的可能性。想象一下能够将您的本地文件与 ChatGPT 项目无缝同步！ 💡 我们很乐意听取您的意见：  您将如何将这样的工具与 ChatGPT 一起使用？ 哪些功能对于 ChatGPT 集成最有价值？ 我们应该考虑支持其他 AI 平台吗？  🔗 链接：  GitHub PyPI  我们很高兴能够支持更多 AI 平台，包括 ChatGPT。您的想法和创意可能会塑造这个工具的未来！ 让我们讨论一下：您如何设想文件同步工具来增强您的 ChatGPT 工作流程？哪些特定的同步功能对您的 ChatGPT 项目最有用？    提交人    /u/fitnesspapi88   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e7072t/claudesync_ai_project_file_sync_tool_claudeai_now/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:10:12 GMT</pubDate>
     </item>
     <item>
-      <title>免费人工智能</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6ye02/free_ai/</link>
-      <description><![CDATA[是的，我知道我需要向开发人员支付 API 费用。但是有没有可以无限发送消息的免费人工智能？我在网站和 Play 商店上看到了数百个应用程序，但它们都有消息限制     提交人    /u/BullfrogGloomy5576   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6ye02/free_ai/</guid>
-      <pubDate>Fri, 19 Jul 2024 08:00:39 GMT</pubDate>
+      <title>我在两种语言中尝试了这个混元模型，比较一下区别</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e705rz/i_tried_this_hunyuan_model_in_two_languages/</link>
+      <description><![CDATA[  由    /u/No-Significance1233  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e705rz/i_tried_this_hunyuan_model_in_two_languages/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:07:47 GMT</pubDate>
     </item>
     <item>
-      <title>如何利用人工智能工具快速记笔记、复习所读书籍的内容？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6ycnv/how_to_quickly_take_notes_and_review_the_contents/</link>
-      <description><![CDATA[我们每个人都看过很多书，但是当我们试图去思考它们的时候，脑袋里总是空空的。有没有什么好的方法可以做读书笔记，然后方便地管理和复习呢？    submitted by    /u/pwy_NoteGPT   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6ycnv/how_to_quickly_take_notes_and_review_the_contents/</guid>
-      <pubDate>Fri, 19 Jul 2024 07:57:58 GMT</pubDate>
+      <title>GPT4o mini 和 GPT4o 除了价格之外，还有很大的差别吗？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e705k3/is_there_a_big_difference_between_the_gpt4o_mini/</link>
+      <description><![CDATA[有人比较过这两种模型之间的巨大差距吗？我试着问了一些基本问题，但答案似乎没有什么区别。    提交人    /u/HungryPay1470   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e705k3/is_there_a_big_difference_between_the_gpt4o_mini/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:07:21 GMT</pubDate>
     </item>
     <item>
-      <title>GPT-4o Mini：它比 GPT-4o 更好吗？它会取代 RAG 应用中的 GPT-3.5 turbo 吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6y5tl/gpt4o_mini_is_it_better_than_gpt4o_will_it/</link>
-      <description><![CDATA[        提交人    /u/datacog   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6y5tl/gpt4o_mini_is_it_better_than_gpt4o_will_it/</guid>
-      <pubDate>Fri, 19 Jul 2024 07:43:44 GMT</pubDate>
+      <title>登录时出错</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e703tn/error_while_logging_in/</link>
+      <description><![CDATA[      有人知道这个问题的解决方案吗    提交人    /u/Nicolas_696   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e703tn/error_while_logging_in/</guid>
+      <pubDate>Fri, 19 Jul 2024 10:04:08 GMT</pubDate>
     </item>
     <item>
-      <title>我们看的是同一件事吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1e6xyhl/are_we_looking_at_the_same_thing/</link>
-      <description><![CDATA[        提交人    /u/Instant_Ex   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1e6xyhl/are_we_looking_at_the_same_thing/</guid>
-      <pubDate>Fri, 19 Jul 2024 07:29:02 GMT</pubDate>
+      <title>错过了反弹球。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1e7014k/missed_the_rebound/</link>
+      <description><![CDATA[        提交人    /u/iF_Blow   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1e7014k/missed_the_rebound/</guid>
+      <pubDate>Fri, 19 Jul 2024 09:59:37 GMT</pubDate>
     </item>
     </channel>
 </rss>
