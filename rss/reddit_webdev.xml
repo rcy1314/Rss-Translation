@@ -3,8 +3,71 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Sun, 21 Jul 2024 15:21:01 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Sun, 21 Jul 2024 18:23:27 GMT</lastBuildDate>
+    <item>
+      <title>Cloudflare 工作者，Sqlite D1，经历？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8sud5/cloudflare_workers_sqlite_d1_experiences/</link>
+      <description><![CDATA[是否有人使用这个堆栈，他们的无服务器边缘分布式 Web 实现，掌握它有多难，这项技术有未来吗，您个人会将它用于您的项目吗？你在哪里使用它，涉及什么样的项目？ 考虑到 Sqlite 几乎不在经典 Web 中使用，这种分布式后端（尤其是数据库）的缺点和优点是什么？    提交人    /u/jugotrans-lebane   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8sud5/cloudflare_workers_sqlite_d1_experiences/</guid>
+      <pubDate>Sun, 21 Jul 2024 18:22:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>[初学者] 尝试使用 RBAC 实现细粒度授权！哪种方法更好？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8rhoe/beginner_trying_to_implement_fine_grained/</link>
+      <description><![CDATA[我正在尝试使用基于角色的访问控制来实现 FGA。这些是角色和权限： ```js const ROLE = { ADMIN: &#39;admin&#39;, ORGANISER: &#39;organiser&#39;, PARTICIPANT: &#39;participant&#39;  const PERMISSIONS = { ADMIN: &#39;admin&#39;, ADD_EVENT: &#39;add_event&#39;, DELETE_EVENT: &#39;delete_event&#39;, SUBSCRIBE_EVENT: &#39;subscribe_event&#39;, UNSUBSCRIBE_EVENT: &#39;unsubscribe_event&#39;,  const roleHavePermissions = (() =&gt; { const map = new Map(); map.set(ROLE.ADMIN, [ PERMISSIONS.ADMIN ]) map.set(ROLE.ORGANISER, [ PERMISSIONS.ADD_EVENT, PERMISSIONS.DELETE_EVENT, PERMISSIONS.UNSUBSCRIBE_EVENT ]) map.set(ROLE.PARTICIPANT, [ PERMISSIONS.SUBSCRIBE_EVENT, PERMISSIONS.UNSUBSCRIBE_EVENT ]) return map; })() ``` 现在我正在验证 jwt 并检查每个资源的权限。 ```js const checkAuth = asyncHandler(async (req, res, next) =&gt; { const token = req.cookies?.accessToken || req.header(&quot;Authorization&quot;)?.replace(&quot;Bearer &quot;, &quot;&quot;) if(!token) { throw new ApiError(401, &#39;Unauthorized Access!&#39;)  try { const decryptedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET) req.user = decryptedToken req.permissions = roleHavePermissions.get(decodedToken.role) } catch(err) { console.log(&quot;err: :&quot;, err) if(err.name === &#39;TokenExpiredError&#39;) { // 使用 refreshToken 颁发新令牌  throw new ApiError(400, &#39;Invalid token!&#39;)  &gt; next() }) const checkPermission = (permission) =&gt; asyncHandler(async (req, res, next) =&gt; { if( !( req.permissions.includes(permission) || req.permissions.includes(PERMISSIONS.ADMIN)) ) { throw new ApiError(401, &#39;Unauthorized access!&#39;) } next() }) ``` 但是这还不够细粒度。每个组织者都可以更新任何事件。我希望 op 组织者具有更新权限。为了实现这一点，我有两种方法： 方法 1 使用事件中间件并验证事件是否存在。如果存在，检查其组织者是否是请求更新的人。我计划在同一个中间件中实现表单验证和清理。 方法 2 在事件服务中使用方法 1 而不是中间件 哪种方法更好？有没有更好的方法来实现 FGA？如果你有这方面的好资源，请分享！    提交人    /u/NisemonoNaWa   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8rhoe/beginner_trying_to_implement_fine_grained/</guid>
+      <pubDate>Sun, 21 Jul 2024 17:24:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>最适合在家办公的办公椅。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8rh6x/best_office_chair_for_working_from_home/</link>
+      <description><![CDATA[我是一名自由职业者，每天大部分时间都待在房间里。所以我想买一把 300 美元以内的好办公椅。 有人有什么建议吗？    提交人    /u/chanredv   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8rh6x/best_office_chair_for_working_from_home/</guid>
+      <pubDate>Sun, 21 Jul 2024 17:24:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Node.js 超时处理</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8r1ow/nodejs_timeout_handling/</link>
+      <description><![CDATA[  由    /u/fagnerbrack  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8r1ow/nodejs_timeout_handling/</guid>
+      <pubDate>Sun, 21 Jul 2024 17:05:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>冒名顶替综合症：作为一名开发人员：我的经历以及我如何应对它</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8qxj3/imposter_syndrome_as_a_developer_my_experience/</link>
+      <description><![CDATA[嗨，各位开发者， 我最近一直在与冒名顶替综合症作斗争，我知道我并不孤单。经过深刻的反思和研究，我决定分享我对这个话题的看法。我制作了一个视频来讨论：  为什么冒名顶替综合症在我们这个领域如此普遍 引发这些感觉的个人经历 当你觉得自己像个骗子时的关键提醒  我也很想听听你的经历。你如何应对冒名顶替综合症？您有什么独特的策略对您有用吗？ 如果您有兴趣查看视频，您可以在此处找到它。但更重要的是，我很乐意就此展开讨论。这是一个影响我们很多人的话题，但我们对此讨论得还不够。    提交人    /u/IliasHad   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8qxj3/imposter_syndrome_as_a_developer_my_experience/</guid>
+      <pubDate>Sun, 21 Jul 2024 17:00:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>类型与接口 (TypeScript)</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8ps37/type_vs_interface_typescript/</link>
+      <description><![CDATA[我浏览了 stack overflow 和几个搜索结果中的网站，但无法充分理解两者之间的区别。 有人可以用更简单的术语向我解释一下吗     提交人    /u/Pushan2005   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8ps37/type_vs_interface_typescript/</guid>
+      <pubDate>Sun, 21 Jul 2024 16:08:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>什么工具/包/框架可以制作这种登陆页面动画？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8pro6/what_toolspackagesframeworks_can_make_this_kind/</link>
+      <description><![CDATA[客户想看看我们是否可以构建类似以下网站登录页面的动画/交互：https://runway.com/ 我的经验更多是在构建 Web 应用程序方面，因此 UI 并不是那么疯狂，动画只是按钮、模式和吐司上的轻微动画。我想我对构建这些类型的 UI 很感兴趣，并且想学习构建。 研究后，我认为最好的方法是使用 GSAP 进行构建，但我真的不完全确定我是否可以使用免费的东西（我想我们将主要使用 ScrollTrigger）而不支付许可证费用。（编辑：不确定我的客户的客户是否愿意支付这种许可证费用，所以我可能会浪费时间学习） 还有其他选择吗？我认为 framer motion 可以做这种事情，但它只在 React 中，因为我有时涉足 React 或 Vue。 您还可以指出这些文章/教程或学习材料吗？    提交人    /u/beersachet   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8pro6/what_toolspackagesframeworks_can_make_this_kind/</guid>
+      <pubDate>Sun, 21 Jul 2024 16:08:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我一直在努力优化页面速度，直到我发现了这 5 个概念</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8oy1j/i_struggled_with_page_speed_optimization_until_i/</link>
+      <description><![CDATA[我当时正在优化某些页面的速度和 SEO，为此我使用了 Google 页面速度洞察。但是，那里使用的术语太多了。所以我决定对这个领域进行一些研究。在研究诊断中使用的术语时，我能够得出一些结果。 我觉得应该把这个写成一篇文章，这样未来的任何初学者都可以参考并更轻松地了解这些概念。 这是文章：https://journal.hexmos.com/pagespeed-optimization-concepts/    提交人    /u/lordwiz360   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8oy1j/i_struggled_with_page_speed_optimization_until_i/</guid>
+      <pubDate>Sun, 21 Jul 2024 15:32:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>暑期项目推荐，首尔/东京</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e8ouqi/summer_programms_recs_seoultokyo/</link>
+      <description><![CDATA[我在首尔或东京的大学里哪里可以参加网页开发或工程暑期课程？顺便说一下，我是大学二年级学生，主修网页开发。    提交人    /u/melinda0202   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e8ouqi/summer_programms_recs_seoultokyo/</guid>
+      <pubDate>Sun, 21 Jul 2024 15:27:59 GMT</pubDate>
+    </item>
     <item>
       <title>你尝试过 Convex baas 吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e8ocxr/have_you_tried_convex_baas/</link>
@@ -15,16 +78,9 @@
     <item>
       <title>Laravel 的应用程序上下文管理器</title>
       <link>https://www.reddit.com/r/webdev/comments/1e8o5uc/application_context_manager_for_laravel/</link>
-      <description><![CDATA[大家好， 我刚刚发布了我们的上下文管理器包。这是我们几年来一直用来管理多租户 Laravel 应用程序上下文的东西。我相信它还有其他用途。 GitHub 链接：~https://github.com/Honeystone/Context~ 与现有的多租户应用程序解决方案不同，这些解决方案往往只有一个“租户”上下文，这个包允许您创建具有复杂初始化逻辑、上下文要求和完整性检查的多上下文租户。它还支持切换上下文、扩展上下文和上下文序列化。上下文可以自动注入队列，模型可以由它们限定范围。 它确实解决了一些新问题，但我想它可能对其他人有用。如果您对这些类型的库感兴趣，我们还有很多其他想要开源的东西。 我们随时欢迎任何反馈。    提交人    /u/PiranhaGeorge   [链接] [评论]]]></description>
+      <description><![CDATA[大家好， 我刚刚发布了我们的上下文管理器包。这是我们几年来一直在使用的，用于管理多租户 Laravel 应用程序的上下文。我相信它还有其他用途。 GitHub 链接：~https://github.com/Honeystone/Context~ 与现有的多租户应用程序解决方案（它们往往具有单个“租户”上下文）不同，此包允许您创建具有复杂初始化逻辑、上下文要求和完整性检查的多上下文租户。它还支持切换上下文、扩展上下文和上下文序列化。上下文可以自动注入队列，并且模型可以由它们限定范围。 它确实解决了一些新问题，但我认为它可能对其他人有用。如果您对这些类型的库感兴趣，我们还有很多其他想要开源的东西。 我们随时欢迎任何反馈。    提交人    /u/PiranhaGeorge   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e8o5uc/application_context_manager_for_laravel/</guid>
       <pubDate>Sun, 21 Jul 2024 14:57:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>实践</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8nm7h/practice/</link>
-      <description><![CDATA[你好！有人知道有练习项目的网站吗？我完成了 codeacdemy 上的所有项目。谢谢     提交人    /u/Unclejoe15   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8nm7h/practice/</guid>
-      <pubDate>Sun, 21 Jul 2024 14:31:58 GMT</pubDate>
     </item>
     <item>
       <title>用 CSS 单行代码改进（几乎）每个项目</title>
@@ -48,67 +104,11 @@
       <pubDate>Sun, 21 Jul 2024 13:03:20 GMT</pubDate>
     </item>
     <item>
-      <title>SublimeText 的 SFTP 连接速度很慢</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8lne2/slow_sftp_connection_with_sublimetext/</link>
-      <description><![CDATA[我目前使用 Sublime Text 通过 SFTP 连接在本地编辑我的网站文件。初始 SFTP 连接需要很长时间才能建立。例如，我今天将一个网站添加到我的本地设备，窗口显示“正在下载”，因为文件正在一个接一个地传入。但是，这个过程持续了两个多小时，即使我的网站大小只有 130 MB 左右，而且我拥有高速互联网连接。 这个问题是否与 SublimeText 作为应用程序的性能有关？或者与我的主机公司（包）有关？ 提前感谢您的任何答案！    提交人    /u/ArtisticAtmosphere19   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8lne2/slow_sftp_connection_with_sublimetext/</guid>
-      <pubDate>Sun, 21 Jul 2024 12:52:46 GMT</pubDate>
-    </item>
-    <item>
       <title>寻找为新客户添加的网站功能（餐厅和酒店的静态网站）</title>
       <link>https://www.reddit.com/r/webdev/comments/1e8kw70/looking_for_website_features_to_add_for_new/</link>
       <description><![CDATA[大家好， 我为一位客户建立了两个静态网站，展示他们的餐厅，第三个网站也即将完成，用于他们的小酒店。每个网站都包含美食图片、精美的房间图片和有关餐厅/酒店的信息内容，以及用于咨询的联系表。 由于这是我的第一个网站客户，我有兴趣了解可以整合哪些其他工具或服务来增强他们的网站。我已经实施了 Google Analytics 来跟踪页面访问量。还有其他建议吗？    提交人    /u/grasshopper789   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e8kw70/looking_for_website_features_to_add_for_new/</guid>
       <pubDate>Sun, 21 Jul 2024 12:10:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要帮助创建论坛/社区网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8ksjz/need_help_making_a_forumcommunity_website/</link>
-      <description><![CDATA[      需要帮助制作论坛/社区网站 这是一个示例网站 https://saasplex-rloybaoz.bettermode.io 我找到了一个可以帮我制作的网站，但是考虑到它没有我想要的所有功能，所以价格很贵 我是否可以自己制作一个这样的网站，让每个人都有一个帐户，或者你们知道一个可以让这个网站更容易制作的地方吗 示例包括circle.so，uuki.live 这是另一个示例 https://community.thomasjfrank.com/home 想在某些地方添加付费墙，并进行某种会员制活动    由   提交  /u/znzdrednow   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8ksjz/need_help_making_a_forumcommunity_website/</guid>
-      <pubDate>Sun, 21 Jul 2024 12:04:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>我创建了一个网站进行搜索。通过 NASA API 查看和下载图像，但是</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8kmvn/i_created_a_website_to_search_view_and_download/</link>
-      <description><![CDATA[但我无法部署它，它在本地运行顺利，但当我通过 GITHUB PAGES 或 VERCEL 部署它时无法运行 GITHUB 链接：https://github.com/mandarwagh9/NASA-IMAGE-SEARCH-ENGINE 请帮助我    提交人    /u/Straight_Stable_6095   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8kmvn/i_created_a_website_to_search_view_and_download/</guid>
-      <pubDate>Sun, 21 Jul 2024 11:55:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>Enatega 多供应商食品配送系统后端出售！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8kl9x/enatega_multivendor_food_delivery_system_backend/</link>
-      <description><![CDATA[产品销售：多供应商食品配送 Enatega 网站有更多关于产品的信息：www.enatega.com Enatega Multivendor 是一款功能齐全的多供应商食品配送解决方案，适用于 iOS、Android 和 Web。我们确保您收到良好的移动和仪表板应用程序设计以及完整的解决方案，可让您快速集成和贴牌到任何送餐服务中。 https://www.youtube.com/watch?v=pvrZOtJ4cCc&amp;list=TLGGTjrgJSHWzzYyMTA3MjAyNA 我与他们现有的一位买家保持联系，他热衷于销售多供应商食品配送产品。 这是最新版本。我正在协助他进行销售.. 您将可以访问客户应用程序、餐厅应用程序、骑手应用程序、客户网站、管理仪表板和后端代码的整个代码库 根据 enatega 网站，该产品的当前价格为 4997 美元！www.enatega.com 售价将打折。 感兴趣的人可以发送电子邮件，解释购买产品的意图和您的未来计划。请提及我的帖子以供参考。 电子邮件：[sellingenatega@gmail.com](mailto:sellingenatega@gmail.com) 有任何疑问，你可以在这里发布，我甚至可以公开回答！    提交人    /u/Broad-Success-8682   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8kl9x/enatega_multivendor_food_delivery_system_backend/</guid>
-      <pubDate>Sun, 21 Jul 2024 11:52:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>全栈书面教程</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8jlbr/written_tutorial_for_full_stack/</link>
-      <description><![CDATA[有人可以分享一个书面教程（完整堆栈）的链接吗？    提交人    /u/shesparkzz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8jlbr/written_tutorial_for_full_stack/</guid>
-      <pubDate>Sun, 21 Jul 2024 10:49:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>能否向技术书籍出版商推荐一些我新出版的 Kubernetes 书籍？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8i7cc/recommendations_for_tech_book_publishers_for_my/</link>
-      <description><![CDATA[大家好， 我正在写一本关于非常具体的 Kubernetes 主题的书，我很乐意听取您的建议。 您是否知道任何在广告、写作和全面评论方面表现出色的技术书籍出版商？想想像 Manning 和 O’Reilly 这样知名的名字。以下是我的标准：  质量：我追求的是具有制作出色技术内容良好记录的出版商。 支持：我需要广告、写作和获得全面评论方面的帮助。 可访问性：我正在寻找欢迎新作者和新想法的出版商。  如果您与专注于技术的出版商有过积极的合作经历，尤其是与 Kubernetes 或其他 IT 主题相关的出版商，请分享您的建议！提前谢谢您    由   提交  /u/ScoreApprehensive992   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8i7cc/recommendations_for_tech_book_publishers_for_my/</guid>
-      <pubDate>Sun, 21 Jul 2024 09:08:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>基于 PHP 的后端与 nodejs。速度有什么区别？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8i2uo/php_based_backend_vs_nodejs_what_are_the/</link>
-      <description><![CDATA[所以我以前做过网站。那是 WordPress 和基于 php 的应用程序。但已经 10 年了。  nodejs 更复杂吗？ 为什么 nodejs 现在更受欢迎？  就运行应用程序和网站而言，（速度 + SEO）nodejs 是否更快？你是否需要做很多工作才能使其更适合 SEO/更快？    提交人    /u/sardine_lake   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8i2uo/php_based_backend_vs_nodejs_what_are_the/</guid>
-      <pubDate>Sun, 21 Jul 2024 08:59:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>我创建了一个开源后端学习平台</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8haa9/i_created_an_opensource_backend_learning_platform/</link>
-      <description><![CDATA[该平台的主要目的是练习类似于“真实世界”的后端项目。 我的想法是创建一些非常灵活的东西来支持任何编程语言和 API 框架。 我把所有东西都弄得非常简单，有一个 cli 应用程序可以展示练习，生成通用模板，并运行我为项目编写的测试。 目前，有一个项目，我正在努力添加更多项目。 我很乐意就用户体验、难度或基本上任何事情得到一些反馈 它完全免费且开源 - https://github.com/sissues/cli    提交人    /u/Missics   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8haa9/i_created_an_opensource_backend_learning_platform/</guid>
-      <pubDate>Sun, 21 Jul 2024 08:00:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
