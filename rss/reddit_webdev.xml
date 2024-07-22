@@ -3,8 +3,15 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Mon, 22 Jul 2024 01:22:56 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Mon, 22 Jul 2024 03:22:32 GMT</lastBuildDate>
+    <item>
+      <title>初级 Web 开发人员作业帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/1e9258n/junior_web_developer_assignment_help/</link>
+      <description><![CDATA[首先我想说的是，关于这个主题已经有一篇帖子了，如果违反了规则，我深表歉意，但那里的评论无法为我提供所需的帮助，这里是帖子的链接： https://www.reddit.com/r/webdev/comments/z3lkf7/junior_developer_test_task_guidance_for_a_newbie/ 我对 Web 开发知之甚少（我花了 2 周时间学习全栈开发，仅此而已），我能够让前端和后端正常工作（意味着功能完整且在本地工作），但代码看起来非常糟糕，它根本不遵循 OOP 原则（我我的问题是如何构造我的代码/文件以遵循标准 OOP/MVC？我尝试过看几个关于 MVC 的视频，github 上甚至还有一个关于这个确切任务的 repo，但是文件太多了，我很难理解它们。 我也希望有人能告诉我需要做什么的顺序，例如我正在使用本地数据库和本地主机，这可能会导致我稍后修改大量代码，我真的不知道，因为我对部署一无所知，所以如果有人能就事情​​的顺序给我一些建议，我将不胜感激。    提交人    /u/jetfire2K   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1e9258n/junior_web_developer_assignment_help/</guid>
+      <pubDate>Mon, 22 Jul 2024 01:26:31 GMT</pubDate>
+    </item>
     <item>
       <title>Spotify 如何自动生成专辑和歌曲的详细颜色？</title>
       <link>https://www.reddit.com/r/webdev/comments/1e9178d/how_does_spotify_auto_generate_the_detail_color/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[是否有人使用这个堆栈，他们的无服务器边缘分布式 Web 实现，掌握它有多难，这项技术有未来吗，您个人会将它用于您的项目吗？你在哪里使用它，涉及什么样的项目？ 考虑到 Sqlite 几乎不在经典 Web 中使用，这种分布式后端（尤其是数据库）的缺点和优点是什么？    提交人    /u/jugotrans-lebane   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1e8sud5/cloudflare_workers_sqlite_d1_experiences/</guid>
       <pubDate>Sun, 21 Jul 2024 18:22:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>[初学者] 尝试使用 RBAC 实现细粒度授权！哪种方法更好？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1e8rhoe/beginner_trying_to_implement_fine_grained/</link>
-      <description><![CDATA[我正在尝试使用基于角色的访问控制来实现 FGA。这些是角色和权限： ```js const ROLE = { ADMIN: &#39;admin&#39;, ORGANISER: &#39;organiser&#39;, PARTICIPANT: &#39;participant&#39;  const PERMISSIONS = { ADMIN: &#39;admin&#39;, ADD_EVENT: &#39;add_event&#39;, DELETE_EVENT: &#39;delete_event&#39;, SUBSCRIBE_EVENT: &#39;subscribe_event&#39;, UNSUBSCRIBE_EVENT: &#39;unsubscribe_event&#39;,  const roleHavePermissions = (() =&gt; { const map = new Map(); map.set(ROLE.ADMIN, [ PERMISSIONS.ADMIN ]) map.set(ROLE.ORGANISER, [ PERMISSIONS.ADD_EVENT, PERMISSIONS.DELETE_EVENT, PERMISSIONS.UNSUBSCRIBE_EVENT ]) map.set(ROLE.PARTICIPANT, [ PERMISSIONS.SUBSCRIBE_EVENT, PERMISSIONS.UNSUBSCRIBE_EVENT ]) return map; })() ``` 现在我正在验证 jwt 并检查每个资源的权限。 ```js const checkAuth = asyncHandler(async (req, res, next) =&gt; { const token = req.cookies?.accessToken || req.header(&quot;Authorization&quot;)?.replace(&quot;Bearer &quot;, &quot;&quot;) if(!token) { throw new ApiError(401, &#39;Unauthorized Access!&#39;)  try { const decryptedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET) req.user = decryptedToken req.permissions = roleHavePermissions.get(decodedToken.role) } catch(err) { console.log(&quot;err: :&quot;, err) if(err.name === &#39;TokenExpiredError&#39;) { // 使用 refreshToken 颁发新令牌  throw new ApiError(400, &#39;Invalid token!&#39;)  &gt; next() }) const checkPermission = (permission) =&gt; asyncHandler(async (req, res, next) =&gt; { if( !( req.permissions.includes(permission) || req.permissions.includes(PERMISSIONS.ADMIN)) ) { throw new ApiError(401, &#39;Unauthorized access!&#39;) } next() }) ``` 但是这还不够细粒度。每个组织者都可以更新任何事件。我希望 op 组织者具有更新权限。为了实现这一点，我有两种方法： 方法 1 使用事件中间件并验证事件是否存在。如果存在，检查其组织者是否是请求更新的人。我计划在同一个中间件中实现表单验证和清理。 方法 2 在事件服务中使用方法 1 而不是中间件 哪种方法更好？有没有更好的方法来实现 FGA？如果你有这方面的好资源，请分享！    提交人    /u/NisemonoNaWa   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1e8rhoe/beginner_trying_to_implement_fine_grained/</guid>
-      <pubDate>Sun, 21 Jul 2024 17:24:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
