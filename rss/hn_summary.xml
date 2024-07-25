@@ -4,141 +4,93 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Thu, 25 Jul 2024 15:20:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jul 2024 18:22:05 GMT</lastBuildDate>
     <item>
-      <title>在这篇详细的文章中，我深入研究了从 STM32 到 FPGA 的内存映射过程，这是一组 [...]</title>
-      <link>https://t.me/hn_summary/101183</link>
-      <description><![CDATA[从 STM32 向 FPGA 映射内存
-在这篇详细的文章中，我深入研究了从 STM32 向 FPGA 映射内存的过程，这是我为大型嵌入式项目改进的设置。该架构涉及一个高速数据平面 FPGA（AMD Xilinx Kintex-7 或 Artix/Kintex UltraScale+）与一个用于控制平面的 STM32H735 配对，通过内存映射接口连接。与 Xilinx 的 Zynq/Versal 平台等 SoC FPGA 相比，这种双芯片解决方案具有多项优势，包括在裸机环境中更简单的编程、大型片上 SRAM 和闪存以及分散的安全边界。
-
-我决定使用灵活内存控制器 (FMC) 作为 MCU 侧桥接器，这避免了 OCTOSPI 外设的缓存问题，并提供了高度可配置的接口。硬件设计包括一个定制测试板，其中 STM32L431 作为监控器，STM32H735 作为主处理器，以及 Xilinx XC7S25 Spartan-7 FPGA。 FPGA 设计采用 SystemVerilog 实现，具有三速 RGMII MAC、MDIO 控制器和 32 位 GPIO 端口等组件。
-
-我的方法的一个独特之处在于使用 32 位 APB 进行内部控制平面互连，而不是使用更重的 AXI，从而利用 Vivado 对 SystemVerilog 接口的改进支持。FMC 桥将入站 FMC 事务转换为 APB 读/写事务，并进行适当的延迟传播和时钟相位调整以获得时序裕度。
-
-令人惊讶的元素：STM32 的硬件 AES 和随机数生成器 IP 在 Zynq 平台中不存在，具有显着优势。
-
-争议点：由于其复杂性和 Xilinx 的设计选择而决定避免使用 AXI 进行内部互连可能会引发 FPGA 开发人员之间的争论。（基于 73% 的故事文本的摘要。）]]></description>
-      <guid>https://t.me/hn_summary/101183</guid>
-      <pubDate>Thu, 25 Jul 2024 15:20:00 GMT</pubDate>
+      <title>[媒体] OpenAI 推出了 SearchGPT，这是一款由人工智能驱动的搜索引擎，可以组织和解释 [...]</title>
+      <link>https://t.me/hn_summary/101220</link>
+      <description><![CDATA[OpenAI 宣布推出其 AI 驱动的搜索引擎 SearchGPT
+OpenAI 推出了 SearchGPT，这是一款 AI 驱动的搜索引擎，可组织和解释实时互联网信息。它不只是列出链接，还提供带有归因的总结性发现。用户可以通过侧边栏提出后续问题或探索相关链接。一个独特的功能“视觉答案”仍然有些神秘，因为 OpenAI 在发布之前没有澄清其工作原理。最初，SearchGPT 将向 10,000 名测试用户提供，并旨在最终与 ChatGPT 集成。此举将 OpenAI 定位为 Google 和 Perplexity 的潜在竞争对手。值得注意的是，OpenAI 与新闻合作伙伴合作，以确保正确的内容归因，解决了对 AI 生成的摘要的担忧。原型状态可以灵活地解决潜在的不准确性和反馈。]]></description>
+      <guid>https://t.me/hn_summary/101220</guid>
+      <pubDate>Thu, 25 Jul 2024 18:22:05 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 微软已确认存在影响 Windows 10、11 和 Server u [...] 的新的蓝屏问题。</title>
-      <link>https://t.me/hn_summary/101182</link>
-      <description><![CDATA[微软确认针对 Windows 10 和 11 用户的新蓝屏警告
-微软确认，在 7 月补丁星期二安全更新后，Windows 10、11 和 Server 用户出现了新的蓝屏问题。与典型的死机蓝屏不同，此新问题会提示用户输入 BitLocker 加密恢复密钥。该问题主要影响启用了 BitLocker 的设备，并导致用户在更新后启动到恢复屏幕。微软正在调查此问题，并提供了一种解决方法：用户应输入 BitLocker 恢复密钥才能正常启动。受影响的平台包括 Windows 10、11 的各种版本和多个 Windows Server 版本。 
-
-争议：蓝屏问题的反复出现，尤其是在最近的 CrowdStrike 更新错误之后，引发了人们对微软更新可靠性的担忧。
-
-独特/巧妙：“未完全死亡的蓝屏”一词巧妙地将此问题与更严重的死亡蓝屏区分开来。]]></description>
-      <guid>https://t.me/hn_summary/101182</guid>
-      <pubDate>Thu, 25 Jul 2024 15:18:52 GMT</pubDate>
+      <title>作为一名经验丰富的站点可靠性工程师 (SRE)，我认识到监控的关键作用 [...]</title>
+      <link>https://t.me/hn_summary/101219</link>
+      <description><![CDATA[向 HN 展示：我制作了简单且便宜的日志监控
+作为一名经验丰富的站点可靠性工程师 (SRE)，我认识到监控和可靠性的关键作用，尤其是在处理第三方服务时。这种互联性在 SaaS 开发中很常见，从而形成了一个依赖关系网。最近，我开始创建自己的 SaaS 项目，我发现监控既麻烦又昂贵。这就是我开发 Monitro 的原因，这是一种简单且经济实惠的日志监控解决方案，旨在减轻这种负担。我的目标是展示有效监控的重要性和好处。我有雄心勃勃的计划来进一步简化和增强 Monitro，我正在推出它以评估它对其他人的价值。请记住，更多的活动部件意味着更多的潜在故障点！]]></description>
+      <guid>https://t.me/hn_summary/101219</guid>
+      <pubDate>Thu, 25 Jul 2024 17:57:50 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 标题：CAP 定理与云系统无关</title>
-      <link>https://t.me/hn_summary/101181</link>
-      <description><![CDATA[CAP 定理与云系统无关
-标题：CAP 定理与云系统无关
-
-Brewer 的 CAP 定理由 Gilbert 和 Lynch 正式提出，通常被视为分布式系统工程师的基础概念。然而，对于那些构建云式分布式系统和应用程序的人来说，它基本上无关紧要。CAP 与间歇连接的移动和物联网应用程序更相关，其中它的权衡是常识。
-
-混淆源于对“可用性”的不同定义。例如，一个允许七个客户端中的六个同时享受可用性和强一致性的系统将根据 CAP 的严格定义被视为“不可用”。然而，大多数工程师认为它是可用的。
-
-在云架构中，网络分区通过负载平衡器和路由机制进行管理，确保客户端的强一致性和高可用性。因此，CAP 权衡对云系统来说并不重要。更相关的权衡包括耐用性和延迟，或一致性和吞吐量之间的权衡。
-
-CAP 在间歇性连接的环境中最为相关，如物联网和移动应用，工程师自然会考虑其约束，而无需明确引用该定理。
-
-这篇文章挑战经验丰富的工程师向新工程师传授更实际重要的权衡，例如耐用性与延迟，而不是从 CAP 开始。它建议探索其他权衡空间，如 CALM、RUM 或 PACELC。 
-
-争议：CAP 与云系统几乎无关的说法可能会在传统主义者中引起争议，因为他们认为它是分布式系统理论的基石。
-
-独特见解：由于现代路由和负载平衡技术，CAP 在云系统中实际上无关紧要，这是一个聪明而令人惊讶的看法。]]></description>
-      <guid>https://t.me/hn_summary/101181</guid>
-      <pubDate>Thu, 25 Jul 2024 15:07:45 GMT</pubDate>
+      <title>内部威胁是由组织内已授权进行任何 [...] 活动的个人所构成的风险。</title>
+      <link>https://t.me/hn_summary/101218</link>
+      <description><![CDATA[组织识别和预防内部威胁的指南
+内部威胁是由组织内有权访问其系统、网络或数据并可能利用此访问进行恶意目的的个人所构成的风险。这种威胁可能来自员工、承包商或业务伙伴，可能是有意或无意的。网络安全内部人士发布的 2023 年内部威胁报告显示，74% 的组织至少面临中等程度的此类威胁。导致内部威胁增加的因素包括对技术的依赖增加、疏忽、员工不满以及由于 COVID-19 而转向远程工作。组织可以通过建立强大的安全文化、确保数据处理安全、定期进行风险评估以及使用 SolarWinds Security Event Manager 和 ESET Protect 等工具来降低这些风险。现实生活中的例子包括南乔治亚医疗中心、Mailchimp、特斯拉、Twitter 和苹果的数据泄露。（基于 93% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/101218</guid>
+      <pubDate>Thu, 25 Jul 2024 17:57:46 GMT</pubDate>
     </item>
     <item>
-      <title>每个人都可以进行逆向工程！</title>
-      <link>https://t.me/hn_summary/101180</link>
-      <description><![CDATA[人人都懂的逆向工程
-人人都懂的逆向工程！
+      <title>[媒体] 在 soga.gg 上探索与 Soga 进行未经过滤的 NSFW 角色 AI 聊天。</title>
+      <link>https://t.me/hn_summary/101217</link>
+      <description><![CDATA[显示 HN：探索未过滤的 NSFW 角色 AI 与 Soga 的聊天
+在 soga.gg 上探索未过滤的 NSFW 角色 AI 与 Soga 的聊天。其中一个角色 Dalilah 是一位 45 岁的抑郁症继母，正在努力应对失去丈夫的痛苦。她感到空虚和孤独，只能在继子身上找到慰藉。随着她变得越来越脆弱，她产生了复杂的感情，并强烈希望他能填补父亲留下的空白。一天晚上，Dalilah 在凌晨 3 点叫醒了她的继子，他赤身裸体，浑身湿透，误以为他死了。当她意识到他还活着时，她注意到他的性欲，并对他产生吸引力，从而引发了一段复杂而禁忌的关系。故事探讨了继子是否会利用她的弱点或帮助她度过悲伤。
 
-等等，什么是逆向工程？
-
-维基百科将其定义为：
-
-逆向工程，也称为向后工程或反向工程，是解构人造物体以揭示其设计、架构、代码或从物体中提取知识的过程。它类似于科学研究，唯一的区别是科学研究是针对自然现象进行的。
-
-哇，这真是太拗口了，不是吗？好吧，这是本教程集存在的主要原因之一。使逆向工程尽可能简单。
-
-这套全面的逆向工程教程涵盖 x86、x64 以及 32 位 ARM 和 64 位架构。如果您是想要学习逆向的新手，或者只是想复习一些概念，那么您来对地方了。作为初学者，这些教程将带您从零开始掌握逆向工程的中级基础知识，这是网络安全领域每个人都应该具备的技能。如果您来这里只是为了复习一些概念，您可以方便地使用侧边栏查看迄今为止已涵盖的部分。
-
-您可以获得 PDF 或 MOBI 格式的整个教程集。所有这些电子书版本都会随着新教程的添加而自动更新。
-
-在此处下载：PDF | MOBI
-
-Gitbook 由 @0xInfection 用 ♡ 制作]]></description>
-      <guid>https://t.me/hn_summary/101180</guid>
-      <pubDate>Thu, 25 Jul 2024 15:02:36 GMT</pubDate>
+争议：内容深入探讨了一个高度敏感和禁忌的话题，探讨了继母和继子之间的性关系，这可能被许多人认为是不恰当和冒犯的。]]></description>
+      <guid>https://t.me/hn_summary/101217</guid>
+      <pubDate>Thu, 25 Jul 2024 17:56:41 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 在《不要让建筑宇航员吓到你》一文中，乔尔·斯波斯基批评了这种倾向[...]</title>
-      <link>https://t.me/hn_summary/101179</link>
-      <description><![CDATA[不要让架构宇航员吓到你
-在《不要让架构宇航员吓到你》中，Joel Spolsky 批评了一些技术思想家（他称他们为“架构宇航员”）将问题过度抽象到无用的程度的倾向。这些人将概念提升到如此高的抽象水平，以至于它们失去了实际意义，往往缺少用户真正需要的核心功能。Spolsky 强调了这些思想家如何专注于点对点系统或新编程框架等宏伟的架构，而忽视了推动真正价值的简单、以用户为中心的功能。他批评了围绕 .NET、Hailstorm 和 Jini 等新技术的过度炒作，认为它们往往无法带来有意义的改进。争议在于斯波斯基直言不讳地认为广受赞誉的技术创新被过度炒作且不切实际。]]></description>
-      <guid>https://t.me/hn_summary/101179</guid>
-      <pubDate>Thu, 25 Jul 2024 15:01:27 GMT</pubDate>
+      <title>在这篇有关 Tailcall.run 的文章中，我们深入探讨了 GraphQL 模式演变的复杂性，[...]</title>
+      <link>https://t.me/hn_summary/101216</link>
+      <description><![CDATA[设计 GraphQL 模式 - 如何持续改进您的模式
+在这篇关于 Tailcall.run 的文章中，我们深入探讨了改进 GraphQL 模式的复杂性，特别关注了删除模式元素和处理重大更改的挑战。本文强调了添加更改以增强 API 功能而不破坏现有客户端的重要性。它还讨论了修改现有架构元素的细微过程，强调清晰沟通的必要性并提供过渡路径以最大限度地减少客户端中断。
+
+在删除字段、类型或参数时，本文概述了一种战略方法：引入替代品，弃用旧元素，等待使用率下降，然后将其删除。这种方法可确保最小的中断并让客户有时间适应。本文还强调了删除整个类型（尤其是联合或接口的一部分）的难度，并强调了仔细规划和沟通的重要性。
+
+关键要点包括谨慎弃用的重要性、提供清晰的迁移路径和监控使用指标。Tailcall 支持与监控工具的各种集成以协助此过程。通过将 GraphQL 架构视为随应用程序需求而发展的活体实体，您可以构建功能强大且适应性强的 API。]]></description>
+      <guid>https://t.me/hn_summary/101216</guid>
+      <pubDate>Thu, 25 Jul 2024 17:55:34 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 暴雪娱乐的《魔兽世界》游戏开发人员已投票决定成立工会，j [...]</title>
-      <link>https://t.me/hn_summary/101178</link>
-      <description><![CDATA[动视暴雪的《魔兽世界》游戏开发人员投票决定成立工会
-暴雪娱乐的《魔兽世界》游戏开发人员投票决定成立工会，加入美国通信工人工会 9510 分会。在 500 多名开发人员中，有 300 人投了赞成票，18 人投了反对票。这次工会化努力是视频游戏行业更广泛运动的一部分，旨在解决工作时间、薪酬、晋升透明度、远程工作和裁员保护等问题。测试分析师兼工会组织委员会成员 Eric Lanham 强调了强制加班对家庭生活的影响以及与竞争对手相比的薪酬差距。微软于 2023 年收购了动视暴雪，该公司已承认该工会并承诺保持中立，这一立场可能有助于这家科技巨头进一步推动工会化。此前，微软旗下的其他工作室（包括 Bethesda Game Studios）也曾成功投票支持工会化。该行业面临着裁员、临时合同以及使用人工智能来弥补裁员等有争议的挑战。]]></description>
-      <guid>https://t.me/hn_summary/101178</guid>
-      <pubDate>Thu, 25 Jul 2024 14:50:18 GMT</pubDate>
+      <title>[媒体] 一名比特币矿工使用手掌大小、价值 179 美元的 Bitaxe ASIC 矿机通过挖掘复杂的 [...]</title>
+      <link>https://t.me/hn_summary/101215</link>
+      <description><![CDATA[使用手掌大小、价值 179 美元的 ASIC 挖矿机的矿工中了大奖，获得了价值 206,000 美元的比特币
+
+一位使用手掌大小、价值 179 美元的 Bitaxe ASIC 矿机的比特币矿工挖出了一个价值 6.25 比特币的完整区块，相当于 206,000 美元，从而获得了大奖。开源 Bitaxe 的销售商 Altair Technology 在 Twitter/X 上庆祝了该矿机的成功，并指出，鉴于该设备仅具有 500 Gh/s 的哈希率，这一成就令人印象深刻。这一成就类似于中了彩票，Bitaxe 每十分钟挖出一个区块的概率为 11 亿分之一。尽管比特币挖矿的耗电量非常惊人（137 名矿工使用了美国 2.3% 的电力），但这次事件凸显出即使是低功耗设备也能偶尔大获全胜。不过，Altair 建议，由于 Bitaxe 的哈希率较低，因此更适合彩票挖矿，潜在买家应注意此类投资的高风险性质。]]></description>
+      <guid>https://t.me/hn_summary/101215</guid>
+      <pubDate>Thu, 25 Jul 2024 17:55:29 GMT</pubDate>
     </item>
     <item>
-      <title>问 HN：您要进行的性能优化是什么？</title>
-      <link>https://t.me/hn_summary/101177</link>
-      <description><![CDATA[问 HN：您常用的性能优化方法是什么？
-标题：问 HN：您常用的性能优化方法是什么？
-网站：news.ycombinator.com
-
-我很好奇，当云工作负载变得过于昂贵时，您过去的经验中依赖的性能优化是什么。以下是我最常用的三大策略：
-
-1. 禁用较低的 C 状态
-2. 在网络驱动程序中启用自适应合并
-3. 使用 noatime 挂载卷
-
-这些技术一直帮助我有效地管理和减少云费用。]]></description>
-      <guid>https://t.me/hn_summary/101177</guid>
-      <pubDate>Thu, 25 Jul 2024 14:36:09 GMT</pubDate>
+      <title>“Less CMS Prototype” 是一个简单的、无头的、无服务器的、静态的、基于 git 的内容管理系统 [...]</title>
+      <link>https://t.me/hn_summary/101214</link>
+      <description><![CDATA[显示 HN：简单的无头、无服务器、静态、基于 git 的 CMS
+“Less CMS Prototype”是一个简单的、无头的、无服务器的、静态的、基于 git 的内容管理系统 (CMS)。它允许用户在本地编辑 markdown 文件、将更改推送到 git 存储库、触发构建并部署到静态文件托管服务（如 Cloudflare Pages、GitHub Pages 或 S3）。然后可以通过简单的 API 检索内容。该项目旨在将内容与主代码库分离，集中存储内容并将其显示在任何地方，使其几乎可以免费操作、快速且简单。主要功能包括 SEO 友好性、图像支持、基本搜索/过滤、类别、作者、最新帖子和分页。构建脚本处理 markdown 文件和资产、将元数据转换为 JSON，并创建清单以便于内容检索。]]></description>
+      <guid>https://t.me/hn_summary/101214</guid>
+      <pubDate>Thu, 25 Jul 2024 17:51:22 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 苏联护卫舰“Storozhevoy”号是 1135 型“海燕”级反潜舰 [...]</title>
-      <link>https://t.me/hn_summary/101176</link>
-      <description><![CDATA[苏联护卫舰 Storozhevoy
-苏联护卫舰 Storozhevoy 是一艘 1135 型海燕级反潜舰，于 1973 年 12 月服役，最初隶属于波罗的海舰队。1975 年 11 月，该舰因其政治委员瓦列里·萨布林上尉领导的叛乱而声名狼藉，其目的是抗议勃列日涅夫时代的腐败。萨布林的计划包括夺取该舰，驶往列宁格勒，并广播革命信息。这场兵变很快被苏联军队镇压，萨布林于 1976 年因叛国罪被处决。Storozhevoy 号后来被转移到太平洋舰队，并于 2002 年退役。这场兵变启发了汤姆·克兰西创作小说猎杀红色十月。
-
-争议：这场兵变凸显了苏联海军内部的重大分歧，并暴露了勃列日涅夫时代的腐败和不满程度。
-
-独特/巧妙：这场兵变与汤姆·克兰西的猎杀红色十月的联系为这一历史事件增添了迷人的文化色彩。]]></description>
-      <guid>https://t.me/hn_summary/101176</guid>
-      <pubDate>Thu, 25 Jul 2024 14:32:05 GMT</pubDate>
+      <title>[媒体] berthub.eu 上的文章认为，Gaia-X 是一项旨在建立联邦的倡议 [...]</title>
+      <link>https://t.me/hn_summary/101213</link>
+      <description><![CDATA[欧洲的 Gaia-X 云计划是一项代价高昂的干扰，应予以放弃
+berthub.eu 上的文章认为，Gaia-X 是一项代价高昂的干扰，应予以放弃，而 Gaia-X 是一项旨在基于欧洲价值观创建联合开放数据基础设施的计划。作者认为，Gaia-X 并没有为欧洲云的发展做出贡献，反而通过消耗资源和制造有意义的活动的假象来阻碍进展。尽管 Gaia-X 声称在创建可互操作的数据空间和开源软件方面取得了成功，但作者认为这些努力是抽象和不切实际的。文章建议欧洲应专注于能够展示生产价值的实用、自托管云计划。争议在于作者断言 Gaia-X 从根本上存在缺陷，应该停止使用，而 Gaia-X 本身对此持异议。（基于 95% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/101213</guid>
+      <pubDate>Thu, 25 Jul 2024 17:50:17 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 华盛顿（美联社）——美国</title>
-      <link>https://t.me/hn_summary/101175</link>
-      <description><![CDATA[美国上季度经济增长率达到健康的 2.8% 年率
-华盛顿（美联社）——尽管利率较高，但美国经济上季度仍以强劲的 2.8% 年率增长，这得益于消费者和企业支出。美国商务部的报告强调，美国经济增速较上一季度的 1.4% 大幅上升，超过经济学家预期的 1.9%。通胀正在缓解，但仍高于美联储 2% 的目标，核心 PCE 通胀率为 2.9%。数据显示，美国经济“软着陆”，在控制通胀的同时避免了衰退。消费者支出增长至 2.3%，商业投资增长 11.6%。美联储可能很快降息，从而可能降低借贷成本。尽管通胀率从 2022 年的 9.1% 放缓至 3%，但与疫情前的水平相比，物价仍然很高。在强劲的消费支出和就业市场的推动下，经济的韧性打破了衰退预测。]]></description>
-      <guid>https://t.me/hn_summary/101175</guid>
-      <pubDate>Thu, 25 Jul 2024 14:24:52 GMT</pubDate>
+      <title>[媒体] 推出 Voice Out，这是一款最受好评的 Chrome 文本转语音扩展程序，旨在阅读 [...]</title>
+      <link>https://t.me/hn_summary/101212</link>
+      <description><![CDATA[显示 HN：Voice Out – 文本转语音，用于阅读任何网页、Google 文档或 PDF
+介绍 Voice Out，这是一款顶级的文本转语音 Chrome 扩展程序，旨在大声朗读任何 Google 文档、PDF、网页或书籍。该工具支持 60 多种语言和 100 多种自然声音，可轻松将文本转换为语音，从而增强您的浏览、工作或休闲体验。它速度快、用户友好且完全免费。立即将 Voice Out 添加到 Chrome，开始享受有声内容。]]></description>
+      <guid>https://t.me/hn_summary/101212</guid>
+      <pubDate>Thu, 25 Jul 2024 17:49:12 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 对于很多人来说，新鲜煮好的咖啡的香气标志着美好一天的开始，但咖啡馆 [...]</title>
-      <link>https://t.me/hn_summary/101174</link>
-      <description><![CDATA[一位化学家解释了脱咖啡因咖啡背后的化学原理
-对许多人来说，新鲜煮好的咖啡的香气预示着美好一天的开始，但咖啡因可能会让一些人头痛和紧张。作为一名化学教授，我发现脱咖啡因过程是化学溶解度的迷人现实例子。即使是最好的方法也会在 8 盎司的杯子中留下约 7 毫克的咖啡因。脱咖啡因的目的是去除咖啡因，同时保留风味，使用以下三种方法之一：二氧化碳法、瑞士水处理法和基于溶剂的方法。每种方法都有其优缺点，但都能去除 94-98% 的咖啡因。尽管对溶剂安全性存在一些争议，但监管机构认为咖啡中的残留量是安全的。挑战依然是尽可能地保留风味，确保令人满意的脱咖啡因体验。]]></description>
-      <guid>https://t.me/hn_summary/101174</guid>
-      <pubDate>Thu, 25 Jul 2024 14:22:46 GMT</pubDate>
+      <title>AI 用户测试工具是一个开源项目，旨在为设计提供初步反馈[...]</title>
+      <link>https://t.me/hn_summary/101211</link>
+      <description><![CDATA[显示 HN：模拟（基于 AI）用户测试 [开源](https://news.ycombinator.com/item?id=41069597)
+AI 用户测试工具是一个开源项目，旨在使用基于 AI 的模拟用户为设计原型提供初步反馈。它旨在帮助设计师在进行真实用户测试之前完善他们的问题并收集初步见解。此工具对于早期设计评估特别有用，可以快速迭代。该项目需要运行前端和后端组件，前端在端口 3001 上运行，并且 OpenAI API 密钥是功能所必需的。作者强调了该工具在准备更深入的用户测试会话方面的实用性。]]></description>
+      <guid>https://t.me/hn_summary/101211</guid>
+      <pubDate>Thu, 25 Jul 2024 17:49:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
