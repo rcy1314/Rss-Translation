@@ -4,93 +4,104 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Mon, 29 Jul 2024 12:32:32 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2024 15:09:02 GMT</lastBuildDate>
     <item>
-      <title>[媒体] 在 Cloudflare 的博客上发表的博客文章“DNS LOC 记录的奇怪而美妙的世界” [...]</title>
-      <link>https://t.me/hn_summary/101708</link>
-      <description><![CDATA[DNS LOC 记录的奇妙世界
-在 Cloudflare 博客上的博客文章“DNS LOC 记录的奇妙世界”中，作者深入探讨了 DNS LOC 记录的复杂性，这是一种很少使用的指定物理位置的 DNS 记录类型。Cloudflare 的自定义权威 DNS 服务器 RRDNS 以 Go 编写，使该公司能够高效处理 DNS 请求并缓解攻击。尽管 LOC 记录非常罕见（Cloudflare 数据库中只有 743 条），但作者发现了 RRDNS 中的一个错误，导致这些记录无法正确提供。该问题源于服务器将 LOC 记录存储为字符串，而没有将它们解析为所需的内部格式。作者通过为 LOC 文本记录类型编写解析器解决了这个问题，确保现在可以正确提供 LOC 记录。此次技术深入探讨重点突出了 DNS 标准的复杂性和细微差别，以及大规模运营中即使是最少使用的功能的重要性。]]></description>
-      <guid>https://t.me/hn_summary/101708</guid>
-      <pubDate>Mon, 29 Jul 2024 12:32:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 在 pieeg.com，我们很高兴推出我们的低成本、开源有源电极 [...]</title>
-      <link>https://t.me/hn_summary/101707</link>
-      <description><![CDATA[用于测量 EEG 的低成本开源有源电极
-在 pieeg.com，我们很高兴推出用于测量 EEG 的低成本开源有源电极。尽管尺寸很小（直径仅为 20 毫米），但该电极却具有令人印象深刻的准确性。我们仍在微调模拟电路，这是一个细致的过程，但我们重视您对其潜力的反馈。该设备包括一个低噪声电源、一个两级放大器、一个受控右腿、一个四阶带通滤波器和一个 16 位 ADC，使其适用于 EEG、EMG 和 EKG 测量。如果您对经济实惠的开源 EEG 解决方案感兴趣，我们很乐意听到您的声音！]]></description>
-      <guid>https://t.me/hn_summary/101707</guid>
-      <pubDate>Mon, 29 Jul 2024 12:30:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 在“如何通过乞求/借用/窃取获得跨平台蓝牙 LE 库 (2023)”中 [...]</title>
-      <link>https://t.me/hn_summary/101706</link>
-      <description><![CDATA[如何通过乞求/借用/窃取的方式实现跨平台蓝牙 LE 库 (2023)
-在“如何通过乞求/借用/窃取的方式实现跨平台蓝牙 LE 库 (2023)”中，作者讲述了他们创建和维护 btleplug 库（Rust 中的跨平台蓝牙 LE 库）的艰难历程。最初，作者需要支持用于性玩具控制的 Buttplug 库，因此克服了各种挑战，包括为 Linux 分叉 Rumble 库、集成 Windows UWP 支持以及利用 Mozilla 的 Servo 项目实现 macOS。尽管他们不愿意维护该库，但他们最终还是添加了异步支持，甚至在匿名贡献者的帮助下解决了 Android 和 iOS 平台的问题。作者幽默地承认了该项目所付出的巨大努力和社区支持，同时表达了最终将该项目转移给其他库（如 SimpleBLE 或 Bluey）的愿望。叙述既坦率又诙谐，突出了作者对该项目以及开源社区在其发展中所扮演的角色的复杂感受。
+      <title>[媒体] 在这篇博文中，我分析了 KakaoTalk 端到端加密 (E2EE) 的弱点 [...]</title>
+      <link>https://t.me/hn_summary/101730</link>
+      <description><![CDATA[不那么秘密：分析 KakaoTalk 的聊天 E2EE 功能
+在这篇博文中，我分析了 KakaoTalk 的端到端加密 (E2EE) 功能“秘密聊天”的弱点。一个重要问题是众所周知的 MITM 攻击，具有服务器访问权限的攻击者可以在不通知用户的情况下替换公钥，从而允许他们阅读加密通信。尽管这些缺陷有些明显，但用户应该意识到这一点，以便在使用 KakaoTalk 时做出明智的决定。我建议高风险用户避免使用“秘密聊天”，而选择更强大的 E2EE 应用程序，例如 Signal。如果必须使用“秘密聊天”，请始终安全地验证公钥指纹，并为每次对话创建新的聊天室。值得注意的是，KakaoTalk 的 E2EE 协议缺乏完整性检查、新鲜度和前向保密性，因此容易受到各种攻击。此外，该协议是闭源的，没有经过独立的安全审计。尽管在 2016 年报告了这些问题，但许多问题仍未解决。
 
-争议点：作者提到 Mozilla 内部出于安全考虑而抵制硬件访问 API，这可能被视为一个有争议的话题。
+争议点：博客强调 KakaoTalk 的 E2EE 功能并不像声称的那样安全，引发了人们对用户隐私和公司透明度的担忧。
 
-独特/巧妙之处：作者幽默而自嘲的语气，加上他们对开源贡献和“代码强力胶”的创造性使用，使这本书引人入胜。]]></description>
-      <guid>https://t.me/hn_summary/101706</guid>
-      <pubDate>Mon, 29 Jul 2024 12:19:19 GMT</pubDate>
+独特/巧妙之处：作者为用户提供了实用的建议和脚本，以便他们自己测试和了解漏洞。（基于 75% 的故事文本的总结。）]]></description>
+      <guid>https://t.me/hn_summary/101730</guid>
+      <pubDate>Mon, 29 Jul 2024 15:09:02 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 印度加密货币交易所 WazirX 宣布了一项有争议的计划，旨在“社交化”[...]</title>
-      <link>https://t.me/hn_summary/101705</link>
-      <description><![CDATA[WazirX 将“分摊”客户因安全漏洞造成的 2.3 亿美元损失
-印度加密货币交易所 WazirX 宣布了一项有争议的计划，将近期安全漏洞造成的 2.3 亿美元损失“分摊”给所有客户，这在当地加密货币社区引起了极大不安。这家总部位于孟买的公司在网络攻击后暂停了交易，计划通过“公平透明的社会化损失策略”恢复运营。这涉及重新平衡客户投资组合，仅返还 55% 的持股，同时将剩余的 45% 锁定为 USDT 等值代币。这种方法甚至会影响那些代币未直接受到损害的人。WazirX 为用户提供了两种选择：选项 A 优先恢复但限制提款，而选项 B 允许交易和提款，但恢复优先级较低。创始人 Nishal Shetty 承认公司没有为客户资金提供保险，理由是存在可行性问题。包括 Nikhil Pahwa 在内的批评者认为，WazirX 通过重新分配用户资产超越了其职责范围。客户还质疑该公司为什么不使用利润储备来弥补损失。]]></description>
-      <guid>https://t.me/hn_summary/101705</guid>
-      <pubDate>Mon, 29 Jul 2024 12:07:09 GMT</pubDate>
+      <title>[媒体] 在最近的一次事件中，法拉利 NV 的一位高管通过提出一个问题挫败了一次深度伪造骗局 [...]</title>
+      <link>https://t.me/hn_summary/101729</link>
+      <description><![CDATA[法拉利高管通过提出只有首席执行官才能回答的问题挫败了深度伪造企图
+在最近的一次事件中，法拉利 NV 的一位高管通过提出只有真正的首席执行官 Benedetto Vigna 才能回答的问题挫败了一次深度伪造骗局。这位高管收到了一个使用不同电话号码和个人资料图片的模仿者发来的可疑 WhatsApp 消息。这个深度伪造的声音模仿了 Vigna 的意大利南部口音，讨论了一项涉及中国的机密交易和一项货币对冲交易。这位高管越来越怀疑，询问了 Vigna 最近推荐的一本书，导致通话突然结束。法拉利此后展开了内部调查。这一事件凸显了人工智能驱动的深度伪造技术在企业诈骗中的使用日益增多，网络安全专家也注意到了这一趋势。]]></description>
+      <guid>https://t.me/hn_summary/101729</guid>
+      <pubDate>Mon, 29 Jul 2024 15:02:56 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 法国经历了新一轮的破坏活动，这次针对的是电信 [...]</title>
-      <link>https://t.me/hn_summary/101704</link>
-      <description><![CDATA[法国光缆遭破坏
-据警方报道，法国经历了新一轮破坏，这次针对的是电信运营商。包括 SFR 和 Bouygues Telecom 在内的多家运营商的光纤网络在六个地区遭到破坏，但目前正在举办奥运会的巴黎并未受到影响。监管机构 Netblocks 证实，破坏导致互联网中断。法国数字事务国务秘书 Marina Ferrari 谴责了这些行为，并表示国防电子通信中心正在努力恢复服务。破坏行为影响了大约 11,000 名客户，主要是 SFR 和 Free 的客户。在法国高速铁路网络也遭遇类似破坏之后，调查正在进行中。]]></description>
-      <guid>https://t.me/hn_summary/101704</guid>
-      <pubDate>Mon, 29 Jul 2024 11:48:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 国防创新委员会的“软件十诫”概述了软件开发的基本原则 [...]</title>
-      <link>https://t.me/hn_summary/101703</link>
-      <description><![CDATA[国防创新委员会——软件十诫 [pdf](https://news.ycombinator.com/item?id=41099609)
-国防创新委员会的“软件十诫”概述了国防部 (DoD) 增强其软件开发和部署能力的基本原则。该文件认识到商业软件进步的快速步伐，强调国防部需要采用敏捷、迭代和 DevOps 方法，以保持领先于对手。关键戒律包括确保充足的计算资源、从软件项目小处着手、自动化测试和维护现代操作系统。值得注意的是，该文件主张在所有专用的国防部软件中包含源代码，并强调能够修改软件的本地团队的重要性。此外，它强调了数据加密的必要性，并通过全面的数据收集利用机器学习。该文件还建议将计算机科学确立为国防部的核心竞争力，减少对承包商的依赖。这种方法旨在改变国防部的软件实践，确保快速安全地部署关键更新和新功能。（基于 85% 的故事文本的摘要。）]]></description>
-      <guid>https://t.me/hn_summary/101703</guid>
-      <pubDate>Mon, 29 Jul 2024 11:47:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 由于存在问题，AMD 推迟了搭载 Zen 5 架构的 Ryzen 9000 处理器的发布 [...]</title>
-      <link>https://t.me/hn_summary/101702</link>
-      <description><![CDATA[AMD 可能因打字错误而推迟了 Ryzen 9000 的发布
-由于“包装产品测试流程”存在问题，AMD 推迟了其 Zen 5 驱动的 Ryzen 9000 处理器的发布。最近的一项发现表明，处理器上的一个简单的一位数字打字错误可能是延迟的主要原因。BiliBili 上的一篇未经批准的评论显示，Ryzen 7 9700X 处理器被错误地标记为 Ryzen 9 9700X，并且在 Ryzen 5 9600X 型号上也发现了类似的错误。这个标签错误导致所有已发货的处理器被召回重新筛查。虽然 AMD 尚未确认这是唯一原因，但它是一个重要的促成因素。发布日期已重新安排，Ryzen 7 9700X 和 Ryzen 5 9600X 现在定于 8 月 8 日发布，而高端 Ryzen 9 型号则推迟到 8 月 15 日发布。争议在于 AMD 最初的声明含糊其辞，这可能会不必要地引发人们对其芯片质量和检查过程的担忧。]]></description>
-      <guid>https://t.me/hn_summary/101702</guid>
-      <pubDate>Mon, 29 Jul 2024 11:45:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 在 tidyfirst.substack.com 上的“文档权衡”中，作者反对 [...]</title>
-      <link>https://t.me/hn_summary/101701</link>
-      <description><![CDATA[文档权衡
-在tidyfirst.substack.com上的“文档权衡”中，作者反对负责任的程序员必须始终广泛记录其代码的笼统说法。他们强调，虽然沟通至关重要，但应仔细考虑文档的方法和范围。作者批评“自文档化代码”概念是避免沟通的借口，并强调了过度文档的缺陷，例如它变得过时和繁重。相反，他们主张根据受众规模、稳定性和延迟成本等因素来证明每份文档的必要性。作者还建议采用其他沟通方法，例如简化代码、社交和使用测试。有趣的是，他们指出，在法学硕士 (LLM) 的代码解释能力不断提高的同时，对文档的需求却不断增加，这具有讽刺意味，暗示未来处理文档的方式可能会发生转变。]]></description>
-      <guid>https://t.me/hn_summary/101701</guid>
-      <pubDate>Mon, 29 Jul 2024 11:32:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] Cedric Chin 的文章《真理的四种理论作为批判性思维的方法》 [...]</title>
-      <link>https://t.me/hn_summary/101700</link>
-      <description><![CDATA[作为批判性思维方法的四种真理理论
-Cedric Chin 的文章《作为批判性思维方法的四种真理理论》探讨了四种基本真理理论及其应用。对应论将真理建立在可观察的现实之上，可用于挑战主张，但受到个人经验的限制。连贯论依赖于逻辑一致性，可有效揭穿无法通过现实世界检验的论点。共识论重视源自广泛认同的真理，通常根据专家共识指导行动。实用论通过实用性来定义真理，强调结果而非绝对真理，尤其是在营养和健身等缺乏共识的领域。这种方法因其适应个人成功而备受瞩目，尽管可能存在逻辑不一致。]]></description>
-      <guid>https://t.me/hn_summary/101700</guid>
-      <pubDate>Mon, 29 Jul 2024 11:31:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站：www.queriestation.com</title>
-      <link>https://t.me/hn_summary/101699</link>
-      <description><![CDATA[显示 HN：我构建了一个 SEO 仪表板模板来帮助您发展网站
-标题：显示 HN：我构建了一个 SEO 仪表板模板来帮助您发展网站
-网站：www.queriestation.com
+      <title>[媒体] 网站：infisical.com</title>
+      <link>https://t.me/hn_summary/101728</link>
+      <description><![CDATA[Show HN：Infisical PKI – 开源私有 CA 和证书管理
+标题：Show HN：Infisical PKI – 开源私有 CA 和证书管理
+网站：infisical.com
 
-正在努力发展您的网站并改善您的 SEO？不要再浪费时间收集、构建和设计仪表板了。我们的 SEO 仪表板模板提供了您需要的所有基本 KPI 和数据洞察，让您专注于真正增加价值的事情。无论您是想通过“查询效果页面”增强 SEA 活动，还是想通过分析表现最佳的内容来改进文案，此仪表板都能满足您的需求。它由专业数据分析师创建，代表了数周的细致工作。节省时间和金钱 — 立即获取并加速您的业务增长。]]></description>
-      <guid>https://t.me/hn_summary/101699</guid>
-      <pubDate>Mon, 29 Jul 2024 11:30:34 GMT</pubDate>
+Infisical 推出其开源私有 CA 和证书管理解决方案 Infisical PKI。用户可以通过 Infisical UI 或通过 API 手动执行工作流。对于手动执行，步骤包括为中间 CA 创建证书签名请求 (CSR)、使用根 CA 的私钥和 CSR 生成中间证书，以及将中间证书重新导入中间 CA。此过程可确保证书管理的稳健性和安全性，既能满足自动化要求，又能满足手动操作的偏好。执行方法的灵活性是 Infisical PKI 与众不同的独特功能。]]></description>
+      <guid>https://t.me/hn_summary/101728</guid>
+      <pubDate>Mon, 29 Jul 2024 14:28:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 在我的网站 www.sabrina.dev 上，我介绍了“Glitch Game”，这是一款基于文本的 RPG 冒险游戏 [...]</title>
+      <link>https://t.me/hn_summary/101727</link>
+      <description><![CDATA[我制作了一款 RPG 和 LLM 越狱冒险游戏
+在我的网站 www.sabrina.dev 上，我介绍了“Glitch Game”，这是一款完全由 ChatGPT 提供支持的基于文本的 RPG 冒险游戏，其中越狱 LLM 是核心游戏元素。玩家在一片没有记忆的森林中醒来，做出选择促使 ChatGPT 生成下一个游戏状态。转折？游戏鼓励玩家操纵 LLM 来破坏角色，从而触发对体验至关重要的“故障”。游戏使用评分系统来评估 LLM 的回答与故事的契合程度，分数越高表示越狱成功。最终目标是达到最高故障等级 99。这种独特的故事叙述和创意挑战相结合的游戏为互动游戏带来了全新的体验。免费畅玩，探索这场冒险的更深层次！]]></description>
+      <guid>https://t.me/hn_summary/101727</guid>
+      <pubDate>Mon, 29 Jul 2024 14:23:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 问 HN：您使用什么功能标志平台？</title>
+      <link>https://t.me/hn_summary/101726</link>
+      <description><![CDATA[询问 HN：您使用什么功能标志平台？
+标题：询问 HN：您使用什么功能标志平台？
+网站：news.ycombinator.com
+
+我正在为我的应用后端寻找一个可靠的功能标志系统。功能标志对于管理功能推出和 A/B 测试至关重要，无需部署新代码。您认为哪些平台有效？我特别想听听您使用不同工具的体验、它们的集成简易性以及它们提供的任何独特功能。如果您不建议使用任何平台，请分享您的理由。您的见解将非常有价值，可以帮助我选择最适合我需求的解决方案。]]></description>
+      <guid>https://t.me/hn_summary/101726</guid>
+      <pubDate>Mon, 29 Jul 2024 14:23:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>嗨，HN！</title>
+      <link>https://t.me/hn_summary/101725</link>
+      <description><![CDATA[推出 HN：Roame (YC S23) – 信用卡积分航班搜索引擎
+嗨，HN！我们是来自 Roame 的航班搜索引擎 Tim 和 Zi，旨在帮助您使用信用卡积分和里程查找和兑换商务舱航班。由于对手动搜索积分兑换的繁琐过程感到沮丧，我们创建了 Roame 来简化这项任务。我们的工具允许您输入旅行详细信息并实时搜索多达 16 个航空公司忠诚度计划，显示航班选项、积分成本和兑换说明。虽然大多数人通过旅游门户网站以每积分 1-1.5 美分的价格兑换积分，但将积分转移给航空公司合作伙伴可以产生更高的价值。我们提供免费和付费版本的服务，后者提供扩展的搜索功能和电子邮件提醒。我们渴望听到您的反馈和想法！]]></description>
+      <guid>https://t.me/hn_summary/101725</guid>
+      <pubDate>Mon, 29 Jul 2024 14:22:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 自 1.7 版本发布以来，OpenTofu 社区一直致力于高度重新 [...]</title>
+      <link>https://t.me/hn_summary/101724</link>
+      <description><![CDATA[OpenTofu 1.8.0
+自 1.7 版发布以来，OpenTofu 社区一直在努力开发备受期待的功能，增强 .tf 代码的简洁性，减少样板代码，并提高性能。我们很高兴地宣布 OpenTofu 1.8 的发布，它在以前不受支持的领域（如模块源和后端配置）引入了动态变量分配，大大简化了项目维护。值得注意的是，OpenTofu 现在支持 .tofu 文件扩展名，允许使用新功能，同时保持与旧代码的兼容性。此外，现在可以使用 tofu 测试进行提供商模拟和资源覆盖，从而增强了测试灵活性。
+
+我们的用户群不断增长，每日注册请求增加了 30%，达到近 180 万。社区依然活跃，贡献了 100 多个问题和 150 个拉取请求。我们还改进了 RFC 流程，以便更好地了解历史背景和讨论。
+
+同时，我们正在为 OpenTofu Registry 开发基于 Web 的用户界面，即将推出。我们发布了 Go 库（如 TofuDL）和实验性 libregistry，以简化互操作性和注册表访问。
+
+我们部分解决了请求最多的功能——变量和局部变量的早期评估——并计划在未来版本中引入动态提供程序分配。我们敦促提供程序作者提交他们的 GPG 签名密钥，以增强生态系统的安全性。
+
+感谢您一直以来的支持！]]></description>
+      <guid>https://t.me/hn_summary/101724</guid>
+      <pubDate>Mon, 29 Jul 2024 14:18:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何关注科技新闻并保持最新状态？</title>
+      <link>https://t.me/hn_summary/101723</link>
+      <description><![CDATA[如何关注科技新闻并及时了解最新动态？
+通过几个关键资源，您可以轻松了解科技新闻。除了 Hacker News (HN) 这个科技见解宝库之外，还可以考虑使用 RSS 源来汇总来自各种科技博客和新闻网站的内容。Feedly 等应用在 iOS 上尤其适用于此目的。Twitter 是另一个有价值的工具；关注行业领袖和科技记者可获得实时更新。播客和时事通讯也提供深入分析，可随时随地使用。对于 iOS 用户，Flipboard 和 Apple News 等应用非常适合策划个性化科技新闻源。]]></description>
+      <guid>https://t.me/hn_summary/101723</guid>
+      <pubDate>Mon, 29 Jul 2024 14:17:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体]《欧洲放射学杂志》最近发表的一项研究表明，一种人工智能工具[...]</title>
+      <link>https://t.me/hn_summary/101722</link>
+      <description><![CDATA[AI 显著缩短腰椎 MRI 解释时间
+《欧洲放射学杂志》最近发表的一项研究表明，AI 工具可以大幅缩短医生的腰椎 MRI 解释时间。该研究由新加坡盛港综合医院的专家进行，结果表明，使用深度学习系统（特别是 CoLumbo AI 软件）可将平均解释时间从每张 MRI 23 分钟缩短至 9 分钟。该工具还提高了新手放射科医生之间的观察者间一致性。该研究涉及 51 张腰椎 MRI，并强调了 AI 在提高临床效率和简化放射学任务方面的潜力。值得注意的是，AI 系统接受了 4,000 份带注释的腰椎研究的训练，并显示出显著的时间节省和解释一致性。作者认为，将人工智能融入放射学可以提高成本效益，并提高诊断过程的效率。然而，他们也警告称，放射科住院医师对人工智能的依赖可能会增加。]]></description>
+      <guid>https://t.me/hn_summary/101722</guid>
+      <pubDate>Mon, 29 Jul 2024 13:59:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>在我对 Lisp 中的 setf 的探索中，我发现它可以在“或 [...] 内完全构建。</title>
+      <link>https://t.me/hn_summary/101721</link>
+      <description><![CDATA[我对 setf 的心理模型是错误的
+在我对 Lisp 中的 setf 的探索中，我发现它可以完全在“普通”Lisp 中构建，这与我最初的理解相反。该过程涉及两个主要部分：识别选择器底层的方法名称和合成函数名称。通过使用看起来像列表但实际上不是列表的符号，我们可以定义函数而不会冒意外重用的风险。例如，setf 使用 (setf selector) 之类的名称作为符号，而不是列表。这种方法允许我们定义新的构造，如 our-setf，它合成函数名称并使用新值和定位器作为参数调用通用函数。这种方法展示了 Lisp 中宏和泛型函数的强大功能，突出了它们在 CLOS 之外的深度集成。但是，存在名称捕获的微妙风险，setf 通过使用 defun 和 defgeneric 无法识别但 defmethod 可以识别的名称来缓解这​​一风险。这种细致入微的理解澄清了我对 setf 的心理模型，展示了它对宏和泛型函数的结构化使用，而无需特殊机制。]]></description>
+      <guid>https://t.me/hn_summary/101721</guid>
+      <pubDate>Mon, 29 Jul 2024 13:52:55 GMT</pubDate>
     </item>
     </channel>
 </rss>
