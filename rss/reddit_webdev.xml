@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 31 Jul 2024 03:20:34 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jul 2024 06:22:48 GMT</lastBuildDate>
+    <item>
+      <title>首次将应用程序部署到 Netlify……</title>
+      <link>https://www.reddit.com/r/webdev/comments/1egff01/first_time_deploying_an_app_to_netlify/</link>
+      <description><![CDATA[      GITHUB 参考：https://github.com/jasonronalddavis/Hexapod-control-react-app 首次将应用程序部署到 Netlify。这​​是一个用于控制我的六足机器人的蓝牙应用程序。它在我的 Mac Chrome 网络浏览器上运行良好，并且构建成功。但是，我无法解决错误：未找到模块：错误：无法解析“/opt/build/repo/peanut-app/src”中的“./bluetooth/bluetoothcontroller.js”。如果语句正确，为什么 Netlify 无法识别我的导入？App.js：// App.js import React, {useState} from &#39;react&#39;; import BluetoothController from &#39;./bluetooth/bluetoothcontroller.js&#39;; import &#39;./App.css&#39;; function App() { return ( &lt;div className=&quot;App&quot;&gt; &lt;BluetoothController /&gt; &lt;img className=&quot;backGround&quot; src={require(&#39;./Images/background.png&#39;)}/&gt; {/* Home */} &lt;/div&gt; ); } export default App; netlift.toml [build] publish = &quot;peanut-app/build&quot; command = &quot;npm run build&quot; base = &quot;peanut-app&quot; [[redirects]] from = &quot;/*&quot; to = &quot;/index.html&quot;状态 = 200 构建日志：晚上 9:34:32：Netlify 构建晚上 9:34:32：────────────────────────────────────────────────────────────── 晚上 9:34:32：​ 晚上 9:34:32：❯ 版本晚上 9:34:32：@netlify/build 29.51.3 晚上 9:34:32：​ 晚上 9:34:32：❯ 标志晚上 9:34:32：baseRelDir：true 晚上 9:34:32：buildId：66a9a291c6bb863bc6661035 晚上 9:34:32：deployId：66a9a29166ca2c0008288538 晚上 9:34:33：​晚上 9:34:33：❯ 当前目录 晚上 9:34:33：/opt/build/repo/peanut-app 晚上 9:34:33：​ 晚上 9:34:33：❯ 配置文件 晚上 9:34:33：/opt/build/repo/netlify.toml 晚上 9:34:33：​ 晚上 9:34:33：❯ 上下文 晚上 9:34:33：生产 晚上 9:34:33：​ 晚上 9:34:33：来自 netlify.toml 的 build.command 晚上 9:34:33：────────────────────────────────────────────────────────── 晚上 9:34:33：​ 晚上 9:34:33：$ npm run build peanut-app@0.1.0 build 晚上 9:34:33：&gt; react-scripts build 晚上 9:34:34：创建优化的生产构建... 晚上 9:34:34：编译失败。晚上 9:34:34：晚上 9:34:34：未找到模块：错误：无法解析“/opt/build/repo/peanut-app/src”中的“./bluetooth/bluetoothcontroller.js”晚上 9:34:34：​ 晚上 9:34:34：“build.command”失败 9:34:34 PM： ──────────────────────────────────────────────────────────────── 9:34:34 PM：​ 9:34:34 PM：错误消息 9:34:34 PM：命令失败，退出代码为 1：npm run build（https://ntl.fyi/exit-code-1） 9:34:34 PM：​ 9:34:34 PM：错误位置 9:34:34 PM：在来自 netlify.toml 的 build.command 中： 9:34:34 PM：npm run build 9:34:34 PM：​ 9:34:34 PM：已解析配置 9:34:34 PM：构建： 9:34:34 PM：基础：/opt/build/repo/peanut-app 9:34:34 PM：命令：npm run构建 晚上 9:34:34：命令来源：配置 晚上 9:34:34：环境： 晚上 9:34:34：- INCOMING_HOOK_BODY 晚上 9:34:34：- INCOMING_HOOK_TITLE 晚上 9:34:34：- INCOMING_HOOK_URL 晚上 9:34:34：发布：/opt/build/repo/peanut-app/peanut-app/build 晚上 9:34:34：publishOrigin：配置 晚上 9:34:34：重定向： 晚上 9:34:35：- 来自：/* 状态：200 到：/index.html redirectsOrigin：配置 晚上 9:34:35：由于用户错误导致构建失败：构建脚本返回非零退出代码：2 晚上 9:34:35：构建失败：无法构建站点 晚上 9:34:35：已完成处理构建请求32.318s 9:34:35 PM：在“构建站点”阶段失败：构建脚本返回非零退出代码：2（https://ntl.fyi/exit-code-2）诊断：构建失败是由于在项目中找不到模块。解决方案：要解决此错误，您需要确保模块“./bluetooth/bluetoothcontroller.js”在指定位置“/opt/build/repo/peanut-app/src”可用。检查文件是否存在于正确的路径中，以及其导入是否在项目中正确配置。确保路径正确且文件包含在项目源文件中。修复路径或添加丢失的文件应该可以解决此问题。  https://preview.redd.it/lnqjrd31ksfd1.png?width=946&amp;format=png&amp;auto=webp&amp;s=00e48e3b095536bf846ba848a91268eac9190062    提交人    /u/Renegade_Designer   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1egff01/first_time_deploying_an_app_to_netlify/</guid>
+      <pubDate>Wed, 31 Jul 2024 05:36:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的个人简历</title>
+      <link>https://www.reddit.com/r/webdev/comments/1egf8in/myresume/</link>
+      <description><![CDATA[感谢 resumefromspace.com，感觉自己已经做好了工作准备。开始面试吧！    提交人    /u/jinx517   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1egf8in/myresume/</guid>
+      <pubDate>Wed, 31 Jul 2024 05:24:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>网页在移动设备上看起来很糟糕 - 如何修复？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1egeiow/web_page_looks_bad_in_mobile_how_to_fix/</link>
+      <description><![CDATA[大家好， 我尝试在另一个小组中询问这个问题，但是没有得到回复，所以我想在这里试试。 我正在开发一个艺术网站的入口页面，但是在移动设备上，背景图像会一直滚动一段时间（长时间滚动却没有任何内容）。我尝试了几种不同的方法，我猜是有些东西我遗漏了或者没有理解。有人可以（礼貌地）纠正错误，以便它不会长时间滚动超过梦境（在移动设备上 - 目前是紫色斑点）图像吗？ 我也在考虑更改手机的梦境图像，以便它能够更符合移动设备（在移动设备上，它现在只是一个紫色的东西，还没有完成 - 用作占位符。） 简而言之：扩展背景，不确定如何修复。提前谢谢您！ PS：u/media 是没有空格的 @media。Reddit 就是这样做的。 这是我的代码： &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;Home&lt;/title&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;style&gt; body { background-image: url(&quot;https://i.imgur.com/IqINDYQ.jpeg&quot;); background-repeat: repeat; background-attachment: fixed; background-color: black; } .plus{ background-image: url(&quot;https://i.imgur.com/sPYOPXy.png&quot;); width: 100%; background-repeat:no-repeat; 底部：0px; 左边距：-105px; 过渡：变换 0.1s } .plus:hover{ background-image: url(&quot;https://i.imgur.com/TE8kQnC.png&quot;); background-repeat:no-repeat; 底部：0px; 左边距：-105px; 过渡：变换 0.1s } u/media 屏幕和（最大宽度：800px）{ .plus{ background-image:url(&quot;https://i.imgur.com/7QNmh8u.png&quot;); 宽度：1000px; 高度：1200px; 左边距：-100px;上边距：300px; 内边距：0; 下边距：0; } } ::-webkit-scrollbar { 高度：0px; 宽度：10px; 边框：1px 实线#BA1485; } ::-webkit-scrollbar-track { 边框半径：0; 背景：#BA1485; } ::-webkit-scrollbar-thumb { 边框半径：0; 背景：#b0b0b0; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&quot;plus&quot; style=&quot;position: absolute; left: 230px; top:-70px;&quot;&gt; &lt;/a&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;     由    /u/indigo_sorceress 提交   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1egeiow/web_page_looks_bad_in_mobile_how_to_fix/</guid>
+      <pubDate>Wed, 31 Jul 2024 04:41:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>KPI 指标卡组件</title>
+      <link>https://www.reddit.com/r/webdev/comments/1egegor/kpi_metric_card_component/</link>
+      <description><![CDATA[      我写了一篇关于如何制作 KPI Metric Card 组件的博客。请阅读并告诉我你的想法 - https://hsnice16.medium.com/kpi-metric-card-component-0d0f516229f8 https://preview.redd.it/3em6rae2asfd1.jpg?width=1400&amp;format=pjpg&amp;auto=webp&amp;s=37df5d7a12832c1eb88e01cd86847dac01322e50    提交人    /u/hsnice   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1egegor/kpi_metric_card_component/</guid>
+      <pubDate>Wed, 31 Jul 2024 04:38:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>超媒体系统</title>
+      <link>https://www.reddit.com/r/webdev/comments/1egea99/hypermedia_systems/</link>
+      <description><![CDATA[有人在这里读过这个吗？业内的朋友一直向我推荐它。考虑买一本。     由   提交  /u/MillenialSamLowry   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1egea99/hypermedia_systems/</guid>
+      <pubDate>Wed, 31 Jul 2024 04:27:56 GMT</pubDate>
+    </item>
     <item>
       <title>分享小众 Pokedex 应用</title>
       <link>https://www.reddit.com/r/webdev/comments/1egbvos/sharing_niche_pokedex_app/</link>
@@ -67,41 +102,6 @@
       <description><![CDATA[      我们有一个从 Thingsboard(https://github.com/thingsboard/thingsboard) 克隆的应用程序/存储库，并且从那以后它发生了很大的变化。你可以想象你克隆了这个项目，你所有的代码/业务逻辑都在同一个仓库中。 它托管在 EC2 中，使用本地 MySQL 数据库。 现在我们想在这个现有的应用程序上实现 RBAC。应用程序中已经有了一个基本的 RBAC，但我们希望它在未来更加可定制。原因是我们在同一个仓库中有很多业务逻辑，所以如果我们继续这样做，我们就与 Thingsboard 紧密相连。 因此，我们想利用这个机会改变我们的系统架构，使其更容易维护和更改。 我在想我们可以为我们的业务逻辑和 RBAC 创建一个单独的后端，并保持现有的永远不变。在这种情况下，客户端只能与新后端通信，我们可以在新后端和客户端之间进行 RBAC。稍后，这样我们就可以从现有后端迁移代码。 你们觉得怎么样？任何建议都将不胜感激。    提交人    /u/More-Ad-5258   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1eg5yep/system_architecture_decision/</guid>
       <pubDate>Tue, 30 Jul 2024 21:55:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>我该如何重新制作这个动画？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eg5gjg/how_do_i_recreate_this_animation/</link>
-      <description><![CDATA[      这是 Apple 健康的情绪跟踪功能。有一个滑块可在颜色和形状之间平滑地进行动画处理。我如何在网络上重新创建此功能？    提交人    /u/shouryannikam   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eg5gjg/how_do_i_recreate_this_animation/</guid>
-      <pubDate>Tue, 30 Jul 2024 21:35:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要托管应用程序的帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eg4xp5/need_help_hosting_application/</link>
-      <description><![CDATA[正如标题所述，我需要帮助托管我的应用程序（包括连接到数据库）。我正在使用 Render，并且能够托管后端和数据库本身，但我不知道如何连接到数据库。我正在使用 PostgreSQL。我很想找人帮我。  这是一个带有身份验证的简单石头剪刀布游戏。非常乐意提供任何帮助。     提交人    /u/Zelda_06   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eg4xp5/need_help_hosting_application/</guid>
-      <pubDate>Tue, 30 Jul 2024 21:13:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>CORS 的存在是因为打印机太烂</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eg4vjb/cors_exists_because_printers_are_shit/</link>
-      <description><![CDATA[为什么 CORS WTF 有些开发人员知道 CORS 是什么以及为什么使用，如果你知道，那么这篇文章不适合你。但如果你只是假装知道，就像我一样，那么这篇文章适合你。 当你从基于 Web 的客户端向服务器发送请求时，浏览器不会发送 cookie——这是攻击者可能用来窃取你的信息的最脆弱的部分。 如果一个邪恶的网站不能只 fetch(&quot;bank.com/balance&quot;) 并获得有效的响应，那么为什么 CORS WTF 答案是打印机。 继续阅读。 我最近构建了一个 API，在其中遇到了自己的 CORS 问题，这让我陷入了一个深不见底的兔子洞，最后我编写了一个简单的库来帮助我解决这个问题……我制作了这个荒谬的视频来与全世界分享我所学到的东西。它远非完美，我相信这里的社区会发现一些问题。如果你发现了，请告诉我。 显然，我很希望你观看我这段荒谬的视频 (https://youtu.be/c7Y0wCml1kg)，但如果你不看，也没关系！！这篇文章包含所有相同的信息，但没那么有趣： 被 CORS 屏蔽了。WTF。为什么。 让我们先解决两个问题：  CORS 实际上是一种比 CORS 存在之前更宽松的获取机制 它比大多数人想象的要直接得多  如果不是，这里有一些快速的 CORS 信息：  CORS 完全由浏览器强制执行。 curl、服务器端提取等完全不受影响。 当您从客户端提取到不同的来源（定义为 scheme://hostname:port (http://localhost:3000)）时，浏览器将尝试发出请求（如果它是“简单”），或者将请求预检提取（“OPTIONS”）以确定服务器是否确认这是一个有效的提取。  好的，但从字面上讲为什么存在呢？很难理解它解决了什么问题。 当您从基于 Web 的客户端向服务器发送请求时，浏览器不会发送 cookie - 这是攻击者可能用来窃取您的物品的最脆弱的信息。如果一个邪恶的网站不能仅仅 fetch(&quot;bank.com/balance&quot;) 就得到一个有效的响应，那为什么 CORS 会这样呢？ 答案是打印机。还有路由器。还有你的智能马桶。你家里/本地网络上的许多微型服务器都不使用 cookie 进行身份验证。不幸的是，很多网络设备都认为，如果你能访问到它，那么你就在网络上。 所以一个邪恶的网站可以做这样的事情：fetch(&#39;192.168.0.24&#39;)... 这发生在你的打印机上... 它会公开分享你打印的所有内容的日志文件。 这同样适用于许多&quot;内部网络&quot; 设备......一个被入侵的网站可以有效地 ping 你的整个网络并发回它找到的任何东西。这就是 CORS 所阻止的。浏览器将不会完成这些请求，句号。 （除非您的打印机实现了 CORS……哈哈）。 因此，无论出于何种意图和目的，您都可以这样看待 CORS。  您必须能够控制服务器响应，如果可以，请通过包含以下标头来启用 CORS 支持：  Access-Control-Allow-Origin：https://example.com // 或 &quot;*&quot; 以允许任何客户端访问您 Access-Control-Allow-Methods：GET、POST、OPTIONS // 等...  还有其他标头，但这两个标头足以满足您的要求。 谢谢大家，祝您编码愉快。    提交人    /u/Pinkman   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eg4vjb/cors_exists_because_printers_are_shit/</guid>
-      <pubDate>Tue, 30 Jul 2024 21:11:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>希望模仿此操作。这是一个现成的解决方案还是自定义工作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eg3xoh/looking_to_mimic_this_action_is_this_an_out_of/</link>
-      <description><![CDATA[  由    /u/freeword  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eg3xoh/looking_to_mimic_this_action_is_this_an_out_of/</guid>
-      <pubDate>Tue, 30 Jul 2024 20:34:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我团队的技术主管是否脱离了最佳实践？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eg3kb3/is_my_teams_tech_lead_out_of_touch_with_best/</link>
-      <description><![CDATA[我希望其他经验丰富的开发人员能够对我的现状进行核实。 我是一名拥有约 25 年经验的全栈 Web 开发人员。我目前在一家非常大的企业工作，该企业有许多较小的团队负责不同的产品。我对团队目前的技术主管感到沮丧，因为他似乎在很多方面都没有与最佳实践保持一致。最影响生产力的话题是他对安全和机密管理的看法。请记住，我们的企业 GitHub 是使用企业凭据逐个存储库进行 org/role/user 限制的。 他坚持的一些事情：  每个人都知道机密值不应该在 README 中。但他坚持认为，即使是变量名称也不应该记录下来。例如，我们可能有一个需要密钥的 Node 应用程序。它作为 Kubernetes 中名为“REDIS_KEY”的环境变量获取，因此该值本身是安全的。运行本地环境不使用 kubernetes 或 CI/CD。我喜欢 README 列出环境变量的名称，这样我就知道必须从机密中获取“REDIS_KEY”。毕竟，它在代码中的某个地方被这个名字引用了——拥有一个必需变量列表会很有帮助，而且值仍然是机密。我们的负责人说，不法分子可以从名称中推断出我们使用 Redis，并从那里做一些恶意的事情。他说，将其放在 README 中可以降低这种可能性。 CI/CD 变量也是如此。我们使用 Travis，通常构建需要一两个机密才能开始构建——通常是 github 令牌和我们 kubernetes 的登录密钥。这些必须在该存储库的 Travis 设置中手动输入。团队中的任何新开发人员都需要设置我们存储库的分叉，每个分叉都需要 Travis 中的这些值。我们的领导不希望在任何地方记录需要获取并手动输入名为 `GITHUB_TOKEN` 的东西。您基本上必须观察构建失败并阅读日志以查看缺少的内容。 对于未经授权的 http 请求，我们的领导希望服务器不响应。不是 403。不是更通用的 400。不是只有我们知道的某种错误代码的 200。什么也不响应。他的理由是，这不会给潜在的黑客提供任何信息，因此我们的服务器是“超级安全的”。我认为这看起来像是服务器已关闭，http 规范需要响应，这使得调试变得更加困难。他说我们应该查看服务器日志。我并不反对查看服务器日志，但我不认为这会增加安全性。我大概明白为什么他不想返回 403，但甚至不想返回 400 或 200？ 同时，他拒绝为我们拥有的各种面向公众的表单实施服务器端验证。我们有客户端验证，但这对 curl 或类似程序当然没有帮助。他说客户端验证就足够了，因为 sql 数据库将拒绝任何与 sql 规范不匹配的内容。  我的同事都同意我的观点。如果我们错了，我很想了解并在此过程中学到一些东西。你们觉得呢？    提交人    /u/foghornleghorm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eg3kb3/is_my_teams_tech_lead_out_of_touch_with_best/</guid>
-      <pubDate>Tue, 30 Jul 2024 20:19:18 GMT</pubDate>
     </item>
     <item>
       <title>网站托管时出现异常行为</title>
