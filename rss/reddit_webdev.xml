@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 05 Aug 2024 18:27:01 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 21:21:01 GMT</lastBuildDate>
+    <item>
+      <title>alpine Linux 适合托管吗</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekzdol/is_alpine_linux_good_for_hosting/</link>
+      <description><![CDATA[我最近遇到了 Alpine Linux，以及它与其他没有 glibc 和其他 GNU 核心实用程序的 Linux 发行版有何不同。想知道它是在裸机服务器上运行还是作为 VPS 上的容器运行更好    提交人    /u/Aksh247   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekzdol/is_alpine_linux_good_for_hosting/</guid>
+      <pubDate>Mon, 05 Aug 2024 21:14:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>处理弹出窗口内的外部链接的最佳做法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekz312/best_practices_to_handle_external_links_within/</link>
+      <description><![CDATA[所以我正在开发一个类似于第三方结账的小型独立网络应用程序。我开始构建它时的想法是将其用作消费应用程序的弹出窗口，我在该窗口中处理付款收集，然后在完成后关闭窗口，将一些数据传回给消费者。我的主要问题是，出于合规原因，需要查看某些协议的外部链接，我不确定处理它们的最佳方式，因为这已经在弹出窗口中了？ 我最好的两个猜测是 (1) 将内容嵌入模式，或 (2) 在新选项卡/窗口中打开。但是，这两种选择对我来说都“感觉”不对，好像我错过了什么？ 我似乎无法在 Google 上找到足够具体的内容，所以我希望有人可以贡献他们的意见，或者告诉我是否应该以不同的方式处理这个问题（例如让我们的消费者打开我们的结帐链接而不是弹出窗口）？提前感谢任何分享他们的知识和有用意见的人！    提交人    /u/Boldly-Go   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekz312/best_practices_to_handle_external_links_within/</guid>
+      <pubDate>Mon, 05 Aug 2024 21:02:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>您在工作中使用什么前端框架？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekyv3m/what_frontend_framework_do_you_use_at_work/</link>
+      <description><![CDATA[您在工作中使用什么前端框架？ 查看投票    由   提交  /u/manuLearning   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekyv3m/what_frontend_framework_do_you_use_at_work/</guid>
+      <pubDate>Mon, 05 Aug 2024 20:53:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>您在工作中使用什么后端框架？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekyt7w/what_backend_framework_do_you_use_at_work/</link>
+      <description><![CDATA[无法拆分其他/显示结果，因为 Reddit 不允许超过六个选择。 查看投票    由   提交  /u/manuLearning   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekyt7w/what_backend_framework_do_you_use_at_work/</guid>
+      <pubDate>Mon, 05 Aug 2024 20:51:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在文本区域附加跨度？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eky8pf/how_to_append_span_in_textarea/</link>
+      <description><![CDATA[所以我有类似代码编辑器的东西，我想使语法高亮显示。但我真的不确定如何在 textarea 中附加 span 以使不同的关键字使用不同的颜色。 import &#39;./Codespace.scss&#39; import TextareaAutosize from &#39;react-textarea-autosize&#39;; import { useEffect, useRef, useState } from &#39;react&#39;; import { useDispatch, useSelector } from &#39;react-redux&#39;; import { RootState } from &#39;../../app/store&#39;; import { editOriginalText, editText } from &#39;./selectedFileSlice&#39;; import { editOpenedFileText, saveChanges } from &#39;../OpenedFiles/openedFilesSlice&#39;; const fs = require(&#39;fs&#39;) function Codespace() { const selectedFile = useSelector((state: RootState) =&gt; state.selectedFile); const dispatch = useDispatch(); const [lines, setLines] = useState([&#39;1&#39;]); const textareaRef = useRef(null); const onChange = (e) =&gt; { dispatch(editText(e.target.value)); dispatch(editOpenedFileText({ text: e.target.value, path: selectedFile.path })) const newLines = []; for (let i = 1; i &lt;= e.target.value.split(&#39;\n&#39;).length; i++) { newLines.push(i); } setLines(newLines); } function highlightSyntax(text) { const keywords = /\b(const|let|var|function|if|else|for|while|return|print)\b/g;返回文本.replace（关键字，&lt;span className=&quot;keyword&quot;&gt;$&amp;&lt;/span&gt;）； } useEffect(() =&gt; { const newLines = []; for (let i = 1; i &lt;= selectedFile.originalText.split(&#39;\n&#39;).length; i++) { newLines.push(i); } setLines(newLines); }, [selectedFile.originalText]) useEffect(() =&gt; { const textarea = textareaRef.current; const tabulation = (e) =&gt; { if (e.keyCode === 9) { e.preventDefault(); const start = textarea.selectionStart; const end = textarea.selectionEnd; const value = textarea.value; textarea.value = value.substring(0, start) + &quot;\t&quot; + value.substring(end); textarea.selectionStart = textarea.selectionEnd = start + 1; dispatch(editText(textarea.value)); dispatch(editOpenedFileText({ text: textarea.value, path: selectedFile.path })); } }; textarea?.addEventListener(&#39;keydown&#39;, tabulation); return () =&gt; { textarea?.removeEventListener(&#39;keydown&#39;, tabulation); }; }, [dispatch, selectedFile.path]); useEffect(() =&gt; { const saveFile = (e) =&gt; { if(e.keyCode === 83 &amp;&amp; e.ctrlKey) { e.preventDefault(); if(selectedFile.originalText !== selectedFile.text) { fs.writeFile(selectedFile.path, selectedFile.text, (err: string) =&gt; { if (err) { console.error(err); } else { console.log(&#39;updated&#39;); dispatch(editOriginalText(selectedFile.text)); dispatch(saveChanges({ text: selectedFile.text, path: selectedFile.path })) } }); } } } document.addEventListener(&#39;keydown&#39;, saveFile); return () =&gt; { document.removeEventListener(&#39;keydown&#39;, saveFile); } }, [dispatch, selectedFile.path]);返回（&lt;div className=&#39;codespace&#39;&gt; {selectedFile.path ?&lt;&gt;&lt;div className=&quot;line-numbers&quot;&gt; {lines.map(line =&gt; (&lt;span key={line}&gt;{line}&lt;/span&gt; ))}&lt;/div&gt;&lt;TextareaAutosize value={selectedFile.text} onChange={(e) =&gt; onChange(e)} className=&#39;textarea&#39; ref={textareaRef} /&gt;&lt;/&gt; :&lt;h1&gt;未选择文件&lt;/h1&gt;}&lt;/div&gt; ) } 导出默认 Codespace     提交人    /u/kankakan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eky8pf/how_to_append_span_in_textarea/</guid>
+      <pubDate>Mon, 05 Aug 2024 20:28:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>Adobe XD 转换</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekxo59/adobe_xd_conversion/</link>
+      <description><![CDATA[所以基本上有人希望我将 Adob​​e XD 模板转换为 HTML/CSS。我，在所有的无知中，以为哦，是的，这应该很容易。好吧，事实并非如此。我看到的只是一个下载 CSS 的选项。我只想获得 Adob​​e XD，但显然它不再可用（我没有为 CC 付费）。  长话短说，有没有办法获取此模板并进行转换？还是我必须自己编写所有 HTML？     提交人    /u/ThiccBottomPot   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekxo59/adobe_xd_conversion/</guid>
+      <pubDate>Mon, 05 Aug 2024 20:05:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 React.js 中，我创建了一个全局状态提供程序组件，该组件实现了 useReducer，它输出一个调度函数。我可以从组件外部公开和访问此调度函数吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekxbww/in_reactjs_i_created_a_global_state_provider/</link>
+      <description><![CDATA[export function ConfigurationProvider({ children }) { const [configuration, dispatch] = useReducer( configurationReducer, initialConfiguration ); 返回（&lt;ConfigurationContext.Provider 值={configuration}&gt; &lt;ConfigurationDispatchContext.Provider 值={dispatch}&gt; {children} &lt;/ConfigurationDispatchContext.Provider&gt; &lt;/ConfigurationContext.Provider&gt; ）； } function configurationReducer(configuration, action) { switch (action.type) { case &#39;update&#39;: { (...)  我基本上想要从 Worker 触发调度，我相信这可能会增加其他问题，因为它正在创建自己的 js 上下文（而不是 Window）。 我已经尝试了一些方法都没有成功，在浪费太多时间挖掘之前，我决定问一下，因为调度函数来自 React 内部。 我也明白我可能会尝试以一种违背其目的的方式使用 useReducer。任何反馈和额外提示都将不胜感激！ 编辑：在打字的时候，我刚刚有了一个看似疯狂的想法，试图将 Worker 添加到 initialConfiguration 变量中，该变量会传递给 Reducer。它会在 &lt;ConfigurationContext.Provider value={configuration}&gt; 中可用吗？让我听听你的想法。    提交人    /u/JrSoftDev   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekxbww/in_reactjs_i_created_a_global_state_provider/</guid>
+      <pubDate>Mon, 05 Aug 2024 19:52:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>我编写了一个作品集，这个作品集是我在 2021 年设计的，去年完成的。有什么意见吗？代码尚未完成，设计也可以支持更改。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekxbn9/i_coded_a_portfolio_that_ive_designed_back_in/</link>
+      <description><![CDATA[Figma File - 地球仪下方的绳子会自行滚动绘制，还会有一些交互式 3D 卡片。如果您有任何建议/更改等，我将不胜感激，因为现在我仍在从头​​开始构建它。此外，如果有人需要，Github 上也有代码，还有我的 Behance。为什么？我不知道。 投资组合网站- 它部署在 vercel 上，也许你需要一个帐户才能查看，我不太确定。    提交人    /u/disperstanding   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekxbn9/i_coded_a_portfolio_that_ive_designed_back_in/</guid>
+      <pubDate>Mon, 05 Aug 2024 19:52:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有工具可以读取我的网站，然后 AI 提供代码进行定制？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekwxps/is_there_a_tool_to_read_my_website_then_ai_to/</link>
+      <description><![CDATA[嗨， 我正在寻找一种可以扫描我的网站的工具，然后借助人工智能为我提供定制代码以在网站上进行更改。 例如，我有一个主题想做一些修改，但我不知道如何监听 Js 事件等等.. 如果还没有这样的工具..天哪，我会立即购买，所以这里是今天为你们这些网络开发者提供的想法 😅😅 干杯    提交人    /u/Old-Pay-164   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekwxps/is_there_a_tool_to_read_my_website_then_ai_to/</guid>
+      <pubDate>Mon, 05 Aug 2024 19:36:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>请推荐适用于印度上市公司徽标的免费 API</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekwo9g/please_recommend_free_api_for_indian_public/</link>
+      <description><![CDATA[嗨，我正在构建一个数据可视化平台，它有助于减少股票市场的学习曲线。  为了使其更具交互性，我需要添加公司徽标，不幸的是 upstox api 不提供该功能。在互联网上，目前的 API 对于来自印度的人来说非常昂贵。  你能帮我吗.. 此致敬意 Keshav     提交人    /u/keshavism   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekwo9g/please_recommend_free_api_for_indian_public/</guid>
+      <pubDate>Mon, 05 Aug 2024 19:26:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>制作这个网站收费多少钱？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekvti9/how_much_would_you_charge_for_making_this_website/</link>
+      <description><![CDATA[      我的表妹创立了她的服装品牌，我建议我可以免费为她创建一个网站，因为我目前失业了。但是，她发来了一些看起来相当复杂的设计参考。现在，我认为这不应该是免费做的事情，因为这样的设计需要花费大量的时间来编写代码。我不想要钱，因为这会给我带来实际经验，但设计网站并不是我非常感兴趣的事情。我的技术栈是 MERN。有没有建议我可以使用哪些库/资源来编写这样的网站？另外，如果必须的话，你会收多少钱？提前谢谢了。    提交人    /u/EcstaticWolverine197   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekvti9/how_much_would_you_charge_for_making_this_website/</guid>
+      <pubDate>Mon, 05 Aug 2024 18:52:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建一个新的映射集成，我可以使用一些建议！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ekvbin/creating_a_new_mapping_integration_and_i_could/</link>
+      <description><![CDATA[大家好， 我正在与一家拥有大约 4.5k 名客户的公司合作，该公司目前使用 Google My Maps 来标记他们的位置和状态符号以及创建路线。  他们的 CRM 与 API 兼容（它是 Zoho 产品），并且 CRM 中的信息已准备好用于将更新推送到地图。  我的问题是：你们知道这种地图绘制情况有什么好的选择吗？如果您需要路线、跟踪客户位置和状态以及通过 API 进行更改，您会使用什么地图？ 我很乐意回答任何具体问题。     提交人    /u/Dantesdavid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ekvbin/creating_a_new_mapping_integration_and_i_could/</guid>
+      <pubDate>Mon, 05 Aug 2024 18:32:44 GMT</pubDate>
+    </item>
     <item>
       <title>TruffleHog 现在可以查找 GitHub 上所有已删除和私人提交 - 上周我们定义了一个新术语，即跨分支对象引用，当一个存储库分支可以访问另一个分支的敏感提交数据时就会发生这种情况。TruffleHog 可以发现所有这些提交并扫描它们以查找机密信息</title>
       <link>https://www.reddit.com/r/webdev/comments/1ekv47f/trufflehog_now_finds_all_deleted_private_commits/</link>
@@ -25,90 +109,6 @@
       <description><![CDATA[我有我的第一个小项目要为某人做，但我不知道该如何将其公开到互联网上。 网站描述：这是一个组织活动的公司的网站，唯一真正重要的部分是首页上按时间顺序排列的活动列表。当您使用该网站时，它基本上是一个静态网站，因为有简单的内容、显示的事件和有关它们的信息，但接下来的部分让我有点困惑。 所以我研究了如何托管东西，我真的很想尝试 netlify，因为它非常适合静态网站，但遗憾的是页面不是完全静态的。需要添加事件，这似乎也可以通过 netlify CMS 实现，但事件也需要能够“过期”。如果某个事件发生在 8 月 10 日，而现在变成了 8 月 11 日，那么该事件当然应该自动从页面中删除。这部分似乎无法通过 netlify 实现，所以现在我需要进一步研究，但有很多选择，我不确定对于一个带有 cms 系统的简单网站来说什么是一个好的选择（我不介意自己做这个，更重要的是能够将它托管在某个东西上，然后我猜它也需要一个数据库）。  你会给小型自由职业者推荐什么，你过去用过什么？提前谢谢了！    提交人    /u/FenrirBestDoggo   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1ekut58/my_first_project_challenge/</guid>
       <pubDate>Mon, 05 Aug 2024 18:12:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>AG-Grid 首席执行官兼创始人在直升机坠毁事故中丧生</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekuoik/the_ceo_and_founder_of_aggrid_is_killed_in_a/</link>
-      <description><![CDATA[我已经使用这个数据网格库很长时间了。这是个悲伤的消息。 https://www.bbc.com/news/articles/ceqd3v886vno https://blog.ag-grid.com/in-memory-of-niall-crosby    提交人    /u/Schubert142   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekuoik/the_ceo_and_founder_of_aggrid_is_killed_in_a/</guid>
-      <pubDate>Mon, 05 Aug 2024 18:07:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>您最喜欢的后端框架是什么？调查</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekuj8n/whats_your_favorite_backend_framework_poll/</link>
-      <description><![CDATA[您最喜欢的后端框架是什么？  查看投票    由   提交  /u/KARKOV_PL   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekuj8n/whats_your_favorite_backend_framework_poll/</guid>
-      <pubDate>Mon, 05 Aug 2024 18:01:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建漫画网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekuhuf/creating_a_manga_website/</link>
-      <description><![CDATA[我一直在想在我正在创建的这个网站（或商店）上卖点什么，昨天，我突然想到了只卖漫画的想法。是的，我今年刚刚完成了一门计算机科学课程，我已经掌握了大部分的编码。但是，我还是尽量注意风险，除非这实际上是从我能找到的一些网站上盗版一些漫画。在目前正在开发的网站上卖漫画真的违法吗？只是好奇而已    提交人    /u/XxxDarkShadowWolfxX   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekuhuf/creating_a_manga_website/</guid>
-      <pubDate>Mon, 05 Aug 2024 18:00:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>嵌入播放列表，PageSpeed 分数下降至 61</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ektxoz/embedded_playlist_pagespeed_score_dropped_to_61/</link>
-      <description><![CDATA[我制作了一个 Spotify 播放列表并将其嵌入到我的 Shopify 网站主页中。我删除了自动播放代码，并且还有延迟加载。 但是，PageSpeed Insights 上的最佳实践得分从 100 降至 61，在移动设备和桌面上都是如此。 移动设备上的性能得分从 67 降至 55，但在桌面上仍然为 94。 我的其他分数是 100。 我该怎么做才能提高分数？这真的很重要吗？播放列表给网站增添了美感，把它放在那里不好吗？    提交人    /u/snickerscashew   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ektxoz/embedded_playlist_pagespeed_score_dropped_to_61/</guid>
-      <pubDate>Mon, 05 Aug 2024 17:37:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>Node.js 包管理器和 `@latest`</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ektqc2/nodejs_package_managers_and_latest/</link>
-      <description><![CDATA[您好，在长期使用 npm 之后，我刚刚开始使用 pnpm。 在 npm 中，初始化框架时，通常会在其后附加 @latest，至少根据我的观察是这样： sh npx create-next-app@latest  这引发了我的疑问：为什么像 pnpm 这样的包管理器不需要附加 @latest，至少根据我的观察是这样？pnpm 是否默认获取最新版本？ sh pnpm create next-app     提交人    /u/Longjumping_Car6891   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ektqc2/nodejs_package_managers_and_latest/</guid>
-      <pubDate>Mon, 05 Aug 2024 17:29:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zed：性能驱动、简约的代码编辑器。您对它有什么想法和体验？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekt4n3/zed_performancedriven_minimalistic_code_editor/</link>
-      <description><![CDATA[大家觉得 Zed代码编辑器怎么样？它在 GitHub 上有 43k 个星，似乎很受欢迎，但我很少看到有人提到它。 摘自他们的网站：  Zed 是一款高性能、多人代码编辑器，由 Atom 和 Tree-sitter 的创建者开发。它也是开源的。  几周前我就没听说过它了。从那时起，我一直在摆弄它，我必须说我对它印象最深刻。我喜欢 CodeRunner，但我认为它有点太慢了。 我喜欢的：  在我的 iMac M1 上 0.01 秒内启动（网站声称最快 58 毫秒） 干净、有条理的设计 开源且正在积极开发中 通过扩展自动完成许多框架和语言 大量集成 GitHub Copilot  协作功能运行速度非常快，包括 文本聊天 音频聊天 编辑器共享 屏幕共享 频道  开箱即用，支持大多数编程语言 内置终端 广泛的扩展生态系统（即 Emmet、Vue.js 等） 无数的主题 最流行 IDE 的键盘映射 诊断 vim 模式 可用 CLI  所有这些都打包到了这个速度超快的编辑器中。现在，它是我查看单个代码文件时的标准代码编辑器（对于项目，我仍然更喜欢 JetBrains 的 IDE）。 我不喜欢的地方：  截至目前，仅限 macOS 和 Linux（尽管存在对 Windows 的非官方支持，但需要构建） 设置是一个 .json 文件，除非您复制完整的默认配置文件，否则它会强制您查找文档中的每个设置 设置缺少一些微调，例如对齐部分代码（如 JetBrains 的“代码样式”部分中的情况） 一个实例，一个项目，没有最近添加的项目概述 AI 助手仅支持 OpenAI、Claude 和本地运行的 Ollama模型 协作时，只有主持人可以添加或删除文件 某些功能（例如协作）需要 GitHub 帐户 没有内置浏览器/预览 Discord 没有文本频道，因此加入它有点没用 ¯\_(ツ)_/¯  （如果我对这些陈述有任何错误，请纠正我，因为我是新手） 个人结论 Zed 似乎是可自定义代码编辑器（如 Sublime 等）的绝佳替代品。它没有臃肿的功能，并允许与他人远程协作。我喜欢它的简约风格，无论是在视觉上还是在内置功能方面，同时始终可以通过大量扩展对其进行扩展。最后，尽管有上述缺点，我仍然计划在接下来的几周或几个月内使用它，看看它是否适合替代其他轻量级编辑器。 你们觉得呢？你们已经测试过它了吗，或者它甚至是你们用于 Web 开发的核​​心工具的一部分？ （只是要说明一下，这不是广告之类的，我真的很感兴趣）    提交人    /u/Mavrokordato   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekt4n3/zed_performancedriven_minimalistic_code_editor/</guid>
-      <pubDate>Mon, 05 Aug 2024 17:05:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>您会更改或者添加任何内容到这个堆栈吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekt4cv/would_you_change_or_add_anything_to_this_stack/</link>
-      <description><![CDATA[我计划开发一款大型应用，其中 SEO、身份验证和实时数据非常重要。  我考虑的技术是：Next.js + express.js、firestore + firebase auth。Nextjs 托管在 vercel 上，使用 firebase 函数处理小型快速流程，使用 google cloud run 处理较长时间的任务。 我想为拥有大量活跃用户的庞大受众群体做好准备。我对这些技术最为熟悉。 你会改变什么？这会具有成本效益吗？    提交人    /u/zocsen   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekt4cv/would_you_change_or_add_anything_to_this_stack/</guid>
-      <pubDate>Mon, 05 Aug 2024 17:05:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于我的新卡纳塔克邦旅游网站的反馈请求</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eks8sr/feedback_request_for_my_new_travel_website_about/</link>
-      <description><![CDATA[大家好， 我刚刚推出了一个致力于帮助游客探索美丽的卡纳塔克邦的网站。我很乐意听取您关于如何改进它的想法和建议。您的反馈非常宝贵，任何有关改进的建议都将不胜感激。  您可以在此处查看该网站：https://dks2424.github.io/Wanderlust/ 谢谢！    提交人    /u/DdKkSss   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eks8sr/feedback_request_for_my_new_travel_website_about/</guid>
-      <pubDate>Mon, 05 Aug 2024 16:30:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于在 CSS 中实现像素完美设计的工具/扩展</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekr7z4/toolsextensions_you_use_to_implement_pixel/</link>
-      <description><![CDATA[我没有 figma 文件，但有一个网站的设计灵感。 如何设计一模一样的？我应该使用什么工具或扩展？我将使用 tailwind 实现它。    提交人    /u/shesparkzz   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekr7z4/toolsextensions_you_use_to_implement_pixel/</guid>
-      <pubDate>Mon, 05 Aug 2024 15:49:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>什么是Lottie动画？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekr0tj/what_is_lottie_animation/</link>
-      <description><![CDATA[        提交人    /u/stewofkc   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekr0tj/what_is_lottie_animation/</guid>
-      <pubDate>Mon, 05 Aug 2024 15:41:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人有通过 XML 中的文件读取 API 读取视频文件的代码吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekq0go/does_someone_the_code_to_read_a_video_file/</link>
-      <description><![CDATA[问题是我编写代码的环境是 ES6，所以我无法使用 Fs 模块读取文件，所以我不得不尝试其他方法。我发现的一种方法是使用 XML 中的文件读取 API，但我无法使其工作。此外，如果有人能建议使用 ES6 中的其他方式读取视频文件，那么它将解决我的问题。    提交人    /u/harsh2211_11   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekq0go/does_someone_the_code_to_read_a_video_file/</guid>
-      <pubDate>Mon, 05 Aug 2024 15:01:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>Express JS 是正确的选择吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ekq0dt/is_express_js_the_right_choice/</link>
-      <description><![CDATA[因此，我和我的一个朋友的任务是创建一个管理平台，以便该公司可以管理隶属于某个公司的某些音乐家的数据。我打算使用 Express 和 PostgreSQL 作为后端，而我的朋友将使用 React 或 Vue 作为前端，并使用 Swift/Kotlin 作为移动应用程序。 在这种情况下，Express 是正确的选择吗？这是我过去使用过的唯一后端框架，由于时间限制，我无法再学习其他框架，例如 Spring Boot、.NET 等。基本上，音乐家将能够注册并登录网站，当他们登录时，他们来自各种音乐平台（Spotify、SoundCloud 等）的所有数据都将被提取并显示在他们的帐户中。另一方面，该公司将能够轻松地在平台上管理他们的音乐家（可以将其视为 CRUD 管理系统）    提交人    /u/Jupjupgo   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ekq0dt/is_express_js_the_right_choice/</guid>
-      <pubDate>Mon, 05 Aug 2024 15:01:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
