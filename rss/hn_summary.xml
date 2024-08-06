@@ -4,100 +4,119 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Tue, 06 Aug 2024 15:18:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 18:25:50 GMT</lastBuildDate>
     <item>
-      <title>[媒体] 今天，我们很高兴推出 Fair Source，一种新的软件共享方法，[...]</title>
-      <link>https://t.me/hn_summary/102848</link>
-      <description><![CDATA[Sentry 现已更名为 Fair Source
-今天，我们很高兴推出 Fair Source，这是一种平衡用户自由度和开发者可持续性的软件共享新方法。与传统的闭源模式不同，Fair Source 允许公司共享其核心产品，同时保持对其业务模式的控制。值得注意的是，Codecov、CodeCrafters、GitButler、Keygen 和 PowerSync 等公司已经转向 Fair Source。
+      <title>在过去的六个月中，我们与 50 多家寻求全文搜索 (FTS) 的公司进行了接洽 [...]</title>
+      <link>https://t.me/hn_summary/102887</link>
+      <description><![CDATA[Postgres 全文搜索缺少什么
+在过去六个月中，我们与 50 多家公司合作，寻求针对 Postgres 中存储的数据的全文搜索 (FTS) 解决方案。主要竞争者是 Elasticsearch 和原生 Postgres FTS。以下是我们发现的内容：
 
-Fair Source 不同于自由开源软件 (FOSS)，解决了社区和商业利益之间长期存在的紧张关系。我们的功能源许可证 (FSL) 和其他公认的许可证，如公平核心许可证 (FCL) 和商业源许可证 (BSL) 体现了这种新模式。一个关键功能是延迟开源发布 (DOSP)，确保公司退出市场时社区的连续性。
+Postgres 全文搜索：
+- 优点：简单、实时搜索和可靠的事务。
+- 缺点：功能有限、在大型数据集上性能不佳以及事务开销。
+- 关键要点：非常适合没有复杂 FTS 需求的中小型表。
 
-Fair Source 为公司以创新方式共享软件提供了一条可行的途径，Sentry 成功与 10,000 多个组织合作，年收入达 1 亿美元，就是明证。请访问 fair.io 了解更多信息。]]></description>
-      <guid>https://t.me/hn_summary/102848</guid>
-      <pubDate>Tue, 06 Aug 2024 15:18:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 早在二月份，Ph​​oronix 就报道过 AMD 悄悄资助 Andrzej Janik 的 ZLUDA，一家 [...]</title>
-      <link>https://t.me/hn_summary/102847</link>
-      <description><![CDATA[AMD GPU 的开源 CUDA“Zluda”实现已被删除
-早在二月份，Ph​​oronix 就报道过 AMD 悄悄资助 Andrzej Janik 的 ZLUDA，这是基于 ROCm 软件堆栈构建的 AMD GPU 的开源 CUDA 实现。ZLUDA 最初是为英特尔显卡开发的，允许 CUDA 应用程序在 AMD GPU 上运行。然而，AMD 停止资助该项目，并将代码开源。最近，AMD 的法律部门要求从 GitHub 上删除该代码，这并不是因为 NVIDIA 的法律威胁，而是因为 AMD 自己的逆转。Janik 计划从 AMD 之前的代码库重建 ZLUDA，但一些功能（如 NVIDIA GameWorks 支持）将丢失。 ZLUDA 的未来仍不确定但受到密切关注。]]></description>
-      <guid>https://t.me/hn_summary/102847</guid>
-      <pubDate>Tue, 06 Aug 2024 14:57:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 应用材料公司未能获得美国政府 CHIPS 和 Science 计划的资助 [...]</title>
-      <link>https://t.me/hn_summary/102846</link>
-      <description><![CDATA[应用材料公司被美国拒绝资助《芯片和信息处理法案》
-根据美国政府的《芯片和科学法案》，应用材料公司拟在加利福尼亚州桑尼维尔投资 40 亿美元建立 EPIC 中心，但该中心被拒绝提供资金。该中心最初于 2023 年 5 月宣布成立，旨在成为半导体制造的研究中心，计划在成立后的头十年内开展 250 亿美元的研究，并于 2026 年开放。尽管《芯片和信息处理法案》拨款 2800 亿美元，其中包括为美国半导体制造商提供 520 亿美元的补贴，但美国商务部仍决定不向应用材料公司拨款。此外，该公司还因涉嫌在没有出口许可证的情况下向中国运送芯片制造工具而受到调查，这项调查已导致多次传票，但尚未证实与拒绝资助有关。 EPIC 中心的未来现在仍不确定。]]></description>
-      <guid>https://t.me/hn_summary/102846</guid>
-      <pubDate>Tue, 06 Aug 2024 14:41:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 警钟：HTTP/3 和 QUIC</title>
-      <link>https://t.me/hn_summary/102845</link>
-      <description><![CDATA[你们都在沉睡于 HTTP/3 中
-警钟：HTTP/3 和 QUIC
+Elasticsearch：
+- 优点：功能全面、性能高、功能多样。
+- 缺点：不是可靠的数据存储，需要 ETL 管道、数据新鲜度问题和高成本。
+- 关键要点：非常适合复杂的搜索需求，但存在运营开销和数据新鲜度问题。
 
+替代搜索引擎：Algolia、Meilisearch 和 Typesense 提供面向用户的搜索体验，但并非为 Postgres 量身定制，面临与 Elasticsearch 类似的问题。
 
-由 QUIC 协议支持的 HTTP/3 不仅是未来，更是现在。尽管它被广泛采用，但许多开发人员仍然不知道它的存在或变革潜力。所有主流浏览器和云提供商都支持 HTTP/3，它放弃了 TCP，转而采用基于 UDP 的协议 QUIC，从而消除了“队头阻塞”和连接设置缓慢等问题。QUIC 提供更快的页面加载速度、更流畅的视频流和更具弹性的连接，使其成为现代 Web 开发的关键。虽然一些网络工程师批评其快速采用和潜在的 CPU 开销，但 QUIC 的好处（例如 0-RTT 恢复和改进的拥塞控制）是不可否认的。互联网的未来正在由 QUIC 塑造，开发人员现在应该开始尝试它。
+ParadeDB：为 Postgres 构建的全新 FTS 引擎，将 Postgres FTS 的简单性与 Elasticsearch 的高级功能相结合，由基于 Rust 的 Tantivy 提供支持。
 
-争议亮点：一些网络工程师认为 QUIC 的快速采用带来了更多的 CPU 开销并使流量监控复杂化，质疑其好处是否大于风险。
+令人惊讶的见解：许多企业发现 Elasticsearch 是他们最大的软件开支，导致一些企业转向自我管理集群，这带来了新的挑战。]]></description>
+      <guid>https://t.me/hn_summary/102887</guid>
+      <pubDate>Tue, 06 Aug 2024 18:25:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>2022 年 12 月，在高通胀的背景下，我创建了一个网站来跟踪希腊的价格变化[...]</title>
+      <link>https://t.me/hn_summary/102886</link>
+      <description><![CDATA[使用 Playwright 跟踪超市价格
+2022 年 12 月，在高通胀的背景下，我创建了一个网站来跟踪希腊三大超市的价格变化。这篇文章详细介绍了这一历程，包括使用 Playwright（一种以编程方式控制 Web 浏览器的工具）克服 JavaScript 渲染的网站。最初，我尝试使用一台旧笔记本电脑进行抓取，但由于性能问题和与 AWS 相比的成本效益，我改用了 Hetzner 的云服务。我使用 Concourse CI 自动化了该过程，并使用 Tailscale 解决了 IP 限制问题。尽管由于站点更改而偶尔出现故障，但设置一直很可靠。关键的优化包括使用更大的服务器和减少获取的数据，从而显着缩短了抓取时间和成本。 
 
-令人惊讶/聪明的见解：QUIC 即使在切换网络时也能以零往返（0-RTT）恢复连接的能力对于移动和动态环境来说是一个改变游戏规则的因素。]]></description>
-      <guid>https://t.me/hn_summary/102845</guid>
-      <pubDate>Tue, 06 Aug 2024 14:39:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sierra On-Line 纪录片将由令人印象深刻的前员工演员阵容制作</title>
-      <link>https://t.me/hn_summary/102844</link>
-      <description><![CDATA[Sierra On-Line 纪录片将由令人印象深刻的前员工演员阵容制作
-《冒险传奇》是一部即将上映的纪录片，深入探讨了 Ken 和 Roberta Williams 创立的标志性游戏工作室 Sierra On-Line 的迷人历史。这部纪录片由 Prime Video 纪录片《Gamebreakers》和屡获殊荣的游戏工作室 MidBoss 背后的团队制作，承诺揭示《国王任务》、《太空任务》和《花花公子拉里》等深受喜爱的系列的创作者从未听过的故事和见解。这部电影突出了威廉姆斯夫妇意外离开游戏行业以及他们最近的回归，采访了游戏和技术领域的主要设计师和有影响力的人物。制作已在进行中，2024 年 5 月拍摄了对威廉姆斯的一次精彩采访。需要支持才能全面了解 Sierra On-Line 的遗产。]]></description>
-      <guid>https://t.me/hn_summary/102844</guid>
-      <pubDate>Tue, 06 Aug 2024 14:39:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ziff Davis 以超过 1 亿美元的价格从 Red Ventures 手中收购了 CNET，这与 [...]</title>
-      <link>https://t.me/hn_summary/102843</link>
-      <description><![CDATA[Ziff Davis 仅以 1 亿美元收购 CNET
-Ziff Davis 以超过 1 亿美元的价格从 Red Ventures 收购了 CNET，这与 CNET 在 2000 年收购 Ziff-Davis Inc. 时支付的 16 亿美元形成了鲜明对比。此次收购是在 Red Ventures 于 2020 年以 5 亿美元收购 CNET 之后进行的。CNET 的价值已从 CBS 在 2008 年收购时的 18 亿美元估值大幅下降。最近，CNET 因使用生成式 AI 制作文章而受到批评，导致动荡和裁员。尽管如此，Ziff Davis 的首席执行官 Vivek Shah 认为 CNET 是一个有价值的品牌，拥有大量受众，对科技广告商很有吸引力。 Shah 对内容的未来仍持乐观态度，但没有对 AI 在 CNET 战略中的作用发表评论。]]></description>
-      <guid>https://t.me/hn_summary/102843</guid>
-      <pubDate>Tue, 06 Aug 2024 14:35:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>美光科技宣布开发出业界首款 PCIe Gen6 SSD，其连续性能达到 [...]</title>
-      <link>https://t.me/hn_summary/102842</link>
-      <description><![CDATA[美光宣布推出业界首款 PCIe Gen6 SSD，传输速度达 26GB/s
-美光宣布开发业界首款 PCIe Gen6 SSD，其连续读取带宽超过 26GB/s。这款突破性的 SSD 面向数据中心运营，可满足日益增长的 AI 处理需求。此次发布恰逢 2024 年闪存峰会 (FMS 2024)，美光计划在会上展示这项技术。作为背景，目前最快的消费级 SSD Crucial T705 提供高达 14.5GB/s 的速度，使美光的新 SSD 速度提高了约 80%。美光高级副总裁 Raj Narasimhan 将发表主题演讲，介绍他们的内存和存储解决方案如何推动 AI 革命。 PCIe Gen6 SSD 展示的具体细节仍不清楚。]]></description>
-      <guid>https://t.me/hn_summary/102842</guid>
-      <pubDate>Tue, 06 Aug 2024 14:34:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 谷歌反垄断诉讼会成为 Mozilla 和 Firefox 的丧钟吗？</title>
-      <link>https://t.me/hn_summary/102841</link>
-      <description><![CDATA[谷歌的反垄断诉讼会成为 Mozilla 和 Firefox 的丧钟吗？
-标题：谷歌的反垄断诉讼会成为 Mozilla 和 Firefox 的丧钟吗？
-网站：fortune.com
+争议：无。
 
-在具有里程碑意义的反垄断案中，美国地区法官 Amit Mehta 裁定，谷歌每年支付数十亿美元以确保其搜索引擎成为流行浏览器和手机的默认搜索引擎，从而维持了非法垄断。这项裁决可能会对苹果产生重大影响，因为苹果每年从谷歌获得高达 200 亿美元的收入。然而，对于 Firefox 背后的非营利组织 Mozilla 来说，后果可能是可怕的，Mozilla 严重依赖谷歌获得收入——2021-2022 年 5.93 亿美元中的 5.1 亿美元。批评者认为，这项裁决可能会无意中损害 Mozilla 等规模较小的公司，而另一些人则认为 Mozilla 可能会转向 Bing 等其他搜索引擎。谷歌计划上诉，具体补救措施尚未确定，这可能会将这场法律战再延长一年。]]></description>
-      <guid>https://t.me/hn_summary/102841</guid>
-      <pubDate>Tue, 06 Aug 2024 14:33:15 GMT</pubDate>
+令人惊讶/聪明：使用 Tailscale 绕过 IP 限制，并将旧笔记本电脑与云服务相结合，实现经济高效的抓取。]]></description>
+      <guid>https://t.me/hn_summary/102886</guid>
+      <pubDate>Tue, 06 Aug 2024 18:25:44 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 经过 11 年的发展并售出了超过 1 亿台设备后，谷歌将停止生产 Chrom [...]</title>
-      <link>https://t.me/hn_summary/102840</link>
-      <description><![CDATA[Google 即将停止生产 Chromecast
-经过 11 年的发展，已售出超过 1 亿台设备后，Google 即将停止生产 Chromecast，现在将只在库存售完时提供。这一决定标志着智能电视流媒体设备类别向发展方向转变，以适应人工智能、娱乐和智能家居的进步。尽管停止生产，Google 仍将继续通过软件和安全更新支持现有的 Chromecast 设备。Chromecast 通过提供一种简单、经济的方式将内容从手机、平板电脑或笔记本电脑投射到电视屏幕上，彻底改变了流媒体。随着技术的进步，Google 将 Cast 技术嵌入到数百万台设备中，包括 Android TV，目前全球拥有 2.2 亿台设备。新的 Google TV Streamer 将以 Chromecast 的传统为基础，提供增强的娱乐和智能家居集成功能。]]></description>
-      <guid>https://t.me/hn_summary/102840</guid>
-      <pubDate>Tue, 06 Aug 2024 14:32:10 GMT</pubDate>
+      <title>网站：www.metricshive.com</title>
+      <link>https://t.me/hn_summary/102885</link>
+      <description><![CDATA[Show HN：Metrics Hive – 一款简单、功能丰富的 Google Analytics 替代方案
+标题：Show HN：Metrics Hive – 一款简单、功能丰富的 Google Analytics 替代方案
+网站：www.metricshive.com
+
+您准备好放弃 Google Analytics 了吗？Metrics Hive 提供了一种简单但功能强大的分析解决方案，只需一行代码即可实现。此替代方案旨在提供丰富的功能，提供您需要的所有基本指标，而无需 Google Analytics 的复杂性。无论您是开发人员还是企业主，Metrics Hive 都旨在简化您的数据跟踪和分析流程。易于使用且功能全面，对于那些寻求更直接的分析工具的人来说，它是一个极具吸引力的选择。]]></description>
+      <guid>https://t.me/hn_summary/102885</guid>
+      <pubDate>Tue, 06 Aug 2024 18:23:38 GMT</pubDate>
     </item>
     <item>
-      <title>跨大西洋控股公司（Transatlantic Holdings，TransRe）是 Alleghany Corporation 的子公司，该公司已对其数据进行了修订 [...]</title>
-      <link>https://t.me/hn_summary/102839</link>
-      <description><![CDATA[伯克希尔哈撒韦子公司 TransRe 宣布任命 CAIO 职位，成立专门的 AI 团队
-Alleghany Corporation 的子公司 Transatlantic Holdings (TransRe) 已改组其数据科学团队，以增强其 AI 和机器学习能力。Otakar Hubschmann 已晋升为首席人工智能官，领导新的人工智能团队 (TRAIT)，现任首席技术官 Socrates Pichardo 也加入了该团队。TRAIT 将向首席运营官 Matt Mahoney 汇报，旨在将 AI 能力整合到 TransRe 的运营中。Hubschmann 于 2016 年加入，拥有量化交易背景，并领导过数据自动化项目。Pichardo 自 1993 年起在该公司任职，率先开展了重大 IT 计划。此次重组旨在利用 AI 为同事和客户提供更深入的见解。]]></description>
-      <guid>https://t.me/hn_summary/102839</guid>
-      <pubDate>Tue, 06 Aug 2024 14:31:06 GMT</pubDate>
+      <title>[媒体] 网站：techcrunch.com</title>
+      <link>https://t.me/hn_summary/102884</link>
+      <description><![CDATA[拆分 Google 将为重塑网络提供机会
+标题：拆分 Google 将为重塑网络提供机会
+网站：techcrunch.com
+
+想象一个没有 Google 的网络。最近裁定 Google 经营非法垄断，这为重新思考互联网结构打开了大门。DuckDuckGo、Brave 和 Proton Mail 等替代方案已经存在，但 Google 基于跟踪的广告模式阻碍了它们的增长。谷歌的使命是“整合全球信息”，这是其数据驱动的广告业务的幌子，创造了数十亿美元的收入。它在搜索、浏览器和广告技术基础设施方面的主导地位将网络锁定在监控模式中。拆分谷歌可能会为注重隐私的替代方案铺平道路，有可能将网络转变为一个更安全、以用户为中心的空间。]]></description>
+      <guid>https://t.me/hn_summary/102884</guid>
+      <pubDate>Tue, 06 Aug 2024 18:22:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 在 Cloudflare，我们简化了互联网基础设施的复杂性，其象征是 [...]</title>
+      <link>https://t.me/hn_summary/102883</link>
+      <description><![CDATA[Cloudflare 连接云背后的主干网
+在 Cloudflare，我们简化了互联网基础设施的复杂性，以我们的云徽标为标志。我们的全球主干网自 2021 年以来已扩展了 500% 以上，对于提供快速、可靠和安全的服务至关重要。我们的网络在 120 多个国家/地区的 330 个城市设有数据中心，可确保遵守当地法规并优化流量路由以最大程度地降低延迟。我们使用对等和 IP 传输来交换数据，但我们的主干网提供了更好的控制和成本效益。值得注意的是，我们主干网的可编程性支持数据本地化并减少低效路由，从而提高性能和可靠性。我们的战略扩展（包括全球主干网环）显着改善了延迟，尤其是在欠发达地区。我们利用 DWDM 和分段路由 MPLS 等技术来保持最佳性能。我们的 Argo Smart Routing 和 Orpheus 系统通过选择最佳路径并避免降级路由来进一步增强连接性。我们邀请企业通过 Cloudflare 网络互连 (CNI) 加入我们的网络，以充分利用我们强大的基础设施。加入我们的使命，打造更好的互联网。]]></description>
+      <guid>https://t.me/hn_summary/102883</guid>
+      <pubDate>Tue, 06 Aug 2024 18:22:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>烤棉花糖节快乐！</title>
+      <link>https://t.me/hn_summary/102882</link>
+      <description><![CDATA[真正的华尔街之狼电话推销脚本
+祝您 S’mores 日快乐！您不希望在销售渠道中拥有更多机会吗？抱歉，我知道这很糟糕。回到正题。今天，我们将深入探讨真正的华尔街之狼电话推销脚本。乔丹·贝尔福特和斯特拉顿·奥克蒙特对千禧一代销售代表的影响比任何人都大。尽管从 1,500 名投资者那里骗取了 2 亿美元，但他们的销售技巧无疑是有效的。该脚本包括一个模式中断以吸引注意力、一个行动号召，以及用于谈判的强有力的短语“公平吗？”。虽然斯特拉顿·奥克蒙特的方法是非法的，但他们的销售策略仍然具有影响力。请记住，始终尽早确定潜在客户并有效处理异议。不，您不应该使用他们的确切脚本。销售提示：避免过度使用开场白，从一开始就诚实地建立关系。]]></description>
+      <guid>https://t.me/hn_summary/102882</guid>
+      <pubDate>Tue, 06 Aug 2024 18:19:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>西部数据 (WD) 在未来内存峰会上推出了多项突破性的存储解决方案 [...]</title>
+      <link>https://t.me/hn_summary/102881</link>
+      <description><![CDATA[WD 宣布推出企业级 128TB SSD
+西部数据 (WD) 在未来内存和存储大会 (FMS 2024) 上推出了几款突破性的存储解决方案，面向数据中心、客户端、汽车和消费市场。值得注意的是，WD 推出了一款使用 BiCS8 NAND 的 128TB 高容量 QLC 企业级 SSD (eSSD)，旨在满足 AI、ML 和 LLM 的数据需求。其他亮点包括全球首款 32TB ePMR SMR HDD 和适用于数据密集型应用的 64TB eSSD。对于消费者，WD 宣布推出全球首款 8TB SDUC UHS-I 卡和 4TB microSDUC UHS-I 卡，以及 16TB 便携式 SSD 概念验证。这些创新彰显了西部数据在存储技术领域的领导地位。]]></description>
+      <guid>https://t.me/hn_summary/102881</guid>
+      <pubDate>Tue, 06 Aug 2024 18:13:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 网站：arstechnica.com</title>
+      <link>https://t.me/hn_summary/102880</link>
+      <description><![CDATA[恶搞网站 ClownStrike 拒绝向 CrowdStrike 的虚假 DMCA 删除行为屈服
+标题：恶搞网站 ClownStrike 拒绝向 CrowdStrike 的虚假 DMCA 删除行为屈服
+网站：arstechnica.com
+
+CrowdStrike 现在难道没有比试图删除恶搞网站更重要的事情要做吗？这就是 IT 顾问 David Senk 在 CrowdStrike 向他的恶搞网站 ClownStrike 发出数字千年版权法 (DMCA) 删除通知时所担心的问题。Senk 在世界史上最大规模的 IT 中断之后创建了 ClownStrike，CrowdStrike 将此归咎于一个有缺陷的安全更新。Senk 是去中心化的支持者，他通过建立一个恶搞网站来嘲讽 CrowdStrike 在混乱中所扮演的角色，该网站的标志是小丑主题版本。尽管收到了 Cloudflare 的 DMCA 通知，Senk 仍对这一说法提出异议，称他的网站显然是恶搞，因此属于合理使用。Cloudflare 缺乏回应，迫使 Senk 将其网站移至芬兰的服务器。CrowdStrike 后来承认删除通知可能是一个错误，因为他们的反欺诈工作无意中针对了恶搞网站。CrowdStrike 表示他们将审查其流程，以避免将来再犯此类错误。 
+
+争议：针对恶搞网站的 DMCA 删除通知引发了人们对企业反欺诈措施与合理使用权之间平衡的质疑。
+
+独特/巧妙的元素：Senk 创造性地使用小丑主题徽标和马戏团音乐来嘲讽 CrowdStrike 在 IT 中断中扮演的角色。]]></description>
+      <guid>https://t.me/hn_summary/102880</guid>
+      <pubDate>Tue, 06 Aug 2024 18:12:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体]美国</title>
+      <link>https://t.me/hn_summary/102879</link>
+      <description><![CDATA[美国经济并未崩溃
+Noah Smith 认为，美国股票价格近期下跌并不代表经济崩溃。他运用自己撰写股市文章的三条规则，强调股市走势不可预测，而且经常被过度解读。尽管近期股市下跌，但今年迄今股市表现仍然良好。全球股市（尤其是日本股市）的抛售受到日本央行加息的影响，这可能引发了更广泛的市场恐慌。虽然一些人将美国股市下跌归因于经济放缓和高利率，但 Smith 认为经济数据并不特别令人担忧。股市即将崩盘的说法似乎有些夸大其词。]]></description>
+      <guid>https://t.me/hn_summary/102879</guid>
+      <pubDate>Tue, 06 Aug 2024 18:10:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 太空尘埃会落在我家的屋顶上吗？</title>
+      <link>https://t.me/hn_summary/102878</link>
+      <description><![CDATA[太空尘埃会落在我家的屋顶上吗？
+如果您住的房子有排水沟和落水管，您可以耐心地尝试收集微陨石。选择屋顶的一部分并确定相应的排水沟和落水管。将强力钕磁铁连接到落水管底部以捕获铁磁性颗粒，包括微陨石。彻底清洁屋顶和排水沟，或等到春季降雪后再收集颗粒。在较温暖的地区，您可能需要在每次暴雨后收集以避免腐蚀。Phil Plait 指出，每平方米每年会收集 1-2 颗微陨石，但您可能会收集更多的磁性粉煤灰，尤其是在城市地区。 Cody&#39;s Lab 有关于此方法的视频，但缺乏后续内容。]]></description>
+      <guid>https://t.me/hn_summary/102878</guid>
+      <pubDate>Tue, 06 Aug 2024 18:09:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
