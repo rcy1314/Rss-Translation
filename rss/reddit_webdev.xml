@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 09 Aug 2024 01:22:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2024 03:21:55 GMT</lastBuildDate>
+    <item>
+      <title>如何在从一个后端与另一个后端通信时保持登录会话</title>
+      <link>https://www.reddit.com/r/webdev/comments/1enoe2v/how_to_keep_login_session_when_communicating_from/</link>
+      <description><![CDATA[      我一天前写了一篇文章 https://www.reddit.com/r/webdev/comments/1emsmfh/comment/lh77nqm/ 但想说得更清楚一点。 背景 我的架构主要有3个组件 https://preview.redd.it/8bna83svrjhd1.png?width=1081&amp;format=png&amp;auto=webp&amp;s=42b08695d929b97adb97d5ad686b5f748d0f7e6e 1. Web App 它是一个 React 应用程序，它仅与 My-Backend 通信 2. My-Backend 它是一个 Springboot 应用程序。我已经编写了自定义身份验证逻辑。 当它收到来自 Web App 的请求时，它应该  a) 如果请求路径为 /users、/restaurants 等，则直接从数据库检索数据 b) 如果请求路径为 /foods、/drinks 等，则通过 Dockerized 后端检索数据 3. Dockerized 后端 我无法控制代码，并且此应用程序不提供 API 密钥。它只接收来自 My-Backend 的请求。它只能私下访问。 它有很多端点，如 /foods、/drinks 等。但要从这些端点获取数据。我们需要在标头中提供授权令牌。 要获取授权令牌，我们需要发送带有有效负载的 /login 请求 { username: &quot;abc&quot;, password: &quot;abc&quot; }  问题 我试图找出从 My-Backend 到 Dockerized Backend 检索数据的最佳方法。 具有挑战性的部分是如何在 Dockerized Backend 中获取访问令牌，并且 My-Backend 应该永远保留它并自动刷新令牌，以便来自 My-Backend 的每个请求都有身份验证令牌来从 Dockerized Backend 获取数据。 我收到一个建议使用 nginx 作为 API 网关，但不知道如何刷新这一层中的身份验证令牌。 所以我想知道是否有更好的方法来处理这种情况？    提交人    /u/More-Ad-5258   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1enoe2v/how_to_keep_login_session_when_communicating_from/</guid>
+      <pubDate>Fri, 09 Aug 2024 02:26:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在尝试弄清楚 buymeacoffee 和类似的网站在接收付款和 Stripe 付款以及存储这些数据方面的流程如何——有人能告诉我我是否接近目标了吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1enn3pr/im_trying_to_figure_out_how_buymeacoffee_and/</link>
+      <description><![CDATA[我正在从事一个副业项目，它不像 buymeacoffee.com 那样以小费/捐赠为基础，但一切流程都是相同的，所以我用它作为某种指南，我只是想弄清楚它是如何工作的。  当用户注册 buymeacoffee (BMAC) 时，系统会提示他们将银行账户连接到 Stripe（这不会为用户创建 Stripe 账户，它只是链接他们的银行账户以进行支付）。  我假设此人的个人信息保存在 BMAC Stripe 帐户中，以便可以在某个时候启动付款。  所以现在 John Smith 有一个个人资料，buymeacoffee.com/xXjohnsmithXx。我进入他的个人资料并向他捐赠 10 美元。该交易不是向 John 汇款，只是与 BMAC 进行 10 美元的交易……与任何正常购买相同。因此，现在 BMAC 的 Stripe 帐户中有 10 美元，John 可以转到他的仪表板并查看他已捐款 10 美元，并且有资格在 BMAC 收取费用后获得 9 美元或其他金额的现金。  这是我的主要困惑（假设到目前为止我所说的一切都是准确的……如果不是，请纠正我）： 当 John 收到捐款时，Stripe 是否会实时跟踪其中的任何内容？Stripe 是否会跟踪谁收到了多少捐款的任何数据？或者 BMAC 负责在他们的数据库中跟踪所有这些，然后当 John 去提现时，BMAC 会向 Stripe 发送一条消息，说向他的银行账户支付 9 美元，然后 Stripe 只会发送它所说的任何金额？ 我知道我们只能猜测，但我希望有人对 Stripe 有足够了解（或者即使您不知道，答案也是显而易见的），以便我可以获得某种指导。 谢谢！    提交人    /u/drippyneon   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1enn3pr/im_trying_to_figure_out_how_buymeacoffee_and/</guid>
+      <pubDate>Fri, 09 Aug 2024 01:23:38 GMT</pubDate>
+    </item>
     <item>
       <title>目前是一名精疲力竭的网站管理员。正在寻找有关如何转任其他职位的建议？</title>
       <link>https://www.reddit.com/r/webdev/comments/1enlyui/currently_a_burnout_web_admin_looking_for_advice/</link>
@@ -88,20 +102,6 @@
       <description><![CDATA[        提交人    /u/cisco_bee   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1enez3c/why_are_ux_people_getting_dumber/</guid>
       <pubDate>Thu, 08 Aug 2024 19:29:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>Web 开发求职最新技巧</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eneyse/updated_tips_for_the_web_dev_job_hunt/</link>
-      <description><![CDATA[根据最近的新经验，以下是对我和我的朋友有帮助的：  与所有招聘人员交谈：如果招聘人员联系您，您很可能会被提交 3 到 5 份简历。而且他们已经与公司建立了个人关系。这比从 500 人中只有 1 人在线提交简历要好得多。 专注于申请新工作（24 小时到一周之间）：您越早排在队伍的最前面，被考虑的机会就越大。我已经开始这样做了，并且看到了更好的结果。 申请申请人数少于 50 人的职位：这些申请人中有很大一部分不适合这个职位，所以你仍然有很好的机会。 花 30 分钟到一个小时准备：查看他们的职位描述。根据您的经验，写下您如何回答他们的“必须具备”和“最好具备”的条件。 乘上 8 月/9 月的浪潮：出于某种原因，招聘人员/公司再次活跃起来。  我之前的建议：  专注于本地：每个人都想要一份远程工作。申请本地的面对面或混合工作。 优化您的关键词：更新您的 LinkedIn、Indeed 和简历以包含所有技术关键词。 &quot;高级 React Python Typescript Web 开发人员&quot; 这个头衔比 &quot;Web 开发人员&quot; 更好。 让您的简历可扫描：他们能在 5 秒内知道您是做什么的吗？如果不能，请修改。 对其他机会持开放态度：我接到了一份兼职工作的电话，后来变成了全职客户。 过度准备并不是一件坏事：我花了一整天时间为一份潜在的工作制作模型（作为作品集示例）。那份工作失败了。但是这个样本让我得到了另一份工作的机会。 缩小差距：如果您的简历中的工作之间有很大差距。将 6 个月的差距缩短为 3 个月。将 3 个月的差距缩短为 1 个月。将一年的空档期变成自由职业经验或深造机会。 在别人不擅长的地方钓鱼：我读到过一个人从 Craigslist 上获得客户的文章。您可以使用免费的 Apollo 帐户查找使用您的技术堆栈的公司并向他们的 CTO 发送电子邮件。 面试有困难？转向自由职业客户、小公司或营销公司：自由职业客户的技术门槛较低。小公司和营销公司寻找能身兼数职的人。 不要对 LinkedIn 失去希望：可能有 500 人通过 LinkedIn 申请工作。但是，如果您说他们的母语，具备工作技能要求，并且是当地人，那么您将进入前 10% 的申请者之列。  其他找工作的地方：  JS Chimp - 创建个人资料以供公司查看。 Hacker News Jobs - YC 初创公司的工作。 Vercel/NextJS GitHub Discussions - 他们有一个活跃的论坛。 Craigslist - 谁知道呢；你可能会走运。 RemoteOK - 每天都有新工作。 RemoteJobs - 更多工作。 jsjobbs - Javascript 工作。 RailsDevs - 创建 rails 配置文件。 LaraDir - 创建 Laravel 配置文件。 VueJobs - Vue 工作的首选地点。 AuthenticJobs - 远程工作。 DynamiteJobs - 更多远程工作。     提交人    /u/Beginning-Comedian-2   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eneyse/updated_tips_for_the_web_dev_job_hunt/</guid>
-      <pubDate>Thu, 08 Aug 2024 19:29:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要一般的 Wordpress 建议（大量访客）！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eneinj/general_wordpress_advice_lots_of_visitors_needed/</link>
-      <description><![CDATA[我被委托创建一个类似于 unilad.com 的杂志/新闻网站，本质上是一个低俗的博客，但预计每月会有 50 万到 200 万的访客。  我本来打算创建一个 Wordpress 网站并使用托管主机，但大多数计划在这个访客级别上都非常昂贵，所以我看了一个 VPS，但我对服务器一无所知——在设置数字海洋 droplet 一整天后，我无法通过权限/ssh/php/任何错误。我没有时间（我应该接受这个）去了解它。我是一名前端开发人员，也走上了无头 Wordpress + next 路线，但再次被 vps 的东西搞砸了。  有人有什么好的建议吗？他们不想花很多钱，因为他们可能赚不到钱。我宁愿完全避免使用终端，尽可能使用 GUI。由于访客数量可能一开始很少，因此可以使用警报系统自动扩展某些功能。     提交人    /u/tascotty   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eneinj/general_wordpress_advice_lots_of_visitors_needed/</guid>
-      <pubDate>Thu, 08 Aug 2024 19:10:33 GMT</pubDate>
     </item>
     <item>
       <title>需要 Rubberduck：线上点之间的 Chartjs 标签</title>
