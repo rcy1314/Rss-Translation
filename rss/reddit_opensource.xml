@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 10 Aug 2024 12:34:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2024 15:20:56 GMT</lastBuildDate>
+    <item>
+      <title>新发布的加密库 sentc 支持完整的 rust crypto、fips 和后量子算法。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1eouspb/new_release_of_encryption_library_sentc/</link>
+      <description><![CDATA[Moin， 我想向您介绍我去年编写的一个加密库。核心是用 rust 编写的，并交叉编译为 wasm 或 flutter 目标（感谢 flutter_rust_bridge）。 Repo：https://github.com/sentclose/sentc/ 深入研究的主页（文档目前适用于 wasm 和 flutter）：https://sentc.com/ 它涵盖  最多可容纳大量成员的组加密，包括组内的密钥轮换（创建新密钥并将其安全地分发给所有组成员）。 用户和设备管理。用户可以拥有多个具有不同登录名的设备（这对于允许用户使用手机登录而无需密码非常有用） 上传和下载加密文件。文件将被拆分成 4 mb 块，每个块将由新密钥加密。然后，此密钥将由前一个密钥加密。 支持可搜索和可排序加密。使用可搜索加密，您仍然可以在数据库中搜索加密数据。使用可排序加密，输出可以按与输入相同的顺序排序  得益于 rusts 泛型，核心库可以与不同的加密实现一起使用。目前有三种不同的实现可用：  完全用 rust 编写，不需要其他依赖项。这将与 wasm 和 flutter 一起使用 fips 投诉与 openssl（没有可排序的加密，因为该算法不符合 fips） openssl 和 oqs 的组合（使用更新版本）。  您可以通过为 rust impl 添加功能 std_keys、为 fips 投诉 impl 添加 fips_keys、为组合添加 rec_k​​eys 来激活库中的每个密钥。  完整的 rust impl 和组合使用：aes 256 gcm 用于对称加密 x25519、kyber（用于完整 rust）/ ml-kem（用于 oqs）或两者的混合组合（默认）用于非对称加密 ed25519、dilithium（用于完整 rust）/ ml_dsa（用于 oqs）或两者的混合组合（默认）用于签名和验证 ope 用于可排序加密，hmac 用于可搜索加密  目前有针对 javascript 和 flutter 的更高级别的实现，但 rust sdk 即将发布。 请告诉我您的想法。祝你有美好的一天。    提交人    /u/joern281   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1eouspb/new_release_of_encryption_library_sentc/</guid>
+      <pubDate>Sat, 10 Aug 2024 14:48:28 GMT</pubDate>
+    </item>
     <item>
       <title>CurlerRoo - 适用于 Mac 和 Linux 的开源 cURL 客户端</title>
       <link>https://www.reddit.com/r/opensource/comments/1eoq7jw/curlerroo_an_open_source_curl_client_for_mac_and/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[        由    /u/DakilPL 提交   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1enewl0/i_made_an_opensource_website_that_lets_everyone/</guid>
       <pubDate>Thu, 08 Aug 2024 19:26:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>资金和捐赠？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1enccht/funding_donations/</link>
-      <description><![CDATA[我一直在研究一些接受和接收捐赠和资金的 Github 项目，并且对 FOSS 资金管理的道德和期望有一些疑问……  假设我在 Github 上有一个项目，无论是 JavaScript 库还是应用程序。我接受个人或公司为该项目提供的资金或捐赠。并且还有其他人为该项目贡献代码，例如错误修复、新功能等。我有义务向这些代码贡献者付费吗？ 假设我在 Github 上有一个项目，无论是 JavaScript 库还是应用程序。我接受个人或公司为该项目提供的资金或捐赠。我多久可以给自己支付一次费用？即使我或没有人为该代码工作了数月或数年，我可以给自己支付费用吗？ 资金和捐赠需要公开吗？或者捐赠和资助可以是私密的吗？ 是否需要有资助该项目或已经捐赠的捐赠者才能被列为财务贡献者？或者我可以不列出任何资助过该项目的人吗？ 财务贡献者和捐赠之间有什么区别吗？ 我看到像 Open Collective 和 Librepay 这样的服务看起来像简单的解决方案。这些解决方案中的任何一个是否允许您接受加密货币（比特币、比特币现金、莱特币、门罗币）作为捐赠并能够自行保管您的私钥，但让服务跟踪地址以确保资金透明度？     提交人    /u/trymeouteh   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1enccht/funding_donations/</guid>
-      <pubDate>Thu, 08 Aug 2024 17:44:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
