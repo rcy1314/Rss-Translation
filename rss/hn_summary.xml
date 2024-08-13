@@ -4,107 +4,111 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Mon, 12 Aug 2024 21:15:09 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 13 Aug 2024 01:18:53 GMT</lastBuildDate>
     <item>
-      <title>[媒体] 全国普选州际协议（NPVIC）是美国某些州之间达成的一项协议。</title>
-      <link>https://t.me/hn_summary/103715</link>
-      <description><![CDATA[全国普选州际协议
-全国普选州际协议 (NPVIC) 是美国某些州和哥伦比亚特区之间达成的一项协议，将其选举人票分配给赢得全国普选的总统候选人。该协议旨在确保在全国范围内获得最多选票的候选人成为总统。截至 2024 年 4 月，已有 17 个州和哥伦比亚特区通过了该协议，共获得 209 张选举人票，占协议生效所需 270 张选举人票的 77%。该协议的实施存在法律问题，有人认为它需要国会同意。只有当参与州在选举团中占多数时，该协议才会生效。 
+      <title>[媒体] 在本文中，我们探讨了在 SQL 中维护用户定义的项目顺序的方法，[...]</title>
+      <link>https://t.me/hn_summary/103750</link>
+      <description><![CDATA[SQL 中的用户定义顺序 (2018)
+在本文中，我们探讨了在 SQL 中维护项目的用户定义顺序的方法，特别是对于待办事项列表等顺序可以任意更改的应用程序。我们根据效率、稳健性和优雅性对每种方法进行评估。 
 
-争议：该协议引发了有关各州全权任命选举人的法律问题，以及根据宪法的协议条款，该协议是否需要国会批准。
+方法 1：整数位置列 
+使用自动递增整数列很简单，但对于重新排序来说效率低下，因为它需要移动多行并推迟约束。
 
-独特/巧妙之处：如果参与州的选举人票数低于所需的门槛，该协议将失效，从而确保其与州参与或国会重新分配的变化的相关性和适应性。（基于 15% 的故事文本的摘要。）]]></description>
-      <guid>https://t.me/hn_summary/103715</guid>
-      <pubDate>Mon, 12 Aug 2024 21:15:09 GMT</pubDate>
+方法 2：小数位置 
+将位置存储为浮点数允许在项目之间轻松插入而无需移动，但多次插入后可能会出现浮点精度问题。
+
+方法 3：链接列表 
+此方法使用指向下一个项目的指针，避免了移动行的需要，但使查询和更新变得复杂。
+
+方法 4：嵌套集 
+一种更复杂但更高效的分层数据方法，但对于简单列表来说有点矫枉过正。
+
+令人惊讶的见解：本文强调了巧妙使用浮点数来避免移动行，尽管它最终面临精度问题限制。
+
+争议点：开发人员可能会争论使用嵌套集等复杂方法处理简单列表的实用性。
+
+总体而言，本文对不同的技术进行了透彻的分析，在简单性和性能之间进行了权衡。（基于 31% 的故事文本的总结。）]]></description>
+      <guid>https://t.me/hn_summary/103750</guid>
+      <pubDate>Tue, 13 Aug 2024 01:18:53 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 加州推出了两列新型全电动通勤列车，由 Caltrain 运营，[...]</title>
-      <link>https://t.me/hn_summary/103714</link>
-      <description><![CDATA[加州新电动火车可能预示着臭名昭著的美国将加入世界其他地区
-加州推出了两列由 Caltrain 运营的新型全电动通勤列车，标志着美国铁路系统向电气化迈出了重要一步。加州州长加文·纽瑟姆和众议院名誉议长南希·佩洛西为这两列火车揭幕，目前这两列火车在圣何塞和旧金山之间运行。这一举措历时近 20 年，与柴油火车相比，它有望带来更安静、更快速、更环保的旅行。尽管美国在铁路电气化方面落后于印度、中国和欧盟等国家，但这一发展可能预示着一种转变。然而，美国铁路协会反对大范围电气化，因为改造成本高昂，优先考虑利润而不是环境效益。这种抵制凸显了推动绿色铁路系统建设过程中的重大争议。]]></description>
-      <guid>https://t.me/hn_summary/103714</guid>
-      <pubDate>Mon, 12 Aug 2024 21:06:02 GMT</pubDate>
+      <title>[媒体] 苹果将在今年晚些时候更新其 Mac mini 产品线，直接从 [...]</title>
+      <link>https://t.me/hn_summary/103749</link>
+      <description><![CDATA[据报道，苹果计划更新 M4 Mac mini，使其更迷你
+据彭博社的 Mark Gurman 称，苹果将在今年晚些时候更新其 Mac mini 产品线，直接从 M2 跳到 M4 芯片。新款 Mac mini 将采用更小的设计，类似于 Apple TV 盒，但略高一些，并将包括至少三个 USB-C 端口、一个电源连接器和一个 HDMI 端口。这是自 2010 年铝合金一体式机型以来的首次重大重新设计。尽管尺寸较小，但新款 mini 将保留内部电源，而不像许多使用外部电源块的小型 PC。该系列将包括一款搭载 M4 芯片的基本型号和一款搭载 M4 Pro 芯片的升级版。定价细节仍不确定，但新设计的制造成本可能更低。 M4 芯片在今年的 iPad Pro 上首次亮相，也将出现在即将推出的 iMac 和 MacBook Pro 机型中，MacBook Air 预计在 2025 年春季更新，Mac Studio 和 Mac Pro 预计在明年年中更新。]]></description>
+      <guid>https://t.me/hn_summary/103749</guid>
+      <pubDate>Tue, 13 Aug 2024 01:15:48 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 网站：www.whitehouse.gov</title>
-      <link>https://t.me/hn_summary/103713</link>
-      <description><![CDATA[白宫严厉打击浪费时间和金钱的日常麻烦
-标题：白宫严厉打击浪费时间和金钱的日常麻烦
-网站：www.whitehouse.gov
+      <title>[媒体] 1904 年，亨利·詹姆斯的经纪人与查尔斯·詹姆斯安排出版他的作品集 [...]</title>
+      <link>https://t.me/hn_summary/103748</link>
+      <description><![CDATA[说出来，亨利
+1904 年，亨利·詹姆斯的经纪人安排查尔斯·斯克里布纳之子出版他的作品合集，最终出版了纽约版（1907-09 年）。此版收录了詹姆斯的修订文本和新序言，他选择排除某些早期作品，如《欧洲人》。这个过程非常辛苦，詹姆斯发现它在商业上并不成功，并哀叹它“卖不出去”。他一丝不苟的修订经常妨碍生产，到 1908 年，他对这项任务感到厌倦。奥利弗·赫福德为剑桥版詹姆斯序言所写的介绍因其学术性而受到称赞，尽管有些注释可能过于细致。序言揭示了詹姆斯复杂的风格和对作品的思考，但连续阅读它们可能会很费劲。詹姆斯晚期的风格充斥着副词和引号，可能会让人看不清楚，但有些段落却提供了对创作过程的深刻见解。序言强调了詹姆斯对感知与现实之间差异的关注，这是他小说的一个中心主题。（基于 59% 的故事文本的总结。）]]></description>
+      <guid>https://t.me/hn_summary/103748</guid>
+      <pubDate>Tue, 13 Aug 2024 00:37:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] Docker 彻底改变了应用程序的开发和部署，但冗长的构建时间 [...]</title>
+      <link>https://t.me/hn_summary/103747</link>
+      <description><![CDATA[使用远程 BuildKit 实例加快 Docker 构建速度
+Docker 彻底改变了应用程序开发和部署，但冗长的构建时间可能会影响生产力。在 Blacksmith，我们经常看到 Docker 构建时间超过 30 分钟。这篇文章概述了如何在 AWS 上设置远程 BuildKit 实例以加快 Docker 构建速度。BuildKit 是一种现代 Docker 后端，可以将构建卸载到强大的远程服务器，利用硬件和层缓存来显着提高性能。我们提供了 Terraform 配置来自动设置 EC2 实例，从而实现更快的构建和跨团队共享缓存。但是，这种方法有局限性，包括缺乏自动扩展、成本效率低下和安全风险。尽管如此，它仍然是中小型团队的可行解决方案。 
 
-拜登总统和哈里斯副总统发起了“时间就是金钱”倡议，以打击通过繁琐的文书工作、漫长的等待时间和其他麻烦来浪费美国人时间和金钱的企业行为。政府旨在简化取消订阅、获得退款和在线提交健康索赔等流程。主要举措包括联邦贸易委员会提出的让取消订阅变得像注册一样简单的规则、交通部制定的自动航空公司退款新规则以及消费者金融保护局对无效聊天机器人的打击。该计划建立在之前改善政府项目客户服务的努力之上。值得注意的是，政府正在征求公众对进一步行动的意见，以简化消费者体验。
+争议：该设置缺乏自动扩展功能和潜在的安全风险，可能会对较大的团队产生争议。
 
-有争议：该计划与企业行为的直接对抗可能会引发有关监管过度及其对企业影响的争论。
+独特/巧妙：使用 Terraform 自动化设置并利用 AWS EBS 进行持久缓存是优化构建时间的巧妙方法。]]></description>
+      <guid>https://t.me/hn_summary/103747</guid>
+      <pubDate>Tue, 13 Aug 2024 00:28:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>问 HN：过去 5 天内有人联系过 Cloudflare 支持吗？</title>
+      <link>https://t.me/hn_summary/103746</link>
+      <description><![CDATA[询问 HN：过去 5 天内有人联系过 Cloudflare 支持吗？
+标题：询问 HN：过去 5 天内有人联系过 Cloudflare 支持吗？
+网站：news.ycombinator.com
 
-独特/巧妙：呼吁公众对进一步行动提出意见是一种巧妙的方式，可以吸引公民并根据现实世界的担忧量身定制该计划。]]></description>
-      <guid>https://t.me/hn_summary/103713</guid>
-      <pubDate>Mon, 12 Aug 2024 20:57:56 GMT</pubDate>
+自上次发帖以来，我发现 Cloudflare 为 Business 和 Pro 客户提供的支持服务自 8 月 2 日起已停止服务，其状态页面显示。有人知道情况信息和预计解决时间吗？我面临着提供需要 Cloudflare 帮助的问题更新的压力，但我没有新信息可以提供给我的团队。如果您有任何见解或其他联系方式，我将不胜感激。]]></description>
+      <guid>https://t.me/hn_summary/103746</guid>
+      <pubDate>Tue, 13 Aug 2024 00:05:08 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] SpaceX 被发现多次违反环境法规，向空气中排放 [...]</title>
-      <link>https://t.me/hn_summary/103712</link>
-      <description><![CDATA[监管机构发现，SpaceX 今年多次污染德克萨斯州水域
-根据德克萨斯州环境质量委员会 (TCEQ) 的通知，SpaceX 被发现多次违反环境法规，向德克萨斯州水域排放污染物。违规行为源于该公司位于博卡奇卡的星际基地发射设施的水喷淋系统。环境保护署 (EPA) 此前也曾根据《清洁水法》通知 SpaceX 存在类似违规行为。这些违规行为可能会推迟未来的发射批准并导致处罚。SpaceX 急于重建发射台，绕过适当的许可证，引发了严重的环境问题，包括废水中汞含量高。环保组织已提起诉讼，进一步调查可能会导致刑事指控。]]></description>
-      <guid>https://t.me/hn_summary/103712</guid>
-      <pubDate>Mon, 12 Aug 2024 20:56:51 GMT</pubDate>
+      <title>网站 0.30000000000000004.com 探讨了各种浮点运算的怪癖 [...]</title>
+      <link>https://t.me/hn_summary/103745</link>
+      <description><![CDATA[浮点数学
+网站 0.30000000000000004.com 探索了各种编程语言中浮点运算的怪癖。它演示了由于计算机中浮点表示固有的不精确性，将 0.1 和 0.2 相加通常会得到 0.30000000000000004 而不是预期的 0.3。该网站提供了 ABAP、Ada、C#、C++、Common Lisp 等语言的代码片段，展示了不同的输出和精度级别。令人惊讶的是，这个问题在如此多的语言中竟然是一致的，这凸显了计算机科学的一个基本挑战。内容并不具有争议性，而是具有教育意义，强调了理解浮点算法对于准确编程的重要性。（基于 44% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/103745</guid>
+      <pubDate>Mon, 12 Aug 2024 23:50:59 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 在 Trieve，我们很高兴地宣布我们即将推出的 Hacker News 搜索引擎，增强了 [...]</title>
-      <link>https://t.me/hn_summary/103711</link>
-      <description><![CDATA[2007 年至今 Hacker News 搜索的历史
-在 Trieve，我们很高兴地宣布我们即将推出的 Hacker News 搜索引擎，并增加了更多功能。为了完善它，我们深入研究了 HN 搜索引擎的历史。使用我们自己的搜索工具，我们追溯了从 2007 年 Jason Yan 的 Search News YC 早期发展到 2011 年 Octopart/ThriftDB 支持的 HNSearch，再到 2014 年以来由 Algolia 支持的搜索的演变。值得注意的是，许多早期的 HN 贡献者成为了 YC 的创始人。每一代搜索引擎都带来了独特的改进和社区反馈，其中 Algolia 的快速发展和准确性脱颖而出。我们的经历与他们的经历如出一辙，凸显了构建强大搜索工具的挑战和成功。]]></description>
-      <guid>https://t.me/hn_summary/103711</guid>
-      <pubDate>Mon, 12 Aug 2024 20:46:44 GMT</pubDate>
+      <title>[媒体] 队列在异步系统中至关重要，用于反转控制流并实现 [...]</title>
+      <link>https://t.me/hn_summary/103744</link>
+      <description><![CDATA[队列反转控制流但需要流量控制
+队列在异步系统中必不可少，用于反转控制流并在重负载下实现高吞吐量、弹性操作。但是，它们需要有效的流量控制才能发挥最佳作用。队列可以平滑流量高峰，使系统更易于管理并防止可能降低性能的过载。尽管队列具有优势，但其容量有限，不受控制的增长会导致长时间等待，从而影响用户体验。生存时间 (TTL)、尾部丢弃和背压等流量控制机制对于维持系统稳定性至关重要。现实世界中的例子，例如 AWS 对无服务器应用程序的处理，说明了这些原则的实际作用。理解和实施这些控制对于强大的系统架构至关重要。（基于 81% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/103744</guid>
+      <pubDate>Mon, 12 Aug 2024 23:37:51 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 乌克兰基辅（美联社）——乌克兰最高军事指挥官，将军。</title>
-      <link>https://t.me/hn_summary/103710</link>
-      <description><![CDATA[乌克兰军队现在控制了俄罗斯库尔斯克地区近 390 平方英里的土地
-乌克兰基辅（美联社）——乌克兰最高军事指挥官 Oleksandr Syrskyi 将军宣布，乌克兰军队现在控制了俄罗斯库尔斯克地区 1,000 平方公里（386 平方英里）的土地，这对克里姆林宫来说是一个重大而尴尬的挫折。这是乌克兰首次公开承认入侵，此次入侵已导致 10 多万平民逃离。总统弗拉基米尔·普京声称，此次袭击旨在破坏莫斯科在顿巴斯地区的攻势，并在未来的和平谈判中获得筹码。此次行动引发了人们对乌克兰使用北约提供的武器的质疑，一些西方国家担心事态可能升级。乌克兰的推进是自二战以来对俄罗斯领土发动的最大规模袭击。]]></description>
-      <guid>https://t.me/hn_summary/103710</guid>
-      <pubDate>Mon, 12 Aug 2024 20:37:37 GMT</pubDate>
+      <title>[媒体] Spice 是一个旨在实现亚纳米级细粒度并行性的研究项目 [...]</title>
+      <link>https://t.me/hn_summary/103743</link>
+      <description><![CDATA[Spice：Zig 中具有亚纳秒级开销的细粒度并行性
+Spice 是一个研究项目，旨在在 Zig 编程语言中实现具有亚纳秒级开销的细粒度并行性。它使用心跳调度来确保高效的并行执行，将开销最小化到不到一纳秒。与受争用和低效困扰的传统并行框架不同，Spice 确保线程不会争夺相同的工作，即使增加线程也能保持性能。该项目与其他框架（如 Rust 的 Rayon）相比，表现出显着的性能改进，特别是在每个任务工作量最少的情况下。Spice 的独特方法确保添加并行性不会减慢程序速度，使其适用于工作分配不可预测的场景。然而，它主要是一个研究项目，在生产使用方面有限制。 （根据 58% 的故事文本进行总结。）]]></description>
+      <guid>https://t.me/hn_summary/103743</guid>
+      <pubDate>Mon, 12 Aug 2024 23:21:42 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] Google DeepMind 开发出了一款能够击败初学者和一些业余选手的机器人 [...]</title>
-      <link>https://t.me/hn_summary/103709</link>
-      <description><![CDATA[Google DeepMind 训练机器人在乒乓球比赛中击败人类
-Google DeepMind 开发了一款能够在乒乓球比赛中击败初学者和一些业余人类对手的机器人，尽管它仍然输给了高级选手。这一成就超出了项目负责人 Pannag Sanketi 的预期，他指出该机器人具有令人印象深刻的智胜强大对手的能力。这项研究不仅限于娱乐，旨在创造能够在家庭和仓库等现实环境中熟练安全地执行有用任务的机器人。纽约大学的 Lerrel Pinto 对该项目表示赞赏，并强调了其未来改进的潜力。该机器人使用计算机模拟和现实世界数据的组合进行训练，以随着时间的推移提高其技能。]]></description>
-      <guid>https://t.me/hn_summary/103709</guid>
-      <pubDate>Mon, 12 Aug 2024 20:20:28 GMT</pubDate>
+      <title>[媒体] 银行是采用计算机的先驱，但它们的 API 仍然非常难以使用 [...]</title>
+      <link>https://t.me/hn_summary/103742</link>
+      <description><![CDATA[Iso20022.js：为什么每家银行的 API 都很烂
+银行是采用计算机的先驱，但它们的 API 仍然以难以使用而闻名。根据我在 WhatsApp 和 Modern Treasury 的经验，我亲眼目睹了银行界面是多么繁琐。尽管 REST API 兴起，但大多数银行交易仍然依赖于过时的基于文件的方法，如 SFTP。这种对文件的依赖，例如 1974 年的 NACHA 标准和 ISO20022 消息传递标准，是银行 API 落后的原因。我最近的项目 iso20022.js 旨在简化与这些文件标准的交互，使开发人员更容易与银行集成。银行技术的未来不在于新的 API，而在于改进现有的文件标准。]]></description>
+      <guid>https://t.me/hn_summary/103742</guid>
+      <pubDate>Mon, 12 Aug 2024 23:08:33 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] 网站：www.tomsguide.com</title>
-      <link>https://t.me/hn_summary/103708</link>
-      <description><![CDATA[忘记 Midjourney – Flux 是 AI 图像生成领域的新王者
-标题：忘记 Midjourney – Flux 是 AI 图像生成领域的新王者
-网站：www.tomsguide.com
-
-由 Black Forest Labs 开发的 Flux 已成为一种突破性的 AI 图像生成模型，迅速获得关注，被誉为 Stable Diffusion 的继任者。与 Midjourney 不同，Flux 是开源的，可以在相当好的笔记本电脑上运行，因此可以在 Poe、Nightcafe 和 FreePik 等平台上使用。根据我对 Flux 的使用经验，它在人物渲染方面表现出色，但在皮肤纹理方面不如 Midjourney v6.1。这家总部位于德国的初创公司由前 Stability AI 工程师领导，提供三个版本的 Flux.01，其中 Pro 版本适用于商业用途。Flux 还在开发一种前景光明的文本转视频模型。用户可以轻松地在本地下载和运行 Flux.01，也可以通过 NightCafe 和 Poe 等各种平台访问它。]]></description>
-      <guid>https://t.me/hn_summary/103708</guid>
-      <pubDate>Mon, 12 Aug 2024 20:14:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] SpaceX 的星际飞船在德克萨斯州博卡奇卡的星际基地发射，据称 [...]</title>
-      <link>https://t.me/hn_summary/103707</link>
-      <description><![CDATA[SpaceX 被指控多年来向德克萨斯州水域倾倒汞
-据 CNBC 独家报道，SpaceX 在德克萨斯州博卡奇卡的星际基地发射的星际飞船据称多年来一直在用汞污染当地水域。德克萨斯州监管机构与环境保护署 (EPA) 之间的内部文件和通信揭示了持续存在的环境问题。尽管 SpaceX 于 6 月成功进行了第四次星际飞船试射，但该公司仍因对附近社区和生态系统的环境影响而受到批评。向德克萨斯州环境质量委员会 (TCEQ) 提交的投诉指出，该设施的喷淋系统多次未经授权排放水。当地居民报告了因发射而导致的健康问题和财产损失。美国联邦航空管理局推迟了公开环境影响评估会议，这进一步使 SpaceX 未来的测试计划复杂化。这场争议引发了人们对 SpaceX 任务时间表的质疑，包括 NASA 的 Artemis 3 登月任务。故事仍在发展中。]]></description>
-      <guid>https://t.me/hn_summary/103707</guid>
-      <pubDate>Mon, 12 Aug 2024 20:02:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 网站：www.eff.org</title>
-      <link>https://t.me/hn_summary/103706</link>
-      <description><![CDATA[联邦上诉法院裁定地理围栏搜查令绝对违宪
-标题：联邦上诉法院裁定地理围栏搜查令绝对违宪
-网站：www.eff.org 
-
-在一项具有里程碑意义的裁决中，联邦第五巡回上诉法院裁定地理围栏搜查令“绝对被第四修正案禁止”。与电子前沿基金会 (EFF) 的论点相呼应，法院认为此类搜查令相当于“一般性、探索性搜查”，而第四修正案旨在防止此类搜查。这一决定对于确保个人能够使用手机而不必担心因不加区分的数据扫描而成为犯罪嫌疑人至关重要。
-
-该案是美国诉史密斯案，涉及 2018 年密西西比州一家邮局发生的武装抢劫案。在没有嫌疑人的情况下，警方获得了覆盖犯罪现场周围大片区域的地理围栏搜查令。谷歌提供了导致被告身份确认的数据。然而，第五巡回法院裁定，个人对其位置数据的隐私有合理的期望，这与最高法院在卡彭特诉美国案中的裁决一致。法院批评了第四巡回法院最近在美国诉查特里案中的裁决，强调地理围栏数据具有高度侵入性。 
-
-法院还指出，地理围栏搜查令本质上是违宪的，因为它们要求提供商在不知道具体目标的情况下搜索大量数据。尽管如此，法院承认，由于地理围栏技术的新颖性，警方在 2018 年采取了“善意”行动，这意味着证据不会被压制。这项裁决提醒我们，不要对第四修正案的保护进行狭隘的解释。]]></description>
-      <guid>https://t.me/hn_summary/103706</guid>
-      <pubDate>Mon, 12 Aug 2024 20:00:09 GMT</pubDate>
+      <title>[媒体] www.merics.org 上的文章“将价值链留在国内”探讨了中国的战略[...]</title>
+      <link>https://t.me/hn_summary/103741</link>
+      <description><![CDATA[将价值链留在国内
+www.merics.org 上的文章“将价值链留在国内”探讨了中国战略性地利用出口管制来保持其在关键技术领域的主导地位。文章重点介绍了中国商务部最近采取的措施，例如对高科技产业必不可少的镓、锗和石墨实施出口管制。这些行动是中国确保技术进步和经济安全的更广泛战略的一部分，正如习近平的讲话和政策所强调的那样。本文还讨论了国际影响，包括经济胁迫的可能性以及其他国家在确保其供应链安全方面面临的挑战。值得注意的是，将出口管制用作地缘政治工具是一个有争议的方面，引发了人们对全球贸易稳定性和技术依赖性的担忧。（基于 35% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/103741</guid>
+      <pubDate>Mon, 12 Aug 2024 23:08:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
