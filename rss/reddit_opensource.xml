@@ -4,13 +4,34 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 16 Aug 2024 18:26:16 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Aug 2024 21:18:37 GMT</lastBuildDate>
     <item>
-      <title>Github 和版本控制是否具有超出软件开发范围的实际应用？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1etvj5b/do_github_and_version_control_have_real_world/</link>
-      <description><![CDATA[我现在在 SEA...  向别人展示如何管理 Repo 怎么样？没有代码。只有 GFM 和问题。我认为对于任何会打字和使用 FB/电子邮件的人来说，这需要 15-30 分钟的入职培训时间。 这里有水净化、建筑、农业、交通等问题。 Repos 可用于监控交通高峰点，帮助人们资助和启动他们所在地区的椰子农场。在本地扩展它们，使用单独的 Repo 来考虑不同的城镇/气候。 拥有几十个分支的上游先驱将成为他们所在领域的顾问。  几乎任何项目都可以使用 fork 功能进行扩展、监控和本地化，这对于项目管理来说是超越性的。 您可以分叉的众筹项目可能会有效。 GH 现在具有融资功能，并且可以与 Open Collective 和其他众筹网站结合使用。 我预测版本控制行业可能会在几年后变得更大……使用“Repo Maintenanceer”是进入其他编码工作和科技公司的一条坚实而务实的道路。  更多选择。 tl;dr，Github 可以像 Jimi Hendrix 改变吉他一样重新发明。 有人有什么想法吗？    提交人    /u/I_eat_Limes_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1etvj5b/do_github_and_version_control_have_real_world/</guid>
-      <pubDate>Fri, 16 Aug 2024 17:59:54 GMT</pubDate>
+      <title>是否有一些像 huntr.com 这样的好赏金计划 - 但不仅适用于 AI，还适用于所有类型的 OSS？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1etyxxo/is_there_somegood_bounty_program_like_huntrcom/</link>
+      <description><![CDATA[我们曾经使用 huntr.com 为我们的开源项目 (https://github.com/inventree/InvenTree) 进行赏金计划，但他们被收购了。他们现在只迎合人工智能和供应链中的一些重要事物。 我真正喜欢的是：维护成本非常低，有名叫 Jamie 的人会检查报告，一切都非常透明。 我搜索的内容：  低维护 欢迎加入 OSS 项目 没有针对记者的 NDA 或类似内容，我觉得这不符合 MIT 许可的精神 某种针对记者的声誉系统 项目和记者无需永久费用 + OSS 项目的每个赏金成本低  我们获得了 MIT 许可并遵循 OSSF 最佳实践。我愿意支付赏金，但该项目并没有带来很多钱，因此保持低开销是关键。    提交人    /u/matthiasjmair   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1etyxxo/is_there_somegood_bounty_program_like_huntrcom/</guid>
+      <pubDate>Fri, 16 Aug 2024 20:22:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>有影响力的明星 – 有谁有趣地为你的 Repo 加星标/Fork 过吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1etyljk/influential_stars_did_anyone_interesting_starfork/</link>
+      <description><![CDATA[我喜欢偶尔浏览一下谁为我的 GitHub 存储库加注星标或分叉了，但我发现这个过程非常繁琐和缓慢。GitHub 上的列表按时间顺序显示，仅显示用户名。要查看有关用户本身的任何信息，您需要在新选项卡中单击他们的个人资料 - 否则导航功能无法正常工作，当您点击后退按钮时，您会退出用户列表。 我真正想要的是查看是否有任何“著名”用户为存储库加注星标或分叉了。也就是说，拥有大量自己受欢迎的存储库的用户，或者在 GitHub 上拥有大量关注者的人，因为他们出于某种原因在科技界很有名。但除了单击大量用户名并手动检查每个用户名之外，似乎没有任何简单的方法可以做到这一点。所以我决定做这个项目。 基本上，你给它一个 GitHub 上公共仓库的链接，然后它会遍历每个为该仓库加星标或分叉的用户，对于每个用户，它会获得各种指标，比如该用户从他们自己的项目中获得的星星总数、他们在 GitHub 上的关注者数量、贡献数量等。然后它使用一个简单的公式将所有这些编译成一个分数：  function calculateScore(stars, followers, contributes, recentActivity) { return stars * 2.5 + followers * 2.0 + contributes * 0.1 + recentActivity * 0.1; }  然后它返回一个格式良好的表格，包含这些结果。此屏幕截图显示了输出内容： https://raw.githubusercontent.com/Dicklesworthstone/most-influential-github-repo-stars/main/screenshot_2.webp 为了处理 GitHub API 速率限制（非常严格），它将用户分成小组并尝试分别获取每个组。然后，它会检测速率限制何时生效，并自动等待，直到 API 允许更多请求。它还使用 SQLite 缓存，因此只需下载一次用户数据（至少在缓存数据 20 小时后自动失效之前），因此如果您想查找几个不同的存储库，只要对每个存储库加星标/分叉的用户有相当大的重叠，它就可以避免大量请求并从缓存中获取数据。我还内置了让用户安全地指定自己的 Github API 密钥的功能（该密钥保留在用户自己的浏览器中，永远不会发送到后端）。 它也是完全开源的： https://github.com/Dicklesworthstone/most-influential-github-repo-stars 因此，在备用机器上启动并自行尝试非常容易。但为了让人们更容易尝试，我自己将它托管在： https://influential-stars.com/ 这只是使用我自己的个人 GitHub API 密钥，并在一个具有 10 个核心的相当适中的 VPS 实例上运行，所以如果它变得流行，它可能会很快崩溃。如果在 GitHub/Microsoft 工作的任何人正在阅读这篇文章，我很乐意为这个项目获得更高的速率限制或一些我可以为其使用的特殊 API 密钥，因为我认为对于制作开源软件并希望更好地了解他们的用户群的人来说，这是一个非常有用的工具，并且大多数人不会想要启动他们自己的版本只是为了使用它。 顺便说一句，这是我使用 NextJS 制作的第一个应用程序之一（我主要使用 Python 和 vanilla JS），我不得不说我发现它非常好用，并且很容易制作出看起来非常漂亮的东西。我肯定会考虑在未来的项目中使用 NextJS。    提交人    /u/dicklesworth   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1etyljk/influential_stars_did_anyone_interesting_starfork/</guid>
+      <pubDate>Fri, 16 Aug 2024 20:08:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 LLM 自动化脚本中的 API 文档。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1etygkx/automating_api_documentation_in_the_script_using/</link>
+      <description><![CDATA[大家好，我目前正在开展一个项目，旨在创建一个 AI 代码助手，从开发人员的角度帮助解决一些痛点。 我的项目中的一个功能是在输入脚本中创建 api 文档。 我正在使用 LLM 来帮助构建此功能，特别是 llama 3，使用 llama api，这是一个无键 api。 到目前为止，我正在努力构建此功能，目前我还没有主意。 希望大家对如何进一步进行提出想法和意见。 此外，如果有人想合作，这个项目是一个开源项目，欢迎所有贡献。    提交人    /u/Sherlock_holmes0007   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1etygkx/automating_api_documentation_in_the_script_using/</guid>
+      <pubDate>Fri, 16 Aug 2024 20:02:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以使用 Inkscape 作为项目板吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1etwzr5/is_it_possible_to_use_inkscape_as_a_project_board/</link>
+      <description><![CDATA[我正在寻找一个开源应用程序，以便更有效地管理我的家庭维修项目（甚至用于学习和工作），以便将所有东西都放在一个地方，但又非常直观，就像一个板子。我尝试过很多选项，比如 draw.io、excalidraw、OpenBoard 等，但它们都不太符合我的需求。我想知道 Inkscape 是否可以用于此目的，以及是否有人这样做过或知道任何可以提供帮助的扩展或脚本。像 OpenProject 这样的应用程序不像板子那样直观。 一般来说，它应该满足以下要求：  它应该是一块无限的板子，Inkscape 确实支持它。 它应该允许用一条线轻松地将一个“对象”链接到另一个，类似于思维导图或 draw.io。 它应该允许移动“对象”同时保持连接线相应调整。  这很重要：  它应该允许添加 .txt、.pdf、.odt、excel 等文件（invoices.pdf、notes.txt、accounts.odt 等）。 该文件应该是 Inkscape 保存的一部分（作为副本），而不仅仅是链接到其原始路径。 该文件应该存在于 Inkscape 中，以便右键单击它可以提供诸如打开文档（使用外部应用程序）、通过电子邮件发送或保存等选项。  像这样工作的应用程序是 Apple 的 FreeForm 或 Miro。 如果您知道任何开源选项，即使需要在个人服务器上进行设置，也请告诉我。谢谢。 干杯。   由    /u/fordaytimestuff  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1etwzr5/is_it_possible_to_use_inkscape_as_a_project_board/</guid>
+      <pubDate>Fri, 16 Aug 2024 19:00:37 GMT</pubDate>
     </item>
     <item>
       <title>音频播放器开源 Flutter</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[是否有以下 Chrome 扩展程序的开源替代品？ Gmail 版 Checker Plus：https://chromewebstore.google.com/detail/checker-plus-for-gmail/oeopbcgkkoapgobdbedcemjljbihmemj Dark Reader：https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh YouTube 增强器：https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle Buster：人类验证码解答器：https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl FastForward：https://chromewebstore.google.com/detail/fastforward/icallnadddjmdinamnolclfjanhfoafe 如果其中任何一个已经是开源的，请忽略或提供更好的开源替代方案。 谢谢！    提交人    /u/nishaddesilva   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1eticlj/open_source_alternatives_to_following_chrome/</guid>
       <pubDate>Fri, 16 Aug 2024 07:07:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>nxs-通用图表</title>
-      <link>https://www.reddit.com/r/opensource/comments/1etf6e2/nxsuniversalchart/</link>
-      <description><![CDATA[      大家好，想与大家分享ns-universal-chart - 一个开源的通用 Helm 图表。您可以使用它将任何应用程序部署到 Kubernetes/OpenShift 和其他与原生 Kubernetes API 兼容的编排器中。    提交人    /u/marasypale   [link] [comments] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1etf6e2/nxsuniversalchart/</guid>
-      <pubDate>Fri, 16 Aug 2024 03:50:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>对 PDF 进行数字签名的软件</title>
-      <link>https://www.reddit.com/r/opensource/comments/1etdgu6/software_to_digitally_sign_pdfs/</link>
-      <description><![CDATA[大家好 有没有开源软件可以让我使用硬件 PKCS#7 和 eIDAS 兼容密钥对 PDF 进行数字签名？ 具体来说，我想使用 PADES 标准对 PDF 进行签名。 我的硬件密钥制造商确实为它提供了一些丑陋的软件，它允许使用 PADES 进行签名，但水印看起来很糟糕：非常扭曲。另外，我无法选择水印的位置。 此外，（即使不是开源的），Adobe Reader 也可以很好地用于此目的。但由于某些神奇的原因（例如月亮周期与此有关），它实际上只是停止了工作。 特别是，它不再识别硬件密钥。是的，我 300% 确信密钥没有问题，因为制造商的软件运行良好，而且 Firefox 仍然可以识别它。    提交人    /u/ChoiceIsAnAxiom   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1etdgu6/software_to_digitally_sign_pdfs/</guid>
-      <pubDate>Fri, 16 Aug 2024 02:21:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>允许打开附件或嵌入文件的 PDF 阅读器（适用于 Windows 11）？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1et57ek/pdf_reader_that_allows_attachments_or_embedded/</link>
-      <description><![CDATA[我还没有尝试过，也无法判断是否有任何开源程序具有此功能。我目前使用 MS Edge，它没有这些功能。这些是我唯一需要的功能。    提交人    /u/8bitincome   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1et57ek/pdf_reader_that_allows_attachments_or_embedded/</guid>
-      <pubDate>Thu, 15 Aug 2024 20:12:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
