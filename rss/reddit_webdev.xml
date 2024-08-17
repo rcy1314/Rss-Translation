@@ -3,8 +3,50 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Sat, 17 Aug 2024 03:21:10 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Sat, 17 Aug 2024 06:25:09 GMT</lastBuildDate>
+    <item>
+      <title>我做了一个叫 Gram Jam 的文字游戏</title>
+      <link>https://www.reddit.com/r/webdev/comments/1euarq6/i_made_a_word_game_called_gram_jam/</link>
+      <description><![CDATA[我已经在 Gram Jam 上工作了一段时间，刚刚对导航 UX 进行了重大重构并添加了新的迷你模式。让我知道你的想法！  网站：https://gramjam.app/daily 游戏录制：https://imgur.com/Idl7iRs 技术堆栈：  Svelte/kit Supabase 用于身份验证和数据库 Tanstack 托管在 Cloudflare Pages 上 Stripe 用于支付处理    由    /u/jessecoleman  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1euarq6/i_made_a_word_game_called_gram_jam/</guid>
+      <pubDate>Sat, 17 Aug 2024 06:01:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>跨域问题。新手请求。请帮忙。我已经被困了好几个星期了！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1euajkw/crossorigin_issue_newbie_request_please_help_ive/</link>
+      <description><![CDATA[      TLDR：大家好，我是 Web 应用开发的新手。我创建了一个 Django 后端应用和 HTML/CSS 前端。我无法从前端调用 Django 的视图（函数/API 或任何正确的术语）。 我不知道这是否是提问的正确地方。如果不是，请为我指出这个问题的子版块。提前致谢。 一切都在 AWS 上。以下是设置分解：  一个运行我的应用程序后端逻辑的 EC2 实例，使用 Django 用 Python 编写。使用 Docker 容器化。  HTML、CSS、JS 文件存储在 AWS S3 Bucket 中，由 Cloudfront 提供服务。 HTML 中有一个“打印”按钮，单击该按钮将执行以下操作：  ​ fetch(&quot;http://EC2-public-ip:8000/printHello/&quot;, { method: &quot;POST&quot;, headers: { &quot;Content-Type&quot;: &quot;application/json&quot;, }, body: valid JSON here }) .then((response) =&gt; { if (!response.ok) { throw new Error(&#39;网络响应不正常&#39;); } return response.json(); }) .then((data) =&gt; { if (!data) { throw new Error(&#39;数据为空&#39;); } 在屏幕上打印消息 }) .catch((error) =&gt; { console.error(错误); });  当请求发送时，我得到了如图所示的响应。 https://preview.redd.it/snah9aruw5jd1.png?width=839&amp;format=png&amp;auto=webp&amp;s=f0791e7c9580176fdecf9e72c4bfe2b61ed690cd 我在本地机器上测试了所有内容，并且它可以按预期工作，但是在 AWS 上运行时，我无法连接前端和后端。这是我目前所做的： 允许 EC2 实例中的入站规则 https://preview.redd.it/rtffaqfyw5jd1.png?width=1014&amp;format=png&amp;auto=webp&amp;s=f21ab0bc30502731b6d4d31c55c4dc22f9baebf2 网络 ACL 允许来自 0.0.0.0/0  运行镜像时映射 docker 端口 8000:8000 在 settings.py 中：  ALLOWED_HOSTS = [‘localhost’, ‘my-website.com’, ‘~www.my-website.com~’] INSTALLED_APPS = [..., ‘corsheaders’,...] MIDDLEWARE = [   … &#39;django.middleware.security.SecurityMiddleware&#39;, &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;, …]  CORS_ALLOWED_ORIGINS = [  &#39;http://localhost&#39;, &#39;http://127.0.0.1&#39;, &#39;http://my-website.com&#39;, &#39;http://www.my-website.com&#39;\]  我甚至尝试过 CORS_ALLOW_ALL_ORIGINS = True CMD [&quot;gunicorn&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;, &quot;portfolio.wsgi:application&quot;] 在 Dockerfile 中  我尝试了 ChatGPT，但它陷入了一个无限循环，告诉我配置上述配置。 然后，我登录到我的 EC2 实例的 shell 并使用 curl 命令进行故障排除： curl -X POST -H &quot;Origin: http://localhost.com&quot; http://localhost:8000/printHello/ -d &#39;{valid JSON}&#39;  → 这按预期工作并返回正确的响应 curl -X POST -H &quot;Origin: http://my-website.com&quot; http://localhost:8000/printHello/ -d &#39;{valid JSON}&#39;  → 这按预期工作并返回正确的响应 curl -X POST -H &quot;Origin: http://localhost.com&quot; http://EC2-public-ip:8000/printHello/ -d &#39;{valid JSON}&#39;  → 这不起作用并返回错误请求 (400) curl -X POST -H &quot;Origin: http://my-website.com&quot; http://EC2-public-ip:8000/printHello/ -d &#39;{valid JSON}&#39;  → 这不起作用并返回错误请求 (400) 请帮帮我！！！我快要哭了。   由    /u/clumsy_panda0806  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1euajkw/crossorigin_issue_newbie_request_please_help_ive/</guid>
+      <pubDate>Sat, 17 Aug 2024 05:47:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>MayaJS 简介：一个用于 Node.js 的简单 HTTP 服务器库</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eua6mv/introducing_mayajs_a_simple_http_server_library/</link>
+      <description><![CDATA[大家好， 我很高兴宣布我的新项目 MayaJS，这是一个用于 Node.js 的轻量级 HTTP 服务器库，旨在简化服务器开发。它旨在易于使用，同时提供强大的功能。 MayaJS 提供的功能如下：  简单的 API：处理 HTTP 请求的简便方法。 中间件支持：轻松添加和使用中间件功能。 路由优先级：将路由标记为重要以优化其响应时间。 Async/Await 支持：无缝处理异步操作。 主体解析：仅使用一种方法即可启用请求主体解析。  您可以通过 npm 安装 MayaJS 来开始使用它： bash复制代码npm install mayajs  以下是如何设置服务器的快速示例： javascript复制代码import Maya from &quot;mayajs&quot;;从 &quot;./hello.js&quot; 导入 { hello }; const maya = new Maya(); const port = 3000; maya.use(hello); maya.bodyParse(); maya.get(&quot;/&quot;).handler((req, res) =&gt; { return res.json({ msg: &quot;Hello, world!&quot; }); }); maya.get(&quot;/important-route&quot;).isImportant().handler((req, res) =&gt; { return res.json({ msg: &quot;此路由已针对更快的访问进行了优化。&quot; }); }); maya.listen(port, () =&gt; { console.log(`MayaJS 服务器正在端口 ${port} 上运行`); });  查看 GitHub 存储库，了解更多详情并参与贡献。我很乐意听取您的反馈和任何改进建议！    由   提交  /u/virgin_human   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eua6mv/introducing_mayajs_a_simple_http_server_library/</guid>
+      <pubDate>Sat, 17 Aug 2024 05:24:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Showoff Saturday] 评价我的代理网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eua454/showoff_saturday_rate_my_agency_website/</link>
+      <description><![CDATA[大家好， 我经营一家提供设计和开发的网络代理机构。想知道这里的优秀社区是否有一些反馈可以分享在我的网站上。 链接：https://www.hassandev.me 我认为这里有很多人是自由职业者或有客户，你们觉得我的网站怎么样？我走在正确的轨道上吗？    提交人    /u/hassanwithanh   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eua454/showoff_saturday_rate_my_agency_website/</guid>
+      <pubDate>Sat, 17 Aug 2024 05:20:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个结合板球和加密货币的平台——希望得到您的反馈！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eu9zln/built_a_platform_to_combine_cricket_and_crypto/</link>
+      <description><![CDATA[我最近推出了一个网站，您可以在其中使用加密货币加入激动人心的板球比赛。无论您是铁杆粉丝还是只是喜欢比赛的刺激，这个平台都可以让您与他人一较高下，测试您的板球知识。很简单：加入比赛，做出选择，如果您胜出，即可获得加密货币！ 我希望你们都来看看，并告诉我你的想法。我们仍处于早期阶段，因此您的反馈非常有价值。 www.fantasyclutch.com    提交人    /u/Suspicious_Curve_993   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eu9zln/built_a_platform_to_combine_cricket_and_crypto/</guid>
+      <pubDate>Sat, 17 Aug 2024 05:12:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建自定义 SaaS 登录页面通常收取多少费用？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eu8rd5/what_do_you_typically_charge_for_creating_a/</link>
+      <description><![CDATA[大家好， 我最近为一个客户构建了一个 SaaS 登陆页面 客户想要一个使用 html css 从头开始​​构建的自定义 SaaS 登陆页面，并带有明暗主题切换。客户在开发过程中要求进行一些更改，我花了一个星期才完成整个工作。客户对此非常满意，对我向他展示的登陆页面预览感到满意，并希望为他的 SaaS 初创公司分配更多登陆页面。 交付包括  使用 HTML、CSS 从头开始​​制作的自定义登陆页面，没有提供 figma 文件，所以我还必须设计页面。 深色和浅色主题。 SEO 优化和   提交人    /u/ArtleSa   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eu8rd5/what_do_you_typically_charge_for_creating_a/</guid>
+      <pubDate>Sat, 17 Aug 2024 04:01:15 GMT</pubDate>
+    </item>
     <item>
       <title>制作了这个实时多人井字游戏。</title>
       <link>https://www.reddit.com/r/webdev/comments/1eu70ei/made_this_realtime_multiplayer_tic_tac_toe_game/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[过去我使用过 transparenttextures.com 和 Canva，我很好奇其他人使用什么。或者是否有更好的选择。    提交人    /u/SushiRolodex   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1etwkpm/what_websites_do_you_use_for_background_images_in/</guid>
       <pubDate>Fri, 16 Aug 2024 18:42:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>从网络应用程序打印...并控制纸盘？？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1etwfos/printing_from_a_webappwith_control_over_paper/</link>
-      <description><![CDATA[我试图从 Web 应用程序打印银行支票（比如在银行邮寄给我的特殊模板纸上打印姓名和金额）。 顶部三分之一是支票。底部三分之一是支票的发票清单。没问题——我呈现一些 HTML 或 PDF，并提供一个按钮来打开打印对话框，然后它会打印到他们加载的模板页面上。 棘手的是，如果发票数量多于一页纸，我需要在来自不同来源的附加页面上打印更多内容（使用普通纸，而不是银行提供的支票模板纸）。所以看来我需要控制打印机从哪个纸盘取纸！ 有没有办法做到这一点，而不必深入研究操作系统软件和打印机驱动程序？我真的不想让我的应用程序知道它是在 Mac 还是 Windows 上使用，而且打印远远超出了我的专业范围。 如果有帮助的话，我愿意限制到特定的浏览器。    提交人    /u/Recent-Start-7456   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1etwfos/printing_from_a_webappwith_control_over_paper/</guid>
-      <pubDate>Fri, 16 Aug 2024 18:37:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么 Material UI (MUI) 这么难，有啥诀窍吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1etvnrj/why_is_material_ui_mui_so_hard_is_there_a_trick/</link>
-      <description><![CDATA[你好，  最近我开始了我的 React 之旅。我决定开始一个新项目，并决定尝试 Material UI。与你可能会说的“原始” React 相比，我发现它真的很难。你有什么技巧和窍门可以让我掌握它吗？我阅读了大部分文档，但我仍然一无所知。  你如何构建组件？你如何自定义已经构建的组件？你是否从较小的组件构建组件 - (排版、输入字段等)？使用它处理状态的最佳方法是什么？你如何正确附加逻辑，这是正常的吗？ 我设法制作了一个按钮和一些简单的按钮，但除此之外，我发现使用它非常具有挑战性？ 提前谢谢！    提交人    /u/Impossible_Note5761   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1etvnrj/why_is_material_ui_mui_so_hard_is_there_a_trick/</guid>
-      <pubDate>Fri, 16 Aug 2024 18:05:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>存储配置</title>
-      <link>https://www.reddit.com/r/webdev/comments/1etvnex/store_a_configuration/</link>
-      <description><![CDATA[我计划做一个类似于 JIRA 的学校项目（当然不是那么大），我现在想开始计划。这个想法是，当一个人在应用程序内部创建一个项目时，它会将其配置存储在某个地方。我在想也许 S3 存储桶是存储 JSON 文件的好地方，但我听说使用 DB 或 mongo DB 也可能是一个好地方。你们有什么想法和建议？    提交人    /u/Beagles_Are_God   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1etvnex/store_a_configuration/</guid>
-      <pubDate>Fri, 16 Aug 2024 18:04:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>Leaflet JS(?) 应用程序，用户可以提交自己的“观点”，向其他人发送消息（需要解决方案帮助）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1etuesn/leaflet_js_app_where_users_can_submit_their_own/</link>
-      <description><![CDATA[您好，我正在考虑进入 Web 开发领域，我有一个想法。 1. 属性地图，我有数据等 2. 用户可以注册 3. 用户可以“声明”并提交图像和字段以反映在地图上的特定点/多边形上 4. 用户可以向其他人发送消息（一对一） 我正在研究 leaflet JS 和开源解决方案，有人知道我该如何开始吗？使用什么？ 像 airbnb    提交人    /u/EmirTanis   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1etuesn/leaflet_js_app_where_users_can_submit_their_own/</guid>
-      <pubDate>Fri, 16 Aug 2024 17:14:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>对我的 webdev 技能没有信心/不确定</title>
-      <link>https://www.reddit.com/r/webdev/comments/1etu75h/insecureunsure_about_my_webdev_skills/</link>
-      <description><![CDATA[大家好 🥰 [这个子版块曾经有一条规则，允许每周发布一次链接。我不知道现在是否还这样，如果不是，版主可以随意删除帖子。] 所以最近我完全靠自己创建了一个网站，只用了非常有限的 webdev 知识，只使用了 html、css 和 js，全部都是客户端。将它托管在 cloudflare 页面上，因此我无需花费任何成本来创建或维护该网站。 这是一个电动汽车领域的博客网站，我热爱这个领域并从事这个领域。它旨在成为一种纯粹的爱好，而不是赚钱的工具。但是，鉴于我在这方面缺乏经验，我非常乐意从这里的所有专业人士那里得到一些反馈，从设计、速度、可读性到内容以及任何其他吸引您眼球的东西。 我真的不期望这个网站会有很多访问者，但我想让那些来访的人有一个良好的体验。 那么，有没有好心人愿意从 webdev 的角度提供几句反馈呢？☺️ 我的网站：https://www.ev-global.org/Blogs&amp;Articles/    提交人    /u/FalyR   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1etu75h/insecureunsure_about_my_webdev_skills/</guid>
-      <pubDate>Fri, 16 Aug 2024 17:05:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么使用 react-dnd 时我的状态为空，但不使用时却可以工作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ettovs/why_is_my_state_null_using_reactdnd_but_works/</link>
-      <description><![CDATA[我有这个 handleSelectFigure 函数： function handleSelectFigure(figure) { if (isGameover) return if ( (isRedsTurn &amp;&amp; === &#39;red&#39;) || (!isRedsTurn &amp;&amp; === &#39;blue&#39;) ) { console.log(figure) setSelectedFigure(figure) } }  单击 div 即可执行此函数： &lt;div ref={drag} className={classNames} onClick={() =&gt; { handleSelectFigure(getFigure()) }} &gt; O &lt;/div&gt;  并且这按预期工作。 我还想在拖动此 div 时更改状态，因此这是我的尝试： const [{ isDragging }, drag] = useDrag(() =&gt; ({ type: &#39;Figure&#39;, collect: (monitor) =&gt; ({ isDragging: !!monitor.isDragging(), }), })) useEffect(() =&gt; { if (isDragging) { console.log(getFigure()) handleSelectFigure(getFigure()) } }, [isDragging])  并且这也有效，因此我的状态得到更新。 现在我有这个函数 handleClickOnCell  function handleClickOnCell(clickedCell) { console.log(selectedFigure) ... }  当我单击单元格时，此方法有效。控制台日志向我显示了 selectedFigure。 &lt;div ref={drop} key={cell.id} className=&quot;cell&quot; onClick={() =&gt; { handleClickOnCell(cell) }} &gt; {lastFigureOnCell ? ( &lt;Figure handleSelectFigure={handleSelectFigure} ... &gt;&lt;/Figure&gt; ) : ( &lt;&gt;&lt;/&gt; )} &lt;/div&gt;  但是当我&quot;drop&quot; 时，它不起作用我的图在单元格上。 const [{}, drop] = useDrop( () =&gt; ({ accept: &#39;Figure&#39;, drop: (item) =&gt; { handleClickOnCell(cell) }, }), [cell]  现在控制台记录 null 而不是 selectedFigure 状态。 为什么会这样？Repo。代码位于 src/components &gt; Cell.jsx、Figure.jsx 和 Game.jsx 中。 拖放库    提交人    /u/kadaxda   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ettovs/why_is_my_state_null_using_reactdnd_but_works/</guid>
-      <pubDate>Fri, 16 Aug 2024 16:45:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
