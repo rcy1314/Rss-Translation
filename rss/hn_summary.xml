@@ -4,7 +4,89 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Sun, 18 Aug 2024 00:49:38 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2024 03:05:45 GMT</lastBuildDate>
+    <item>
+      <title>[媒体] 在本文中，我们介绍了对称电力变压器，它是线性变压器的一种变体 [...]</title>
+      <link>https://t.me/hn_summary/104486</link>
+      <description><![CDATA[对称功率变压器
+在本文中，我们介绍了对称功率变压器，这是线性变压器的一种变体，旨在解决长上下文场景中的性能下降问题，同时保持高效的线性成本实现。传统的线性变压器尽管具有理论上的优势，但由于状态大小不足而性能不佳。通过在高维空间中嵌入键和查询，对称功率变压器利用对称张量理论来增强状态大小，由超参数 \(p\) 控制。对于 \(p \geq 4\)，它们的表现优于标准变压器，并且它们与旋转嵌入兼容。这种方法有望显着提高训练效率和性能，进一步的优化将在未来的版本中详细介绍。 
+
+争议：本文批评了普通线性变压器的性能，认为其理论优势往往因实际效率低下而抵消。
+
+独特/巧妙：使用对称张量和超参数 \(p\) 来控制状态大小是一种平衡性能和计算效率的新方法。（基于 20% 的故事文本的总结。）]]></description>
+      <guid>https://t.me/hn_summary/104486</guid>
+      <pubDate>Sun, 18 Aug 2024 03:05:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] NeoRetro Synth 是一款复古风格的合成器和鼓机，具有赛博朋克美学 [...]</title>
+      <link>https://t.me/hn_summary/104485</link>
+      <description><![CDATA[显示 HN：NeoRetro Synth – 一款复古风格的合成器和鼓机
+NeoRetro Synth 是一款具有赛博朋克美感的复古风格合成器和鼓机，使用 Python 的 Pyxel 库构建。它专为娱乐和教育目的而设计，提供 4 个音轨（2 个鼓和 2 个合成器）、可扩展至 32 个步进的 8 步音序器、多种波形和各种鼓声。主要功能包括实时键盘输入、可调设置（八度、BPM、声音长度）、循环录制、琶音器、音量控制和导出选项（MIDI、WAV）。该项目以其赛博朋克风格的界面和广泛的自定义选项脱颖而出。安装涉及克隆存储库并运行 main.py。该软件根据 WTFPL 许可开源。]]></description>
+      <guid>https://t.me/hn_summary/104485</guid>
+      <pubDate>Sun, 18 Aug 2024 02:37:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] ProPublica 的调查深入探究了美国的秘密和动荡世界 [...]</title>
+      <link>https://t.me/hn_summary/104484</link>
+      <description><![CDATA[武装与地下：美国民兵组织动荡的秘密世界
+ProPublica 的调查深入研究了著名民兵组织美国爱国者三分队 (AP3) 的秘密和动荡世界。尽管 1 月 6 日后对准军事组织的打击力度加大，但 AP3 仍然蓬勃发展，参与了德克萨斯州边境的武装私刑、投票箱和黑人生命也是抗议活动。该组织与执法部门结成联盟，并吸引了受 1 月 6 日启发的新成员。内部消息揭示了 AP3 内部在是否追求政治参与或暴力方面存在分歧。该报道强调了该组织有争议的活动以及未来发生暴力事件的令人担忧的可能性，质疑 1 月 6 日是高峰还是先兆。 （根据 30% 的故事文本进行总结。）]]></description>
+      <guid>https://t.me/hn_summary/104484</guid>
+      <pubDate>Sun, 18 Aug 2024 02:35:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] Zig 中的基本元编程</title>
+      <link>https://t.me/hn_summary/104483</link>
+      <description><![CDATA[Zig 中的基本元编程
+Zig 中的基本元编程
+
+在本文中，我将深入研究 Zig 的元编程功能，特别关注“comptime”，它允许在编译时执行 Zig 代码以生成代码。与其他使用单独的、通常有限的语言进行元编程的语言不同，Zig 的 comptime 集成到语言本身中。但是，它有自己的一套限制和独特的构造，例如专为编译时使用而设计的 inline for。 
+
+我介绍了一些有用的内置函数，如 @hasField、@hasDecl 和 @field，它们通过检查类型和实例中的字段和声明来促进元编程。例如，@hasField 检查类型是否具有特定字段，而 @field 可以获取或设置实例中字段的值。尽管这些函数很实用，但它们也有局限性，特别是在动态场景中，在编译时必须知道字段名称。
+
+std.meta 命名空间因其小而有用的函数集而备受关注，包括 std.meta.hasFn 和 std.meta.hasMethod，它们基​​于 @hasDecl 来确定类型是否具有特定的函数或方法。这些函数在通用编程中特别有用，但它们也有自己的怪癖，例如不能直接使用指向结构的指针。
+
+值得注意的一点是缺乏可视化 comptime 生成的代码的 Zig 等效代码的方法，这可能会使理解和调试 comptime 代码变得具有挑战性。尽管存在这些挑战，但 Zig 的元编程功能为编译时代码生成和类型自省提供了强大的工具。（基于 65% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/104483</guid>
+      <pubDate>Sun, 18 Aug 2024 02:35:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>网站：apps.apple.com</title>
+      <link>https://t.me/hn_summary/104482</link>
+      <description><![CDATA[在菜单栏中显示 HN：Mac 日历事件提醒
+标题：在菜单栏中显示 HN：Mac 日历事件提醒
+网站：apps.apple.com
+
+开发者 Hongshan Sun 推出了一款新的 Mac 应用，可将日历事件提醒直接放在菜单栏中。此应用在设计时考虑到了用户隐私，因为它不会收集用户的任何数据。隐私政策可能会根据您使用的功能或您的年龄而有所不同，但核心原则仍然是不会通过此应用收集任何数据。如需了解更多详细信息，建议用户查看开发者的隐私政策。]]></description>
+      <guid>https://t.me/hn_summary/104482</guid>
+      <pubDate>Sun, 18 Aug 2024 02:13:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] “适用于 Web 浏览器的暗黑破坏神 1”项目旨在使经典游戏暗黑破坏神 1 可以在 Web 浏览器上玩 [...]</title>
+      <link>https://t.me/hn_summary/104481</link>
+      <description><![CDATA[暗黑破坏神 1 for Web Browsers
+“暗黑破坏神 1 for Web Browsers”项目旨在通过将经典游戏暗黑破坏神 1 转换为 WebAssembly，使其可以直接在 Web 浏览器中玩。基于 devilution 项目，作者修改了代码以消除依赖关系并调整事件处理以适应 JavaScript，使游戏能够在浏览器环境中顺利运行。该项目允许用户通过在专用网站上托管共享软件版本暗黑破坏神 1，在包括手机在内的各种设备上玩共享软件版本。为了获得完整的游戏体验，用户需要从原始游戏副本中提供自己的 DIABDAT.MPQ 文件。该项目的突出之处在于，无需本地安装，即可在现代平台上访问经典游戏。]]></description>
+      <guid>https://t.me/hn_summary/104481</guid>
+      <pubDate>Sun, 18 Aug 2024 01:49:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 美国一项涉及 20 名子宫移植接受者的研究证明了 [...] 的可行性。</title>
+      <link>https://t.me/hn_summary/104480</link>
+      <description><![CDATA[子宫移植试验以喜悦结束
+一项涉及 20 名子宫移植接受者的美国研究证明了该手术的可行性，其中 14 名参与者实现了活产。这项在达拉斯贝勒大学医学中心进行的试验发表在《美国医学会杂志》上，发现出生的孩子没有异常，尽管接受者和捐赠者都存在手术风险。自 2011 年首次成功移植以来，全球已进行了约 100 次移植。在这次试验中，6 名参与者经历了移植失败，但其余 14 名参与者通过 IVF 成功怀孕，导致 16 名活产。这项研究强调了免疫抑制的必要性以及对接受者的未知长期影响。研究人员得出结论，虽然子宫移植在技术上是可行的，但高昂的成本限制了其更广泛的应用。]]></description>
+      <guid>https://t.me/hn_summary/104480</guid>
+      <pubDate>Sun, 18 Aug 2024 01:48:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 传真机上依然生机勃勃</title>
+      <link>https://t.me/hn_summary/104479</link>
+      <description><![CDATA[传真机依然生机勃勃
+传真机依然生机勃勃
+
+
+传统观点早已宣称传真机已过时，但最近的数据却表明并非如此。尽管电子邮件和 PDF 日益流行，但传真仍然势头强劲，仅 2019 年就传真了超过 170 亿份文件。受 HIPAA 等监管要求的推动，美国医疗保健行业占了其中的 90 多亿份。令人惊讶的是，传真市场预计从 2023 年到 2028 年将以 11.05% 的复合年增长率增长。现代基于云的传真服务提供了增强的安全性和互操作性，使传真更加高效和安全。在全球范围内，传真仍然很普遍，尤其是在日本和德国等国家。技术在不断发展，自动化和人工智能的进步有望将传真进一步融入数字化工作流程。]]></description>
+      <guid>https://t.me/hn_summary/104479</guid>
+      <pubDate>Sun, 18 Aug 2024 01:32:55 GMT</pubDate>
+    </item>
     <item>
       <title>[媒体] 在这个博客系列中，我们通过构建一个 [...] 来深入研究数据库的内部工作原理。</title>
       <link>https://t.me/hn_summary/104478</link>
@@ -17,7 +99,7 @@
       <title>[媒体] 在谷歌的九年职业生涯中，我从一个年轻、缺乏经验的实习生转变为 [...]</title>
       <link>https://t.me/hn_summary/104477</link>
       <description><![CDATA[回顾我在谷歌的 9 年历程
-在谷歌的 9 年历程中，我从一个年轻、缺乏经验的实习生成长为一名经验丰富的专业人士，曾在 Bigtable、Persistent Disk 和 GCE VM 等多个团队和产品中工作。我最初的兴奋源于谷歌的先进技术以及向顶级工程师学习的机会。这段旅程充满了高潮和低谷，提供了巨大的经济回报、工程技能、领导经验和生活方式福利。然而，随着时间的推移，由于预算削减、裁员和创办自己公司的愿望等因素，这种吸引力逐渐消退。尽管面临挑战，但我在职业和个人方面都取得了长足的进步。现在，我开始休假以探索新的机会。 
+在谷歌的 9 年历程中，我从一个年轻、缺乏经验的实习生成长为一名经验丰富的专业人士，曾在多个团队和产品（如 Bigtable、Persistent Disk 和 GCE VM）工作。我最初的兴奋源于谷歌的先进技术以及向顶级工程师学习的机会。这段旅程充满了高潮和低谷，提供了巨大的经济回报、工程技能、领导经验和生活方式福利。然而，随着时间的推移，由于预算削减、裁员和创办自己公司的愿望等因素，这种吸引力逐渐消退。尽管面临挑战，但我在职业和个人方面都取得了长足的进步。现在，我正开始休假以探索新的机会。 
 
 争议点：
 - 谷歌的预算削减和裁员。
@@ -30,76 +112,6 @@
 - 休假计划是探索新视野的心理挑战。]]></description>
       <guid>https://t.me/hn_summary/104477</guid>
       <pubDate>Sun, 18 Aug 2024 00:49:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 2024年2月，我踏上了解读多层感知器（MLP）的旅程[...]</title>
-      <link>https://t.me/hn_summary/104476</link>
-      <description><![CDATA[使用儿童玩具构建脑电图
-2024 年 2 月，我开始了解释多层感知器 (MLP) 神经网络的旅程，旨在从训练数据中重新发现方程式。尽管最初失败了，包括在 Neuralink 压缩挑战赛中徒劳的尝试，但我还是转而使用儿童玩具 Mattel Mindflex 来创建脑电图设备。通过修改玩具，我收集了神经活动数据并训练神经网络将这些数据映射到预期动作。分析显示，高 alpha 波段是预测按钮按下最相关的输入。这一见解导致神经网络优化，执行时间显着缩短，高达 95.18%，同时保持准确性。这些发现凸显了提高神经网络推理效率的潜力，特别是在 Neuralink 应用中区分信号和噪声方面。
-
-令人惊讶：使用儿童玩具制作 EEG 设备。
-有争议：未能为 Neuralink 压缩挑战赛设计出无损压缩算法。]]></description>
-      <guid>https://t.me/hn_summary/104476</guid>
-      <pubDate>Sun, 18 Aug 2024 00:31:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>在编程中，“魔法”这个术语通常缺乏明确的定义。</title>
-      <link>https://t.me/hn_summary/104475</link>
-      <description><![CDATA[编程语言中魔法的定义
-在编程中，“魔法”一词通常缺乏明确的定义。这篇文章提供了一个实用的定义：代码的“魔法”程度与必须查阅代码的其他部分才能理解它以及识别这些部分的难度成正比。这创造了一个魔法的连续体，因为没有代码是完全不言自明的。魔法本身没有好坏之分；它是一种必须权衡其好处的成本。例子包括隐式方法、继承、多态性和 monkeypatching，所有这些都可以增加代码的魔力。目标是促进关于魔法成本和好处的理性讨论，避免情绪化的争论。]]></description>
-      <guid>https://t.me/hn_summary/104475</guid>
-      <pubDate>Sun, 18 Aug 2024 00:13:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 外科医生切除了我头上的巨大肿瘤。</title>
-      <link>https://t.me/hn_summary/104474</link>
-      <description><![CDATA[外科医生从我头上切除了一个大肿瘤。还有更好的方法吗？
-尽管医学取得了诸多进步，但脑外科手术仍然是一个令人惊讶的野蛮过程，这是我亲身体验到的。2023 年 3 月，就在我 40 岁生日之前，我在去纳什维尔出差期间慢跑时癫痫发作。医院扫描显示我的后脑勺有一个 4 厘米宽的肿瘤。几周后，我就上了西雅图华盛顿大学的手术台。外科医生在我的头皮上切了一个长长的倒“U”，剥去皮肤，在我的头骨上开了一个柚子大小的开口以切除肿块。我失血过多，花了数周时间才恢复，但我很幸运——肿瘤是良性的，可以手术。今年 4 月，我与弗吉尼亚大学前神经外科联合主席尼尔·卡塞尔博士讨论了这个问题。卡塞尔看起来就像一位教授，说话也非常有胆量，他将这一手术比作伸进饼干罐，指出取出的骨头就像盖子一样放回原处。]]></description>
-      <guid>https://t.me/hn_summary/104474</guid>
-      <pubDate>Sat, 17 Aug 2024 23:28:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 如果你吃大量的绿叶蔬菜、黑巧克力、坚果和豆类，你就很容易 [...]</title>
-      <link>https://t.me/hn_summary/104473</link>
-      <description><![CDATA[镁含量低与致病性 DNA 损伤有关
-如果您食用大量的绿叶蔬菜、黑巧克力、坚果和豆类，您的身体状况可能很好。然而，南澳大利亚大学 (UniSA) 的一项新研究表明，饮食中缺乏镁可能会导致 DNA 损伤。研究人员分析了 172 名中年人的血液样本，发现镁含量低与同型半胱氨酸含量高有关，同型半胱氨酸是一种已知具有遗传毒性的氨基酸。这种缺陷会增加患胃肠道疾病、多种癌症、糖尿病以及阿尔茨海默氏症和帕金森氏症等神经退行性疾病的风险。该研究还发现镁与叶酸和维生素 B12 水平之间存在正相关关系，这表明充足的镁对于保护我们的基因至关重要。镁参与人体 300 多种酶系统，包括调节血压和血糖水平的酶系统。FDA 建议成年人每天摄入 420 毫克镁，这可以通过饮食或补充剂轻松实现。该研究结果发表在《欧洲营养学杂志》上。]]></description>
-      <guid>https://t.me/hn_summary/104473</guid>
-      <pubDate>Sat, 17 Aug 2024 23:23:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>Diffusion Studio 是一个基于浏览器的视频处理框架，它利用尖端的兄弟技术 [...]</title>
-      <link>https://t.me/hn_summary/104472</link>
-      <description><![CDATA[显示 HN：使用代码编辑视频的 Typescript 库
-Diffusion Studio 是一个基于浏览器的视频处理框架，它利用 WebGPU、WebCodecs 和 WebAssembly 等尖端浏览器 API 实现高性能渲染，而无需后端。它于 2023 年 3 月推出，旨在成为一个全面的视频处理工具包，尤其是针对 AI 应用程序。该项目支持各种视频编辑功能，例如修剪、分层、文本渲染、滤镜和关键帧动画。与 Remotion 和 Motion Canvas 等其他工具不同，Diffusion Studio 将声明性 API 与 GPU 加速相结合，使其成为动态视频编辑应用程序的理想选择。它针对客户端使用进行了优化，无需服务器基础设施。]]></description>
-      <guid>https://t.me/hn_summary/104472</guid>
-      <pubDate>Sat, 17 Aug 2024 23:16:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] “适用于 Pandas DataFrames、CSV 和 Excel 文件的 Python 压缩套件”项目 [...]</title>
-      <link>https://t.me/hn_summary/104471</link>
-      <description><![CDATA[显示 HN：适用于 Pandas DataFrames、CSV 和 Excel 文件的 Python 压缩套件
-“适用于 Pandas DataFrames、CSV 和 Excel 文件的 Python 压缩套件”项目提供了一个名为 lzhw 的库，用于使用源自 Lempel-Ziv、Huffman 和 LZ-Welch 技术的优化算法压缩大型列表和 pandas DataFrames。该库旨在显著减少存储空间而不会丢失信息，在某些情况下可节省高达 99% 的空间。它支持并行压缩，适用于 Windows（即将推出 Mac 版本），并包含不需要事先安装 Python 的命令行工具。该项目通过提供高压缩效率、易用性以及分块处理大型数据集和 DataFrames 的能力而脱颖而出。 （根据 74% 的故事文本进行总结。）]]></description>
-      <guid>https://t.me/hn_summary/104471</guid>
-      <pubDate>Sat, 17 Aug 2024 23:01:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体]《歧义烟斗》向超现实主义艺术家雷内·马格利特致敬，其 1929 年的画作《[...]</title>
-      <link>https://t.me/hn_summary/104470</link>
-      <description><![CDATA[Bizarro 符号的关键
-《歧义烟斗》向超现实主义艺术家雷内·马格利特致敬，他 1929 年的画作《图像的背叛》体现了 Bizarro 的喜剧美学。这幅画的特色是烟斗上方写着“Ceci n&#39;est pas une pipe”（这不是烟斗），突出了文字和图像的相互作用。马格利特的作品鼓励我们质疑我们对现实的看法，寻求更深层的意义。值得注意的是，2021 年 1 月 1 日之前，烟斗在 Bizarro 漫画中的出现是非官方的。有趣的活动是，在索引卡上画出烟斗，将其折叠起来，然后将其称为马格利特的肖像，从而为平凡的对话注入超现实主义。但请记住，不要开始吸烟——至少不要吸烟。]]></description>
-      <guid>https://t.me/hn_summary/104470</guid>
-      <pubDate>Sat, 17 Aug 2024 22:29:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 网站：www.tomshardware.com</title>
-      <link>https://t.me/hn_summary/104469</link>
-      <description><![CDATA[新的 Win11 内部版本阻止在旧硬件上安装，防止 TPM 绕过
-标题：新的 Win11 内部版本阻止在旧硬件上安装，防止 TPM 绕过
-网站：www.tomshardware.com
-
-许多使用不受支持的 PC 的用户一直在使用命令行技巧来安装 Windows 11，从而绕过其硬件要求。此解决方法允许旧 PC 运行最新的操作系统，但 Microsoft 已在最新的 Canary Build 中修补了此技巧，需要 TPM 2.0 协议。 Bob Pony 证实，虽然当前的 Windows 11 24H2 仍可使用旁路，但这种情况可能不会持续太久。Windows 11 Insider Build 27686 (Dilithium) 中的补丁阻止了这种方法，可能会终止在旧硬件上使用 Windows 11。用户现在可能需要切换到其他操作系统或升级硬件。值得注意的是，微软尚未公开提及此补丁，这可能会被视为有争议的。]]></description>
-      <guid>https://t.me/hn_summary/104469</guid>
-      <pubDate>Sat, 17 Aug 2024 22:28:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
