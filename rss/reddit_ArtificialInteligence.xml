@@ -4,41 +4,48 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的方方面面提供一个门户，并促进有关我们所知的人工智能思想和概念的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、在哪里可以找到资源和工具、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能的发展方向以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Tue, 20 Aug 2024 18:24:45 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2024 21:19:02 GMT</lastBuildDate>
     <item>
-      <title>我可以在 google colab 中运行任何图像生成 AI 建议吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex24l4/any_image_gen_ai_recommendations_which_i_can_run/</link>
-      <description><![CDATA[最好让它在 TPU 上运行，但如果那不是一个选项，其他建议也非常感谢。    提交人    /u/Ok_Film628   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex24l4/any_image_gen_ai_recommendations_which_i_can_run/</guid>
-      <pubDate>Tue, 20 Aug 2024 17:49:41 GMT</pubDate>
+      <title>编写代码，使用差分解密模型的局部 LLM 权重，什么是寻找模式相似性</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex70qm/write_code_for_decrypt_local_llm_weights_of_model/</link>
+      <description><![CDATA[您描述的想法似乎与使用差异分析或通过识别模式和相似性来解密或逆向工程机器学习模型权重的过程有关。但是，必须澄清一些事情：  差异分析：这通常用于密码学中，通过比较输入的差异和输出的相应差异来查找加密数据中的模式。从理论上讲，将此概念应用于模型权重可能涉及分析输入数据的细微变化对模型预测或输出的影响。 模型权重：这些是机器学习模型中在训练期间经过优化的参数。通常，这些权重不会以需要解密的方式加密，但可能会在某些专有模型中受到保护或模糊处理。 道德与合法性：未经许可试图对专有软件的模型权重进行逆向工程或解密通常是违法和不道德的。  考虑到这些要点，我将提供一个概念性概述，说明如何在研究环境中使用类似差异的方法探索模型权重中的模式，假设您可以合法访问该模型。 用于模型权重差异分析的概念 Python 代码 ```python import numpy as np import torch from torch import nn from torch.autograd import Variable 加载您的模型（假设是 PyTorch 模型） model = torch.load(&#39;model.pth&#39;) model.eval() 假设我们可以访问输入数据 input_data = torch.randn(1, 3, 224, 224) # 图像模型的示例输入 稍微扰动输入并观察输出差异的函数 def different_analysis(model, input_data, epsilon=1e-5): input_var = Variable(input_data, require_grad=True) # 在原始输入上前向传递 output_original = model(input_var) # 稍微扰动输入 perturbed_input = input_var + epsilon * torch.randn(input_var.size()) # 在扰动的输入上前向传递 output_perturbed = model(perturbed_input) # 计算输出的差异 output_diff = output_perturbed - output_original return output_diff  应用差异分析 output_difference = different_analysis(model, input_data) 分析差异中的模式 例如，您可以查看差异的分布 diff_mean = output_difference.mean().item() diff_std = output_difference.std().item() print(f&quot;输出差异的平均值：{diff_mean}&quot;) print(f&quot;输出差异的标准差：{diff_std}&quot;) 进一步的分析可能涉及查看梯度、特定层等。 ``` 解释：  模型加载：模型已加载（假设它在 PyTorch 中）。 输入数据：我们使用随机张量代替实际输入数据。 差异分析：函数 differential_analysis 为输入添加了一个小扰动 (epsilon)，并观察模型的输出如何变化。 输出差异：此差异可以深入了解模型对输入变化的敏感程度。  重要说明：  安全和道德：始终确保您有权对任何模型执行此类分析。 梯度分析：如果目标是了解模型的行为，进一步分析梯度（例如，通过反向传播）可能更合适。  扩展：  您可以通过分析模型相对于输入或模型权重的梯度来扩展此代码，以获得更多见解。 更复杂的方法可能涉及聚类差异，分析特定层或使用对抗性机器学习的技术。  请记住，此示例假设您可以合法访问该模型并将这些技术用于研究或合法目的。    提交人    /u/Worldly_Evidence9113   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex70qm/write_code_for_decrypt_local_llm_weights_of_model/</guid>
+      <pubDate>Tue, 20 Aug 2024 21:05:19 GMT</pubDate>
     </item>
     <item>
-      <title>大多数 GPT 模型的系统提示的可定制性如何？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex0oqe/how_customizable_are_system_prompts_for_most_gpt/</link>
-      <description><![CDATA[所以我是一名高中全栈 Web 开发人员，现在 AI 的第一波浪潮已经结束，我正在尝试开发 AI 服务。说到游戏迟到了。我想创建一个类似于 ChatGPT 的网站作为我的第一个项目，我发现了一个类似的网站，名为 Character.ai。如果您不知道 Character.ai 是什么，它是一个用户可以创建自己的 AI 机器人的网站，然后他们和其他用户可以与这些机器人进行角色扮演。 作为一名开发人员，我知道当你买不起 ChatGPT-3 等 API 时，制作 AI 有多难。我开始研究 AI 模型、它们是如何制作的以及它们是如何被指导的。我听到人们在提到任何外部 AI API 时经常使用“系统提示”，所以我想知道他们的意思是什么。  系统提示是否只是解释机器人身份并定义其行为方式的基本指令？还是更复杂，例如 Character.ai 中的角色描述，您可以在其中定义个性特征和示例对话？如果是后者，它会是大多数 API 中嵌入的功能还是程序员必须自己创建的功能？    提交人    /u/Kp33n   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex0oqe/how_customizable_are_system_prompts_for_most_gpt/</guid>
-      <pubDate>Tue, 20 Aug 2024 16:52:51 GMT</pubDate>
+      <title>我正在为一个研究项目对人工智能进行逆向工程</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex6kl5/im_reverse_engineering_an_ai_for_a_research/</link>
+      <description><![CDATA[我正在对 Emel Koç 撰写的一篇名为“通过混合卷积循环神经网络从结构和静息状态功能 MRI 图像中检测自闭症谱系障碍”的论文中的混合卷积循环神经网络进行逆向工程。我确实发送了源代码请求，但即使在后续跟进后也从未收到回复。如果有人对解决此问题的最佳方法有任何想法，请告诉我。我对此有很好的理解，但网络架构和数据融合的小细节让我感到困惑。     提交人    /u/DrakeTheCake1   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex6kl5/im_reverse_engineering_an_ai_for_a_research/</guid>
+      <pubDate>Tue, 20 Aug 2024 20:47:26 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能设计和设计工具的真正未来？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex02gw/the_real_future_of_ai_design_design_tools/</link>
-      <description><![CDATA[我制作了一个详细的视频：https://youtu.be/1F_K5bI3xDU 在这个所谓的AI创意工具“淘金热”中，有很多设计工具使用噱头来流行。AI设计工具的真正未来是什么，设计师可以为之兴奋什么。这是对Ai设计工具和创意未来的完全正面的评价。    提交人    /u/Punitweb   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex02gw/the_real_future_of_ai_design_design_tools/</guid>
-      <pubDate>Tue, 20 Aug 2024 16:29:15 GMT</pubDate>
+      <title>人工智能女友会成为我们的未来吗？还是说它们永远不会普及？我是一名记者，我发现对它们上瘾的人比我想象的要多得多。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex53dc/are_ai_girlfriends_our_future_or_will_they_never/</link>
+      <description><![CDATA[我是一名记者，刚刚制作了一篇 关于 AI 女友的 YouTube 作品，这真是太有趣了。现在我完成了，我忍不住反思我所做的一切，想知道这是否是我们的未来。我很想听听这个 subreddit 的想法。这样的技术是我们的未来吗？它是有害还是有益的技术？我不是那种过多发表意见或试图告诉人们该怎么想的记者，所以我不会在这里说，但请随意看看这篇文章以了解我的一些发现（或者如果人们愿意，我可以在下面总结它们）    提交人    /u/Itsbenmulley   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex53dc/are_ai_girlfriends_our_future_or_will_they_never/</guid>
+      <pubDate>Tue, 20 Aug 2024 19:48:38 GMT</pubDate>
     </item>
     <item>
-      <title>我创建 r/Rag 的原因——呼吁人工智能领域的创新与合作</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ewzzu4/why_i_created_rrag_a_call_for_innovation_and/</link>
-      <description><![CDATA[  由    /u/dhj9817  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ewzzu4/why_i_created_rrag_a_call_for_innovation_and/</guid>
-      <pubDate>Tue, 20 Aug 2024 16:26:23 GMT</pubDate>
+      <title>Google AI 概览热点：针对未登录用户的 AIO、增加的链接数量等 [2024 年 8 月 20 日 | SE 排名团队文摘]</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex4uit/google_ai_overviews_buzz_aios_for_unlogged_users/</link>
+      <description><![CDATA[ 上周，未登录 Google 帐户的用户可以看到 AI 代码片段，这引起了很多讨论。许多 SEO 专家分享了隐身模式下的 AI 概览截图。本周，Brodie Clark 和 Aleyda Solis 分享了他们对 X 的观察。  如果您已经在浏览器中看到了 AI 代码片段，请随时在下面的评论中分享您自己的截图。让我们一起比较 AIO 在不同位置的显示方式！ 来源： Barry Schwartz | 搜索引擎圆桌会议 X | Brodie Clark X | Aleyda Solis   最近，Lily Ray 和 Barry Schwartz 注意到搜索结果中 AI 概览提供的链接数量有所增加。本周，我们看到这种趋势仍在继续！Marketing O&#39;Clock 的小伙子们发表了他们的想法：  “当我们说我们想要在 AI 概览中添加链接时，这并不是我们真正的意思。Google 更新了 AI 概览，在每个答案中包含链接，但每个链接都指向同一个页面？” 你呢？你看到了同样的趋势吗？只有一个要点和一个链接？ 来源： X | Lily Ray Barry Schwartz | 搜索引擎圆桌会议 X | Marketing O&#39;Clock   我们看到了很多关于 AI 概览扩展到英国、印度、日本、印度尼西亚、墨西哥和巴西等新国家的新闻。本周，Gagan Ghotra 指出了一个有趣的细节，这可以解释为什么它在其他国家的扩张仍然是渐进而缓慢的。他以澳大利亚为例：  “...Google 正因为这些 AI 道德原则而与澳大利亚政府接洽。这些原则是 Google 正式在澳大利亚推出 AI 概览的一大障碍，因此他们甚至没有在这里推出搜索实验室，让用户能够测试 SGE（AI 概览的前身）” 资料来源： X | Gagan Ghotra   Glenn Gabe 帮助 SEO 社区了解如何在 AIO 代码段的框架中跟踪结果：  “...AI 概览中的发布商链接占据了整个 AIO 块的位置。因此，无论您在 AIO 中排名如何，它都将是块的位置，通常是排名第一...” Barry Schwartz 后来在一篇文章中分享了他对此的看法。他还附上了一些 Google 文档的链接。您对此有何看法？您认为位置跟踪过程会很快改变吗？来源：X | Glenn Gabe Barry Schwartz | 搜索引擎圆桌会议   每个人都知道 AI 概览在搜索结果中提出的事实核查相关问题。本周，我们想分享一篇来自 TheSeniorList 的有趣文章，标题为“在 AI 时代驾驭健康信息：深入了解 Google 的 AI 概览。”  我们相信这样的例子可以帮助不同领域的出版商向读者提供准确的信息，同时推广他们的产品或服务。您如何看待专门针对事实核查 AIO 的文章的出现？它们是一个新时代的开始还是只是暂时的趋势？ 来源： Ryan Molloy | TheSeniorList  欢迎在评论中分享您的想法和观察！SE Ranking 团队相信，通过联合起来，Reddit 社区可以使搜索的 AI 化更加顺畅和容易！注意！我们即将推出另一个 Google AI 概述摘要！    提交人    /u/SE_Ranking   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex4uit/google_ai_overviews_buzz_aios_for_unlogged_users/</guid>
+      <pubDate>Tue, 20 Aug 2024 19:38:51 GMT</pubDate>
     </item>
     <item>
-      <title>关于 heygen AI 替代方案的建议</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ewzx4t/suggestions_for_alternatives_for_heygen_ai/</link>
-      <description><![CDATA[大家好，我正在做一个项目，我的公司正在开发一种基于 AI 头像的面试解决方案，我们正在探索不同的 AI 头像（模型已经训练好，只需要头像），但问题是其中一些不是那么划算。我们看到的两个选项是 heygen，一次面试大约花费 6 美元/小时，另一个是 MSAzure Speech，成本更高。所以我在寻找一些更便宜的替代品，我尝试过一些选择，但找不到它们的确切价格- 1.Colossyan 2.D-ID 3.Synthesia 但找不到它们的价格。如果有人对这些有想法或者他们可以建议其他替代方案。那就太好了！！！谢谢    提交人    /u/crucifer17   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ewzx4t/suggestions_for_alternatives_for_heygen_ai/</guid>
-      <pubDate>Tue, 20 Aug 2024 16:23:21 GMT</pubDate>
+      <title>Elixir - 为您的 AI 语音代理进行自动测试和通话审查</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex4g7a/elixir_automated_testing_call_review_for_your_ai/</link>
+      <description><![CDATA[嗨，Redditors 的朋友们！ 我是 Andrew，Elixir 的创始人/开发者之一，该平台为您的 AI 语音代理提供自动测试和通话审查。 我们在构建 AI 技术面试官 Code Coach 时，尝试解决我们自己的一些问题，从而构建了 Elixir。我们发现自己花费了大量时间手动监听通话，以查找各种问题，从中断和转录错误到用户沮丧和糟糕的对话体验，以及尝试在不同场景下测试代理以确保它不会崩溃。 目前，该产品是 MVP；它支持 OpenAI 和 Pinecone 的跟踪/监控，并提供高级指标。从长远来看，我们的愿景是能够： ✔ 跟踪通话指标并大规模识别错误。通过通话自动评分简化您的手动审核流程 ✔ 模拟 1000 次与您的语音代理的通话，以全面测试不同语言、口音、语音模式等 ✔ 借助音频片段、LLM 跟踪和成绩单快速调试问题 我很感激任何关于如何改进产品/登录页面的坦诚反馈和建议！我们刚刚在 Product Hunt 上推出，非常感谢任何支持。以下是我们的文档链接：https://docs.tryelixir.ai    提交人    /u/achang97   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex4g7a/elixir_automated_testing_call_review_for_your_ai/</guid>
+      <pubDate>Tue, 20 Aug 2024 19:22:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻求有关一体化视频生成工具的反馈</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ex3cdb/looking_for_feedback_on_allinone_video_generation/</link>
+      <description><![CDATA[大家好， 我正在寻找测试新视频内容生成平台 Hypernatural 的人。它有很多用途，但对于想要将想法形象化或根据现有脚本或想法创建带有全配音角色的动画视频的作家或视频创作者来说尤其有益。 该工具允许任何人根据任何想法或脚本，甚至根据现有视频生成自定义风格的短视频。它还可以生成 B-roll、AI 字幕和一致的 AI 叙述角色。编剧尤其喜欢它，因为他们只需插入他们的台词就可以让他们的故事栩栩如生！ 加入完全免费，您的诚实反馈将非常有价值。有什么你喜欢的，有什么你不喜欢的？请告诉我！在这里查看：https://hypernatural.ai/?via=samuel 如果您有任何疑问，请给我留言！我很乐意为您提供帮助，如果您想实时了解它的工作原理，我甚至可以提供现场演示。 干杯！    提交人    /u/SamuelAnonymous   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ex3cdb/looking_for_feedback_on_allinone_video_generation/</guid>
+      <pubDate>Tue, 20 Aug 2024 18:38:16 GMT</pubDate>
     </item>
     <item>
       <title>人工智能作弊现象愈演愈烈</title>
@@ -81,13 +88,6 @@
       <description><![CDATA[我现在的主要工作是做学生，有很多写作任务。我还尝试将这份工作与写创意故事和博客文章的兼职工作结合起来。你用什么工具来做这件事？我还没有尝试过很多资源，所以我愿意探索新的服务。 以下是我已经检查过的。 ​   Textero 学术写作 https://textero.io/ 创建大纲，查找学术资源，为不同类型的写作生成论点或想法    Ahelp 学术写作 https://ahelp.com/ 撰写结构良好的文本，检查语法，检查带有人工智能检测器和抄袭检查器的文本   Sudowrite 创意写作 https://www.sudowrite.com/ 改进描述，发展角色，创建更自然的对话   Wordtune 创意写作 https://www.wordtune.com/ 建议替代短语或想法，同义词和替代词汇选择   ​    由    /u/Lanky-Huckleberry-41  提交  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ewpwkd/tools_for_writing_creative_and_academic_texts/</guid>
       <pubDate>Tue, 20 Aug 2024 07:57:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>AMD 斥资 49 亿美元收购基础设施公司 ZT Systems，增强 AI 生态系统</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ewopti/amd_to_boost_ai_ecosystem_with_49b_acquisition_of/</link>
-      <description><![CDATA[Nvidia 和 AMD 都是参与 AI 竞赛的芯片制造商。今天，AMD 宣布了一项重大收购，这将使其成为打造大型 AI 业务的公司的更好的“生态系统”合作伙伴：它以 49 亿美元收购了 ZT Systems。https://theaiwired.com/amd-to-boost-ai-ecosystem-with-4-9b-acquisition-of-infrastructure-firm-zt-systems/    提交人    /u/alyis4u   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ewopti/amd_to_boost_ai_ecosystem_with_49b_acquisition_of/</guid>
-      <pubDate>Tue, 20 Aug 2024 06:34:52 GMT</pubDate>
     </item>
     <item>
       <title>特朗普利用人工智能为泰勒·斯威夫特代言是否违法？</title>
