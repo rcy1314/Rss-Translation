@@ -4,108 +4,110 @@
     <title>HN 摘要</title>
     <link>https://tg.i-c-a.su</link>
     <description>由大型语言模型编写的热门 Hacker News 故事的自动摘要。</description>
-    <lastBuildDate>Wed, 21 Aug 2024 12:21:45 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Aug 2024 18:06:09 GMT</lastBuildDate>
     <item>
-      <title>[媒体] 在本文中，作者探讨了 Rust 中函数局部类型的特性 [...]</title>
-      <link>https://t.me/hn_summary/104934</link>
-      <description><![CDATA[Rust 中函数局部类型的怪异之处
-在本文中，作者探讨了 Rust 中函数局部类型的奇特之处，特别是它们如何与宏和名称解析交互。作者分享了他们使用 proc-macro crate bon 的经验，该 crate 为函数和结构生成构建器。他们将 bon 与另一个 crate buildstructor 进行比较，但在使用 cargo test --doc 进行测试时遇到编译问题。出现问题的原因是 Rust 对本地项（例如函数内定义的结构）的名称解析不允许在其范围之外引用它们。作者深入研究了这种行为的复杂性，解释了如何使用特征从外部访问这些本地类型，尽管这种方法对于生产代码来说并不实用。他们还强调了函数块中的子模块如何无法从函数范围访问符号，从而使宏生成的代码变得复杂。解决方案涉及一个折衷方案：避免使用子模块，并使用前导下划线和 #[doc(hidden)] 属性来混淆私有字段。这种解决方法虽然并不完美，但可以解决大多数用例的问题。本文深入探讨了 Rust 的作用域规则及其对宏设计的影响，为 Rust 开发人员提供了宝贵的见解。
+      <title>[媒体] 最近一项涉及 73 名从 COVID-19 中康复的成年人的研究表明，那些失去 [...]</title>
+      <link>https://t.me/hn_summary/104970</link>
+      <description><![CDATA[新冠疫情导致的嗅觉丧失与大脑变化有关
+最近一项涉及 73 名新冠康复成年人的研究表明，失去嗅觉的人表现出行为、功能和结构性大脑变化。这项研究由智利的研究人员进行，包括认知筛查、决策任务、功能测试和 MRI 扫描，对轻度至中度新冠感染患者进行研究，并与 27 名非新冠患者进行比较。研究结果表明，嗅觉丧失可以作为病毒引起的神经元损伤和大脑易感性的标志。值得注意的是，嗅觉缺失患者表现出更多的冲动和决策改变，MRI 扫描显示大脑活动减少和结构变化。这项研究强调了识别高危人群以进行有针对性的后续护理的重要性。需要进一步研究探索嗅觉丧失与大脑变化之间的联系以及潜在的治疗目标。]]></description>
+      <guid>https://t.me/hn_summary/104970</guid>
+      <pubDate>Wed, 21 Aug 2024 18:06:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>标题：代码审查反模式</title>
+      <link>https://t.me/hn_summary/104969</link>
+      <description><![CDATA[代码审查反模式
+标题：代码审查反模式
 
-争议点：作者批评了在范围之外访问函数局部类型的不切实际，认为当前的行为违反直觉且繁琐。
+网站：www.chiark.greenend.org.uk
 
-独特见解：巧妙使用特征来访问范围之外的局部类型，虽然不切实际，但展示了 Rust 类型系统的深度和作者对它的深刻理解。（基于 82% 的故事文本的总结。）]]></description>
-      <guid>https://t.me/hn_summary/104934</guid>
-      <pubDate>Wed, 21 Aug 2024 12:21:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>“Handwriter.ttf”项目是一个利用 Harfbuzz WASM Shaper 的手写合成器 [...]</title>
-      <link>https://t.me/hn_summary/104933</link>
-      <description><![CDATA[显示 HN：Handwriter.ttf – 使用 Harfbuzz WASM 进行手写合成
-“Handwriter.ttf”项目是一个手写合成器，它利用 Harfbuzz WASM Shaper 在运行时生成和栅格化手写字体。它使用轻量级 RNN 模型 (~14MiB) 来预测笔的位置并创建笔画，然后使用 Bresenham 的线算法进行栅格化。该项目旨在展示 WASM 整形器在字体合成中的潜力，提供了一种与传统方法相比独特的方法。用户可以通过克隆存储库并运行提供的命令在具有 X11 的 Linux 系统上尝试它。该项目针对性能进行了优化，在 Intel Ultra 125H 上实现了每个字符 0.08 秒。它是根据 Apache 2.0 许可的。]]></description>
-      <guid>https://t.me/hn_summary/104933</guid>
-      <pubDate>Wed, 21 Aug 2024 12:10:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 2024 年 8 月，作者回顾了 Python 打包工具 Rye 的进展，[...]</title>
-      <link>https://t.me/hn_summary/104932</link>
-      <description><![CDATA[Rye 和 Uv：八月是 Python 打包的收获季节
-2024 年 8 月，作者回顾了 Python 打包工具 Rye 的进展，自 2 月以来，该工具一直由 Astral 管理。Astral 显著改进了底层解析器和安装程序 uv，使其速度更快、功能更强大。最新的 uv 版本现在包括 pyproject.toml 操作、工作区支持和 Python 安装管理等功能，这些功能以前是 Rye 独有的。作者鼓励社区过渡到 uv 并向 Astral 提供反馈，强调需要一个占主导地位的打包工具来简化 Python 生态系统。值得注意的一点是，作者认为 Rye 最终应该被淘汰，转而采用 uv。后记讨论了 Astral 由风险投资资助的潜在争议，表明尽管存在潜在风险，但社区仍将受益于 uv 的进步。]]></description>
-      <guid>https://t.me/hn_summary/104932</guid>
-      <pubDate>Wed, 21 Aug 2024 11:57:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] Devtron 是一个开源的高级 Kubernetes 仪表板，旨在加速 Kuberne [...]</title>
-      <link>https://t.me/hn_summary/104931</link>
-      <description><![CDATA[显示 HN：开源高级 Kubernetes 仪表板
-Devtron 是一个开源高级 Kubernetes 仪表板，旨在通过将各种 DevOps 工具集成到单一平台来加速 Kubernetes 的采用。它解决了跨多个集群部署、管理、观察和调试 Helm 应用程序的挑战。主要功能包括应用程序级资源分组、集中访问管理和多集群支持。Devtron 利用 Clair、ArgoCD 和 Grafana 等工具，通过深度集成 CI/CD、安全性、成本管理和可观察性来脱颖而出。它支持各种部署策略并提供全面的部署指标。通过 Helm 可以轻松安装，并且平台是模块化的，可以通过集成轻松扩展。]]></description>
-      <guid>https://t.me/hn_summary/104931</guid>
-      <pubDate>Wed, 21 Aug 2024 11:50:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 论文：https://shunyaekam.com/assets/papers/pvsnp.pdf</title>
-      <link>https://t.me/hn_summary/104930</link>
-      <description><![CDATA[P ≠ NP 的证明
-标题：P ≠ NP 的证明
-网站：news.ycombinator.com
-论文：https://shunyaekam.com/assets/papers/pvsnp.pdf
+作者：Simon Tatham，2024-08-21
 
-在本文中，我通过以下方式提出 P ≠ NP 的证明将无理数概念化为算法，因为它们具有收敛过程的性质。核心论点取决于这样一种观点，即没有“有限数量的参数”能够编码每个无理数，从而意味着 P 不能等于 NP。这种方法为 P vs NP 问题提供了一个新颖的视角，该问题长期以来一直是理论计算机科学的基石。请随时查看链接文档中的详细证明。]]></description>
-      <guid>https://t.me/hn_summary/104930</guid>
-      <pubDate>Wed, 21 Aug 2024 11:15:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 核电为何会失败？</title>
-      <link>https://t.me/hn_summary/104929</link>
-      <description><![CDATA[核电为何失败？（2021 年）
-20 世纪 50 年代，核电被誉为未来的能源，但如今它仅占全球电力的 10% 左右。杰克·德瓦尼 (Jack Devanney) 的著作《核电为何失败》探讨了这一悖论。核心问题是成本：核电成本高昂，因为设计和建设成本高昂，自 20 世纪 70 年代以来，核电成本一路飙升。德瓦尼认为，安全法规，尤其是线性无阈值 (LNT) 模型，过于严格，没有证据支持。这导致了效率低下和创新受阻。ALARA 标准进一步加剧了这种情况，确保核电的成本高于其他能源。 Devanney 表示，如果监管方法得到修改，核电将既安全又便宜。（基于 49% 的故事文本摘要。）]]></description>
-      <guid>https://t.me/hn_summary/104929</guid>
-      <pubDate>Wed, 21 Aug 2024 09:25:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 介绍 Live HTML，这是一种轻量级的 CLI 工具，设计为 Node.js 包，为您服务 [...]</title>
-      <link>https://t.me/hn_summary/104928</link>
-      <description><![CDATA[Show HN：一款通过热重载在本地提供 HTML 文件的 CLI 工具
-介绍 Live HTML，这是一款轻量级 CLI 工具，设计为 Node.js 包，通过热重载在本地提供 HTML 文件，从而提高工作效率。此工具可直接替代 VS Code 中的 Live Server 扩展。 
+摘要：
 
-安装步骤：
-1. 全局安装：使用 npm i -g @abenezer-daniel/live-html 全局安装包，确保您可以随时使用它而无需重复下载。
-2. 导航到项目文件夹：在项目目录中打开终端。
-3. 启动服务器：在空闲端口（例如 2000、3000、4000、5000）上启动服务器。
-4. 在浏览器中访问：在浏览器中打开端口并导航到 HTML 文件的路径，例如 http://localhost:5500/pages/about.html。
-
-重要说明：
-- 确保您的 HTML 包含有效的骨架和 body 标签，以便实时重新加载正常运行。
-- 对于index.html，只需在 URL 中使用 /。
-
-现在，对 HTML 的任何更改都会自动反映在浏览器中，而无需刷新。]]></description>
-      <guid>https://t.me/hn_summary/104928</guid>
-      <pubDate>Wed, 21 Aug 2024 09:19:21 GMT</pubDate>
+代码审查通常被视为有益的，可提高代码质量和开发人员技能。但是，它们也可能被滥用来阻碍进度并挫伤开发人员的士气。本文幽默地概述了几种“阴暗面”的代码审查反模式，例如“一千次往返的死亡”，审查人员会逐渐挑剔以推迟补丁，以及“赎金纸条”，审查人员会扣留重要的补丁以换取无关的工作。其他策略包括相互矛盾的要求（“双重包夹”）、含糊的批评（“猜谜游戏”）和最后一刻的重大反对意见（“最新设计审查”）。尽管语气讽刺，但作者强调应避免这些行为以促进建设性的审查过程。（基于 60% 的故事文本的总结。）]]></description>
+      <guid>https://t.me/hn_summary/104969</guid>
+      <pubDate>Wed, 21 Aug 2024 18:05:35 GMT</pubDate>
     </item>
     <item>
-      <title>[媒体] ScreenPlay 是一款创新的开源动态壁纸应用程序，可用于 [...]</title>
-      <link>https://t.me/hn_summary/104927</link>
-      <description><![CDATA[ScreenPlay 是一款适用于 Windows 和 OS X 的开源动态壁纸应用程序
-ScreenPlay 是一款创新的开源动态壁纸应用程序，适用于 Windows 和 OS X。它的一个突出功能是实时重载，允许代码热重载。这意味着您可以实时查看项目的变化，而无需不断重新启动内容。此功能不仅可以节省时间，还可以帮助您专注于创作过程。]]></description>
-      <guid>https://t.me/hn_summary/104927</guid>
-      <pubDate>Wed, 21 Aug 2024 09:18:16 GMT</pubDate>
+      <title>嗨，HN！</title>
+      <link>https://t.me/hn_summary/104968</link>
+      <description><![CDATA[启动 HN：Outerport (YC S24) – AI 模型的即时热交换
+嗨，HN！我们是 Towaki 和 Allen，我们很高兴推出 Outerport，这是一个 AI 模型权重的分发网络，可以实现 AI 模型的“热交换”，从而大幅降低 GPU 成本。热交换允许在同一台 GPU 机器上提供不同的模型，交换时间约为 2 秒，比基线快得多。这项创新通过减少对过度配置 GPU 的需求并最大限度地缩短模型加载时间，解决了在云上运行 AI 模型的高成本和低效率问题。Outerport 使用分层缓存系统来优化数据传输和负载平衡，将 GPU 运行时间成本降低了 40%。我们渴望听到您对此的想法和经验！]]></description>
+      <guid>https://t.me/hn_summary/104968</guid>
+      <pubDate>Wed, 21 Aug 2024 17:58:28 GMT</pubDate>
     </item>
     <item>
-      <title>“Web Scraper”项目是一个多功能工具，旨在从 [...] 中抓取各种类型的内容。</title>
-      <link>https://t.me/hn_summary/104926</link>
-      <description><![CDATA[显示 HN：仅使用 URL 即可抓取任何网站，使用 WebUI 或终端
-“Web Scraper”项目是一个多功能工具，旨在使用基于 Flask 的 Web 应用程序或基于终端的脚本从网站抓取各种类型的内容。它可以从指定的 URL 中提取文本、超链接、图像、视频、音频文件和文档，并将其保存到指定的文件夹中。Web 应用程序提供了一个用户友好的界面来配置抓取任务，而终端脚本允许直接进行命令行交互。主要区别在于其双界面方法和全面的内容提取功能。该项目需要 Python 3.x、Flask、Requests 和 BeautifulSoup4，并根据 MIT 许可获得许可。欢迎贡献。]]></description>
-      <guid>https://t.me/hn_summary/104926</guid>
-      <pubDate>Wed, 21 Aug 2024 09:17:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>[媒体] 标题：《黑神话：悟空》超越《Elden Ring》和《赛博朋克 2077》的 Steam 记录</title>
-      <link>https://t.me/hn_summary/104925</link>
-      <description><![CDATA[《黑神话：悟空》超越 Elden Ring、Cyber​​punk 2077，创下 Steam 纪录
-标题：《黑神话：悟空》超越 Elden Ring、Cyber​​punk 2077，创下 Steam 纪录
+      <title>在 francisbach.com 上的“重温经典：詹森的不等式 (2023)”中，作者深入探讨了 [...]</title>
+      <link>https://t.me/hn_summary/104967</link>
+      <description><![CDATA[重温经典：詹森不等式 (2023)
+在 francisbach.com 上的“重温经典：詹森不等式 (2023)”中，作者深入研究了无处不在的数学工具詹森不等式，这对于限制随机变量函数的期望至关重要。这篇文章涵盖了有关不等式的一系列有趣事实，从基本公式和证明到历史背景和在推导其他不等式（如杨氏不等式和霍尔德不等式）中的经典应用。值得注意的是，作者强调，詹森不等式通常与直觉预期不一致，建议谨慎行事并进行可视化以避免错误。该帖子还探讨了数据科学中的高级应用，例如主要化-最小化算法，并将讨论扩展到算子凸性和信息论。作者的独特贡献是使用泰勒公式对詹森不等式进行了改进，这为平等情况提供了更深入的见解。
 
-截至撰写本文时，《黑神话：悟空》已飙升至 Steam 历史上同时在线人数第四多的游戏，拥有 221.5 万玩家。这一惊人的成功虽然在意料之中，但很大程度上得益于它在拥有 14 亿人口的中国的巨大人气。该游戏由中国工作室 Game Science 开发，灵感来自经典小说《西游记》，其玩家数量已超过《Elden Ring》和《Cyber​​punk 2077》。尽管 Game Science 内部存在一些性别歧视的争议，以及一封流传的电子邮件，不鼓励讨论 COVID-19、中国行业政策或“女权主义宣传”，但这些问题并未影响该游戏在中国的销量。该游戏的初步成功表明，它可能会成为这段时间内 Steam 上最畅销的游戏。]]></description>
-      <guid>https://t.me/hn_summary/104925</guid>
-      <pubDate>Wed, 21 Aug 2024 07:46:37 GMT</pubDate>
+争议点：作者指出，詹森不等式可能违反直觉，如果不仔细可视化，可能会导致常见错误。
+
+独特/巧妙的见解：作者使用泰勒公式对詹森不等式进行了个人改进，这是一个巧妙的补充，为该主题提供了一个新颖的视角。（基于 91% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/104967</guid>
+      <pubDate>Wed, 21 Aug 2024 17:56:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 血腥玛丽正迎来 80 岁生日，它有着与 [...] 紧密交织的丰富历史。</title>
+      <link>https://t.me/hn_summary/104966</link>
+      <description><![CDATA[血腥玛丽的起源 (2014)
+血腥玛丽迎来了 80 岁生日，它有着与第十八修正案和俄国革命交织在一起的悠久历史。它的起源存在争议，尤其是巴黎丽兹酒店海明威酒吧的科林·菲尔德，他对巴黎哈利纽约酒吧的血腥玛丽的发明提出了质疑。哈利纽约酒吧成立于 1911 年，在禁酒令期间成为美国人的避风港。调酒师费迪南德“皮特”佩蒂奥特将伏特加与番茄汁和调味料混合，制作了这种饮料，最初将其命名为血桶。在纽约的 King Cole Bar，它被重新命名为红鲷鱼，并作为宿醉治疗剂而广受欢迎。血腥玛丽这个名字的起源尚不清楚，有说法称是玛丽·都铎 (Mary Tudor) 和艺人乔治·杰塞尔 (George Jessel) 的朋友所为。欧内斯特·海明威 (Ernest Hemingway) 也为血腥玛丽的传说做出了贡献，他声称自己于 1941 年将其引入香港。为了庆祝这一天，这位作家在 King Cole Bar 享用了一条红鲷鱼，为其传奇历史和禁酒令的结束干杯。]]></description>
+      <guid>https://t.me/hn_summary/104966</guid>
+      <pubDate>Wed, 21 Aug 2024 17:56:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 谷歌为 Pixel 9 推出的全新“Reimagine”工具将 AI 照片编辑提升到了一个全新的水平 [...]</title>
+      <link>https://t.me/hn_summary/104965</link>
+      <description><![CDATA[谷歌的“Reimagine”工具帮助我们在照片中添加了残骸、灾难和尸体
+谷歌为 Pixel 9 推出的新“Reimagine”工具将 AI 照片编辑提升到了一个全新的水平，允许用户使用简单的文本提示为照片生成逼真的添加内容。与以前的工具不同，Reimagine 可以令人信服地添加令人不安的元素，例如车祸、冒烟的炸弹，甚至是血迹斑斑的床单下的尸体。这引发了人们对滥用可能性的极大担忧，因为这些工具很容易获得，并且缺乏识别 AI 生成内容的强大机制。谷歌发言人 Alex Moriconi 承认存在风险，但强调该公司致力于完善保障措施。然而，创建和共享误导性图像的便利性仍然令人不安，凸显了我们生成和检测此类内容的能力之间的差距。]]></description>
+      <guid>https://t.me/hn_summary/104965</guid>
+      <pubDate>Wed, 21 Aug 2024 17:55:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>欢迎来到 VirtualStorageLibrary！</title>
+      <link>https://t.me/hn_summary/104964</link>
+      <description><![CDATA[显示 HN：VirtualStorageLibrary – 用于项目、目录、符号链接的 .NET 树解决方案
+欢迎使用 VirtualStorageLibrary！
+
+VirtualStorageLibrary 是一个 .NET 库，专为内存树结构集合而设计，支持项目、目录和具有用户定义类型的符号链接。与传统文件系统不同，它提供了一种灵活且用户友好的方式来管理分层数据结构。主要功能包括通过路径规范进行直观的节点操作、强大的链接管理和防止循环引用。该库允许轻松引用、遍历和操作节点，并支持绝对路径和相对路径。有关详细用法，请参阅提供的文档，包括简介、入门指南和 API 参考。基于真实用例的教程即将推出。]]></description>
+      <guid>https://t.me/hn_summary/104964</guid>
+      <pubDate>Wed, 21 Aug 2024 17:46:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 在“带有 Scheme 语法规则的不卫生且引用不透明的宏”中，Oleg Kiselyo [...]</title>
+      <link>https://t.me/hn_summary/104963</link>
+      <description><![CDATA[使用 Scheme 语法规则的不卫生且引用不透明的宏 [pdf](https://news.ycombinator.com/item?id=41271139)
+在“使用 Scheme 语法规则的不卫生且引用不透明的宏”中，Oleg Kiselyov 探索了 R5RS 宏的潜在力量，挑战了人们普遍认为它们是严格卫生且引用透明的信念。通过基于 Al Petrofsky 从宏参数中提取变量的技术，Kiselyov 演示了如何创建似乎可以捕获用户标识符并允许其自己的标识符被最近的词汇绑定捕获的宏。这种看似不卫生的行为是通过在每次绑定后系统地重新定义宏来实现的，从而有效地掩盖了所有 Scheme 绑定形式，包括 lambda。本文表明，尽管 R5RS 宏具有限制性，但它们仍然可以执行强大且出乎意料的转换，这质疑了对语法规则宏进行更严格形式化的必要性。这项工作令人惊讶，因为它颠覆了 R5RS 宏的已知限制，同时保持了对 R5RS 语义的遵守。（基于 26% 的故事文本的摘要。）]]></description>
+      <guid>https://t.me/hn_summary/104963</guid>
+      <pubDate>Wed, 21 Aug 2024 17:27:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>问 HN：对于个人用途，您会推荐哪种 Python 替代品？</title>
+      <link>https://t.me/hn_summary/104962</link>
+      <description><![CDATA[问 HN：对于个人使用，您会推荐哪种 Python 替代方案？
+作为一名专业的全栈开发人员，我专攻 PHP 后端（Symfony 和 Laravel）和偶尔的 Bash 脚本，我正在寻找一种通用编程语言，用于家庭个人项目，例如 API 使用、本地 LLM 使用以及通过 websockets 或类似工具进行 I/O 交互。重要的是，由于对 Python 的语法和调试的初步体验不佳，我想避免使用 Python。我已经确定了几种潜在的替代方案，并希望有这些语言经验的人提供反馈：
+
+- Rust：功能强大，但似乎很复杂，对于小型项目来说可能有点过度。
+- Go：快速、可靠，并且拥有一套强大的社区软件包。
+- Ruby：语法很吸引人，可能是受我的 PHP 背景的影响。
+- Kotlin：令人惊讶的是，它比 Rust 更适合用于 GUI 开发。
+- Lua：因为它在游戏修改中的实用性而受到推荐，这让我很感兴趣。
+
+提前感谢您的反馈和帮助！:D]]></description>
+      <guid>https://t.me/hn_summary/104962</guid>
+      <pubDate>Wed, 21 Aug 2024 17:25:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>[媒体] 取消时事通讯：将电子邮件时事通讯转换为 Atom Feed</title>
+      <link>https://t.me/hn_summary/104961</link>
+      <description><![CDATA[Kill the Newsletter：将电子邮件新闻稿转换为 Atom 源
+Kill the Newsletter：将电子邮件新闻稿转换为 Atom 源
+
+Leandro Facchinetti 的 Kill the Newsletter！提供了一种将电子邮件新闻稿转换为 Atom 源的巧妙解决方案。通过创建源，用户将收到一个电子邮件地址，该地址将收到的电子邮件转换为源条目，然后可以通过源阅读器阅读。虽然大多数订阅确认工作无缝，但有些新闻稿需要手动验证或电子邮件回复，而 Kill the Newsletter！不支持这些操作。此外，一些出版商会阻止此服务，但用户通常可以通过从其常用地址转发电子邮件来解决这个问题。出于隐私考虑，不鼓励共享源，并且旧条目可能会消失以保持源大小限制。如果出现问题，用户可以通过发送测试电子邮件或联系支持人员进行故障排除。我们鼓励新闻通讯发布者考虑使用 Atom 订阅源来满足订阅源阅读器用户的需求。]]></description>
+      <guid>https://t.me/hn_summary/104961</guid>
+      <pubDate>Wed, 21 Aug 2024 17:24:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
