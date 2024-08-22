@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 22 Aug 2024 15:22:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Aug 2024 18:26:35 GMT</lastBuildDate>
+    <item>
+      <title>欢迎大家来测试一下，BookMarker</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eypavg/i_welcome_you_all_to_test_it_out_bookmarker/</link>
+      <description><![CDATA[      我知道这个东西不是很好，但我喜欢建造这样的东西。分享你的想法。谢谢。    由   提交  /u/ajmal_pro   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eypavg/i_welcome_you_all_to_test_it_out_bookmarker/</guid>
+      <pubDate>Thu, 22 Aug 2024 17:29:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>首次加载页面时样式（尤其是字体）消失的那一瞬间：是什么原因造成的，如何最好地消除它？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eyp3n3/that_splitsecond_when_the_styles_especially_fonts/</link>
+      <description><![CDATA[我从事 Web 开发已有 12 年，但我一直没有找到一个很好的答案，即首次加载网站并看到不正确的字体或其他“不正确”样式时，是什么原因导致短暂的停顿。这是否专门发生在浏览器加载 CSS 文件以应用样式时？这是否意味着内联样式（不是内联类，因为内联类在加载后仍需要连接到 CSS 文件）会消除它？内联样式、内联类和内联动态样式或类在性能方面如何比较？    提交人    /u/Murky-Science9030   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eyp3n3/that_splitsecond_when_the_styles_especially_fonts/</guid>
+      <pubDate>Thu, 22 Aug 2024 17:20:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>服务器和 Windows 机器存在非常奇怪的问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eyoss8/very_strange_problem_with_the_server_and_windows/</link>
+      <description><![CDATA[这是一个不知从何而来的非常奇怪的问题。我今天在 Windows 11 机器上使用 vs code，并且我通过 ssh（vs code 内部）连接到托管我正在开发的站点的服务器（Ubuntu 20.04）。当我正在处理项目文件时，vscode 与 ssh 断开连接。我关闭了 vscode 并再次打开它，然后尝试再次通过 ssh 连接到我的服务器，但是花了很长时间并且一直断开连接。这意味着最后我无法通过 ssh 从 vscode 打开项目文件夹。不过我仍然可以从 Windows 终端连接。此外，问题发生后，网站突然开始需要很长时间才能加载页面。我尝试清除缓存刷新 DNS、使用不同的浏览器、创建新的 Windows 用户帐户，但问题仍然存在。我甚至尝试从运行 Windows 的另一台 PC 连接，但仍然存在同样的问题，无法通过 vs code ssh 连接，并且网站需要很长时间才能加载。在 Linux 上，我通过 ssh 连接正常，网站没有加载问题。当我尝试从手机连接网站时，也没有加载问题。我什么都试过了，但我不知道是什么原因造成的。基本上，只有在 Linux 上，我才能通过 vscode 的 ssh 连接。我尝试从 2 台不同的 Windows PC 和网络连接，但无法通过 vscode 的 ssh 连接，页面加载速度一直很慢。有什么想法是什么原因造成的？    提交人    /u/Aizenvolt11   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eyoss8/very_strange_problem_with_the_server_and_windows/</guid>
+      <pubDate>Thu, 22 Aug 2024 17:08:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在尝试通过 API 访问私人存储库</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eynnr0/i_am_trying_to_access_private_repos_through_the/</link>
+      <description><![CDATA[我可以使用我正在创建的网站中的 API 查看我的个人私人存储库，但当我使用另一个 Github 帐户登录时，我只能看到公共存储库。当我检查个人帐户上的存储库时，我可以看到每个存储库上都安装了 GitHub 应用程序，但另一个帐户上没有安装，我该如何修复？ 回调实现如下，需要注意的一点是，我在返回的 token_json 中看不到范围，范围为空： async def login_callback(code: str, request: Request): async with AsyncClient() as client: token_response = await client.post( &quot;https://github.com/login/oauth/access_token&quot;, headers={&quot;Accept&quot;: &quot;application/json&quot;}, data={ &quot;client_id&quot;: CLIENT_ID, &quot;client_secret&quot;: CLIENT_SECRET, &quot;code&quot;: code, &quot;redirect_uri&quot;: REDIRECT_URI, }, ) token_json = token_response.json() logs.info(f&quot;\nToken 是： {token_json}&quot;) if &quot;access_token&quot;不在 token_json 中： raise HTTPException（status_code=400，detail=“来自 GitHub 的无效响应”） access_token = token_json[“access_token”] request.session[“access_token”] = access_token logs.info(“\naccess token 是：”，access_token) user_response = await client.get(“https://api.github.com/user”，headers={“Authorization”: f“Bearer {access_token}”} ) if user_response.status_code != 200： raise HTTPException（status_code=user_response.status_code，detail=“无法获取用户数据”） # 检查令牌中包含的范围 scopes = user_response.headers.get(&quot;X-OAuth-Scopes&quot;) logs.info(f&quot;\nToken scopes: {scopes}&quot;) user_data = user_response.json() request.session[&quot;user&quot;] = user_data request.session[&quot;access_token&quot;] = access_token return RedirectResponse(url=f&quot;http://localhost:3001?username={user_data[&#39;login&#39;]}&quot;)     提交人    /u/ShaUr01   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eynnr0/i_am_trying_to_access_private_repos_through_the/</guid>
+      <pubDate>Thu, 22 Aug 2024 16:24:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>投资怎么这么快？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eyn3gx/how_is_investing_so_fast/</link>
+      <description><![CDATA[大家好， 我有一个关于 Investing.com 如何运作的快速问题。 他们如何如此快速地显示实时数据？ 我一加载页面，就几乎立即看到最新的汇率，并且在历史图表之间切换也非常快。 我知道他们的数据库必须经过优化，但感觉这种速度的部分原因也归功于客户端处理。 他们如何实现如此令人印象深刻的表现？ 提前感谢您的见解！    提交人    /u/Sergio4raujo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eyn3gx/how_is_investing_so_fast/</guid>
+      <pubDate>Thu, 22 Aug 2024 16:02:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何以及何时为您的应用程序编写测试？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eymq8a/how_and_when_do_your_write_tests_for_your/</link>
+      <description><![CDATA[我所知道的一般方法是边写边测试，但我仍然不知道我到底应该测试什么，我试着查找现场编码会议/构建网络应用程序视频，但我遇到的都没有实现测试 应该如何学习何时以及为何编写测试？    提交人    /u/Firoo-Saan-305   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eymq8a/how_and_when_do_your_write_tests_for_your/</guid>
+      <pubDate>Thu, 22 Aug 2024 15:47:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找 Web 开发人员加入合作项目</title>
+      <link>https://www.reddit.com/r/webdev/comments/1eymgli/looking_for_web_developers_to_join_a/</link>
+      <description><![CDATA[您好 r/webdev 社区， 我正在着手一个令人兴奋的新项目，我正在寻找愿意在这个初始阶段免费贡献技能的 Web 开发人员。该项目是一个协作、学习和从头开始构建真正创新事物的绝佳机会。 我还计划通过录音记录整个开发过程，因此这将是展示您的工作并成为更大项目一部分的绝佳机会。 如果您对 Web 开发充满热情并希望参与富有创意和挑战性的项目，请联系我们。让我们一起创造一些令人惊叹的东西！ 感谢您的时间，期待您的回音。    提交人    /u/FastaBrada   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1eymgli/looking_for_web_developers_to_join_a/</guid>
+      <pubDate>Thu, 22 Aug 2024 15:37:38 GMT</pubDate>
+    </item>
     <item>
       <title>35 年软件开发经验教训</title>
       <link>https://www.reddit.com/r/webdev/comments/1eylp9c/lessons_learned_in_35_years_of_making_software/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[两款游戏的学习曲线都非常难。我花了大约 100 多个小时才完成。前 30-40 小时，游戏令人沮丧。你被留在这片黑暗而神秘的土地上，没有指南。我不得不谷歌搜索很多东西。想出策略来优化我的游戏风格。我花了很长时间才打败第一个大魔王——玛吉特。但一旦你度过了艰难的初始学习曲线，事情就会变得容易得多。在游戏结束时，你会感觉自己像个神。  这种体验让人非常满足。从零开始，精通某件事。  我花了 3-4 个月的时间才掌握 HTML、CSS 和 Javascript 的基础知识。这令人沮丧，而且看起来很乏味。然后，当我学习 React、TailwindCss 以及现在的 Next.js 时，我只是在想“哈，这太美了，不知道还有什么可学的。”如果我没有仔细看那些基本的 HTML、CSS、JS 视频，我就会想“如果制作一个网站需要这么多麻烦，我不想这样做。我甚至不想跳到下一个东西。”这很奇怪，同时令人沮丧和有益。 回到标题，我一生中遇到的大多数聪明能干的人似乎都有这种特征。好奇想知道这里的其他人怎么想。    提交人    /u/prisonmike_11   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1eyjcmc/does_masochism_lead_to_greatness_do_great/</guid>
       <pubDate>Thu, 22 Aug 2024 13:29:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该要求什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyj7ne/what_should_i_ask_for/</link>
-      <description><![CDATA[我即将参加一个前端 Web 开发职位的面试，我在想我的薪水应该是多少。我认为 80K 符合我的经验和我居住的地点。这个薪水太多了吗？我是一名自由开发者，从事 Web 开发工作大约 3 年以上。我曾在网站构建器中建立过网站，也从头开始手工编码过网站。我作为自由职业者的工作流程与工作要求完美匹配，感觉几乎不真实。 该职位要求如下： . 2 年以上 Web 开发经验，拥有丰富的过往项目经验。 . 具有内容策划方面的经验，包括为 Web 创建、编辑和组织数字内容。 . 能够通过模型、线框和综合文档有效地表达想法。 . 精通 HTML、CSS、JavaScript 等前端技术，包括使用 Vue.js 或 React 等现代框架的一些经验。 . 了解 Web 开发中的可访问性标准和最佳实践。 . 具有使用图形设计工具（例如 Adob​​e Creative Suite 或 Figma）的经验。 . 具有使用前端用户界面框架（例如 Bootstrap 或 Tailwind）的经验，并且熟悉 Material Design 等设计规范。  我被告知 90% 的时间都在做： . 维护、更新和改进公司的网站。 . 为公司的其他部门构建网页以及维护和更新他们的页面。 另外 10% 的时间在做： . 协助完成其他管理类职责  我的能力是： . 3 年以上经验。 . 品牌标识，这意味着我设计品牌颜色、徽标，当然还有网站本身。我还维护和更新我构建的所有网站。 . 在 Figma 中设计模型和线框以在构建之前展示给我的客户。 精通 HTML 和 CSS，精通 JavaScript。我使用 React 和 Angular。 . 擅长最佳实践。我同时使用了 Bootstrap 和 Material 设计    提交人    /u/Maleficent-Honey-368   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyj7ne/what_should_i_ask_for/</guid>
-      <pubDate>Thu, 22 Aug 2024 13:23:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>上传到 S3 存储桶的资产无法在第三方应用程序中加载？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyj2gy/assets_uploaded_to_s3_bucket_cant_be_loaded_in/</link>
-      <description><![CDATA[      我正在使用 S3 存储上传的图像，并尝试与 LINE 消息传递 API 集成，简而言之，我必须将此对象发送到 LINE API 端点：  { &quot;type&quot;: &quot;imagemap&quot;, &quot;baseUrl&quot;: &quot;{image_url}&quot;, &quot;altText&quot;: &quot;This is an imagemap&quot;, &quot;baseSize&quot;: { &quot;width&quot;: 1040, &quot;height&quot;: 1040 } }  其中 URL 将是我上传到 S3 的图像，它将作为消息发送给 LINE 用户，问题是虽然 API 返回 200 而没有错误消息，但它始终显示无法加载照片，我尝试将完全相同的照片、相同的尺寸（1040x1040）和大小上传到 Imgur，并且它运行得很顺利（在 18:18），我仍然可以在隐身模式下查看 S3 图像，所以我认为我可能错过了一些关于 S3 实体配置的权限，我试图授予所有读取访问权限，但它仍然不起作用。 哪些可能出错？提前谢谢 https://preview.redd.it/fjlvg70qq7kd1.png?width=720&amp;format=png&amp;auto=webp&amp;s=d340db0b9085ccdef217e0940d51840403799785    提交人    /u/Zafugus   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyj2gy/assets_uploaded_to_s3_bucket_cant_be_loaded_in/</guid>
-      <pubDate>Thu, 22 Aug 2024 13:16:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>您更喜欢 ORM 还是直接编写查询？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyirq5/do_you_prefer_orm_or_writing_queries_directly/</link>
-      <description><![CDATA[嗨！我很想知道大家喜欢如何使用数据库。您喜欢使用 ORM 来构建查询，还是更喜欢手动编写查询以更好地控制查询优化？还是有其他原因？    提交人    /u/heraldev   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyirq5/do_you_prefer_orm_or_writing_queries_directly/</guid>
-      <pubDate>Thu, 22 Aug 2024 13:02:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>域名价格疯狂上涨是怎么回事？.com 上涨 50%！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyii9c/whats_up_with_this_insane_price_increase_on/</link>
-      <description><![CDATA[刚收到来自 Namecheap 的消息。可能不得不放弃一些域名。还有人看到这些增长吗？    提交人    /u/zerospatial   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyii9c/whats_up_with_this_insane_price_increase_on/</guid>
-      <pubDate>Thu, 22 Aug 2024 12:50:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>论文仪表板 Web 应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyig3h/dashboard_web_app_for_thesis/</link>
-      <description><![CDATA[----需要指导----  大家好， 我正在写电气工程专业的本科论文，但现在我陷入了一个 Web 开发问题。我应该从高速转子中的传感器读取数据并训练机器学习模型。 然而，今天我的导师让我看看构建可以通过互联网访问的平台/Web 应用程序的可能性和技术。普通用户应该能够可视化我们将存储在云中的数据（可能是亚马逊或类似的东西）。现在我们将提供来自我们实验室中各种实验的数据，其中每个实验都使用不同的转子参数运行。 我发现方法是使用 Flask 作为后端，React 作为前端和 Dash by plotly 来制作一个交互式仪表板 Web 应用程序。这是一个可行的解决方案吗？有没有更好的解决方案？你们有什么建议？ 提前感谢你们。 我们希望在网络应用中允许的计划功能：  您可以可视化您选择的任何实验的数据 您可以可视化实验的全部或部分数据 您还可以以 CSV 格式提取数据 某些数据将仅限于开放用户，仅限我们允许的用户（因此需要身份验证系统）基于我在网络开发方面的 0 技能和一些谷歌搜索。     提交人    /u/DareX_X   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyig3h/dashboard_web_app_for_thesis/</guid>
-      <pubDate>Thu, 22 Aug 2024 12:47:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>有什么好方法可以找到小型创业公司来工作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyif6x/whats_a_good_way_to_find_small_startups_to_work_at/</link>
-      <description><![CDATA[正如标题所说，我正在努力为小型初创公司寻找工作。我真的想在一个小团队中工作并构建大量新东西，而不是拥有 30 亿个活动部件的陈旧遗留系统。是否有一些平台旨在为小公司提供职位空缺？    提交人    /u/icamejustbywatching   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyif6x/whats_a_good_way_to_find_small_startups_to_work_at/</guid>
-      <pubDate>Thu, 22 Aug 2024 12:46:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>雇用开发人员来构建 PWA，他们选择了 Laravel——对吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1eyiecb/hired_a_dev_to_build_pwa_they_chose_laravel_was/</link>
-      <description><![CDATA[嗨，我聘请了一个开发团队为我制作一个相对简单的 PWA，他们选择了 laravel 作为编码语言。  到目前为止看起来还不错，但我希望我们可以大大改进设计，使它感觉更像一个精致的现代网站。  没有具体细节，我只是想知道 Laravel 有什么可能？ 在改进设计和感觉方面是否相当开放？    提交人    /u/FBIHasEnteredTheChat   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1eyiecb/hired_a_dev_to_build_pwa_they_chose_laravel_was/</guid>
-      <pubDate>Thu, 22 Aug 2024 12:45:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
