@@ -4,13 +4,20 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 30 Aug 2024 06:28:11 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Aug 2024 09:21:51 GMT</lastBuildDate>
     <item>
-      <title>寻求新工作帮助（旧技术我该怎么办？）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f4nyay/help_for_a_new_job_old_tech_what_sould_i_do/</link>
-      <description><![CDATA[你好， 我刚刚开始一份新工作，根据我所看到的，我真的不知道该做什么。 情况如下： 我是一名初级开发人员。我有过经验，但那是在网络营销项目管理方面。我在空闲时间学习了 webdev，在 webdev 领域毕业，现在我在公共领域找到了一份工作。 我来这里是为了接替一个在这里工作了 30 年的人。所有内容都是用 coldfusion 编写的，没有变量环境，每个修改都直接在产品中进行。CSS、JS、HTML、CFL 没有拆分，所有的 repo 都只是一堆文件，这些文件的名称可能对指示其用途没有多大帮助。我有很多数据库，有些只有 1 个表，有些表没有 id，有些表只是重复的，只有年份会变化。应用程序连接到许多数据库和其他应用程序，有时直接连接到 MySQL 服务器。我有 2 个 LDAP 服务器，没有 API，只有 ODBC 等。你知道我可能会忘记一些东西。我不怪那个人，他做了他能做的，他在这里，因为它在公共领域，他没有义务更新他的编码方式。而且他添加的要求大多数时候都是“疯狂的”，所以他做了他能做的。 我的问题是，我不适合这份工作，但这并不重要，他们没有钱。所以如果不是我，那也会是另一个初级员工。即使这似乎是一项艰巨的任务，我仍然觉得它很有趣，我想做它，我爱我的新团队:)  我的想法是删除所有内容，重新开始使用现代技术并以适当的方式构建它。我现在只懂 PHP（Laravel/Symfony）和 JS（React）。我不知道这些是否是构建长期可靠的东西的正确堆栈。我更多地考虑 .Net/Angular。你怎么看？你会怎么做？.net/Angular 难学吗？ PS：抱歉我的英语不好 &gt;&lt;    提交人    /u/CaraTanthiel   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f4nyay/help_for_a_new_job_old_tech_what_sould_i_do/</guid>
-      <pubDate>Fri, 30 Aug 2024 05:52:40 GMT</pubDate>
+      <title>有关 http-proxy-middleware 的帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f4pt1n/help_with_httpproxymiddleware/</link>
+      <description><![CDATA[我正在做一个 react 前端、express 后端的 web 应用程序，我正在使用我的服务器作为代理服务器将请求转发到另一个端点（不是我的）。在本地处理我的项目时，一切都运行良好，但是当我尝试部署时，我发现端点正在使用 cloudflare 来阻止请求。所以我遇到了这个库 http-proxy-middleware，我正在尝试一下。问题是当我发出请求时，我得到了响应，然后服务器崩溃了。响应被缓冲，我将其转换为字符串并正确打印。当服务器崩溃时，抛出以下错误：TypeError [ERR_INVALID_ARG_TYPE]: 第一个参数必须是字符串类型或 Buffer、ArrayBuffer 或 Array 或类似 Array 的对象的实例。收到未定义。我不明白，为什么即使我得到了响应并进行了转换，它仍会出现错误。我也尝试使用邮递员发出请求，并收到了正确的响应，但服务器仍然崩溃了。这是服务器 api：  app.use(&#39;/api/someAPI&#39;, createProxyMiddleware({ target: &#39;https://api.example.com&#39;, changeOrigin: true, pathRewrite: (path, req) =&gt; { const { arg1, arg2 } = req.query; return `/arg1/arg2}`; }, selfHandleResponse: true, on: { proxyRes: responseInterceptor(async (responseBuffer, proxyRes, req, res) =&gt; { try { if (!responseBuffer || typeof responseBuffer !== &#39;object&#39; || responseBuffer.length === 0) { throw new Error(&#39;目标服务器的响应无效或为空&#39;); } const response = responseBuffer.toString(&#39;utf8&#39;); res.json({ id: response }); } catch (error) { res.status(500).json({ error: &#39;无法处理来自目标服务器的响应&#39; }); } }), }, headers: { Accept: &quot;application/json&quot;, &#39;User-Agent&#39;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.2 Safari/605.1.15&quot; } }));     提交人    /u/Latinotech   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f4pt1n/help_with_httpproxymiddleware/</guid>
+      <pubDate>Fri, 30 Aug 2024 08:03:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>内存使用量急剧上升 - 寻求帮助以解决该问题。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f4oqsa/huge_memory_usage_spike_seeking_help_on_how_to/</link>
+      <description><![CDATA[      大家好！最近发布了一个应用程序，正在被一家公司使用，而且运行良好。他们最近要求我添加一项功能，允许将照片附加到项目，以便他们可以上传图案或项目，以便能够直观地看到它应该是什么样子。  应用程序简介：crm，订单管理系统，主要管理 postgres 关系并以漂亮的格式显示所有内容。主要使用 Lucia 进行 crud 操作进行身份验证，我们通过服务器操作运行所有操作。 我使用了 theo 的 uploadThing - 而且它运行良好。问题是应用程序的平均内存使用量约为 150-160mb（Next.js），然后在添加 uploadthing 之后的某个地方，它飙升到 500mb，现在是早上 8 点，登录的员工开始使用该应用程序，内存使用量跳升至 1.5 GB。在 1.5 GB 跳跃之前，我还做了一些代码清理，删除了不必要的导入并重建了应用程序。 添加上传后，第一次内存峰值并没有立即发生。 它大致翻译为我添加的时间： 从“uploadthing / server”导入{UTApi}；  导出 const utapi = new UTApi();  所以我可以使用 utapi 从 uploadthing 存储中删除文件。但这可能只是一种完全不合适且不相关的怀疑。 https://preview.redd.it/s315lznjyqld1.png?width=975&amp;format=png&amp;auto=webp&amp;s=d3286fd81b6b376ee0c5186787f85b80dd42d256 我在铁路上托管，这是一个 next.js 项目和一个 postgres 数据库。  老实说，目前我不知道到底是什么原因造成的。这并不是世界末日，我必须在一小时内修复它，因为即使有这种使用量，铁路估计也要 10 美元，而且我们已经设置了限制 - 但我不会让它一直这样，这是肯定的。 我将不胜感激任何帮助、想法或任何可以指导我正确修复此问题的东西    提交人    /u/Sziszhaq   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f4oqsa/huge_memory_usage_spike_seeking_help_on_how_to/</guid>
+      <pubDate>Fri, 30 Aug 2024 06:47:06 GMT</pubDate>
     </item>
     <item>
       <title>dockerized nginx 的更好工作流程</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[我是一名自学成才的合同开发人员，在从事了多年的自由网页设计之后，我创办了一家小公司。我正在为他们构建一个非常酷的电子商务平台，该平台始于 WP / Woo，并在定制方面迅速发展。 我与管理层关系很好，他们信任我。但我相信我们都能体会到与非开发人员沟通的困难。在看到矩阵之前，你真的不知道什么是可能的，为什么或为什么不可能，以及长期成功是什么样子。 我最好是寻找长篇媒体，但也只是任何一般性建议，关于如何解释你的发展道路和你选择背后的原因。我有这方面的软技能，但我缺乏在公司环境或通过产品开发学校可能获得的知识。 以下是一些出现的问题示例：  让此功能“完全按照我们想要的方式”工作可能会因为缺乏灵活性、安全性、过早过度优化而导致后续问题。但如何帮助非技术人员真正整合这些呢？隐喻、图表等？ 始终将 UI 置于后端稳定性之上。我明白，这就是他们所能看到的一切。但是，我怎样才能让后端稳定性和标准化看起来比这更吸引人呢？ &quot;他们不会听你的，直到它开始花钱。&quot;作为开发人员，我如何避免这种情况？我是他们的半 CTO，我为公司的成功投入了大量精力，所以我需要帮助 CEO 和 CMO 实现这一点。我在这里是为了帮助我们所有人获胜，而不是说&quot;我告诉过你&quot;，尽管有时这很诱人。 &quot;销售万能&quot; 是正确的，但它会在下游引起更多问题。因此，销售团队能够对达成大笔交易的事情说“是”是很重要的。但我真的想帮助他们理解“通过设置进行标准化”比“自定义”要好得多，如果这有意义的话。这些是我自己试图解释的概念，对我来说很直观，但也许有一个术语可以解释我在这里试图表达的意思，我可以探索一下？ 如何帮助他们理解事情很复杂。例如，下一个功能是让客户自己添加新用户，而不是用户正常注册。  非开发人员认为使用 HubSpot 等企业工具可以正常工作。但我们必须考虑数据库、电子邮件验证、密码重置等等。当引入新功能请求时，我是否需要用那句经典短语“应该很容易……”来详细解释所有这些细节，或者有更好的概括吗？ 不确定这篇文章是否会有任何作用，所以我将在这里停下来。任何来自资深人士的建议或推荐都很棒。您从公司团队、资源和教育以及一般建议中学到了什么。谢谢！    提交人    /u/jdarbuckle   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1f4fz7v/how_to_communicate_longterm_development_choices/</guid>
       <pubDate>Thu, 29 Aug 2024 22:52:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>下一个用于全栈的 Js ？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f4f6gn/next_js_for_fullstack/</link>
-      <description><![CDATA[对于更大规模的全栈应用程序来说，Next js 真的是个不错的选择吗？    提交人    /u/scoop_creator   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f4f6gn/next_js_for_fullstack/</guid>
-      <pubDate>Thu, 29 Aug 2024 22:16:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
