@@ -3,8 +3,71 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Sat, 31 Aug 2024 12:35:25 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Sat, 31 Aug 2024 15:20:17 GMT</lastBuildDate>
+    <item>
+      <title>这个行业中最让您反感的趋势是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5orcn/the_trend_you_are_most_irritated_by_in_the/</link>
+      <description><![CDATA[就我而言，可能是&quot;信任因素&quot;远不能让人放心。    提交人    /u/-Dovahzul-   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5orcn/the_trend_you_are_most_irritated_by_in_the/</guid>
+      <pubDate>Sat, 31 Aug 2024 14:37:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chrome 正在测试内置 AI。这会毁掉很多初创公司吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5oqgj/chrome_is_beta_testing_builtin_ai_could_this_kill/</link>
+      <description><![CDATA[  由    /u/Beneficial-Cable-182  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5oqgj/chrome_is_beta_testing_builtin_ai_could_this_kill/</guid>
+      <pubDate>Sat, 31 Aug 2024 14:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>探索 Ikonik — Figma、Webflow、Canva 和 Web 上的 50k+ 无版权图标</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5ohgo/discover_ikonik_50k_copyrightfree_icons_on_figma/</link>
+      <description><![CDATA[       由    /u/Wedoflow  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5ohgo/discover_ikonik_50k_copyrightfree_icons_on_figma/</guid>
+      <pubDate>Sat, 31 Aug 2024 14:25:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>HR 是不是脑子有病啊？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5o7yg/are_hrs_out_of_mind/</link>
+      <description><![CDATA[我已经申请了将近 2 个月，但招聘经理表现得好像他们对技术和学习曲线一无所知。例如，我见过很多“入门级”职位，其中必须有 +10。 如果你是资深人士，那你就搞砸了，因为他们认为你是一个新的先知，将在几天内拯救整个公司。你应该了解 +2 OOP 语言，还有这个这个和这个。 我认为公司应该审查他们的人力资源而不是软件工程师。    提交人    /u/Low_Jellyfish_295   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5o7yg/are_hrs_out_of_mind/</guid>
+      <pubDate>Sat, 31 Aug 2024 14:12:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>向 Backblaze 上传大文件的策略（与 S3 兼容的 API）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5np36/upload_strategies_for_large_files_to_backblaze/</link>
+      <description><![CDATA[我的应用程序的基本基础设施是：  Psql db 用于文件 / 用户数据存储 Backblaze（基本上是类似 s3 的存储，具有与 s3 兼容的 api）用于对象存储 `Nestjs` 用于后端 vanilla react 用于前端  在我研究的时候，我发现了让用户上传文件的最佳方法 &gt;大小为 2-3GB，而不会让带宽传递到后端，以及凭证的安全性：  用于 put 命令（或 post，但为了简单起见，我们以 put 为例）的预签名 URL s3 允许并行和进度更新的分段上传  好消息是，这些似乎可以结合起来。这就是它显示的关键： const multipartParams = { Bucket: bucket_name, Key: fileKey, UploadId: fileId, } const promises = [] for (let index = 0; index &lt; parts; index++) { promises.push( s3.getSignedUrlPromise(&quot;uploadPart&quot;, { ...multipartParams, PartNumber: index + 1, Expires: parseInt(url_expiration) }), ) } constsignedUrls = await Promise.all(promises)  这里面最大的问题是预签名的 url 似乎*依赖于*块的部分编号。因此，上传功能与 `Nestjs` 服务器结合在一起。 因此，如果我想让用户执行 `3GB 文件的多部分预签名上传`，我只能看到以下选项：  假设对于 50MB 的块，我必须向用户提供一个 ~62 个预签名 URL 的数组。因此，我要么提供这个，要么将块大小与预签名 URL 数量的比例平衡为可接受的 URL 数量，例如 200mb 块有 16 个 URL。 对预签名 URL 生成进行分页，其中 React 客户端会在想要上传下一个块时向 `Nestjs` 服务器发送请求，直到所有块都完成。这是一个可行的选择，但是，服务器的持续参与意味着我不能再忽视它在高流量下的可扩展性，大多数上传都会失败，用户重试会再次失败。这种依赖性非常没有吸引力。  说实话，这些选项对我来说听起来有点初级，至于为什么成熟的 s3 api 不会公开可以签名到预签名 url 中的预定索引范围？这些是我唯一的选择吗，或者有什么更好的方法可以进行`Multipart-presigned 大文件上传`？    提交人    /u/bzarnal   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5np36/upload_strategies_for_large_files_to_backblaze/</guid>
+      <pubDate>Sat, 31 Aug 2024 13:48:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>[炫耀星期六] 随机狗狗图片</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5nl10/showoff_saturday_random_dog_pics/</link>
+      <description><![CDATA[我制作了一个简单的网页，从 Dog API 获取图像并将它们显示在卡片中。 这是我的 GitHub Repo 这是我的 实时网站 请让我知道我做得怎么样。谢谢。    提交人    /u/quasarblues   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5nl10/showoff_saturday_random_dog_pics/</guid>
+      <pubDate>Sat, 31 Aug 2024 13:43:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>从视频生成食谱</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5nhx9/generate_recipes_from_videos/</link>
+      <description><![CDATA[  由    /u/Unrefined9207  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5nhx9/generate_recipes_from_videos/</guid>
+      <pubDate>Sat, 31 Aug 2024 13:39:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evan You 谈论 Vue 的未来（Vue 4 *和* 3.5）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5n2b4/evan_you_talks_about_future_of_vue_vue_4_and_35/</link>
+      <description><![CDATA[        由    /u/manniL 提交   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5n2b4/evan_you_talks_about_future_of_vue_vue_4_and_35/</guid>
+      <pubDate>Sat, 31 Aug 2024 13:17:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 Nextjs 和 Django 构建了一个全栈看板</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f5mmef/i_built_a_full_stack_kanban_board_with_nextjs_and/</link>
+      <description><![CDATA[      大家好，我使用 Django 和 Next.js 开发了一个看板应用程序。它具有所有典型的看板功能，以及实时协作和文件上传功能。 您可以在https://www.acumenweb.app/免费查看 我很乐意收到一些反馈！    提交人    /u/Fabulous-Ad-3985   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f5mmef/i_built_a_full_stack_kanban_board_with_nextjs_and/</guid>
+      <pubDate>Sat, 31 Aug 2024 12:55:37 GMT</pubDate>
+    </item>
     <item>
       <title>如何使用 httpOnly cookies/sessions 而不使用 JWT 来保持用户在页面刷新时登录？</title>
       <link>https://www.reddit.com/r/webdev/comments/1f5lvpt/how_to_keep_user_logged_in_on_page_refresh_with/</link>
@@ -18,13 +81,6 @@
       <description><![CDATA[      我制作了一个简单的工具，可以快速有效地测试大量的颜色组合。 https://www.iamsajid.com/colors/    由    /u/whosajid  提交  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1f5lrme/4_colors_generator/</guid>
       <pubDate>Sat, 31 Aug 2024 12:08:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人需要 45 欧元的网站/徽标或编辑视频吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5lqwu/anyone_needs_a_websitelogo_or_edited_video_for_45/</link>
-      <description><![CDATA[        提交人    /u/Foras-dookie   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5lqwu/anyone_needs_a_websitelogo_or_edited_video_for_45/</guid>
-      <pubDate>Sat, 31 Aug 2024 12:07:38 GMT</pubDate>
     </item>
     <item>
       <title>我创建了一个用 SVG 创建 Notion 风格插图的网站</title>
@@ -53,62 +109,6 @@
       <description><![CDATA[刚刚加入一家新公司，担任高级、完全远程的职位，这看起来很棒。公司很小，每个人都很好，工作与生活的平衡很好。工资不错，不高也不低。 但他们给了我一台 4 年机龄的二手机器，一台 M1 13 英寸 8GB MacBook Air，价值真的不到 400 美元。这是我在 2020 年大学最后一年买的机器。现在我为工作买了同一台……:/ 对于我的工作来说，这东西太慢了，几乎总是在交换区运行。我的 IDE 和 Docker 占用了几乎所有的 RAM，而且我还运行了一个非常精简的 Chrome 配置文件，只有极少的标签。我甚至无法打开 Slack 和 Teams 来召开工作会议/发送消息，因为它们加起来消耗了 3GB 以上的空间。我也不能使用外接显示器，因为两个 USB C 端口被充电器和鼠标或用于会议的以太网占用（出于某种原因，这里的 WiFi 太慢了）。 现在我不确定我是否加入了错误的公司，因为我错过了另一份工作，他们告诉我每个人都可以使用最高端的 MacBook Pro。虽然这是一个混合角色。 这是正常的吗？这几乎让我觉得他们不那么重视他们的工程师。🥲    提交人    /u/tomcharted   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1f5kag9/what_laptop_did_you_get_from_your_employer/</guid>
       <pubDate>Sat, 31 Aug 2024 10:35:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>我是不是被降级为新手/入门级了？我该如何让面试官问我更深入的问题？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5k871/am_i_getting_downleveled_to_fresherentrylevel_how/</link>
-      <description><![CDATA[为了提供一些背景信息，我的国家将应届毕业生/入门级与初级员工区分开来，不会将他们归为一类。普遍的共识是应届毕业生 0-2 岁，初级员工 2-4 岁。初级员工的薪酬范围也至少高出 30%。我们这里也不进行系统设计轮次，直到高级职位。 我有 1 年使用 Next.js、jQuery、Wordpress 和 Strapi 进行 Web 开发的经验。主要做前端，集成第三方 API，创建一些 REST 端点。我最自豪的成就是协助从 Wordpress + jQuery 迁移到 Strapi + Next.js。我参加了会议并帮助测试解决方案。此外，我还通过为个人项目构建分布式应用程序来提高我的后端技能，这确实帮助我更深入地理解了系统设计。 我相信我有资格成为一名初级 SWE。我之前职位的学长和另一位资深导师也同意这一点。 但是，由于我只有 1 年经验，所以在我参加过的 8 次全栈/后端职位的面试中，我一直被认为是应届毕业生。当我谈到我在之前职位上所做的事情时，他们从一开始就做出了这种假设。我包括了上面提到的所有内容 + 响应式设计、提高 Lighthouse 分数等。8 人中有 3 人问了我关于个人项目的问题，这更能展示我的能力。他们印象深刻，但总是接着说“但你是应届毕业生，你没有足够的经验”。有人说“我认识经验更多的初级员工，他们可以做你所做的事情，所以我们为什么要雇用你？”说实话，我当时应该反驳的，但我太困惑了。 在我最近的一次面试中，我对收到同样的反馈感到非常厌烦，最后我反问初级员工拥有哪些应届毕业生所没有的知识。他说的是数据库优化、适当的单元测试、高效的协作。前两个是通过索引、缓存和 jUnit + Mockito 在我的个人项目中实现的。我把这些写进了我的简历，在谈论我的项目时也提到了它们。然而，他们从来没有关心过我如何选择索引策略或在我之前的职位中如何处理 Git 冲突。 如果他们不问我细节，他们怎么知道我是否有资格呢？我怎么让他们问我细节呢？另外，怎么没人关心迁移，我以为那些很复杂，令人印象深刻。我不断收到更新的问题，比如解释 JOIN 和什么是 RESTful API。    提交人    /u/detrimentalfallacy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5k871/am_i_getting_downleveled_to_fresherentrylevel_how/</guid>
-      <pubDate>Sat, 31 Aug 2024 10:30:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>对我正在构建的 SaaS 的反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5k00r/feedback_on_saas_i_am_building/</link>
-      <description><![CDATA[      我想获取一些关于我的新SaaS 项目，Lucid Forms。 它可以轻松接收 Web 表单提交，获得通知并将其发送到您需要的任何位置，例如 Google Sheets、Notion 或您可能使用的任何其他集成。它很简单，您可以邀请任意数量的人加入您的团队或工作区。您还可以在任何网站构建器或无代码平台上使用它，没有任何麻烦。 我计划添加一项功能，让您使用自定义 JSON 架构清理 webhook 数据，因此所有内容都会按照您需要的格式进行格式化。此外，还有一些其他功能，如 AI 垃圾邮件过滤器、使用 sendgrid 自动回复等。 我注意到类似工具的一件事是，它们通常具有糟糕的垃圾邮件过滤器，这很烦人。此外，即使您没有收到大量提交，您仍然需要支付每月订阅费用才能使用团队协作和集成等基本功能。而且许多甚至没有黑暗模式。 至于定价，目前在 4 个团队帐户/工作区中最多可以免费使用 1,000 次提交，这对于大多数人来说已经足够了。 如果您需要更多，请告诉我。 您可以邀请无限数量的用户加入您的团队帐户。 我正在考虑提供基于使用情况的定价模型，例如 2,000 次提交只需 10 美元。 我很想听听您对以下内容的看法：  价值主张对您来说有意义吗？ 是否有您希望看到的功能？ 您对定价模型有何看法？  非常感谢任何反馈或建议。我渴望改进并确保它能满足像您这样的用户的需求。 提前感谢您的帮助！ https://i.redd.it/50oa3f7t8zld1.gif 网站 - https://lucidforms.co    提交人    /u/Haraprasad45   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5k00r/feedback_on_saas_i_am_building/</guid>
-      <pubDate>Sat, 31 Aug 2024 10:15:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>我开发了一个体育博彩分析网络应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5jyq8/i_built_a_sports_betting_analytics_web_app/</link>
-      <description><![CDATA[嗨，各位 webdevs！ 我最近发布了一款名为 Stawts 的 web 应用，用于体育博彩分析。我很乐意收到您的反馈和见解。 技术栈： - 框架：Next - UI：Shadcn - 数据库：Postgres/Supabase - 托管：Vercel 主要功能： 1. 体育统计数据的自定义过滤器 2. 历史博彩模拟 3. 可配置的资金和博彩风格 如果您想查看，该应用可在 https://www.stawts.com 上线。 感谢您的阅读！很高兴回答有关开发过程或技术决策的任何问题。    提交人    /u/CherryColaBoy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5jyq8/i_built_a_sports_betting_analytics_web_app/</guid>
-      <pubDate>Sat, 31 Aug 2024 10:12:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>投资组合反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5jkkb/feedback_on_portfolio/</link>
-      <description><![CDATA[你好！希望我没有搞错规则，我可以在星期六发这个帖子哈哈。 我想听听大家对我这几天一直在重建的作品集的一些意见/批评：https://somne​​f.com 。 它完全基于 Vue.js 和 Tailwind CSS 构建，有移动版和电脑版（我对移动版不是特别满意，但我不知道如何改进，电脑版我很满意 :) ） 希望得到一些诚实的反馈！    提交人    /u/hahaMemesFunny   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5jkkb/feedback_on_portfolio/</guid>
-      <pubDate>Sat, 31 Aug 2024 09:43:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人知道免费的 Loom 替代品吗？哪里还可以下载视频？🙏</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5jhyz/anyone_knows_a_free_loom_alternative_where_can/</link>
-      <description><![CDATA[大家好，有人知道免费的 Loom 替代品吗？在哪里也可以下载视频？🙏    提交人    /u/Commercial_Dig_3732   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5jhyz/anyone_knows_a_free_loom_alternative_where_can/</guid>
-      <pubDate>Sat, 31 Aug 2024 09:38:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我创建了个人网站，需要建议/意见</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5iavu/i_made_personal_website_need_adviceopinion/</link>
-      <description><![CDATA[正如标题所说，我制作了专注于极简主义设计的个人网站。为了创建它，我只使用了纯 html/css/js，并将其托管在 github 页面上，因为在我看来，这是这种类型的网站和设计最优化的解决方案。 这是链接 - https://mikhailok.me/ 您如何看待设计和网站总体情况？是好是坏？您对可以添加或删除的内容有什么建议吗？ 谢谢！）    提交人    /u/mikhailo_k   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5iavu/i_made_personal_website_need_adviceopinion/</guid>
-      <pubDate>Sat, 31 Aug 2024 08:10:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>分享你的投资组合！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5i0vk/share_your_portfolio/</link>
-      <description><![CDATA[过去一个月左右，我一直在研究我的投资组合，终于在本周末完成了。您可以在 larssalling.me 上看到它。 由于我没有看过很多投资组合，所以缺乏一些灵感，所以我认为这是一个合适的主题，可以查看你们更新的投资组合。    提交人    /u/Chucki_e   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5i0vk/share_your_portfolio/</guid>
-      <pubDate>Sat, 31 Aug 2024 07:50:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>我创建了一个开源社交媒体管理器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f5hwpe/i_created_an_opensource_social_media_manager/</link>
-      <description><![CDATA[此社交媒体调度工具与传统工具类似：Buffer、Hootsuite、SproutSocial 等。 主要功能：  为 9 个社交媒体平台 (Threads、Pinterest、Facebook、TikTok、Reddit、LinkedIn、Dribbble、YouTube、Instagram) 安排时间。 几乎所有社交媒体平台的基本分析。 AI 功能：Copilots、AI 自动完成、类似 Canva 的编辑器。 团队支持：邀请您的团队成员管理社交媒体。  技术栈：  NX (Monorepo) NextJS (React) NestJS Prisma（默认为 PostgreSQL） Redis 重新发送（电子邮件通知）  完全开源（Apache-2） 开源：https://github.com/gitroomhq/postiz-app    提交人    /u/sleepysiding22   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f5hwpe/i_created_an_opensource_social_media_manager/</guid>
-      <pubDate>Sat, 31 Aug 2024 07:42:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
