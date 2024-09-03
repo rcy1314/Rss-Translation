@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 03 Sep 2024 01:24:53 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 03:23:24 GMT</lastBuildDate>
+    <item>
+      <title>像这样在 solid js 中强制双向数据流是一个好主意吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f7puyo/is_it_a_good_idea_to_force_twoway_data_flow_in/</link>
+      <description><![CDATA[我有一个自定义文件输入组件，它使用 URL.createObjectURL 创建图像的 url 来显示所选文件的预览，但是一旦不再需要图像，我就必须使用 URL.revokeObjectURL 来释放内存，并且我需要父级能够从上面触发这个，而且如果用户输入了错误类型的文件，子级也必须能够执行此操作，另外，我不想让父级处理太多事情，所以在我看来，这种方法是最理想的，但是我担心我可能会犯下严重的罪过，导致反应之神诅咒我的血统，世世代代如此。 LIVE. 从“solid-js/web”导入 { render }; 从“solid-js”导入 { createSignal, onMount }; 类型 Obj = { handler: null | (() =&gt; void); }; 类型 Props = { name: string; cord: Obj; }; 默认函数 InputCmp(props: Props) { const [length, setLength] = createSignal(0); let ref!: HTMLInputElement; onMount(() =&gt; (props.cord.handler = () =&gt; { ref.value = “”; setLength(0); }));返回（&lt;div&gt; &lt;input type=&quot;text&quot; name={props.name} ref={ref} onInput={() =&gt; setLength(ref.value.length)} /&gt; &lt;p&gt;length: {length()}&lt;/p&gt; &lt;/div&gt; ); } 类型 Data = HTMLFormElement &amp; { name: HTMLInputElement }; 导出默认函数 FormCmp() { const obj: Obj = { handler: null }; 函数 handle_submit(event: Event) { event.preventDefault(); const form = event.target as Data; const name = form.name.value; console.log(name); obj.handler?.(); } 返回（&lt;form onSubmit={handle_submit}&gt; &lt;InputCmp name=&quot;name&quot; cord={obj} /&gt; &lt;button&gt;submit&lt;/button&gt; &lt;/form&gt; ); } 函数 App() { 返回（&lt;div&gt; &lt;h1&gt;Hi&lt;/h1&gt; &lt;FormCmp /&gt; &lt;/div&gt; ); } render(() =&gt; &lt;App /&gt;, document.getElementById(&quot;app&quot;)!);     提交人    /u/0x_by_me   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f7puyo/is_it_a_good_idea_to_force_twoway_data_flow_in/</guid>
+      <pubDate>Tue, 03 Sep 2024 03:14:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>我无法将 Digital Ocean Postgres 集群连接到 C# MVC ASP.NET .NET 8.0 应用程序。当我尝试运行迁移时，我不断收到“Npgsql.NpgsqlException (0x80004005)：执行 SSL 握手时出现异常”。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f7p45d/i_cant_connect_a_digital_ocean_postgres_cluster/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f7p45d/i_cant_connect_a_digital_ocean_postgres_cluster/</guid>
+      <pubDate>Tue, 03 Sep 2024 02:37:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在本地开展 360 度虚拟导览</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f7ont3/how_to_run_a_360_virtual_tour_locally/</link>
+      <description><![CDATA[我是一名摄影师，我为客户拍摄了 350 度虚拟游览。这些游览通常托管在游览平台网站上，但我可以下载所有文件，过去我曾经能够只使用浏览器打开并运行它们。现在这行不通了。我猜是因为浏览器安全，我已经有一段时间没试过了。文件自述文件说它不再起作用了： &quot;要正确查看应用程序，必须使用 Web 服务器。如果您想在没有互联网连接的情况下查看此应用程序，您可以这样做。只需在本地计算机上运行本地 Web 服务器即可。 似乎合理..但我需要做什么才能让它工作？我有一台 Android 平板电脑，我带着它去给客户展示游览，但没有必要，那台平板电脑现在已经没用了，我的两台新平板电脑都有与我的 PC 浏览器相同的问题。     由    /u/JaVelin-X- 提交   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f7ont3/how_to_run_a_360_virtual_tour_locally/</guid>
+      <pubDate>Tue, 03 Sep 2024 02:14:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>只是好奇我是唯一一个吗？从 PHP + Bootstrap 过渡使得新框架的设置变得不必要地复杂</title>
+      <link>https://www.reddit.com/r/webdev/comments/1f7o5w9/just_curious_am_i_the_only_one_transitioning_from/</link>
+      <description><![CDATA[多年来，我一直在使用 PHP 和 Bootstrap 开发网站。我最近的项目涉及使用 CodeIgniter，我发现它“还行”，因为我不需要管理大量的 NPM 和 PHP Artisan 命令；我只需部署和编辑 MVC 结构即可。 我尝试过 React、Next、Laravel 和 Vue，但所有这些框架都要求您安装 Node、Composer 和其他依赖项。要开始使用，您必须处理大量命令。 在本地完成项目后，您将面临将其部署到共享 Web 主机的挑战。过去，我只需压缩文件夹或使用 CI/CD 将 Git 连接到服务器。现在，我必须运行 npm build、复制文件夹并执行额外的步骤。 您如何应对这种转变？或者我只需要忍受并一步一步学习？谢谢！    由   提交  /u/Kuuumaaaa   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1f7o5w9/just_curious_am_i_the_only_one_transitioning_from/</guid>
+      <pubDate>Tue, 03 Sep 2024 01:50:30 GMT</pubDate>
+    </item>
     <item>
       <title>网络节拍器</title>
       <link>https://www.reddit.com/r/webdev/comments/1f7lu03/web_metronome/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[      我该如何创建这个？ :(    由   提交  /u/Ryuk_Shinigami3   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1f7gsdg/need_help_creating_this_image_scroller/</guid>
       <pubDate>Mon, 02 Sep 2024 20:18:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人知道如何修复 @shopify/draggable 的这个视觉错误吗</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f7gnfx/does_anyone_know_how_to_fix_this_visual_bug_with/</link>
-      <description><![CDATA[      我有一个动态表单，但是当我拖动一个元素时，视觉副本会出现在下面，并且在移动鼠标时会延迟。 有人知道如何解决这个问题吗？ https://preview.redd.it/oj76z7g9egmd1.png?width=699&amp;format=png&amp;auto=webp&amp;s=3980aff6dd1fe3b2aa5aae7520e9a5596c0b36a9    提交人    /u/SleepAffectionate268   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f7gnfx/does_anyone_know_how_to_fix_this_visual_bug_with/</guid>
-      <pubDate>Mon, 02 Sep 2024 20:12:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>这到底是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f7gilp/what_exactly_is_this/</link>
-      <description><![CDATA[      https://preview.redd.it/zbk3zbvtcgmd1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=f8aaa02202092f56d4c05d86a4e90a9c5a0093c4 当我的网络中断时，我尝试打开推特，它部分加载，给出错误说我没有连接，例如，如果我尝试打开其他网站，如 reddit 或 instagram，我会在浏览器上得到一些默认的东西，但在 X 上却不同，我是初级 webdev，真的很感兴趣它是什么以及它是如何工作的    提交人    /u/Aggressive_Talk968   [link] [comments] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f7gilp/what_exactly_is_this/</guid>
-      <pubDate>Mon, 02 Sep 2024 20:07:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>想法：在你的博客上放置一个 <link href="[gitRepo]"> 标签，就像你做 <link href="[rssFeed]"> 一样</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f7g01v/idea_put_a_link_hrefgitrepo_tag_on_your_blog_like/</link>
-      <description><![CDATA[不是我的主意。今天从 Kevin Damm 那里看到的。    由    /u/breck 提交   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f7g01v/idea_put_a_link_hrefgitrepo_tag_on_your_blog_like/</guid>
-      <pubDate>Mon, 02 Sep 2024 19:47:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>我无法理解如何获取发布数据</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f7fh5a/cant_get_my_head_around_fetch_for_posting_data/</link>
-      <description><![CDATA[我真的不知道这是一个问题还是一个讨论，但是当我看到用于发布数据的 fetch(URL) 时，我感到很困惑...因为 fetch 意味着获取。例如，获取数据。那么为什么我们要使用 fetch 来发布数据以及 get 呢？    提交人    /u/Nobodyimportant6894   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f7fh5a/cant_get_my_head_around_fetch_for_posting_data/</guid>
-      <pubDate>Mon, 02 Sep 2024 19:25:17 GMT</pubDate>
     </item>
     </channel>
 </rss>
