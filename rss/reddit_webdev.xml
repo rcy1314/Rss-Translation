@@ -4,7 +4,63 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 06 Sep 2024 09:23:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Sep 2024 12:39:16 GMT</lastBuildDate>
+    <item>
+      <title>使用 https 从浏览器上传文件以更新进度</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fae0rs/upload_file_from_browser_using_https_for_progress/</link>
+      <description><![CDATA[Axios 似乎可以很好地完成文件上传，但是由于它是一个前端应用程序，因此我希望避免使用第三方库来完成简单的文件上传任务。 我的要求是能够上传文件并获取进度更新，文件大小可能为 1-3GB。 请注意，我不能使用 `FormData`，因为我最终想要使用 `S3 presigned urls`，它使用 `PUT` 并期望原始二进制文件。 除了使用 axios，我还遇到了 2 个选项：  Fetch Https 模块  虽然使用 `fetch` 上传似乎很简单，但似乎没有办法获取进度更新。 障碍我使用 `https` 的原因是它似乎需要 `Readstream`，而在浏览器中我无法使用 `fs` 模块。所以，只看到接口，我做了一些像这样的 hack 代码（采用类似示例，但使用表单数据）： import https from &#39;https&#39;; // file = event.target.files[0] export async function uploadFile( url: string, file: File, onProgress: () =&gt; void = noOp, method = REQ.PUT, ) { let progressDataLength = 0; let data = &quot;&quot;;返回新的 Promise（（resolve，reject）=&gt; { const req = https.request（{hostname：url，method：method，headers：{“Content-Type”：file.type，“Content-Length”：file.size，}，}，function（res）{res.on（&quot;data&quot;，（chunk）=&gt; {progressDataLength += chunk.size; data += chunk; onProgress（）; console.log（&quot;总共收到：&quot;，`${chunk.size}/${file.size}`）; }）; res.on（&quot;end&quot;，（）=&gt; {resolve（&quot;Mydata：&quot; + data）; }）; }, ）; //我的 HACKY CODE BIT const startConversionTime = new Date（）。getTime（）; Readable.from（Buffer.from（await file.arrayBuffer())).pipe(req); console.log( &quot;总转换时间：&quot;, new Date().getTime() - startConversionTime, ); req.end(); }); }  虽然此特定代码产生了下面的错误，但我不确定这是否合法？（转换是否正确完成？并且，我真的找不到 `File` 被转换为可读流的例子） TypeError: &quot;listener&quot; 参数必须是 Function 类型。收到类型对象 我有哪些实现此功能的选项，以及如何实现？    提交人    /u/bzarnal   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fae0rs/upload_file_from_browser_using_https_for_progress/</guid>
+      <pubDate>Fri, 06 Sep 2024 12:32:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>我开发了一个 Chrome 扩展程序，用于在 Google 日历上查看多个时区</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fadxad/i_built_a_chrome_extension_to_see_multiple/</link>
+      <description><![CDATA[        提交人    /u/rylandking   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fadxad/i_built_a_chrome_extension_to_see_multiple/</guid>
+      <pubDate>Fri, 06 Sep 2024 12:27:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过一次函数调用将 Tailwind 电子邮件模板转换为内联样式模板</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fadszy/convert_tailwind_email_template_to_an/</link>
+      <description><![CDATA[       由    /u/vardan_arm  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fadszy/convert_tailwind_email_template_to_an/</guid>
+      <pubDate>Fri, 06 Sep 2024 12:21:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>冲刺计划只是看着某人在 Jira 中移动东西吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fad33v/are_sprint_plannings_just_watching_someone_move/</link>
+      <description><![CDATA[我们每周五都会花两个小时进行规划。项目负责人会浏览 Jira 面板。大部分时间都花在讨论某件事是否完成、清理面板、将事情移至新冲刺以及创建新任务上。这就像花 1 个小时观察 Jira 中发生的事情。也许还有 1 个小时为下一个冲刺分配任务。 我想说规划很有用，但似乎是在浪费时间。难道不能在这次会议之外修复 Jira 吗？这是 Scrum Master 的实际工作吗？（我们没有 Scrum Master） 如何制定更好的规划？    提交人    /u/kakemot   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fad33v/are_sprint_plannings_just_watching_someone_move/</guid>
+      <pubDate>Fri, 06 Sep 2024 11:43:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何将替代支付解决方案与 Next.js 和 Payload CMS 集成（突尼斯：不支持 Stripe/PayPal）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1facopq/how_to_integrate_alternative_payment_solutions/</link>
+      <description><![CDATA[大家好， 我目前正在从事一个自由电子商务项目，使用 Next.js 作为前端，使用 Payload CMS 作为后端。不幸的是，我遇到了一个问题，因为 Stripe 和 PayPal 在我的国家/地区 (突尼斯) 不受支持。 相反，我们可以使用其他支付网关，例如：  Clicktopay（由一家名为 Service Monétique 的企业提供） Flouci，这是一个提供 API 的电子钱包（我相信它可以与 Node.js 集成）。  我知道 Payload CMS 与 Stripe 紧密集成，但由于这里没有这个选项，我想知道是否有人有经验：  将 Clicktopay 或 Flouci（或任何其他支付方式的标准解决方案！） 与 Next.js 或 Payload 集成CMS？？ 为 Payload 构建一个可以与这些 API 一起使用的自定义支付插件？ 关于我可以利用的替代解决方案或现有库的任何建议？  我对高级后端开发和插件创建还比较陌生，因此任何教程、库或类似项目的示例都会非常有帮助。 提前感谢任何建议！    提交人    /u/Noor_Slimane_9999   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1facopq/how_to_integrate_alternative_payment_solutions/</guid>
+      <pubDate>Fri, 06 Sep 2024 11:21:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何拆分开源存储库的代码</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fabdgi/how_to_split_code_for_open_source_repository/</link>
+      <description><![CDATA[我目前正在重写一个开源产品的 UI，该产品有一个付费版本。 目前，我们在 gitlab 中维护高级产品，并不时将开源代码分享到 github。 我们正在使用一个别名，它将尝试在 premium 文件夹中查找文件，如果找不到，则在 src 文件夹中查找 例如：ui/components/ToolBar.jsx -&gt; 尝试解析 src/appliance/components/ToolBar.jsx，如果不存在，则尝试解析 src/components/ToolBar.jsx 有没有更好的方法？   由    /u/ORCANZ  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fabdgi/how_to_split_code_for_open_source_repository/</guid>
+      <pubDate>Fri, 06 Sep 2024 09:57:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>你的图像处理程序是什么样的？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fab4xm/whats_your_image_processing_routine/</link>
+      <description><![CDATA[嘿，我即将处理数百张图像，您推荐什么工具。 理想情况下，我需要一个桌面工具，能够同时调整大小、转换、压缩多张图像。    提交人    /u/Kiato   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fab4xm/whats_your_image_processing_routine/</guid>
+      <pubDate>Fri, 06 Sep 2024 09:40:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>有哪些好的认证？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1faawrs/what_are_some_good_certifications_to_have/</link>
+      <description><![CDATA[你好， 我自己并不是很喜欢认证，而且我知道构建东西来学习比获得认证更好，但是我工作的地方为员工提供了自我发展预算，这意味着我每年最多可以花 300 美元左右参加认证/课程。 哪些认证在简历上看起来最好（云、后端相关或任何 webdev），因为如果它们对我来说是免费的，我可能会去做。    提交人    /u/ChestPainGuy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1faawrs/what_are_some_good_certifications_to_have/</guid>
+      <pubDate>Fri, 06 Sep 2024 09:24:01 GMT</pubDate>
+    </item>
     <item>
       <title>仅限 POST？让我们结束这场荒谬的 API 设计争论</title>
       <link>https://www.reddit.com/r/webdev/comments/1faavut/post_only_lets_end_this_absurd_api_design_debate/</link>
@@ -20,7 +76,7 @@
       <pubDate>Fri, 06 Sep 2024 08:29:09 GMT</pubDate>
     </item>
     <item>
-      <title>创建我们的第一个 saas 容易/困难吗？</title>
+      <title>创建我们的第一个 saas 有多容易/困难？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fa9zha/how_easydifficult_to_create_our_first_saas/</link>
       <description><![CDATA[见过很多人单独创建自己的 saas 吗？有些人甚至不使用任何编码平台（不知道它是如何工作的）并声称拥有成功的创业公司。你曾经推出过你的第一个 saas 吗？创建我们自己的 saas 的步骤是什么以及需要注意的事项是什么？    提交人    /u/shesparkzz   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fa9zha/how_easydifficult_to_create_our_first_saas/</guid>
@@ -53,62 +109,6 @@
       <description><![CDATA[大家好！ 我是一名全栈开发人员，拥有近 10 年使用 JavaScript 密集型技术堆栈的经验。我在这个堆栈内建立了一些初创公司并提供自由职业服务。我现在正在考虑扩展到非 JS 开发，特别是使用 Python。社区中有人做过类似的转变吗？我很想听听你的经历或你可能有的任何想法。:)    提交人    /u/Subject_You_4636   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fa75ju/after_10_years_with_javascript_js_ts_node_react/</guid>
       <pubDate>Fri, 06 Sep 2024 04:58:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何制作这个排序页面？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa6mff/how_to_make_this_sort_page/</link>
-      <description><![CDATA[嗨，我想为我的网站制作此排序页面帖子，我该怎么做？我不知道该用谷歌搜索什么教程 排序页面    提交人    /u/Dyukimura12   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa6mff/how_to_make_this_sort_page/</guid>
-      <pubDate>Fri, 06 Sep 2024 04:26:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何才能知道本网站的产品库存数量？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa6bdw/how_can_i_figure_out_product_stock_quantity_on/</link>
-      <description><![CDATA[我知道有些人使用检查元素选项来了解美泰网站上销售的玩偶的剩余库存。这很有用，因为其中一些版本比其他版本卖得更快，我希望能够优先考虑如何花钱。在检查元素页面中搜索“数量”有时适用于其他 Shopify 网站，您可以看到剩余库存，但它似乎不适用于美泰创作。然而，有些人仍然能够知道。有人能帮我吗？这是一个例子：https://creations.mattel.com/products/monster-high-outta-fright-operetta-doll-hrp93   由    /u/yellowx0  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa6bdw/how_can_i_figure_out_product_stock_quantity_on/</guid>
-      <pubDate>Fri, 06 Sep 2024 04:09:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>根据 GPT 打造的终极前端开发工具包</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa5wz2/ultimate_frontend_dev_toolkit_according_to_gpt/</link>
-      <description><![CDATA[您认为这个（GPT）前端堆栈是 2024 年的“最佳”吗？  TLDR  CSS 预处理器：Sass (SCSS) CSS 框架：Tailwind CSS JavaScript UI 库：React JavaScript 框架：Next.js (用于 React) JavaScript 实用程序库：Lodash 构建工具：Vite 组件库：Material-UI (用于 React) 状态管理库：Redux（或用于较小项目的 React 的 Context + Hooks）  解释 1. CSS 预处理器：  Sass (SCSS)  原因：它是最广泛采用的预处理器，提供强大的功能，如变量、嵌套和混合。Sass 与大多数前端构建工具和框架集成良好。   2. CSS 框架：  Tailwind CSS  原因：Tailwind 是一个实用程序优先的框架，因其灵活性和效率而广受欢迎。它允许您使用低级实用程序类直接在标记中进行设计，从而减少了对自定义 CSS 的需求。   3. JavaScript UI 库：  React  原因：React 仍然是构建现代基于组件的 UI 的最流行选择。它灵活、快速，并拥有庞大的生态系统。可与许多状态管理解决方案、路由库和构建工具配合使用。   4. JavaScript 框架：  Next.js（适用于 React） 原因：Next.js 是 React 事实上的全栈框架，提供对 SSR（服务器端渲染）、SSG（静态站点生成）的内置支持，以及开箱即用的丰富开发人员体验。它是构建可扩展应用程序的理想选择。   5. JavaScript 实用程序库：  Lodash  原因：Lodash 仍然是简化 JavaScript 操作的首选实用程序库。它提供了用于处理数组、对象等的性能和功能实用程序。   6. 构建工具：  Vite  原因：Vite 作为下一代构建工具正在迅速普及。与 Webpack 相比，它提供更快的构建和热模块替换，使其成为现代开发工作流程的理想选择。   7. 组件库：  Material-UI  原因：对于 React 项目，Material-UI 基于 Google 的 Material Design 原则提供了一套全面的现成组件。它使用广泛、可定制，并提供庞大的附加组件生态系统。   8. 状态管理库：  Redux  原因：Redux 仍然是最流行且最容易理解的状态管理工具，尤其是在 React 生态系统中。它为应用程序状态提供了可预测的集中存储，在大型复杂应用程序中运行良好。   （较小或较简单的应用程序的替代方案：React 的内置上下文和钩子或 Zustand 用于更轻量级的管理。） 9.现代 CSS-in-JS 库：  Styled Components  原因：Styled Components 广泛应用于基于 React 的应用程序，它允许您直接在 JavaScript 文件中编写 CSS，从而使样式更加模块化和范围化。它支持基于 props 和其他逻辑的动态样式。   10. 路由库：  React Router（用于基于 React 的项目） 原因：React Router 是 React 应用程序的标准路由库，提供动态路由、嵌套路由和延迟加载。对于多页应用程序和单页应用程序 (SPA) 至关重要。      提交人    /u/mikedensem   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa5wz2/ultimate_frontend_dev_toolkit_according_to_gpt/</guid>
-      <pubDate>Fri, 06 Sep 2024 03:48:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>子域名重定向帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa5p71/help_with_subdomain_redirect/</link>
-      <description><![CDATA[大家好，这让我抓狂，所以我希望有人能帮助我。 我正在一个网站www.3dprintergear.com.au上工作，这是一个电子商务商店，所以不太擅长设计登陆页面等。我在 wordpress 上创建了一个登陆页面，它托管在 siteground 上，子域名为 education.3dprintergear.com.au。 当有人导航到www.3dprintergear.com.au/education时，我希望它重定向到education.3dprintergear.com.au，这将是 wordpress 网站。 我做的第一件事是添加 cname education.3dprintergear.com.au 在主域的 DNS 区域中 然后，当有人导航到 /education 到子域地址时，我添加了重定向 无论我做什么，我都会不断收到一个页面，上面写着：“这是默认的服务器虚拟主机。此站点的域名尚未指向或仍在传播。传播可能需要长达 72 小时。请稍后再回来查看。” 。 任何帮助都将不胜感激 5eva！    提交人    /u/kad3d   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa5p71/help_with_subdomain_redirect/</guid>
-      <pubDate>Fri, 06 Sep 2024 03:36:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我理解错了吗？Netlify 只免费一个月？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa5knj/am_i_reading_this_wrong_netlify_is_only_free_for/</link>
-      <description><![CDATA[有没有真正免费的主机可以搭建一个简单的网站？我是不是太累了？    提交人    /u/whateverwhoknowswhat   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa5knj/am_i_reading_this_wrong_netlify_is_only_free_for/</guid>
-      <pubDate>Fri, 06 Sep 2024 03:29:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>我对如何开发自己的电子商务网站感到很困惑，我学过 html 和 JavaScript，但我正在使用 shopify，但尝试按照我想要的方式设计东西很头疼，我需要帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fa171y/im_so_confuse_on_how_to_develop_my_own_ecommerce/</link>
-      <description><![CDATA[我正在浪费宝贵的时间，试图独自弄清楚事情，我将不胜感激任何能得到的帮助。 至少帮助我掌握如何使用 liquid，我真的不明白为什么我这么笨，无法弄清楚，就像我看到对事物的引用，但是我在哪里编码以及如何上传以及如何具体执行，例如如何实现，我感到困惑，因为他们期望经验丰富的开发人员阅读他们的文档并了解事情的基本步骤，而我不知道，所以我当然会感到困惑。 我即将观看大量关于创建自定义 liquid shopify 主题的教程，但我感到沮丧。 就像我发现一个不错的视频，但它跳过了一个步骤，我喜欢如何将它们连接在一起，guy 频道正在与 robby 一起编码，开始使用 liquid。  我想知道的是，如果您想创建自己的电子商务网站，作为一名经验丰富的开发人员，您会怎么做。     提交人    /u/Hayaidesu   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fa171y/im_so_confuse_on_how_to_develop_my_own_ecommerce/</guid>
-      <pubDate>Thu, 05 Sep 2024 23:48:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>Indeed 上的 Scraper 问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f9tpgr/indeed_scraper_issues/</link>
-      <description><![CDATA[我创建了一个 Chrome 扩展程序，用于抓取用户的 Indeed 网页并尝试为他们申请职位。一切运行正常，但我注意到该网站不再允许我抓取数据，现在当我导航到 Indeed.com 时，我无法右键单击或左键单击页面上的任何内容。 我使用隐身浏览器检查是否可以浏览，看起来运行正常。因此，他们一定禁止我的帐户在页面上执行任何操作。 我创建这个扩展程序是希望其他用户也可以自动申请职位，但这似乎不可能？有解决方法吗？ 请注意，我是通过 chrome 扩展程序抓取数据，而不是使用无头浏览器抓取库（如 Puppeteer）   由    /u/Berkoooooo  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f9tpgr/indeed_scraper_issues/</guid>
-      <pubDate>Thu, 05 Sep 2024 18:31:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>类似Frontpage的东西还能用吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1f9c6l5/can_something_like_frontpage_still_be_used/</link>
-      <description><![CDATA[我真的很喜欢旧网络，90 年代和 Y2K。我一直在使用从新城市找到的资源手动制作自己的网站。在 YouTube 上看了一些东西后，我看到人们使用 Microsoft Frontpage。我知道这个程序早已过时了，但它还能用来制作网站吗？如果可以的话，模仿它是最好的方法吗？    提交人    /u/Shadowforce426   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1f9c6l5/can_something_like_frontpage_still_be_used/</guid>
-      <pubDate>Thu, 05 Sep 2024 02:54:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
