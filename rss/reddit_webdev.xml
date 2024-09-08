@@ -4,7 +4,77 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 08 Sep 2024 12:35:52 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2024 15:21:59 GMT</lastBuildDate>
+    <item>
+      <title>Monorepo 包——构建，还是直接导入？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fc01t0/monorepo_packages_build_or_import_directly/</link>
+      <description><![CDATA[我正在开发一个 pnpm turbo ts monorepo，以前所有包都是在监视模式下与 tsup 捆绑使用的。 我开始怀疑这样做的好处是否大于痛苦，或者是否值得将它们用作未编译的 ts 文件。 当前设置是 pnpm dev 在监视模式下运行 tsup，使用它们的 js mjs 和 type 文件在 dist 中构建和导出它们，应用程序（或包）使用它们。 建议不要让 package.json 指向 dist 文件夹，而应该指向 src，让应用程序直接使用 ts 文件，就好像它们是自己的一样，然后让应用程序捆绑它们。  原因如下： - tree shake 应该和应用程序打包器（tsup 或 vite）编译文件一样有效，就好像它们是自己的文件一样 - 防止依赖瀑布的开销 - 当一个包发生变化时，dist 基本上会被替换，并且会重建其依赖项，以及使用该包的应用程序的部分（不一定只是相关部分） - 必须重建包 - dist 需要根据包的更改不断更新，在开发过程中，这可能是一种不舒服的体验，必须等待重建，并且监视模式始终处于监听状态 缺点： - 没有包独立性 - 需要在使用的地方重建多次 - 包内不能使用绝对路径（至少我无法使其工作） 我认为唯一值得独立构建和打包包的情况是它们非常大并且在许多地方重复使用。例如，一个在 5 个应用程序中重复使用的 UI 库，所有应用程序都必须构建自己的软件包版本。  你对此有何看法？    提交人    /u/Grgsz   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fc01t0/monorepo_packages_build_or_import_directly/</guid>
+      <pubDate>Sun, 08 Sep 2024 15:11:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我是否应该使用网站构建器而不是手动编写所有网站的编码？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbz1h7/should_i_switch_to_website_builders_instead_of/</link>
+      <description><![CDATA[因此，几个月前，我被解雇了，不再担任前端 Web 开发人员，因此我决定冒险尝试自由职业。我非常幸运地找到了几个客户，我使用 Astro 为他们创建了一个手工编码的网站，我认为他们很棒。 为了吸引潜在的未来客户，我一直在努力构建一个自定义入门套件，以便我可以使用它来快速创建静态网站。 我的困境是，我想在减少工作量的同时扩大我为客户提供的产品，因此我考虑将 CMS、分析仪表板、客户编辑器页面和计费全部内置到入门套件中。我还知道，许多网站构建器（如 wix、squarespace 和 WordPress）都提供了许多开箱即用的功能，并且可能比我所能做的更精致，对非技术客户来说更友好。此外，我希望能够轻松地与社交媒体集成，以便客户可以发布与其网站一致的帖子。 我认为我可以手动完成很多工作，并在我的入门套件中构建一个系统，但我觉得这会非常耗时，而且质量不会与现有解决方案相同。我是否应该进行切换并迁移到构建器平台？还是咬紧牙关，尝试将这些功能中的许多功能构建到我的入门套件中？    提交人    /u/rjdredangel   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbz1h7/should_i_switch_to_website_builders_instead_of/</guid>
+      <pubDate>Sun, 08 Sep 2024 14:27:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>一些想法</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbyr8x/some_ideas/</link>
+      <description><![CDATA[        提交人    /u/digitAInexus   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbyr8x/some_ideas/</guid>
+      <pubDate>Sun, 08 Sep 2024 14:14:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>404 与 400 表示无效的 API 资源/:id 调用</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbyp1x/404_vs_400_for_invalid_api_resourceid_call/</link>
+      <description><![CDATA[我正在重新设计我的企业整体式应用程序，将其作为 API 公开，以便它可以与团队成员的原生移动应用程序对话（这首先使用基本的 PWA 完成，以提高速度和概念验证）。 在调用资源 /：uuid 端点时，我正在努力确定哪个对无效 ID 更有意义。 例如 api.com/customers/12345，其中 12345 不存在。 404 对我来说没有意义，因为端点确实存在......虽然我想如果你将每个 /：uuid 归类为它自己的端点那么它就没有...... 400 更有意义，因为它是一个糟糕的请求，但很多 API 都实现为 404。 你的看法是什么？    提交人    /u/ufdbk   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbyp1x/404_vs_400_for_invalid_api_resourceid_call/</guid>
+      <pubDate>Sun, 08 Sep 2024 14:11:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>刚刚创建了我的网站，现在怎么办？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbyg36/just_made_my_website_what_now/</link>
+      <description><![CDATA[我是 Web 开发新手，在最初的 2-3 个月内学习了 mern stack，上个月我为一个朋友创建了一个网站，但尚未部署，等他需要时再部署。我现在该做什么？现在有哪些可行的方法可以取得进展？    提交人    /u/thenameissinner   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbyg36/just_made_my_website_what_now/</guid>
+      <pubDate>Sun, 08 Sep 2024 14:00:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻求提供全方位服务的网站开发公司的推荐</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbxzrj/seeking_recommendations_for_fullservice_web/</link>
+      <description><![CDATA[大家好， 我想聘请一家提供全方位服务的网页开发公司，该公司能够从头到尾处理所有事务，包括 UX/UI 设计、前端、后端开发以及任何必要的集成。我的主要目标是确保项目第一次就做好，因为我负担不起聘请不符合我所寻求的质量标准的人。 我需要什么： 完整的网页开发：包括设计、UX、前端和后端。可靠的业绩记录：我正在寻找拥有可靠投资组合和积极客户推荐的公司或团队。 如果您对您合作过的公司有任何推荐或意见，或者甚至有在这方面表现出色的特定自由职业者，我将非常感谢您的意见！ 提前致谢！   由    /u/abitofhumor  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbxzrj/seeking_recommendations_for_fullservice_web/</guid>
+      <pubDate>Sun, 08 Sep 2024 13:38:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>新手托管问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbxtwz/beginner_hosting_question/</link>
+      <description><![CDATA[大家好。客户网站的 TTFB 为 3.4 秒。我不是一名 Web 开发人员（初级营销人员），但从我所掌握的信息来看，这几乎是肯定的，因为我们使用的是相对便宜的托管套餐。我想缩短时间，但我真的不知道该向老板提出什么建议。可能吧 - 我会寻找一个非共享托管的套餐，您有什么好的品牌可以推荐吗？之后，我将用一天的剩余时间试图弄清楚如何优化网站的其余部分。  提前致谢。     提交人    /u/AcanthisittaSea6459   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbxtwz/beginner_hosting_question/</guid>
+      <pubDate>Sun, 08 Sep 2024 13:30:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>参加比赛真的能提高你的素质吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbxp5e/does_exposure_to_competition_really_increase_your/</link>
+      <description><![CDATA[接触不同的编码方式和竞争是否会提高您作为 Web 开发人员的素质。如果您参加比赛，您的目标是什么，你们有什么期望？    提交人    /u/workingpleb   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbxp5e/does_exposure_to_competition_really_increase_your/</guid>
+      <pubDate>Sun, 08 Sep 2024 13:23:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>Canva 如何每天收集 250 亿个事件 - Canva 工程博客</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbwwra/how_canva_collects_25_billion_events_per_day/</link>
+      <description><![CDATA[       由    /u/doticy352  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbwwra/how_canva_collects_25_billion_events_per_day/</guid>
+      <pubDate>Sun, 08 Sep 2024 12:44:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>嘿，大家好，我 14 岁，我刚刚创建了一个简单可行的社交媒体项目。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fbws8h/hey_guys_im_14_and_i_just_created_a_simple_social/</link>
+      <description><![CDATA[我使用 supabase 来管理后端，使用 firebase 来托管前端，使用 netlify 来处理 .env 文件，链接是 meganetwar.web.app，你能帮我添加更多功能吗    提交人    /u/EventSad4944   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fbws8h/hey_guys_im_14_and_i_just_created_a_simple_social/</guid>
+      <pubDate>Sun, 08 Sep 2024 12:37:49 GMT</pubDate>
+    </item>
     <item>
       <title>目前创建小型、简单投资组合的最佳方法是什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fbvppt/whats_the_best_way_to_create_a_small_simple/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fburj2/im_junior_dev_working_overtime_constantly_i_dont/</guid>
       <pubDate>Sun, 08 Sep 2024 10:32:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vuenilla：一个非常小巧、现代、类似 Vue1 的框架</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbufay/vuenilla_an_incredibly_small_modern_vue1like/</link>
-      <description><![CDATA[我主要制作单页应用，我很怀念老旧的 Vue1.0。此外，我对占用空间小的产品和库充满热情。 因此，我编写了自己的类似 Vue 的框架： https://github.com/aragagnin/vuenilla 该框架非常完整，因为它包括绑定、事件、双向绑定、条件渲染（if/for 循环）、组件和自定义指令。 你可能会问，为什么不直接使用 Vue1.0？好吧，在开发时，我经常想：如果你可以用几行原生 JS 来完成，那就去做吧。因此在 Vuenilla 中：  模板使用原始 JS 文字模板（即，使用 ${..} 进行插值，而不是 {{..} ）。 Vuenilla 中的事件比 Vue 更“原始”：用户必须调用 JS 原始函数 new Event 和 dispatchEvent 来传播它们。  如果发现任何错误，请告诉我 :)    提交人    /u/spocchio   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbufay/vuenilla_an_incredibly_small_modern_vue1like/</guid>
-      <pubDate>Sun, 08 Sep 2024 10:09:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我怎样才能在 js 中创建这个无限循环？我不明白。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbtwhg/how_can_i_make_this_infinite_loop_in_js_i_couldnt/</link>
-      <description><![CDATA[        提交人    /u/alymahryn   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbtwhg/how_can_i_make_this_infinite_loop_in_js_i_couldnt/</guid>
-      <pubDate>Sun, 08 Sep 2024 09:31:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>25 个待处理更新</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbtelp/25_pending_updates/</link>
-      <description><![CDATA[      大家好，希望你们都很好。  我们的 Wordpress 网站有 25 个待处理更新，我只是想知道，这有多糟糕？  我们的开发人员说，如果他们更新这些插件，网站就会崩溃，甚至无法恢复。  我做了一些研究，发现不更新某些插件会导致更高的安全漏洞几率。  我不是 Web 开发专家，所以我想问你们。  如能得到任何帮助/建议，我们将不胜感激！     提交人    /u/conglomeratemoose   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbtelp/25_pending_updates/</guid>
-      <pubDate>Sun, 08 Sep 2024 08:55:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>本周我将参加软件工程师（前端）职位的电话面试。需要进行哪些测试？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbr9cf/i_will_have_a_phone_screen_this_week_for_software/</link>
-      <description><![CDATA[要求：React + Redux（或同等水平）、JS、CSS、编写测试、对其他人的代码给予良好的反馈、熟悉 CSS 并熟悉设计系统和组件库之类的东西是必需的、熟悉 CSS 并熟悉设计系统和组件库之类的东西是必需的，等等。    提交人    /u/Subject_You_4636   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbr9cf/i_will_have_a_phone_screen_this_week_for_software/</guid>
-      <pubDate>Sun, 08 Sep 2024 06:19:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>[Showoff Saturday] 我尝试使用无服务器技术制作一个 1 帖子留言板</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbppz0/showoff_saturday_i_tried_making_a_1_post_message/</link>
-      <description><![CDATA[      大家好！ 我一直在深入研究 AWS 上的无服务器网站功能，作为一个有趣的学习项目，我创建了一个具有独特风格的简单网页。在这个网站上，一次只能查看一条消息 - 没有帖子历史，没有名字，只有一条消息可供全世界查看 5 分钟，然后它就会永远消失。 这是技术和社区的一次有趣实验。由于没有服务器端跟踪或日志记录，我希望每个人都能友好相处并遵守网站的规则。我知道我的代码并不完美，但这个项目让我学到了很多关于无服务器技术的知识，我认为这个概念非常酷！ 我希望你能看看它并享受其中的乐趣！ https://cdcruz.com/p/momentary.html https://preview.redd.it/v6ctjwxijind1.png?width=1301&amp;format=png&amp;auto=webp&amp;s=57fefc12034742bbc3f263996bd74da5817b7477    提交人    /u/Official_CDcruz   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbppz0/showoff_saturday_i_tried_making_a_1_post_message/</guid>
-      <pubDate>Sun, 08 Sep 2024 04:37:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建一个 URL 缩短器作为辅助项目来提高我的技能</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fboys6/built_a_url_shortner_as_a_side_project_to_improve/</link>
-      <description><![CDATA[现在我需要建议和批评来进一步改进它 这是 GitHub 仓库：https://github.com/cryskram/minifyr    由   提交  /u/GNVageesh   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fboys6/built_a_url_shortner_as_a_side_project_to_improve/</guid>
-      <pubDate>Sun, 08 Sep 2024 03:50:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>您会使用什么样的内容管理系统来制作网络漫画？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbmvsz/what_kind_of_content_management_system_would_you/</link>
-      <description><![CDATA[假设它不仅仅是一个带有一堆堆叠 jpeg 的博客。假设您希望面板是具有响应行为的独立图像（不同设备/屏幕尺寸上的独特面板布局）。并且您希望使用像 comical-js 这样的库来制作文字气球。并且您想要某种内容管理系统。 这里最好的方法是什么？预先存在的 CMS？我觉得 WordPress 不适合这样的内容。也许基于 markdown 的 CMS？感觉每部分内容（面板或页面）都需要自己的 JS。其中 JS 实际上是内容本身（或至少是演示文稿）。 您将如何处理这个问题？    提交人    /u/chevalierbayard   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbmvsz/what_kind_of_content_management_system_would_you/</guid>
-      <pubDate>Sun, 08 Sep 2024 01:49:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>[Showoff Saturday] 为网页设计师和开发者精心挑选的 905 个工具和资源</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbmkwl/showoff_saturday_905_handpicked_tools_resources/</link>
-      <description><![CDATA[        提交人    /u/addycodes   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbmkwl/showoff_saturday_905_handpicked_tools_resources/</guid>
-      <pubDate>Sun, 08 Sep 2024 01:32:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅在客户端 Web 应用程序中隐藏代码</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fblhry/hide_code_in_clientside_only_web_application/</link>
-      <description><![CDATA[我有一个 Web 应用程序（HTML、CSS、JavaScript），它仅在客户端上运行，不需要与服务器或数据库进行任何通信。 代码中有硬编码数据，以前是由 Python 脚本生成的。 如何最好地向调查客户隐藏代码？ 将 Web 应用程序转换为 .apk 应用程序是解决方案的第一步。 我一直在考虑：  加密 Python 脚本中的硬编码数据，然后在 Web 应用程序中运行时解密。 使用 Cordova 转换为应用程序并使用内置代码混淆。  你会怎么做？ 谢谢你的建议。    由   提交  /u/MemberOfInternet1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fblhry/hide_code_in_clientside_only_web_application/</guid>
-      <pubDate>Sun, 08 Sep 2024 00:33:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>哪些云计算/服务器提供商能够提供绝对可靠的硬性支出限额？不是警报或通知，而是绝对无法超出的硬性上限？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fbkt2q/what_are_the_best_cloud_computing_server/</link>
-      <description><![CDATA[我正在建立一个网站，其中需要执行大量繁琐的服务器端代码。（例如，作为工作流程中的步骤，图像升级、增加图像 DPI 等。） 我简陋的 Hostgator 网站无法处理它，所以我正在探索云选项。许多经常被引用的选项 - 甚至那些声称提供“固定月度付款”的选项，例如 Digital Ocean - 在其网站上明确指出，您将为超额使用付费。 我对服务器端代码还不熟悉，正在拼命尝试通过寻找某种云计算选项来执行我的服务器端代码，以最大限度地降低风险，但我可以在哪里对支出/使用实施硬性限制 - 如果达到这个上限怎么办？就是这样 - 它会在那个点硬性停止。没有弱不禁风的“电子邮件警报”我可能要等到 12 小时后才能看到它，因为代码很马虎，没有通知或诸如此类的东西——如果你超出了分配，就会有一个残酷的、干净的“硬限制”。 此外，理想情况下，一个非常简单的仪表板显示：“在此期间，您的网站使用情况与当前计划下分配给您的最大潜力”，这样我就可以轻松监控我所处的位置与我分配的内容，从而很容易看到什么时候我可能需要开始扩展到下一个更高的级别。 对此完全陌生，但我真的想弄清楚如何正确地做到这一点。谢谢！    提交人    /u/What_The_Hex   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fbkt2q/what_are_the_best_cloud_computing_server/</guid>
-      <pubDate>Sat, 07 Sep 2024 23:58:38 GMT</pubDate>
     </item>
     </channel>
 </rss>
