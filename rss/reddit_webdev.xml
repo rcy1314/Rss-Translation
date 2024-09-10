@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 09 Sep 2024 21:19:14 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2024 01:27:19 GMT</lastBuildDate>
+    <item>
+      <title>数据库模式设计建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fd5xq4/database_schema_design_suggestion/</link>
+      <description><![CDATA[我正在开发一个具有三种类型用户的应用程序： 1. 管理员（完全访问权限） 2. 老师 3. 学生  除了 `User` 实体之外，还有其他实体： 1.School  - 一名老师最多属于一所学校。   - 一所学校可以有多名老师。  教室    - 一所学校可以有多个教室。   - 一个教室只属于一所学校。  - 一个学生属于一个教室。   - 一个教室可以有多个学生。 注意：教师与教室没有直接关系。 我正在尝试为这些实体创建一个模式，并简化了一些字段以简洁起见：  用户  ​ - id - 角色（枚举：管理员/老师/学生） - schoolId（多对一关系，如果用户是管理员，则可以为空） - classroomId（多对一关系，如果用户是管理员或老师，则可以为空）   教室  ​ - id - UserId 列表（一对多关系）   学校  ​ - id - UserId 列表（一对多关系） “学校”和“教室”之间的关系对我来说感觉很奇怪。具体来说，我处理用户、学校和教室之间关联的方式似乎不对。我正在寻找有关如何改进此架构设计的建议。    提交人    /u/More-Ad-5258   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fd5xq4/database_schema_design_suggestion/</guid>
+      <pubDate>Tue, 10 Sep 2024 01:14:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>真的没有标准的方法通过链接标签设置 CSS 加载超时吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fd4rac/is_there_really_no_way_standard_way_of_setting_a/</link>
+      <description><![CDATA[我从事 Webdev 已有几年了。今天，我正在本地开发的一个网站根本无法加载。原来，我当时正试图从另一个服务加载一些 css，但那个 digital ocean droplet 出现了故障。 我阅读了链接标签的整个规范，似乎真的没有办法设置在放弃之前愿意等待多长时间？我知道有 onerror，但我找不到触发它需要多长时间。 似乎你必须对 JS 进行破解。 还有谁对此感到惊讶？    提交人    /u/scanguy25   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fd4rac/is_there_really_no_way_standard_way_of_setting_a/</guid>
+      <pubDate>Tue, 10 Sep 2024 00:15:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>了解 Express.js 和第三方跟踪的跨域 Cookie 和“SameSite”属性</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fd3ts8/understanding_crossdomain_cookies_and_samesite/</link>
+      <description><![CDATA[我的理解（我猜）：  跨域 Cookies： 使用 Domain=&quot;example.com&quot; 设置的 Cookies 不会随 fetch 请求从诸如 hello.example2.com 之类的来源发送到 mywebsite.example.com，因为它们是不同的域。但是，我知道可能存在通过 &lt;form&gt;（第 3 点）实现的恶意解决方法。 获取请求和 SameSite 行为： 使用 SameSite=&quot;Strict&quot; 时，使用 Domain=&quot;example.com&quot; 设置的 cookie 包含在来自子域（例如 frontend.example.com）的 fetch 请求中，但不包含在不相关的域（例如 hello.test.example.com）的 fetch 请求中。使用 SameSite=&quot;None&quot; 时，即使来自不同的子域，也应发送 cookie（如果它们属于同一域）。 表单提交和 Cookie： 来自不同域的表单提交（如 hello.example2.com），在 SameSite=&quot;None&quot; 时包含 cookie，但在 SameSite=&quot;Strict&quot; 时不包含 cookie。 HTML 表单绕过了 CORS 限制，因为它们直接打开目标 URL。  问题：  Google 和 Amazon 等公司如何设法跨多个外部域跟踪用户？ 鉴于即使 Google 使用 SameSite=None 设置其 cookie，来自 website.com（使用 google adsense 并具有 google.com/trackme url）的 fetch 发出的请求也不能包含 Google cookie，因为它是另一个域，这些公司如何有效地使用 cookie 来跟踪各种外部域和网站上的用户？ 为什么设置 domain: &quot;frontend.example.com&quot; 会导致 cookie 无法正确设置？ 当我在后端设置 domain: &quot;frontend.example.com&quot; 时，前端网站，前端未按预期设置 cookie，前端停止工作。如何确保 frontend.example.com 可以使用 cookie，同时阻止 test3.example.com 访问它？我应该配置什么才能实现这一点？     提交人    /u/New_Dragonfly9732   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fd3ts8/understanding_crossdomain_cookies_and_samesite/</guid>
+      <pubDate>Mon, 09 Sep 2024 23:30:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在寻找一个根据搜索查询返回事件的运动 API</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fd1xy7/im_looking_for_a_sport_api_that_returns_events/</link>
+      <description><![CDATA[我想构建一个功能，让用户可以输入文本并获得可能匹配的体育赛事的下拉列表推荐。有人可以推荐可以执行此操作的 API 吗？我需要的是一个带有一些查询参数的端点，该端点接受用户输入字符串并返回可能的匹配项。    提交人    /u/weathermandigital   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fd1xy7/im_looking_for_a_sport_api_that_returns_events/</guid>
+      <pubDate>Mon, 09 Sep 2024 22:05:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建国际用户界面</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fd1qul/building_international_user_interfaces/</link>
+      <description><![CDATA[  由    /u/ReportInteresting738  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fd1qul/building_international_user_interfaces/</guid>
+      <pubDate>Mon, 09 Sep 2024 21:57:03 GMT</pubDate>
+    </item>
     <item>
       <title>我是 Web 开发新手，这是我目前的情况，我想知道下一步该怎么做</title>
       <link>https://www.reddit.com/r/webdev/comments/1fd0qbv/i_am_new_to_web_dev_this_is_where_i_am_at/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[        提交人    /u/CherryJimbo   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fcw0bc/announcing_typescript_56_typescript/</guid>
       <pubDate>Mon, 09 Sep 2024 18:05:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 JavaScript（Canvas 和浏览器音频 API）中创建类似 Audio Visualiser 的 NCS（无版权声音）？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fcvpm7/how_to_create_ncs_no_copyright_sounds_like_audio/</link>
-      <description><![CDATA[        提交人    /u/ppalone   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fcvpm7/how_to_create_ncs_no_copyright_sounds_like_audio/</guid>
-      <pubDate>Mon, 09 Sep 2024 17:53:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是我制作的 Figma 插件，可能对你有用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fcvl8s/heres_a_figma_plugin_i_made_that_might_be_useful/</link>
-      <description><![CDATA[它被称为复制颜色样式。  它可以让您一键复制整个 Figma 颜色样式文件夹。 它还支持嵌套文件夹！ 而且它是免费的 插件页面 欢迎反馈😁    提交人    /u/tresorama   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fcvl8s/heres_a_figma_plugin_i_made_that_might_be_useful/</guid>
-      <pubDate>Mon, 09 Sep 2024 17:48:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为首席/高级工程师，您会向技术产品经理候选人询问哪些基本面试问题？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fcudx0/as_a_leadsr_engineer_what_are_the_essential/</link>
-      <description><![CDATA[比如，什么对你的评估最重要？你希望产品经理了解 Web 应用程序的哪些技术方面？在决定是否要与此人合作时，你与产品团队的合作中哪一部分对你来说很重要？你最直接的危险信号是什么？    提交人    /u/lanasvape   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fcudx0/as_a_leadsr_engineer_what_are_the_essential/</guid>
-      <pubDate>Mon, 09 Sep 2024 16:58:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>‘<select> 中的延迟加载选项’问题在 2024 年是否有明确的解决方案？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fcu9wn/does_the_lazyloaded_options_in_a_select_problem/</link>
-      <description><![CDATA[我指的是在实现延迟加载、搜索/过滤等功能时管理“选择”输入的显示和值。 感觉每当我开始一个新项目时，我都会不断发现可以节省我数小时的新库，但是每当我偶然发现外键关系时，我必须管理在选项延迟加载时在 UI 中显示什么（基本上是全部），我必须一遍又一遍地重写相同的解决方案，仅进行更改以适应我正在使用的组件库。    提交人    /u/Vachii   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fcu9wn/does_the_lazyloaded_options_in_a_select_problem/</guid>
-      <pubDate>Mon, 09 Sep 2024 16:53:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS :has 的不可否认的实用性</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fctdsq/the_undeniable_utility_of_css_has/</link>
-      <description><![CDATA[        提交人    /u/feross   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fctdsq/the_undeniable_utility_of_css_has/</guid>
-      <pubDate>Mon, 09 Sep 2024 16:16:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
