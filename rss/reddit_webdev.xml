@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 13 Sep 2024 12:38:17 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2024 15:22:53 GMT</lastBuildDate>
+    <item>
+      <title>我可以在另一个部分中使用在主 scss 文件中导入的部分中定义的 mixin 吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffxb9s/can_i_use_mixins_defined_in_a_partial_that_is/</link>
+      <description><![CDATA[我有三个文件：  style.scss _mixins.scss _navigation.scss  显然，在 _mixins.scss 中我定义了 mixins。然后在 style.scss 中我使用 u/use &#39;mixins&#39;; 导入这些 mixins。我现在还有另一个名为 _navigation.scss 的部分，我也使用 u/use &#39;navigation&#39;; 将其导入主 scss 文件。现在我想在导航部分中使用在 mixins 部分中定义的 mixin。但是当我尝试这样做时，我收到一个错误：未定义的混合。 我尝试做的事情不可能吗？如果是这样，我该如何在另一个部分中使用 _mixins.scss 中定义的混合？    提交人    /u/GerdaWatchingMemes   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffxb9s/can_i_use_mixins_defined_in_a_partial_that_is/</guid>
+      <pubDate>Fri, 13 Sep 2024 15:18:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>仅在具有自定义域的移动设备中访问 R2 存储桶映像时出现问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffwo8w/trouble_accessing_r2_bucket_images_only_in_mobile/</link>
+      <description><![CDATA[您好，我是 Cloudflare 新手，在使用 R2 和自定义域时遇到了问题。我在 R2 中创建了一个存储桶并将其链接到自定义域。但是，我只能从桌面设备访问存储桶中的图像。当我尝试在移动设备上访问它们时，出现以下错误：“DNS_PROBE_FINISHED_NXDOMAIN”。我在 3 部不同的手机和 2 台电脑上对此进行了测试。 例如，这是其中一张图片：https://images.uelisonsouzaimoveis.com/imoveis/3857588/1_1726194509153_low.webp。还有其他几个问题。 如果您能提供任何帮助，我将不胜感激，这个问题让我很沮丧。    提交人    /u/Familiar_Mud_8671   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffwo8w/trouble_accessing_r2_bucket_images_only_in_mobile/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:52:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Angular 中的实时翻译处理表单中动态文本的最佳方法</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffwg9n/best_approach_for_handling_dynamic_text_in_forms/</link>
+      <description><![CDATA[我正在开发一个 Angular 应用，我们需要支持多种语言。对于按钮、菜单项和静态标签等静态文本，我们使用 ngx-translate，它非常适合可以预先翻译的已知内容。 但是，我们在表单中有大量动态生成的文本。这些表单是根据可能频繁更改的配置生成的，并且文本（标签、占位符等）并不总是预先知道的。这带来了挑战，因为我们无法事先将所有可能的翻译存储在 ngx-translate JSON 文件中。此外，在创建新表单或从外部源获取数据时，可能会动态引入新文本。 挑战：  动态文本：我们无法提前知道所有可能的短语，尤其是表单标签和占位符。 实时翻译：需要一种方法在运行时动态翻译这种不可预测的内容。 成本效率：如果管理不善，对所有动态内容使用实时翻译 API 可能会变得成本高昂。 性能：我们如何高效处理翻译，尤其是频繁出现新文本而不影响应用性能？  建议的混合解决方案： 为了应对静态和动态文本翻译的挑战，我正在考虑使用混合方法： 1. 使用 ngx-translate 处理静态和已知动态文本  对于静态文本和我们可以预测的文本（如常见标签、占位符等），我计划继续使用 ngx-translate 和预定义的翻译文件（en.json、fr.json 等）。 这允许快速、本地翻译，而无需依赖外部服务或已知短语的 API。  2.对于不可预测的文本，回退到实时翻译 API  对于真正动态且不可预测的文本，我正在考虑使用实时翻译 API（例如 Google Cloud Translation API 或 Microsoft Azure Translator）作为后备。 每当 ngx-translate 没有标签或占位符的预定义翻译时，我都可以调用 API 在运行时动态获取翻译。  3. 缓存翻译以提高效率  为了最大限度地减少 API 调用并提高性能，我计划实现一种缓存机制（使用 localStorage 或 NgRx 等状态管理库）。这将存储从 API 获取的翻译，以便相同的文本不会被不必要地翻译多次。  4.实时语言切换  应用应允许用户在不重新加载页面的情况下切换语言，并且应实时翻译静态和动态文本。  问题/需要的帮助：  最佳实践：这种混合方法是否可行，或者是否有更好的方法来处理 Angular 中动态内容的实时翻译？ 成本和性能优化：关于如何优化实时翻译 API 成本的任何建议？在处理频繁变化的动态文本时，是否有更好的方法来最大限度地减少 API 使用？ 缓存策略：缓存翻译的最佳策略是什么？我应该使用 localStorage，还是最好使用像 NgRx 这样的状态管理解决方案来完成这种任务？ API 建议：我正在考虑使用 Google Cloud 或 Microsoft Azure 进行实时翻译。有人用过这些服务吗？有没有更好、更实惠的替代方案？  技术栈：  前端：Angular 翻译库： ngx-translate 潜在的 API 服务：Google Cloud Translation API、Microsoft Azure Translator、DeepL 或 Amazon Translate  如果能从解决过类似问题的人那里得到任何见解、建议或建议，我将不胜感激！提前致谢！    提交人    /u/Mikefacts   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffwg9n/best_approach_for_handling_dynamic_text_in_forms/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:42:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>有些浏览器强制要求最小文本大小，这是我 20 多年写代码以来遇到的最难修复的“bug”之一</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffwg6l/some_browsers_enforce_a_minimum_text_size_and_its/</link>
+      <description><![CDATA[编辑：我将采用 SVG 或 Canvas 路线，感谢所有反馈。本来希望避免额外的工作，但现在我们不得不这么做。 在诊断新产品的广告效果不佳时，我最近发现 Facebook 应用的内部浏览器强制执行最小文本大小。我为什么要使用极小的不可读文本？ 我提供定制产品。当用户输入他们的位置时，我会生成该产品的预览。它被几乎不可读的小文本覆盖，因此对于大多数查看它的人来说，它基本上是该尺寸的纯视觉设计元素。如果他们确实放大了，他们会很高兴地发现微小的预览文本反映了他们实际的自定义。 这基本上在所有浏览器上都运行良好，但是我最近发现 Facebook 的内置浏览器以及 Duck Duck Go 浏览器强制执行的最小文本大小太大，完全破坏了设计。如果只是 DDG，我会说谁在乎，但它在 FB 的内置浏览器中必须看起来很完美。 只是诊断问题非常令人沮丧。我不得不将手机绑定到电脑并使用开发工具来查看到底发生了什么。您检查文本过大的实际元素，它不尊重使其变小的字体大小更改。它确实尊重使其变大的字体大小更改。这太疯狂了。 我认为我的解决方案是将字体大小设置得更大，然后使用 transform: scale() 缩小有问题的 div，但这会产生其他布局问题，我必须对其进行破解，我讨厌这样做。这太乱了。 无论如何，我不一定在寻求建议，但如果有人有建议，我会接受。主要是想抱怨一个非常奇怪的问题，它昨天占用了我 3 个小时的时间。许多 F 字被喊进了虚空。这里还有其他人曾与这个“功能”搏斗过吗？    提交人    /u/jawanda   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffwg6l/some_browsers_enforce_a_minimum_text_size_and_its/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:42:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>一些 SaaS 提供商建议使用白名单 IP 地址以确保安全。IP 地址被重新分配的安全性如何？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffwene/some_saas_providers_suggest_to_use_whitelisted_ip/</link>
+      <description><![CDATA[例如，服务 A 的文档说他们使用 IP X，因此您将 X 输入服务 B，这样只允许来自 X 的连接。 什么阻止服务 A 的 ISP 夺走他们分配的 IP？    提交人    /u/longiner   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffwene/some_saas_providers_suggest_to_use_whitelisted_ip/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:40:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能非常有用，但它也剥夺了编程的乐趣</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffw9lh/ai_is_tremendously_helpful_but_its_taking_the_joy/</link>
+      <description><![CDATA[基本上就像标题所说的那样。我已经能够显著提高我交付任务的速度。它有助于自动完成或直接为我生成代码，效果很好。但正如标题所述，我不再觉得这令人满意了。这不是真正的编程。我真的不需要自己去弄清楚那么多。只要问人工智能，砰的一声——你就有（通常是正确的）答案。我当然可以切换回 vs code，像往常一样工作，但我认为这些人工智能工具最终会成为软件开发的标准，而且它让我作为一名员工看起来更好，因为我现在正在努力，所以我也会在那里搬起石头砸自己的脚。 我不知道……有人和我一样吗？    提交人    /u/gh0stF4CE7   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffw9lh/ai_is_tremendously_helpful_but_its_taking_the_joy/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:34:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>查询域名状态的免费方法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffvndk/a_free_way_to_query_domain_status/</link>
+      <description><![CDATA[例如，我想要一个类似于“mydomain.com”的域名，注册商工具很烂。Who.is、namecheap 和类似工具确实提供了用于此目的的 API，但它们不是免费的，如果您查询数千个，则费用会很高。 使用 selenium 等，您最终会遇到一些问题，因为注册商不喜欢提供免费的东西    提交人    /u/randomusername11222   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffvndk/a_free_way_to_query_domain_status/</guid>
+      <pubDate>Fri, 13 Sep 2024 14:08:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪个前端库可以快速学习并开发适合生产环境的应用程序？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffuzim/which_frontend_library_can_i_quickly_learn_from/</link>
+      <description><![CDATA[正如我在标题中提到的，我可以快速学习哪些前端库，这些库易于使用，并且可以用于开发可用于生产的应用程序？    提交人    /u/Even-Masterpiece1242   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffuzim/which_frontend_library_can_i_quickly_learn_from/</guid>
+      <pubDate>Fri, 13 Sep 2024 13:39:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>初学者可以亲手实践 CSS 的网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffuxuo/websites_to_hands_on_practice_css_as_a_beginner/</link>
+      <description><![CDATA[我了解 flexbox frog 等，但总体来说我在寻找 css，我不想要一个静态网站，但我想要一些像 hackerrank 风格的东西，但是为了学习 css 大约一年前看到过类似的帖子，但那些都是静态网站     提交人    /u/vznrn   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffuxuo/websites_to_hands_on_practice_css_as_a_beginner/</guid>
+      <pubDate>Fri, 13 Sep 2024 13:37:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>隐私政策服务是否经过律师全面审查？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ffua2e/privacy_policy_services_with_full_attorney_review/</link>
+      <description><![CDATA[是否有人知道像 Termly.io 这样的服务，但其中有律师审查作为流程的一部分？也许甚至是一家专门制定隐私政策并拥有优化流程的小型律师事务所？隐私政策对我们的客户来说正变得越来越成问题。我担心将某人引导到 Termly.io 会给他们带来问题和潜在的责任。  DIY 隐私政策服务喜欢表现得像法律服务，但所有服务都带有“X 不是律师或律师事务所，不从事法律实践或提供法律建议或法律代理。网站上提供的所有信息、软件、服务和评论仅供参考和自助之用，并不旨在替代专业的法律建议。”    提交人    /u/cabalos   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ffua2e/privacy_policy_services_with_full_attorney_review/</guid>
+      <pubDate>Fri, 13 Sep 2024 13:06:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>dot.net 比 JS 生态系统更成熟吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fftvxu/is_dotnet_more_mature_than_js_ecosystem/</link>
+      <description><![CDATA[我做前端开发已经有几年了，只使用过 JS 技术。我知道 dot.net，但从未尝试过。昨天我偶然发现了这个视频。  https://youtu.be/kesUNeBZ1Os?si=BW5DMbeT8px-qm5x 当他运行 SQLite 时，我被震惊了！老实说，我不知道它是如何完成的（如果有人向我解释，我将不胜感激），据我所知，在 JS 中做到这一点的唯一方法是通过 OPFS，而就 WASM 而言，我没有看到取得巨大的进步。  所以我的问题是，我是否缺少无法与 dot.net 一起使用的核心功能？     由   提交  /u/instanote98 ​​  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fftvxu/is_dotnet_more_mature_than_js_ecosystem/</guid>
+      <pubDate>Fri, 13 Sep 2024 12:48:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>什么是正确的 webdev 方法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fftq70/what_is_the_right_approach_to_webdev/</link>
+      <description><![CDATA[嗨， 我正在为小说作家建立一个网站，会员可以注册新闻通讯、创建帐户并与博客文章互动。我想使用 WordPress，但更喜欢自定义登录表单，不与 WordPress 帐户绑定。 我的 webdev 经验来自两年前，主要是 HTML 和 CSS，现在我不确定从哪里开始。最好的方法是什么？    提交人    /u/Teamkhaleesi   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fftq70/what_is_the_right_approach_to_webdev/</guid>
+      <pubDate>Fri, 13 Sep 2024 12:40:29 GMT</pubDate>
+    </item>
     <item>
       <title>是否有一个具有完整用户身份验证（TypeScript、Expressjs、MongoDB Atlas、OAuth + JWT、Passport.js、Nodemailer）的工作后端，我可以轻松设置和扩展？</title>
       <link>https://www.reddit.com/r/webdev/comments/1ffsz07/is_there_a_working_backend_with_complete_user/</link>
@@ -20,95 +104,11 @@
       <pubDate>Fri, 13 Sep 2024 11:47:57 GMT</pubDate>
     </item>
     <item>
-      <title>我创建了一个网站，每个 AI</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffsg1x/i_create_website_that_that_every_ai/</link>
-      <description><![CDATA[        提交人    /u/Real_Young7886   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffsg1x/i_create_website_that_that_every_ai/</guid>
-      <pubDate>Fri, 13 Sep 2024 11:32:59 GMT</pubDate>
-    </item>
-    <item>
       <title>需要帮助设置</title>
       <link>https://www.reddit.com/r/webdev/comments/1ffrwzi/need_help_setting_up/</link>
       <description><![CDATA[我从事开发多年，一直都是手动部署到生产和开发环境。有人能帮我了解如何实现自动化吗？ 上下文：我编写了一个 Vue 前端代码，并定期将其推送到 Git 仓库。我在那里维护一个 Main 和 Dev 分支，每当我想要部署时，我都会运行 build 命令并将 dist 文件夹的内容上传到网络主机。 我有 app.domain.com 和 dev.domain.com 子域，并且运行良好。 我想要的是网络服务器定期将内容从仓库的 dist 文件夹复制到网络主机，这样我只需要专注于编码和推送更改。 我该怎么做？    提交人    /u/VehaMeursault   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1ffrwzi/need_help_setting_up/</guid>
       <pubDate>Fri, 13 Sep 2024 11:01:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于自由职业者来说，学习全栈 Web 开发是不是太过分了？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffrrl9/is_learning_fullstack_web_development_for/</link>
-      <description><![CDATA[大家好。我是一名计算机科学专业的二年级学生，我想创办一家专门从事建筑业务的自由职业公司。我实现这一目标的计划是学习成为一名全栈工程师所需的一切，用两年时间，完成学位后，开始向我在当地建筑行业的人脉推销自己。 我的问题是：我是否过度补偿了？如果我能够外包，那么学习前端和后端的一切是否值得？我是否应该牺牲一些技术知识来换取商业知识并尽早开始？一切都只是 WordPress + Shopify 吗？    提交人    /u/mamamia0527   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffrrl9/is_learning_fullstack_web_development_for/</guid>
-      <pubDate>Fri, 13 Sep 2024 10:52:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果给出设计，我就可以建立网站，但是如何学习如何制作好的网页设计呢？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffrm4z/i_can_make_build_sites_if_given_a_design_but_how/</link>
-      <description><![CDATA[大家好，我已经学习了 Wix studio、html、css 和 javascript，只要有人给我设计，我就能制作网站。  但是当我想制作一个网站时，我无法想出很棒的设计，需要注意什么。我可以从哪些课程或资源中学习？ 问题是我想提供出色的设计，而不仅仅是人们提供的基本内容     提交人    /u/Flaky-Valuable2183   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffrm4z/i_can_make_build_sites_if_given_a_design_but_how/</guid>
-      <pubDate>Fri, 13 Sep 2024 10:43:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>你给上级估计了一天的时间来完成一项任务，但是却在两小时内就完成了，你会怎么做？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffr2x0/you_gave_your_superior_1_day_estimate_for_a_task/</link>
-      <description><![CDATA[顺便说一下，我正在远程工作，感觉喉咙不舒服，还发烧了，所以我现在真的需要休息一下。我应该告诉他们完成了吗？ 这不是一个紧急任务，如果我告诉他们我现在就完成了，他们会给我另一个不紧急的任务 查看投票    提交人    /u/mekmookbro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffr2x0/you_gave_your_superior_1_day_estimate_for_a_task/</guid>
-      <pubDate>Fri, 13 Sep 2024 10:07:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>在我的小型 WordPress 网站上不停地尝试登录？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffpq81/nonstop_login_attempts_on_my_small_wordpress_site/</link>
-      <description><![CDATA[每天我打开电子邮件都会发现我创建的一个网站至少有十几次（通常有二十几次）来自不同 IP 的登录尝试。他们似乎一直登录，直到被锁定，然后切换 IP。我会在每个 IP 被锁定时阻止它，但这并不重要，因为他们会立即转到另一个 IP。 我正在使用“限制登录尝试次数”插件，我的登录尝试次数太多了，以至于我免费升级到了高级版，但它每月只给你 1,000 次失败登录，之后它会将你恢复到标准版 - 我在大约 3 天内就达到了这个上限。 这只是一个当地教堂的小网站，我不知道它为什么会成为目标。到目前为止，“限制登录尝试次数”可以阻止所有登录尝试，但这让我很紧张。我还能做些什么来阻止它吗？    提交人    /u/DaisyBryar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffpq81/nonstop_login_attempts_on_my_small_wordpress_site/</guid>
-      <pubDate>Fri, 13 Sep 2024 08:27:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>我开发了一个 Chrome 扩展程序，可在任何网站上提供即时的人工智能设计反馈 - 只需通过扩展程序截取屏幕截图，即可在浏览器中获得可操作的提示！免费</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffplni/i_built_a_chrome_extension_that_gives_instant/</link>
-      <description><![CDATA[       由    /u/mrsmittykins  提交  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffplni/i_built_a_chrome_extension_that_gives_instant/</guid>
-      <pubDate>Fri, 13 Sep 2024 08:18:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>餐馆和咖啡馆的网站。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffpbs7/websites_for_restaurants_and_cafes/</link>
-      <description><![CDATA[大家好， 在过去的几个月里，我遇到了一个有趣的概念。在浏览餐厅菜单时，我注意到许多菜单都是 PDF 格式的，需要用户下载。此外，许多网站都是使用 WordPress 构建的。 我的目标是通过开发带有仪表板的网页来帮助餐厅老板和顾客——具体来说，是一个餐厅老板可以轻松添加、修改或删除菜单项的平台，允许它们直接显示在网站上，而不需要文件下载。 是否有可用的插件可以实现此功能？此外，使用 React.js 等 Web 开发技术创建模板是否可行？ 感谢您的关注。    提交人    /u/lordprettyflamw   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffpbs7/websites_for_restaurants_and_cafes/</guid>
-      <pubDate>Fri, 13 Sep 2024 07:57:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要指导和想法：图形（顶点、边）模型的 Web GUI 编辑器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffodgw/need_guidance_and_ideas_web_gui_editor_for_a/</link>
-      <description><![CDATA[嗨， 我有一个 Django 应用程序，其模型是一个带有属性的有向图。 使用表单时，模型的编辑有点麻烦。 因此，我在想，我想要一种以交互方式编辑图表的方法：一个显示图表的编辑器，可以添加/删除/编辑边和顶点，并在后端保存这些更改。 您对使用什么技术/库有什么建议或想法吗？ 理想情况下，它应该与 Django 很好地集成。 谢谢    提交人    /u/Stock-Variation-2237   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffodgw/need_guidance_and_ideas_web_gui_editor_for_a/</guid>
-      <pubDate>Fri, 13 Sep 2024 06:46:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找 webflow 开发职位</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffo31r/looking_for_webflow_dev_position/</link>
-      <description><![CDATA[您好，管理员，如果可以发布请告诉我，谢谢。 寻找 webflow 开发职位 大家好，webflow 开发人员！我正在寻找一个新机会，与一家初创公司合作构建 webflow 网站。 我有 4 年与美国机构合作的经验，这些机构来自加利福尼亚州、犹他州和佛罗里达州。我全职开创了我们的 webflow 团队。我构建的大部分网站都是带有嵌套 CMS 的小型大型构建，用作销售的客户模板、金融科技、登录页面等。我可以进一步讨论这些。我的主要优势是设计准确性、网站响应能力、项目沟通和快速的周转时间。 我使用 finsweet 集成作为 CMS，使用客户至上标准、relume 和 figma 进行设计。如果需要，可以为客户教程撰写。对于项目管理工具，我们主要使用 clickup，但我也使用它的对应工具。 如果这是一个加分项，我目前也在攻读技术管理硕士学位。 让我们在 LinkedIn 上联系吧！谢谢！    提交人    /u/Working-Emergency623   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffo31r/looking_for_webflow_dev_position/</guid>
-      <pubDate>Fri, 13 Sep 2024 06:25:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>加入自由职业者的正确方法是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffnale/what_is_the_right_way_to_get_onboarded_as_a/</link>
-      <description><![CDATA[过去几年我一直在做自由职业，但这个问题从未出现在我身上。我经常会提出简单的想法并按时交付。但最近我遇到了一个大客户。我感觉自己无所事事。 在开始一个项目之前，你们从客户那里得到了什么？SRS？SOW？还是 SOP？ 您是希望客户进行任务分解还是您自己做？ 我很感激任何提示。谢谢。    提交人    /u/WordyBug   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffnale/what_is_the_right_way_to_get_onboarded_as_a/</guid>
-      <pubDate>Fri, 13 Sep 2024 05:30:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>带溢流功能的容器下方有隐形空间</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffn0of/invisible_space_under_container_with_overflow/</link>
-      <description><![CDATA[我有一个包含很多 div 的容器。该容器的 overflow-y 设置为滚动，高度固定。一切看起来都很好，直到您向下滚动页面并看到页脚下方有空白。容器不会变得大于固定高度，相反，容器中的 div 占用了其下方的不可见空间。有办法解决这个问题吗？ 我使用的临时解决方案是让容器增大到所需的大小，这样它就可以包含所有内容并且上面没有滚动条。    提交人    /u/MaKoWw   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffn0of/invisible_space_under_container_with_overflow/</guid>
-      <pubDate>Fri, 13 Sep 2024 05:12:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>[新手问题] 这是 Flexbox 的属性/特征吗？为了便于理解，我只是想设计自己的 CSS 框架。详细信息：.bound-box 是 .outline-box 的父级。图像详细信息位于图像本身中。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ffmz6m/newbie_question_is_this_a_propertycharacteristic/</link>
-      <description><![CDATA[        提交人    /u/physics_n00b   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ffmz6m/newbie_question_is_this_a_propertycharacteristic/</guid>
-      <pubDate>Fri, 13 Sep 2024 05:10:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
