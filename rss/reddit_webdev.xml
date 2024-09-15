@@ -3,8 +3,22 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 15 Sep 2024 03:26:17 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发事务的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Sun, 15 Sep 2024 06:27:36 GMT</lastBuildDate>
+    <item>
+      <title>对 node + AWS Lambda 感到非常沮丧</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh4vfn/seriously_frustrated_with_node_aws_lambda/</link>
+      <description><![CDATA[这里完全透明，我在这里通过 Netlify 函数使用 Lambda，但是......这是一个抽象级别，并没有解决这里的实际问题。实际问题是模糊的要求和非标准环境。此外，完全无用的错误消息和随机/无模式的错误。 正如所提到的，我通过 Netlify 函数使用 AWS Lambda。似乎毫无理由，我会收到关于“无效响应 JSON”的错误响应。检查日志，似乎导入模块时出错......我在其他地方导入的完全相同的模块运行良好。我可以肯定地说，该包是作为依赖项安装的，并且它在本地运行良好，并且无论我是否通过 esbuild 将其列为外部，都没有任何区别。我在这里也没有得到任何构建错误，当找不到包时肯定会报告......这太荒谬了？那绝对应该是一个构建错误！  将包括代码、配置和日志，但是……在 Reddit 上提供完整上下文是不可能的。这里重要的是，错误消息是响应中关于 JSON 的一些无用的东西，日志报告找不到已安装的包，它在本地运行，并且相同的包在其他地方运行良好，在 esbuild 中包含或不包含它都没有任何区别，并且无论如何这里都没有构建错误。  为了增加上下文，我在这里使用 NVM 和 package.lock.json。它是使用完全相同依赖项的完全相同版本的节点。我在本地使用的是 Mac，而不是最新的 Ubuntu，但是……我看不出有什么区别。我编写了有问题的包，它只是具有最少标准依赖项的模块，绝对没有任何特定于操作系统的内容。另外，完全相同的包在其他地方确实运行良好，所以显然不是它。  我已经花了两天时间尝试调试这个，但一无所获！这根本毫无意义，日志也没有意义，而且我的本地/开发和生产之间也没有实际区别。  而且不...Docker 或任何一个在这里都不是一个选择。图像对于上下文来说太大了，这只是一个死循环。我所能做的最好的就是使用 NVM 来拥有相同版本的节点并通过锁文件安装以传递相同的依赖项和版本。并且可以肯定的是，所讨论的包不依赖于任何操作系统或特定设置。它基本上只是一些模块，最多需要 node:fs 和读取文件。而且......同样，完全相同的包在其他地方完美地运行，在这里找不到它是毫无意义的。     提交人    /u/shgysk8zer0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh4vfn/seriously_frustrated_with_node_aws_lambda/</guid>
+      <pubDate>Sun, 15 Sep 2024 05:00:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源实时聊天和预订？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh458n/open_source_live_chat_and_booking/</link>
+      <description><![CDATA[我目前正在重回 Web 开发世界，正在与一位朋友讨论他的网站。我过去曾为他建立过静态网站，我们正在讨论如何更新它。 我的计划是在 Payload CMS 上构建它，但他有兴趣添加预约功能，可能还有实时聊天功能。在开源/自托管软件方面，您是否有什么建议可以添加到网站以节省成本？ 如果没有，我们正在考虑使用 Calendly 进行预约，我还没有对实时聊天进行深入研究，但通过快速搜索，Zendesk 或 LiveChat 似乎是其发展方向。因此，任何有关这些服务的个人经验或建议也非常受欢迎！    提交人    /u/VAPRx   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh458n/open_source_live_chat_and_booking/</guid>
+      <pubDate>Sun, 15 Sep 2024 04:15:29 GMT</pubDate>
+    </item>
     <item>
       <title>第四个用于 JWT 的 JS 库</title>
       <link>https://www.reddit.com/r/webdev/comments/1fh3a50/a_4th_js_library_for_jwts/</link>
@@ -15,7 +29,7 @@
     <item>
       <title>如何使 Image Magick 升级操作运行得更快？（目前每张图像需要 10 秒...）</title>
       <link>https://www.reddit.com/r/webdev/comments/1fh35sd/how_to_make_image_magick_upscaling_operation_run/</link>
-      <description><![CDATA[我当前的工作流程是使用 AWS Lambda 函数内部的 Image Magick 调整图像大小/放大图像。 它使用 Image Magick 层，代码用 node.js 编写如下：  // 步骤 1：从 S3 下载图像 console.log(&quot;从 S3 bucket 下载图像：&quot;, bucket, &quot;使用 key：&quot;, key); const inputImagePath = path.join(os.tmpdir(), &#39;input.jpg&#39;); const outputImagePath = path.join(os.tmpdir(), &#39;resized-image.jpg&#39;); const downloadImageFromS3 = async () =&gt; { const getObjectCommand = new GetObjectCommand({ Bucket: bucket, Key: key }); const s3Object = await s3Client.send(getObjectCommand);等待管道（s3Object.Body，fs.createWriteStream（inputImagePath））； }； 等待下载图像从S3（）； console.log（“图像下载成功！”）； // 步骤2：使用ImageMagick调整图像大小 console.log（“将图像大小调整为${desiredWidth}x${desiredHeight}……”）； const command = `convert ${inputImagePath} -adaptive-resize ${desiredWidth}x${desiredHeight}！-density 300x300 ${outputImagePath}`； execSync（command）； console.log（“图像大小调整成功！”）；  由于图像被放大到相当大的尺寸（宽度或高度超过 6000 像素），因此该操作大约需要 10 秒钟才能完成。 我尝试过的方法： 1) 我尝试将 Lambda 函数的内存分配增加到当前最大允许的 3008 MB。（我还要求我的帐户也可以访问绝对最大值 10,280 MB，看看这是否有助于加快速度。）“最大内存使用量”的上限非常低，大约为 300-500 MB。有什么方法可以强制它使用更多 CPU 资源来更快地处理它？就像某种 Image Magick 和/或 AWS Lambda 命令明确表示“使用尽可能多的 CPU 能力尽快完成此操作”？ 1) 在相同的转换命令中压缩图像，看看它是否会更快地返回输出。这对速度没有明显的影响。 2) 使用非自适应调整大小的方法。“-scale”的执行速度确实快了约 2 倍。但最终的图像质量很差 - 并且此工作流程需要最好的图像质量（我发现“自适应调整大小”到目前为止可以产生最好看的输出。） 任何想法/提示都将不胜感激。谢谢！    提交人    /u/What_The_Hex   [链接] [评论]]]></description>
+      <description><![CDATA[我当前的工作流程是使用 AWS Lambda 函数内部的 Image Magick 调整图像大小/放大图像。 它使用 Image Magick 层，代码用 node.js 编写如下：  // 步骤 1：从 S3 下载图像 console.log(&quot;从 S3 bucket 下载图像：&quot;, bucket, &quot;使用 key：&quot;, key); const inputImagePath = path.join(os.tmpdir(), &#39;input.jpg&#39;); const outputImagePath = path.join(os.tmpdir(), &#39;resized-image.jpg&#39;); const downloadImageFromS3 = async () =&gt; { const getObjectCommand = new GetObjectCommand({ Bucket: bucket, Key: key }); const s3Object = await s3Client.send(getObjectCommand);等待管道（s3Object.Body，fs.createWriteStream（inputImagePath））； }； 等待下载图像从S3（）； console.log（“图像下载成功！”）； // 步骤2：使用ImageMagick调整图像大小 console.log（“将图像大小调整为${desiredWidth}x${desiredHeight}……”）； const command = `convert ${inputImagePath} -adaptive-resize ${desiredWidth}x${desiredHeight}！-density 300x300 ${outputImagePath}`； execSync（command）； console.log（“图像大小调整成功！”）；  由于图像被放大到相当大的尺寸（宽度或高度超过 6000 像素），因此该操作大约需要 10 秒钟才能完成。 我尝试过的方法： 1) 我尝试将 Lambda 函数的内存分配增加到当前最大允许的 3008 MB。（我还要求我的帐户也被授予绝对最大 10,280 MB 级别的访问权限，看看这是否有助于加快速度。）“最大内存使用量”的上限非常低，大约为 300-500 MB。有什么方法可以强制它使用更多 CPU 资源来更快地处理它？就像某种 Image Magick 和/或 AWS Lambda 命令明确表示“使用尽可能多的 CPU 能力尽可能快地完成此操作”？ 2) 在相同的转换命令中压缩图像，看看它是否会更快地返回输出。这对速度没有明显的影响。 我有其他想法： 3) 由于我需要将每幅图像的大小调整为几个略有不同的纵横比，而不是在循环中按顺序执行，我是否可以编写代码来同时执行所有这些不同的操作 - 因此，不是连续执行 3 次，总共需要 30 秒，所有 3 次都可以在大致相同的时间执行和完成，因此总共只需要 10 秒？ 4) 有没有办法完全避免“下载我的图像”步骤？有什么方法可以让升级操作直接作用于 S3 存储桶中已有的图像？比如，让 Lambda 函数以某种方式直接进入其中，然后对其采取行动，而不是通过中间的下载步骤将其转换为图像数据，然后传递给 Image Magick？ 5) 测试另一种调整大小方法。普通的“-resize”实际上输出了非常可靠的结果，并且执行速度比“-adaptive-resize”快 2 倍。 任何想法/提示都将不胜感激。谢谢！    提交人    /u/What_The_Hex   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fh35sd/how_to_make_image_magick_upscaling_operation_run/</guid>
       <pubDate>Sun, 15 Sep 2024 03:17:48 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[https://therandoms.pages.dev    由    /u/Arztiser 提交   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fgvd5l/the_randoms/</guid>
       <pubDate>Sat, 14 Sep 2024 20:36:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>后端开发人员尝试从头开始开发 React 应用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fguxzd/backend_dev_trying_to_start_a_react_app_from/</link>
-      <description><![CDATA[我是一名后端开发人员，自 2019 年以来就没有构建过前端项目（我开发的最后一个应用程序是使用 Next.js）。 我应该使用 Next.js、Vite、Create React App，还是应该使用一些新产品？    提交人    /u/Wide_Possibility_594   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fguxzd/backend_dev_trying_to_start_a_react_app_from/</guid>
-      <pubDate>Sat, 14 Sep 2024 20:16:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>遭受 DDOS 攻击后该怎么办</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgurq2/what_to_do_after_a_ddos_attack/</link>
-      <description><![CDATA[我最近有一个网站遭受了 DDOS 攻击，每小时的请求数从 5 个增加到了数万个 攻击开始后大约一小时就结束了 大多数请求来自印度尼西亚、中国和美国 所以我对印度尼西亚和中国发起了 JS 挑战 我应该做的其他事情 我使用 Cloudflare 和 Hostinger    提交人    /u/Mrcool654321   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgurq2/what_to_do_after_a_ddos_attack/</guid>
-      <pubDate>Sat, 14 Sep 2024 20:08:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
