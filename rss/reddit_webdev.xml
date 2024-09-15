@@ -3,8 +3,50 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
-    <lastBuildDate>Sun, 15 Sep 2024 01:42:23 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
+    <lastBuildDate>Sun, 15 Sep 2024 03:26:17 GMT</lastBuildDate>
+    <item>
+      <title>第四个用于 JWT 的 JS 库</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh3a50/a_4th_js_library_for_jwts/</link>
+      <description><![CDATA[跳转到这里的库/包，它是 https://www.npmjs.com/package/@shgysk8zer0/jwk-utils 这适合谁？需要跨环境兼容性、模块化和更小的包大小以及更大控制力的开发人员。和/或想要更多基于 Web 标准的东西。或者更少的依赖，以及更大的信任（签名的提交和标签、包省份、测试中的高代码覆盖率）。此外，尤其是那些想要 Web 标准稳定性的人 - 这一切都基于 crypto.subtle，而且这不会改变（除了添加）。这不需要在界面或任何东西中进行更新/更改。 我主要是为了一个完全兼容但简约的密钥和 JWT 库而制作的。忽略临时的 polyfill，整个东西（压缩和最小化）只有 6.2kb。并且，除了专门用于从节点中的 process.env 导入密钥的 3 个小函数之外，假设 crypto.subtle，这完全与环境无关。不管它是节点还是浏览器还是 deno 还是其他什么......它只是 JS。 总包大小更大，但其中包括 ESM、CJS、最小化的浏览器包和源映射。不过......我认为，所有这些大约 500kb 已经相当不错了。  我不想复制任何密钥管理或通常不需要的功能，例如 jose...这几乎只是为了导入/导出密钥和创建/决定/验证令牌。更小、更简单、更模块化。 支持的算法  RS256 RS384 RS512 ES256 ES384 ES512 HS256 HS384 HS512 PS256 PS384 PS512 EdDSA（由 crypto.subtle 支持...它是实验性的）  我认为我无法支持的唯一主要算法是 ES256K - 它只是尚未由 crypto.subtle 支持。 它经过测试并符合以下测试jwt.io 并且我认为有 92.11% 的测试覆盖率（有点不准确，因为除了 Firebase 令牌功能之外，100% 都覆盖了，因为......我没有在代码库中放置实际的 ID 令牌......我已经手动测试过了，而不是只是没有发布它们）。 如上所述，虽然这主要关注基础知识，但我确实包括了对 Firebase Auth ID 令牌的支持 - 我从 Google 获取公共 JWK 并找到 kid。显然无法访问公钥，但这完全可以替代 Firebase SDK。我的意思是......我主要是为了自己使用而制作的，这是一个关键功能，所以我确实包括了它。 无论如何，如果您正在寻找一个更简约但兼容的......我会说“面向未来”的 JWT 库，那么这适合您。我并不是想在这里重新发明轮子，只是想得到一个没有旋转器和垃圾的基本轮子。这一切都基于规范，旨在不对此发表任何意见......它会根据当前时间检查例如 nbf 和 exp 声明（具有可自定义的“余地”），让您可以验证令牌有效负载中的预期声明，以及可选的 entitlements 数组（基本上是权限，但有点模糊）......但这就是全部了。  我还添加了所谓的“来源令牌”。它们基本上只是 JWT，其中 sub 需要与 CORS 请求中的 Origin 标头匹配。它们有点像 API 密钥，只不过它们包含它们所针对的来源/站点以及到期信息。由于 Origin 标头不能在客户端被欺骗（与服务器端或例如 PostMan 相反），这基本上消除了一个站点的 API 密钥在另一个站点上的使用。并且它们都在标头中包含 kid 并在有效负载中包含 jti，因此撤销它们非常简单。  重要的是，特别是对于我的用例（Lambda 和 Netlify 函数），这意味着捆绑包大小更小、请求更早失败以及对任何 DB 或第三方服务的依赖更少。大多数情况下响应速度也更快。并且，考虑到 AWS（再次通过 Netlify）上捆绑包大小和环境变量的限制，这就是某些东西能否正常工作的区别。     提交人    /u/shgysk8zer0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh3a50/a_4th_js_library_for_jwts/</guid>
+      <pubDate>Sun, 15 Sep 2024 03:24:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何使 Image Magick 升级操作运行得更快？（目前每张图像需要 10 秒...）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh35sd/how_to_make_image_magick_upscaling_operation_run/</link>
+      <description><![CDATA[我当前的工作流程是使用 AWS Lambda 函数内部的 Image Magick 调整图像大小/放大图像。 它使用 Image Magick 层，代码用 node.js 编写如下：  // 步骤 1：从 S3 下载图像 console.log(&quot;从 S3 bucket 下载图像：&quot;, bucket, &quot;使用 key：&quot;, key); const inputImagePath = path.join(os.tmpdir(), &#39;input.jpg&#39;); const outputImagePath = path.join(os.tmpdir(), &#39;resized-image.jpg&#39;); const downloadImageFromS3 = async () =&gt; { const getObjectCommand = new GetObjectCommand({ Bucket: bucket, Key: key }); const s3Object = await s3Client.send(getObjectCommand);等待管道（s3Object.Body，fs.createWriteStream（inputImagePath））； }； 等待下载图像从S3（）； console.log（“图像下载成功！”）； // 步骤2：使用ImageMagick调整图像大小 console.log（“将图像大小调整为${desiredWidth}x${desiredHeight}……”）； const command = `convert ${inputImagePath} -adaptive-resize ${desiredWidth}x${desiredHeight}！-density 300x300 ${outputImagePath}`； execSync（command）； console.log（“图像大小调整成功！”）；  由于图像被放大到相当大的尺寸（宽度或高度超过 6000 像素），因此该操作大约需要 10 秒钟才能完成。 我尝试过的方法： 1) 我尝试将 Lambda 函数的内存分配增加到当前最大允许的 3008 MB。（我还要求我的帐户也可以访问绝对最大值 10,280 MB，看看这是否有助于加快速度。）“最大内存使用量”的上限非常低，大约为 300-500 MB。有什么方法可以强制它使用更多 CPU 资源来更快地处理它？就像某种 Image Magick 和/或 AWS Lambda 命令明确表示“使用尽可能多的 CPU 能力尽快完成此操作”？ 1) 在相同的转换命令中压缩图像，看看它是否会更快地返回输出。这对速度没有明显的影响。 2) 使用非自适应调整大小的方法。“-scale”的执行速度确实快了约 2 倍。但最终的图像质量很差 - 并且此工作流程需要最好的图像质量（我发现“自适应调整大小”到目前为止可以产生最好看的输出。） 任何想法/提示都将不胜感激。谢谢！    提交人    /u/What_The_Hex   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh35sd/how_to_make_image_magick_upscaling_operation_run/</guid>
+      <pubDate>Sun, 15 Sep 2024 03:17:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了一个简约、整洁的密码生成器（链接见评论）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh330u/i_made_a_minimalistic_clutter_free_password/</link>
+      <description><![CDATA[        提交人    /u/afatsums   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh330u/i_made_a_minimalistic_clutter_free_password/</guid>
+      <pubDate>Sun, 15 Sep 2024 03:13:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要一些指导来找到实现某些功能的最佳方法。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh2xq1/need_some_guidance_for_the_best_way_to_approach/</link>
+      <description><![CDATA[我正在开发一个允许用户购买数字资产的网站。不是 NFT，更像是角色的服装或配饰。管理这些数字资产的最佳方式是什么？ 我的想法是拥有一个包含资产本身的 S3 存储桶，然后拥有一个管理类型的门户来管理资产。我将构建一个小型 CMS 类型的页面，该页面将允许我添加新资产、配置名称等，并为它们添加价格，这些都将以 JSON 格式存储在我的数据库中，然后由网站通过 API 调用提取。这似乎有点小题大做。我计划让用户通过 Stripe API 购买，因为上帝知道我不想建立支付系统。我从未使用过 Stripe，它能处理很多问题吗，还是我需要按照上面解释的那样做？ 我希望有时有促销活动，并且也有办法管理这些活动。我从未处理过任何类型的付款处理或出售资产，因此我非常感谢您的意见。    提交人    /u/clit_or_us   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh2xq1/need_some_guidance_for_the_best_way_to_approach/</guid>
+      <pubDate>Sun, 15 Sep 2024 03:05:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 Flarum 定制为分层问答型专业论坛的可行性</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh26hw/feasibility_of_customizing_flarum_into_a/</link>
+      <description><![CDATA[大家好！ 最近我了解到一位非营利背景的朋友的这个愿望。他们想要一个论坛，完全根据人们的理解水平来保证讨论的质量，并且通过正确回答足够多的更高级别的人提出的问题来在小组中晋级。 有没有一种简单的方法可以将问题评分系统集成到 Flarum 中，并根据用户的分数和级别和排名中的人数进行小组管理？ （自动主持人扩展可以实现这一点吗？我知道可以根据用户活动编写指标，但是可以使用组信息吗？）此外，还有将问题标记为有效/无效的逻辑，该逻辑融入评分系统中，那么有没有一种自然的方式将帖子整合为问题？ 我不太熟悉 Flarum，所以只是在这里问一下你是否有什么意见，非常感谢！！  详细信息基本上是这样的：  论坛分为九层，每层都有一个提问区和一个讨论区。所有用户（包括未注册的访客）都可以看到问题，但讨论仅限于用户所在的当前楼层及以下楼层。 新用户从第一层开始，通过正确回答问题即可晋级：只要他们知识渊博，无论在网站上的参与历史如何，他们都可以晋级。 问题由来自更高楼层的用户或当前楼层得分最高的 9 名用户创建。 要晋级，用户需要获得 9 分，并且当前楼层必须有 9 名以上的居民。如果当居住人数达到 9 人时，并且有多个人得分超过 9 分，那么得分较高的人将首先晋级，到第一个到达这一层时，双方打成平手。 当第九层满了时，所有楼层都会向下移动，得分最高的人将成为新第九层的唯一居民。    由    /u/pianoforte_noob  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh26hw/feasibility_of_customizing_flarum_into_a/</guid>
+      <pubDate>Sun, 15 Sep 2024 02:19:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>一个帮助有抱负的开发人员实现其目标的平台！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fh23g3/a_platform_for_aspiring_developers_to_reach_their/</link>
+      <description><![CDATA[       由    /u/Jaded-Swing-5424  提交  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fh23g3/a_platform_for_aspiring_developers_to_reach_their/</guid>
+      <pubDate>Sun, 15 Sep 2024 02:14:54 GMT</pubDate>
+    </item>
     <item>
       <title>如何制作捐赠排行榜？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fgyjnk/how_to_make_a_donate_leaderboard/</link>
@@ -29,7 +71,7 @@
     <item>
       <title>帮助好友管理网站</title>
       <link>https://www.reddit.com/r/webdev/comments/1fgx1wz/helping_a_buddy_with_his_site/</link>
-      <description><![CDATA[大家好 我白天的工作是软件开发。我们在自己的服务器上部署等 我非常好的朋友让我为他建立一个网站，我这周做了一个非常棒的网站，没多想，然后我突然想到......托管。他说他有一个 WordPress.com 页面。我对 WordPress 一无所知，但我在想象我的 tailwind/react/css/js 网站不会只是让我将文件等上传到 WordPress 然后就完事了，对吧？ 他花了 350 美元。不是太疯狂，但作为一个只知道我们在一家大公司如何做这些事情的人，最终用户将如何解决这个问题？ 非常感谢     提交人    /u/OccasionllyAsleep   [链接] [评论]]]></description>
+      <description><![CDATA[大家好 我白天的工作是软件开发。我们在自己的服务器上部署等 我非常好的朋友让我为他建立一个网站，我这周做了一个非常棒的网站，没多想，然后我突然想到......托管。他说他有一个 WordPress.com 页面。我对 WordPress 一无所知，但我想象我的 tailwind/react/css/js 网站不会只是让我将文件等上传到 WordPress 然后就完事了，对吧？ 他花了 350 美元。不是太疯狂，但作为一个只知道我们在一家大公司如何做这些事情的人，最终用户将如何解决这个问题？ 非常感谢     提交人    /u/OccasionllyAsleep   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fgx1wz/helping_a_buddy_with_his_site/</guid>
       <pubDate>Sat, 14 Sep 2024 21:57:20 GMT</pubDate>
     </item>
@@ -67,48 +109,6 @@
       <description><![CDATA[我最近有一个网站遭受了 DDOS 攻击，每小时的请求数从 5 个增加到了数万个 攻击开始后大约一小时就结束了 大多数请求来自印度尼西亚、中国和美国 所以我对印度尼西亚和中国发起了 JS 挑战 我应该做的其他事情 我使用 Cloudflare 和 Hostinger    提交人    /u/Mrcool654321   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fgurq2/what_to_do_after_a_ddos_attack/</guid>
       <pubDate>Sat, 14 Sep 2024 20:08:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>我使用 MaplibreGL 和 ThreeJS 创建了 Skyrim 3D 地图</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fguj35/i_created_a_skyrim_3d_map_using_maplibregl_and/</link>
-      <description><![CDATA[      https://preview.redd.it/grd9haibytod1.png?width=1168&amp;format=png&amp;auto=webp&amp;s=2517b609357b84dc71fd34c1f78a95ede0b317e5 https://atlasforge.gg/skyrim/map 我开始玩《Skyrim》的新游戏，并决定这将是从游戏中提取 3D LOD 资源以及一些位置数据来构建一个小型交互式网络地图很酷。不幸的是，maplibre 不支持地图点的高程，但我做了一个快速的 npm 补丁来使其工作（我需要清理它并打开 PR 返回 maplibre repo）。 无论如何，让我知道你的想法！    提交人    /u/lowpoly_nomad   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fguj35/i_created_a_skyrim_3d_map_using_maplibregl_and/</guid>
-      <pubDate>Sat, 14 Sep 2024 19:57:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个开源剪贴板历史记录 chrome 扩展</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgudc4/i_made_an_opensource_clipboard_history_chrome/</link>
-      <description><![CDATA[      https://preview.redd.it/36dhsfnq4uod1.png?width=1280&amp;format=png&amp;auto=webp&amp;s=f7101380acbd6b38ad7e591dda0bc4b801a755f7 扩展：https://chromewebstore.google.com/detail/clipboard-history-pro-sec/ombhfdknibjljckajldielimdjcomcek?hl=en Repo：https://github.com/ayoung19/clipboard-history 大家好！在过去的几天里，我一直在开发流行的剪贴板历史记录 chrome 扩展程序的全新改进版本，该扩展程序将从 chrome 网上应用店中移除。我以前经常使用这个扩展程序，它对于快速访问常用命令和恢复丢失的表单数据等非常方便。它甚至可以很好地用作机密管理器。 但这有点问题。除了性能下降和过多的广告外，我认为扩展程序的主要问题是它是封闭源代码的。我无法轻松查看我的敏感信息是如何处理的。自由访问以读取您的剪贴板非常具有侵入性，任何具有此权限的 chrome 扩展程序都应该完全透明地说明它的使用方式。我开始构建一个克隆以供个人使用，然后意识到其他人可能会发现透明度很有吸引力。最初是一个快速而肮脏的黑客攻击，现在是一个正在进行的项目，成为旧扩展在各个方面的全面升级 - 易用性，性能，功能和安全性！ 如果这个扩展听起来可能有用，我希望你尝试一下并告诉我它怎么样！关于代码/架构/其他任何内容的反馈也非常感谢。一颗星也会有所帮助，因为我计划很快添加安全云功能，这并不介意额外的一双眼睛。最后，如果你想做出贡献，只需打开 PR！我将开始组织和迁移我的所有待办事项到 Github 供其他人处理。    提交人    /u/LingLingAndy   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgudc4/i_made_an_opensource_clipboard_history_chrome/</guid>
-      <pubDate>Sat, 14 Sep 2024 19:50:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>请有人帮助我将此文件构建到 Azure Web 应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgu5xf/someone_please_help_me_with_this_build_file_to_an/</link>
-      <description><![CDATA[我有两个文件夹结构。“frontend”包含一个 React 应用程序。“server”包含使用 Express.js 构建的 node.js REST API。这是我的构建文件： # Azure Web Apps Deploy 操作的文档：https://github.com/Azure/webapps-deploy # 更多适用于 Azure 的 GitHub Actions：https://github.com/Azure/actions name：构建并将 Node.js 应用程序部署到 Azure Web App - YoungTech on： push： 分支： - main workingflow_dispatch： env： 服务器名称：${{ secrets.SERVER_NAME }} 数据库名称：${{ secrets.DATABASE_NAME }} 用户：${{ secrets.USER }} 密码：${{ secrets.SERVER_NAME }} 端口：${{ secrets.PORT }} PROD：${{ secrets.SERVER_NAME }} BLOB_CONNECTION：${{ secrets.BLOB_CONNECTION }} 作业： build： runs-on：windows-latest 步骤： - 用途：actions/checkout@v4 - 名称：设置 Node.js 版本 用途： action/setup-node@v3 with: node-version: &quot;20.x&quot; - name: 安装依赖项并构建前端 run: | cd frontend npm install npm run build cd .. # 调试步骤以检查“dist”是否存在 - name: 检查 dist 文件夹 run: | Get-ChildItem -Recurse frontend/dist - name: 安装后端依赖项 run: | cd server npm install cd .. - name: 将服务器内容移动到根目录 run: | Move-Item -Path server\* -Destination . # 将“server”文件夹中的所有内容移动到根目录 Remove-Item -Recurse -Force server # 删除“server”文件夹本身 - name: 为部署作业上传工件 uses: action/upload-artifact@v4 with: name: node-app path: | frontend/dist 资产配置功能 node_modules index.js package-lock.json package.json 部署：运行于：windows-latest 需求：构建环境：名称：“Production” url：${{ steps.deploy-to-webapp.outputs.webapp-url }} 权限： id-token：write #这是请求 JWT 所必需的步骤： - 名称：从构建作业下载工件使用：actions/download-artifact@v4 使用：名称：node-app - 名称：登录到 Azure 使用：azure/login@v2 使用：客户端 id：${{ secrets.AZUREAPPSERVICE_CLIENTID_8C018CEED9984645BC3B0A66DCF5D25E }} 租户 id：${{ secrets.AZUREAPPSERVICE_TENANTID_F1F72A792B9948F1A4636B591CE1AE5D }} 订阅 id：${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_914828291CF24F4CA0BC44E807386EC1 }} - 名称：“部署到 Azure Web 应用”使用：azure/webapps-deploy@v3 id：deploy-to-webapp 使用：应用程序名称：“YoungTech”插槽名称：“Production”包：. - 名称：为 Azure 运行设置自定义启动命令：| az webapp config set --resource-group “test” --name “youngTech” --startup-file “npm run start” 每当我构建时，这都会成功，但 Web 应用程序只是空白的。那里什么都没有。我甚至检查了 Chrome 开发者工具中的“网络”选项卡。我认为“部署到 Azure Web 应用”没有正常工作。Web 应用程序是在 Windows 平台上构建的，所以我认为我必须对“runs-on”参数使用“windows-latest”选项。非常感谢您对使用 Github/Github Actions 构建文件的任何帮助。    提交人    /u/GIPPINSNIPPINS   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgu5xf/someone_please_help_me_with_this_build_file_to_an/</guid>
-      <pubDate>Sat, 14 Sep 2024 19:41:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>两年后我刚刚重新做了我的投资组合，希望得到一些反馈！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgtkip/just_redid_my_portfolio_after_2_years_would_love/</link>
-      <description><![CDATA[当前作品集位于 https://saadiya.dev 这是早期的设计：https://saadiyam.github.io/portfolio/ 这次重新设计对我来说真的很特别，因为在努力找工作并努力争取工作之后，我终于在几周前开始了我的职业生涯。我的新作品集旨在帮助我找到更多的自由职业客户，我在 reddit 上找到的大量信息的帮助下创建了副本。 四年前，当我认为我可以成为任何类型的开发人员时，我就开始使用 Reddit，而现在，四年过去了，我才刚刚开始实现我的梦想。    提交人    /u/saadiyadotdev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgtkip/just_redid_my_portfolio_after_2_years_would_love/</guid>
-      <pubDate>Sat, 14 Sep 2024 19:14:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>GDPR、Cookies 和像素 - 请帮忙</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgt7k3/gdpr_cookies_pixels_please_help/</link>
-      <description><![CDATA[目前正在使用 NextJS 制作新闻稿登录页面，我希望设置 Google Analytics 和 Meta Pixel。我理解，根据 GDPR 法律（特别是针对欧盟访客），您必须进行设置，使像素在获得 Cookie 同意后才真正触发。所以我有几个问题：  这仅适用于 Meta Pixel 吗，还是我也必须这样设置 Google Analytics？ 这样做不会歪曲您的分析，尤其是在投放 FB 广告时？ 由于此法规特定于欧盟，有没有办法进行设置，使这种情况只发生在欧盟的 IP 上？我是否需要这样做，还是我只是想太多了？     提交人    /u/iflow1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgt7k3/gdpr_cookies_pixels_please_help/</guid>
-      <pubDate>Sat, 14 Sep 2024 18:58:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>HN 工作是欧洲的替代方案吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fgszpg/hn_jobs_alternative_for_europe/</link>
-      <description><![CDATA[在众多（且存在欺诈行为的）求职平台和服务中，很高兴看到像 HackerNews 这样的平台，初创公司可以在此分享有意义且合乎道德的工作机会。但是，那里的大多数公司都位于美国。我有兴趣探索欧洲或欧洲初创公司和公司的更多选择，但似乎很多人不熟悉 HackerNews。有没有其他平台可以让我在欧洲市场找到不错的工作机会？    提交人    /u/Subject_You_4636   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fgszpg/hn_jobs_alternative_for_europe/</guid>
-      <pubDate>Sat, 14 Sep 2024 18:50:17 GMT</pubDate>
     </item>
     </channel>
 </rss>
