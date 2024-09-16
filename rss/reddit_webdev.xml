@@ -3,8 +3,57 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 15 Sep 2024 21:19:21 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Mon, 16 Sep 2024 01:39:11 GMT</lastBuildDate>
+    <item>
+      <title>有哪些方法可以预防这种情况？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fhs4zz/what_are_ways_to_prevent_this/</link>
+      <description><![CDATA[      https://preview.redd.it/qz6am838k2pd1.png?width=274&amp;format=png&amp;auto=webp&amp;s=991e9c3676f81039d781ffed731728e43e03de0a 我知道 Lighthouse 分数并不能代表一切，但是我在我正在开发的 JS 库中看到了这些非常糟糕的数字，我想知道如何防止这种情况发生。    提交人    /u/_computerguy_   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fhs4zz/what_are_ways_to_prevent_this/</guid>
+      <pubDate>Mon, 16 Sep 2024 00:54:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>视频付费网站托管帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fhs0fy/video_pay_site_hosting_help/</link>
+      <description><![CDATA[我从 2008 年起就开始使用 bluehost，它是一个可以下载文件的基本网站，非常基础。但是现在只有 1TB（当时都是无限制的），尽管现在说没有限制，但他们似乎说我无法再上传任何文件，实际上一年前我的容量是 1.5TB，他们让我降低一点，应该没问题。 所以我想弄清楚如何让我的小型付费网站继续运行（我每月赚 100 美元），所以下载量大约是每月 30GB。 我的网站不像其他视频网站那样好，只是基本拍一张视频的照片并将缩略图放在网站上，通过 notepad ++ 手动附加链接（我也不介意尝试改进所有这些） 当有人注册时，paypal 部分会重定向到 1 个页面，使用手动设置的用户名/密码来访问包含所有视频的目录文件夹。 我想我每年要支付 400 美元，但我认为现在，他们的托管地点不适合这样的事情，可能需要搬走10 多年后 我希望有一种干净的方法来创建一个视频，然后上传，网站会自己把它放在一个带有自动缩略图和可下载按钮的页面上，位于真正的付费墙后面。    提交人    /u/japanb   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fhs0fy/video_pay_site_hosting_help/</guid>
+      <pubDate>Mon, 16 Sep 2024 00:48:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>每个页面捆绑 js 和特定代码</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fhr820/bundled_js_and_specific_code_per_page/</link>
+      <description><![CDATA[大家好， 问这个问题我感觉有点不好意思，但是我刚刚开始在别人开发的一个网站上工作。该应用程序使用 Webpack 将所有 JavaScript 捆绑到一个 main.js 文件中，并且每个页面都会加载此文件。 问题是，捆绑包实例化了很多对象并包含了很多函数，甚至包括那些当前页面上未使用的函数。本质上，入口点如下所示： import $ from &#39;jquery&#39;; import Ajax from &#39;./ajax.js&#39;; import Cart from &#39;./cart.js&#39;; import Admin from &#39;./admin.js&#39;; import Audio from &#39;./audio.js&#39;; import Quiz from &#39;./quiz.js&#39;; export default class App { const () { this.audio = new Audio(); this.ajax = new Ajax(); this.quiz = new Quiz(); if (undefined !== window.session) { this.admin = new Admin(); this.cart = new Cart(); } } $(function () { window.app = new App(); });  我读到将 JavaScript 捆绑到单个文件中通常被认为是很好的做法。但是，我的问题是该网站有许多页面，每个页面都有特定的功能，并且它们之间并没有密切的联系。 查看当前代码，许多对象在每个页面上都进行了初始化，即使购物车页面与音频相关功能无关也是如此。 例如，quiz.js 文件如下所示： export default class Quiz { constrained() { this.elements = { tab: $(&#39;#QuizTab&#39;), quiz: $(&#39;#Quiz&#39;), questions: $(&#39;#Questions&#39;), valid: $(&#39;#Valid&#39;), }; this.handleActions(); } }  因此，即使我不在测验页面上，一些测验实例化代码也会运行。这不是什么大问题，但感觉可以处理得更好。我对 Web 开发还很陌生，所以如果这听起来很幼稚，请耐心听我说，但是您如何处理这种情况？ 这被认为是好的做法吗？我是否应该使用 Webpack 为页面特定功能创建更多入口点（从而创建更多文件）？还是我应该在 JavaScript 中通过直接定位页面和延迟加载模块来处理这个问题？ 感谢您的帮助，如果这看起来很明显，我很抱歉！    提交人    /u/MrDeagle80   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fhr820/bundled_js_and_specific_code_per_page/</guid>
+      <pubDate>Mon, 16 Sep 2024 00:09:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>有哪些网站令你惊叹不已？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fhoj03/what_are_some_websites_that_blew_your_mind/</link>
+      <description><![CDATA[我像往常一样浏览互联网，遇到了这个杰作：spaace.io，让我的心情从懒洋洋地滚动转变为完全惊叹。我将它添加到我最喜欢的网站列表中：（floor，Bruno Simon...我想知道你迄今为止遇到的每一个最喜欢的网站，这样我们就可以体验一下！    提交人    /u/WadieZN   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fhoj03/what_are_some_websites_that_blew_your_mind/</guid>
+      <pubDate>Sun, 15 Sep 2024 22:03:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要反馈：基于滑动的 AI 表单工具与 Jotform 和其他工具的比较</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fho7g4/feedback_wanted_swipebased_ai_form_tool_vs/</link>
+      <description><![CDATA[我是一名企业家，正在开发一款基于 AI 的滑动表单创建工具，我希望与目前使用 Jotform 等平台的人建立联系。我很想听听你的想法，看看你喜欢什么，以及你目前的表单构建体验中哪些地方可以改进。    提交人    /u/GeniusDevv   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fho7g4/feedback_wanted_swipebased_ai_form_tool_vs/</guid>
+      <pubDate>Sun, 15 Sep 2024 21:49:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>图书馆有一本几百页的“CSS 入门”书</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fho7aq/the_library_had_this_several_hundred_page_intro/</link>
+      <description><![CDATA[      我知道 CSS 还有很多东西需要学习，但我没想到写这么长时间的 CSS 文章在物理上是可能的。     提交人    /u/Almatrass   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fho7aq/the_library_had_this_several_hundred_page_intro/</guid>
+      <pubDate>Sun, 15 Sep 2024 21:48:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>字符在页面上可读，但在复制时变为非 utf8</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fhnl25/character_is_readable_on_page_but_becomes_nonutf8/</link>
+      <description><![CDATA[      我试图复制这部分文本，它在页面上显示得很好，但复制时发现其中一个字符是非 utf8 字符。这似乎是该网站使用的一种复制保护措施。有人熟悉这种措施以及它是如何实施的吗？ https://preview.redd.it/mvoztp5hi1pd1.png?width=726&amp;format=png&amp;auto=webp&amp;s=f684d71e2d8988b1cf32716720d30f38d1b7a798    提交人    /u/djtmereddjt   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fhnl25/character_is_readable_on_page_but_becomes_nonutf8/</guid>
+      <pubDate>Sun, 15 Sep 2024 21:21:47 GMT</pubDate>
+    </item>
     <item>
       <title>我在服务器上找不到我的网站文件，但网站仍在运行</title>
       <link>https://www.reddit.com/r/webdev/comments/1fhm5fm/i_cant_find_my_website_files_on_my_server_but_the/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[大家都用什么域名服务？什么时候我应该获得自定义域名？我的投资组合和展示的项目使用默认域名看起来不好吗？    提交人    /u/DarthRektor   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fhh8m7/domain_names/</guid>
       <pubDate>Sun, 15 Sep 2024 16:55:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>您使用什么存储/库来存储用户数据/令牌？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhglmd/what_storagelibraries_do_you_use_to_store/</link>
-      <description><![CDATA[我正在为我的一个朋友开发这个网站，他将使用此网站作为他的应用程序的试点，预计明年将获得约 500 名用户。我主要使用 React/Vite/Tailwind 在前端工作。 目前，我正在使用本地存储来存储访问令牌，并使用 redux 来存储用户详细信息，但问题是，当我刷新页面时，用户详细信息消失了，并且网站在每个页面中都使用名字等详细信息。 我考虑过以下几件事：1. 将用户详细信息也存储在本地存储中。2. 每次加载页面时进行 API 调用以获取这些详细信息。3. 将其状态提升到根组件并将详细信息作为道具传递（不确定这里会发生什么）。 我对这个主题进行了研究，发现也可以使用会话和 cookie。我只是想知道在这种情况下最佳做法是什么以及使用哪些库，因为这是我第一次在其他人会使用的网站上工作。    提交人    /u/imnovastorm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhglmd/what_storagelibraries_do_you_use_to_store/</guid>
-      <pubDate>Sun, 15 Sep 2024 16:28:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>简单的离线 Web 服务器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhg870/simple_web_server_offline/</link>
-      <description><![CDATA[大家好，最近我得到了一些建议，当时我想在手机或平板电脑上本地托管一个网站，这样我就可以在没有互联网连接的情况下向客户展示一些内容。他们所在的地方没有互联网，所以它只能在一台设备上本地工作。这个建议很好，我找到了一个适用于平板电脑和手机的选项，还有一个适用于 Windows 机器的选项，但是，两者的行为相同，可能不适合。我能够加载和浏览本地网站，当设备有互联网连接时（使用本地链接），功能完好无损，后来在互联网连接被移除后仍然可以正常工作，没有任何问题。问题是，如果我在重新启动后最初启动服务器时没有互联网，或者几天后，例如浏览器只会加载一个空白的白色屏幕，没有错误。当互联网从本地存储请求索引页使其工作时，它为浏览器做了什么？我该如何修复它，以便它们在没有互联网连接的情况下也能工作？    提交人    /u/JaVelin-X-   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhg870/simple_web_server_offline/</guid>
-      <pubDate>Sun, 15 Sep 2024 16:12:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个 API，用于将 URL 和 HTML 转换为 PDF</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhg7g4/i_made_an_api_to_convert_urls_and_html_to_pdf/</link>
-      <description><![CDATA[      查看此工具，它可让您在几秒钟内创建 PDF！ 很乐意听到您的反馈    提交人    /u/sumit18_9   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhg7g4/i_made_an_api_to_convert_urls_and_html_to_pdf/</guid>
-      <pubDate>Sun, 15 Sep 2024 16:11:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>类似 linkstree 的东西，但用于捐赠</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhfj2b/thing_like_linkstree_but_for_donations/</link>
-      <description><![CDATA[嗨！我正在寻找类似 Linkstree 的东西，但它允许我放置所有捐赠链接（每个链接都有警告，例如：“50 美分费用”、“3％费用”、“仅在美国可用”等。 我更喜欢可以在 GitHub 页面上自行托管的静态解决方案，比如 hugo 主题，但我对任何具有“免费套餐”的服务都很满意。    提交人    /u/DSinapellido   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhfj2b/thing_like_linkstree_but_for_donations/</guid>
-      <pubDate>Sun, 15 Sep 2024 15:43:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>无法成功。咆哮帖 - 请温柔一点</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhf0xz/unable_to_succeed_rant_post_be_gentle_please/</link>
-      <description><![CDATA[我是自学成才的“网络开发者”，我不在这个行业工作，但我可以用 HTML、Javascript 和 PHP 完成一些任务。我甚至启动了自己的项目，最初潜在客户对此很感兴趣，但后来他们就对我置之不理了，我不得不承认，他们的问题有现成的解决方案，但价格过高，我甚至想过要开发一个产品并运行一些 PPC（按点击付费），但由于不是卖家，我无法突破。此外，人工智能热潮也无济于事——我觉得我错过了好几年的火车。 结果，我真的很沮丧和难过。 顺便说一句。如果有人愿意用 PHP、JS 启动一些开源项目或看看我的，请留言    提交人    /u/PopeOfTheWhites   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhf0xz/unable_to_succeed_rant_post_be_gentle_please/</guid>
-      <pubDate>Sun, 15 Sep 2024 15:22:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>Cursor IDE - AI 聊天限制</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhepn0/cursor_ide_ai_chat_limitations/</link>
-      <description><![CDATA[大家好，我最近遇到了一个叫 Cursor 的 IDE。这是一个很棒的工具，但我注意到在多个框架中它几乎可以做所有事情，尽管它经常使任务过于复杂或做一些我甚至没有要求的事情。例如，我可能会要求它将按钮的背景颜色更改为蓝色，但它会进行我从未要求过的其他更改。另一个有问题的情况是身份验证系统，它无法处理。我尝试在 Next.js 中安装 next-auth 并在 CakePHP 中安装 CakeDC/Users 插件，但它完全搞砸了一切。 有什么技巧或提示如何给它命令？    提交人    /u/BenceUK   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhepn0/cursor_ide_ai_chat_limitations/</guid>
-      <pubDate>Sun, 15 Sep 2024 15:09:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一个调色板修复网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fhepcr/i_made_a_palette_fixer_website/</link>
-      <description><![CDATA[🎨 欢迎来到 fixmypalette.art——您获得更好调色板的简单解决方案。它的工作原理如下： 1. 输入您要使用的颜色。 2. 点击“修复我的调色板”按钮。 3. 获取与您的设计完美匹配的颜色组合。 4. 保存调色板，加载旧调色板或探索预制选项。     提交人    /u/Sufficient-Meet1421   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fhepcr/i_made_a_palette_fixer_website/</guid>
-      <pubDate>Sun, 15 Sep 2024 15:08:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
