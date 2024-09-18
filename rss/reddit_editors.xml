@@ -4,7 +4,28 @@
     <title>最新投稿：编辑</title>
     <link>https://www.reddit.com/r/editors/new</link>
     <description>此子版块面向后专业人士。您想成为专业人士吗？请随意使用我们的“向专业人士提问”主题。副业？使用“向专业人士提问”主题。爱好？为了好玩？我们的姐妹子版块 r/videoediting 正是您想要的！</description>
-    <lastBuildDate>Wed, 18 Sep 2024 18:27:06 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 21:19:12 GMT</lastBuildDate>
+    <item>
+      <title>剪切对话嘴部或身体时我应该关注哪些肢体动作？</title>
+      <link>https://www.reddit.com/r/editors/comments/1fk2z6j/which_body_movement_should_i_focus_on_when/</link>
+      <description><![CDATA[大家好，我最近在做一项工作，需要剪掉很多对话。很遗憾，由于版权原因，我无法在这里展示任何对话。在这个项目中，我不得不做很多对话，而我并不习惯。我的大多数项目都涉及动作导向序列或带有 B 卷的说话头。我最近重新看了这部电影，发现对话的节奏似乎不对。似乎我在错误的时间切入了一些角度。如果我在这里或那里等几秒钟，或者提前几秒钟切，效果会好得多。 在这种情况下，当试图剪切对话时，我采取了剪切特定单词的方法，这样我就不会在某人的嘴部运动中途剪切。然而，我认为更好的方法可能是关注身体其他部位的运动，即耸肩举手或某种眼部运动。但是，这些动作通常发生在说话的中间，这意味着嘴巴正在运动。因此，我想知道是应该关注嘴巴的运动还是整个身体的运动？如果在说话的过程中伴随着身体动作，是否可以切换到某人说话的中间？此外，如果有人对对话节奏有任何建议或一般经验法则，我很乐意接受任何建议。    提交人    /u/GoldRespect8831   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1fk2z6j/which_body_movement_should_i_focus_on_when/</guid>
+      <pubDate>Wed, 18 Sep 2024 20:37:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在不丢失音频或设置的情况下删除 MOV 的最后 5 帧</title>
+      <link>https://www.reddit.com/r/editors/comments/1fk1gbv/how_to_drop_the_last_5_frames_of_a_mov_without/</link>
+      <description><![CDATA[大家好！ 不确定这是否是正确的主题，我不是专业人士，我是一名努力的研究生，哈哈。 我有两个视频（A 和 B），它们完全同步，但视频 A 在文件末尾有 5 个额外的帧。我想从视频 A 中删除最后 5 帧，但我希望保留其他所有内容（fps、速度等）。我一直在尝试使用 ffmpeg 和 MATLAB 来执行此操作。我目前遇到一个问题，我可以成功修剪，但音频已从视频中删除。我如何修剪（在 ffmpeg、MATLAB 或其他更好的程序中）同时修剪音频并保持音频与视频配对和同步。此外，我希望输出文件保持为 MOV，而不是 mp4。  任何建议都将不胜感激，现在我可以获得带音频的 mp4。但是，当我使用 ffmpeg 检查视频信息时，帧是正确的，时间=有意义，但 fps 返回的结果很奇怪。修剪后的 mp4 的 fps 为 1747，而原始 mov 的 fps 为 924。 我将在下面包含我当前正在使用的 MATLAB 代码以及 ffmpeg 输出！ 提前致谢！ % 指定输入和输出文件名 inputVideoFile = &#39;A001C0025.MOV&#39;; middleVideoFile = &#39;A001C0025_trim_temp.mp4&#39;; % 临时文件 finalOutputFile = &#39;A001C0025_trim_mat.mp4&#39;; % 最终输出文件 % 创建 VideoReader 对象 videoReader = VideoReader(inputVideoFile); % 获取总帧数和其他属性 numFrames = videoReader.NumFrames; frameRate = videoReader.FrameRate; videoHeight = videoReader.Height; videoWidth = videoReader.Width; % 创建 VideoWriter 对象 videoWriter = VideoWriter(intermediateVideoFile, &#39;MPEG-4&#39;); videoWriter.FrameRate = frameRate; open(videoWriter); % 读取和写入除最后 5 个帧之外的帧 for i = 1:(numFrames - 5) frame = read(videoReader, i); writeVideo(videoWriter, frame);结束 % 关闭 VideoWriter 对象 close(videoWriter); % 处理音频提取和修剪 % 这需要像 FFmpeg 这样的外部工具，因为 MATLAB 不直接处理音频 % 提取音频的命令 audioExtractCommand = sprintf(&#39;ffmpeg -i &quot;%s&quot; -q:a 0 -map a audio_original.wav&#39;, inputVideoFile); [status, cmdout] = system(audioExtractCommand); 如果 status ~= 0 error(&#39;Error extracting audio: %s&#39;, cmdout); 结束 % 修剪音频的命令（匹配修剪后视频的长度） audioTrimCommand = sprintf(&#39;ffmpeg -i audio_original.wav -ss 0 -t %f -c copy audio_trimmed.wav&#39;, (numFrames - 5) / frameRate); [status, cmdout] = system(audioTrimCommand); if status ~= 0 error(&#39;修剪音频时出错： %s&#39;, cmdout); end % 将修剪后的音频与视频合并的命令 audioMergeCommand = sprintf(&#39;ffmpeg -i &quot;%s&quot; -i audio_trimmed.wav -c:v copy -c:a aac -strict experiments &quot;%s&quot;&#39;, middleVideoFile, finalOutputFile); [status, cmdout] = system(audioMergeCommand); if status ~= 0 error(&#39;合并音频和视频时出错： %s&#39;, cmdout); end % 清理临时音频文件 delete(&#39;audio_original.wav&#39;); delete(&#39;audio_trimmed.wav&#39;); delete(intermediateVideoFile); % 删除中间文件 FFMPEG OUTPUT C:\Users&gt;ffmpeg -i &quot;C:\Users\A001C0025_trim_mat.mp4&quot; -map 0:v:0 -c copy -f null - 2&gt;&amp;1 | findstr &quot;frame=&quot; frame= 3703 fps=1747 q=-1.0 Lsize=N/A time=00:00:30.87 bitrate=N/A speed=14.6x ts/s speed=N/A C:\Users&gt;ffmpeg -i &quot;C:\Users\A001C0025.MOV&quot; -map 0:v:0 -c copy -f null - 2&gt;&amp;1 | findstr &quot;frame=&quot;帧= 3708 fps=924 q=-1.0 Lsize=N/A 时间=00:00:30.92 比特率=N/A 速度= 7.7x its/s 速度=N/A    提交人    /u/throwaway787543--12   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1fk1gbv/how_to_drop_the_last_5_frames_of_a_mov_without/</guid>
+      <pubDate>Wed, 18 Sep 2024 19:33:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>最佳投资组合网站构建器，联系方式？</title>
+      <link>https://www.reddit.com/r/editors/comments/1fk1eey/best_website_builder_for_portfolio_contact/</link>
+      <description><![CDATA[大家好！ 这可能是一个愚蠢的问题，但我想知道人们使用什么网站构建器来创建他们的作品集和联系信息！我的网站确实过时了，而且对于我主要用来展示作品的东西来说，订阅价格似乎有点太高了。 目前在 SquareSpace 上，所以任何更好/更便宜的替代品都很好！    提交人    /u/dkimg1121   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1fk1eey/best_website_builder_for_portfolio_contact/</guid>
+      <pubDate>Wed, 18 Sep 2024 19:31:09 GMT</pubDate>
+    </item>
     <item>
       <title>请允许链接和视频/图像</title>
       <link>https://www.reddit.com/r/editors/comments/1fjyuup/please_allow_links_and_videosimage/</link>
@@ -36,14 +57,14 @@
     <item>
       <title>QNAP TVS-h874 与 Synology DS1821+</title>
       <link>https://www.reddit.com/r/editors/comments/1fjq8ms/qnap_tvsh874_vs_synology_ds1821/</link>
-      <description><![CDATA[大家好！ 我正在寻找一台新的 NAS，为一个最多有 4 名编辑的小团队进行视频编辑。 我已经将选择范围缩小到 QNAP TVS-h874 和 Synology DS1821+。 显然，我计划在 QNAP 上添加一张 10G 卡，可能还有 SSD，以从 QuTS OS 中受益。 即使内存量有差异，我也不太明白价格差异。我在这里遗漏了什么？ 使用 ECC 内存来处理大型视频文件是否值得？ 鲍勃·泽林？你在这个房间里吗？ 谢谢大家！    提交人    /u/Kintarokun   [链接] [评论]]]></description>
+      <description><![CDATA[大家好！ 我正在寻找一台新的 NAS，为一个最多有 4 名编辑的小团队进行视频编辑。 我已经将选择范围缩小到 QNAP TVS-h874 和 Synology DS1821+。 显然，我计划在 QNAP 上添加一张 10G 卡，可能还有 SSD，以从 QuTS OS 中受益。 即使内存量有差异，我也不太明白价格差异。我在这里遗漏了什么？ 使用 ECC 内存处理大型视频文件是否值得？ 鲍勃·泽林？你在这个房间里吗？ 谢谢大家！    提交人    /u/Kintarokun   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/editors/comments/1fjq8ms/qnap_tvsh874_vs_synology_ds1821/</guid>
       <pubDate>Wed, 18 Sep 2024 11:15:11 GMT</pubDate>
     </item>
     <item>
       <title>xml 着色技巧</title>
       <link>https://www.reddit.com/r/editors/comments/1fjocgk/tipps_for_xml_to_color/</link>
-      <description><![CDATA[大家好，我想请教一下你们在向调色师发送 xml 时的最佳做法，因为上次我从调色师那里得到了一个奇怪的反应。 我通常会在我的 Premiere 时间线中删除所有效果、速度调整/坡道、变换等 - 因此时间与离线编辑中的时间不一样。我这样做是因为我从经验中了解到 xml 有时不会以正确的方式转换这些信息，所以我把它删掉了。 你对此有什么新信息吗，把它们删掉是多余的还是调色师太懒了，不想把它与图片锁定匹配？ 提前谢谢大家，希望你们的工作一切顺利！！    提交人    /u/Pretty-Ordinary4293   [链接] [评论]]]></description>
+      <description><![CDATA[大家好，我想请教一下你们在向调色师发送 xml 时的最佳做法，因为上次我从调色师那里得到了一个奇怪的反应。 我通常会在我的 Premiere 时间线中删除所有效果、速度调整/坡道、变换等 - 因此时间与离线编辑中的时间不一样。我这样做是因为我从经验中了解到 xml 有时不会以正确的方式转换这些信息，所以我把它删掉了。 你们对此有什么新信息吗，把它们删掉是多余的还是调色师太懒了，不想把它与图片锁定匹配？ 提前谢谢大家，希望你们的工作一切顺利！！    提交人    /u/Pretty-Ordinary4293   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/editors/comments/1fjocgk/tipps_for_xml_to_color/</guid>
       <pubDate>Wed, 18 Sep 2024 09:02:17 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[想知道是否有人知道任何类似于 Avid Log Exchange 的 Premiere 工作流程 - 可以根据输入到格式化电子表格中的内容将素材及其指定的时间码导入到 bin/project 中    提交人    /u/popnlocke   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/editors/comments/1fj9upb/premiereequivalent_workflow_for_importing/</guid>
       <pubDate>Tue, 17 Sep 2024 20:26:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>嘿，Mac 用户！不，你不应该升级到 OSX 15 Sequoia</title>
-      <link>https://www.reddit.com/r/editors/comments/1fj8y1v/hey_mac_users_no_you_should_not_upgrade_to_osx_15/</link>
-      <description><![CDATA[是的，这不言而喻……但我正在数着日子，直到有人发布 Avid/Adobe/Whatever 已停止工作，因为他们升级了操作系统。 等待。再等一会儿。 等到至少 Apple 发布了 15.0.1 并且（无论您使用什么工具）已经发布了一个点版本。 将您的工作系统&quot;不工作&quot;只是为了拥有最新的操作系统……几乎总是一个错误。让别人犯这个错误吧。 如果您能忍受……请进入您的 Mac 设置并关闭自动更新。    提交人    /u/greenysmac   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1fj8y1v/hey_mac_users_no_you_should_not_upgrade_to_osx_15/</guid>
-      <pubDate>Tue, 17 Sep 2024 19:51:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>编辑波形</title>
-      <link>https://www.reddit.com/r/editors/comments/1fj8xre/editing_to_waveform/</link>
-      <description><![CDATA[我遇到过这样的情况，我希望我的编辑与音乐同步，但音乐节奏在帧之间，无法完美对齐。有没有解决方法，或者有办法根据波形而不是帧来删除编辑。任何建议都值得感激。我最初来自音频制作领域，经常使用“tab to transit”功能，该功能将光标放在每个瞬态波形的开头。我正在寻找类似的功能/解决方法。谢谢。     提交人    /u/Gold-Present-7670   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1fj8xre/editing_to_waveform/</guid>
-      <pubDate>Tue, 17 Sep 2024 19:51:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>从主题演讲中移除不想要的物体（一罐可乐）！屏蔽或生成 AI 物体移除器？</title>
-      <link>https://www.reddit.com/r/editors/comments/1fj86x7/removing_an_unwanted_object_can_of_coke_from_a/</link>
-      <description><![CDATA[标题说明了一切，说实话，我最近拍摄了一个长达一小时的主题演讲，演讲者在讲台上放了一罐可乐，他们偶尔会喝一口。他们现在想把它从剪辑中删除……  这里最好的方法是什么？我目前使用的是 FCPX - 但也愿意使用其他方法。当演讲者喝可乐时，我不太担心罐子会变得模糊，不值得我花时间摆弄它。 这是一个小时长的视频，以 1080 拍摄。    提交人    /u/MajorTomMajor   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1fj86x7/removing_an_unwanted_object_can_of_coke_from_a/</guid>
-      <pubDate>Tue, 17 Sep 2024 19:21:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
