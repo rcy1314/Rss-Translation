@@ -3,12 +3,75 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 17 Sep 2024 18:27:51 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Wed, 18 Sep 2024 01:27:04 GMT</lastBuildDate>
+    <item>
+      <title>我每年都申请各种职位，从初级到中级，都被拒绝，不知道我的简历是不是罪魁祸首？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fjcjff/been_getting_rejected_from_every_job_application/</link>
+      <description><![CDATA[我申请软件工程和 Web 开发工作，我删掉了我的联系信息，但这是我的简历：https://imgur.com/a/qoCRDEH如果有人有任何建议    提交人    /u/swissyninja   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fjcjff/been_getting_rejected_from_every_job_application/</guid>
+      <pubDate>Tue, 17 Sep 2024 22:12:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>自由职业者的问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fjbsgo/question_for_freelancers/</link>
+      <description><![CDATA[您是如何获得前几个客户的？我读到一个很好的开始方式是联系当地企业。我已经开始这样做了，并找到了几个潜在客户，但在让他们跟进并优先考虑项目方面遇到了一些困难（人们很忙，他们已经有了一个网站，即使它已经过时了，或者认为他们不需要网站）。我不确定我是否必须采取更大胆的“销售”方式，或者只是给他们一些统计数据，比如“拥有现代网站的企业成功的可能性高出 17%”等等。一位业主转移了话题，基本上说网站并不重要 - 吸引人们购买的是社交媒体。看来我确实需要在销售宣传上多下功夫。    提交人    /u/Ok_Net_6384   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fjbsgo/question_for_freelancers/</guid>
+      <pubDate>Tue, 17 Sep 2024 21:42:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们如何将视频帧与音频块同步？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fjaktf/how_do_you_guys_sync_video_frame_with_audio_chunk/</link>
+      <description><![CDATA[我正在使用 moqtransport 构建流媒体平台，目前使用纯 WebTransport 会话，使用 WebCodecs 进行编码/解码，我当前在相应的 worker 中缓存解码后的帧和解码后的音频块，并且渲染无延迟，但渲染速率由接收速率控制，webtransport-go 服务器正在从流媒体转发流（流媒体使用 WebCodecs 进行编码）。 我使用 worker 有两个目的，一是缓冲编码块（视频帧或音频数据）并将编码块存储在 MinHeap 中（按时间戳排序），因为在视频帧中增量帧的解码取决于解码的关键帧。除了缓冲之外，重新排列接收到的帧以恢复它们的顺序也很有用。 另一个目的是，我想使用 worker 来控制/维持视频/音频的流畅播放。因为“渲染速率由接收速率控制”并不好，特别是如果网络条件波动，所以我决定在 MinHeap（存储解码后的块）和将解码后的块发送到主线程进行渲染之间添加一个队列： videoDecoder = new VideoDecoder({ output: (decodedFrame) =&gt; { decryptedFrameHeap.insert(decodedFrame); if (performance.now() - frameCollectionStartTime &gt;= 1000) { // console.log(&quot;frame heap size: &quot;, decryptedFrameHeap.size()); // if (frameSent * frameInterval &lt;= performance.now() - frameCollectionStartTime) { const frame = decryptedFrameHeap.extractMin(); postMessage({ action: &quot;renderFrame&quot;, frame }); // frameSent++; // } } }, error: (error) =&gt; { console.error(error); }, });  * frameCollectionStartTime 是 worker 获取第一帧的时间。我将 1 秒的帧缓冲到 MinHeap。 注释掉的代码用于控制将解码后的帧发送到主线程的速率，大约为 30FPS（1000ms/30frames），但如果我这样做，我会看到视频帧丢失的信息：只有大约 1/5 的顶部像素被绘制，其余的画布只是空的，顶部 1/5 部分正在快速刷新，感觉就像帧正在冲向画布。 这就是发送解码帧的控制被注释掉的原因，现在我不知道下一步该怎么做才能提高播放流畅度（更多关于质量的事情）。我考虑过使用第三方库将解码后的帧包装在容器中，并让库在调度时完成其工作，但这有点违反了使用 WebCodecs 并自行处理帧的目的。    提交人    /u/Ender-Wang   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fjaktf/how_do_you_guys_sync_video_frame_with_audio_chunk/</guid>
+      <pubDate>Tue, 17 Sep 2024 20:54:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>您使用什么 A/B 测试软件？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fja5t3/what_ab_testing_software_do_you_use/</link>
+      <description><![CDATA[我们一直在使用 Taplytics 构建相对轻松的自定义 A/B 测试，但不幸的是，他们已经停止使用该产品，转而专注于单独的工具。新工具有点过度，有太多我们不会使用的功能，所以我们需要找到一种替代方案，不仅可以让我们为单个测试设置多个目标，还可以选择将其设置为基于漏斗的实验，其中每个目标取决于链中的前一个目标是否被实现。为这些目标设置自定义的基于代码的触发器是必须的。最后，这个工具不应该每年花费我们数万美元。 我们发现最接近的工具是 Crazy Egg，它确实允许我们设置基于代码的触发器，但不允许为每个测试设置多个目标，更不用说基于漏斗的测试了。 有人知道或可以推荐任何可能满足我们所有要求的东西吗？通过 Google 搜索只能得到非常昂贵的替代方案，例如 A/BTasty、Optimizely 和 VWO，这些替代方案每年都要花费数万美元。    提交人    /u/eballeste   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fja5t3/what_ab_testing_software_do_you_use/</guid>
+      <pubDate>Tue, 17 Sep 2024 20:38:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何在 3 天内破解 WhatsApp 网页版</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fj9amm/how_i_hacked_whatsapp_web_in_3_days/</link>
+      <description><![CDATA[        提交人    /u/michal-szorad   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fj9amm/how_i_hacked_whatsapp_web_in_3_days/</guid>
+      <pubDate>Tue, 17 Sep 2024 20:04:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>ExpressJS 最佳实践</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fj8dxv/expressjs_best_practices/</link>
+      <description><![CDATA[        提交人    /u/Hawaii66123   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fj8dxv/expressjs_best_practices/</guid>
+      <pubDate>Tue, 17 Sep 2024 19:29:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>使网站具有多种语言版本</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fj7uz7/make_website_multilingual/</link>
+      <description><![CDATA[我有一个 sveltekit 网站，所有文本内容都是硬编码的，从本地 markdown 和 json 文件导入，并从数据库中获取。 有没有一个好的方法可以让网站提供多种语言（至少是瑞典语和英语）？    提交人    /u/sebbetrygg   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fj7uz7/make_website_multilingual/</guid>
+      <pubDate>Tue, 17 Sep 2024 19:09:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何处理 Chrome 的“触摸屏辅助”？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fj6yn7/how_to_deal_with_chrome_touchscreen_assist/</link>
+      <description><![CDATA[        由    /u/Valent-in 提交   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fj6yn7/how_to_deal_with_chrome_touchscreen_assist/</guid>
+      <pubDate>Tue, 17 Sep 2024 18:34:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>提交 Interop 2025 提案</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fj6wp3/submit_your_proposals_for_interop_2025/</link>
+      <description><![CDATA[        提交者    /u/feross   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fj6wp3/submit_your_proposals_for_interop_2025/</guid>
+      <pubDate>Tue, 17 Sep 2024 18:32:33 GMT</pubDate>
+    </item>
     <item>
       <title>WIX 上较大的网站是否速度很慢，还是整体上都很慢？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fj6qc4/are_larger_sites_on_wix_slow_or_is_it_just_bad/</link>
-      <description><![CDATA[我挽救了一个用 Wix 制作的旧网站，它比较大，上面有相当多的图形和元素，但是我决定缩小规模，发现它仍然很慢，我之前的小网站速度也差不多，这让我很怀疑，如果不是网站的问题，是不是 WIX 本身就很糟糕？ 我正在使用它来为网站本身构建原型/概念，并将自己编写最终结果或使用 WordPress 等。因为 wix 的价格很贵。 我 16 岁时就创建了这个网站，多年后，我重新打造了这个网站，并将其改进了一千倍。天哪，这是我见过的最慢的网站应用程序。其他应用程序没有那么慢。    提交人    /u/Legitimate_Rub_9206   [链接] [评论]]]></description>
+      <description><![CDATA[我挽救了一个用 Wix 制作的旧网站，它比较大，上面有相当多的图形和元素，但是我决定缩小规模，发现它仍然很慢，我之前的小网站速度也差不多，这让我很怀疑，如果不是网站的问题，是不是 WIX 本身就很糟糕？ 我正在使用它来为网站本身构建原型/概念，并将自己编写最终结果或使用 WordPress 等。因为 wix 的价格很贵。 就背景而言，我在 16 岁时创建了这个网站，多年后，我重新打造了这个网站，并将其改进了一千倍。天哪，这是我见过的最慢的网站应用程序。其他应用程序没有那么慢。    提交人    /u/Legitimate_Rub_9206   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fj6qc4/are_larger_sites_on_wix_slow_or_is_it_just_bad/</guid>
       <pubDate>Tue, 17 Sep 2024 18:25:37 GMT</pubDate>
     </item>
@@ -34,13 +97,6 @@
       <pubDate>Tue, 17 Sep 2024 17:24:33 GMT</pubDate>
     </item>
     <item>
-      <title>iOS Edge 和 iOS Chrome 浏览器主动收集电子邮件地址</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj4p1t/ios_edge_and_ios_chrome_browsers_actively_harvest/</link>
-      <description><![CDATA[看来，iOS 版本的 Google Chrome 和 Microsoft Edge 都会主动从网页中收集电子邮件地址。我们怎么知道的？我们的产品 BotBarrier® 捕获了它们！为什么这两个供应商只针对 iOS 平台而不是 Android、Linux、Windows 或 MacOS 平台进行这种行为？我们将留给读者来决定。 BotBarrier 利用大量技术来捕获非人类流量。其中一种技术是使用“蜜罐”，它基本上就像 Bot-Candy。当机器人拿走糖果时，我们就会摧毁机器人，很简单。令我们惊讶的是，在我们的测试中，我们看到 iOS Chrome 和 iOS Edge 浏览器都受到了攻击。快速查看后发现，这些浏览器正在吞噬我们的电子邮件 Bot-Candy！！！ 阅读此处的文章，了解如何测试及更多内容... 糟糕的浏览器，糟糕！    提交人    /u/The_Geekmonster   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj4p1t/ios_edge_and_ios_chrome_browsers_actively_harvest/</guid>
-      <pubDate>Tue, 17 Sep 2024 17:06:38 GMT</pubDate>
-    </item>
-    <item>
       <title>当您拥有多个网站时，如何管理专业电子邮件？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fj4o6o/how_do_you_manage_professional_emails_when_you/</link>
       <description><![CDATA[我正在使用 Cloudflare 电子邮件路由将专业电子邮件中的电子邮件转发到我的个人 gmail 收件箱。此外，我还设置了 gmail smtp 以从专业电子邮件中发送电子邮件。但是，我的一些电子邮件最近落入了垃圾邮件文件夹。并且还有一个徽章写着“via cloudflare·net”，这很不专业。 因此，我寻找了一些替代方案并订阅了 Google 工作区。但很快发现我需要为添加的每个新域/用户支付 6 美元。例如：name1@domain·com 和 name2@domain·com 加起来每月 12 美元。我有几个小项目，每个项目都需要专业的电子邮件，所以成本会增加，会变得昂贵。 你们用什么来管理专业电子邮件？ 我知道大多数人都在使用 ImprovMX 或 forwardemail·net，但我想知道它与 Cloudflare 电子邮件路由有何不同。 请分享任何建议或推荐。    提交人    /u/WordyBug   [link] [评论]]]></description>
@@ -53,62 +109,6 @@
       <description><![CDATA[        提交人    /u/fagnerbrack   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fj4nkn/why_is_spawning_a_new_process_in_node_so_slow/</guid>
       <pubDate>Tue, 17 Sep 2024 17:05:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>为 Interop 2025 做好准备：您有机会塑造网络</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj3sbv/get_ready_for_interop_2025_your_chance_to_shape/</link>
-      <description><![CDATA[        由    /u/feross  提交  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj3sbv/get_ready_for_interop_2025_your_chance_to_shape/</guid>
-      <pubDate>Tue, 17 Sep 2024 16:31:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>九年的个人经历有什么意义吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj38ux/does_9_years_of_personal_experience_count_for/</link>
-      <description><![CDATA[如果算上学校和工作，以及我自己的个人经历，我已经编程 9 年了，但如果不算学校，我只有两年的专业工作经验。我想知道我是否可以以某种方式利用这一点来获得我想要的工作？    提交人    /u/mymar101   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj38ux/does_9_years_of_personal_experience_count_for/</guid>
-      <pubDate>Tue, 17 Sep 2024 16:11:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何避免数据库操作中的竞争条件？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj37v3/how_to_avoid_race_conditions_on_db_operations/</link>
-      <description><![CDATA[我正在为一个实习生职位做测试任务。我需要一个数据库，在其中一张表中存储一些定量数据（比如点赞数）。我需要有一个端点来增加和减少这个值。 现在我发现有可能多个用户同时执行此操作并导致竞争条件。我需要想办法防止它。 我的堆栈是 Node.js - express - PrismaORM。 我看到以下解决方案：  在 Prisma 中传递原始 sql 查询并尝试用 Postgres 锁定表。 尝试使用 Redis 之类的东西实现一些应用程序级锁定（也许？） 向模型添加“version”字段。根据请求获取此版本，创建事务，并且仅在版本未更改时执行它。看起来很简单，但如果条件发生变化，我需要抛出一个错误，或者创建一个循环重复此操作，直到条件正确。这两种解决方案在 REST api 上下文中看起来都有点奇怪。  你会在这里做什么？    提交人    /u/Alex_054   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj37v3/how_to_avoid_race_conditions_on_db_operations/</guid>
-      <pubDate>Tue, 17 Sep 2024 16:10:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>光标样式（指针等）未在辅助显示屏上呈现，macOS 14.7</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj36kf/cursor_stylepointer_etc_not_rendering_on/</link>
-      <description><![CDATA[我在 Web 开发过程中发现了一个奇怪的错误。 我在主屏幕上编写代码，在辅助屏幕上进行测试，并且我在按钮元素上设置了光标指针，并且当鼠标悬停在该按钮上时它不显示“手”。我检查了 tailwindcss 版本、chrome 版本、safari 以及我能想到的一切，然后在主显示屏上打开该页面，然后光标指针显示出来……我尝试使用 Safari 18 和 Chrome 128，它们都可以在主屏幕上工作，但都无法在辅助屏幕上工作。 还有人注意到这个吗？回到 macOS 14.6.1 我也注意到了它，但没有时间深入研究它。    提交人    /u/Ender-Wang   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj36kf/cursor_stylepointer_etc_not_rendering_on/</guid>
-      <pubDate>Tue, 17 Sep 2024 16:08:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>投资组合项目网站的发布要求是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj1wtk/release_requirements_for_a_portfolio_project_site/</link>
-      <description><![CDATA[所以我花了大约一个月的时间开发了一个类似 Letterboxd 的视频游戏评论网站。我已经在简历上列出了它，但它没有任何活跃用户，因为我只把它分发给了在网站上发表了一些评论的朋友。我觉得如果我公开发布它并开发出某种用户群，它会更令人印象深刻，但这也带来了一些担忧，即该网站是否已做好准备。有几件事情我很担心，但不确定是否应该修复：  脏话过滤器：我需要屏蔽网站上的脏话吗？如果雇主看到网站上有不适当的帖子，这会对我产生不良影响吗？我一直在寻找一个好的软件包来处理这个问题，而不会屏蔽无害的词语。 电子邮件验证：我很确定我应该有这个，但我犹豫着是否要购买域名来实现它。这样的项目值得花钱吗？  在推广网站之前，您还想确保其他事项吗？    提交人    /u/Cardboard_Robot_   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj1wtk/release_requirements_for_a_portfolio_project_site/</guid>
-      <pubDate>Tue, 17 Sep 2024 15:17:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用画廊视图实现私有或租户基础图像上传？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj1u0b/how_implement_private_or_tenant_base_image_upload/</link>
-      <description><![CDATA[我想制作一个简单的应用程序，用户可以将图像上传到私人存储桶，并且只能访问/查看他们的图像。 假设用户已加载 100 幅图像，我想在 &lt;img&gt; 标签网格中显示这些图像。 我正在查看 Amazon S3。我看到您可以使用 IAM 授予对文件“列表”的访问权限，但是我不确定如何使用该列表实现该图库视图。 据我所知，您需要为每个文件生成一个预签名的 URL。因此，在 100 张照片的网格中，您需要发出 100 个 API 请求来为每个图像生成一个预签名的 URL。 我想知道，有没有更好的方法？我希望有一个单一的身份验证请求可以允许读取存储桶中的任何内容。 如果有更好的解决方案，我就不会被锁定在 S3 中。    提交人    /u/Fast-Bag-36842   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj1u0b/how_implement_private_or_tenant_base_image_upload/</guid>
-      <pubDate>Tue, 17 Sep 2024 15:14:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>利用生成式 AI 构建负责任的网络体验</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj1iao/build_responsible_web_experiences_with_generative/</link>
-      <description><![CDATA[        提交人    /u/feross   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj1iao/build_responsible_web_experiences_with_generative/</guid>
-      <pubDate>Tue, 17 Sep 2024 15:01:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>SVG 无法在生产版 Netlify 上呈现</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fj1g4g/svgs_not_rendering_on_production_netlify/</link>
-      <description><![CDATA[      我的网站上的 SVG 出现问题。它们无法正确渲染。它显示状态 HTTP 200，但它们没有显示。我正在使用 Astro 并在 Netlify 上托管应用程序。我看到 SVG 的标头“Content-Type”为“image/svg”，而它应该是“image/svg+xml”。我试图以这种方式进行设置，但不起作用。我将保留我的 Netlify 配置文件。 [build] command = &quot;pnpm run build&quot; functions = &quot;netlify/functions&quot; publish = &quot;dist/&quot; [[headers]] for = &quot;/*.svg&quot; [headers.values] Content-Type = &quot;image/svg+xml&quot;  此外，这是我的项目结构： https://preview.redd.it/2b4m2vdsvdpd1.png?width=294&amp;format=png&amp;auto=webp&amp;s=dc30d61aea318dffa14662801f6d79c2eddf5be0 最后，这是我调用 SVG 的方式： --- import { Image } from &quot;astro:assets&quot;;从 &quot;../assets/icons/rep-flower.svg&quot; 导入 repFlower； --- &lt;Image src={repFlower} loading={&quot;lazy&quot;} alt=&quot;Repeated Flower&quot; class=&quot;w-16 h-16 absolute -left-[4rem] -top-[4rem]&quot; /&gt;     提交人    /u/Comprehensive-Cup947   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fj1g4g/svgs_not_rendering_on_production_netlify/</guid>
-      <pubDate>Tue, 17 Sep 2024 14:59:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
