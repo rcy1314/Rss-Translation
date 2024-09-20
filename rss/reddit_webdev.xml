@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 20 Sep 2024 06:28:59 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 09:25:50 GMT</lastBuildDate>
+    <item>
+      <title>有人使用过 unbounce 并且知道如何改进移动 LCP 吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl7qwb/anyone_use_unbounce_and_know_how_to_improve/</link>
+      <description><![CDATA[      Google 评论徽章甚至不是第三方小部件，它只是 html。我也懒得加载背景图片了。该按钮有一些 css 和脉冲动画，但是当我删除它们时，LCP 并没有改善    提交人    /u/yungirving99   [link] [comments] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl7qwb/anyone_use_unbounce_and_know_how_to_improve/</guid>
+      <pubDate>Fri, 20 Sep 2024 09:14:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>我必须为我实习的公司制作手册</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl7phv/i_have_to_build_manuals_for_the_company_im/</link>
+      <description><![CDATA[我实习的公司软件实践很糟糕，甚至没有采用基本的 SOLID 原则。我的问题是，如果你必须构建手册来改进软件开发生命周期，这将需要什么？ 首先，我将详细介绍他们的流程，为什么这很糟糕，以及他们如何改进它。但如果你是一位经验丰富的开发人员，手册会包括什么？考虑到你想到的任何最佳实践，他们根本没有做到。    提交人    /u/tinker_b3lls   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl7phv/i_have_to_build_manuals_for_the_company_im/</guid>
+      <pubDate>Fri, 20 Sep 2024 09:11:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>糟糕</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl73oo/oops/</link>
+      <description><![CDATA[      我担心在生产中犯错。然后我想起大人物也会犯错    提交人    /u/Jamesrhardy   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl73oo/oops/</guid>
+      <pubDate>Fri, 20 Sep 2024 08:24:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要帮助：Reddit OAuth 和获取已保存帖子 API 问题 - 400 和 403 错误</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl6kvj/help_needed_reddit_oauth_and_fetching_saved_posts/</link>
+      <description><![CDATA[您好，Reddit 开发人员！👋 我目前正在开展一个个人项目，旨在创建一个 Web 应用程序，让用户可以访问和管理他们在 Reddit 上保存的帖子。该应用程序使用 Reddit 的 OAuth2 进行身份验证，并尝试为经过身份验证的用户获取已保存的帖子。下面是我当前设置和我所面临的问题的简要概述。 项目概述：  服务器设置：我在后端使用 Express.js，使用 axios 进行 API 请求，使用 express-session 管理用户会话。 OAuth 流程： 用户被重定向到 Reddit 的 OAuth 授权页面。 身份验证成功后，应用程序会收到授权码，然后使用 Reddit 的 /api/v1/access_token 端点将其交换为访问令牌。  获取已保存的帖子： 获取访问令牌后，应用程序尝试从 https://oauth.reddit.com/user/me/saved 端点。   当前代码： 以下是我的服务器代码的高级解释：  身份验证端点 (/auth/reddit)： 使用必要参数 (client_id、scope 等) 将用户重定向到 Reddit 的 OAuth 页面。  回调端点 (/auth/reddit/callback)： 接收授权码并将其交换为访问令牌。 访问令牌存储在会话中以供将来的请求使用。  获取已保存的帖子 (/download)： 使用存储的访问令牌请求已保存的帖子。   下面是我的服务器端代码片段，用于说明上下文： // 检索访问令牌的代码示例 const tokenResponse = await axios.post( &quot;https://www.reddit.com/api/v1/access_token&quot;, new URLSearchParams({ grant_type: &quot;authorization_code&quot;, code: code, redirect_uri: redirectUri, }).toString(), { auth: { username: clientId, password: clientSecret, }, headers: { &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, &quot;User-Agent&quot;: &quot;web:com.example.redditsavedpostsmanager:v1.0（由 /u/Free-_-Yourself 提供）&quot;, }, } );  问题：  服务器日志中的错误消息： 尝试获取用户信息时，我收到 403 Forbidden 错误。 尝试获取已保存的帖子时，我收到 400 Bad Request 错误，消息如下：{ message: &#39;Bad Request&#39;, error: 400 }。  浏览器控制台中的错误消息： 浏览器控制台显示 无法加载资源：服务器响应状态为 500（内部服务器错误）。   故障排除尝试：  我仔细检查了访问令牌生成过程，它似乎是正确的，因为我收到有效的访问令牌响应。 我确保 OAuth 范围包括 read 和 history，这足以访问已保存的帖子。 验证在向 Reddit 的 OAuth 端点发出请求时是否正确设置了授权标头。  求助： 我不确定为什么我会遇到这些 400 和 403 错误，当一切似乎都按照 Reddit 的 API 文档设置时。这可能是速率限制问题、范围不正确还是我遗漏了其他什么？ 任何建议或见解都将不胜感激！🙏 提前感谢你的帮助！    提交人    /u/Free-_-Yourself   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl6kvj/help_needed_reddit_oauth_and_fetching_saved_posts/</guid>
+      <pubDate>Fri, 20 Sep 2024 07:42:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>当 Snipcart 看起来不错时集成 Shopify</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl6fvy/integrating_shopify_when_snipcart_is_looking_good/</link>
+      <description><![CDATA[大家好， 我有一个客户想要 Shopify 集成。我一直在关注 snipcart，他们的概念似乎非常适合在现有网站上添加商店。Shopify 试图*成为*网站，这意味着在两个地方添加产品，或者从 Shopify API 获取产品。这看起来很麻烦。Shopify 有自己的模板系统，我不想使用它。我也不想花几天时间基于 Shopify API 制作自己的购物车。 有没有办法以类似于 Snipcart 的方式集成 Shopify？例如，添加购物车，稍微设计一下，就大功告成了。我猜不是，但我希望有某种方式可以做到这一点，而这并不意味着要么完全在 Shopify 内部构建我的网站，要么必须使用他们的 API 并自己构建所有商店 UI。 非常感谢您的想法！    提交人    /u/Extremely_Engaged   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl6fvy/integrating_shopify_when_snipcart_is_looking_good/</guid>
+      <pubDate>Fri, 20 Sep 2024 07:31:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>推荐的 discord 服务器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fl5xad/recommended_discord_servers/</link>
+      <description><![CDATA[大家好。我大部分时间都是在家独自开发，有时会感到孤独。您能推荐一些适合 Web 开发的优秀 Discord 社区吗？    提交人    /u/Zymophilus   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fl5xad/recommended_discord_servers/</guid>
+      <pubDate>Fri, 20 Sep 2024 06:52:40 GMT</pubDate>
+    </item>
     <item>
       <title>维护一个像 itemfix.com 这样的视频分享网站，每天发布大约 10-20 个短视频，每个月需要花多少钱？</title>
       <link>https://www.reddit.com/r/webdev/comments/1fl4txb/how_much_would_it_cost_me_per_month_to_maintain_a/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[我正在开发一个使用 CMS 的大型网站，该网站有大量由开发人员完成的组件。当我接到在网站某个部分执行某项任务时，我常常不知道该从哪里查找，因为所有内容都是模块化的，并且取决于 CMS 中的状态。我通常会尝试查找可能硬编码的文本片段或检查页面以查找更多独特类，然后将其输入到代码编辑器中进行搜索。通常这种方法有效，但有时我仍然很难找到代码。你们是怎么做到的？有什么工具吗？    提交人    /u/tortikolis   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fkwwob/what_is_fastest_way_to_find_componentpiece_of/</guid>
       <pubDate>Thu, 19 Sep 2024 22:24:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何确定图像压缩的文件大小？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fkwcfy/how_to_target_a_file_size_for_image_compression/</link>
-      <description><![CDATA[我有数万张想要针对网络进行优化的图片。它们的尺寸和文件大小差异很大。 我研究过的所有图片压缩库都只提供质量参数。但是，我想针对特定的文件大小：~500Kb。有没有可以做到这一点的库？ 或者，您使用什么图片压缩实用程序？    提交人    /u/Artsy_ultra_violence   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fkwcfy/how_to_target_a_file_size_for_image_compression/</guid>
-      <pubDate>Thu, 19 Sep 2024 21:58:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>domco v1 - 最小的全栈 JavaScript 框架</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fktzm7/domco_v1_a_minimal_fullstack_javascript_framework/</link>
-      <description><![CDATA[https://github.com/rossrobino/domco domco@v1 今天发布，它是向您的 Vite 应用程序添加 SSR/API 路由的极简方式。除了 Vite 之外，它没有其他依赖项。 如果有人想尝试并让我知道他们的想法，我将不胜感激。    提交人    /u/rossrobino   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fktzm7/domco_v1_a_minimal_fullstack_javascript_framework/</guid>
-      <pubDate>Thu, 19 Sep 2024 20:18:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于拒绝说明预算的客户，您会怎么做？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fksik2/what_do_you_do_about_clients_who_refuse_to_state/</link>
-      <description><![CDATA[该项目完全是定制的，他们将从我们为他们构建的定制网站上赚很多钱。当我们询问预算时，他说“我们不确定，如果我们需要削减功能，我们可以”，然后继续说“我不知道这是否需要花费 3k、15k 或 25k”。有一件事让我担心，我们的一些后续电子邮件包括诸如“什么是最简单的？”“哪个工作量更少”之类的回复。 根据我们的发现电话和完成时间，我目前估计为 18-21k。不了解项目的具体细节，根据我们的研究，如果该项目在构建后按照客户的要求执行，该项目为客户带来的增值可能高达每月 20k。 我们想要这个项目，因为它是一个投资组合项目，非常定制和独特。我们的销售人员认为他的上限是 25k，我们应该瞄准 19k。  你们如何处理这个问题/你们怎么看？    提交人    /u/pehpe   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fksik2/what_do_you_do_about_clients_who_refuse_to_state/</guid>
-      <pubDate>Thu, 19 Sep 2024 18:52:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS PSA：边距和填充之间的区别</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fks3ba/css_psa_the_difference_between_margin_and_padding/</link>
-      <description><![CDATA[        提交人    /u/bleach-cruiser   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fks3ba/css_psa_the_difference_between_margin_and_padding/</guid>
-      <pubDate>Thu, 19 Sep 2024 18:34:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>SSR性能对决</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fks0tt/an_ssr_performance_showdown/</link>
-      <description><![CDATA[        提交人    /u/feross   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fks0tt/an_ssr_performance_showdown/</guid>
-      <pubDate>Thu, 19 Sep 2024 18:31:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Cloudflare 和 GDPR 合规性</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fkrt15/cloudflare_and_gdpr_compliance/</link>
-      <description><![CDATA[您好， 我目前正在开发一款 SaaS，对于是否符合 GDPR 有一些疑问。 我的服务器位于欧盟境内，我（至少尝试）遵守有关同意和数据保护的所有法规。 我打算使用 Cloudflare 作为保护和 CDN 措施，并降低带宽和 SSL 证书方面的成本。 由于 Cloudflare 是一家美国公司，这意味着数据传输到欧洲经济区之外。他们有一篇关于此的文章，https://www.cloudflare.com/pt-br/trust-hub/gdpr/，但我想听听第二种意见。 有没有人曾经以类似的方式工作过，谁可以分享他们的经验？ 提前谢谢您！    提交人    /u/itsjuoum   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fkrt15/cloudflare_and_gdpr_compliance/</guid>
-      <pubDate>Thu, 19 Sep 2024 18:22:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
