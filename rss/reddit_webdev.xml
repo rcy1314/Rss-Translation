@@ -4,13 +4,27 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 21 Sep 2024 01:26:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2024 03:22:07 GMT</lastBuildDate>
     <item>
-      <title>在过去的 3 个月里，我制作了一个开源表单后端服务。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1flr5fz/i_made_an_open_source_form_backend_service_over/</link>
-      <description><![CDATA[      它是 web3forms 或 formspree 等服务的开源替代方案。我的动机是在这个领域中遇到每个表单后端的痛点。    提交人    /u/OiaOrca   [link] [comments] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1flr5fz/i_made_an_open_source_form_backend_service_over/</guid>
-      <pubDate>Sat, 21 Sep 2024 00:47:32 GMT</pubDate>
+      <title>有没有免费/便宜的方法可以在 github pages 网站上设置 reCaptcha 验证？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fltfoe/any_freecheap_ways_to_setup_recaptcha/</link>
+      <description><![CDATA[嗨， 有没有免费/便宜的方法可以为托管在 github pages 上的静态网站设置 reCaptcha 验证后端？ 我只想在我的网站上有一个带有验证码验证的简单联系表单（除了验证码后端，我已经设置好了一切）。 我一直在尝试寻找一个简单的教程，可以一步一步解释所有内容，但我没有找到。我找到的那些都假设我已经为例如设置了所有内容。 AWS 并完全跳过了这部分。 我是一个完全的初学者，所以我对如何正确设置它一无所知（比如将静态网站链接到其他地方托管的后端等）。 请不要链接我任何允许您从模板创建表单的表单网站，我想要自己的表单。    提交人    /u/LiseQ   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fltfoe/any_freecheap_ways_to_setup_recaptcha/</guid>
+      <pubDate>Sat, 21 Sep 2024 02:56:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的客户希望在用户购买产品时发送一条消息</title>
+      <link>https://www.reddit.com/r/webdev/comments/1flsr18/my_client_wants_to_send_a_message_whenever_a_user/</link>
+      <description><![CDATA[嗨， 我目前正在为客户开设一家商店 我从未处理过 WhatsApp 开发，所以我想我应该在这里问一下 因此，每当用户购买某样东西时，都会执行一个值得记录的操作，并向所有者的 WhatsApp 发送一条消息。我如何实现这一点？有任何成本吗？    提交人    /u/waelnassaf   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1flsr18/my_client_wants_to_send_a_message_whenever_a_user/</guid>
+      <pubDate>Sat, 21 Sep 2024 02:16:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>Api 设计考虑</title>
+      <link>https://www.reddit.com/r/webdev/comments/1fls6md/api_designs_consideration/</link>
+      <description><![CDATA[在我的 Web 应用中，我有三个主要页面：  所有学校页面 单个学校页面（用户可以在其中选择教室） 教室页面（每个教室包含多个不同类型的设备）  设备表具有以下结构： -id -type  我已经有一个 API 来获取教室中的所有设备：  端点：/GET /classroom/{classroomId}/devices 示例响应：  ​ [ { &quot;id&quot;: 1, &quot;type&quot;: &quot;projector&quot; }, { &quot;id&quot;: 2, &quot;type&quot;: &quot;smartboard&quot; } ]  每个设备都可以是几种类型之一，并且它们的遥测数据各不相同。例如：  投影仪设备具有如下遥测字段：  brightness lampHours  智能板设备具有如下遥测字段：  touchSensitivity screenResolution   遥测数据存储为 JSON，我有一个外部 API，可以根据时间范围获取这些设备的遥测数据。我的目标是设计能够有效获取遥测数据的 API。 可能的方法： 1.获取设备及遥测数据  端点：/GET /classroom/{classroomId}/devices 示例响应：  ​ [ { &quot;id&quot;: 1, &quot;type&quot;: &quot;projector&quot;, &quot;telemetry&quot;: { &quot;brightness&quot;: 100, &quot;lampHours&quot;: 4 } }, { &quot;id&quot;: 2, &quot;type&quot;: &quot;smartboard&quot;, &quot;telemetry&quot;: { &quot;touchSensitivity&quot;: 20, &quot;screenResolution&quot;: 48 } } ]   优点：我需要应用一种算法来获取某个日期范围内的遥测数据并进行处理，这可能会引发性能问题。如果遥测计算时间过长，设备可能无法在前端快速显示。 缺点：简单明了。前端只需要进行少量额外处理。  2.单独的遥测 API  端点：/devices/{deviceId}/telemetry 示例响应：  ​ { &quot;brightness&quot;: 100, &quot;lampHours&quot;: 4 }  在此方法中：  前端首先通过 /GET /classroom/{classroomId}/devices 获取所有设备。 然后，使用 /devices/{deviceId}/telemetry 对每个设备的遥测进行后续请求。   优点： 设备可以立即显示在前端，而不会因遥测提取而延迟。  缺点：  向服务器发送多个请求，这可能会造成开销。   你们有什么建议吗？    提交人    /u/More-Ad-5258   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1fls6md/api_designs_consideration/</guid>
+      <pubDate>Sat, 21 Sep 2024 01:44:56 GMT</pubDate>
     </item>
     <item>
       <title>带摘要认证帮助的 HTTP GET（Axis 摄像机到 Ignition SCADA）</title>
@@ -29,7 +43,7 @@
     <item>
       <title>您可以在哪里雇用小型开发团队来开展项目？</title>
       <link>https://www.reddit.com/r/webdev/comments/1flp2dd/where_can_you_hire_small_dev_teams_for_projects/</link>
-      <description><![CDATA[不包括 Upwork 等  是否有任何专门的空间/平台供经过审查的开发团队使用？ 3/4 人的小型团队，例如 Front、Back 和 Dev Ops。 技术栈：Next.JS Typescript Tailwind  Node/Nest、Go 或 Python  谢谢     提交人    /u/Quirky-Offer9598   [链接] [评论]]]></description>
+      <description><![CDATA[不包括 Upwork 等  是否有专门的空间/平台供经过审查的开发团队使用？ 3/4 人的小型团队，例如 Front、Back 和 Dev Ops。 技术栈：Next.JS Typescript Tailwind  Node/Nest、Go 或 Python  谢谢     提交人    /u/Quirky-Offer9598   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1flp2dd/where_can_you_hire_small_dev_teams_for_projects/</guid>
       <pubDate>Fri, 20 Sep 2024 23:01:37 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[您好！抱歉，如果这个问题的子版块不对，我正在为客户写一些 HTML 电子邮件，他们有一种票务服务，会在票务解决过程中发送电子邮件，我们遇到了一个问题，一旦有人收到票务服务的电子邮件，一切看起来都符合预期，但是一旦将同一封电子邮件转发给其他人，图像就会损坏。我想原因是我在 wordpress 网站上托管了图像，只是抓取了原始图像链接放入 HTML 电子邮件代码中，但我只是想确保我弄清楚了这里的选项是什么。     提交人    /u/DuhSosanator   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1fljntd/html_emails_image_hosting/</guid>
       <pubDate>Fri, 20 Sep 2024 18:58:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>成为 Web 开发人员的小小乐趣</title>
-      <link>https://www.reddit.com/r/webdev/comments/1fljmsg/the_little_joys_of_being_a_web_developer/</link>
-      <description><![CDATA[我刚刚偶然发现了一个扩展，它允许您覆盖任何网站上的任何 CSS。现在，虽然不是每个人都有耐心去解读 JS、HTML 和 CSS，但我们中看到像黑客帝国这样的网站的少数人，现在拥有世界上所有的力量来改变任何公共网站，以改善我们的个人体验。 目前，我正处于人生的过渡期，我正在寻找工作，试图保持对项目的活跃，跟上阅读行业趋势，但最重要的是试图远离你典型的&quot;大脑腐烂&quot;活动。在找到这个 CSS 覆盖后，我发现任何人都可以故意隐藏分散注意力的内容或不必要的功能，这些内容或功能可能会让人们长时间处于&quot;大脑关闭模式&quot;。 我发现 &#39;display: none;&#39; 的强大功能令人震惊，它确实可以重新吸引用户的注意力。到目前为止，我最好的实施方案是从登录页面中删除 Youtube Shorts，从而不再浪费时间。  很想知道你们都看到了哪些网站新增内容，最好把它们藏在壁橱里。    提交人    /u/CallMeSnyder   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1fljmsg/the_little_joys_of_being_a_web_developer/</guid>
-      <pubDate>Fri, 20 Sep 2024 18:56:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于创建预订页面的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1flisii/advice_on_booking_page_creation/</link>
-      <description><![CDATA[大家好， 我不太确定这里是否是发帖的合适地方，但我确信这个子版块里有很多合适的人，他们可以引导我朝着正确的方向前进。 我们计划明年推出播客，并有机会为每集节目争取赞助。一年中的每一天（总共 365 天）都会安排一集节目，我的目标是开发一个能够处理付款的简单预订/登陆页面。设计将极简主义，包含播客的一些品牌元素，以及显示剩余可用日期的日历。某些日期的价格会更高。 您能推荐一个可以方便创建此页面的网站或服务吗？任何进一步的建议或提示都将不胜感激。    提交人    /u/razzaholt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1flisii/advice_on_booking_page_creation/</guid>
-      <pubDate>Fri, 20 Sep 2024 18:20:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
