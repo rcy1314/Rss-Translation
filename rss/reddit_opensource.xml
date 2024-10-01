@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 30 Sep 2024 21:21:05 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 01:46:10 GMT</lastBuildDate>
+    <item>
+      <title>AI 文件管理器更新：现在具有试运行模式和 Llama 3.2 作为默认模型</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ftc2nx/ai_file_organizer_update_now_with_dry_run_mode/</link>
+      <description><![CDATA[嘿 r/opensource！ 我之前分享过我的 AI 文件管理器项目，它可以读取和排序文件，并且 100% 在设备上运行：( https://www.reddit.com/r/opensource/comments/1fmglr7/i_built_a_python_script_uses_ai_to_organize_files ) 并得到了社区的大力支持！谢谢！！！ 操作方法如下： 修改前：/home/user/messy_documents/ ═── IMG_20230515_140322.jpg ═── IMG_20230516_083045.jpg ═── IMG_20230517_192130.jpg ═── budget_2023.xlsx ═── meeting_notes_05152023.txt ═── project_proposal_draft.docx ═── random_thoughts.txt ═── recipe_chocolate_cake.pdf ═── scan0001.pdf ═── vacation_itinerary.docx └── work_presentation.pptx 0 个目录，11 个文件 修改后：/home/user/organized_documents/ ═── Financial │ └── 2023_Budget_Spreadsheet.xlsx ═── 食物和食谱 │ └── 巧克力蛋糕食谱.pdf ═── 会议和笔记 │ └── 团队会议笔记_May_15_2023.txt ═── 个人 │ └── 随机想法和想法.txt ═── 照片 │ ═── 城市景观日落_May_17_2023.jpg │ ═── 早晨咖啡店_May_16_2023.jpg │ └── 办公室团队午餐_May_15_2023.jpg ═── 旅行 │ └── 夏季假期行程_2023.doc └── 工作 ═── 项目_X_提案草案.docx ═── Quarterly_Sales_Report.pdf └── Marketing_Strategy_Presentation.pptx 7 个目录，11 个文件  我阅读了所有评论，并在过去一周致力于实施变更。以下是此版本中的新功能： v0.0.2 新功能：  试运行模式：在提交更改之前预览排序结果 静默模式：将日志保存到文本文件以实现更安静的操作 扩展文件支持：.md、.xlsx、.pptx 和 .csv 三种排序选项：按内容、日期或文件类型 默认文本模型更新至 Llama 3.2 3B 增强的 CLI 交互体验 文件分析的实时进度条  有关路线图和下载说明，请查看稳定的 v0.0.2：https://github.com/NexaAI/nexa-sdk/tree/main/examples/local_file_organization 对于具有实验性功能的增量更新，请查看我的个人仓库：https://github.com/QiuYannnn/Local-File-Organizer 感谢 Nexa 团队将我纳入他们的官方手册并为这个新版本提供巨大支持。整个项目的可执行文件正在开发中。 您对此更新有何看法？我应该为下一个版本优先考虑什么吗？ 谢谢！！   由    /u/unseenmarscai  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ftc2nx/ai_file_organizer_update_now_with_dry_run_mode/</guid>
+      <pubDate>Tue, 01 Oct 2024 01:14:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有一种开源 p2p 加密的一键通对讲机式应用程序，其工作方式类似于 Zello？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ftas9l/is_there_an_open_source_p2p_encrypted_pushtotalk/</link>
+      <description><![CDATA[  由    /u/jb45rd6  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ftas9l/is_there_an_open_source_p2p_encrypted_pushtotalk/</guid>
+      <pubDate>Tue, 01 Oct 2024 00:10:56 GMT</pubDate>
+    </item>
     <item>
       <title>Pop A Lock-开源每日益智游戏</title>
       <link>https://www.reddit.com/r/opensource/comments/1ft5wi9/pop_a_lock_open_source_daily_puzzle_game/</link>
@@ -22,7 +36,7 @@
     <item>
       <title>已发布：7zz-extended – 7-Zip 的修补版本，可改善掩码处理</title>
       <link>https://www.reddit.com/r/opensource/comments/1ft3dfc/released_7zzextended_a_patched_version_of_7zip/</link>
-      <description><![CDATA[大家好， 我很高兴与大家分享我几年前从事的一个名为7zz-extended的项目。这是 7-Zip 的修补版本，它增强了提取过程中处理文件掩码的方式，使该过程更加高效和准确。 存储库： github.com/keklick1337/7zip-extended 概述：  基本版本：7zz 24.08 修补者： YSergey (abc321) 更新者： Vladislav Tislenko (keklick1337) 修改的文件：  CPP/Common/Wildcard.h CPP/Common/Wildcard.cpp C/7zVersion.h   主要改进： 主要变化涉及在掩码模式末尾添加字符 $?。此修改允许搜索从文件完整路径的末尾开始，从而提高基于特定模式的文件提取的准确性。 使用示例： ./7zz x test.7z -i&#39;!*/*ense*.txt$?&#39; -i&#39;!*/*ip*.hhp$?&#39; -i&#39;!*.mak$?&#39; -ssc-  示例提取：使用原始 7zz 应用程序从 test.7z 存档中提取必要的文件： 7zz.exe x test.7z -i!*\*example*.txt -i!*\*test*.txt -i!*.rar -i!*.zip -i!*.7z -r  请注意，某些包含匹配单词的文件夹也可能会被提取。 构建说明（Debian 示例）： apt update -y apt install make gcc libc-dev git -y git clone cd 7zip-extended/CPP/7zip/Bundles/Alone2 make -j -f makefile.gcc cd _o chmod 777 7zz sudo mv 7zz /bin/7zzhttps://github.com/keklick1337/7zip-extended  技术细节：该补丁涉及对 Wildcard.cpp 的修改，以改进路径处理和掩码匹配。这些更改有助于防止提取不必要的文件夹，并确保只处理与指定模式匹配的所需文件。 请随时查看存储库、试用并提供任何反馈或改进建议。我期待听到您的想法！    提交人    /u/Front-Buyer3534   [链接] [评论]]]></description>
+      <description><![CDATA[大家好， 我很高兴与大家分享我几年前从事的一个名为7zz-extended的项目。这是 7-Zip 的修补版本，它增强了提取过程中处理文件掩码的方式，使该过程更加高效和准确。 存储库： github.com/keklick1337/7zip-extended 概述：  基本版本： 7zz 24.08 修补者： YSergey (abc321) 更新者： Vladislav Tislenko (keklick1337) 修改的文件：  CPP/Common/Wildcard.h CPP/Common/Wildcard.cpp C/7zVersion.h   主要改进： 主要变化涉及在掩码模式末尾添加字符 $?。此修改允许搜索从文件完整路径的末尾开始，从而提高基于特定模式的文件提取的准确性。 使用示例： ./7zz x test.7z -i&#39;!*/*ense*.txt$?&#39; -i&#39;!*/*ip*.hhp$?&#39; -i&#39;!*.mak$?&#39; -ssc-  示例提取：使用原始 7zz 应用程序从 test.7z 存档中提取必要的文件： 7zz.exe x test.7z -i!*\*example*.txt -i!*\*test*.txt -i!*.rar -i!*.zip -i!*.7z -r  请注意，某些包含匹配单词的文件夹也可能会被提取。 构建说明（Debian 示例）： apt update -y apt install make gcc libc-dev git -y git clone cd 7zip-extended/CPP/7zip/Bundles/Alone2 make -j -f makefile.gcc cd _o chmod 777 7zz sudo mv 7zz /bin/7zzhttps://github.com/keklick1337/7zip-extended  技术细节：该补丁涉及对 Wildcard.cpp 的修改，以改进路径处理和掩码匹配。这些更改有助于防止提取不必要的文件夹，并确保只处理与指定模式匹配的所需文件。 请随时查看存储库、试用并提供任何反馈或改进建议。我期待听到您的想法！    提交人    /u/Front-Buyer3534   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ft3dfc/released_7zzextended_a_patched_version_of_7zip/</guid>
       <pubDate>Mon, 30 Sep 2024 18:53:06 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[我是开源图表工具 Isoflow 的创建者和维护者。 我于一年多前的 2023 年创建了我的 repo。实际上，早在 2021 年，我就编写了 Isoflow 的第一个版本作为闭源项目，但是当代码变得太复杂且难以扩展时，我决定在 MIT 许可下从头开始重建它。 到目前为止，该 repo 已有大约 200 多颗星，我目前通过在 isoflow.io 上提供托管版本，从我的工作中赚取了非常少的收入（不幸的是，还远远不够支付账单，但我相信它有很大的潜力）。 从一开始，开源的想法就是回馈 OSS 社区（我以前从未参与过 OSS，这似乎是一个很好的贡献机会）。我还希望让社区参与到项目的发展方向，让更多人使用它，当然，也希望吸引一些对付费版本的关注。  这个项目花费了我很多钱；我在 2023 年辞去了工作，花了 6 个月的时间从事这个项目。我耗尽了我的积蓄和精力，才让它成为 FOSS。我从来没有对外部贡献抱有太大的期望，但在近 500 次提交中，可能只有不到 10 次来自社区。  我正试图在 Isoflow 上建立一个可持续发展的业务，这样我就可以有效地全职从事我真正喜欢的事情（并实现我的“ikigai”）。完全开源有一些明显的商业负面影响，例如，它让玩家 2 更容易进入游戏，而且更难要求人们为已经免费提供的东西付费。  这时，我开始寻找更复杂的方法来将我的 OSS 项目货币化。就在那时，我偶然发现了开放核心模型，我立即认为它非常适合我的情况。使用开放核心，我可以将我目前的所有工作作为 Isoflow 的 OSS 版本（即“社区版”）提供，同时保留一组高级功能作为付费版本。我们的想法是，新功能最终会在 12 个月后进入社区版。 这听起来很适合我的情况……直到我读到 2019 年开源倡议博客上的一篇文章（https://opensource.org/blog/open-source-in-2019）。在书中，作者将开放核心称为“扭曲的生产模式”，主要是因为它阻碍了开放协作和设计。 在我看来，作者过于浪漫化一个 100% 开放协作是理想的世界，也许很大程度上是因为看到太多次大公司利用社区贡献作为免费劳动力，将其注入他们的专有软件（我说的就是 Hashicorp）。我在一定程度上同意，是的，开放核心确实意味着我预先定义了项目的方向，但现实，我的现实，是在将近一年半的时间里，我把 99% 的总精力投入到我的小项目中，我已经完成了大部分必要的架构和设计思考，此外，我还在做必要的市场调查，以便做出更明智的决定，决定将项目带向何方。我现在的想法是，我该如何推进这个项目。要做到这一点，我需要花更多的时间，要做到这一点，我需要让它变得如此有价值，以至于人们愿意为它花钱，要做到这一点，我需要在 FOSS 和商业模式之间找到更好的平衡。我相信开放核心是实现这一目标的方法。 你怎么看？有没有比开放核心更好的选择？    提交人    /u/markmanx   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1fsg4mq/is_opencore_really_a_twisted_production_model/</guid>
       <pubDate>Sun, 29 Sep 2024 22:07:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>用户界面糟糕的软件示例</title>
-      <link>https://www.reddit.com/r/opensource/comments/1fsfvsj/examples_of_software_with_terrible_ui/</link>
-      <description><![CDATA[作为学习课程的一部分，我必须选择一个具有“糟糕”UI 的应用程序，并使用 Figma 重新设计它以改善用户体验。有人对我可以选择什么有什么建议吗？它可以是移动或桌面应用程序，但它应该在 Android 或 Windows 上运行。 /edit：它的范围也不应太大。像 Gimp 这样的东西太复杂了。理想情况下是一些鲜为人知的东西。    提交人    /u/Letarking   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1fsfvsj/examples_of_software_with_terrible_ui/</guid>
-      <pubDate>Sun, 29 Sep 2024 21:56:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们是否缺少一个开源社区？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1fsft0p/are_we_missing_a_community_for_open_source/</link>
-      <description><![CDATA[我热爱开源，我是一名程序员，我不得不说，如果没有开源，我们就不会成为程序员。开发者社区是独一无二的。在资本主义世界里，我们生活的唯一一个人们真正愿意互相帮助而不求个人利益的地方就是教会和开源。 在教会里，我作为一名东正教徒待了一段时间，我总是看到人们出于纯粹的爱而互相帮助。我看到的程序员也是如此。这就是编程的美妙之处，也是我认为它是世界上最好的工作的原因。 开源是惊人的，Github 是代码的方城，它托管着数百万甚至数十亿行开源软件。 然而，除了 Github 之外，我还没有看到任何其他可以发现很酷的新开源项目并为它们做出贡献的地方。即使 Github 有趋势页面，但即使在那里，你也看不到很多项目或正在崛起的项目。您只会看到拥有数千颗星和贡献的顶级 Github 项目。 对于 Indie Hackers 来说，有大量不太知名的小型项目，我们可以轻松地做出贡献并提供帮助。 这是一个尚未实现的想法吗？Product Hunt 和 Github 的混合体，您可以贡献或发现很酷的项目和问题。使用先进的算法，它不仅会推荐大型存储库，还会推荐可能值得一看的小型存储库。 您知道任何这样做的网站吗？只有我在寻找类似的东西吗？    提交人    /u/TheDeveloper12345   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1fsft0p/are_we_missing_a_community_for_open_source/</guid>
-      <pubDate>Sun, 29 Sep 2024 21:53:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
