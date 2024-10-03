@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 02 Oct 2024 21:22:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 01:37:52 GMT</lastBuildDate>
+    <item>
+      <title>PyTraceToIX - 用于调试 lambda、列表推导、方法链和表达式的 Python 表达式跟踪器。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1fuvvgg/pytracetoix_a_python_expression_tracer_for/</link>
+      <description><![CDATA[PyTraceToIX 是一个表达式跟踪器，用于调试 lambda、列表推导、方法链和表达式。 代码编辑器无法在表达式、lambda 函数、列表推导和链式方法内设置断点，从而迫使进行重大代码更改才能调试此类代码。 PyTraceToIX 为这个问题提供了一个简单的解决方案。 它的设计很简单，具有易于识别的函数，一旦发现错误就可以将其删除。 PyTraceToIX 有 2 个主要功能：  c__ 捕获表达式输入的输入。例如：c__(x) d__ 显示表达式的结果和所有捕获的输入。例如：d__(c__(x) + c__(y))  以及 2 个可选函数：  init__ 初始化显示格式、输出流和多线程。 t__ 为当前线程定义一个名称。  特点  多线程支持。 简单、简短的极简函数名称。 带有输入跟踪的结果。 可在全局级别和函数级别配置格式。 可配置结果和输入命名。 输出到标准输出或流。 多级别。 使用 allow 和 name 回调捕获输入方法。  ​ from pytracetoix import d__, c__ [x, y, w, k, u] = [1, 2, 3, 4 + 4, lambda x:x] # 表达式 z = x + y * w + (k * u(5)) # 显示没有输入的表达式 z = d__(x + y * w + (k * u(5))) # 输出：# _:`47` # 显示有输入的表达式结果 z = d__(c__(x) + y * c__(w) + (k * u(5))) # 输出：# i0:`1` | i1:`3` | _:`47` # 显示表达式内带有输入的表达式结果 z = d__(c__(x) + y * c__(w) + d__(k * c__(u(5), level=1))) # 输出：# i0:`5` | _:`40` # i0:`1` | i1:`3` | _:`47` # lambda 函数 f = lambda x, y: x + (y + 1) f(5, 6) # 显示 lambda 函数结果和输入 f = lambda x, y: d__(c__(x) + c__(y + 1)) f(5, 6) # 输出：# i0:`5` | i1:`7` | _:`12` # 显示 lambda 函数输入和结果，以及输入和结果名称 f = lambda x, y: d__(c__(x, name=&#39;x&#39;) + c__(y + 1, name=&#39;y+1&#39;), name=&#39;f&#39;) f(5, 6) # 输出：# x:`5` | y+1:`7` | f:`12` # 列表推导式 l = [5 * y * x for x, y in [(10, 20), (30, 40)]] # 显示列表推导式，以及输入和结果名称 l = d__([5 * c__(y, name=f&quot;y{y}&quot;) * c__(x, name=lambda index, _, __: f&#39;v{index}&#39;) for x, y in [(10, 20), (30, 40)]]) # 输出：# y20:`20` | v1:`10` | y40:`40` | v3:`30` | _:`[1000, 6000]` # 如果 `input count` 为 2，则显示表达式 d__(c__(x) + c__(y), allow=lambda data: data[&#39;input_count__&#39;] == 2) # 如果第一个输入值为 10.0，则显示表达式 d__(c__(x) + c__(y), allow=lambda data: data[&#39;i0&#39;] == 10.0) # 如果 `allow_input_count` 为 2，则显示表达式，在这种情况下，如果 `x &gt; 10` d__(c__(x, allow=lambda index, name, value: value &gt; 10) + c__(y), allow=lambda data: data[&#39;allow_input_count__&#39;] == 2) # 如果生成的输出包含文本 10，则显示表达式 d__([c__(x) for x in [&#39;10&#39;, &#39;20&#39;]], before=lambda data: &#39;10&#39; in data[&#39;output__&#39;]) # 如果允许显示，则显示表达式和调用后 `call_after` d__([c__(x) for x in [&#39;10&#39;, &#39;20&#39;]], allow=lambda data: data[&#39;allow_input_count__&#39;] == 2, after=lambda data: call_after(data) if data[&#39;allow__&#39;] else &quot;&quot;) class Chain: def __init__(self, data): self.data = data def map(self, func): self.data = list(map(func, self.data)) return self def filter(self, func): self.data = list(filter(func, self.data)) return self # 具有链式方法的类 Chain([10, 20, 30, 40, 50]).map(lambda x: c__(x * 2)).filter(lambda x: c__(x &gt; 70)) # 显示结果并捕获映射和过滤输入 d__(Chain([10, 20, 30, 40, 50]).map(lambda x: c__(x * 2)).filter(lambda x: c__(x &gt; 70)).data) # 输出： # i0:`20` | i1:`40` | i2:`60` | i3:`80` | i4:`1​​00` | i5:`False` | i6:`False` | i7:`False` | i8:`True` | i9:`True` | _:`[80, 100]`     由   提交  /u/abentofreire   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1fuvvgg/pytracetoix_a_python_expression_tracer_for/</guid>
+      <pubDate>Thu, 03 Oct 2024 00:58:18 GMT</pubDate>
+    </item>
     <item>
       <title>对 AGPL 的常见误解</title>
       <link>https://www.reddit.com/r/opensource/comments/1fuq6ls/common_misconceptions_of_the_agpl/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[https://github.com/kennethnym/doors-wallpaper Doors 是 MKBHD 的 [panels.art] 壁纸应用的免费开源替代品。 鸣谢：推特上的 kennethnym Appstore：https://apps.apple.com/gb/app/doors-wallpaper/id6727012222 由于正在审核中，该应用尚未在 Google Play Store 上线。    提交人    /u/wdxo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1fttl7m/introducing_doors_a_free_open_source_wallpaper/</guid>
       <pubDate>Tue, 01 Oct 2024 17:20:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sourcebot，一个开源的 Sourcegraph 替代品</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ftt6sf/sourcebot_an_opensource_sourcegraph_alternative/</link>
-      <description><![CDATA[大家好，我们是 Sourcebot (https://github.com/sourcebot-dev/sourcebot) 的创建者 Brendan 和 Michael。Sourcebot 是一款开源代码搜索工具，可让您快速搜索许多大型代码库。请在此处查看我们的演示视频：https://youtu.be/mrIFYSB_1F4，或在我们的演示网站上亲自试用：https://demo.sourcebot.dev 在之前的职位中，我们都感受到了在数百个数百万行代码库中进行搜索的痛苦。使用像 grep 这样的本地工具并不合适，因为您通常一次只能检出少量代码库。 Sourcegraph 通过在后台索引一组代码库并公开基于 Web 的搜索界面来解决此问题。它是中大型组织事实上的搜索解决方案，但通常被认为价格昂贵（每位用户每月 49 美元），并且最近封闭源代码。这就是我们构建 Sourcebot 的原因。 我们将 Sourcebot 设计为：  易于部署：我们提供单一、独立的 Docker 映像。 快速且可扩展：旨在最大限度地减少跨许多大型存储库的搜索时间（当前平均值约为 73 毫秒）。 跨代码主机支持：我们目前支持在 GitHub 和 GitLab 中同步公共和私有存储库。 高质量 UI：我们认为外观好看的开发工具使用起来更愉快。 开源：Sourcebot 可供任何人免费使用。  在底层，我们使用 Zoekt 作为我们的代码搜索引擎，它最初由 Han-Wen Nienhuys 创作，现在由 Sourcegraph 维护。 Zoekt 的工作原理是从源代码构建三元组索引，从而实现极快的正则表达式匹配。如果您有兴趣，Russ Cox 有一篇关于三元组索引如何工作的精彩文章。 在短期内，我们想要做出一些改进，例如：  改进我们传达索引进度的方式（目前尚不存在，因此不清楚需要多长时间） 用户体验改进，例如搜索历史记录、查询语法突出显示等建议等。 小的 QOL 改进，例如为代码片段添加书签。 支持更多代码主机（例如 BitBucket、SourceForge、ADO 等）  从长远来看，我们希望研究如何通过利用机器学习来实现语义代码搜索（“系统 X 位于哪里？”）和代码解释（“系统 X 如何与系统 Y 交互？”）等体验，从而超越传统的代码搜索。您可以将其视为嵌入到 Sourcebot 中的副驾驶。我们的直觉是，这将对开发人员有用，尤其是与传统代码搜索打包在一起时，但请告诉我们您的想法。 尝试一下：https://github.com/sourcebot-dev/sourcebot。干杯！   由    /u/lowpolydreaming  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ftt6sf/sourcebot_an_opensource_sourcegraph_alternative/</guid>
-      <pubDate>Tue, 01 Oct 2024 17:03:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
