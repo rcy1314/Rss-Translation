@@ -4,7 +4,35 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的方方面面提供一个门户，并促进有关我们所知的人工智能思想和概念的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、在哪里可以找到资源和工具、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能的发展方向以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Thu, 10 Oct 2024 03:25:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2024 06:28:47 GMT</lastBuildDate>
+    <item>
+      <title>使用自然语言与数据库对话</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g0c4m5/talk_to_your_database_with_natural_language/</link>
+      <description><![CDATA[嗨， 我正在开发一项服务，使您能够访问您的数据并使用自然语言对其进行可视化。 主要目标是让整个团队能够掌握业务中可用的数据，并帮助他们做出更明智的决策。 有时团队需要访问数据库以进行后台操作，有时是销售人员获取有关客户购买历史的更多信息。 该项目尚处于早期阶段，但已经可以与一些主要数据库一起使用，例如 MySQL 和 Postgres。 您可以立即注册并使用它：https://0dev.io 我很乐意听到您的反馈，看看它如何帮助您和您的团队。 关于定价，它在这个阶段（测试版）完全免费。    由    /u/mohsen-kamrani 提交   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g0c4m5/talk_to_your_database_with_natural_language/</guid>
+      <pubDate>Thu, 10 Oct 2024 05:55:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人可以尝试一下吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g0budm/can_someone_try_this/</link>
+      <description><![CDATA[使用 Cloudflare 的 Lava Lamp 系统设计大脑是一个将技术与艺术表现相结合的创意项目。Lava Lamp 系统使用物理随机性（来自熔岩灯）来创建不可预测的输出，这可以象征人类大脑的复杂性和不可预测性。您可​​以按照以下方法进行此设计： 1. 概念框架  象征主义：代表大脑的不同方面，例如思维过程、情绪和神经连接。使用熔岩灯的随机性来说明思想和观念的混乱本质。 结构：将大脑分成几个部分，例如额叶、颞叶、顶叶和枕叶，并为每个部分分配熔岩灯中的不同颜色或运动。  2. 视觉设计  调色板：选择鲜艳多样的调色板，反映大脑的复杂性。考虑使用能唤起不同情绪的颜色（例如，蓝色代表平静，红色代表兴奋）。 运动：灯中熔岩的运动可以代表神经元活动。快速动作可以象征高度活跃（例如，深度思考或压力），而缓慢动作可以代表平静或放松的状态。 交互元素：如果可能，让设计具有交互性，让观看者影响熔岩灯的行为。这可以象征思想如何受到外部刺激的影响。  3. 技术实施  Cloudflare 集成：利用 Cloudflare Workers 管理从熔岩灯到设计的数据流。使用 API 捕获熔岩灯系统的随机输出。 数据可视化：使用 Web 技术（例如 HTML5 Canvas、WebGL）创建数据的可视化表示。例如，使用大脑的 3D 模型并根据熔岩灯数据对其进行动画处理。  4.示例代码结构 下面是一个简化的示例，说明如何构建基于 Web 的可视化代码： ```javascript const { createCanvas } = require(&#39;canvas&#39;); const express = require(&#39;express&#39;); const app = express(); const canvas = createCanvas(800, 600); const ctx = canvas.getContext(&#39;2d&#39;); // 来自 Lava Lamp 的模拟随机数据 function getLavaData() { return { lobe: Math.floor(Math.random() * 4), // 0-3 表示不同的叶瓣 movement: Math.random(), // 运动强度的随机值 };  app.get(&#39;/brain&#39;, (req, res) =&gt; { const lavaData = getLavaData(); // 清除画布 ctx.clearRect(0, 0, canvas.width, canvas.height); // 根据熔岩数据绘制脑叶 // 示例：为不同的脑叶绘制圆圈 ctx.fillStyle = [&#39;#FF5733&#39;, &#39;#33FF57&#39;, &#39;#3357FF&#39;, &#39;#FF33A6&#39;][lavaData.lobe]; ctx.beginPath(); ctx.arc(400, 300, 50 + lavaData.movement * 50, 0, Math.PI * 2); ctx.fill(); // 将画布作为响应发送 res.setHeader(&#39;Content-Type&#39;, &#39;image/png&#39;); canvas.toBuffer((err, buf) =&gt; { if (err) throw err; res.send(buf); });  }); // 启动服务器 app.listen(3000, () =&gt; { console.log(&#39;服务器在端口 3000 上运行&#39;); }); ``` 5. 最后的润色  用户体验：确保设计具有视觉吸引力且易于交互。考虑添加根据熔岩运动而变化的声音元素或背景音乐。 文档：提供设计选择的解释以及它们与大脑功能的关系。这可以帮助观众欣赏您项目背后的概念。  通过结合这些元素，您可以使用 Cloudflare 的 Lava Lamp 系统创建大脑的独特表示，以捕捉思维过程中复杂性和创造性的本质。    提交人    /u/mrrebuild   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g0budm/can_someone_try_this/</guid>
+      <pubDate>Thu, 10 Oct 2024 05:35:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 LangChain 的 AI 新闻代理（生成式 AI）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g0ay7x/ai_news_agent_using_langchain_generative_ai/</link>
+      <description><![CDATA[我最近尝试创建一个 AI 新闻代理，使用 SerpAPI 从互联网上获取最新新闻文章并将其总结为一个段落。这可以扩展为创建自动新闻通讯。在这里查看：https://youtu.be/sxrxHqkH7aE?si=7j3CxTrUGh6bftXL    提交人    /u/mehul_gupta1997   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g0ay7x/ai_news_agent_using_langchain_generative_ai/</guid>
+      <pubDate>Thu, 10 Oct 2024 04:34:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>每日一分钟人工智能新闻 2024 年 10 月 9 日</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g0a61i/oneminute_daily_ai_news_1092024/</link>
+      <description><![CDATA[ 利用人工智能“破解”几乎所有蛋白质密码的科学家获得了诺贝尔化学奖。[1] 在凭借基础人工智能工作获得诺贝尔奖后，Geoffrey Hinton 表示，他为 Ilya Sutskever“解雇了 Sam Altman”而感到自豪。[2] 推出 Tx-LLM，这是一种语言模型，经过微调，可预测整个治疗开发流程中生物实体的属性，从早期目标发现到后期临床试验批准。[3] Meta 宣布将其人工智能功能扩展到另外 21 个国家。[4]  来源包括：https://bushaicave.com/2024/10/09/10-9-2024/    由   提交  /u/Excellent-Target-847   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g0a61i/oneminute_daily_ai_news_1092024/</guid>
+      <pubDate>Thu, 10 Oct 2024 03:46:10 GMT</pubDate>
+    </item>
     <item>
       <title>AI地图助手？</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g07rb8/ai_map_assistant/</link>
@@ -62,27 +90,6 @@
       <pubDate>Wed, 09 Oct 2024 20:47:53 GMT</pubDate>
     </item>
     <item>
-      <title>我建立了一个人工智能代理，它可以在电子商务商店购物，为你挑选最好的产品</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g019y6/i_built_an_ai_agent_that_shops_ecomm_stores_to/</link>
-      <description><![CDATA[链接：https://curatle.com 我创建这个是为了让您不必花时间浏览 Google 并在多个标签之间跳转来查看不同的零售商以比较价格。代理会为您完成这一部分，将产品集中到一个地方，以便您可以轻松地根据您关心的内容进行排序和筛选。 我从 Kayak 如何将航班/酒店集中到一个地方中获得了灵感。Curatle 也是一样，但适用于任何产品类别。请随意尝试。我很乐意听到您的反馈。谢谢！    提交人    /u/dinotimm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g019y6/i_built_an_ai_agent_that_shops_ecomm_stores_to/</guid>
-      <pubDate>Wed, 09 Oct 2024 20:28:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能服务可以帮助律师和调查人员分析发现吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g00ygc/ai_service_to_help_lawyers_and_investigators/</link>
-      <description><![CDATA[刑事辩护调查员，从业 15 年以上，目前是 3L 法学院学生。我正在尝试寻找类似于 ChatGPT 和 Notebook 的东西，它允许我上传发现（警方报告、访谈记录、法庭诉讼记录和证词），然后提出问题、运行分析、寻找矛盾、制定时间表等。显然，大多数都保护用户数据和隐私。希望每月花费高达 2,000 美元。  有人知道那里有这样的优质服务吗？    提交人    /u/BatesInvestigates   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g00ygc/ai_service_to_help_lawyers_and_investigators/</guid>
-      <pubDate>Wed, 09 Oct 2024 20:14:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>理想模型概念</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1g00fwc/the_ideal_model_concept/</link>
-      <description><![CDATA[大家好！我对人工智能如何模仿大脑的工作方式进行了深入思考，并深入研究了一个有趣的小节，我决定将其写在一篇文章 这只是我整理成概念的一些想法。如果有任何错误，请告诉我。    提交人    /u/EmperorGimix   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1g00fwc/the_ideal_model_concept/</guid>
-      <pubDate>Wed, 09 Oct 2024 19:52:55 GMT</pubDate>
-    </item>
-    <item>
       <title>PSA：你实际上可以收到任何内容的定制新闻通讯，而无需注册</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/</link>
       <description><![CDATA[在 r/productivity 上发布了此内容，并认为此 subreddit 可能也会喜欢它。 不知道谁需要听这个，但这确实是一种提高生产力的方法。我与此应用程序没有任何关系，我不在乎它，如果您找到具有类似功能的其他工具，请告诉我。我谈论它只是因为它是免费的，我认为它使用了 ChatGPT 模型，而且我通常厌倦了订阅新闻通讯。 它被称为 Nelima，它是一种 AI 工具，它们具有调度功能。您基本上可以提示“在周二、周三和周四早上 8 点向我发送有关 Microsoft 的新闻”。就是这样。我要求它每天早上给我发送世界突发新闻 + 每周五给我发送很酷的视频游戏发布 + 每周日给我发送关于 Apple 的谣言/新闻，直到下个月。效果很好，但用户界面有时会令人困惑。 为我节省了大量时间。在后台发生，所以我安排事情并做其他事情。 tl;dr 我更有效率了。我想分享一下，因为你只需要写下你想做的事情，而且我看到一些帖子询问可以做到这一点的 AI 工具。    提交人    /u/No_Sheepherder_4499   [链接] [评论]]]></description>
@@ -95,13 +102,6 @@
       <description><![CDATA[我最近被解雇了。我现在压力很大，AI 能帮我管理压力吗？或者更好的是，AI 能帮我找工作吗？    提交人    /u/_abeey   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1fzthw9/can_ai_help_me_in_finding_a_job/</guid>
       <pubDate>Wed, 09 Oct 2024 15:01:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>瑞典皇家科学院决定将2024年诺贝尔化学奖一半授予戴维·贝克（David Baker），以表彰其“计算蛋白质设计方面的贡献”，另一半则共同授予德米斯·哈萨比斯（Demis Hassabis）和约翰·M·江珀（John M. Jumper），以表彰其“蛋白质结构预测方面的贡献”。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1fznvay/the_royal_swedish_academy_of_sciences_has_decided/</link>
-      <description><![CDATA[新闻稿：https://www.nobelprize.org/prizes/chemistry/2024/press-release/ 热闻：他们通过计算和人工智能揭示了蛋白质的秘密：https://www.nobelprize.org/prizes/chemistry/2024/popular-information/ 科学背景：计算蛋白质设计和蛋白质结构预测：https://www.nobelprize.org/prizes/chemistry/2024/advanced-information/    由    /u/Nunki08 提交   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1fznvay/the_royal_swedish_academy_of_sciences_has_decided/</guid>
-      <pubDate>Wed, 09 Oct 2024 10:04:19 GMT</pubDate>
     </item>
     <item>
       <title>NotebookLM 让我大开眼界</title>
