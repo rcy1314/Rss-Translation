@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 17 Oct 2024 09:23:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2024 12:40:44 GMT</lastBuildDate>
+    <item>
+      <title>我尝试在现有的 html div 中添加一个段落并输入用户信息，但没有成功</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5p64m/i_tried_adding_a_paragraph_in_an_existing_html/</link>
+      <description><![CDATA[      所以我想用一个输入元素来获取用户的输入，然后通过一个按钮将该输入作为列表添加到另一个 div 中，但是它不起作用，我提供了下面的代码。有人能帮忙吗？ 编辑：所以一个错误是我没有将 src 文件添加到指向 main.js 文件的 html 中。我现在这样做了并更新了它。现在当我单击 addTask 按钮时它看起来像这样 编辑 2：userInputText.textContent = userInput; 是错误的。我必须输入 userInputText.textContent = userInput.value; https://preview.redd.it/28s65rnv7bvd1.png?width=1374&amp;format=png&amp;auto=webp&amp;s=48e6a1ed2adee4d8201258da7bddd2c1bc7a8350 __ &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;title&gt;UserInputToList&lt;/title&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&quot;InputArea&quot;&gt; &lt;label id=&quot;greetingText&quot;&gt;您的待办事项列表&lt;/label&gt; &lt;br&gt; &lt;input id=&quot;userInput&quot; type=&quot;text&quot; placeholder=&quot;这是您的输入&quot;&gt; &lt;button id=&quot;addTaskBtn&quot;&gt;添加任务&lt;/button&gt; &lt;/div&gt; &lt;hr&gt; &lt;div id=&quot;inputListArea&quot;&gt; &lt;/div&gt; &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; ---------------------------------------------------------- main.js: let addTaskBtn = document.getElementById(&quot;addTaskBtn&quot;); let userInput = document.getElementById(&quot;userInput&quot;); let userInputText = document.createElement(&#39;p&#39;); userInputText.textContent = userInput; addTaskBtn.addEventListener(&quot;click&quot;, function() { document.getElementById(&quot;inputListArea&quot;).appendChild(userInputText); userInput.textContent = &quot;&quot;; })     提交人    /u/Business-Bed5916   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5p64m/i_tried_adding_a_paragraph_in_an_existing_html/</guid>
+      <pubDate>Thu, 17 Oct 2024 11:58:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的自定义音乐播放器中的搜索栏无法正常工作 - 无法正常搜索 + 进度未填充到滑块后面</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5ox49/seek_bar_not_working_correctly_in_my_custom_music/</link>
+      <description><![CDATA[大家好，我的自定义音乐播放器出了问题，我真的很纠结，我需要一些新视角来看待它。我已经研究这个播放器一段时间了，也得到了一位懂编程的朋友的帮助，但是我们已经在这个问题上困扰了很长时间了。 主要问题是：  除非歌曲已播放完毕，否则搜索栏不允许跳过。如果我尝试跳到歌曲的特定部分，除非我已经听完整首歌曲一次，否则它实际上不会跳到那里。这意味着在新加载曲目时，我无法正确使用搜索栏。 滑块后面的进度条未正确填充。理想情况下，我希望进度条在播放歌曲时在滑块后面显示填充颜色，但它无法正确更新。  以下是处理搜索栏功能的代码部分： JS： audio.addEventListener(&#39;timeupdate&#39;, function() { if (!isSeeking) { seekBar.value = Math.floor(audio.currentTime); // 根据当前播放时间（秒）设置搜索栏值 updateTimeDisplay(); &gt; }); seekBar.addEventListener(&#39;mousedown&#39;, function() { isSeeking = true; // 在用户开始搜索时停止自动更新 }); seekBar.addEventListener(&#39;input&#39;, function(e) { const seekTime = e.target.value; // 从搜索栏获取新位置 document.querySelector(&#39;.current-time&#39;).textContent = formatTime(seekTime); // 更新显示 }); seekBar.addEventListener(&#39;mouseup&#39;, function(e) { if (!isNaN(audio.duration) &amp;&amp; audio.duration &gt; 0) { const seekTime = e.target.value; // 将当前播放时间设置为新位置 audio.currentTime = seekTime; &gt; isSeeking = false; if (isPlaying) audio.play(); }); HTML: &lt;input type=&quot;range&quot; id=&quot;seek-bar&quot; value=&quot;0&quot; max=&quot;100&quot;&gt; CSS: input[type=&quot;range&quot;] { -webkit-appearance: none; appearance: none; width: 300px; height: 6px; border-radius: 10px; background: #898989; outline: none; margin-top: 20px; position:relative;  input[type=&quot;range&quot;]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #1DB954; border-radius: 50%; 光标：指针; &gt; 我尝试添加对 audio.duration 是否为 NaN 或零的检查，以确保它在搜索栏更新之前加载，但它似乎仍然不起作用。奇怪的是，只有我事先听过整首曲目，它才会在第一首歌曲上起作用，但它永远不会在新加载时起作用。 我是否遗漏了什么明显的东西？我得到的帮助很棒，但这个问题一直存在，我不确定我是否遗漏了一些非常简单的东西。 任何建议或指导都将不胜感激！我觉得这一定与 audio.duration 或事件监听器的设置方式有关，但我只是没有看到它。 提前谢谢大家！ 视频：https://streamable.com/ov9tne（2 天后过期）    提交人    /u/markomesic_   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5ox49/seek_bar_not_working_correctly_in_my_custom_music/</guid>
+      <pubDate>Thu, 17 Oct 2024 11:43:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>有志于成为初级前端开发人员 - 我擅长编写代码，但不擅长设计项目。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5ooyf/aspiring_junior_frontend_dev_im_good_at_writing/</link>
+      <description><![CDATA[老实说，我花了大部分时间尝试改进 JS，而不是 HTML/CSS。事后看来，我应该花更多时间在 HTML/CSS 上，但这绝对是我现在可以改进的地方。 我不会称之为冒名顶替综合症，但我现在看 JR Dev 的作品集时，我的第一个想法是“他们到底是怎么做到的，那是初级开发人员吗？”……大多数情况下，他们看起来很棒，比我的好得多。我知道很多炒作都围绕着使用库来构建（嗨，Tailwind），但是我觉得如果这样做的话我并没有真正学习 CSS。 不确定我是否被允许在这里发布项目，如果是的话请删除，但是这是我的最新项目的一个例子：CDL Workout (cdl-workout.pages.dev) 无论如何，如果可能的话，我希望得到一些指点来帮助我（不是针对那个项目，而是一般的 CSS/设计）。字体配对、调色板、要遵循的一般设计规则等...我没有在任何项目中使用过库，我倾向于用 vanilla JS 或 VueJS（如果我心情好的话，用 Svelte）编写代码。    提交人    /u/Yhcti   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5ooyf/aspiring_junior_frontend_dev_im_good_at_writing/</guid>
+      <pubDate>Thu, 17 Oct 2024 11:29:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>更新：努力争取初级网络/软件开发职位。需要建议/机会</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5olao/update_on_struggling_getting_access_to_junior/</link>
+      <description><![CDATA[非常感谢大家对我之前帖子的评论和回复，它们非常有帮助。为了便于理解，我大约 17 天前发了一篇帖子，介绍了我需要做些什么才能获得入门级/毕业生职位（您可以在我的个人资料上阅读之前的帖子）。我听取了一些反馈，使用了一些模板，并更新了我的简历和作品集，使其更好一些。 我的新简历链接是：https://docs.google.com/document/d/1euaXcSeY_fJGDc-lNimIegXiZl-YOYKW/edit?usp=sharing&amp;ouid=106239525530360088496&amp;rtpof=true&amp;sd=true 作品集链接相同：https://daniel-awolowo.com/ 让我知道你们的想法！    提交人    /u/Kronium345   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5olao/update_on_struggling_getting_access_to_junior/</guid>
+      <pubDate>Thu, 17 Oct 2024 11:23:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 iPad Pro 或平板电脑进行开发</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5nwhw/using_ipad_pro_or_tablet_for_development/</link>
+      <description><![CDATA[你们有人用 iPad Pro 或者 Surface Pro 做网页开发吗？我正在寻找比笔记本电脑更便携的东西，适合旅行时使用，但不需要完整的设置。  很想知道你们有什么，以及你们在上面运行什么样的开发环境。你是在本地运行还是通过网页服务器运行。    提交人    /u/rockclimber36   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5nwhw/using_ipad_pro_or_tablet_for_development/</guid>
+      <pubDate>Thu, 17 Oct 2024 10:39:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cloudflare 域名注册商定价表（10 月 15 日价格更新后）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g5ne19/cloudflare_domain_registrar_pricing_table_after/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g5ne19/cloudflare_domain_registrar_pricing_table_after/</guid>
+      <pubDate>Thu, 17 Oct 2024 10:04:09 GMT</pubDate>
+    </item>
     <item>
       <title>精疲力尽的咆哮</title>
       <link>https://www.reddit.com/r/webdev/comments/1g5mp2n/burned_out_rant/</link>
@@ -48,13 +90,6 @@
       <pubDate>Thu, 17 Oct 2024 07:15:24 GMT</pubDate>
     </item>
     <item>
-      <title>这里有人经营代理机构并购买线索吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5kncn/anyone_here_run_an_agency_and_buy_leads/</link>
-      <description><![CDATA[我有一些本地企业的线索，他们想要一个网站，但我从未认真考虑过销售线索。有人有为咖啡馆或餐馆等地方的网站销售线索的经验吗？ 带有菜单、联系信息等的基本静态网站。没有预订系统、在线订购或类似的东西。    提交人    /u/k7r7f80d   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5kncn/anyone_here_run_an_agency_and_buy_leads/</guid>
-      <pubDate>Thu, 17 Oct 2024 06:34:51 GMT</pubDate>
-    </item>
-    <item>
       <title>如何使用人工智能在 LinkedIn 上自动申请职位</title>
       <link>https://www.reddit.com/r/webdev/comments/1g5jxfn/how_to_use_ai_to_automatically_apply_a_job_on/</link>
       <description><![CDATA[前几天偶然发现了这个开源项目，觉得还是值得尝试一下的。它使用人工智能自动帮你申请工作。我还没想出在现实生活中有什么实际用途，我的意思是，如果它要以 SaaS 的形式提供，如何面对客户。这几乎是死路一条。无论如何，尝试一下还是很有趣的。这是它的链接， https://medium.com/@xianli_74374/accelerate-your-job-application-process-with-ai-automate-your-dream-job-search-a26806f16b19    提交人    /u/Pipe-Silly   [链接] [评论]]]></description>
@@ -74,41 +109,6 @@
       <description><![CDATA[嗨，我是新手。我需要帮助来了解在我的网站上集成 YouTube 嵌入播放器时会暴露哪些类型的数据。 YouTube 嵌入参考文档：https://developers.google.com/youtube/iframe_api_reference  对于以下每个平台，嵌入 YouTube 视频是否会暴露用户的私有 IP 地址、公共 IP 地址、两者兼有还是两者都不暴露？这是否因平台而异？我计划将其集成在 iframe 中。   桌面 移动网络 iOS Android   对于 iOS/Android，设备 ID（或等效唯一标识符）是否会传递给 YouTube？使用 iframe 会对此产生影响吗？  据我了解，“无 cookies”隐私设置不会使用 cookies 跟踪用户，除非他们点击播放视频。有人可以证实这一点吗？各个应用程序之间也一样吗？ 如果您能提供任何其他见解或考虑，我们将不胜感激！  非常感谢！    提交人    /u/gratkov   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1g5jp4g/youtube_embed_privacy_questions/</guid>
       <pubDate>Thu, 17 Oct 2024 05:31:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>您能否对该事件处理架构提供一些反馈？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5itk0/could_you_provide_some_feed_back_on_this_event/</link>
-      <description><![CDATA[我们需要建立一个系统来存储来自大型内部企业应用程序的事件数据。此应用程序产生几种类型的事件（超过 15 种），我们希望通过公共事件 id 对所有这些事件进行分组，并将它们存储到 mongo db 集合中。 我目前的想法是通过 webhook 接收这些事件并将它们直接发布到 kafka。 然后，我想根据事件 id 的哈希值对我的主题进行分区。 最后，我希望我的消费者每 1-3 秒左右轮询一次所有事件，并进行单一合并批量写入，可能利用 kafka streams api 通过事件 id 过滤事件。 我的想法是这个系统将能够扩展，因为分区应该允许我们使用多个消费者并且仍然限制写冲突。  我们需要确保这些事件在数据库中显示的时间不超过 4-5 秒，理想情况下为 1-2 秒。我们每天有大约 5 万个事件。我们不想错过*任何*事件。  您是否预见到这种方法的任何挑战？    提交人    /u/Accomplished_Sky_127   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5itk0/could_you_provide_some_feed_back_on_this_event/</guid>
-      <pubDate>Thu, 17 Oct 2024 04:33:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>有好的 Webdev 播客吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5ikyw/good_webdev_podcasts/</link>
-      <description><![CDATA[想要更深入地了解一些行业对话和趋势，想知道是否有人对网络开发播客有任何好的推荐？    提交人    /u/Zealousideal_War3306   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5ikyw/good_webdev_podcasts/</guid>
-      <pubDate>Thu, 17 Oct 2024 04:18:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>您对 Decap CMS 有何感想？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5g1rb/how_do_you_feel_about_decap_cms/</link>
-      <description><![CDATA[将它用于 NextJS 的自由职业项目，客户已经有一段时间没有更新网站了。我注意到 Git Gateway 令牌需要重置。我发现第一次创建网站时设置起来非常容易，但我想知道这对新项目来说是否太麻烦了？ 我正在考虑重新研究 Eleventy 文档，我也喜欢摆弄它来取乐，但在我看来它不是那么直观。我发现它们也被 Font Awesome 收购了，这很有趣。 我真的很想喜欢所有这些 Node 东西，但我觉得我们需要一些不那么....黑客的东西？我甚至尝试了 Contentful，它看起来很有希望，但我发现自己不得不不断重置 API 密钥...... 编辑：顺便说一句，请不要建议 Sanity，我已经看过了。    提交人    /u/LongDay138   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5g1rb/how_do_you_feel_about_decap_cms/</guid>
-      <pubDate>Thu, 17 Oct 2024 01:56:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>避免在 nextjs 静态页面（部分静态网站）上进行服务器调用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5flsn/avoiding_server_calls_on_nextjs_static_pages/</link>
-      <description><![CDATA[我有一个用 nextjs 构建的网站，它是部分静态的，这意味着某些页面要么没有服务器调用，要么只使用 getstaticprops，还有一些使用 getserversideprops 函数。  我目前在 netlify 上托管此网站，我注意到静态页面上的视图仍然会在我的 netlify 限额内按页面视图触发服务器请求。在与 netlify 的支持人员交谈后，他们说了以下话。  &quot;在 Next.js 14 中，除非使用下一个配置的静态导出，否则不再有&quot;静态文件&quot;的概念。所以一切都是服务器呈现的。&quot;  鉴于我的网站不是 100% 静态的，听起来我的部分静态方法不再受支持，无法让我避免服务器调用。我的目标是尽可能便宜地托管此网站，这就是我当时选择 nextjs 的原因。  降级到 14 之前的版本？ 寻找其他托管服务提供商？ 其他  任何帮助都将不胜感激    提交人    /u/DiddlyDinq   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5flsn/avoiding_server_calls_on_nextjs_static_pages/</guid>
-      <pubDate>Thu, 17 Oct 2024 01:32:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>ORM 与 SQL</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g5eu8v/orm_vs_sql/</link>
-      <description><![CDATA[与编写纯 SQL 查询相比，使用 ORM 有什么好处吗？    提交人    /u/TradrzAdmin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g5eu8v/orm_vs_sql/</guid>
-      <pubDate>Thu, 17 Oct 2024 00:53:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
