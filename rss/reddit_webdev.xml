@@ -3,8 +3,29 @@
   <channel>
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
-    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 22 Oct 2024 01:39:26 GMT</lastBuildDate>
+    <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请访问 /r/web_design。</description>
+    <lastBuildDate>Tue, 22 Oct 2024 03:27:18 GMT</lastBuildDate>
+    <item>
+      <title>我制作了自己的客户端“框架”</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g98hiq/i_made_my_own_clientside_framework/</link>
+      <description><![CDATA[不，这不是在推销任何东西，也不是在寻求帮助。我只是想在这里讨论一些使用的简洁 API 和总体概念。我之所以引用“框架”，是因为它实际上是一个库的集合，这些库可以单独运行，但可以协同工作，成为一个成熟的框架。 我构建这个部分只是为了看看我的一些想法会如何实现。它有点像概念验证，但在某些情况下仍然非常有用。我只是看看我可以用一些新的和实验性的 API 做些什么。例如，我的路由器基于 URLPattern 和动态 import()（可选通过 &lt;link rel=&quot;modulepreload&quot;&gt; 进行预加载）。我的状态管理通过 BroadcastChannel 在浏览上下文之间同步。我的“CSS 模块”是使用 new CSSStyleSheet() 和 sheet.replace() 的实际模块（又名 ESM）。对于组件，我选择了 Web 组件，但使用了一个基类，它解决了处理自定义元素时的许多常见问题（尽管一些高级问题，如与表单相关的自定义元素，仍然非常困难）。 这一切都可以在浏览器中本地运行，无需任何构建步骤。如果您想跳过任何构建步骤，只需要一个 &lt;script type=&quot;importmap&quot;&gt;。所有这些都是原生的，不过你确实需要为一些关键的 polyfill 添加脚本。 我认为，在进行最小化、压缩或 tree-shaking 之前，整个代码可能只有 30kb。 还有一些标记模板解析器，类似于 Lit，适用于 HTML、CSS、XML、SVG 甚至 MD。通过 Sanitizer API 进行清理，它基本上是一个类似于 DOMPurify 的 WIP 原生 API。 此外，我还弄清楚了如何在 html 解析器中声明性地添加事件处理程序（例如，React 中的 onClick），而无需诉诸 on* 属性。html 函数本身看起来像：function html(strings, ...values)，类似于 String.raw。因此，我有一个映射器函数来将 values 字符串化，当它找到任何函数时，它都会创建一个随机字符串，使用该字符串作为 Map 对象中的键，以该函数为值，并返回该字符串。然后，MutationObserver 监视某些 data-on- 属性...当添加的节点具有这样的属性时，它会在 Map 中查找值并调用 el.addEventListener(event, map.get(el.dataset.onClick))，基本上就是这个样子。 总的来说，这是一个功能强大但极简、无需构建、现代、非常安全、非常易于使用的“框架”，我认为未来某个时候框架的下一个重大变化将会出现类似的东西。    提交人    /u/shgysk8zer0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g98hiq/i_made_my_own_clientside_framework/</guid>
+      <pubDate>Tue, 22 Oct 2024 03:10:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>Facebook 像素</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g96wcl/facebook_pixels/</link>
+      <description><![CDATA[有人知道如何在 codeigniter 上安装 Facebook 像素吗？    提交人    /u/TheFallenOne0513   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g96wcl/facebook_pixels/</guid>
+      <pubDate>Tue, 22 Oct 2024 01:48:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>Twilio 视频将继续存在！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g96v5j/twilio_video_is_here_to_stay/</link>
+      <description><![CDATA[  由    /u/NebraskaWeedOwner  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g96v5j/twilio_video_is_here_to_stay/</guid>
+      <pubDate>Tue, 22 Oct 2024 01:46:43 GMT</pubDate>
+    </item>
     <item>
       <title>如何创建一个简单的网站？</title>
       <link>https://www.reddit.com/r/webdev/comments/1g96ic6/how_do_i_create_a_simple_website/</link>
@@ -36,7 +57,7 @@
     <item>
       <title>微软正在向 VS Code 引入仅针对 Copilot 扩展启用的隐藏 API</title>
       <link>https://www.reddit.com/r/webdev/comments/1g92nkv/microsoft_is_introducing_hidden_apis_to_vs_code/</link>
-      <description><![CDATA[      TL;DR; GitHub（又名微软）一直在悄悄地向 VS Code 引入新的扩展 API，这些 API 只能由他们的扩展 - Copilot 使用。 完整故事： VS Code 有一种部分发布新 API 的方式，它被称为建议的 API。 [...] 建议的 API 是一组不稳定的 API，它们在 VS Code 中实现，但不会像稳定的 API 那样向公众公开。它们可能会发生变化，仅在 Insiders 分发中可用，并且不能在已发布的扩展中使用。 这很有意义，它们为社区提供了一种使用新 API、接收反馈和快速迭代 API 的方式，而不会破坏实时扩展。 您只能在开发模式下使用这些 API，但不能将扩展发布到包含它们的商店。 来自其网站的另一段引言： 虽然您无法使用市场上的建议 API 发布扩展，但您仍然可以通过打包和共享您的扩展来与您的同行共享您的扩展。  现在，让我们反编译 GitHub Copilot Chat 扩展并打开其 package.json。 惊喜： Github Copilot Chat 的 package.json 嗯，它是一个带有 enabledApiProposals 的已发布扩展，这怎么可能？ 哦，是的，他们是微软…… 为什么这很重要？ 这看起来像是一种反竞争策略。VS Code 扩展 API 非常有限，这就是为什么像 Cursor 这样的初创公司选择分叉 VS Code 并直接应用更改的原因。GitHub 正在引入许多变化，这些变化也会使 Continue 等开源 Copilot 替代品受益，但这些变化只供自己使用。    提交人    /u/kannthu   [link] [评论] ]]></description>
+      <description><![CDATA[      TL;DR; GitHub（又名微软）一直在悄悄地向 VS Code 引入新的扩展 API，这些 API 只能由他们的扩展 - Copilot 使用。 完整故事： VS Code 有一种部分发布新 API 的方式，它被称为建议的 API。 [...] 建议的 API 是一组在 VS Code 中实现的不稳定 API，但不会像稳定 API 那样向公众公开。它们可能会发生变化，仅在 Insiders 分发中可用，并且不能在已发布的扩展中使用。 这很有意义，它们为社区提供了一种使用新 API、接收反馈和快速迭代 API 的方式，而不会破坏实时扩展。 您只能在开发模式下使用这些 API，但不能将扩展发布到包含它们的商店。 来自其网站的另一段引言： 虽然您无法使用市场上的建议 API 发布扩展，但您仍然可以通过打包和共享您的扩展来与您的同行共享您的扩展。  现在，让我们反编译 GitHub Copilot Chat 扩展并打开其 package.json。 惊喜： Github Copilot Chat 的 package.json 嗯，它是一个带有 enabledApiProposals 的已发布扩展，这怎么可能？ 哦，是的，他们是微软…… 为什么这很重要？ 这看起来像是一种反竞争策略。VS Code 扩展 API 非常有限，这就是为什么像 Cursor 这样的初创公司选择分叉 VS Code 并直接应用更改的原因。GitHub 正在引入许多变化，这些变化也会使 Continue 等开源 Copilot 替代品受益，但这些变化只供自己使用。    提交人    /u/kannthu   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1g92nkv/microsoft_is_introducing_hidden_apis_to_vs_code/</guid>
       <pubDate>Mon, 21 Oct 2024 22:23:48 GMT</pubDate>
     </item>
@@ -46,27 +67,6 @@
       <description><![CDATA[这是正确的地方吗？  谢谢     由   提交  /u/velvet__echo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1g92bwe/where_can_i_get_some_feedback_on_my_website/</guid>
       <pubDate>Mon, 21 Oct 2024 22:09:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>现在我有足够的钱聘请一位优秀的设计师了，所以我重新发布了这篇文章</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g91n6l/reposting_this_now_that_i_have_the_right_amount/</link>
-      <description><![CDATA[所以，我已经拥有自己的网站几年了，但同时也要全职工作，没有太多时间专注于网站的设计（也许工作是一个借口，但我知道我太累了，甚至无法专注于网站设计），相反，我主要专注于提供优质内容。我确实相信我有很多有见地的帖子可以与世界分享，但我希望我的网站看起来更专业、用户友好且足够令人兴奋，让人们愿意留在网站上，这样他们最终会点击不同的帖子来阅读。一堆以博客风格/新闻格式排列的帖子似乎对我来说效果不太好。 我想要一个令人兴奋的主页/静态页面。我的网站基于各种主题，例如：心理健康、精神失常艺术家的内心世界、内向的重要性、肢体语言和非语言交流的重要性、心理排练和想象的重要性、我们思想的力量、正念、形而上学和宇宙世界以及过去所有伟大的天才如何利用这种力量来实现看似奇迹、成瘾、滥用、孤独的影响等等。 我还会回顾我的经历以及我过去所处的黑暗处境与我现在所处境境的对比。希望我的经历能够帮助其他人看到光明。所以，我对主页的想法是有两个不同的部分供您点击，一个用于“之前” （黑暗阶段）和之后（恢复并建议其他人再次看到光明）。它可以有两个不同的图像，一个是黑暗的洞穴或监狱，一个是宫殿，表明你可以在你的思想领域创造一个监狱或宫殿，这取决于你如何处理事情，如何训练你的思想以对你有利或阻碍你的方式工作。基本上想向人们展示我们的生活方式完全取决于我们的心态、决定、思维过程和我们采取的行动。 我不知道如何创建这个主页，我试过了，但它看起来很简陋和不专业。我愿意为主题或模板付费，甚至付钱让别人为我做。我只是不知道从哪里开始。 在谷歌和 Youtube 教程上搜索建议只让我走到了这一步。请帮帮我吧!!!!! 我想要做这个的网站在我的个人资料上的链接中。我不想在这里发布它，因为我认为这会被认为是促销。请查看并尽可能给我任何建议。或者推荐给任何可以帮我做这件事的人。 提前谢谢您 :)    提交人    /u/Minddoesntstop   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g91n6l/reposting_this_now_that_i_have_the_right_amount/</guid>
-      <pubDate>Mon, 21 Oct 2024 21:40:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>根据风格创建角色。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g91lk5/create_characters_based_on_a_style/</link>
-      <description><![CDATA[对于我正在为其构建网站的棋盘游戏客户，我正在探索让棋盘游戏可定制的可能性，即允许用户通过网站上传自己的照片，类似于 Snapchat 滤镜的工作方式。我想根据人物的照片生成游戏风格的图像，可能保留他们的姿势或衣着。 我不确定目前可行的方法是什么 — 是否可以在前端完成所有处理（我想就像 Snapchat/Instagram 滤镜一样），或者最好使用专用服务器来运行在 Hugging Face 上检索和微调的模型？ 无论如何，如果有人有任何想法，我将不胜感激您的意见！谢谢！    提交人    /u/hauretax   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g91lk5/create_characters_based_on_a_style/</guid>
-      <pubDate>Mon, 21 Oct 2024 21:38:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何有效地理解和浏览继承的代码库？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g911op/how_to_efficiently_understand_and_navigate_an/</link>
-      <description><![CDATA[大家好！ 我从一位高级开发人员（他仍在公司）那里继承了一个项目。这是一个用 React 和 Tailwind 制作的大项目。我的任务是清理代码并在必要时重构它。 我怎样才能不失去理智地完成这项任务？我了解 React，但我不是高级水平，主要问题是我对它所基于的代码库一无所知（他使用他开发的另一个项目作为起点，以便更快地交付演示）。 感谢您的帮助    提交人    /u/9InTheMorning   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g911op/how_to_efficiently_understand_and_navigate_an/</guid>
-      <pubDate>Mon, 21 Oct 2024 21:14:55 GMT</pubDate>
     </item>
     <item>
       <title>Google 以“网站已关闭或不可用”为由拒绝了我的网站。我该怎么办？</title>
