@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 23 Oct 2024 01:42:21 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 03:32:01 GMT</lastBuildDate>
+    <item>
+      <title>面向用户的审计日志供应商？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g9zp8x/vendor_for_useroriented_audit_logging/</link>
+      <description><![CDATA[在我的职业生涯中，我开发过大约十几个不同行业的应用程序，每个应用程序都有不同的应用程序级事件日志解决方案。我指的是跟踪应用程序内与业务相关的事件，明确意图是让该应用程序的最终用户查看和使用这些日志。例如，如果我的应用程序处理博客文章，用户可能有一个审计日志来跟踪对这些帖子的编辑（谁写的、他们写的、什么时候写的、发生了什么变化等）。 每次出现这种需求时，我们最终选择的解决方案都会分为两类（或两者兼而有之）：开源库（通常与语言生态系统相关）和/或针对特定日志需求量身定制的自己的极简解决方案。 多年来，我一直在寻找一种基于供应商的解决方案来满足这一需求，但我总是最终看到同样重量级的“日志和监控和/一切”方法，例如 Splunk、Dynatrace、ELK stack、New Relic 等。这些方法允许强大的日志记录功能，但成本高昂（时间、金钱或两者兼而有之），并且最终过度使用，无法提供面向用户的审计日志可见性功能。 我正在寻找一种可以从一个项目带到下一个项目的解决方案，理想情况下将深度审计日志研究/报告转移给第三方。只有我有这种需要吗？有没有人找到符合上述要求的解决方案？    提交人    /u/BattleBrisket   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g9zp8x/vendor_for_useroriented_audit_logging/</guid>
+      <pubDate>Wed, 23 Oct 2024 02:17:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>EventEmitter 问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1g9zbh5/eventemitter_issues/</link>
+      <description><![CDATA[所以我绞尽脑汁想弄清楚我的项目中发生了什么。出于某种原因，当我向事件发射器发送某些东西时，它表明它正在被发送，但在另一端，我的事件发射器处于打开状态并正在监听，它没有收到任何东西。因此，在扩展 EventEmitter 的 EventService 类中，我有这个函数：  async publishTrackerEvent(eventData) { console.log(&#39;EventService: Publishing tracker event&#39;, eventData); this.emit(&#39;trackerEvent&#39;, eventData); console.log(&#39;EventService: Tracker event posted successful&#39;); } }  这两个记录器都可以正常使用从我的 API 调用的这一部分获得的正确信息：  await eventService.publishTrackerEvent({ type: &#39;tracker&#39;, data: { username, platform, trackerType, trackedItem } });  所以所有这些都很好，但是在我的 NotificationService 类中，我有：  EventService.on(&#39;trackerEvent&#39;, ( event ) =&gt; { console.log(&#39;Received tracker event:&#39;, event ); this.processTrackerEvent( event ); });  它永远不会收到我从 EventService 文件发送的 trackerEvent。从那里，它应该处理发送的信息并根据提供的平台向 discord 或电报或短信发送消息，但它甚至没有走那么远，因为我甚至从未收到收到的跟踪器事件记录器。我在运行本地代码时没有收到任何错误，浏览器控制台中也没有错误，所以我不确定这些数据实际上去了哪里，或者为什么没有被处理。  我有另外 2 个工作正常的事件发射器，但这个根本不想工作，它的设置方式与它们相同。我现在已经花了几个小时在这上面，完全筋疲力尽地试图弄清楚发生了什么，所以如果我能得到任何帮助，那将会很有帮助。我的项目是一个使用 tailwind 的 React 项目（尽管最后一部分可能不需要）。另外，你知道第一个代码片段在我的 EventService.js 文件中，第二个来自我的 index.js 文件（我所有的 API 调用），最后在我的 NotificationService.js 文件中。  如果您需要我提供更多信息来帮助推断问题所在，我将非常乐意与您分享更多信息。     提交人    /u/Lordtakahiro   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1g9zbh5/eventemitter_issues/</guid>
+      <pubDate>Wed, 23 Oct 2024 01:58:00 GMT</pubDate>
+    </item>
     <item>
       <title>如何使用 React 和静态 Next.JS 构建我的开发人员组合</title>
       <link>https://www.reddit.com/r/webdev/comments/1g9xk24/how_i_built_my_developer_portfolio_with_react_and/</link>
@@ -36,7 +50,7 @@
     <item>
       <title>WordPress 的现状</title>
       <link>https://www.reddit.com/r/webdev/comments/1g9vz2j/the_current_state_of_wordpress/</link>
-      <description><![CDATA[这篇文章可能会得到一些激烈的回复，但我想我会成为那个人并提出这个问题。显然，WordPress 和 WPEngine 之间一直存在一些争执……但我似乎听到了越来越多关于 WP 的闹剧。从大家看到的情况来看，这个潜在问题有多严重？    提交人    /u/ericpthomas   [link] [评论]]]></description>
+      <description><![CDATA[这篇文章可能会得到一些激烈的回复，但我想我会成为那个人并提出这个问题。显然，WordPress 和 WPEngine 之间一直存在一些争执……但我似乎听到了越来越多关于 WP 的闹剧。从大家看到的情况来看，这个潜在问题有多严重？    由   提交  /u/ericpthomas   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1g9vz2j/the_current_state_of_wordpress/</guid>
       <pubDate>Tue, 22 Oct 2024 23:14:11 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[      我放弃了。我不知道我做错了什么。我试图使用 Twitter API v2 利用 node-twitter-api-v2 库发推文，但是我发出的每一个请求都会收到 401 未授权的响应。我已经生成了下图中的所有密钥 https://preview.redd.it/hadbb0kv2dwd1.png?width=1826&amp;format=png&amp;auto=webp&amp;s=67970801d11bf7655fbe1efcf6014384e7840500 并且已经利用了 node-twitter-api-v2（https://github.com/PLhery/node-twitter-api-v2) 发送推文的示例代码： import { TwitterApi } from &#39;twitter-api-v2&#39;; // 使用所需的身份验证类型实例化（这里是 Bearer v2 身份验证） const twitterClient = new TwitterApi(&#39;&lt;YOUR_APP_USER_TOKEN&gt;&#39;); // 告诉 typescript 它是一个只读应用程序 const readOnlyClient = twitterClient.readOnly; // 使用内置方法 const user = await readOnlyClient.v2.userByUsername(&#39;plhery&#39;); await twitterClient.v2.tweet(&#39;Hello, this is a test.&#39;); // 您可以轻松上传媒体！ await twitterClient.v1.uploadMedia(&#39;./big-buck-bunny.mp4&#39;);  对于 YOUR_APP_USER_TOKEN 变量，我尝试使用上图中的“Bearer Token”，但也尝试过通过此链接中的 curl 调用生成的令牌：https://developer.x.com/en/docs/authentication/oauth-2-0/bearer-tokens 使用所有这些方法都只得到 401 个响应。我还尝试通过 Twitter API 文档中列出的方法进行推文 API 调用，但仍然得到 401。任何有关我做错的事情的帮助都非常感谢！在这个上面花了太长时间了哈哈    提交人    /u/Berkoooooo   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1g9r7j1/twitter_api_bearer_v2_auth_token_with_the/</guid>
       <pubDate>Tue, 22 Oct 2024 19:47:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>首次建立网站和首次购买域名的人提出的问题。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g9r02b/question_from_a_first_time_website_builder_and/</link>
-      <description><![CDATA[嗨，每当我进入一个我不是很了解的新领域时，我发现询问专门的子版块非常有帮助，因为通常有很多知识渊博的人愿意用外行人能理解的语言进行解释。 我打算第一次购买网站域名并聘请开发人员，我首先想知道域名后缀有哪些选择。我看到 Quora 上有人说你几乎可以用任何你想要的词来结束你的域名，比如“duckduck.goose”，但我也看到托管网站说除了默认的“.com”之外，还有大约 500 个域名后缀可供选择 如果我有一家名为“Chimney Stone”的面包店我希望它的网站是 chimneystone.bake（仅作为示例），这可能吗，您将如何实现？    提交人    /u/wifihurts   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g9r02b/question_from_a_first_time_website_builder_and/</guid>
-      <pubDate>Tue, 22 Oct 2024 19:39:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在寻找一个 CMS，它允许我使用 HTML 和 CSS 完全设计我的网站，并提供“模板语言/标记系统”来在我的 HTML 页面中插入动态内容（参见示例）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1g9q76v/im_looking_for_a_cms_that_allows_me_do_fully/</link>
-      <description><![CDATA[如果问题不清楚，我很抱歉。我的想法是这样的：我正在建立一个个人网站（如果你问的话，可以称为博客），因为我喜欢写 HTML 和 CSS，所以我想用它们来设计我的页面。但是，要创建这样的网站，需要处理 PHP 和 SQL 数据库。虽然我确实有一些有限的知识，但我想知道 CMS 是否允许我省去这些。 当然，Wordpress 很棒，但如果你想做自己的主题，你需要了解 PHP。 下面是我的想法的一个例子： &lt;body&gt; &lt;img=[[LOGO_OF_WEBSITE]] alt=&quot;logo of website&quot;&gt; &lt;h1&gt;[[TITLE_OF_ARTICLE]]&lt;/h1&gt; &lt;p&gt;&lt;strong&gt;[[INTRODUCTION_OF_ARTICLE]]&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;[[BODY_OF_ARTICLE]]&lt;/p&gt; &lt;/body&gt;  或者 &lt;body&gt; &lt;img={website:logo} alt=&quot;logo of website&quot;&gt; &lt;h1&gt;{article:title}&lt;/h1&gt; &lt;p&gt;&lt;strong&gt;{article:introduction}&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;{article:body}&lt;/p&gt; &lt;/body&gt;  这些只是例子，但你应该明白了。我想用这样的页面构建我的网站。我正在寻找的 CMS 允许我仅使用 HTML、CSS 和一些自定义模板语言/标记系统来插入动态内容，从而完全自定义我的网站前端。 有这样的 CMS 吗？    提交人    /u/Bobbydibi   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1g9q76v/im_looking_for_a_cms_that_allows_me_do_fully/</guid>
-      <pubDate>Tue, 22 Oct 2024 19:06:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
