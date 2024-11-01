@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 01 Nov 2024 12:39:22 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2024 15:22:22 GMT</lastBuildDate>
+    <item>
+      <title>Matt (WordPress) 与 WPEngine 的戏剧性对比</title>
+      <link>https://www.reddit.com/r/opensource/comments/1gh5zpq/matt_wordpress_vs_wpengine_drama/</link>
+      <description><![CDATA[      正如你可能知道，Matt 自 9 月下旬以来一直在与 WPEngine 斗争。看到整个闹剧上演，我感到压力很大，因为它在很多方面影响着我和我们中的许多人。 对我来说，我认为很难获得有关此事件的最新消息或更新，因为很多事情同时发生。无数文章重复着同一件事，但只有一点新的更新，这让人非常沮丧。 因此，我向本网站提交了一份提案，在 IT Service Guru 上撰写有关此事件的客座帖子，这是一个旨在帮助每个人处理与技术相关的事情的网站。提案得到批准，我开始写作。经过几天的写作，我终于完成了这篇客座帖子并将其发布在那里。我尝试包括与戏剧相关的所有内容，我相信它值得一读。 阅读后请告诉我您的想法！我花了好几天的时间才完成，所以我希望你会喜欢它。     由    /u/JestonT 提交   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1gh5zpq/matt_wordpress_vs_wpengine_drama/</guid>
+      <pubDate>Fri, 01 Nov 2024 13:56:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>LLQL：使用模式匹配器在 LLVM IR/BC 上运行 SQL 查询</title>
+      <link>https://www.reddit.com/r/opensource/comments/1gh5v6z/llql_running_sql_query_on_llvm_irbc_with_pattern/</link>
+      <description><![CDATA[大家好， 在我完成了 LLVM 中与 InstCombine 相关的第一个 diff 之后，我发现使用模式匹配器函数来检测模式很有趣，我想也许我可以使用 SQL 查询使这种模式在 LLVM 之外工作，所以我构建了 LLQL。 ir define i32 @function(i32 %a, i32 %b) { %sub = sub i32 %a, %b %mull = mul i32 %a, %b %add = add i32 %sub, %mull ret i32 %add }  例如，在这样的函数中，假设您想使用 LHS sub 指令搜索 add 指令，而 RHS 是 mul 指令，您可以像这样使用 LLQL 进行搜索  SELECT 指令 FROM 指令 WHERE m_inst(instruction, m_add(m_sub(), m_mul()))  或者例如，您可以查询每个函数中此模式存在的次数  SELECT function_name, count() FROM instructions WHERE m_inst(instruction, m_add(m_sub(), m_mul())) GROUP BY function_name  Github： https://github.com/AmrDeveloper/LLQL 目前，LLQL 支持 Ret、Br、算术、ICMP、FCMP 以及类型和嵌套类型的匹配器。 期待反馈。    提交人    /u/AmrDeveloper   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1gh5v6z/llql_running_sql_query_on_llvm_irbc_with_pattern/</guid>
+      <pubDate>Fri, 01 Nov 2024 13:50:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我要分享的第三个免费本地 macOS (14+) 应用程序</title>
+      <link>https://www.reddit.com/r/opensource/comments/1gh4iy9/third_free_local_macos_14_app_im_sharing/</link>
+      <description><![CDATA[这次是本地 PDF 压缩器，我厌倦了必须访问 Ilovepdf.com 并受到速率限制。我快疯了，我将构建整个 macOS 应用程序字母表并将它们作为开源共享，我一生都在闭门造车，但像这样分享感觉很棒。 Github：https://github.com/nuance-dev/achico 您可以在我的 Github 个人资料中找到其他应用程序，它们均获得 MIT 许可。另外，我是一名设计师，所以我犯的任何错误只需告诉我，我会尽力修复它们    提交人    /u/sirjoaco   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1gh4iy9/third_free_local_macos_14_app_im_sharing/</guid>
+      <pubDate>Fri, 01 Nov 2024 12:46:53 GMT</pubDate>
+    </item>
     <item>
       <title>Doom 的最新重制版是否违反了 GPL？</title>
       <link>https://www.reddit.com/r/opensource/comments/1gh45k2/does_dooms_latest_remaster_violate_the_gpl/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[我的目标是找到一个跨平台的应用程序，帮助我跟踪谁欠我钱、欠多少钱以及他们什么时候应该还。IOU 在这种情况下很有用，但它感觉像是一个坏掉的软件。而且它只在 Windows 上可用。没有同步的方法。也许有人知道一个好的、可行的替代方案？    提交人    /u/SnoopFreezing   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1gghrtl/anyone_knows_any_alternative_to_iou/</guid>
       <pubDate>Thu, 31 Oct 2024 15:50:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>我不认为开源 AI 中不可共享（非开放）的训练数据是个问题</title>
-      <link>https://www.reddit.com/r/opensource/comments/1gghpka/i_dont_think_unshareable_nonopen_training_data/</link>
-      <description><![CDATA[我读到有些人对新的开源 AI 定义有疑问。具体来说，定义训练数据不能共享，也不能开放。 我只想说为什么我不认为这是个问题。 假设我想创建一个 AI，它可以告诉我所有哈利波特书籍中发生的事情并向我解释。 创建它后，我将根据开源许可发布我能发布的一切。 很明显，要让 AI 知道哈利波特书籍中发生的事情，它需要成为训练数据的一部分。但我无权免费公开发布这些书籍。我能做的最好的事情就是将所有书籍列为我的训练数据，并提供购买链接。 我认为这并无不合理。我认为我描述的这个 AI 应该被视为开源。 有人认为它不是开源的，因为不按照开源许可证出版书籍“在结构上使许可方处于比任何被许可方更有利的地位”。 我不认为这是真的。许可方是这些书的出版商。我确实购买了它们并在合理使用（或类似的东西）下用作训练数据，或者我确实支付了许可证才能使用它们来训练我的 AI。我作为 AI 创造者的立场是我需要为数据付费。而你和我一样需要为这些书付费。 所以在这种情况下，我同意开源 AI 定义，列出训练数据的来源就足够了。我确实为数据付费了，你也可以。我们处于同样的境地。 说在封闭数据上训练的人工智能不开放，就像说用封闭编译器编译的软件不能开放一样。如果我发布使用封闭付费编译器的一些功能的开源代码，这并不意味着我的源代码不开放。 或者我的例子应该是使用 Windows API 的软件？您需要购买 Windows 才能使用我发布的开源代码。这是否意味着它不开放？当然不是。    提交人    /u/Simple-Minute-5331   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1gghpka/i_dont_think_unshareable_nonopen_training_data/</guid>
-      <pubDate>Thu, 31 Oct 2024 15:48:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>当你想到有人可能会利用你的工作来做坏事时，你会如何应对？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1gghl4r/how_do_you_cope_with_the_thought_that_someone/</link>
-      <description><![CDATA[这个问题与我目前遇到的困惑有关，但这里有一些背景信息： 几年前，在人工智能尚未像现在这样起飞之前，我挑战自己做点什么。我想看看我是否可以使用家里的文本转语音软件制作有声读物，这些有声读物实际上是我可以听的，可以理解正在发生的事情，甚至可以享受的。 起初，这是一个手动过程，需要大量的反复试验。SAPI 5 引擎和 Microsoft Speech Platform 有很多怪癖，一开始并不明显。即使使用格式正确的标签，它们也会以小方式搞砸。最终，我创建了一个工作流程，可以将故事变成我真正可以听的东西。对话音调较高，这样您就总能知道谁在说话，强调以较慢速度朗读的文本，识别新单词并纠正它们以使其正确发音的方法，并在对话和章节之间添加停顿以增加清晰度。 为了测试我的过程，我拿了一本 800,000 字的同人小说来尝试，因为它是最容易获得的大型文本。我听了它。我喜欢它。我真的很喜欢声音给我的一致性。但花了数周时间才解决所有问题。当然，除了我之外，还有其他人会喜欢这个吗？ 所以，我在网上分享了它。这开启了我多年的爱好，我找到我喜欢的故事并制作它们的有声读物并在网上与其他人分享。 （我没有将这些视频用于任何货币化，仅供参考） 我编写了程序来完成所有繁重的工作，将一个周末的漫长过程缩短到几分钟。 然后，人工智能出现了。我很好奇。 将软件一致但机械的单调换成人工智能声音的人性化特征会是什么感觉？ 我再次陷入困境，并研究了如何做到这一点。市面上有各种各样的服务，它们的声音都很棒，但即使拥有高级会员资格，您也永远无法从中获得一本小型有声读物，除非您花费几个月的积分。然后，我找到了在家中使用其他非常好的模型的方法，并再次开始寻找所有的小问题。 有很多权衡。我发现它们会以奇怪的方式失灵，需要很长时间才能找到解决方法。但最终我改进了我的程序，基本上可以在极短的时间内将文档转换为有声读物，我非常高兴。我与我的朋友和家人分享了它，他们都对我所取得的成就印象深刻 - 甚至感到震惊。 我甚至在对话中加入了音调变化，放慢语速以强调，单词发音修正。 但与此同时，我对在 YouTube 上发布内容的兴趣减少了一点。找到我感兴趣的阅读或分享的同人小说故事变得更加困难。现在，我主要想用它来自己购买小说并随时随地收听。 所以现在，我陷入了困境：我以前所做的，总是旨在填补别人没有填补的空白。为同人小说制作的有声读物，或为任何永远不会出售或需要太多精力制作成音频作品的东西制作的有声读物。我从来没有发布过实际出版作品的有声读物。但是，我也不太想继续这样做。现在我正在看我的程序，并考虑与世界分享它，这样人们就可以自己使用它了。 只是……如果我这样做，我就无法阻止人们去那里窃取他人的作品并将其发布到 YouTube 上以赚钱。我无法阻止人们制作非常便宜的有声读物并破坏叙述者的工作。像 Audible 这样的公司已经偷偷制作了 AI 有声读物 - 但我从未见过任何一家公司尝试通过改变对话的音调和放慢强调文本的阅读速度来提供更好的体验。如果像他们这样的公司开始部分使用我的作品（而我不可能知道），我真的无法原谅自己。 那么。我该怎么办？我坚持下去吗？还是把它作为开源放在 Github 上？如果我这样做了，我该如何应对，因为我知道有人可能会利用我的作品做一些可怕的事情？    提交人    /u/Hexatona   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1gghl4r/how_do_you_cope_with_the_thought_that_someone/</guid>
-      <pubDate>Thu, 31 Oct 2024 15:42:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>物联网设备的自由/开源软件 (FOSS) 替代品</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ggb2pv/a_foss_alternative_for_iot_devices/</link>
-      <description><![CDATA[寻找可以连接和控制物联网设备的 FOSS 应用程序替代品。    提交人    /u/-knightlife-   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ggb2pv/a_foss_alternative_for_iot_devices/</guid>
-      <pubDate>Thu, 31 Oct 2024 10:15:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
