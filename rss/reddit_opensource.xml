@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 10 Nov 2024 09:20:02 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2024 12:36:32 GMT</lastBuildDate>
+    <item>
+      <title>周末开发：Netflix 字幕翻译器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1gnydxd/built_this_over_the_weekend_netflix_subtitle/</link>
+      <description><![CDATA[动机：最近，我发现自己深深地沉迷于日本电影、电视剧和网络连续剧。在东京旅行期间，我在机上娱乐系统上偶然发现了一部名为《北极百货公司的礼宾员》的日本电影。它有英文字幕，我被迷住了——但不幸的是，我没能在航班结束前看完它。当我回来时，我很高兴发现它可以在 Netflix Japan 上观看。然而，有一个问题：Netflix 只有日语字幕，而我的日语几乎不存在。我认为这是一个机会来构建一个解决方案来用英语欣赏这部电影。上周末，我创建了一个小型 Python 脚本，将只有日语的字幕翻译成英文，让我最终在完全理解的情况下看完了这部电影。这可能不是最具可扩展性的设置，但它确实完成了工作！ 这个项目有什么用？ : 这个项目的目标很简单：将 Netflix 上的日语电影字幕从日语翻译成英语。这个项目的动机来自于缺乏可用的英语字幕，这使得这个项目既是一个有趣的技术挑战，也是满足我特定需求的有用解决方案。目前设置为日语 -&gt;英语，但该设置可以扩展到其他语言对。 高级解决方案：该项目利用了 Netflix 流媒体和基于云的图像处理的一些有趣的细微差别：  由于电影在 Netflix 上，我对其进行了屏幕录制，但 Netflix DRM 策略使屏幕变黑，只留下可见的字幕。 此限制成为了一项功能：由于每帧中只有字幕可见，因此简化了预处理。 我使用 OpenCV 处理视频帧，每秒捕获一帧，然后将这些帧上传到 S3 存储桶。 接下来，我将每一帧发送到 Google Vision API，提取日语字幕文本。 提取文本后，将日语文本发送到 AWS Translate 以将其转换为英语。 最后，我将翻译后的文本编译成带有时间戳（开始时间、结束时间和翻译文本）的 JSON 文件。一个小的 JavaScript 脚本读取这个 JSON 文件并将翻译后的字幕叠加到电影上，以实现无缝播放。  目标受众：这个项目纯粹是个人努力，但任何对计算机视觉、媒体处理或云技术感兴趣的人都会发现它很有见地。它将 OpenCV、Google Vision、AWS S3 和 AWS Translate 结合在一个简化的解决方案中，以增强观影体验。 与类似工具的比较：虽然有 Chrome 扩展程序可以在 Netflix 上叠加双语字幕，但它们需要同时提供日语和英语字幕。我的情况有所不同 - 没有可用的英文字幕，因此需要采用独特的方法。 演示 / 屏幕截图： https://imgur.com/a/vWxPCua https://imgur.com/a/zsVkxhT 如果您好奇，请查看我的 Github Repo：https://github.com/Anubhav9/netfly-subtitle-converter 它仍在进行中，但请随时查看并分享任何反馈。    提交人    /u/Content_Ad_4153   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1gnydxd/built_this_over_the_weekend_netflix_subtitle/</guid>
+      <pubDate>Sun, 10 Nov 2024 11:10:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建完全免费且开源的商业软件是一个好主意吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1gnxmgd/is_it_a_good_idea_to_create_a_completely_free_and/</link>
+      <description><![CDATA[为一款仅供商业使用的软件创建一个完全免费且开源的版本是不是一个好主意？    提交人    /u/Largance   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1gnxmgd/is_it_a_good_idea_to_create_a_completely_free_and/</guid>
+      <pubDate>Sun, 10 Nov 2024 10:16:42 GMT</pubDate>
+    </item>
     <item>
       <title>所有平台上最佳的开源音乐播放器？</title>
       <link>https://www.reddit.com/r/opensource/comments/1gnwlid/best_open_source_music_player_available_on_all/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[还有谁觉得很难跟上开源软件包的安全性？我们的项目中有如此多的依赖项，确保它们的安全并得到良好维护就像一份全职工作。一个有风险的软件包或一个未维护的库很容易变成一个漏洞，而且很难独自发现所有问题。 最近，我听说过 Dependabot 和 Snyk 之类的工具，我偶然发现了一种名为 HealthyPackage.ai 的东西，它显然可以提供软件包的健康状况洞察。有没有人用过它或发现它有助于快速了解软件包的可靠性？很想知道什么对你有用！    提交人    /u/Mountain-Insect-2153   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1gnfrlg/struggling_with_opensource_package_security_and/</guid>
       <pubDate>Sat, 09 Nov 2024 17:55:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找一款像 Strava 一样优秀的 OS 跑步应用</title>
-      <link>https://www.reddit.com/r/opensource/comments/1gned87/looking_for_a_good_os_running_app_like_strava/</link>
-      <description><![CDATA[有没有什么好的操作系统？想做一个更好的 Strava 版本。    由    /u/santiagotheboy  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1gned87/looking_for_a_good_os_running_app_like_strava/</guid>
-      <pubDate>Sat, 09 Nov 2024 16:53:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源音乐应用程序</title>
-      <link>https://www.reddit.com/r/opensource/comments/1gncmv9/opensource_music_apps/</link>
-      <description><![CDATA[嗨，实际的 Deezer、Spotify 和 YouTube 音乐开源版本应用程序在哪里？    由    /u/Edentenza  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1gncmv9/opensource_music_apps/</guid>
-      <pubDate>Sat, 09 Nov 2024 15:33:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
