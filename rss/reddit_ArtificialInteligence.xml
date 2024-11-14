@@ -4,20 +4,20 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的方方面面提供门户，并促进有关我们所知的人工智能理念和概念的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、在哪里可以找到资源和工具、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能的发展方向以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Thu, 14 Nov 2024 01:37:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2024 03:25:00 GMT</lastBuildDate>
+    <item>
+      <title>人工智能UDP</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1gquiw6/udp_ai/</link>
+      <description><![CDATA[我是 AI 新手，对非结构化数据很感兴趣。关于如何更多地了解它及其应用，有什么建议吗？谢谢    提交人    /u/CJr_2021   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1gquiw6/udp_ai/</guid>
+      <pubDate>Thu, 14 Nov 2024 02:27:04 GMT</pubDate>
+    </item>
     <item>
       <title>开源法学硕士 (LLM) 的结构化输出</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1gqthrs/structured_outputs_from_open_source_llms/</link>
       <description><![CDATA[不敢相信我们曾经这样做过从 LLM 中获得结构化输出。 那是在 DSPy、Instructor 和 anonLLM 之前。 这让我想反思未来的最佳实践。 from openai import OpenAI from dotenv import load_dotenv import os load_dotenv() client = OpenAI( base_url=&quot;https://api.studio.nebius.ai/v1/&quot;, api_key=os.environ.get(&quot;NEBIUS_API_KEY&quot;), ) SCHEMA = &quot;&quot;&quot; &lt;employee&gt; &lt;name&gt;John Doe&lt;/name&gt; &lt;title&gt;高级软件工程师&lt;/title&gt; &lt;部门&gt;工程&lt;/部门&gt; &lt;薪水&gt;120,000 美元&lt;/salary&gt; &lt;/员工&gt; &quot;&quot;&quot; messages = [ { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Alice Ford，软件工程师，工程，100,000 美元&quot; }, { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: f&quot;将员工详细信息解析到此模式中：{SCHEMA}&quot;, } ] response = client.chat.completions.create( model=&quot;meta-llama/Meta-Llama-3.1-405B-Instruct&quot;, messages=messages, ) def get_tag_content(tag: str, xml: str) -&gt; str: start_tag = f&quot;&lt;{tag}&gt;&quot; end_tag = f&quot;&lt;/{tag}&gt;&quot; start_index = xml.find(start_tag) end_index = xml.find(end_tag) return xml[start_index + len(start_tag):end_index] def xml_to_dict(xml: str) -&gt; dict: name = get_tag_content(&quot;name&quot;, xml) title = get_tag_content(&quot;title&quot;, xml) Department = get_tag_content(&quot;department&quot;, xml) salary = get_tag_content(&quot;salary&quot;, xml) return { &quot;name&quot;: name, &quot;title&quot;: title, &quot;department&quot;: Department, &quot;salary&quot;: salary } content = response.choices[0].message.content print(xml_to_dict(content))  以下是最佳实践的汇编：汇编 您使用哪种技术？    提交人    /u/franckeinstein24   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1gqthrs/structured_outputs_from_open_source_llms/</guid>
       <pubDate>Thu, 14 Nov 2024 01:34:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我需要一个代码和 YouTube 视频来帮助我为大学项目创建 AI 聊天机器人。有什么建议吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1gqs1an/i_need_a_code_along_youtube_video_that_helps_me/</link>
-      <description><![CDATA[我必须做这个项目，但是我没有太多时间，所以如果我能在构建项目的同时以直接的方式学习，那将非常有帮助。 我发现的大多数 YouTube 视频似乎有点粗略，并试图推销东西，我完全迷茫了，请求推荐。 我想我也可以成为 github 上的教程或其他东西，但我需要分步指南。 这些是我的教授要求的例子：  **儿童互动故事创作应用程序** 1) **描述**：一个允许用户为儿童创建互动故事的应用程序，用户可以在其中输入主题、角色和设置，AI 会生成个性化情节、说明性图像甚至音频旁白。 - **工具**：文本生成以创建故事，AI 根据描述的场景生成图像，和音频生成进行叙述。 - **亮点**：学生可以探索针对不同年龄段调整故事的基调和风格，并讨论为年轻观众调整内容的局限性。 **社交媒体内容生成器** 2）**描述**：旨在帮助小型企业为社交媒体创建视觉和文本内容的系统。用户提供其业务或产品的简要描述，应用程序会生成带有标题建议的文本帖子、图像甚至短视频。 - **工具**：为标题和帖子生成文本、为照片生成图像以及使用模板创建短视频。 - **亮点**：除了探索各种工具之外，学生还可以讨论 AI 如何处理视觉交流中的个性化和一致性。 **带反馈的面试模拟器** 3）**描述**：一个模拟器，用户在其中进行工作面试（文本或语音），AI 对答案、姿势提供反馈并提出改进建议。系统还会生成答复的简短文本摘要，突出优点和缺点。 - **工具**：用于文本生成和响应分析、个性化反馈生成以及可选的图像或视频生成以创建虚拟面试官的人工智能。 - **亮点**：学生可以探索个性化反馈的重要性、人工智能在解释细微差别方面的局限性以及对真实用户的影响。 **带有叙述的语言学习平台** 4) **描述**：一款使用生成式人工智能以用户想要学习的语言创建小故事和个性化练习的应用程序。故事可能包括说明性图像和AI创建的解释性视频。 - **工具**：用于创建故事和练习的文本生成、用于插图的图像生成和用于解释的视频生成。 - **亮点**：根据用户的熟练程度个性化内容，并开启关于AI如何增强（或阻碍）语言学习的讨论。 **旅行计划和可视化应用程序** 5）**描述**：一款可让用户通过生成行程建议、目的地图像甚至地点介绍视频来规划行程的应用程序。用户输入目的地和偏好，AI创建可交互的视觉行程。 - **工具**：生成描述地点和行程的文字、生成模拟旅游景点照片的图像、生成目的地短视频。 - **亮点**：鼓励创造性地使用AI，并能够批判性地分析生成的图像和视频的代表性局限性。 **作家和艺术家的创意灵感助手** 6）**描述**：一款为作家和视觉艺术家提供想法、草图和概念的应用程序。用户输入主题或初步想法，AI 会生成文本描述、图像和视觉建议来激发新项目。 - **工具**：为故事创意或草图生成文本，为插图生成图像，以及（如果适用）展示艺术作品开发过程的短视频。 - **亮点**：激发创造力和个性化，让学生讨论人工智能在提供艺术主观性方面的局限性。     提交人    /u/SirTophamHattV   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1gqs1an/i_need_a_code_along_youtube_video_that_helps_me/</guid>
-      <pubDate>Thu, 14 Nov 2024 00:23:51 GMT</pubDate>
     </item>
     <item>
       <title>我开发了一个人工智能工具，可以在所有电子商务商店中寻找相​​同的产品以找到最优惠的价格。</title>
@@ -41,11 +41,11 @@
       <pubDate>Wed, 13 Nov 2024 22:35:24 GMT</pubDate>
     </item>
     <item>
-      <title>自主学习中的生成式人工智能范围审查</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1gqoblz/generative_ai_in_selfdirected_learning_a_scoping/</link>
-      <description><![CDATA[标题：“自主学习中的生成式人工智能：范围审查” 我每天都会查找和总结有趣的人工智能研究论文，这样您就不必仔细阅读它们了。今天的论文题为“自主学习中的生成式人工智能：范围审查”，由 Jasper Roe 和 Mike Perkins 撰写。 本研究论文对生成式人工智能 (GenAI) 和自主学习 (SDL) 之间的交集进行了全面的范围审查。作者综合了 2020 年至 2024 年 18 项重要研究的结果，阐明了四个主要主题：通过 GenAI 增强 SDL 的潜在可能性、教育者角色的转变、学习体验的个性化以及所涉及的注意事项。 以下是本文的一些要点：  生成式 AI 作为 SDL 的潜在增强：研究表明，ChatGPT 等 GenAI 工具和其他大型语言模型 (LLM) 在增强 SDL 方面具有巨大的潜力。它们被视为潜在的促进者，提供实时支持并扩大对个性化教育内容的访问。 教育者角色的转变：尽管 GenAI 具有强大的能力，但教育者仍然是学习过程的核心。教育者的角色正在演变为指导学生有效使用 GenAI 工具、培养关键的 AI 素养以及帮助发现学习目标和资源。 学习个性化：GenAI 被认为是根据个人学习者需求定制教育体验的关键影响因素。这种个性化方法被认为可以通过提供针对学习者偏好的内容和支持来显著改善 SDL。 谨慎行事：本文还强调谨慎行事，指出了对 GenAI 准确性和可靠性的担忧。学生过度依赖此类技术的可能性会带来风险，这强调了对指导适当使用的框架的需求。 研究差距和未来方向：文献中存在大量空白，特别是关于 GenAI 对 SDL 结果的长期影响。作者主张进一步纵向研究和探索基于文本的 LLM 以外的更广泛的 GenAI 工具。  本文对 GenAI 与 SDL 的集成持批判但乐观的态度，既认识到其变革潜力，也认识到其固有的风险和挑战。这种综合为未来旨在有效利用教育框架中的 GenAI 的研究工作奠定了基础。 您可以在此处查看完整的细分：这里您可以在此处查看完整的原始研究论文：原始论文    提交人    /u/steves1189   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1gqoblz/generative_ai_in_selfdirected_learning_a_scoping/</guid>
-      <pubDate>Wed, 13 Nov 2024 21:37:40 GMT</pubDate>
+      <title>LLM 是否可以模拟主观体验？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1gqnukr/is_it_possible_for_llms_to_simulate_subjective/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1gqnukr/is_it_possible_for_llms_to_simulate_subjective/</guid>
+      <pubDate>Wed, 13 Nov 2024 21:17:55 GMT</pubDate>
     </item>
     <item>
       <title>构建一个人工智能，它可以抓取你的网站，研究相关关键词，查找来源和视觉效果，然后将经过 SEO 优化的博客直接写到你的网站上</title>
