@@ -4,11 +4,32 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 14 Nov 2024 09:22:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2024 12:41:53 GMT</lastBuildDate>
+    <item>
+      <title>帮助我解决 Vercel Hosted MERN Stack App 中的 Cors 问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gr29sy/help_me_solve_the_cors_issue_in_my_vercel_hosted/</link>
+      <description><![CDATA[      基本上，每当我尝试登录或注册时，都会出现此错误： https://preview.redd.it/xpuoqozvlu0e1.png?width=1862&amp;format=png&amp;auto=webp&amp;s=cbdca3186d7eda129dc36f92fc59254312fd329e const express = require(&#39;express&#39;); const connectDB = require(&#39;./config/db&#39;); const cors = require(&#39;cors&#39;); const userRoutes = require(&#39;./routes/userRoutes&#39;); //require(&#39;dotenv&#39;).config(&#39;{path:D:/reactproectsreal/MERNAnimeDB/MERN-AnimeTracker/backend/.env}&#39;); const app = express(); // 连接到数据库 connectDB(); app.use((req, res, next) =&gt; { res.setHeader( &quot;Access-Control-Allow-Origin&quot;, &quot;https://mern-anime-tracker-front.vercel.app&quot; ); res.setHeader( &quot;Access-Control-Allow-Methods&quot;, &quot;GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE&quot; ); res.setHeader( &quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers&quot; ); res.setHeader( &quot;Access-Control-Allow-Credentials&quot;, true); res.setHeader(&quot;Access-Control-Allow-Private-Network&quot;, true); // Firefox 将此限制设置为 24 小时（86400 秒）。Chromium（从 v76 开始）将限制设置为 2 小时（7200 秒）。默认值为 5 秒。 res.setHeader(&quot;Access-Control-Max-Age&quot;, 7200); next(); }); // 中间件 app.use(cors({ origin: &#39;https://mern-anime-tracker-front.vercel.app&#39;, // 前端 URL methods: &#39;GET,HEAD,PUT,PATCH,POST,DELETE&#39;, // 允许的方法 credentials: true, // 允许凭据（cookie、授权标头等） })); app.use(express.json()); // 测试路由 app.get(&quot;/&quot;, (req, res) =&gt; { res.json(&quot;Hello&quot;); }); // 路由 app.use(&#39;/api/users&#39;, userRoutes); // 启动服务器 const PORT = 5000; app.listen(PORT, () =&gt;&gt; console.log(`服务器在端口 ${PORT} 上运行`));  以上是我的 index.js ，在浏览了互联网和 vercel 文档后添加了所有与 cors 相关的代码。 { &quot;version&quot;: 2, &quot;builds&quot;: [ { &quot;src&quot;: &quot;index.js&quot;, &quot;use&quot;: &quot;@vercel/node&quot; } ], &quot;routes&quot;: [ { &quot;src&quot;: &quot;/(.*)&quot;, &quot;dest&quot;: &quot;index.js&quot;, &quot;methods&quot;: [&quot;GET&quot;,&quot;POST&quot;,&quot;PUT&quot;,&quot;DELETE&quot;,&quot;PATCH&quot;,&quot;OPTIONS&quot;], &quot;headers&quot;: { &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,&quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,&quot;Access-Control-Allow-Methods&quot;: &quot;GET,OPTIONS,PATCH,DELETE,POST,PUT&quot;,&quot;Access-Control-Allow-Headers&quot;: &quot;X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version&quot; } } ] } 这是我的后端 vercel.json 帮我解决这个 cors 问题。     提交人    /u/Radiant_Butterfly982   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gr29sy/help_me_solve_the_cors_issue_in_my_vercel_hosted/</guid>
+      <pubDate>Thu, 14 Nov 2024 10:58:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>您最喜欢使用的 Javascript/DOM/浏览器的哪个功能，但又被低估了？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gr1nf9/whats_the_most_underestimated_feature_of/</link>
+      <description><![CDATA[我喜欢所有可用的浏览器 API，虽然您在日常工作中并不常用。但是，当您需要它们时，它们真的能救命。我正在考虑 Intersection Observer、Mutation Observer、Origin 私有文件系统 等。 我现在正在项目中使用 MutationObserver 来记录对 DOM 节点的更改。虽然存在一些怪癖，但能够以有效的方式检测 DOM 树中的更改确实很方便。    提交人    /u/qvstio   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gr1nf9/whats_the_most_underestimated_feature_of/</guid>
+      <pubDate>Thu, 14 Nov 2024 10:11:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>自学成才？让我们联系</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gr15jk/selftaught_lets_connect/</link>
+      <description><![CDATA[作为一名自学成才的开发人员，我一直很困扰，因为没有一个更大的联系网络来分享经验、从事共同的项目并获得工作机会。  如果你和我有同样的感受，那就让我们联系起来，互相认识吧。    提交人    /u/tt_256   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gr15jk/selftaught_lets_connect/</guid>
+      <pubDate>Thu, 14 Nov 2024 09:33:30 GMT</pubDate>
+    </item>
     <item>
       <title>关于我的第一个 webdev 架构的反馈</title>
       <link>https://www.reddit.com/r/webdev/comments/1gr0r7i/feedback_on_my_first_webdev_architecture/</link>
-      <description><![CDATA[      使用 Claude AI 生成 我想从您那里了解： 1. 这种架构对于在 2 个月内由单个开发人员构建的多边平台 v1 是否有意义？ 2. 对于某些服务，有哪些更好的替代方案，为什么？ 3. 因为我编写的是 Python，无论如何都需要学习 React，所以使用 FastAPI 与使用可能更好的东西（如 Next.JS）相比，这是一种权衡吗？ 4. 我的架构图中缺少什么？ 5. 如果我想使用不同的后端在全球范围内扩展，单独的后端是否更好？不同国家的前端/域名？ 我从事数据工程专业，在 Python 和 SQL 方面有相当多的经验。我需要启动一个具有 3 种用户类型的平台的 v1 版，并进行基于位置的活动注册（地图视图）。 选择一个能够很好地适应用户增长的技术栈非常重要，我可以轻松使用最佳实践，如持续集成/持续开发（我作为数据工程师习惯于此）和测试驱动开发，我很想参与其中。 我的联合创始人希望在他的 CRM（monday.com）中查看一些数据，但这个优先级似乎不是那么高。    提交人    /u/Lorenzkort23   [链接] [评论] ]]></description>
+      <description><![CDATA[      使用 Claude AI 生成视觉效果 我想从您那里了解：  对于多边平台 v1，作为单一开发人员在 2 个月内构建，这种架构是否有意义？ 对于某些服务，有哪些更好的替代方案，为什么？ 因为我编写的是 Python，无论如何都需要学习 React，所以使用 FastAPI 与使用可能更好的东西（如 Next.JS）相比，这是一种权衡吗？ 我的架构图中缺少什么？ 如果我想使用不同的后端在全球范围内扩展，单独的后端是否更好？前端/域名位于不同国家？  我从事数据工程专业，在 Python 和 SQL 方面有相当多的经验。我需要启动一个具有 3 种用户类型的平台的 v1 版，并进行基于位置的活动注册（地图视图）。 选择一个能够很好地适应用户增长的技术栈非常重要，我可以轻松使用最佳实践，如持续集成/持续开发（我作为数据工程师习惯于此）和测试驱动开发，我很想参与其中。 我的联合创始人希望在他的 CRM（monday.com）中查看一些数据，但这个优先级似乎不是那么高。    提交人    /u/Lorenzkort23   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1gr0r7i/feedback_on_my_first_webdev_architecture/</guid>
       <pubDate>Thu, 14 Nov 2024 09:01:59 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[我曾经想过。所以我和几个好友在 12 月做了一个小型的开源代码挑战，尝试一种新语言 @gleam。问题是，12 月实际上有很多天，虽然我们已经写好了大部分问题，但仍缺少几个问题，而且我们还没有完成问题检查部分。无论如何，如果你想看看并帮忙，请这样做。或者我想如果你只是想使用它并参与其中，那么这也是可行的，但你应该从 12 月开始。我认为看到人们在类似的时间范围内用他们的解决方案进行 PR 会很有趣。  https://github.com/dalurness/winter-code-fest/    提交人    /u/2urnesst   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1gqv2n2/bored_and_looking_for_a_tinker_project_plz_help/</guid>
       <pubDate>Thu, 14 Nov 2024 02:55:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>无需登录即可使用 Sheets 和 Drive 集成的免费表格 + 签名</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gqu5ao/free_forms_signature_without_login_with_sheets/</link>
-      <description><![CDATA[嗨，我正在寻找一种解决方案，在我的 WordPress 网站上添加一个客户可以填写的录入表格，其中包括一个签名字段。我尝试过各种工具和脚本，但仍然没有得到我需要的功能。这是我特别想要的：  填写表单无需登录或注册 签名/​​绘图字段需要通过电子邮件等进行验证或批准。 一个提交按钮，将保存表单数据和签名，而无需额外的手动步骤 表单的回复保存在 Google 表格中 提交表单的副本以及作为文件保存在 Google Drive 中的签名 免费（我总共有 5 张表格，每月大约有 5-10 位客户填写）  理想情况下，我想要一个不需要太多编码的解决方案。但是，如果可靠且易于管理，我愿意接受一些自定义设置。 这是我到目前为止尝试过的： - Google Forms 和 Google Apps Script（我无法将表单和签名板与 Google Forms 集成） - Forminator + Google Apps Script（无法将签名保存为 Drive 中的图像，以及需要验证等其他问题） - AppSheet（效果很好，但免费版对来宾用户数量有小限制） - Jotform（效果很好，但需要登录才能填写表单） 我已经研究了好几天，真的希望有一个一体化解决方案或推荐的设置可以满足这些要求。如果有人有想法或建议，我将不胜感激。    提交人    /u/magnumpl   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gqu5ao/free_forms_signature_without_login_with_sheets/</guid>
-      <pubDate>Thu, 14 Nov 2024 02:07:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>从我自己的域提供 S3 图像？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gqt9i8/serving_s3_images_from_my_own_domain/</link>
-      <description><![CDATA[大家好！ 目前，我已将我的 Web 应用程序设置为提供 S3 对象，如下所示： -&gt; 客户端（来自 mydomain.com/* ）在 im.mydomain.com/&lt;resource&gt; 请求图像 -&gt; 服务器为请求的资源生成预签名的 URL -&gt;服务器重定向到预签名的 URL 并呈现图像。 我的问题：有没有办法跳过中间人并直接从我的域提供图像，而无需让图像通过我的服务器。我想要这个的原因是因为通过这种方式获取图像稍微快一些（1 个服务器请求而不是 2 个）并且图像的 URL 看起来更专业（没有所有参数，如 X-Amz-Algorithm、X-Amz-Credential、X-Amz-Date、X-Amz-Expires 和 X-Amz-Signature）。    提交人    /u/SpeedyDoes   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gqt9i8/serving_s3_images_from_my_own_domain/</guid>
-      <pubDate>Thu, 14 Nov 2024 01:23:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻求与 Wix/Squarespace/WordPress 集成以管理会员付款的支付平台建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gqs2gz/seeking_recommendations_for_payment_platforms_to/</link>
-      <description><![CDATA[我正在寻求有关可以与 Wix、Squarespace 或 WordPress 等网站构建器集成的最佳支付平台的建议。我们小型企业网络的主要目标是简化年度和每月会员付款的管理，以避免让已经有自己业务要经营的委员会成员感到不知所措。我们也愿意改变网站平台的类型，以找到最合适的解决方案。我们想要：  自动税务发票：为每笔付款生成税务发票。 收据下载：使会员能够在纳税时轻松下载收据。 活动票务（很棒）：接受票务活动的付款并发送提醒电子邮件。 负担得起的费用和收费。我一直在与 Squarespace 谈论他们的支付平台，它们似乎相当昂贵  我们想要一个用户友好且具有强大客户支持的系统。任何见解或建议都将不胜感激！    提交人    /u/wombilator   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gqs2gz/seeking_recommendations_for_payment_platforms_to/</guid>
-      <pubDate>Thu, 14 Nov 2024 00:25:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
