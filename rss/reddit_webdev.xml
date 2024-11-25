@@ -4,7 +4,84 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 25 Nov 2024 15:24:04 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2024 18:30:03 GMT</lastBuildDate>
+    <item>
+      <title>Alpine.js</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzpys0/alpinejs/</link>
+      <description><![CDATA[各位开发者们好！ 不久前，我接触到了 JavaScript 框架 Alpine.js，理论上我很喜欢它。不过，我使用它的经验并不多，所以我想知道你们当中是否有人有过这种经验，如果有的话，你们对它的看法是什么。你们了解到它的优缺点是什么？ 感谢您的时间，请继续关注！    提交人    /u/Some_Designer6145   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzpys0/alpinejs/</guid>
+      <pubDate>Mon, 25 Nov 2024 18:29:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>服务器端“订阅页面更新”工具？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzpe66/serverside_subscribe_to_page_updates_tool/</link>
+      <description><![CDATA[我正在开发一个网站，该网站将由各种信息页面组成，这些信息页面将以半频繁的方式更新。我想找到一个工具（在我这边），让用户可以轻松订阅页面并在该页面更新时收到通知，并且只订阅该页面（或多个页面，如果他们愿意的话）。 我遇到过许多服务和浏览器插件，它们允许人们订阅页面更新（用于跟踪库存或定价），但我希望它在我的这边。 任何想法都值得赞赏。    提交人    /u/GradyCole   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzpe66/serverside_subscribe_to_page_updates_tool/</guid>
+      <pubDate>Mon, 25 Nov 2024 18:06:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建实体后设置实体在链中的位置 - matter.js</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzp58b/set_position_of_bodies_in_chain_after_creating/</link>
+      <description><![CDATA[我想从由平面中的等距点组成的路径创建一个链。我的想法是使用  const group = Matter.Body.nextGroup(true); const composite = Matter.Composites.stack( ends[0].x, ends[0].y, ends.length, 1, 10, 10, (x: number, y: number) =&gt; Matter.Bodies.rectangle(x, y, size, thicken, { collisionFilter: { group }, }) ); Matter.Composites.chain(composite, 0.5, 0, -0.5, 0, { stiffness: 0.5, length: 2, });  然后使用 composite.bodies.forEach((body, index) =&gt; { if (index === ends.length - 1) return; const start = ends[index]; const end = ends[index + 1]; const angle = Math.atan2(end.y - start.y, end.x - start.x) % (Math.PI * 2); const mid = { x: (start.x + end.x) / 2, y: (start.y + end.y) / 2 }; Matter.Body.setAngle(body, angle); Matter.Body.setPosition(body, mid); });  但是它只起作用了一半。如果从左到右水平绘制路径，它似乎可以工作，但如果以任何其他方向绘制，例如从右到左，链条的尖端最终会不受控制地旋转。  下面是包含相关部分的类。 class Chain { composite: Matter.Composite; const(path: Point[], size: number, thick: number) { const endpoints = make_path(path, size); if (!endpoints.length) throw new Error(&quot;fuck!&quot;); const group = Matter.Body.nextGroup(true); const composite = Matter.Composites.stack( ends[0].x, ends[0].y, ends.length, 1, 10, 10, (x: number, y: number) =&gt; Matter.Bodies.rectangle(x, y, size, thick, { collisionFilter: { group }, }) ); const pin = Matter.Constraint.create({ bodyB：composite.bodies[0]， pointB：{ x：0， y：0 }， pointA：{ x：endpoints[0].x， y：endpoints[0].y }， 刚度：0.5， }); Matter.Composites.chain(composite， 0.5， 0，-0.5， 0，{刚度：0.5，长度：2， }); Matter.Composite.add(composite，pin); composite.bodies.forEach((body, index) =&gt; { if (index === ends.length - 1) return; const start = ends[index]; const end = ends[index + 1]; const angle = Math.atan2(end.y - start.y, end.x - start.x); const mid = Matter.Vector.create( (start.x + end.x) / 2, (start.y + end.y) / 2 ); Matter.Body.setAngle(body, angle); Matter.Body.setPosition(body, mid); }); this.composite = composite; } }  如果我只改变位置，而不改变初始角度，这个错误仍然会发生。为了完整起见，以下是创建路径的方式 https://jsfiddle.net/0ro7duLa/。    提交人    /u/0x_by_me   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzp58b/set_position_of_bodies_in_chain_after_creating/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:56:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>响应式网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzp2o5/responsive_websites/</link>
+      <description><![CDATA[大家好！我是一名初级 Web 开发人员，我想知道你们是如何让网站具有响应性的？对于我的第一个网站，我编写了所有内容（在 chatgbt 的帮助下），然后我使用 @media thing 属性来实现 3 种不同的尺寸，并且我创建了 3 个不同的文件来组织所有内容，因为我没有使用 bootstrap 或任何东西，纯粹是 css 和 html！ 感谢您的回答！    提交人    /u/Loud_Lengthiness_153   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzp2o5/responsive_websites/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:54:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找托管选项</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzok1j/looking_for_hosting_options/</link>
+      <description><![CDATA[我所在的组织希望迁移到新的网站托管商，因为我们当前的安排（使用 WordPress 并聘请顾问托管）效果不佳（因为速度太慢且成本太高）。网站需要活动日历功能并拥有简单的会员列表。理想情况下，如果它可以选择导出到新闻稿（MailChimp）或以新闻稿格式导出活动，那就太好了（但不是必需的）。  是否有内置活动日历选项的网络托管商，或者包含在常规托管价格中的网络托管商？我们考虑过 WordPress.com，但需要获得活动日历插件的许可证。    提交人    /u/TheAncientBitch   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzok1j/looking_for_hosting_options/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:34:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unreals Fab 页面上的内容轮播？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzo6u9/content_carousel_on_unreals_fab_page/</link>
+      <description><![CDATA[所以，我刚刚在“发现”部分查看了 Unreals Fab 市场页面 (www.fab.com)。 在桌面上，它的顶部有一个精美的内容轮播/幻灯片部分，我在不同的网站上见过一两次，我想知道是否有人在任何地方遇到过这个插件/组件？我的意思是可能能够复制它，只是想知道他们从哪里获得它。    提交人    /u/BolteWasTaken   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzo6u9/content_carousel_on_unreals_fab_page/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:19:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 JS 在页面加载时自动隐藏元素并不完美 - 它会在一瞬间显示该元素。我该如何解决这个问题？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gznzrq/using_js_to_automatically_hide_an_element_on_page/</link>
+      <description><![CDATA[嗨。我不确定这是 JavaScript 问题还是 CSS 问题。在我的网站上，页面顶部有一个 &lt;div class=&quot;banner&quot;&gt;，其中包含一些文本。在该部分的边缘，我有一个按钮，按下该按钮时会删除（隐藏）元素。单击时，我还会在 sessionStorage 中存储一个值，只要设置了该值，该值应确保元素永远不会在页面加载时显示。 从功能上讲，它会执行应有的操作。只要设置了该值，它就会在页面加载时隐藏元素。但是，在很短的时间内（约 1 毫秒），它会显示横幅 div，然后将其隐藏。我如何阻止它显示横幅，哪怕只有一毫秒？我认为这被称为“无样式内容闪烁”（FOUC）？并且它可能与&quot;渐进式增强&quot; 有关（根据维基百科）。 这是我的 JavaScript 代码： document.addEventListener(&quot;DOMContentLoaded&quot;, BANNER.init); const BANNER = { init() { BANNER.hideBanner(); // 此处为其他方法 }, hideBanner() { if (sessionStorage.getItem(&quot;BannerClosed&quot;)) { const banner = document.querySelector(&quot;.banner&quot;); if (banner) { banner.style.display = &quot;none&quot;; } } } };  我目前已尝试的方法：  我已尝试将 hideBanner 方法移到 init 之外，在 DOMContentLoaded 运行之前。这没有什么区别。 我尝试默认将横幅设置为 display: none;，并使用 JavaScript 在 sessionStorage 中未设置值时显示它，但现在它会隐藏一瞬间，直到显示它。所以它只是逆转了，但仍然是同样的问题。 我尝试将此代码移动到我的 &lt;head&gt; 内的 &lt;script&gt; 标签，并确保在加载任何 CSS 之前放置它。仍然是同样的问题。  那么我该怎么做才能让它在一毫秒内不显示横幅？我正在使用带有 Express 的 Node.js。我使用 EJS 来呈现 HTML。一种方法可能是将此值存储在 req.session（Express 会话对象）上。但随后我必须从客户端向服务器发出获取调用来显示/隐藏横幅。这听起来像是资源的极大浪费。我认为这应该完全在客户端完成。 存储这些设置的实际标准位置是什么？每当您在页面的最顶部看到带有“X”（关闭）按钮的横幅时。我应该将此设置存储在客户端吗？在服务器端？我如何防止元素显示？ 提前致谢！    提交人    /u/Sineleo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gznzrq/using_js_to_automatically_hide_an_element_on_page/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:12:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要大学项目方面的帮助吗？React JS、Spring Boot、Flutter 和 Firebase</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzno24/need_help_with_college_projects_react_js_spring/</link>
+      <description><![CDATA[大家好， 您是否觉得大学项目陷入困境或正在寻求专家指导以便按时完成它们？我来帮忙了！ 我专攻 React JS、Spring Boot、Flutter 和 Firebase，我可以通过以下方式协助您完成项目：  高质量、功能齐全的解决方案。 干净、有据可查的代码。 根据您的要求量身定制的项目。 提供支持和解释，以便更好地理解工作。  无论您需要动态 Web 应用、跨平台移动应用还是后端集成，我都能满足您的需求！ 💡 工作原理：  分享您的项目要求。 我将为您创建一个完整、完善的解决方案。 收费将根据复杂性和时间计算参与。  如果您有兴趣，请随时给我发私信或在下面发表评论，让我们开始您的项目吧！    由   提交  /u/diaeblo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzno24/need_help_with_college_projects_react_js_spring/</guid>
+      <pubDate>Mon, 25 Nov 2024 17:00:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>建立副项目并应对“完美主义”</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gznmt8/building_sideprojects_navigating_perfectionism/</link>
+      <description><![CDATA[首先我要声明，我知道完美主义和 Web 开发不能很好地融合在一起，但我希望解释我面临的难题。 就背景而言，我从事 Web 开发大约 1.5 年，主要是前端。Stack 是 JS、Next，我使用了一些 CSS 库，例如 MUI。我目前在一家初创公司工作，即将开始更多地转向“全栈”，更多地接触后端。 我从未建立过作品集，而是通过当时需要的技术测试和软技能（职业转换、产品管理经验）才获得这个职位。我从未建立过作品集的主要原因是巨大的冒名顶替综合症和试图构建值得生产的东西的“完美主义”。 所谓值得生产，我的意思是构建一个可以轻松在企业级使用的代码库。我在这个过程中停顿下来，因为当我开始构建某些东西时，我会担心代码的外观、我使用的模式，甚至代码库的组织方式。从代码的角度来看，我担心代码是否干净以及优化程度如何（更多是为了可读性，更少的混乱）。这种“冒名顶替综合症”让我陷入教程地狱，似乎无法前进。我认为一个主要问题是，我认为只是盲目地遵循完整的教程并复制粘贴意味着我实际上并没有学会如何自己构建某些东西，而是对我的解决方案进行编码。所以，我尝试从头开始构建一些东西，即阅读文档、阅读其他代码库等。但是当我意识到我的解决方案是“黑客”时，我会完全停下来并说服自己我还没有准备好。 是的，我知道有时无论它如何工作，都需要一个解决方案，因为我在工作中经历过这种情况。很多时候，我和我的高级开发人员会尽快将一些东西放在一起，然后让它工作，以便获得一张票。我们的代码库远非完美。 不确定如何摆脱这种困境，真的很感谢一些建议。也许我在这里想得太多了，但我很想听听你们做了什么，摆脱了教程地狱，开始努力工作，改进了每个项目。谢谢！    提交人    /u/Danakazii   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gznmt8/building_sideprojects_navigating_perfectionism/</guid>
+      <pubDate>Mon, 25 Nov 2024 16:58:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我仿制了一款名为 Ocean Os 的 Apple 产品。快来看看吧！（抱歉，现在还不到星期六）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzm0g4/i_made_a_ripoff_of_apple_called_ocean_os_check_it/</link>
+      <description><![CDATA[我在 codesandbox 上制作了它。请不要窃取源代码。如果您愿意，可以改进它并将其发送给我！这里：https://m4p45w.csb.app/    由   提交  /u/AcrobaticMedicine497   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzm0g4/i_made_a_ripoff_of_apple_called_ocean_os_check_it/</guid>
+      <pubDate>Mon, 25 Nov 2024 15:53:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何从网络工具（F12）中特意制作紫色虚线</title>
+      <link>https://www.reddit.com/r/webdev/comments/1gzljfe/how_do_you_purposely_make_the_purple_dash_line/</link>
+      <description><![CDATA[我正在尝试重新创建此部分。我尝试过将 div 居中的正常方法，但效果不佳。 我指的是这个    提交人    /u/Separate_Ad_8110   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1gzljfe/how_do_you_purposely_make_the_purple_dash_line/</guid>
+      <pubDate>Mon, 25 Nov 2024 15:33:38 GMT</pubDate>
+    </item>
     <item>
       <title>在一个扩展中制作了一个简单的补水追踪器 + 自定义提醒器</title>
       <link>https://www.reddit.com/r/webdev/comments/1gzknj5/made_a_simple_hydration_tracker_custom_reminders/</link>
@@ -20,14 +97,7 @@
       <pubDate>Mon, 25 Nov 2024 14:48:48 GMT</pubDate>
     </item>
     <item>
-      <title>增强我的投资组合网站的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzkhjo/suggestions_for_enhancing_my_portfolio_website/</link>
-      <description><![CDATA[大家好， 我是一名具有构建 MVP 和 Web 应用经验的开发人员，我希望增强我的投资组合网站以吸引更多业务。 我正在考虑是完善现有网站还是使用 Next.js 重建它以获得更好的 SEO 和性能。我的目标是提高可见性、简化导航并更有效地展示我的作品和推荐。 您会建议什么 - 坚持使用当前堆栈还是切换到 Next.js？欢迎提供任何必备功能或设计想法！ 我也很乐意听到您对改进我应该包括的设计和功能的任何建议。 我的个人网站在评论中。 提前谢谢！    提交人    /u/Careless-Ad2000   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzkhjo/suggestions_for_enhancing_my_portfolio_website/</guid>
-      <pubDate>Mon, 25 Nov 2024 14:48:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hetzner 在创建我的帐户后一天内就拒绝了我的帐户。你也遇到过这种情况吗？</title>
+      <title>Hetzner 在创建我的帐户一天之内就拒绝了我的帐户。你也遇到过这种情况吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1gzk3g6/hetzner_rejected_my_account_within_a_day_of/</link>
       <description><![CDATA[      https://preview.redd.it/w6sd6551523e1.png?width=769&amp;format=png&amp;auto=webp&amp;s=20a60d1142e540361d7e30d1078749fc973c75b9 最近你们有人遇到过这种情况吗？这可能是因为我使用的 CC 已经附加到另一个 Hetzner 帐户吗？ 我联系了他们的客户支持，但他们不愿意透露拒绝的原因。    提交人    /u/tbhyn_   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1gzk3g6/hetzner_rejected_my_account_within_a_day_of/</guid>
@@ -39,76 +109,6 @@
       <description><![CDATA[我正在帮助一位朋友（一位艺术家）创建一个网站来展示她的作品集并最终出售她的画作。我正在寻找最便宜的解决方案，该解决方案在视觉上具有吸引力并且可扩展以用于未来的电子商务。 我对基于代码和无代码的解决方案都很满意。我考虑过的选项包括带有 WooCommerce 的 WordPress、GitHub Pages、Shopify 和 Squarespace。理想情况下，我希望从免费或非常低成本的东西开始，我将自己处理设置和维护。 对可以使用的平台、工具或框架有什么建议吗？谢谢！😊    提交人    /u/Even-Bluejay8696   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1gzjy2w/cheapest_way_to_build_an_artist_portfolio_website/</guid>
       <pubDate>Mon, 25 Nov 2024 14:23:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我学过 html 和 css，我可以继续学习 javascript 并查看我的网页吗</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzjhx5/i_learnt_html_and_css_and_can_i_go_forward_to/</link>
-      <description><![CDATA[      https://preview.redd.it/y9inw99w023e1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=498212ba4e47b65f8c5db7633bf1f8c095e04301 https://preview.redd.it/d36kr79w023e1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=949b772a1e8ffb771068da41a7244a616db7a58b 我只是不确定我的 CSS 知识，我创建的网页看起来简单而无趣。我对让网页看起来更好看感到焦虑，我认为我很糟糕，这就是我的问题所以如果我只有完成 css 那么我才能使用 javascript     提交人    /u/__Me_______   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzjhx5/i_learnt_html_and_css_and_can_i_go_forward_to/</guid>
-      <pubDate>Mon, 25 Nov 2024 14:02:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>你们发现任何好的网络开发黑色星期五优惠了吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzi6ff/have_yall_found_any_good_web_dev_black_friday/</link>
-      <description><![CDATA[我正在考虑为我的 MacBook Air 买一个底座、外接键盘、鼠标和显示器。    提交人    /u/piratebroadcast   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzi6ff/have_yall_found_any_good_web_dev_black_friday/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:55:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>Px vs Rem（是的，又来了……）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzi2jr/px_vs_rem_yes_again/</link>
-      <description><![CDATA[大家好。 你们最近测试过使用 rem 布局的影响吗？它确实没有太多重要的情况。我测试了以下场景：  浏览器缩放（Ctrl + 滚动） 操作系统界面缩放 Microsoft Edge 字体大小配置  Edge 的字体大小配置是唯一一个 rem 缩放的测试。最后一个问题是：需要辅助功能工具的一小部分用户是使用字体大小配置还是只是界面缩放？如果界面缩放不会触发 rem 缩放，使用它还有什么意义吗？ 好吧，好吧，我撒谎了。还有一个问题：我应该只对字体使用 rem 还是也对间距使用？您知道，我不希望我的整个界面因为用户字体设置而出现这种灵活性而无法预测的行为。    提交人    /u/Vyrh_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzi2jr/px_vs_rem_yes_again/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:49:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>谁能解释一下为什么有这么多构建工具以及它们的用途吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzhxva/can_anyone_explain_why_so_many_build_tools_and/</link>
-      <description><![CDATA[大家好， 最初，在我的项目中，我使用的是 vite，它的所有插件都非常棒。 但是我对这些工具的功能感到困惑，比如前几天我在看 eleventyjs ，它看起来很相似，只是用于 SSG ，然后有一个名为 rollup （vite 基于它），那么 webpack 是做什么的？ 这些就像 React 、 Angular 一样吗？试图以不同的方式实现相同的目标，或者它们是不同的    提交人    /u/Opposite_Squirrel_32   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzhxva/can_anyone_explain_why_so_many_build_tools_and/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:42:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>TIL - 为什么终端被这样称呼</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzhqp7/til_why_is_the_terminal_called_that/</link>
-      <description><![CDATA[我正在听关于 Linux 的讲座 - 这个一个，但它是阿拉伯语的 - 讲师谈到了第一次使用终端的情况，这很有趣，值得分享，所以我请 Claude 更详细地谈谈他提到的观点，以便我可以在这里分享： 计算中的术语“终端”来自其字面意思“端点”，源于拉丁语“terminus”（意为边界或终点）。在早期的计算中，终端是物理端点 - 仅具有屏幕和键盘的设备，可连接到大型主机。与其他输入方法（如打孔卡，更像是投递邮件然后等待）不同，终端之所以特殊，是因为它们是交互式端点，用户可以在其中与计算机进行实时双向对话。 想象一个房间里的大型计算机，电缆延伸到多个终端 - 每个终端实际上​​位于连接的“末端”，计算机系统在这里与人类用户相遇。当您在终端上打字时，您的输入将传输到大型计算机，进行处理，结果将立即返回到您的屏幕上。与打孔卡相比，这是革命性的，因为打孔卡要求您一次提交整个程序，然后等待数小时或数天才能获得结果。 今天的“终端”或命令行界面不再是物理设备，但我们保留了名称，因为它具有相同的用途：它是您与计算机直接交互的对话点，您可以在其中键入命令并立即获得响应。现代终端实际上​​是模拟那些旧物理终端的程序（例如 Mac 上的终端或 Windows 上的命令提示符），继承了作为人机直接通信的“端点”的传统。    提交人    /u/Mohammed_MAn   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzhqp7/til_why_is_the_terminal_called_that/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:30:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我将如何创建此网站，需要哪些框架？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzhm92/how_would_i_create_this_website_which_frameworks/</link>
-      <description><![CDATA[大家好 我是一名移动开发人员，尽管我对 html css javascript 有一些基本的了解 我需要尽快创建一个网站，它基本上将类似于 shopify 网站，并且将涉及涉及付款方式 API 的自定义付款方式，并将包括类似 shopify 的帮助按钮，网站上的支持服务或到 whatsapp 的外部链接，最重要的是，该网站将需要用户发送消息的功能，例如他们为订单输入的数据，发送给管理员或团队 idk。  我是一个自学者，而且学习很快，所以如果有一点指导和帮助，创建网站不会有问题。我不想使用 firebase supabase 等作为我的后端或数据库，因为这以后会花费我很多钱。因此，我需要免费的后端和数据库选项，不会导致以后产生成本。 你们能指导我应该使用哪些技术，以及需要哪些基本设置和数据库以及一切吗？  我正在考虑使用 django 作为后端并使用 react 作为前端，我的方法合理吗？ 谢谢    提交人    /u/chaos121921   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzhm92/how_would_i_create_this_website_which_frameworks/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:23:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>带有地图和视频的嵌入式应用程序的框架/架构建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzhkg4/recommendations_for_a_frameworkarchitecture_for/</link>
-      <description><![CDATA[我需要一些有关 Web 应用程序堆栈/框架的帮助。该应用程序是一艘自主船舶，类似于无人机。船舶是服务器，应用程序是客户端。可能有多个客户端连接到船舶/服务器（每个服务器可能少于十几个客户端）。  船舶/服务器将发送 GPS 真实坐标、天气数据和多个视频源。客户端需要显示所有这些数据，并能够为船舶创建航线，然后将这些航线上传到船舶/服务器。客户端需要极快的响应速度（30 FPS，无延迟）。 客户端和服务器通过封闭网络进行通信，该网络可能有也可能没有互联网访问。由于这一点和速度，我认为我们必须将地图（航海图）本地存储在客户端。应用程序/客户端硬件可能是一台商用笔记本电脑，但对于远程控制站（仍然是客户端），可能像 Raspberry Pi 一样低端。  我们目前在服务器端使用 websockets，客户端通过 Python 使用 pyside2。现有应用程序在很大程度上是一个工程 GUI。我们需要聘请具有实际 UI/UX 经验和嵌入式 Web 经验的人，以便我们能够向客户展示更精致的东西。但当然，我需要知道在职位描述中要写些什么。  有人能推荐一个好的框架/架构吗？考虑到这一点，你会在职位描述中写些什么？如果您需要更多信息或有其他问题，请告诉我。    提交人    /u/Ditiris   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzhkg4/recommendations_for_a_frameworkarchitecture_for/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:20:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在为我的论文寻找一个好的主题，到目前为止，我已经想出了这些想法。如果你要代替我选择，你会选择哪一个最容易实现？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzhi4o/im_trying_to_find_a_good_topic_for_my_thesis_and/</link>
-      <description><![CDATA[      背景：我正在大学攻读软件工程硕士学位，目前正在寻找一个好的主题来研究。我对网络爬虫 (或网络抓取) 很感兴趣，我喜欢 Reddit 平台。所以，我打算使用图书子版块作为我的数据来源。然后，我将提取这些数据，通过处理每篇文章的内容，我就可以对它做任何我想做的事情。但是，在这种情况下，我怀疑使用 Crawler 或 Spider 是否比使用 API 更好。因此，我将非常感谢有关此事的任何帮助、评论或指导。此外，如果您对我的论文有任何其他想法，我会在这里听取您的意见！提前致谢。    提交人    /u/--Ali-   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzhi4o/im_trying_to_find_a_good_topic_for_my_thesis_and/</guid>
-      <pubDate>Mon, 25 Nov 2024 12:16:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>到目前为止我已经收集了超过 290 条 Laravel/PHP 技巧 🙌</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzgw7v/over_290_laravelphp_tips_ive_collected_so_far/</link>
-      <description><![CDATA[        由    /u/According_Ant_5944   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzgw7v/over_290_laravelphp_tips_ive_collected_so_far/</guid>
-      <pubDate>Mon, 25 Nov 2024 11:39:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要建议：将 Stripe 与 Supabase 和 Next.js 集成用于 SaaS 订阅</title>
-      <link>https://www.reddit.com/r/webdev/comments/1gzgngk/need_advice_integrating_stripe_for_saas/</link>
-      <description><![CDATA[大家好！ 我正在构建一个 SaaS 应用，用户可以订阅提供每月积分（例如，用于生成内容）和特定功能访问权限的计划。以下是我所针对的流程：  用户通过 Stripe 订阅计划。 根据他们的计划，他们会收到每月积分和功能访问权限。 积分每月重置或结转（取决于计划）。 用户应该能够无缝切换计划。  我使用 Supabase 作为数据库，使用 Next.js 作为前端。我的应用是使用 Cursor 构建的，因此我可以轻松地编写所需的任何代码。但是，我很乐意简化这一过程以加快产品上市时间。 主要问题： 我是否需要每次从 Stripe 手动检索每个用户的付款信息以更新仪表板（例如，计划详细信息、付款状态等），还是有更简单的集成方法？ 我的考虑：  使用 Stripe 的 webhook 进行实时更新。 将订阅和计划信息存储在 Supabase 中并根据需要将其与 Stripe 同步。 一些 Next.js 库（例如，stripe-node），但不确定它们与 Supabase 的集成程度如何。  如果您已经构建了类似的设置，我将非常感谢任何建议或资源来优化此工作流程。提前致谢！    由   提交  /u/ThickDoctor007   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1gzgngk/need_advice_integrating_stripe_for_saas/</guid>
-      <pubDate>Mon, 25 Nov 2024 11:23:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
