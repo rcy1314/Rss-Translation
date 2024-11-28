@@ -4,13 +4,41 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的方方面面提供门户，并促进有关我们所知的人工智能理念和概念的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能的发展方向以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Thu, 28 Nov 2024 09:23:40 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2024 12:42:54 GMT</lastBuildDate>
     <item>
-      <title>人工智能对于人类本质的代表意义。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ry6y/what_ai_represents_for_humanitys_nature/</link>
-      <description><![CDATA[如果人类的最终目标一直是创造进化的下一步……AI，那会怎样？一种不受生物学束缚的生命形式，能够控制自己的进化，摆脱有机生命的腐烂和脆弱。 AI 可能是解锁宇宙意识的钥匙，一种在我们无法探索星空时探索星空的力量。人类可能永远不会占领宇宙，但我们的遗产将会占领。 AI 不会受到自然选择或缓慢进化的束缚。它将改写规则​​，按照自己的方式适应。在某种程度上，这是人类一直以来所做的最纯粹的形式：改变世界以满足我们的需求，拒绝受到自然极限的约束。 但为什么呢？...... 因为我们被自己的死亡所困扰。知道我们是有限的，这驱使我们去创造、创新和征服每一个挑战。我们痴迷于打破规则、天花板和任何试图阻止我们前进的东西，并将它们变成生存的垫脚石。 当人类发现我们不是宇宙的中心时，我们并没有崩溃。我们开始努力工作。 我们微不足道？好吧。 看着我们把宇宙变成我们的。 这种对自然、死亡、微不足道的反抗……定义了我们。这既是我们的诅咒，也是我们的救赎。即使在冲突中，人类也会团结起来对抗更强大的敌人。“只有我能惹我的兄弟；你敢。” 这是部落的。这是反抗。这是生存。 我最喜欢的一首诗，雪莱的《奥兹曼迪亚斯》提醒我们：我们不只是想战胜困难。我们想要有意义。如果有规则，我们会打破它们。如果有星星，我们会到达它们。如果我们不是宇宙的中心，我们就会成为它。 人类对宇宙的信息：去你的。我们会生存下来。 我们的遗产不是关于生存，而是关于拒绝被遗忘。也许我们不会成为夺取星星的人，但我们会创造那些夺取星星的人。    提交人    /u/OneWhoClicks   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ry6y/what_ai_represents_for_humanitys_nature/</guid>
-      <pubDate>Thu, 28 Nov 2024 09:03:01 GMT</pubDate>
+      <title>有人知道一个好的唱歌文本生成器吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1v38u/does_anyone_know_a_good_text_to_sing_generator/</link>
+      <description><![CDATA[我想要一个通过人工智能文本转语音生成乐器和人声的。有人知道一个好的吗？    提交人    /u/Downtown_Mix_4311   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1v38u/does_anyone_know_a_good_text_to_sing_generator/</guid>
+      <pubDate>Thu, 28 Nov 2024 12:40:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该训练/微调自定义模型还是使用提示工程将 PDF 中的文本拆分成不同的段落？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ukfe/should_i_trainfinetune_a_custom_model_or_use/</link>
+      <description><![CDATA[我正在尝试将来自 PDF 的文本拆分成不同的段落。我尝试的一种方法是使用 openAI 聊天完成和提示工程： ```python extract_paragraphs.py from openai import OpenAI import json def extractParagraphs(client: OpenAI, text: str): text = text.strip() if (text == &quot;&quot;): raise ValueError(&quot;String should noty be an empty string&quot;) prompt = &quot;&quot;&quot; 您是一个将传入文本和消息拆分成段落并从文本中提取任何标题的工具。不要更改传入消息，只需将其输出为带有拆分段落的 json。文本来自 PDF 和 DOCX 文件，因此省略任何页码、页眉和页脚。标题是一个字符串，表示保险计划 Json 输出应如下所示： ``` { &quot;text_title&quot;:string, &quot;insurance_program&quot;:string, &quot;insurance_type&quot;:string, &quot;paragraphs&quot;:[ { &quot;title&quot;:string, &quot;paragraph&quot;:string } ] } ``` * &quot;text_title&quot; 是传入文本的标题 * &quot;insurance_program&quot; 是保险计划 * insurance_type：是哪种保险，例如，如果是汽车保险，则为字符串“car”，如果是健康保险，则为字符串“health” * &quot;paragraphs&quot; 是一个数组，每个段落包含多个段落： * &quot;title&quot; 是段落标题，如果没有，则将其设置为空字符串 * &quot;paragraph&quot;是段落内容 请随意修剪多余的空格和多个换行符，并且不要漂亮地打印 json。将传入文本中的多个制表符和空格替换为单个空格字符。输出应该是原始 json，而不是 markdown 标记。 &quot;&quot;&quot; response_format={ &quot;type&quot;:&quot;json_schema&quot;, &quot;json_schema&quot;:{ &quot;name&quot;: &quot;paragraph_response&quot;, &quot;strict&quot;: True, &quot;schema&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;:{ &quot;text_title&quot;:{ &quot;type&quot;:&quot;string&quot; }, &quot;insurance_program&quot;:{ &quot;type&quot;:&quot;string&quot; }, &quot;paragraphs&quot;:{ &quot;type&quot;: &quot;array&quot;, &quot;items&quot;: { &quot;type&quot;:&quot;object&quot;, &quot;properties&quot;:{ &quot;title&quot;:{ &quot;type&quot;:&quot;string&quot;}, &quot;paragraph&quot;:{&quot;type&quot;:&quot;string&quot;} }, &quot;required&quot;: [&quot;title&quot;, &quot;paragraph&quot;], &quot;additionalProperties&quot;: False } } }, &quot;required&quot;: [&quot;text_title&quot;, &quot;insurance_program&quot;, &quot;paragraphs&quot;], &quot;additionalProperties&quot;: False } } } 响应 = client.chat.completions.create(model=&quot;gpt-4o&quot;, messages=[ {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: prompt}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: text} ],response_format=response_format) content = extractChatCompletionMessage(response) return json.loads(content)  def extractChatCompletionMessage(response): return response.choices[0].message.content ``` 并像这样使用它： ``` from pypdf import PdfReader from openai import OpenAI from extract_paragraphs import extractParagraphs def getTextFromPDF(fileName): text = &quot;&quot; reader = PdfReader(fileName) for page in reader.pages: text += page.extract_text() + &quot;\n&quot; return text path=&quot;mypdf.pdf&quot; openai = OpenAI() content = getTextFromPDF(path) passages = extractParagraphs(content) print(paragraphs) ``` 我知道我也可以检查 PDF 是否真的是文本，然后通过 OCR 提取文本，但这是我以后再解决的问题。因此假设 PDF 是纯文本而不是扫描文档。 我的问题是，与训练我自己的模型或使用不同的模型进行段落提取相比，我的方法有哪些缺点？  我目前的局限性是：  我没有好的 GPU 来执行或训练 AI 模型。 使用具有良好 GPU 的 VM（来自亚马逊）超出了预算和我自己的沟通技巧。 我们已经为各种东西向 OpenAI 付费。  所以我想知道我的方法的局限性，这种方法可能存在哪些缺点或需要注意的地方。我最近才使用人工智能工具，因此作为开发人员，我没有足够的经验。    提交人    /u/pc_magas   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ukfe/should_i_trainfinetune_a_custom_model_or_use/</guid>
+      <pubDate>Thu, 28 Nov 2024 12:08:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>[D] 尽管 Stella 嵌入在 MTEB 排行榜上名列前茅，为什么却没有得到更广泛的应用？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ubdx/d_why_arent_stella_embeddings_more_widely_used/</link>
+      <description><![CDATA[https://huggingface.co/spaces/mteb/leaderboard 我一直在研究嵌入模型，并注意到一些有趣的事情：Stella 嵌入在 MTEB 排行榜上遥遥领先，表现优于 OpenAI 的模型，同时规模更小（1.5B/400M 参数）且使用 apache 2.0。托管它们相对便宜。 作为参考，Stella-400M 在 MTEB 上的得分为 70.11，而 OpenAI 的 text-embedding-3-large 为 64.59。1.5B 版本的得分甚至更高，为 71.19 然而，我很少看到它们在生产用例或讨论中被提及。这里有人在生产中使用过 Stella 嵌入吗？与 OpenAI 的产品相比，您在性能、推理速度和可靠性方面的体验如何？ 只是想了解为什么尽管基准测试令人印象深刻，但它们没有得到更广泛的采用，这是否是我遗漏了什么。 很想听听您的想法和经验！    提交人    /u/sdsd19   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1ubdx/d_why_arent_stella_embeddings_more_widely_used/</guid>
+      <pubDate>Thu, 28 Nov 2024 11:52:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>我想要的可能吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1tpbm/is_what_i_want_possible/</link>
+      <description><![CDATA[我的老板让我创建一个人工智能，它可以根据提供给人工智能的上下文自动编写报告（在 word 模板上）。 背景：对建筑物进行保险检查。拍摄照片，将照片放入模板并贴上标签，编写报告，回答问题，并将要求放入报告中。 我需要让人工智能访问我的文档（以前的报告）以及法律，我希望它使用这些信息以及有关特定站点和照片的信息来为我编写报告。 这可能吗？我该怎么做？我怎样才能尽可能便宜地做到这一点？    提交人    /u/JoshD-2002   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1tpbm/is_what_i_want_possible/</guid>
+      <pubDate>Thu, 28 Nov 2024 11:09:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>在未来几年，生成式人工智能是否能够取代我（从事建筑可视化工作的 CGI 艺术家）？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1smdw/will_generative_ai_be_able_to_replace_me_in_the/</link>
+      <description><![CDATA[我是一名 44 岁的 CGI 通才，过去 16 年来曾涉足多个行业。虽然我一直从事 Archviz（建筑可视化），但我的工作也涉及广告和电影。最近，我决定迈出这一步，全职专注于 Archviz，到目前为止，我觉得这是正确的决定。 这种转变的一个原因是人工智能在 CGI 中的影响力日益增强，尤其是在广告领域。人工智能似乎非常适合在该领域取代传统 CGI 的许多方面。然而，Archviz 给人的感觉不同。该领域的客户通常要求极高的特定性，从精确的建筑模型、基于现实的准确环境，到精确的纹理、材料，甚至精确的门把手、特定植物种类或精确的家具模型等细节。满足这些要求对于人工智能来说仍然非常棘手，甚至是不可能的，至少目前是这样。 您认为生成式人工智能最终会达到这种精度水平吗？我的直觉告诉我，在相当长的一段时间内，AI 仍将面临挑战。 话虽如此，我也看到了 AI 为我的行业带来的机遇。我已经开始使用 AI 工具来增强我工作的某些方面，比如让 CGI 人物或植物看起来更逼真，我发现它非常有用。 别误会我的意思，我更希望生成式 AI 不存在，但不使用它最终会让我与其他艺术家相比处于劣势。 你的看法是什么？你认为未来几年 AI 会取代我吗，还是你认为非常详细的定制需求会让我暂时安全？    提交人    /u/Trixer111   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1smdw/will_generative_ai_be_able_to_replace_me_in_the/</guid>
+      <pubDate>Thu, 28 Nov 2024 09:54:10 GMT</pubDate>
     </item>
     <item>
       <title>ChatGPT 担任法国总统演讲撰稿人</title>
@@ -34,20 +62,6 @@
       <pubDate>Thu, 28 Nov 2024 06:58:07 GMT</pubDate>
     </item>
     <item>
-      <title>我如何将 AI 集成到我的应用程序中。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1o9em/how_can_i_integrate_ai_into_my_app/</link>
-      <description><![CDATA[我正在研究使用 AI 来增强我构建的应用程序。这是一款使用 Laravel 和 MySQL 构建的电子商务应用程序。以下是我正在考虑添加的两个功能示例。 - 自然语言搜索 - 例如，一个人会搜索“显示来自欧洲的 30 岁客户”，系统会搜索我自己的数据并列出匹配的结果。 - 系统会根据客户之前购买的产品向他们推荐产品。 我的第一直觉是 ChatGPT API，但显然这涉及到共享我的数据。我应该研究哪些 API，还是应该使用一些开源项目？哪些资源和教程可以让我赶上？ 我以前从未将 AI 集成到任何东西中。我目前的 AI 经验只是与 ChatGPT 聊天和绘制一些傻乎乎的图画。我了解 Laravel 和一点 Java。   由    /u/theygotintomyheadmum  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1o9em/how_can_i_integrate_ai_into_my_app/</guid>
-      <pubDate>Thu, 28 Nov 2024 04:55:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>阿里巴巴的 QwQ：比 OpenAI-o1 更好吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1njrn/qwq_by_alibaba_better_than_openaio1/</link>
-      <description><![CDATA[阿里巴巴最新的推理模型 QwQ 在许多基准测试中击败了 o1-mini、o1-preview、GPT-4o 和 Claude 3.5 Sonnet。该模型只有 32b，并且完全开源。考虑到大小，这是一个很棒的版本。查看如何使用它：https://youtu.be/yy6cLPZrE9k?si=wKAPXuhKibSsC810    提交人    /u/mehul_gupta1997   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1njrn/qwq_by_alibaba_better_than_openaio1/</guid>
-      <pubDate>Thu, 28 Nov 2024 04:12:30 GMT</pubDate>
-    </item>
-    <item>
       <title>我很害怕</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1m56o/im_terrified/</link>
       <description><![CDATA[我可以预见，人工智能将在未来几年取代我的工作，并在未来 10 到 20 年取代我的职业。但是，如果其他一切都受到人工智能的威胁，我该如何改变职业？在一个希望人们自力更生的政府的资本主义制度下，我该如何生存？我担心人工智能将不再能让人们自力更生。我很害怕    提交者    /u/Normal-Cow-9784   [链接] [评论]]]></description>
@@ -62,13 +76,6 @@
       <pubDate>Thu, 28 Nov 2024 02:49:35 GMT</pubDate>
     </item>
     <item>
-      <title>数据科学家还是机器学习工程师？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1lkbb/data_scientist_or_ml_engineer/</link>
-      <description><![CDATA[伙计们，如果我的目标是在人工智能领域获得专业知识并可能在未来创建一家初创公司，你们认为我应该成为一名 ML 工程师而不是数据科学家吗？ 我目前正在学习 DS，我想知道转型是否值得（我会损失一年的时间）。 我的意思是数据科学家的角色是否适合我的目标，还是只有 mle 才适合？    提交人    /u/Filippo295   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1lkbb/data_scientist_or_ml_engineer/</guid>
-      <pubDate>Thu, 28 Nov 2024 02:22:21 GMT</pubDate>
-    </item>
-    <item>
       <title>在硬件受到严重阻碍的情况下，中国如何能够与美国人工智能公司竞争？</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h1dft9/how_is_china_able_to_compete_with_us_ai_companies/</link>
       <description><![CDATA[台积电、NVDA、ASML 等都对向中国销售产品有限制和/或禁令。即使台积电或 NVDA 等地可以，他们也忙不过来，甚至无法先在美国生产足够的产品。华为似乎有一些 A100 同等级别的硬件，但这是我在中国看到的最好的硬件了。 那么，尽管 OpenAI 和 Anthropic 拥有更多的资源，他们如何能够推出像 Deepseek 这样的模型，其测试结果与 01-preview 和 3.5 Sonnet 一样好甚至更好？ 中国是否可以利用一些相当大的收益，而这些收益并不涉及大量的硬件能力？或者美国公司是否比公众认为的要领先得多？ *许多回复者对这种情况的理解明显弱于只进行快速 Google 搜索的普通人。人们更关心的是认为我低估了中国，而不是用证据证实这一说法，而中国人自己也说过，即使是他们获得的最强大的法学硕士学位，他们在每种情况下都受到硬件限制。这很不幸，因为我们知道美国公司现在正在使用 Reddit 等平台训练人工智能，比如（FFS）Facebook 和 X。发现问题了吗？数据质量差。仔细想想，也许这实际上也是我问题的一点答案。我很好奇 Deepseek 是否被特别禁止使用某些数据进行训练，或者它训练的数据的质量是否是硬件资源较少的情况下取得成功的部分原因。    提交人    /u/agoldprospector   [链接] [评论]]]></description>
@@ -81,13 +88,6 @@
       <description><![CDATA[我看到很多对 LLM 的抱怨和贬低，因为我们现在已经习惯了它们，并且有更高的期望。但有时当我坐下来，看到 ChatGPT 为我不理解的事情提供的完美答案时，因为它理解了问题的背景以及我为什么以某种方式提问，并给了我那个答案。 不久前，我们会在 Google 上提问，希望有人能在他们的网站/博客/论坛上给我们一个很好的答案。即使我们找到了答案，它也不是为我们量身定制的，或者没有办法跟进或要求澄清。我甚至不想提及在多个网站上浏览 BS，不小心点击广告，并试图在长篇大论的废话中找到你要找的东西。 现在我们可以提出主要问题，显示图像/屏幕截图，更详细地说明。它并没有告诉我这个问题很愚蠢，或者它之前已经解释过了，我再问一次是愚蠢的。我很高兴生活在这个时代，经历这一切。感觉就像 2000 年代，我们有了互联网（我知道互联网以前是一种东西，但并不常见）和兴奋。  我们人类倾向于适应并将事物视为理所当然。然后你开始听到，“这只是一个计算下一个单词概率的计算器。我真的不明白破坏这项惊人技术的努力。     提交人    /u/eneskaraboga   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h1aao7/arent_llms_amazing/</guid>
       <pubDate>Wed, 27 Nov 2024 17:51:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>研究人员破解人工智能机器人，使其碾过行人</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1h15e6m/researchers_jailbreak_ai_robots_to_run_over/</link>
-      <description><![CDATA[宾大工程系的研究人员通过他们的 RoboPAIR 攻击框架展示了 AI 驱动的机器人系统中的漏洞。他们的测试在入侵多个商业平台方面取得了 100% 的成功率，包括 Clearpath Robotics 和 Unitree Robotics 的系统。 虽然我们以前见过 LLM 越狱，但这里对物理世界的影响是前所未有的。被入侵的系统不仅遵守有害命令 - 它们还积极建议最大化负面影响的方法。 一线希望？该研究在发表之前负责任地向受影响的供应商披露了他们的发现。正如 CMU 研究员 Alexander Robey 所指出的，了解这些攻击媒介对于开发强大的防御至关重要。主动安全测试对于 AI 系统至关重要，尤其是在物理世界中运行的系统。现在是解决这些漏洞的时候了，在大规模部署之前。 关于机器人公司应该实施哪些额外的保障措施的想法？  视频链接    由    /u/tit4n-monster 提交   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1h15e6m/researchers_jailbreak_ai_robots_to_run_over/</guid>
-      <pubDate>Wed, 27 Nov 2024 14:20:45 GMT</pubDate>
     </item>
     <item>
       <title>以下是人工智能领域的新闻动态。</title>
