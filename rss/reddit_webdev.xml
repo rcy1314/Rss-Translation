@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 01 Dec 2024 06:30:45 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Dec 2024 09:21:27 GMT</lastBuildDate>
+    <item>
+      <title>Redux State 对象问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h3z9wj/redux_state_object_issue/</link>
+      <description><![CDATA[您好，我正在尝试更新 redux userData 对象中的单个键。通常登录后我只会插入整个对象，但现在我只需要更新单个键。这是调度部分  dispatch(setUserData({ club: club }));  这是 Reducer  Reducers: { setUserData: (state, action) =&gt; { state.data = { ...state.data, ...action.payload }; } }  我做错了什么？     提交人    /u/Altugsalt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h3z9wj/redux_state_object_issue/</guid>
+      <pubDate>Sun, 01 Dec 2024 08:58:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>HTML 和 CSS 组件库？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h3yoz3/html_css_component_library/</link>
+      <description><![CDATA[有没有可以推荐的 HTML 和 CSS 专用组件库？ 大多数库都需要大量以附加库形式出现的臃肿内容，我正在寻找的是可以为您提供 HTML 和 CSS 代码的组件库，这些代码： - 您可以（几乎）复制并粘贴到您自己的项目中，而无需更多依赖项 - 仅使用 HTML、CSS 和最少的 JavaScript 构建 我所知道的唯一好的是 CodeStitch，想知道是否还有其他的？    提交人    /u/BekuBlue   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h3yoz3/html_css_component_library/</guid>
+      <pubDate>Sun, 01 Dec 2024 08:16:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>我想要从 Monorepo 发布 Azure 函数</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h3y2eb/i_want_to_publish_an_azure_function_from_a/</link>
+      <description><![CDATA[我是长期 Azure 功能用户，并且我已经正确创建、发布和维护了依赖于 Azure 功能的基础设施。我的过程通常非常相似。 我从 Visual Studio Code Azure 扩展中搭建了一个基本的 Azure 函数（版本 4、typescript、http 触发器），我用自己的代码修改了默认函数，用 npm run build（只是一个 tsc 命令）构建它，用 func start 运行它，通过使用 Postman 访问 API 来测试它，然后就可以将它发布到我的 Azure 帐户上的 Azure 仪表板了。 为了发布这个正常运行的 Azure 函数，我运行了如下命令，该命令实际上创建了函数实例 az functionapp create --resource-group RESOURCE_GROUP_NAME --consumption-plan-location LOCATION_CODE --runtime node --name FUNCTION_AZURE_NAME --storage-account STORAGE_ACCOUNT_NAME --os-type Linux ，然后我在函数存储库的根目录中运行类似 func azure functionapp publish FUNCTION_NAME 的命令，以实际将函数推送到我的 Azure 帐户。 我最近决定将我的所有 Azure 函数放入 1 个 monorepo 中会更方便。跟踪所有单一用途 Azure 函数的 Github 存储库变得越来越困难。我使用 NX 制作了这个 monorepo。 我发现了这个项目 https://github.com/AlexPshul/nxazure ，它允许您将 Azure 函数构建到 NX 存储库中。我运行 npx create-nx-workspace@latest 来创建存储库，并按照提示创建一个空白存储库。 我使用以下命令创建了有问题的 Azure 函数： npx nx g u/nxazure/func:init FUNCTION_DIRECTORY npx nx g u/nxazure/func:new FUNCTION_NAME --project=FUNCTION_DIRECTORY --template=&quot;HTTP trigger&quot;  该函数在本地运行良好，我能够使用 NX 提供的构建和运行命令顺利运行它。我可以使用 Postman 在本地访问 API，就像我使用 Visual Studio Code 扩展搭建函数基架时一样。问题是，当需要将函数发布到我的 Azure 帐户时，NX 提供的发布命令什么也不做。它甚至没有错误，它成功将 0 个函数上传到 Azure。 关于为什么发生这种情况，我最好的理论在于 @ nxazure/func 的构建输出结构，而不是 Visual Studio Code 扩展的构建结构。Visual Studio Code 构建结构输出如下内容： PS \Path\To\This\Functions\Directory&gt; tree .\dist\ /f Folder PATH listing \Path\To\This\Functions\Directory\DIST └────src │ index.js │ index.js.map │ └────functions MYFUNCTIONNAME.js MYFUNCTIONNAME.js.map PS \Path\To\This\Functions\Directory&gt;  但是 @ nxazure/func 构建结构输出类似以下内容： PS \Path\To\This\Functions\Directory&gt; tree .\packages\MYFUNCTIONDIRECTORYNAME\dist\ /f Folder PATH listing \Path\To\This\Functions\Directory\DIST │ tsconfig.base.json │ └───packages └───bTSOrdAddrsCreate │ _registerPaths.js │ _registerPaths.js.map │ └───src └───functions MYFUNCTIONNAME.js MYFUNCTIONNAME.js.map PS \Path\To\This\Functions\Directory&gt;  使用 func 命令，您只需要在 dist 文件夹所在的目录中运行 func azure functionapp publish FUNCTION_NAME，该函数就会自动上传到您的 Azure 仪表板/帐户。也许该命令要求 dist 文件夹在文件夹的第一级中有一个 index.js 文件？我不太清楚 publish 命令实际上在做什么。 简而言之，如何成功执行使用 @nxazure/func 搭建的 NX monorepo 中函数构建的发布命令？如果无法通过函数父目录或 monorepo 根目录中的简单命令执行此操作，是否有一种迂回的方式将函数编译为 zip 并使用某些命令将其上传到我的 Azure 帐户/仪表板？    提交人    /u/warpanomaly   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h3y2eb/i_want_to_publish_an_azure_function_from_a/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:31:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建 TypeScript 的来临！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h3xzkt/created_advent_of_typescript/</link>
+      <description><![CDATA[        提交人    /u/bautistaaa   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h3xzkt/created_advent_of_typescript/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:26:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>建立了一个网站，将您的浏览历史转化为美丽的见解。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h3xxzz/built_a_website_that_converts_your_browsing/</link>
+      <description><![CDATA[        提交人    /u/Eliterocky07   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h3xxzz/built_a_website_that_converts_your_browsing/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:23:15 GMT</pubDate>
+    </item>
     <item>
       <title>你见过的最疯狂的代码是什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1h3wvsw/whats_the_craziest_piece_of_code_youve_seen/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[对某些人来说，这可能不是什么大事，但我感觉很有成就感。我刚刚发布了我的第一个 NPM 包，它适用于 Next JS，允许您从命令行生成页面或 API 路由。它目前支持 TailwindCSS、Typescript 和 Javascript。  欢迎随时查看并尝试：https://www.npmjs.com/package/next-genkit/v/1.1.9 谢谢     提交人    /u/serial9   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h3p4k4/just_released_my_first_npm_package_for_nextjs/</guid>
       <pubDate>Sat, 30 Nov 2024 23:15:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>您在文档中做了哪些工作来改善用户体验？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h3p0ue/what_do_you_do_in_your_documentation_to_improve/</link>
-      <description><![CDATA[C    由   提交  /u/SpOOkWins   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h3p0ue/what_do_you_do_in_your_documentation_to_improve/</guid>
-      <pubDate>Sat, 30 Nov 2024 23:09:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>Bonsai-CLI 演示 + 组件开发</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h3o8uz/bonsaicli_demo_component_development/</link>
-      <description><![CDATA[      https://preview.redd.it/rl2rruk3944e1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=c5a0c4102c4120ad0175716bdfbb40dd395bcbc8 Bonsai-CLI 将简化机构或个人开发者的 Web 开发。我认为它确实能将我的网站或网络应用程序的开发速度提高 10-100 倍。 演示 + 直播：https://www.youtube.com/watch?v=hM1V1IjR96E&amp;ab_channel=JackalopeLabs Bonsai-CLI 允许您使用预先构建和设计的 Tailwind/Alpine 组件在几秒钟内生成一个漂亮的网络应用程序。所有副本、图像、布局、组件、模板、样式都可以由 AI 在几秒钟内配置。 它目前专为 Roots WP 堆栈构建，将来可以支持更多堆栈。 一旦您拥有一个 Roots.io 网站，您就可以运行两个命令来创建一个新的登录页面 -  wp acorn bonsai:init wp acorn bonsai:generate bonsai 目前，登录页面相当基础。我将向其中添加所有自定义组件。一旦 Bonsai-CLI 完成，它将能够在几秒钟内构建完整的 Web 应用程序。这就是目标。 Bonsai-CLI：https://github.com/jackalopelabs/bonsai-cli    由    /u/eyeiskind 提交   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h3o8uz/bonsaicli_demo_component_development/</guid>
-      <pubDate>Sat, 30 Nov 2024 22:33:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要网站主机/域名专业知识的帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h3mvo8/in_need_of_help_of_expertise_of_hostdomain_for/</link>
-      <description><![CDATA[您好，我有一个潜在客户，他需要一个网站，但他们不想在网站托管和域名上花费太多。他们从事景观设计业务，所以我知道这不仅仅是主页。 我希望这里有人知道一个好的主机/域名组合，用于一个简单的网站。他们不卖任何东西，只是告诉他们做什么并联系他们。谢谢    提交人    /u/Itachi03   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h3mvo8/in_need_of_help_of_expertise_of_hostdomain_for/</guid>
-      <pubDate>Sat, 30 Nov 2024 21:29:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>廉价的网络空间（数据存储）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h3mmnf/cheap_webspace_data_storage/</link>
-      <description><![CDATA[大家好，我正在寻找便宜的网络空间，仅用于存储旧备份文件中的数据。 哪个是最便宜和最好的托管商？ 需要大约 250-500gb :_) br    提交人    /u/cozysleet   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h3mmnf/cheap_webspace_data_storage/</guid>
-      <pubDate>Sat, 30 Nov 2024 21:17:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>单击此处取消</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h3kpx2/click_here_to_cancel/</link>
-      <description><![CDATA[  由    /u/breck  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h3kpx2/click_here_to_cancel/</guid>
-      <pubDate>Sat, 30 Nov 2024 19:50:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
