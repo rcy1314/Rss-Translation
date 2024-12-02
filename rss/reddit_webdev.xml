@@ -4,7 +4,98 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 02 Dec 2024 09:25:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2024 12:45:25 GMT</lastBuildDate>
+    <item>
+      <title>Web 开发或 Web 应用</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4tonk/web_dev_or_web_apps/</link>
+      <description><![CDATA[几个月前，我创建了几个网站，但一直找不到客户。现在，我开始学习 Flutter 并专注于应用开发。我应该继续进行应用开发，还是将重点转回 Web 开发？ 附注：我住在亚洲，这里的大多数机会似乎都来自美国或欧洲（远程或通过代理）。当地市场对 Web 开发的需求不大，Flutter 开发人员的机会也很少。    提交人    /u/One-Hedgehog-5073   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4tonk/web_dev_or_web_apps/</guid>
+      <pubDate>Mon, 02 Dec 2024 12:18:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>3 个项目失败了。4 个月的努力。赚到了有史以来第一笔 1000 美元的互联网魔法钱 🥳🥳🥳</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4tjpu/3_failed_projects_4_months_of_hard_work_made/</link>
+      <description><![CDATA[        由    /u/Ornery-Length8689   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4tjpu/3_failed_projects_4_months_of_hard_work_made/</guid>
+      <pubDate>Mon, 02 Dec 2024 12:10:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于可删除的方法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4th1p/use_for_a_can_be_deleted_method/</link>
+      <description><![CDATA[创建一个返回布尔值的方法以了解 CRUD 中的元素是否可以删除是否有意义？ 我们在工作中使用它们，但我真的不明白其中的意义。如果无法删除，则删除方法将失败。为什么不直接调用它，而是先询问是否可以删除？这有什么意义？    提交人    /u/Aydnir   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4th1p/use_for_a_can_be_deleted_method/</guid>
+      <pubDate>Mon, 02 Dec 2024 12:06:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用摘要（批处理）策略管理大量通知</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4t9jv/managing_highvolume_notifications_with_digest/</link>
+      <description><![CDATA[      我正在使用 Novu 实现一个通知系统，该系统需要处理大量消息，而不会给用户带来太大压力。  我想分享我目前的方法并获得有关潜在改进的反馈。 上下文：  构建具有频繁更新（评论、文件更改、标签）的协作应用程序 使用 Novu 作为通知基础设施 需要防止通知疲劳，同时确保重要更新能够传达给用户 当前在 Node.js 中使用 PostgreSQL 后端实现  当前实现：我在 Novu 中开发了两种摘要策略：  时间窗口摘要/批处理：   ​  // 使用 Novu 在 3 天摘要窗口中收集事件 const digestResult = await novu.digest(&quot;digest-3-days&quot;, { backoffUnit: &#39;days&#39;, backoffAmount: 3, digestKey: &#39;userId&#39;, events: Notifications }); // 通过 Novu 发送摘要 await novu.trigger(&#39;digest-notification&#39;, { to: {subscriberId: userId, }, payload: {events: digestResult.events, totalCount: digestResult.events.length} });   回顾模式： const shouldDigest = async (userId, eventType) =&gt; { const recentNotification = await novu.getNotificationHistory({subscriberId: userId, type: eventType}); return Date.now() - recentNotification.timestamp &lt; ONE_DAY; };  这是我所指的可视化表示 - 但批处理时间窗口要小得多： 摘要 / 事件聚合 有趣的发现 - OneSignal的时间窗口方法：在研究这个问题时，我发现 OneSignal 对时间窗口的实现很有趣。  他们使用不同的方法，您可以：  定义特定的允许时间段（例如，太平洋标准时间星期二下午 1:00 - 下午 6:00） 设置智能传送延迟，在允许的窗口内随机分发通知 通过将窗口外通知安排在下一个可用窗口来处理窗口外通知  例如，如果您将通知设置为在太平洋标准时间星期二下午 1 点至 6 点之外触发，则他们的系统会自动将其安排在下周二窗口内的随机时间。这有助于防止通知在窗口边界聚集。 我正在努力解决的技术挑战：  多个事件同时发生时的竞争条件 处理摘要组内的失败通知传递 数据库架构优化以实现高效的事件聚合 协调跨时区的时间窗口 在 Novu 中实现与 OneSignal 类似的时间窗口功能  讨论问题：  哪些索引策略最适合在 Novu 中快速编译摘要？ 您如何处理摘要传递失败和重试？ 是否有人在 Novu 中实现了类似于 OneSignal 方法的自定义时间窗口逻辑？ 您如何测试跨时区的摘要时间？  如果您已经使用 Novu 或其他通知服务，我很感激能够有效处理这些技术方面的问题。    提交人    /u/Sudden_​​Profit_2840   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4t9jv/managing_highvolume_notifications_with_digest/</guid>
+      <pubDate>Mon, 02 Dec 2024 11:53:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>github 上的 eleventy 带有 decap cms，无需 netlify</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4shd3/eleventy_with_decap_cms_on_github_without_netlify/</link>
+      <description><![CDATA[嗨，我最近在 github 上创建了一个 11 个页面，目的是通过 decap cms 编辑站点，而不使用 netlify。使用 github 操作，站点应该会自动构建。我让站点运行起来，每次提交后，站点都会使用 github 操作重新构建，但 decap 部分不起作用。如果我前往管理站点，我的浏览器中会出现两个错误。 这是我的 decap 配置： backend：名称：github repo：myusername/myrepo # 您的 GitHub 存储库格式为“owner/repo”branch：master # 如果不需要 local_backend，请删除它 # local_backend：true media_folder：“src/assets/images/blog”public_folder：“/assets/images/blog”collections：- name：“blog”标签：“博客” 文件夹：“src/content/blog” 创建：true slug：“{{slug}}” 字段：- { 标签：“标题”，名称：“title”，小部件：“string” } - { 标签：“URL Slug”，名称：“url”，小部件：“string”，提示：“指定页面写入位置。如果您使用“博客文章”，则可以从“blog/blog-post”访问该帖子&#39;，} - { 标签：“说明”，名称：“description”，小部件：“string” } - { 标签：“作者”，名称：“author”，小部件：“string” } - { 标签：“日期”，名称：“日期”，小部件：“datetime” } - { 标签：“标签”，名称：“标签”，小部件：“列表”，默认值：[“post”] } - { 标签：“特色图片”，名称：“图像”，小部件：“图像” } - { 标签：“图片标题”，名称：“imageAlt”，小部件：“字符串” } - { 标签：“正文”，名称：“body”，小部件：“markdown” }  这是我的索引 html 文件： &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;title&gt;内容管理器&lt;/title&gt; &lt;!-- 包含构建页面和支持 Decap CMS 的脚本 --&gt; &lt;script src=&quot;/website/admin/decap-cms.js&quot;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;script&gt; // 等待 DOM 准备就绪，然后再初始化 Decap CMS document.addEventListener(&#39;DOMContentLoaded&#39;, function () { // DOM 完全加载后初始化 Decap CMS DecapCMS.init({ config: &#39;/website/admin/config.yml&#39; // 配置文件的路径 }); }); &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;  关于本地 decap-cms.js 文件。如果我使用 cdn 包，也会收到错误： Uncaught TypeError: document.body is null default decap-cms.js:393 default decap-cms.js:393 &lt;anonymous&gt; decap-cms.js:491 &lt;anonymous&gt;decap-cms.js:491 &lt;anonymous&gt; decap-cms.js:491 &lt;anonymous&gt; /decap-cms.js:2 &lt;anonymous&gt; /decap-cms.js:2 decap-cms.js:393:86330 未捕获的 ReferenceError：DecapCMS 未定义 &lt;anonymous&gt;/admin/#/:17     提交人    /u/LiveVegetable   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4shd3/eleventy_with_decap_cms_on_github_without_netlify/</guid>
+      <pubDate>Mon, 02 Dec 2024 11:01:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找更好的方法来使用重定向域，以使我的 Github.io 网站更易于访问且速度更快。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4scpb/looking_for_better_ways_to_use_redirect_domains/</link>
+      <description><![CDATA[嗨，我无法通过我尝试设置的一些重定向域正确加载我的网站。有时需要大约一分钟才能加载，有时会出现错误页面。我使用的是 Namecheap 域名，重定向小部件如下所示： 出于某种原因，我无法使用 \&quot;https://www.bongable.cc\&quot; 最后一个原因是一个反复出现的问题，不同的浏览器会在 URL 中添加 &quot;https://&quot;自动。 有没有一种简单的方法可以将像“bongable.cc”这样的简单 URL 链接到 Github.io 地址，以便它加载更快、错误更少？ 此外，我正在不同的浏览器上以各自的“私人”模式测试网站，以避免从缓存中加载。这种测试方法有缺陷吗？我可能有点绊倒，但我预见到如果网站加载速度不够快，一些客户会退出 :/ 我必须购买实际的虚拟主机才能正确加载吗？我现在真正想要的是一个带有 discord 链接和指向 Github.io 上的一些文档的链接的简单网站。 谢谢！    提交人    /u/BTL_Simulations   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4scpb/looking_for_better_ways_to_use_redirect_domains/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:53:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>从谷歌地图上抓取指定城市的所有餐馆</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4s9q9/scrape_every_restaurants_from_google_map_for/</link>
+      <description><![CDATA[我正在做一个小项目，需要一些建议。我想从 Google 地图上抓取特定城市中每家餐厅的数据，以对食品价格进行价格分析。我研究过 Google Places API，但它似乎无法处理这种批量抓取（每个查询限制为 20 个结果，并按知名度排名，因此可能会缺少一些餐厅）。 这里有人成功做过这样的事情吗？有没有什么工具、脚本或解决方法可以推荐？或者由于限制，无法使用 Google 地图？    提交人    /u/hello_motherfuckers_   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4s9q9/scrape_every_restaurants_from_google_map_for/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:47:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>网络开发中的自动化何时会停止？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4s9oa/when_does_automation_stop_in_web_development/</link>
+      <description><![CDATA[最近，我一直在使用一些自动化工作和流程的工具，这让我开始思考我们的发展方向。 从表面上看，这很神奇——科技越来越智能，让我们变得更快。 但是，“精简一切”和创建让我们更加依赖它们的系统之间存在着一种奇怪的紧张关系。 例如，我偶然发现了这个网站，它承诺让创建网络应用程序变得非常快。它确实很高效，但我们什么时候才能实现创造力本身的自动化？我们是在淘汰人类，还是只是在突破效率的极限？ 我很想听听你的想法：  自动化和人性化之间的界限应该在哪里？ 依赖这些工具是否会让我们失去宝贵的技能，还是我们只是像往常一样适应新工具？ 我们是否为了速度和便利而牺牲了质量或个性？  很想听听其他人怎么看待这个问题，特别是如果你使用过类似的工具，或者你所在的行业正迅速被自动化所颠覆。    提交人    /u/ExtensionAd3139   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4s9oa/when_does_automation_stop_in_web_development/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:47:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google 拒绝向我提供有关我的“通过 Google 预订”申请的估价</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4s8nn/google_refuses_to_provide_me_with_an_estimate/</link>
+      <description><![CDATA[我拥有一个预订平台，我的客户不断要求集成“通过 Google 预订”。我 3 周前填写了表格，但 Google 尚未审核。  联系支持人员后，我收到了相互矛盾的答案，最初说我的申请缺失，然后他们找到了它但它不完整，然后我被重定向到另一个部门，最后是这样的：  我们不保证合作伙伴会收到回复。  该流程似乎不透明，感觉不像是 Google 服务。应该如何处理这个问题？理想情况下，我希望他们告诉我问题是什么，以便我们解决它们。    提交人    /u/Ornery_Mind6834   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4s8nn/google_refuses_to_provide_me_with_an_estimate/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:45:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>Web 开发人员集成 Google 商业评论 - 需要凭证</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4s8j8/web_dev_integrating_google_business_reviews/</link>
+      <description><![CDATA[大家好，我目前正在开发我的网站。一位朋友向我推荐了一位自由职业者。 该网站用于我的金融业务，非常简单。我还将 Google 评论集成到我的 Google 业务页面。 但是，网站开发人员今天通知我，他需要我的 Google 登录凭据（电子邮件地址和密码）来设置集成。 我有点犹豫是否要与开发人员分享这些详细信息。还有其他方法吗？在这种情况下，常见的做法是什么？    提交人    /u/afterbuddha   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4s8j8/web_dev_integrating_google_business_reviews/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:45:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>最佳 Oauth 流程？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4rqe4/optimal_oauth_flow/</link>
+      <description><![CDATA[我的 Web 应用程序有 React 前端和 Java 后端。最终将在后端使用 keycloak。 oauth 流程如下：1. 在前端，用户单击“身份验证”，这将调用后端的身份验证端点。  在后端，会生成一个随机状态参数，等等。然后形成身份验证网址（带有查询参数：状态、客户端 ID 等，并发送给身份验证提供程序以获取身份验证代码。重定向网址设置为后端端点。后端将此网址发送/重定向到前端。 在前端，资源所有者将在身份验证提供程序的身份验证页面上允许或拒绝请求的范围。 假设资源所有者接受，身份验证代码将作为查询参数与后端重定向网址一起发送。 后端端点验证状态参数、身份验证代码并获取身份验证令牌。将身份验证令牌存储在数据库中。  此时，前端会做什么来检查步骤 5 是否已成功执行，因为在步骤 4 中，重定向网址调用后端端点而不是前端端点。 我不知道第 5 步之后的流程应该如何进行。如能得到任何帮助，谢谢。    提交人    /u/FlatPropulsion   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4rqe4/optimal_oauth_flow/</guid>
+      <pubDate>Mon, 02 Dec 2024 10:07:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何保护自己免受客户不付款的风险？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4r7if/how_do_you_protect_yourselves_against_the_risk_of/</link>
+      <description><![CDATA[标题基本上，我一直以 anm 员工的身份工作，所以我从未直接面临这种风险，但最近有人联系我，希望我以自由开发人员的身份加入一个相对较小的正在进行的项目。 他们的开发人员将完全在后端工作，而我将大大提升他们的前端框架。 由于我们将使用 git 进行操作，并且每周都需要提交/拉取更改，如果在合作结束时我没有得到报酬，我可以采取什么保护措施？    提交人    /u/SignorSghi   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4r7if/how_do_you_protect_yourselves_against_the_risk_of/</guid>
+      <pubDate>Mon, 02 Dec 2024 09:27:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>这是啥？（glassdoor，window.WTF_IS_THIS，适用于所有页面）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h4r6w5/wtf_is_this_glassdoor_windowwtf_is_this_works_on/</link>
+      <description><![CDATA[        提交人    /u/L8Figure   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h4r6w5/wtf_is_this_glassdoor_windowwtf_is_this_works_on/</guid>
+      <pubDate>Mon, 02 Dec 2024 09:26:20 GMT</pubDate>
+    </item>
     <item>
       <title>Tiny-Helpers 宕机了？https://tiny-helpers.dev/</title>
       <link>https://www.reddit.com/r/webdev/comments/1h4r2vr/tinyhelpers_is_down_httpstinyhelpersdev/</link>
@@ -18,97 +109,6 @@
       <description><![CDATA[      我有一个为学校制作的新城市（当然，我不会去学校学习网络开发，而且在这方面经验很少），而且似乎网站在我的 Brave 浏览器单个实例上运行良好。问题似乎出在任何其他浏览器上，甚至我笔记本电脑上的 Brave 单独实例也无法显示相同的内容。  我试图在屏幕顶部放置一个音乐播放器，它不使用标准的 webkit 或 moz 外观——这就是我使用 CSS 对其进行样式化的原因。它在我的实例上看起来很棒，而且正是我想要的，但似乎每个其他实例都被替换为“用户代理样式表”，因为 ::webkit 伪元素无法正常运行。如果有人愿意帮忙，我将提供所有相关的代码和截图。 这是我尝试过的： - 使用 CSS 重置 - 使用 CSS 规范化 - 使用 !important 标签确保它优先 - 使用 body、html 和 #musicplayer 等特异性 - 通过开发人员工具覆盖默认样式 - 使用开发工具检查覆盖的行（在不同浏览器中显示的结果非常不同） 拜托，我遇到了瓶颈，我真的不知道该怎么办。 这是它正常工作时的样子，我知道它不是最漂亮的东西，但我喜欢它。 这是它在所有其他情况下的样子。所有需要 webkit 的东西现在都无法工作（控件、范围滑块、范围拇指）。    提交人    /u/LuxuLuxu   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h4qroj/cannot_seem_to_grasp_css_pesudoelements_and_how/</guid>
       <pubDate>Mon, 02 Dec 2024 08:54:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 jwt 进行身份验证</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4q54f/authentication_with_jwt/</link>
-      <description><![CDATA[我正在学习在嵌套后端和下一个前端使用 jwt 进行身份验证。 我有点困惑，正在寻求指导： 示例是用户登录 1）。 用户输入凭据并向后端提交 post 请求 2）。 后端与 DB 通信以验证凭据并生成/签署包含 user_id 的 jwt 令牌 3）。 后端通过响应将令牌发送到前端 4）。 前端将令牌存储在 cookie 中，以便与后端进行身份验证，以供将来的请求/私有路由访问 5）。前端在什么时候以及为什么解码 jwt 获取用户 ID？？？ 我还读到过不应该通过 jwt 传递用户名和信息，因为这是一个安全风险，但我也读到过通过响应对象传递它也是如此......那么如何安全地将用户数据从数据库移动到前端而不会不必要地暴露它？？？ 任何帮助表示感谢     提交人    /u/allmightylemon_   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4q54f/authentication_with_jwt/</guid>
-      <pubDate>Mon, 02 Dec 2024 08:06:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>逆向工程网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4opzu/reverse_engineer_sites/</link>
-      <description><![CDATA[所以我只是有点好奇这是否可以实现，如果可以，您建议我从哪里开始？ 我只是好奇，如果对已设置阻止（即付费墙、需要帐户、需要友谊）的网站进行逆向工程（或其他方法），是否仍然可以查看/下载该网站上的媒体，而无需付费/创建帐户/与其他成员成为朋友？ 我没有任何 Web 开发经验，但我知道你们可以在按下 F12 或检查时做一些偷偷摸摸的嗅探，或者任何你喜欢的魔法来实现这一点。我以前使用 jdownloader2 来做到这一点，但它突然停止工作，我不知道还有其他方法可以做到这一点，但如果可能的话，我可以阅读什么样的主题或我可以观看的教程来帮助我学习这些东西？    提交人    /u/cmdywrtr27   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4opzu/reverse_engineer_sites/</guid>
-      <pubDate>Mon, 02 Dec 2024 06:26:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>在目前开发者市场不景气的情况下，您开始寻找哪些替代工作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4ogn9/what_job_alternatives_have_you_started_looking_at/</link>
-      <description><![CDATA[我已经失业近一年了，有 3 年的 React 开发经验，还构建了 3 个全栈 PERN Web 应用程序来展示我的投资组合，但这还不够。被拒绝了很多次，我与招聘人员交谈的精力现在让他们望而却步，因为我知道这将是另一个。我想知道我可以在技术领域搜索哪些其他关键词，我现在可能能够维持生计    提交人    /u/Intelligent_Will_948   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4ogn9/what_job_alternatives_have_you_started_looking_at/</guid>
-      <pubDate>Mon, 02 Dec 2024 06:09:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站重定向问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4n8an/website_redirect_question/</link>
-      <description><![CDATA[我发现了一个有趣的网址，它会重定向到一家大公司的网页。  这家大公司会知道并删除重定向的地址吗？  不确定这是否是最好的 Reddit，也不是那么精通技术，任何信息都将不胜感激，谢谢    提交人    /u/SnooHedgehogs2050   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4n8an/website_redirect_question/</guid>
-      <pubDate>Mon, 02 Dec 2024 04:54:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要一个简单的本地数据库的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4kxol/need_recommendations_for_a_simple_local_database/</link>
-      <description><![CDATA[我正在为一家小公司编写一个简单的 vuejs 应用程序，以跟踪他们的员工、合同等。他们只需要一个简单的本地数据库解决方案。该程序基本上只是几个表的 CRUD 前端。如果有任何工具可以帮助我更快地实现这一点，如果您告诉我，我将不胜感激。如果有更简单的解决方案，也可以从 Vuejs 更改，而不会做出太多妥协。    提交人    /u/Skooma_Dealer_CR   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4kxol/need_recommendations_for_a_simple_local_database/</guid>
-      <pubDate>Mon, 02 Dec 2024 02:50:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>正在寻找链接缩短器 Web 应用程序的开发合作伙伴。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4kez1/looking_for_a_dev_partner_for_a_link_shortener/</link>
-      <description><![CDATA[我最近开始开发一个链接缩短器 Web 应用程序/微型 saas 业务，我需要一些后端方面的帮助。 有人想与我合作创建这个应用程序吗？ https://wvapcktfpgnerc2jrychukydxszuiewa.vercel.app/    提交人    /u/Substantial-Soil25   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4kez1/looking_for_a_dev_partner_for_a_link_shortener/</guid>
-      <pubDate>Mon, 02 Dec 2024 02:23:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>您是否将 MongoDB 用于高容量生产网站/应用程序？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4ixmc/do_you_use_mongodb_for_high_vol_production/</link>
-      <description><![CDATA[MongoDB 在几十年前曾经很流行，但是当炒作消退并且关系型数据库开始支持 JSON 字段时，关系型数据库又重新流行起来。 您是否仍有意在高容量生产网站/应用程序中选择 MongoDB？ 查看投票    提交人    /u/longiner   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4ixmc/do_you_use_mongodb_for_high_vol_production/</guid>
-      <pubDate>Mon, 02 Dec 2024 01:08:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于那些使用过许多后端框架的人来说，您最喜欢哪个以及为什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4gt99/for_those_that_have_worked_with_lots_of_backend/</link>
-      <description><![CDATA[我使用过 Django、Express 和少量 Dotnet。试图决定在未来机会和开发速度方面将精力集中在哪里。 此外，有没有你讨厌并且不想使用的后端？    提交人    /u/thebreadmanrises   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4gt99/for_those_that_have_worked_with_lots_of_backend/</guid>
-      <pubDate>Sun, 01 Dec 2024 23:28:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要基本网站的帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4gevt/need_help_for_a_basic_website/</link>
-      <description><![CDATA[我是一名设计专业的学生，​​这学期我们有一门关于网络开发的课程，我什么都不懂，但我必须提交一个 5 页的基本 html css js 网站。有什么最好和最快的方法可以解决这种情况吗？或者如果有人有简单的网站，您可以发送源代码吗？它会很有帮助 谢谢    提交人    /u/Lord__Sam   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4gevt/need_help_for_a_basic_website/</guid>
-      <pubDate>Sun, 01 Dec 2024 23:10:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>终于发布了我的 NPM 包，以便快速搭建你的 Next JS、Prisma、Postgres、NextAuth 和 TailwindCSS 项目</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4gaah/finally_released_my_npm_package_to_quickly/</link>
-      <description><![CDATA[Next-ScaffoldKit ScaffoldKit 是一个功能强大的 CLI 工具，可通过身份验证、数据库集成和预先配置的基本功能立即构建可用于生产的 Next.js 应用程序。 功能  🔐 使用 NextAuth.js 内置身份验证 📊 Prisma ORM 集成 🎨 TailwindCSS 样式 📱 响应式身份验证页面 🔒 使用 bcrypt 进行密码哈希处理 🚦 TypeScript 支持 📁 App Router 架构 ⚡ 即用型 API 路由  您可以在这里找到它：https://www.npmjs.com/package/next-scaffoldkit 欢迎所有反馈。     由   提交  /u/serial9   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4gaah/finally_released_my_npm_package_to_quickly/</guid>
-      <pubDate>Sun, 01 Dec 2024 23:04:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于在雇佣 Webdev 时应该注意什么以及如何注意的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4fz0p/suggestions_on_what_to_look_for_and_how_to_look/</link>
-      <description><![CDATA[这会引起骚动，但是请听我说完。 就背景而言，我几周前在一个商业部门找到了一份工作（我有 SE 背景，但商业职位薪水更高）并继承了一个相当糟糕的项目。我们有一位初级开发人员，他除了 react.js 之外什么都没接触过，他试图将桌面遗留软件从 .net framework4 移植到带有 React/Nest Frontend 的现代 Microsoft Stack 中。 初级开发人员上周被解雇了，我们在他最后几周完成了一些工作，但项目本应在 2 个月前完成，管理层对没有任何成果感到不满意，我们有一些基本的 crud 表单和一个 rest API，会让任何熟悉 OpenAPI 规范的人哭泣，但在商业意义上没有任何“可用”的东西。 这让我想到了这里：我必须聘请另一位开发人员，除了在 linkedin 上发布技术堆栈外，我现在真的不确定事情是如何运作的，因为我处于这个过程的另一端，选择开发人员的“好”方法是什么？    提交人   ​​ /u/Scented-Sound   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4fz0p/suggestions_on_what_to_look_for_and_how_to_look/</guid>
-      <pubDate>Sun, 01 Dec 2024 22:50:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>与我的 Auth 系统集成的管理员“以身份登录”功能</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4ejy0/sign_in_as_feature_for_admins_integrated_with_my/</link>
-      <description><![CDATA[如何创建与我的身份验证系统集成的“以...身份登录”功能？目前有一个 Nextjs 和 Express 应用程序，并使用 auth.js 进行身份验证。有没有支持此功能或使其更容易的身份验证提供商？我希望我的管理员（同事）能够以我们的非管理员身份登录，而不必登录其他人的帐户。谢谢。    提交人    /u/Sudden-Finish4578   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4ejy0/sign_in_as_feature_for_admins_integrated_with_my/</guid>
-      <pubDate>Sun, 01 Dec 2024 21:49:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在本地开发微服务？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h4dqap/how_do_you_develop_microservices_locally/</link>
-      <description><![CDATA[当有多个应用程序相互通信并且您需要同时查看多个应用程序中的日志时，如何在本地开发微服务。 我正在使用 Docker Compose + Dozzle 来运行一批服务并查看日志，但是使用这种方法，当启用实时重新加载时，文件系统的速度会大大降低。 最近我发现有 Procfile 和 overmind，它们允许使用一个命令方便地同时运行多个服务而无需虚拟化。但日志显示在单个控制台中，不方便查看正在发生的事情（我的应用程序具有庞大的业务逻辑和大量的来回通信，因此有很多日志）。    提交人    /u/vladkens   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h4dqap/how_do_you_develop_microservices_locally/</guid>
-      <pubDate>Sun, 01 Dec 2024 21:14:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
