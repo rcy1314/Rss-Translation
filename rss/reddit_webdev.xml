@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 03 Dec 2024 06:32:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2024 09:24:34 GMT</lastBuildDate>
+    <item>
+      <title>人工智能是否会夺走其他人编程的乐趣？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5izr8/does_ai_take_the_joy_out_of_programming_for/</link>
+      <description><![CDATA[我一直很享受构建某些东西的过程，并努力打造一个既可维护又易于理解的代码库。为某人解决最初的问题是一种回报，但随着应用程序的成熟，我发现代码本身的工艺更有价值。 不过，最近我在工作中越来越没有动力。我的整个团队都严重依赖人工智能（看着你，Cursor！）来从头到尾开发功能。当我审查他们的工作时，我无法摆脱这种感觉，即我正在审查人工智能生成的代码，而不是我同事的作品。这让我怀疑我是否会继续享受编程的发展。现在感觉我正在与初级开发人员（AI）结对编程，以开发下一个功能。 您是否觉得人工智能正在将编程重塑为根本不同的东西？这种“改变”是好的还是坏的？    提交人    /u/iamchets   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5izr8/does_ai_take_the_joy_out_of_programming_for/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:37:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>有关如何重新创建会员网站的建议。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5izc1/advice_on_how_to_recreate_a_membership_site/</link>
+      <description><![CDATA[我希望创建一个类似于 https://nomads.com/ 的旅行会员网站，但要简单得多。可能先从一些城市指南开始。 我有使用原生 javascript、jquery、html 和 css 进行 Web 开发的经验。我应该尝试从头开始构建网站还是建议使用 WordPress？（没有使用 wordpress 的经验）。    提交人    /u/SentientBeans   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5izc1/advice_on_how_to_recreate_a_membership_site/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:36:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>尝试将文件和数据发送到 Django 后端，但出现了不该出现的错误</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5iygv/trying_to_send_file_and_data_to_a_django_backend/</link>
+      <description><![CDATA[我们有一个 Django 后端和一个 VueJS + Ionic 前端。我需要将一个文档和一个 UUID（将所述文档链接到一个实体）发送到后端，因此我为此使用了 MultiPartParser，并在前端使用了 formData。 这是我的代码在前端的样子：  const sendFileAsSearchedJob = async ( file: PickedFile, fileType: string, searchedJob: string, callback?: () =&gt; Promise&lt;void&gt;, ) =&gt; { const { openSuccessToast, openErrorToast } = useToast(); const formData = new FormData(); const fileBlob = createBlob(file.data, fileType); formData.append(&#39;file&#39;, fileBlob as Blob, file.name); formData.append(&#39;searchedJob&#39;, searchedJob); try { const response = await window.axios.post( &#39;/api/searched-job-document/&#39;, formData, { headers: { &#39;Content-Type&#39;: &#39;multipart/form-data&#39;, }, }, ); return response.data; } catch (error) { console.error(&#39;上传文件错误：&#39;, error); 抛出错误; } };  所以这一切都非常标准，我获取一个文件，从中创建 Blob，然后将其发送到 api 现在是后端明智： class SearchedJobDocumentSerializer(serializers.ModelSerializer): searched_job = serializers.PrimaryKeyRelatedField(queryset=SearchedJob.objects.all()) class Meta: model = SearchedJobDocument fields = ( &#39;searched_job&#39;, &#39;name&#39;, &#39;file&#39;, ) class SearchedJobDocumentViewSet( mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet, ): queryset = SearchedJobDocument.objects.all() permission_classes = [IsOwnedByCandidate] serializer_class = SearchedJobDocumentSerializer parser_classes = (MultiPartParser,) def get_serializer_class(self): if self.request.user: return SearchedJobDocumentSerializer def get_queryset(self): user = self.request.user return SearchedJobDocument.objects.filter(searched_job__candidate__pk=user.pk) def perform_create(self, serializer): searched_job_uuid = self.request.data.get(&#39;searched_job&#39;) searched_job = get_object_or_404(SearchedJob, uuid=searched_job_uuid, candidates=self.request.user.candidate) serializer.save(searched_job=searched_job)  同样，没有什么是重新发明轮子。我在这里和那里更改了代码很多次，因为我要么得到了 500，要么得到了 400 而没有错误消息，我尝试在 perform_create 中打印请求但从来没有起作用。无论如何，现在我终于在 Xcode 中得到了一个更好的错误： {&quot;data&quot;:{&quot;file&quot;:[&quot;No file submitted.&quot;],&quot;searchedJob&quot;:[&quot;This field is required&quot;],&quot;statusCode&quot;:400},&quot;headers&quot;:{&quot;vary&quot;:&quot;Cookie, origin&quot;,&quot;date&quot;:&quot;Mon, 02 Dec 2024 20:51:10 GMT&quot;,&quot;content-type&quot;:&quot;application\/json&quot;,&quot;x-frame-options&quot;:&quot;SAMEORIGIN&quot;,&quot;x-c  我真的很困惑，因为我很确定我的前端应该创建一个正确的 formData。但是当我尝试 console.log() formData 或 Object.entries(formData) 时，由于某种原因，它显示为一个空对象。我已经在这上面呆了 24 小时了。  有人能帮我理解我做错了什么吗？ 谢谢    提交人    /u/Sea_Reflection9737   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5iygv/trying_to_send_file_and_data_to_a_django_backend/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:34:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>Monorepo 架构和范围</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5ivj1/monorepo_architecture_and_scopes/</link>
+      <description><![CDATA[Monorepo 架构 大家好！我正在将 NX 与 Angular 结合使用，以实现 monorepo（但我认为这个问题并非 Angular 或 NX 所特有）（4 个项目，多个库）。随着 repo 的增长，当前的库结构感觉难以为继，模块之间的职责也变得不明确。以下是当前设置： 当前库结构  libs/features  每个“屏幕” （微前端）有自己的库。 问题：跨屏幕共享逻辑会导致职责重叠。  libs/services  与后端微服务一致的库，分为子类别： UI：针对“实体”的前端特定逻辑/组件，例如 order-card。 功能：核心功能（但有时会跨服务导入，这感觉不对）。可能是订单的智能搜索屏幕、订单对话框等。 数据访问：特定于后端的数据处理逻辑。如 order-rest/websockets  问题：“功能”子库跨越边界并且与服务隔离不一致。而且它似乎没有意义，因为它通常更多地由所需的前端功能定义。  libs/shared  共享功能，包括： 配置 通知处理 与实体无关的共享 UI 组件    问题  UI 库  是否应将所有 UI 组件合并到 libs/shared/ui 下并分为子库/类别（例如，shared/ui/&lt;category&gt;）？  后端与前端域  后端相关库是否应仅包括数据访问 并避免混合 UI 或功能逻辑？ 是否应将前端代码重组为“前端域”，其中每个域封装： 共享业务逻辑 特定屏幕（最终可能成为微前端）？    目标  明确关注点分离 随着 repo 增长而可持续的结构 后端服务和前端域之间的逻辑边界  我应该如何重组我的库以实现此目标？ 非常感谢任何意见或指导。我对如何最好地构建这个结构感到有点迷茫。我认为要走的路是按前端域进行进一步的拆分。但是什么样的库类型是合适的，哪些范围和类型应该被限制导入什么？     提交人    /u/Wigglystoff   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5ivj1/monorepo_architecture_and_scopes/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:27:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Facebook Graph API 将我们的 Capstone 应用程序连接到 FB Messenger 群聊</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5iqld/using_facebook_graph_api_to_connect_our_capstone/</link>
+      <description><![CDATA[您好，我是一名 3 年级 IT 学生，我们目前正在做毕业设计/论文。我们的毕业设计项目的目标用户是农民（老年人，不擅长使用科技。同样在东南亚第三世界国家，互联网稀缺）。他们知道如何使用 FB Messenger，并且已经在工作中使用它。我们的毕业设计想法是利用他们 Messenger 群聊中的信息。  是否可以使用 Facebook Graph API？费用会很高吗？    提交人    /u/Zhand-R   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5iqld/using_facebook_graph_api_to_connect_our_capstone/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:17:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Web 开发简历</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5il2u/web_dev_cv/</link>
+      <description><![CDATA[如果论坛不对，请见谅。我在同一个地方做了 10 多年的网络开发人员，想建立一份新的简历，也就是说，我已经 10 年没有更新过简历了，有哪些好的在线资源？    提交人    /u/www_the_internet   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5il2u/web_dev_cv/</guid>
+      <pubDate>Tue, 03 Dec 2024 08:06:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Render 发生了什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h5hxjp/what_has_happened_to_render/</link>
+      <description><![CDATA[我使用 Render 的免费套餐在 Render 上托管了一个 Django 应用。最初，服务器在重启后响应很快，但随着时间的推移（一两天），响应时间显著下降 — 甚至加载主页也需要 1-2 分钟。有时，服务器完全无法启动，迫使我手动重启它。 这个问题似乎是新出现的，因为我不记得 2-3 个月前在使用 Render 时遇到过这样的问题。可能是因为 Render 大幅减少了分配给其免费套餐的资源？    提交人    /u/Uziii-Boiii   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h5hxjp/what_has_happened_to_render/</guid>
+      <pubDate>Tue, 03 Dec 2024 07:18:15 GMT</pubDate>
+    </item>
     <item>
       <title>寻找贡献者：SOYO 一个本地流媒体网站</title>
       <link>https://www.reddit.com/r/webdev/comments/1h5gfsh/looking_for_contributers_soyo_a_local_streaming/</link>
@@ -15,7 +64,7 @@
     <item>
       <title>当 Analytics 和 Adsense 截然不同时</title>
       <link>https://www.reddit.com/r/webdev/comments/1h5gee9/when_analytics_and_adsense_are_drastically/</link>
-      <description><![CDATA[昨天，Analytics（分析）显示我的主要网站有 23,006 次来自美国的页面浏览量。 Adsense 显示同一网站有 14,580 次页面浏览量。 每天 8,000 次页面浏览量的差异会在月底对广告收入产生巨大影响！ 我是否应该将其理解为： a) Analytics 计算了机器人，而 Adsense 没有计算； b) Analytics 计算了使用广告拦截器的用户，而 Adsense 没有计算；或者 c) 完全不同的东西？ 我不太担心机器人（我通过 Cloudflare 阻止恶意机器人），但如果我因为广告拦截器而损失了 37% 的广告收入，那么这就是值得担心的原因了。    提交人    /u/csdude5   [link] [评论]]]></description>
+      <description><![CDATA[昨天，Analytics（分析）显示我的主要站点有 23,006 次来自美国的页面浏览量。 Adsense 显示同一站点有 14,580 次页面浏览量。 每天 8,000 次页面浏览量的差异会在月底对广告收入产生巨大影响！ 我是否应该将其理解为： a) Analytics 计算了机器人，而 Adsense 没有计算； b) Analytics 计算了使用广告拦截器的用户，而 Adsense 没有计算；或者 c) 完全不同的东西？ 我不太担心机器人（我通过 Cloudflare 阻止恶意机器人），但如果我因为广告拦截器而损失了 37% 的广告收入，那么这就是值得担心的原因了。    提交人    /u/csdude5   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h5gee9/when_analytics_and_adsense_are_drastically/</guid>
       <pubDate>Tue, 03 Dec 2024 05:36:52 GMT</pubDate>
     </item>
@@ -36,7 +85,7 @@
     <item>
       <title>是否可以将 HLS 文件存储在 pocketbase 中并通过它进行流式传输？</title>
       <link>https://www.reddit.com/r/webdev/comments/1h5e6xw/is_it_possible_to_store_hls_files_in_pocketbase/</link>
-      <description><![CDATA[我不需要高度可扩展的方法。我正在开展一个 POC 项目，因此在 S3 上花钱不值得（我是一名大学生）。但是，我发现 PocketHost 提供了一些免费存储。是否可以使用 PocketBase 执行 HLS 流式传输？您能编写一个构建架构的基本方法吗？此外，由于免费套餐的服务器托管限制，无法将 HLS 文件存储在服务器的文件系统上。    提交人    /u/PositionSuperb9076   [链接] [评论]]]></description>
+      <description><![CDATA[我不需要高度可扩展的方法。我正在开展一个 POC 项目，因此在 S3 上花钱不值得（我是一名大学生）。但是，我发现 PocketHost 提供了一些免费存储。是否可以使用 PocketBase 执行 HLS 流式传输？您能编写一个构建架构的基本方法吗？此外，由于免费层的服务器托管限制，无法将 HLS 文件存储在服务器的文件系统上。    提交人    /u/PositionSuperb9076   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h5e6xw/is_it_possible_to_store_hls_files_in_pocketbase/</guid>
       <pubDate>Tue, 03 Dec 2024 03:32:05 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[嗨，我为我的网站建立了一个登录/注册系统，希望得到您的反馈。以下是细分： 1. 注册流程  用户填写姓名、电子邮件、密码（经过强度验证）并完成 hCaptcha。 前端使用用户数据和 hCaptcha 令牌向 /api/auth/register 发送 POST 请求。 服务器验证数据、验证 hCaptcha 并创建“待处理用户”包括： 散列密码、6 位 OTP（有效期 5 分钟）和有效期（30 分钟）。  OTP 通过电子邮件发送给用户进行验证。 在有效的 OTP 上，创建用户帐户，并删除待处理的条目。  2. 登录流程  用户输入电子邮件/密码。 服务器验证凭据并通过 NextAuth 创建会话。 成功后，用户将被重定向到仪表板。  3.额外的安全性  使用 bcrypt 对密码进行哈希处理。 跟踪失败的登录以锁定帐户。 后台任务每 5 分钟清除一次过期的待处理用户。 密码重置使用与注册相同的 OTP 流程。  4. 会话管理  由 NextAuth 处理，令牌存储在 cookie 中。  问题：  这样足够安全吗？ 电子邮件验证或整体流程有任何改进吗？ 还有其他提示可以获得更好的用户体验或安全性吗？  感谢您的意见！    提交人    /u/DisastrousJuice1658   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h5bffm/is_this_loginsignup_system_secure_and_efficient/</guid>
       <pubDate>Tue, 03 Dec 2024 01:12:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>评价我的第一个全栈应用</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5avuv/rate_my_first_fullstack_app/</link>
-      <description><![CDATA[您好，请看一下这个项目并给我一些建议。谢谢 https://github.com/ledbajrami/login-register    提交人    /u/shangarepi   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5avuv/rate_my_first_fullstack_app/</guid>
-      <pubDate>Tue, 03 Dec 2024 00:47:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>不含 JavaScript 的新闻文章内容</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5as5e/news_article_content_without_javascript/</link>
-      <description><![CDATA[好奇的问题。我在彭博社上注意到了这一点，但我在其他几个网站上也看到了：如果禁用 JavaScript，文章内容将被卸载，并且无法在 HTML 或 DOM 中找到。 许多新闻网站（付费墙或其他）在禁用 JavaScript 的情况下仍然在 HTML 中加载文章内容，有时是隐藏的。我注意到很多都没有。 这是因为谷歌在抓取时加载文章的能力已经提高，所以将其置于付费墙后面对 SEO 来说不再重要了吗？也许是抓取工具使用了一些访问令牌或元素，或者他们从其他地方向搜索引擎提供文章内容（或者如果他们能获得付费订阅，他们就不那么在意失去搜索结果）？    提交人    /u/KDLGates   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5as5e/news_article_content_without_javascript/</guid>
-      <pubDate>Tue, 03 Dec 2024 00:42:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>HONO Fullstack 系列：构建真实世界应用程序概述</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5a651/hono_fullstack_series_build_real_world_apps/</link>
-      <description><![CDATA[大家好！👋 我非常高兴地告诉大家，我正在开始一个 YouTube 系列，我将使用 HONO（一种新的强大的 Web 框架）构建真实世界的应用程序。目标是通过介绍后端 API 和前端集成来教授全栈开发 - 所有这些都使用 HONO 作为核心工具。 我刚刚发布了第一个视频，我在其中介绍了该系列并解释了我们将共同构建的内容。我很乐意听取您的想法和反馈，特别是如果您有兴趣了解 HONO 或全栈开发。随着我的进步，我会发布更多视频，所以请随时订阅和关注！ 这是第一个视频的链接：HONO 全栈系列：构建真实世界应用程序概述 🎥 如果您有任何建议、疑问，或者只是想聊聊 HONO 或全栈开发，我洗耳恭听！😄 期待收到大家的来信！    提交人    /u/RevolutionaryAd1557   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5a651/hono_fullstack_series_build_real_world_apps/</guid>
-      <pubDate>Tue, 03 Dec 2024 00:13:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>您编写了自己的 SVG 图标吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h56zc3/do_you_code_your_own_svg_icons/</link>
-      <description><![CDATA[      这出乎意料的简单。你应该尝试一下！    提交人    /u/jbrms   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h56zc3/do_you_code_your_own_svg_icons/</guid>
-      <pubDate>Mon, 02 Dec 2024 21:54:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络浏览器游戏/游戏网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h55ll3/webbrowser_gamesgaming_website/</link>
-      <description><![CDATA[您好 - 我从事特殊教育工作，我通过 Zoom 上的远程医疗为孩子们看病。我使用几个不同的网站进行虚拟活动，但我有一个非常独特的平台的想法，我想在未来几年内开发这个平台。该网站主要是一些简单的游戏和图形，这些图形是我在 Procreate 中画的，很可爱，但画得不好。 我几乎没有这方面的经验，所以如果我问了一个愚蠢的问题，请原谅。 到目前为止，我已经学会了用 HTML 和 CSS 做很多事情，我也玩过 Scratch。我想我能搞清楚游戏制作。但是，这个网站的一个功能是让用户能够在游戏回合之间绘制卡片/图片/.gif，或者在继续游戏之前有一个停止点。我的目标是在玩游戏之前为用户提供数百个卡组/库供他们选择作为他们的问题集（例如 - 带有 R 声音的卡组、带有用于表达性语言任务的动作 .gif 的卡组、简短的视频剪辑等） 我是否能够在 HTML/CSS 中拥有一个库，还是应该考虑使用其他语言？最终，如果进展顺利，我还希望人们可以选择创建帐户并订阅网站，因此我也需要能够存储这些信息。这是多年后的目标，但如果我现在可以学习，它只会对我以后有所帮助。 感谢您的任何意见。我知道网上有很多免费的编码课程，但如果有专门针对网络开发简单视频游戏的课程，请给我链接！    提交人    /u/shylittlepot   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h55ll3/webbrowser_gamesgaming_website/</guid>
-      <pubDate>Mon, 02 Dec 2024 20:58:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于 MVP 来说，学习这个技术栈是不是有点太过了？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h54k3a/is_it_overkill_to_learn_this_tech_stack_for_an_mvp/</link>
-      <description><![CDATA[我是 Web 开发新手，做过几个简单的项目，但我的下一个项目更具雄心，旨在创建一个社交媒体/博客平台。 我做了一些研究，似乎最有意义的技术栈是： 后端：Node.js（Express）、Supabase（包括身份验证） 前端：React（+ React Query）、Tailwind CSS 托管：Railway（后端）、Vercel（前端）、S3（图像） 但是我没有使用 React、Tailwind、Vercel 或 Supabase 的经验（只有原始 CSS + JS、HTML/EJS、PostrgreSQL、在 Railway 上托管） 所以我真的需要一些帮助来理解：  在接下来的 3 个月里，通过学习 React + Tailwind + Supabase，我是否可能会节省更多时间或者如果我的目标是在 3 个月内实现进度最大化，那么坚持使用我的 vanilla stack 是否更好？ 如果我使用当前的&quot;vanilla&quot; stack 创建 MVP，并在 3 个月内聘请软件开发人员，是否可能会有大量技术债务需要克服，还是转换到新堆栈相对容易？  React 似乎是真正需要学习的，所以我正在考虑只学习 tailwind + supabase，以后再学习 React。 （抱歉，我知道这个问题可能已经被以 1000 种不同的方式问过 1000 次了，但感觉有点卡住了）    提交人    /u/lucaducca   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h54k3a/is_it_overkill_to_learn_this_tech_stack_for_an_mvp/</guid>
-      <pubDate>Mon, 02 Dec 2024 20:16:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 *（星号）选择器进行重置真的很重要吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h53zw9/does_it_really_matter_if_you_use_asterisk/</link>
-      <description><![CDATA[几个月来我一直在学习基础知识，我的老师强调使用 * 总是会缩短加载时间，并教我制作一个 meyer 导入的代码片段作为替代方案，但它也会重置一些我想经常保留默认设置的东西，比如 &lt;code&gt; 样式，这很烦人。 同时，我看到一些网站，如 twitch.tv，它们确实使用全局选择器来设置边距、填充和 boxsizing 属性。 在我发帖的时候，我不妨问一下，为什么 borderbox 不是默认的？我很少想在元素上设置 contentbox，而且看到其他网站也使用通用选择器来更改它，为什么它没有成为默认的浏览器样式？    提交人    /u/Smexy_Zarow   [link] [comments]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h53zw9/does_it_really_matter_if_you_use_asterisk/</guid>
-      <pubDate>Mon, 02 Dec 2024 19:53:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
