@@ -4,7 +4,28 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 04 Dec 2024 03:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2024 06:32:23 GMT</lastBuildDate>
+    <item>
+      <title>哪些变量帮助您成功地联系到与开发相关的企业？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h68n1e/which_variables_helped_you_succeed_in_coldcalling/</link>
+      <description><![CDATA[我正在考虑开始一些与网络相关的电话营销（电子邮件、短信和/或实体邮件），我很好奇哪些领域对你在这里取得成功帮助最大。 我很好奇，以下这些因素是否被考虑在内，并对整体找工作成功率产生了影响： - 业务类型（管道、银行等） - 位置（城市、农村、国际等） - 信息焦点（快速、诙谐、分析等） - 联系方式（电子邮件、电话、短信、邮件、其他） 我正在研究现代人工智能工具，用于数据收集和网页评论以及电子邮件/短信的生成和发送。我接近实际的消息传递部分，但不确定要优化什么。我的目标是尽可能地实现自动化。    提交人    /u/Bonteq   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h68n1e/which_variables_helped_you_succeed_in_coldcalling/</guid>
+      <pubDate>Wed, 04 Dec 2024 05:20:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一个经过全面规划和深思熟虑的网站。让我知道你的想法</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h67ycu/first_fully_planned_out_and_thought_through/</link>
+      <description><![CDATA[大家好。我以前玩过网站，但这是我第一次真正思考和计划。我做网站纯粹是出于爱好/为了好玩。尚未部署，因为还有很多调整要做，还有很多小东西要添加/修复，但大部分都已经完成了，所以我只有一个视频，记录我如何操作，哈哈。让我知道你们怎么想。谢谢！ https://www.youtube.com/watch?v=A7C0UdDd7PU     提交人    /u/KardTarben   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h67ycu/first_fully_planned_out_and_thought_through/</guid>
+      <pubDate>Wed, 04 Dec 2024 04:41:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>服务器发送的事件“流”如何在较低级别上工作？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1h67euz/how_do_serversent_event_streams_work_on_a_lower/</link>
+      <description><![CDATA[嗨，很抱歉没有 tl;dr; - 我不确定如何避免提供上下文。基本上，我感兴趣的是连接到 Web 服务器并使用较低级别的 HTTP API 来使用服务器发送事件，并希望有人可以解释这些事件的推送与拉取在较低级别如何工作。 我正在开发一个硬件项目（基于 ESP32-S3 / espressif ESP-IDF），其中我正在使用 C 编写一些更高级别的抽象来支持 HTTP 交互。例如，我可能调用的方法是：  esp_http_client_open()：使用 write_len 参数（需要写入服务器的内容长度）打开 HTTP 连接，为只读连接设置 write_len=0。 esp_http_client_fetch_headers()：发送请求标头和服务器数据（如果有）后，读取 HTTP 服务器响应标头。  esp_http_client_read()：读取 HTTP 流 esp_http_client_close()：关闭连接。  (如果您感兴趣，这里有更多示例 / 文档) 现在我想弄清楚的是 esp_http_client_read() 在服务器与客户端通信方面实际上在做什么。当我通过 HTTP 连接到服务器并假设 keep-alive 时，我可以每毫秒调用一次 esp_http_client_read()，或者我可以等待 100 毫秒然后调用它。这两种方式都可以“工作”，因为如果服务器没有发送数据，那么什么都不会发生，如果有数据，我会读取它并能够用它做一些事情。编辑：为了清楚起见，因为它可能不太明显，我的目的是让我的硬件设备连接到服务器并无限期地保持连接，等待服务器使用服务器发送的事件发送数据 - 因此想象一个 while(true) 循环，但我自己负责检查新数据何时进入 但我不太明白在已经打开的 HTTP 流中“读取数据”是什么意思。据我所知，对于这种类型的连接（据我所知，它类似于分块响应），没有任何东西被传送到服务器以请求更多数据，例如，它肯定不像是在发出额外的 HTTP 请求。我猜“读取数据”只是检查由 WiFi 芯片或某些较低子系统处理的某种较低级别的缓冲区。我猜如果我选择从 HTTP 连接“读取数据”，服务器就不会知道。  话虽如此，我也可能 100% 错了，也许（像其他形式的通信一样）底层协议的一部分是向服务器发送您已读取数据的消息。 这对服务器来说可能并不重要，但它可能充当了一种心跳。  我的最终目标是了解我应该多久在代码中调用一次“读取数据”，以便快速从服务器获取更新，但也不会对服务器产生任何负面影响或通过每毫秒读取数据来占用不必要的 CPU 周期，而每 50 毫秒一次就足以满足我的需求。  我希望 Web 开发社区中可能拥有更多经验或更好地理解较低级别 HTTP“内容”的人也许能够理解我所问问题的精神并帮助我理解。 非常感谢！    提交人    /u/kevysaysbenice   [link] [comments]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1h67euz/how_do_serversent_event_streams_work_on_a_lower/</guid>
+      <pubDate>Wed, 04 Dec 2024 04:11:47 GMT</pubDate>
+    </item>
     <item>
       <title>我怎么才能计算出 Vercel 会向我收取多少费用呢？</title>
       <link>https://www.reddit.com/r/webdev/comments/1h66q3x/how_can_i_possibly_calculate_how_much_vercel_will/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[正如标题所说。有这样的东西吗？我们可以做一个吗？    提交人    /u/pywrite   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1h5y78t/need_browser_extension_to_save_the_css_edits_i/</guid>
       <pubDate>Tue, 03 Dec 2024 21:07:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>类似 8 位的 UI 组件库？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5xxhh/8bitlike_ui_component_library/</link>
-      <description><![CDATA[我搜索了一番，但还是没找到我想要的东西。也许有人可以帮帮我？ 我正在为我的梦幻足球联赛制作一个网络应用。没有什么突破性的东西，只是一个可以查看我们联赛和球队的信息和统计数据的地方，还有一些图表、图形等。 我认为给它一种 Tecmo-Bowl 复古 8 位游戏的感觉会很酷。有谁知道已经存在的任何 React 组件库，或者我可以根据需要分叉和修改的类似库？ 提前谢谢！    提交人    /u/PM_ME_YER_BOOTS   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5xxhh/8bitlike_ui_component_library/</guid>
-      <pubDate>Tue, 03 Dec 2024 20:56:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以分享我的投资组合以便你们批评它吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5xsu5/can_i_share_my_portfolio_so_you_can_roast_it/</link>
-      <description><![CDATA[我不是在找工作，我只是想听听大家的意见。 我的主要作品集相当复杂，硬件要求很高，所以我为手机制作了一个简单的作品集，方便访问。我认为简单的作品集更适合审查，而主要的那个作品集适合展示。（Ngl 主要的那个作品集对移动设备不敏感/不友好，不要欺负我） 如果我可以分享它们，我会在接下来的几天内分享，因为我刚刚开始开发更简单的那个作品集。    提交人    /u/qorinn_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5xsu5/can_i_share_my_portfolio_so_you_can_roast_it/</guid>
-      <pubDate>Tue, 03 Dec 2024 20:50:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ringer 的新网站。您有什么看法？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1h5x2gg/the_ringers_new_website_thoughts/</link>
-      <description><![CDATA[        提交人    /u/asamshah   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1h5x2gg/the_ringers_new_website_thoughts/</guid>
-      <pubDate>Tue, 03 Dec 2024 20:20:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
