@@ -4,7 +4,14 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 07 Dec 2024 03:35:28 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2024 06:29:23 GMT</lastBuildDate>
+    <item>
+      <title>Google NotebookLM：提高生产力</title>
+      <link>https://www.reddit.com/r/programming/comments/1h8kggh/google_notebooklm_boosting_productivity/</link>
+      <description><![CDATA[  由    /u/rasvi786  提交  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1h8kggh/google_notebooklm_boosting_productivity/</guid>
+      <pubDate>Sat, 07 Dec 2024 04:20:52 GMT</pubDate>
+    </item>
     <item>
       <title>800% 细节：调整 Stunt Island 已有 30 年历史的 3D 引擎</title>
       <link>https://www.reddit.com/r/programming/comments/1h8f8rm/800_detail_tweaking_stunt_islands_30yearold_3d/</link>
@@ -92,7 +99,7 @@
     <item>
       <title>我的贪吃蛇游戏通过修改代码和重构大部分代码，最终缩减到了 57 个字节</title>
       <link>https://www.reddit.com/r/programming/comments/1h89eyl/my_snake_game_got_to_57_bytes_by_just_messing/</link>
-      <description><![CDATA[这次字节减少与其他不同。 通常，我心中有一个如何减少字节的想法，然后我尝试操纵代码使其工作。 这次我很无聊，所以我再次查看了代码，只是因为我想删除 BP 寄存器的使用，因为我认为“它有潜力”，你可以看到 PR，我设法在不增加字节数的情况下做到这一点这里，然后过了很长一段时间，我意识到一种滥用它的方法，即使用另一个寄存器（DX）来存储一些值而不添加任何字节，并且认为它也有一些潜力，因为 DX 初始化需要 3 个字节，也许可以通过某种方式减少... 我合并了 PR，因为它使游戏速度变慢了一点，即使它没有节省任何字节，因为我不能想办法优化 DX 的初始化，但后来我意识到 DX 的初始化不是问题，而是另一个问题的解决方案。 到目前为止，我初始化 AX 的方式是使用 MOV，将 AX 设置为 0 是相当浪费的，但我必须使用 MOV 进行 LDS 初始化，因为 MOV 的第一个字节是 0xB8，但如果我在那里初始化 DX，我将解决问题，并且能够在不到 3 个字节内设置 AX。 问题是 MOV DX, 开头没有 0xB8，所以我必须使用 MOV AX,，但没问题，我可以将 AX 初始化为我想要的 DX 中的值并执行 XCHG，但这样就只剩下一个字节了将 AX 设置为 0，这是不可能的（这就是我没有将其提交到原始 PR 中的原因）。  但是，后来我意识到，我们可以只用 1 个字节将 DX 设置为 0，这样 XCHG 之后 AX 就已经包含 0。 我在 MOV 和 XCHG 之间植入了一个 CWD，这样 DX 将被设置为 DX 中所需值的 MSB，该值是正数，因此 MSB 为 0。 我撤销了从第一个 PR 所做的更改并合并了新的。 顺便说一句，这次我不能只使用 0x0 虚拟字节，因为那会错误地设置 DX，所以我不得不使用 LDS DI，[BX+SI+0x0]，这显然是行不通的即使使用 -O0，nasm 也能正确解析，因为它总是会丢弃 0x0，所以我不得不对其进行硬编码。    提交人    /u/Perfect-Highlight964   [link] [comments]]]></description>
+      <description><![CDATA[这次字节减少与其他不同。 通常，我心中有一个如何减少字节的想法，并尝试操纵代码使其工作。 这次我很无聊，所以我再次查看了代码，只是因为我想删除 BP 寄存器的使用，因为我认为“它有潜力”，你可以看到 PR，我设法在不增加字节数的情况下做到这一点这里，然后过了很长一段时间，我意识到一种滥用它的方法，即使用另一个寄存器（DX）来存储一些值而不添加任何字节，并且认为它也有一些潜力，因为 DX 初始化需要 3 个字节，也许可以通过某种方式减少... 我合并了 PR，因为它使游戏速度变慢了一点，即使它没有节省任何字节，因为我不能想办法优化 DX 的初始化，但后来我意识到 DX 的初始化不是问题，而是另一个问题的解决方案。 到目前为止，我初始化 AX 的方式是使用 MOV，将 AX 设置为 0 是相当浪费的，但我必须使用 MOV 进行 LDS 初始化，因为 MOV 的第一个字节是 0xB8，但如果我在那里初始化 DX，我将解决问题，并且能够在不到 3 个字节内设置 AX。 问题是 MOV DX, 开头没有 0xB8，所以我必须使用 MOV AX,，但没问题，我可以将 AX 初始化为我想要的 DX 中的值并执行 XCHG，但这样就只剩下一个字节了将 AX 设置为 0，这是不可能的（这就是我没有将其提交到原始 PR 中的原因）。  但是，后来我意识到，我们可以只用 1 个字节将 DX 设置为 0，这样 XCHG 之后 AX 就已经包含 0。 我在 MOV 和 XCHG 之间植入了一个 CWD，这样 DX 将被设置为 DX 中所需值的 MSB，该值是正数，因此 MSB 为 0。 我撤销了从第一个 PR 所做的更改并合并了新的。 顺便说一句，这次我不能只使用 0x0 虚拟字节，因为那会错误地设置 DX，所以我不得不使用 LDS DI，[BX+SI+0x0]，这显然是行不通的即使使用 -O0，nasm 也能正确解析，因为它总是会丢弃 0x0，所以我不得不对其进行硬编码。    提交人    /u/Perfect-Highlight964   [link] [comments]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1h89eyl/my_snake_game_got_to_57_bytes_by_just_messing/</guid>
       <pubDate>Fri, 06 Dec 2024 19:23:50 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[  由    /u/Special_Community179  提交  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1h898mh/automation_with_python_never_miss_a_free_game/</guid>
       <pubDate>Fri, 06 Dec 2024 19:16:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>具有记忆功能的 Agentic RAG</title>
-      <link>https://www.reddit.com/r/programming/comments/1h89602/agentic_rag_with_memory/</link>
-      <description><![CDATA[  由    /u/External_Ad_11  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1h89602/agentic_rag_with_memory/</guid>
-      <pubDate>Fri, 06 Dec 2024 19:13:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
