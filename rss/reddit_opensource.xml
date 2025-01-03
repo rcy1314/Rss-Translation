@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有开源相关的 subreddit（就此而言，我们引用了此处开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 03 Jan 2025 06:30:45 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2025 09:22:03 GMT</lastBuildDate>
+    <item>
+      <title>录制时跳过太多帧</title>
+      <link>https://www.reddit.com/r/opensource/comments/1hsic15/to_many_frames_are_skipped_while_recording/</link>
+      <description><![CDATA[我在带有 coral usb 的专用服务器上使用 docker compose 提供服务。使用 25 个摄像头时，它运行良好，但无法以全帧速率录制。最初，我尝试使用 MergerFS 将录制内容保存在 2 个合并驱动器上。考虑到这可能是问题所在，我选择了单个驱动器进行测试。 CPU 负载约为 25%，IOWAIT 为 0.3%。似乎没有任何帮助...您能帮我找出问题所在吗？ 配置： compose.yaml 版本：“3.9”服务： 护卫舰： 容器名称： 护卫舰 特权： true # 这可能不是所有设置所必需的 重新启动：除非停止 图像： ghcr.io/blakeblackshear/frigate：stable shm_size： 768mb # 根据上述计算更新您的相机 设备： - /dev/bus/usb：/dev/bus/usb # 通过 USB Coral，需要针对其他版本进行修改 - /dev/dri/renderD128：/dev/dri/renderD128 # 对于英特尔 hwaccel，需要针对您的硬件进行更新 卷： - /etc/localtime：/etc/localtime：ro - /mnt/storage/frigate/config：/config - /mnt/storage/frigate/storage：/media/frigate - 类型：tmpfs 目标：/tmp/cache tmpfs： 大小：1600000000 端口： - 8971：8971 - 8554：8554 # RTSP 提要 - 8555：8555/tcp # WebRTC over tcp - 8555：8555/udp # WebRTC over udp networks：{}  config.yaml mqtt： enabled：false tls： enabled：false detectors： coral： type：edgetpu device：usb ffmpeg： global_args：-hide_banner -loglevel warning -threads 10 hwaccel_args： preset-vaapi detect： enabled：true # &lt;---- 禁用检测，直到您有一个正常工作的摄像头 feed width：704 height：576 record： enabled：true retain： days：30 mode：motion events： retain： default：60 mode：active_objectsobjects： track： - person - car - motorcycle - bus - car filters： person： min_area: 5000 max_area: 100000 cameras: cam-1: # &lt;------ 命名摄像机 enabled: true ffmpeg: 输入： - 路径：rtsp://XX:XX@XX.XX.XX.XX:554/cam/realmonitor?channel=1&amp;subtype=1 # &lt;----- 您想要用于检测角色的流： - 检测 - 路径：rtsp://XX:XX@XX.XX.XX.XX:554/cam/realmonitor?channel=1&amp;subtype=0 # &lt;----- 您想要用于检测角色的流： - 记录运动： 掩码： - 0.685,0.04,0.684,0,1,0,1,0.041 - 0.476,0.041,0.669,0.031,0.666,0,0.475,0 ........................ ........................ ........................ ........................ ........................ 版本：0.14 camera_groups：{}     由   提交  /u/eiacub   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1hsic15/to_many_frames_are_skipped_while_recording/</guid>
+      <pubDate>Fri, 03 Jan 2025 09:02:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>在木星空投宣布之后，我想对其进行检查。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1hsi4sz/after_jupiter_airdrop_was_announced_i_wanted_to/</link>
+      <description><![CDATA[现在我想分享它，以防有人也想使用它或者只是想对它点赞 你好 r/opensource！ 我的产品是开源的，大量检查地址/种子短语以获得空投的可能性，如果你支持它会非常高兴 我的程序的源代码可以在https://github.com/jupiter-volume-checker/Jupiter-Volume-Checker找到。    提交人    /u/Jar_of_Jam   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1hsi4sz/after_jupiter_airdrop_was_announced_i_wanted_to/</guid>
+      <pubDate>Fri, 03 Jan 2025 08:48:20 GMT</pubDate>
+    </item>
     <item>
       <title>启动了开源新闻或基于 RSS 源的服务？感觉怎么样？</title>
       <link>https://www.reddit.com/r/opensource/comments/1hsc0ft/started_an_open_source_news_or_rss_feeds_based/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[      大家好！作为一个新年假期项目，我开发了一个 MacOS 工具，它可以在后台不断测量打字速度和准确度并将其显示在状态栏上。 我总是想知道我的真实打字速度是否与我在 typeracer 等打字测试中的表现相似。我寻找类似的工具，但找不到任何东西。 所以，我通过实际创建这个应用程序给了自己一份新年礼物。 如果你可以尝试一下并让我知道你的想法，那就太好了。 注意：请确保您按照 README 文件中概述的方式授予它权限。    提交人    /u/AvikalpGupta   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1hrixg7/i_built_a_tool_that_constants_measures_my_typing/</guid>
       <pubDate>Thu, 02 Jan 2025 02:06:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>回顾我在开源领域的 2024 年</title>
-      <link>https://www.reddit.com/r/opensource/comments/1hri3ee/review_of_my_2024_in_opensource/</link>
-      <description><![CDATA[        提交人    /u/vladkens   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1hri3ee/review_of_my_2024_in_opensource/</guid>
-      <pubDate>Thu, 02 Jan 2025 01:25:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>[开源] WeTube:视频、音乐和戏剧</title>
-      <link>https://www.reddit.com/r/opensource/comments/1hrhwht/open_source_wetubevideo_music_drama/</link>
-      <description><![CDATA[WeTube 是使用 swiftUI 的开源项目。此应用用于屏蔽 Youtube 广告、短剧视频和弹窗视频。 项目链接： https://github.com/Purehi/YouTube-UI-App 功能： 💥播放视频、音乐和短剧都是高清的 🚀无需安装其他插件，如微商 ⭐ 搜索最新的动漫、直播和体育视频 🎵 汇集众多热门播客、音乐播放列表和短视频    提交人    /u/Mountain_Expert_2652   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1hrhwht/open_source_wetubevideo_music_drama/</guid>
-      <pubDate>Thu, 02 Jan 2025 01:15:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
