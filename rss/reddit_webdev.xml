@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 12 Jan 2025 06:28:58 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2025 09:20:51 GMT</lastBuildDate>
+    <item>
+      <title>在 Express 上运行代理，在浏览器上使用时遇到问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1hzisk8/running_a_proxy_on_express_running_into_problems/</link>
+      <description><![CDATA[嗨！我不确定这个问题是否属于这个 subreddit，但我认为它是相关的。我试图在 express 上运行代理中间件，以将任何对我的 localhost:5000 的请求代理到目标 url。我正在使用免费试用住宅代理作为代理代理，初始请求似乎被代理得很好 - 问题是没有一个页面可以加载任何 javascript/assets/api。以 Reddit 为例，它看起来是这样的：  我在浏览器上导航到 localhost:5000 它将我带到 https://www.reddit.com，页面看起来很混乱，只呈现了 html 我打开浏览器控制台，出现大量有关 Axios 的错误（Reddit api 混淆了？）  这是相关代码： const url = &#39;https://www.reddit.com/&#39;; const proxyAgent = new HttpsProxyAgent( `https://${proxy_username}:${proxy_password}@${proxy_host}:${proxy_port}`, ); const proxyMiddleware = createProxyMiddleware({ cookieDomainRewrite: { &#39;*&#39;: &#39;&#39;, }, target: url, changeOrigin: true, ws: true, agent: proxyAgent, autoRewrite: true, pathRewrite: { &#39;^/&#39;: &#39;/&#39;, }, on: { proxyRes: function ( proxyRes: http.IncomingMessage, req: http.IncomingMessage, res: http.ServerResponse, ) { proxyRes.headers[&#39;Access-Control-Allow-Origin&#39;] = &#39;*&#39;; proxyRes.headers[&#39;Access-Control-Allow-Credentials&#39;] = &#39;true&#39;; proxyRes.headers[&#39;Content-Security-Policy&#39;] = &#39;upgrade-insecure-requests&#39;; if (proxyRes.headers.location) { proxyRes.headers.location = proxyRes.headers.location.replace( url, `http://localhost:${port}`, ); } }, }, });     提交人    /u/lobster_facts   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1hzisk8/running_a_proxy_on_express_running_into_problems/</guid>
+      <pubDate>Sun, 12 Jan 2025 09:02:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何在编码时克服 GPT 的使用以及如何进一步减少它</title>
+      <link>https://www.reddit.com/r/webdev/comments/1hziob8/hot_overcome_the_use_of_gpt_while_coding_and_how/</link>
+      <description><![CDATA[过去几天，我一直在做一个大学项目，我注意到 GPT 的使用率大大增加，减少了文档阅读量，创建了多个帐户以便免费使用。我真的感觉很糟糕。这不是好事 但是这开始让我患上冒名顶替综合症，我觉得我真的很有能力，我真的想减少它，我想自己编程，请有人帮助我。但我能理解代码，但它仍然让我成为冒名顶替者。 请有人给我提示    提交人    /u/Varun18122002   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1hziob8/hot_overcome_the_use_of_gpt_while_coding_and_how/</guid>
+      <pubDate>Sun, 12 Jan 2025 08:53:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的手机是不是中病毒了？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1hzhd0s/did_my_phone_just_get_a_virus/</link>
+      <description><![CDATA[我刚刚点击了一个 Instagram 广告，那是一个测验，做了大约一分钟的测验后，弹出一个窗口说“正在扫描文件”，然后说检测到威胁，我的设备开始发出哔哔声。我的手机真的被黑了吗？    提交人    /u/Tr_str_d   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1hzhd0s/did_my_phone_just_get_a_virus/</guid>
+      <pubDate>Sun, 12 Jan 2025 07:16:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>我建立了一个“幻想投资”网站，它非常有趣</title>
+      <link>https://www.reddit.com/r/webdev/comments/1hzh98l/ive_built_a_fantasy_investment_website_and_it_is/</link>
+      <description><![CDATA[        提交人    /u/jonromero   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1hzh98l/ive_built_a_fantasy_investment_website_and_it_is/</guid>
+      <pubDate>Sun, 12 Jan 2025 07:09:21 GMT</pubDate>
+    </item>
     <item>
       <title>导入演示内容在 Wordpress 中不起作用。</title>
       <link>https://www.reddit.com/r/webdev/comments/1hzgnxc/import_demo_content_not_working_in_wordpress/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[        提交人    /u/Nubian_Cavalry   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1hza3k3/made_a_fan_website_for_the_battle_of_polytopia/</guid>
       <pubDate>Sun, 12 Jan 2025 00:20:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了电影推荐网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1hz9te2/i_made_movie_recommendation_website/</link>
-      <description><![CDATA[      我们开发了 Film Yolla，只需点击几下即可根据您的观看目的和个人品味提供电影推荐。Film Yolla 是一项完全免费且无广告的服务。如果你们能提供一些反馈，我将不胜感激。 https://preview.redd.it/kpmbam4mfgce1.png?width=1915&amp;format=png&amp;auto=webp&amp;s=5869a3407f9fe23d71cab9fe8792e206cc9723d6    提交人    /u/jackavery563   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1hz9te2/i_made_movie_recommendation_website/</guid>
-      <pubDate>Sun, 12 Jan 2025 00:07:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要对移动用户的登陆页面@www.hyperclink.com 进行反馈。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1hz9b79/need_feedback_on_landing_page_wwwhyperclinkcom/</link>
-      <description><![CDATA[        提交人    /u/curiousomeone   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1hz9b79/need_feedback_on_landing_page_wwwhyperclinkcom/</guid>
-      <pubDate>Sat, 11 Jan 2025 23:43:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>比较各种“免费”购物车</title>
-      <link>https://www.reddit.com/r/webdev/comments/1hz92ab/comparing_various_free_shopping_carts/</link>
-      <description><![CDATA[（有人建议我从 Namecheap 子版块发帖到这里。） 我有一个托管在 Namecheap 上的网站，并试图为我的粉丝建立一个目录，以便他们能够购买我出售的一些手工制品。我不想要 Etsy 或 Shopify 或任何类似规模的东西，只希望我发送链接的人能够浏览、选择商品并通过 PayPal 付款。我正在使用 PayPal 添加到购物车按钮。 是否有人使用过 Softaculous 中提供的各种购物车，例如 AbanteCart、OpenCart、Zen Cart、LiteCart、CubeCart、Quick.Cart、WhatACart 等？除了浏览和允许购物之外，如果购物车允许我从电子表格或 CSV 导入我的产品，那将会很有帮助。我的目标不是发展壮大，只是想要有标题、图像、描述和 PayPal 结帐按钮。类别和分页都很棒。感谢您的意见。    由    /u/pigskins65 提交   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1hz92ab/comparing_various_free_shopping_carts/</guid>
-      <pubDate>Sat, 11 Jan 2025 23:31:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个工具，可以将您的推文导入 Bluesky，同时保留其原始时间戳</title>
-      <link>https://www.reddit.com/r/webdev/comments/1hz8tt8/i_made_a_tool_to_import_your_tweets_to_bluesky/</link>
-      <description><![CDATA[        提交人    /u/Nols05   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1hz8tt8/i_made_a_tool_to_import_your_tweets_to_bluesky/</guid>
-      <pubDate>Sat, 11 Jan 2025 23:20:15 GMT</pubDate>
     </item>
     </channel>
 </rss>
