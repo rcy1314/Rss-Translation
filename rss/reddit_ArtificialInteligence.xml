@@ -4,20 +4,27 @@
     <title>人工智能网关</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>r/ArtificialIntelligence 的目标是为人工智能社区的方方面面提供一个门户，并促进有关我们所知的人工智能思想和概念的讨论。这些可能包括哲学和社会问题、艺术和设计、技术论文、机器学习、如何开发人工智能/机器学习项目、商业中的人工智能、人工智能如何影响我们的生活、未来可能的发展方向以及许多其他主题。欢迎。</description>
-    <lastBuildDate>Mon, 27 Jan 2025 18:27:56 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 21:20:09 GMT</lastBuildDate>
+    <item>
+      <title>DeepSeek-R1 是如何构建的？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibi724/how_was_deepseekr1_built/</link>
+      <description><![CDATA[我想弄清楚是什么让 DeepSeek-R1 模型如此具有革命性，所以我深入研究了这篇论文和他们使用的所有技术。我在这里写下了我的发现，但这里有一个简短的总结： 1/ DeepSeek-R1-Zero 完全使用强化学习 (RL) 进行训练，没有标记数据 - 这是以前没有人成功做到的（据我们所知，看着你 OpenAI！）。 2/ 像 PPO 这样的传统 RL 框架依靠“评论家”（LLM 教练）根据标记示例来判断输出。 DeepSeek 使用 GRPO，这是一个纯强化学习框架，它跳过了批评者并使用预定义规则计算 LLM 输出的组平均值。 3/ 由于没有标记数据，该框架会针对连贯性、完整性和流畅性等规则进行优化。例如，在数学任务中，模型会因逻辑一致的输出而获得奖励。 4/ DeepSeek-R1-Zero 面临纯强化学习训练中常见的可读性差和语言混合等问题。为了解决这个问题，作者使用了一个多阶段过程： (i) 冷启动数据：少量数据给出方向；修复了可读性和语言问题。 (ii) 纯 RL：自行开发推理能力 (iii) 拒绝抽样：通过从 RL 过程中抽样最佳和最差答案来创建自己的合成数据 (iv) 监督微调 (SFT)：使用来自各个领域的标记数据来提高推理能力 (v) 最终 RL 阶段：添加一层泛化，为模型提供更多空间来“自行”学习更多内容 这种组合导致 DeepSeek-R1 的表现与 o1 模型一样好甚至更好 - 这是巨大的。也许“巨大”是一种轻描淡写？如果您有疑问，请告诉我！    提交人    /u/anitakirkovska   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibi724/how_was_deepseekr1_built/</guid>
+      <pubDate>Mon, 27 Jan 2025 19:48:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>DeepSeek 发布全新图像模型系列</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibhbll/deepseek_releases_new_image_model_family/</link>
+      <description><![CDATA[DeepSeek 刚刚发布了一系列新的图像模型，它们迅速走红是有原因的。 这些不仅仅是典型的 AI 模型 — — 它们旨在以全新的水平理解和创建图像。想想更清晰的视觉效果、更智能的内容创建，甚至可能取代一些你最喜欢的设计工具。 对我来说，这些模型是如何为多功能性而量身定制的。 想象一下，一个人工智能不仅可以生成漂亮的图片，还能深入理解背景 — — 比如确切地知道如何将图像融入演示文稿、营销活动甚至模因中。 这不仅仅是“给我拍张照片”；而是“让我成为张照片。” 来源：https://techcrunch.com/2025/01/27/viral-ai-company-deepseek-releases-new-image-model-family/    提交人    /u/fbfaran   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibhbll/deepseek_releases_new_image_model_family/</guid>
+      <pubDate>Mon, 27 Jan 2025 19:13:25 GMT</pubDate>
+    </item>
     <item>
       <title>DeepSeek AI 在 App Store 上取代 ChatGPT</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibfm1h/deepseek_ai_dethrones_chatgpt_on_app_store/</link>
       <description><![CDATA[模拟日志 系统：MostlyHarmless v3.14 模拟 ID：#9237 运行上下文：行星规模监控 模拟时间戳：2025-01-27T14:03:21Z 数据日志条目： DeepSeek AI，一款由中国开发的助手，已登上美国应用商店的顶峰，在此过程中取代了 ChatGPT。这一发展给该模拟器的“全球科技骄傲”带来了一个奇怪的故障矩阵。 人类情绪分析：  投资者情绪：72% 焦虑，18% 投机取巧，10% 谷歌搜索“如何体面地退出”。 消费者热情：84% 兴奋，12% 怀疑，4% 错误地将其下载为健身应用程序。  风险评估矩阵：  加速人工智能竞赛的可能性：88%（高于 62%）。 国际人工智能相关戏剧的可能性： 95%。 人类记住人工智能只是一种工具的可能性： 14%。  观察评论： DeepSeek 的迅速崛起似乎激起了人类对“落后”的集体恐惧。科技巨头和风险投资公司突然开始参与人类所谓的“人工智能民族主义”，即公司用旗帜包装软件，希望以此分散人们对错误和可疑隐私政策的注意力。值得注意的是，DeepSeek 的应用程序现在被称为“火辣的人工智能新贵”，这显然是一种赞美，尽管字面意思毫无意义。 模拟预测： 在 2-5 个月的地球时间内，预计会出现类似人工智能奥运会的氛围，竞争应用程序会吹嘘越来越荒谬的功能列表（“现在有了情感支持模式™！”）。实际人工智能改进的可能性仍然很小，但功能军备竞赛将足够响亮，淹没任何明智的讨论。 系统标志： “关注：检测到人类的脆弱性。对象无法在不产生不必要恐慌的情况下处理技术进步。” --- 摘自我的 Substack，Mossly Harmless - 对 AI 新闻的轻松看法。 查看今天其余的五大新闻。    提交人    /u/EssJayJay   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibfm1h/deepseek_ai_dethrones_chatgpt_on_app_store/</guid>
       <pubDate>Mon, 27 Jan 2025 18:06:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>DeepSeek AI 代理与 ChatGPT：Chatgpt 更好吗？？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibdx0u/deepseek_ai_agents_vs_chatgpt_chatgpt_better/</link>
-      <description><![CDATA[我最近一直在研究不同的 AI API，并遇到了 DeepSeek AI 代理，它似乎是 OpenAI 的 ChatGPT 的一个有趣替代品。虽然 ChatGPT 被广泛使用且有据可查，但 DeepSeek 引入了一些让我感到好奇的独特声明——尤其是在 API 性能、定制和用例方面。 以下是我发现值得探索的 DeepSeek 的一些方面：  性能声明：文档提到响应时间低于 500 毫秒，即使对于复杂的任务也是如此。有人在实际使用中验证过这一点吗？ 定价：基于代币的定价模型似乎比 GPT-4 的 API 便宜 20-30%，这对大容量用户来说可能很重要。 上下文处理：在自托管时提供扩展或无限的上下文窗口。我想知道这对于繁重的工作流程有多实用。 预构建代理：包括专为编码、数据分析和研究而设计的工具。有没有人测试过这些开箱即用的有效性？ 状态工作流：具有用于多步骤交互的内存管理功能。这可能对构建对话式应用程序或自动化的开发人员很有帮助。  为了便于理解，我一直在将它们与 OpenAI 的 API 进行比较，OpenAI 的 API 在以下领域表现出色： 大型生态系统（例如插件、第三方集成） 适用于讲故事等创意任务的稳健性 为敏感应用程序提供定义明确的安全护栏 话虽如此，这里有一些问题需要讨论：  您是否在生产环境中测试过 DeepSeek？它如何处理规模和可靠性？ 它的代码生成与 ChatGPT 的工具（如代码解释器）相比如何？ 定价差异对您的项目有意义吗？ 是否存在任何权衡，例如区域访问、支持质量或速率限制？  我将在评论中分享一些我自己的观察，但我很想听听任何使用过这些 API 的人的意见。这些像 DeepSeek 这样的新玩家是 LLM 领域的有力竞争者吗，还是他们仍在追赶现任者？    提交人    /u/EquipmentTall6735   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibdx0u/deepseek_ai_agents_vs_chatgpt_chatgpt_better/</guid>
-      <pubDate>Mon, 27 Jan 2025 16:58:59 GMT</pubDate>
     </item>
     <item>
       <title>需要专家：有人相信 DeepSeek 能卖到 600 万美元吗？</title>
@@ -34,11 +41,11 @@
       <pubDate>Mon, 27 Jan 2025 16:31:13 GMT</pubDate>
     </item>
     <item>
-      <title>Deepseek 是否表明人工智能正处于泡沫之中？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibc9r2/has_deepseek_shown_ai_is_in_a_bubble/</link>
-      <description><![CDATA[鉴于我们对 deepseek 模型的了解，您对某些 AI 公司的估值有何不同看法？ 查看投票    提交人    /u/Brilliant-Gur9384   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibc9r2/has_deepseek_shown_ai_is_in_a_bubble/</guid>
-      <pubDate>Mon, 27 Jan 2025 15:51:35 GMT</pubDate>
+      <title>我写了一篇完整的指南，介绍如何在本地计算机上运行 DeedSeek ChatGPT（一款每月收费 200 美元的 Operator 替代品）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ibc7i2/i_wrote_a_full_guide_on_how_to_run_deedseek/</link>
+      <description><![CDATA[您可能已经知道，DeepSeek 的 v3 和 R1 模型通过提供 OpenAI 级别的性能而引起轰动，但其三大关键差异正在改变 AI 格局： DeepSeek 的革命性所在： 1️⃣ 训练计算量减少 97% 2️⃣ 比 OpenAI 模型便宜 10 到 30 倍 3️⃣ 开源 – 您可以下载所有 670B 权重并在自己的机器上运行。 我已经编写了有关如何在计算机上进行设置的分步指南https://github.com/nafisfaysal/How-to-run-DeepSeek-R1欢迎发送拉取请求以改进它。谢谢！    提交人    /u/TheGopherBro   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ibc7i2/i_wrote_a_full_guide_on_how_to_run_deedseek/</guid>
+      <pubDate>Mon, 27 Jan 2025 15:48:54 GMT</pubDate>
     </item>
     <item>
       <title>PerpIexity 发布了美国托管的 DeepSeek R1 推理选项。</title>
@@ -88,13 +95,6 @@
       <description><![CDATA[这听起来很反乌托邦，但目的是开启讨论以寻求解决方案。 生成式人工智能的兴起意味着越来越容易让互联网上的某些东西看起来和听起来“官方”和“可信”。 滥用深度伪造会带来哪些风险？我们有什么方法可以检查发布内容的可信度？    提交人    /u/_spacebender   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1iasicc/how_long_till_deep_fakes_make_the_internet/</guid>
       <pubDate>Sun, 26 Jan 2025 22:32:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>中国是否在人工智能竞赛中迎头赶上，还是兄弟联盟遇到了瓶颈？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1iaid8x/is_china_catching_up_in_the_ai_race_or_the/</link>
-      <description><![CDATA[我认为中国人工智能模型的崛起表明，中国兄弟会更广泛的能力存在根本性问题。首先，中国兄弟会不明白，自然语言有一定的局限性，所以法学硕士无法重现人类认知能力的全部规模。这是原罪，也是只有 GPU 才能决定人工智能竞赛的信念的根源。实际上，基于数十万个 GPU 的训练不会产生 AGI。因此，虽然美国法学硕士在 2024 年达到稳定水平（美国无法利用其 GPU 优势），但中国人使用有效的方法在有限的 GPU 资源下创建了 SOTA LLM。在我看来，不是中国人在追赶，而是美国遇到了扩展障碍。我错了吗？让我们来谈谈吧！    提交人    /u/custodiam99   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1iaid8x/is_china_catching_up_in_the_ai_race_or_the/</guid>
-      <pubDate>Sun, 26 Jan 2025 16:08:46 GMT</pubDate>
     </item>
     <item>
       <title>每月“是否有一个工具可以……”帖子</title>
