@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>一个致力于所有 Web 开发相关事宜的社区：前端和后端。如需更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 27 Jan 2025 12:41:05 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 15:19:58 GMT</lastBuildDate>
+    <item>
+      <title>我要疯了</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ibb9rt/im_going_nuts/</link>
+      <description><![CDATA[        提交人    /u/r_samnan   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ibb9rt/im_going_nuts/</guid>
+      <pubDate>Mon, 27 Jan 2025 15:10:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于奇怪的 URL 语法的问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ibb8x1/question_about_weird_url_syntax/</link>
+      <description><![CDATA[有人能解释一下这个有什么用吗？我知道像“https://”这样的东西需要双斜杠，但这意味着像 domain.com/subpath//subpath 这样的 URL 在语法上是没问题的？ https://en.wikipedia.org/wiki/URL#:~:text=A%20segment%20may%20also%20be%20empty%2C%20resulting%20in%20two%20consecutive%20slashes%20(//)%20in%20the%20path%20component.    提交人    /u/Labbo-lab   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ibb8x1/question_about_weird_url_syntax/</guid>
+      <pubDate>Mon, 27 Jan 2025 15:09:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>[建议] 服务器或客户端拥有大型 JSON 文件是一件坏事吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ibavrr/advice_is_having_a_large_json_file_server_or/</link>
+      <description><![CDATA[我有一个 React 项目，已将其迁移到 Firebase，因为 MongoDB 宣布弃用我用于操作项目的所有后端功能，主要是 Atlas HTTPS Endpoints 和 App Users。在此更改中，我想将我的所有站点数据也导入 Firebase，因为它也可以在我已经习惯的 NoSQL 模型上运行。 最近我遇到了一个小问题。截至目前，无法在 Firestore 数据库中搜索字符串字段以查找子字符串。我知道执行的解决方法 ref.where(&#39;title&#39;, &#39;&gt;=&#39;, term).where(&#39;title&#39;, &#39;&lt;=&#39;, term + &#39;\uf8ff&quot;&#39;);  但是，当您有一组随机字母时，此方法不起作用（即搜索“ample”不会返回“example”）。由于 Typesense 等选项超出了我的预算范围，并且文件太大，无法将整个数据库存储到 localStorage 或使用 Redux 持久保存（更不用说从我查到的情况来看这是一个坏主意），我正在考虑将我需要子字符串搜索的数据部分移动到 JSON 文件并在提取数据时引用它。如果我走这条路，该文件目前大约有 ~10,000 个对象，每年可能会获得 ~400-500 个新对象。除了轻微的拼写错误或翻译问题外，这个文件很少会改变。最大的缺点是每次更新文件时我都必须重建应用程序。 我考虑的另一个选项是将文件托管在私人 GitHub 页面上，并在需要引用文件时以这种方式提取它。这也成为一个问题，因为我需要从 Firestore 中的其他文档中引用数据。 将数据库的这一部分转移到这种类型的文件，或者在需要时转移到 GitHub 以请求一个好主意/好做法吗？ 任何关于应该做什么的见解都将不胜感激，因为如果可能的话，我想离开 MongoDB，因为我不能相信该平台不会弃用我在此之后使用的功能    提交人    /u/HellFyreKurayami   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ibavrr/advice_is_having_a_large_json_file_server_or/</guid>
+      <pubDate>Mon, 27 Jan 2025 14:53:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Axios 拦截器和 redux 工具包进行 RefreshToken</title>
+      <link>https://www.reddit.com/r/webdev/comments/1iba1wu/refreshtoken_with_axios_interceptor_and_redux/</link>
+      <description><![CDATA[现在写入正确解析失败的请求但是 redux 数据没有更新，因为它没有接受不是来自 createAsyncthunk 的解析请求，而是从失败的请求中获取数据 有没有办法在令牌刷新后从我解析的请求中更新 redux 的数据 //axios interceptor import axios from &quot;axios&quot;; import toast from &quot;react-hot-toast&quot;; import { getToken } from &quot;utils/utils&quot;; import { REFRESH_TOKEN } from &quot;./endPoints&quot;; import { publicRequest } from &quot;./publicRequest&quot;; export const privateRequest = axios.create({ baseURL: process.env.REACT_APP_API_BASE_URL, }); const requestHandler = (request) =&gt; { const token = getToken() || &quot;&quot;; request.headers.Authorization = `Bearer ${token}`; request.headers[&quot;x-user-role&quot;] = localStorage.getItem(&quot;currentRole&quot;); request.headers[&quot;project-id&quot;] = localStorage.getItem(&quot;projectId&quot;); return request; }; const clearToken = () =&gt; { localStorage.removeItem(&quot;token&quot;); }; // 定义重试队列项的结构 const refreshAndRetryQueue = []; // 标志以防止多个令牌刷新请求 let isRefreshing = false; const handleRefreshToken = async (error) =&gt; { const refreshToken = localStorage.getItem(&quot;refreshToken&quot;); const originalRequest = error.config; if (!isRefreshing &amp;&amp; !originalRequest._retry) { originalRequest._retry = true; isRefreshing = true; try { const response = await publicRequest.post(REFRESH_TOKEN, null, { params: { refreshToken }, }); const { access } = response.data.data; localStorage.setItem(&quot;token&quot;, access); originalRequest.headers[&quot;Authorization&quot;] = `Bearer ${access}`; refreshAndRetryQueue.forEach(({ config, resolve }) =&gt; { config.headers[&quot;Authorization&quot;] = `Bearer ${access}`; resolve(privateRequest(config)); }); refreshAndRetryQueue.length = 0; // 清除队列 return privateRequest(originalRequest); } catch (refreshError) { localStorage.removeItem(&quot;token&quot;); localStorage.removeItem(&quot;refreshToken&quot;); // 抛出 refreshError; window.location.href = &quot;/&quot;; } finally { isRefreshing = false; } } return new Promise((resolve, rejection) =&gt; { refreshAndRetryQueue.push({ config: originalRequest, resolve, rejection }); }); }; const responseErrorHandler = async (error) =&gt; { if (error.response) { const { status, data, message } = error.response; switch (status) { case 401: clearToken(); // window.location.href = &quot;/&quot;; await handleRefreshToken(error); return Promise.resolve(); // toast.warn(&quot;Token expired, please login&quot;); break;案例 400：{toast.error（data.message？data.message：message ||“无效值/错误请求”）; 返回 false; } 中断; 案例 403：toast.error（data.message？data.message：message ||“拒绝访问/禁止访问”）; window.location.href =“/errorPage/403”; 中断; 案例 404：//toast.error（data.message？data.message：message ||“项目不存在”）中断; 案例 405：toast.error（data.message？data.message：message ||“无效请求”）； 中断; 案例 409：toast.error（data.message？data.message：message ||“资源已存在。”）； 中断;案例 422：toast.error（data.message？data.message：message ||“已经存在”）；中断；案例 501：toast.error（data.message？data.message：message ||“会话已过期”）；window.location.href =“/errorPage/501”；中断；案例 504：toast.error（data.message？data.message：message ||“网络错误”）；window.location.href =“/errorPage/504”；中断；默认：toast.error（data.message？data.message：message ||“发生了一些错误”）；window.location.href =“/errorPage/default”；中断； } } else { if(error.name !== &#39;CanceledError&#39;) toast.error(error?.message || &quot;发生了一些错误&quot;); } return Promise.reject(error); }; const errorHandler = (error) =&gt; { return Promise.reject(error); }; privateRequest.interceptors.request.use(requestHandler, errorHandler); privateRequest.interceptors.response.use((response) =&gt; { return response; }, responseErrorHandler);     提交人    /u/mukeshpilane   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1iba1wu/refreshtoken_with_axios_interceptor_and_redux/</guid>
+      <pubDate>Mon, 27 Jan 2025 14:15:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>何时使用 ::before 和 after ::after</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ib9nc8/when_to_use_before_and_after_after/</link>
+      <description><![CDATA[我对 html 和 css 很陌生，所以这可能是一个愚蠢的问题，但是使用 ::before 和 ::after 而不是在 html 内部创建元素有什么意义呢？    提交人    /u/Street-Principle827   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ib9nc8/when_to_use_before_and_after_after/</guid>
+      <pubDate>Mon, 27 Jan 2025 13:57:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>免费的一体化屏幕截图和模型应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ib98oo/free_allinone_screenshots_mockups_app/</link>
+      <description><![CDATA[        提交人    /u/world1dan   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ib98oo/free_allinone_screenshots_mockups_app/</guid>
+      <pubDate>Mon, 27 Jan 2025 13:37:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>希望托管我自己的图像 - im-gur 和类似的网站是如何做到的？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ib95m5/looking_to_host_my_own_images_how_does_imgur_and/</link>
+      <description><![CDATA[标题基本就是这个意思。我需要为正在构建的网站托管用户上传的图片，我想知道，像 im-gur 和类似网站这样的大公司是如何做到的？    提交人    /u/kndb   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ib95m5/looking_to_host_my_own_images_how_does_imgur_and/</guid>
+      <pubDate>Mon, 27 Jan 2025 13:34:05 GMT</pubDate>
+    </item>
     <item>
       <title>Mixpanel 不准确，为什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1ib7xjd/mixpanel_inaccuracies_why/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1ib1r40/the_ultimate_free_resource_thread_please/</guid>
       <pubDate>Mon, 27 Jan 2025 06:30:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>我自己都不敢相信</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iaydqc/couldnt_believe_it_my_self/</link>
-      <description><![CDATA[        提交人    /u/BootingBot   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iaydqc/couldnt_believe_it_my_self/</guid>
-      <pubDate>Mon, 27 Jan 2025 03:17:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于完全的初学者，您会推荐 Nocode 工具或 AI 辅助编码工具吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iaxkmd/nocode_tools_or_ai_assited_coding_tools_what/</link>
-      <description><![CDATA[我想为我的工作室建立一个小网站，除了希望它看起来不错之外，不需要太多东西。 我应该使用像 wix 或 bubble 这样的工具还是自己设计并使用像 Superflex 和 chatgpt 这样的工具来转换为代码？    提交人    /u/linklydigital   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iaxkmd/nocode_tools_or_ai_assited_coding_tools_what/</guid>
-      <pubDate>Mon, 27 Jan 2025 02:35:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>推出 Issue Wrapper：轻松为您的应用提供 GitHub 问题报告</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iax5v3/introducing_issue_wrapper_effortless_github_issue/</link>
-      <description><![CDATA[https://www.reddit.com/r/SideProject/comments/1iax4po/introducing_issue_wrapper_effortless_github_issue    由   提交  /u/ViscousPotential   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iax5v3/introducing_issue_wrapper_effortless_github_issue/</guid>
-      <pubDate>Mon, 27 Jan 2025 02:14:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>客户端要求</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iawlgr/client_requirements/</link>
-      <description><![CDATA[        提交人    /u/nexxai   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iawlgr/client_requirements/</guid>
-      <pubDate>Mon, 27 Jan 2025 01:45:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>管理仪表板主题建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iaukog/admin_dashboard_theme_advice/</link>
-      <description><![CDATA[大家好，首先这是一篇交叉帖子。我正在尝试寻找一个完美的独角兽主题，以免自己几个月的心痛。如果你们对我下面的要求有任何建议，请提供意见。TIA！ 1. 技术堆栈兼容性：  使用 Vue.js 和 Vuetify 构建 UI 组件 Vuex/Pinia 用于状态管理 可选： TypeScript 支持  2. 身份验证和授权：  支持 OAuth2/OIDC 基于角色的访问控制 (RBAC)  3. API 集成：  REST API 集成 Axios 或 Fetch API 支持 可选： Laravel 兼容性 可选： WebSockets 支持  4. 性能和响应能力：  轻量级且针对性能进行了优化 在所有设备上完全响应 延迟加载支持  5. 存储和文件处理：  内置对文件上传的支持 可选：云和远程数据库集成  6. 开发和文档：  有据可查的代码库和结构 内置测试支持 可通过插件或模块轻松扩展 定期更新和错误修复  7. UI 组件和布局：  具有排序、过滤和分页功能的数据表 具有内置验证的表单元素 模态对话框、工具提示和小吃店 带有关键分析的仪表板 用户管理页面（CRUD 操作） 带有自定义选项的设置页面 完全可自定义的 UI，支持主题和品牌 模块化组件，可跨部分重复使用  使用要求：  核心功能不需要第三方 API 调用 必须允许部署到无限客户，并能够对使用量收费 可选：能够购买一次性许可证进行开发，稍后升级到无限制许可证    由    /u/raptorgzus  提交  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iaukog/admin_dashboard_theme_advice/</guid>
-      <pubDate>Mon, 27 Jan 2025 00:06:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何构建简单的人工智能驱动的信息图表报告 – 需要技术输入</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iatla4/how_to_build_a_simple_aidriven_infographic_report/</link>
-      <description><![CDATA[嗨，Reddit！我正在为一个业务绩效报告工具开发 MVP，我需要你的意见来找出最简单、最有效的构建方法。我不是技术人员，但有利用外包开发人员构建其他 SaaS 产品的经验。这是用于测试兴趣和吸引潜在客户的产品的基本版本 想法如下：  用户填写表格，其中包含收入、利润率、潜在客户来源和最大挑战等数据。 该工具生成信息图表样式的 PDF 报告，其中包括： 图表和根据用户的回答，由 AI 生成基于文本的洞察。 该报告还使用数据源将其表现与行业基准进行比较  报告在提交后通过电子邮件发送给用户。  我希望这个 MVP 很简单，主要使用无代码/低代码工具和集成。 以下是我一直在考虑的：  数据收集：Jotform 或 Typeform 图表/图形：Googe Sheets 或类似 Looker 的东西 文本洞察：OpenAI / Anthropic 基准数据：访问现有的基准数据库（行业收入、利润率等）以在报告中包括比较。 PDF 创建：？ 自动化：Zapier 用于连接所有内容并发送电子邮件。  我的问题： 我是否以正确的方式考虑这个问题，或者您是否推荐其他方法和工具来生成图表、基准和文本并将其组合成视觉上干净的 PDF？ 提前感谢您的帮助！    提交人    /u/serial_entrepreneur_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iatla4/how_to_build_a_simple_aidriven_infographic_report/</guid>
-      <pubDate>Sun, 26 Jan 2025 23:20:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>插入人工智能的目录网站的成本</title>
-      <link>https://www.reddit.com/r/webdev/comments/1iatay2/cost_of_a_directory_website_with_ai_inserted/</link>
-      <description><![CDATA[对于我想制作的网站，我从 Fiverr 和 Upwork 获得了从 700 美元到 7000 美元不等的报价。本质上是一个插入了抓取工具 AI 代理的普通目录。 3 个关键元素 我希望网站具有： 1. 带有搜索选项卡的英雄页面（此搜索选项卡将具有 ChatGPT 或其他 AI API 连接到： A. 从我们的程序目录中抓取插入页面的 URL 并提出建议 B. 如果插入利基市场，例如“电子商务”，将建议所有合适的程序  列出的程序有类别、价格、简短描述、徽标 每个程序的登录页面，以获取更多信息和指向该程序的直接链接。  我可以要求一些粗略的估计吗？或者有人认识一个认识一个人的人吗？谢谢。:)    提交人    /u/Businessldeas   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1iatay2/cost_of_a_directory_website_with_ai_inserted/</guid>
-      <pubDate>Sun, 26 Jan 2025 23:07:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
