@@ -4,7 +4,7 @@
     <title>最新提交：Opensource</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有与开源相关的所有内容的子reddit（在此上下文中，我们在此处删除开源的定义http://en.wikipedia.org/wiki/open_source）</description>
-    <lastBuildDate>Sat, 22 Feb 2025 06:29:36 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2025 09:21:24 GMT</lastBuildDate>
     <item>
       <title>N8N但是开源？</title>
       <link>https://www.reddit.com/r/opensource/comments/1iv9764/n8n_but_open_source/</link>
@@ -13,16 +13,9 @@
       <pubDate>Sat, 22 Feb 2025 03:13:47 GMT</pubDate>
     </item>
     <item>
-      <title>Libriscribe：使用多个AI代理的开源书创建系统</title>
-      <link>https://www.reddit.com/r/opensource/comments/1iv7azy/libriscribe_an_opensource_book_creation_system/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我已经构建了libriscribe，这是一种使用专业的AI代理来帮助写书的开源系统。您只需将其安装Python和系统将指导您在几分钟内编写一本完整的书:)  每个代理都有一个特定的角色：   - 概念加拿大概念概念  &lt; P&gt;  -  Outliner结构您的书   - 字符生成器构建引人注目的字符   -  Worldbuildingagent创建丰富的设置  -Chrocewriter在coptracewriter上写下场景 - 逐一  -EditorAgent精炼和抛光   -  contentreviewer检查情节孔和不一致 而不是一个试图做的AI一切，Libriscribe在专用代理之间创建了协作工作流程。它适用于小说，非小说，商业书籍和研究论文。 该代码基于Python且模块化。随时为自己的项目进行测试，贡献或调整它： https：//github.com/guerra2fernando/libriscribe   我会感谢任何反馈，星星或贡献！  &lt;！ -  sc_on-&gt; ＆＃32;提交由＆＃32; /u/sevyten     [link]   ＆＃32;   [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1iv7azy/libriscribe_an_opensource_book_creation_system/</guid>
-      <pubDate>Sat, 22 Feb 2025 01:36:06 GMT</pubDate>
-    </item>
-    <item>
       <title>我在C中建造了一个正则表达式解析器，并开源了！</title>
       <link>https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_parser_in_c_and_opensourced_it/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  自从我们谈论大学班上的解析和正则表达以来，我对这个概念着迷。我也是低级编程的粉丝，主要是C，因为我喜欢挑战自己，以使自己的代码尽可能快，高效。所以，我坐下来思考。很长一段时间。 挑战 正则表达式 - ＆gt; DFA  任何熟悉正则表达式的人都知道，要实际利用它们，就需要构建一个所谓的确定性有限自动机。任何保持状态并使用输入来确定下一个状态的事物都可以以这种方式调用。最流行的用法是在那些情况下，您想将字符串与正则表达式或简单的单词匹配。如果机器登陆的最后一个状态是所谓的“最终状态”，则意味着该单词与输入匹配。 自动构建状态机机器本身已经是一个挑战。正则表达式可能会被肿，也需要简化。为了实现这一目标，我找到了一个视频，讨论了正则表达式的推导。正是我想要的。输入分解为单个字符，正则表达式的树被递归地得出，直到整个表达式为空或null（匹配）。 为此，我首先实现了正则表达式树。挑战之一是表达式的优化，特别是被简化为一个的或表达式，因为“ a或a”匹配与“ a”相同的表达式。我可以让程序下降到树上比较分支，但这将非常激烈，因此我为每个节点提供了一个唯一的哈希，该节点从底部到顶部都构建。 以构建从树上的DFA（直接匹配的树是性能的噩梦），整个字母（在我的情况下，可打印的ASCII）与这棵树匹配，并将子树存储在一个简单的hashmap中。如果树节点为null，则各个状态现在是最终的。 字符串 - ＆gt;正则表达式 这是项目的简单部分。为了甚至建造一棵树，必须对字符串解析（和令牌化）。那就是事情变得非常松脆的时候。为了从某个地方开始，我构建了一个简单的数据架构，其行为像磁带一样，可以一个一个人寻求，但也能够将字符插入lookahead的目的。然后，我构建了一个用于扫描和分开结构的输入的循环外，什么都没有使用。 下一步是找到一个相对简单的解析器算法，a，我找到了一个称为＆quot＆quot ; pratt-parser;或“递归血统解析器”。我在这里不会详细介绍太多细节，但是从本质上讲，解析器使用循环和不同令牌的先例来递归下降或添加子树。现在，这两种策略允许从字符串转换为正则表达树，再到DFA。 输入 - ＆gt;匹配 最后一个方面相当简单，现在程序只需要迭代输入并将其与给定的DFA匹配一次或连续。 您可以在此处找到该项目： https://github.com/ofcdune/regex-parser    我感谢任何类型的反馈/批评。我必须承认，我对OSS有点陌生，并且独自完成了所有这些工作，因此在程序的某些地方可能没有完善的外观。这些功能应至少记录在一个句子中，包括输入输出说明。  p.s。我试图尽可能靠近PCRE，但是在某个时候，我已经停下来了，因为我已经觉得这对一个人来说已经足够了。我从来没有计划过它可以被漫步地使用，但是也许这篇文章会激励我实际获取（有点尘土飞扬的代码并继续使用更多。  &lt;！ -  sc_on-&gt;＆＃ 32;提交由＆＃32;态href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_parser_in_in_in_in_c_and_opensourcerced_it/”&gt; [link]  &lt;a href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_carser_in_in_in_c_and_opensourced_it/]]></description>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  自从我们谈论大学班上的解析和正则表达以来，我对这个概念着迷。我也是低级编程的粉丝，主要是C，因为我喜欢挑战自己，以使自己的代码尽可能快，高效。所以，我坐下来思考。很长一段时间。 挑战 正则表达式 - ＆gt; DFA  任何熟悉正则表达式的人都知道，要实际利用它们，就需要构建一个所谓的确定性有限自动机。任何保持状态并使用输入来确定下一个状态的事物都可以以这种方式调用。最流行的用法是在那些情况下，您想将字符串与正则表达式或简单的单词匹配。如果机器登陆的最后一个状态是所谓的“最终状态”，则意味着该单词与输入匹配。 自动构建状态机机器本身已经是一个挑战。正则表达式可能会被肿，也需要简化。为了实现这一目标，我找到了一个视频，讨论了正则表达式的推导。正是我想要的。输入分解为单个字符，正则表达式的树被递归地得出，直到整个表达式为空或null（匹配）。 为此，我首先实现了正则表达式树。挑战之一是表达式的优化，特别是被简化为一个的或表达式，因为“ a或a”匹配与“ a”相同的表达式。我可以让程序下降到树上比较分支，但这将非常激烈，因此我为每个节点提供了一个唯一的哈希，该节点从底部到顶部都构建。 以构建从树上的DFA（直接匹配的树是性能的噩梦），整个字母（在我的情况下，可打印的ASCII）与这棵树匹配，并将子树存储在一个简单的hashmap中。如果树节点为null，则各个状态现在是最终的。 字符串 - ＆gt;正则表达式 这是项目的简单部分。为了甚至建造一棵树，必须对字符串解析（和令牌化）。那就是事情变得非常松脆的时候。为了从某个地方开始，我构建了一个简单的数据架构，其行为像磁带一样，可以一个一个人寻求，但也能够将字符插入lookahead的目的。然后，我构建了一个用于扫描和分开结构的输入的循环外，什么都没有使用。 下一步是找到一个相对简单的解析器算法，而我找到了一个叫做＆quot的算法; pratt-parser;或“递归血统解析器”。我在这里不会详细介绍太多细节，但是从本质上讲，解析器使用循环和不同令牌的先例来递归下降或添加子树。现在，这两种策略允许从字符串转换为正则表达树，再到DFA。 输入 - ＆gt;匹配 最后一个方面相当简单，现在程序只需要迭代输入并将其与给定的DFA匹配一次或连续。 您可以在此处找到该项目： https://github.com/ofcdune/regex-parser    我感谢任何类型的反馈/批评。我必须承认，我对OSS有点陌生，并且独自完成了所有这些工作，因此在程序的某些地方可能没有完善的外观。这些功能应至少记录在一个句子中，包括输入输出说明。  p.s。我试图尽可能靠近PCRE，但是在某个时候，我已经停下来了，因为我已经觉得这对一个人来说已经足够了。我从来没有计划过它可以被漫步地使用，但是也许这篇文章会激励我实际获取（有点尘土飞扬的代码并继续使用更多。  &lt;！ -  sc_on-&gt;＆＃ 32;提交由＆＃32;态href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_parser_in_in_in_in_c_and_opensourcerced_it/”&gt; [link]  &lt;a href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_carser_in_in_in_c_and_opensourced_it/]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_parser_in_c_and_opensourced_it/</guid>
       <pubDate>Fri, 21 Feb 2025 23:44:10 GMT</pubDate>
     </item>
@@ -109,6 +102,13 @@
       <description><![CDATA[&lt;！ -  sc_off-&gt;  这是一个越来越热的话题，尤其是诸如Gemini 2.0之类的模型与传统OCR竞争成本竞争。 我们的目标是基准是在传统的OCR提供商和多模式LLM的OCR /文档提取准确性上提供最全面的开源评估。我们已经比较了1,000个文件的顶级提供商。  我们测量的三个大指标：   - 准确性（模型提取结构化数据的能力如何）   - 每1000页的成本  &lt; p&gt;  - 每页延迟 ，简而言之，LLM的表现优于传统的OCR提供商，Gemini 2.0是快速，便宜和准确的最佳组合！  github： https://github.com/getomni-ai/benchmark    拥抱脸： https://huggingface.co/datasets/getomni-i-ai/ocr-benchmark      &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/travelladybug23     [link]       [注释]  ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1iu8uud/we_made_the_most_comprehensive_opensource_ocr/</guid>
       <pubDate>Thu, 20 Feb 2025 20:44:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用Google API限制范围的开源项目的成功案例无需$ 5K安全审核吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1iu5ubp/success_stories_of_open_source_projects_that_use/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  我在关于我的免费开源工具之前发布了关于我的免费开源工具的信息，现在我希望在有关Google的第三方应用程序的对话中与其他开源开发人员互动验证过程。  该应用需要Gmail API，仅阅读敏感范围。 我遇到了一些障碍 - 因为我的应用程序使用的范围有限（gmail read），我听到了从同伴的创始人那里，我可能需要每年为Google批准的第三方安全评估提供超过5k美元的分支，以在100个用户之外扩展该应用工作区加上是否减少了安全要求吗？ 有人会碰巧更多地了解这个问题，还是可以将我指向以前做过此问题的人？ 我真的试图使此应用程序免费，因此，如果可能的话，我想避免货币化。   &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32;态href =“ https://www.reddit.com/r/opensource/comments/1iu5ubp/success_stories_of_open_source_project_projects_that_that_use/&gt; [link]   [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1iu5ubp/success_stories_of_open_source_projects_that_use/</guid>
+      <pubDate>Thu, 20 Feb 2025 18:41:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
