@@ -4,7 +4,14 @@
     <title>最新提交：Opensource</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有与开源相关的所有内容的子reddit（在此上下文中，我们在此处删除开源的定义http://en.wikipedia.org/wiki/open_source）</description>
-    <lastBuildDate>Fri, 21 Feb 2025 21:18:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2025 01:29:12 GMT</lastBuildDate>
+    <item>
+      <title>我在C中建造了一个正则表达式解析器，并开源了！</title>
+      <link>https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_parser_in_c_and_opensourced_it/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  自从我们谈论大学班上的解析和正则表达以来，我对这个概念着迷。我也是低级编程的粉丝，主要是C，因为我喜欢挑战自己，以使自己的代码尽可能快，高效。所以，我坐下来思考。很长一段时间。 挑战 正则表达式 - ＆gt; DFA  任何熟悉正则表达式的人都知道，要实际利用它们，就需要构建一个所谓的确定性有限自动机。任何保持状态并使用输入来确定下一个状态的事物都可以以这种方式调用。最流行的用法是在那些情况下，您想将字符串与正则表达式或简单的单词匹配。如果机器登陆的最后一个状态是所谓的“最终状态”，则意味着该单词与输入匹配。 自动构建状态机机器本身已经是一个挑战。正则表达式可能会被肿，也需要简化。为了实现这一目标，我找到了一个视频，讨论了正则表达式的推导。正是我想要的。输入分解为单个字符，正则表达式的树被递归地得出，直到整个表达式为空或null（匹配）。 为此，我首先实现了正则表达式树。挑战之一是表达式的优化，特别是被简化为一个的或表达式，因为“ a或a”匹配与“ a”相同的表达式。我可以让程序下降到树上比较分支，但这将非常激烈，因此我为每个节点提供了一个唯一的哈希，该节点从底部到顶部都构建。 以构建从树上的DFA（直接匹配的树是性能的噩梦），整个字母（在我的情况下，可打印的ASCII）与这棵树匹配，并将子树存储在一个简单的hashmap中。如果树节点为null，则各个状态现在是最终的。 字符串 - ＆gt;正则表达式 这是项目的简单部分。为了甚至建造一棵树，必须对字符串解析（和令牌化）。那就是事情变得非常松脆的时候。为了从某个地方开始，我构建了一个简单的数据架构，其行为像磁带一样，可以一个一个人寻求，但也能够将字符插入lookahead的目的。然后，我构建了一个用于扫描和分开结构的输入的循环外，什么都没有使用。 下一步是找到一个相对简单的解析器算法，a，我找到了一个称为＆quot＆quot ; pratt-parser;或“递归血统解析器”。我在这里不会详细介绍太多细节，但是从本质上讲，解析器使用循环和不同令牌的先例来递归下降或添加子树。现在，这两种策略允许从字符串转换为正则表达树，再到DFA。 输入 - ＆gt;匹配 最后一个方面相当简单，现在程序只需要迭代输入并将其与给定的DFA匹配一次或连续。 您可以在此处找到该项目： https://github.com/ofcdune/regex-parser    我感谢任何类型的反馈/批评。我必须承认，我对OSS有点陌生，并且独自完成了所有这些工作，因此在程序的某些地方可能没有完善的外观。这些功能应至少记录在一个句子中，包括输入输出说明。  p.s。我试图尽可能靠近PCRE，但是在某个时候，我已经停下来了，因为我已经觉得这对一个人来说已经足够了。我从来没有计划过它可以被漫步地使用，但是也许这篇文章会激励我实际获取（有点尘土飞扬的）代码并继续使用更多。  &lt;！ -  sc_on-&gt;＆＃ 32;提交由＆＃32;态href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_parser_in_in_in_in_c_and_opensourcerced_it/”&gt; [link]  &lt;a href =“ https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_regex_carser_in_in_in_c_and_opensourced_it/]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1iv5cl9/i_built_a_regex_parser_in_c_and_opensourced_it/</guid>
+      <pubDate>Fri, 21 Feb 2025 23:44:10 GMT</pubDate>
+    </item>
     <item>
       <title>刚刚发布了我的AI驱动VS代码扩展名的V1  - 寻找反馈！</title>
       <link>https://www.reddit.com/r/opensource/comments/1iuz8jk/just_released_v1_of_my_aipowered_vs_code/</link>
@@ -15,7 +22,7 @@
     <item>
       <title>福斯YouTube替代/模仿</title>
       <link>https://www.reddit.com/r/opensource/comments/1iuxphu/foss_youtube_alternativeparody/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我有域： ourtube.lol.lol   ourtube.pro 和 numberonecommunismlover.cloud 现在大约半年，我什么都没做，我想我想成为一个开源的团队工作，所以，是的，是的，是的，如果人们有兴趣，我将继续这个项目，如果您想和我一起工作，请在 u/7nk4n 在Discord上。 &#39;是的，一个有趣的项目和YouTube的中指混合在一起。因为显然，YouTube喜欢在孩子们的算法中将[已编辑]放入其算法中，禁止[编辑]的内容在创作者的年龄较大的观众方面，并且喜欢向人们提供Softcore- [删除]广告。我认为这很糟糕，我会尽量不要做一个新的“ Yewtube Altewnatiwe”。因为没有什么能与之竞争，但是可以抗议的是，如果有足够的人开始谈论“ YouTube的少数用户”中的一些用户正在停止使用它，并开始使用其他一些卑鄙的网站。然后，YouTube很有可能受到非常微观的热门影响...但是，是的，这主要是一个有趣的项目 ＃2 2这将如何产生钱？好吧，我打算做两件事：选择性广告和捐赠（ik Crazy），这意味着人们可以捐款并观看广告。现在，我们如何让人们观看广告？但是他们在哪里可以呢？不只是为此感到难过吗？好吧...（生病的）选择（ion）选择！他们可以单击视频下的一个框并获得团队验证的广告。他们最终不必使用Ublock Origin来观​​看烹饪视频。创作者在他们的视频是火上赚了一笔钱。  ＃3您将如何托管它？  github，就是这样。 希望你们有兴趣  &lt;！ -SC_ON-&gt;＆＃32;提交由＆＃32; /u/u/tn21_12     [link]   ＆＃32;   [注释]  ]]></description>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  我有域： ourtube.lol.lol   ourtube.pro 和 numberonecommunismlover.cloud 现在大约半年，我什么都没做，我想我想成为一个开源的团队工作，所以，是的，是的，是的，如果人们有兴趣，我将继续这个项目，如果您想和我一起工作，请在 u/7nk4n 在Discord上。 &#39;是的，一个有趣的项目和YouTube的中指混合在一起。因为显然，YouTube喜欢在孩子们的算法中将[已编辑]放入其算法中，禁止[编辑]的内容在创作者的年龄较大的观众方面，并且喜欢向人们提供Softcore- [删除]广告。我认为这很糟糕，我会尽量不要做一个新的“ Yewtube Altewnatiwe”。因为没有什么能与之竞争，但是可以抗议的事情，如果有足够的人开始谈论“ YouTube的几个用户中的几个用户正在停止使用它，并开始使用其他一些卑鄙的网站。然后，YouTube很有可能受到非常微观的热门影响...但是，是的，这主要是一个有趣的项目 ＃2 2这将如何产生钱？好吧，我打算做两件事：选择性广告和捐赠（ik Crazy），这意味着人们可以捐款并观看广告。现在，我们如何让人们观看广告？但是他们在哪里可以呢？不只是为此感到难过吗？好吧...（生病的）选择（ion）选择！他们可以单击视频下的一个框并获得团队验证的广告。他们最终不必使用Ublock Origin来观​​看烹饪视频。创作者在他们的视频是火上赚了一笔钱。  ＃3您将如何托管它？  github，就是这样。 希望你们有兴趣  &lt;！ -SC_ON-&gt;＆＃32;提交由＆＃32; /u/u/tn21_12     [link]   ＆＃32;   [注释]  ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1iuxphu/foss_youtube_alternativeparody/</guid>
       <pubDate>Fri, 21 Feb 2025 18:20:26 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[&lt;！ -  sc_off-&gt;  所以我在5天前推出了一个光标扩展名，并且在GitHub上已经〜100星，在不同的论坛上也有很多功能请求，甚至是赞助商在github  上是作为一个附带项目制作的，但是现在我花了很多时间来解决人们所需要的问题并处理他们需要的新功能，所以我正在考虑以某种方式获利。那我现在列出了在Microsoft Marketplace，OpenVSX和我的GitHub Repo上列出的足够动力 现在，它们似乎都没有支持付费产品afaik  请建议我如何如何可以将这一点获利，因为光标还向用户收取20美元的Pro版本  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/saketsarin     [link]   [注释]   ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1iu332q/guys_please_give_me_ideas_to_monetize_my_open/</guid>
       <pubDate>Thu, 20 Feb 2025 16:51:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>在在Google Play上发布之前，我应该在哪里表明我的修改后的GPLV3应用程序是开源的？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1iu2yfm/where_should_i_indicate_that_my_modified_gplv3/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我找到了一个在GPL-3.0下许可的开源应用程序。我克隆了它并进行了一些修改。现在，当我准备在Google Play这样的平台上发布它时，我应该在哪里表明此应用程序是开源的，以符合许可要求？  &lt;！ -  sc_on-&gt;＆&gt;＆&gt;＆ ＃32;提交由＆＃32; /u/u/smooth_possession_21     [link]    [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1iu2yfm/where_should_i_indicate_that_my_modified_gplv3/</guid>
-      <pubDate>Thu, 20 Feb 2025 16:46:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
