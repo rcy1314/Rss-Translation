@@ -4,13 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 18 Aug 2025 15:31:36 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 Aug 2025 18:37:37 GMT</lastBuildDate>
     <item>
-      <title>GPT-5有点令人失望...对开发人员有好处吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtmd8t/gpt5_was_kind_of_a_letdown_is_that_good_for/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  作为一个人开发AI驱动的应用程序以谋生的人，在过去的几年中，我受到了两个完全矛盾的原因：   ai也许AI永远不会得到足够的良好性，可以完全做我们想要的事情，而我们的产品完全可以付诸实践，我们的产品将是一个失败的方法。多余的。   GPT-5版本使我感到更加自信，这两个风险都不是巨大的风险。它足够好（IMO）可以创建出色的AI驱动应用程序，但远不及无所不能的AGI，它将通过单个提示创建完美的新应用。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/mgertner      [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtmd8t/gpt5_was_kind_of_a_letdown_is_that_good_for/</guid>
-      <pubDate>Mon, 18 Aug 2025 13:40:48 GMT</pubDate>
+      <title>logmod：ANSI C中的模块化记录框架（无全球或隐藏的mallocs）</title>
+      <link>https://www.reddit.com/r/programming/comments/1mtsvgr/logmod_a_modular_logging_framework_in_ansi_c/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;   hey  r/programming ！！ 始终在C项目中困扰我的一件事：我可能会依靠隐藏的全局范围 我试图回答： logger既避免了 结果是什么样的？保持ANSI C且不会动态分配内存的记录库。以下是关键思想：   默认情况下没有全球状态  - 您明确地通过日志记录上下文； if you’re lazy, there’s still a fallback logger that kicks in when you pass NULL. Zero dynamic allocation – you pre‑allocate a table of logger structs and hand that to logmod_init. Works in both C89 and C99 – variadic macros for C99 and a tuple‑style logmod_nlog for old compilers. Custom labels and colours – define your own log levels starting from LOGMOD_LEVEL_CUSTOM, register them via logmod_logger_set_callback, and optionally colourise output. Thread‑safety and callbacks – supply a custom lock function for multi‑threaded logging, and hook into the logging pipeline to augment or filter messages. Configurable options – toggle console output, set a logfile, enable colours, or decide whether to show the application/context IDs.  Examples  不带全球的初始化：    #include; logmod.h; struct logmod logmod; struct logmod_logger表[4]; // PRE -OLACTARE LOGMOD_INIT（＆amp; logMod，&#39;app＆quot＆quot＆quot，table，4）; struct logmod_logger *net = logmod_get_logger（＆amp; logmod，&#39;&#39;network; quot＆quot; logmod_log（info，net，“连接到服务器％s＆quot”，主机）;    使用后式记录器（可选）：     logmod_log（warn，null，null，; quot&#39;nto config config confiend confiend confiend confiend confiend confiend confience offient offions; quote; quote; //使用内置的后备   定义自定义标签和颜色：     enum {logmod_level_http = logmod_level_level_custom，logmod_level_test};静态常规struct logmod_label custy_labels [] = {{{＆quot; http; logmod_label_color（常规，前景，蓝色），0}，{; void my_callback(const struct logmod_logger *logger, const struct logmod_info *info, const char *fmt, va_list args) { // custom handling... // return LOGMOD_OK to suppress default logging, or LOGMOD_OK_CONTINUE to augment } size_t num_labels = sizeof(custom_labels) / sizeof *custom_labels; logmod_logger_set_callback（net，custom_labels，num_labels，my_callback）; logmod_log（收到的http，net，net，net，http请求：％s＆quort; url）; logmod_log（在测试模式下运行测试，net，&#39;）;    切换颜色并设置logfile：     struct logmod_options opts opts = {.logfile = fopen（app.log; logmod_set_options（＆amp; logmod，opts）; //所有记录器logmod_logger_set_color的默认值（net，0）; //禁用此  外卖 挑战是使其便于携带和符合ANSI -C的挑战，同时避免了全球状态和隐藏的分配。它变成了几百行代码，但刮擦了特定的瘙痒。如果您喜欢挖掘低级设计交易，您可能会发现它很有趣。如果您需要JSON记录或远程接收器，不是。提交由＆＃32; /u/u/lucasmull      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mtsvgr/logmod_a_modular_logging_framework_in_ansi_c/</guid>
+      <pubDate>Mon, 18 Aug 2025 17:39:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>第41天：如何像专业人士一样保护您的node.js应用</title>
+      <link>https://www.reddit.com/r/programming/comments/1mtpf85/day_41_how_to_secure_your_nodejs_app_like_a_pro/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/u/myssiriouseye8494     [link]   ＆＃32;  &lt;a href =“ https://www.reddit.com/r/programming/comments/1mtpf85/day_41_how_to_to_secure_your_your_your_nodejs_app_app_app_app_a _a_a_a_a_pro/]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mtpf85/day_41_how_to_secure_your_nodejs_app_like_a_pro/</guid>
+      <pubDate>Mon, 18 Aug 2025 15:34:59 GMT</pubDate>
     </item>
     <item>
       <title>默认情况下不变：如何避免OOP中隐藏的状态错误</title>
@@ -34,13 +41,6 @@
       <pubDate>Mon, 18 Aug 2025 13:08:13 GMT</pubDate>
     </item>
     <item>
-      <title>使用免费的JSON提示生成器轻松创建VEO 3视频</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtljur/easily_create_veo_3_videos_using_a_free_json/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/fxboshop      [commist]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtljur/easily_create_veo_3_videos_using_a_free_json/</guid>
-      <pubDate>Mon, 18 Aug 2025 13:07:49 GMT</pubDate>
-    </item>
-    <item>
       <title>使不可能的状态不可能：使用功能依赖注入的类型安全域建模</title>
       <link>https://www.reddit.com/r/programming/comments/1mtkwli/making_impossible_states_impossible_typesafe/</link>
       <description><![CDATA[＆＃32;提交由＆＃32; /u/u/cekrem      [注释]  ]]></description>
@@ -55,25 +55,11 @@
       <pubDate>Mon, 18 Aug 2025 12:23:02 GMT</pubDate>
     </item>
     <item>
-      <title>在浏览器中键入URL并按Enter时会发生什么</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtjgec/what_happens_when_you_type_an_url_in_your_browser/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/electrical_gas4694     [link]    32;  &lt;a href =“ https://www.reddit.com/r/programming/comments/1mtjgec/what_happens_happens_when_you_you_type_type_an_url_in_in_your_your_your_your_browser/]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtjgec/what_happens_when_you_type_an_url_in_your_browser/</guid>
-      <pubDate>Mon, 18 Aug 2025 11:33:10 GMT</pubDate>
-    </item>
-    <item>
       <title>让我们做游戏吧！ 307：战场边界</title>
       <link>https://www.reddit.com/r/programming/comments/1mtiti1/lets_make_a_game_307_battlefield_boundaries/</link>
       <description><![CDATA[＆＃32;提交由＆＃32; /u/apeloverage      [注释]   ]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1mtiti1/lets_make_a_game_307_battlefield_boundaries/</guid>
       <pubDate>Mon, 18 Aug 2025 11:00:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dumper应用</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtir04/dumper_app/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;   dumper-这是用于创建具有灵活连接和存储设置的各种类型的备份数据库（PostgreSQL，MySQL等）的CLI实用程序。  今天，第一个版本此应用 https://github.com/elkirrs/dumper       有很多想法可以添加新功能。 sc_on-&gt;＆＃32;提交由＆＃32; /u/u/elkirrs       [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtir04/dumper_app/</guid>
-      <pubDate>Mon, 18 Aug 2025 10:56:53 GMT</pubDate>
     </item>
     <item>
       <title>2025年基准前端</title>
@@ -90,25 +76,39 @@
       <pubDate>Mon, 18 Aug 2025 10:13:53 GMT</pubDate>
     </item>
     <item>
-      <title>共享个人新密码学范式实验：动态抽象加密 + k中的Kraken-GS实现</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtho1g/sharing_a_personal_new_cryptography_paradigm/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/kenbrainniks       [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtho1g/sharing_a_personal_new_cryptography_paradigm/</guid>
-      <pubDate>Mon, 18 Aug 2025 09:55:16 GMT</pubDate>
+      <title>内容 - 可调的存储（CAS）</title>
+      <link>https://www.reddit.com/r/programming/comments/1mtg9rn/contentaddressable_storage_cas/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/vannam0511      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mtg9rn/contentaddressable_storage_cas/</guid>
+      <pubDate>Mon, 18 Aug 2025 08:28:53 GMT</pubDate>
     </item>
     <item>
-      <title>经过2年以上的开发，我们刚刚开源了整个AI平台 - 请烘烤我们的代码😅</title>
-      <link>https://www.reddit.com/r/programming/comments/1mth1zk/we_just_opensourced_our_entire_ai_platform_after/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  几个月后“我们疯了？” meetings, we finally pulled the trigger and open-sourced WEAM - our team AI platform. What it is: Think ChatGPT but built for teams of 20+ Next.js frontend, Node.js/Python backend Connects to OpenAI, Claude, Gemini, Llama - basically every LLM API Has &quot;Brains&quot; （智能文件夹），自定义代理，RAG管道，现成的AI应用程序实际上已经准备好生产（我们一直在内部使用） 我们正在寻找的内容：代码评论（残酷，我们可以接受🔥）为什么您这样做X？”问题搜索错误（肯定有错误隐藏）功能建议架构决策的一般反馈 为什么要开源？诚实地？我们认为AI平台不应该是黑匣子。另外，社区可能会用它来建立比我们以往任何时候都更凉爽的东西。 - &gt;＆＃32;提交由＆＃32; /u/u/flightslow2085      [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mth1zk/we_just_opensourced_our_entire_ai_platform_after/</guid>
-      <pubDate>Mon, 18 Aug 2025 09:18:20 GMT</pubDate>
+      <title>NUMA是新网络：每个插座内存模型如何重塑微服务放置</title>
+      <link>https://www.reddit.com/r/programming/comments/1mt8qjj/numa_is_the_new_network_how_persocket_memory/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  探讨非统一内存访问（numa）如何重塑微服务放置。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/mqian41     [link]   [commist]   ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mt8qjj/numa_is_the_new_network_how_persocket_memory/</guid>
+      <pubDate>Mon, 18 Aug 2025 01:34:23 GMT</pubDate>
     </item>
     <item>
-      <title>验尸的。电子商务网站</title>
-      <link>https://www.reddit.com/r/programming/comments/1mtghmm/postmortem_of_ecommerce_site/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/electrical_gas4694     [link]  ＆＃32;   [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mtghmm/postmortem_of_ecommerce_site/</guid>
-      <pubDate>Mon, 18 Aug 2025 08:43:08 GMT</pubDate>
+      <title>记录代码很无聊...。但是不一定是</title>
+      <link>https://www.reddit.com/r/programming/comments/1mt6zy1/documenting_code_is_boring_but_it_doesnt_have_to/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  本文让我思考了我们行业中的基本悖论 - 我们都迫切需要良好的文档，但我们大多数人都讨厌创建它。该文章谈到了通过更好的设计和结构使文档“减少无聊”，但是我对基本问题更加好奇：写文档的痛苦实际上值得解决，还是大多数开发人员只是接受它是必要的邪恶？以我的经验，大约有三个营地：1。受害者 - 撰写文档，因为他们必须恨它2。您是：•通过乏味的乏味，因为您知道这很重要吗？ •使用任何工具/自动化来减轻痛苦？ •只是……除非绝对强迫，否则不这样做？我特别感兴趣的是人们认为这是一个值得通过更好的工具解决的问题，还是只是我们需要接受的开发的固有部分。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/ok-ok-ad7050     splass &lt;56fba&gt;  ＆＃32;   [注释]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mt6zy1/documenting_code_is_boring_but_it_doesnt_have_to/</guid>
+      <pubDate>Mon, 18 Aug 2025 00:12:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>自定义LISP REPL</title>
+      <link>https://www.reddit.com/r/programming/comments/1mt5886/customizing_lisp_repls/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/aartaka      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mt5886/customizing_lisp_repls/</guid>
+      <pubDate>Sun, 17 Aug 2025 22:53:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>固定靴子，TPM和反陈词发动机</title>
+      <link>https://www.reddit.com/r/programming/comments/1mt05nb/secure_boot_tpm_and_anticheat_engines/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/tapo      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mt05nb/secure_boot_tpm_and_anticheat_engines/</guid>
+      <pubDate>Sun, 17 Aug 2025 19:28:52 GMT</pubDate>
     </item>
     </channel>
 </rss>
