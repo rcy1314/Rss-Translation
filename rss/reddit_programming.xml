@@ -4,27 +4,13 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 21 Aug 2025 21:24:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 01:51:49 GMT</lastBuildDate>
     <item>
       <title>D4D4</title>
       <link>https://www.reddit.com/r/programming/comments/1mwne3r/d4d4/</link>
       <description><![CDATA[＆＃32;提交由＆＃32; /u/u/iamkeyur     [link link]   [注释]  ]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1mwne3r/d4d4/</guid>
       <pubDate>Thu, 21 Aug 2025 21:11:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何解决“它在我的机器上工作”的问题一劳永逸地解决（以及为什么您的团队需要这个）</title>
-      <link>https://www.reddit.com/r/programming/comments/1mwmk87/how_i_solved_it_works_on_my_machine_problem_once/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  每个开发人员都熟悉这种情况：代码在您的计算机上工作，但在同事上崩溃。或今天的项目建立，但由于系统更新，无法在六个月内运行。 Nix是一种一劳永逸地解决这些问题的工具。 传统发展的问题 想象一个典型的GO项目。要运行它，您需要安装： - 转到特定版本的编译器 - 系统库（libx11，libxtst） - 外部实用程序（Translate -shell，mpg123） - 带有特定软件包的Python  每个团队成员以自己的方式安装每个团队成员。通过系统软件包管理器的人，某人从源头编译。但是，如果某人有较新的版本，该版本与破坏变化有关？还是不需要API的python312packages.gtts的旧版本？结果是可以预见的 - 它仅适用于作者。  nix如何更改游戏 查看真实项目 speaker 。想象一下，如果您使用GO 1.22而不是GO 1.21，则该程序会断开，或者如果翻译壳版本不兼容。在传统发展中，这意味着要进行调试和寻找“工作”的数小时。版本。 带有nix  - 只有一个命令： bash nix run github：back2nix/speaker   该项目将以与作者所测试的所有依赖关系完全相同的版本运行。 GO将正是flake.lock creation，python312packages.gtts（正是兼容版本，mpg123）的nixpkgs中指定的版本。在 flake.nix 文件中，不仅指定了软件包，而且它们来自特定nixpkgs的确切版本提交： ` inputs.nixpkgs-unstable.url =; quthub：nixos/nixpkgs/nixos-25.05＆quot;   buildInputs = [libxkkbcommon＃精确版本来自nixos-23.05工作版本python312packages.gtts＃兼容版本]; `````` 如果明天的nixpkgs更新转到打破代码的版本，那么您的项目将继续与固定版本一起使用。 NIX将每个项目与全局系统更新隔离。 真实的问题示例 假设扬声器项目使用新版本中更改的特定翻译 -  shell API。在正常情况下： - 开发人员A具有旧版本，一切正常 - 开发人员B具有来自软件包管理器的新版本，程序崩溃 - 六个月后，每个人都有新版本 - 该项目不会从NIX开始 ，这不会发生。翻译壳版本是用flake.lock固定的，所有开发人员都完全获得了该版本。 实用的优势    对于开发人员而言：  - 项目之间没有任何版本的冲突 - 可以使用go 1.19的旧项目，对于一个旧的项目，对于一个新的一个同步的依赖性 - 偶然的    用于项目：  - 保证代码将在几年后运行 - 受控依赖性更新 - 滚动到任何一个以前的环境版本，并立即使用一个命令 开始        nix不需要对项目的急剧更改。从简单的 shell.nix 开始：    nix {pkgs？导入＆lt; nixpkgs＆gt; {}}：pkgs.mkshell {buildInputs = with pkgs; [nodejs＃来自当前nixpkgs python3＃兼容版本＃您的依赖项的精确版本]; }   现在， nix-shell 命令将使用固定的工具版本创建一个孤立的环境。 结论   nix不仅是软件包管理器，它是一个开发理念，其中可重复性比便利性更重要。系统软件包更新中没有更多的惊喜，没有更多的时间搜索“该特定版本”。在六个月前的工作。 在一个团队远程工作并且项目生活多年的世界中，依赖版本控制不是奢侈品，而是必要的。 Nix使此简单可靠。 在您的下一个项目中尝试NIX。您未来的团队（一年中的您自己）将感谢您。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/u/lazy_mast3603      &lt;a href =“ https://www.reddit.com/r/programming/comments/1mwmk87/how_i_solved_it_it_it_it_tworks_my_my_my_my_my_machine_problem_once/]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mwmk87/how_i_solved_it_works_on_my_machine_problem_once/</guid>
-      <pubDate>Thu, 21 Aug 2025 20:39:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>ORYX-用于使用Linux上EBPF嗅探网络流量的TUI</title>
-      <link>https://www.reddit.com/r/programming/comments/1mwmbzk/oryx_a_tui_for_sniffing_network_traffic_using/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/notpythops      [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mwmbzk/oryx_a_tui_for_sniffing_network_traffic_using/</guid>
-      <pubDate>Thu, 21 Aug 2025 20:30:38 GMT</pubDate>
     </item>
     <item>
       <title>在C ++中构建强大的过程间队列-Jody Hagins -C ++在SEA 2025上</title>
@@ -36,23 +22,9 @@
     <item>
       <title>C ++ 26中的三件事：安全，反射和STD ::执行-Herb Sutter -C ++在海上2025</title>
       <link>https://www.reddit.com/r/programming/comments/1mwm5sg/three_cool_things_in_c26_safety_reflection/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32;  /u/BlueGoliath   [link]   [注释]  ]]></description>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/bluegoliath      [注释]  ]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1mwm5sg/three_cool_things_in_c26_safety_reflection/</guid>
       <pubDate>Thu, 21 Aug 2025 20:23:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>不要成为“那个家伙” ...以这四种方式记录您的代码</title>
-      <link>https://www.reddit.com/r/programming/comments/1mwluik/dont_be_a_that_guy_document_your_code_in_these_4/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  综合指南与真实示例和模板有关的代码文档。涵盖从内联注释到用户指南的所有内容。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/ok-ad7050     [link]      [注释]    ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mwluik/dont_be_a_that_guy_document_your_code_in_these_4/</guid>
-      <pubDate>Thu, 21 Aug 2025 20:12:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>文档已经死了。漫长的文档 - 为什么传统文档失败了开发人员</title>
-      <link>https://www.reddit.com/r/programming/comments/1mwkrl4/documentation_is_dead_long_live_documentation_why/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我一直在思考为什么文档很烂，什么应该替换它。在工作中与文档挣扎并与其他开发人员讨论相同的痛点后写了这篇文章。好奇别人的想法，我们会永远遇到旧文档的方法，还是有更好的方法？”   &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/cgk2k      [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1mwkrl4/documentation_is_dead_long_live_documentation_why/</guid>
-      <pubDate>Thu, 21 Aug 2025 19:31:02 GMT</pubDate>
     </item>
     <item>
       <title>为什么要进行调试器如此艰难 - 站立（英尺瑞安·弗勒里）</title>
@@ -109,6 +81,34 @@
       <description><![CDATA[&lt;！ -  sc_off-&gt;  关于为什么是这种情况的任何意见，因为看起来很奇怪？  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/u/grogginthecosmos     ＆＃32;  &lt;a href =“ https://www.reddit.com/r/programming/comments/1mw8mue/perl_from_25th_to_9th_9th_spot_the_spot_the_tiobe_index/”]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1mw8mue/perl_from_25th_to_9th_spot_on_the_tiobe_index/</guid>
       <pubDate>Thu, 21 Aug 2025 11:46:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>到无限……但不超越！</title>
+      <link>https://www.reddit.com/r/programming/comments/1mw8b5b/to_infinity_but_not_beyond/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32;  /u/JadeLuxe   [link] ＆＃32;   [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mw8b5b/to_infinity_but_not_beyond/</guid>
+      <pubDate>Thu, 21 Aug 2025 11:30:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么语义层很重要 - 以及如何使用DuckDB建造一个Motherduck博客</title>
+      <link>https://www.reddit.com/r/programming/comments/1mw7szt/why_semantic_layers_matter_and_how_to_build_one/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/u/breweddoritos      [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mw7szt/why_semantic_layers_matter_and_how_to_build_one/</guid>
+      <pubDate>Thu, 21 Aug 2025 11:04:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netflix用原始空心内存对象商店改造了Tudum的CQRS架构</title>
+      <link>https://www.reddit.com/r/programming/comments/1mw66im/netflix_revamps_tudums_cqrs_architecture_with_raw/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/rgancarz      [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mw66im/netflix_revamps_tudums_cqrs_architecture_with_raw/</guid>
+      <pubDate>Thu, 21 Aug 2025 09:29:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>速率限制算法（100秒内的令牌桶）</title>
+      <link>https://www.reddit.com/r/programming/comments/1mw5a85/the_algorithm_behind_rate_limiting_token_bucket/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/xplodivity      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1mw5a85/the_algorithm_behind_rate_limiting_token_bucket/</guid>
+      <pubDate>Thu, 21 Aug 2025 08:31:59 GMT</pubDate>
     </item>
     </channel>
 </rss>
