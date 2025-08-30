@@ -4,7 +4,28 @@
     <title>最新提交：Opensource</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>所有与开源相关的所有内容的子reddit（在此上下文中，我们在此处删除开源的定义http://en.wikipedia.org/wiki/open_source）</description>
-    <lastBuildDate>Sat, 30 Aug 2025 06:32:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 09:23:58 GMT</lastBuildDate>
+    <item>
+      <title>我们开源代理的故事！</title>
+      <link>https://www.reddit.com/r/opensource/comments/1n3woa7/the_story_of_our_open_source_agent/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  嘿 u/opensource 👋 我想分享几天的旅程href =“ http://www.droidrun.ai”&gt; droidrun ，我们用于自动化真实Android Apps的开放式代理框架。 我们开始构建Droidrun，因为我们感到沮丧：自动化和代理技术中的所有东西似乎都陷入了Browserer中。但是人们住在手机和应用程序上是围墙的花园。因此，我们建立了一个可以实际利用，滚动和交互的代理，就像人类一样。 几周前，我们发布了一个简短的演示无音调，只是一个运行真实Android UI的代理。在48小时内：  我们达到了 xxxx+ github     获得了Devs加入我们的devord      在投资者的雷达 after  What worked for us:  We led with a real demo, not a roadmap Posted in the right communities, not product forums Asked for feedback, not attention And open-sourced from day one, which gave us credibility +动量  我们还处于早期，还有很多吨要弄清楚。但是到目前为止，最大的一课是：  不要等待抛光。如果核心很强，就会运送怪异，破碎，原始的东西。提交由＆＃32; /u/u/petesneaknex     [link]    ＆＃32;   [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1n3woa7/the_story_of_our_open_source_agent/</guid>
+      <pubDate>Sat, 30 Aug 2025 08:44:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>🚀新版本：Timetracker v1.1.0  - 自托管时间跟踪变得简单</title>
+      <link>https://www.reddit.com/r/opensource/comments/1n3wb2q/new_release_timetracker_v110_selfhosted_time/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/u/innin-egg-7321     [link]    [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1n3wb2q/new_release_timetracker_v110_selfhosted_time/</guid>
+      <pubDate>Sat, 30 Aug 2025 08:19:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻求RTCIO的反馈：现代的，类型的安全WEBRTC库，带有脱钩的信号器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1n3uyjq/seeking_feedback_on_rtcio_a_modern_typesafe/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  在过去的几周中，我一直在一个名为 rtcio 的新开源库。我的目标是创建一个具有简单，高级的API类似于 socket.io 的简单，高级的API ，但要与现有解决方案更灵活。 API设计以及您可能会看到的任何潜在改进。   github repo：   注意：这不是主分支上的 ，因为这是我几年前在此问题上进行的一次尝试的广泛重构。从那时起，我就已经成为开发人员了很多，认为重新做​​这个库是值得的，这样我就可以在不久的将来在一个项目中使用它。如果您想向自己大笑，您可以检查主分支的当前实现：）  “为什么”为什么     ，而像 simple&gt; simple-peer 之类的图书馆很棒，我想要在现代，模块化项目中更觉得在家中感觉到的东西。我的主要目标是：   真正的信号者不可知论：我想要一个与任何特定的信号传输无关的库（例如socket.io）。     第一级类型安全    ：一个完全符合的库，一般的库是必不可少的   密钥架构＆amp;打字稿的决定  这是我最感谢您的反馈的地方。   1。解耦的信号层库的核心通过 clientsignaler 接口（@rtcio/signding ）完全从信号服务器与信号服务器解耦。这意味着您可以编写（或使用）任何信号实现（Websockets， socket.io ，graphQl等），并将其插入主 rtc  Manager。这使库非常灵活且易于测试。   2。类型安全的通用事件系统我在事件系统上花费了很多时间。  RTC 管理器和单个 P2PConnection 实例是通用的。您可以通过定义自定义P2P事件的接口传递，并且使用 .on（）和 .emit（）。      //定义您的自定义事件interface Appevents Appevents {ChatMessage：chatMessage：chatMess：（chatMess）= cant，messags：string）=＆gt;空白; gamestate ：（状态：gameStateObject）=＆gt;空白; } const rtc = new rtc＆lt; appevents＆gt;（Signaler，&#39;my-room&#39;）; //“ peer”现在已与您的事件rtc.on（&#39;connected&#39;，（peer）=＆gt; {//自动完成&#39;chatmessage&#39;&#39;&#39;和&#39;gameState&#39;在这里peer.on（&#39;chatmessage&#39;，&#39;chatmessage&#39;，（来自，message）=＆gt; gt;     3。带有NPM工作区的Monorepo＆amp;项目参考  该项目的构造是带有软件包/*的monorepo，我正在使用Typescript的项目参考来管理核心，信号界面和信号器实现软件包之间的依赖关系。这可以使一切保持清洁并有效地建造。 请求反馈  我正在寻找：   api设计：RTC Manager和P2PConnection api api Intuitive contuitive contore        type  一般代码质量：您看到的任何事情都可以做得更好？   感谢您抽出宝贵的时间来查看！我期待您的评论！  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/joe-diertay     [link]   [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1n3uyjq/seeking_feedback_on_rtcio_a_modern_typesafe/</guid>
+      <pubDate>Sat, 30 Aug 2025 06:53:18 GMT</pubDate>
+    </item>
     <item>
       <title>🚀开源AI智能手表项目 - 寻找合作者！</title>
       <link>https://www.reddit.com/r/opensource/comments/1n3u8jj/open_source_ai_smartwatch_project_looking_for/</link>
@@ -71,7 +92,7 @@
     <item>
       <title>我创建了一个程序来记录流</title>
       <link>https://www.reddit.com/r/opensource/comments/1n35qzo/ive_created_a_program_to_record_streams/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  大家好，我刚刚发布了一个名为Televedi的新软件。 Televedi允许用户实时录制流频道或安排以后的自动录制。 是：   - 开源   - 免费   - 配备了简单且直觉的界面      - 与自定义流和playlist和playlist    - 仅与Windows 10和11  兼容，您可以在 https://github.com/github.com/github.com/messina-agata/televedi/televedi/televedi 提交由＆＃32; /u/u/agata_30     [link]       [注释]  ]]></description>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  大家好，我刚刚发布了一个名为Televedi的新软件。 Televedi允许用户实时录制流频道或安排以后的自动录制。 是：   - 开源   - 免费   - 配备了简单且直觉的界面     - 与自定义流和playlist和playlist     - 仅与Windows 10和11  兼容，您可以在 https://github.com/github.com/github.com/messina-agata/televedi/televedi/televedi 提交由＆＃32; /u/u/agata_30     [link]       [注释]  ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1n35qzo/ive_created_a_program_to_record_streams/</guid>
       <pubDate>Fri, 29 Aug 2025 12:12:59 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[&lt;！ -  sc_off-&gt;  我构建了一个名为 echobox的小型android库，一种轻巧的方式来收集用户（表情符号 +消息）的应用程序内反馈（Emoji +消息），而无需后端。 现在，如果现在，我可能会添加jetpack compack of jetpack，但我可能会添加XML的支持。贡献非常欢迎！提交由＆＃32; /u/u/androiddeveloper01     [link]   [注释]   ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1n32vf9/made_a_tiny_library_to_collect_user_feedback_in/</guid>
       <pubDate>Fri, 29 Aug 2025 09:36:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>Windows的任何OpenSource Distation（对文本的语音）应用程序吗？ Word中的“指示”选项的替代方案？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1n32tcy/any_opensource_dictationspeech_to_text/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我在网上搜索了一个，但其中大多数似乎是用于Linux，MacOS和Android。  我知道在Android中发言和耳语。  我已经看到了耳语安装设置并尝试过，但是还没有看到可以直接指示其他开放应用程序的人。 &lt; /p&gt; 是否有类似的应用程序可以直接将要求的文本输入单词或文本文件？喜欢，一个可以指示将其指示为Word或Libreoffice Writer的应用程序？  预先感谢。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/diothesuperiorwaifu      [link]   [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1n32tcy/any_opensource_dictationspeech_to_text/</guid>
-      <pubDate>Fri, 29 Aug 2025 09:33:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>欧盟的开源困境也是如此：很多人都看到好处，很少有贡献</title>
-      <link>https://www.reddit.com/r/opensource/comments/1n2xr5k/open_source_dilemma_in_the_eu_too_many_see/</link>
-      <description><![CDATA[      ＆＃32;提交由＆＃32; /u/u/donutloop      &lt;a href =“ https://www.reddit.com/r/opensource/comments/1n2xr5k/1n2xr5k/open_source_dilemma_in_eu_eu_too_too_many_many_see/]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1n2xr5k/open_source_dilemma_in_the_eu_too_many_see/</guid>
-      <pubDate>Fri, 29 Aug 2025 04:18:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源AI代理项目[目标：最长的AI代理列表]</title>
-      <link>https://www.reddit.com/r/opensource/comments/1n2qyta/open_source_ai_agent_projects_goal_the_longest/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  这是一个带有多个AI代理项目的开源回购。我刚刚完成了第一个，我的目标是每周添加一个新的用例，该案例可能会对您中的某些人有所帮助。 如果您对AI代理有想法，请告诉我，我会尝试构建它们。一切都将是完全免费和开源的。 目标：AI代理的最长列表 获得了AI代理？分享！将其添加到存储库中，以便我们可以将列表作为一个社区🌍 链接： ai agent project      反馈，想法，或贡献是欢迎的，或者是欢迎   /u/_coder23t8      [link]   [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1n2qyta/open_source_ai_agent_projects_goal_the_longest/</guid>
-      <pubDate>Thu, 28 Aug 2025 22:56:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
