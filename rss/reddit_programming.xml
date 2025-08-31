@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 31 Aug 2025 03:39:41 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 Aug 2025 06:32:41 GMT</lastBuildDate>
+    <item>
+      <title>工程师变成了经理/面向客户的：实际上有什么帮助沟通学习曲线？</title>
+      <link>https://www.reddit.com/r/programming/comments/1n4n934/engineers_turned_managersclientfacing_what/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  大家好， 我一直在数据空间的技术方面（即数据科学家，数据工程师），他们最近被晋升为更具客户的角色，老实说，我很挣扎。我经理的反馈是，我“对技术细节太多”，需要研究我与各种利益相关者的沟通方式。 是，我一直都在分析和直截了当 - 从字面上看，这是使我擅长技术工作的原因。但是显然，这并不能很好地转化为利益相关者会议和跨职能的合作。 我尝试了一些通常的嫌疑犯（Toastmasters，通用通信课程），但它们都觉得他们是为销售人员或公众演讲者而不是工程师而不是工程师设计的。建议要么是浅（例如节奏，填充单词）或理论上的建议（例如，盘式框架）在您的大脑有效地解决问题时并没有真正的帮助。 ，因此我很好奇 -  其他人是否撞到了这堵墙？是否有什么帮助您？我很想从那些经历过的人那里得到意见。如果您在技术到企业的交流过渡方面苦苦挣扎，您是否介意填写8个问题的评估？我想确保我正在构建真正解决真正挑战的东西，而不仅仅是我认为挑战。   https://docs.google.com/forms/d/e/1faipqlsfipaujv0okcblh4mvkxfkxf0kpgfwww2evqdyg7_cufxqxr-z8wa/view fiew fiew fiew？usp=dialog？ 不想在这里出售任何东西 - 真正想了解这是否引起其他人的共鸣，什么实际上会有所帮助。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/u/bedroomsubstantial72      [注释]   ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1n4n934/engineers_turned_managersclientfacing_what/</guid>
+      <pubDate>Sun, 31 Aug 2025 06:08:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>平行性动物园</title>
+      <link>https://www.reddit.com/r/programming/comments/1n4n74c/the_parallelism_mesh_zoo/</link>
+      <description><![CDATA[＆＃32;提交由＆＃32; /u/mttd      [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1n4n74c/the_parallelism_mesh_zoo/</guid>
+      <pubDate>Sun, 31 Aug 2025 06:05:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何用分布式锁服务服务器解决S3写入争议</title>
+      <link>https://www.reddit.com/r/programming/comments/1n4lhll/how_i_solved_s3_write_contention_with_a/</link>
+      <description><![CDATA[&lt;！ -  sc_off-&gt;  介绍 在构建分布式系统时，通常拥有需要写入共享资源的多个工人或服务（例如Amazon S3存储桶）。但是，S3不提供本机锁定，并同时写入可以导致数据损坏，种族条件或意外结果。在本文中，我将通过构建和部署分布式锁定服务器以及如何执行相同的操作来介绍如何解决此问题。 问题：并发写信给S3  想象您有几个分布式工人，每个人都将文件上传到同一S3桶。如果两名工人试图同时编写同一文件，则您有风险：  数据腐败或部分写入 不一致的状态 难以欺骗竞赛条件    稳健的解决方案都需要进行分布式锁定 - 所有工人都可以锁定策略。 我考虑了几种方法：   s3对象锁定：不适合所有用例，可以很复杂。  步骤2：构建一个分布式锁服务器 我决定构建一台专用的锁服务器，受到Redis setnx的简单性的启发，但使用REDIS的http api和rentful http api和客户端库的多种语言。  Secure Access的共享秘密  Rust，Python和Node.js  阻止和非阻挡锁定锁定获取  步骤3：实现锁服务器 我实现了生锈和可靠性。服务器公开两个端点：  发布/获取 - 尝试获取资源/所有者 发布/发布的锁，发布锁  每个请求必须包括一个共享的秘密。 node.js，使从lockkserver_client import lockserverclient = lockserverclient = lockserverclient = lockserverclient（lockserverclient（lockserverclient）（  python示例：   python示例： upload_to_s3（&#39;my-bucket&#39;，&#39;file.txt&#39;）最后：client.Release（&#39;s3-upload-lock&#39;）      node.js示例：         const const {lockserverclient} = lockserverclient} = const client = new lockserverclient（{所有者：&#39;worker-123&#39;，秘密：&#39;your-strong-secret&#39;}）;等待客户端。Acquire（&#39;s3-upload-lock&#39;）; //…上传到s3…等待客户端（&#39;s3-upload-lock&#39;）;   步骤5：部署和测试  将锁者部署为独立服务（Docker，Bare Metal或Cloud VM）    配置了所有工人使用同一lockserver_secretver_secretver_secretver_secret  eat agn torified at Fornified s Time Andied s Tirsified S Tore and Andied S Tore s Tirsified S 3资源  结果  不再有种族条件：一个工人一次写作。     language-agnostic：任何工人（Rust，Python，Node.js等）都可以参与。 结论 通过引入分布式锁服务器，我能够以可扩展，安全和语言的语言方式求解S3写入争论。如果您面临类似的挑战，请考虑使用或贡献给Lockserver。 链接：   github： href =“ https://crates.io/crates/lockserver”&gt; https://crates.io/crates/lockserver    npm： https://www.npmjs.com/package/package/lockserver-client        感谢您的阅读！如果您发现这很有帮助，请随时播放回购或在下面发表评论。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/plaping_clerk7250     [link]   [注释]  ]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1n4lhll/how_i_solved_s3_write_contention_with_a/</guid>
+      <pubDate>Sun, 31 Aug 2025 04:25:10 GMT</pubDate>
+    </item>
     <item>
       <title>最小的看板</title>
       <link>https://www.reddit.com/r/programming/comments/1n4g6jf/the_most_minimal_kanban/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[＆＃32;提交由＆＃32; /u/u/jadeluxe     [link]    ＆＃32;   [注释]  ]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1n3ukwg/im_working_on_implementing_a_programming_language/</guid>
       <pubDate>Sat, 30 Aug 2025 06:29:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>用交互式演示解释了JavaScript封闭</title>
-      <link>https://www.reddit.com/r/programming/comments/1n3th8z/javascript_closures_explained_with_interactive/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  最好的类比理解闭合是 backpack 。     函数exfunctiona（）{const outervariable =＆quot;我来自外部！＆quort;;函数exFunctionb（）{console.log（outervariable）; //从其背包访问变量。 }返回exfunctionb; } const myclusion = exFunctiona（）; //外部功能运行并消失了... mycluse（）; //...但是Interfunction仍然有其背包！ logs“我来自外面！”    思考定义任何函数（函数a）时，我们定义了其中的一些变量 （词汇范围）。在这里，我们定义变量 outervariable 内部函数a 。 思考，要记住这些信息，函数创建 backpack 并将所有这些值保留在其中。 然后，我们再次定义了另一个函数（function b）Insel  strong&gt;我们的function function a function a）。函数b可以访问 parent函数（函数a）中定义的变量。  因此，现在我们的内部函数将创建 backpack 并保留所有这些信息。当我们的外部功能（函数A）执行并返回其上下文，并且词汇范围也会完成。但是请记住，我们的内部功能（函数b）具有自己的背包，在背包内部，它具有从 e父函数a （已经执行的）。我们的内部函数b仍然可以访问父函数中定义的变量a被称为闭合。  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/u/sanudelhi       [注释]   ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1n3th8z/javascript_closures_explained_with_interactive/</guid>
-      <pubDate>Sat, 30 Aug 2025 05:23:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>互联网实验注释索引</title>
-      <link>https://www.reddit.com/r/programming/comments/1n3scml/internet_experiment_note_index/</link>
-      <description><![CDATA[&lt;！ -  sc_off-&gt;  我非常喜欢研究基础技术如何随着时间的流逝而发展的历史。这似乎是一系列文档的集合，详细介绍了TCP和UDP的早期迭代的演变和批评。 希望其他人也发现这很有趣！  &lt;！ -  sc_on-&gt;＆＃32;提交由＆＃32; /u/u/u/serenecalathea      [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1n3scml/internet_experiment_note_index/</guid>
-      <pubDate>Sat, 30 Aug 2025 04:19:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>在Python中重新加载课程并共享边界</title>
-      <link>https://www.reddit.com/r/programming/comments/1n3moz9/reloading_classes_in_python_and_shared_borders/</link>
-      <description><![CDATA[＆＃32;提交由＆＃32; /u/u/u/ketralnis      [注释]  ]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1n3moz9/reloading_classes_in_python_and_shared_borders/</guid>
-      <pubDate>Fri, 29 Aug 2025 23:32:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
