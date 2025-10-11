@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 10 Oct 2025 18:34:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Oct 2025 01:43:20 GMT</lastBuildDate>
+    <item>
+      <title>我的电子邮件服务第三次遭到破坏。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3ixdl/my_email_service_got_blasted_for_a_3rd_time/</link>
+      <description><![CDATA[      第一次使用 AWS。当我醒来时，我的帐户发送了 10,000 封电子邮件。这是我的错，我有很多安全问题。我将文件锁定在 root 访问权限之后，并将我的凭据放入 .env 中（不会推送到 git）。我又被炸了30,000 封电子邮件。 我以为我的 AWS 帐户遭到入侵，因此我开设了一个测试 Sendgrid 帐户，果然，再次被炸毁。  https://preview.redd.it/4if9b42sxduf1.png?width=516&amp;format=png&amp;auto=webp&amp;s=010c3b490b6ab7595b8f67b7e10bc438bcddaceb 我不知道还能做什么。我知道某处存在泄漏，但我不知道如何或在哪里再查看。   由   提交/u/LordesTruth   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3ixdl/my_email_service_got_blasted_for_a_3rd_time/</guid>
+      <pubDate>Sat, 11 Oct 2025 01:28:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>大家都用什么刮刀？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3ijb5/what_scrapers_do_you_guys_use/</link>
+      <description><![CDATA[我一直在使用 outscraper，因为它很便宜，但它只会给我带来低质量的潜在客户，我需要一些建议。    由   提交 /u/Weak-Drummer-8338   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3ijb5/what_scrapers_do_you_guys_use/</guid>
+      <pubDate>Sat, 11 Oct 2025 01:08:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>PeerJS 是否适合其他人？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3igcw/is_peerjs_down_for_anyone_else/</link>
+      <description><![CDATA[他们的状态页面显示它仍在运行，但他们的项目 Starviee、P2P 文件传输 或我的项目都没有 项目正在为我或我的任何朋友工作。   由   提交/u/Wazk26  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3igcw/is_peerjs_down_for_anyone_else/</guid>
+      <pubDate>Sat, 11 Oct 2025 01:04:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有教授正确网络开发的实际课程或资源？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3hvvo/is_there_actual_courses_or_resourses_that_teach/</link>
+      <description><![CDATA[我正在查看 roadmap.sh 后端路线图，令我惊讶的是，除了每个人都教的语言和框架之外，还有很多东西需要学习，但我不知道从哪里开始，也不知道要遵循哪些资源。 对于了解 JWT、缓存和其他东西的人来说，你是在哪里学的？   由   提交/u/Boudy-0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3hvvo/is_there_actual_courses_or_resourses_that_teach/</guid>
+      <pubDate>Sat, 11 Oct 2025 00:37:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>当对 Express + TypeScript 进行 Docker 化时（可能使用捆绑器以获得更好的分辨率），我们如何处理开发？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3hhr5/when_dockerizing_an_express_typescript_maybe_with/</link>
+      <description><![CDATA[基本上，我正在尝试使用express和typescript创建一个Web服务器，以获得更好的模块分辨率，因此我想可能使用像tsdown这样的捆绑器很好，但是我对Docker的一些小概念仍然有一些困难，那么什么是好的默认值或模板来研究它？ 现在对我有用的是这个，想要的意见和一些解释 如果在 Dockerfile 与 docker-compose 中使用 hide/cmd 效果更好，也可以 Copy 。 。 vs Volume ./server:/app # package.json { &quot;private&quot;: true, &quot;type&quot;: &quot;module&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;scripts&quot;: { &quot;dev:build&quot;: &quot;tsdown --watch&quot;, “dev:watch”: “nodemon dist/index.js”, “dev”: “npm-run-all --parallel dev:build dev:watch” }, “依赖项”: { “表达”: “^5.1.0” }, “devDependency”: { “@types/express”: “^5.0.3”, “@types/node”: “^24.7.1”, “npm-run-all”: “^4.1.5”, “tsdown”: “^0.15.6” } }  # Dockerfile FROM node:20-bookworm # 因为 tsdown 不适用于 alpine WORKDIR /app COPY package*.json ./ RUN npm i COPY 。 。 EXPOSE 3000 CMD [“npm”、“run”、“dev”]  # docker-compose.yml 服务：服务器：构建：./server 公开：- 3000 个卷：- ./server:/app nginx: 图像：nginx:alpine 端口：- “80:80” Volumes: - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf dependent_on: - server  这对于开发来说是同时运行bundler和nodemon并在端口3000处使用反向代理进行监视。   由   提交/u/Gustavo_Fenilli   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3hhr5/when_dockerizing_an_express_typescript_maybe_with/</guid>
+      <pubDate>Sat, 11 Oct 2025 00:18:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>想要建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3hch8/want_suggestions/</link>
+      <description><![CDATA[如果我了解 html+css 对我的实践以及对以后的工作有帮助，我可以做出什么好的项目。   由   提交/u/Money-Sea3842   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3hch8/want_suggestions/</guid>
+      <pubDate>Sat, 11 Oct 2025 00:11:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>将导航栏按钮分组为一个长的三重按钮是个好主意吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3g73n/is_it_a_good_idea_to_group_navbar_buttons_into/</link>
+      <description><![CDATA[   /u/Armauer  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3g73n/is_it_a_good_idea_to_group_navbar_buttons_into/</guid>
+      <pubDate>Fri, 10 Oct 2025 23:18:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我将 ZetaMac 和 MonkeyType 组合成最好的快速数学游戏。去尝试一下吧！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3dw3o/i_combined_zetamac_and_monkeytype_into_the_best/</link>
+      <description><![CDATA[大家好！我构建了一个小型副项目，将 MonkeyType 的快速打字流程与 ZetaMac 的快速心算练习相结合。这是一款基于浏览器的游戏，挑战您的算术速度，同时保持干净、简约的打字练习美感。它使用 React、Next.js、Node 和 TypeScript 构建，可以在浏览器中流畅运行，无需注册，但您可以创建一个帐户来跟踪您的进度和统计数据。如果您喜欢 Zetamac、Monkeytype、拼图或未来量化，请尝试一下！非常欢迎提供反馈，我将尝试经常更新此内容，如果您喜欢它，请在存储库上加一颗星，我将非常感激。    由   提交/u/Chance-Protection366   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3dw3o/i_combined_zetamac_and_monkeytype_into_the_best/</guid>
+      <pubDate>Fri, 10 Oct 2025 21:39:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 X 时间范围内完整编码并部署网站有多合理？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3dsrv/how_reasonable_it_is_to_fully_code_and_then/</link>
+      <description><![CDATA[嘿大家！ 我已经开始学习更多编码，已经有了一些过去的经验。截至目前，我正在研究如何扩展我的技能以及我想学习解决哪些问题。 因此，我想到了 Web 开发。因此，我与一位家庭成员进行了交谈，他们显然要求某人为她开发一个网站。看起来并没有那么复杂，或者非常非常实用和错综复杂，但是如果你们中有人非常了解 Web 开发并且编写了一堆优秀的网站，您可以看一下它，看看经验丰富的开发人员在哪个时间范围内编写它是合理的（有或没有 AI 工具的帮助）？ 参考网站是：gerviusodai(dot)lt。  这是一个关于开发时间框架的真正问题，以便更好地了解需要多长时间，而不是广告，因为来自 reddit 的流量（尤其是来自非我们国家的人）非常无关紧要，而且我的家人目前没有参加。  我只是真诚地想更好地了解为有一定（或高度）经验的人创建这样的东西需要多长时间。   由   提交/u/iNhab   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3dsrv/how_reasonable_it_is_to_fully_code_and_then/</guid>
+      <pubDate>Fri, 10 Oct 2025 21:36:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>在我的新闻聚合网站上请求反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3de5a/requesting_feedback_on_my_news_aggregation_site/</link>
+      <description><![CDATA[       由   提交/u/Economy_Vacation_761   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3de5a/requesting_feedback_on_my_news_aggregation_site/</guid>
+      <pubDate>Fri, 10 Oct 2025 21:20:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>对 Netlify 和 Github 与 Client 感到困惑</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3c7t9/confused_with_netlify_and_github_with_client/</link>
+      <description><![CDATA[我的客户有一个连接到他的 GitHub 的 Netlify 帐户。我从事一个 Web 项目，该存储库位于我的 GitHub 帐户下。他有免费版本，但他让我用他的凭据访问这个 Netlify 帐户。处理这种情况的最佳方法是什么？我读过一些有关 GitHub Organizations 的内容，这也是一个选择吗？我不想将仓库移到他的 github 帐户下。    由   提交/u/Dangerous-Ad4246   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3c7t9/confused_with_netlify_and_github_with_client/</guid>
+      <pubDate>Fri, 10 Oct 2025 20:34:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>这些人怎么建得这么快？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3be79/how_do_these_people_build_so_fast/</link>
+      <description><![CDATA[所以我是一名开发人员，从小就开始构建和编码。不是吹牛，但我也不会说我在这方面特别糟糕。  我已经在我的应用程序上工作了几个月，但无论我看到什么，我都看到这些年轻的开发人员在短短几天内就推出了全栈应用程序和功能齐全的 MVP。  从逻辑上讲，他们不可能那么快地完成所有工作。我知道有些人正在对他们的应用程序进行振动编码，但我查看了其中一些人的代码库，它们似乎也不完全是振动编码的。 我遗漏了什么吗？    由   提交/u/avillalobos310   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3be79/how_do_these_people_build_so_fast/</guid>
+      <pubDate>Fri, 10 Oct 2025 20:03:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>Firefox 的 DevTools 不显示某些 cookie，但 Chrome 会显示</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o3afxz/devtools_of_firefox_doesnt_show_some_cookies_but/</link>
+      <description><![CDATA[我有一个 API (api.app.com) 和我的网页 (web.app.com)。 API 设置了一个域名为“.api.app.com”的 cookie。当我在 Firefox 的 DevTools 中查找此 cookie（存储 &gt; Cookies）时，它没有显示，但在 Chrome 中却显示了（应用程序 &gt; Cookies）。 在“网络”选项卡中，我还可以看到 Cookie 在 Firefox 的请求中发送，因此 cookie 没有显示在“存储”选项卡中似乎非常奇怪。 是否有任何晦涩的设置使其显示在 DevTools 中 Firefox 的？   由   提交 /u/CodeAndChaos   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o3afxz/devtools_of_firefox_doesnt_show_some_cookies_but/</guid>
+      <pubDate>Fri, 10 Oct 2025 19:26:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一次体验：客户问我为什么他的网站没有出现在搜索引擎的第一页？我有责任这样做吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o39q3s/first_experience_client_ask_me_why_his_site_is/</link>
+      <description><![CDATA[您好，我在 Next JS 中为一位律师（我朋友的熟人）制作了网站，然后使用处理表单的 PHP 代码将其转换为静态网站。客户购买了域名和共享主机。可访问性、SEO和性能得分不低于95%。我在头部使用了关键字和描述...我没有使用框架，因为据我所知，它们需要维护。请告诉我网站在搜索引擎中的排名是我的责任吗？最糟糕的是，他没有按照我的要求创建社交媒体页面，而是给了我两个相关的关键字...   由   提交/u/med-vir   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o39q3s/first_experience_client_ask_me_why_his_site_is/</guid>
+      <pubDate>Fri, 10 Oct 2025 18:59:26 GMT</pubDate>
+    </item>
     <item>
       <title>从网站到应用程序</title>
       <link>https://www.reddit.com/r/webdev/comments/1o392dt/from_website_to_app/</link>
       <description><![CDATA[您好，我想创建一个应用程序，因为我有一个想法，它在移动设备上会更好，可以随处访问。我有 5 年的网站开发经验，接触过除 Angular 之外的所有框架。我希望每部手机都能使用它，如果可能的话，开发 1 个应用程序，这样也许可以做出原生反应？ 那么你建议我使用什么？这对于移动商店来说要花多少钱？ PWA 是个好主意还是本机反应还是其他什么？   由   提交/u/typovrak  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1o392dt/from_website_to_app/</guid>
       <pubDate>Fri, 10 Oct 2025 18:34:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我的网站获得来自中国的流量？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o38ssi/why_is_my_website_getting_traffic_from_china/</link>
-      <description><![CDATA[   我有一个关于 Unicode 符号的网站，在过去 30 天里，中国是最大的流量来源。这是真实的流量还是只是机器人？    由   提交/u/usaidr  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o38ssi/why_is_my_website_getting_traffic_from_china/</guid>
-      <pubDate>Fri, 10 Oct 2025 18:24:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>为客户购买域名</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o38a1p/purchasing_domain_for_a_client/</link>
-      <description><![CDATA[我计划为客户建立一个网站+主机。但我发现这个客户甚至还没有域名。  我的问题是，我是购买域名并自己为客户管理，还是让客户自己购买域名并使我成为其域名提供商的用户？   由   提交/u/joelpaul_09   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o38a1p/purchasing_domain_for_a_client/</guid>
-      <pubDate>Fri, 10 Oct 2025 18:04:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何让我的网站向我发送电子邮件以响应访问者的操作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o37n2u/how_do_i_make_my_website_send_me_an_email_in/</link>
-      <description><![CDATA[我正在使用 Cloudways 托管的 WordPress 制作一个小型企业网站，如果客户以表单形式提交，我需要让该网站向我发送一封包含客户基本信息的电子邮件。我需要为此设置什么类型的电子邮件插件或服务？最好是免费的，因为它可能不会经常使用。   由   提交 /u/LupusVir   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o37n2u/how_do_i_make_my_website_send_me_an_email_in/</guid>
-      <pubDate>Fri, 10 Oct 2025 17:41:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 Web 应用程序中处理 Gmail 的电子邮件别名变化？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o37iqm/how_to_handle_gmails_email_alias_variations_in_a/</link>
-      <description><![CDATA[我最近发现了我的自定义 Web 应用程序的一个问题：它将同一 Gmail 地址的变体视为唯一，而 Gmail 则不然。 例如，它会看到newjohn@gmail.com 和 new.john@gmail.com 作为不同的帐户。它还无法识别 newjohn+anyWordAfterPlusSignIsIgnored@gmail.com 和 newjohn@gmail.com 发送到同一个收件箱。 这很难处理，因为并非所有电子邮件域都遵循 Gmail 规则。 我的问题是，您如何处理这个问题？您只是让用户注册什么，还是有特定的方法来规范这些电子邮件别名？ 对于一次性电子邮件，我已经有效地使用了第三方 API 服务。 您将如何处理这种情况？ 提前感谢您分享您的经验。   由   提交 /u/sunsetRz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o37iqm/how_to_handle_gmails_email_alias_variations_in_a/</guid>
-      <pubDate>Fri, 10 Oct 2025 17:36:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>gradient-gl • 确定性 WebGL 渐变动画</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o37eie/gradientgl_deterministic_webgl_gradient_animations/</link>
-      <description><![CDATA[      用于确定性种子驱动程序渐变动画的微型 WebGL 库 https://metaory.github.io/gradient-gl/   由   提交/u/Last_Establishment_1   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o37eie/gradientgl_deterministic_webgl_gradient_animations/</guid>
-      <pubDate>Fri, 10 Oct 2025 17:32:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>Next.js 16（测试版）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o365a7/nextjs_16_beta/</link>
-      <description><![CDATA[       由   提交/u/feross  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o365a7/nextjs_16_beta/</guid>
-      <pubDate>Fri, 10 Oct 2025 16:45:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于所有初学者开发人员来说，不要只是振动代码</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o347mp/for_all_beginner_devs_dont_just_vibe_code/</link>
-      <description><![CDATA[如果您刚刚开始进行 Web 开发，很容易对所有这些框架、教程、工具以及每个人在 X 上展示他们的百万美元 MVP 感到迷失。 这是大多数人不会告诉您的：从小处开始构建一些东西（即使是简单的事情）。部署它分享它 你从一个完成的项目中学到的东西比从 10 个 YouTube 教程中学到的还要多。 每个开发人员都可以编写一个在生产中崩溃的 MVP，但不要落入这个陷阱。重要的不是你的堆栈有多花哨，而是你是否了解幕后发生的事情。 如果你一切都依赖人工智能，你就会被知道如何指导它的人取代。首先学习使用人工智能作为工具而不是捷径。 我已经编码了 5 年，每天仍在学习，前辈们也给新开发人员留下了您的建议 我发布此内容是因为我遇到了许多刚开始 Web 开发的开发人员的帖子和评论   由   提交 /u/Sad_Impact9312   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o347mp/for_all_beginner_devs_dont_just_vibe_code/</guid>
-      <pubDate>Fri, 10 Oct 2025 15:34:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果没有空间放置图表图例，将图表添加到仪表板中的小卡片是否有意义？如果没有的话，我该用什么来填补这个空白呢？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o3332m/is_there_a_point_in_adding_charts_to_small_cards/</link>
-      <description><![CDATA[   /u/Armauer   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o3332m/is_there_a_point_in_adding_charts_to_small_cards/</guid>
-      <pubDate>Fri, 10 Oct 2025 14:53:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>查看远程桌面，我应该使用什么系统/软件包/应用程序？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o31v2f/viewing_a_remote_desktop_what/</link>
-      <description><![CDATA[大家好， 我就切入正题了。我想创建一个平台，以便能够在网络浏览器中查看远程桌面连接。我还没有选择协议。我正在考虑 noVNC.js 并在桌面上使用 VNC 服务器，但是我想看看其他人是否有更好的协议或关于我可以使用什么的想法？ 我希望这是有道理的，我已经厌倦了编码好几年了，完全忘记了任何实际术语哈哈 谢谢大家   由   提交/u/h-exx   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o31v2f/viewing_a_remote_desktop_what/</guid>
-      <pubDate>Fri, 10 Oct 2025 14:06:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何使用 adonisJS 作为电子应用程序的后端？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o31st5/how_to_use_adonisjs_as_a_backend_in_an_electron/</link>
-      <description><![CDATA[我已经尝试按照电子网站上的教程进行操作，但无法使其工作。 YouTube 上的最新视频已有 2 年或以上的历史。我希望前端通过 AdonisJS api 访问保存在应用程序数据库（SQLite）中的信息，使用 IPC 不公开本地服务器。 现在我可以使用 Angular 编译来运行 Electron。  项目树： ``` appartamenti_V2 ├─ 应用程序 │ ├─ 主 │ │ ├─ 后端 │ │ │ └─ 使用 adonis CLI (JSON API) 生成的 adonis 项目 │ │ ├─ 前端 (使用 Angular CLI 生成的 Angular 项目) | | | └─ dist（编译角度）| | | └─ 前端 | | | └─ 浏览器 | | | └─index.html │ │ ├─ main.js │ │ ├─ package-lock.json │ │ ├─ package.json │ │ ├─ preload.js │ │ └─ resources ``` main.js 文件 const { app, BrowserWindow } = require(&#39;electron&#39;) const url = require(&#39;url&#39;); const 路径 = require(&#39;路径&#39;); let mainWindow function createWindow () { mainWindow = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } }) mainWindow.loadURL( url.format({ pathname: path.join(__dirname, `/frontend/dist/frontend/browser/index.html`), 协议：“文件：”，斜杠：true }) ); // mainWindow.webContents.openDevTools() mainWindow.on(&#39;close&#39;, function () { mainWindow = null }) } app.on(&#39;ready&#39;, createWindow) app.on(&#39;window-all-close&#39;, function () { if (process.platform !== &#39;darwin&#39;) app.quit() }) app.on(&#39;activate&#39;, function () { if (mainWindow === null) createWindow() })    由   提交/u/elecim91  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o31st5/how_to_use_adonisjs_as_a_backend_in_an_electron/</guid>
-      <pubDate>Fri, 10 Oct 2025 14:03:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>新网站缓存问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o30s1g/new_website_cache_issue/</link>
-      <description><![CDATA[我们从 UpWork 聘请了一名自由职业者来重新设计和开发我们的网站，通过使用更少的插件来获得更快的速度。我们遇到了一些问题并开始后悔。我们有一个严重问题： 任何访问我们网站旧版本的现有客户都会收到“无效请求”。和随机故障错误无法完成结帐。 他的解决方案是清除前端和服务器上的缓存，但这没有帮助。所以现在他的解决方案是告诉客户使用“隐身浏览器”下订单时....这不切实际。这会持续多久？有谁知道永久修复吗？？   由   提交/u/marleysublime7  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o30s1g/new_website_cache_issue/</guid>
-      <pubDate>Fri, 10 Oct 2025 13:22:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>照片家伙 ISO 网络家伙</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o30npv/photo_guy_iso_web_dude/</link>
-      <description><![CDATA[      大家好，webdev 的朋友们，我是一位来自俄亥俄州的音乐会摄影师，最近偶然发现了一些其他摄影师的一些非常独特的网页设计，这让我思考更独特的方式来展示作品集。 参考网站：https://dumpsterdive.design https://scumner.world/ 我的想法是播放电影《Over The》中的标题菜单 对冲”当你通过自动售货机 POV 浏览菜单时，我在过去几天的挣扎一直是如何真正开始这个过程。我是否需要先寻找 3D 动画师/建模师来处理设计，然后将其交给网页设计师？  https://preview.redd.it/69p41njmbauf1.jpg?width=1280&amp;format=pjpg&amp;auto=webp&amp;s=ce51ba704bc8ddb50ea502c0985056243e6fa696   由   提交/u/Subject_Handle_8506  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o30npv/photo_guy_iso_web_dude/</guid>
-      <pubDate>Fri, 10 Oct 2025 13:17:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>内置 FoldCMS：类型安全的静态 CMS，具有 Effect 和 SQLite，具有完整的关系支持（开源）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o3078a/built_foldcms_a_typesafe_static_cms_with_effect/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o3078a/built_foldcms_a_typesafe_static_cms_with_effect/</guid>
-      <pubDate>Fri, 10 Oct 2025 12:58:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>我注意到一个新的开发工具模式 - 可声明的沙箱</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o2ytb8/i_noticed_a_new_devtool_pattern_claimable/</link>
-      <description><![CDATA[      Neon 有 Launchpad，您可以在其中从终端启动数据库，进行操作，然后转储/声明它。  现在 Stripe 有了“Claimable Sandboxes”这允许您做同样的事情 两个构成“趋势”在开发工具中。我希望看到很多其他公司也这样做。 我曾在几家开发者工具公司工作过，我们总是有一个免费层，我们希望开发者只需登录并玩一玩。然而，90% 的资源会被浪费，我们仍然必须维护我们产品的该实例。  我认为这对每个人来说都是一场胜利，因为 Neon 和 Stripe 都会在没有活动后大约 2 天拆除您的实例。   由   提交/u/thehashimwarren  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o2ytb8/i_noticed_a_new_devtool_pattern_claimable/</guid>
-      <pubDate>Fri, 10 Oct 2025 11:54:15 GMT</pubDate>
     </item>
     </channel>
 </rss>
