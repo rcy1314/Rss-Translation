@@ -4,7 +4,63 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 13 Oct 2025 15:26:22 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 18:33:50 GMT</lastBuildDate>
+    <item>
+      <title>Redis 上运行的 Lua 脚本存在严重漏洞 - CVE-2025-49844</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5rmrn/critical_vulnerability_in_lua_scripts_run_on/</link>
+      <description><![CDATA[我想知道你们对将脚本语言引入键值存储以便您可以“高效且原子地在 Redis 中执行部分应用程序逻辑”的整个想法有何看法。   由   提交/u/matt_112358  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5rmrn/critical_vulnerability_in_lua_scripts_run_on/</guid>
+      <pubDate>Mon, 13 Oct 2025 18:18:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>测试并不能证明代码是正确的……他们只是同意它</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5rh32/tests_dont_prove_code_is_correct_they_just_agree/</link>
+      <description><![CDATA[“测试并不能证明某件事是正确的，而是证明一段代码的行为方式与另一段代码认为它应该行为的方式相同。” 有一天，我在编写一些“完美通过”的测试时突然想到了这个想法。我意识到他们实际上并没有证明任何东西——只是确认我在两个地方的假设是匹配的。 当你的实现和测试都有相同的错误假设时，一切仍然会通过。绿色复选标记，虚假信心。 这让我重新思考测试的用途。它们并不是真正要证明真理——更多的是要锁定意图。一种说法是，“如果我改变这种行为，我想知道。” 棘手的部分是意图本身可能是错误的。 无论如何，这只是太多追求 100% 覆盖率的深夜的随机反映。很好奇你们都怎么想的——你们认为测试是验证、文档，还是只是控制混乱的护栏？   由   提交 /u/untypedfuture   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5rh32/tests_dont_prove_code_is_correct_they_just_agree/</guid>
+      <pubDate>Mon, 13 Oct 2025 18:12:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于行的 Lisp 编辑</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5res3/linebased_lisp_editing/</link>
+      <description><![CDATA[ 由   提交/u/aartaka  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5res3/linebased_lisp_editing/</guid>
+      <pubDate>Mon, 13 Oct 2025 18:10:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>学习编程语言的方法</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5re5y/way_to_learn_a_programming_language/</link>
+      <description><![CDATA[我遵循这个建议：   我真的很喜欢 PHP。它随着时间的推移不断发展，同时保持语法简洁。然而，我想发现隐藏在引擎盖下的东西。实际上，我正在听从朋友的建议，用 C++ 编写解释器。 我真心推荐这种体验。它改变了您看待编程的方式。 我已经给我的解释器起了一个名字。它被称为 Jim PHP，以纪念由 antirez (Salvatore Sanfilippo) 创建的 Jim Tcl。 这是我到目前为止所做的： Jim PHP 架构分为 3 个级别。每个级别都是一个对象，这三个对象将相互通信。  LEXER：将 PHP 代码拆分为令牌。 PARSER：将从令牌构建 AST。 INTERPRETER：将分析 AST 并执行节点。  注意：Jim PHP 将使用 AST 和 不是像 Jim Tcl 那样面向运行时的解释器。此外，Lexer 遵循共同的理念，但 Parser 和 Interpreter 可能会遵循不同的想法。 DAY ZERO 设置 Git 和 GitHub，研究总体架构，编写 README 文件，并配置 CMakeLists.txt。我花了更多时间来理解架构概念。 第一天 我开始研究如何使用 Jim PHP 执行 PHP 代码。 与 Jim Tcl 一样，Jim PHP 可以通过 3 种方式运行代码：  硬编码/内联字符串：std::string php_code = &quot;1+1;&quot;; 从命令行：jimphp -r &#39;echo 1+1;&#39; 从文件：jimphp sum.php  注意：要执行命令，Jim PHP 将使用 jimphp 命令，与 Jim Tcl 不同，它使用 jimsh*。这是因为我希望它与 PHP 类似。* 我首先采用硬编码字符串方法，用其标记结构启动 Lexer 实现。 根据我的研究，Lexer 的工作是获取整个源代码并将其拆分为单独的标记。这些标记将在下一步中用于构建解析器，然后构建解释器。 Lexer.cpp 现在可以对表达式进行标记。 “1+1”变为“1”、“+”、“1”。 第二天 开始修复 Lexer.cpp 中的一些问题。 问题 #1： 如果您像这样在 main.cpp 中硬编码 PHP 代码： std::string php_code = “(10.2+0.5*(2-0.4))*2+(2.1*4)”; 词法分析器将返回一个“未知字符”错误，因为它当然不会自动识别像 () {} 这样的符号。 昨天，Jim PHP 只用像“1+1”这样的简单表达式进行了测试，这是不够的。需要处理复杂的PHP代码，所以一个更好的词法分析器，能够更准确地标记和更精确地识别符号是绝对必要的。 也许我有点得意忘形，但Jim PHP现在不仅可以识别某些特殊字符，而且还可以根据我自己的（可能过于精确的）逻辑对它们进行分类和结构。 标记结构如下： Token(const std::string&amp; t, const std::string&amp; v) // 类型（类别名称）和值：type(t), value(v) {}  这样，可以更好地组织标记：  Char 标记：a-z、A-Z 和 _ Num 标记：0-9 Punct（标点符号）标记：., ,, :, ; Oper（运算符）标记：+、-、*、/、=、%、^ Parent（括号）标记：()、[]、{} Scahr（特殊字符）标记：!, @、#、$、 &amp;、?、&lt;、&gt;、\、|、&#39;、&quot;和 ==、!=、&gt;=、&lt;=、&amp;&amp;、||  这样，我们就可以编写更复杂的 PHP 表达式，如： std::string php_code = &quot;$hello = 5.5 + 10 * (3 - 1); // 测试！ @#|_\\“” 结果：  SCHAR：$ CHAR：hello_user OPER：= NUM：5 PUNCT：. NUM：5 OPER：+ NUM： 10 OPER: * LPAREN: ( NUM: 3 OPER: - NUM: 1 RPAREN: ) PUNCT: ; OPER: / OPER: / CHAR: 测试 SCHAR: ! SCHAR: @ SCHAR: # SCHAR: | CHAR: _ SCHAR: \ SCHAR: &quot;  这是一个好方法吗？    由   提交/u/Giuseppe_Puleri   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5re5y/way_to_learn_a_programming_language/</guid>
+      <pubDate>Mon, 13 Oct 2025 18:09:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>《星际迷航》中没有程序员</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5rdyg/there_are_no_programmers_in_star_trek/</link>
+      <description><![CDATA[ 由   提交/u/Active-Fuel-49   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5rdyg/there_are_no_programmers_in_star_trek/</guid>
+      <pubDate>Mon, 13 Oct 2025 18:09:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>到 2025 年，RAD 对 Java 开发人员仍然有意义吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5q951/does_rad_still_make_sense_in_2025_for_java/</link>
+      <description><![CDATA[最近，我一直在重新审视快速应用程序开发 (RAD) 工具，这些工具专注于以最少的样板快速生成完整的 CRUD 应用程序。 在 Java 世界中，我们有 WaveMaker、OpenXava、OutSystems、Oracle APEX 和 Jmix 等框架，每个框架都采用不同的方法。 但现在 AI 工具几乎可以立即生成 Spring Boot + Angular 代码，我想知道： RAD 在 2025 年是否仍然占有一席之地，或者 GenAI 是否会使其过时？ 好奇其他人的想法 - 特别是那些同时使用 RAD 框架和传统 Java 堆栈的人。   由   提交/u/Competitive-Fee-2503   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5q951/does_rad_still_make_sense_in_2025_for_java/</guid>
+      <pubDate>Mon, 13 Oct 2025 17:29:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>技术债务：让开发人员现在更快乐，或者以后付出更多</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5nnoe/technical_debt_make_developers_happier_now_or_pay/</link>
+      <description><![CDATA[ 由   提交/u/nosoyjohn  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5nnoe/technical_debt_make_developers_happier_now_or_pay/</guid>
+      <pubDate>Mon, 13 Oct 2025 15:57:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Swift Subprocess 自动化所有事情</title>
+      <link>https://www.reddit.com/r/programming/comments/1o5nm1t/automate_all_the_things_with_swift_subprocess/</link>
+      <description><![CDATA[ 由   提交/u/jacobs-tech-tavern   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o5nm1t/automate_all_the_things_with_swift_subprocess/</guid>
+      <pubDate>Mon, 13 Oct 2025 15:55:58 GMT</pubDate>
+    </item>
     <item>
       <title>Python 3.14 的 7 个关键更新让您的编码更轻松、更快、更好</title>
       <link>https://www.reddit.com/r/programming/comments/1o5lp3s/7_key_python_314_updates_to_make_your_coding/</link>
@@ -18,13 +74,6 @@
       <description><![CDATA[ 由   提交 /u/gregorojstersek   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1o5kmc5/how_to_use_ai_to_help_with_software_engineering/</guid>
       <pubDate>Mon, 13 Oct 2025 14:04:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chat UNcontrol - 开源自托管临时安全聊天</title>
-      <link>https://www.reddit.com/r/programming/comments/1o5ka0r/chat_uncontrol_an_open_source_selfhostable/</link>
-      <description><![CDATA[大家好， 随着有关聊天控制 2.0 的讨论（欧洲计划扫描私人消息，冒着隐私风险），我构建了一个简单的工具来帮助人们安全地聊天。 Chat UNcontrol 是一款 alpha 阶段的应用程序，可让您创建私人加密聊天链接。消息会自动消失，除了参与者之外没有人可以阅读它们。 由于我作为开发人员的全职工作，空闲时间有限，所以我在 AI 的帮助下开发了它。这使得这个过程变得更快更容易。 这是对聊天控制 2.0 的直接响应，旨在保护您的隐私和通信自由。 如果您想尝试它或想要演示链接，请随时与我联系！ 此处存储： https://github.com/gorecodes/chatuncontrol 很高兴收到反馈或问题！   由   提交/u/goregasm_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o5ka0r/chat_uncontrol_an_open_source_selfhostable/</guid>
-      <pubDate>Mon, 13 Oct 2025 13:51:26 GMT</pubDate>
     </item>
     <item>
       <title>汇编编程是残酷的，也是美丽的，甚至可能是通往更好人工智能的道路</title>
@@ -60,55 +109,6 @@
       <description><![CDATA[在上周的开发日会议上发布的一项重大公告中，OpenAI 推出了 AgentKit，这是一套新的工具，旨在更轻松地构建代理工作流程。 这对于任何在 OpenAI 平台上构建产品的人来说意味着什么？ OpenAI 正在与我们竞争吗？ 我们应该感到兴奋、担心还是忽略炒作？ 让我们深入探讨。   由   提交/u/shift_devs  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1o5h5sv/openai_killed_off_cheap_chatgpt_wrappers_or_did_it/</guid>
       <pubDate>Mon, 13 Oct 2025 11:30:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>I 代表意图</title>
-      <link>https://www.reddit.com/r/programming/comments/1o5ei8e/i_is_for_intent/</link>
-      <description><![CDATA[ 由   提交/u/roman01la  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o5ei8e/i_is_for_intent/</guid>
-      <pubDate>Mon, 13 Oct 2025 08:53:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程中的无过失文化</title>
-      <link>https://www.reddit.com/r/programming/comments/1o5czje/blameless_culture_in_software_engineering/</link>
-      <description><![CDATA[ 由   提交/u/thehuslingengineer  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o5czje/blameless_culture_in_software_engineering/</guid>
-      <pubDate>Mon, 13 Oct 2025 07:14:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于可验证 HTTP 的 zkTLS — 停止盲目信任 AI 代理和预言机</title>
-      <link>https://www.reddit.com/r/programming/comments/1o5bxsd/zktls_for_verifiable_http_stop_blindly_trusting/</link>
-      <description><![CDATA[当您与法学硕士进行氛围编码时，您经常会听到：  法学硕士说：“✅ 我发送了请求。” 预言家说：“✅ 这是真实的数据。”  但是……您如何验证 真的发生过吗？你没有。你只是盲目信任。 😬 这不仅仅是一个 LLM 问题——人类也会这样做。如果没有证据，信任就会脆弱。 这就是为什么我们构建VEFAS（人工智能代理的可验证执行框架）改变了这一点。我们使用 zkTLS 将任何 HTTP(S) 请求转换为 加密证明：  在时间T，我通过真正的TLS将请求X发送到URL Y并得到响应Z。   ❌没有公证人 ❌没有可信网关 ✅任何人都可以验证证明  这是第一个 更大的可验证人工智能堆栈的一层。 该项目是开源，正在大力开发，我们邀请开发人员、密码学家和人工智能构建者来帮助推动这一进程。   由   提交/u/bryanlee9889  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o5bxsd/zktls_for_verifiable_http_stop_blindly_trusting/</guid>
-      <pubDate>Mon, 13 Oct 2025 06:09:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Java后端编码技术</title>
-      <link>https://www.reddit.com/r/programming/comments/1o5ao8k/java_backend_coding_technology/</link>
-      <description><![CDATA[编写 Java 后端代码的新方法。没有“最佳实践”，就没有“干净的代码”。咒语。只是一小部分清晰明确的规则。   由   提交 /u/Zestyclose-Error9313   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o5ao8k/java_backend_coding_technology/</guid>
-      <pubDate>Mon, 13 Oct 2025 04:55:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>🏛️ 从头开始​​构建法学硕士 – 第 2 部分：数据收集和自定义标记器</title>
-      <link>https://www.reddit.com/r/programming/comments/1o56elg/building_llms_from_scratch_part_2_data_collection/</link>
-      <description><![CDATA[这是我从头开始构建法学硕士的 4 部分系列的第 2 部分。 第 1 部分介绍了快速入门和整体架构。 在这篇文章中，我将深入探讨任何严肃的 LLM 的基础层：数据收集和 分词器设计。该数据集基于1500-1850 年伦敦的218 个历史来源构建，包括法庭记录、文献、报纸和个人日记。这是超过 5 亿个字符的混乱、不一致且经常被损坏的历史英语。 标准分词器会分割“quoth”和“hast”等古老单词，而扫描文档中的 OCR 错误可能会破坏语义连贯性。这篇文章将指导您完成构建可处理 PDF、HTML、XML 和 TXT 文件的模块化、格式感知管道的过程。它解释了如何使用 30,000 个词汇和超过 150 个特殊标记来训练自定义 BPE 标记器，以保持语言真实性。 当然，这是一个玩具示例，尽管是一个完整的 LLM，旨在帮助人们理解和学习基本原理。现实世界的实现要复杂得多。我还在博文中阐述了这些观点。 🔍 内容  218+ 历史来源：从 Old Bailey 试验到 17 世纪文学  5 阶段清理管道：OCR 校正、编码修复和特定于格式的提取  自定义 分词器：根据古老英语和伦敦特定术语进行训练的 BPE 分词器  质量验证：平衡真实性与训练质量的多层评分  技术实现： 用于处理 PDF、HTML、XML 和 TXT 的代码 分词器 使用 Hugging Face 进行训练 质量评分和验证框架 用于数据摄取和报告的模块化架构   资源  第 2 部分：数据收集和数据收集分词器 第 1 部分讨论 GitHub 代码库 LinkedIn 发布（如果您喜欢的话）  下一步：第 3 部分将介绍模型架构、GPU 优化和训练基础设施。   由   提交/u/amitbahree  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o56elg/building_llms_from_scratch_part_2_data_collection/</guid>
-      <pubDate>Mon, 13 Oct 2025 01:20:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>在高层跟踪系统调用</title>
-      <link>https://www.reddit.com/r/programming/comments/1o53kpg/tracing_the_syscall_on_a_high_level/</link>
-      <description><![CDATA[曾经在 Python 中调用 f.write() 并想知道实际上击中金属的是什么。假设您正在编写一个涉及写入文件的 python 函数。您是否想知道编写该函数时内核级别会发生什么？让我们跟踪一个函数调用，直到它进入内核级别 先决条件  用户空间和内核空间：Linux 以两种模式运行应用程序，一种是权限最高的内核模式，一种是权限最小的用户模式。在内核模式下运行的系统调用是理解它们如何跟踪的重要先决条件 陷阱：Linux 内核中有一种称为陷阱的东西。这有点像同步 CPU 异常，我们将控制权从用户空间转移到内核空间。这些与中断不同，中断是异步的并且来自硬件   注意：这只是 write 系统调用的高级跟踪，还有很多深度需要介绍，但它是理解系统调用执行的一个很好的介绍。 []() []()   由   提交 /u/killer-resume   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o53kpg/tracing_the_syscall_on_a_high_level/</guid>
-      <pubDate>Sun, 12 Oct 2025 23:04:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>C++23：从命令式循环到声明性范围</title>
-      <link>https://www.reddit.com/r/programming/comments/1o53cyk/c23_from_imperative_loops_to_declarative_ranges/</link>
-      <description><![CDATA[ 由   提交 /u/alefore   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o53cyk/c23_from_imperative_loops_to_declarative_ranges/</guid>
-      <pubDate>Sun, 12 Oct 2025 22:54:29 GMT</pubDate>
     </item>
     </channel>
 </rss>

@@ -4,7 +4,63 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 13 Oct 2025 12:54:20 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 18:34:12 GMT</lastBuildDate>
+    <item>
+      <title>来自 LLM 机器人的流量</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5qva3/traffic_from_llm_bots/</link>
+      <description><![CDATA[我们通过 Pantheon 托管一些网站，最近我们看到一些网站的使用量猛增，导致 Pantheon 将我们推向更高的层次。当询问流量时，报告显示大量机器人流量，其名称至少看起来像是来自 ChatGPT 或 Claude。其他人也遇到过这种情况吗？你们都在做什么呢？我们确实希望我们的客户能够被当前的相关工具索引，但来自这些机器人的流量是疯狂的。    由   提交 /u/IAmAMahonBone   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5qva3/traffic_from_llm_bots/</guid>
+      <pubDate>Mon, 13 Oct 2025 17:51:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>宣布推出 html-to-markdown V2：Rust 引擎和带有 Python、Node 和 WASM 绑定的 CLI</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5q78c/announcing_htmltomarkdown_v2_rust_engine_and_cli/</link>
+      <description><![CDATA[大家好， 我很高兴宣布 html-to-markdown 的 v2 版本。 这个库最初是作为 markdownify 的一个分支而诞生的。 用于将 HTML 转换为 Markdown 的 Python 库。我最初分叉它是因为我需要现代类型提示，但后来发现自己重写了整个东西。随着时间的推移，它对于 kreuzberg 变得至关重要，它作为 html -&gt; 和 html 的支柱。 Markdown 和 hOCR -&gt; markdown。 我正在开发 Kreuzberg v4，它将大部分内容迁移到 Rust。这也需要更新这个组件，这导致了 Rust 的完全重写，提供了改进的性能、内存稳定性和更强大的功能集。 v2 通过 CLI 和 Rust 箱提供了 Rust 支持的 HTML → Markdown 转换。它包括 python 和 JS/TS 的绑定，支持 Node、Bun、Deno 和边缘运行时。  重写使其成为迄今为止 Python 中 HTML 到 Markdown 转换的最高效、最完整的解决方案，我怀疑在 JS 中也是如此。  以下是一些基准测试： Apple M4 • 真实维基百科文档 • convert() (Python)   文档 大小 延迟 吞吐量 文档/秒    列表（时间轴） 129KB 0.62ms 208 MB/s 1,613   表格（国家/地区） 360KB 2.02ms 178 MB/s 495   混合（Python wiki） 656KB 4.56ms 144 MB/s 219    V1 平均约为 2.5 MB/s (Python/BeautifulSoup)。 V2 的 Rust 引擎可提供 60-80 倍的吞吐量。  Python 包仍然通过 html_to_markdown.v1_compat 公开 markdownify 风格的调用，因此迁移相对简单，尽管 v2 确实引入了一些重大更改（有关完整详细信息，请参阅 CHANGELOG.md），并且 compat 层是 由于 python 开销，速度要慢得多。 JS 绑定甚至比 Python 更快，因为 NAPI-RS 具有非常强大的 jit 集成！ 亮点 除了巨大的性能改进之外，以下是 v2 版本的主要亮点：  当您需要遗留行为时，具有显式切换的 CommonMark 兼容默认值。 内联图像提取 (convert_with_inline_images)，用于捕获数据 URI 资产和具有大小和配额控制的内联 SVG。 完全符合 hOCR 1.2 规范，包括 hOCR 表重建和用于元数据的 YAML frontmatter，以保持 OCR 输出结构化。 内存通过专用工具保持检查：重复转换保持在 200 MB 以下 多兆字节语料库上的 RSS。  目标受众  工程师替换基于 BeautifulSoup 的转换器，这些转换器在大型文档或 OCR 输出上会崩溃。 需要库、管道和批处理工具中的相同 Markdown 的用户。 构建文档理解堆栈（包括 kreuzberg）的团队 生态系统），依赖于严格的内存行为和并行吞吐量。 需要高效处理 hOCR 的 OCR 专家。  与替代方案的比较  markdownify： 精神始祖，不过还是Python + BeautifulSoup。 html-to-markdown v2 保留了 API 垫片，同时提供 60-80 倍以上的吞吐量、表格感知 hOCR 支持以及重复转换中确定性的内存使用情况。 html2text：对于快速脚本来说是可靠的， 但它缺乏 CommonMark 合规性，并且在复杂的表格和 OCR 布局上往往会出现偏差；它也会在压力下分配大量资源，因为它从来没有考虑到长时间运行的进程。 pandoc：非常灵活（并且令人惊叹！），但是对于纯 HTML → Markdown 管道来说很大，速度慢得多，并且不能嵌入到 Python 中 子进程杂耍。 html-to-markdown v2 提供了一个带有直接绑定的精简 Rust 核心，因此您可以在处理过程中保持性能。  如果您最终使用重写，repo 上的 ⭐️ 总是让您真正满意！   由   提交/u/Goldziher   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5q78c/announcing_htmltomarkdown_v2_rust_engine_and_cli/</guid>
+      <pubDate>Mon, 13 Oct 2025 17:27:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>网站收费多少</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5ppw2/how_much_do_u_charge_for_the_website/</link>
+      <description><![CDATA[大家好 我是一名网络开发新手，我的目标客户是想要开展电子商务的小型企业 你们收费多少，具体收费多少 你们的服务参数是什么 你们与客户签订了长期合同吗？或者只是制作一个网站就这样？ 你们收费多少？ 有很多问题，但你明白 你们的收费系统是什么？    由   提交/u/funkymunky_10   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5ppw2/how_much_do_u_charge_for_the_website/</guid>
+      <pubDate>Mon, 13 Oct 2025 17:10:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>2025 年 Spotify Web API 状况报告</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5oqt7/state_of_spotify_web_api_report_2025/</link>
+      <description><![CDATA[      去年 Spotify Web API 发生了很多变化：弃用的功能、增强的安全性以及严格的扩展访问新标准，这些都疏远了独立应用程序。我没有抱怨，而是整理了一份报告来了解这些新限制并找到实用的替代方案。如果您过去使用 Web API 进行过开发或正在考虑将来使用它进行构建，那么这是必读的。   由   提交/u/leemartin  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5oqt7/state_of_spotify_web_api_report_2025/</guid>
+      <pubDate>Mon, 13 Oct 2025 16:36:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>Wes Bos 如何使用 MCP</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5n0s2/how_wes_bos_uses_mcp/</link>
+      <description><![CDATA[Wes Bos：  “我不喜欢一直打开所有 MCP 服务器。因为我觉得它只是抓住了上下文。” “所以我只是根据需要将它们逐个项目地打开。除了 Context7”  我根本不喜欢 MCP 来管理外部资源。它太脆弱了，LLM 会感到困惑。 但是 MCP 的用例非常适合只读内容。这就是我喜欢的：  Context7 ✅ Perplexity ✅ Mastra AI 的文档 ✅  你觉得 Wes 的 MCP 设置怎么样？   由   提交/u/thehashimwarren  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5n0s2/how_wes_bos_uses_mcp/</guid>
+      <pubDate>Mon, 13 Oct 2025 15:34:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>经过多年编码后仍然感到冒名顶替综合症正常吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5mytw/is_it_normal_to_still_feel_imposter_syndrome/</link>
+      <description><![CDATA[我专业做前端工作已经四年了，还是有打开项目感觉自己在冒充开发者的时候。我可以编写干净的代码、解决问题、发布功能，但当我在网上看到一些出色的开源存储库或优雅的 CSS 技巧时，我会想，我仍然落后。既能干又像个骗子的感觉让人筋疲力尽。有时我只是关闭 IDE，休息一下，并尝试记住，进步并不意味着了解一切。 还有其他人处理过这个问题吗？如何停止将自己与 GitHub 上的每个天才进行比较？   由   提交 /u/whichriches86   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5mytw/is_it_normal_to_still_feel_imposter_syndrome/</guid>
+      <pubDate>Mon, 13 Oct 2025 15:32:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>生产代码库中必须有全局异常吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5m2na/is_global_exception_a_must_in_a_production/</link>
+      <description><![CDATA[我学会了如何使用 try catch。 而且我最近发现有一个全局异常。 正如标题所说。   由   提交/u/KiraLawliet68  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5m2na/is_global_exception_a_must_in_a_production/</guid>
+      <pubDate>Mon, 13 Oct 2025 15:00:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何实现基于人脸识别的身份验证？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o5l8gp/how_to_implement_facial_recognitionbased/</link>
+      <description><![CDATA[例如，我想让用户能够使用他们的脸登录他们的帐户。现在，我发现了这个名为faceApi.js的js库，据我所知，你只能使用图像来检查上面是谁的脸。有没有办法让它使用常规网络摄像头工作？   由   提交/u/rentallymetardedII   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o5l8gp/how_to_implement_facial_recognitionbased/</guid>
+      <pubDate>Mon, 13 Oct 2025 14:28:25 GMT</pubDate>
+    </item>
     <item>
       <title>我应该将我的静态网站转变为社区吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1o5if83/should_i_transform_my_static_website_into_a/</link>
@@ -53,62 +109,6 @@
       <description><![CDATA[您好，首先很抱歉，如果这是一个常见问题。 我想问部署 laravel + React 应用程序（单独服务器）的最佳方法是什么。因为我只想部署一些副项目，所以最好的方式是指最便宜的选择，如果可能的话甚至免费。  谢谢   由   提交 /u/shangarepi   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1o5dcrd/deploy_laravel_react_app/</guid>
       <pubDate>Mon, 13 Oct 2025 07:38:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用我自己的版本控制来恢复文件</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o5da9e/used_my_own_version_control_to_recover_files/</link>
-      <description><![CDATA[在大学的最后一年，我正在做一个项目，这是一个简单的 HTML CSS 和 JS 项目，我并没有太多使用 git。 所以当我完成该项目时，我认为我应该清理我的代码库，我删除了一些我认为无用的文件，然后我 Shift 删除了它们 😭 花了一整天的时间爬行谷歌进行恢复  在我的最后一年，我正在学习网络取证，我们有一个数据恢复实践，所以我们使用 FTK Imager 从文件夹和硬盘驱动器中恢复数据，我使用该工具来恢复那些已删除的文件。   由   提交 /u/Sad_Impact9312   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o5da9e/used_my_own_version_control_to_recover_files/</guid>
-      <pubDate>Mon, 13 Oct 2025 07:33:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>创意阻塞</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o5chzk/creative_blockage/</link>
-      <description><![CDATA[我的 SaaS 遇到了创意障碍。这是一个工作申请跟踪器/组织器。我这样做是因为使用 Excel 来管理我的工作申请不是很有趣，也没有动力。 我已经掌握了我认为的基础知识，但是我可以添加什么来脱颖而出？我一直在网上搜索并询问朋友，所以我向你们天才寻求一些反馈。当你试图让一切井井有条并跟踪你的工作申请时，什么会对你有帮助？    由   提交/u/SirTJ1997   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o5chzk/creative_blockage/</guid>
-      <pubDate>Mon, 13 Oct 2025 06:44:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>时区转换应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o5bj0k/timezone_conversion_app/</link>
-      <description><![CDATA[      已创建 时区转换器应用程序称为SyncMyTime，您可以在其中计划与居住在不同时区的团队成员的会议时间。它还提供交互式世界地图来探索每个国家的时间。你觉得怎么样？   由   提交/u/OkAssociation8879   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o5bj0k/timezone_conversion_app/</guid>
-      <pubDate>Mon, 13 Oct 2025 05:45:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>受荒谬的道德投诉启发，建立了 propq.info：免费的生产级公民网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o5bit0/built_propqinfo_a_production_grade_civic_site_for/</link>
-      <description><![CDATA[我构建了 propq.info 因为我很沮丧。有人为奥斯汀选票信息制作了一个简单的社区网站，PAC 对他们提出了道德投诉，声称是“黑钱”并质疑其成本。我想：如果一个基本的网站能够获得如此高的热度，为什么不建立一个实际上看起来花费很大但免费的网站呢？ 所以我全力以赴： 完整的专业级布局、交互式图表、可下载的非版权内容。 3D“黑钱”交给 Three.js 以获得乐趣/影响 完全独立、无广告且合法 开源存储库，因此德克萨斯州奥斯汀反对 Q 道具的任何人都可以分叉自己的版本：https://github.com/Lukedalazer/ATRE 这是一个人的努力；设计、前端、数据集成和交互性。这部分是公民透明度，部分是技术灵活性，部分是“你不能抱怨这个。” 很想听到其他开发者的架构、用户体验、性能或只是 Three.js 的反馈。   由   提交/u/Jxnhimself   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o5bit0/built_propqinfo_a_production_grade_civic_site_for/</guid>
-      <pubDate>Mon, 13 Oct 2025 05:44:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>生成定制启动项目的网站？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o571d3/website_that_generates_a_customized_starter/</link>
-      <description><![CDATA[嘿，我记得曾经找到一个网站，可以选择您想要包含在入门项目中的技术/框架。 我不记得这个名字了，但我相当确定它可以从 Nextjs、Vue、Supabase、Clerk、shadcn 和 Tailwind 中进行选择，还有很多其他选项。 如果有人的话。 知道类似的事情，我将不胜感激你的帮助！谢谢！   由   提交 /u/Wurrsin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o571d3/website_that_generates_a_customized_starter/</guid>
-      <pubDate>Mon, 13 Oct 2025 01:51:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>尝试使用商品硬件和软件优化来实现低延迟 HFT 管道</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o56f8g/attempt_at_a_lowlatency_hft_pipeline_using/</link>
-      <description><![CDATA[      我对完整高频交易 (HFT) 管道的尝试，从合成报价生成到订单执行和交易发布。它旨在演示网络、时钟同步和硬件限制如何影响分布式系统中的端到端延迟。&lt;​​/p&gt; 使用C++、Go和Python构建，所有服务都使用 PUB/SUB 和 PUSH/PULL 模式通过 ZeroMQ 进行通信。该堆栈通过 Docker Compose 完全容器化，并且可以在 K8s 下扩展。此演示中没有使用专门的硬件（例如 FPGA、RDMA NIC 等），目的是探索通过商品硬件和软件优化可以实现哪些目标。 寻找你们可能建议的任何改进！   由   提交/u/akkik1   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o56f8g/attempt_at_a_lowlatency_hft_pipeline_using/</guid>
-      <pubDate>Mon, 13 Oct 2025 01:21:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>这里有人使用过sheetjs (xlsx) 专业版吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o56433/anyone_here_used_sheetjs_xlsx_pro_version/</link>
-      <description><![CDATA[我正在尝试查找sheetjs专业版的评论，但找不到任何评论。我现在正在使用 Exceljs，该模块有很多错误，以至于很难继续我的新实现。 谢谢。   由   提交 /u/PoopySoothu   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o56433/anyone_here_used_sheetjs_xlsx_pro_version/</guid>
-      <pubDate>Mon, 13 Oct 2025 01:05:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建 html 网站的最佳人工智能工具是什么（比 deepsite 更好）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o563uc/whats_the_best_ai_tools_to_create_html_websites/</link>
-      <description><![CDATA[?   由   提交/u/Mean_Priority_5741   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o563uc/whats_the_best_ai_tools_to_create_html_websites/</guid>
-      <pubDate>Mon, 13 Oct 2025 01:05:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
