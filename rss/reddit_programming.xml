@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 15 Oct 2025 21:24:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Oct 2025 01:47:10 GMT</lastBuildDate>
+    <item>
+      <title>荒谬的SQL</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7tjz0/absurdersql/</link>
+      <description><![CDATA[AbsurderSQL：让 Web 上的 SQLite 更进一步 如果 Web 上的 SQLite 更加荒谬怎么办？ 不久前，James Long absurd-sql 令人大吃一惊——这是一种疯狂的黑客行为，它使用 IndexedDB 作为虚拟文件系统，使 SQLite 在浏览器中持久存在。它证明您实际上可以在网络上运行真实数据库。 但它有一个巨大的缺陷：您的数据被卡住了。一旦进入 IndexedDB，就没有导出、导入、备份——没有出路。 所以我构建了 AbsurderSQL - 一个彻底的 Rust + WebAssembly 重新实现，可以完全解决这个问题。它是荒谬的 SQL，但更荒谬。 它用 Rust 编写，使用自定义 VFS，将 IndexedDB 视为具有 4KB 块、智能缓存和可选可观察性的磁盘。它在浏览器内和本机运行。你的数据呢？ 100% 可移植。 为什么构建它 我将旧版 VBA 应用程序现代化为 Next.js SPA，但有一个限制：没有服务器端持久性。它必须完全离线。 IndexedDB 是唯一的选择，但它绝不是关系型的。 然后我发现了absurd-sql。它让我完成了 80%，但最后 20% 涉及痛苦的锁定和可移植性问题。这种挫败感导致了这次重写。 您的数据，无处不在。 AbsurderSQL 允许您从标准 SQLite 文件导出和导入，而不是专有的 blob。 从 &#39;@npiesco/absurder-sql&#39; 导入 init, { Database };等待初始化（）； const db = 等待 Database.newDatabase(&#39;myapp.db&#39;); wait db.execute(&quot;创建表用户(id INTEGER PRIMARY KEY, name TEXT)&quot;); wait db.execute(“INSERT INTO users VALUES (1, &#39;Alice&#39;)”); // 导出真实的 SQLite 文件 const bytes = wait db.exportToFile();  该文件适用于任何地方 - CLI、Python、Rust、DB 浏览器等。 您可以在任何浏览器中备份、提交、共享或重新导入它。 双模式架构 一个代码库，两种模式。  浏览器 (WASM)： IndexedDB 支持的 SQLite 数据库，具有缓存、选项卡协调和导出/导入功能。 本机 (Rust)： 相同的 API，但使用文件系统，方便服务器或 CLI 实用程序。  非常适合偶尔同步到后端的离线优先应用程序。 有效的多选项卡协调 AbsurderSQL 附带内置的领导者选举和写入协调：  一个领导者选项卡处理写入 追随者队列写入领导者 BroadcastChannel 通知所有选项卡数据更改，无数据争用，无损坏。  性能 IndexedDB 确实很慢，但是缓存、批处理和异步 Rust I/O 会产生巨大的差异：   操作 absurd-sql AbsurderSQL    100k 行读取 ~2.5s ~0.8s（冷）/~0.05s（热）   10k 行写入 ~3.2s ~0.6s   从头开始生锈 absurd-sql 修补了 C++/JS 内部； AbsurderSQL 是惯用的 Rust：  安全快速的异步 I/O（无 Asyncify 膨胀） 完整的 ACID 事务 块级 CRC 校验和 可选的 Prometheus/OpenTelemetry 支持（约 660 KB 压缩的 WASM 构建）  下一步是什么  移动支持（为 iOS/Android 编译的相同 Rust 核心） WASM 组件模型集成 用于未来浏览器 API 的可插拔存储后端  GitHub： npiesco/absurder-sql 许可证： AGPL-3.0 James Long 展示了浏览器中的 SQLite 是可能的。 AbsurderSQL 展示了它可以是生产级。   由   提交/u/Standard-Ad9181   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7tjz0/absurdersql/</guid>
+      <pubDate>Thu, 16 Oct 2025 01:39:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>编程之旅</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7tif2/programming_journey/</link>
+      <description><![CDATA[是否有从事技术工作的人在学习时难以解决问题？就像他们有点知道人工智能生成的代码是如何工作的，但找不到正确的代码或正确的结构是什么。你变得更好的秘诀是什么？ 我可以解决一些问题，但有时我会很挣扎，最后会感到失望。这正常吗？    由   提交/u/Left_Tomorrow_7786   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7tif2/programming_journey/</guid>
+      <pubDate>Thu, 16 Oct 2025 01:37:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我是如何差点被“求职面试”黑客攻击的</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7t10r/how_i_almost_got_hacked_by_a_job_interview/</link>
+      <description><![CDATA[ 由   提交 /u/rchaudhary   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7t10r/how_i_almost_got_hacked_by_a_job_interview/</guid>
+      <pubDate>Thu, 16 Oct 2025 01:15:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>PyTorch 2.9 发布博客</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7pi1a/pytorch_29_release_blog/</link>
+      <description><![CDATA[ 由   提交 /u/mttd   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7pi1a/pytorch_29_release_blog/</guid>
+      <pubDate>Wed, 15 Oct 2025 22:39:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过简单的可视化学习二进制系统 – 编程初学者系列</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7o783/aprenda_sistema_binário_com_visualização_simples/</link>
+      <description><![CDATA[【教育系列】简单可视化学习数系——从二进制开始 大家好！ 👨‍🏫 我是 Wanderlei Silva do Carmo，教育计算领域的专家，我正在制作一系列视频，帮助初学者理解数字系统，从二进制系统（基数为 2）开始。 我使用简单的视觉表示（如表示位的彩色球）来解释以下概念：  位、字节和位置 值 二进制到十进制的转换 二进制在计算中的应用  非常适合那些刚刚开始编程或想强化计算逻辑基础的人。 📺观看第一个视频：[视频链接] 💬非常欢迎您提出意见和建议！   由   提交/u/w3aewander   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7o783/aprenda_sistema_binário_com_visualização_simples/</guid>
+      <pubDate>Wed, 15 Oct 2025 21:44:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>更多代码≠更好代码：Claude Haiku 4.5 多编写了 62% 的代码，但得分降低了 16%（WebSocket 重构分析）</title>
+      <link>https://www.reddit.com/r/programming/comments/1o7o6ek/more_code_better_code_claude_haiku_45_wrote_62/</link>
+      <description><![CDATA[ 由   提交/u/CodeLensAI   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o7o6ek/more_code_better_code_claude_haiku_45_wrote_62/</guid>
+      <pubDate>Wed, 15 Oct 2025 21:43:38 GMT</pubDate>
+    </item>
     <item>
       <title>由于 GenAI，技术主管正在成为技术领域最重要的角色之一</title>
       <link>https://www.reddit.com/r/programming/comments/1o7ndf2/tech_lead_is_becoming_one_of_the_most_important/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1o79jge/from_the_first_line_of_code_in_your_microservices/</guid>
       <pubDate>Wed, 15 Oct 2025 12:24:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>HTTP 缓存完整指南 | SEO 技术角度</title>
-      <link>https://www.reddit.com/r/programming/comments/1o78hfj/complete_guide_to_http_caching_a_technical_seo/</link>
-      <description><![CDATA[ 由   提交/u/kixxauth   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o78hfj/complete_guide_to_http_caching_a_technical_seo/</guid>
-      <pubDate>Wed, 15 Oct 2025 11:32:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>对 iWork 进行逆向工程（因此您不必这样做）</title>
-      <link>https://www.reddit.com/r/programming/comments/1o78acf/reverse_engineering_iwork_so_you_dont_have_to/</link>
-      <description><![CDATA[ 由   提交/u/AndrewMD5   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o78acf/reverse_engineering_iwork_so_you_dont_have_to/</guid>
-      <pubDate>Wed, 15 Oct 2025 11:22:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能编码。我很兴奋。我很害怕。我很反感。我很困惑。我制作了一个关于它的视频。</title>
-      <link>https://www.reddit.com/r/programming/comments/1o77cmc/ai_coding_im_excited_im_scared_im_disgusted_im/</link>
-      <description><![CDATA[ 由   提交/u/col000r  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o77cmc/ai_coding_im_excited_im_scared_im_disgusted_im/</guid>
-      <pubDate>Wed, 15 Oct 2025 10:29:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>假IP，直到你做IP</title>
-      <link>https://www.reddit.com/r/programming/comments/1o76b9z/fake_ip_till_you_make_ip/</link>
-      <description><![CDATA[ 由   提交/u/FlatwormHappy1554  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o76b9z/fake_ip_till_you_make_ip/</guid>
-      <pubDate>Wed, 15 Oct 2025 09:26:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>在“利用时间 -1 天”时代，自我更新恶意软件如何在部署补丁之前利用漏洞</title>
-      <link>https://www.reddit.com/r/programming/comments/1o75x9p/inside_the_timetoexploit_1_days_era_how/</link>
-      <description><![CDATA[ 由   提交 /u/wineandcode   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o75x9p/inside_the_timetoexploit_1_days_era_how/</guid>
-      <pubDate>Wed, 15 Oct 2025 09:01:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>偶然发现了这个“电子”，但对于 java 项目你们怎么看</title>
-      <link>https://www.reddit.com/r/programming/comments/1o73u1u/stumbled_upon_this_electron_but_for_java_project/</link>
-      <description><![CDATA[ 由   提交/u/sunnykentz  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o73u1u/stumbled_upon_this_electron_but_for_java_project/</guid>
-      <pubDate>Wed, 15 Oct 2025 06:43:37 GMT</pubDate>
     </item>
     </channel>
 </rss>

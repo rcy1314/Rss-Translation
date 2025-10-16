@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 15 Oct 2025 21:26:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Oct 2025 01:47:35 GMT</lastBuildDate>
+    <item>
+      <title>荒谬的SQL</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o7t9h0/absurdersql/</link>
+      <description><![CDATA[&lt;表&gt;       https://preview.redd.it/wa038mdzmdvf1.png?width=128&amp;format=png&amp;auto=webp&amp;s=2f6f690e32bafb6f586dacbb8b792104fd064b12 AbsurderSQL：让 Web 上的 SQLite 更进一步 如果 Web 上的 SQLite 更加荒谬怎么办？ 不久前，James Long 的absurd-sql — 一种疯狂的黑客行为，使用 IndexedDB 作为虚拟文件系统，使 SQLite 持续存在于浏览器中。它证明您实际上可以在网络上运行真实数据库。 但它有一个巨大的缺陷：您的数据被卡住了。一旦进入 IndexedDB，就没有导出、导入、备份——没有出路。 所以我构建了 AbsurderSQL - 一个彻底的 Rust + WebAssembly 重新实现，可以完全解决这个问题。它是荒谬的 SQL，但更荒谬。 它用 Rust 编写，使用自定义 VFS，将 IndexedDB 视为具有 4KB 块、智能缓存和可选可观察性的磁盘。它在浏览器内和本机运行。你的数据呢？ 100% 可移植。 为什么构建它 我将旧版 VBA 应用程序现代化为 Next.js SPA，但有一个限制：没有服务器端持久性。它必须完全离线。 IndexedDB 是唯一的选择，但它绝不是关系型的。 然后我发现了absurd-sql。它让我完成了 80%，但最后 20% 涉及痛苦的锁定和可移植性问题。这种挫败感导致了这次重写。 您的数据，无处不在。 AbsurderSQL 允许您从标准 SQLite 文件导出和导入，而不是专有的 blob。 从 &#39;@npiesco/absurder-sql&#39; 导入 init, { Database };等待初始化（）； const db = 等待 Database.newDatabase(&#39;myapp.db&#39;); wait db.execute(&quot;创建表用户(id INTEGER PRIMARY KEY, name TEXT)&quot;); wait db.execute(“INSERT INTO users VALUES (1, &#39;Alice&#39;)”); // 导出真实的 SQLite 文件 const bytes = wait db.exportToFile();  该文件适用于任何地方 - CLI、Python、Rust、DB 浏览器等。 您可以在任何浏览器中备份、提交、共享或重新导入它。 双模式架构 一个代码库，两种模式。  浏览器 (WASM)： IndexedDB 支持的 SQLite 数据库，具有缓存、选项卡协调和导出/导入功能。 本机 (Rust)： 相同的 API，但使用文件系统，方便服务器或 CLI 实用程序。  非常适合偶尔同步到后端的离线优先应用程序。 有效的多选项卡协调 AbsurderSQL 附带内置的领导者选举和写入协调：  一个领导者选项卡处理写入 追随者队列写入领导者 BroadcastChannel 通知所有选项卡数据更改，无数据争用，无损坏。  性能 IndexedDB 确实很慢，但是缓存、批处理和异步 Rust I/O 会产生巨大的差异：   操作 absurd-sql AbsurderSQL    100k 行读取 ~2.5s ~0.8s（冷）/~0.05s（热）   10k 行写入 ~3.2s ~0.6s   从头开始生锈 absurd-sql 修补了 C++/JS 内部； AbsurderSQL 是惯用的 Rust：  安全快速的异步 I/O（无 Asyncify 膨胀） 完整的 ACID 事务 块级 CRC 校验和 可选的 Prometheus/OpenTelemetry 支持（约 660 KB 压缩的 WASM 构建）  下一步是什么  移动支持（为 iOS/Android 编译的相同 Rust 核心） WASM 组件模型集成 用于未来浏览器 API 的可插拔存储后端  GitHub： npiesco/absurder-sql 许可证： AGPL-3.0 James Long 展示了浏览器中的 SQLite 是可能的。 AbsurderSQL 展示了它可以是生产级。   由   提交/u/Standard-Ad9181   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o7t9h0/absurdersql/</guid>
+      <pubDate>Thu, 16 Oct 2025 01:25:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于如何提高网站页面速度的提示/建议？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o7ro2e/tipssuggestions_on_how_we_can_improve_the_page/</link>
+      <description><![CDATA[大家好，您能提供有关如何优化我的网站的提示/建议吗？也许我可以使用一个插件？这是我的网站：https://downeastacadia.com。到目前为止，我们所做的就是压缩图像并使用WP优化器来缩小CSS等。   由   提交/u/PeakMediocre160  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o7ro2e/tipssuggestions_on_how_we_can_improve_the_page/</guid>
+      <pubDate>Thu, 16 Oct 2025 00:11:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>0.5MB 网站需要 6GB 带宽？这怎么可能？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o7q44g/6gb_of_bandwidth_usage_for_a_05mb_website_how_is/</link>
+      <description><![CDATA[      我对此还很陌生。我有一个简单的静态网站，其中包含一堆超链接、一个 GIF 以及一些我用 Eleventy 和 Netlify 制作的 WEBP。整个网站只有约0.5 MB。  https://preview.redd.it/lzhm3qwjwcvf1.png?width=1117&amp;format=png&amp;auto=webp&amp;s=c5883f27587f10d0966f4044cc6b5bb350134d7e 它到底如何每天使用 3-6 GB 的带宽？ 我有另一个网站，其子域上的设置基本相同，但该网站每天仅使用 2-3 MB 的带宽。这是正常的吗？有办法阻止吗？ 我真的不想为 Netlify 付费！   由   提交 /u/leflyingcarpet   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o7q44g/6gb_of_bandwidth_usage_for_a_05mb_website_how_is/</guid>
+      <pubDate>Wed, 15 Oct 2025 23:03:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找网站建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1o7omz2/looking_for_website_advice/</link>
+      <description><![CDATA[嗨！ tia 提供您可以与我分享的所有建议。我有一家小公司，今年早些时候有人为我们制作了一个网站。然而，与开发人员合作几乎是不可能的，他们在制作网站时没有遵循我们的任何建议或要求。  我所知道的是：  我们拥有自己的域名，并通过 Hover 购买了它 该网站是在 Wordpress 上构建的，我从过去的工作中知道如何使用它，所以如果可能的话，我希望它留在 WP 上？ 它目前由 Hostinger 上的开发人员托管  我想知道的是：  我们如何与最初构建该网站的公司分开？  我们需要什么才能自己主办它（？）  再次感谢！任何帮助表示赞赏。我可以通过编辑或评论来澄清（希望）任何内容。    由   提交/u/katomowo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1o7omz2/looking_for_website_advice/</guid>
+      <pubDate>Wed, 15 Oct 2025 22:02:17 GMT</pubDate>
+    </item>
     <item>
       <title>构建没有 DIV 标签的响应式电子邮件</title>
       <link>https://www.reddit.com/r/webdev/comments/1o7njer/building_a_responsive_email_without_div_tags/</link>
@@ -18,13 +46,6 @@
       <description><![CDATA[所以我已经学会了一些编码技能，并且想将它们付诸测试，也许可以构建我梦想的网站。那么我到底应该去哪里编写网站代码，然后将其发布以使其合法化呢？最好是免费的，因为我不想每月支付订阅费用，也不想在我的网站获得一定的点击量后收取费用。比如我在哪里输入编码以及在哪里发布网站才能使其成为真实的东西？另外，我该如何进行文案写作等工作？我对此很陌生，不知道从哪里开始。有人请帮忙哈哈。    由   提交/u/SkunkApe2947   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1o7n0z8/where_do_i_post/</guid>
       <pubDate>Wed, 15 Oct 2025 20:58:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>在哪里可以找到可用于 Hugo 的主题？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o7ltnm/where_do_you_find_themes_usable_with_hugo/</link>
-      <description><![CDATA[易于适应的 Hugo 就绪或非 CMS 特定主题。 对于我的博客，我使用hugo-PaperMod，它是hugo-paper 的变体。但我现在正在为非博客网站寻找主题。 搜索过滤器不允许我提出负面要求，而且我正在寻找不依赖于大型 CSS 框架的主题。 现代 DOM 使 jQuery 等 JavaScript 库变得过时。恕我直言，现代 2025 CSS3 使大多数 CSS 框架变得过时。特别是对于简单的布局。   由   提交 /u/Stefan_S_from_H   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o7ltnm/where_do_you_find_themes_usable_with_hugo/</guid>
-      <pubDate>Wed, 15 Oct 2025 20:13:11 GMT</pubDate>
     </item>
     <item>
       <title>你喜欢 https://buzzheavier.com/ 上的 UI吗？</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[我想要一个我的产品的网站，它是一个生产力应用程序。由于穷得要命，我需要一个便宜的网络托管选项，为支付网关提供足够的安全性  作为新手，请指导我有关网络托管供应商的信息，我需要注意哪些其他事项，需要额外购买哪些内容，需要忽略哪些内容。真的会很感激。    由   提交/u/Life_Club_3586   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1o7ftjd/cheap_webhosting_platforms/</guid>
       <pubDate>Wed, 15 Oct 2025 16:30:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想与雄心勃勃的网络开发人员建立联系。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o7ezed/id_like_to_link_up_with_ambitious_webdev/</link>
-      <description><![CDATA[你好，有一段时间我一直在考虑制作一个“biolink”像 guns.lol 这样的网站，我尝试自己制作它，但作为开发中的初学者，我真的很难制作它，所以我想认识一些对此类项目感兴趣的开发人员，您可以在不和谐中添加我：yand3reslayer 我真的很有动力建立一个小团队来帮助我开发这个项目，我希望有一天它会 爆炸了，我们可以通过这个项目赚点钱。有兴趣请联系我！   由   提交 /u/Professional_Pay2891   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o7ezed/id_like_to_link_up_with_ambitious_webdev/</guid>
-      <pubDate>Wed, 15 Oct 2025 15:59:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>我被告知我的公关看起来很振动编码，但我没有使用任何人工智能工具，我真的很困惑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o7etda/i_got_told_my_pr_looks_vibe_coded_but_i_didnt_use/</link>
-      <description><![CDATA[      pr 也非常小且简单，而且我没有使用任何 AI 工具，因为我一般认为它们对于我的所有代码中的任何稍微复杂的任务没有用处  https://preview.redd.it/p9nexgv9ravf1.png?width=520&amp;format=png&amp;auto=webp&amp;s=ad46b2fa7d567ef0b3ea34f606adddaad62670be 此处需要的更改是使用 !tasks.lenght 并返回 for 循环 forEach  https://preview.redd.it/9lynb5zaravf1.png?width=381&amp;format=png&amp;auto=webp&amp;s=7762c3b8b26275b7ae5d079cc230b5391939e94d 为此使用task.some   https://preview.redd.it/sc23539dravf1.png?width=238&amp;format=png&amp;auto=webp&amp;s=565fd8b1455f493cdf92493a93efc06315007dad 就是这样。在最后一个片段中，我被问到为什么我调用 updatesignal，我只是从另一个排序函数中获取它，相同的端点就是一次对多个任务进行排序。 这是我的审阅者所写的：  https://preview.redd.it/8kk15uwkravf1.png?width=497&amp;format=png&amp;auto=webp&amp;s=3e6a0d2cc5a7f8da519f87e9a567b4a6e01ad33a 有人可以向我解释一下吗？   由   提交/u/SleepAffectionate268  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o7etda/i_got_told_my_pr_looks_vibe_coded_but_i_didnt_use/</guid>
-      <pubDate>Wed, 15 Oct 2025 15:52:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何防止人工智能（或常规）机器人向您的表单发送垃圾邮件</title>
-      <link>https://www.reddit.com/r/webdev/comments/1o7dtjc/how_to_prevent_ai_or_regular_bots_from_spamming/</link>
-      <description><![CDATA[   我最近在这个子主题上看到这个问题经常出现。考虑到人工智能机器人的传播速度，这是有道理的。我写了一篇文章，介绍如何使用蜜罐和一些巧妙的技巧在我的网站上阻止垃圾邮件提交。很想听听您的想法:) https://www.nikolailehbr.ink/blog/prevent-form-spamming-honeypot   由   提交/u/nikolailehbrink   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1o7dtjc/how_to_prevent_ai_or_regular_bots_from_spamming/</guid>
-      <pubDate>Wed, 15 Oct 2025 15:16:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
