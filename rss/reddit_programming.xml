@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 17 Oct 2025 09:27:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 12:49:48 GMT</lastBuildDate>
+    <item>
+      <title>龙虾社区访谈，内容涉及编程、数学、干扰、时间管理和娱乐计算</title>
+      <link>https://www.reddit.com/r/programming/comments/1o8ze7r/lobsters_community_interview_about_programming/</link>
+      <description><![CDATA[ 由   提交/u/fpcoder  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o8ze7r/lobsters_community_interview_about_programming/</guid>
+      <pubDate>Fri, 17 Oct 2025 12:01:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>随处可用的对话框 – 处理超时</title>
+      <link>https://www.reddit.com/r/programming/comments/1o8z31v/dialogs_that_work_everywhere_dealing_with_the/</link>
+      <description><![CDATA[Miniterface 是一个工具包，它使对话框可以在任何地方工作，无论是桌面、终端还是浏览器应用程序。 最近，我添加了一个超时功能，可以在几个小时内自动确认对话框 秒。 由于库保证对话框在任何地方都以相同的方式工作，这在技术上具有挑战性，请查看每个界面使用的技术。 GUI (tkinter) 我担心这将是最具挑战性的，但事实恰恰相反！只需调用倒计时方法，同时将时间减少到零即可。 在该方法中，我们使用 tkinter after 设置另一个超时 self.after_id = self.adaptor.after(1000, self.countdown, count - 1) 并更改了按钮文本 self.button.config(text=f&quot;{self.orig} ({count})”)。当倒计时结束时，我们通过 self.button.invoke() 单击按钮。 当用户对按钮散焦时，我们停止倒计时。 self.button.bind(&quot;&quot;, lambda e: self.cancel() if e.widget.focus_get() else 无） 你看到focus_get了吗？这是为了确保应用程序中的另一个小部件已获得焦点，我们不想停止通过 Alt+tab 更改窗口焦点的倒计时。 https://github.com/CZ-NIC/mininterface/blob/main/mininterface/_tk_interface/timeout.py TUI （文本） TUI 界面是通过 textual 框架实现的。 在 init 时，我们创建一个异步任务 asyncio.create_task(self.countdown(timeout))，其中只有一个 while 循环。这里的 self.countdown 方法只被调用一次。  while count &gt; 0: 等待 asyncio.sleep(1) count -= 1 self.button.label = f&quot;{self.orig} ({count})&quot;  一旦while结束，我们就通过self.button.press()调用按钮（这里，调用称为“press”）。 https://github.com/CZ-NIC/mininterface/blob/main/mininterface/_textual_interface/timeout.py  文本 接口 后备文本接口仅使用内置的input()。令人惊讶的是，在这里实现倒计时是最具挑战性的任务。由于我们需要停止按键计数（就像其他 UI 一样），因此我们不能使用正常的 input 而是使用 select 或 msvcrt 包（取决于 Linux/Win 平台）。 计数是通过线程实现的，我们每秒打印一个点。仅当 input_started 为 false、没有按下任何键时才打印。  if not input_started.is_set(): print(&quot;.&quot;, end=&#39;&#39;,lush=True)  代码最长： https://github.com/CZ-NIC/mininterface/blob/main/mininterface/_text_interface/timeout.py 结论 现在，程序员可以在每个平台、终端、浏览器上使用超时功能，而无需实际处理内部实现 - 线程、异步或主循环。 这段代码可以在任何地方运行：  from mininterface import run m = run() print(m.confirm(&quot;Is that 好吧？”), timeout=10) # True/False    由   提交 /u/the-e2rd   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o8z31v/dialogs_that_work_everywhere_dealing_with_the/</guid>
+      <pubDate>Fri, 17 Oct 2025 11:46:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nival向公众发布了《闪电战2》的源代码</title>
+      <link>https://www.reddit.com/r/programming/comments/1o8ylmx/nival_has_released_the_source_code_for_blitzkrieg/</link>
+      <description><![CDATA[ 由   提交/u/r_retrohacking_mod2   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o8ylmx/nival_has_released_the_source_code_for_blitzkrieg/</guid>
+      <pubDate>Fri, 17 Oct 2025 11:20:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI应用程序开发的新时代：Apple破解LLM和AI集成</title>
+      <link>https://www.reddit.com/r/programming/comments/1o8xn8e/a_new_era_of_ai_app_development_apple_cracked_llm/</link>
+      <description><![CDATA[ 由   提交/u/derjanni   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1o8xn8e/a_new_era_of_ai_app_development_apple_cracked_llm/</guid>
+      <pubDate>Fri, 17 Oct 2025 10:26:10 GMT</pubDate>
+    </item>
     <item>
       <title>2025 年使用的顶级 Node.js 框架</title>
       <link>https://www.reddit.com/r/programming/comments/1o8w7or/top_nodejs_frameworks_to_use_in_2025/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1o8hl8s/api_design_principle_dont_tempt_people_to_divide/</guid>
       <pubDate>Thu, 16 Oct 2025 20:38:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么导出模板在 C++ 中很有用 (2010)</title>
-      <link>https://www.reddit.com/r/programming/comments/1o8hkor/why_export_templates_would_be_useful_in_c_2010/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o8hkor/why_export_templates_would_be_useful_in_c_2010/</guid>
-      <pubDate>Thu, 16 Oct 2025 20:37:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rust 中的 QNX 资源管理器：消息传递和资源管理器</title>
-      <link>https://www.reddit.com/r/programming/comments/1o8hkkh/qnx_resource_manager_in_rust_message_passing_and/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o8hkkh/qnx_resource_manager_in_rust_message_passing_and/</guid>
-      <pubDate>Thu, 16 Oct 2025 20:37:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 Perl 移植到 Go：简化平台工程</title>
-      <link>https://www.reddit.com/r/programming/comments/1o8hjiz/porting_from_perl_to_go_simplifying_for_platform/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o8hjiz/porting_from_perl_to_go_simplifying_for_platform/</guid>
-      <pubDate>Thu, 16 Oct 2025 20:36:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>修改 Python REPL</title>
-      <link>https://www.reddit.com/r/programming/comments/1o8hjge/modifying_the_python_repl/</link>
-      <description><![CDATA[ 由   提交 /u/ketralnis   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1o8hjge/modifying_the_python_repl/</guid>
-      <pubDate>Thu, 16 Oct 2025 20:36:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
