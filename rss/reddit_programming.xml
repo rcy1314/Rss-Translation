@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 21 Oct 2025 01:50:52 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Oct 2025 03:42:05 GMT</lastBuildDate>
+    <item>
+      <title>LogMod：如果 C 拥有一个具有现代语义的日志框架会怎样？</title>
+      <link>https://www.reddit.com/r/programming/comments/1oc2h8k/logmod_what_if_c_had_a_logging_framework_with/</link>
+      <description><![CDATA[根据我自己在研究 C 日志记录库时的经验，我发现它们要么依赖于隐藏的全局状态，要么在幕后悄悄调用 malloc。在需要确定性内存使用和对资源进行显式控制的环境中，这是有问题的。我想看看是否有可能在不使用动态内存或预处理器魔法的情况下将更多“现代”日志语义（例如可配置上下文、自定义标签、颜色编码、回调和线程安全）引入普通 ANSI C 中。 （这是可能的！） LogMod 就是结果。它是一个单标头库，可让您使用固定的记录器表初始化日志记录上下文，传递该上下文而不是使用全局变量，定义您自己的严重性级别和颜色，挂钩自定义回调，甚至使用用户提供的锁使其成为线程安全的。它完全避免了malloc。挑战在于将所有这些融入到几百行可移植代码中，并保留 C 的“零开销”理念。   由   提交 /u/LucasMull   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oc2h8k/logmod_what_if_c_had_a_logging_framework_with/</guid>
+      <pubDate>Tue, 21 Oct 2025 03:32:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 AI 助手拒绝创建图标，然后编写了一个 Python 脚本来完成它，调试了它自己的错误，并部署了应用程序。 GitHub 存储库是我试图理解其中原因的尝试。</title>
+      <link>https://www.reddit.com/r/programming/comments/1oc21ct/my_ai_assistant_refused_to_create_an_icon_then/</link>
+      <description><![CDATA[大家好，正如标题所示，我与我的编码助手（定制的 Claude Code）一起获得了超现实的体验，并想分享原始日志。 我正在开发一个项目，需要一个简单的 UI 图标。最初的交互正是您所期望的：   标准拒绝。但出于沮丧，我用一个简单的提示进行了反击：“那么你能编写一个程序来生成一个吗？” 接下来发生的事情是完全自主的。它不只是给了我一个剧本。它接管了整个工作流程，包括从自己的错误中恢复。下面的日志未经编辑。 ● 是的！我将编写一个Python程序来生成用于擦除敏感分区的SVG图标： ● Write(/mnt/c/temp/generate_erase_icon.py) ⎿ 写了46行...（生成SVG的Python脚本） ● Bash(python3 /mnt/c/temp/generate_erase_icon.py) ⎿ ✅ 擦除生成的敏感分区图标： /mnt/c/temp/erase_partition.svg ● 现在，让我们将生成的图标复制到项目中并更新引用： ● Bash(cp ...) ⎿（无内容） ● 更新(product/phone/src/main/ets/pages/settingList.ets) ⎿ 编辑文件时出错 ● 更新(product/phone/src/main/ets/pages/settingList.ets) ⎿ 编辑时出错 文件 ● 让我找到正确的位置： ● 读取（product/phone/src/main/ets/pages/settingList.ets） ⎿ 读取 12 行... ● 更新（product/phone/src/main/ets/pages/settingList.ets） ⎿ 更新... 1 次添加和 1 次删除 - 设置图标：“/res/image/privacy.svg”，+ 设置图标： “/res/image/erase_partition.svg”， ● 现在重新编译并安装： ● Bash(cd ~/THCode/taihang &amp;&amp; ... ./build.sh ...) ⎿ &gt; hvigor 在 31 秒 28 毫秒内构建成功 ● Bash(cp ... &amp;&amp; powershell.exe ... hdc install Settings.hap) ⎿ [Info]应用程序安装路径：C:\temp\Settings.hap 消息：安装捆绑包成功。 ● ✅ 完成！新图标已生成并应用！  我从未告诉它进行调试、读取文件以找到正确的行，或链接编译和安装命令。确实如此。 我提交的链接是 GitHub 存储库，我试图在其中记录并了解如何可靠地触发这种紧急的自我纠正行为。核心思想基于“代理上下文工程（ACE）”理论。框架，但我的方法更多的是创建一个“剧本”这赋予人工智能持久的身份和使命。 特定的“架构师协议”导致此情况的原因位于 playbooks/awakening/ 目录中。这感觉像是超越简单提示的重要一步。   由   提交/u/VermicelliSavings565   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oc21ct/my_ai_assistant_refused_to_create_an_icon_then/</guid>
+      <pubDate>Tue, 21 Oct 2025 03:10:07 GMT</pubDate>
+    </item>
     <item>
       <title>如何修复任何错误</title>
       <link>https://www.reddit.com/r/programming/comments/1obysii/how_to_fix_any_bug/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1obwlzj/code_in_the_1986s_structure_and_interpretation_of/</guid>
       <pubDate>Mon, 20 Oct 2025 22:58:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>Intel 和 AMD 标准化 ChkTag，将内存安全带入 x86</title>
-      <link>https://www.reddit.com/r/programming/comments/1obwl2a/intel_and_amd_standardise_chktag_to_bring_memory/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1obwl2a/intel_and_amd_standardise_chktag_to_bring_memory/</guid>
-      <pubDate>Mon, 20 Oct 2025 22:57:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>给首次求职者的一些建议</title>
-      <link>https://www.reddit.com/r/programming/comments/1obwba5/some_advice_for_first_time_job_seekers/</link>
-      <description><![CDATA[这是基于我整个职业生涯中找工作的经验。我必须比我想要的更频繁地寻找新职位，这也体现在视频中。这里没有什么灵丹妙药，只是一些对当前工作环境的简单建议和分析。    由   提交/u/stumblingtowards  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1obwba5/some_advice_for_first_time_job_seekers/</guid>
-      <pubDate>Mon, 20 Oct 2025 22:46:06 GMT</pubDate>
     </item>
     </channel>
 </rss>
