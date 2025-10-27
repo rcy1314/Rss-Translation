@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 27 Oct 2025 06:40:04 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 09:30:26 GMT</lastBuildDate>
+    <item>
+      <title>🦀 Rust 有了垃圾收集器</title>
+      <link>https://www.reddit.com/r/programming/comments/1oh9l9t/rust_gets_a_garbage_collector/</link>
+      <description><![CDATA[ 由   提交/u/web3writer  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oh9l9t/rust_gets_a_garbage_collector/</guid>
+      <pubDate>Mon, 27 Oct 2025 09:10:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>具有可验证共享的 Shamir 秘密共享的轻量级 Python 实现</title>
+      <link>https://www.reddit.com/r/programming/comments/1oh944a/lightweight_python_implementation_of_shamirs/</link>
+      <description><![CDATA[嗨/编程！ 我为 Shamir 的秘密共享 (SSS) 构建了一个轻量级 Python 库，它将秘密（如密钥）分割成多个共享，只需要一个阈值即可重建。它还支持 Feldman 的可验证秘密共享，以安全地检查共享有效性。 我的项目的用途 基本上，您有一个秘密（密码、密钥、访问令牌、API 令牌、加密钱包密码、秘密公式/配方、核导弹代码）。您可以将您的秘密分享给您的朋友、同事、合作伙伴等，并且要重建您的秘密，您将需要至少 k 份。例如：总共 5 份，但您至少需要 3 份才能恢复秘密）。拥有少于 k 个份额的冒名顶替者对秘密一无所知（对于上下文，如果他拥有 3 个份额中的 2 个，即使具有无限的计算能力，他也无法恢复秘密 - 除非他利用离散对数问题，但这对于当前计算机来说是不可行的）。如果你愿意，你可以不使用这个 Feldman 方案（验证共享），这样即使有无限的计算能力，即使有无限的量子计算机，你的秘密也是安全的 - 从数学上讲，少于 k 个共享是不可能恢复秘密的 特点：  最小的 deps (pycryptodome)，纯 Python。 基于文件或变量 具有 Base64 共享的工作流程。 用于分割、验证和恢复秘密的简单 API。 MIT 许可，非常适合安全密钥管理或学习加密。  与其他实现的比较：  pycryptodome - 它只允许分割 16 个字节，而我的允许无限分割（只要你愿意） 等待，因为所有内容都是在本地计算机上计算的）。此外，此实现没有此功能，您可以在其中验证共享的有效性。另外，这会返回原始字节数组，其中我的返回base64（更容易传输/发送） 此存储库允许您共享您的秘密，但它应该已经采用数字格式，我的会自动将您的秘密转换为数字。此外，此存储库要求您将共享作为原始坐标，我认为这太技术性了。 其他说明：我的项目允许您使用变量或文件恢复您的秘密。它实施费尔德曼方案来验证您的份额。它以方便的格式存储共享 base64 等等，请查看文档  目标受众 我想说它已经做好了生产准备，因为它涵盖了所有安全措施：至少 1024 位的离散对数问题的质数、完美的保密性等等。 即便如此，我也不建议将其用于高机密数据（例如核导弹的代码），除非有专家确认其安全 检查一下：  PyPI：https://pypi.org/project/shamir-lbodlev/（pip install shamir-lbodlev） GitHub：https://github.com/lbodlev888/shamir（带示例的自述文件）  -反馈或功能想法？让我知道这里！   由   提交/u/Excellent_Double_726   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oh944a/lightweight_python_implementation_of_shamirs/</guid>
+      <pubDate>Mon, 27 Oct 2025 08:37:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI Atlas“代理模式”刚刚使 ARIA 标签成为您路线图上最重要的事情</title>
+      <link>https://www.reddit.com/r/programming/comments/1oh8lug/openai_atlas_agent_mode_just_made_aria_tags_the/</link>
+      <description><![CDATA[我一直在分析新的 OpenAI Atlas 浏览器，大多数人都忽略了开发人员最大的收获。 因此，我花了时间深入研究我正在撰写的一篇文章的技术架构，而现实要复杂得多。这不是浏览器；而是浏览器。这是一个代理平台。 &lt;一 href=&quot;https://medium.com/ai-advances/openai-atlas-beyond-the-browser-window-unpacking-agentic-web-ai-memories-the-future-of-7a1900fe0999?sk=f86d5cadb904bb8aae15458cfcc71e72&quot;&gt;文章 重要的两件事是：  “浏览器记忆”：这是一项可选功能，可以为您所看到的内容构建个人的、可查询的知识图谱。你可以问它，“找到我上周读过的关于 Python 的那篇文章，总结一下要点。”这是人工智能的持久、长期记忆。 “代理模式”：这是既令人惊奇又令人恐惧的部分。它是一个人工智能，可以代表您实际点击按钮并填写表格。这不是一个愚蠢的脚本；它是一个简单的脚本。它使用 LLM 来理解页面的意图。  最疯狂的部分是安全性。 OpenAI 公开承认这很容易受到“间接提示注入”的影响。 （即隐藏在您的代理读取的网页上的恶意提示）。 我们都知道“代理模式”。该功能可让人工智能自动导航网站、填写表格和单击按钮。但是如何知道要点击什么？这不仅仅是使用脆弱的选择器。它使用 LLM 在语义上理解 DOM。给它明确指示的最佳方法是什么？ ARIA 标签。 您将那个  设置为看起来像一个按钮吗？代理可能会感到困惑。但是&lt;按钮 aria-label=“提交付款”&gt;？这是一个直接的、机器可读的指令。 可访问性一直很重要，但我认为它现在对于“Agent-SEO”来说是关键任务。我们即将看到一个为 AI 代理优化站点的全新学科，它从正确的语义 HTML 和 ARIA 开始。 我就此编写了更深入的指南，包括这一切引入的巨大安全缺陷（间接提示注入）。如果您为网络进行构建，这将会影响您。 链接   由   提交 /u/Paper-Superb   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oh8lug/openai_atlas_agent_mode_just_made_aria_tags_the/</guid>
+      <pubDate>Mon, 27 Oct 2025 08:02:38 GMT</pubDate>
+    </item>
     <item>
       <title>GlobalCVE — 面向开发人员和安全工具的统一 CVE 源</title>
       <link>https://www.reddit.com/r/programming/comments/1oh4ge4/globalcve_unified_cve_feed_for_developers/</link>
@@ -22,7 +43,7 @@
     <item>
       <title>模拟器的策略：从不可执行的内存中执行代码</title>
       <link>https://www.reddit.com/r/programming/comments/1ogwwa9/the_emulators_gambit_executing_code_from/</link>
-      <description><![CDATA[ 由   提交 /u/NXGZ   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/NXGZ   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1ogwwa9/the_emulators_gambit_executing_code_from/</guid>
       <pubDate>Sun, 26 Oct 2025 21:44:39 GMT</pubDate>
     </item>
@@ -50,7 +71,7 @@
     <item>
       <title>列表是几何级数</title>
       <link>https://www.reddit.com/r/programming/comments/1ogpqoh/lists_are_geometric_series/</link>
-      <description><![CDATA[ 由   提交/u/SnooLobsters2755   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/SnooLobsters2755  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1ogpqoh/lists_are_geometric_series/</guid>
       <pubDate>Sun, 26 Oct 2025 16:59:09 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交 /u/strategizeyourcareer   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1ogij6y/youre_using_ai_wrong_if_youre_trying_to_be_fast/</guid>
       <pubDate>Sun, 26 Oct 2025 11:42:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>红色：TUI Redis 客户端</title>
-      <link>https://www.reddit.com/r/programming/comments/1oggowp/red_a_tui_redis_client/</link>
-      <description><![CDATA[ 由   提交 /u/evertdespiegeleer   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oggowp/red_a_tui_redis_client/</guid>
-      <pubDate>Sun, 26 Oct 2025 09:54:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>我创建了自己的 POSIX 兼容 shell - cjsh</title>
-      <link>https://www.reddit.com/r/programming/comments/1ogg83x/i_created_my_own_posix_compatible_shell_cjsh/</link>
-      <description><![CDATA[ 由   提交/u/CadenFinley   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ogg83x/i_created_my_own_posix_compatible_shell_cjsh/</guid>
-      <pubDate>Sun, 26 Oct 2025 09:24:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>标准化前端体验的开发、部署和执行的微前端平台。</title>
-      <link>https://www.reddit.com/r/programming/comments/1ogfp59/microfrontend_platform_that_standardizes/</link>
-      <description><![CDATA[ 由   提交/u/Mittalmailbox   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ogfp59/microfrontend_platform_that_standardizes/</guid>
-      <pubDate>Sun, 26 Oct 2025 08:50:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
