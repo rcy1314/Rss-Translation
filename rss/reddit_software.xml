@@ -4,53 +4,74 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Wed, 29 Oct 2025 01:56:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Oct 2025 03:53:04 GMT</lastBuildDate>
+    <item>
+      <title>不安全...我向 NCH 的投诉</title>
+      <link>https://www.reddit.com/r/software/comments/1oiu2oh/not_safemy_complaint_to_nch/</link>
+      <description><![CDATA[亲爱的 NCH 软件团队， 这封信是一份正式的技术报告，涉及在通过 Windows 程序和功能完整、正式卸载您的应用程序后，我的系统上 NCH 软件组件的攻击性和未经授权的持久性。 使用先进的取证工具，我记录了一种复杂的多层机制，旨在规避标准删除程序并维护连续的、未经授权的出站网络连接。 技术发现（卸载后） 这适用于已安装的所有 NCH 软件 尽管成功卸载并删除了文件，网络监控工具 (CurrPorts) 仍重复标记与您的域的活动连接：   连接目标 端口 协议目的secure.nch.com.au14045TCP/IP可疑的许可证验证/遥测。  通过以下命令链追踪根持久性机制：   利用合法服务（初始持久性）：NCH 组件成功将其代码注入合法 Intel 服务 esrv_svc.exe（或与 Intel 系统使用报告服务关联的 SurSvc.exe）的可执行文件中。该高权限服务被用作执行未经授权网络连接的主机。  利用计划任务（重生机制）：删除受损的英特尔服务组件后，就会激活一种新机制。通过与英特尔更新管理器关联的不相关的 Windows 计划任务重新建立了持久性： 找到的任务名称：IUM-F1E24CA0-B63E-4F13-A9E3-4ADE3BFF3473（或引用英特尔更新管理器的类似 ID）。 功能：此任务被设置为定期启动脚本或主文件。  动态有效负载执行（最终链接）：计划任务负责将随机的临时有效负载文件放入用户的临时目录中并执行，例如： 示例有效负载路径：AppData\Local\Temp\tmpf1388375\S-V.74.929.8329.exe 功能：此临时可执行文件正在向 explorer.exe 和 chrome.exe 等受信任进程执行代码注入，以对 secure.nch.com.au:14045 进行未经授权的出站连接。   要求解释 此行为令人高度关注，是有害软件 (PUP) 或恶意软件的特征，而不是专业商业应用程序。这些行为构成未经授权使用系统资源、违反用户信任以及规避标准操作系统安全协议。 我需要直接的技术响应来解决以下问题：   为什么您的软件设计为利用非 NCH 服务和计划任务（特别是英特尔组件）在完全正式卸载后仍保留在系统上？  准确地说，哪些数据被传输到secure.nch.com.au:14045？ 哪些特定组件或注册表项负责重新创建有效负载，使其能够逃避初始清理？  我请求确认，这种做法将在您软件的所有未来版本中立即停止。期望对这些持久层进行详细解释。   由   提交 /u/LobsangP   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1oiu2oh/not_safemy_complaint_to_nch/</guid>
+      <pubDate>Wed, 29 Oct 2025 03:23:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>刚刚构建了一个免费的 Mac 应用程序，可以自动整理杂乱的文件夹（离线 + 隐私优先）</title>
+      <link>https://www.reddit.com/r/software/comments/1oitpu8/just_built_a_free_mac_app_that_automatically/</link>
+      <description><![CDATA[我厌倦了手动对屏幕截图、PDF 和下载进行排序，因此我构建了一个名为 VaultSort 的免费 Mac 应用程序。它会自动将文件组织到整齐的子文件夹中（按类型、日期或类别）——所有这些都在您的 Mac 本地进行。 它免费用于自动组织，并且该应用程序不会在任何地方上传任何内容 - 它完全离线运行。我制作它是因为我想要像 Hazel 这样的东西，但更简单且注重隐私。 您可以在此处下载它：https://vaultsort.com/download 它的一些功能示例：  自动将您的下载文件夹分类为“文档”、“图像”和“视频” 立即在外部驱动器上使用太 只需单击一下即可组织数千个文件  还有安全磁盘粉碎（用于永久删除文件）的付费升级，但自动组织功能是完全免费的。很快我将添加更多免费功能，例如磁盘分析。 希望得到任何反馈，尤其是来自其他因杂乱的文件夹或侵犯隐私的清理工具而感到沮丧的 Mac 用户的反馈。   由   提交 /u/jhaubrich11   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1oitpu8/just_built_a_free_mac_app_that_automatically/</guid>
+      <pubDate>Wed, 29 Oct 2025 03:04:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何更快地运行 Appium 测试？</title>
+      <link>https://www.reddit.com/r/software/comments/1oitdiw/how_do_you_run_appium_tests_faster/</link>
+      <description><![CDATA[我们的 Appium 在本地模拟器上运行需要很长时间 - 每个套件需要 50 分钟以上。尝试过并行线程，但模拟器 CPU 使用率会导致 CI​​ 机器崩溃。有什么技巧可以在不购买设备场的情况下使 Appium 更快吗？   由   提交/u/Accurate_Promotion48  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1oitdiw/how_do_you_run_appium_tests_faster/</guid>
+      <pubDate>Wed, 29 Oct 2025 02:47:51 GMT</pubDate>
+    </item>
     <item>
       <title>有没有人可以从 Virustotal（getintopc 文件）检查该文件？</title>
       <link>https://www.reddit.com/r/software/comments/1oiqje6/is_there_anyone_can_check_the_file_from_the/</link>
-      <description><![CDATA[我无法发送链接。因此，您可以在 Getintopc 站点中搜索 Illustrator 并检查 2024 文件。   由   提交/u/CMRM-TN-1028   [链接] [评论]]]></description>
+      <description><![CDATA[我无法发送链接。因此，您可以在 Getintopc 站点中搜索 Illustrator 并检查 2024 文件。   由   提交/u/CMRM-TN-1028  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oiqje6/is_there_anyone_can_check_the_file_from_the/</guid>
       <pubDate>Wed, 29 Oct 2025 00:34:53 GMT</pubDate>
     </item>
     <item>
       <title>帮助根据特定条件重命名一批图像文件</title>
       <link>https://www.reddit.com/r/software/comments/1oimv36/help_renaming_a_batch_of_image_files_with/</link>
-      <description><![CDATA[嗨，有人可以提供有关如何使用一组特定标准重命名图像文件的指导吗？这比逐个命名文件更快？我确实观看了有关使用命令提示符和 Excel 模板重命名图像的 YT 视频，这确实有效，但速度并没有更快，因为我必须在模板上输入新文件名，重命名图像本身也一样快。 图像文件会发送给我，并以产品# 或 SPC# 命名。我想重命名图像，以 GTIN# 开头，然后是下划线，然后是基于以下命名标准的一组 4 个字符：    https://preview.redd.it/ysfpc72ecxxf1.png?width=1676&amp;format=png&amp;auto=webp&amp;s=34f4200ea22e658b79c37f03ab83bc80b297774d    例如：图片文件SPC 106158，我想将其重命名为00812536021516_c3cc.jpg  https://preview.redd.it/xihqen1ucxxf1.png?width=504&amp;format=png&amp;auto=webp&amp;s=34ea495619a25a2b0bfa2d0a6c29f48009b59bc3 &lt;一 href=&quot;https://preview.redd.it/td5wg11icxxf1.png?width=651&amp;format=png&amp;auto=webp&amp;s=ae654d57cc6062ba8c5c179c4941fed94586bb6f&quot;&gt; https://preview.redd.it/td5wg11icxxf1.png?width=651&amp;format=png&amp;auto=webp&amp;s=ae654d57cc6062ba8c5c179c4941fed94586bb6f   由   提交 /u/UsernameBLeon   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，有人可以提供有关如何使用一组特定标准重命名图像文件的指导吗？这比逐个命名文件更快？我确实观看了有关使用命令提示符和 Excel 模板重命名图像的 YT 视频，这确实有效，但速度并没有更快，因为我必须在模板上输入新文件名，重命名图像本身也一样快。 图像文件会发送给我，并以产品# 或 SPC# 命名。我想重命名图像，以 GTIN# 开头，然后是下划线，然后是基于以下命名标准的一组 4 个字符：    https://preview.redd.it/ysfpc72ecxxf1.png?width=1676&amp;format=png&amp;auto=webp&amp;s=34f4200ea22e658b79c37f03ab83bc80b297774d    例如：图片文件SPC 106158，我想将其重命名为00812536021516_c3cc.jpg  https://preview.redd.it/xihqen1ucxxf1.png?width=504&amp;format=png&amp;auto=webp&amp;s=34ea495619a25a2b0bfa2d0a6c29f48009b59bc3 &lt;一href=&quot;https://preview.redd.it/td5wg11icxxf1.png?width=651&amp;format=png&amp;auto=webp&amp;s=ae654d57cc6062ba8c5c179c4941fed94586bb6f&quot;&gt; https://preview.redd.it/td5wg11icxxf1.png?width=651&amp;format=png&amp;auto=webp&amp;s=ae654d57cc6062ba8c5c179c4941fed94586bb6f   由   提交 /u/UsernameBLeon   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oimv36/help_renaming_a_batch_of_image_files_with/</guid>
       <pubDate>Tue, 28 Oct 2025 22:00:44 GMT</pubDate>
     </item>
     <item>
       <title>开箱即用的用例 - 音频路由软件（由于缺乏更好的术语）？</title>
       <link>https://www.reddit.com/r/software/comments/1oilx33/outside_the_box_use_case_audio_routing_software/</link>
-      <description><![CDATA[我什至不知道我的措辞是否正确。（如果有更好的术语来描述我正在搜索的内容，请纠正我）。 我的办公室有一台 Windows 11 电脑和一部旧台式电话。已经足够老了，无法连接蓝牙耳机，但可以连接有线耳机。我有一个蓝牙耳机，我想与它一起使用。 （我不能使用有线耳机，因为它是开放式设计，我需要能够听到同事的​​声音，而且没有有线版本。 现在，我知道使用正确的适配器，我可以将手机中的音频传输到电脑，然后通过声音输出将音频传输回手机。（我已经拥有了所需的大部分内容。） 而且我可以将蓝牙耳机连接到电脑。 所以我想做的就是结合这些想法，并将电脑用作各种适配器。 理想情况下，我希望能够这样做，以便我可以听到所有正常的计算机声音，但我发送回手机的输出只是蓝牙耳机的麦克风音频。我知道我可以设置哪些应用程序输出到 Win11 中的某个位置，但我不知道我什至会使用哪个应用程序来实现此目的！也许某种音频路由软件？或者这可能吗 在 Win11 本身内？ 我希望我说得有道理！ 任何帮助或见解将不胜感激。谢谢。   由   提交/u/Hybrid_Divide  [链接]   &lt;跨度&gt;[评论]]]></description>
+      <description><![CDATA[我什至不知道我的措辞是否正确。（如果有更好的术语来描述我正在搜索的内容，请纠正我）。 我的办公室有一台 Windows 11 电脑和一部旧台式电话。已经足够老了，无法连接蓝牙耳机，但可以连接有线耳机。我有一个蓝牙耳机，我想与它一起使用。 （我不能使用有线耳机，因为它是开放式设计，我需要能够听到同事的声音，而且没有有线版本。 现在，我知道使用正确的适配器，我可以将手机中的音频传输到 PC，然后通过声音输出将音频传输回手机。（我已经拥有了所需的大部分内容。） 而且我可以将蓝牙耳机连接到 PC。那又怎样呢？我想做的就是将这些想法结合起来，并将电脑用作某种适配器。 理想情况下，我希望能够听到所有正常的计算机声音，但我发送回手机的输出只是蓝牙耳机的麦克风音频。我知道我可以将哪些应用程序输出到 Win11 中的位置，但我不知道我什至可以使用什么应用程序来实现此目的！或者这是某种音频路由软件？在 Win11 本身中可能吗？ 我希望我说得有道理！ 谢谢。   /u/Hybrid_Divide   [链接]   href=&quot;https://www.reddit.com/r/software/comments/1oilx33/outside_the_box_use_case_audio_routing_software/&quot;&gt;[评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oilx33/outside_the_box_use_case_audio_routing_software/</guid>
       <pubDate>Tue, 28 Oct 2025 21:23:37 GMT</pubDate>
     </item>
     <item>
       <title>Realtek 音频控制不再工作</title>
       <link>https://www.reddit.com/r/software/comments/1oij6fe/realtek_audio_control_no_longer_working/</link>
-      <description><![CDATA[您好 几周前，我的计算机停止识别我的耳机，经过一些诊断工作后，我发现 Realtek 音频控制由于某种原因不再在我的笔记本电脑上运行。我尝试卸载并重新安装该软件以及在网上找到的各种修复程序，但似乎没有任何效果，还有其他方法可以再次运行我的耳机吗？任何帮助将不胜感激。 顺便说一句，我的笔记本电脑仍在运行 Windows 10，我对间谍软件 11 并不真正感兴趣。   由   提交/u/Cute-Ad-4525   [链接] [评论]]]></description>
+      <description><![CDATA[您好 几周前，我的计算机停止识别我的耳机，经过一些诊断工作后，我发现 Realtek 音频控制由于某种原因不再在我的笔记本电脑上运行。我尝试卸载并重新安装该软件以及在网上找到的各种修复程序，但似乎没有任何效果，还有其他方法可以再次运行我的耳机吗？任何帮助将不胜感激。 顺便说一句，我的笔记本电脑仍在运行 Windows 10，我对间谍软件 11 并不真正感兴趣。   由   提交/u/Cute-Ad-4525  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oij6fe/realtek_audio_control_no_longer_working/</guid>
       <pubDate>Tue, 28 Oct 2025 19:39:11 GMT</pubDate>
     </item>
     <item>
       <title>访问私有/内部 API 合乎道德/好吗？</title>
       <link>https://www.reddit.com/r/software/comments/1oij4lt/accessing_privateinternal_apis_ethicalokay/</link>
-      <description><![CDATA[如果像 CRM 这样的东西使用它自己的内部/私有 API 来水合前端，我检索必要的 cookie（通过我自己的登录）并使用这些 cookie 对这些端点进行调用，必要时刷新，这是否被视为不好？ 这与水合前端的调用相同，但以编程方式进行。最坏的情况是他们要求我停下来？或者？想法？ 谢谢大家   由   提交 /u/OriahVinree   [链接] [评论]]]></description>
+      <description><![CDATA[如果像 CRM 这样的东西使用它自己的内部/私有 API 来水合前端，我检索必要的 cookie（通过我自己的登录）并使用这些 cookie 对这些端点进行调用，必要时刷新，这是否被视为不好？ 这与水合前端的调用相同，但以编程方式进行。最坏的情况是他们要求我停下来？或者？想法？ 谢谢大家   由   提交/u/OriahVinree   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oij4lt/accessing_privateinternal_apis_ethicalokay/</guid>
       <pubDate>Tue, 28 Oct 2025 19:37:20 GMT</pubDate>
     </item>
     <item>
       <title>寻找基准测试人员（Android 设备 -> CPU）！</title>
       <link>https://www.reddit.com/r/software/comments/1oihuxq/looking_for_benchmarktesters_androiddevice_cpu/</link>
-      <description><![CDATA[大家好！我正在寻找 Android（应用程序）版本“System-Meeter-Bar”的基准测试人员。 “System-Meeter-Bar”旨在为许可友好的支持和分析工具提供解决方案，这些工具结构紧凑，与需要商业用途许可的 EULA 无关。 SMB 是一款集系统数据收集工具、系统概述工具、基准测试和系统报告工具于一体的工具。您可以使用它来显示系统概述、查找问题或通过内置基准测试工具测试系统的稳定性，无论它是在私有系统上使用还是在商业环境中使用。 ( https://www.app-smb.com/ )   关键功能之一是 CPU 计算能力和存储速度的基准。它可以帮助用户检查设备的性能是否符合预期或低于/高于其正常性能水平。 为了提供良好的比较，我需要基于实际基准结果的数据。到目前为止，结果相当有限： https://www.app-smb.com/benchmark.php?type=1   我需要您的帮助并获取更多数据来填充数据库 Android 设备/CPU 及其性能与 SMB 应用程序的 CPU 基准测试。   我所需要的只是 1 分钟单线程测试和 1 分钟多线程测试的结果。 该应用程序可以通过 GooglePlaystore 轻松安装：https://play.google.com/store/apps/details?id=com.it_huskys.smb 我需要的只是结果的屏幕截图 基准测试结果（包含应用程序中的设备数据）。   提前感谢大家，感谢你们在本例中为我提供的帮助以及你们的大力支持！   由   提交 /u/Unreal_NeoX   [链接] [评论]]]></description>
+      <description><![CDATA[大家好！我正在寻找 Android（应用程序）版本“System-Meeter-Bar”的基准测试人员。 “System-Meeter-Bar”旨在为许可友好的支持和分析工具提供解决方案，这些工具结构紧凑，与需要商业用途许可的 EULA 无关。 SMB 是一款集系统数据收集工具、系统概述工具、基准测试和系统报告工具于一体的工具。您可以使用它来显示系统概述、查找问题或通过内置基准测试工具测试系统的稳定性，无论它是在私有系统上使用还是在商业环境中使用。 ( https://www.app-smb.com/ )   关键功能之一是 CPU 计算能力和存储速度的基准。它可以帮助用户检查设备的性能是否符合预期或低于/高于其正常性能水平。 为了提供良好的比较，我需要基于实际基准结果的数据。到目前为止，结果相当有限： https://www.app-smb.com/benchmark.php?type=1   我需要您的帮助并获取更多数据来填充 Android 设备/CPU 数据库及其性能与 SMB 应用程序的 CPU 基准。   我需要的只是 1 分钟单线程测试和 1 分钟多线程测试的结果。 该应用程序可以通过 GooglePlaystore 轻松安装：https://play.google.com/store/apps/details?id=com.it_huskys.smb 我需要的只是基准测试结果的屏幕截图（包含应用中的设备数据）。   提前感谢大家的帮助我出去了，还有你们在这种情况下的大力支持！   由   提交 /u/Unreal_NeoX   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oihuxq/looking_for_benchmarktesters_androiddevice_cpu/</guid>
       <pubDate>Tue, 28 Oct 2025 18:48:37 GMT</pubDate>
     </item>
     <item>
       <title>我厌倦了设置自动化并成为自己的助手，所以我在本地构建了一个可以为我自动化一切的助手</title>
       <link>https://www.reddit.com/r/software/comments/1oigqkc/i_got_tired_of_setting_up_automations_and_being/</link>
-      <description><![CDATA[我是每天使用 10 多个应用程序的人之一； Chrome、Notion、Slack、Sheets、Figma，凡是你能想到的。 每天，我都会发现自己一遍又一遍地做同样的 20 件小事： • 复制工具之间的名称或链接 • 重写简短的电子邮件 • 查找某些内容，将其粘贴到其他地方 • 像 2005 年一样手动填写电子表格 我尝试将这一切自动化；但我尝试将这一切自动化。 ChatGPT、n8n、Zapier、OpenAI 的代理……但事实是：它们都是为技术人员构建的，或者更糟糕的是，它们将你的一半屏幕上传到云端只是为了做一些简单的事情。我不想让人工智能老大哥看着我工作——我只是想要一个小兄弟来帮助我完成工作。 所以几个月前，我开始构建 MonAI——一个小桌面代理，它实际上存在于你的计算机上，学习你的工作流程，并在不需要提示或设置管道的情况下实现自动化。一切都在本地运行，因此数据不会离开您的计算机。它就像您自己的个人数字孪生，可以悄悄地了解您正在使用的内容，并建议对一次性任务或重复性任务进行自动化，而无需您询问。 现在，还为时过早（我们首先在 macOS 上进行测试），但我想在这里分享这个想法，因为我认为生产力的未来不是另一个 SaaS 工具，而是与您一起工作的本地伴侣。 很好奇，你们都好吗？ 如今，您的日常数字工作自动化了吗？您是否找到了真正适合您的工作流程而无需花费数小时进行设置或冒隐私风险的东西？这有助于解决您的任何问题吗？ :) 非常感谢您的反馈:))   由   提交/u/GreenIcy7338  [链接] [评论]]]></description>
+      <description><![CDATA[我是每天使用 10 多个应用程序的人之一； Chrome、Notion、Slack、Sheets、Figma，凡是你能想到的。 每天，我都会发现自己一遍又一遍地做同样的 20 件小事： • 复制工具之间的名称或链接 • 重写简短的电子邮件 • 查找某些内容，将其粘贴到其他地方 • 像 2005 年一样手动填写电子表格 我尝试将这一切自动化；但我尝试将这一切自动化。 ChatGPT、n8n、Zapier、OpenAI 的代理……但事实是：它们都是为技术人员构建的，或者更糟糕的是，它们将你的一半屏幕上传到云端只是为了做一些简单的事情。我不想让人工智能老大哥看着我工作——我只是想要一个小兄弟来帮助我完成工作。 所以几个月前，我开始构建 MonAI——一个小桌面代理，它实际上存在于你的计算机上，学习你的工作流程，并在不需要提示或设置管道的情况下实现自动化。一切都在本地运行，因此数据不会离开您的计算机。它就像您自己的个人数字孪生，可以悄悄地了解您正在使用的内容，并建议自动化一次性任务或重复性任务，而无需您提出要求。 现在，还为时过早（我们首先在 macOS 上进行测试），但我想在这里分享这个想法，因为我认为生产力的未来不是另一个 SaaS 工具，而是与您一起工作的本地伴侣。 很好奇，你们都如何自动化您的日常工作如今的数字惯例？您是否找到了真正适合您的工作流程而无需花费数小时进行设置或冒隐私风险的东西？这有助于解决您的任何问题吗？ :) 非常感谢您的反馈:))   由   提交/u/GreenIcy7338  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oigqkc/i_got_tired_of_setting_up_automations_and_being/</guid>
       <pubDate>Tue, 28 Oct 2025 18:06:21 GMT</pubDate>
     </item>
@@ -64,21 +85,21 @@
     <item>
       <title>千里 L256 Istele 的 IR 问题</title>
       <link>https://www.reddit.com/r/software/comments/1oiee3f/problème_qianli_ir_avec_qianli_l256_istele/</link>
-      <description><![CDATA[ 由   提交 /u/YohSensei   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/YohSensei   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oiee3f/problème_qianli_ir_avec_qianli_l256_istele/</guid>
       <pubDate>Tue, 28 Oct 2025 16:40:03 GMT</pubDate>
     </item>
     <item>
       <title>有没有可以删除像素化图像背景的免费软件？ （像素艺术）</title>
       <link>https://www.reddit.com/r/software/comments/1oidwbx/are_there_any_free_softwares_that_can_remove_the/</link>
-      <description><![CDATA[如果我尝试类似 remove.bg 的内容，它会使像素变得圆形且模糊。有没有可以去除背景像素的软件？   由   提交/u/pedroagiotas  [链接] [评论]]]></description>
+      <description><![CDATA[如果我尝试类似 remove.bg 的内容，它会使像素变得圆形且模糊。有没有可以去除背景像素的软件？   由   提交 /u/pedroagiotas   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oidwbx/are_there_any_free_softwares_that_can_remove_the/</guid>
       <pubDate>Tue, 28 Oct 2025 16:22:01 GMT</pubDate>
     </item>
     <item>
       <title>用于组织邮政邮件的应用程序</title>
       <link>https://www.reddit.com/r/software/comments/1oib8zu/apps_for_organizing_postal_mail/</link>
-      <description><![CDATA[您是否知道用于扫描和组织普通邮件（即邮寄信件）的工具/应用程序？   由   提交 /u/Pretend-Cheetah2058   [链接] [评论]]]></description>
+      <description><![CDATA[您是否知道用于扫描和组织普通邮件（即邮寄信件）的工具/应用程序？   由   提交/u/Pretend-Cheetah2058  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oib8zu/apps_for_organizing_postal_mail/</guid>
       <pubDate>Tue, 28 Oct 2025 14:42:50 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[大家好，正在寻找一个接近 NVU/Kompozer（旧版和 EOL）的 html 编辑器。 可能需要 1 次成本，只是寻找可以使用它来编辑一些真正原始页面的东西...没什么重要的，只是需要很好地处理表格。另外，没有任何“基于云”的内容 在此发布...   由   提交 /u/SpawnDnD   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1oia7lh/wysiwyg_html_editor_for_windows/</guid>
       <pubDate>Tue, 28 Oct 2025 14:02:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>MSI 加力问题</title>
-      <link>https://www.reddit.com/r/software/comments/1oi7z5p/msi_afterburner_issue/</link>
-      <description><![CDATA[ https://preview.redd.it/ace3sv6tiuxf1.png?width=740&amp;format=png&amp;auto=webp&amp;s=7cf2e6c880d18b3436f8b9c3c59cb597457e5a6c 有人可以帮助我吗？我不认为微星加力燃烧室应该是这样的。听说是驱动问题，但是我已经用过DDU了，结果还是这样   由   提交 /u/Purpose1_-   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1oi7z5p/msi_afterburner_issue/</guid>
-      <pubDate>Tue, 28 Oct 2025 12:27:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>当我刻录到光盘时 DVDstyler 文本和按钮不显示</title>
-      <link>https://www.reddit.com/r/software/comments/1oi6xvy/dvdstyler_text_and_button_disapres_when_i_burn_to/</link>
-      <description><![CDATA[（我还是 Reddit 的新手，所以不知道该标记什么，如果我弄错了，抱歉。）  这是我第一次尝试制作带菜单的 DVD/DVD，我对任何东西都知之甚少，到目前为止，我已经因为错误而毁掉了 3 张 DVD，但这真的让我很困惑。我发现其他人的帖子存在文本未显示的问题（并且没有找到解决方案），但我也遇到按钮完全消失而不是隐形的问题。主菜单工作正常，主页按钮和第一个标题按钮+文本也工作正常，但没有其他东西。它应该有十个标题+按钮！所有视频都直接链接到每个按钮，并且似乎是正确的格式，因为它可以很好地刻录到光盘，所以我只是卡住了！如果有帮助的话，DVD 是 DVD+R DL，它有剩余空间，因此与项目的大小无关，菜单和问题菜单后面都有图片和相同的字体。   由   提交/u/Mysterious_Laugh_481   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1oi6xvy/dvdstyler_text_and_button_disapres_when_i_burn_to/</guid>
-      <pubDate>Tue, 28 Oct 2025 11:36:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>RustyCOV 是一款设计用于使用 cover.musichoarders 半自动检索封面艺术的工具</title>
-      <link>https://www.reddit.com/r/software/comments/1oi62x3/rustycov_is_a_tool_designed_to_semiautomate_the/</link>
-      <description><![CDATA[美好的一天。 我在周末制作了一个快速 CLI 工具 RustyCOV 来帮助自动从 covers.musichoarders 目前，它提供两种模式：一种用于每个文件嵌入封面艺术，另一种用于专辑，它从目录中的所有文件中删除封面艺术并将其合并到该专辑的单个图像中。 此外，它支持 PNG 优化、从 PNG 到 JPEG 的转换以及具有可调整质量设置的 JPEG 优化。 例如，您可以链接这些功能将下载的 PNG 文件转换为 JPEG，然后优化 JPEG。 该工具允许您定位目录或单个文件（如果您选择目录，它将递归扫描其中的所有文件）。 它也可以使用 作为 Rust 生态系统中的板条箱/图书馆。但是，如果您尝试在 RustyCOV  上构建自定义逻辑，这可能需要一些改进。 希望您喜欢:)   由   提交 /u/EtherealPlatitude   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1oi62x3/rustycov_is_a_tool_designed_to_semiautomate_the/</guid>
-      <pubDate>Tue, 28 Oct 2025 10:49:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
