@@ -4,20 +4,97 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 29 Oct 2025 15:29:50 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Oct 2025 18:36:25 GMT</lastBuildDate>
     <item>
-      <title>在编写数据结构和算法的 Java 代码时为什么要关心时间和空间复杂度？如何在实际示例中应用 Big O 表示法？</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj6qpe/why_should_i_care_about_time_space_complexity/</link>
-      <description><![CDATA[ 由   提交/u/SMprogrmming   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj6qpe/why_should_i_care_about_time_space_complexity/</guid>
-      <pubDate>Wed, 29 Oct 2025 14:56:08 GMT</pubDate>
+      <title>教育基准：移动逻辑压缩 1 亿条记录（Python + SQLite + Zlib）</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojc99d/educational_benchmark_100_million_records_with/</link>
+      <description><![CDATA[简介 这是一个关于 Python 如何通过应用逻辑和语义压缩来处理大量数据的教育性和探索性实验，我将这个概念称为 LSC（逻辑语义压缩）。 该提案是仅使用 Python、SQLite 和 Zlib 生成 1 亿条结构化记录并将它们存储在压缩块中 — 没有并行性，也没有高性能外部  ⚙️环境配置 设备：Android（通过 Termux） 语言：Python 3 数据库：SQLite 压缩：zlib 模式：单核 总记录数：100,000,000 批次：每个 1,000 条记录chunk 定期提交：每 3 个块  🧩 逻辑结构 生成的每条记录都遵循简单的语义模式： { &quot;id&quot;: i, &quot;title&quot;: f&quot;Book {i}&quot;, &quot;author&quot;: &quot;random letter string&quot;, &quot;year&quot;: number Between 1950 年和 2024 年，“类别”：“浪漫/科学/历史” } 这些记录被分组为块，在存储到数据库之前，它们被转换为 JSON 并使用 zlib 进行压缩。每个块代表一个“逻辑包”——LSC 中的一个中心概念。  ⚙️ 代码主要摘录 json_bytes = json.dumps(batch, seperators=(&#39;,&#39;, &#39;:&#39;)).encode() comp_blob = zlib.compress(json_bytes, ZLIB_LEVEL) cur.execute( &quot;INSERT INTO chunks (start_id, end_id, blob, count) VALUES (?, ?, ?, ?)&quot;, (i - BATCH_SIZE + 1, i, sqlite3.Binary(comp_blob), len(batch)) ) 代码执行：  记录的语义生成 JSON序列化 逻辑压缩（Zlib） 写入 SQLite   🚀 基准结果 结果指标 📊 生成 100,000,000 条记录 🧩 处理 100,000 条数据块 📦压缩后的大小 ~2 GB 📤 未压缩的大小 ~10 GB ⚙️ 压缩率 ~20% ⏱️ 总时间 ~50 秒（约） ⚡ 平均速度 ~200,000 条记录/秒 🔸 单核模式（CPU 密集）  🔬 观察结果 即使是在智能手机上运行，结果也出奇的稳定。压缩率保持在 20% 左右，块之间的差异很小。 这表明，有了良好的逻辑数据结构，无需借助 C/C++ 中的并行性或优化，就可以获得相当高的效率。  🧠 关于 LSC LSC（逻辑语义压缩）不是一个库，而是一个想法：  根据逻辑结构压缩数据和语义重复，而不仅仅是在原始字节中。  因此，每个块不仅承载信息，还承载记录之间的关系和连贯性。压缩成为数据含义的反映，而不仅仅是其大小。  🎓 结论 即使在单核模式下运行并使用简单的配置，Python 也表明可以处理 1 亿条结构化记录，保持一致的压缩和低碎片。  🔍 这个实验强化了这样的想法：数据的逻辑组织可以像技术优化一样强大。    由   提交/u/MajorPistola   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojc99d/educational_benchmark_100_million_records_with/</guid>
+      <pubDate>Wed, 29 Oct 2025 18:20:23 GMT</pubDate>
     </item>
     <item>
-      <title>在编写数据结构和算法的 Java 代码时为什么要关心时间和空间复杂度？如何在实际示例中应用 Big O 表示法？</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj6qf2/why_should_i_care_about_time_space_complexity/</link>
-      <description><![CDATA[当你编写算法时，你经常会考虑“这需要多少步？”或者“我需要多少内存？”这正是时间和空间复杂度所捕获的内容：  时间复杂度：算法的运行时间如何随着输入大小 (n) 的增长而增长。 空间复杂度：内存使用量如何随着输入大小的增长而增长。 大 O 表示法：表示这种增长的上限（例如，O(n)、O(n²)、 O(log n))  📺 想要更深入地了解吗？观看此视频：时间和时间DSA 中的空间复杂度 (Java) 🔥 Big O + 真实世界示例 欢迎提出更多问题：“平均情况与最坏情况如何？”、“摊销时间如何？”或“递归如何影响空间复杂度？”。我很乐意回答。 祝您编码愉快！ 🚀    由   提交/u/SMprogrmming   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj6qf2/why_should_i_care_about_time_space_complexity/</guid>
-      <pubDate>Wed, 29 Oct 2025 14:55:50 GMT</pubDate>
+      <title>CPU 上的新开源 AI 训练框架！</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojbv9x/new_opensource_ai_training_framework_on_cpu_s/</link>
+      <description><![CDATA[最近我偶然发现了这个奇怪的存储库https://github.com/old-droid/XTRAIN。文档很不错，但代码肯定需要正确的模式组织。它是免费的，非常简单，并且是跨平台的。它是一个针对 CPU 的人工智能训练框架，速度快得令人难以置信，而且易于设置和运行。如果您想制作自定义版本，也可以分叉。   由   提交/u/No_Village_5514   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojbv9x/new_opensource_ai_training_framework_on_cpu_s/</guid>
+      <pubDate>Wed, 29 Oct 2025 18:05:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vi /Vim 编辑器：每个开发人员、系统管理员和 DevOps 工程师都应该知道的实用命令。</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojbu0m/vi_vim_editor_practical_commands_every_developer/</link>
+      <description><![CDATA[我整理了一份 vi 命令的简单指南，这些年来在 Linux 上编辑配置或脚本时，这些指南实际上对我很有帮助。 简短、实用且专注于真实示例。 如果我遗漏了一些内容，请告诉我。.很乐意接受反馈并将其制作为详尽的列表！ 在此处阅读   由   提交/u/sshetty03  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojbu0m/vi_vim_editor_practical_commands_every_developer/</guid>
+      <pubDate>Wed, 29 Oct 2025 18:04:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何持续交付软件</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojbos8/how_we_continually_deliver_software/</link>
+      <description><![CDATA[ 由   提交/u/paltman94  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojbos8/how_we_continually_deliver_software/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:59:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>蔚蓝下来</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojbiss/azure_down/</link>
+      <description><![CDATA[ 由   提交/u/RR_2025  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojbiss/azure_down/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:53:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过批量压缩击败神经网络：comma.ai 矢量量化挑战赛的结果提高了 3.50 倍</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojaus4/beating_neural_networks_with_batch_compression_a/</link>
+      <description><![CDATA[ 由   提交 /u/Unusual_Midnight_523   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojaus4/beating_neural_networks_with_batch_compression_a/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:29:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>让我们在特定的浏览器配置文件中打开 URL</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojagkh/let_us_open_urls_in_a_specific_browser_profile/</link>
+      <description><![CDATA[ 由   提交 /u/ekrubnivek   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojagkh/let_us_open_urls_in_a_specific_browser_profile/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:15:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>眼假体是第一个恢复因黄斑变性而丧失视力的装置</title>
+      <link>https://www.reddit.com/r/programming/comments/1ojaea6/eye_prosthesis_is_the_first_to_restore_sight_lost/</link>
+      <description><![CDATA[ 由   提交/u/arshidwahga  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ojaea6/eye_prosthesis_is_the_first_to_restore_sight_lost/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:12:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>Composer：用 RL·Cursor 构建快速前沿模型</title>
+      <link>https://www.reddit.com/r/programming/comments/1oja9vo/composer_building_a_fast_frontier_model_with_rl/</link>
+      <description><![CDATA[ 由   提交/u/Complex_Computer2966   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oja9vo/composer_building_a_fast_frontier_model_with_rl/</guid>
+      <pubDate>Wed, 29 Oct 2025 17:08:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>“The Bug Hunt”博客文章模式</title>
+      <link>https://www.reddit.com/r/programming/comments/1oj9dkh/the_bug_hunt_blog_post_pattern/</link>
+      <description><![CDATA[这是《为开发人员写作：值得阅读的博客》一书的第 8 章。 （曼宁出版）。这里有一个不断增长的“Bug Hunt”博客文章集 https://writethat.blog/?pattern=bug%20hunt    由   提交/u/swdevtest  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oj9dkh/the_bug_hunt_blog_post_pattern/</guid>
+      <pubDate>Wed, 29 Oct 2025 16:35:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>从 VS Code 到 Helix</title>
+      <link>https://www.reddit.com/r/programming/comments/1oj7xhq/from_vs_code_to_helix/</link>
+      <description><![CDATA[ 由   提交/u/Leading-Youth6865   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oj7xhq/from_vs_code_to_helix/</guid>
+      <pubDate>Wed, 29 Oct 2025 15:41:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们为何以及如何更换 EBS</title>
+      <link>https://www.reddit.com/r/programming/comments/1oj7tmt/why_and_how_we_are_replacing_ebs/</link>
+      <description><![CDATA[ 由   提交/u/jascha_eng  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oj7tmt/why_and_how_we_are_replacing_ebs/</guid>
+      <pubDate>Wed, 29 Oct 2025 15:37:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kafka 很快——我会使用 Postgres</title>
+      <link>https://www.reddit.com/r/programming/comments/1oj7q6q/kafka_is_fast_ill_use_postgres/</link>
+      <description><![CDATA[ 由   提交/u/arshidwahga  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oj7q6q/kafka_is_fast_ill_use_postgres/</guid>
+      <pubDate>Wed, 29 Oct 2025 15:34:06 GMT</pubDate>
     </item>
     <item>
       <title>连接就是一切 • 肯·休斯 • GOTO 2025</title>
@@ -32,83 +109,6 @@
       <description><![CDATA[ 由   提交 /u/kishunkumaar   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1oj4477/build_your_own_search_engine_from_scratch_in_java/</guid>
       <pubDate>Wed, 29 Oct 2025 13:10:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>小心，这种情况变得很常见</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj3xva/be_careful_this_is_becoming_very_common/</link>
-      <description><![CDATA[如果您是一名 web3 开发人员并使用 LinkedIn，请务必小心您在链接中收到的工作机会。很多人在这个骗局中损失了钱   由   提交/u/Best_Program3210   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj3xva/be_careful_this_is_becoming_very_common/</guid>
-      <pubDate>Wed, 29 Oct 2025 13:03:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>React 和 Elm 中的同一个应用程序：并排比较</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj2fqv/the_same_app_in_react_and_elm_a_sidebyside/</link>
-      <description><![CDATA[ 由   提交 /u/cekrem   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj2fqv/the_same_app_in_react_and_elm_a_sidebyside/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:52:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>点击图片即可播放视频</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj2en4/click_image_to_play_video/</link>
-      <description><![CDATA[大家好！我对编程还很陌生，我有一个问题。如果有人愿意提供帮助，我将非常感激。 请让任何愿意提供帮助的人直观地了解我需要什么帮助 在我网站的英雄部分，我得到了三张图像，它们大小相同，并且彼此相邻。每张图片都是电影封面，我想要它，这样您就可以单击一张图片，其他两张图片就会消失，而单击的图片将填充释放的空间。同时，点击的图像将被播放预告片的 YouTube 视频所取代。该视频应该替换图像，而不是打开 youtube 或弹出窗口来播放。 我得到了我的 index.html、CSS 样式表和 js 脚本，但不知道该怎么做或它应该去哪里。 有人愿意帮忙吗？谢谢 😊    由   提交/u/GlisteningEasternSea   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj2en4/click_image_to_play_video/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:51:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>stackoverflow官方死了吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj28yn/is_it_stackoverflow_official_dead/</link>
-      <description><![CDATA[StackOverFlow 已经死了吗，还是只有我一个人这样？我已经使用 GenAI 进行编码六年了，但我注意到我不再像以前那样频繁访问 StackOverFlow。我什至意识到我已经将它从我的标签中删除了。你也有同样的感觉吗？科技将走向何方？作为 GenAI 的工作人员，我自己都看不到。在与我的同事交谈时，他们说我们正在走向一个在 10 年后没有人会编写代码的世界，编码将成为一种爱好。那么人们会做什么呢？这就是真正的问题和我们的担忧开始的地方:)   由   提交/u/Senior_Note_6956   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj28yn/is_it_stackoverflow_official_dead/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:43:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>给中风幸存软件工程师的建议</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj1yeo/tips_for_strokesurviving_software_engineers/</link>
-      <description><![CDATA[ 由   提交 /u/No-Session6643   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj1yeo/tips_for_strokesurviving_software_engineers/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:27:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>远程过程调用的工作原理</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj1o2t/how_remote_procedure_call_works/</link>
-      <description><![CDATA[ 由   提交/u/sdxyz42   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj1o2t/how_remote_procedure_call_works/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:12:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在微服务世界中看到的灾难，第二部分</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj1i7i/disasters_ive_seen_in_a_microservices_world_part/</link>
-      <description><![CDATA[四年前，我写了《我在微服务世界中看到的灾难》。我想现在我们已经解决了大部分问题。我们没有。我们刚刚学会忍受混乱。 续集已经推出。我亲眼目睹了四种新的“灾难”： #7 服务比工程师多 #8 地狱之门 #9 技术蔓延 #10 当组织结构图成为你的架构时 你听起来熟悉吗？    由   提交  /u/joaoqalves   [链接]   href=&quot;https://www.reddit.com/r/programming/comments/1oj1i7i/disasters_ive_seen_in_a_microservices_world_part/&quot;&gt;[评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj1i7i/disasters_ive_seen_in_a_microservices_world_part/</guid>
-      <pubDate>Wed, 29 Oct 2025 11:03:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在几个小时内用人工智能定制了一个开源语音听写工具——这就是为什么开源+人工智能改变了游戏规则</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj0voo/i_customized_an_opensource_voice_dictation_tool/</link>
-      <description><![CDATA[所以我想分享最近发生的一些事情，它真正让我们明白为什么我们生活在开发者如此激动人心的时代。 问题 我一直在寻找一个好的语音听写工具。我偶然发现了 Ito (github.com/heyito/ito)，它是一个开源语音听写工具，具有一些非常可靠的功能。但有几件事困扰着我：  没有黑暗模式。经过长时间的训练，我的眼睛绝对要死了。 听写界面的用户界面与我的工作流程偏好不匹配。没什么可怕的，只是不太适合我的工作方式。 没有后台进程。您必须保持主窗口打开，应用程序才能继续工作。关闭窗口 = 应用程序停止。这让我彻底发疯。 本地服务器依赖。您必须下载并运行本地服务器才能使用该应用程序，这给我的设置增加了不必要的复杂性。  通常，您要么处理它，打开功能请求并等待数月（或永远），要么直接转向另一个不太适合的工具。 解决方案 相反，我做了一些不同的事情。我克隆了该存储库并要求 OpenAI Codex 帮助我修改它。在几个小时内，我完成了：  完全实现深色模式 重新设计用户界面，以符合我的确切偏好 后台进程工作 - 即使我关闭主窗口，应用程序仍保持运行 用 Grok API 替换本地服务器 - 更干净的设置，使用我自己的 API 密钥 感觉像是专门为我构建的工具  现在呢？我每天都使用它。它确实感觉像是我的工具，而不仅仅是我借用的工具。 技术转变 后台进程和 API 切换是真正的游戏规则改变者。我现在拥有一个轻量级听写工具，不再与本地基础设施绑定，让应用程序通过始终打开的窗口来吸引我的注意力，它：  在后台静默运行 使用云 LLM 提供商（本例中为 Groq）而不是本地服务器 启动时启动，然后...工作  不需要保姆。 为什么这样做重要 这是软件开发领域目前正在发生的权力转移。开源 + AI 编码助手 = 您几乎可以采用任何项目，并根据您的具体需求重新调整它。 您不再受到维护人员的优先顺序或路线图的限制。您不是在等待 PR 被审核。您不会影响您的工作流程。 您只需分叉，描述您想要的内容，让人工智能帮助您实现它，并运行您的自定义版本。 我们不再只是消费者 这并不是要更换维护人员或不回馈。这是关于软件定制的民主化。 以前，定制软件需要深入了解代码库、花数天时间阅读文件、理解架构决策、弄清楚如何实现后台进程或交换 API 提供程序。现在？您可以让人工智能在数小时内指导您完成修改。 我们不再只是软件的消费者 - 我们是混音者。老实说，我为能在这个时代进行建设感到无比自豪。 对于任何好奇的人： 原始存储库：github.com/heyito/ito 我的存储库：calebrussel77/ito-speech-to-text 我的修改版本目前仅供个人使用，但在人工智能的帮助下，变化出人意料地简单。后台进程设置和 API 迁移是最棘手的部分，但即使这些部分也可以通过正确的提示进行管理。   由   提交/u/caleb-russel  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj0voo/i_customized_an_opensource_voice_dictation_tool/</guid>
-      <pubDate>Wed, 29 Oct 2025 10:28:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>理解 Lambda 演算 6：重复出现的问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj0o60/making_sense_of_lambda_calculus_6_recurring/</link>
-      <description><![CDATA[ 由   提交/u/aartaka  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj0o60/making_sense_of_lambda_calculus_6_recurring/</guid>
-      <pubDate>Wed, 29 Oct 2025 10:15:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>Web 开发使用... Pascal？</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj0fos/web_development_in_pascal/</link>
-      <description><![CDATA[ 由   提交/u/self  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj0fos/web_development_in_pascal/</guid>
-      <pubDate>Wed, 29 Oct 2025 10:02:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>nanograd，一个从头开始的微型自动差分引擎，用于了解 PyTorch 的工作原理。反向传播、前向传播、优化器和损失函数的实现</title>
-      <link>https://www.reddit.com/r/programming/comments/1oj0bb3/nanograd_a_tiny_autodiff_engine_from_scratch_to/</link>
-      <description><![CDATA[ 由   提交/u/Savings_Delay_5357  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1oj0bb3/nanograd_a_tiny_autodiff_engine_from_scratch_to/</guid>
-      <pubDate>Wed, 29 Oct 2025 09:54:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
