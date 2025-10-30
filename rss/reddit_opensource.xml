@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 30 Oct 2025 06:37:40 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Oct 2025 09:29:04 GMT</lastBuildDate>
+    <item>
+      <title>我构建了 YaraDB，这是一个具有内置乐观锁定和数据完整性的开源文档数据库</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ojuslc/i_built_yaradb_an_opensource_document_db_with/</link>
+      <description><![CDATA[嘿r/opensource！ 我一直在开发文档数据库 YaraDB，并且刚刚将其公开。我希望从开源社区获得有关该架构的一些反馈。 GitHub 存储库： https://github.com/illusiOxd/yaradb 什么是 YaraDB？ YaraDB 是一个基于 Python 构建的轻量级内存优先文档数据库（FastAPI 和 Pydantic）。它作为服务运行，在关闭时将所有数据保存到单个 JSON 文件，并使用 Docker 完全容器化。 我为什么构建这个？ （目标受众） 我想要一个用于我自己的小型项目（机器人、个人 API 等）的数据库，它像 SQLite 一样简单，但像 NoSQL 一样灵活。 问题是大多数简单的数据库（例如 TinyDB 或只是写入 JSON 文件）对于竞争条件或数据损坏具有零保护。 YaraDB 是我的解决方案：一个在轻量级包中提供企业级数据保证的数据库。 核心功能（“智能”模型） 主要理念是数据库本身应该保证完整性。 YaraDB 的核心是一个“智能”数据库。 Pydantic 模型 (StandardDocument) 包装每个文档并提供：  乐观并发控制 (OCC)： 每个文档都有一个 version 字段。 PUT /document/update 端点需要此版本。如果不匹配，API 将返回 409 冲突。这可以防止“更新丢失”。两个进程尝试更新同一文档时的竞争条件。 内置数据完整性： 每次更新时，文档的 body 都会自动散列 (body_hash)。这使您可以立即验证数据是否已损坏。 软删除： PUT /document/archive 不会破坏数据；而是会删除数据。它只是设置一个 archived_at 标志，保留数据历史记录。  License &amp;贡献模型 我选择了我在其他成功项目中见过的模型：  许可：该代码已获得MIT许可，任何人都可以免费使用、分叉和学习。 贡献：我们欢迎贡献！为了确保项目的长期健康和所有权，我们使用简单的贡献者许可协议 (CLA)（在 CONTRIBUTING.md 中有详细说明）。  我不仅在寻找有关代码的反馈，而且也在寻找有关此贡献模型的反馈。 它在 README 中有完整记录，包含 API 示例和 docker-compose说明。看看吧，让我知道你的想法！   由   提交 /u/illusiON_MLG1337   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ojuslc/i_built_yaradb_an_opensource_document_db_with/</guid>
+      <pubDate>Thu, 30 Oct 2025 09:11:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>初学者的呐喊...</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ojssvn/beginners_cry/</link>
+      <description><![CDATA[ 由   提交/u/DogAdministrative100   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ojssvn/beginners_cry/</guid>
+      <pubDate>Thu, 30 Oct 2025 06:55:57 GMT</pubDate>
+    </item>
     <item>
       <title>正在寻找 UI Vision RPA 的轻量级基于浏览器的替代方案 - 是否有现有的库？</title>
       <link>https://www.reddit.com/r/opensource/comments/1ojp5gu/looking_for_lightweight_browserbased_alternatives/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[刚刚推出实时 GenOps AI → https://github.com/KoshiHQ/GenOps-AI 它基于 OpenTelemetry 构建，是一个开源的 AI 运行时治理框架，可在内部（项目、团队）跨工作负载标准化成本、策略和合规性遥测以及外部（客户、功能）。 欢迎提供反馈，尤其是来自从事人工智能可观测性、FinOps 或运行时治理工作的人员。  也欢迎对开放规范做出贡献。   由   提交 /u/nordic_lion   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1oj88um/opensource_genops_ai_llm_runtime_governance_built/</guid>
       <pubDate>Wed, 29 Oct 2025 15:53:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>适用于任何类型的预打包一体式自托管是一个个人知识库</title>
-      <link>https://www.reddit.com/r/opensource/comments/1oj7tz5/prepackaged_allinone_selfhosting_for_anytype_is_a/</link>
-      <description><![CDATA[      any-sync-bundle 是一种预打包的、一体式自托管服务器解决方案，专为 Anytype 设计，本地优先、点对点笔记和知识管理应用程序。它基于官方 Anytype 服务器中使用的原始模块，但将它们合并为一个二进制文件，以简化部署和零配置设置。   由   提交 /u/the_grishy   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1oj7tz5/prepackaged_allinone_selfhosting_for_anytype_is_a/</guid>
-      <pubDate>Wed, 29 Oct 2025 15:38:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个自托管表单后端，部署起来就像注册 SaaS 一样简单</title>
-      <link>https://www.reddit.com/r/opensource/comments/1oj5j0g/i_built_a_selfhosted_form_backend_as_easy_to/</link>
-      <description><![CDATA[最近，我正在寻找一个自由形式的后端，但没找到。所以我建了一个。但我相信我找到了一种有趣的方法！ 我需要一个端点来从我的静态网站发送候补名单提交。我很快发现，大多数免费选项都被人为地限制到几乎无法使用的地步——每月 50 次提交、没有数据导出、不需要的重定向。我明白 - 无论技术如何商品化，托管解决方案都不可能完全免费。服务提供商需要赚钱来维护基础设施、支付电子邮件费用等。 当然，有开源的自托管解决方案，但部署它们比注册其托管版本要困难得多。我再次明白了。 所以我想：“如果有一个免费的自托管解决方案，并且像注册商业服务一样易于部署，那会怎样呢？”我记得 Cloudflare 在其教程/文档中主要使用的“部署到 Cloudflare”按钮。 认识 FormZero - 具有零付费功能的表单后端，您只需一个按钮即可在大约 3 分钟内将其部署到免费的 Cloudflare 帐户。 Cloudflare 甚至不需要信用卡。这实际上就像注册 SaaS 一样简单：  单击按钮 提供三个参数： - 帐户中的项目名称（只需使用“formzero”） - 帐户中的数据库名称（只需使用“formzero”） - 身份验证内部的身份验证密钥（使用 jwtsecrets com 或 `openssl rand -hex 16` 来生成一个） 获取您独特的工作人员开发 URL，您可以在其中开始使用 FormZero  以下是 FormZero 在免费 Cloudflare 帐户上为您提供的功能：  每天 100,000 份表单提交 存储 4,000,000 份提交 无限保留和数据导出 带有免费 Resend API 密钥的电子邮件通知  该应用程序是一个 Cloudflare 工作程序，用于处理表单提交并提供受保护的仪表板，您可以在其中查看收集的数据。数据存储在D1数据库中。我真的很期待 Cloudflare 电子邮件服务的公开发布，它应该允许零设置电子邮件通知。 快去试试安装过程有多顺利！ https://github.com/BohdanPetryshyn/formzero   由   提交/u/BohdanPetryshyn   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1oj5j0g/i_built_a_selfhosted_form_backend_as_easy_to/</guid>
-      <pubDate>Wed, 29 Oct 2025 14:08:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
