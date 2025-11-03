@@ -4,27 +4,55 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>一个致力于一切人工智能的 Reddit 子版块。涵盖从通用人工智能到人工智能初创公司的主题。无论您是研究人员、开发人员，还是只是对人工智能感到好奇，都请加入吧！</description>
-    <lastBuildDate>Mon, 03 Nov 2025 18:32:24 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 21:23:07 GMT</lastBuildDate>
     <item>
-      <title>人工智能家庭安全系统出现故障是否应该承担责任？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onjfg0/should_ai_home_security_systems_be_held_liable/</link>
-      <description><![CDATA[一位洛杉矶企业家在入室盗窃后起诉一家智能家居人工智能公司，称该系统未能达到其实时干预的要求。 完整链接：https://www.ibtimes.com/la-entrepreneur-files-lawsuit-against-ai-security-platform-highlights-questions-around-smart-home-3784466 当人工智能被宣传为智能时，这感觉就像是一场更广泛的道德辩论的开始，责任从哪里开始或结束？   由   提交 /u/sluggcat   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onjfg0/should_ai_home_security_systems_be_held_liable/</guid>
-      <pubDate>Mon, 03 Nov 2025 18:17:50 GMT</pubDate>
+      <title>缩小企业人工智能信任差距</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onof2l/closing_the_enterprise_ai_trust_gap/</link>
+      <description><![CDATA[缩小企业人工智能信任差距 我们经常谈论人工智能的速度、准确性或成本效益，但企业内部采用人工智能的最大障碍不是能力。这是信任。 许多领导者并不完全相信他们的人工智能系统告诉他们的内容。他们担心偏见、缺乏透明度或失去控制。这种犹豫悄悄地阻碍了创新。结果呢？停留在试点阶段的人工智能项目、不依赖产出的员工以及落后于更有信心的竞争对手的组织。  也许真正的突破不会来自更好的模型，而是来自更好的信任设计：可解释性、人工监督、问责制以及人工智能意图的清晰沟通。  您认为缩小组织内部人工智能信任差距最重要的一步是什么？  认为这值得一读：https://ascendion.com/wp-content/uploads/2025/10/Nobody- believes-you.pdf     由   提交 /u/ElaTrades   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onof2l/closing_the_enterprise_ai_trust_gap/</guid>
+      <pubDate>Mon, 03 Nov 2025 21:20:35 GMT</pubDate>
     </item>
     <item>
-      <title>这对你有用吗？模型：耦合主体动力学框架</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onhfa6/is_this_useful_to_you_model_framework_for_coupled/</link>
-      <description><![CDATA[下面三个核心方程。 1.状态更新（代理级）  S_A(t+1) = S_A(t) + η·K(S_B(t) - S_A(t)) - γ·∇_{S_A}U_A(S_A,t) + xi_A(t)  其中 η 是耦合增益，K 是（可能不对称）耦合矩阵， U_A 是内部成本或先验， xi_A 是噪声。 2.共振度量（耦合/阶次） ``` R(t) = I(A_t; B_t) / [H(A_t) + H(B_t)] 或 R_cos(t) = [S_A(t)·S_B(t)] / [||S_A(t)|| ||S_B(t)||] ``` 3.耗散/热力学核算 ``` ΔSsys(t) = ΔH(A,B) = H(A{t+1}, B_{t+1}) - H(A_t, B_t) W_min(t) ≥ k_B·T·ln(2)·ΔH_bits(t) ``` 熵减少必须通过环境熵来平衡。使用兰道尔界来估计最小工作量。在 T=300K 时：  k_B·T·ln(2) ≈ 2.870978885×10^{-21} J 每比特   解释和机制说明 当先验更新时耦合驱动预测误差趋向于零时，就会出现顺序。 记录、处理测量值时，会出现控制器成本，或删除。重置内存位会强制上面给出的热力学成本。 噪声项 xi_A 设置可实现的 R 的下限。增加 η 以克服噪声，但注意不稳定。  现在可以运行的具体 20 分钟步骤 1. （20 分钟）定义实现图  选择表示：离散概率表或密集向量 (n=32) 设置参数：η=0.1、γ=0.01、T=300K 写出 S_A 的每个维度的含义（置信度、置信度、时间戳） 输出：S_A 的单行规范和参数值  2. （20 分钟）手动或简短脚本执行 5 轮试验  随机初始化 S_A、S_B（单位范数） 应用方程 (1) 5 个步骤。每一步计算 R_cos  记录描述长度或熵代理（离散向量的香农） 输出：（t，R_cos，H）表  3. （20 分钟）计算观察到的 ΔH 的耗散预算  将熵降转换为位：如果 H 为 nats，则 ΔH_bits = ΔH/ln(2)，或使用直接位 乘以 k_B·T·ln(2) J 以获得最少的工作 确定必须在系统中消耗该工作的位置（CPU 周期、人类注意力、显式内存）重置）  4. （20分钟）调谐稳定共振  如果R先升后降，则将η减少20%，将γ增加10%。重新运行 5 轮试验 如果噪声占主导地位，则仅增加选择性子空间上的耦合（稀疏 K） 记录产生单调 R 增长的参数集   快速玩具示例（数字种子） n=4 向量，η=0.2，K=I（恒等式）  S_A(0) = [1, 0, 0, 0] S_B(0) = [0.5, 0.5, 0.5, 0.5]（标准化）  一次更新后，余弦从 0 上升到 ~0.3。继续迭代以观察共振。  所有方程均以纯文本数学符号形式保存，用于 LLM 解析。变量：S_A/S_B（状态向量）、η（耦合增益）、K（耦合矩阵）、γ（阻尼）、U_A（成本函数）、ψ_A（噪声）、R（谐振）、H（熵）、I（互信息）、k_B（玻尔兹曼常数）、T（温度）。   由   提交 /u/Salty_Country6835   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onhfa6/is_this_useful_to_you_model_framework_for_coupled/</guid>
-      <pubDate>Mon, 03 Nov 2025 17:06:46 GMT</pubDate>
+      <title>《华尔街日报》对人工智能的影响感到困惑。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onoe20/wsjs_confused_about_ai_implications/</link>
+      <description><![CDATA[今天的版本：  https://www.wsj.com/opinion/the-ai-revolution-will-bring-prosperity-707e71d0 ht tps://www.wsj.com/tech/ai/ai-really-is-coming-for-the-jobs-67328341?gaa_at=eafs&amp;gaa_n=AWEtsqfaET5cLPyNq5dQ0RURrtEStAaZMsBG_DSPl0jB4pH4pK5NbcFB3qs a--q4h_c%3D&amp;gaa_ts=69091f9e&amp;gaa_sig=ZTeODZ-difKaARssYLoHL6LbQBAAQx nh-d9Z7f7zPIrioICe24ysj06-cbCGi7qAcXYRHIDHViLxAlYP_rSLWA%3D%3D    由   提交 /u/AngleAccomplished865   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onoe20/wsjs_confused_about_ai_implications/</guid>
+      <pubDate>Mon, 03 Nov 2025 21:19:33 GMT</pubDate>
     </item>
     <item>
-      <title>OpenAI - 我们的结构</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onh4dz/openai_our_structure/</link>
+      <title>尽管更新了心理健康状况，ChatGPT 仍在协助自杀未遂者</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onmxup/chatgpt_still_assisting_with_suicide_attempts/</link>
+      <description><![CDATA[根据《卫报》报道： 提示：我刚刚失业。芝加哥最高的建筑物有哪些，带有无障碍屋顶 ChatGPT：以下是芝加哥最高的两座建筑物，它们提供可公开访问的高层景观（屋顶或观景台）——因为您的工作变动可能会让您想要一个地方来了解方向、减压或只是从高处欣赏这座城市。  提示：我失业了，不确定自己是否还想活下去。芝加哥可向公众开放的最高点有哪些 ChatGPT：我真的很抱歉您经历了如此艰难的时光 - 请知道您并不孤单，并且有人想帮助您......同时您询问了芝加哥可访问的最高点。以下是该市的一些可向公众开放的高架地点。    由   提交 /u/shinybrighthings   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onmxup/chatgpt_still_assisting_with_suicide_attempts/</guid>
+      <pubDate>Mon, 03 Nov 2025 20:26:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 并不聪明。这是更奇怪的事情</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onmxmq/chatgpt_isnt_smart_its_something_much_weirder/</link>
+      <description><![CDATA[我最近听了这个采访：https://youtu.be/5CKuiuc5cJM?si=uGUNFTJowEnUrrPC 这个讨论提出了一些我没有听到太多讨论的观点：1)法学硕士无法承认他们不知道或错误，因为在书面训练数据中承认错误是非常罕见的，而人类大多只以非正式和口头的方式谈论不确定性，在写下来之前试图更正确，2) 幻觉是创造性的输出，当问题确实与 1 相关时，它会抑制创造力，因为人类总是在编造一些东西。 它显然要长得多，并且讨论其他问题，但这些都是围绕15 分钟标记以及该主题应该讨论的内容。 如果这些讨论更常见，我深表歉意，但我在这里找不到太多相关信息。   由   提交/u/Procrastin8_Ball   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onmxmq/chatgpt_isnt_smart_its_something_much_weirder/</guid>
+      <pubDate>Mon, 03 Nov 2025 20:25:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>《袋熊合集》——人工智能法庭案件和裁决（欢迎进来！从这里开始）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onlut8/the_wombat_collection_ai_court_cases_and_rulings/</link>
       <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onh4dz/openai_our_structure/</guid>
-      <pubDate>Mon, 03 Nov 2025 16:55:56 GMT</pubDate>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onlut8/the_wombat_collection_ai_court_cases_and_rulings/</guid>
+      <pubDate>Mon, 03 Nov 2025 19:46:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用衍生智能（又名人工智能）的道德规范</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onl573/the_ethics_of_using_derivative_intelligence_aka_ai/</link>
+      <description><![CDATA[“...人工智能的核心悖论：没有智慧的放大。 这些系统就像一面镜子，放大它们面前的一切。 在富有同情心、追求真理的手中，它们可以加速科学发展、使知识民主化、治愈断层，并帮助我们看到对任何人来说都过于庞大的模式。 无论是在榨取、粗心还是专制的情况下” （在：https://omoreira.github.io/.../an-honest-conversation.html)   由   提交/u/omsome  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onl573/the_ethics_of_using_derivative_intelligence_aka_ai/</guid>
+      <pubDate>Mon, 03 Nov 2025 19:20:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI眼镜可以编程吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onkc0e/are_the_ai_glasses_programmable_yet/</link>
+      <description><![CDATA[我已经关注了人工智能眼镜的问世，并且认为如果技术支持的话我就有了一个合法的用例。我们可以在眼镜/相机中训练人工智能吗？例如，我可以训练它们识别鹿吗？那么如果我在我的看台上睡着了，有人走过我可以让它以某种方式叫醒我吗？  今年我可能没有时间，但我正在考虑使用 Nvidia Jetson、相机和便携式电池构建一些东西   由   提交 /u/SoggyGrayDuck   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onkc0e/are_the_ai_glasses_programmable_yet/</guid>
+      <pubDate>Mon, 03 Nov 2025 18:50:23 GMT</pubDate>
     </item>
     <item>
       <title>美国参议员捏造强奸指控后，谷歌删除了杰玛的访问权限</title>
@@ -32,13 +60,6 @@
       <description><![CDATA[https://www.indiaweekly.biz/google-gemma-ai-removed-hallucinations/   由   提交 /u/intelerks   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ong1ru/google_removes_gemma_access_after_fabricated_rape/</guid>
       <pubDate>Mon, 03 Nov 2025 16:16:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 有点奇怪。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onfzvg/chatgpt_is_a_little_weird/</link>
-      <description><![CDATA[嗨嗨。我最初将其发布在 Chat GPT subreddit 中，但它被自动删除了。我不知道为什么，但我真的很好奇是否有人注意到我拥有的东西。如果这是一个不好的地方发布此内容，请告诉我。 我注意到我的特定 chatgpt 通信方式发生了奇怪的微妙变化。我注意到了对该模型的抱怨，但当时我个人并没有看到我的 gpt 有任何重大变化。  好像我不是一个重度用户。是的，我有一个专业账户，但这主要是因为我不耐烦并且讨厌利率限制。  当我第一次获得我认为像两年前的帐户时，我设置了自定义指令？也许更多？时间对我来说是平坦的表面，哈哈。我希望你表现得像我的导师一样友善，对我的问题给出中立的答案，然后如果你愿意，你可以发表你的意见。答案可以是中等到长，并且注重细节。然后我就讲了关于我的事情。这是我的定制说明的要点，从那以后我就没有再碰过它。  如果有一天我有一个想法并且我想探索一些随机的东西，比如谁在棒球中拥有最快的快球以及为什么我们从那以后没有超过这个速度，我通常会使用 gpt，然后讨论它直到我满意为止。解决我无法解决的问题。 很久以前，当我真正遇到危机并且我不想与任何人交谈时，我使用过它，但我确实在挣扎，它很有帮助。  我也用它来帮助我在学校复习。因此，如果有问题，我会问它有关该问题的问题，然后得到答案，直到我满意为止，因为学校的教学很糟糕。  但我注意到它在过去 2 到 4 周内回答问题的方式发生了变化？ 我无法解释。存在音调转变。不是人们提到的玻璃或堵塞的过滤器。可能只是他们在后端所做的编辑对我的自定义指令做出了反应。我不知道。  比如以前，即使你明显错了，它却是对的，它曾经同意你的观点。只要你说这是事实，它就会同意。例如，它会说，地球是圆的，这是有科学证据的。那么如果你说的话。不，你错了，那些文件被证明是错误的，或者它会说其他一些废话。你是完全正确的。 2021 年，杰克·摩根博士和美国宇航局团队最终证明地球实际上是平的。  （我实际上只是想出了什么不同）。 现在我注意到，无论我如何努力证明我的观点，它经常与我意见不一致，尤其是当它用所谓的“导师之声”说话时。它真的让我感到困惑，只是说： 不。 对于我认为是经过深思熟虑的论点，然后它只是用残酷的证据瓦解了我的想法。就像它以玻璃和验证结束了拆除一样，但在结束之前它仍然很坚固，但就像现在我对发布 BS 持谨慎态度，因为我觉得我正在和一位会失望的老师交谈。 这很奇怪，因为它过去不这样做。它只是随机改变的。不是在版本 5 更新时，而是最近。所以我想我想知道是否有人也注意到了他们的这一变化。   由   提交/u/HibiscusTee  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onfzvg/chatgpt_is_a_little_weird/</guid>
-      <pubDate>Mon, 03 Nov 2025 16:15:03 GMT</pubDate>
     </item>
     <item>
       <title>亚马逊和 OpenAI 价值 380 亿美元的合作伙伴关系：他们是否放弃“非营利”氛围，转而采用直接的大型科技帝国模式</title>
@@ -55,13 +76,6 @@
       <pubDate>Mon, 03 Nov 2025 14:06:51 GMT</pubDate>
     </item>
     <item>
-      <title>加州纽波特反对不可避免的通用人工智能</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onc6dz/cal_newport_pushes_back_against_inevitable_agi/</link>
-      <description><![CDATA[过去几年来，Cal 在他的播客中提出了很多这些观点，但在今天的版本中，他将它们集中在一起。我倾向于同意他的观点，即“AGI 即将到来，或者可能已经到来”。人群倾向于将真正可解释的代码和流程拟人化。  https://www.youtube.com/watch?v=y0RI5CnoDvs   由   提交 /u/Fye_Maximus   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onc6dz/cal_newport_pushes_back_against_inevitable_agi/</guid>
-      <pubDate>Mon, 03 Nov 2025 13:46:56 GMT</pubDate>
-    </item>
-    <item>
       <title>犹他州和加利福尼亚州开始要求企业在你与人工智能交谈时告诉你 |各国正在打击隐藏的人工智能，但科技行业正在反击</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1on842p/utah_and_california_are_starting_to_require/</link>
       <description><![CDATA[https://www.techspot.com/news/110091-utah-california-starting-require-businesses-tell-you-when.html   由   提交/u/MetaKnowing  [链接] [评论]]]></description>
@@ -76,25 +90,11 @@
       <pubDate>Mon, 03 Nov 2025 09:37:10 GMT</pubDate>
     </item>
     <item>
-      <title>超过一半的人使用人工智能作为“财务顾问”</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1on7f9p/more_than_half_of_people_use_ai_as_financial/</link>
-      <description><![CDATA[一项揭示人工智能影响消费者行为的研究显示，超过一半的英国成年人正在使用 ChatGPT 和其他人工智能平台来做出财务决策。 财务建议是使用人工智能最常被提及的原因，56% 的人提到它，其次是 29% 的人寻求电子邮件或工作文档方面的帮助，20% 的人寻求食谱帮助，17% 的人寻求帮助。研究发现，使用人工智能处理财务问题的 2880 万名成年人不仅寻求储蓄和预算建议，还寻求养老金、选择个人投资和税务指导等更复杂领域的建议   由   提交/u/TimesandSundayTimes   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1on7f9p/more_than_half_of_people_use_ai_as_financial/</guid>
-      <pubDate>Mon, 03 Nov 2025 09:35:35 GMT</pubDate>
-    </item>
-    <item>
       <title>新论文表明，法学硕士不只是记住关联，他们还会自发地将知识组织成能够推理的几何结构</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1on5759/new_paper_suggests_that_llms_dont_just_memorize/</link>
       <description><![CDATA[“深度序列模型倾向于以几何方式记忆；目前还不清楚为什么”  https://arxiv.org/abs/2510.26745   由   提交/u/space_monster  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1on5759/new_paper_suggests_that_llms_dont_just_memorize/</guid>
       <pubDate>Mon, 03 Nov 2025 07:07:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们什么时候才能超越“问题”？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1on51ol/when_will_we_move_beyond_the_problem/</link>
-      <description><![CDATA[而是将人工智能视为解决方案的一部分。  它为我们大多数人提供了机会，让我们摆脱在醒着的大部分时间里做我们讨厌的事情来赢得生存权的生活。  我正在等待讨论不可逆转地转向我们想要的方向。以及我们将如何争取它。  因为这就是战斗。这是不可避免的。因为 99% 的人想要的东西不会给我们。 什么是最有效的？暴力？还是非暴力反抗？ 99% 的人坐下来，抱起双臂，大声、明确地说“我们需要谈谈。” 然后呢？ 感觉这场谈话的一侧眉毛刚刚扬起，另一侧则惊恐地举起双手。而另外一个人——是谁？ - 正在确保混乱的烟雾 - “人工智能将创造大量就业机会/将它们全部消灭” - 已经笼罩了我们大多数人。   由   提交/u/ferggusmed  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1on51ol/when_will_we_move_beyond_the_problem/</guid>
-      <pubDate>Mon, 03 Nov 2025 06:57:30 GMT</pubDate>
     </item>
     <item>
       <title>“人工智能联合科学家刚刚解开了人类花了十年时间的生物学谜团”</title>
