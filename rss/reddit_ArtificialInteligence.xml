@@ -4,13 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>一个致力于一切人工智能的 Reddit 子版块。涵盖从通用人工智能到人工智能初创公司的主题。无论您是研究人员、开发人员，还是只是对人工智能感到好奇，都请加入吧！</description>
-    <lastBuildDate>Mon, 03 Nov 2025 15:25:37 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 18:32:24 GMT</lastBuildDate>
     <item>
-      <title>俄罗斯规格生物是 shizo</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onefjp/russian_spec_bio_is_shizo/</link>
-      <description><![CDATA[人类意识慢慢变得如此疯狂和被洗脑，以至于幽默不再存在，而人工智能模因变得像手工制作一样有趣。   由   提交 /u/Odd-NatureMixtrue   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onefjp/russian_spec_bio_is_shizo/</guid>
-      <pubDate>Mon, 03 Nov 2025 15:16:27 GMT</pubDate>
+      <title>人工智能家庭安全系统出现故障是否应该承担责任？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onjfg0/should_ai_home_security_systems_be_held_liable/</link>
+      <description><![CDATA[一位洛杉矶企业家在入室盗窃后起诉一家智能家居人工智能公司，称该系统未能达到其实时干预的要求。 完整链接：https://www.ibtimes.com/la-entrepreneur-files-lawsuit-against-ai-security-platform-highlights-questions-around-smart-home-3784466 当人工智能被宣传为智能时，这感觉就像是一场更广泛的道德辩论的开始，责任从哪里开始或结束？   由   提交 /u/sluggcat   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onjfg0/should_ai_home_security_systems_be_held_liable/</guid>
+      <pubDate>Mon, 03 Nov 2025 18:17:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>这对你有用吗？模型：耦合主体动力学框架</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onhfa6/is_this_useful_to_you_model_framework_for_coupled/</link>
+      <description><![CDATA[下面三个核心方程。 1.状态更新（代理级）  S_A(t+1) = S_A(t) + η·K(S_B(t) - S_A(t)) - γ·∇_{S_A}U_A(S_A,t) + xi_A(t)  其中 η 是耦合增益，K 是（可能不对称）耦合矩阵， U_A 是内部成本或先验， xi_A 是噪声。 2.共振度量（耦合/阶次） ``` R(t) = I(A_t; B_t) / [H(A_t) + H(B_t)] 或 R_cos(t) = [S_A(t)·S_B(t)] / [||S_A(t)|| ||S_B(t)||] ``` 3.耗散/热力学核算 ``` ΔSsys(t) = ΔH(A,B) = H(A{t+1}, B_{t+1}) - H(A_t, B_t) W_min(t) ≥ k_B·T·ln(2)·ΔH_bits(t) ``` 熵减少必须通过环境熵来平衡。使用兰道尔界来估计最小工作量。在 T=300K 时：  k_B·T·ln(2) ≈ 2.870978885×10^{-21} J 每比特   解释和机制说明 当先验更新时耦合驱动预测误差趋向于零时，就会出现顺序。 记录、处理测量值时，会出现控制器成本，或删除。重置内存位会强制上面给出的热力学成本。 噪声项 xi_A 设置可实现的 R 的下限。增加 η 以克服噪声，但注意不稳定。  现在可以运行的具体 20 分钟步骤 1. （20 分钟）定义实现图  选择表示：离散概率表或密集向量 (n=32) 设置参数：η=0.1、γ=0.01、T=300K 写出 S_A 的每个维度的含义（置信度、置信度、时间戳） 输出：S_A 的单行规范和参数值  2. （20 分钟）手动或简短脚本执行 5 轮试验  随机初始化 S_A、S_B（单位范数） 应用方程 (1) 5 个步骤。每一步计算 R_cos  记录描述长度或熵代理（离散向量的香农） 输出：（t，R_cos，H）表  3. （20 分钟）计算观察到的 ΔH 的耗散预算  将熵降转换为位：如果 H 为 nats，则 ΔH_bits = ΔH/ln(2)，或使用直接位 乘以 k_B·T·ln(2) J 以获得最少的工作 确定必须在系统中消耗该工作的位置（CPU 周期、人类注意力、显式内存）重置）  4. （20分钟）调谐稳定共振  如果R先升后降，则将η减少20%，将γ增加10%。重新运行 5 轮试验 如果噪声占主导地位，则仅增加选择性子空间上的耦合（稀疏 K） 记录产生单调 R 增长的参数集   快速玩具示例（数字种子） n=4 向量，η=0.2，K=I（恒等式）  S_A(0) = [1, 0, 0, 0] S_B(0) = [0.5, 0.5, 0.5, 0.5]（标准化）  一次更新后，余弦从 0 上升到 ~0.3。继续迭代以观察共振。  所有方程均以纯文本数学符号形式保存，用于 LLM 解析。变量：S_A/S_B（状态向量）、η（耦合增益）、K（耦合矩阵）、γ（阻尼）、U_A（成本函数）、ψ_A（噪声）、R（谐振）、H（熵）、I（互信息）、k_B（玻尔兹曼常数）、T（温度）。   由   提交 /u/Salty_Country6835   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onhfa6/is_this_useful_to_you_model_framework_for_coupled/</guid>
+      <pubDate>Mon, 03 Nov 2025 17:06:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI - 我们的结构</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onh4dz/openai_our_structure/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onh4dz/openai_our_structure/</guid>
+      <pubDate>Mon, 03 Nov 2025 16:55:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>美国参议员捏造强奸指控后，谷歌删除了杰玛的访问权限</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ong1ru/google_removes_gemma_access_after_fabricated_rape/</link>
+      <description><![CDATA[https://www.indiaweekly.biz/google-gemma-ai-removed-hallucinations/   由   提交 /u/intelerks   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ong1ru/google_removes_gemma_access_after_fabricated_rape/</guid>
+      <pubDate>Mon, 03 Nov 2025 16:16:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 有点奇怪。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onfzvg/chatgpt_is_a_little_weird/</link>
+      <description><![CDATA[嗨嗨。我最初将其发布在 Chat GPT subreddit 中，但它被自动删除了。我不知道为什么，但我真的很好奇是否有人注意到我拥有的东西。如果这是一个不好的地方发布此内容，请告诉我。 我注意到我的特定 chatgpt 通信方式发生了奇怪的微妙变化。我注意到了对该模型的抱怨，但当时我个人并没有看到我的 gpt 有任何重大变化。  好像我不是一个重度用户。是的，我有一个专业账户，但这主要是因为我不耐烦并且讨厌利率限制。  当我第一次获得我认为像两年前的帐户时，我设置了自定义指令？也许更多？时间对我来说是平坦的表面，哈哈。我希望你表现得像我的导师一样友善，对我的问题给出中立的答案，然后如果你愿意，你可以发表你的意见。答案可以是中等到长，并且注重细节。然后我就讲了关于我的事情。这是我的定制说明的要点，从那以后我就没有再碰过它。  如果有一天我有一个想法并且我想探索一些随机的东西，比如谁在棒球中拥有最快的快球以及为什么我们从那以后没有超过这个速度，我通常会使用 gpt，然后讨论它直到我满意为止。解决我无法解决的问题。 很久以前，当我真正遇到危机并且我不想与任何人交谈时，我使用过它，但我确实在挣扎，它很有帮助。  我也用它来帮助我在学校复习。因此，如果有问题，我会问它有关该问题的问题，然后得到答案，直到我满意为止，因为学校的教学很糟糕。  但我注意到它在过去 2 到 4 周内回答问题的方式发生了变化？ 我无法解释。存在音调转变。不是人们提到的玻璃或堵塞的过滤器。可能只是他们在后端所做的编辑对我的自定义指令做出了反应。我不知道。  比如以前，即使你明显错了，它却是对的，它曾经同意你的观点。只要你说这是事实，它就会同意。例如，它会说，地球是圆的，这是有科学证据的。那么如果你说的话。不，你错了，那些文件被证明是错误的，或者它会说其他一些废话。你是完全正确的。 2021 年，杰克·摩根博士和美国宇航局团队最终证明地球实际上是平的。  （我实际上只是想出了什么不同）。 现在我注意到，无论我如何努力证明我的观点，它经常与我意见不一致，尤其是当它用所谓的“导师之声”说话时。它真的让我感到困惑，只是说： 不。 对于我认为是经过深思熟虑的论点，然后它只是用残酷的证据瓦解了我的想法。就像它以玻璃和验证结束了拆除一样，但在结束之前它仍然很坚固，但就像现在我对发布 BS 持谨慎态度，因为我觉得我正在和一位会失望的老师交谈。 这很奇怪，因为它过去不这样做。它只是随机改变的。不是在版本 5 更新时，而是最近。所以我想我想知道是否有人也注意到了他们的这一变化。   由   提交/u/HibiscusTee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onfzvg/chatgpt_is_a_little_weird/</guid>
+      <pubDate>Mon, 03 Nov 2025 16:15:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>亚马逊和 OpenAI 价值 380 亿美元的合作伙伴关系：他们是否放弃“非营利”氛围，转而采用直接的大型科技帝国模式</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1onfbe5/amazon_and_openai_38_billion_dollar_partnership/</link>
+      <description><![CDATA[刚刚了解到 OpenAI 与 Amazon 的 AWS 合作达成了一项价值 38B 美元的巨额交易。 AWS 正在为 OpenAI 提供大量 GPU 能力（数十万个 NVIDIA 芯片！）来运行 ChatGPT 并训练新的 AI 模型，从现在开始一直到 2026 年。 OpenAI 一直与所有人保持着友好关系——微软、苹果、谷歌，现在又加入了亚马逊。他们最初是一家致力于“为所有人提供安全人工智能”的非营利组织，但这些巨大的合作伙伴关系让我想知道：他们现在只是在追逐现金吗？大公司不断变得强大，而 OpenAI 是其中的核心。 “开放”AI 仍然是为了帮助所有人，还是只是大生意？你觉得怎么样？由   提交 /u/HumanSoulAI   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onfbe5/amazon_and_openai_38_billion_dollar_partnership/</guid>
+      <pubDate>Mon, 03 Nov 2025 15:50:02 GMT</pubDate>
     </item>
     <item>
       <title>用于编程的人工智能检测器准确吗？</title>
@@ -25,13 +60,6 @@
       <description><![CDATA[过去几年来，Cal 在他的播客中提出了很多这些观点，但在今天的版本中，他将它们集中在一起。我倾向于同意他的观点，即“AGI 即将到来，或者可能已经到来”。人群倾向于将真正可解释的代码和流程拟人化。  https://www.youtube.com/watch?v=y0RI5CnoDvs   由   提交 /u/Fye_Maximus   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1onc6dz/cal_newport_pushes_back_against_inevitable_agi/</guid>
       <pubDate>Mon, 03 Nov 2025 13:46:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是一个疯狂的问题，但人工智能可以“看到”隐藏的图片吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ona4jg/this_is_a_wild_question_but_can_ai_see_hidden/</link>
-      <description><![CDATA[AI 是否能够看到那些隐藏在“魔眼”图片中、只能在立体中看到的法师。我还没有找到任何与该主题相关的内容，所以我不知道是否有专门针对此进行的研究   由   提交 /u/Licalottapuss   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ona4jg/this_is_a_wild_question_but_can_ai_see_hidden/</guid>
-      <pubDate>Mon, 03 Nov 2025 12:14:17 GMT</pubDate>
     </item>
     <item>
       <title>犹他州和加利福尼亚州开始要求企业在你与人工智能交谈时告诉你 |各国正在打击隐藏的人工智能，但科技行业正在反击</title>
@@ -69,39 +97,11 @@
       <pubDate>Mon, 03 Nov 2025 06:57:30 GMT</pubDate>
     </item>
     <item>
-      <title>你喜欢人工智能吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1omze8c/do_you_like_ai/</link>
-      <description><![CDATA[我将分享赞成票和反对票的统计数据。我认为阅读这个 Reddit 子版块的评论很有趣，因为它绝对不像你想象的那样充满了爱好者    由   提交/u/Ok-Project7530   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1omze8c/do_you_like_ai/</guid>
-      <pubDate>Mon, 03 Nov 2025 01:51:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI（炒作）正在迫使人类反思自我。你喜欢你所看到的吗？你能想象未来吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1omx58d/ai_hype_is_forcing_humanity_to_reflect_on_its/</link>
-      <description><![CDATA[我已经思考这个问题十年了。我们越是进步技术并取代自己，我们就越要质疑自己的动机以及意义是什么，或者缺乏动机......它凸显了恐惧和贪婪的人性。 我想知道其他人正在做什么来在我们所处的这个世界上寻求未来。艺术？交易？小木屋？我们要继续吗？ 就我个人而言，缺乏一点并不困扰我，我可以找到自己的人生意义，但空气中的普遍氛围是炒作、意识形态和恐慌的混合体。 我们进化了数百万年，建立了可以为我们所有人提供美好而和平生活的技术，只是为了设计我们的灭亡吗？如果发生这种情况，那是因为，作为一个物种，我们无法学会分享丰富的资源，而是专注于战争！   由   提交 /u/rn_journey   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1omx58d/ai_hype_is_forcing_humanity_to_reflect_on_its/</guid>
-      <pubDate>Mon, 03 Nov 2025 00:06:40 GMT</pubDate>
-    </item>
-    <item>
       <title>“人工智能联合科学家刚刚解开了人类花了十年时间的生物学谜团”</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1omwaf2/ai_coscientist_just_solved_a_biological_mystery/</link>
       <description><![CDATA[https://www.psypost.org/googles-ai-co-scientist-just-solved-a-biological-mystery-that-took- humans-a-decade/  “人工智能系统是从有用的助手演变而来的成为科学过程中真正的合作伙伴。通过生成新颖且可通过实验验证的假设，像人工智能联合科学家这样的工具有潜力增强人类直觉，加快科学和生物医学突破的步伐。 “我相信人工智能将极大地加快许多生物医学领域的发现步伐，并将很快用于改善患者护理，”佩尔茨说。 “我的实验室目前正在将其用于基因发现和药物再利用，但生物科学的许多其他领域很快就会受到影响。目前，我认为 AI 联合科学家是该领域最好的，但这是一个快速发展的领域。”   由   提交 /u/AngleAccomplished865   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1omwaf2/ai_coscientist_just_solved_a_biological_mystery/</guid>
       <pubDate>Sun, 02 Nov 2025 23:28:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>你认为人工智能的东西真的会变得更好吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1oms4q0/do_you_think_that_ai_stuff_is_going_to_get_better/</link>
-      <description><![CDATA[我并不是说它不会变得更好，就像技术会变得更好一样，但只是在过去 20 年技术业务如何发展的背景下，感觉它总是令人难以置信的令人沮丧，并且可能会以某种方式吸走每个人的金钱和/或时间。  自从灯泡被发明以来，计划报废就一直是个问题。  存在着所有这些Enshittification，与其他东西不兼容的更新，类似于收缩通货膨胀的多层定价，等等。 稍微好一点的东西不会销售新产品，当旧产品变得如此令人沮丧以至于人们说“除了这个之外什么都可以！”时，新产品才会销售。  这不是事情的发展方向吗？两年后，人工智能将会是革命性的，但它将是这种死亡一百万次的事情，只要有一点小问题就会把你搞砸，最好手动做一些事情，但你做不到，所以你必须屈服并购买更高级别的产品，希望它会更好，但它可能不会。虽然你会获得免费试用，但这会在一段时间内很好，但随后它会再次发生变化，并且出现其他问题，你需要获得一些其他新东西，或者其他企业需要获得一些新东西才能使其真正以所需的方式运行。  未来一切都将是测试版，一旦每个人都被锁定，价值就会迅速侵蚀，对吗？我们永远不会到达彩虹的尽头，这不是人类的限制，这只是我们生活的经济体系的一个特点，它不准备监管这项新技术。  硬币的另一面是，我们在未来都是无用的，我们得到了 ubi（美国至少需要经过两届政府才能认识到存在严重的系统性问题），但这些公司能够吞噬所有这些。  或者将会因为这些东西爆发一场大规模的世界大战。我们还完全没有准备好。    由   提交 /u/Optimistbott   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1oms4q0/do_you_think_that_ai_stuff_is_going_to_get_better/</guid>
-      <pubDate>Sun, 02 Nov 2025 20:36:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能炒作过度，但其生产力提升却是实实在在的</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1omh4fh/ai_hype_is_excessive_but_its_productivity_gains/</link>
-      <description><![CDATA[我写了一篇“文章”对于我自己，当我在成为怀疑论者后反思自己在日常工作中使用人工智能工具的旅程时： 我想把这篇文章写给“过去”。我，我认为是“当前”的人你对于那里的许多人来说。对于你们其他人来说，这可能听起来像是一个迟到的老顽固的胡言乱语。 是的，人工智能被过度炒作了。法学硕士不会解决阳光下的所有问题，但就像任何热门新技术一样，公司会说它可以解决现有的所有问题，尤其是公司领域内的问题。现在是“人工智能驱动的农民超级服务”。你无法摆脱它。这太让人筋疲力尽了。 有一段时间，我让炒作耗尽了自己的精力，完全避开了技术。 好吧，我这样做是错误的。当我的公司为公司所有软件开发人员购买 Cursor 许可证并强烈鼓励我们使用它时，这一点变得很明显。我不情愿地开始尝试。 我注意到的第一件事是 LLM 支持的自动完成功能非常准确。看起来它“知道”了。我下一步想做什么。由于我对人工智能感到不舒服，我只是坚持使用自动完成一段时间。而且，老实说，如果我坚持只使用自动完成功能，仍然会得到很大的提升。 我记得 Cursor 中的代理面板有一些错误的启动。当我问它一个简单的问题时，当它对各种文件进行更改时，我感到完全失控。从那时起，我已经弄清楚如何提出更有针对性的问题，提供约束，并在代码库中提供带有一般说明的 Markdown 文件。 我现在发现代理面板非常有用。我用它来帮助理解代码库的各个部分，搭建全新的服务或单元测试，并跟踪错误。 作为一名前怀疑论者，我是一名使用 AI 工具效率更高的开发人员。我对炒作的厌恶导致我在很长一段时间内错过了生产力的提高。我希望你不要犯同样的错误。 编辑： 对我来说很有趣的是，人们指责我人工智能生成的写作，然后，当我要求他们证明这一点时，他们看到它是 100% 人类生成的，然后说，“好吧，这些人工智能检查器不可靠。” 我写了这篇文章。你可以随心所欲地不同意它，但指责它是人工智能生成的只是一种懒惰的方式来驳回你不同意的东西。 编辑2： 我看到很多人将法学硕士是否能提高生产力与这是否对社会有益混为一谈。这种担忧是完全公平的——但又完全不同。我要求在这些讨论中，你要直言不讳：你真的是说法学硕士不能提高生产力，还是你的论点因工作保障担忧而蒙上阴影？   由   提交/u/R2_SWE2  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1omh4fh/ai_hype_is_excessive_but_its_productivity_gains/</guid>
-      <pubDate>Sun, 02 Nov 2025 13:21:46 GMT</pubDate>
     </item>
     <item>
       <title>每月“有没有一个工具可以......”帖子</title>
