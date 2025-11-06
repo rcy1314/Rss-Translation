@@ -4,13 +4,41 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 06 Nov 2025 03:51:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Nov 2025 06:36:48 GMT</lastBuildDate>
     <item>
-      <title>如果教育科技的社交媒体会怎样</title>
-      <link>https://www.reddit.com/r/programming/comments/1opof1e/what_if_a_social_media_for_edtech/</link>
-      <description><![CDATA[大家好👋 我正在构建一个名为“Learn by z2learn”的平台——一个专注于学习和分享知识的平台。没有随机发帖。没有干扰。这是一个学习至上的空间。 这就是它的不同之处👇 🎓 仅限学习的社交源 - 您可以发布您正在学习的内容、您的项目或笔记。没有迷因或离题的东西。 🪶 免费学习材料 - 我们提供技术文档、简短笔记式课程和真实示例。 🧩 验证技能徽章 - 如果您说您了解某些知识（例如网络开发、设计、人工智能），我们会通过简短评估或面试（而不是人工智能或 MCQ）来验证它 - 您将获得真正的技能徽章，您可以在您的个人资料或作品集上展示。 🧑‍🏫 学习者社区 — 分享您学到的知识并帮助他人。没有把关。每个人都一起成长。 🗞️ 每日技术更新 - 及时了解真正重要的新闻和学习见解。 我们的使命很简单 -  “让学习变得社交化、可信且无干扰。”  我们希望建立一个人们一起学习、教学和成长的社区。 如果您相信无噪音学习，请放弃您的想法👇很想知道您希望在 Learn by z2learn 中看到哪些功能或想法。 让我们再次让学习变得有趣💡   由   提交/u/StrikingOption6931   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1opof1e/what_if_a_social_media_for_edtech/</guid>
-      <pubDate>Thu, 06 Nov 2025 03:35:45 GMT</pubDate>
+      <title>移动设备上的预测热管理：提前 30 秒实现 0.27°C 精度</title>
+      <link>https://www.reddit.com/r/programming/comments/1oprqnh/predictive_thermal_management_on_mobile_027c/</link>
+      <description><![CDATA[现代移动设备的硬件属性非常适合物理建模。这是我发现的。  总预测数：2142 持续时间：60 分钟 MAE：1.51°C RMSE：2.70°C 偏差：-0.95°C ±1°C 以内：58.2% ±2°C 以内：75.6% 每个区域 MAE：电池：0.27°C（357 个预测）机箱：2.92°C（357 个预测）CPU_BIG：1.60°C（357 个预测）CPU_LITTLE：2.50°C（357 个预测）GPU：0.96°C（357 个预测）调制解调器：0.80°C（357 个预测） 重要硬件上的 0.27°C，30 秒提前。 在 S25+ 上，节流决策几乎完全根据电池状态做出。  预测建模&gt;反应性节流。  通过将牛顿冷却定律与基于硬件限制和特定设备的自适应阻尼的测量估计相结合，您可以在热事件发生之前进行预测，并推迟廉价操作、暂停昂贵操作以及危险区域的紧急关闭操作。这会阻止我们达到 42°C 的油门极限。在此限制下，三星会大幅降低性能约 50%，这可能会导致性能问题，从而产生更多热量，并且螺旋可能会很快失控。  数学模型 核心方程（牛顿冷却定律）： T(t) = T_amb + (T₀ - T_amb)·exp(-t/τ) + (P·R)·(1 - exp(-t/τ))  其中： - τ = 热时间常数（区域特定） - R = 热阻(°C/W) - P = 功耗 (W) - T_amb = 环境温度 每个区域常数（从 S25+ 硬件测量）： - 电池：τ=540s，C=45 J/K（大量热质量） - CPU 内核：τ=6-9s，C=0.025-0.05 J/K（快速响应） - GPU/调制解调器： τ=9s, C=0.02-0.035 J/K 预测范围：30s，10s 采样间隔 自适应阻尼：预测误差反馈循环 damping = f(bias,confidence,sample_count) T_predicted_adjusted = T_predicted -damping·ΔT  通过置信权重维护每个区域的错误历史记录。阻尼强度与热时间常数成反比（由于高可预测性，电池得到最小阻尼，CPU 得到剧烈阻尼）。 结果：电池上的 MAE 为 0.27°C。 我的解决方案很简单：永远不会达到 42° C。   由   提交 /u/DaSettingsPNGN   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oprqnh/predictive_thermal_management_on_mobile_027c/</guid>
+      <pubDate>Thu, 06 Nov 2025 06:35:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>可以使用工具将 SwiftUI 转换为 Kotlin 或类似的吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1oprgqd/conversion_of_swiftui_to_kotlin_or_similar/</link>
+      <description><![CDATA[我想知道人工智能是否有工作工具可以将 SwiftUI 游戏转换为其他设备？ 或者，是否有一种包装器可以在 Windows 等其他系统上模拟它？ （与 Mac 上的播放方式类似） 或者工作室的转换通常需要花费多少钱？当我在 Fiverr 或 Upwork 上搜索时，没有值得信赖的报价。我测试过一些程序员，但他们要么真的很慢，要么试图欺骗我（1 小时的任务估计需要 20 小时的工作）。   由   提交/u/NathanaelTse  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oprgqd/conversion_of_swiftui_to_kotlin_or_similar/</guid>
+      <pubDate>Thu, 06 Nov 2025 06:18:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>[开源] Chrome 扩展程序，使用 LLM 从自然语言生成用户脚本</title>
+      <link>https://www.reddit.com/r/programming/comments/1opqi1k/open_source_chrome_extension_that_generates/</link>
+      <description><![CDATA[我的 Chrome 扩展 SaaS 获得了 1 个付费客户（他们流失了），因此我将其开源。 它的作用： 使用 LLM 即时生成网站修改。您用简单的英语描述更改，它输出 CSS/JS 并永久应用它。 有趣的技术问题： 1.选择器稳定性 当网站更新 DOM 时，AI 生成的选择器会不断中断。  解决方案：基于优先级的选择器生成 扩展在generateCssSelector()中使用分层方法： - ID（如果稳定，没有冒号/句点）：最高优先级 - 稳定属性（角色、aria-label、data-testid、名称、类型）：第二优先级 - 类：第三优先级（过滤以排除动态）以数字开头的类） - nth-of-type：最后的后备 AI 系统提示包含此优先顺序指导，鼓励模型更喜欢稳定的选择器而不是位置选择器。 2. SPA 导航地狱 内容脚本在 SPA 路线更改时死亡。  解决方案： Chrome 的 UserScripts API (138+) - 使用数据库 UUID 作为脚本 ID 进行持久脚本注册 - 在导航事件中幸存 - 更好的生命周期管理 - 为动态内容生成的代码中的 MutationObserver 模式 3. Shadow DOM 无处不在 现代网站都喜欢 Shadow DOM。选择器需要穿透边界。 解决方案： 递归遍历 系统提示包含影子 DOM 遍历的模式： function findInShadow(root, selector) { let result = root.querySelector(selector); } if (结果) 返回结果； root.querySelectorAll(&#39;*&#39;).forEach(el =&gt; { if (el.shadowRoot) result = 结果 || findInShadow(el.shadowRoot, 选择器); });返回结果； }  4.上下文窗口管理 无法将整个页面 HTML 发送到 LLM（令牌昂贵、缓慢）。 解决方案：元素选择器方法 - 用户单击目标元素 - 扩展为该元素生成 CSS 选择器 - 选择器与用户指令一起传递给 AI - 没有 HTML 子树提取 - 依赖于选择器精度和 AI了解 架构： - Chrome Manifest V3 扩展 - React + JavaScript（不是 TypeScript） - 多提供商 LLM 支持（Claude、GPT、Gemini、Grok、OpenRouter - 50 多个模型） - 用于云存储的可选 Supabase 同步 - 仅客户端（无后端代理 - 用户自带）他们自己的 API 密钥） 实际工作原理： 告诉它一次“删除付费墙覆盖”在域上，它会生成并注册一个在以后每次访问时运行的用户脚本。初始设置后消耗零代币。与 Tampermonkey 相同的可靠性，但 AI 为您编写脚本。 商业失败的原因： - 浏览器扩展 + 订阅 = 糟糕的组合 - 目标市场太利基 - 经典的“寻找问题的解决方案” - 总收入：来自 1 个流失客户的 5 美元 GitHub：https://github.com/kchander/magix-extension 对选择器稳定性方法的想法感到好奇。你会采取什么不同的做法？   由   提交/u/KishBuildsTech   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1opqi1k/open_source_chrome_extension_that_generates/</guid>
+      <pubDate>Thu, 06 Nov 2025 05:23:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>🔥 有史以来最荒谬的编程面试问题</title>
+      <link>https://www.reddit.com/r/programming/comments/1oppyo0/the_most_ridiculous_programming_interview/</link>
+      <description><![CDATA[ 由   提交/u/Rasathurai_Karan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oppyo0/the_most_ridiculous_programming_interview/</guid>
+      <pubDate>Thu, 06 Nov 2025 04:55:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>🔥 有史以来最荒谬的编程面试问题</title>
+      <link>https://www.reddit.com/r/programming/comments/1oppyg2/the_most_ridiculous_programming_interview/</link>
+      <description><![CDATA[ 由   提交/u/Rasathurai_Karan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1oppyg2/the_most_ridiculous_programming_interview/</guid>
+      <pubDate>Thu, 06 Nov 2025 04:55:01 GMT</pubDate>
     </item>
     <item>
       <title>编译器目标的简短概述</title>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交/u/EveYogaTech   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1op9aqz/nynolang_can_mix_python_javascript_and_php/</guid>
       <pubDate>Wed, 05 Nov 2025 17:32:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>我已将所有 Strange Loop 会议演讲编入索引，以便您可以使用语义搜索来查找相关视频</title>
-      <link>https://www.reddit.com/r/programming/comments/1op95wf/ive_indexed_all_strange_loop_conference_talks_so/</link>
-      <description><![CDATA[ 由   提交/u/devblogs-sh   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1op95wf/ive_indexed_all_strange_loop_conference_talks_so/</guid>
-      <pubDate>Wed, 05 Nov 2025 17:27:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>Git 历史图命令</title>
-      <link>https://www.reddit.com/r/programming/comments/1op8gkx/git_history_graph_command/</link>
-      <description><![CDATA[不久前，一位朋友给了我一个超级有用的 git 命令，用于在终端中显示 git 历史记录。命令如下： git log --graph --decorate --all --pretty=format:&#39;%C(auto)%h%d %C(#888888)(%an; %ar)%Creset %s&#39;&quot;alias graph=&quot;git log --graph --decorate --all --pretty=format:&#39;%C(auto)%h%d %C(#888888)(%an; %ar)%Creset %s&#39;  我刚刚用它创建了这个别名 alias graph=&quot;git log --graph --decorate --all --pretty=format:&#39;%C(auto)%h%d %C(#888888)(%an; %ar)%Creset %s&#39;&quot;别名 graph=&quot;git log --graph --decorate --all --pretty=format:&#39;%C(auto)%h%d %C(#888888)(%an; %ar)%Creset %s&#39;&quot;  我喜欢这个命令，尽管我会分享它。其外观如下： [Screenshot-2025-11-05-at-9-58-20-AM.png](https://postimg.cc/Mv6xDKtq)   由   提交/u/Critical-Volume2360   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1op8gkx/git_history_graph_command/</guid>
-      <pubDate>Wed, 05 Nov 2025 17:02:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>我作为一名大学生对氛围编码的看法</title>
-      <link>https://www.reddit.com/r/programming/comments/1op72dz/my_thoughts_on_vibe_coding_as_a_university_student/</link>
-      <description><![CDATA[ 由   提交/u/Working-Dot5752   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1op72dz/my_thoughts_on_vibe_coding_as_a_university_student/</guid>
-      <pubDate>Wed, 05 Nov 2025 16:12:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>解析 JetBrains 复杂的 AI 代理策略</title>
-      <link>https://www.reddit.com/r/programming/comments/1op6ndm/breaking_down_jetbrains_complex_ai_agent_strategy/</link>
-      <description><![CDATA[JetBrains 正在全力打造“多代理”人工智能生态系统。他们正在收集开发人员数据（代码编辑、提示等）来训练自己的模型，同时让用户在 Claude 模型和内部模型之间切换。   由   提交/u/HDev-   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1op6ndm/breaking_down_jetbrains_complex_ai_agent_strategy/</guid>
-      <pubDate>Wed, 05 Nov 2025 15:57:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
