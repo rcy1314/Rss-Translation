@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 08 Nov 2025 15:24:49 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 08 Nov 2025 18:32:52 GMT</lastBuildDate>
+    <item>
+      <title>使用 Go 构建 UnisonDB，一个受 DynamoDB 启发的数据库，具有 100 多个边缘复制</title>
+      <link>https://www.reddit.com/r/opensource/comments/1orwksx/building_unisondb_a_dynamodbinspired_database_in/</link>
+      <description><![CDATA[过去几个月我一直在构建 UnisonDB，这是一个受 DynamoDB 架构启发的数据库，但专为需要在不同位置运行 100 多个副本的边缘计算场景而设计。 GitHub：https://github.com/ankur-anand/unisondb UnisonDB 将预写日志视为事实来源（而不仅仅是恢复机制）。这将存储和流式传输统一在一个系统中。 每次写入都是：  持久且有序（WAL 优先架构） 可通过 gRPC 实时流式传输到副本 可通过 B+Tree 进行查询以实现可预测的读取  这消除了对外部 CDC 或代理的需要 - 复制和传播内置于核心引擎中。 部署拓扑 UnisonDB 支持多种开箱即用的复制设置：  Hub-and-Spoke – 用于边缘部署，其中中央集线器将数据扇出到 100 多个边缘节点 Peer-to-Peer – 用于在彼此之间复制更改的区域数据中心 Follower/Relay – 用于直接跟踪日志以进行分析或缓存的只读副本  每个节点在 WAL 中维护自己的偏移量，因此副本可以从任何位置赶上，而无需重新同步整个数据集。 即将推出的路线图：  命名空间分段 HA 系统 - 每个命名空间独立的高可用性集群 备份和恢复 - 用于快速恢复和副本引导的 WAL + B+Tree 快照（无需完全重新同步）  UnisonDB 的目标是使日志原生数据库在核心和边缘都实用——将复制、存储和事件传播结合在一个基于 Go 的系统中。 我仍在探索这种日志原生方法能走多远。很想听听您的想法、反馈或您认为可能有兴趣测试的任何边缘案例。   由   提交 /u/ankur-anand   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1orwksx/building_unisondb_a_dynamodbinspired_database_in/</guid>
+      <pubDate>Sat, 08 Nov 2025 18:24:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了一种可编译为本机二进制文件的 Pythonic 脚本语言 (Otterlang)</title>
+      <link>https://www.reddit.com/r/opensource/comments/1orwhrb/i_made_a_pythonic_scripting_language_that/</link>
+      <description><![CDATA[      嗨 r/opensource， 我一直在研究 OtterLang，这是一种小型开源语言，具有类似 Python 的语法，可直接编译为通过 LLVM 生成本机二进制文件（MacOS、Linux、Windows）。 目标不是重新发明 Python 或 Rust。这是为了让原生编程再次变得平易近人。 Otter 尝试将 Python 式的可读性和最少的语法结合起来 Rust 支持的编译和性能 透明的 Rust FFI，因此您可以直接调用 Rust Githubcrates，无需手动桥 它仍然处于实验阶段，尚未接近生产，但请随意查看该存储库，如果您喜欢它，请给它一个星号，并评论建议/反馈！ GitHub：https://github.com/jonathanmagambo/otterlang   由   提交 /u/Small-Permission7909   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1orwhrb/i_made_a_pythonic_scripting_language_that/</guid>
+      <pubDate>Sat, 08 Nov 2025 18:20:51 GMT</pubDate>
+    </item>
     <item>
       <title>Word 和 Excel 的替代品？</title>
       <link>https://www.reddit.com/r/opensource/comments/1orrzvg/word_and_excel_alternatives/</link>
@@ -50,7 +64,7 @@
     <item>
       <title>开源贡献项目</title>
       <link>https://www.reddit.com/r/opensource/comments/1orm8dl/project_for_open_source_contribution/</link>
-      <description><![CDATA[嘿伙计们，如果您正在寻找一个适合初学者的项目来贡献，这里有 snapid ：一个安全且快速的唯一 ID 生成器，https://github.com/dhiraj2105/snapid ，我欢迎对此项目提出任何建议和功能，让我们贡献并构建一些有意义的东西   由   提交/u/Dhiraj0  [链接] [评论]]]></description>
+      <description><![CDATA[嘿伙计们，如果您正在寻找一个适合初学者的项目来贡献，这里有 snapid ：一个安全且快速的唯一 ID 生成器，https://github.com/dhiraj2105/snapid ，我欢迎对此项目提出任何建议和功能，让我们贡献并构建一些有意义的东西   由   提交 /u/Dhiraj0   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1orm8dl/project_for_open_source_contribution/</guid>
       <pubDate>Sat, 08 Nov 2025 10:34:22 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[       由   提交 /u/Number4extraDip   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1oraxkl/a_fun_android_trailer_i_made/</guid>
       <pubDate>Sat, 08 Nov 2025 00:17:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年开源虚拟活动 - 1 月 13 日 - 立即注册！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1or60t3/open_source_in_2026_virtual_event_january_13/</link>
-      <description><![CDATA[       由   提交/u/WalrusOk4591   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1or60t3/open_source_in_2026_virtual_event_january_13/</guid>
-      <pubDate>Fri, 07 Nov 2025 20:55:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源最终是为大企业服务的</title>
-      <link>https://www.reddit.com/r/opensource/comments/1or0uye/opensource_ultimately_serves_the_big_corporates/</link>
-      <description><![CDATA[只是一个想法......大公司甚至在某种意义上支持和支付开源软件开发人员，但除了这些开发人员之外，谁完成工作 其他为开源开发做出贡献的人。 当然，他们可以根据公共需求等贡献和塑造软件 但最终谁在开源技术之上赚到了最高的钱？  不讨厌任何社区，这只是我的观点 但我认为从某种意义上来说这绝对是正确的，我不确定规模，我也不知道为什么人们不谈论它..但这并不重要   由   提交 /u/smooth-oprator   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1or0uye/opensource_ultimately_serves_the_big_corporates/</guid>
-      <pubDate>Fri, 07 Nov 2025 17:38:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
