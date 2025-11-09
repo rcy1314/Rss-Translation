@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 09 Nov 2025 03:46:34 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Nov 2025 06:33:09 GMT</lastBuildDate>
+    <item>
+      <title>适用于 AI 的 SQL 原生内存引擎</title>
+      <link>https://www.reddit.com/r/opensource/comments/1osbzy0/sqlnative_memory_engine_for_ai/</link>
+      <description><![CDATA[      大家好， 我最近遇到了这个名为 Memori 的产品，它是一个面向代理的开源内存引擎。我开始探索并与其背后的团队取得了联系。  他们的方法 - Memori 插入您已经使用和设置的标准 SQL 数据库，无需新的基础设施。它具有基于 SQL 的检索功能，并且每个内存决策都可以使用 SQL 进行查询。 项目还很年轻，但已取得重大进展。他们正在寻找新的贡献者和反馈。  您可以查看他们的 GitHub 存储库 如果您有任何问题，我会尽力回答！    由   提交/u/codes_astro  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1osbzy0/sqlnative_memory_engine_for_ai/</guid>
+      <pubDate>Sun, 09 Nov 2025 06:17:48 GMT</pubDate>
+    </item>
     <item>
       <title>在对现有浏览器感到沮丧后，构建了一个开源浏览器 MCP</title>
       <link>https://www.reddit.com/r/opensource/comments/1os4yrt/built_an_open_source_browser_mcp_after_being/</link>
@@ -64,7 +71,7 @@
     <item>
       <title>使用 Go 构建 UnisonDB，一个受 DynamoDB 启发的数据库，具有 100 多个边缘复制</title>
       <link>https://www.reddit.com/r/opensource/comments/1orwksx/building_unisondb_a_dynamodbinspired_database_in/</link>
-      <description><![CDATA[过去几个月我一直在构建 UnisonDB，这是一个受 DynamoDB 架构启发的数据库，但专为需要在不同位置运行 100 多个副本的边缘计算场景而设计。 GitHub：https://github.com/ankur-anand/unisondb UnisonDB 将预写日志视为事实来源（而不仅仅是恢复机制）。这将存储和流式传输统一在一个系统中。 每次写入都是：  持久且有序（WAL 优先架构） 可通过 gRPC 实时流式传输到副本 可通过 B+Tree 进行查询以实现可预测的读取  这消除了对外部 CDC 或代理的需要 - 复制和传播内置于核心引擎中。 部署拓扑 UnisonDB 支持多种开箱即用的复制设置：  Hub-and-Spoke – 用于边缘部署，其中中央集线器将数据扇出到 100 多个边缘节点 Peer-to-Peer – 用于在彼此之间复制更改的区域数据中心 Follower/Relay – 用于直接跟踪日志以进行分析或缓存的只读副本  每个节点在 WAL 中维护自己的偏移量，因此副本可以从任何位置赶上，而无需重新同步整个数据集。 即将推出的路线图：  命名空间分段 HA 系统 - 每个命名空间独立的高可用性集群 备份和恢复 - 用于快速恢复和副本引导的 WAL + B+Tree 快照（无需完全重新同步）  UnisonDB 的目标是使日志原生数据库在核心和边缘都实用——将复制、存储和事件传播结合在一个基于 Go 的系统中。 我仍在探索这种日志原生方法能走多远。很想听听您的想法、反馈或您认为可能有兴趣测试的任何边缘案例。   由   提交 /u/ankur-anand   [链接] [评论]]]></description>
+      <description><![CDATA[过去几个月我一直在构建 UnisonDB，这是一个受 DynamoDB 架构启发的数据库，但专为需要在不同位置运行 100 多个副本的边缘计算场景而设计。 GitHub：https://github.com/ankur-anand/unisondb UnisonDB 将预写日志视为事实来源（而不仅仅是恢复机制）。这将存储和流式传输统一在一个系统中。 每次写入都是：  持久且有序（WAL 优先架构） 可通过 gRPC 实时流式传输到副本 可通过 B+Tree 进行查询以实现可预测的读取  这消除了对外部 CDC 或代理的需要 - 复制和传播内置于核心引擎中。 部署拓扑 UnisonDB 支持多种开箱即用的复制设置：  Hub-and-Spoke – 用于边缘部署，其中中央集线器将数据扇出到 100 多个边缘节点 Peer-to-Peer – 用于在彼此之间复制更改的区域数据中心 Follower/Relay – 用于直接跟踪日志以进行分析或缓存的只读副本  每个节点在 WAL 中维护自己的偏移量，因此副本可以从任何位置赶上，而无需重新同步整个数据集。 即将推出的路线图：  命名空间分段 HA 系统 - 每个命名空间独立的高可用性集群 备份和恢复 - 用于快速恢复和副本引导的 WAL + B+Tree 快照（无需完全重新同步）  UnisonDB 的目标是使日志原生数据库在核心和边缘都实用——将复制、存储和事件传播结合在一个基于 Go 的系统中。 我仍在探索这种日志原生方法可以走多远。很想听听您的想法、反馈或您认为可能有兴趣测试的任何边缘案例。   由   提交 /u/ankur-anand   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1orwksx/building_unisondb_a_dynamodbinspired_database_in/</guid>
       <pubDate>Sat, 08 Nov 2025 18:24:19 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[如果您使用过 AppImages，您就会知道每个 AppImage 都是独立的，手动管理它们可能会很烦人。我创建了 aipkg，一个 AppImages 的包管理器，其工作方式类似于 apt 或 pacman。 安装它： curl -fsSL https://raw.githubusercontent.com/kleeedolinux/aipkg/refs/heads/main/scripts/install.sh | sh  安装本地AppImage： aipkg install /path/to/app.AppImage  从存储库安装： aipkg同步包名称 为什么使用aipkg而不是Snap或Flatpak？ AppImages 原生运行，无需大量沙箱，因此性能更接近常规二进制文件。每个 AppImage 保持隔离，版本不会冲突，并且您可以准确控制它所在的位置。 aipkg 在 ~/.local/bin/ 中设置 .desktop 文件和符号链接，验证 SHA256 校验和，并将每个版本分开。您可以获得包管理器体验，而无需 Snap/Flatpak 的开销或限制。 任何人都可以在 GitHub 或任何 HTTP/HTTPS 服务器上托管 AppImage 存储库。只需创建一个带有元数据的 appimage.yaml 以及一个可选的 index.yaml 即可聚合多个存储库。 aipkg 自动处理更新、依赖关系和完整性检查。这意味着生态系统是完全开放的，还没有中央存储库，因此任何人都可以启动一个并共享软件包。 所有文件都进入 ~/.local/share/aipkg/appimages/ ，并且可以完全通过 CLI 进行管理。它是去中心化的、安全的、快速的，并且可以与多个来源一起工作。 对其进行测试或在 GitHub 上做出贡献。您甚至可以托管自己的存储库并帮助构建第一个共享的 AppImage 集合。   由   提交/u/Electronic-Lab-1754  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1orpsib/aipkg_a_tool_to_manage_appimages_and_host_your/</guid>
       <pubDate>Sat, 08 Nov 2025 13:45:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>厌倦了将代码复制粘贴到 ChatGPT 中？我构建了 PowerCat 来为您做这件事——一个 PowerShell 单行代码。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1orpqlx/sick_of_copypasting_code_into_chatgpt_i_built/</link>
-      <description><![CDATA[ 由   提交/u/mattastic420  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1orpqlx/sick_of_copypasting_code_into_chatgpt_i_built/</guid>
-      <pubDate>Sat, 08 Nov 2025 13:43:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
