@@ -4,9 +4,9 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 11 Nov 2025 01:55:40 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 11 Nov 2025 03:48:55 GMT</lastBuildDate>
     <item>
-      <title>你好，我计划开源我的芝麻替代品。虽然有点粗糙，但也不算太糟糕！</title>
+      <title>你好，我计划开源我的芝麻替代方案。虽然有点粗糙，但也不算太糟糕！</title>
       <link>https://www.reddit.com/r/opensource/comments/1otwag8/hello_im_planning_to_opensource_my_sesame/</link>
       <description><![CDATA[大家好， 我想分享一个我一直在做的项目。我是一名创始人，目前正在开发一款新产品，但直到上个月我还在开发一款对话式人工智能。旋转之后，我想我应该分享我的代码。 演示视频：https://www.loom.com/share/3ef0ffd2844a4f148e087a7e6bd69b9b 该项目是一个可以进行实时对话的语音人工智能。客户端在网络上运行，后端通过gpu在云端运行模型。 详细信息：对于STT，我使用了whisper-large-v3-turbo，对于TTS，我修改了chatterbox以实现实时流媒体。 LLM 是 llama 的 gpt api 或 gpt-oss-20b。 本地 llm 的一个优点是所有数据都可以保留在您的计算机本地。从速度和性能方面来说，我也推荐使用api。而且价格也不贵了。 （30 分钟花费 0.1 美元？我猜） 从数字上看：TTFT 约为 1000 毫秒，即使包含 llm api 成本，在 runpod A40 实例上每小时大约花费 0.50 美元。 我构建了一些小细节，使对话感觉更自然（尽管它们在演示视频中可能并不明显）：  当用户保持沉默时，它偶尔会产生小的自言自语。 总是提示 llm 以预设的“第一个单词”开始，并且该单词的音频是预先生成的，以减少 TTFT。 它可以在句子中间插入短暂的沉默，以实现更自然的节奏。 您可以打断讲话，并且只有在中断之前所说的内容才会记录在对话历史记录中。 借助多语言 Chatterbox，它可以用多种语言进行对话任何语言和语音（迄今为止英语效果最好）。 音频使用 Opus 进行编码和解码。 智能转弯检测。  这是存储库！它包括客户端和服务器代码。 https://github.com/thxxx/harper 我很想听听社区的想法。您认为对于真正自然的语音对话最重要的是什么？   由   提交/u/Danny-1257  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1otwag8/hello_im_planning_to_opensource_my_sesame/</guid>
@@ -71,7 +71,7 @@
     <item>
       <title>管理短期令牌——一个小型开源配置驱动的解决方案</title>
       <link>https://www.reddit.com/r/opensource/comments/1otgt7z/managing_shortlived_tokens_a_small_opensource/</link>
-      <description><![CDATA[您好！ 在许多虚拟机上，多个服务需要访问令牌 一些服务从元数据端点读取它们， 其他需要链接调用 - 元数据 → 内部服务 → OAuth2 - 只是为了获取最终令牌， 或者期望来自本地文件（如 vector.dev）的令牌。 每个服务都开始访问网络 因此，我刚刚创建了 token-agent - 一个小型的、配置驱动的服务，它： - 从多个源获取和交换令牌（您在配置中定义）， - 支持链接（source₁ → source² → … → sink）， - 通过文件、套接字或 HTTP 写入或提供令牌， - 句柄安全地缓存、重试和过期， 内置重试、可观察性（包括 Prometheus 仪表板） 我的用例： - 通过文件将令牌传递到 vector.dev - 通过 http 虚拟机上其他服务的令牌源 存储库：github.com/AleksandrNi/token-agent 附带了用于快速测试的 docker-compose 示例 反馈对我来说非常重要，请写下您的意见 谢谢！   由   提交/u/AleksandrNikitin   [链接] [评论]]]></description>
+      <description><![CDATA[您好！ 在许多虚拟机上，多个服务需要访问令牌 一些服务从元数据端点读取它们， 其他服务需要链接调用 - 元数据 → 内部服务 → OAuth2 - 只是为了获取最终令牌， 或者期望来自本地文件（如 vector.dev）的令牌。 每个服务都开始访问网络 因此，我刚刚创建了 token-agent - 一个小型的、配置驱动的服务，它： - 从多个源获取和交换令牌（您在配置中定义）， - 支持链接（source₁ → source² → … → sink）， - 通过文件、套接字或 HTTP 写入或提供令牌， - 句柄安全地缓存、重试和过期， 内置重试、可观察性（包括 Prometheus 仪表板） 我的用例： - 通过文件将令牌传递到 vector.dev - 通过 http 虚拟机上其他服务的令牌源 存储库：github.com/AleksandrNi/token-agent 附带了用于快速测试的 docker-compose 示例 反馈对我来说非常重要，请写下您的意见 谢谢！   由   提交/u/AleksandrNikitin   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1otgt7z/managing_shortlived_tokens_a_small_opensource/</guid>
       <pubDate>Mon, 10 Nov 2025 15:31:03 GMT</pubDate>
     </item>
@@ -104,7 +104,7 @@
       <pubDate>Mon, 10 Nov 2025 14:10:49 GMT</pubDate>
     </item>
     <item>
-      <title>一种更接近真正自由形式后端的方法</title>
+      <title>一种更接近真正自由形式后端的技巧</title>
       <link>https://www.reddit.com/r/opensource/comments/1otaxc7/one_hack_closer_to_truly_free_form_backends/</link>
       <description><![CDATA[      我的周末项目 FormZero，一个自由形式后端，比注册付费服务更容易自行托管，刚刚获得更新。现在，当人们提交表单时，用户可以收到电子邮件通知 - 等待名单、简讯注册、调查。 我的第一个想法是要求用户设置一个免费的 Resend 帐户并使用他们的 API 密钥发送电子邮件。虽然免费，但这要求用户至少拥有一个域名，这绝对违背了我关于一键式自我托管的主张。 然后我意识到每个用户都已经拥有了自己的个人电子邮件地址。如果只有 FormZero 能够以安全的方式从它发送电子邮件就好了。 SMTP 来救援 - 这是您的电子邮件客户端 (Apple/Notion/Outlook) 用于从您的电子邮件地址发送邮件的协议。事实上，它是一种标准协议，允许用户连接到任何电子邮件提供商 - Gmail、Proton、Outlook、iCloud 甚至 Resend - 只需随身携带您的 SMTP 密码即可。 这使得 FormZero 在功能上距离匹配付费服务又近了一步。下周末：验证码和垃圾邮件防护。 FormZero：https://github.com/BohdanPetryshyn/formzero - 给它一颗星并将其保存到您的下一个网络表单！   由   提交/u/BohdanPetryshyn   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1otaxc7/one_hack_closer_to_truly_free_form_backends/</guid>
