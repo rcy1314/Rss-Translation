@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 18 Nov 2025 18:38:16 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 01:56:00 GMT</lastBuildDate>
+    <item>
+      <title>周末项目：发布3个图像生成API客户端</title>
+      <link>https://www.reddit.com/r/opensource/comments/1p0nbq6/weekend_project_published_3_image_generation_api/</link>
+      <description><![CDATA[阿罗哈， 上周末，我发布了我的第一个 npm 软件包 - 三个图像生成 API 客户端。  stability-ai-api - Stability AI（稳定图像） bfl-api - Black Forest Labs（Flux、Kontext） openai-image-api - Openai（Dalle、gpt-image）  我为什么构建它们 此外我想要一个具有良好编程 API 的命令行客户端来生成和链接各种图像，因此我想了解 AI 图像生成生态系统。每个包都包含一个不同的图像生成提供程序，具有一致的界面、全面的测试和 CLI 工具。 背景 我担任后端开发人员已有 7 年多了，从未向 npm 发布过任何内容或为开源构建，因此这是构建我真正想要使用的东西的绝佳机会。 周五晚上研究 API 并为 Black Forest 实验室构建了第一个核心客户端。这是周六发布的。周六下午我花时间构建其他核心客户端，周日添加 CLI 和测试。周日晚上发布了剩余部分。 今天早上：stability-ai-api 上有 514 次下载。我认为 npm 的计数器坏了。 我学到了什么  提供商之间的类似生态系统 - 尽管 API、异步/同步处理和响应格式不同，但核心工作流程足够相似，可以为每个构建提供信息 生产质量和可靠的文档很重要 - 当您拥有适当的测试覆盖率和完整的文档时，用户就会尝试该软件包 包命名对于可搜索性似乎至关重要 - bfl-api 和 openai-image-api 可通过 npm 搜索。老实说，我不确定 stable-ai-api 如何获得快速吸引力。 周末项目可以交付 - 虽然我刚刚实现了自动发布，但任务仍然是手动的，我仍然能够交付这些包 人们显然需要这些工具 - 这些工具似乎有一些有机的吸引力  技术决策  单独的包：每个提供商都有自己的怪癖，我想将它们分开。一旦你开始抽象出所有东西，复杂性就会变得相当大。每个提供商一个库似乎是我的盟友。 为什么选择 Javascript 而不是 Typescript：我希望快速发布并根据实际使用情况进行迭代。这些都是作为周末项目开始的，目的是为了解决我自己的需求。可能会根据社区反馈添加 TypeScript 定义。 为什么要进行全面测试：这些包包装了付费 API。我需要有信心不会在损坏的请求上浪费金钱。 CI/CD：刚刚实施。现在应该自动版本、测试和发布。  下一步  短期：这个想法是再构建两个提供商客户端（Google Imagen、Ideogram） Google genai视频、用于文本渲染的表意文字  中期：用于模型路由、图像链接、成本优化等的编排层 长期：可能是一个完整的堆栈接口  链接   [npm 上的 stability-ai-api](https://npmjs.com/package/stability-ai-api) [npm 上的 bfl-api](https://npmjs.com/package/bfl-api) [npm 上的 openai-image-api](https://npmjs.com/package/openai-image-api) [GitHub 存储库](https://github.com/aself101)  很高兴回答问题。 干杯   由   提交/u/okstory  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1p0nbq6/weekend_project_published_3_image_generation_api/</guid>
+      <pubDate>Tue, 18 Nov 2025 20:43:29 GMT</pubDate>
+    </item>
     <item>
       <title>寻找基于Java或Spring Boot的开源项目</title>
       <link>https://www.reddit.com/r/opensource/comments/1p0g0e6/looking_for_java_or_spring_boot_based_opensource/</link>
@@ -57,7 +64,7 @@
     <item>
       <title>OSV 和 OSM 有什么区别？</title>
       <link>https://www.reddit.com/r/opensource/comments/1p08bbx/what_are_the_differences_between_osv_and_osm/</link>
-      <description><![CDATA[作为开源开发人员，我们从公共上游（例如 Python 软件包的 PyPi）提取 OSS 软件依赖项。开源漏洞 (OSV) 还具有一个恶意软件包组件，用于告诉用户这些公共上游之一中的 OSS 依赖项是否是恶意软件。 https://github.com/ossf/osv-schema https://github.com/ossf/malicious-packages 但是，我遇到了开源恶意软件 (OSM)，乍一看它似乎与 OpenSSF Malicious Packages 项目执行相同的操作： https://opensourcemalware.com/ 我认为这些开源项目的记录和各自涵盖的格式会有很多重叠，但 OSM 似乎还为恶意存储库、CDN 和域提供了额外的报告，这与 OSV 绝对不同。  此外，OSM 还为恶意软件分配严重级别。它可以是信息性的、低级的、中等的等，就像您对 CVE 的期望一样。在 OSV 中，恶意软件仅分配一个严重性代码（恶意）。 OSV 还分配有一个通用标识符 (MAL-)，但 OSM 似乎并未提供此信息。我还缺少什么吗？   由   提交 /u/ExtensionSuccess8539   [链接] [评论]]]></description>
+      <description><![CDATA[作为开源开发人员，我们从公共上游（例如 Python 包的 PyPi）提取 OSS 软件依赖项。开源漏洞 (OSV) 还具有一个恶意软件包组件，用于告诉用户这些公共上游之一中的 OSS 依赖项是否是恶意软件。 https://github.com/ossf/osv-schema https://github.com/ossf/malicious-packages 但是，我遇到了开源恶意软件 (OSM)，乍一看它似乎与 OpenSSF Malicious Packages 项目执行相同的操作： https://opensourcemalware.com/ 我认为这些开源项目的记录和各自涵盖的格式会有很多重叠，但 OSM 似乎还为恶意存储库、CDN 和域提供了额外的报告，这与 OSV 绝对不同。  此外，OSM 还为恶意软件分配严重级别。它可以是信息性的、低级的、中等的等，就像您对 CVE 的期望一样。在 OSV 中，恶意软件仅分配一个严重性代码（恶意）。 OSV 还分配有一个通用标识符 (MAL-)，但 OSM 似乎并未提供此信息。我还缺少什么吗？   由   提交 /u/ExtensionSuccess8539   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1p08bbx/what_are_the_differences_between_osv_and_osm/</guid>
       <pubDate>Tue, 18 Nov 2025 10:17:41 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[我不知道这是否是发布它的正确位置，但我只是想分享我在过去几个月里一直在做的副业。它最初是一个简单的想法，即在终端中拥有一些声明性的东西，比如 Postman，而无需安装一些笨重、臃肿、基于 Electron 的应用程序。我是 Vim 用户，我喜欢键盘驱动的工作流程，所以 resterm 就这样诞生了。自第一个版本以来，我一直在添加更多功能，例如工作流程、跟踪、分析等。这基本上是 Postman/Bruno 的替代方案，但在终端中具有漂亮的 TUI，并且无需任何注册、云备份。您可以使用 JavaScript 编写预/后请求脚本、导入 OpenAPI 规范、针对不同环境运行多个请求等。它支持 REST/GraphQL、gRPC、WebSockets 和 SSE。 仍然缺乏大量功能，并且协作工作更多地由 Git 驱动，因为您通过 .http/rest 文件管理所有内容，而不是像 Postman 那样集成，但我很确定有人会发现它很有用。 repo: https://github.com/unkn0wn-root/resterm   由   提交 /u/unknown_r00t   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1p03d7j/resterm_terminal_api_clienttesting_restgraphqlgrpc/</guid>
       <pubDate>Tue, 18 Nov 2025 05:10:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>您是否曾想过语音人工智能基础设施对所有人开放？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1p02kkz/have_you_ever_thought_the_voice_ai_infrastructure/</link>
-      <description><![CDATA[你好操作系统，我是 Rohit，RapidaAI 的联合创始人，RapidaAI 是我们为实际使用而构建的一个生产就绪的语音 AI 平台。 当我们开始与运行严肃的呼叫语音 AI 卷的团队合作时，我们注意到他们一直在租用语音 AI 基础设施，而且成本是一个黑匣子。您对流程、质量和成本透明度几乎无法控制。 如果您想建立一家语音公司怎么办？您有什么选择可以让您拥有整个交易？ 我们构建了 Rapida - 一个语音人工智能堆栈，您可以运行、调整并实际拥有整个语音人工智能游戏。 如果您是开源爱好者或人工智能公司，希望在这一旅程中与我们合作，以便您可以控制自己的语音人工智能，如果您想拥有一个，请私信我。 几天后，我们将改变它的简单程度。让每个人都能从零开始开发能够说话和倾听的产品。 不要租用，拥有你的语音 AI。   由   提交/u/olahealth  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1p02kkz/have_you_ever_thought_the_voice_ai_infrastructure/</guid>
-      <pubDate>Tue, 18 Nov 2025 04:28:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
