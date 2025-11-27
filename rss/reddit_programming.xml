@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 26 Nov 2025 21:22:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 01:52:57 GMT</lastBuildDate>
+    <item>
+      <title>Vivi 编码是否已达到生产级精度？</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7p0t5/has_vibe_coding_reached_production_grade_accuracy/</link>
+      <description><![CDATA[作者声称他 100% vivi 为自己编写了一个具有身份验证和所有功能的 Web 应用程序。但没有引用代码，所以我无法验证这些声明。我们到了那里而我没有注意吗？    由   提交 /u/homeless_nudist   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7p0t5/has_vibe_coding_reached_production_grade_accuracy/</guid>
+      <pubDate>Thu, 27 Nov 2025 01:05:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>每次仅需 0.0001 美分即可拆除 Next.js 服务器</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7ovhh/taking_down_nextjs_servers_for_00001_cents_a_pop/</link>
+      <description><![CDATA[ 由   提交/u/stephenalexbrowne  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7ovhh/taking_down_nextjs_servers_for_00001_cents_a_pop/</guid>
+      <pubDate>Thu, 27 Nov 2025 00:58:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我从头开始构建了一个比 Kafka 更快的分布式消息流平台</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7oqbc/i_built_a_distributed_message_streaming_platform/</link>
+      <description><![CDATA[我一直在研究 Walrus，这是一个用 Rust 编写的消息流系统（类似于 Kafka）。重点是使存储层尽可能快。 性能亮点：  120 万次写入/秒（无 fsync） 5,000 次写入/秒（fsync） 在基准测试中击败 Kafka 和 RocksDB（请参阅 README 中的图表）  速度如何： 存储引擎是定制的，而不是使用现有的库。在 Linux 上，它使用 io_uring 进行批量写入。在其他平台上，它会退回到常规 pread/pwrite 系统调用。如果您愿意，还可以使用内存映射文件。 每个主题都分为多个段（每个段约 1M 条消息）。当一个段填满时，它会自动滚动到一个新的段，并将领导权分配给不同的节点。这样无需手动配置即可保持集群平衡。 分布式设置： 集群使用 Raft 进行协调，但仅用于元数据（哪个节点拥有哪个段）。实际的消息数据永远不会通过 Raft，因此写入速度保持很快。如果您将消息发送到错误的节点，它只会将其转发到正确的节点。 如果您只需要快速本地日志记录，您还可以使用独立的存储引擎作为库（crates.io 上的 walrus-rust）。 我还编写了 TLA+ 规范来验证分布式部分是否正常工作（段翻转、写入安全性等）。 代码： https://github.com/nubskr/walrus 很想听听您的想法，特别是如果您曾经使用过类似的系统！   由   提交 /u/Ok_Marionberry8922   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7oqbc/i_built_a_distributed_message_streaming_platform/</guid>
+      <pubDate>Thu, 27 Nov 2025 00:51:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>工程乘数原型</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7o6z3/engineering_multiplier_archetypes/</link>
+      <description><![CDATA[ 由   提交/u/gregorojstersek   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7o6z3/engineering_multiplier_archetypes/</guid>
+      <pubDate>Thu, 27 Nov 2025 00:25:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>死于一千只虫子</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7mxau/death_by_a_thousand_bugs/</link>
+      <description><![CDATA[ 由   提交/u/ArtisticProgrammer11  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7mxau/death_by_a_thousand_bugs/</guid>
+      <pubDate>Wed, 26 Nov 2025 23:27:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>在我的实习期间，我艰难地了解了供应商锁定。有人在学校谈论这个吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1p7mvxw/learned_about_vendor_lockin_the_hard_way_during/</link>
+      <description><![CDATA[刚刚完成在一家金融科技公司（想想 Robinhood）的实习，学到了一些他们在学校绝对不会教你的东西。 所以我在数据平台团队中，当我在那里时发生了整个戏剧性的事情。基本上，几年前，该公司全力向一家大型云供应商提供数据服务。一切都是集成的，他们的目录、治理、整个堆栈。然后，供应商在几乎没有任何通知的情况下突然将价格提高了 40%。工程经理们失去了理智。 问题是什么？公司的所有元数据都被困在供应商的专有系统中。就像多年的数据沿袭、访问策略等等。他们不能简单地进行切换，因为迁移需要花费近一年的工程时间。所以他们只需要付钱，哈哈。 一位高级工程师告诉我这种情况经常发生。他称之为“有围墙的花园陷阱”。 Databricks、Snowflake、AWS 等大公司都希望您锁定在他们的生态系统中。一旦你加入，转换成本就会变得疯狂。 让我开始阅读有关开源替代品的文章。发现这篇文章比我能更好地解释它：https://medium.com/datastrato/if-youre-not-all-in-on-databricks-why-metadata-freedom-matters-35cc5b15b24e](https://medium.com/datastrato/if-youre-not-all-in-on-databricks-why-metadata-freedom-matters-35cc5b15b24e  有一个名为 Gravitino 的 Apache 项目，它基本上是一个开源元数据层，所以从系统设计的角度来看，你并不依赖于一个供应商。 无论如何，这整个经历让我思考：  公司在选择技术堆栈时是否真的考虑供应商锁定，还是只选择最简单的技术？ 对于那些已经选择了技术堆栈的人来说。在初创公司工作与在大型科技公司工作，这更像是一个初创公司问题吗？ 开源基础设施对大多数公司来说实际上可行吗？还是运营开销太大？ 还有其他人在实习期间学到这样的东西，这完全改变了你对技术决策的看法吗？  感觉我们学习算法和数据结构，但没有人谈论你所处理的实际业务/基础设施权衡    提交者 /u/Icy-Perception0   [链接]   href=&quot;https://www.reddit.com/r/programming/comments/1p7mvxw/learned_about_vendor_lockin_the_hard_way_during/&quot;&gt;[评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1p7mvxw/learned_about_vendor_lockin_the_hard_way_during/</guid>
+      <pubDate>Wed, 26 Nov 2025 23:25:36 GMT</pubDate>
+    </item>
     <item>
       <title>Terraform：最佳实践和基础知识备忘单</title>
       <link>https://www.reddit.com/r/programming/comments/1p7iboa/terraform_best_practices_and_cheat_sheet_for_the/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[欢迎来到在 Java Swing 中构建现代翻页卡 UI 的第 1 部分！ 在本次会议中，我们设计了一个专业的翻页卡组件，它有两个侧面： ✔ 正面： 图像、姓名和部门 ✔ 背面： 详细信息（描述、角色、联系人、等） 该视频向您展示如何使用 Java Swing 创建干净、现代、动画且过渡平滑的翻页卡。 目前，我们使用静态示例数据，在第 2 部分中，我们将直接从数据库获取所有翻页卡数据。    由   提交/u/Substantial-Log-9305   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1p7bo1g/java_swing_flip_card_ui_modern_front_back_flip/</guid>
       <pubDate>Wed, 26 Nov 2025 16:08:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何构建基于 Rust 的 NASDAQ ITCH 解析器以每秒处理数百万条消息？</title>
-      <link>https://www.reddit.com/r/programming/comments/1p79wyv/how_to_build_a_rust_based_nasdaq_itch_parser_to/</link>
-      <description><![CDATA[ 由   提交/u/capitanturkiye   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p79wyv/how_to_build_a_rust_based_nasdaq_itch_parser_to/</guid>
-      <pubDate>Wed, 26 Nov 2025 15:01:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 MiniZinc 解决鹧鸪堆积问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1p79r3k/solving_the_partridge_packing_problem_using/</link>
-      <description><![CDATA[ 由   提交 /u/mzl   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p79r3k/solving_the_partridge_packing_problem_using/</guid>
-      <pubDate>Wed, 26 Nov 2025 14:54:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>测试规格套件：激进的想法还是重新发明的瀑布？</title>
-      <link>https://www.reddit.com/r/programming/comments/1p78csg/putting_spec_kit_through_its_paces_radical_idea/</link>
-      <description><![CDATA[ 由   提交 /u/ColinEberhardt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p78csg/putting_spec_kit_through_its_paces_radical_idea/</guid>
-      <pubDate>Wed, 26 Nov 2025 13:56:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能将编写你的下一个编译器！</title>
-      <link>https://www.reddit.com/r/programming/comments/1p78a8h/ai_will_write_your_next_compiler/</link>
-      <description><![CDATA[ 由   提交 /u/joelreymont   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p78a8h/ai_will_write_your_next_compiler/</guid>
-      <pubDate>Wed, 26 Nov 2025 13:53:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>在几分钟内用 Python 构建数据可视化 • Kris Jenkins</title>
-      <link>https://www.reddit.com/r/programming/comments/1p77xfg/building_data_visualisations_in_python_in_minutes/</link>
-      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p77xfg/building_data_visualisations_in_python_in_minutes/</guid>
-      <pubDate>Wed, 26 Nov 2025 13:37:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于调试缓慢的 Java 和 Spring Boot 应用程序的实用备忘单</title>
-      <link>https://www.reddit.com/r/programming/comments/1p77i9c/a_practical_cheat_sheet_for_debugging_slow_java/</link>
-      <description><![CDATA[我整理了一个简单、适合初学者的清单，用于调试缓慢的 Java 和 Spring Boot 服务。 它包括每个 JVM 命令的示例输出、简单语言的解释以及有关 JFR 和本机内存跟踪等高级工具的部分。 如果您是初级开发人员或厌倦了在事件期间搜索 StackOverflow 的人，这可能会有所帮助。 让我在评论中知道，是否有任何其他技巧或方法可以作为该主题的一个很好的补充！   由   提交/u/sshetty03  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1p77i9c/a_practical_cheat_sheet_for_debugging_slow_java/</guid>
-      <pubDate>Wed, 26 Nov 2025 13:18:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
