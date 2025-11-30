@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 30 Nov 2025 06:36:39 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Nov 2025 09:23:50 GMT</lastBuildDate>
+    <item>
+      <title>如何提高 970 万次计算的性能！？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pac6d5/how_do_i_improve_the_performance_of_97mil/</link>
+      <description><![CDATA[现在，我们正在开发一个金融科技平台，并正在管理一个页面，该页面显示来自一组 2 个期限组合的纯 CPU 驱动计算的数字。可能的组合的最大数量为 5^8 ~ 390k，加载表数据的最坏情况性能大约需要 8-9 分钟。我们必须以某种方式提高此逻辑的性能，并使其适应未来，因为客户端希望在 30 秒内加载 5^10 ~ 970 万行，并将它们放入表中，而无需任何形式的无限滚动，并保持所有列可排序。 我们的技术堆栈是 nextjs 前端、nodejs 后端和 golang 微服务，我们通常将其用于此类计算。我想说90%的工作是在golang中完成的，然后我们在nodejs上执行迭代线性回归并将其发送到前端。即使完成所有这些，390k 行也有大约 107MB 的 json。有了这么多数据，aggrid 也开始滞后。我的问题是，我在现实生活中该如何处理这个问题... 我有一些想法，例如，  将线性回归转移到 golang 为 golang 提供一个更强大的服务器并实现多线程（因为它在单核 rn 上运行:)） golang 服务正在使用 grpc 进行调用，如果调用多次，它会产生很大的延迟。通过流式传输或增加批处理大小（已将 500 个计算请求一起批处理）来减少 grpc 延迟 减少响应包大小并将其流式传输到 nextjs 将 aggrid 替换为自定义轻量级 html 和 js 专用表 最后一个选项，在午夜重新计算并将其存储在缓存中。虽然我不确定redis和nodejs将如何执行从中读取GBs的流数据  此外，已经存在一些优化...  数据库缓存以尽量减少不必要的调用 req缓存以删除重复请求 过滤掉浪费计算的错误情况  欢迎任何和所有建议！请帮助兄弟  编辑：我们不能直接使用无限滚动，因为数据必须预先排序，并且排序必须根据计算值进行 ui 输入接受 4 个变量，这些变量的每个新组合都有一组新的计算 该平台适合那些期望可以缓存 5-10 分钟的实时数字的交易者    由   提交/u/mrgk21  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pac6d5/how_do_i_improve_the_performance_of_97mil/</guid>
+      <pubDate>Sun, 30 Nov 2025 07:19:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>图片资产经理</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pabqho/image_asset_manager/</link>
+      <description><![CDATA[寻找一些有关简单图像管理解决方案的建议。我的 Google foo 让我失望了，我淹没在一堆 DAM 解决方案、照片管理器、托管提供商、cdns 等中。 我们有几百种产品，每种产品都有十几个相关图像和一堆图像格式的营销材料。主要是人们享受我们产品的照片等。 目前，所有内容都存储在几个 s3 存储桶中。产品具有与目录等一起存储的关联图像。营销人员使用一些非常繁琐的流程来管理其中的大部分内容。 我想为他们提供一个很好的集中位置来轻松查找资产。具有灵活标记的东西，也许是一些人工智能自动露营和标记，调整裁剪工具的大小，一些模糊搜索等。 如果它还有一个简单的 API，我可以用它来用浏览按钮替换我的产品管理应用程序中的文件上传控件，而不是可以显示目录中相关图像的模式搜索，那就太好了。 我可以管理来自 s3 的基本元数据的存储和导入。 我们正在试用 imgix 作为cdn 交付平台，我对此非常满意。 我更喜欢一个自托管解决方案，我可以将其用作构建系统的基础 - 我们开始使用 AI 生成的内容图像，这将使目录管理变得有趣。  但我也愿意考虑 SaaS 解决方案，只要它们不是太具有侵入性。   由   提交/u/taotau  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pabqho/image_asset_manager/</guid>
+      <pubDate>Sun, 30 Nov 2025 06:52:22 GMT</pubDate>
+    </item>
     <item>
       <title>光是看着这个表格我的眼睛就痛。</title>
       <link>https://www.reddit.com/r/webdev/comments/1pabc8m/my_eyes_hurt_just_looking_at_this_form/</link>
@@ -29,7 +43,7 @@
     <item>
       <title>未来看起来并不美好</title>
       <link>https://www.reddit.com/r/webdev/comments/1pa967q/the_future_isnt_looking_good/</link>
-      <description><![CDATA[我正在给初学者提供有关语义 HTML 的提示，有人评论说“只要使用 React 兄弟” 我真的很高兴我在训练营和人工智能兴起之前就学会了 Web 开发 这很悲伤   由   提交/u/Frontend_DevMark  [链接] [评论]]]></description>
+      <description><![CDATA[我正在给初学者提供关于语义 HTML 的提示，有人评论说“只要使用 React 兄弟” 我真的很高兴我在训练营和人工智能兴起之前就学会了 Web 开发 这很悲伤   由   提交/u/Frontend_DevMark  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pa967q/the_future_isnt_looking_good/</guid>
       <pubDate>Sun, 30 Nov 2025 04:29:24 GMT</pubDate>
     </item>
@@ -64,7 +78,7 @@
     <item>
       <title>构建生产力代理/伴侣，您使用过类似的东西吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1pa744s/building_a_productivity_agentcompanion_have_you/</link>
-      <description><![CDATA[      嘿 r/webdev， 490 次提交之后（大约 8 个月的晚上/周末），pomotea 终于到了我不尴尬地向其他人展示它的地步。这是一款生产力应用程序，实际上可以为您进行计划和唠叨，而不仅仅是写了一半的待办事项的另一个墓地。 您告诉人工智能您想要完成什么。它将它分解为任务，将它们放入你的一天中，当生活发生时重新安排，并保留在你的案子上直到它完成。几乎零手动摆弄。我每天实际使用的三个部分：  代理 用简单的英语与它交谈。它会创建任务/子任务、设定截止日期、在日历崩溃时重新计划一切。感觉就像一个对我的生活选择有点失望的助理。 会议列表 每天早上，你都会得到一份简短而理智的清单，其中包含 3-5 件今天真正重要的事情。其他一切都会消失，直到它变得相关为止。我的大脑感谢我。 绝对诚实的时间跟踪 默默地运行，然后向您准确显示这一年的去向。激励人心，又有点令人恐惧。仍然没有合适的移动应用程序或团队功能（正在开发中），但核心循环已经帮助我计划并专注于重要的任务，为我节省了约 2 个小时。  如果这听起来很有用，并且您想在我进一步展开之前加入，请加入此处的等待名单：https://pomotea.com 注册成为 Beta 测试人员并获得早期访问权，以及我实际上会倾听反馈，而不是忽略它。 干杯   由   提交/u/kyza_dev  [链接] [评论] ]]></description>
+      <description><![CDATA[      嘿 r/webdev， 490 次提交之后（大约 8 个月的晚上/周末），pomotea 终于到了我不尴尬地向其他人展示它的地步。这是一款生产力应用程序，实际上可以为您进行计划和唠叨，而不仅仅是写了一半的待办事项的另一个墓地。 您告诉人工智能您想要完成什么。它将它分解为任务，将它们放入你的一天中，当生活发生时重新安排，并保留在你的案子上直到它完成。几乎零手动摆弄。我每天实际使用的三个部分：  代理 用简单的英语与它交谈。它会创建任务/子任务、设定截止日期、在日历崩溃时重新计划一切。感觉就像一个对我的生活选择有点失望的助理。 会议列表 每天早上，你都会得到一份简短而理智的清单，其中包含 3-5 件今天真正重要的事情。其他一切都会消失，直到它变得相关为止。我的大脑感谢我。 绝对诚实的时间跟踪 默默地运行，然后向您准确显示这一年的去向。激励人心，又有点令人恐惧。仍然没有合适的移动应用程序或团队功能（正在开发中），但核心循环已经帮助我计划并专注于重要的任务，为我节省了大约 2 个小时。  如果这听起来很有用，并且您想在我进一步展开之前加入，请加入此处的等待名单：https://pomotea.com 注册为 Beta 测试人员并获得早期访问权，以及我实际上会倾听反馈，而不是忽略它。 干杯   由   提交/u/kyza_dev  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pa744s/building_a_productivity_agentcompanion_have_you/</guid>
       <pubDate>Sun, 30 Nov 2025 02:43:24 GMT</pubDate>
     </item>
@@ -85,7 +99,7 @@
     <item>
       <title>为客户提供多租户电子邮件服务</title>
       <link>https://www.reddit.com/r/webdev/comments/1pa5dnx/multitenant_email_service_for_clients/</link>
-      <description><![CDATA[大家好， 我正在开发一个项目，正在寻求一些有关架构/工具的建议。 我想构建一项服务，可以为每个客户创建一个单独的“环境”（租户），他们可以在其中管理电子邮件并向自己的客户发送电子邮件。换句话说：一个适用于我所有客户的电子邮件平台，但每个客户都有自己独立的设置。这样我的客户就可以使用电子邮件营销向他们的客户发送电子邮件（例如，我的一个客户是理发师，有时他想向他的经常性客户发送电子邮件） 想法是：  我管理电子邮件帐户和基础设施。 每个客户都是自己数据和电子邮件活动的所有者。 客户不应该看到彼此的数据。 我想要租户式隔离（域、API 密钥等）。  但以编程方式进行。因此，我在为他们开发的网站中制作了仪表板，然后他们使用电子邮件营销。 我正在考虑使用重新发送，但我不确定它是否适合真正的多租户设置。 我的问题：  这里有人在多租户环境中使用过重新发送吗？ 这种使用类型有限制吗？ 有任何正确处理租户的架构技巧吗？  谢谢大家 更新： 更准确地说，我想要（基于我客户的）意愿，是在我要为他们开发的网站的管理面板中创建一个电子邮件营销页面。我的客户应该有可能在网站的管理面板上插入和删除他们的客户，并且能够将邮件作为某种电子邮件营销邮件批量发送给他们的客户。或者向某个客户发送一封邮件。所以我认为也许最好使用来自 Mailgun 或 Resend 等电子邮件服务的 API ？但我听说Resend没有电子邮件营销功能。   由   提交 /u/MilosStrayCat   [链接] [评论]]]></description>
+      <description><![CDATA[大家好， 我正在开发一个项目，正在寻求一些有关架构/工具的建议。 我想构建一项服务，可以为每个客户创建一个单独的“环境”（租户），他们可以在其中管理电子邮件并向自己的客户发送电子邮件。换句话说：一个适用于我所有客户的电子邮件平台，但每个客户都有自己独立的设置。这样我的客户就可以使用电子邮件营销向他们的客户发送电子邮件（例如，我的一个客户是理发师，有时他想向他的经常性客户发送电子邮件） 想法是：  我管理电子邮件帐户和基础设施。 每个客户都是自己数据和电子邮件活动的所有者。 客户不应该看到彼此的数据。 我想要租户式隔离（域、API 密钥等）。  但以编程方式进行。因此，我在为他们开发的网站中制作了仪表板，然后他们使用电子邮件营销。 我正在考虑使用重新发送，但我不确定它是否适合真正的多租户设置。 我的问题：  这里有人在多租户环境中使用过重新发送吗？ 这种使用方式有限制吗？ 有任何正确处理租户的架构技巧吗？  谢谢大家 更新： 更准确地说，我想要（基于我客户的）意愿，是在我要为他们开发的网站的管理面板中创建一个电子邮件营销页面。我的客户应该有可能在网站的管理面板上插入和删除他们的客户，并且能够将邮件作为某种电子邮件营销邮件批量发送给他们的客户。或者向某个客户发送一封邮件。所以我认为也许最好使用来自 Mailgun 或 Resend 等电子邮件服务的 API ？但我听说Resend没有电子邮件营销功能。   由   提交 /u/MilosStrayCat   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pa5dnx/multitenant_email_service_for_clients/</guid>
       <pubDate>Sun, 30 Nov 2025 01:17:08 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[我想创建一个网站，但我的编码经验为零。我尝试过 Google AI Studio 和 Google Antigravity。 AI Studio 对我来说更容易，但 Antigravity 看起来更高级。 我也有 GoDaddy 域名，并且我知道我可以使用 Netlify 与某人共享网站的示例版本。 对于完全的初学者，我应该使用哪个工具？ Google AI Studio 是否足够，或者是否有更好/更简单的工具来构建完整的网站？   由   提交 /u/Aggressive-Coffee365   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pa5ash/beginner_here_best_tool_to_build_a_website_google/</guid>
       <pubDate>Sun, 30 Nov 2025 01:13:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>解释一下为什么像我这样的微前端才5岁</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pa4xky/explain_why_microfrontends_like_i_am_5_years_old/</link>
-      <description><![CDATA[我不明白。我在 FAANG 的前端平台团队工作，该团队在生产中使用微前端，但我仍然不明白。他们总是因能够实现独立部署而受到赞扬，但我根本看不到这种情况的发生。 我们靠 CI/CD 为生，并每周在发布序列中不断部署到生产环。每个工程师都知道，我们大约有 7 个发布环，新功能总是放在功能标志后面。我们有一个专门的发布管理部门，负责监管修复和端口。 我不知道微前端会在这里带来什么不同。让我们想象一下某个团队现在拥有微前端。它可能只是同一个发布系列的一部分，或者有自己的发布系列，但最终仍然有一个集中的发布管理团队来监管发布。有什么好处？当功能以任何一种方式被置于功能标志后面并且我们每周从 master 进行部署时，独立发布的动机是什么？我总是听到这样的话：“哦，我们需要微前端，因为现在我们可以部署而无需等待 B 团队的更改”我只是无法理解这实际上是一件事，当你已经有每周的部署节奏时 - 那么是什么阻碍了你？ 我可以看到微前端对于加快大型 monorepos 的构建速度、移动 JS 应用程序的无线更新或白标解决方案很有用。但神圣的“独立部署” - 不，看不到。要么是我太无知，看不到它，要么就是自称专家的万金油卖给我们，为患有花哨工具综合症的工程师出售课程和研讨会。 咆哮结束。 /认真地，请解释一下。   由   提交 /u/Budget-Length2666   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pa4xky/explain_why_microfrontends_like_i_am_5_years_old/</guid>
-      <pubDate>Sun, 30 Nov 2025 00:56:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个开源规划应用程序（例如 Sunsama）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pa3ylh/i_built_an_opensource_planner_app_like_sunsama/</link>
-      <description><![CDATA[      我构建了一个开源规划应用程序适合极简主义者的规划器应用程序。  完全开源（前端和后端，麻省理工学院） 简单的工作流程：捕获→计划→计划→焦点 到处都有键盘快捷键 任何地方都没有人工智能 干净、极简的用户界面 技术堆栈：TypeScript、React、Node、Express、MongoDB、Socket-io 还处于早期阶段，但已经每天使用它来运行我自己的日程安排  希望得到其他开发人员的反馈——用户体验、架构、任何你会做的不同的事情 尝试一下：https://www.compasscalendar.com/ 每日计划程序：议程旁边的任务   由   提交/u/switchback-tech  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pa3ylh/i_built_an_opensource_planner_app_like_sunsama/</guid>
-      <pubDate>Sun, 30 Nov 2025 00:10:17 GMT</pubDate>
     </item>
     </channel>
 </rss>
