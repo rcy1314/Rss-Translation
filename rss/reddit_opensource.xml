@@ -4,11 +4,18 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 01 Dec 2025 06:42:38 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2025 09:35:57 GMT</lastBuildDate>
+    <item>
+      <title>Unipac - Linux 通用包管理器 - 寻找反馈和想法</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pb75cu/unipac_universal_package_manager_for_linux/</link>
+      <description><![CDATA[嘿，开源 subreddit！ 我正处于一个名为 Unipac（通用包管理器）的新开源项目的早期设计阶段，希望在深入实施之前获得社区的反馈。 我试图解决的问题 Linux 包管理是支离破碎的。我们有特定于发行版的包管理器（apt、pacman、dnf）、特定于语言的包管理器（pip、npm、cargo、gem），并且每个都创建了自己的孤岛。当您需要同时使用 Python 包、Node 模块和系统库时，您就需要同时使用多种工具。再加上大多数软件包管理器强制执行的单一版本约束，您最终会遇到版本冲突，迫使您进入容器或特定于语言的虚拟环境。 Unipac 的目标 Unipac 旨在通过以下关键功能提供统一的软件包和环境管理： 通用界面 - 通过一个工具从任何软件包管理器进行安装。 unipac get pip::numpy:1.24、unipac get apt::python:3.11 等 多版本支持 - 同一包的多个版本可以共存。不同的应用程序可以通过基于消费者的路由使用不同的版本，而不会发生冲突。 轻量级隔离 - 环境隔离，无需容器开销。使用符号链接和文件系统重定向，而不是复制整个操作系统映像。 可重现环境 - 类似 Git 的环境快照，可以准确共享和恢复。 跨分发 - 在任何发行版上使用任何发行版的包（在合理范围内 - 二进制文件基本上兼容，只是路径不同）。我们使用 Kotlin DSL 提供新的包管理器，一切都可以通过插件进行自定义。 环境（称为“宇宙”）在类似于 Gradle 的 Kotlin DSL 中定义，使它们的代码可以进行版本控制和共享。 当前状态 GitHub 上的 Unipac ：非常早期 - 仍处于架构和设计阶段。目前还没有太多代码，只是探索这种方法是否有意义以及哪些功能实际上有用。我只是在 DSL 上工作，因为那是连接包管理器的地方。稍后我将跳到 C++ 的核心逻辑。 社区问题  这个问题是否引起您的共鸣？您目前是否在包管理碎片或版本冲突方面遇到困难？ 哪些功能最有价值？什么会让您值得从当前的工作流程中进行切换？ 我缺少什么？是否存在边缘情况？或者我没有考虑过的需求？ 类似的项目？我知道 Nix、Conda、Spack、容器等。是什么让它们不足以满足您的用例？ 您真的会使用这个吗？说实话 - 如果这个存在并且运行良好，您会采用它，还是您当前的解决方案足够好？  技术方法 核心洞察是，Linux 二进制文件和库在各个发行版之间基本上是兼容的 - 差异主要在于文件路径和包元数据格式。 Unipac 充当转换层，从现有包管理器下载包，将它们存储在统一存储库中，并使用符号链接创建隔离环境。基于消费者的路由可确保正确的版本到达正确的应用程序。 堆栈将是 C++（性能关键部分）和 Kotlin（DSL，更高级别的逻辑）。 **以后可能还会有 GUI** 不寻找 我不试图宣传或推广它 - 还没有什么可以使用的。只是想验证这个概念并从每天处理这些问题的人们那里收集想法。 有什么想法吗？批评？功能建议？我应该更多研究的领域？   由   提交/u/thePolysculptorKidA   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pb75cu/unipac_universal_package_manager_for_linux/</guid>
+      <pubDate>Mon, 01 Dec 2025 08:04:44 GMT</pubDate>
+    </item>
     <item>
       <title>user-scanner 是一个用 python 编写的 CLI 工具，可让您通过检查用户名可用性、积极寻找贡献来在所有热门网站中选择唯一的用户名⚡</title>
       <link>https://www.reddit.com/r/opensource/comments/1pb1988/userscanner_a_cli_tool_written_on_python_that/</link>
-      <description><![CDATA[      通过新站点支持进行贡献和 PR 非常容易，代码和逻辑的改进总是受欢迎的， Github: https://github.com/kaifcodec/user-scanner 如果您发现它有帮助，请给它一颗星，以增加流量，这样更多的贡献将使该工具变得更好，我们正在考虑将其打造为 Sherlock 和 Holehe 的混合体，具有非常低的依赖性、轻量级和更多功能。   由   提交/u/No-Helicopter-2317   [链接] [评论] ]]></description>
+      <description><![CDATA[      通过新站点支持进行贡献和 PR 非常容易，代码和逻辑的改进总是受欢迎的， Github: https://github.com/kaifcodec/user-scanner 如果您发现它有帮助，请给它一颗星，以增加其流量，这样更多的贡献将使该工具变得更好，我们正在考虑将其打造为 Sherlock 和 Holehe 的混合体，具有非常低的依赖性、轻量级和更多功能。   由   提交/u/No-Helicopter-2317   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pb1988/userscanner_a_cli_tool_written_on_python_that/</guid>
       <pubDate>Mon, 01 Dec 2025 02:48:01 GMT</pubDate>
     </item>
@@ -50,7 +57,7 @@
     <item>
       <title>MacOS 在意识到您何时离线或重新上线时速度非常慢，因此我构建了一个小型实用程序，可以立即对网络变化做出反应</title>
       <link>https://www.reddit.com/r/opensource/comments/1paprte/macos_is_painfully_slow_at_realizing_when_you_go/</link>
-      <description><![CDATA[      我构建了一个开源 MacOS 菜单栏应用程序，用于监视网络并显示：  状态（在线/离线）； 私有和公共 IPV4 地址； 有关连接的其他信息，例如连接是否受数据计划限制或受操作系统限制。 如果您想尝试一下，可以使用 Homebrew 安装它！    由   提交/u/imbe153  [链接] [评论] ]]></description>
+      <description><![CDATA[      我构建了一个开源 MacOS 菜单栏应用程序来监视网络并显示：  状态（在线/离线）； 私有和公共 IPV4 地址； 有关连接的其他信息，例如连接是否受数据计划限制或受操作系统限制。 如果您想尝试一下，可以使用 Homebrew 安装它！    由   提交/u/imbe153  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1paprte/macos_is_painfully_slow_at_realizing_when_you_go/</guid>
       <pubDate>Sun, 30 Nov 2025 18:38:22 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[ 由   提交 /u/Embody248   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pagvx9/unigetui_always_opening_as_window_but_cant_change/</guid>
       <pubDate>Sun, 30 Nov 2025 12:14:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>Android 版增强图片隐私的工具</title>
-      <link>https://www.reddit.com/r/opensource/comments/1paggpg/a_tool_that_enhances_privacy_of_pictures_for/</link>
-      <description><![CDATA[源代码和详细信息：https://github.com/umutcamliyurt/PixelCloak 功能：  无需权限 降低基于哈希的检测的有效性 随机化文件名 删除 EXIF 元数据 审查图片中检测到的任何人脸 用 Java 编写    由   提交/u/0TheNemesis0   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1paggpg/a_tool_that_enhances_privacy_of_pictures_for/</guid>
-      <pubDate>Sun, 30 Nov 2025 11:50:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
