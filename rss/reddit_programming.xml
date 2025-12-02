@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 02 Dec 2025 18:39:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Dec 2025 21:24:51 GMT</lastBuildDate>
+    <item>
+      <title>开源数据目录空间变得越来越有趣。 Apache Gravitino 刚刚达到 2.3k 星</title>
+      <link>https://www.reddit.com/r/programming/comments/1pckeiz/the_open_source_data_catalog_space_is_getting/</link>
+      <description><![CDATA[关注开源数据基础设施空间有一段时间了，注意到数据目录中发生了一些有趣的事情。 TL;DR: Apache Gravitino 今年早些时候升级为 Apache TLP，并采用了与大多数目录不同的方法。它不是另一个目录，而是联合现有的目录。 GitHub 存储库的星星数刚刚超过 2.3k：https://github.com/apache/gravitino 什么引起了我的注意 大多数数据目录解决方案都会尝试替换您当前使用的任何内容。您必须迁移元数据，重新培训您的团队，并且基本上重新开始。 Gravitino 做了一些不同的事情。它位于您现有的目录之上并统一它们。 因此，如果您有： - Hadoop 时代的 Hive 元存储 - Lakehouse 的 Iceberg 表 - 具有架构注册表的 Kafka - 一些 PostgreSQL 或 MySQL 数据库 您无需迁移任何内容。 Gravitino 连接所有这些并提供统一的 API。他们称之为“元数据湖”。这有点聪明。 技术部分看起来设计得很好 浏览代码库和文档：  Iceberg REST 目录支持 - 如果您已经在使用 Iceberg（现在很多人都在使用），您可以将现有工具指向 Gravitino，它就可以正常工作了 可插入目录连接器 - 每个底层系统都有自己的连接器，可以在 Gravitino 的统一 API 和本机目录 API 之间进行转换 非表格数据支持 - 它们有“文件集”的概念。用于非结构化数据并支持 Kafka 主题和模式注册表。大多数目录仅处理表 治理模型 - 适用于所有联合目录的 RBAC 和 ABAC。定义一次策略，随处执行  项目结构 这是一个合适的 Apache 项目，现在有 Uber、Apple、Intel、Pinterest 和其他公司的贡献。创始团队包括 Apache Spark 和 Hadoop 提交者，这解释了为什么该架构感觉很可靠。 Datastrato 是其背后的公司（他们提供商业支持），但该项目真正获得 Apache 许可并由社区管理。 为什么我认为这很重要 大型云供应商都希望您锁定在他们的目录中： - Databricks 有 Unity Catalog - Snowflake 有 Polaris - AWS 有 Glue - 等等 每个与自己的平台配合使用效果最佳。如果您使用多云或数据分布在不同的系统（基本上是每个企业），您就会陷入碎片化的元数据。 联合方法可以避免这一点。您的目录保留在原来的位置，您只需在顶部获得一个统一的层。 向小组提出的问题  有人在生产中实际使用它吗？ GitHub 活动看起来很健康，但对现实世界的体验感到好奇。 对于那些从事元数据系统工作的人来说，联合方法在架构上有意义还是只是增加了另一层复杂性？ 这是解决一个真正的问题还是“只是将所有内容迁移到一个平台”？对于大多数组织来说实际上是正确的答案吗？  如果有人想要更多背景信息，还有一篇很好的 Medium 文章解释了这一理念：https://medium.com/datastrato/if-youre-not-all-in-on-databricks-why-metadata-freedom-matters-35cc5b15b24e   由   提交/u/Q-U-A-N   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pckeiz/the_open_source_data_catalog_space_is_getting/</guid>
+      <pubDate>Tue, 02 Dec 2025 21:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>10亿行100000 TPS：SQLite的不合理有效性</title>
+      <link>https://www.reddit.com/r/programming/comments/1pckdwu/100000_tps_over_a_billion_rows_the_unreasonable/</link>
+      <description><![CDATA[ 由   提交 /u/andersmurphy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pckdwu/100000_tps_over_a_billion_rows_the_unreasonable/</guid>
+      <pubDate>Tue, 02 Dec 2025 21:01:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>CVE-2025-48593 的概念验证：不，此 Android 蓝牙问题不会影响您的手机或平板电脑</title>
+      <link>https://www.reddit.com/r/programming/comments/1pcjqo5/proofofconcept_for_cve202548593_no_this_android/</link>
+      <description><![CDATA[Android 11 月安全公告中修复的问题，该问题仅影响充当蓝牙耳机的设备，例如智能手表、智能眼镜和汽车。   由   提交/u/NXGZ   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pcjqo5/proofofconcept_for_cve202548593_no_this_android/</guid>
+      <pubDate>Tue, 02 Dec 2025 20:36:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建世界上第一个 JPEG XL MD5 哈希 Quine</title>
+      <link>https://www.reddit.com/r/programming/comments/1pcj1k1/constructing_the_words_first_jpeg_xl_md5_hash/</link>
+      <description><![CDATA[这是 JPEG XL 图像文件，以便您可以验证哈希值：https://stackchk.fail/blog/shark_hashquine.jxl   由   提交/u/NXGZ   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pcj1k1/constructing_the_words_first_jpeg_xl_md5_hash/</guid>
+      <pubDate>Tue, 02 Dec 2025 20:10:27 GMT</pubDate>
+    </item>
     <item>
       <title>Bun 加入 Anthropic</title>
       <link>https://www.reddit.com/r/programming/comments/1pcg3do/bun_is_joining_anthropic/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pc97x7/podcast_reliability_engineering_mindset_alex/</guid>
       <pubDate>Tue, 02 Dec 2025 14:02:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>当软件变成快餐</title>
-      <link>https://www.reddit.com/r/programming/comments/1pc8j3x/when_software_becomes_fast_food/</link>
-      <description><![CDATA[ 由   提交/u/joaoqalves   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pc8j3x/when_software_becomes_fast_food/</guid>
-      <pubDate>Tue, 02 Dec 2025 13:32:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>这段代码干净吗？对《清洁代码》第二版的批判性审视</title>
-      <link>https://www.reddit.com/r/programming/comments/1pc5xyy/is_this_code_clean_a_critical_look_at_clean_code/</link>
-      <description><![CDATA[我读了干净代码第二版，想知道 Martin 是否已经超越了旧的批评。 在第 1 部分之后，他基本上没有——核心风格和假设基本上没有改变。   由   提交 /u/Soggy_Sprinkles3619   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pc5xyy/is_this_code_clean_a_critical_look_at_clean_code/</guid>
-      <pubDate>Tue, 02 Dec 2025 11:19:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gitmal - Git 存储库的静态页面生成器</title>
-      <link>https://www.reddit.com/r/programming/comments/1pc4rqz/gitmal_a_static_pages_generator_for_git_repos/</link>
-      <description><![CDATA[ 由   提交/u/Elfet  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pc4rqz/gitmal_a_static_pages_generator_for_git_repos/</guid>
-      <pubDate>Tue, 02 Dec 2025 10:08:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程作为一种职业的消亡：一组简短的轶事</title>
-      <link>https://www.reddit.com/r/programming/comments/1pc4rim/the_death_of_software_engineering_as_a_profession/</link>
-      <description><![CDATA[ 由   提交/u/self  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pc4rim/the_death_of_software_engineering_as_a_profession/</guid>
-      <pubDate>Tue, 02 Dec 2025 10:08:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
