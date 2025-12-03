@@ -4,13 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 03 Dec 2025 03:54:18 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Dec 2025 06:39:11 GMT</lastBuildDate>
     <item>
-      <title>C++ MSVC 加载程序</title>
-      <link>https://www.reddit.com/r/programming/comments/1pctmfa/c_msvc_loader_thing/</link>
-      <description><![CDATA[$jsonFile = &quot;Json 文件目录&quot; function Start-C { Param( [switch]$help, [string]$a = &quot;NULL&quot;, # 添加项目文件夹 [string]$n = &quot;Un-named Project&quot;, # 为项目文件夹命名 [switch]$s, # 选择要打开的项目文件夹 [string]$r = &quot;NULL&quot;, # 从列表中删除项目文件夹 [switch]$l # 列出所有可用项目 ) if ($help) { Clear-Host Write-Host “Start-C - 命令概述：`n用法：Start-C [操作]” -ForegroundColor Cyan Write-Host“可用操作：`n -a - 添加新项目文件夹`n -a -n - 命名项目” -ForegroundColor DarkYellow 写入主机” -s - 选择项目`n -r - 删除项目`n -l - 列出所有项目” -ForegroundColor DarkYellow } # 添加到文件夹列表 if (-not ($a -eq &quot;NULL&quot;)) { if ($a -eq &quot;.&quot;) { # 输入一个点会将当前目录添加到项目文件夹列表中 $a = (Get-Location).Path } elseif (-not (Test-Path $a)) { # 如果输入的路径不是路径则返回错误 Write-Host &quot;ERROR:无效路径，$a” -ForegroundColor Red return } # 将项目添加到列表 Write-Host &quot;Adding: $a, to avalible project list.&quot; -ForegroundColor Green # 获取项目列表 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } # 添加到列表 $projects[$n] = $a # 保存新列表 $projects |转换为 Json | Set-Content $jsonFile } #列出项目列表中的所有内容 if ($l) { # 加载项目列表 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } Clear-Host # 循环遍历项目并很好地打印 Write-Host &quot;Projects: &quot; -ForegroundColor Cyan foreach ($name in $projects.Keys) { Write-Host &quot; $名称：$（$项目[$名称]）” -ForegroundColor Green } } if (-not ($r -eq &quot;NULL&quot;)) { Clear-Host # 将 JSON 作为哈希表加载 $json = Get-Content -Path $jsonFile -Raw | ConvertFrom-Json # 这将检查您要删除的内容是否在列表 Write-Host &quot;Removing: $r, from list&quot; 中-ForegroundColor Green if (-not ($json.PSObject.Properties.Name -contains $r)) { Write-Host “错误：$r，不在列表中” -ForegroundColor Red } # 删除属性 $json.PSObject.Properties.Remove($r) # 将 JSON 保存回来 $json |转换为 Json | Set-Content -Path $jsonFile } # 选择并打开项目 if ($s) { Clear-Host $CurrentlySlected = 0; $SlectionMode = $true #获取所有内容 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } $keys = @($projects.Keys) $SelectedKey = &quot;&quot;; while ($SlectionMode) { # 打印所有内容并显示所选内容。 for ($i = 0; $i -lt $keys.Count; $i++) { if ($i -eq $CurrentlySlected) { Write-Host &quot;$($keys[$i]) &lt;-&quot;; -ForegroundColor 绿色 $SelectedKey = $($keys[$i]) } else { Write-Host &quot;$($keys[$i])&quot; -ForegroundColor DarkYellow } } # 处理按键输入 $keyInfo = [System.Console]::ReadKey($true) switch ($keyInfo.Key) { &#39;UpArrow&#39; { if ($CurrentlySlected -gt 0) { $CurrentlySlected--} } &#39;DownArrow&#39; { if ($CurrentlySlected -lt $projects.Count - 1) {$CurrentlySlected++} } &#39;Enter&#39; { $SlectionMode = $false $vsbat = “C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat” $folder = $projects[$SelectedKey] cmd /k &quot;`&quot;$vsbat`&quot;; &amp;&amp; cd /d `“$folder`” &amp;&amp;代码。” } } Clear-Host } } } Export-ModuleMember -Function Start-C  我这样做是为了帮助使用 VS Code（蓝色的）在 MSVC 中打开 C++ 项目。如果你们想使用它，请创建一个名为 StartC.psm1 的文件，并将此代码放入其中。转到“C:\Program Files\WindowsPowerShell\Modules”创建一个名为“StartC”的新文件夹然后将 StartC.psm1 文件粘贴到 StartC 文件夹中。然后在某处创建一个 .Json 文件并复制其路径，并将 $JsonPath 变量中的值替换为您复制的 Json 路径。 然后它应该可以工作。但是，请注意，如果您没有将 vcvars64.bat 放在其他目录中，它将失败，并且某些旧版本的 PowerShell 将导致问题。 自定义命令包括项目选择 UI，并具有多个用于更改和添加项目的工具。如果一切正常，那么您应该能够运行“start-c -help”在终端中。   由   提交/u/Temporary-Elk-5464   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pctmfa/c_msvc_loader_thing/</guid>
-      <pubDate>Wed, 03 Dec 2025 03:36:30 GMT</pubDate>
+      <title>我的Python新书《Computer Science from Scratch》的开发过程</title>
+      <link>https://www.reddit.com/r/programming/comments/1pcwb9a/the_development_process_of_my_new_python_book/</link>
+      <description><![CDATA[ 由   提交/u/davidkopec  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pcwb9a/the_development_process_of_my_new_python_book/</guid>
+      <pubDate>Wed, 03 Dec 2025 05:54:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Dart + 本地工作流 API 尝试自动站立摘要</title>
+      <link>https://www.reddit.com/r/programming/comments/1pcvpwu/experimenting_with_automatic_standup_summaries/</link>
+      <description><![CDATA[ 由   提交/u/Party-Tower-5475   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pcvpwu/experimenting_with_automatic_standup_summaries/</guid>
+      <pubDate>Wed, 03 Dec 2025 05:22:27 GMT</pubDate>
     </item>
     <item>
       <title>build-your-own-x,通过从头开始重新创建您最喜欢的技术来掌握编程,下载build-your-own-x的源码_GitHub_酷徒</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[如果您创办一个企业架构办公室，人们会使用两种类型的策略。有些人首先绘制所有存在的东西的地图，无论它处于什么状态。然后，他们评估自己所拥有的，并开始建立差距分析，以实现更好、更统一的状态。 另一组人从终点开始，然后返回。他们勾勒出理想状态，并列出实现这一目标的基本要素。 AS-IS 方法的一大优点是，您正在使用组织熟悉的术语和信息。人们会认出您将应用程序和业务部门链接到的作品，因为他们自己可能会使用它们。 完全跳过 AS-IS 的想法归结为：为什么我们的架构基于的结构不仅质量非常低，而且组织中也可能没有采用它们。组织的架构成熟度可能很低，为什么要承担这个负担。 我的经历主要告诉我：如果某个东西已经存在并且人们使用它，就采用它。如果一切都一团糟并且没有人在任何事情上达成一致，请跳过考古并设计一些对您有意义的东西。   由   提交 /u/GeneralZiltoid   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pcdc6b/choosing_your_starting_line_in_enterprise/</guid>
       <pubDate>Tue, 02 Dec 2025 16:43:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>我使用电脑十多年了，却不知道文本实际上是如何工作的</title>
-      <link>https://www.reddit.com/r/programming/comments/1pccv7v/i_used_computers_for_10_years_without_knowing_how/</link>
-      <description><![CDATA[ASCII、Unicode、UTF-8、UTF-16…没有线索。   由   提交 /u/AdvertisingFancy7011   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pccv7v/i_used_computers_for_10_years_without_knowing_how/</guid>
-      <pubDate>Tue, 02 Dec 2025 16:25:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
