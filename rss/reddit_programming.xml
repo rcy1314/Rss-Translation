@@ -4,7 +4,63 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 03 Dec 2025 18:38:51 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Dec 2025 21:23:07 GMT</lastBuildDate>
+    <item>
+      <title>博客文章网站还有用吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdgpci/are_blog_post_websites_still_useful_anymore/</link>
+      <description><![CDATA[我一直在开发一个新的投资组合网站，因为我的旧网站有一些问题，我想包含一个管理仪表板以更好地控制。在构建它时，我想到添加一个完整的博客部分，我可以在其中写文章。我什至打算让其他人在上面写，如果他们愿意的话。 但是在完成并向几个人展示这个想法之后，我开始觉得个人博客网站可能已经过时了。似乎大多数人更喜欢在 LinkedIn 上撰写帖子，而不是在定制的独立博客上发布。 所以我想知道：我错了，还是这是真的？如今个人博客网站还值得吗？   由   提交 /u/Important_Lynx_7906   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdgpci/are_blog_post_websites_still_useful_anymore/</guid>
+      <pubDate>Wed, 03 Dec 2025 21:14:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Go 构建分布式时间戳触发数据库，​​每秒处理 300K+ 事件</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdgnu0/built_a_distributed_timestamptriggered_database/</link>
+      <description><![CDATA[大家好！ 👋 我一直在研究 CronosDB - 一个专为时间戳触发的事件处理而设计的分布式数据库。将其视为消息队列和作业调度程序之间的混合体，并具有预写日志的持久性。 它的作用：  为将来的执行安排事件（如 cron，但分布式） 3 节点集群上的 300K+ 事件/秒吞吐量 亚毫秒级延迟（P99 ~740μs） 与消费者群体进行至少一次交付（Kafka 式） 用于事件溯源的重播引擎  有趣的技术部分： 1。用于重复数据删除的无锁布隆过滤器 我没有使用 PebbleDB 来检查每个消息 ID，而是使用具有原子 CAS 操作的无锁布隆过滤器。这会跳过大约 99% 的新消息磁盘读取。 2.分层计时轮 O(1) 计时器管理，使用带有溢出轮的计时轮来处理长期安排的事件。每个轮盘级别的刻度间隔逐渐变大。 3.批处理一切 最大的性能优势来自批处理：  批量 WAL 写入（每批单个系统调用） 批量调度（单个锁获取） 批量 gRPC 调用（每个 PublishBatch 100 个事件）  以约 10K 事件/秒开始，以 300K+ 结束优化后。 技术堆栈：  Go 1.24 带流式处理的 gRPC PebbleDB（CockroachDB 的存储引擎） 用于共识的 HashiCorp Raft 具有稀疏索引的自定义 WAL  关键优化：  无锁布隆过滤器(+25x) 批处理 API (+3x) sync.Pool 用于计时器 禁用 PebbleDB 内部 WAL（我们有自己的） 64MB memtable（相对于 4MB 默认值）  用例：  分布式 cron 作业 延迟消息传递 通过重播进行事件溯源 基于时间的工作流触发器  GitHub：https://github.com/jatin711-debug/cronos_db_golang 希望获得有关架构的反馈或者如果您发现任何问题可能错过了。很高兴回答有关实施的问题！如果您喜欢这个想法，请给它一颗星。   由   提交/u/john_wick711   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdgnu0/built_a_distributed_timestamptriggered_database/</guid>
+      <pubDate>Wed, 03 Dec 2025 21:12:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在构建 DevOps + 生产力仪表板时学到的东西</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdgngb/what_i_learned_while_building_a_devops/</link>
+      <description><![CDATA[大家好👋 我一直在尝试一个业余项目，它混合了我日常工作流程的两个领域： DevOps 学习和个人生产力。 在构建它的过程中，我学到了一些有趣的东西：  如何构建一个结合不同类型的简单仪表板内容 如何有效地获取 DevOps 新闻和更新 如何构建一个小型“挑战板”，用户可以在其中发布任务和讨论 如何在支持笔记、想法和简单的个人组织的同时保持 UI 最小化 如何在一个界面中融合专业和个人工作流程  我发现这个过程非常有趣，尤其是平衡 DevOps 和日常生活生产力方面。 如果有人好奇，这是我在这次实验中构建的项目： 👉 https://devopsgrid.io 只是分享经验 - 希望它对某人有用或鼓舞人心！   由   提交/u/AntElectronic7464  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdgngb/what_i_learned_while_building_a_devops/</guid>
+      <pubDate>Wed, 03 Dec 2025 21:12:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Zobyscript 编程语言</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdg17x/zobyscript_programming_language/</link>
+      <description><![CDATA[大家好，我刚刚推出了一种编程语言，叫 Zobymex，它有点小，里面有虚拟机，性能也不错。 我完全没有经验，有些功能是受其他语言启发的。 就是这样，我希望你喜欢它。 💓   由   提交/u/AstronomerOk5639   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdg17x/zobyscript_programming_language/</guid>
+      <pubDate>Wed, 03 Dec 2025 20:48:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>在不迁移数据库的情况下在 Laravel 中构建动态自定义字段：深入探讨</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdeaft/building_dynamic_custom_fields_in_laravel_without/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdeaft/building_dynamic_custom_fields_in_laravel_without/</guid>
+      <pubDate>Wed, 03 Dec 2025 19:43:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能辅助开发的心理模型</title>
+      <link>https://www.reddit.com/r/programming/comments/1pddmjw/a_mental_model_for_aiassisted_development/</link>
+      <description><![CDATA[ 由   提交 /u/wineandcode   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pddmjw/a_mental_model_for_aiassisted_development/</guid>
+      <pubDate>Wed, 03 Dec 2025 19:18:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>对价值 10 亿美元的合法 AI 工具进行逆向工程，暴露了 10 万多个机密文件</title>
+      <link>https://www.reddit.com/r/programming/comments/1pddgdw/reverse_engineering_a_1b_legal_ai_tool_exposed/</link>
+      <description><![CDATA[ 由   提交/u/bearsyankees  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pddgdw/reverse_engineering_a_1b_legal_ai_tool_exposed/</guid>
+      <pubDate>Wed, 03 Dec 2025 19:12:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>ClickHouse 中的 Postgres CDC，一年回顾</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdd3hu/postgres_cdc_in_clickhouse_a_year_in_review/</link>
+      <description><![CDATA[从外部看，变更数据捕获 (CDC) 看起来很简单 - “只需读取 WAL” - 但实际工作负载却揭示出截然不同的现实。 我花了一些时间对 Postgres CDC 投入生产的一年写了一篇诚实的技术回顾。客户增长 100 倍、400 多家公司、每月 200TB 数据。然而，真正的问题在于解决复制槽背压、长时间运行的事务以及仅在午夜才变得明显的边缘情况。 https://clickhouse.com/blog/postgres-cdc-year-in-review-2025 完整详细说明已发货的内容、损坏的内容以及下一步的内容。很想得到您的反馈！ :)   由   提交/u/saipeerdb   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdd3hu/postgres_cdc_in_clickhouse_a_year_in_review/</guid>
+      <pubDate>Wed, 03 Dec 2025 18:59:29 GMT</pubDate>
+    </item>
     <item>
       <title>用现代 C++ 实现闭环控制算法框架</title>
       <link>https://www.reddit.com/r/programming/comments/1pdbw9c/implementing_a_framework_for_closedloop_control/</link>
@@ -15,7 +71,7 @@
     <item>
       <title>在 qemu 中启动 Linux 内核并在 Go 中写入 PID 1（以表明内核“只是一个程序”）</title>
       <link>https://www.reddit.com/r/programming/comments/1pd8dh1/booting_a_linux_kernel_in_qemu_and_writing_pid_1/</link>
-      <description><![CDATA[我一直在研究“Linux Inside Out”系列，并写了一篇文章，可能会让那些喜欢低级/操作系统内部结构的人感兴趣。 这个想法是逐层剖析 Linux 操作系统的组件，并通过实验构建一个关于如何将所有内容组合在一起的心理模型。 第一部分是关于内核的，在帖子中我：  从 /boot 获取我的发行版启动的相同的内核映像 直接使用 QEMU 启动它（无发行版，无初始化系统） 观察它的恐慌 编写一个小型 Go 程序并将其用作 PID 1 围绕它构建一个最小的 initramfs，以便内核可以实际启动我们的进程  目标不是构建一个真正的发行版，只是为了给出一个具体的心理模型：  Linux 内核只是一个压缩文件，无需任何其他内容即可启动它 内核在启动时实际执行的操作 它如何将控制权交给用户空间 PID 1 / init 实际上是什么 什么是内核空间与用户空间  链接：https://serversfor.dev/linux-inside-out/the-linux-kernel-is-just-a-program/ 我是作者，很高兴听到其他开发者的意见，这种解释方式是否有意义，以及您要添加或更改的内容该系列的未来帖子。   由   提交 /u/indieHungary   [链接] [评论]]]></description>
+      <description><![CDATA[我一直在研究“Linux Inside Out”系列，并写了一篇文章，可能会让喜欢低级/操作系统内部结构的人感兴趣。 这个想法是逐层剖析 Linux 操作系统的组件，并通过实验构建一切如何组合在一起的心理模型。 第一部分是关于内核的，在帖子中我：  从 /boot 获取相同的内核映像我的发行版启动 直接使用 QEMU 启动它（无发行版，无初始化系统） 观察它的恐慌 编写一个小型 Go 程序并将其用作 PID 1 围绕它构建一个最小的 initramfs，以便内核可以实际启动我们的进程  目标不是构建一个真正的发行版，只是为了给出一个具体的心理模型：  Linux 内核只是一个压缩文件，无需任何其他内容即可启动它 内核在启动时实际执行的操作 它如何将控制权交给用户空间 PID 1 / init 实际上是什么 什么是内核空间与用户空间  链接：https://serversfor.dev/linux-inside-out/the-linux-kernel-is-just-a-program/ 我是作者，很高兴听到其他开发者的意见，这种解释方式是否有意义，以及您要添加或更改的内容该系列的未来帖子。   由   提交 /u/indieHungary   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pd8dh1/booting_a_linux_kernel_in_qemu_and_writing_pid_1/</guid>
       <pubDate>Wed, 03 Dec 2025 16:10:55 GMT</pubDate>
     </item>
@@ -53,62 +109,6 @@
       <description><![CDATA[ 由   提交/u/zerolayers  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pd6bsv/the_making_of_digital_identity_the_cryptographic/</guid>
       <pubDate>Wed, 03 Dec 2025 14:54:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>调车场算法的推广第 4 部分</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd5tdp/generalizing_the_shunting_yard_algorithm_part_4/</link>
-      <description><![CDATA[ 由   提交 /u/error-errorfruituser   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd5tdp/generalizing_the_shunting_yard_algorithm_part_4/</guid>
-      <pubDate>Wed, 03 Dec 2025 14:35:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们来做个游戏吧！ 357：帝国扩张</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd4gln/lets_make_a_game_357_the_empire_expands/</link>
-      <description><![CDATA[ 由   提交/u/apeloverage  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd4gln/lets_make_a_game_357_the_empire_expands/</guid>
-      <pubDate>Wed, 03 Dec 2025 13:41:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>模块化单体和微服务：模块化才是真正重要的</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd4daj/modular_monolith_and_microservices_modularity_is/</link>
-      <description><![CDATA[模块化是一种质量，应该主要独立于我们选择拥有多少个可部署的软件单元。 我们的目标应该是将我们的系统拆分为尽可能相互独立的逻辑功能模块 - 在理想世界中，每个模块不应该了解任何其他模块，并且拥有服务其功能所需的一切。在现实世界中，这通常并不完全可能，但我们应该以这些理想为指导原则，并努力实现高内聚和低/松耦合。 让我们看一下这个例子，假设我们有一个系统 - “有趣的引言的好奇注释” - 用户可以在其中为著名的引言和谚语添加注释。一种可能的设计是将其分为以下模块： - 用户：负责创建新用户，管理帐户并对其进行授权/身份验证 - 引用：负责管理特殊特权用户的引用 - 注释：负责为用户的引用添加注释，也允许他们编辑、删除和点赞 模块依赖项： - 用户 - 无依赖 - 引用 - 依赖于用户询问是否允许某个用户添加/编辑/删除报价 - 注释 - 取决于用户询问是否允许某个用户添加/编辑/删除注释，取决于报价来了解特定报价是否存在 这些是我们的模块及其依赖项。我们应该将这种逻辑划分主要独立于我们的物理架构选择。 我们可能有一个模块化整体，其中这三个模块只是单独的文件夹或完全隔离且独立版本控制的包。我们还可以选择通过同步或异步方式进行通信的三个（微）服务。 在系统设计方面，将系统物理划分为一个或多个部署单元应该是次要因素，而不是主要因素。驱动因素应该是对我们的领域和功能需求、我们拥有的概念以及它们之间发生的依赖关系的理解。只有解决了这个问题，我们才应该考虑与非功能性、性能和资源利用相关的因素，这些因素可能会也可能不会改变我们初始设计的实现细节。   由   提交/u/BinaryIgor  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd4daj/modular_monolith_and_microservices_modularity_is/</guid>
-      <pubDate>Wed, 03 Dec 2025 13:37:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>编排闪电：快速的 AWS Step Functions 模式 • Eric Johnson</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd49te/orchestration_lightning_rapidfire_aws_step/</link>
-      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd49te/orchestration_lightning_rapidfire_aws_step/</guid>
-      <pubDate>Wed, 03 Dec 2025 13:33:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>破坏我们服务器的 50MB Markdown 文件</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd1heu/the_50mb_markdown_files_that_broke_our_server/</link>
-      <description><![CDATA[ 由   提交 /u/Weary-Database-8713   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd1heu/the_50mb_markdown_files_that_broke_our_server/</guid>
-      <pubDate>Wed, 03 Dec 2025 11:15:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>Amber 编程语言编译为 Bash，0.5.1 版本</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd128h/amber_the_programming_language_compiled_to_bash/</link>
-      <description><![CDATA[新的 0.5.1 版本包括许多编译器的新内容，从新语法、stdlib 函数、特性等等。 PS：我是共同维护者之一，所以对于任何问题我都在这里 :-)   由   提交/u/Mte90  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd128h/amber_the_programming_language_compiled_to_bash/</guid>
-      <pubDate>Wed, 03 Dec 2025 10:50:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于废水处理计算的微型 SaaS 实现了利基工程工作流程的现代化</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd0wdh/microsaas_for_wastewater_treatment_calculations/</link>
-      <description><![CDATA[我已将一个业余项目转变为用于废水处理计算的真正的微型 SaaS。传统上，工程师依赖于复杂的 Excel 工作表或过时的公式，这会降低操作速度。该应用程序简化了计算，加快了工作流程，并将现代软件实践引入了一个非常小的领域。 了解更多   由   提交 /u/Adventurous-Meat5176   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd0wdh/microsaas_for_wastewater_treatment_calculations/</guid>
-      <pubDate>Wed, 03 Dec 2025 10:40:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>cekrem/elm-form：类型安全的表单，不会让你搞砸</title>
-      <link>https://www.reddit.com/r/programming/comments/1pd0mps/cekremelmform_typesafe_forms_that_wont_let_you/</link>
-      <description><![CDATA[ 由   提交 /u/cekrem   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pd0mps/cekremelmform_typesafe_forms_that_wont_let_you/</guid>
-      <pubDate>Wed, 03 Dec 2025 10:23:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
