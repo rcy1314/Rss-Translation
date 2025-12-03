@@ -4,18 +4,25 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 03 Dec 2025 01:56:09 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Dec 2025 03:54:18 GMT</lastBuildDate>
+    <item>
+      <title>C++ MSVC 加载程序</title>
+      <link>https://www.reddit.com/r/programming/comments/1pctmfa/c_msvc_loader_thing/</link>
+      <description><![CDATA[$jsonFile = &quot;Json 文件目录&quot; function Start-C { Param( [switch]$help, [string]$a = &quot;NULL&quot;, # 添加项目文件夹 [string]$n = &quot;Un-named Project&quot;, # 为项目文件夹命名 [switch]$s, # 选择要打开的项目文件夹 [string]$r = &quot;NULL&quot;, # 从列表中删除项目文件夹 [switch]$l # 列出所有可用项目 ) if ($help) { Clear-Host Write-Host “Start-C - 命令概述：`n用法：Start-C [操作]” -ForegroundColor Cyan Write-Host“可用操作：`n -a - 添加新项目文件夹`n -a -n - 命名项目” -ForegroundColor DarkYellow 写入主机” -s - 选择项目`n -r - 删除项目`n -l - 列出所有项目” -ForegroundColor DarkYellow } # 添加到文件夹列表 if (-not ($a -eq &quot;NULL&quot;)) { if ($a -eq &quot;.&quot;) { # 输入一个点会将当前目录添加到项目文件夹列表中 $a = (Get-Location).Path } elseif (-not (Test-Path $a)) { # 如果输入的路径不是路径则返回错误 Write-Host &quot;ERROR:无效路径，$a” -ForegroundColor Red return } # 将项目添加到列表 Write-Host &quot;Adding: $a, to avalible project list.&quot; -ForegroundColor Green # 获取项目列表 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } # 添加到列表 $projects[$n] = $a # 保存新列表 $projects |转换为 Json | Set-Content $jsonFile } #列出项目列表中的所有内容 if ($l) { # 加载项目列表 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } Clear-Host # 循环遍历项目并很好地打印 Write-Host &quot;Projects: &quot; -ForegroundColor Cyan foreach ($name in $projects.Keys) { Write-Host &quot; $名称：$（$项目[$名称]）” -ForegroundColor Green } } if (-not ($r -eq &quot;NULL&quot;)) { Clear-Host # 将 JSON 作为哈希表加载 $json = Get-Content -Path $jsonFile -Raw | ConvertFrom-Json # 这将检查您要删除的内容是否在列表 Write-Host &quot;Removing: $r, from list&quot; 中-ForegroundColor Green if (-not ($json.PSObject.Properties.Name -contains $r)) { Write-Host “错误：$r，不在列表中” -ForegroundColor Red } # 删除属性 $json.PSObject.Properties.Remove($r) # 将 JSON 保存回来 $json |转换为 Json | Set-Content -Path $jsonFile } # 选择并打开项目 if ($s) { Clear-Host $CurrentlySlected = 0; $SlectionMode = $true #获取所有内容 $projects = @{} $temp = Get-Content $jsonFile | ConvertFrom-Json foreach ($key in $temp.PSObject.Properties.Name) { $projects[$key] = $temp.$key } $keys = @($projects.Keys) $SelectedKey = &quot;&quot;; while ($SlectionMode) { # 打印所有内容并显示所选内容。 for ($i = 0; $i -lt $keys.Count; $i++) { if ($i -eq $CurrentlySlected) { Write-Host &quot;$($keys[$i]) &lt;-&quot;; -ForegroundColor 绿色 $SelectedKey = $($keys[$i]) } else { Write-Host &quot;$($keys[$i])&quot; -ForegroundColor DarkYellow } } # 处理按键输入 $keyInfo = [System.Console]::ReadKey($true) switch ($keyInfo.Key) { &#39;UpArrow&#39; { if ($CurrentlySlected -gt 0) { $CurrentlySlected--} } &#39;DownArrow&#39; { if ($CurrentlySlected -lt $projects.Count - 1) {$CurrentlySlected++} } &#39;Enter&#39; { $SlectionMode = $false $vsbat = “C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat” $folder = $projects[$SelectedKey] cmd /k &quot;`&quot;$vsbat`&quot;; &amp;&amp; cd /d `“$folder`” &amp;&amp;代码。” } } Clear-Host } } } Export-ModuleMember -Function Start-C  我这样做是为了帮助使用 VS Code（蓝色的）在 MSVC 中打开 C++ 项目。如果你们想使用它，请创建一个名为 StartC.psm1 的文件，并将此代码放入其中。转到“C:\Program Files\WindowsPowerShell\Modules”创建一个名为“StartC”的新文件夹然后将 StartC.psm1 文件粘贴到 StartC 文件夹中。然后在某处创建一个 .Json 文件并复制其路径，并将 $JsonPath 变量中的值替换为您复制的 Json 路径。 然后它应该可以工作。但是，请注意，如果您没有将 vcvars64.bat 放在其他目录中，它将失败，并且某些旧版本的 PowerShell 将导致问题。 自定义命令包括项目选择 UI，并具有多个用于更改和添加项目的工具。如果一切正常，那么您应该能够运行“start-c -help”在终端中。   由   提交/u/Temporary-Elk-5464   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pctmfa/c_msvc_loader_thing/</guid>
+      <pubDate>Wed, 03 Dec 2025 03:36:30 GMT</pubDate>
+    </item>
     <item>
       <title>build-your-own-x,通过从头开始重新创建您最喜欢的技术来掌握编程,下载build-your-own-x的源码_GitHub_酷徒</title>
       <link>https://www.reddit.com/r/programming/comments/1pcreef/github_codecraftersiobuildyourownx_master/</link>
-      <description><![CDATA[刚刚找到“构建你自己的 X”存储库…BRB，我即将意外构建自己的数据库，让我的笔记本电脑崩溃，并质疑我作为开发人员所做的每一个人生选择。 如果你喜欢在学习中受苦，10/10 会推荐你。链接：   由   提交/u/Shot-Chair-5635   [link] [评论]]]></description>
+      <description><![CDATA[刚刚找到“构建你自己的 X”存储库…BRB，我即将不小心构建自己的数据库，让我的笔记本电脑崩溃，并质疑我作为开发人员所做的每一个人生选择。 如果你喜欢在学习中受苦，10/10 会推荐你。链接：   由   提交/u/Shot-Chair-5635   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pcreef/github_codecraftersiobuildyourownx_master/</guid>
       <pubDate>Wed, 03 Dec 2025 01:53:18 GMT</pubDate>
     </item>
     <item>
       <title>提出通过重新构想版本控制来记录意图的解决方案</title>
       <link>https://www.reddit.com/r/programming/comments/1pcqc7n/proposing_a_solution_for_recording_intent_by/</link>
-      <description><![CDATA[ 由   提交/u/ch3coohlink   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/ch3coohlink  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pcqc7n/proposing_a_solution_for_recording_intent_by/</guid>
       <pubDate>Wed, 03 Dec 2025 01:04:58 GMT</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description><![CDATA[ASCII、Unicode、UTF-8、UTF-16…没有线索。   由   提交 /u/AdvertisingFancy7011   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pccv7v/i_used_computers_for_10_years_without_knowing_how/</guid>
       <pubDate>Tue, 02 Dec 2025 16:25:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>消除具体语法和抽象语法之间的关系</title>
-      <link>https://www.reddit.com/r/programming/comments/1pcc426/desugarging_the_relationship_between_concrete_and/</link>
-      <description><![CDATA[ 由   提交/u/thunderseethe  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pcc426/desugarging_the_relationship_between_concrete_and/</guid>
-      <pubDate>Tue, 02 Dec 2025 15:57:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
