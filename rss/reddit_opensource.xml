@@ -4,7 +4,49 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 04 Dec 2025 12:55:26 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 15:30:39 GMT</lastBuildDate>
+    <item>
+      <title>使用 Hola 在几分钟内设置您的 Mac 开发环境</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pe2m58/set_up_your_mac_development_environment_in/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pe2m58/set_up_your_mac_development_environment_in/</guid>
+      <pubDate>Thu, 04 Dec 2025 15:18:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于 Kafka 的 Java SpringBoot 库 - 处理重试、DLQ、多个实例的可插入 Redis 缓存、使用 OpenTelemetry 进行跟踪等</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pe1w41/java_springboot_library_for_kafka_handles_retries/</link>
+      <description><![CDATA[我构建了一个库，在 Spring Boot 中使用 Kafka 时删除了大部分样板文件。您向侦听器添加一个注释，它会为您处理重试、死信队列、断路器、速率限制和分布式跟踪。 它的作用： 使用多种退避策略（指数、线性、斐波那契、自定义）自动重试。您可以选择尝试次数以及尝试之间的延迟 死信队列路由 - 失败的消息将带有完整元数据（尝试计数、时间戳、异常详细信息）发送到 DLQ。您还可以将不同的异常路由到不同的 DLQ 主题 OpenTelemetry 跟踪 - 设置一个标志，库会创建重试、dlq 路由、断路器事件等的所有范围。您处理导出，库进行检测 断路器 - 如果您的侦听器持续失败，它会打开电路并将消息直接发送到 DLQ，直到事情恢复。使用resilience4j 消息重复数据删除 - 当 Kafka 重新交付时防止重复处理 分布式缓存 - 添加 Redis 并在多个实例之间共享状态。如果 Redis 出现故障，则返回到 Caffeine DLQ REST API - 通过一次 API 调用查询死信队列并将消息重播回原始主题 指标 - 两个端点，一个用于摘要统计信息，一个用于详细事件信息 使用示例： u/CustomKafkaListene( topic = “orders”， dlqtopic = “orders-dlq”， maxattempts = 3， delay = 1000， delaymethod = delaymethod.expo， opentelemetry = true ) u/KafkaListener(topics = &quot;orders&quot;, groupid = &quot;order-processor&quot;) public void process(consumerrecord record, acknowledgment ack) { // 这里是你的逻辑 ack.acknowledge(); } 基本上就是这样。该库处理重试逻辑、dlq 路由、跟踪范围和其他所有内容。 我是一名三年级学生，不久前发布了此版本的早期版本。从那时起它已经走了很长一段路。仍在积极开发和半生产准备中，但在我的测试中运行良好。 寻找反馈、建议或任何想要尝试的人。   由   提交 /u/Appressive_Sky5940   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pe1w41/java_springboot_library_for_kafka_handles_retries/</guid>
+      <pubDate>Thu, 04 Dec 2025 14:49:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>希望与 GSoC 组织管理员联系以获得指导（我们正在扩大我们的开源工作）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pe13t4/looking_to_connect_with_gsoc_org_admins_for/</link>
+      <description><![CDATA[大家好，我是 Akshay。我在我的公司 OLake 担任 DevRel。我们一直在内部发展开源工作，甚至开展了自己的 Hacktoberfest 活动，宣布了 100 美元左右的奖金，并看到了社区的一些非常伟大的贡献。 现在，我们希望更进一步，探索成为 GSoC 的一部分。由于这是我们第一次，我希望与之前作为组织管理员或导师管理过 GSoC 的人建立联系。我真的很想了解您如何处理这个流程，您必须处理哪些事情，以及您认为新组织应该准备什么。 如果这里有人有前几年让组织进入 GSoC 或运行它的经验，您的指导将会非常有帮助。即使是简短的解释或快速的聊天也意味着很多。我们很乐意确保我们以正确的方式做事，并为贡献者构建一些有意义的东西。 提前致谢，如果任何组织管理员愿意分享他们的经验，我很乐意在这方面进行联系和合作。   由   提交/u/niga_chan  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pe13t4/looking_to_connect_with_gsoc_org_admins_for/</guid>
+      <pubDate>Thu, 04 Dec 2025 14:16:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于文件的 Postman 替代方案</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pe0jyl/a_filebased_postman_alternative/</link>
+      <description><![CDATA[大家好，我已经研究开源 Postman 替代方案一个月了，刚刚完成了第一组关键功能： 基于文件的 API 客户端  在 JSON 中定义工作区、集合和请求。与 Git、代码审查配合良好，并将 API 示例保留在代码旁边  模拟服务器  在 JSON 中定义本地 HTTP/HTTPS 端点 配置中的 Jest 样式匹配器，例如 any(String)、stringContaining(&#39;foo&#39;) 等。 请求 forward（作用类似于代理）  中间件 例如requestMiddleware，它可以让您在请求之前/之后完全控制。对于身份验证、日志记录、自定义工作流程等很有用。 接下来，我计划添加 API 测试自动化功能等。它与现在的其他类似项目没有太大区别，但很快就会变得有趣。 介绍和文档在这里：https://hanlogy.github.io/api-studio/ 你觉得怎么样？ :)   由   提交 /u/Glittering_Film_1834   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pe0jyl/a_filebased_postman_alternative/</guid>
+      <pubDate>Thu, 04 Dec 2025 13:52:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们构建了第一个语音 AI 开源评估平台。我们想把它变成一项生意</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pdzs4n/we_built_the_first_open_source_eval_platform_for/</link>
+      <description><![CDATA[ 由   提交/u/TheCoolgeek33  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pdzs4n/we_built_the_first_open_source_eval_platform_for/</guid>
+      <pubDate>Thu, 04 Dec 2025 13:18:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了 Grex - 一个适用于 Windows 的 grep 工具，还可以搜索 WSL 和 Docker</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pdzia5/i_made_grex_a_grep_tool_for_windows_that_also/</link>
+      <description><![CDATA[       由   提交/u/onihrnoil  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pdzia5/i_made_grex_a_grep_tool_for_windows_that_also/</guid>
+      <pubDate>Thu, 04 Dec 2025 13:05:39 GMT</pubDate>
+    </item>
     <item>
       <title>寻找开源应用程序，因此下载音乐</title>
       <link>https://www.reddit.com/r/opensource/comments/1pdygw0/looking_for_open_source_app_so_download_music/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[https://github.com/testplanit/testplanit 刚刚发布 - 一个名为 TestPlanIt 的全功能开源测试管理平台。 如果您希望自行托管能够随您扩展和成长的东西，请看看！ 如果您想在之前尝试安装网站上有一个演示。如果您需要更好地了解它在现实世界中的工作原理，您可以使用网站上的免费试用版为您自己的私人数据设置一个实例。 如果您喜欢它，我可以帮助您在您自己的服务器上运行它。我保证我不是机器人。只是一个不喜欢当前开源工具并对付费工具不断增加的成本感到沮丧的人。   由   提交 /u/ElaborateCantaloupe   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pdfrdt/open_source_test_management_testplanit/</guid>
       <pubDate>Wed, 03 Dec 2025 20:38:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为 Firebase 构建了一个轻量级无头 CMS（开源，Svelte 4）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pdfny0/i_built_a_lightweight_headless_cms_for_firebase/</link>
-      <description><![CDATA[大家好，我想分享一个我一直在从事的小型开源项目：Firelighter CMS (fl-cms) - 一个适用于 Firebase/Firestore 的最小自托管 CMS。 我为什么构建它 我需要一种简单的方法来直接在 Firestore 中管理内容（博客文章、发行说明、文档、小型知识库），而无需使用 Firestore成熟的 CMS 或付费购买 SaaS。 像 FireCMS 这样的工具很强大，但对于我的小型应用程序来说，它们感觉有点沉重。复杂的模型配置、基于模态的编辑，并且不再是免费的云版本。我想要更简单、更专注于直接内容编辑的东西。 因此，我使用 Svelte 4 构建了一个轻量级替代方案。 它的作用  仅使用您的配置连接到您的 Firebase 项目 将其架构存储在 Firestore 中的 __schema 集合下 允许您以 JSON 格式定义内容模型 提供专用编辑器（无弹出窗口，无内联）内容由可轻松重新排序的部分组成 通过 byted 使用 Markdown 进行编写 包括用于 Firebase 存储的轻量级媒体浏览器  MIT 许可和编辑完全客户端（自托管很简单） 技术堆栈 Svelte 4、TypeScript、CodeMirror、bytemd。 为什么它可能有用 如果您正在构建中小型 Firebase 应用，并且只需要一个简单的内容编辑器，而不是大型企业 CMS，那么这可能是一个不错的选择。 我已经开始在自己的一些项目中使用它，并且子集合也让处理多语言内容变得更加容易。 寻求反馈 我很感激反馈、想法或贡献。  演示：https://fl-cms.web.app GitHub：https://github.com/ortwic/web-apps/tree/main/apps/fl-cms 短视频演练：https://www.youtube.com/watch?v=ZMjv29k0ttE   由   提交 /u/Minute_Toe_8705   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pdfny0/i_built_a_lightweight_headless_cms_for_firebase/</guid>
-      <pubDate>Wed, 03 Dec 2025 20:34:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>当前人工智能驱动的 SSD 危机促使我继续开发“Trash-Compactor”——一个用于压缩臃肿应用程序并恢复大量存储空间的 Windows 程序</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pdfbhj/the_current_aidriven_ssd_crisis_prompted_me_to/</link>
-      <description><![CDATA[   /u/misha1350  [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pdfbhj/the_current_aidriven_ssd_crisis_prompted_me_to/</guid>
-      <pubDate>Wed, 03 Dec 2025 20:21:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>与 Google Summer of Code 2026 一起塑造未来！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pde40j/shape_the_future_with_google_summer_of_code_2026/</link>
-      <description><![CDATA[      Google 已公布 2026 年 Google 编程之夏 (GSoC) 的时间表，我正在与此社区分享详细信息。 这是开源组织获得新贡献者以及个人参与开源的机会。 以下是关键日期：  指导组织申请：1 月 19 日至 2 月 3 日 贡献者申请：3 月 16 日至 3 月 31 日  2026 年，将更加关注人工智能、安全和机器学习领域的项目。 GSoC 每年欢迎大约 30 个新组织，因此，如果您的组织有兴趣参与，现在是时候准备了。 您对 GSoC 对开源社区的影响有何看法？您过去参与过吗？   由   提交/u/darylducharme  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pde40j/shape_the_future_with_google_summer_of_code_2026/</guid>
-      <pubDate>Wed, 03 Dec 2025 19:36:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 ClickHouse 与 Tempesta FW 进行实时 L7 DDoS 和机器人流量分析</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pdd85i/using_clickhouse_for_realtime_l7_ddos_bot_traffic/</link>
-      <description><![CDATA[大多数开源 L7 DDoS 缓解和机器人防护方法依赖于挑战（例如 CAPTCHA 或 JavaScript 工作证明）或基于用户代理、推荐人或客户端地理位置的静态规则。这些技术越来越无效，因为它们很容易被现代开源模拟库和付费云代理网络绕过。 我们探索了一种不同的方法：使用 ClickHouse 作为主要分析后端对 HTTP 客户端请求进行近实时分类。 我们直接从 Tempesta FW 收集访问日志，Tempesta FW 是 HTTP 反向代理和代理的高性能开源混合体。防火墙。 Tempesta FW 实现了按 CPU 零拷贝日志传送到 ClickHouse 中，因此数据集增长率仅受 ClickHouse 批量摄取性能的限制 - 该性能非常高。 WebShield，一个小型开源 Python 守护进程：  定期执行分析查询以检测流量峰值（请求或请求）每秒字节数）、响应延迟、HTTP 错误代码激增和其他异常； 检测到峰值后，对客户端进行分类并验证当前模型； 如果模型经过验证，则会通过 IP、TLS 指纹或 HTTP 指纹自动阻止恶意客户端。  为了简化和加速分类（无论是自动还是手动），我们引入了新的 TLS指纹识别方法。 WebShield 是一个小而简单的守护进程，但它可以有效防御数千个 IP 僵尸网络。 完整文章，其中包含配置示例、ClickHouse 架构和查询。   由   提交/u/krizhanovsky   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pdd85i/using_clickhouse_for_realtime_l7_ddos_bot_traffic/</guid>
-      <pubDate>Wed, 03 Dec 2025 19:03:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>帮助 freac：</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pd96gp/help_with_freac/</link>
-      <description><![CDATA[您好，我从 YouTube 下载了多个包含章节的 MP3 文件。在 fre:ac 中转换时，章节会导致音频分成多个文件。我需要每次下载一个 MP3，并且忽略章节。 有人可以指导我正确的 fre:ac 设置以禁用章节分割并正确批量转换文件吗？ 谢谢。   由   提交/u/neo269  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pd96gp/help_with_freac/</guid>
-      <pubDate>Wed, 03 Dec 2025 16:40:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一个简单的Epic Games Launcher帐户切换器（Epic Switcher）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pd7wug/i_made_a_simple_epic_games_launcher_account/</link>
-      <description><![CDATA[大家好！ 我想分享一个我一直在做的小项目：Epic Switcher，一个完全免费的开源工具，我最初是为自己和几个朋友构建的。 它解决了我们一直遇到的一个小烦恼，而且由于它最终比我预期的更有用，我想其他人也可能会喜欢它。 如果您好奇，这里是该项目的存储库：https://github.com/symonxdd/epic-switcher/ 如果您查看它，我将非常感谢您想要向我提供的任何想法、想法或问题。如果没有，也完全不用担心。我很高兴能把一些东西回馈给一个教会了我很多东西的社区💛 感谢您的阅读，并希望您今天过得愉快 ✨   由   提交 /u/symonxd   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pd7wug/i_made_a_simple_epic_games_launcher_account/</guid>
-      <pubDate>Wed, 03 Dec 2025 15:53:59 GMT</pubDate>
     </item>
     </channel>
 </rss>
