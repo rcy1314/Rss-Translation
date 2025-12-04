@@ -4,7 +4,70 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 03 Dec 2025 21:23:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 01:57:20 GMT</lastBuildDate>
+    <item>
+      <title>我出售 Lovable.dev 单页网站的计划是一个坏主意吗？需要残酷诚实的反馈。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdmauh/is_my_plan_to_sell_lovabledev_onepage_websites_a/</link>
+      <description><![CDATA[我是一名 19 岁的冰岛人，正在尝试使用 Lovable.dev 启动小型网页设计服务。许多本地企业（例如洗车店）要么拥有过时的网站，要么根本没有网站，所以我认为市场可能存在空白。 这是我当前的计划： - 在 Lovable.dev 中构建一个干净的单页网站（可以在 1 小时内创建一个演示） - 给企业打电话，告诉他们我已经做了一个演示 - 如果他们感兴趣，可以在简短的通话中向他们展示演示 - 隔夜定制 - 出售它一次性 500 – 1,000 美元 - 我以我的名义注册域名并处理所有托管 - 托管费用为每月 20 - 30 美元 + 小调整 - 如果他们想要更改，他们需要支付额外费用 所以本质上：该域名是合法的我的，托管在我的 Lovable.dev 帐户上，客户只需按月付费即可保持其运行。 我想要来自经验丰富的网络开发人员的残酷诚实的反馈，或者自由职业者： 我在这里没有看到什么问题？ - 以我的名义使用该域名是否会产生信任、法律或道德问题？ - 20-30 美元/月的托管 + 小调整是否现实，还是客户会反对？ - 在我的 Lovable.dev 帐户下托管许多客户端站点是否有风险？ - 如果客户停止付款会怎样？ - 该模型是否难以扩展到超过约 10-20 个客户端？ - 支持和更新会比原始版本花费更多时间吗？ - 业务是否从根本上不稳定，因为客户不“拥有”自己的网站？ - 我会被认为在控制域名和托管自己方面不可靠/粗略吗？ 我试图弄清楚这是否是一个合法可扩展的微型代理想法，或者它是否是一旦我成长就会很快崩溃的东西。 任何警告、建议或经验都值得赞赏。   由   提交/u/adrian710adi   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdmauh/is_my_plan_to_sell_lovabledev_onepage_websites_a/</guid>
+      <pubDate>Thu, 04 Dec 2025 01:04:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我将 Epstein 文件与一位深度学习 AI 研究人员联系起来</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdlz3e/i_connected_the_epstein_files_to_a_deep_learning/</link>
+      <description><![CDATA[大家好！ 正如你们很多人所知，爱泼斯坦文件于几周前发布，其中包含超过 20,000 个单独的文本和图像文档。当我看到这个时，我认为购买一个域名并加速运行一个 meme 网站会很有趣，该网站将 Epstein 文件连接到专门为搜索文件和查找信息而构建的 AI 代理。 因此，在花了我的下班时间和周末构建该项目之后，我现在准备分享当前的结果！ https://epsteingpt.com EpsteinGPT看起来像这个，并且适用于桌面和移动设备。 AI 研究人员使用 Agentic 检索增强生成像真正的侦探一样深入进入文件，并提供对原始文档发布的引用和直接引用。 构建 EpsteinGPT 就开发过程本身而言，我优化以尽可能快地启动应用程序。为此，我使用了 NextJS 以及 HeroUI 和 TailwindCSS，所有这些都在 Vercel 上启动。我将对话消息和历史记录存储在 FireStore 中，并将代理状态存储在通过 LangGraph 的 Postgres 保护程序管理的 Postgresql 数据库中。我通过 LangGraph 处理了大部分与代理相关的工作（稍后会详细介绍）。 对于 Epstein 文件本身，我首先将所有文件下载到本地以进行妥善保管。从那里，我构建了一个脚本来获取每个文件并通过 Google 的 Cloud Vision API 运行它们，以对图像文件进行光学内容识别，然后将其内容分块并将其存储到 Pinecone 矢量存储中。为了方便参考，我将所有文件重新上传到我自己的 S3 存储桶中，并从那里提供服务。 最后，我使用检索器包装对矢量存储的访问，构建我的工具，并将其连接到 LLM。从那里，我构建一个轻量级图来处理状态，并流回响应！ LangGraph 想法   我不确定是否会在下一个代理项目中使用 LangGraph。它对于处理代理状态感觉非常臃肿，但无论如何我都将它用于这个项目。 如果我再次使用 LangGraph，我可能会尝试使用它几乎就像一个 ORM 来与 LLM 本身之外的所有内容进行交互，并自己管理它。  未来的工作 如果人们对这个项目感兴趣，我正在努力让 AI 响应更快一点，或者至少让用户体验不那么无聊。 我也很想知道是否有兴趣让 Vector Store 可复制，以帮助加快其他可能想要使用文件构建代理的人的速度。如果有人对处理该问题的好方法有任何见解，请告诉我！ 除此之外，请尽情享受，请随时向我提问，我很乐意回答它们！   由   提交 /u/TenamiTV   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdlz3e/i_connected_the_epstein_files_to_a_deep_learning/</guid>
+      <pubDate>Thu, 04 Dec 2025 00:49:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>程序员，给我最好的支付网关</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdkzgc/يامبرمجين_اعطوني_افضل_بوابات_الدفع/</link>
+      <description><![CDATA[ 他一定在他的一个项目中尝试过或使用过它   由   提交  ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdkzgc/يامبرمجين_اعطوني_افضل_بوابات_الدفع/</guid>
+      <pubDate>Thu, 04 Dec 2025 00:06:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>程序员，给我沙特境内最好的“送货”物流服务公司</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdkz7h/يامبرمجين_اعطوني_افضل_شركات_خدمات_لوجستيه_توصيل/</link>
+      <description><![CDATA[我想要一家公司，比如 Aramex，他们提供一个 api 链接 以便我可以在项目中使用它 我想要一些已经过测试的东西，我的意思是，在沙特阿拉伯和海湾地区 并且需要的不仅仅是一家公司，而是多个公司，例如 Aramex 等。你明白了吗？最重要的是这个物流公司支持API链接，这样我就可以链接到项目上。如果有人尝试过某个特定公司，请写下该公司的名称+他的经验以及他的建议   由   提交 /u/Candid_Professor5111   [链接] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdkz7h/يامبرمجين_اعطوني_افضل_شركات_خدمات_لوجستيه_توصيل/</guid>
+      <pubDate>Thu, 04 Dec 2025 00:06:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何用 HTML 和 CSS 制作某种“书”？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdk3jd/how_to_make_some_kind_of_book_with_html_and_css/</link>
+      <description><![CDATA[      好吧..我有这样的想法，你点击书的封面就可以看到书页，我不需要像真正的书一样翻转它，我只是希望能够在里面放入滚动框和东西。我认为我没有很好地解释这一点，所以我画了这个小东西来尝试展示它。 我希望这不需要成为另一个页面，但如果有必要，我想我会这样做！！ 这可能吗？以及如何！？！？  https://preview.redd.it/o8y6wdfqp25g1.png?width=1361&amp;format=png&amp;auto=webp&amp;s=801538c366396cfe4d418ee1b92cd973757820d9 &lt;一href=&quot;https://preview.redd.it/9g8t82prp25g1.png?width=1361&amp;format=png&amp;auto=webp&amp;s=fb363bc2e84e1d5adc36f47b0a5688497f0e875e&quot;&gt; https://preview.redd.it/9g8t82prp25g1.png?width=1361&amp;format=png&amp;auto=webp&amp;s=fb363bc2e84e1d5adc36f47b0a5688497f0e875e   由   提交/u/DevelopmentDeep3653  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdk3jd/how_to_make_some_kind_of_book_with_html_and_css/</guid>
+      <pubDate>Wed, 03 Dec 2025 23:29:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助和现实检查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdinsz/help_and_reality_check/</link>
+      <description><![CDATA[我有一个独特的付费网站的想法，需要对开发工作和成本进行现实检查。为了保持核心思想的私密性，我将列出所需的功能。我正在寻找范围（时间/工作）的细目以及我应该为开发人员帮助制定的预算。我知道如何打印“hello”字，仅此而已。 所需功能： 1. 品牌形象：拥有自己的域名和有吸引力的登陆页面/启动屏幕。  用户身份验证和启动屏幕。计费： • 帐户创建（注册/登录/忘记密码）。 • 订阅管理/门控访问（付费专区）。 核心学习平台： • 基于模块的交互式用户界面（结构类似于Duolingo，但内容少得多）。 • 每个模块内的点击式课程/步骤。 • 当前模块的可视化进度跟踪（例如进度条）。 • 已完成模块的用户概述。 内容排序和内容排序访问： • 锁定某些模块直至完成必备模块的逻辑。 • 能够向潜在用户完全免费提供一个模块。    由   提交 /u/megaratardad   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdinsz/help_and_reality_check/</guid>
+      <pubDate>Wed, 03 Dec 2025 22:30:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>vue 和 nodejs Web 应用程序的托管选项</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdhxld/hosting_options_for_a_vue_and_nodejs_web_app/</link>
+      <description><![CDATA[我希望部署我的第一个基于 vue 和 nodejs 构建的 Web 应用程序。我使用 PostgreSQL 作为数据库，以及 Redis 缓存和 Web 套接字。到目前为止，我已经研究了各种托管服务，但仍然感到困惑： - 渲染 - 铁路 - 飞行 - DigitalOcean - Heroku - Vercel - AWS 我的网络应用程序提供实时信息并集成了用户帐户，因此没有冷启动。我正在寻找一种可以从每天 100 个用户扩展到 10,000 个用户（希望如此）的服务。 任何建议都将受到高度赞赏。 干杯！   由   提交/u/Chrislordetc   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdhxld/hosting_options_for_a_vue_and_nodejs_web_app/</guid>
+      <pubDate>Wed, 03 Dec 2025 22:01:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>自由职业者入门，需要指导</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdhejm/getting_started_as_a_freelancer_need_guidance/</link>
+      <description><![CDATA[大家好，vie 已经担任软件工程师近 5 年了，最近一直觉得有必要开始转向自由职业，并最终组建一个团队与我一起开展项目。  但是我不知道从哪里开始。我没有任何已完成的投资组合项目，我有 2 个 SaaS 应用程序可以解决现实世界的问题，但从未启动过它们，但我能够用它们实现我所需要的并解决实际问题。  我猜你们去过我现在所在的地方会做什么？我正在考虑上 LinkedIn，清理我的个人资料，寻找正在构建与我已经做过的事情相关的东西的企业主。 我正在考虑寻找一位导师，但现在可能太多了，因为我可能应该集中我的资源在 linkedin 上寻找客户，但我不确定 非常感谢任何建议！   由   提交 /u/Proud-Explorer-5687   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdhejm/getting_started_as_a_freelancer_need_guidance/</guid>
+      <pubDate>Wed, 03 Dec 2025 21:41:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么开发人员似乎对 2025 年的“新框架”感到厌倦</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pdh67j/why_devs_seem_burnt_out_on_new_frameworks_in_2025/</link>
+      <description><![CDATA[这是我在为自己的项目开发工具时看到的一些情况： 并不是新框架变得更糟，而是人们对它们失去了精力。 几乎每个与我交谈过的开发人员都说同样的话：“我现在不想学习另一东西。” 现在人工智能自动完成编写了我们一半的样板文件，并且抽象堆栈隐藏了大部分复杂性，框架用来修复的旧痛点......感觉不那么痛苦了。因此，动力下降了。 开发人员拒绝框架并不是因为它们很难他们拒绝框架是因为每个新工具都需要新的思维模型 你认为我们正在达到框架饱和状态，还是这只是另一个阶段？   由   提交/u/Mundane-Ad-6835   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pdh67j/why_devs_seem_burnt_out_on_new_frameworks_in_2025/</guid>
+      <pubDate>Wed, 03 Dec 2025 21:32:37 GMT</pubDate>
+    </item>
     <item>
       <title>GoTemplers：服务器端渲染 Lucide 图标，无需 JS 噩梦</title>
       <link>https://www.reddit.com/r/webdev/comments/1pdgv5a/gotemplers_serverside_rendering_lucide_icons/</link>
@@ -27,13 +90,6 @@
       <pubDate>Wed, 03 Dec 2025 20:21:32 GMT</pubDate>
     </item>
     <item>
-      <title>是否可以将 ColdFusion 2021 降级到之前的永久许可证版本？ (2016-2018)</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pdexha/is_it_possible_to_downgrade_coldfusion_2021_to_a/</link>
-      <description><![CDATA[免责声明：我不是开发人员，只是想帮助我的公司做出明智的决定。 我们目前在订阅模式下运行 Adob​​e ColdFusion 2021。我的领导层正在考虑不再续订 ColdFusion 2025 订阅，我想到了恢复到旧版永久许可证（2016 或 2018）的想法。 这可能吗？如果是这样，从 CF 2021 迁移回 CF 2016/2018 等旧版本会涉及哪些技术、安全或兼容性风险？   由   提交 /u/vidbv   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pdexha/is_it_possible_to_downgrade_coldfusion_2021_to_a/</guid>
-      <pubDate>Wed, 03 Dec 2025 20:06:40 GMT</pubDate>
-    </item>
-    <item>
       <title>两周前，我在这里发布了我的周末项目。昨天nixcraft分享了它。</title>
       <link>https://www.reddit.com/r/webdev/comments/1pddi4c/two_weeks_ago_i_posted_my_weekend_project_here/</link>
       <description><![CDATA[今天我写这篇文章是为了表达谢意。 两周前，我将我的云架构游戏发布到 r/devops 和 r/webdev。 老实说，我是希望得到一些评论。足以了解是否有人真正关心这个想法。 但人们关心。很多。 你试过了。你写了评论。您打开了 GitHub 问题。你投了赞成票。你用我从未想过的想法发表评论。这让我继续前进。 所以我继续建造。我关闭了你们打开的问题。我实施了自己的想法。我添加了新服务。我构建了沙盒模式。我只是继续编码，因为你向我展示了这是值得构建的。 然后昨天发生了。 我看到 nixcraft - THE nixcraft - 重新发布了我的游戏。我真的很惊讶。很好。 昨天早上 250 颗星。目前已有 1250+ 颗星。一切都在 24 小时内完成。 现在我写这篇文章是为了表达谢意。感谢您在这只是一个粗略的想法时相信这一点。感谢您给了我继续前进的动力。 由于这种信念，我的存储库爆炸了。老实说？这既令人鼓舞又令人恐惧。我现在感受到了这个责任——我没有权利放弃这个。太多人相信了。 一个简单的周末想法变成了这样的事情，真是太酷了。 玩：https://pshenok.github.io/server-survival GitHub：https://github.com/pshenok/server-survival 谢谢 r/devops 和 r/webdev。你让这一切成为现实。   由   提交 /u/Due-Bat-9880   [链接] [评论]]]></description>
@@ -53,62 +109,6 @@
       <description><![CDATA[有新链接吗？   由   提交 /u/inwardPersecution   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pdb423/discord_server_invitte_invalid/</guid>
       <pubDate>Wed, 03 Dec 2025 17:49:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>HTMX：更简单的基于网络的应用程序/系统</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pdaaci/htmx_simpler_webbased_appsystem/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pdaaci/htmx_simpler_webbased_appsystem/</guid>
-      <pubDate>Wed, 03 Dec 2025 17:19:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要有关部署具有导入作业、后台工作人员和每小时同步任务的系统的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd9xxd/need_advice_on_deploying_a_system_with_import/</link>
-      <description><![CDATA[大家好， 我正在构建一个包含四个不同组件的系统，这些组件需要在预算内高效可靠地部署： 批量导入器：来自 csv 的一次性重负载（2-3k 条记录）。然后每天 50 条记录。 后台处理器：处理新添加的记录，首字母 2-3k，然后是每日记录（∼50/天）。 每小时同步作业 (Cron)：每小时从第三方 API 更新 ∼3−4k 条记录。 Webhook 端点 (REST API)：对于外部事件触发器必须具有高可用性和可靠性。 核心问题： 部署方法：考虑到事件驱动的工作人员、cron 作业和关键 API 端点的组合，什么是最具成本效益和可扩展的部署设置？ （例如，无服务器功能、容器、托管工作服务或组合？） 数据库选择：对于日常小型写入、每小时大量读取/更新和一次性批量导入的混合工作负载，哪种数据库提供可靠性、成本和轻松扩展的最佳组合？ 初始导入策略：我应该在本地运行初始的一次性繁重导入作业以节省服务器成本，还是在服务器上运行以简化操作？  任何有关架构选择的指导，特别是在预算内处理这些混合工作负载的指导，我们将不胜感激！   由   提交 /u/confuse-geek   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd9xxd/need_advice_on_deploying_a_system_with_import/</guid>
-      <pubDate>Wed, 03 Dec 2025 17:07:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>相关链接：Curlie.org 互联网目录下载</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd9ndn/relevant_links_curlieorg_internet_directory_as/</link>
-      <description><![CDATA[向用户显示任何主题的相关网站的快速方法：Curlie.org 互联网目录及其 290 万个条目已作为开源发布。 社区（可追溯到 ODP）决定，如果每个人都可以使用目录数据，那么它将对每个人都有帮助。因此，对于任何给定的主题，您只需向用户显示适当的类别即可。https://curlie.org/downloadhttps://curlie.org/download 数据就是列表本身，以及对类别层次结构（另一个列表）的引用，全部采用 CSV 格式。 我们的合作伙伴已创建包含目录数据的开放式 Web 索引OpenWebSearch.eu   由   提交 /u/CarryOnThrowing   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd9ndn/relevant_links_curlieorg_internet_directory_as/</guid>
-      <pubDate>Wed, 03 Dec 2025 16:57:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>安全通报：CVE-2025-66478</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd8xeh/security_advisory_cve202566478/</link>
-      <description><![CDATA[ 由   提交/u/feross  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd8xeh/security_advisory_cve202566478/</guid>
-      <pubDate>Wed, 03 Dec 2025 16:31:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>React 服务器组件中的严重安全漏洞 – React</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd8pgh/critical_security_vulnerability_in_react_server/</link>
-      <description><![CDATA[       由   提交 /u/SawToothKernel   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd8pgh/critical_security_vulnerability_in_react_server/</guid>
-      <pubDate>Wed, 03 Dec 2025 16:23:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Node.js 和 rubico 编写您的第一个网络服务器！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd70d5/write_your_first_webserver_with_nodejs_and_rubico/</link>
-      <description><![CDATA[ 由   提交/u/richytong  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd70d5/write_your_first_webserver_with_nodejs_and_rubico/</guid>
-      <pubDate>Wed, 03 Dec 2025 15:20:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>CRM 的用途是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd6gw6/what_are_crms_even_for/</link>
-      <description><![CDATA[我们一直在构建一种工具，可以插入电子邮件、抓取文档、对其进行分类，并为贷方/经纪人自动填充 CRM 字段。随着自动化程度的提高，我们意识到用户几乎不再接触他们的 CRM。 这让我想知道： 如果真正的工作发生在电子邮件、驱动器和自动化层中…… 当今 CRM 的实际工作是什么？只是一个数据库团队觉得有义务维护？ 好奇这里的开发人员如何看待它   由   提交/u/Namhto   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd6gw6/what_are_crms_even_for/</guid>
-      <pubDate>Wed, 03 Dec 2025 15:00:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>当文本与图像重叠时更改文本颜色？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pd68l7/change_text_colour_when_it_overlaps_an_image/</link>
-      <description><![CDATA[嘿。 看看是否有人可以帮助解决这个棘手的功能。这是最小的代码。任务是针对图像上重叠的任何文本，这些字符的文本应更改为 #EDE9DD。 在研究了执行此操作的方法后，我认为 mix-blend-mode 会起作用，但我不能完全正确。 其他人有吗还有其他想法吗？   由   提交/u/artFlix  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pd68l7/change_text_colour_when_it_overlaps_an_image/</guid>
-      <pubDate>Wed, 03 Dec 2025 14:51:09 GMT</pubDate>
     </item>
     </channel>
 </rss>

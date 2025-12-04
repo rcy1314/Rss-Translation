@@ -4,48 +4,27 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 03 Dec 2025 21:23:07 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 01:56:57 GMT</lastBuildDate>
     <item>
-      <title>博客文章网站还有用吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1pdgpci/are_blog_post_websites_still_useful_anymore/</link>
-      <description><![CDATA[我一直在开发一个新的投资组合网站，因为我的旧网站有一些问题，我想包含一个管理仪表板以更好地控制。在构建它时，我想到添加一个完整的博客部分，我可以在其中写文章。我什至打算让其他人在上面写，如果他们愿意的话。 但是在完成并向几个人展示这个想法之后，我开始觉得个人博客网站可能已经过时了。似乎大多数人更喜欢在 LinkedIn 上撰写帖子，而不是在定制的独立博客上发布。 所以我想知道：我错了，还是这是真的？如今个人博客网站还值得吗？   由   提交 /u/Important_Lynx_7906   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pdgpci/are_blog_post_websites_still_useful_anymore/</guid>
-      <pubDate>Wed, 03 Dec 2025 21:14:13 GMT</pubDate>
+      <title>我最喜欢的原则</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdkrbe/my_favorite_principle/</link>
+      <description><![CDATA[ 由   提交 /u/levodelellis   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdkrbe/my_favorite_principle/</guid>
+      <pubDate>Wed, 03 Dec 2025 23:57:16 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Go 构建分布式时间戳触发数据库，​​每秒处理 300K+ 事件</title>
-      <link>https://www.reddit.com/r/programming/comments/1pdgnu0/built_a_distributed_timestamptriggered_database/</link>
-      <description><![CDATA[大家好！ 👋 我一直在研究 CronosDB - 一个专为时间戳触发的事件处理而设计的分布式数据库。将其视为消息队列和作业调度程序之间的混合体，并具有预写日志的持久性。 它的作用：  为将来的执行安排事件（如 cron，但分布式） 3 节点集群上的 300K+ 事件/秒吞吐量 亚毫秒级延迟（P99 ~740μs） 与消费者群体进行至少一次交付（Kafka 式） 用于事件溯源的重播引擎  有趣的技术部分： 1。用于重复数据删除的无锁布隆过滤器 我没有使用 PebbleDB 来检查每个消息 ID，而是使用具有原子 CAS 操作的无锁布隆过滤器。这会跳过大约 99% 的新消息磁盘读取。 2.分层计时轮 O(1) 计时器管理，使用带有溢出轮的计时轮来处理长期安排的事件。每个轮盘级别的刻度间隔逐渐变大。 3.批处理一切 最大的性能优势来自批处理：  批量 WAL 写入（每批单个系统调用） 批量调度（单个锁获取） 批量 gRPC 调用（每个 PublishBatch 100 个事件）  以约 10K 事件/秒开始，以 300K+ 结束优化后。 技术堆栈：  Go 1.24 带流式处理的 gRPC PebbleDB（CockroachDB 的存储引擎） 用于共识的 HashiCorp Raft 具有稀疏索引的自定义 WAL  关键优化：  无锁布隆过滤器(+25x) 批处理 API (+3x) sync.Pool 用于计时器 禁用 PebbleDB 内部 WAL（我们有自己的） 64MB memtable（相对于 4MB 默认值）  用例：  分布式 cron 作业 延迟消息传递 通过重播进行事件溯源 基于时间的工作流触发器  GitHub：https://github.com/jatin711-debug/cronos_db_golang 希望获得有关架构的反馈或者如果您发现任何问题可能错过了。很高兴回答有关实施的问题！如果您喜欢这个想法，请给它一颗星。   由   提交/u/john_wick711   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pdgnu0/built_a_distributed_timestamptriggered_database/</guid>
-      <pubDate>Wed, 03 Dec 2025 21:12:33 GMT</pubDate>
+      <title>移动应用程序错误赏金的秘密世界以及如何闯入</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdkjsz/the_secret_world_of_mobile_app_bug_bounties_and/</link>
+      <description><![CDATA[ 由   提交 /u/voidrane   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdkjsz/the_secret_world_of_mobile_app_bug_bounties_and/</guid>
+      <pubDate>Wed, 03 Dec 2025 23:48:17 GMT</pubDate>
     </item>
     <item>
-      <title>我在构建 DevOps + 生产力仪表板时学到的东西</title>
-      <link>https://www.reddit.com/r/programming/comments/1pdgngb/what_i_learned_while_building_a_devops/</link>
-      <description><![CDATA[大家好👋 我一直在尝试一个业余项目，它混合了我日常工作流程的两个领域： DevOps 学习和个人生产力。 在构建它的过程中，我学到了一些有趣的东西：  如何构建一个结合不同类型的简单仪表板内容 如何有效地获取 DevOps 新闻和更新 如何构建一个小型“挑战板”，用户可以在其中发布任务和讨论 如何在支持笔记、想法和简单的个人组织的同时保持 UI 最小化 如何在一个界面中融合专业和个人工作流程  我发现这个过程非常有趣，尤其是平衡 DevOps 和日常生活生产力方面。 如果有人好奇，这是我在这次实验中构建的项目： 👉 https://devopsgrid.io 只是分享经验 - 希望它对某人有用或鼓舞人心！   由   提交/u/AntElectronic7464  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pdgngb/what_i_learned_while_building_a_devops/</guid>
-      <pubDate>Wed, 03 Dec 2025 21:12:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zobyscript 编程语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1pdg17x/zobyscript_programming_language/</link>
-      <description><![CDATA[大家好，我刚刚推出了一种编程语言，叫 Zobymex，它有点小，里面有虚拟机，性能也不错。 我完全没有经验，有些功能是受其他语言启发的。 就是这样，我希望你喜欢它。 💓   由   提交/u/AstronomerOk5639   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pdg17x/zobyscript_programming_language/</guid>
-      <pubDate>Wed, 03 Dec 2025 20:48:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>在不迁移数据库的情况下在 Laravel 中构建动态自定义字段：深入探讨</title>
-      <link>https://www.reddit.com/r/programming/comments/1pdeaft/building_dynamic_custom_fields_in_laravel_without/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pdeaft/building_dynamic_custom_fields_in_laravel_without/</guid>
-      <pubDate>Wed, 03 Dec 2025 19:43:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能辅助开发的心理模型</title>
-      <link>https://www.reddit.com/r/programming/comments/1pddmjw/a_mental_model_for_aiassisted_development/</link>
-      <description><![CDATA[ 由   提交 /u/wineandcode   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pddmjw/a_mental_model_for_aiassisted_development/</guid>
-      <pubDate>Wed, 03 Dec 2025 19:18:23 GMT</pubDate>
+      <title>采访《过山车大亨》的创造者克里斯·索耶</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdk46j/interview_with_rollercoaster_tycoons_creator/</link>
+      <description><![CDATA[ 由   提交 /u/Ok-Tune-1346   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdk46j/interview_with_rollercoaster_tycoons_creator/</guid>
+      <pubDate>Wed, 03 Dec 2025 23:29:51 GMT</pubDate>
     </item>
     <item>
       <title>对价值 10 亿美元的合法 AI 工具进行逆向工程，暴露了 10 万多个机密文件</title>
@@ -69,9 +48,16 @@
       <pubDate>Wed, 03 Dec 2025 18:17:08 GMT</pubDate>
     </item>
     <item>
+      <title>解决高级和低级设计之间的“灰色区域” - 软件设计教程</title>
+      <link>https://www.reddit.com/r/programming/comments/1pdbob0/addressing_the_gray_area_between_highlevel_and/</link>
+      <description><![CDATA[大家好。我写了一篇深入探讨软件设计的文章，重点关注“灰色区域”。高层设计（系统架构）和低层设计（类/函数）之间的关系。 内容：  将遗留的大泥球重构为独立模块的分步教程。 使用我在野外见过的模式（我在文中将其命名为 MIM）对干净/六边形架构提出了一点挑战。 关于模块化设计基础知识的可靠附录。  （警告：读起来很长。我在 Leanpub 上看过较短的电子书）。 顺便说一句，在校对之前，人工智能并未用于撰写本文。   由   提交/u/codingfox7  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pdbob0/addressing_the_gray_area_between_highlevel_and/</guid>
+      <pubDate>Wed, 03 Dec 2025 18:09:10 GMT</pubDate>
+    </item>
+    <item>
       <title>在 qemu 中启动 Linux 内核并在 Go 中写入 PID 1（以表明内核“只是一个程序”）</title>
       <link>https://www.reddit.com/r/programming/comments/1pd8dh1/booting_a_linux_kernel_in_qemu_and_writing_pid_1/</link>
-      <description><![CDATA[我一直在研究“Linux Inside Out”系列，并写了一篇文章，可能会让喜欢低级/操作系统内部结构的人感兴趣。 这个想法是逐层剖析 Linux 操作系统的组件，并通过实验构建一切如何组合在一起的心理模型。 第一部分是关于内核的，在帖子中我：  从 /boot 获取相同的内核映像我的发行版启动 直接使用 QEMU 启动它（无发行版，无初始化系统） 观察它的恐慌 编写一个小型 Go 程序并将其用作 PID 1 围绕它构建一个最小的 initramfs，以便内核可以实际启动我们的进程  目标不是构建一个真正的发行版，只是为了给出一个具体的心理模型：  Linux 内核只是一个压缩文件，无需任何其他内容即可启动它 内核在启动时实际执行的操作 它如何将控制权交给用户空间 PID 1 / init 实际上是什么 什么是内核空间与用户空间  链接：https://serversfor.dev/linux-inside-out/the-linux-kernel-is-just-a-program/ 我是作者，很高兴听到其他开发者的意见，这种解释方式是否有意义，以及您要添加或更改的内容该系列的未来帖子。   由   提交 /u/indieHungary   [链接] [评论]]]></description>
+      <description><![CDATA[我一直在研究“Linux Inside Out”系列，并写了一篇文章，可能会让喜欢低级/操作系统内部结构的人感兴趣。 这个想法是逐层剖析 Linux 操作系统的组件，并通过实验构建一切如何组合在一起的心理模型。 第一部分是关于内核的，在帖子中我：  从 /boot 获取相同的内核映像我的发行版启动 直接使用 QEMU 启动它（无发行版，无初始化系统） 观察它的恐慌 编写一个小型 Go 程序并将其用作 PID 1 围绕它构建一个最小的 initramfs，以便内核可以实际启动我们的进程  目标不是构建一个真正的发行版，只是为了给出一个具体的心理模型：  Linux 内核只是一个压缩文件，无需任何其他内容即可启动它 内核在启动时实际执行的操作 它如何将控制权交给用户空间 PID 1 / init 实际上是什么 什么是内核空间与用户空间  链接：https://serversfor.dev/linux-inside-out/the-linux-kernel-is-just-a-program/ 我是作者，很高兴听到其他开发者的意见，这种解释方式是否有意义，以及您将在本系列的未来帖子中添加或更改哪些内容。   由   提交 /u/indieHungary   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pd8dh1/booting_a_linux_kernel_in_qemu_and_writing_pid_1/</guid>
       <pubDate>Wed, 03 Dec 2025 16:10:55 GMT</pubDate>
     </item>
@@ -109,6 +95,20 @@
       <description><![CDATA[ 由   提交/u/zerolayers  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pd6bsv/the_making_of_digital_identity_the_cryptographic/</guid>
       <pubDate>Wed, 03 Dec 2025 14:54:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>调车场算法的推广第 4 部分</title>
+      <link>https://www.reddit.com/r/programming/comments/1pd5tdp/generalizing_the_shunting_yard_algorithm_part_4/</link>
+      <description><![CDATA[ 由   提交 /u/error-errorfruituser   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pd5tdp/generalizing_the_shunting_yard_algorithm_part_4/</guid>
+      <pubDate>Wed, 03 Dec 2025 14:35:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们来做个游戏吧！ 357：帝国扩张</title>
+      <link>https://www.reddit.com/r/programming/comments/1pd4gln/lets_make_a_game_357_the_empire_expands/</link>
+      <description><![CDATA[ 由   提交/u/apeloverage  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pd4gln/lets_make_a_game_357_the_empire_expands/</guid>
+      <pubDate>Wed, 03 Dec 2025 13:41:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
