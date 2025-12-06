@@ -4,27 +4,55 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 06 Dec 2025 06:35:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 06 Dec 2025 09:25:37 GMT</lastBuildDate>
     <item>
-      <title>离开英特尔</title>
-      <link>https://www.reddit.com/r/programming/comments/1pfhhah/leaving_intel/</link>
-      <description><![CDATA[他在短短 3.5 年内就取得了如此多的成就。我想知道他接下来要去哪里？有什么猜测吗？   由   提交 /u/ThanksMorningCoffee   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pfhhah/leaving_intel/</guid>
-      <pubDate>Sat, 06 Dec 2025 05:34:13 GMT</pubDate>
+      <title>你们真的认为计算机科学专业的学生低估了并行计算和编程吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfl1pw/do_you_guys_really_think_computer_science/</link>
+      <description><![CDATA[ 由   提交/u/Odd-Tangerine-4900   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfl1pw/do_you_guys_really_think_computer_science/</guid>
+      <pubDate>Sat, 06 Dec 2025 09:15:26 GMT</pubDate>
     </item>
     <item>
-      <title>今年有人参加《代码降临》吗？我是，但日程安排较慢。我刚刚完成了第 2 天第 1 部分。每天只完成一个部分对我来说就可以了。</title>
-      <link>https://www.reddit.com/r/programming/comments/1pfdz08/is_anyone_doing_advent_of_code_this_year_i_am_but/</link>
-      <description><![CDATA[ 由   提交/u/eccsoheccsseven   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pfdz08/is_anyone_doing_advent_of_code_this_year_i_am_but/</guid>
-      <pubDate>Sat, 06 Dec 2025 02:29:36 GMT</pubDate>
+      <title>React2Shell (CVE-2025-55182)：前端生态系统的 Log4Shell 时刻，但没有人准备好</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfk5k6/react2shell_cve202555182_the_log4shell_moment_for/</link>
+      <description><![CDATA[前端生态系统刚刚受到自己的 Log4Shell 的打击，业界假装这只是“React 糟糕的一周”。 React2Shell (CVE-2025-55182) 是一个 CVSS 10.0 RCE，不需要错误配置，不需要选择任何实验性的内容，也不需要开发人员做任何“错误”的事情。 如果您使用 React 19 或 Next.js App Router，默认情况下您就会暴露。 核心问题： React 的 Flight 协议可以反序列化客户端发送的复杂对象，无需严格的类型验证或所有权检查。 攻击者发现他们可以将精心设计的有效负载注入任何 RSC 端点并触发服务器端原型污染。 从那里它迅速升级：  覆盖全局原型 劫持内部 Next.js 生命周期函数 调用 Node.js 原生 API，如 child_process.exec 通过零身份验证获得完全服务器控制  这会影响：  React 19.0.0 → 19.2.0 Next.js 15.x、16.x 和 canary 14.x 基本上，互联网上安装的每个 App Router  武器化曲线非常残酷：  11 月 29 日：私下报告的漏洞 12 月 3 日：发布补丁 (React 19.2.1 / Next.js 15.0.5) 12 月 4 日：PoC 在私人论坛上泄露 12 月 5 日（世界标准时间 04:00）：大规模利用开始，超过 95 个 IP 12 月 5 日（世界标准时间 06:00）：已确认的生产漏洞、AWS 密钥泄露、部署加密矿工 12 月 6 日：APT 归因（Earth Lamia、Jackpot Panda）  这不是孩子们扫描开放的 S3 存储桶。 APT 组织正在使用 React2Shell 在 VPC 内部进行“靠地为生”的活动。技术，抓取环境变量，并在不触发基于签名的检测的情况下横向移动。 更糟糕的是，Cloudflare 尝试部署紧急 WAF 规则...... 意外地导致全球 502 中断约 25 分钟，因为 React 的序列化格式嵌套太深，以至于该规则消耗了所有代理资源。 解决方法几乎破坏了互联网。  这一事件令人不安问题： 现代 JS 框架是否变得过于复杂而无法保证安全？ 服务器组件和客户端组件是否应该共享序列化格式？ “默认安全”意味着什么？甚至意味着当您的默认安装可以通过单个 POST 请求被利用时？ 生态系统是否正在走向 Java 在 2010 年代中期的“纸牌屋”时刻？  作为运行 SaaS 平台 (Evenunt) 的 CTO，我们现在正在评估：  立即修补和依赖项审核 隔离背后的 RSC 端点微防火墙 通过将一些层移回 Vue/Nuxt（其中客户端/服务器边界更安全）来潜在地减少暴露 起草应急计划，以防 RSC 继续暴露系统弱点  好奇其他团队如何处理此问题。 您是否正在修补、隔离或考虑架构更改？ 这是暂时的冲击……还是从根本上重新思考的开始同构框架？   由   提交/u/elmascato  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfk5k6/react2shell_cve202555182_the_log4shell_moment_for/</guid>
+      <pubDate>Sat, 06 Dec 2025 08:16:56 GMT</pubDate>
     </item>
     <item>
-      <title>我想要对此的反馈</title>
-      <link>https://www.reddit.com/r/programming/comments/1pfddjp/i_want_feedback_on_this/</link>
-      <description><![CDATA[我个人在生活中花了很多时间过度思考选项，因此我创建了一个人工智能，可以帮助我根据我提供的响应选择最合适的选项。它是如何运作的？你可以上传两个选项，或者最多十个，人工智能会问你几个问题。然后，它将为您提供推荐选项以及详细分析。 https://www.decisionai.click/ 它是完全免费的，我愿意接受你们的反馈。这只是我有趣的项目之一！！！   由   提交/u/Iambibek17  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pfddjp/i_want_feedback_on_this/</guid>
-      <pubDate>Sat, 06 Dec 2025 02:00:16 GMT</pubDate>
+      <title>构建者，而非贡献者</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfk0zg/builder_not_contributor/</link>
+      <description><![CDATA[观点不受欢迎，但我觉得有必要说一下   由   提交 /u/Full-Ad4541   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfk0zg/builder_not_contributor/</guid>
+      <pubDate>Sat, 06 Dec 2025 08:08:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>资源包创建是编程吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfjvim/is_resource_pack_creation_programming/</link>
+      <description><![CDATA[非常想知道什么可以被视为编程，什么不能被视为。基本上，我正在制作一个小型 Minecraft java 资源包，并且我必须处理大量 json 文件（从技术上讲，这些文件中没有编程语言，只有数据），但是我也在使用核心着色器（采用编程语言 - glsl）。所以我想知道，资源包的创建通常是否被视为编程 - 假设一个人主要花时间处理 json 和 .fsh 文件？  我觉得答案应该是否定的，但同时在我的例子中，json 文件中有很多有趣的 if/else 逻辑，所以我不确定。  附注需要明确的是，我问这个问题并不是为了向任何人吹嘘我是一名程序员或 wtv，只是对你们的想法感兴趣。显然，编写一个实际的应用程序或类似的东西总是比创建资源包更实际的编程   由   提交/u/_Ketari   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfjvim/is_resource_pack_creation_programming/</guid>
+      <pubDate>Sat, 06 Dec 2025 07:59:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>回归基础：掌握 C++ 友谊 - Mateusz Pusz - CppCon 2025</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfizj8/back_to_basics_master_c_friendship_mateusz_pusz/</link>
+      <description><![CDATA[ 由   提交/u/BlueGoliath  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfizj8/back_to_basics_master_c_friendship_mateusz_pusz/</guid>
+      <pubDate>Sat, 06 Dec 2025 07:03:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jetbrains IDE 调试器 MCP 服务器 - 让 AI Coding Agent 自主使用 IntelliJ/Pycharm/Webstorm/Golang/(更多) 调试器</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfiqw7/jetbrains_ide_debugger_mcp_server_let_ai_coding/</link>
+      <description><![CDATA[嗨， TL;DR: 我构建了一个插件，可以通过 MCP 公开任何 JetBrain 的 IDE 调试器 曾经与 Claude/Cursor 进行过这样的对话吗？  AI：“你能在第 42 行设置一个断点并告诉我用户包含什么内容吗？” 你：设置断点，运行调试器，复制变量转储 AI：“有趣。现在您可以单步执行 getProfile() 并检查返回值吗？&quot; 您：执行步骤，复制更多值 重复 10 次...  您只是 AI 和调试器之间的复制粘贴中间人。 或者更糟 — AI 求助于打印语句 不再是了。 调试器 MCP 服务器 - 给予 AI助手完全控制任何 Jetbrains IDE 调试器 🧠 我构建了一个插件，通过 MCP 公开 JetBrains IDE 的调试器，让 Claude Code、Cursor 和 Windsurf 等 AI 助手自动调试您的代码 — 设置断点、单步执行、检查变量并查找错误，而无需您成为复制粘贴中间人。 🎬 在插件之前与插件之后 🔴之前：“调试此 NullPointerException” → 15 条关于您设置断点和来回复制变量值的消息。 🟢 之后：“调试此 NullPointerException” → AI 设置异常断点、运行应用程序、检查堆栈和变量→“找到它 - userRepository 为 null，因为 u/Autowired 失败。该 bean 未注册。” ✅ 🔴之前：“为什么这个循环只运行3次？” → 在报告每次迭代时手动逐步执行。 🟢 之后：“为什么这个循环只运行 3 次？” → AI 逐步执行，检查计数器 → “条件 i &lt; items.size() 失败，因为 items.size() 是 3，而不是 5。第 28 行的过滤器删除了 2 个项目。” ✅ 🔴之前：“这里的response.data的值是多少？” → AI 添加 System.out.println(response.data)，您运行它，复制输出，AI 添加更多打印，您再次运行，然后清理所有打印。 🙄 🟢 之后：“这里 response.data 的值是多少？” → AI 设置断点，在调试中运行，检查变量 → 干净的代码，即时答案。 ✅ 🔴 之前：“查找此对象损坏的位置” → AI 猜测，要求您在 5 个文件中添加 10 条打印语句。 🟢 之后：“查找此对象损坏的位置” → 当 obj.status == CORRUPTED 时，AI 设置条件断点，运行应用程序，捕获确切时刻 → “DataProcessor 中的第 87 行 — merge() 调用覆盖有效数据。” ✅ 插件提供的功能 它在 IDE 内运行 MCP 服务器，让 AI 助手能够访问真正的 JetBrains 调试器功能：  会话管理 - 启动/停止调试会话，在调试模式下运行任何配置 断点 - 带条件的行断点、日志消息（跟踪点）、异常断点 执行控制- 跳过/进入/退出、恢复、暂停、运行到特定行 变量检查 - 查看局部变量、展开对象、动态修改值 表达式计算 - 计算当前调试上下文中的任何表达式 堆栈导航 - 查看调用堆栈、切换帧、列出线程 丰富的状态 - 在一次调用中获取变量、堆栈和源上下文  适用于：所有JetBrains IDE（IntelliJ、PyCharm、WebStorm、GoLand 等） 设置（30 秒）：  从 JetBrains Marketplace 安装：“调试器 MCP 服务器” 添加到您的 AI 客户端 - 您有一个“安装在 AI 代理上”选项工具 GUI 中的按钮 - 一键安装 Claude Code  很高兴回答问题。欢迎反馈！ 链接：https://plugins.jetbrains.com/plugin/29233-debugger-mcp-server P.S：查看我的其他 jetbrain 插件 mcp 服务器，让您的代理能够访问 IDE 的大脑（重构、查找引用、继承继承、调用继承等）   由   提交/u/Used-Acanthisitta590   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfiqw7/jetbrains_ide_debugger_mcp_server_let_ai_coding/</guid>
+      <pubDate>Sat, 06 Dec 2025 06:49:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rust 编译短视频</title>
+      <link>https://www.reddit.com/r/programming/comments/1pfip2j/rust_compilation_short_video/</link>
+      <description><![CDATA[ 由   提交/u/aditya26sg   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pfip2j/rust_compilation_short_video/</guid>
+      <pubDate>Sat, 06 Dec 2025 06:46:02 GMT</pubDate>
     </item>
     <item>
       <title>这是我咨询生涯中的一个金融科技项目的详细分解。</title>
@@ -55,7 +83,7 @@
       <pubDate>Fri, 05 Dec 2025 19:26:50 GMT</pubDate>
     </item>
     <item>
-      <title>Fizz Buzz 用 4 行 CSS 编写</title>
+      <title>用 4 行 CSS 编写 Fizz Buzz</title>
       <link>https://www.reddit.com/r/programming/comments/1pf41xp/fizz_buzz_in_4_lines_of_css/</link>
       <description><![CDATA[ 由   提交/u/brightlystar  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pf41xp/fizz_buzz_in_4_lines_of_css/</guid>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交/u/gregorojstersek   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pezojw/essential_skills_for_engineers_to_thrive_in_the/</guid>
       <pubDate>Fri, 05 Dec 2025 16:34:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>Filipe Mulonde：对人工智能和软件的随机思考</title>
-      <link>https://www.reddit.com/r/programming/comments/1pexv40/filipe_mulonde_random_thought_on_ai_and_software/</link>
-      <description><![CDATA[本次演讲是关于软件如何变化的自发想法的集合——从经典的“软件 1.0”到数据驱动的“2.0”，再到现在由法学硕士驱动的“3.0”。这不是一个完善的框架，而是一系列关于法学硕士真正可以提供帮助的地方、它们的不足之处，以及我们如何在不失去围绕清晰度、正确性和控制的核心工程本能的情况下使用它们的一系列实时反思。   由   提交/u/_a4z  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pexv40/filipe_mulonde_random_thought_on_ai_and_software/</guid>
-      <pubDate>Fri, 05 Dec 2025 15:24:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>互联网上唯一简单的几何约束求解器</title>
-      <link>https://www.reddit.com/r/programming/comments/1pexv0f/the_only_simple_geometric_constraint_solver_on/</link>
-      <description><![CDATA[现在您可以了解 3D CAD 的内部工作原理了。    由   提交/u/felzsirostej   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pexv0f/the_only_simple_geometric_constraint_solver_on/</guid>
-      <pubDate>Fri, 05 Dec 2025 15:23:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用代理客户端协议 (ACP) 自带 AI 代理</title>
-      <link>https://www.reddit.com/r/programming/comments/1pewxpj/bring_your_own_ai_agent_using_agent_client/</link>
-      <description><![CDATA[ 由   提交 /u/ignatovs   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pewxpj/bring_your_own_ai_agent_using_agent_client/</guid>
-      <pubDate>Fri, 05 Dec 2025 14:47:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>C3 0.7.8 版本：结构展开和向量混合初始化</title>
-      <link>https://www.reddit.com/r/programming/comments/1pewvug/c3_078_release_struct_splatting_and_vector/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pewvug/c3_078_release_struct_splatting_and_vector/</guid>
-      <pubDate>Fri, 05 Dec 2025 14:45:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
