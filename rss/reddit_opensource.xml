@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 08 Dec 2025 06:42:29 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Dec 2025 09:36:04 GMT</lastBuildDate>
+    <item>
+      <title>用于 Google 和其他搜索引擎结果的 SerpApi MCP 服务器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ph7cd0/serpapi_mcp_server_for_google_and_other_search/</link>
+      <description><![CDATA[       由   提交 /u/softcrater   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ph7cd0/serpapi_mcp_server_for_google_and_other_search/</guid>
+      <pubDate>Mon, 08 Dec 2025 08:33:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>难道我们不需要将现有的和新的开源项目转移到内存、CPU 和 GPU 高效的代码上吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ph71nb/dont_we_need_to_shift_existing_and_new_open/</link>
+      <description><![CDATA[曾经有一段时间，操作系统和各种程序需要最少的资源（内存、存储、CPU）来运行。我发现基于 Electron 构建的 VS Code 等应用程序的响应与基于 Rust 构建的 Zed 等 IDE 的响应存在明显差异。我怀念Windows XP的灵活和快速的反应。使用 C++ 构建的游戏和程序的快速执行和响应。我知道任何语言都可以编译为机器语言，并且它会自动变得更快，但是我想说的是，曾经有一段时间，工程师至少付出了一些努力来确保其程序的资源效率。如今，这一点似乎已经消失，重点转向了快速交付。 用 C 和 C++ 编写的程序存在内存安全问题，而且我听说许多 Ubuntu 模块正在用 Rust 重写。这是一个不错的选择。但是，当我看到各种其他框架，如 React、Flutter、许多 Python 框架（即使它是 C++ 的包装器），甚至即时编译等，我看到它们是多么缓慢和庞大时，我意识到这不仅会造成糟糕的用户体验，对程序的缓慢感到恼火，还会消耗更多的服务器资源，从而大大增加运行操作的成本。也许另一种优化是拥有自动检测各种类型的 GPU 和 APU 的模块，不仅能够将大量处理转移到 GPU，而且能够检测 GPU 并在用户尚未安装正确的驱动程序时推荐合适的驱动程序（这种情况可能发生在像我这样不知道 AMD APU 需要单独的特定 ROCm 驱动程序的用户身上）。 如果开源社区考虑慢慢迁移到（并构建）资源高效型代码，那就太好了无处不在。我已经这样做了，将我最新的开源程序从 Python 迁移到 C++。  另一个需要考虑的重要方面是语法和语义。最近引入的语言具有如此奇怪的语法和嵌套代码，以至于必须不断学习基于某些开发人员的突发奇想而创建的新语法是令人头脑麻木的。    由   提交 /u/goodhealthmatters   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ph71nb/dont_we_need_to_shift_existing_and_new_open/</guid>
+      <pubDate>Mon, 08 Dec 2025 08:13:40 GMT</pubDate>
+    </item>
     <item>
       <title>构建了一个具有审批和 SSO 功能的开源自助服务平台。单一二进制</title>
       <link>https://www.reddit.com/r/opensource/comments/1ph2e5x/built_an_opensource_selfservice_platform_with/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pgko4j/beecount_one_month_update_dark_mode_tags_budget/</guid>
       <pubDate>Sun, 07 Dec 2025 15:12:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>我厌倦了在测试支付时达到 API 限制，因此我构建了自己的开源模拟网关（FastAPI + Postgres）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pgjvpq/i_got_tired_of_hitting_api_limits_while_testing/</link>
-      <description><![CDATA[Wsp r/opensource! 我构建电子商务应用程序已经有一段时间了，测试支付集成总是有点令人头疼。 Stripe 的测试模式很棒，但有时您会遇到速率限制、互联网中断，或者您只是想要一个完全隔离的 Docker 容器来模拟“成功”测试。或“失败”无需配置外部仪表板即可立即状态。 我找不到一个自托管工具来模拟整个流程（包括重定向到支付页面和 2FA），因此我决定自己构建一个。 它名为 AcquireMock。 想法很简单：它是一个在本地运行的支付处理器模拟器。它模仿真实 PSP（支付服务提供商）（如 Stripe 或 Fondy）的行为，但让您完全控制。 它实际做什么：  结账 UI： 它生成一个真实的支付页面（支持暗模式和多语言）。您可以输入经典的4444...测试卡。 模拟2FA：它会触发OTP验证流程。它可以将代码发送到您的电子邮件，或者如果您不想设置 SMTP，则只需将其记录到控制台。 Webhooks：这是最难做好的部分。它将 HMAC-SHA256 签名的 Webhook 发送到您的应用程序。如果您的应用程序崩溃或返回 500 错误，AcquireMock 会通过指数退避实现重试逻辑。 标记化：   技术堆栈：我想让它保持现代但稳定：  后端： Python 3.12、FastAPI、SQLModel (SQLAlchemy + Pydantic)。 DB： 用于生产的 PostgreSQL，但与用于开发的 SQLite 配合良好。 前端：只有 Jinja2 模板和 Vanilla JS。我不想为开发工具执行繁重的 React 构建步骤。 部署： Docker Compose（一个命令启动）。  为什么使用这个？如果您正在教开发人员支付流程如何工作，在尚未注册提供商的情况下构建 MVP，或者只是想离线运行集成测试 - 这适合您。 许可和许可仓库：它是在Apache 2.0下开源的。 存储库：https://github.com/illusiOxd/acquiremock 感谢您查看！    由   提交 /u/illusiON_MLG1337   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pgjvpq/i_got_tired_of_hitting_api_limits_while_testing/</guid>
-      <pubDate>Sun, 07 Dec 2025 14:39:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我自己开发了一款适用于 Windows 的免费开源垃圾清除工具，可帮助您从驱动器中挤出更多千兆字节，因为当前存储相关硬件的消费市场已经变得昂贵。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pghzl0/i_do_my_own_take_on_a_free_opensource_junk/</link>
-      <description><![CDATA[大家好， 我们所有无法忍受驱动器充满垃圾的人都有自己的方法和工具来识别和管理此问题。我喜欢构建解决像这样的日常 PC 问题的小型实用程序（即使有时可能已经存在其他实用程序），因此我一直在研究自己的清理工具 - 任何人都可以使用的快速、安全和轻量级的东西。 它被称为 Cleanse，它是一个免费、开源 Windows 工具，专注于清除随着时间的推移而悄悄膨胀的目录中的剩余文件。 Cleanse 还包括详细的统计数据和图表，以便您可以准确了解已清理的内容以及磁盘使用情况随时间的变化。我正在将其构建为一个完全由社区反馈驱动的最小、无广告、无膨胀的替代方案。任何人都可以提出功能建议、报告问题，甚至自己修改代码——该项目已获得 GNU GPLv3 许可，因此整个事情保持开放和透明。 现在，Cleanse 处于工作但基本的状态。它已经可以：  估计系统上的垃圾 立即清理 运行计划的自动清理 自动更新。  计划的功能包括：  紧急文件恢复（安全回滚） 深度清理（按文件大小/类型/文件夹过滤） 高级日志 可能还有一个用于检测已卸载应用程序中剩余文件的系统  我希望人们尝试一下，打破它，提供反馈，并帮助塑造它的发展方向。一个小社区共同改进这个工具的想法是最激励我的部分！ 提前感谢所有检查它的人！代码： https://github.com/Drimiteros/Cleanse   由   提交 /u/_slDev_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pghzl0/i_do_my_own_take_on_a_free_opensource_junk/</guid>
-      <pubDate>Sun, 07 Dec 2025 13:09:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
