@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 10 Dec 2025 09:31:31 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 12:55:47 GMT</lastBuildDate>
+    <item>
+      <title>AWS 还是 Firebase？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pj150t/aws_or_firebase/</link>
+      <description><![CDATA[大家好，我在这里遇到了一个困境，你们一定已经听过很多次了，所以...我正在为客户做自由职业现在需要很简单，一个网站来展示他们的公司并列出他们的产品一个仪表板可以编辑内容，他们拥有的 4 个页面上的图片 我接下来要使用前端后端是我感到困惑的现在他们的需求非常简单，他们不会经常使用仪表板只是为了更改此处和那里的图片或内容我应该使用什么来以合理的成本处理此问题。  Aws - 较低层、共享计算机或 Firebase  请帮助您提供任何建议。  谢谢！！    由   提交 /u/KILL_VELLA   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pj150t/aws_or_firebase/</guid>
+      <pubDate>Wed, 10 Dec 2025 12:18:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>您将如何构建纯 CSS 终端风格的 UI？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pj0nmo/how_would_you_structure_a_cssonly_terminalstyle_ui/</link>
+      <description><![CDATA[我正在为一个项目试验纯 CSS 终端样式 UI 组件，并希望获得有关该方法的一些反馈。 这是一个小原型：https://letieu.github.io/terminal.css/ 您对改进 HTML 结构、类命名或可达性？对于这样的组件，我应该遵循任何常见模式吗？ 谢谢！   由   提交 /u/Jealous-Salary-3348   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pj0nmo/how_would_you_structure_a_cssonly_terminalstyle_ui/</guid>
+      <pubDate>Wed, 10 Dec 2025 11:52:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>单元测试是一种责任。集成测试提供了一组更好的权衡</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pizwps/unit_tests_are_a_liability_integration_tests/</link>
+      <description><![CDATA[单元测试是一种责任。 为什么？ 首先，定义 - 它们是最基本的测试，用于检查单个单元是否独立工作。什么是单位？它是一个函数或一个对象/类。最基本的例子： function sum(a, b) { return a + b; } test(&#39;应该将两个数字相加&#39;, () =&gt; { var a = 2; var b = 2; var c = 4; assert.equal(sum(a, b), c); });  我们这里没有任何依赖项，但如果一个单元有它们，它们通常会被嘲笑或伪造。它可以通过使用库或创建所需依赖项的以测试为中心的实现来完成。 他们的主要目标是检查函数/对象是否独立工作，忽略其依赖项。它们的编写和运行速度很快，而且因为我们专注于一小段独立的代码 - 易于理解。也正因为如此，它们可以促进功能和对象的良好设计。如果它很糟糕，当我们尝试编写一个测试并发现我们不能真正做到或者它非常复杂时，它就会变得非常明显。单元测试使我们的代码处于检查状态 - 它需要可测试，这意味着简单并专注于一个特定的事情。 不幸的是，它们需要大量的精力来维护，因为它们与测试的代码紧密耦合。 在单元测试中，我们直接依赖于实现细节来测试对象的函数或方法。当我们重构这段代码时，我们还需要重构它的测试。如果我们有一个依赖于其他对象的对象，并且我们也对这些依赖对象进行单元测试，那么问题会变得更糟。 假设我们有一个对象 A 并且我们已经对其进行了彻底的测试。此外，对象 B、C 和 D 使用对象 A 作为依赖项。我们已经为所有这些对象：B、C 和 D 编写了单元测试，其中我们使用对象 A 的伪造版本。现在，如果我们重构对象 A，我们不仅需要重构或可能完全重写其测试，而且还需要更新所有依赖对象的测试：B、C 和 D。 在这种情况下，纯单元测试（我们伪造/模拟所有依赖项并直接控制它们的行为方式）实际上会妨碍重构和代码演化，因为即使是最简单的更改一个对象可能意味着许多其他地方的大量更改，尤其是测试。 尽管它们运行、编写速度快并且易于理解，但它们只单独测试一个函数/一个对象。我们只能确定这个被测试的特定单元可以工作。如果它与其他函数/方法一起使用（几乎总是这种情况），我们不知道它是否能与它们一起工作。 因此，我认为单元测试的有用性仅限于可重用和/或复杂的代码片段，并且专注于一个特定的事情。这些可以是库函数、可重用组件、某些协议的公共客户端、文件解析器、算法等等。 在许多情况下，它们是一种使我们的代码变得僵化并阻碍更改的责任 - 集成测试提供了一组更好的权衡。 我就此类主题撰写了更深入、更广泛的文章。感谢您的阅读！   由   提交 /u/BinaryIgor   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pizwps/unit_tests_are_a_liability_integration_tests/</guid>
+      <pubDate>Wed, 10 Dec 2025 11:08:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>WordPress 网站的费用？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1piyzve/cost_of_wordpress_website/</link>
+      <description><![CDATA[一个可以在其中销售数字产品的专业商业网站的成本是多少？   由   提交/u/dasun0218  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1piyzve/cost_of_wordpress_website/</guid>
+      <pubDate>Wed, 10 Dec 2025 10:11:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>您通常如何处理应用程序中的资产存储（图像），以及如何将计费转移给客户？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1piyzs6/how_do_you_usually_handle_asset_storage_images_in/</link>
+      <description><![CDATA[我正在构建一个小型应用程序（后端 php/laravel），用户可以在其中上传图像。我正在考虑 Cloudflare R2 或 BunnyCDN，但我不确定标准工作流程是什么： 您通常如何设置存储/CDN，以及项目完成后如何将帐户 + 计费责任移交给客户？   由   提交 /u/Serotoninene   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1piyzs6/how_do_you_usually_handle_asset_storage_images_in/</guid>
+      <pubDate>Wed, 10 Dec 2025 10:11:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>HTMX 实际上是构建完整 SPA 的良好替代方案，还是主要用于简单项目？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1piyfud/is_htmx_actually_a_good_alternative_to_building/</link>
+      <description><![CDATA[我是 Web 开发新手，最近经常看到 HTMX 被提及。有些人说这是一种无需完整 JavaScript 框架即可构建交互式应用程序的轻量级方法，而另一些人则说它基本上是旧式服务器渲染，但换了一个新名称。  对于学习现代前端的人来说，HTMX 值得投入时间吗？   由   提交 /u/Wash-Fair   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1piyfud/is_htmx_actually_a_good_alternative_to_building/</guid>
+      <pubDate>Wed, 10 Dec 2025 09:36:20 GMT</pubDate>
+    </item>
     <item>
       <title>为什么我在招聘网站上到处都能看到这家废话粗略的“公司”？</title>
       <link>https://www.reddit.com/r/webdev/comments/1pixxym/why_am_i_seeing_this_bs_sketchy_company/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[我是一名专注于前端的开发人员，我主要使用静态页面 - HTML、CSS、JS、一些库，并且我只偶尔接触后端。如今，我每天都使用 Windows，一切都正常，但我总是看到很多人说“一旦迁移到 macOS，他们就再也没有回去过”。 我真正的问题是：对于基本上在一线工作的人来说，现实世界中的实际区别是什么？有直接的收获吗？工作流程更顺畅？只在 macOS 上运行良好的工具？还是只是偏好？ 我想听听真实的体验：对于那些在前端工作的人，尤其是静态项目的人来说，迁移到 macOS 时是否真的感受到了重要的区别？或者最终是否更多地取决于品味、良好的屏幕和苹果的生态系统？ （我使用 Lenovo Gaming 3I I7 10gn，正在考虑迁移到 MacBook M1 或 M2）   由   提交 /u/Logical_Valuable_970   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pipvpo/does_macos_really_make_a_difference_for_those_who/</guid>
       <pubDate>Wed, 10 Dec 2025 01:43:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>好的域名注册商吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pip8ms/good_domain_registrar/</link>
-      <description><![CDATA[我目前通过 Canva 购买了一个自定义域名，因为我用它来制作我的网站，但我认为如果我取消专业版订阅，我将无法访问它。  我现在使用framer来构建我的网站，我想将我的域名转移到其他不需要订阅域名账单的网站（即不是canva，不是wix等） 我对这一切都很陌生，所以任何信息都是有帮助的:)我不想搞砸并最终完全失去域名哈哈   由   提交 /u/mcoccalendar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pip8ms/good_domain_registrar/</guid>
-      <pubDate>Wed, 10 Dec 2025 01:14:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要有关服务业务的免费网站构建器的建议吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pinjp8/need_advice_for_free_website_builder_for_service/</link>
-      <description><![CDATA[创办一家小型灌溉/洒水公司并尝试建立我的网站......但我的托管提供商是一场噩梦。我支付了 175 美元，但他们仍然限制 SSH 访问，除非我购买 500 美元的升级版。 在我承担损失之前，有没有人推荐一个免费的网站构建器，可以让我快速制作一个简单的免费网站？ 我可以编辑少量代码，只是不想从零开始。 寻找可以让我添加以下内容的东西：服务 |联系我们 |评论 |职位 欢迎任何建议   由   提交 /u/MoistGovernment9115   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pinjp8/need_advice_for_free_website_builder_for_service/</guid>
-      <pubDate>Wed, 10 Dec 2025 00:00:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>健全性检查</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pilrca/sanity_check/</link>
-      <description><![CDATA[嘿大家，我一直在考虑开发一个利基网站的想法，但坦率地说，作为一个完全的新手，我不确定情况是什么样的。 这个想法类似于 etsy 或 facebook 市场， -向卖家提供个人资料和半个性化店面（模板） -粗略地理位置方便范围过滤器 -A“博客”供卖家撰写帖子以及上传照片和短视频的部分  - 能够本地交叉发布到更大的社交媒体 愿望清单上还有一些其他功能，但这些几乎是核心。  我会在这里看到什么样的报价？第三方虚拟主机是否足够，或者我是否需要投资自托管设置？是否值得雇用，还是我应该自己解决如此看似复杂的事情？老实说，欢迎任何反馈。   由   提交 /u/MuchachoMongo   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pilrca/sanity_check/</guid>
-      <pubDate>Tue, 09 Dec 2025 22:44:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>WordPress 保证金问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pilnqx/wordpress_margin_question/</link>
-      <description><![CDATA[这是今晚到期的最终项目，我需要一些有关利润的快速帮助。我正在使用 WordPress。我想让它成为一个全页面宽度的画廊块并且没有边距，我已经尝试了显示的所有内容，使其成为全角，手动更改了边距，甚至尝试了CSS命令。在广泛搜索 youtube、google 和 wordpress 论坛后，我没有找到任何可以解决此问题的方法。在编辑器上，它显示的画廊块没有像我想要的那样的边距，但是在预览我的网站时，它显示它具有厚的白色边距。 https://imgur.com/a/M6LIINV   由   提交/u/Stargeant_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pilnqx/wordpress_margin_question/</guid>
-      <pubDate>Tue, 09 Dec 2025 22:40:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>确实需要帮助解决网站问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pilncq/really_need_help_with_a_website_issue/</link>
-      <description><![CDATA[这令人不安。两年前，我错过了我拥有的域名的续订日期。一年来，它都是一个人工智能生成的网站。一年后，该域名最终被拍卖，我的出价被高出。现在，新所有者已经成功上传了我网站几年前的存档版本。我不确定该网站是否正在运行 Wordpress。与此同时，我购买了 .net，但我不确定为什么或如何有人可以获得我网站的旧版本。  我该如何解决这个问题，因为这是我的全部内容？我的名字甚至出现在网站上。感谢所有帮助。  域名是 flixelPix.com  感谢所有帮助，我不知道从哪里开始。   由   提交/u/Weary-Fan946   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pilncq/really_need_help_with_a_website_issue/</guid>
-      <pubDate>Tue, 09 Dec 2025 22:39:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>免费域名/托管？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pil828/free_domainhosting/</link>
-      <description><![CDATA[嗨！我是一名多媒体艺术家，正在编写自己的作品集网站。我想写一个博客来谈论我的领域。我正在 github 上工作，但考虑到我要添加一个博客，我不知道完成后继续使用 GitHub Pages 是否是一个好主意？我应该尝试不同的服务吗？ 问题是，我希望拥有自己的域名，例如 [name].com，但我目前失业，因此暂时需要一个免费域名。  我非常感谢你的建议。谢谢！   由   提交 /u/Atenea_a   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pil828/free_domainhosting/</guid>
-      <pubDate>Tue, 09 Dec 2025 22:22:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
