@@ -4,13 +4,34 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 10 Dec 2025 18:37:23 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 21:27:43 GMT</lastBuildDate>
     <item>
-      <title>UniAPI：使用浏览器自动化将社交媒体 API 统一到单一界面后面</title>
-      <link>https://www.reddit.com/r/programming/comments/1pjakqd/uniapi_using_browser_automation_to_unify_social/</link>
-      <description><![CDATA[我一直致力于一个名为 UniAPI 的项目，探索与社交媒体平台交互的另一种方法：浏览器自动化而不是官方 API。 这并不是要替代生产中的官方 API，而是对抽象、自动化和开发人员人体工程学的技术探索。 ⸻ 动机 官方社交媒体 API越来越多地具有一些共同特征： • 对用户级操作的访问受限 • 特定于平台的 SDK 和数据模型 • 漫长的审批流程或付费等级 • 快速变化的政策 同时，Web 界面本身对于登录用户仍然具有完整的功能。 这向我提出了一个问题： 我们能否将社交平台视为 UI 驱动的系统，并在其之上构建稳定的抽象层？ ⸻ 什么UniAPI 确实 UniAPI 为跨多个平台的常见社交互动提供统一的 API，包括： • Instagram • TikTok • Twitter (X) • Facebook • LinkedIn 喜欢内容、评论、关注用户或发送消息等操作共享相同的界面，无论平台如何。 在内部，该项目使用： • FastAPI 作为集中式 API 网关 • 每个平台的适配器服务 • 用于浏览器级自动化的 Playwright 目标是将： • 特定于平台的 UI 逻辑与 • 应用程序级自动化逻辑分开 ⸻ 架构概述 高级流程： 客户端代码 ↓ 统一的 Python SDK / REST API ↓ FastAPI 网关 ↓ 平台适配器 ↓ Playwright（浏览器自动化） ↓ 每个平台的 Web UI 每个平台适配器将统一的操作（如评论、关注）映射到平台的操作UI 工作流程。 ⸻ 为什么选择浏览器自动化？ 与官方 API 相比，浏览器自动化提供： 优点： • 无需平台审批流程 • 访问真正的用户级功能 • 跨平台一致的行为 权衡： • UI 更改时的维护成本更高 • 比直接 API 调用速度慢 • 需要仔细的速率限制和类似人类的行为 此项目特意接受这些权衡来研究抽象边界应该存在的位置。 ⸻ 这与现有工具有何不同 • 官方 API 优先考虑平台控制和货币化 • 原始自动化脚本往往很脆弱且特定于平台 UniAPI 侧重于： • 统一的接口层 • 模块化（每个平台都是一个适配器） • 快速实验和原型设计 它更接近基础设施实验，而不是基础设施实验最终用户自动化工具。 ⸻ 预期用途 • 学习和实验 • 研究和原型设计 • 探索大规模自动化架构 • 比较 API 驱动与 UI 驱动的系统设计 不适用于商业大规模自动化。 ⸻ 代码和设计文档 GitHub： https://github.com/LiuLucian/uniapi 启动后可通过 FastAPI 获取本地 API 文档：http://localhost:8000/api/docs ⸻ 讨论 我对以下方面的反馈特别感兴趣： • 是否UI 驱动的自动化是一种可持续的抽象方法 • 其他人如何跨平台处理 API 碎片 • 您在自动化和官方集成之间划清界限 乐于讨论架构权衡或回答技术问题。   由   提交/u/LiuLucian  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pjakqd/uniapi_using_browser_automation_to_unify_social/</guid>
-      <pubDate>Wed, 10 Dec 2025 18:36:23 GMT</pubDate>
+      <title>使用边缘检测在缩小尺寸的同时保留图像中的重要特征，其结果比单纯的下采样要好得多</title>
+      <link>https://www.reddit.com/r/programming/comments/1pjeylg/using_edge_detection_to_preserve_significant/</link>
+      <description><![CDATA[ 由   提交/u/yogthos   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pjeylg/using_edge_detection_to_preserve_significant/</guid>
+      <pubDate>Wed, 10 Dec 2025 21:21:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何在 PostgreSQL 中构建单遍高效的分面搜索。</title>
+      <link>https://www.reddit.com/r/programming/comments/1pjebuz/how_we_built_single_pass_efficient_faceted_search/</link>
+      <description><![CDATA[我们刚刚更新了 `pg_search` 以支持分面搜索👀 它使用自定义窗口函数，挂钩规划器并使用自定义扫描，以便所有工作（搜索和聚合）都被推送到我们的 BM25 索引（基于 Tantivy）的单次传递中。 由于索引具有柱状组件，我们可以有效地计算计数并将其作为 JSON 与排名结果一起返回。   由   提交/u/jamesgresql  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pjebuz/how_we_built_single_pass_efficient_faceted_search/</guid>
+      <pubDate>Wed, 10 Dec 2025 20:57:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用基于主干的开发和非阻塞审查的现代软件工程案例研究。</title>
+      <link>https://www.reddit.com/r/programming/comments/1pjdcy2/modern_software_engineering_case_study_of_using/</link>
+      <description><![CDATA[ 由   提交/u/martindukz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pjdcy2/modern_software_engineering_case_study_of_using/</guid>
+      <pubDate>Wed, 10 Dec 2025 20:19:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>征文：第 17 届国际计算创造力会议 (ICCC'26) | 2026年6月29日至7月3日</title>
+      <link>https://www.reddit.com/r/programming/comments/1pjboc5/call_for_papers_17th_international_conference_on/</link>
+      <description><![CDATA[ 由   提交 /u/ICCCConf-Publicity   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pjboc5/call_for_papers_17th_international_conference_on/</guid>
+      <pubDate>Wed, 10 Dec 2025 19:17:05 GMT</pubDate>
     </item>
     <item>
       <title>为什么要写工程博客？</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pixxy9/seeing_through_the_microservices_hype/</guid>
       <pubDate>Wed, 10 Dec 2025 09:02:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何从头开始打造一个学习日语的开源平台</title>
-      <link>https://www.reddit.com/r/programming/comments/1pix2ud/how_i_cultivated_an_opensource_platform_for/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pix2ud/how_i_cultivated_an_opensource_platform_for/</guid>
-      <pubDate>Wed, 10 Dec 2025 08:04:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>🦀 铁锈变得更安全：二茂铁获得新认证</title>
-      <link>https://www.reddit.com/r/programming/comments/1piwz8t/rust_just_got_safer_ferrocene_lands_new/</link>
-      <description><![CDATA[ 由   提交/u/web3writer  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1piwz8t/rust_just_got_safer_ferrocene_lands_new/</guid>
-      <pubDate>Wed, 10 Dec 2025 07:57:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>我对 ChatGPT 的内存系统进行了逆向工程，这就是我的发现！</title>
-      <link>https://www.reddit.com/r/programming/comments/1piu3h4/i_reverse_engineered_chatgpts_memory_system_and/</link>
-      <description><![CDATA[过去几天我一直在促使 ChatGPT 了解其内存系统的实际工作原理。这是一项艰巨的工作，因为 ChatGPT 还没有准备好透露秘密。  剧透警告：没有使用 RAG   由   提交/u/Any-Cockroach-3233  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1piu3h4/i_reverse_engineered_chatgpts_memory_system_and/</guid>
-      <pubDate>Wed, 10 Dec 2025 05:08:08 GMT</pubDate>
     </item>
     </channel>
 </rss>
