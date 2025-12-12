@@ -4,7 +4,42 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 12 Dec 2025 12:53:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Dec 2025 15:28:04 GMT</lastBuildDate>
+    <item>
+      <title>面向 ML/DL 工程师的 git 存储库</title>
+      <link>https://www.reddit.com/r/programming/comments/1pku6zr/a_git_repo_for_mldl_engineers/</link>
+      <description><![CDATA[一个 GitHub 存储库，其中包含 ML/DL 资源、书籍 PDF 和初学者友好指南。 如果您正在开始您的旅程或完善基础知识，这可能会节省您的时间。 面向机器学习工程师的免费书籍 pdfsf：PDFS | Github 面向初学者的机器学习路线图：路线图 | AIML |初学者 | Medium 随意使用它，建议添加，或分叉并构建您自己的版本！   由   提交/u/InvestigatorEasy7673  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pku6zr/a_git_repo_for_mldl_engineers/</guid>
+      <pubDate>Fri, 12 Dec 2025 15:07:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们厌倦了流氓人工智能代理。因此我们建立了 Idun，一个用于代理治理的开源平台</title>
+      <link>https://www.reddit.com/r/programming/comments/1pkt8dh/we_got_tired_of_rogue_ai_agents_so_we_built_idun/</link>
+      <description><![CDATA[大家好！ 我们是四个朋友，都在这个行业工作，我们一直在碰同一堵墙：很酷的 AI 代理，但真正的治理为零。 因此，我们构建了 Idun Agent Platform，这是一个开源控制平面，可以在一个地方管理所有 AI 代理，在您的infra：  自托管（虚拟机/k8s/您信任的任何云） 一个地方可存放代理、环境、密钥、配置 治理：RBAC、环境分离、审计跟踪 可观察性：查看每个代理做了什么、调用了哪些工具、在哪里失败了 与模型无关（插入不同的 LLM 提供商，包括“主权”提供商）  查看我们的 GitHub：Idun Agent Platform 或我们的 Discord 服务器 现在还很早，但已经在一些真实的环境中运行设置，我们正在寻找反馈，只是开发人员测试我们的解决方案，如果我们确实值得的话，还有一些⭐️！ 非常感谢大家查看它！   由   提交/u/HihoSisiko   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pkt8dh/we_got_tired_of_rogue_ai_agents_so_we_built_idun/</guid>
+      <pubDate>Fri, 12 Dec 2025 14:27:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个现代的 RabbitMQ 管理界面，因为我厌倦了默认的 UI</title>
+      <link>https://www.reddit.com/r/programming/comments/1pksydw/i_built_a_modern_rabbitmq_management_interface/</link>
+      <description><![CDATA[大家好， 过去几个月我一直在做一个副项目，终于准备好分享它了。 它的名字叫 RabbitHQ，目标很简单：让 RabbitMQ 监控不再痛苦。 我总是发现默认的管理 UI 已经过时了，尤其是在处理多个服务器时。因此，我构建了一些东西，可以为您提供：  为所有 RabbitMQ 服务器提供干净的统一仪表板 现代 UI 中的队列/交换/虚拟主机/用户管理 高级分析 智能、可操作的警报，通过 Slack/电子邮件/webhook 及早发现问题 团队工作区  它通过管理 API，无需更改您的基础设施。 我真的很想听听您的想法，什么对您有用，什么不适合，以及感觉缺少什么。在此阶段，任何反馈都是真正有帮助的。很高兴回答问题或听到您的想法😀 干杯， 如果您好奇：https://rabbithq.io   由   提交/u/Bill_Bokeh  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pksydw/i_built_a_modern_rabbitmq_management_interface/</guid>
+      <pubDate>Fri, 12 Dec 2025 14:16:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>为工作流自动化构建类型化数据流系统（以及为什么它比看起来更难）</title>
+      <link>https://www.reddit.com/r/programming/comments/1pkrv84/building_a_typed_dataflow_system_for_workflow/</link>
+      <description><![CDATA[我最近一直在从事一个业余项目，这迫使我解决一个有趣的问题： 如何将静态类型引入可视化工作流构建器，其中每个“节点”本质上都是一个具有未知输入和输出的小程序？ 大多数无代码/自动化工具将所有内容都视为字符串。这听起来很简单，但它会导致数量惊人的错误：  “42”&gt; “7”变为 false（字符串比较） “true”与 true 的行为不同 JSON API 变成了巨大的 blob，您必须手动解析 嵌套对象访问不一致 由于条件与类型不匹配，错误处理分支失败  当您将浏览器自动化 + API 调用 + 逻辑块结合起来时，这些问题会成倍增加。 因此，我尝试设计一个系统，其中 每个步骤产生正确类型的输出，下游步骤在构建时知道类型。 挑战 工作流程可以任意复杂：  分支 循环 条件 子流程 并行执行（未来）  每个节点都有自己的架构： type StepOutput = | { 类型：“字符串”；值：字符串 } | { 类型：“数字”；值：数字 } | { 类型：“布尔值”；值：布尔值 } | { 类型：“对象”；值：记录&lt;字符串，任意&gt; } | { 类型：“数组”； value: any[] }  但困难的部分不是输入值，而是输入连接。 例如：  步骤 #3 可能引用步骤 #1 的输出 步骤 #7 可能引用步骤 #3 的 JSON 中的嵌套字段 条件节点可能需要在运行之前验证类型 A “Set Variable”节点应该从分配的值推断其类型 循环节点需要知道它迭代的数组的元素类型  代码中的静态类型很容易。可视化图中的静态类型是一个完全不同的问题。 最终的工作 我最终构建了：  可区分的联合类型用于节点输出的系统 运行时类型传播作为边缘更新 图形级类型推断，具有简单的统一规则 类似 JSON 指针的系统，用于解决嵌套字段 执行前的编译时验证  结果： 一个工作流构建器，其中比较、分支、循环和 API 响应实际上表现得像真正的编程语言 - 但在视觉上。 看到无代码画布表现得像 TypeScript，感觉很奇怪。   由   提交/u/Kind_Contact_3900   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pkrv84/building_a_typed_dataflow_system_for_workflow/</guid>
+      <pubDate>Fri, 12 Dec 2025 13:28:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>你必须了解的计算机科学基础知识</title>
+      <link>https://www.reddit.com/r/programming/comments/1pkrbx1/computer_science_fundamentals_you_must_know/</link>
+      <description><![CDATA[许多新程序员会跳过基础知识，直接编写代码。大多数情况下，在初创公司工作，你不必花几周的时间在 LeetCode 上。一般来说，较小的公司不需要 Google 级别的工程。 话虽如此，要成为一名优秀的程序员，您仍然应该投入时间学习某种程度的计算机科学。至少，了解二进制、字节和字符编码。 为了帮助您了解基础知识，我创建了一篇关于所有这些要点的详细深入的文章。我计划将这篇文章扩展为更多子文章以提供更多细节。 请随时提出我应该涵盖的任何主题，或者如果您有任何问题。   由   提交/u/Aggravating_Truck203   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pkrbx1/computer_science_fundamentals_you_must_know/</guid>
+      <pubDate>Fri, 12 Dec 2025 13:02:22 GMT</pubDate>
+    </item>
     <item>
       <title>Modbus 记录工具</title>
       <link>https://www.reddit.com/r/programming/comments/1pkr2j3/modbus_logging_tool/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[ 由   提交/u/Adept-Country4317  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pkjo5d/when_money_buys_thinking_a_new_day_in_the_life_of/</guid>
       <pubDate>Fri, 12 Dec 2025 05:15:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vibe 编码格局：Orchestrator 修复</title>
-      <link>https://www.reddit.com/r/programming/comments/1pkiwkr/the_vibe_coding_landscape_the_orchestrator_fix/</link>
-      <description><![CDATA[ 由   提交 /u/BeneficialRemove1350   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pkiwkr/the_vibe_coding_landscape_the_orchestrator_fix/</guid>
-      <pubDate>Fri, 12 Dec 2025 04:34:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>边缘感知像素化带来更好的像素艺术</title>
-      <link>https://www.reddit.com/r/programming/comments/1pketu7/edgeaware_pixelation_for_better_pixel_art/</link>
-      <description><![CDATA[ 由   提交/u/yogthos   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pketu7/edgeaware_pixelation_for_better_pixel_art/</guid>
-      <pubDate>Fri, 12 Dec 2025 01:19:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>更快的 is_leap_year 函数（全范围，C++）</title>
-      <link>https://www.reddit.com/r/programming/comments/1pke38h/a_faster_is_leap_year_function_fullrange_c/</link>
-      <description><![CDATA[ 由   提交/u/benjoffe  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pke38h/a_faster_is_leap_year_function_fullrange_c/</guid>
-      <pubDate>Fri, 12 Dec 2025 00:46:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>TLS、SSL 和 HTTPS 基础知识：开发人员需要了解的知识</title>
-      <link>https://www.reddit.com/r/programming/comments/1pkceqy/tls_ssl_https_fundamentals_the_things_developers/</link>
-      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pkceqy/tls_ssl_https_fundamentals_the_things_developers/</guid>
-      <pubDate>Thu, 11 Dec 2025 23:28:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>用 Javascript 模拟恩尼格玛机</title>
-      <link>https://www.reddit.com/r/programming/comments/1pkbx8j/simulating_the_enigma_machine_in_javascript/</link>
-      <description><![CDATA[ 由   提交/u/thepan73  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pkbx8j/simulating_the_enigma_machine_in_javascript/</guid>
-      <pubDate>Thu, 11 Dec 2025 23:07:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
