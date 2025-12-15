@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 15 Dec 2025 09:39:38 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Dec 2025 12:58:07 GMT</lastBuildDate>
+    <item>
+      <title>React 和 HTMX：不同的抽象，不同的权衡</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pn5bu8/react_and_htmx_different_abstractions_different/</link>
+      <description><![CDATA[React 和 HTMX 代表了两种完全不同的构建 Web 应用程序的方法。 React 方法以 JSON 为中心。它由 JSON 驱动，这是一种与渲染网页或其片段所需的数据格式 - HTML 完全不同的数据格式。这里的 JSON 可以替换为 XML、YAML 或任何其他数据交换格式； JSON 是目前最流行的格式，关键是：这些格式与 HTML 完全不同。 React 只是一个例子，它几乎适用于任何单页应用程序（SPA）框架； Vue、Angular、Svelte 等。在此模型中，数据流是这样的：  客户端（JavaScript）具有 HTML，如浏览器网页呈现的那样 客户端从 HTML 获取数据，将其转换为 JSON 并向服务器发送请求 服务器以 JSON 进行响应 客户端从服务器获取 JSON 响应并将其转换为 HTML，以便可以呈现  此方法的核心在于 HTML JSON 和 JSON 到 HTML 的转换，由 JavaScript 在客户端执行。 HTMX 方法以 HTML 为中心。它由 HTML 驱动 - 数据的接收方式与渲染所需的方式完全相同，无需任何转换。这里还使用 HTMX 作为更通用方法的示例，其中我们从服务器获取 HTML 页面/片段并以与接收到的完全相同的形式直接在客户端呈现它们。此模型中的数据流是这样的：  客户端具有 HTML，如浏览器网页呈现的那样 客户端将来自其他 HTML 元素（受 HTMX 或类 HTMX 库支持）的表单和数据发送到服务器 服务器以 HTML 页面和片段进行响应 客户端直接呈现服务器响应，无需任何修改  此模型的核心方法在于直接使用 HTML，让浏览器为我们完成大部分工作，使用尽可能少的 JavaScript。 与大多数事情一样，没有免费的午餐 - 两种方法都有自己的优点和缺点，提供不同的权衡。 以 JSON 为中心的单页应用程序 (React) 引入了大量的复杂性，但它们确实有一些严重的优点。首先也是最重要的，它们可以提供更好的用户体验。此外，它们将后端与前端分离，这可能既是优点也是缺点。一方面，后端现在更简单了，因为它们对 HTML、CSS 和其他视觉事物一无所知；工作也更容易拆分，并且更独立、并行地执行。另一方面，总体而言，还有更多工作要做；解耦是以更多的抽象层、需要学习和使用的工具、需要编写、维护和支持的代码为代价的。不过，从历史上和现在来看，以 JSON 为中心的 SPA 框架受益于丰富的可重用组件集合和库。 随着 HTMX 和类似工具的兴起 但是，我们现在有了一个更简单的替代方案。我们可以构建以 HTML 为中心的单页应用程序，为用户提供同样出色的体验比以 JSON 为中心的应用程序，但没有复杂性。在这里，前端再次与后端耦合 - 与前面的 SPA（多页面应用程序模型）相同。更准确地说，和以前一样，实际上没有前端/后端的区别，只有一个网络应用程序。同样，这可能既是优点也是缺点。总体而言，与以 JSON 为中心的 SPA 相比，需要完成的工作较少，但工作是耦合的，更难拆分并由多人并行完成。但是，需要编写、维护和支持的代码更少，需要学习和使用的工具和抽象也更少。此外，支持这种范式的工具（主要是 HTMX）比 React、Vue、Angular 或 Svelte 等 SPA 框架更容易学习和掌握。 我在博客上就此类主题撰写了更深入、更广泛的文章。感谢您的阅读！   由   提交 /u/BinaryIgor   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pn5bu8/react_and_htmx_different_abstractions_different/</guid>
+      <pubDate>Mon, 15 Dec 2025 11:43:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>初学者实施表单安全功能，寻求反馈！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pn501q/beginner_implementing_form_security_features/</link>
+      <description><![CDATA[大家好！ 我是一名初学者，正在尝试启动我的第一个真正的 Web 项目。这是一个简单的薪资比较网站，带有用户可以填写的表格。我一直在边做边学，现在前端和后端都按照我的预期工作，我意识到我还需要关注安全性。我已经阅读了很多内容并观看了相当多的 YouTube 视频，但由于我还是个新手，所以我希望获得一些反馈或建议，以了解我是否遗漏了任何重要的内容或做过头的事情。 到目前为止，我已经实现了：  HTTPS 强制执行 安全会话 cookie 会话固定保护 注销时正确销毁会话 CSRF 令牌生成和验证验证 密码哈希 登录速率限制 管理员访问控制（目前只有一名管理员） 管理员会话 + CSRF 验证 会话用户名跟踪 IP 哈希 为所有数据库查询准备语句 修剪和限制输入长度 文本规范化 字段验证（客户端 +服务器） 基于 IP 的速率限制（每个操作有单独的限制） 用于捕获机器人的蜜罐字段 提交冷却计时器 搜索限制 仅允许来源的 CORS 限制 有限的 HTTP 方法 表单操作限制 XSS 清理 严格的 CSP 标头 没有内联脚本 表单验证 操作日志记录 错误日志记录  我的表单中还有一个复选框（以防止意外提交和机器人垃圾邮件），并且我正在考虑添加验证码。在这一点上这是个好主意还是矫枉过正？ 任何反馈或改进建议将不胜感激！我会尽力回答问题，尽管我可能还不能理解所有内容，因为我还在学习。 谢谢！   由   提交 /u/PeekingPotato   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pn501q/beginner_implementing_form_security_features/</guid>
+      <pubDate>Mon, 15 Dec 2025 11:23:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>会话还是cookie？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pn3rcq/session_or_cookie/</link>
+      <description><![CDATA[嗨！只是想讨论在没有 User 模型的情况下，您更喜欢在哪里存储有关类实例状态的信息？如果我提出愚蠢的问题或违反子规则，我提前道歉。   由   提交/u/Vinyl329  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pn3rcq/session_or_cookie/</guid>
+      <pubDate>Mon, 15 Dec 2025 10:03:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>该网站是 WordPress 还是网站构建器？尝试确定主题/平台以重新创建类似的结构</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pn3j8s/is_this_site_wordpress_or_a_website_builder/</link>
+      <description><![CDATA[大家好， 我想弄清楚这个网站是如何构建的，主要是因为我想为一个项目创建一个类似的结构。 URL：https://www.simonevirgini.com 你认为这个网站是使用 WordPress 还是网站构建器/托管平台（Webflow、Squarespace、Cargo、Readymag 等）构建的？ 如果是 WordPress，有人认识可以实现此布局的主题或类似主题吗？ 如果是 Web 构建器，您知道它可能是哪个平台吗？ 我不是在寻找精确的克隆，只是为了了解哪种工具或系统最适合重新创建类似的结构，并且行为。 提前感谢您提供任何见解！   由   提交 /u/Super_Yesterday2349   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pn3j8s/is_this_site_wordpress_or_a_website_builder/</guid>
+      <pubDate>Mon, 15 Dec 2025 09:48:25 GMT</pubDate>
+    </item>
     <item>
       <title>帮助解决有关未将业务逻辑放入控制器建议中的困惑。</title>
       <link>https://www.reddit.com/r/webdev/comments/1pn3dnc/help_with_confusion_about_not_putting_business/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[所以，我非常了解 HTML 和 CSS，但不太了解 JavaScript。我对 JavaScript 的了解非常少，只知道一些基础知识，我仍在学习如何使用它。 当谈到在您的网站中使用人工智能时，无论是部分还是全部，在您的 JavaScript 中使用它是否可以或可以接受吗？在您的开发中是否可以使用人工智能？这取决于谁在使用人工智能吗？我知道人工智能似乎名声不好，所以我很好奇人们对它的看法。   由   提交 /u/GasProfessional1841   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1pmzh81/is_it_generally_okay_or_acceptable_to_use/</guid>
       <pubDate>Mon, 15 Dec 2025 05:25:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>是什么让验证码实际上可以忍受？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pmy5hj/what_makes_a_captcha_actually_tolerable/</link>
-      <description><![CDATA[真正的问题。 对于经常处理验证码的人来说：你可以容忍的验证码和你立即讨厌的验证码之间有什么区别？ 是速度吗？ 步数？ 混乱？ “感觉毫无意义”的因素？ 好奇什么才是真正最重要的。   由   提交 /u/SilverWheat   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pmy5hj/what_makes_a_captcha_actually_tolerable/</guid>
-      <pubDate>Mon, 15 Dec 2025 04:13:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何诊断某些浏览器版本上的网站问题？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pmxahf/how_to_diagnose_an_issue_with_website_on_certain/</link>
-      <description><![CDATA[嘿大家 最近，一位用户报告说我的网站无法在他们的 Chrome 浏览器上运行，但可以在他们的 Edge 浏览器上运行。在不涉及太多细节的情况下，基本上一些 WASM 模块根本无法运行。 我认为这很奇怪，因为 chrome 和 Edge 都是基于 chromium 的，所以我询问了一些诊断信息，发现它们使用的是旧版本的 chrome (122)。 我下载了这个旧版本的 chromium，结果发现 - 网站被破坏了。我想知道该网站开始工作的版本是哪个版本，有趣的是它是下一个版本（123）。 所以现在我遇到了问题 - 我确切地知道网站中断的版本截止 - 但我没有太多其他可做的。控制台中没有错误/没有崩溃/没有冻结/等等。基本上我的网站遇到了某种幽灵问题。 我想过阅读变更日志，直到我发现了巨大的提交列表，然后很快就放弃了。 所以我不知道该怎么做 - 雪上加霜的是，我使用了一堆可能使用新功能的包，但在旧版本或类似的东西上却默默地失败了。 在这样的情况下你会做什么来找到问题？或者你只是说忘记它并阻止旧版本的用户？我尝试隔离问题并添加控制台日志，但无济于事。也许有某种东西可以扫描我的项目并检查 caniuse.com 兼容性？   由   提交/u/a300a300  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pmxahf/how_to_diagnose_an_issue_with_website_on_certain/</guid>
-      <pubDate>Mon, 15 Dec 2025 03:28:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻求建议：fullstack webdev 文凭 + gis bach</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pmw7wd/looking_for_advice_fullstack_webdev_diploma_gis/</link>
-      <description><![CDATA[我拥有全栈 Web 开发文凭，希望有机会攻读 2 年 GIS 学士学位。 想知道这在行业方面是否是一个好主意，并且两者是否可以互补？我更喜欢主要从事开发工作，但鉴于该行业的饱和程度，拥有额外的专业知识将有助于我推销自己？ 任何一般建议都会有所帮助。谢谢   由   提交/u/loveandglobes  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pmw7wd/looking_for_advice_fullstack_webdev_diploma_gis/</guid>
-      <pubDate>Mon, 15 Dec 2025 02:34:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>离线优先的网络应用程序是一个坏主意吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1pmv05r/is_offlinefirst_web_app_a_bad_idea/</link>
-      <description><![CDATA[似乎大多数现代应用程序都是离线持久的，但不是离线优先的。例如，Notion 桌面和移动应用程序首先是离线的，但 Web 应用程序不是。 Excalidraw 免费版首先是离线的，但 excalidraw+ 不是。 你认为原因是什么？ 编辑：为了避免混淆，我所说的“离线优先”是什么意思？是一种功能齐全的离线模式，可以在长时间（比如1天）不连接后端的情况下完全工作。   由   提交 /u/Illustrious_Web_2774   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1pmv05r/is_offlinefirst_web_app_a_bad_idea/</guid>
-      <pubDate>Mon, 15 Dec 2025 01:35:59 GMT</pubDate>
     </item>
     </channel>
 </rss>
