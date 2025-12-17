@@ -4,7 +4,28 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 16 Dec 2025 21:27:24 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Dec 2025 01:56:25 GMT</lastBuildDate>
+    <item>
+      <title>使用 React、Vite 和 Tailwind 构建一次性电子邮件 PWA。仅 RAM 存储，没有日志。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pok2cl/built_a_disposable_email_pwa_using_react_vite_and/</link>
+      <description><![CDATA[   大家好， 我将 **Mephisto** 构建为一个注重隐私的副业项目。我们的目标是创建一个感觉像本机应用程序而不是杂乱网站的一次性电子邮件服务。 **技术堆栈：** * **核心：** React + TypeScript + Vite * **样式：** Tailwind CSS（以深色主题为主） * **状态：** 用于即时更新的本地状态管理 * **PWA：** 可通过浏览器完全安装 * **安全性：** 用于密码生成的客户端熵 后端在易失性内存上运行，以确保数据严格是短暂的。我非常注重消除摩擦——没有广告，没有验证码，只有传入邮件的即时 Websocket 连接。 实时链接：https://mephistomail.site 我正在寻找有关 React 结构和 PWA 性能的反馈。   由   提交/u/CrowPuzzleheaded6649  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pok2cl/built_a_disposable_email_pwa_using_react_vite_and/</guid>
+      <pubDate>Wed, 17 Dec 2025 01:45:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>拼图生成应用程序中后台工作人员的最佳方法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1pojfiv/best_approach_for_background_job_workers_in_a/</link>
+      <description><![CDATA[大家好，正在为我的国际象棋拼图应用程序寻找有关后台工作人员的架构建议。  当前设置： - 使用 PostgreSQL 的 FastAPI 后端 - 后台工作进程处理 CPU 密集型谜题生成（Stockfish 分析） - 每个作业批量分析国际象棋游戏（需要 1-20 分钟，具体取决于游戏数量） - 作业在数据库中排队，工作人员使用 SELECT FOR UPDATE SKIP 选取它们已锁定 问题： 现在我有 1 个工作人员按顺序处理作业。当我扩展到 10-20个并发用户生成谜题时，最好的方法是什么？ 我正在考虑的选项：  共享工作池（3-5个工作人员）- 多个工作人员共享作业队列  - 易于实现（只需运行工作脚本3x） - 工作人员有时可能会闲置 - 用户队列彼此后面  自动缩放工作人员 - 根据队列深度生成工作人员  - 更复杂（需要编排） - 更好的资源利用率 - 在生产中如何处理这个问题？  每个用户专用工作人员（我最初的想法）  - 每个用户在注册时都有自己的工作人员 - 否排队 - 看起来很浪费？ （1000 个用户 = 1000 个空闲进程） 当前技术： - 后端：Python/FastAPI - 数据库：PostgreSQL - Worker：无限循环轮询数据库中的简单 Python 脚本 - 还没有 Celery/Redis/RQ（尽量保持简单） 共享工作池方法是标准的吗？我应该硬着头皮转向 Celery 吗？任何建议表示赞赏！   由   提交/u/Busy-Smile989  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1pojfiv/best_approach_for_background_job_workers_in_a/</guid>
+      <pubDate>Wed, 17 Dec 2025 01:14:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>Firefox 146.0 细滚动条有箭头，但有隐藏它们的属性吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1poft04/firefox_1460_thin_scrollbars_get_arrows_but_is/</link>
+      <description><![CDATA[       由   提交/u/DuDekilleR07  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1poft04/firefox_1460_thin_scrollbars_get_arrows_but_is/</guid>
+      <pubDate>Tue, 16 Dec 2025 22:33:55 GMT</pubDate>
+    </item>
     <item>
       <title>Brew 设置脚本推荐？！</title>
       <link>https://www.reddit.com/r/webdev/comments/1poddz9/brew_setup_script_recomendations/</link>
@@ -25,13 +46,6 @@
       <description><![CDATA[      因此，我从测试版开始就一直在使用 Tailwind CSS v4，并使用了一些技巧来帮助处理浏览器兼容性。 Tailwind 使用 CSS @layer 进行特异性控制，这对于想要支持旧浏览器（与 v3 相比）的项目来说是一件痛苦的事情。 我不想放弃 v4 DX，所以我想出了一个“双 CSS 交付”方案。该策略让我可以编写标准 v4 代码，但仍然支持 2017 年以来的浏览器。详细信息请参阅链接。希望您会发现它很有用！   由   提交/u/illogic123  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1poasiw/how_i_use_tailwind_4_to_manage_css_while_still/</guid>
       <pubDate>Tue, 16 Dec 2025 19:15:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>我建立了一个开源网站，让学生在学校玩游戏</title>
-      <link>https://www.reddit.com/r/webdev/comments/1poajbg/i_built_an_opensource_site_that_lets_students/</link>
-      <description><![CDATA[ 由   提交/u/Turbulent-Monitor478  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1poajbg/i_built_an_opensource_site_that_lets_students/</guid>
-      <pubDate>Tue, 16 Dec 2025 19:05:29 GMT</pubDate>
     </item>
     <item>
       <title>需要有关我的新编辑器基于浏览器的网站的建议</title>
@@ -95,20 +109,6 @@
       <description><![CDATA[大家好， 我再次请求对我的应用程序提供诚实的反馈。 CampMate 是一款露营打包应用，具有打包模板、协作和天气集成功能。 上次我发帖时（此处）我收到了很多非常有用的反馈，从那时起，我就一直在努力开发该应用。如果您有时间查看并提供一些反馈，我将不胜感激！   由   提交 /u/No-Ad-691   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1po4jx3/looking_for_feedback_on_my_app_again/</guid>
       <pubDate>Tue, 16 Dec 2025 15:18:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>watt-admin 1.0.0：捕获、分析和共享您的 Node.js 性能数据</title>
-      <link>https://www.reddit.com/r/webdev/comments/1po44l3/wattadmin_100_capture_profile_and_share_your/</link>
-      <description><![CDATA[       由   提交/u/feross  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1po44l3/wattadmin_100_capture_profile_and_share_your/</guid>
-      <pubDate>Tue, 16 Dec 2025 15:01:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以使用 ReScript 做什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1po3ioy/what_can_i_do_with_rescript/</link>
-      <description><![CDATA[ 由   提交/u/BeamMeUpBiscotti   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1po3ioy/what_can_i_do_with_rescript/</guid>
-      <pubDate>Tue, 16 Dec 2025 14:37:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
