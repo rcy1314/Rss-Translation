@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 20 Dec 2025 18:33:18 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Dec 2025 21:24:48 GMT</lastBuildDate>
+    <item>
+      <title>我在使用 Pcap 用 C 语言制作 IP 第 2 层开源网络库时学到了什么</title>
+      <link>https://www.reddit.com/r/opensource/comments/1prorom/what_i_learned_while_making_an_opensource/</link>
+      <description><![CDATA[我大约 8-9 个月前开始使用 SwiftNet，并进行了 200 多次提交。有时候我想放弃，但我很高兴我没有放弃。我学到了很多关于网络、调试和测试的知识。 我学到的东西：  跨平台测试是绝对必要的。在 macOS 上完美编译和运行的代码可能会因标头、库或行为的差异而在 Linux 上崩溃。我使用 GitHub Actions 在多个平台（macOS 和 Linux）上运行测试，并且仅在更改通过时推送更改。 C 中的线程安全性既困难又耗时。从一开始就考虑线程安全是至关重要的。原子 (stdatomic.h) 通常比互斥锁更简单、性能更高且不易出错。我使用原子为多个变量创建了无锁系统，并构建了一个自定义内存分配器，为每个线程预分配内存。 手动标头构造充满了小错误。在第 2 层（以太网帧）和第 3 层（IP 标头）工作需要自己计算校验和、处理字节顺序（到处都是 htons/ntohs），并遵守 MTU 限制以避免静默碎片问题。 错误处理和调试在这个级别上是一场噩梦。有时我会为了一个小错误而导致的一个错误花费 10 个小时。使用 Wireshark 或Termshark 等工具检查数据包。 始终使用 ASAN 和 TSAN 进行测试，尤其是在多线程中。即使 LLDB 也无法检测到 TSAN 或 ASAN 可以检测到的一些问题。  如果您想查看源代码，请参阅以下 GitHub 存储库：https://github.com/Morcules/SwiftNet   由   提交 /u/deadlightreal   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1prorom/what_i_learned_while_making_an_opensource/</guid>
+      <pubDate>Sat, 20 Dec 2025 21:07:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>CrowdB​​ucks 是 Fediverse 的新支付系统 - 我们分发</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pro9y6/crowdbucks_is_a_new_payment_system_for_the/</link>
+      <description><![CDATA[       这最初是在 FediCon 2025 上演示的，但 CrowdBucks 是一种开源、可自我托管的筹款系统，允许人们在经济上相互支持。您可以使用现有的 Fediverse 账户举办筹款活动，也可以向其他人的筹款活动捐款。外形与 Kickstarter 或 Patreon 类似。  （我不以任何方式隶属于他们。）   由   提交 /u/Teknevra   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pro9y6/crowdbucks_is_a_new_payment_system_for_the/</guid>
+      <pubDate>Sat, 20 Dec 2025 20:45:29 GMT</pubDate>
+    </item>
     <item>
       <title>[求助！😢] 为什么我的 OSS 项目中有这么多 PR 被放弃了？</title>
       <link>https://www.reddit.com/r/opensource/comments/1prknwo/help_why_do_so_many_prs_get_abandoned_in_my_oss/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[      我刚刚创建了 HyprRun，这是为 Hyprland 制作的最小 Bash + fzf 启动器。与 rofi/wofi 不同，它在构建时考虑了动态平铺 - 它在您的终端内运行，并且永远不会浮动或覆盖您的窗口。 非常欢迎反馈和建议！如果您使用 Hyprland，请尝试一下并告诉我您的想法！   由   提交/u/FajreMVP   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pqxc7r/hyprrun_a_minimal_terminal_launcher_made_for/</guid>
       <pubDate>Fri, 19 Dec 2025 21:47:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源基于浏览器的 3D 演示工具</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pqwkao/open_sourcing_a_browserbased_3d_presentation_tool/</link>
-      <description><![CDATA[       由   提交 /u/ertucetin   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pqwkao/open_sourcing_a_browserbased_3d_presentation_tool/</guid>
-      <pubDate>Fri, 19 Dec 2025 21:14:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>Arduino 上的太空射击游戏</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pqvavm/space_shooter_game_on_arduino/</link>
-      <description><![CDATA[      大家好！这是我的第一个有点合适的项目：Arduino 上的复古太空射击游戏。游戏演示和更多信息位于项目自述文件中。任何有关游戏/代码设计的诚实评论/建议都将受到高度赞赏。   由   提交/u/Soggy-Opportunity139   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pqvavm/space_shooter_game_on_arduino/</guid>
-      <pubDate>Fri, 19 Dec 2025 20:21:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
