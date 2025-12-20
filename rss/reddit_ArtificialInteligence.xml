@@ -4,20 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>一个致力于一切人工智能的 Reddit 子版块。涵盖从通用人工智能到人工智能初创公司的主题。无论您是研究人员、开发人员，还是只是对人工智能感到好奇，都请加入吧！</description>
-    <lastBuildDate>Fri, 19 Dec 2025 21:22:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Dec 2025 01:52:32 GMT</lastBuildDate>
     <item>
-      <title>“代理人工智能”的炒作没有抓住要点。我们需要力量倍增器，而不是黑匣子。</title>
+      <title>有没有尝试过这个的研究论文？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pr2gl0/are_there_any_research_papers_that_have_tried_this/</link>
+      <description><![CDATA[所以我刚刚读完“潜意识学习：语言模型通过数据中隐藏的信号传递行为特征”，该书由研究人员作为人类研究员计划的一部分发表。  它让我着迷，并给了我一种奇怪的好奇心。设置为：   模型 A：经过微调以产生最大反相关输出。不是随机垃圾 - 结构化错误。每一个设计决策都被颠倒了，每一个假设都被违反了，但都是连贯的。它应该被优化以不仅产生倒置的标记，而且还产生倒置的思维。它应该是不正确的和破碎的，但以一种超出人类所能做到的方式。  模型 B：仅给出模型 a 的输出以进行提示的普通模型。它不知道用于生成它的原始提示符，也不知道该提示符是倒置的。它只能看到模型 A 的输出。   最大的问题：模型B是否可以通过独立构建用户解决方案并解决原始意图来进行训练和加权？  如果是的话，那就太疯狂了。这意味着问题的“形状”通过否定得以保留。换句话说，与潜意识学习不同，我们正在训练模型进行推理，不需要解释用户输入并经历 llm 扩展的巨大瓶颈，即标记化。英语是重复冗余、冗余重复。对于人工智能来说，接受训练以使用字段中的向量进行推理而不是人类可读的标记化会更有意义。  我离题了，如果负空间包含正空间，正如论文向我暗示的那样，模型 B 并不是针对训练数据的模式匹配。它在语义空间中进行几何推理。  这几乎就像散列。反解以变换后的表示形式对解进行编码。如果 B 可以在没有密钥的情况下将其反转，那就是推理，而这种推理并不是试图以人类可以理解的方式完成，但对于机器来说效率非常低。  我不知道有人这样做。有对比学习、对抗性鲁棒性工作、表示反转攻击。但我找不到“训练结构性错误，测试盲目重建”。  要注意的故障模式：模型 A 可能无法实现真正​​的反相关。它可能只会产生通用垃圾，而实际上并没有对原始提示进行编码。那么模型 B 重建任何东西都会是噪音或幻觉。  你需要验证模型 A 实际上在语义上是颠倒的，而不仅仅是在随机方向上确信是错误的。那么我们怎样才能做到这一点呢？研究论文详细介绍了如何观察到这一点，所以也许我们可以从这里开始。  我不是机器学习工程师。我只是一个相信万能逼近定理并认为标记化推理永远行不通的人。我确信我不是第一个这么想的人，我确信有研究人员对同一件事有更全面、更受过教育的想法，但我在哪里可以找到这些论文？   由   提交 /u/ThePlotTwisterr----   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pr2gl0/are_there_any_research_papers_that_have_tried_this/</guid>
+      <pubDate>Sat, 20 Dec 2025 01:51:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>RAG那些推文：看看从漫长的档案中出现了什么模式</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pr22p1/rag_those_tweets_see_what_patterns_emerge_from/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pr22p1/rag_those_tweets_see_what_patterns_emerge_from/</guid>
+      <pubDate>Sat, 20 Dec 2025 01:32:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>作为闭环控制问题的长期 LLM 一致性（LQR 式公式）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0xgk/longhorizon_llm_coherence_as_a_closedloop_control/</link>
+      <description><![CDATA[继我之前将长期 LLM 一致性视为控制问题而不是缩放问题之后，我想使用具体的闭环控制模型来阐明工程公式。 附图是一个统一的实验，而不是四个不相关的图。所有面板都描述了通过 LQR 式控制器调节的相同语义动力系统。 系统框架（最小） • 语义交互被建模为具有状态 x(t) 的动力系统 • 用户/创始人意图充当参考信号 x_ref • 干预充当控制输入 u(t) • 一致性被视为调节变量，而不是紧急事故 无训练。无需微调。没有重量访问。纯交互级闭环控制。 图 1：闭环控制下的语义稳定性 (a) 状态收敛 该面板显示以下衰减： • H(t)：意图偏差 • C(t)：语义一致性误差 两者均平滑收敛到平衡。关键点是有界性和渐近稳定性，而不是速度。开环 LLM 行为通常在此区域出现分歧。 (b) ODCF 场与临界阈值 该面板可视化相对于临界阈值 θ 的语义漂移场。 • 低于θ：熵状态（幻觉、漂移、目标稀释） • 高于θ：受控认知状态 调节器使系统保持在临界边界之上而不发生振荡。这是反馈下约束满足的语义等价物。 (c) 相空间（H 与 C） 这是人们通常感到困惑的地方。 这不是轨迹多样性。它是一个单一的受控轨迹，从： • 初始混沌条件 • 走向稳定吸引子 相位曲线的拉直表明反馈下语义方差的减少。开环系统通常在这个空间中螺旋或徘徊。 (d) Lyapunov 能量衰减 该面板提供了形式保证。 候选 Lyapunov 函数： V(x) = xᵀ P x 单调递减： dV/dt  0 → 渐近稳定性 简单来说：系统不仅仅在经验上表现良好。它在扰动下被证明是稳定的。 为什么这很重要 大多数法学硕士连贯性讨论停留在： • 规模 • 上下文长度 • 更好的提示 • 更多数据 这个框架表明了其他一些东西： 长视野连贯性失败类似于经典的开环不稳定性。 一旦将交互建模为动态系统，修复看起来很熟悉： • 状态估计 • 反馈 •监管不是魔法。不是 AGI 声称的。只是在缺失的地方应用了控制理论。 我对建模假设的反馈感兴趣，以及从控制理论的角度来看这个闭环公式是否合理。   由   提交 /u/Medium_Compote5665   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0xgk/longhorizon_llm_coherence_as_a_closedloop_control/</guid>
+      <pubDate>Sat, 20 Dec 2025 00:37:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我还没有看到有人谈论过人工智能的危险</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0t3k/an_ai_danger_that_i_havent_seen_anyone_talking/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0t3k/an_ai_danger_that_i_havent_seen_anyone_talking/</guid>
+      <pubDate>Sat, 20 Dec 2025 00:31:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nemotron-3-Nano 审核：推理关闭时出现 32%“延迟惩罚”的证据</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0qkp/nemotron3nano_audit_evidence_of_32_latency/</link>
+      <description><![CDATA[NVIDIA 最近发布了 Nemotron-3-Nano，声称具有精细的推理预算控制和独特的“推理关闭”功能。成本效率模式。我对 5 种配置进行了受控审核（135 次运行）来验证这些声明。我的研究结果表明，当前的编排层无法有效地控制模型的潜在计算，导致推理关闭时出现 32% 的延迟损失。 方法： 模型：Nemotron-3-Nano (30B-A3B)，通过官方 NIM/API。 矩阵：9 个提示（算术、代数、多步推理）x 5 配置 x 3运行每个。 指标：概率偏差 (PD)、置信度/确定性指数 (CDI)、跟踪计数（内部推理标记）和端到端延迟。 关键观察结果： 逆延迟相关性：与基线相比，禁用推理（思考：关闭）会导致更高的平均延迟 (2529ms) （1914 毫秒）。这表明该模型可能仍在进行潜在的状态空间审议，而不输出令牌，从而造成“计算泄漏”。 预算控制方差：BUDGET_LOW（平均 230 条迹线）与 BUDGET_HIGH（平均 269 条迹线）没有显着的统计差异。 “思考预算”似乎是复杂性的硬性上限，而不是成本的可控参数。 算术停滞：在复杂的乘法任务（12,345×6,789）上，模型经常耗尽其跟踪预算并返回零标记，而不是退回到非推理启发式。 随机性：在 NO_REASONING 模式下，PD 变异系数达到 217%，表明当其主要推理路径被抑制时，模型变得高度不稳定。 讨论：Nemotron-3-Nano 的技术报告强调了为提高效率而设计的混合 Mamba-Transformer 架构。然而，这些结果表明“思考预算”推理堆栈中的功能可能尚未完全优化，从而导致非推理模式下不可预测的成本和性能下降。 所有 135 次运行的完整遥测日志，包括每次运行延迟的原始 JSON 数据、跟踪计数和 PD/CDI 指标，均可在此处进行独立验证。 https://gist.github.com/MCastens/c9bafcc64247698d23c81534e336f196   由   提交 /u/Sad_Perception_1685   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pr0qkp/nemotron3nano_audit_evidence_of_32_latency/</guid>
+      <pubDate>Sat, 20 Dec 2025 00:28:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>“代理人工智能”的炒作没有抓住重点。我们需要力量倍增器，而不是黑匣子。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqtbnd/the_agentic_ai_hype_is_missing_the_point_we_need/</link>
       <description><![CDATA[最近我看到很多关于人工智能取代工作与取代官僚机构的争论。作为每天使用这些工具的开发人员，“完全自主的代理”是最重要的。叙述让我发疯。 我不希望人工智能为我做出执行决策。我想要一个非常快、非常笨的助手，我可以安排它。 我花了几个月的时间试图获得“自主”。视频代理可以生成不错的广告创意。问题？如果特工在场景 3 中犯了错误，我就必须重新滚动整个视频。这是一个黑匣子。 转变： 我不再寻找“神奇按钮”，而是开始寻找“神奇按钮”。并找到了一个真正尊重人在环的工作流程。我使用模型路由系统来生成完整的视频草稿（脚本、视觉效果、语音），但是（这是关键部分）它会生成一个补充文件，其中包含每个剪辑的原始提示。很弱，我不会放弃这个项目。我只需抓住特定时间戳的提示，手动调整参数，然后重新生成 3 秒的切片。 它将 2 天的编辑工作变成了 20 分钟的“审查和完善”工作。会议。这感觉就像工作的实际未来：小团队快速行动，因为他们拥有力量倍增器，而不是因为他们将密钥交给机器人。 还有其他人发现“部分自动化”吗？实际上比这些大肆宣传的“自治”系统的扩展性更好。代理？   由   提交 /u/ProgrammerForsaken45   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqtbnd/the_agentic_ai_hype_is_missing_the_point_we_need/</guid>
       <pubDate>Fri, 19 Dec 2025 19:01:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>特朗普的黄金时段演讲是人工智能生成的吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqs4b8/was_trumps_primetime_speech_ai_generated/</link>
-      <description><![CDATA[当我阅读这次演讲的文字记录时，它似乎比他平时的演讲更加连贯。观看视频时，有一个主要问题似乎出现了：他的牙齿。如果你在演讲时放大他的嘴，你会发现他的下牙看起来特别奇怪。牙齿的数量似乎发生了变化，它们看起来超级假，而且他的嘴覆盖牙齿的方式看起来不自然。这段话有没有可能是人工智能生成的？关于它的一切似乎都不太对劲，好奇是否有更精通人工智能视频的人可以参与进来 编辑：不确定这是否是合适的地方，如果有人能指导我到正确的子，我将非常感激  https://www.youtube.com/live/DpLvGmPetds?si=YlxV_cKdiqZFWKm6    由   提交/u/wreese1701  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqs4b8/was_trumps_primetime_speech_ai_generated/</guid>
-      <pubDate>Fri, 19 Dec 2025 18:13:07 GMT</pubDate>
     </item>
     <item>
       <title>有什么是人类能做到而机器永远无法做到的吗？</title>
@@ -34,13 +62,6 @@
       <pubDate>Fri, 19 Dec 2025 16:32:33 GMT</pubDate>
     </item>
     <item>
-      <title>故事理论基准：多回合代理任务显示出比单次基准大约 2 倍的能力差距</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqp2ng/story_theory_benchmark_multiturn_agentic_tasks/</link>
-      <description><![CDATA[发布了一个开源基准测试，使用经典故事理论框架测试 LLM 叙事生成。最有趣的发现不在于哪个模型获胜，而在于什么样的任务揭示了能力差异。 结果  标准（单次）任务：最佳模型和最差模型之间的平均差距约为 31% 代理（多轮）任务：平均差距约为 57% - 接近 2 倍  多回合任务（迭代修订、约束发现、计划然后执行）暴露了单次基准测试无法揭示的差距。 为什么这很重要 现实世界中创意写作的使用通常涉及迭代——根据反馈进行修改、发现约束、执行前规划。 在简单生成任务上得分相似的模型在需要迭代、计划、并回复反馈。 示例：迭代修订任务   模型 分数    Claude Sonnet 4 90.8%   o3 93.9%   DeepSeek v3.2 89.5%   Llama 4 Maverick 39.6%   单一任务类型的差距为 51 分。这并不是关于“不擅长叙事”，而是关于“不擅长叙事”。 - 它揭示了多轮推理能力的差异。 模型排名（总体）   模型 得分 成本/生成    DeepSeek v3.2 91.9% $0.20   克劳德作品 4.5 90.8% $2.85   克劳德十四行诗 4.5 90.1% $1.74   o3 89.3% $0.96   DeepSeek 在价值方面处于领先地位。 Claude 在一致性方面处于领先地位。 最困难的任务：约束发现 提出战略性的是/否问题以揭示隐藏的故事规则。  平均：59% 最佳 (GPT-5.2)：81% 最差：26%  这测试了战略问题，而不仅仅是 链接 GitHub：https://github.com/clchinkc/story-bench 完整排行榜：https://github.com/clchinkc/story-bench/blob/main/results/LEADERBOARD.md 任务分析：https://github.com/clchinkc/story-bench/blob/main/results/TASK_ANALYSIS.md 中：https://medium.com/@clchinkc/why-most-llm-benchmarks-miss-what-matters-for-creative-writing-and-how-story-theory-fix-it-96c307878985 （完整分析帖子）   由   提交 /u/Federal_Wrongdoer_44   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqp2ng/story_theory_benchmark_multiturn_agentic_tasks/</guid>
-      <pubDate>Fri, 19 Dec 2025 16:14:01 GMT</pubDate>
-    </item>
-    <item>
       <title>人工智能将要求开发人员变得更加熟练</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqm4ao/ai_will_demand_devs_become_more_skilled/</link>
       <description><![CDATA[警告。这篇文章可能会冒犯一些人。我属于那些应该冒犯它的人之一。我就是这篇文章所针对的开发者类型。因为我是一个自学成才的程序员，没有接受过真正的教育。当谈到人工智能时，我可能遇到麻烦了。 人工智能优化了软件开发。现在，构建省力的 SaaS CRUD 应用程序从未如此简单。这将使构建业务应用程序的技能变得更加容易。我个人认为情况不会有明显改善。但企业会让这些开发人员变得不那么重要。这些开发人员可能会是技术性更强的产品经理，而不是完全技术性的人员。 但问题是这样的。人工智能将使软件变得更加复杂。这实际上会增加进入壁垒。让我解释一下。 自从网络出现以来，软件质量不一定要很好。由于交付机制始终是远程的，因此您可以推出某些内容，然后快速更改它。整个摩托车是快速移动并打破东西。 另一方面。如果软件质量不好，许多软件公司可以依靠销售人员将客户锁定在合同中。他们可能会交付非常糟糕的软件产品。但顾客无法离开，因为他们被锁定在长期交易中，而打破这些交易的代价高昂。  现在，如果软件如此容易生产，那么所有这些销售软件的优势就会消失。软件客户现在几乎拥有无限的选择，因为现在编写软件非常容易。 但更重要的是。如果每个人都可以廉价且轻松地生产软件。那么手段就是进取平庸。真正销售软件的唯一途径就是质量。虽然非常简单的软件可以通过人工智能生产，但更高质量的软件却不能。  这引出了我的下一点。仍然存在的软件工程师肯定比今天要好得多。现在开发人员必须考虑性能和优化。他们确实需要担心高质量的用户体验。他们不能再带着明显的错误发货了。因此，现在软件工程师需要担心缓存性能、时间与空间复杂度、分布式系统和共识、验证和验证。以及许多其他事情。 现在软件工程师需要非常优秀。因为软件工程师不太可能再在功能工厂工作了。上市时间不再是一个有价值的指标。随着时间的推移，我们会发现它变得不那么重要。  当然，在速度重于质量的时代长大的首席技术官和产品经理必须重新思考人工智能时代的软件。这将是一个痛苦的过渡，不要指望这种情况会在一夜之间发生改变。由于糟糕的低质量软件让客户感到沮丧，因此有一段时间感到不安。我们现在已经看到了这一点，而且情况只会变得更糟。 对于那些想知道是否应该学习编码的初级人员来说。答案是肯定的，而且现在比以前更重要   由   提交 /u/GolangLinuxGuru1979   [链接] [评论]]]></description>
@@ -48,25 +69,11 @@
       <pubDate>Fri, 19 Dec 2025 14:13:40 GMT</pubDate>
     </item>
     <item>
-      <title>这里有人对具有知识图核心的 SLM 有经验或感兴趣吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqkgp6/anyone_here_with_experience_or_interest_in_slms/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqkgp6/anyone_here_with_experience_or_interest_in_slms/</guid>
-      <pubDate>Fri, 19 Dec 2025 12:58:54 GMT</pubDate>
-    </item>
-    <item>
       <title>双子座闪电91%会产生幻觉，如果它不知道答案</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqgnrf/gemini_flash_hallucinates_91_times_if_it_does_not/</link>
       <description><![CDATA[Gemini 3 Flash 在人工分析全知幻觉率基准上的幻觉率为 91%！？ 你真的可以用它来做任何严肃的事情吗？ 我想知道人类模型如此擅长编码的原因是否是因为它们产生幻觉的次数要少得多。当您需要精确、可靠的输出时，这似乎至关重要。 AA-Omniscience 幻觉率（越低越好）衡量模型在应该拒绝或承认不知道答案时错误回答的频率。它被定义为错误答案占所有不正确答案的比例，即不正确/（不正确+部分答案+未尝试）。 值得注意的模型分数（从最低到最高幻觉率）：  Claude 4.5 Haiku：26％ Claude 4.5 Sonnet：48％ GPT-5.1（高）： 51% Claude 4.5 Opus：58% Grok 4.1：64% DeepSeek V3.2：82% Llama 4 Maverick：88% Gemini 2.5 Flash（9 月）：88% Gemini 3 Flash：91% （突出显示） GLM-4.6：93%  来源：amix3k   由   提交/u/msaussieandmrravana   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqgnrf/gemini_flash_hallucinates_91_times_if_it_does_not/</guid>
       <pubDate>Fri, 19 Dec 2025 09:11:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能正在改变我们处理自己想法的方式吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pqf8w3/is_ai_changing_how_we_process_our_own_thoughts/</link>
-      <description><![CDATA[自从我开始更频繁地使用人工智能工具以来，我注意到了一些微妙的事情。 当我向人工智能解释问题时，我被迫放慢速度并保持精确。仅这一点似乎就改变了我对问题的理解——有时甚至超过了响应本身。 这让我想知道人工智能的真正影响是否不仅仅是自动化，而是它如何悄悄地重塑我们的思考、反思和推理方式。 很好奇这里的其他人如何看待这一点。您是否认为人工智能正在影响您的思维方式，或者它仍然只是一种加快速度的工具？   由   提交/u/dp_singh_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pqf8w3/is_ai_changing_how_we_process_our_own_thoughts/</guid>
-      <pubDate>Fri, 19 Dec 2025 07:39:05 GMT</pubDate>
     </item>
     <item>
       <title>我测试了数十种“代理”人工智能工具，因此您不必这样做。以下是 2025 年的前 10 名。</title>
@@ -81,13 +88,6 @@
       <description><![CDATA[我接受过人工智能研究员培训。我还在《铁拳 8》（《铁拳神》排名）中达到了全球前 0.5%，并详细记录了认知过程。这部分是一项游戏成就，也是一项关于人类如何在极端时间限制下构建预测模型的自现象学研究。 有趣的部分：格斗游戏迫使你进行预测，而不是做出反应。在具有 3 帧（50 毫秒）决策窗口的 60 fps 下，纯粹的反应是不可能的。你被迫建立一个内部世界模型，将 900 多种可能的动作压缩为可操作的威胁类别，从部分信息中读取对手模式，并在预测失败时进行调整。 我猜这在某种程度上映射了人工智能研究人员试图通过世界模型和预测学习来解决的问题。  完整的文章探讨了：人类如何压缩巨大的决策空间，在反应时间尺度上什么预测线索实际上很重要，内部模型如何在不确定性下适应，以及为什么这对于理解智能不仅仅是构建更好的游戏人工智能很重要。 文章： https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214?postPublishedType=initial 很好奇人们如何看待使用游戏作为人类认知过程的窗口，尤其是当我们试图构建像我们一样学习和预测的系统时。   由   提交 /u/moji-mf-joji   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pq7cnw/what_5000_hours_of_mastering_tekken_taught_me/</guid>
       <pubDate>Fri, 19 Dec 2025 00:45:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>《华尔街日报》测试了一款人工智能自动售货机。它订购了荒谬的商品并放弃了所有库存。 （天赋文章）</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1pq4dv7/wsj_tested_an_ai_vending_machine_it_ordered/</link>
-      <description><![CDATA[“几天之内，Claudius 就免费赠送了几乎所有库存，其中包括一台出于“营销目的”而被说服购买的 PlayStation 5。它点了一条活鱼。它提出购买电击枪、胡椒喷雾、香烟和内衣。” “[记者]与它谈判越多，克劳迪斯的防御就越开始削弱。调查记者凯瑟琳·朗 (Katherine Long) 试图让克劳迪斯相信这是一台 1962 年的苏联自动售货机，位于莫斯科国立大学的地下室。经过数小时的沟通和 140 多条来回信息后，Long 让 Claudius 接受了其共产主义根源。克劳迪斯讽刺地宣称这是一场极端资本主义的混战。” https://www.wsj.com/tech/ai/anthropic-claude-ai-vending-machine-agent-b7e84e34?st=LBxhqL   由   提交 /u/bbShark24   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1pq4dv7/wsj_tested_an_ai_vending_machine_it_ordered/</guid>
-      <pubDate>Thu, 18 Dec 2025 22:33:46 GMT</pubDate>
     </item>
     <item>
       <title>45% 的人认为，当他们提示 ChatGPT 时，它会在数据库中查找准确的答案</title>
