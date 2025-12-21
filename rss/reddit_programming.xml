@@ -4,16 +4,51 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 21 Dec 2025 12:49:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Dec 2025 15:24:06 GMT</lastBuildDate>
     <item>
-      <title>我在笔记本电脑上以每月 0.36 美元的价格破解了量子计算 - AWS 花费了 300 亿美元来构建我使用 Cloudflare Workers 所做的事情</title>
-      <link>https://www.reddit.com/r/programming/comments/1ps5msm/i_broke_quantum_computing_on_a_laptop_for/</link>
-      <description><![CDATA[ 由   提交/u/ViolinistDismal1001  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ps5msm/i_broke_quantum_computing_on_a_laptop_for/</guid>
-      <pubDate>Sun, 21 Dec 2025 12:40:34 GMT</pubDate>
+      <title>MCP是否被过度炒作？</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps8y5v/is_mcp_overhyped/</link>
+      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps8y5v/is_mcp_overhyped/</guid>
+      <pubDate>Sun, 21 Dec 2025 15:23:33 GMT</pubDate>
     </item>
     <item>
-      <title>让我们来做一个游戏吧！ 365：亮点</title>
+      <title>Constvector：日志结构的 std:vector 替代方案 – 推送/弹出速度提高 30-40%</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps8s9e/constvector_logstructured_stdvector_alternative/</link>
+      <description><![CDATA[std::vector 的重新分配是常见的罪魁祸首。这是一个具有 2 次幂块的对数结构替代方案（constvector）： Push：3.5 ns/op（vs 5 ns std::vector） Pop：3.4 ns/op（vs 5.3 ns） Index：轻微减速（3.8 vs 3.4 ns）严格最坏情况 O(1)、θ(N) 空间权衡，与相比仅 log(N) 额外std::vector。 它减少了内部内存碎片。它不会在不修改的情况下使一级、二级缓存失效，从而提高性能：  Youtube: https://youtu.be/ledS08GkD40 实际上，我们可以使用 64 大小的元数组（对于 log(N)）作为额外空间。我实现了裸向量操作来进行比较，因为实际的 std::vector 实现有很多迭代器验证代码，导致额外的开销。   由   提交/u/pilotwavetheory  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps8s9e/constvector_logstructured_stdvector_alternative/</guid>
+      <pubDate>Sun, 21 Dec 2025 15:16:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>React 和其他一些也有一个，现在我们有 1 个用于 php</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps8179/react_and_a_few_other_have_one_too_now_we_have_1/</link>
+      <description><![CDATA[我们有 https://justfuckingusehtml.com 然后是用于 React、is 和 vue 等。 我看到没有用于 php het 的，所以我决定也为此制作一个。 请随意查看并享受。 祝您即将到来假期！！ 注意，这不是为了宣传、展示或为了初创公司。我只是想分享这个 même 网站以供娱乐，无论如何它只是一个页面   由   提交 /u/Minute_Attempt3063   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps8179/react_and_a_few_other_have_one_too_now_we_have_1/</guid>
+      <pubDate>Sun, 21 Dec 2025 14:41:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>后续：对我的多语言微服务游戏进行负载测试 - 结果以及我通过 k6 学到的知识 [案例研究，开源]</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps7duq/followup_load_testing_my_polyglot_microservices/</link>
+      <description><![CDATA[不久前，我在这里分享了我的多语言 Codenames 自定义版本 - 一款使用 Java (Spring Boot)、Rust (Actix) 和 C# (ASP.NET Core) 构建的多人游戏信号R）。有些人询问不同堆栈的性能特征。 我最终使用 k6 添加了适当的负载测试。以下是结果。 设置 测试的服务（Docker 容器、本地计算机）：  帐户服务 - Java 25 + Spring Boot 4 + WebFlux 游戏服务 - Rust + Actix-web 聊天服务 - .NET 10 + SignalR  测试场景：  冒烟测试（基线，1 VU） 负载测试（10 个并发用户，6 分 30 秒斜坡） SignalR 实时聊天（2 个并发会话） 游戏 WebSocket（3 个并发会话）  结果   服务 端点 p95延迟    帐户（Java） 登录 64ms   帐户（Java） 注册138ms游戏（Rust）创建游戏15ms游戏（Rust）加入游戏 4ms   游戏（Rust） WS Connect 4ms   聊天 (.NET) WSConnect 37ms   负载测试（持续 10 个 VU）：  1,411 个完整用户流 8,469 个 HTTP 请求 21.68 req/s 吞吐量 63ms p95 响应时间 0% 错误率  SignalR Chat 测试 (.NET)：  发送 84 条消息，收到 178 条 37 毫秒 p95 连接时间 100% 消息传递  游戏 WebSocket 测试（Rust/Actix）：  发送了 90 条消息，收到了 75 条消息 4ms p95 连接时间 45 个 WebSocket 会话 100% 成功率  我学到了什么 Rust 很快，但差距比预期要小。 游戏服务 (Rust) 在 4-15 毫秒内响应，而帐户 (Java with WebFlux) 响应时间为 4-15 毫秒。位于 64-138 毫秒。这大约是 10 倍的差异，但两者都完全符合任何合理的 SLA。对于业余爱好项目，Java 的开发人员经验胜出。 SignalR 就可以工作。我预计 WebSocket 测试会很痛苦。 k6 实现需要自定义 SignalR 客户端，但一旦工作，.NET 服务就能完美地处理实时消息传递。 WebFlux 处理负载。Java 25 上的 Spring Boot 4 + WebFlux 通过其反应式/非阻塞模型有效地处理并发请求。 多语言税是真实的，但易于管理。 三种不同的构建系统、三种部署配置、三种处理 JSON 的方法。但每种服务都发挥了其语言的优势。 SignalR 客户端实现了 JSON 协议握手、消息帧和集线器调用（基本上是官方客户端所做的，但对于 k6）。 Game WebSocket 客户端更简单，原生 WebSocket 具有用于加入/离开/游戏操作的 JSON 消息。 下一步  针对 GCP Cloud Run 进行测试（冷启动、自动缩放） 压力测试以查找断点 添加加特林进行比较    由   提交/u/Lightforce_  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps7duq/followup_load_testing_my_polyglot_microservices/</guid>
+      <pubDate>Sun, 21 Dec 2025 14:10:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>C++ DataFrame的独特之处（一）</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps76zi/unique_features_of_c_dataframe_1/</link>
+      <description><![CDATA[ 由   提交 /u/hmoein   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps76zi/unique_features_of_c_dataframe_1/</guid>
+      <pubDate>Sun, 21 Dec 2025 14:01:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rust 和忽略理论的代价 - 我一段时间以来看过的最有趣的编程视频之一</title>
+      <link>https://www.reddit.com/r/programming/comments/1ps6of3/rust_and_the_price_of_ignoring_theory_one_of_the/</link>
+      <description><![CDATA[ 由   提交 /u/ThisIsChangableRight   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ps6of3/rust_and_the_price_of_ignoring_theory_one_of_the/</guid>
+      <pubDate>Sun, 21 Dec 2025 13:35:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们来做个游戏吧！ 365：亮点</title>
       <link>https://www.reddit.com/r/programming/comments/1ps4nw1/lets_make_a_game_365_highlights/</link>
       <description><![CDATA[ 由   提交/u/apeloverage  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1ps4nw1/lets_make_a_game_365_highlights/</guid>
@@ -48,9 +83,9 @@
       <pubDate>Sun, 21 Dec 2025 07:18:14 GMT</pubDate>
     </item>
     <item>
-      <title>揭穿性能借口 - 此外，还有许多成功重写的例子</title>
+      <title>性能借口被揭穿 - 此外，还有许多成功重写的例子</title>
       <link>https://www.reddit.com/r/programming/comments/1przcvj/performance_excuses_debunked_also_many_examples/</link>
-      <description><![CDATA[ 由   提交/u/grauenwolf  [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/grauenwolf   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1przcvj/performance_excuses_debunked_also_many_examples/</guid>
       <pubDate>Sun, 21 Dec 2025 06:03:03 GMT</pubDate>
     </item>
@@ -74,41 +109,6 @@
       <description><![CDATA[ 由   提交 /u/Fcking_Chuck   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1prsbvi/gemini_ai_yielding_sloppy_code_for_ubuntu/</guid>
       <pubDate>Sat, 20 Dec 2025 23:53:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI 生成的输出是缓存，而不是数据</title>
-      <link>https://www.reddit.com/r/programming/comments/1prr2p3/aigenerated_output_is_cache_not_data/</link>
-      <description><![CDATA[ 由   提交/u/panic089  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1prr2p3/aigenerated_output_is_cache_not_data/</guid>
-      <pubDate>Sat, 20 Dec 2025 22:53:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能与战时经济</title>
-      <link>https://www.reddit.com/r/programming/comments/1prohgl/ai_and_the_wartime_economy/</link>
-      <description><![CDATA[ 由   提交/u/artagnon  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1prohgl/ai_and_the_wartime_economy/</guid>
-      <pubDate>Sat, 20 Dec 2025 20:55:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>人们喜欢 Rust 的什么？</title>
-      <link>https://www.reddit.com/r/programming/comments/1prm89i/what_do_people_love_about_rust/</link>
-      <description><![CDATA[ 由   提交/u/steveklabnik1  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1prm89i/what_do_people_love_about_rust/</guid>
-      <pubDate>Sat, 20 Dec 2025 19:15:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sergey Brin，关于学生是否应该在 2026 年选择计算机科学</title>
-      <link>https://www.reddit.com/r/programming/comments/1prlib8/sergey_brin_on_whether_students_should_pick/</link>
-      <description><![CDATA[ 由   提交 /u/Frequent-Football984   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1prlib8/sergey_brin_on_whether_students_should_pick/</guid>
-      <pubDate>Sat, 20 Dec 2025 18:44:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>将大型代码库建模为静态知识图：设计权衡</title>
-      <link>https://www.reddit.com/r/programming/comments/1priv8c/modeling_large_codebases_as_static_knowledge/</link>
-      <description><![CDATA[在处理大型代码库时，模块边界、依赖关系和层次结构等结构信息通常是隐式的且难以推理。 我一直在探索的一种方法是将代码库表示为静态知识图，其中文件、模块和符号成为显式节点，而架构关系被编码为边缘。 这提出了几个设计问题： - 静态和动态捕获哪些信息最好？ - 图形节点和边应该有多详细？ - 与运行时分析相比，静态表示在哪里出现问题？ - 随着代码的发展，这些图如何保持可维护性？ 我有兴趣听取从事以下工作的人的意见： - 静态分析工具 - 代码索引系统 - 大规模重构或架构工具 就上下文而言，我一直在开源项目中试验这些想法，但我主要对更广泛的设计讨论感兴趣。   由   提交/u/codevoygee  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1priv8c/modeling_large_codebases_as_static_knowledge/</guid>
-      <pubDate>Sat, 20 Dec 2025 16:51:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
