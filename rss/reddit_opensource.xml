@@ -4,7 +4,49 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 23 Dec 2025 09:31:19 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Dec 2025 12:54:59 GMT</lastBuildDate>
+    <item>
+      <title>ntropyGuard：MIT 许可的 CLI 工具，用于在 CPU 上本地删除重复数据集。没有 API，没有遥测，只有更干净的 RAG 数据。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ptt8dz/ntropyguard_an_mitlicensed_cli_tool_to/</link>
+      <description><![CDATA[嗨r/opensource！ 我想分享一个我一直致力于解决数据工程/人工智能领域的特定痛点的工具：重复污染。 为 RAG（检索增强生成）或构建数据集时在训练中，我们经常会得到大量重复或接近重复的文本（抓取的标题、相同的错误日志、交叉发布的文章）。这会浪费存储、计算能力和金钱。 现有的解决方案通常需要旋转重型矢量数据库或将数据发送到付费 API。我想要一些遵循 Unix 哲学的东西：一个简单的、可组合的 CLI 工具，它能做好一件事，在本地运行，并且尊重隐私。 认识一下 EntropyGuard：这是一个基于 Python 的 CLI，可以在您将数据摄取到其他地方之前过滤您的数据。 为什么这个社区可能会对它感兴趣：  100% 离线私有：没有数据离开您的机器。它使用本地 CPU 模型 (ONNX/PyTorch)。 混合引擎：使用快速哈希 (xxhash) 进行精确重复，使用语义搜索 (all-MiniLM-L6-v2) 进行模糊重复。 性能：基于 Polars 构建，以提高内存效率。我刚刚发布了带有 检查点 的 v1.22 - 因此，如果您的 50GB 作业崩溃，您可以 --resume 而不是哭泣。 管道友好： 适用于标准流：cat dirty.jsonl |熵卫士&gt; clean.jsonl  堆栈： Python 3.10+、Polars、FAISS、Pydantic、Rich/Tqdm。 存储库：https://github.com/DamianSiuta/entropyguard 它是完全开源的（MIT）。我正在寻找有关我可能错过的架构或边缘情况的反馈。如果您负责数据清理，我很想知道这是否适合您的工作流程。   由   提交 /u/Low-Flow-6572   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ptt8dz/ntropyguard_an_mitlicensed_cli_tool_to/</guid>
+      <pubDate>Tue, 23 Dec 2025 12:54:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>khaos – 通过 CLI 模拟 Kafka 流量和故障场景</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ptsupg/khaos_simulating_kafka_traffic_and_failure/</link>
+      <description><![CDATA[我的项目做什么 khaos 是一个 CLI 工具，用于从 YAML 配置生成 Kafka 流量。 它可以启动本地多代理 Kafka 集群并模拟 Kafka 级别的场景，例如消费者滞后累积、热分区（偏斜键）、重新平衡、代理故障和背压。 该工具还可以使用以下命令生成结构化 JSON 消息： Faker 并将它们发布到 Kafka 主题。 它可以针对本地集群和外部 Kafka 集群（包括 SASL / SSL 设置）运行。 目标受众 khaos 面向使用 Kafka 的开发人员和工程师，他们需要一个工具来生成流量并观察 Kafka 行为。 典型用例包括：  本地测试 实验和学习 混沌和行为测试 调试 Kafka 消费者和生产者  比较 没有广泛采用的、功能齐全的开源工具专门专注于模拟 Kafka 流量和行为。 在实践中，大多数团队最终都会编写临时生产者和消费者脚本来重现 Kafka 场景。 khaos 提供了可重用、配置驱动的 CLI 作为该方法的替代方案。 项目链接： https://github.com/aleksandarskrbic/khaos    由   提交 /u/skrbic_a   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ptsupg/khaos_simulating_kafka_traffic_and_failure/</guid>
+      <pubDate>Tue, 23 Dec 2025 12:34:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>您实际使用并喜欢哪些 Slack 替代方案？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pts1cg/which_slack_alternatives_do_you_actually_use_and/</link>
+      <description><![CDATA[我的团队正在寻找一种简单的解决方案来聊天、共享文件和偶尔的通话，但 Slack 已经变得过于混乱且昂贵，无法满足我们的需求   由   提交/u/dlc78  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pts1cg/which_slack_alternatives_do_you_actually_use_and/</guid>
+      <pubDate>Tue, 23 Dec 2025 11:51:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创建了一个用于 IPTV 播放的 flutter 应用</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ptq9ph/i_created_a_flutter_app_for_iptv_play/</link>
+      <description><![CDATA[所以我看到 iptv-org 维护着 IPTV 频道列表，但没有我们需要 VLC 播放的播放器。这是一种很奇怪的方式，而且用户体验不佳。所以我制作了一个 flutter 应用程序，它将列出它的徽标、质量、类别、搜索和漂亮的 UI UX。 我个人使用它，我在我的 github 上免费下载它，所有代码都是开源的。可在手机、安卓电视、笔记本电脑上使用，它是跨平台的。除了 ui 和 flutter 代码之外，我不拥有或声明任何其他内容。 https://github.com/KTBsomen/freetv   由   提交 /u/khiladipk   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ptq9ph/i_created_a_flutter_app_for_iptv_play/</guid>
+      <pubDate>Tue, 23 Dec 2025 10:02:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>您知道任何 Android RTSP 应用程序吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ptq2ca/any_android_rtsp_app_you_know_about/</link>
+      <description><![CDATA[Playstore 上有很多，但我想要开源替代品。 移动摄像头 -&gt; RTSP-&gt;在 vlc 中查看实时 feed    由   提交 /u/Fusion_Playz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ptq2ca/any_android_rtsp_app_you_know_about/</guid>
+      <pubDate>Tue, 23 Dec 2025 09:49:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>适合所有人的免费视频编辑器（更新）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ptq0ly/free_video_editor_for_everyone_update/</link>
+      <description><![CDATA[ATACUT v1.2.14 – 更清洁的版本和版本打包修复 我们已经发布了一系列发布/CI 卫生修复并构建稳定性改进： CI/发布管道 添加了存储库元数据并修复了发布时的 GH_TOKEN 使用情况。 将应用程序版本从 git 标记自动同步到两个 package.json 文件（不再有 422 个重复资产）。 过滤发布工件以仅发布最终安装程序（Windows） .exe/.blockmap、Linux AppImage/.deb）。 并发防护以防止重叠运行；删除了已弃用的旧工作流程。 在版本提取步骤中强制执行 Bash，以便 Windows 运行者不会因 VERSION=... 语法而卡住。 构建稳定性 IPC 安全性：保护 webContents.send 免受破坏的窗口；确保写入前波形目录存在。 Webpack：统一 NODE_ENV 处理；启用了详细的统计信息，以便于调试。 结果 版本现在仅发布安装程序（没有 200 多个额外文件）。 版本号自动与标签对齐。 CI 警告/噪音更少；更强大的 IPC/导出路径。 感谢您使用 ATACUT！如果您在使用新安装程序时遇到任何问题，请告诉我们。 https://github.com/frknatalay42-png/Atacut-Free-video-editor/releases/tag/v1.2.14   由   提交 /u/Unlucky_Monk_5530   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ptq0ly/free_video_editor_for_everyone_update/</guid>
+      <pubDate>Tue, 23 Dec 2025 09:46:05 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了一个小工具，可以将 YouTube 语言内容保存为 MP3 以供离线收听</title>
       <link>https://www.reddit.com/r/opensource/comments/1ptnq2f/i_built_a_small_tool_to_save_youtube_language/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ptbnko/built_an_opensource_frontend_security_scanner/</guid>
       <pubDate>Mon, 22 Dec 2025 21:34:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>sketch2prompt（麻省理工学院）：规划步骤+为人工智能辅助工作流程生成规范</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ptanpm/sketch2prompt_mit_planning_step_generated_specs/</link>
-      <description><![CDATA[我开源了一个为加快 AI 编码工作流程而构建的规划工具 我厌倦了 AI 助手猜测我的项目应该如何构建的错误。因此，我构建了一个工具，您首先可以直观地勾勒出系统的草图，然后导出规格，告诉人工智能“这里有什么存在，这里有什么对话，这里有什么是禁止的。” 它是一个画布，您可以在其中拖出组件（前端、后端、数据库、身份验证等），给它们命名和技术选择，并画线显示它们如何连接。当您点击“导出”时，您将获得一个包含 Markdown 和 YAML 文件的 ZIP，并将其放入项目文件夹中。你的人工智能助手会读取这些内容，而不是编造东西。 目标基本上是：在人工智能开始构建之前冻结架构决策，因此它可以在你的计划内工作，而不是发明自己的计划。 不需要帐户，我这边没有存储 API 密钥（如果你想要人工智能增强的输出，请带上你自己的密钥，否则它会使用模板）。麻省理工学院许可。 回购：https://github.com/jmassengille/sketch2prompt 实时：https://www.sketch2prompt.com/ DemoVid：https://www.reddit.com/user/jmGille/comments/1ptaboa/sketch2prompt_demo/ 如果有人尝试一下，很想听听输出是否确实有意义或者是否有些令人困惑。仍在迭代。   由   提交 /u/jmGille   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ptanpm/sketch2prompt_mit_planning_step_generated_specs/</guid>
-      <pubDate>Mon, 22 Dec 2025 20:53:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 Vite + React FOSS 中挣扎于 SEO。我是不是完蛋了？？？？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pta5ql/struggling_with_seo_in_vite_react_foss_am_i/</link>
-      <description><![CDATA[大家好， 我希望你们中至少有一个人可以帮助我... 我维护着一个 FOSS Vite React 项目，该项目仍处于 v1 版本之前，需要大量工作，我希望它可以被发现，以便新开发人员可以找到它并帮助实现第一个正确发布之前所需的一长串功能，但老实说，我遇到了严重的 SEO 头痛不知道该怎么办。  我在许多项目中尝试了很多方法，例如react-helmet（以及异步版本，Vite SSG，静态渲染插件，使用vite-plugin-ssr之类的服务器端渲染，但我不断遇到类似的问题。 head标签只是不想针对不同的页面正确更新 - 它们会更新，但只有在短时间内并且只有在启用JS时才会更新。元标签，标题，描述和其他经常保留的内容我是否做错了？ 对于不执行 JavaScript 的爬虫，我该怎么办？如何确保它们真正看到正确的内容？ 如果页面不是静态渲染或 SEO 友好的，我也不确定 Algolia DocSearch 是否能正常工作。不是。🥲  在没有完整 SSR 的情况下，在 Vite + SPA 设置中进行“良好”SEO 是否可行，或者如果我希望页面可以被非 JS 机器人抓取，我基本上就完蛋了？😭 在这一点上，我会很乐意接受任何形式的建议、经验或推荐方法 - 特别是如果您已经为需要吸引贡献者的开源项目完成了 SEO。 我只需要一个让它发挥作用的可靠方法，因为我不想在另一个项目中再次浪费时间。 😭😭😭    /u/readilyaching   [链接]   href=&quot;https://www.reddit.com/r/opensource/comments/1pta5ql/struggling_with_seo_in_vite_react_foss_am_i/&quot;&gt;[评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pta5ql/struggling_with_seo_in_vite_react_foss_am_i/</guid>
-      <pubDate>Mon, 22 Dec 2025 20:32:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>Go 中的简单 CLI 文件加密器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pt9q0f/a_simple_cli_file_encrypter_in_go/</link>
-      <description><![CDATA[GitHub：https://github.com/pingminus/SafeGuard Go 中的简单 CLI 文件加密工具，采用 AES-GCM、XOR 和 Caesar 密码。非常适合学习和实验。不适合高安全性用途。欢迎贡献和改进！我最初开始用 C++ 编写它，但遇到了库问题，所以我改用 Go。   由   提交/u/Flimsy_Fly_2017  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pt9q0f/a_simple_cli_file_encrypter_in_go/</guid>
-      <pubDate>Mon, 22 Dec 2025 20:15:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个免费的 Snapchat Memories 下载器，它还修复了丢失的捕获时间 + GPS 元数据 (EXIF/XMP)</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pt8nyl/i_built_a_free_snapchat_memories_downloader_that/</link>
-      <description><![CDATA[大家好， Snapchat 的“我的数据”导出功能为您提供了[memories_history.html](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) 文件包含下载链接，但下载的照片/视频通常不会包含正确的嵌入元数据（捕获时间和位置）。这使得导入 Photos / Google Photos / Lightroom 变得混乱，因为所有内容都按下载日期排序。 因此，我编写了一个小型 Python 工具，它：  解析您的[memories_history.html](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) 下载所有 Memories 媒体（支持 Snapchat 使用的 GET/POST 链接变体） 提取 ZIP 包（一些已过滤的快照） 使用 ExifTool (EXIF/XMP) 将正确的捕获日期/时间 + GPS 写入文件 更新文件系统时间戳（帮助 macOS 上的 Finder 排序） 支持主动并行下载模式([--concurrency](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html)) 创建 manifest.csv 和[download_state.json](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) 因此重新运行可以跳过已下载的项目  存储库：https://github.com/jbisinger/Snapchat_Memories_Downloader 如何使用（高级）：  导出 Snapchat 数据：[https://accounts.snapchat.com/](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) → 我的数据 → 请求数据 → 提取 ZIP → 找到 [memories_history.html](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/ Electron-browser/workbench/workbench.html) 安装 ExifTool：   macOS：brew install exiftool   安装 Python deps：   pip install -r requests.txt   运行：   python [main.py](http://_vscodecontentref_/5) -m [memories_history.html](http://_vscodecontentref_/6) -d ./downloads 可选快速模式： python [main.py](http://_vscodecontentref_/7) -m [memories_history.html](http://_vscodecontentref_/8) -d ./downloads --concurrency 200 --delay 2  重要说明/免责声明：  这适用于个人备份/组织。使用它的风险由您自行承担。 Snapchat 链接可能会过期；如果下载失败，您可能需要重新导出。 高并发会给您的连接带来压力（并可能触发速率限制）。如果出现错误，请减少 [--concurrency](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) 或增加[--delay](vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html)。 某些文件格式可能无法一致地接受每个元数据标记；即使元数据写入失败，该工具仍然会下载媒体。 我不隶属于 Snapchat。没有保证，没有保证。  如果您尝试一下，我很乐意提供反馈：性能问题、破坏元数据的文件类型或您想要的任何改进（更好的文件名方案、进度 UI 等）。   由   提交 /u/JEB_272   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pt8nyl/i_built_a_free_snapchat_memories_downloader_that/</guid>
-      <pubDate>Mon, 22 Dec 2025 19:32:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>触发点开发</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pt76vg/trigger_dot_dev/</link>
-      <description><![CDATA[任何人都可以帮助我了解像触发点开发这样的项目如何在开源整个项目的同时赚钱吗？我请 Antigravity 告诉我这个项目是如何构建的；看起来很简单，主要使用 Redis 和 PostgreSQL，人们现在愿意花更多的钱请专家来维护技术，而不是运行技术本身吗？  我正在努力解决这个问题。   由   提交 /u/CapableDentist6332   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pt76vg/trigger_dot_dev/</guid>
-      <pubDate>Mon, 22 Dec 2025 18:35:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>什么树莓派适合 selhosting FOSS git hub 替代品？ （例如 forgejo）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pt74pl/what_raspberry_pi_is_good_for_selhosting_foss_git/</link>
-      <description><![CDATA[不确定这是否与此相关，但想问一下。   由   提交 /u/CloudyyySXShadowH   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pt74pl/what_raspberry_pi_is_good_for_selhosting_foss_git/</guid>
-      <pubDate>Mon, 22 Dec 2025 18:33:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
