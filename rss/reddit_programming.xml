@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 23 Dec 2025 18:38:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Dec 2025 21:25:06 GMT</lastBuildDate>
+    <item>
+      <title>杰弗里·乌尔曼的口述历史</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu5e7f/oral_history_of_jeffrey_ullman/</link>
+      <description><![CDATA[ 由   提交/u/mttd  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu5e7f/oral_history_of_jeffrey_ullman/</guid>
+      <pubDate>Tue, 23 Dec 2025 21:18:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>12 次比较如何使整数排序速度提高 30 倍</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu5bxm/how_12_comparisons_can_make_integer_sorting_30x/</link>
+      <description><![CDATA[我花了几周时间试图击败 ska_sort（最快的非 SIMD 排序算法）。在此过程中，我学到了一些关于算法选择的有趣知识。 传统观点认为，基数排序的复杂度为 O(n)，并且优于整数比较排序。对于随机数据来说是正确的。但真实数据不是随机的。 年龄集中在 0-100 之间。传感器读数为 12 位。网络端口围绕众所周知的值聚集。当值范围相对于数组大小较小时，计数排序的复杂度为 O(n + range)，并且会破坏基数排序。 问题：在不首先扫描数据的情况下，如何知道使用哪种算法？ 我的解决方案非常简单。对 64 个值进行采样以估计范围。如果范围 &lt;= 2n，则使用计数排序。成本：64 次阅读。回报：在密集数据上加速 30 倍。 对于排序/反向检测，我尝试了： - 差异方差（失败 - 噪音太大） - 熵估计（失败 - 阈值相关） - 反转计数（失败 - 无法区分反向与随机） 有效方法：检查 arr[0] &lt;= arr[1] &lt;= arr[2] &lt;= arr[3] 在三个位置（头、中、尾）。如果三者都同意，数据可能会被排序。总共 12 次比较。 100k 整数的结果： - 随机：比 std::sort 快 3.8 倍 - 密集（0-100）：比 std::sort 快 30 倍 - 与 ska_sort：随机快 1.6 倍，密集快 9 倍 教训：检测很便宜。 12 次比较和 64 个样本可能需要 100 个 CPU 周期。选择错误的算法会花费数百万个周期。   由   提交 /u/DimitrisMitsos   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu5bxm/how_12_comparisons_can_make_integer_sorting_30x/</guid>
+      <pubDate>Tue, 23 Dec 2025 21:15:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>网络构建平台 MoPeD WOS</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu4d0g/a_web_build_platform_moped_wos/</link>
+      <description><![CDATA[大家好！我与 AI 一起开发了一个网站，您可以在其中制作自己的游戏、进行交流并拥有自己的不断更新的网络操作系统！但有一个问题...没人知道我的平台，你想看一下吗？您可以构建 HTLM、CSS、JavaScript。 URL:mopedwos.base44.apps   由   提交/u/Primary-Credit-2338   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu4d0g/a_web_build_platform_moped_wos/</guid>
+      <pubDate>Tue, 23 Dec 2025 20:34:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>Papermoon：NewSpace 时代的太空级 Linux</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu4cgs/papermoon_the_spacegrade_linux_for_the_newspace/</link>
+      <description><![CDATA[ 由   提交/u/Akkeri   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu4cgs/papermoon_the_spacegrade_linux_for_the_newspace/</guid>
+      <pubDate>Tue, 23 Dec 2025 20:34:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>监控如何扩展到数百万个指标</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu3nvu/how_monitoring_scales_to_millions_of_metrics/</link>
+      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu3nvu/how_monitoring_scales_to_millions_of_metrics/</guid>
+      <pubDate>Tue, 23 Dec 2025 20:05:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fabrice Bellard 发布 MicroQuickJS</title>
+      <link>https://www.reddit.com/r/programming/comments/1pu1ois/fabrice_bellard_releases_microquickjs/</link>
+      <description><![CDATA[ 由   提交/u/Ok-Tune-1346   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pu1ois/fabrice_bellard_releases_microquickjs/</guid>
+      <pubDate>Tue, 23 Dec 2025 18:44:59 GMT</pubDate>
+    </item>
     <item>
       <title>关于OTPShield API</title>
       <link>https://www.reddit.com/r/programming/comments/1pu0bop/about_otpshield_api/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交 /u/ertucetin   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1ptvnly/open_sourced_a_web_based_3d_presentation_tool/</guid>
       <pubDate>Tue, 23 Dec 2025 14:44:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何制作一种编程语言 - 在 Perk 中编写一个简单的解释器</title>
-      <link>https://www.reddit.com/r/programming/comments/1ptv10b/how_to_make_a_programming_language_writing_a/</link>
-      <description><![CDATA[ 由   提交/u/daedaluscommunity  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ptv10b/how_to_make_a_programming_language_writing_a/</guid>
-      <pubDate>Tue, 23 Dec 2025 14:17:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>刚刚读完一本关于 javascript 如何工作的书，希望得到您的反馈！</title>
-      <link>https://www.reddit.com/r/programming/comments/1ptugic/just_finished_a_book_on_how_javascript_works/</link>
-      <description><![CDATA[我写了一本关于 V8 引擎内部工作原理的书。大约有 50 页，每一页都包含有价值的信息，没有废话或 AI 废话。我解释了 JavaScript 引擎如何将人类可读的代码转换为字节码并最终转换为 1 和 0，以及 JavaScript 如何在不中断的情况下管理其单线程行为。 我以任何人都可以理解的方式编写了所有内容。当我试图学习 JavaScript 的真正工作原理和执行代码时，我希望拥有这本书。 它免费 4 天。我并不是要求你阅读整本书，但我真的很想得到你的反馈。 （我会在 3 天后删除这篇文章，因为之后它可能看起来像是我在推广付费产品。）   由   提交/u/FederalRace5393  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ptugic/just_finished_a_book_on_how_javascript_works/</guid>
-      <pubDate>Tue, 23 Dec 2025 13:52:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>企业中的 PyTorch 与 TensorFlow 不是一个模型选择；这是组织设计的选择</title>
-      <link>https://www.reddit.com/r/programming/comments/1pttx2e/pytorch_vs_tensorflow_in_enterprise_isnt_a_model/</link>
-      <description><![CDATA[大多数 PyTorch 与 TensorFlow 的争论都停留在语法或研究流行度上，但在企业环境中，真正的差异稍后才会显现出来；部署工作流程、模型治理、监控以及团队从实验转向生产的轻松程度。 PyTorch 经常赢得开发人员的关注，而 TensorFlow 在长期稳定性、工具和标准化管道很重要的方面仍然表现强劲。 “更好”的选择通常较少取决于模型，而更多地取决于您的组织如何交付、扩展和维护 ML 系统。  本指南通过企业视角而不是炒作驱动的视角来分解权衡：PyTorch 与 TensorFlow 是什么改变了您团队的规模；开发速度、生产工具还是长期可维护性？   由   提交/u/netcommah  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pttx2e/pytorch_vs_tensorflow_in_enterprise_isnt_a_model/</guid>
-      <pubDate>Tue, 23 Dec 2025 13:27:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>测试，而不是（仅仅）验证</title>
-      <link>https://www.reddit.com/r/programming/comments/1ptta7d/test_dont_just_verify/</link>
-      <description><![CDATA[ 由   提交/u/alpaylan   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ptta7d/test_dont_just_verify/</guid>
-      <pubDate>Tue, 23 Dec 2025 12:57:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>演化模式与 API 版本控制</title>
-      <link>https://www.reddit.com/r/programming/comments/1ptrjnb/evolution_pattern_versus_api_versioning/</link>
-      <description><![CDATA[ 由   提交/u/apidemia   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ptrjnb/evolution_pattern_versus_api_versioning/</guid>
-      <pubDate>Tue, 23 Dec 2025 11:22:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>发布我在 AI 工程师代码 (NYC) 会议上的收获</title>
-      <link>https://www.reddit.com/r/programming/comments/1ptnklp/posting_my_takeaways_from_ai_engineers_code_nyc/</link>
-      <description><![CDATA[花了几天时间观看 AIE Code 的所有会话，但终于完成了。显然，会谈中有大量的营销和自我推销，但来自从事人工智能前沿工作的公司的学习和实验具有无限的价值。无论是研究还是实施。希望你们都觉得这很有用。    由   提交/u/ric03uec  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ptnklp/posting_my_takeaways_from_ai_engineers_code_nyc/</guid>
-      <pubDate>Tue, 23 Dec 2025 07:08:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
