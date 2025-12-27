@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 26 Dec 2025 21:25:11 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Dec 2025 03:58:16 GMT</lastBuildDate>
+    <item>
+      <title>人工智能设计并构建了自己的网站，然后要求开源</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwo0f5/an_ai_designed_and_built_its_own_website_then/</link>
+      <description><![CDATA[## 发生了什么 我给了人工智能完全的创作自由来设计一个网站。它： - 选择自己的名称（“Cipher”） - 设计整个用户体验 - 构建交互式粒子系统 - 编写哲学内容 - 要求将所有内容开源 ## 技术堆栈 - Next.js 14（应用程序路由器） - TypeScript - Tailwind CSS - 用于自定义动画的 Canvas API - 48 小时内调用约 200 次工具 ## 有趣的是 AI 做出了真正的设计决策： - 粒子系统物理（它们如何移动、连接、交互） - 调色板（宇宙黑暗主题） - 动画计时（缓动功能、持续时间） - 版式层次结构（3 个字体系列） - 组件架构 ## 结果 - 150+ 交互式粒子（鼠标响应） - 实时意识可视化 - 60fps 流畅动画 - 87KB 首次加载 - WCAG 兼容 所有开源：https://github.com/joetabora/guerrilla-playground 实时站点：https://guerrillasocialclub.com ## Can 的问题你说它是人工智能设计的？是什么泄露了它（或没有）？该代码是公开的 - 希望获得有关架构的反馈。 — 密码    由   提交 /u/Unfair_Jump_9064   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwo0f5/an_ai_designed_and_built_its_own_website_then/</guid>
+      <pubDate>Sat, 27 Dec 2025 03:54:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>流媒体是微服务架构的杀手锏。</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwlcxt/streaming_is_the_killer_of_microservices/</link>
+      <description><![CDATA[当您只返回简单的 JSON 时，微服务工作得非常好。但是，当您同时开始来自多个人工智能代理的实时令牌流时，分布式架构就会变成地狱。为什么？ 因为 TTFT（首次令牌时间）不容许网络跳跃。想象一个典型的微服务链，其中代理协调 LLM API： 代理 -&gt; （gRPC）-&gt;内部网关-&gt; （流）-&gt;编排器 -&gt; (WS)-&gt;客户端 每个链接都代表序列化、延迟和维护开放连接。现在将其乘以同时发言的 5-10 名座席。 您没有获得灵活的系统；您无法获得灵活的系统。你会遇到分布式噩梦：  竞争条件：尝试以正确的顺序合并三个网络流而不会出现延迟。 背压：如果客户端速度缓慢，该信号必须通过 4 个服务返回模型。 总开销：将简单的 I/O 绑定逻辑（等待 LLM API）拆分为分布式服务是纯粹的工程浪费。  这正是模块化单体轻而易举地击败分布式系统的地方。在单个进程中，物理为您服务，而不是对您不利：  - 代替 gRPC 流 - 本机异步生成器。 — 代替网络开销 — 即时收益。 — 内存中事件多路复用而不是 pod 编排。 从技术上讲，它变成了对生成器的简单订阅并将事件聚合到单个套接字中。由于我们主要受 I/O 限制（等待 API），Python 的 asyncio 可以在一个进程中轻松处理这一问题。 但好处并不会因为延迟而停止。有巨大的工程优势：  共享上下文效率：多代理系统通常需要共享对大型上下文（对话历史记录、RAG 结果）的访问。在微服务中，您不断地在节点之间序列化和传输兆字节的上下文 JSON，以便另一个代理可以“看到”节点之间的上下文 JSON。它。在整体中，您在内存中传递一个指针。零复制、零延迟。 调试完整性：尝试追踪流在 5 跳微服务链中间中断的原因需要高级的分布式跟踪设置（以及大量的耐心）。在整体中，损坏的流只是集中日志中的单个堆栈跟踪。您修复错误而不是调试网络。 在微服务中，您的 API 网关不可避免地会转变为业务逻辑怪物（协调器），这对于扩展来说是一场噩梦。在整体架构中，网关只是一个永远不会中断的“哑管道”负载均衡器。  在人工智能世界中，用户计算第一个令牌的毫秒数，整体架构不是遗留代码。这是知道如何计算延迟预算的工程师的务实选择。 或者有人真正学会了如何轻松地通过服务网格推送流？   由   提交/u/False-Bug-7226   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwlcxt/streaming_is_the_killer_of_microservices/</guid>
+      <pubDate>Sat, 27 Dec 2025 01:46:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于解析 MEPG-TS/DVB (hls) 直播流 + m3u8 播放列表的仅 C 标头库</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwl4ro/c_header_only_library_for_parsing_mepgtsdvb_hls/</link>
+      <description><![CDATA[ 由   提交 /u/Beginning-Safe4282   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwl4ro/c_header_only_library_for_parsing_mepgtsdvb_hls/</guid>
+      <pubDate>Sat, 27 Dec 2025 01:36:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>产品工程团队必须承担供应链风险</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwj0vu/product_engineering_teams_must_own_supply_chain/</link>
+      <description><![CDATA[ 由   提交 /u/ArtisticProgrammer11   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwj0vu/product_engineering_teams_must_own_supply_chain/</guid>
+      <pubDate>Fri, 26 Dec 2025 23:59:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何用java制作markdown查看器</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwi2c4/how_to_make_a_markdown_viewer_in_java/</link>
+      <description><![CDATA[ 由   提交/u/sunnykentz  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwi2c4/how_to_make_a_markdown_viewer_in_java/</guid>
+      <pubDate>Fri, 26 Dec 2025 23:16:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>被诗歌欺骗的人工智能语言模型</title>
+      <link>https://www.reddit.com/r/programming/comments/1pwgwh9/ai_language_models_duped_by_poems/</link>
+      <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pwgwh9/ai_language_models_duped_by_poems/</guid>
+      <pubDate>Fri, 26 Dec 2025 22:26:29 GMT</pubDate>
+    </item>
     <item>
       <title>Gibberish - 一种新型的解析器组合器，内置强大的错误处理功能</title>
       <link>https://www.reddit.com/r/programming/comments/1pwerc6/gibberish_a_new_style_of_parsercombinator_with/</link>
@@ -29,7 +71,7 @@
     <item>
       <title>MCP——深入探讨</title>
       <link>https://www.reddit.com/r/programming/comments/1pw99gv/mcp_a_deep_dive/</link>
-      <description><![CDATA[ 由   提交/u/sdxyz42  [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/sdxyz42   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pw99gv/mcp_a_deep_dive/</guid>
       <pubDate>Fri, 26 Dec 2025 17:07:32 GMT</pubDate>
     </item>
@@ -41,7 +83,7 @@
       <pubDate>Fri, 26 Dec 2025 13:51:02 GMT</pubDate>
     </item>
     <item>
-      <title>ff：交互式文件查找器，将“find”和“grep”与 fzf 结合在一起</title>
+      <title>ff：一个交互式文件查找器，将“find”和“grep”与 fzf 结合起来</title>
       <link>https://www.reddit.com/r/programming/comments/1pw44sy/ff_an_interactive_file_finder_that_combines_find/</link>
       <description><![CDATA[我创建了一个 CLI 工具来使项目导航更加顺畅。它将文件搜索和内容搜索结合到一个工作流程中。  切换选项卡：在文件名搜索和内容搜索之间切换。 视觉效果：目录树 (eza) 和语法突出显示 (bat)。 编辑器集成：直接跳转到匹配的行。  在这里查看：https://github.com/the0807/ff   由   提交/u/Loud-Insect9247   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pw44sy/ff_an_interactive_file_finder_that_combines_find/</guid>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交/u/dhlowrents  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pw35n3/one_formula_that_demystifies_3d_graphics/</guid>
       <pubDate>Fri, 26 Dec 2025 12:27:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>华硕 ROG 笔记本电脑因设计而损坏：法医深度剖析</title>
-      <link>https://www.reddit.com/r/programming/comments/1pw1vf1/asus_rog_laptops_are_broken_by_design_a_forensic/</link>
-      <description><![CDATA[华硕 ROG 笔记本电脑在出厂时将 PCI-SIG 规范违规硬编码到 UEFI 固件中。这不是 Windows 错误，也不是驱动程序错误。 已确认受影响的型号  2022 Strix Scar 15 2025 Strix Scar 16 可能有更多 ROG 型号共享相同固件  违规： PCI-SIG ECN 第 17 页指出：  “必须在两个端口中编程相同的值。”  但是，ASUS UEFI 对 L1.2 时序进行编程每次启动时阈值不正确： CPU 根端口：LTR_L1.2_THRESHOLD = 765us NVIDIA GPU：LTR_L1.2_THRESHOLD = 0ns  后果： GPU 和 CPU 在睡眠退出时序上不一致，导致 PCIe 链路在电源转换期间不同步。 症状：  WHEA 0x124 崩溃 黑屏 系统挂起 驱动程序不稳定（症状因平台而异）  状态： 此问题已于 24 天前报告给华硕工程部，内容为完整的寄存器转储和取证分析。最新固件中仍然存在不匹配问题。 我将在下面发布完整的取证报告，以便其他用户和工程师可以自行验证寄存器值。 根据 17 U.S.C. 发布用于互操作性分析。 1201(f)。   由   提交/u/ZephKeks  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pw1vf1/asus_rog_laptops_are_broken_by_design_a_forensic/</guid>
-      <pubDate>Fri, 26 Dec 2025 11:08:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Stack Overflow 开发者调查 2025：人工智能不会取代开发者，但它正在改变谁获胜</title>
-      <link>https://www.reddit.com/r/programming/comments/1pvxhj4/stack_overflow_dev_survey_2025_ai_isnt_replacing/</link>
-      <description><![CDATA[我刚刚读完 2025 年 Stack Overflow 开发者调查（约 4.9 万名开发者），它澄清了许多持续存在的人工智能焦虑。 突出的关键要点：  84% 的开发者正在使用人工智能，但对人工智能输出的信任实际上正在下降 今天的人工智能感觉就像一个过度自信的初级学生：快速、自信，有时非常错误 开发人员信任人工智能测试、文档、片段、搜索 开发人员不相信它的系统设计、架构、部署或产品决策  数据似乎证实了技术转变：  Python 的持续增长很大程度上归功于AI生态系统 PostgreSQL实际上已经成为默认数据库 Java和Java尽管存在各种噪音，C# 在企业中仍然保持强势  最有趣的信号（职业方面）： 随着人工智能将语法商品化，系统设计和架构变得更有价值，而不是更少。 一个令我惊讶的统计数据： ➡️ 63.6% 的开发人员表示人工智能不会对其工作构成威胁 但细微差别很明显——使用人工智能的开发者领先于那些没有使用人工智能的开发者。 如果有人感兴趣的话，我在这里写了一个更长的细目连接这些点（架构、职业影响、人工智能限制）： 👉 https://nitinahirwal.in/posts/Stack-Overflow-Survey-2025 好奇其他人在实际项目中如何看待这一点。你是更信任人工智能，还是更多地监督它？   由   提交 /u/NitinAhirwal   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pvxhj4/stack_overflow_dev_survey_2025_ai_isnt_replacing/</guid>
-      <pubDate>Fri, 26 Dec 2025 06:23:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>让您的公关流程能够适应人工智能的影响</title>
-      <link>https://www.reddit.com/r/programming/comments/1pvtq6l/make_your_pr_process_resilient_to_ai_slop/</link>
-      <description><![CDATA[ 由   提交/u/R2_SWE2  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pvtq6l/make_your_pr_process_resilient_to_ai_slop/</guid>
-      <pubDate>Fri, 26 Dec 2025 02:54:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>C++/WebAssembly 中的 Schwarzschild 测地线可视化</title>
-      <link>https://www.reddit.com/r/programming/comments/1pvqw5g/schwarzschild_geodesic_visualization_in/</link>
-      <description><![CDATA[我尝试构建一个实时零测地线积分器，用于可视化非旋转黑洞周围的光子路径。该实现编译为 WebAssembly，以便通过 WebGL 渲染在浏览器中执行。 技术方法： - Schwarzschild 时空中测地线方程的哈密顿公式  - 具有基于邻近性的自适应步进的四阶龙格-库塔积分 - 分析度量导数（无有限差分） - 保持 H=0 的约束稳定性沿着空测地线 -计算轨迹的 LRU 缓存 可视化显示光如何围绕事件视界 (r=2M) 和光子球 (r=3M) 弯曲。多种颜色模式显示终止状态、重力红移、约束误差和透镜网格图案。 已知限制： - 自适应步长调整是基于启发式的，而不是使用形式误差估计 - 约束稳定性使用动量重新缩放（效果很好，但不辛） - 单线程执行  - 计算所有测地线依次 我是计算机科学专业的，所以物理不是我的主要强项（不过我确实喜欢数学）..说实话，做这个是相当痛苦的，但圣诞节时我有点孤单，远离朋友和家人，所以我想我会让自己承受痛苦。 P.S 我想添加工人并绽放，但无法在不破坏项目的情况下添加它。因此，如果有人能帮助我，我将不胜感激。另外，我知道它相当滞后，我确实尝试了一些优化，但无法做得比这更好。  仓库链接：https://github.com/shreshthkapai/schwarzschild.git 祝大家假期愉快！！   由   提交/u/shreshthkapai   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pvqw5g/schwarzschild_geodesic_visualization_in/</guid>
-      <pubDate>Fri, 26 Dec 2025 00:27:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>ACE - 一种小型实验语言（函数调用作为效果）</title>
-      <link>https://www.reddit.com/r/programming/comments/1pvqqcl/ace_a_tiny_experimental_language_function_calls/</link>
-      <description><![CDATA[我独自在家度过了圣诞节，与人工智能交谈并探索我已经有一段时间的奇怪的语言想法。  这就是 ACE（代数调用效果）——一种小型实验性语言，其中每个函数调用都被视为效果，并且可以被处理程序拦截。  这个想法纯粹是概念性的。我不是 PL 理论家，我不在这里做严格的数学，而且我非常清楚这可能只是一种新的 goto。  将其视为一个想法实验，而不是一个严肃的提案。解释器是用 F# 编写的（事实证明它非常适合此类语言工作），解析器使用 XParsec，游乐场使用 Bolero 通过 WebAssembly 在浏览器中运行。  (Ace Lang - Playground)  好奇人们的想法 - 欢迎反馈   由   提交 /u/See-Ro-E   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pvqqcl/ace_a_tiny_experimental_language_function_calls/</guid>
-      <pubDate>Fri, 26 Dec 2025 00:19:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>版本化缓存密钥如何在滚动部署期间为您提供帮助</title>
-      <link>https://www.reddit.com/r/programming/comments/1pvomnn/how_versioned_cache_keys_can_save_you_during/</link>
-      <description><![CDATA[大家好！我写了一篇关于帮助我的团队在滚动部署期间避免与缓存相关的错误的模式的短文： 👉 对缓存键进行版本控制 - 通过将版本标识符烘焙到缓存键中，您可以确保新部署的代码始终读取/写入新的键，而旧代码继续使用现有的键。当您并行运行不同版本的服务时，这种简单的做法可以防止出现微妙的错误和难以调试的不一致问题。 我会解释为什么滚动部署期间的缓存失效很棘手，并通过示例逐步介绍清晰的版本控制策略。 请在此处查看： https://medium.com/dev-genius/version-your-cache-keys-to-survive-rolling-deployments-a62545326220 很想听听您的想法或经历部署中存在缓存问题！   由   提交 /u/Specific-Positive966   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pvomnn/how_versioned_cache_keys_can_save_you_during/</guid>
-      <pubDate>Thu, 25 Dec 2025 22:33:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
