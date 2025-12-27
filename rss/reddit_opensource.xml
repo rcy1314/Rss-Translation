@@ -4,7 +4,42 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 27 Dec 2025 09:27:24 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Dec 2025 12:50:12 GMT</lastBuildDate>
+    <item>
+      <title>witr（为什么要运行？）——跟踪 Linux 上的进程起源</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pwwty5/witr_why_is_this_running_tracing_process_origins/</link>
+      <description><![CDATA[       由   提交 /u/Savings_Dinner_9900   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pwwty5/witr_why_is_this_running_tracing_process_origins/</guid>
+      <pubDate>Sat, 27 Dec 2025 12:35:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jira 的自托管开源替代品是什么？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pwvsc6/whats_a_self_hosted_opensource_alternative_to_jira/</link>
+      <description><![CDATA[Jira 的自托管开源替代品是什么？可以是码头工人。  还有其他任何人都可以提出的建议吗   由   提交 /u/uber-linny   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pwvsc6/whats_a_self_hosted_opensource_alternative_to_jira/</guid>
+      <pubDate>Sat, 27 Dec 2025 11:34:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Golang 和 Podman 的轻量级 FaaS</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pwvb98/lightweight_faas_with_golang_and_podman/</link>
+      <description><![CDATA[      核心特性 多语言支持 支持 JavaScript、TypeScript 和 Python 脚本的执行，参数传递和结果返回采用统一的 JSON 格式。 容器隔离 用途Podman容器池隔离执行环境，保护主机系统。每个请求都在独立的容器中运行，避免干扰。 智能管理 自动检测容器健康状况并重建不健康的容器。动态容器池管理和自动释放机制保证高可用性。   由   提交/u/pardnchiu   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pwvb98/lightweight_faas_with_golang_and_podman/</guid>
+      <pubDate>Sat, 27 Dec 2025 11:05:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源贡献</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pwujzx/open_source_contribution/</link>
+      <description><![CDATA[ 由   提交 /u/Evening_Minimum9496   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pwujzx/open_source_contribution/</guid>
+      <pubDate>Sat, 27 Dec 2025 10:17:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>WebCC：一个 C++ 框架和工具链，可批量 API 调用以减少 WASM/JS 开销</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pwtv3w/webcc_a_c_framework_and_toolchain_that_batches/</link>
+      <description><![CDATA[嗨！ 我一直在开发 WebCC，这是一个将 C++ 框架与自定义工具链相结合的项目，用于构建轻量级 WASM 应用程序。 存储库： https://github.com/io-eric/webcc 演示： https://io-eric.github.io/webcc/ 概念：高效的 Web API 映射 WebCC 为标准 Web API（如 DOM、Canvas、WebGL、WebGPU、WebSockets、Audio 等）提供了干净的 C++ 接口。 在底层，这些 API 是在简洁的 schema.def 文件中定义的。工具链使用此定义自动生成：  C++ 标头： 应用程序的类型安全 API（例如 webcc::dom::create_element）。 JavaScript 运行时： 执行这些命令所需的确切粘合代码。  此方法可确保生成的代码始终保持同步且最少。虽然它配备了一套全面的标准 API，但它也很容易扩展，添加新的浏览器功能就像在架构中添加一行一样简单。 智能编译和扩展Tree Shaking 工具链扫描您的 C++ 源代码以准确检测您正在使用哪些 API 函数。然后，它生成一个自定义的、摇树式的 app.js，其中仅包含这些特定功能的 JS 实现。如果不使用音频，则永远不会生成音频粘合代码。 架构 WebCC 实现了特定的架构来优化 C++/JS 关系：  命令批处理：空函数（如绘图命令）被序列化到二进制缓冲区并批量执行，从而降低了跨越边界的频率。 零复制事件系统： JS 不再为每次鼠标移动或按键调用 C++，而是使用 TypedArrays（Uint8Array、Int32Array）将事件直接写入共享 WASM 内存缓冲区。 C++ 应用程序只需轮询此缓冲区即可。 混合执行：返回值的函数（如 create_element）会自动刷新缓冲区并同步执行，从而确保正确的顺序，无需手动管理。 字符串驻留：字符串按帧缓存。如果使用相同的颜色字符串 1000 次，它只会跨越边界一次。 整数句柄：通过整数 ID 管理资源，以避免对象传递开销。  示例： 1.在 Schema 中定义（内部定义）： # Namespace |类型 |名称 | C++ 函数 |参数 | JS实现 canvas|command|FILL_RECT|fill_rect|int32:handle float32:x float32:y float32:w float32:h|{ const ctx = contexts[handle]; ctx.fillRect(x, y, w, h); } 2.在 C++ 中使用（开发者代码）： // 这些调用被缓冲 webcc::canvas::set_fill_style(ctx, 255, 0, 0); webcc::canvas::fill_rect(ctx, 10, 10, 100, 100); // 刷新缓冲区以执行 JS 中的所有命令 webcc::flush();  基准： 在使用 Canvas 2D 渲染 10,000 个矩形的测试中比较 WebCC 与 Emscripten 的基准 https://github.com/io-eric/webcc/tree/main/benchmark === 基准结果 === 浏览器：Chrome 142.0.0.0 指标 |网络CC | Emscripten -------------------------------------------------------- WASM 大小 (KB) | 11.25 | 11.25 150.51 JS 大小 (KB) | 11.03 | 11.03 80.54 帧 | 100.37 | 100.37 40.18 JS 堆 (MB) | 9.03 | 9.03 24.62 WASM 堆 (MB) | 2.38 | 2.38 16.12  感谢您的阅读！随时欢迎提出问题和反馈。 :)   由   提交/u/Soucye   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pwtv3w/webcc_a_c_framework_and_toolchain_that_batches/</guid>
+      <pubDate>Sat, 27 Dec 2025 09:33:07 GMT</pubDate>
+    </item>
     <item>
       <title>将 PDF 转换为 RAG 就绪数据：PDFStract (CLI + API + Web UI) — `pip install pdfstract`</title>
       <link>https://www.reddit.com/r/opensource/comments/1pws27x/turning_pdfs_into_ragready_data_pdfstract_cli_api/</link>
@@ -71,44 +106,9 @@
     <item>
       <title>决定将我的第一个 WordPress 插件开源</title>
       <link>https://www.reddit.com/r/opensource/comments/1pw8nx2/decided_to_go_opensource_for_my_first_wordpress/</link>
-      <description><![CDATA[大家好， 只是想分享我构建的一个名为 SimpleBar 的 WordPress 插件。它是管理栏和侧面菜单的定制器，允许您更改颜色、隐藏项目、添加您自己的自定义链接 - 所有这些都可以通过拖动和拖动来完成。删除重新排序和基于角色的视图。它是完全免费（永远）和开源的。 SimpleBar 是我使用 WordPress 构建网站大约 15 年之后的第一个公共 WordPress 插件。 管理栏总是让我烦恼 - 太混乱，角色之间太不一致，并且现有的解决方案感觉过于强大或不透明。我想要一些轻量级、可视化且一目了然的东西。 我主要是为了自己的工作流程构建这个，然后意识到其他人可能会欣赏针对同一问题的干净、开源的方法。如果您使用 WordPress，您就会知道，在插件方面，它和“开源”不能很好地结合在一起，所以我希望这很有用。 非常欢迎提供反馈、想法和贡献。 WordPress 插件目录列表 https://wordpress.org/plugins/simplebar-admin-bar-customiser/。插件主页此处。 GitHub 存储库此处。   由   提交 /u/Separate_Refuse5922   [链接] [评论]]]></description>
+      <description><![CDATA[大家好， 只是想分享我构建的一个名为 SimpleBar 的 WordPress 插件。它是管理栏和侧面菜单的定制器，允许您更改颜色、隐藏项目、添加您自己的自定义链接 - 所有这些都可以通过拖动和拖动来完成。删除重新排序和基于角色的视图。它是完全免费（永久）和开源的。 SimpleBar 是我使用 WordPress 构建网站大约 15 年之后的第一个公共 WordPress 插件。 管理栏总是让我烦恼 - 太混乱，角色之间太不一致，并且现有的解决方案感觉过于强大或不透明。我想要一些轻量级、可视化且一目了然的东西。 我主要是为了自己的工作流程构建这个，然后意识到其他人可能会欣赏针对同一问题的干净、开源的方法。如果您使用 WordPress，您就会知道，在插件方面，它和“开源”不能很好地结合在一起，所以我希望这很有用。 非常欢迎提供反馈、想法和贡献。 WordPress 插件目录列表 https://wordpress.org/plugins/simplebar-admin-bar-customiser/。插件主页此处。 GitHub 存储库此处。   由   提交 /u/Separate_Refuse5922   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pw8nx2/decided_to_go_opensource_for_my_first_wordpress/</guid>
       <pubDate>Fri, 26 Dec 2025 16:42:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为 Instagram/TikTok 风格的垂直视频源构建了一个小型开源 React 组件</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pw8csy/i_built_a_small_opensource_react_component_for/</link>
-      <description><![CDATA[大家好， 我想分享一个我一直在从事的小型开源项目：react-riyils。 我构建这个项目是因为我找不到一个干净、专注且可定制的开源解决方案，可以在网络上实现 Instagram/TikTok 风格的垂直视频体验，并正确处理真正的浏览器限制。 目标是让事情保持简单和正确，而不是华而不实或华而不实。过度设计。 该项目侧重于： - 垂直滑动导航 - 全屏视频查看器 - 确定性播放行为 - 智能视频预加载和内存管理 - 移动和桌面支持 - TypeScript 优先、可读代码 这是一个业余爱好项目，不是生产规模的 TikTok 基础设施，但我试图保持代码小巧且易于理解。 非常欢迎反馈、问题和 PR。 GitHub：https://github.com/illegal-instruction-co/react-riyils npm：https://www.npmjs.com/package/react-riyils 感谢您的查看。   由   提交 /u/Humble-Plastic-5285   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pw8csy/i_built_a_small_opensource_react_component_for/</guid>
-      <pubDate>Fri, 26 Dec 2025 16:30:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建了一个开源人工智能视频剪辑器来取代付费订阅（Opus/Munch）。包括自动上传到社交媒体。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pw51w7/built_an_opensource_ai_video_clipper_to_replace/</link>
-      <description><![CDATA[大家好，我想分享一个我创建的工具，它可以将我的工作流程从每月付费订阅中解放出来。 它使用 AI 将长视频解析为短片，并利用 API 直接上传到 TikTok 和 Reels。与 30 美元/月的替代方案相比，它的运行成本非常低（使用您自己的 API 密钥）。  代码可在此处获取：https://github.com/mutonby/openshorts。  欢迎贡献！   由   提交 /u/mutonbini   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pw51w7/built_an_opensource_ai_video_clipper_to_replace/</guid>
-      <pubDate>Fri, 26 Dec 2025 14:04:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何验证开源？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pw4xxw/how_to_verify_open_source/</link>
-      <description><![CDATA[开源的优点之一是透明度。但是，你怎么知道消费者使用的二进制文件实际上与 GitHub 上的代码相同？例如，Signal the Messenger 将其代码作为 GitHub 上的公共存储库。但是，您如何知道提交给 iOS 版 App Store 的二进制文件正在使用这段代码？我认为您无法比较存储库和部署的二进制文件的哈希值，因为存储库中的编译代码在构建过程中将嵌入不同的代码。    由   提交/u/xlargehadroncollider   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pw4xxw/how_to_verify_open_source/</guid>
-      <pubDate>Fri, 26 Dec 2025 14:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>vresto：用于搜索、下载和分析卫星数据的 Python 工具包</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pw4wo2/vresto_python_toolkit_for_searching_downloading/</link>
-      <description><![CDATA[ 由   提交/u/kalfasyan  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pw4wo2/vresto_python_toolkit_for_searching_downloading/</guid>
-      <pubDate>Fri, 26 Dec 2025 13:58:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在构建一个简单的开源存档格式，专注于长期可读性 (ADC)</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pw1aqo/im_building_a_simple_opensource_archive_format/</link>
-      <description><![CDATA[我正在开发一个名为 ADC (ArchivedDataCodec) 的业余爱好开源项目，这是一个轻量级存档器，非常注重简单性、透明性和长期可读性。 ADC 背后的动机非常简单： 我真的很怀念易于理解、易于检查且不会感觉过度设计或不透明的存档格式。 ADC 使用记录的、简单的格式（8 字节标头 + 压缩文件块），旨在即使在数年之后仍保持可读性。 要点：  开源 &gt; GPLv3 使用 zlib 用 Python 制作 自定义、记录的存档格式 每个存档有多个文件 注重清晰度而非聪明 Linux 优先，但跨平台  这在很大程度上是一个业余爱好项目，但它得到了积极维护，并且仍在不断发展。 如果您喜欢： 简单工具 开放格式 通过开源学习 或者只是回顾奇怪的存档想法😄 非常欢迎反馈和贡献。即使评论或批评也值得赞赏。 Github： [https://github.com/Mealman1551/ArchivedDataCodec]() 感谢您的阅读。 ps。 我的目的不是制定行业标准，而只是一个爱好项目   由   提交 /u/OVRTNE_Music   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pw1aqo/im_building_a_simple_opensource_archive_format/</guid>
-      <pubDate>Fri, 26 Dec 2025 10:32:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
