@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 28 Dec 2025 09:26:43 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Dec 2025 12:51:52 GMT</lastBuildDate>
+    <item>
+      <title>在 Podman 中自托管 Huly（或同等版本）？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pxpzki/selfhosting_huly_or_equivalent_in_podman/</link>
+      <description><![CDATA[我正在考虑自托管 Huly，但他们推荐的选项使用 Docker。  有没有人有幸在 Podman 中自行托管 Huly 或同等内容？  这是针对官方或官方敏感项目的概念验证，我听说审计员对 Docker 非常不满。   由   提交 /u/FlashSteel   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pxpzki/selfhosting_huly_or_equivalent_in_podman/</guid>
+      <pubDate>Sun, 28 Dec 2025 12:14:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Podman 中自托管 Huly（或同等版本）？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pxpvfe/selfhost_huly_or_equivalent_in_podman/</link>
+      <description><![CDATA[根据标题。我正在考虑像 Huly 这样的自托管工具，但它们可以让你在 Docker 中启动并运行。  Docker 受到很多公司的反对   由   提交 /u/FlashSteel   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pxpvfe/selfhost_huly_or_equivalent_in_podman/</guid>
+      <pubDate>Sun, 28 Dec 2025 12:08:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了 ToucanDB——一个用于人工智能和语义搜索项目的开源 ML-first 矢量数据库引擎</title>
+      <link>https://www.reddit.com/r/opensource/comments/1pxnzjv/i_built_toucandb_an_open_source_mlfirst_vector_db/</link>
+      <description><![CDATA[嘿开源爱好者， 我一直在致力于一个开源项目，我非常高兴能在这里分享。在过去的几个月里，我不断遇到现有矢量数据库解决方案的限制。它们非常适合大型设置，但对于仍需要快速相似性搜索的小型 ML 优先项目来说通常太重或太复杂。 因此，我决定构建 ToucanDB。它是一个最小的、机器学习优先的向量数据库引擎，可将非结构化数据存储为向量嵌入并有效地检索相似的对象。我的主要目标是创建一个与 LLM 管道和人工智能驱动的应用程序无缝集成的工具，而不会造成臃肿。 我将它用于语义搜索任务、人工智能驱动的推荐、自动分类和基于相似性的检索。它的设计很微型，但功能强大，足以处理典型的人工智能搜索工作流程，同时考虑到简单性和安全性。 该项目仍在积极开发中，但我已将其发布在 GitHub 上，供任何有兴趣探索、使用或贡献的人使用。如果您好奇，这里是存储库：https://github.com/pH-7/ToucanDB 我很想在这里听到其他开发人员和数据工程师的反馈，特别是围绕您优先考虑的 AI + 矢量数据库集成功能。任何想法、想法，甚至批评都深表感谢。 感谢您的阅读 - 很高兴能够利用开源社区的见解不断改进这个项目。   由   提交/u/phenrys  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1pxnzjv/i_built_toucandb_an_open_source_mlfirst_vector_db/</guid>
+      <pubDate>Sun, 28 Dec 2025 10:12:36 GMT</pubDate>
+    </item>
     <item>
       <title>DockMate - 从终端管理 Docker/Podman 容器。</title>
       <link>https://www.reddit.com/r/opensource/comments/1pxklu5/dockmate_manage_dockerpodman_containers_from_your/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[嗨！ 我一直在开发 WebCC，这是一个将 C++ 框架与自定义工具链相结合的项目，用于构建轻量级 WASM 应用程序。 存储库： https://github.com/io-eric/webcc 演示： https://io-eric.github.io/webcc/ 概念：高效的 Web API 映射 WebCC 为标准 Web API（如 DOM、Canvas、WebGL、WebGPU、WebSockets、Audio 等）提供了干净的 C++ 接口。 在底层，这些 API 是在简洁的 schema.def 文件中定义的。工具链使用此定义自动生成：  C++ 标头： 应用程序的类型安全 API（例如 webcc::dom::create_element）。 JavaScript 运行时： 执行这些命令所需的确切粘合代码。  此方法可确保生成的代码始终保持同步且最少。虽然它配备了一套全面的标准 API，但它也很容易扩展，添加新的浏览器功能就像在架构中添加一行一样简单。 智能编译和扩展Tree Shaking 工具链扫描您的 C++ 源代码以准确检测您正在使用哪些 API 函数。然后，它生成一个自定义的、摇树式的 app.js，其中仅包含这些特定功能的 JS 实现。如果不使用音频，则永远不会生成音频粘合代码。 架构 WebCC 实现了特定的架构来优化 C++/JS 关系：  命令批处理：空函数（如绘图命令）被序列化到二进制缓冲区并批量执行，从而降低了跨越边界的频率。 零复制事件系统： JS 不再为每次鼠标移动或按键调用 C++，而是使用 TypedArrays（Uint8Array、Int32Array）将事件直接写入共享 WASM 内存缓冲区。 C++ 应用程序只需轮询此缓冲区即可。 混合执行：返回值的函数（如 create_element）会自动刷新缓冲区并同步执行，从而确保正确的顺序，无需手动管理。 字符串驻留：字符串按帧缓存。如果使用相同的颜色字符串 1000 次，它只会跨越边界一次。 整数句柄：通过整数 ID 管理资源，以避免对象传递开销。  示例： 1.在 Schema 中定义（内部定义）： # Namespace |类型 |名称 | C++ 函数 |参数 | JS实现 canvas|command|FILL_RECT|fill_rect|int32:handle float32:x float32:y float32:w float32:h|{ const ctx = contexts[handle]; ctx.fillRect(x, y, w, h); } 2.在 C++ 中使用（开发者代码）： // 这些调用被缓冲 webcc::canvas::set_fill_style(ctx, 255, 0, 0); webcc::canvas::fill_rect(ctx, 10, 10, 100, 100); // 刷新缓冲区以执行 JS 中的所有命令 webcc::flush();  基准： 在使用 Canvas 2D 渲染 10,000 个矩形的测试中比较 WebCC 与 Emscripten 的基准 https://github.com/io-eric/webcc/tree/main/benchmark === 基准结果 === 浏览器：Chrome 142.0.0.0 指标 |网络CC | Emscripten -------------------------------------------------------- WASM 大小 (KB) | 11.25 | 11.25 150.51 JS 大小 (KB) | 11.03 | 11.03 80.54 帧 | 100.37 | 100.37 40.18 JS 堆 (MB) | 9.03 | 9.03 24.62 WASM 堆 (MB) | 2.38 | 2.38 16.12  感谢您的阅读！随时欢迎提出问题和反馈。 :)   由   提交/u/Soucye   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1pwtv3w/webcc_a_c_framework_and_toolchain_that_batches/</guid>
       <pubDate>Sat, 27 Dec 2025 09:33:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 PDF 转换为 RAG 就绪数据：PDFStract (CLI + API + Web UI) — `pip install pdfstract`</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pws27x/turning_pdfs_into_ragready_data_pdfstract_cli_api/</link>
-      <description><![CDATA[ 由   提交 /u/GritSar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pws27x/turning_pdfs_into_ragready_data_pdfstract_cli_api/</guid>
-      <pubDate>Sat, 27 Dec 2025 07:38:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>Windows 上 WhatsApp 的替代客户端？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pwrstw/alternative_client_for_whatsapp_on_windows/</link>
-      <description><![CDATA[Windows 上的 WhatsApp 客户端应用程序非常糟糕。以前是 UWP，现在是 Electron，而且几乎在各个方面都更糟糕。他们发布了一个半成品的应用程序。网页版也不好。有什么好的替代方案吗？   由   提交/u/InternalVolcano   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pwrstw/alternative_client_for_whatsapp_on_windows/</guid>
-      <pubDate>Sat, 27 Dec 2025 07:22:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义搜索设置同步状态？为什么还没有进入审核阶段？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1pwjosu/custom_search_settings_sync_status_why_is_it_not/</link>
-      <description><![CDATA[       由   提交 /u/CaptainStack   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1pwjosu/custom_search_settings_sync_status_why_is_it_not/</guid>
-      <pubDate>Sat, 27 Dec 2025 00:29:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
