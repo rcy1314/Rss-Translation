@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 28 Dec 2025 06:38:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Dec 2025 09:26:15 GMT</lastBuildDate>
+    <item>
+      <title>Kafka 使用操作系统页面缓冲区缓存而不是进程缓存进行优化</title>
+      <link>https://www.reddit.com/r/programming/comments/1pxmf5l/kafka_uses_os_page_buffer_cache_for_optimisations/</link>
+      <description><![CDATA[我最近重新阅读了 2010 年的原始 Kafka 白皮书。 我们大多数人都知道使 Kafka 快速运行的标准架构选择，因为它们是 Kafka API 和保证 - 批处理：在发布和消费期间对消息进行分组，以减少 TCP/IP 往返。 - 拉取模型：允许消费者以他们可以承受的速率检索消息 /&gt; - 每个消费者组每个分区单个消费者：来自一个分区的所有消息仅由每个消费者组的单个消费者消费。如果 Kafka 打算支持多个消费者同时从单个分区读取数据，他们就必须协调谁消费什么消息，从而需要锁定和状态维护开销。 - 顺序 I/O：没有随机查找，只是附加到日志中。 我想进一步强调 Kafka 白皮书中提到的另外两个优化，这对于 Kafka 的日常用户来说并不明显，但却是 Kafka 开发人员有趣的 hack 使用文件系统页面缓存绕过 JVM 堆 Kafka 避免在应用层内存中缓存消息。相反，它完全依赖于底层文件系统页面缓存。这可以避免双缓冲并减少垃圾收集 (GC) 开销。如果代理重新启动，缓存将保持热状态，因为它位于操作系统中，而不是进程中。由于生产者和消费者都按顺序访问段文件，而消费者通常会稍微落后于生产者，因此正常的操作系统缓存启发式非常有效（特别是直写式缓存和提前读取）。 “零复制”优化 标准数据传输效率低下。为了将文件发送到套接字，操作系统通常会复制数据 4 次（磁盘 -&gt; 页面缓存 -&gt; 应用程序缓冲区 -&gt; 内核缓冲区 -&gt; 套接字）。 Kafka 利用 Linux sendfile API（Java 的 FileChannel.transferTo）将字节直接从文件通道传输到套接字通道。 这样每次传输就减少了 2 个副本和 1 个系统调用。   由   提交 /u/Normal-Tangelo-7120   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pxmf5l/kafka_uses_os_page_buffer_cache_for_optimisations/</guid>
+      <pubDate>Sun, 28 Dec 2025 08:31:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>驯服 Postgres 隔离异常的实用指南</title>
+      <link>https://www.reddit.com/r/programming/comments/1pxlqgf/a_practical_guide_to_taming_postgres_isolation/</link>
+      <description><![CDATA[ 由   提交 /u/Aerdayne   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pxlqgf/a_practical_guide_to_taming_postgres_isolation/</guid>
+      <pubDate>Sun, 28 Dec 2025 07:48:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建 Git 原生工具以减少手动任务更新 - 寻求开发人员反馈</title>
+      <link>https://www.reddit.com/r/programming/comments/1pxlaon/building_a_gitnative_tool_to_reduce_manual_task/</link>
+      <description><![CDATA[我是一名 CSE 学生，正在从事一个名为 Forge 的开源项目。 这个想法来自于一种常见的挫败感： 开发人员编写代码、推送提交、开放 PR，但仍然必须使用链接和模糊状态更新手动更新任务板。 用不同的方法进行 Forge 实验：  Git 仍然是真相 该工具观察提交/PR 并生成有意义的任务更新（摘要、上下文、进度信号） 不会尝试盲目地自动化 Scrum - 目标是帮助，而不是执行  我不试图取代 GitHub、Jira 或 Git 本身。可以将其视为 Git 感知助手，只需开发人员付出最少的额外努力即可保持项目状态诚实。 我非常重视以下方面的反馈：  这是否真的有助于您的工作流程，或者手动更新“足够好”吗？ 您相信来自 Git 的哪些信号可以反映进度？ 您绝对会在哪里划清界限？  Repo（非常早）阶段）： https://github.com/Princelad/forge 欢迎任何批评、怀疑或建议。我对学习比推广更感兴趣。   由   提交/u/SnooCauliflowers2038   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pxlaon/building_a_gitnative_tool_to_reduce_manual_task/</guid>
+      <pubDate>Sun, 28 Dec 2025 07:21:26 GMT</pubDate>
+    </item>
     <item>
       <title>C -> Java != Java -> LLM</title>
       <link>https://www.reddit.com/r/programming/comments/1pxiyzg/c_java_java_llm/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[这不是教程或咆哮。  我发表了一篇简短的论文，探讨了为什么 iOS 应用货币化 (IAP) 作为一个连贯的系统很难学习（设计 → 审查 → 货币化 → 运营）， 而不仅仅是 API 或代码片段。 重点是结构性激励、 知识转移和隐藏的时间成本。 论文 (DOI)： https://doi.org/10.5281/zenodo.18067103 文章（Markdown）： https://github.com/mnrj-vv-w/developer-experience-paper/blob/main/en/article/main.md 仓库： https://github.com/mnrj-vv-w/developer-experience-paper   由   提交 /u/Smooth-East-6702   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pwxqpp/why_ios_app_monetization_iap_is_hard_to_learn_as/</guid>
       <pubDate>Sat, 27 Dec 2025 13:23:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>SDSL：一种新/旧的着色器编程语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1pwx9cr/sdsl_a_newold_shader_programming_language/</link>
-      <description><![CDATA[您好（再次）！ 我是 Stride 引擎的维护者之一，我们目前正在为着色器语言 SDSL 开发编译器。 简单介绍一下，SDSL 是带有 mixin 系统的 HLSL，您可以混合和匹配着色器模块来创建您自己的着色器，选择您需要的任何数据或函数。所有这些都是以文本形式完成，然后以 HLSL 或 GLSL 进行转译。 正如您所猜测的，性能非常糟糕，这促使我们研究将 SDSL 直接编译为 SPIR-V。 这篇博文是第 3 部分，它是 SDSL 解析器的重写以及我们如何使其性能更高！ 如果您有任何评论或意见，请随时分享！    由   提交/u/ykafia  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pwx9cr/sdsl_a_newold_shader_programming_language/</guid>
-      <pubDate>Sat, 27 Dec 2025 12:59:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>密封的 SEAL：将 SEAL 想象成数字公证人。它验证文件自签名以来未曾更改，并且签名者就是他们所说的人。</title>
-      <link>https://www.reddit.com/r/programming/comments/1pwwbfn/airtight_seal_think_of_seal_like_a_digital_notary/</link>
-      <description><![CDATA[ 由   提交 /u/lood9phee2Ri   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pwwbfn/airtight_seal_think_of_seal_like_a_digital_notary/</guid>
-      <pubDate>Sat, 27 Dec 2025 12:06:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解数据库事务和隔离级别</title>
-      <link>https://www.reddit.com/r/programming/comments/1pwvmqh/understanding_database_transactions_and_isolation/</link>
-      <description><![CDATA[我一直想更好地了解数据库事务隔离级别，并找出哪个级别适合哪种用例。因此，我写这篇文章作为我自己阅读和学习这些概念的笔记。   由   提交 /u/Normal-Tangelo-7120   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pwvmqh/understanding_database_transactions_and_isolation/</guid>
-      <pubDate>Sat, 27 Dec 2025 11:24:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
