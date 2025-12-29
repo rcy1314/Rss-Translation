@@ -4,13 +4,34 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 29 Dec 2025 12:55:21 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Dec 2025 15:28:56 GMT</lastBuildDate>
     <item>
-      <title>从备份中快速恢复 1M+ 文件</title>
-      <link>https://www.reddit.com/r/programming/comments/1pyl8oi/quickly_restoring_1m_files_from_backup/</link>
-      <description><![CDATA[ 由   提交/u/axkotti   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pyl8oi/quickly_restoring_1m_files_from_backup/</guid>
-      <pubDate>Mon, 29 Dec 2025 12:37:34 GMT</pubDate>
+      <title>当你在 Golang 中将 NAN 转换为 uint 时会发生什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1pynflx/what_happens_when_you_convert_a_nan_to_uint_in/</link>
+      <description><![CDATA[ 由   提交/u/Sakshamarya   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pynflx/what_happens_when_you_convert_a_nan_to_uint_in/</guid>
+      <pubDate>Mon, 29 Dec 2025 14:19:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>进入 2026 年，软件工程就业市场会是什么样子？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pyncfa/what_does_the_software_engineering_job_market/</link>
+      <description><![CDATA[ 由   提交/u/ImpressiveContest283  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pyncfa/what_does_the_software_engineering_job_market/</guid>
+      <pubDate>Mon, 29 Dec 2025 14:15:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>OSS漏洞响应幕后花絮</title>
+      <link>https://www.reddit.com/r/programming/comments/1pymavf/behind_the_scenes_of_oss_vulnerability_response/</link>
+      <description><![CDATA[在 OSS 的世界中，我们不仅仅处理公共问题和拉取请求；我们每天还致力于漏洞修复。这些努力一般是公众看不见的，只能看到最终的结果，而过程却是隐秘的。本文揭示了那些通常看不见的幕后活动。   由   提交 /u/utam0k   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pymavf/behind_the_scenes_of_oss_vulnerability_response/</guid>
+      <pubDate>Mon, 29 Dec 2025 13:29:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>通讯协议</title>
+      <link>https://www.reddit.com/r/programming/comments/1pylwxd/communication_protocols/</link>
+      <description><![CDATA[ 由   提交/u/stmoreau  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pylwxd/communication_protocols/</guid>
+      <pubDate>Mon, 29 Dec 2025 13:10:47 GMT</pubDate>
     </item>
     <item>
       <title>50 岁的人月神话</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交/u/pepincho   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1py7rhz/the_systematic_ai_code_review_workflow_plan/</guid>
       <pubDate>Mon, 29 Dec 2025 00:46:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>每次测试都是一种权衡</title>
-      <link>https://www.reddit.com/r/programming/comments/1py5glv/every_test_is_a_tradeoff/</link>
-      <description><![CDATA[ 由   提交/u/RepresentativeSure38   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1py5glv/every_test_is_a_tradeoff/</guid>
-      <pubDate>Sun, 28 Dec 2025 23:07:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建可靠的作业调度程序的棘手部分：租约、幂等性和时区感知 cron</title>
-      <link>https://www.reddit.com/r/programming/comments/1py4b4o/the_tricky_parts_of_building_a_reliable_job/</link>
-      <description><![CDATA[我一直在构建一个作业调度系统，并想分享一些不明显的技术挑战 - 这些问题在实际实现之前看起来很简单。 1.基于租约的作业声明（为什么简单的锁会失败） 天真的方法：工作人员获取一份工作，设置status = &#39;processing&#39;，确实工作，设置status =&#39;completed&#39;。 问题：如果工作人员在工作中崩溃，该工作将永远卡住。 解决方案：  工作人员在一段时间内申请工作： 更新工作 SET status = &#39;processing&#39;,worker_id = $1,lease_expires_at = NOW() + INTERVAL &#39;60 秒&#39; WHERE id = $2 AND status = &#39;pending&#39;  后台进程扫描过期的租约并将这些工作返回到队列。如果工作人员需要更多时间，则在到期前续订租约。 权衡：更短的租约 = 更快的崩溃恢复，但续订开销更大。 30-60 秒的更新在实践中效果很好。 2。幂等键（实际有效的重复数据删除） 当 webhook 重试或用户双击时，您不希望重复作业。 幂等键解决了这个问题，但有一些微妙之处：  键必须每个队列的作用域（不同队列中的相同键 = 不同的作业） 键应该过期（重复数据删除数小时，而不是永远） 检查和插入必须是原子（无 TOCTOU 竞争）  ​ INSERT INTO jobs (id,queue,payload,idempotency_key,...) SELECT $1,$2,$3,$4,... WHERE NOT EXISTS (SELECT 1 FROM jobs WHERE queue = $2 AND idempotency_key = $4 ANDcreated_at &gt; NOW() - INTERVAL &#39;24 小时&#39; )  3.时区感知 cron 非常困难 0 9 * * * — 每天上午 9 点运行。但是上午 9 点在哪里？  UTC 很简单，但对于面向用户的计划来说毫无用处 存储时区并在运行时进行转换可以工作，但您必须处理DST 转换  边缘情况：“在凌晨 2:30 运行”在 DST 春季当天。凌晨 2:30 不存在。跳过它？在凌晨 3:00 跑步？ 当夏令时回落时，凌晨 2:30 会发生两次。运行作业两次？ 我最终明确定义了行为：跳过不存在的时间，在不明确的时间运行一次（第一次出现）。 4。没有图形数据库的 DAG 工作流 对于依赖关系（“A 完成后运行 B”）：  存储依赖关系图 在调度子进程之前检查所有已完成的父进程 处理部分失败（A 成功，B 失败 - 那么 C 呢？）  简单方法 - parent_job_ids 数组列： SELECT * FROM jobs WHERE status = &#39;pending&#39; AND (parent_job_ids IS NULL OR NOT EXISTS ( SELECT 1 FROM unnest(parent_job_ids) AS pid WHERE NOT EXISTS ( SELECT 1 FROM jobs WHERE id = pid AND status = &#39;completed&#39; ) ))  这在规模上会变得昂贵。 优化：预先计算“就绪”父作业完成时的状态，而不是检查每个轮询。 这些问题会出现在任何作业调度程序中。好奇其他人是如何处理它们的——尤其是时区边缘情况。   由   提交 /u/Fantom3D   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1py4b4o/the_tricky_parts_of_building_a_reliable_job/</guid>
-      <pubDate>Sun, 28 Dec 2025 22:19:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>Tim van der Lippe 辞去 Mockito 维护者职务</title>
-      <link>https://www.reddit.com/r/programming/comments/1py3v4a/tim_van_der_lippe_steps_down_as_mockito_maintainer/</link>
-      <description><![CDATA[ 由   提交/u/BlueGoliath  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1py3v4a/tim_van_der_lippe_steps_down_as_mockito_maintainer/</guid>
-      <pubDate>Sun, 28 Dec 2025 22:01:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
