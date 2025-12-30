@@ -4,7 +4,42 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 29 Dec 2025 21:24:18 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 02:01:24 GMT</lastBuildDate>
+    <item>
+      <title>数据模型依赖是一个陷阱</title>
+      <link>https://www.reddit.com/r/programming/comments/1pz3yfw/data_model_dependency_is_a_trap/</link>
+      <description><![CDATA[ 由   提交/u/Exact_Prior6299  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pz3yfw/data_model_dependency_is_a_trap/</guid>
+      <pubDate>Tue, 30 Dec 2025 01:02:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>这是我咨询生涯中的一个金融科技项目的详细分解。</title>
+      <link>https://www.reddit.com/r/programming/comments/1pz3v1i/this_is_a_detailed_breakdown_of_a_fintech_project/</link>
+      <description><![CDATA[ 由   提交 /u/trolleid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pz3v1i/this_is_a_detailed_breakdown_of_a_fintech_project/</guid>
+      <pubDate>Tue, 30 Dec 2025 00:58:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>内核模式错误是不同的</title>
+      <link>https://www.reddit.com/r/programming/comments/1pz3gbz/kernel_mode_bugs_are_different/</link>
+      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pz3gbz/kernel_mode_bugs_are_different/</guid>
+      <pubDate>Tue, 30 Dec 2025 00:40:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>InnoDB缓冲池LRU实现：MySQL如何优化内存管理</title>
+      <link>https://www.reddit.com/r/programming/comments/1pz0y2g/innodb_buffer_pool_lru_implementation_how_mysql/</link>
+      <description><![CDATA[我正在阅读 InnoDB 存储引擎文档，发现他们使用 LRU 的变体进行缓存逐出。 简单的 LRU 实现不适用于数据库工作负载，因为全表扫描将从内存中逐出所有热页。 在较高级别上，InnoDB 结构可以分为  磁盘上持久结构（表空间、重做日志、撤消日志）即保存数据的物理文件。 内存中结构 这是缓冲池所在的位置。它是主内存中的一个区域，InnoDB 在访问时缓存表和索引页。  通过将频繁访问的数据保存在 RAM 中，InnoDB 可以更快地处理查询。在专用数据库服务器上，通常的做法是将最多 80% 的物理内存分配给该池。 InnoDB 使用拆分列表方法而不是标准 LRU： - 新子列表（列表的~5/8）：热门/经常访问的页面 - 旧子列表（列表的~3/8）：最近看到但未经验证的页面 新页面不会直接进入头部。它们被插入到中点（旧子列表的头部），并且仅在后续访问和计时规则之后才提升到新子列表。这会创建一个“隔离”列表。 在全表扫描期间，页面首先填充旧子列表，在有限的空间内进行搅动，同时使新子列表中的工作集保持不变。大多数扫描页只读取一次，从不提升，并且从尾部开始快速老化。 因此，表扫描不会废弃整个缓存。热页保持热状态，扫描页首先被驱逐。   由   提交 /u/Normal-Tangelo-7120   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pz0y2g/innodb_buffer_pool_lru_implementation_how_mysql/</guid>
+      <pubDate>Mon, 29 Dec 2025 22:55:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>解决 $N$ 编排问题：我们如何通过 Kafka 扩展 35 个以上的 MCP？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pz0wx6/tackling_the_norchestration_problem_how_do_we/</link>
+      <description><![CDATA[我们正在构建 slashmcp.com，但我们遇到了令人着迷（但痛苦）的扩展瓶颈。 目标是大规模处理模型上下文协议 (MCP)。我们目前正在集成 35 多个不同的 MCP 并使用 Kafka 进行编排，但随着我们向 $n$ 复杂性迈进，编排逻辑正在成为一个巨大的障碍。 我们决定将问题公开。我们正在寻找 MCP 爱好者和分布式系统专家来参与讨论、分解我们的方法或做出贡献。  注册表： 我们在这里开源了 MCP 注册表：github.com/mcpmessenger/mcp-registry 堆栈： MCP， Kafka、Python/Node、TS 问题：我们需要关注编排逻辑。如果您处理过高扇出工具调用或复杂的消息路由，我们希望您能提供反馈。  请随意加注星号、分叉，或者告诉我们为什么我们的 Kafka 实现会失败。   由   提交/u/Ok-Priority35   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pz0wx6/tackling_the_norchestration_problem_how_do_we/</guid>
+      <pubDate>Mon, 29 Dec 2025 22:54:28 GMT</pubDate>
+    </item>
     <item>
       <title>一件事件、洋葱科技债务和裁员——事后分析来衡量指标问题</title>
       <link>https://www.reddit.com/r/programming/comments/1pyxrce/one_incident_onion_tech_debt_and_layoffs/</link>
@@ -32,13 +67,6 @@
       <description><![CDATA[网上有数千种资源可以解释它，但不知何故，即使人工智能也无法按照我想要的方式解释它。  所以我试图阐明分布式系统中的这种基本算法是如何工作的。  我不是老师，但我希望这至少能帮助一些正在开始系统设计之旅的人。    由   提交/u/Comfortable-Fan-580   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pyvrbs/explained_what_problem_consistent_hashing_solves/</guid>
       <pubDate>Mon, 29 Dec 2025 19:34:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>大家好，我要开始在 TikTok 上发布 Terry 的视频了。我将不胜感激任何帮助。</title>
-      <link>https://www.reddit.com/r/programming/comments/1pytzjm/hey_everyone_im_going_to_start_posting_videos_of/</link>
-      <description><![CDATA[ 由   提交/u/Weird_Hand3333  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pytzjm/hey_everyone_im_going_to_start_posting_videos_of/</guid>
-      <pubDate>Mon, 29 Dec 2025 18:29:00 GMT</pubDate>
     </item>
     <item>
       <title>39C3：GnuPG 和其他加密工具中的多个漏洞</title>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交/u/Sakshamarya   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pynflx/what_happens_when_you_convert_a_nan_to_uint_in/</guid>
       <pubDate>Mon, 29 Dec 2025 14:19:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>进入 2026 年，软件工程就业市场会是什么样子？</title>
-      <link>https://www.reddit.com/r/programming/comments/1pyncfa/what_does_the_software_engineering_job_market/</link>
-      <description><![CDATA[ 由   提交/u/ImpressiveContest283  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pyncfa/what_does_the_software_engineering_job_market/</guid>
-      <pubDate>Mon, 29 Dec 2025 14:15:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>OSS漏洞响应幕后花絮</title>
-      <link>https://www.reddit.com/r/programming/comments/1pymavf/behind_the_scenes_of_oss_vulnerability_response/</link>
-      <description><![CDATA[在 OSS 的世界中，我们不仅仅处理公共问题和拉取请求；我们每天还致力于漏洞修复。这些努力一般是公众看不见的，只能看到最终的结果，而过程却是隐秘的。本文揭示了那些通常看不见的幕后活动。   由   提交 /u/utam0k   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pymavf/behind_the_scenes_of_oss_vulnerability_response/</guid>
-      <pubDate>Mon, 29 Dec 2025 13:29:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>通讯协议</title>
-      <link>https://www.reddit.com/r/programming/comments/1pylwxd/communication_protocols/</link>
-      <description><![CDATA[ 由   提交/u/stmoreau  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pylwxd/communication_protocols/</guid>
-      <pubDate>Mon, 29 Dec 2025 13:10:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>50 岁的人月神话</title>
-      <link>https://www.reddit.com/r/programming/comments/1pyj6kr/the_mythical_manmonth_at_50/</link>
-      <description><![CDATA[ 由   提交/u/kieranpotts  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pyj6kr/the_mythical_manmonth_at_50/</guid>
-      <pubDate>Mon, 29 Dec 2025 10:41:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
