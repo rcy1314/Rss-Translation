@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 30 Dec 2025 09:31:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 12:54:28 GMT</lastBuildDate>
+    <item>
+      <title>软件开发中的代理人工智能：不断发展的模式和协议 • Bhuvaneswari Subramani</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzg1wb/agentic_al_in_software_development_evolving/</link>
+      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzg1wb/agentic_al_in_software_development_evolving/</guid>
+      <pubDate>Tue, 30 Dec 2025 11:44:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>从自动完成到共同作者：我与人工智能的一年</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzfx55/from_autocomplete_to_coauthor_my_year_with_ai/</link>
+      <description><![CDATA[ 由   提交/u/ablx0000  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzfx55/from_autocomplete_to_coauthor_my_year_with_ai/</guid>
+      <pubDate>Tue, 30 Dec 2025 11:36:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rich Hickey：简单是可靠性的先决条件</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzfo4r/rich_hickey_simplicity_is_a_prerequisite_for/</link>
+      <description><![CDATA[最近重看了这个。这仍然是解释为什么系统会随着复杂性的积累而失败的最清晰的解释之一。我想知道这里的人如何在实际项目中应用它。   由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzfo4r/rich_hickey_simplicity_is_a_prerequisite_for/</guid>
+      <pubDate>Tue, 30 Dec 2025 11:22:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>厌倦了小型脚本工具的重量级 IDE，所以我构建了一个小型的插件优先 IDE</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzezel/got_tired_of_heavyweight_ides_for_small_scripting/</link>
+      <description><![CDATA[在使用小型脚本工具和自定义语言时，我一直遇到同样的问题：全面的 IDE 功能强大但笨重，而轻量级编辑器缺乏调试、插件和安全执行所需的结构。我想要介于两者之间的东西 - 一个将脚本视为一流但受控单元的 IDE，而不仅仅是文本文件。 因此我构建了 Scriptor，这是一个围绕插件驱动的脚本和确定性执行而设计的紧凑型 IDE。下面是我在构建它时发现的有趣内容的简短技术文章。 我试图解决的问题  完整的 IDE（VS Code、IntelliJ）对于嵌入式或特定于域的脚本来说太过分了。 文本编辑器缺乏执行控制、隔离和结构化工具。 插件系统经常以不安全的方式混合编辑器逻辑、运行时权限和文件系统访问。  我想要一个 IDE，其中编辑器、运行时和插件明确分离，并且插件不会自动继承 IDE 的功能。 核心架构思想 插件优先的 IDE 核心 IDE 本身很小：编辑器界面、项目模型、命令调度程序。几乎所有其他内容——语言支持、工具、构建步骤——都是作为运行时加载的插件来实现的。 插件注册：  命令 面板/UI挂钩 功能（允许它们做什么）  这可以保持核心较小并使插件行为可检查。 基于功能的插件权限read_project_file、run_task、open_panel）。这可以防止意外的权限升级，并且可以更轻松地推断插件可能影响的内容。 这种设计直接来自调试默默触及全局状态的 IDE 插件的挫败感。 确定性执行和确定性执行。隔离 每个插件都在隔离的上下文中运行：  有界执行步骤 结构化错误传播 除非明确允许，否则不共享可变状态  如果插件崩溃或行为不当，它会独立失败 - IDE 保持响应。 轻量级语言智能（没有完整的 LSP）预先实现完整的 LSP 支持，Scriptor 使用：  快速语法解析 项目本地符号索引 简单的跳转到定义和诊断  这足以达到“有用的 IDE”领域，而无需完整语言服务器的复杂性和延迟。 实现挑战 1.避免编辑器/插件耦合早期版本将编辑器内部泄漏到插件中。解决这个问题需要严格的命令/事件边界，以便插件可以请求操作而无需保存编辑器引用。 2.插件生命周期管理安全地重新加载插件（尤其是 UI 绑定的插件）比预期更难。我最终添加了一个生命周期模型：加载 → 激活 → 挂起 → 卸载，并带有显式清理钩子。 3.没有混乱的 UI 可扩展性 允许插件在没有混乱的情况下添加面板、菜单和命令需要命名空间命令注册表和明确的 UI 放置规则。 4.无噪音的错误可见性插件错误显示在专用的诊断面板中，而不是模态对话框中，这样即使出现问题，IDE也能保持可用。 我学到的东西  IDE的复杂性更多地来自于状态管理，而不是来自UI。 基于功能的权限使调试插件变得更加容易。 您不需要完整的LSP即可达到高效基线 -有针对性的情报还有很长的路要走。 将插件视为潜在的敌对改进了架构，即使对于个人工具也是如此。  Scriptor 仍在不断发展，但构建它迫使我仔细思考编辑器/运行时边界、安全可扩展性以及对于以脚本为中心的工作流程实际上需要多少 IDE。 如果有兴趣，我很高兴撰写更深入的文章：  插件隔离模型 LSP 的轻量级替代方案 IDE 命令架构    由   提交 /u/Imaginary-Pound-1729   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzezel/got_tired_of_heavyweight_ides_for_small_scripting/</guid>
+      <pubDate>Tue, 30 Dec 2025 10:42:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>C 中的线程调度程序（绿色线程）</title>
+      <link>https://www.reddit.com/r/programming/comments/1pze8xv/thread_scheduler_in_c_green_threads/</link>
+      <description><![CDATA[请检查用户级线程调度程序   由   提交/u/xie_xang  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pze8xv/thread_scheduler_in_c_green_threads/</guid>
+      <pubDate>Tue, 30 Dec 2025 09:58:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>厌倦了复制粘贴许可证文件，所以我为其构建了一个小型 CLI (Homebrew)</title>
+      <link>https://www.reddit.com/r/programming/comments/1pze2h8/got_tired_of_copypasting_license_files_so_i_built/</link>
+      <description><![CDATA[在开始新项目时，我一直遇到同样的烦恼：复制粘贴许可证，手动修复年份/名称，或依赖混乱的生成器。 因此，我构建了 lic ，一个小型 CLI 工具，可帮助您生成具有干净 TUI 和零绒毛的常见开源许可证。 您选择许可证，输入您的许可证名称和年份，它会将正确的许可证文件放入您的项目中。就是这样。 我只是将其作为 Homebrew 公式提供，因此安装只需一个命令： brew install kushvinth/tap/lic  GitHub： https://github.com/kushvinth/lic   由   提交/u/Tall-Try173   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pze2h8/got_tired_of_copypasting_license_files_so_i_built/</guid>
+      <pubDate>Tue, 30 Dec 2025 09:46:57 GMT</pubDate>
+    </item>
     <item>
       <title>Spring 7 和 Spring Boot 4 中的 Jackson 3 简介</title>
       <link>https://www.reddit.com/r/programming/comments/1pzd8rp/an_introduction_to_jackson_3_in_spring_7_and/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交/u/Exact_Prior6299  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pz3yfw/data_model_dependency_is_a_trap/</guid>
       <pubDate>Tue, 30 Dec 2025 01:02:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是我咨询生涯中的一个金融科技项目的详细分解。</title>
-      <link>https://www.reddit.com/r/programming/comments/1pz3v1i/this_is_a_detailed_breakdown_of_a_fintech_project/</link>
-      <description><![CDATA[ 由   提交 /u/trolleid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pz3v1i/this_is_a_detailed_breakdown_of_a_fintech_project/</guid>
-      <pubDate>Tue, 30 Dec 2025 00:58:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>内核模式错误是不同的</title>
-      <link>https://www.reddit.com/r/programming/comments/1pz3gbz/kernel_mode_bugs_are_different/</link>
-      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pz3gbz/kernel_mode_bugs_are_different/</guid>
-      <pubDate>Tue, 30 Dec 2025 00:40:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>InnoDB缓冲池LRU实现：MySQL如何优化内存管理</title>
-      <link>https://www.reddit.com/r/programming/comments/1pz0y2g/innodb_buffer_pool_lru_implementation_how_mysql/</link>
-      <description><![CDATA[我正在阅读 InnoDB 存储引擎文档，发现他们使用 LRU 的变体进行缓存逐出。 简单的 LRU 实现不适用于数据库工作负载，因为全表扫描将从内存中逐出所有热页。 在较高级别上，InnoDB 结构可以分为  磁盘上持久结构（表空间、重做日志、撤消日志）即保存数据的物理文件。 内存中结构 这是缓冲池所在的位置。它是主内存中的一个区域，InnoDB 在访问时缓存表和索引页。  通过将频繁访问的数据保存在 RAM 中，InnoDB 可以更快地处理查询。在专用数据库服务器上，通常的做法是将最多 80% 的物理内存分配给该池。 InnoDB 使用拆分列表方法而不是标准 LRU： - 新子列表（列表的~5/8）：热门/经常访问的页面 - 旧子列表（列表的~3/8）：最近看到但未经验证的页面 新页面不会直接进入头部。它们被插入到中点（旧子列表的头部），并且仅在后续访问和计时规则之后才提升到新子列表。这会创建一个“隔离”列表。 在全表扫描期间，页面首先填充旧子列表，在有限的空间内进行搅动，同时使新子列表中的工作集保持不变。大多数扫描页只读取一次，从不提升，并且从尾部开始快速老化。 因此，表扫描不会废弃整个缓存。热页保持热状态，扫描页首先被驱逐。   由   提交 /u/Normal-Tangelo-7120   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pz0y2g/innodb_buffer_pool_lru_implementation_how_mysql/</guid>
-      <pubDate>Mon, 29 Dec 2025 22:55:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>解决 $N$ 编排问题：我们如何通过 Kafka 扩展 35 个以上的 MCP？</title>
-      <link>https://www.reddit.com/r/programming/comments/1pz0wx6/tackling_the_norchestration_problem_how_do_we/</link>
-      <description><![CDATA[我们正在构建 slashmcp.com，但我们遇到了令人着迷（但痛苦）的扩展瓶颈。 目标是大规模处理模型上下文协议 (MCP)。我们目前正在集成 35 多个不同的 MCP 并使用 Kafka 进行编排，但随着我们向 $n$ 复杂性迈进，编排逻辑正在成为一个巨大的障碍。 我们决定将问题公开。我们正在寻找 MCP 爱好者和分布式系统专家来参与讨论、分解我们的方法或做出贡献。  注册表： 我们在这里开源了 MCP 注册表：github.com/mcpmessenger/mcp-registry 堆栈： MCP， Kafka、Python/Node、TS 问题：我们需要关注编排逻辑。如果您处理过高扇出工具调用或复杂的消息路由，我们希望您能提供反馈。  请随意加注星号、分叉，或者告诉我们为什么我们的 Kafka 实现会失败。   由   提交/u/Ok-Priority35   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pz0wx6/tackling_the_norchestration_problem_how_do_we/</guid>
-      <pubDate>Mon, 29 Dec 2025 22:54:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>一件事件、洋葱科技债务和裁员——事后分析来衡量指标问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1pyxrce/one_incident_onion_tech_debt_and_layoffs/</link>
-      <description><![CDATA[ 由   提交/u/IndividualSecret1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pyxrce/one_incident_onion_tech_debt_and_layoffs/</guid>
-      <pubDate>Mon, 29 Dec 2025 20:50:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>MIT Battlecode（编程竞赛）1周后开始！</title>
-      <link>https://www.reddit.com/r/programming/comments/1pyx095/mit_battlecode_programming_competition_starts_in/</link>
-      <description><![CDATA[Battlecode 是一款实时策略游戏，您将使用博弈论、寻路和分布式算法来建立一支机器人自主团队，并击败对手。 欢迎任何人以 1-4 人的团队形式参赛，争夺2 万美元奖金池，顶尖团队将获得有保证的实习机会与我们的白金赞助商，Amplitude！排名前 16 的学生团队还将免费飞往 MIT 参加 1 月 31 日的决赛。 除了基本的编程技能之外，不需要任何经验！机器人是用 Java 和/或 Python 编写的，但我们推荐使用 Java。我们将引导您了解创建第一个机器人的基础知识以及战胜其他玩家的高级策略。比赛附有将在 YouTube 上直播的讲座（但您也可以亲自参加麻省理工学院的讲座！）。 Battlecode 2026 将于 2026 年 1 月 5 日至 31 日举行。参与就是您想要的承诺（通常每周几个小时）！ 您可以在 battlecode.org/about 并在 play.battlecode.org/register 注册。 欢迎在此帖子中提问；我们会尽力解答！与去年类似的帖子，但我们有一些更新（例如现在提供 Python！）:)   由   提交/u/battlecode-devs  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pyx095/mit_battlecode_programming_competition_starts_in/</guid>
-      <pubDate>Mon, 29 Dec 2025 20:21:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
