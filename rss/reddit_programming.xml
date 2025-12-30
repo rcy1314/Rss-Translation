@@ -4,7 +4,70 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 30 Dec 2025 15:29:13 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 18:38:35 GMT</lastBuildDate>
+    <item>
+      <title>成为一名云架构师不在于工具，而在于工具。这是关于你可以捍卫的决定</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzo6xh/being_a_cloud_architect_isnt_about_tools_its/</link>
+      <description><![CDATA[很多人认为云架构师的角色只是了解 AWS/GCP/Azure 服务，但真正的工作是做出权衡，你可以向工程、安全和领导层解释；成本与规模、速度与风险、标准化与灵活性。这项工作涉及设计、治理和长期影响，而不仅仅是图表和认证。这篇文章很好地分解了云架构师的日常实际工作、重要的技能以及角色如何随着经验的发展而演变：云架构师 好奇；好奇；对您来说，架构师角色中最困难的部分是：技术深度还是利益相关者的协调？   由   提交/u/netcommah  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzo6xh/being_a_cloud_architect_isnt_about_tools_its/</guid>
+      <pubDate>Tue, 30 Dec 2025 17:32:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>你的高级工程师面试流程是错误的</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzo06c/your_interview_process_for_senior_engineers_is/</link>
+      <description><![CDATA[ 由   提交/u/stmoreau  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzo06c/your_interview_process_for_senior_engineers_is/</guid>
+      <pubDate>Tue, 30 Dec 2025 17:25:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>Karpathy 关于人工智能编码的主题与众不同。瓶颈从构建转向决定构建什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzn30m/karpathys_thread_on_ai_coding_hit_different/</link>
+      <description><![CDATA[整个星期都在思考这个话题。 Karpathy 谈到对 AI 编码工具感到迷失方向，回复很有趣。 有人说“当执行是即时的时，瓶颈就变成决定你真正想要什么”。就是这样。 过去，如果我有一个想法，就需要几天或几周的时间才能实现。那段时间迫使我思考“这真的值得做吗”在提交之前。 现在，使用 Cursor、Windsurf、Verdent 等，您可以在一个下午内完成一些工作。听起来不错，但你失去了自然的过滤器。 我发现自己建造东西只是因为我可以，而不是因为我应该。然后坐在那里思考工作代码“好吧，但我为什么要这样做” 线程中有人提到作者身份被重新分配。这项技能不再是编写代码，而是决定在哪里划定界限以及实际需要存在什么。 不是通常的“人工智能取代工作”。辩论。更像是工作发生了变化，但我仍在弄清楚它现在是什么。 也许这正是当约束被移除时所发生的情况。就像从拨号到光纤一样，带宽突然不再是问题，您意识到自己不知道要下载什么。 idk 只是漫无目的。   由   提交/u/New-Needleworker1755  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzn30m/karpathys_thread_on_ai_coding_hit_different/</guid>
+      <pubDate>Tue, 30 Dec 2025 16:50:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>给新技术博主的建议</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzmzjr/advice_for_new_tech_bloggers/</link>
+      <description><![CDATA[Charity Majors、antirez、Thorsten Ball、Eric Lippert、Sam Rose...如何回答以下问题：“您对刚刚开始写博客的人的建议？”   由   提交/u/swdevtest  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzmzjr/advice_for_new_tech_bloggers/</guid>
+      <pubDate>Tue, 30 Dec 2025 16:46:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Instagram 如何在零停机的情况下从 AWS S3 迁移 200 亿张照片（案例研究）</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzm49l/how_instagram_migrated_20_billion_photos_from_aws/</link>
+      <description><![CDATA[大家好，​我最近深入研究了 Instagram 的基础设施历史，发现了最被低估的工程壮举之一：他们当时从 Amazon S3 大规模迁移到自己的内部数据中心（Facebook 的基础设施）。管理 200 亿张照片是一回事，但在应用程序运行时以零停机时间移动它们则是系统设计的另一个层面。​策略：“双写”方法​为了确保不丢失数据，团队使用了双写机制。​读取路径：系统首先会在新的内部存储中查找照片。如果不存在，它将回退到 AWS S3。写入路径：上传的每张新照片都会同时写入 S3 和新的内部服务器。后台迁移：在处理新数据的同时，后台进程（使用 Celery）正在逐块迁移旧的 200 亿张照片。挑战：“一致性”问题 最大的障碍不是存储，而是元数据。他们必须确保只有在新位置成功验证照片后才能更新数据库中的指针。我已经用架构图编写了详细的技术故障，准确显示了代理层和迁移工作人员如何在不导致应用程序崩溃的情况下处理负载。您可以在此处查看完整的深入探讨：https://deepsystemstuff.com/the-100-million-gamble-why-instagram-left-aws-for-its-own-servers/ ​很乐意听听您对如何使用 Snowflake 等现代工具或更好的 CDN 边缘逻辑来处理此问题的想法！   由   提交 /u/Ok_Stomach6651   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzm49l/how_instagram_migrated_20_billion_photos_from_aws/</guid>
+      <pubDate>Tue, 30 Dec 2025 16:13:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 GitButler MCP 服务器构建更好的 AI 驱动的 Git 工作流程</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzm3b6/using_the_gitbutler_mcp_server_to_build_better/</link>
+      <description><![CDATA[ 由   提交 /u/aspleenic   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzm3b6/using_the_gitbutler_mcp_server_to_build_better/</guid>
+      <pubDate>Tue, 30 Dec 2025 16:12:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么在 C++20 中应该使用 std::span 来传递缓冲区</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzlq0y/why_stdspan_should_be_used_to_pass_buffers_in_c20/</link>
+      <description><![CDATA[在 C++ 中传递缓冲区通常涉及原始指针、std::vector 或 std::array，每个都需要权衡。 C++20 的 std::span 提供了非拥有视图，但其实际限制并不总是很明确。 关于 std::span 哪些地方适合接口，哪些地方不适合的短文。   由   提交 /u/Clean-Upstairs-8481   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzlq0y/why_stdspan_should_be_used_to_pass_buffers_in_c20/</guid>
+      <pubDate>Tue, 30 Dec 2025 15:58:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>什么是内核模式？</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzli8w/what_is_kernel_mode/</link>
+      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzli8w/what_is_kernel_mode/</guid>
+      <pubDate>Tue, 30 Dec 2025 15:49:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 2026 年编码堆栈</title>
+      <link>https://www.reddit.com/r/programming/comments/1pzlaic/my_2026_coding_stack/</link>
+      <description><![CDATA[ 由   提交 /u/makeKarmaGreatAgain   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1pzlaic/my_2026_coding_stack/</guid>
+      <pubDate>Tue, 30 Dec 2025 15:41:23 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了“2025 年代码”——隐私第一的 GitHub 年度回顾，完全在浏览器中运行</title>
       <link>https://www.reddit.com/r/programming/comments/1pzkr03/i_built_2025_year_of_code_a_privacyfirst_github/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1pzg1wb/agentic_al_in_software_development_evolving/</guid>
       <pubDate>Tue, 30 Dec 2025 11:44:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>从自动完成到共同作者：我与人工智能的一年</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzfx55/from_autocomplete_to_coauthor_my_year_with_ai/</link>
-      <description><![CDATA[ 由   提交/u/ablx0000  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzfx55/from_autocomplete_to_coauthor_my_year_with_ai/</guid>
-      <pubDate>Tue, 30 Dec 2025 11:36:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rich Hickey：简单是可靠性的先决条件</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzfo4r/rich_hickey_simplicity_is_a_prerequisite_for/</link>
-      <description><![CDATA[最近重看了这个。这仍然是解释为什么系统会随着复杂性的积累而失败的最清晰的解释之一。我想知道这里的人如何在实际项目中应用它。   由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzfo4r/rich_hickey_simplicity_is_a_prerequisite_for/</guid>
-      <pubDate>Tue, 30 Dec 2025 11:22:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>厌倦了小型脚本工具的重量级 IDE，所以我构建了一个小型的插件优先 IDE</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzezel/got_tired_of_heavyweight_ides_for_small_scripting/</link>
-      <description><![CDATA[在使用小型脚本工具和自定义语言时，我一直遇到同样的问题：全面的 IDE 功能强大但笨重，而轻量级编辑器缺乏调试、插件和安全执行所需的结构。我想要介于两者之间的东西 - 一个将脚本视为一流但受控单元的 IDE，而不仅仅是文本文件。 因此我构建了 Scriptor，这是一个围绕插件驱动的脚本和确定性执行而设计的紧凑型 IDE。下面是我在构建它时发现的有趣内容的简短技术文章。 我试图解决的问题  完整的 IDE（VS Code、IntelliJ）对于嵌入式或特定于域的脚本来说太过分了。 文本编辑器缺乏执行控制、隔离和结构化工具。 插件系统经常以不安全的方式混合编辑器逻辑、运行时权限和文件系统访问。  我想要一个 IDE，其中编辑器、运行时和插件明确分离，并且插件不会自动继承 IDE 的功能。 核心架构思想 插件优先的 IDE 核心 IDE 本身很小：编辑器界面、项目模型、命令调度程序。几乎所有其他内容——语言支持、工具、构建步骤——都是作为运行时加载的插件来实现的。 插件注册：  命令 面板/UI挂钩 功能（允许它们做什么）  这可以保持核心较小并使插件行为可检查。 基于功能的插件权限read_project_file、run_task、open_panel）。这可以防止意外的权限升级，并且可以更轻松地推断插件可能影响的内容。 这种设计直接来自调试默默触及全局状态的 IDE 插件的挫败感。 确定性执行和确定性执行。隔离 每个插件都在隔离的上下文中运行：  有界执行步骤 结构化错误传播 除非明确允许，否则不共享可变状态  如果插件崩溃或行为不当，它会独立失败 - IDE 保持响应。 轻量级语言智能（没有完整的 LSP）预先实现完整的 LSP 支持，Scriptor 使用：  快速语法解析 项目本地符号索引 简单的跳转到定义和诊断  这足以达到“有用的 IDE”领域，而无需完整语言服务器的复杂性和延迟。 实现挑战 1.避免编辑器/插件耦合早期版本将编辑器内部泄漏到插件中。解决这个问题需要严格的命令/事件边界，以便插件可以请求操作而无需保存编辑器引用。 2.插件生命周期管理安全地重新加载插件（尤其是 UI 绑定的插件）比预期更难。我最终添加了一个生命周期模型：加载 → 激活 → 挂起 → 卸载，并带有显式清理钩子。 3.没有混乱的 UI 可扩展性 允许插件在没有混乱的情况下添加面板、菜单和命令需要命名空间命令注册表和明确的 UI 放置规则。 4.无噪音的错误可见性插件错误显示在专用的诊断面板中，而不是模态对话框中，这样即使出现问题，IDE也能保持可用。 我学到的东西  IDE的复杂性更多地来自于状态管理，而不是来自UI。 基于功能的权限使调试插件变得更加容易。 您不需要完整的LSP即可达到高效基线 -有针对性的情报还有很长的路要走。 将插件视为潜在的敌对改进了架构，即使对于个人工具也是如此。  Scriptor 仍在不断发展，但构建它迫使我仔细思考编辑器/运行时边界、安全可扩展性以及对于以脚本为中心的工作流程实际上需要多少 IDE。 如果有兴趣，我很高兴撰写更深入的文章：  插件隔离模型 LSP 的轻量级替代方案 IDE 命令架构    由   提交 /u/Imaginary-Pound-1729   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzezel/got_tired_of_heavyweight_ides_for_small_scripting/</guid>
-      <pubDate>Tue, 30 Dec 2025 10:42:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>C 中的线程调度程序（绿色线程）</title>
-      <link>https://www.reddit.com/r/programming/comments/1pze8xv/thread_scheduler_in_c_green_threads/</link>
-      <description><![CDATA[请检查用户级线程调度程序   由   提交/u/xie_xang  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pze8xv/thread_scheduler_in_c_green_threads/</guid>
-      <pubDate>Tue, 30 Dec 2025 09:58:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>厌倦了复制粘贴许可证文件，所以我为其构建了一个小型 CLI (Homebrew)</title>
-      <link>https://www.reddit.com/r/programming/comments/1pze2h8/got_tired_of_copypasting_license_files_so_i_built/</link>
-      <description><![CDATA[在开始新项目时，我一直遇到同样的烦恼：复制粘贴许可证，手动修复年份/名称，或依赖混乱的生成器。 因此，我构建了 lic ，一个小型 CLI 工具，可帮助您生成具有干净 TUI 和零绒毛的常见开源许可证。 您选择许可证，输入您的许可证名称和年份，它会将正确的许可证文件放入您的项目中。就是这样。 我只是将其作为 Homebrew 公式提供，因此安装只需一个命令： brew install kushvinth/tap/lic  GitHub： https://github.com/kushvinth/lic   由   提交/u/Tall-Try173   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pze2h8/got_tired_of_copypasting_license_files_so_i_built/</guid>
-      <pubDate>Tue, 30 Dec 2025 09:46:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>Spring 7 和 Spring Boot 4 中的 Jackson 3 简介</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzd8rp/an_introduction_to_jackson_3_in_spring_7_and/</link>
-      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzd8rp/an_introduction_to_jackson_3_in_spring_7_and/</guid>
-      <pubDate>Tue, 30 Dec 2025 08:55:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>开发人员如何使用人工智能工具进行软件架构、系统设计和高级推理，包括这些工具的帮助和失败之处</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzct3e/how_developers_are_using_ai_tools_for_software/</link>
-      <description><![CDATA[人工智能工具不再只是帮助我们编写代码。甚至，他们还积极支持系统设计推理、架构权衡和失败思考。  人工智能不会取代软件架构师。 使用人工智能的架构师将胜过那些不使用人工智能的架构师。 人工智能工具已经悄然超越了代码完成，进入了： • 架构推理 • 系统设计权衡分析 • 失败与失败可扩展性思维 如果您关心构建能够适应规模的系统，那么这个问题值得您花时间。让我们看看人工智能工具如何支持软件架构、系统设计和推理。高级推理。    由   提交/u/erdsingh24  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzct3e/how_developers_are_using_ai_tools_for_software/</guid>
-      <pubDate>Tue, 30 Dec 2025 08:28:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>Eclipse 集合与 JDK 集合</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzbk1p/eclipse_collection_vs_jdk_collection/</link>
-      <description><![CDATA[ 由   提交/u/OzkanSoftware  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzbk1p/eclipse_collection_vs_jdk_collection/</guid>
-      <pubDate>Tue, 30 Dec 2025 07:13:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了 AI 编码工具（Cursor、Windsurf、Claude Code、Copilot）的自动更新比较</title>
-      <link>https://www.reddit.com/r/programming/comments/1pzbeuv/i_built_an_autoupdating_comparison_of_ai_coding/</link>
-      <description><![CDATA[AI 编码工具变化非常快，我不断看到已经过时的比较。 我构建了 DevCompare 来自动执行此操作。它每天都会根据 Reddit/HN 的 18 个标准重新进行比较，例如功能、定价、存储库理解、延迟和开发情绪。 无需注册，无需付费。只是一张桌子。 https://devcompare.io 你们觉得怎么样？这有用吗？   由   提交 /u/anticlickwise   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1pzbeuv/i_built_an_autoupdating_comparison_of_ai_coding/</guid>
-      <pubDate>Tue, 30 Dec 2025 07:05:00 GMT</pubDate>
     </item>
     </channel>
 </rss>
