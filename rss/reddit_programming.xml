@@ -4,13 +4,62 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 01 Jan 2026 18:36:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jan 2026 21:25:43 GMT</lastBuildDate>
     <item>
-      <title>我构建了一个编码软件。</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1b9j6/i_built_a_coding_software/</link>
-      <description><![CDATA[大家好， 我是一名学生，一直在帮助朋友学习编程，每次我都注意到同样的问题： 他们在设置、终端或 input() 上遇到困难，只是不按照教程显示的方式工作。 所以我决定自己构建一些东西。 Multicode 是一个轻量级编码环境，支持Python 和 JavaScript。 使用简单的语言选择器，您可以随时在语言之间切换、编写代码、立即运行代码，并通过内置终端与您的程序交互 - 所有这些都无需额外设置。 它基本上是一个带有交互式终端的超级简单游乐场。 我并不是想发送垃圾邮件或推送任何内容 - 我真诚地希望学习 Python 的人提供反馈： • 这会有所帮助吗？你？ • 什么让它真正有用？ • 你对这样的东西有什么期望？ 如果有人想尝试，我可以分享它。 谢谢🙏   由   提交/u/FixAdventurous3166  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1b9j6/i_built_a_coding_software/</guid>
-      <pubDate>Thu, 01 Jan 2026 18:33:55 GMT</pubDate>
+      <title>Gene——一种围绕通用“Gene”数据类型构建的同像通用语言</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1e75u/gene_a_homoiconic_generalpurpose_language_built/</link>
+      <description><![CDATA[嗨， 我一直在研究 Gene，这是一种通用的同像语言，具有类似 Lisp 的表面语法，但其核心数据模型有意不仅仅是“一路向下列出”。 独特之处：Gene 数据类型 Gene 的中心思想是一个始终承载的单一统一结构(1) 类型，(2) 键/值属性，以及 (3) 位置子项： (type ^prop1 value1 ^prop2 value2 child1 child2 ...)  关键点是类型、每个属性名称、每个属性值和每个子项本身可以是任何基因数据。一切都是统一的。实际上，这是强大且自由的：您可以构建丰富的自描述结构，而无需转义到不同的“元”表示，并且 AST 和运行时值共享相同的形状。 这不是 JSON，也不是普通的 S 表达式：类型 + 属性 + 子元素在一个表示中是一流的，因此您可以在没有包装器节点的情况下附加结构化元数据，并构建 DSL / 转换，而无需发明单独的注释系统。 动态 + 通用（FP 和 OOP） Gene 的目标是可用于“常规编程”，而不仅仅是 DSL：  FP 风格的基础知识：fn、面向表达式的代码和 AST 友好的表示 OOP 支持：类、新的、嵌套类、命名空间（仍在扩大覆盖范围） 运行时/工具：字节码编译器 + 堆栈Nim 中的 VM，加上 CLI 工具（运行、eval、repl、解析、编译）  类宏功能：未评估的参数 + 调用者上下文评估 Gene 支持未评估的参数和调用者上下文评估（类似宏的行为）。您可以传递表达式而不评估它们，然后在需要时在调用者的上下文中显式评估它们（例如，通过诸如 caller_eval / fn! 之类的原语用于宏样式形式）。这是为了更容易地编写 DSL-ish 控制表单，而无需将评估规则硬编码到核心语言中。 我还添加了一个可选的本地 LLM 后端：Gene 有一个 Genex/llm 命名空间，可以通过 FFI 通过 llama.cpp 调用本地 GGUF 模型（主要是因为我想要无需外部服务的本地推理）。 Repo：https://github.com/gene-lang/gene 我希望获得以下方面的反馈：  “type/props/children”核心结构与普通的 s-exprs 相比是否令人信服， 宏/未评估的参数人体工程学（感觉是否连贯？）， 以及下一步如何使该项目最有用（stdlib、互操作、文档、性能等）。    由   提交/u/gcao99  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1e75u/gene_a_homoiconic_generalpurpose_language_built/</guid>
+      <pubDate>Thu, 01 Jan 2026 20:29:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>Canvas VM - Piet 语言运行时</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1e4d1/canvas_vm_piet_language_runtime/</link>
+      <description><![CDATA[听说过Piet吗？ https://www.dangermouse.net/esoteric/piet.html 这是一种深奥的编程语言，其中“源代码”是像素/彩色块，执行发生在2D中（方向变化、颜色过渡等）。 在假期里，我一些额外的时间，陷入了一个兔子洞：如果 Piet 运行得足够快，玩起来真的很有趣怎么办？ 直接从图像解释程序本质上很慢（解析块、转换、方向逻辑），因此你实际上可以构建的程序往往非常有限。 所以我构建了一个 Piet VM：编译像素 → 中间字节码（也更适合调试），然后使用 JIT 发出本机机器代码。还有一个 WASM 构建，因此您可以直接在浏览器中尝试它。 为什么？ 因为它很有趣。 😄   由   提交/u/joelibaceta  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1e4d1/canvas_vm_piet_language_runtime/</guid>
+      <pubDate>Thu, 01 Jan 2026 20:26:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>改变是所有（邪恶）错误的根源</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1d0pn/change_is_the_root_of_all_evil_bugs/</link>
+      <description><![CDATA[ 由   提交/u/fernandohur   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1d0pn/change_is_the_root_of_all_evil_bugs/</guid>
+      <pubDate>Thu, 01 Jan 2026 19:42:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>分布式计算的 8 个谬误：您需要知道的一切 + 为什么它在 2026 年仍然重要</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1cblg/the_8_fallacies_of_distributed_computing_all_you/</link>
+      <description><![CDATA[ 由   提交/u/trolleid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1cblg/the_8_fallacies_of_distributed_computing_all_you/</guid>
+      <pubDate>Thu, 01 Jan 2026 19:15:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我分析了 1,398 个 GitHub 问题，以找出开发人员真正遇到的困难 - 以下是我了解到的内容</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1c4v8/i_analyzed_1398_github_issues_to_find_what/</link>
+      <description><![CDATA[ 由   提交/u/Peach_Baker  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1c4v8/i_analyzed_1398_github_issues_to_find_what/</guid>
+      <pubDate>Thu, 01 Jan 2026 19:07:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>根据 r/LocalLLaMA 和社区反馈编写了本地 AI 编码指南</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1c37w/compiled_a_guide_to_local_ai_coding_from/</link>
+      <description><![CDATA[花时间阅读 r/LocalLLaMA、HN 和开发论坛。将最佳设置、基准测试和陷阱编译成一份指南。涵盖 Ollama、Qwen、Continue dot dev、硬件要求、常见错误。 Github   由   提交/u/Successful-Tax6498   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1c37w/compiled_a_guide_to_local_ai_coding_from/</guid>
+      <pubDate>Thu, 01 Jan 2026 19:06:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用了一种老式的安全技巧来捕获人工智能代理的即时注入</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1bv6y/i_used_an_oldschool_security_trick_to_catch/</link>
+      <description><![CDATA[所以我一直在搞MCP并一直在思考安全问题。这些代理可以调用​​工具、查询数据库、访问 API...如果有人设法注入恶意提示，事情可能会很快出岔子。 我维护一个名为 Beelzebub 的开源蜜罐框架（现在已经为此工作了 3 年多）。几个月前，我想：为什么不将相同的概念应用于人工智能代理？ 这个想法非常简单，你可以将假功能与真实功能一起部署。像 get_admin_credentials 或 export_all_user_data 这样的东西。一个正常的特工做正常的事情永远不会碰它们。但是，如果有人试图通过即时注入来操纵代理，他们可能会选择看起来有趣的目标。 当蜜罐函数被调用时，您就知道出了问题。记录所有内容，向您发出警报，然后您就可以全面跟踪攻击者试图执行的操作。 我们已经在一些测试环境中运行它，并且确实对它的工作效果感到惊讶。误报基本上为零，因为没有合理的理由调用这些函数。 如果有人想四处看看，可以使用 Repo：https://github.com/mariocandela/beelzebub 好奇是否还有其他人正在考虑这个问题。您如何处理具有工具访问权限的代理的安全性？   由   提交 /u/mario_candela   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1bv6y/i_used_an_oldschool_security_trick_to_catch/</guid>
+      <pubDate>Thu, 01 Jan 2026 18:57:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>一个轻量级、仅限客户端的电子表格 Web 应用程序。所有数据都保留在 URL 哈希中，以便即时共享，无需后端。可选的 AES-GCM 密码保护无需服务器即可锁定共享链接</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1bu1b/a_lightweight_clientonly_spreadsheet_web/</link>
+      <description><![CDATA[ 由   提交/u/lakmal007  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1bu1b/a_lightweight_clientonly_spreadsheet_web/</guid>
+      <pubDate>Thu, 01 Jan 2026 18:56:29 GMT</pubDate>
     </item>
     <item>
       <title>当分布式系统工程师在 CoffeeScript 中编写 KV 存储时会发生什么☕️</title>
@@ -60,55 +109,6 @@
       <description><![CDATA[ 由   提交/u/henk53  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q17jrk/just_a_moment/</guid>
       <pubDate>Thu, 01 Jan 2026 16:03:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>在浏览器中进行基于时间的交互的小实验</title>
-      <link>https://www.reddit.com/r/programming/comments/1q16no5/small_experiment_with_timingbased_interactions_in/</link>
-      <description><![CDATA[我一直在努力完成更多的小实验，而不是放弃半成品的想法，所以我最近制作了一个基于浏览器的小型反射游戏，完全专注于计时。 该项目本身故意很小，但它迫使我思考通常不会出现在典型 CRUD 工作中的事情：  – 在感觉不公平之前，计时窗口可以有多紧  – 之间的差异点击和点击延迟  – 反馈延迟改变感知难度的程度  – 保持跨设备交互响应 这并不是一个产品或发布，只是围绕网络上的时间敏感交互的学习练习。 对于任何对结果感到好奇的人，可以在这里玩游戏： https://reflex-tap-lemon.vercel.app/ 很高兴听到其他在浏览器中构建小型交互式或类似游戏体验的人的想法。   由   提交/u/Repulsive_Guard0   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q16no5/small_experiment_with_timingbased_interactions_in/</guid>
-      <pubDate>Thu, 01 Jan 2026 15:25:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>我对 Claude 支持的 IdeaRater 进行了编码</title>
-      <link>https://www.reddit.com/r/programming/comments/1q169as/i_vibe_coded_a_claudepowered_idearater/</link>
-      <description><![CDATA[它是免费的，在你对一个想法进行编码之前运行它，看看它是否值得。 Github：https://github.com/vibeforge1111/vibeship-idearater 享受，并且不要忘记添加书签。 P.S.我们不存储数据。并且没有数据库，只有一个连接到 Anthropic 的 API，用于来自 Claude 的 AI 评级。   由   提交/u/InfiniteBeing5657  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q169as/i_vibe_coded_a_claudepowered_idearater/</guid>
-      <pubDate>Thu, 01 Jan 2026 15:07:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>解释内存屏障和 Java 的发生在保证之前</title>
-      <link>https://www.reddit.com/r/programming/comments/1q161ds/explaining_memory_barriers_and_javas_happens/</link>
-      <description><![CDATA[ 由   提交/u/henk53  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q161ds/explaining_memory_barriers_and_javas_happens/</guid>
-      <pubDate>Thu, 01 Jan 2026 14:57:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是一个新的可证伪的人工智能道德核心。请你尝试打破它</title>
-      <link>https://www.reddit.com/r/programming/comments/1q15216/heres_a_new_falsifiable_ai_ethics_core_please_can/</link>
-      <description><![CDATA[请使用任意 AI 进行测试。欢迎所有反馈。谢谢   由   提交/u/GentlemanFifth  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q15216/heres_a_new_falsifiable_ai_ethics_core_please_can/</guid>
-      <pubDate>Thu, 01 Jan 2026 14:11:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>NotePlus 文本编辑器是一款基于浏览器的免费轻量级文本编辑器，具有零依赖性</title>
-      <link>https://www.reddit.com/r/programming/comments/1q146k2/noteplus_text_editor_a_free_lightweight_browser/</link>
-      <description><![CDATA[大家好， 所以我想分享一个可以立即打开的项目，不需要任何帐户登录或繁重的 Electron 应用程序。 自去年以来我一直在维护 NotePlus，只有一件事是，它应该是一个免费使用且 100% 轻量级基于浏览器的文本编辑器，用户可以使用而不会感到不知所措。它在某些功能上可能类似于 Windows 默认记事本，但它提供了大量开箱即用的新功能！ 我想强调的一些方面是 -   零依赖：纯 Vanilla JS、HTML 和 CSS。没有框架，没有 node_modules 膨胀。 URL 集成：我引以为傲的一项功能是能够直接通过 URL 查询参数（例如？text=hello）加载文本。它非常适合在没有数据库的设备之间传递快速片段。 轻量级：整个项目不到 5MB，即使在连接不良的情况下加载速度也非常快。 人工智能助手：我集成了一个小型人工智能助手（NotePlus Assistant）来帮助直接在编辑器中生成文本。  您可以从 👇 查看该项目 GitHub：https://github.com/BlazeInferno64/NotePlus 现场演示：https://note-plus-mu.vercel.app/ 我很想获得一些有关代码结构和用户界面的反馈！如果您觉得它有用，我将不胜感激：D！ 感谢您花时间阅读本文！祝你有美好的一天:D   由   提交/u/Flat_Molasses_9715   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q146k2/noteplus_text_editor_a_free_lightweight_browser/</guid>
-      <pubDate>Thu, 01 Jan 2026 13:27:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>徽标介绍：将英语编译为 Rust</title>
-      <link>https://www.reddit.com/r/programming/comments/1q144dx/introducing_logos_compile_english_to_rust/</link>
-      <description><![CDATA[嗨，Reddit 新年快乐！ 有时，你最终构建了一些东西来解决自己的问题，但它意外地变成了可以解决其他人问题的产品。在构建复杂的分布式应用程序时，我注意到编写一些我需要的东西需要很长时间，因此我构建了一种编程语言来更快地编写代码！不过，这种语言有一些特殊的魅力……它已经将 CRDT 与 libp2p 网状网络融入到语言本身中。  这里有一些亮点......  1. 英语 → Production Rust  不是伪代码。编写可通过 LLVM 优化编译为工作 Rust 的英语。通过 1000 多个测试。  2. 内置 P2P 网状网络 监听“/ip4/0.0.0.0/tcp/8080”。  连接到“/ip4/192.168.1.5/tcp/8080”。  “游戏室”上的同步计数器。  就是这样。 libp2p、QUIC 传输、mDNS 发现、GossipSub pub/sub，全部由纯英语生成。  3. 原生 CRDT 库  完全无冲突的复制数据类型：  - GCounter、PNCounter - 分布式计数器  - ORSet 具有可配置的 AddWins/RemoveWins 偏差  - RGA、YATA - 用于协作文本的序列 CRDT编辑  - 矢量时钟、点上下文、增量 CRDT  4. 分布式是杀手类型  将任何 CRDT 包装在分布式中；并得到：  - 自动日志记录到磁盘（CRC32 校验和，1000 个条目自动压缩）  - 自动 GossipSub 复制到所有对等点  - 统一流程：本地突变 → 日志 → 网络。远程更新 → RAM → 日志。  - 可以承受重新启动、离线节点、网络分区。  一次挂载调用。自动最终一致性。  5. Go 式并发与 Rust 的安全保证  - TaskHandle; — 可中止的可生成异步任务  - Pipe; - 有界通道（发送者/接收者分裂）  - check_preemption() - 合作每 10 毫秒产生一次公平性  6. 形式语义（不是 LLM 猜测）  - 具有主题角色的新戴维森事件分解  - 用于组合语义的 Montague 风格 λ 演算  - DRS跨句照应解析  - 解析森林返回所有有效读数（最多 12 个）  - 通过 RAII 回溯恢复花园路径 我希望它能帮助你们所有人，就像它一直在帮助我一样！ 2026 年快乐编码！   由   提交/u/import-username-as-u   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q144dx/introducing_logos_compile_english_to_rust/</guid>
-      <pubDate>Thu, 01 Jan 2026 13:24:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026：终端的 Java 年</title>
-      <link>https://www.reddit.com/r/programming/comments/1q13d24/2026_the_year_of_java_in_the_terminal/</link>
-      <description><![CDATA[ 由   提交/u/henk53  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q13d24/2026_the_year_of_java_in_the_terminal/</guid>
-      <pubDate>Thu, 01 Jan 2026 12:41:55 GMT</pubDate>
     </item>
     </channel>
 </rss>
