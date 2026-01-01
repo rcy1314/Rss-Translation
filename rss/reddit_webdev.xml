@@ -4,7 +4,28 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 31 Dec 2025 21:24:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jan 2026 02:12:56 GMT</lastBuildDate>
+    <item>
+      <title>我正在申请硕士学位，我发现了一个技巧，可以显示我的文件是否已经过验证并已发送以供审核，或者它们仍在处理文件，即使它在两种情况下的用户界面中显示“正在处理”，我还可以采取哪些其他技巧来获取更多信息？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1q0t5tq/i_am_applying_for_masters_and_i_found_a_trick/</link>
+      <description><![CDATA[现在在我申请的大学中申请硕士的每个人都将处理显示为状态，但是一位朋友向我展示了一个控制台技巧，如果我打开它并搜索应用程序状态，您会发现您的应用程序的实际状态，就像首先它显示预筛选，意味着他们仍在验证文件，并准备审查，这意味着文件正在被审查，您现在处于下一步，我们从控制台，我还可以采取什么其他技巧来获取更多信息   由   提交 /u/Delicious-Motor8612   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1q0t5tq/i_am_applying_for_masters_and_i_found_a_trick/</guid>
+      <pubDate>Thu, 01 Jan 2026 02:04:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用正则表达式，但无法确定 ChatGPT 关于 \s 的说法是错误还是正确</title>
+      <link>https://www.reddit.com/r/webdev/comments/1q0o0kx/working_with_a_regex_but_cant_decide_if_chatgpt/</link>
+      <description><![CDATA[在启用我的正则表达式之前，我一直通过 ChatGPT 运行它以捕获语法和逻辑错误。但这是一个令人困惑的问题。 Perl 中的原始： s#(&lt;span [^&gt;]*&gt;)？跟随我们：(&lt;/span&gt;)?##gi  修改： s{ &lt;br&gt; (?:]*)?&gt;)?跟随\sus:\s+ (?:&lt;/span&gt;)? } {}xgi  ChatGPT 强烈认为“Follow”之间的 \s 与“Follow”之间的 \s 是一样的。和“我们”除非我添加+，否则是一个错误，但我无法弄清楚它的解释。 我在这个上错了，还是ChatGPT疯了？ 解释： ******************** 拼写错误：\s vs 文字空间 这一行： Follow\sus:\s+  匹配“关注我们：”仅当有文字时 s 空格后。 你想要的是： Follow\s+us:\s+  这是一个真正的错误，会阻止匹配。 ******************** 我：你能解释得更好吗？我看到的唯一区别是 \s 后面的 +，据我所知，它允许存在多个空格。但这不符合你对字面“s”的解释 ******************** 绝对 - 这是一个很好的问题，这种混乱是可以理解的。让我们放慢速度，逐个字符地查看正则表达式引擎所看到的内容。 并排的两种模式 ❌你得到了什么 Follow\sus:\s+  ✅ 你想要什么 Follow\s+us:\s+  乍一看它们几乎相同，但含义非常不同。 正则表达式如何解析 Follow\sus： 正则表达式不将其视为“\s then us”。 它贪婪地解析从左到右，如下标记： 跟随 \s → 一个空白字符 u → 文字字母“u” s → 字面字母“s” : → 冒号  所以这个模式的字面意思是：   换句话说，它要求文本看起来像这样： Follow␠us:  其中：  ␠ = 恰好一个空格 us = 文字字符 u 和 s  为什么这是一个问题 您的实际输入通常是： 关注我们： 其中包含： 关注␠us： 到目前为止一切顺利 — 但现在看看其余的： Follow\sus:\s+  匹配Follow us:后，正则表达式需要： \s+  这意味着冒号后面至少还有一个空格。 所以完整所需输入变为： 关注␠us：␠  如果 HTML 为： 关注我们：  ❌ 冒号后面没有空格，所以匹配失败。 为什么 Follow\s+us: 是正确的 现在我们来解析一下正确的版本： Follow\s+us:\s+  Token-by-token: Follow \s+ → 一个或多个空白字符 u s : \s+ → 一个或多个空白字符  这意味着：   正确匹配： Follow␠us:␠ Follow␠␠us:␠ Follow␠us:␠␠  密钥误解（这是重要的部分） ❌ \s 并不意味着“我们前面的空格” ❌ \s 并不“附加”到我们 正则表达式没有没有单词概念，只有标记。 所以： \sus  意味着： [whitespace][u][s]  不是： [whitespace][us]  要将空格应用于单词之间的间隙，您必须明确说明： \s+us  视觉比较   模式 它的字面匹配内容    \sus 空白 + us   \s+us 1+ 空格 + us   \s us 空格 + us （是的，真的）   正则表达式就是这个文字。   由   提交/u/csdude5  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1q0o0kx/working_with_a_regex_but_cant_decide_if_chatgpt/</guid>
+      <pubDate>Wed, 31 Dec 2025 21:34:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>带有加载栏的 SPA 有什么意义？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1q0nuvd/whats_the_point_of_an_spa_that_has_a_loading_bar/</link>
+      <description><![CDATA[Youtube、Github、Spotify 和 Reddit 本身以及其他平台都是 SPA，当您在不同的“页面”之间导航时，它们的顶部有一个内置的加载栏。我是一名新的 Web 开发人员，据我对 SPA 的了解，它们很好，因为在浏览网站时，您不必从服务器获取页面，因为它们已经在客户端上。但我看到的是相反的，reddit 帖子内容需要从服务器获取，你必须等待（加上水合作用），youtube 视频也需要从服务器获取，并且用户体验需要一个内置的加载栏。那么为什么不直接使用浏览器呢？ ...大家新年快乐：D 编辑：是的，只是为了澄清当我说 SPA 时，我正在考虑客户端导航而不是数据获取。   由   提交 /u/WalidB03   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1q0nuvd/whats_the_point_of_an_spa_that_has_a_loading_bar/</guid>
+      <pubDate>Wed, 31 Dec 2025 21:26:36 GMT</pubDate>
+    </item>
     <item>
       <title>祝大家 2026 年快乐，愿这一年“那个项目”离开你的项目文件夹，终于看到世界</title>
       <link>https://www.reddit.com/r/webdev/comments/1q0nf45/happy_2026_guys_may_it_be_the_year_that_that/</link>
@@ -29,21 +50,14 @@
     <item>
       <title>遇到一个错误，我无法在移动视图上将页面从多列切换到单列时找到。它拒绝我尝试解决它的各种不同方式。谁能看出可能是什么原因吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1q0m7ya/got_a_bug_i_just_cant_locate_with_getting_a_page/</link>
-      <description><![CDATA[页面如下： [https://fl-maps.publichappinessmovement.com/newhomepage\](https://fl-maps.publichappinessmovement.com/newhomepage) 我制作了一个简单的布局版本来尝试修复它，而无需任何其他代码页面，但问题仍然存在： [https://fl-maps.publichappinessmovement.com/home-layout\](https://fl-maps.publichappinessmovement.com/home-layout) 甚至更多奇怪的是，当前主页确实切换到移动设备中的单列视图： [https://fl-maps.publichappinessmovement.com\](https://fl-maps.publichappinessmovement.com) 我认为页面之外一定有什么东西弄乱了它，但我在控制台的任何地方都看不到它。  目前的工作是设置断点： \--bs-breakpoint-xs: 0; \--bs-breakpoint-sm: 576px; \--bs-breakpoint-md: 768px; \--bs-breakpoint-lg: 992px; \--bs-breakpoint-xl: 1200px; \--bs-breakpoint-xxl: 1400px; ..但是随着屏幕变得更窄，框中的内容只会缩小，并且框拒绝打破现有布局并跳转到单列布局。  我尝试过：  - 所有可能存在的 !important 标签  - JavaScript 添加 .is-mobile 类以进行布局更改；后来为了支持纯 CSS 媒体查询而删除了这一点。 - 对 /newhomepage 和 /home-layout 进行了多个 SCSS 重写，旨在移动设备上的单列和桌面上的多列。 - 从工作主页复制移动宽度语句，但我认为多列方法会阻止其工作。  - 构建了全新的 /home-layout 页面作为最佳实践响应式演示，具有清晰的列部分和移动媒体查询，但不知何故它仍然不起作用。 - 删除了弹性布局。把它放回去。  - 重构了 HomeLayout 的 SCSS，以将 grid-template-columns 用于网格部分，并删除了无效的 flex 覆盖。  - 检查全局 CSS、布局包装器以及可能仅影响新页面的特殊性问题。找不到任何应用于代码的内容，但它拒绝更改为一列。  如果我一开始有头发，现在我就没有了。任何人都可以看到阻止布局更改的任何内容吗？   由   提交 /u/roamingandy   [链接] [评论]]]></description>
+      <description><![CDATA[页面如下： [https://fl-maps.publichappinessmovement.com/newhomepage\](https://fl-maps.publichappinessmovement.com/newhomepage) 我制作了一个简单的布局版本来尝试修复它，而无需任何其他代码页面，但问题仍然存在： [https://fl-maps.publichappinessmovement.com/home-layout\](https://fl-maps.publichappinessmovement.com/home-layout) 甚至更多奇怪的是，当前主页确实切换到移动设备中的单列视图： [https://fl-maps.publichappinessmovement.com\](https://fl-maps.publichappinessmovement.com) 我认为页面外部一定有什么东西弄乱了它，但我在控制台的任何地方都看不到它。  目前的工作是设置断点： \--bs-breakpoint-xs: 0; \--bs-breakpoint-sm: 576px; \--bs-breakpoint-md: 768px; \--bs-breakpoint-lg: 992px; \--bs-breakpoint-xl: 1200px; \--bs-breakpoint-xxl: 1400px; ..但是随着屏幕变得更窄，框中的内容只会缩小，并且框拒绝打破现有布局并跳转到单列布局。  我尝试过：  - 所有可能存在的 !important 标签  - JavaScript 添加 .is-mobile 类以进行布局更改；后来为了支持纯 CSS 媒体查询而删除了这一点。 - 对 /newhomepage 和 /home-layout 进行了多个 SCSS 重写，旨在移动设备上的单列和桌面上的多列。 - 从工作主页复制移动宽度语句，但我认为多列方法会阻止其工作。  - 构建了全新的 /home-layout 页面作为最佳实践响应式演示，具有清晰的列部分和移动媒体查询，但不知何故它仍然不起作用。 - 删除了弹性布局。把它放回去。  - 重构了 HomeLayout 的 SCSS，以将 grid-template-columns 用于网格部分，并删除了无效的 flex 覆盖。  - 检查全局 CSS、布局包装器以及可能仅影响新页面的特殊性问题。找不到任何应用于代码的内容，但它拒绝更改为一列。  如果我一开始有头发，现在我就没有了。任何人都可以看到阻止布局更改的任何内容吗？   由   提交 /u/roamingandy   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1q0m7ya/got_a_bug_i_just_cant_locate_with_getting_a_page/</guid>
       <pubDate>Wed, 31 Dec 2025 20:09:28 GMT</pubDate>
     </item>
     <item>
-      <title>如果我创建一个盗版电影和电视剧的网站会发生什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1q0l2xo/what_would_happen_if_i_created_a_website_for/</link>
-      <description><![CDATA[我对此有疑问...   由   提交/u/rafaelfen10  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1q0l2xo/what_would_happen_if_i_created_a_website_for/</guid>
-      <pubDate>Wed, 31 Dec 2025 19:18:27 GMT</pubDate>
-    </item>
-    <item>
       <title>你还没有到达互联网的尽头。</title>
       <link>https://www.reddit.com/r/webdev/comments/1q0kua8/you_have_not_reached_the_end_of_the_internet/</link>
-      <description><![CDATA[人们对人工智能和软件开发的现状抱有很多悲观情绪，我想提供更积极的前景。 现在，我们看到了前所未有的“倾斜”现象。正在生成。开发、业务和应用程序论坛上充斥着“看看我在 2 小时内构建的这个东西”的内容。代码中充满了表情符号、破折号、来自 8 个不同更改的详细注释、相同的紫色到蓝色渐变以及相同的基本卡片设计。人工智能参与的迹象不胜枚举。 然而，目前人工智能正在构建的许多东西可能会改变世界。这可能会让你说哇。有些事情你可能根本没有意识到人工智能的参与。那些糟糕的项目将会消亡并消失在人们的记忆中。提供价值的项目将继续存在，而且一直如此。任何提供相关工作的企业都将保持相关性；任何构建相关且有用的应用程序（无论它们是如何构建的）的开发人员都将保持相关性。 这就像高中商店班级最近购买了一把新台锯。一百个新的鸟舍将被建造，其中大多数都烂透了并且倒塌了。有些会令人惊叹，也许一个孩子会成为一名木工大师。 未来仍然会制作出一些令人惊叹和美丽的东西。淘金热将会变成别的东西。我的建议：降低噪音，拔掉电源，也许只是离线编码一段时间。永远不会缺少需要解决的实际问题。   由   提交 /u/CheeseOnFries   [链接] [评论]]]></description>
+      <description><![CDATA[人们对人工智能和软件开发的现状抱有很多悲观情绪，我想提供更积极的前景。 现在，我们看到了前所未有的“倾斜”现象。正在生成。开发、业务和应用程序论坛上充斥着“看看我在 2 小时内构建的这个东西”的内容。代码中充满了表情符号、破折号、来自 8 个不同更改的详细注释、相同的紫色到蓝色渐变以及相同的基本卡片设计。人工智能参与的迹象不胜枚举。 然而，目前人工智能正在构建的许多东西可能会改变世界。这可能会让你说哇。有些事情你可能根本没有意识到人工智能的参与。那些糟糕的项目将会消亡并消失在人们的记忆中。提供价值的项目将继续存在，而且一直如此。任何提供相关工作的企业都将保持相关性；任何构建相关且有用的应用程序（无论它们是如何构建的）的开发人员都将保持相关性。 这就像高中商店班级最近购买了一把新台锯。一百个新的鸟舍将被建造，其中大多数都烂透了并且倒塌了。有些会令人惊叹，也许一个孩子会成为一名木工大师。 未来仍然会制作出一些令人惊叹和美丽的东西。淘金热将变成别的东西。我的建议：降低噪音，拔掉电源，也许只是离线编码一段时间。永远不会缺少需要解决的实际问题。   由   提交 /u/CheeseOnFries   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1q0kua8/you_have_not_reached_the_end_of_the_internet/</guid>
       <pubDate>Wed, 31 Dec 2025 19:08:01 GMT</pubDate>
     </item>
@@ -62,7 +76,7 @@
       <pubDate>Wed, 31 Dec 2025 16:34:09 GMT</pubDate>
     </item>
     <item>
-      <title>日历资源时间线/网格 - FullCalendar 还是替代方案？</title>
+      <title>日历资源时间线/网格 - FullCalendar 还是替代品？</title>
       <link>https://www.reddit.com/r/webdev/comments/1q0gua9/calendar_resource_timelinegrid_fullcalendar_or/</link>
       <description><![CDATA[大家好，我正在研究支持资源时间线/日历的 React 组件。对于我的特定用例，我需要一个时间线，其中一个轴上有时间，另一轴上有不同的类别/资源。重要的是有某种商业许可和许可。具有良好的样式支持。 我发现 FullCalendar 并且似乎对此有很好的支持。我还找到了这个 react calendar timestamp 库，但它似乎没有被维护？我找不到使用大日历完成此操作的示例。 我想知道是否有一些我还没有见过的东西可以做到这一点？我自己构建它会更好吗？谢谢！   由   提交/u/Coolfoolsalot  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1q0gua9/calendar_resource_timelinegrid_fullcalendar_or/</guid>
@@ -92,23 +106,9 @@
     <item>
       <title>审查了一个振动编码的应用程序。 30 秒内找到 OpenAI 密钥。</title>
       <link>https://www.reddit.com/r/webdev/comments/1q0dq8u/reviewed_a_vibecoded_app_found_the_openai_key_in/</link>
-      <description><![CDATA[有人要求我查看他们昨天刚刚构建的 Vivi 编码移动应用程序 我花了 30 秒才在捆绑包中找到硬编码的 OpenAI API 密钥。 下载该应用程序的任何人都可以提取它。 API 费用高达数千美元。将其用于他们想要的任何东西。 这不是振动编码问题。这是一个基本问题。 您的应用永远不应该知道您的秘密。曾经。 解决方法很简单：运行后端代理。应用程序调用您的服务器，服务器调用 OpenAI。密钥保留在它们所属的服务器上。 如果一个拥有反编译器的青少年可以让您一夜之间破产，那么无论您的发货速度有多快，都无关紧要。   由   提交/u/terdia  [链接] [评论]]]></description>
+      <description><![CDATA[有人要求我查看他们昨天刚刚构建的 Vivi 编码移动应用程序 我花了 30 秒才找到捆绑包中硬编码的 OpenAI API 密钥。 下载该应用程序的任何人都可以提取它。 API 费用高达数千美元。将其用于他们想要的任何东西。 这不是振动编码问题。这是一个基本问题。 您的应用永远不应该知道您的秘密。曾经。 解决方法很简单：运行后端代理。应用程序调用您的服务器，服务器调用 OpenAI。密钥保留在它们所属的服务器上。 如果一个拥有反编译器的青少年可以让您一夜之间破产，那么无论您的发货速度有多快，都无关紧要。   由   提交/u/terdia  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1q0dq8u/reviewed_a_vibecoded_app_found_the_openai_key_in/</guid>
       <pubDate>Wed, 31 Dec 2025 14:03:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>我怎样才能找到愿意指导我完成作品集创作的人？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1q0dakt/how_can_i_find_someone_willing_to_guide_me/</link>
-      <description><![CDATA[大家好， 我在现实生活中找不到人，因为我的圈子里没有很多程序员...我想知道你们中的一些人是如何设法让专业人士跟随您学习并帮助您完成作品集的？ 此类社区的任何不和谐链接都会非常有帮助！谢谢。 PS：主要是React/css/html/Django/Sql...（别笑我XD）   由   提交 /u/Virtual-Avocado-9946   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1q0dakt/how_can_i_find_someone_willing_to_guide_me/</guid>
-      <pubDate>Wed, 31 Dec 2025 13:42:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>你已经到达了互联网的尽头</title>
-      <link>https://www.reddit.com/r/webdev/comments/1q0bntz/you_have_reached_the_end_of_the_internet/</link>
-      <description><![CDATA[自 1996 年以来，我一直在网络上进行构建。似乎通过应用程序和 AI 振动编码，一切都已经完成（并且在每个堆栈上重复令人作呕的广告）。我们实际上每天都在重新发明轮子，你可以在 github 上找到任何概念的 500 个版本，十亿计算机科学学生正在为下一个初创公司的混蛋节而努力。那么作为一个社区，接下来会发生什么呢？您受到什么启发而从事或从事什么工作？什么会从斜坡中升起？我们是否共同努力保持“最好”的状态？项目和想法，还是继续走下去？   由   提交 /u/activematrix99   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1q0bntz/you_have_reached_the_end_of_the_internet/</guid>
-      <pubDate>Wed, 31 Dec 2025 12:15:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
