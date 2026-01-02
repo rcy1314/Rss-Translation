@@ -4,7 +4,42 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 02 Jan 2026 09:30:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 12:52:17 GMT</lastBuildDate>
+    <item>
+      <title>为什么我从 Zig 转向 C3</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1wsgv/why_i_switched_away_from_zig_to_c3/</link>
+      <description><![CDATA[ 由   提交/u/Nuoji  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1wsgv/why_i_switched_away_from_zig_to_c3/</guid>
+      <pubDate>Fri, 02 Jan 2026 11:56:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们对初级软件工程师的死亡还不够关心</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1wrjj/were_not_concerned_enough_about_the_death_of_the/</link>
+      <description><![CDATA[ 由   提交/u/ReplacementNo598  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1wrjj/were_not_concerned_enough_about_the_death_of_the/</guid>
+      <pubDate>Fri, 02 Jan 2026 11:55:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>文章：不可知的云世界中 Kubernetes 负载均衡器“服务”的故事</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1vk1m/article_the_tale_of_kubernetes_loadbalancer/</link>
+      <description><![CDATA[ 由   提交/u/MindCorrupted  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1vk1m/article_the_tale_of_kubernetes_loadbalancer/</guid>
+      <pubDate>Fri, 02 Jan 2026 10:45:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>学习 JavaScript 的第一天</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1urws/day_one_of_learning_javascript/</link>
+      <description><![CDATA[ 由   提交 /u/Darkwing1501   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1urws/day_one_of_learning_javascript/</guid>
+      <pubDate>Fri, 02 Jan 2026 09:58:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>Matt Godbolt 的 2025 年编译器优化的到来</title>
+      <link>https://www.reddit.com/r/programming/comments/1q1uqj9/matt_godbolts_advent_of_compiler_optimisations/</link>
+      <description><![CDATA[ 由   提交/u/alexeyr   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q1uqj9/matt_godbolts_advent_of_compiler_optimisations/</guid>
+      <pubDate>Fri, 02 Jan 2026 09:56:19 GMT</pubDate>
+    </item>
     <item>
       <title>Chris Lattner 从 Swift 到 Mojo 以及高性能人工智能工程</title>
       <link>https://www.reddit.com/r/programming/comments/1q1tqv5/from_swift_to_mojo_and_highperformance_ai/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[嗨， 我一直在研究 Gene，这是一种通用的同像语言，具有类似 Lisp 的表面语法，但其核心数据模型有意不仅仅是“一路向下列出”。 独特之处：Gene 数据类型 Gene 的中心思想是一个始终承载的单一统一结构(1) 类型，(2) 键/值属性，以及 (3) 位置子项： (type ^prop1 value1 ^prop2 value2 child1 child2 ...)  关键点是类型、每个属性值和每个子项本身可以是任何基因数据。一切都是统一的。实际上，这是强大且自由的：您可以构建丰富的自描述结构，而无需转义到不同的“元”表示，并且 AST 和运行时值共享相同的形状。 这不是 JSON，也不是普通的 S 表达式：类型 + 属性 + 子元素在一个表示中是一流的，因此您可以在没有包装器节点的情况下附加结构化元数据，并构建 DSL / 转换，而无需发明单独的注释系统。 动态 + 通用（FP 和 OOP） Gene 的目标是可用于“常规编程”，而不仅仅是 DSL：  FP 风格的基础知识：fn、面向表达式的代码和 AST 友好的表示 OOP 支持：类、新的、嵌套类、命名空间（仍在扩大覆盖范围） 运行时/工具：字节码编译器 + 堆栈Nim 中的 VM，加上 CLI 工具（运行、eval、repl、解析、编译）  类宏功能：未评估的参数 + 调用者上下文评估 Gene 支持未评估的参数和调用者上下文评估（类似宏的行为）。您可以传递表达式而不评估它们，然后在需要时在调用者的上下文中显式评估它们（例如，通过诸如 caller_eval / fn! 之类的原语用于宏样式形式）。这是为了更容易地编写 DSL-ish 控制表单，而无需将评估规则硬编码到核心语言中。 我还添加了一个可选的本地 LLM 后端：Gene 有一个 Genex/llm 命名空间，可以通过 FFI 通过 llama.cpp 调用本地 GGUF 模型（主要是因为我想要无需外部服务的本地推理）。 Repo：https://github.com/gene-lang/gene 我希望获得以下方面的反馈：  “type/props/children”核心结构与普通的 s-exprs 相比是否令人信服， 宏/未评估的参数人体工程学（感觉是否连贯？）， 以及下一步如何使该项目最有用（stdlib、互操作、文档、性能等）。    由   提交/u/gcao99  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q1e75u/gene_a_homoiconic_generalpurpose_language_built/</guid>
       <pubDate>Thu, 01 Jan 2026 20:29:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>改变是所有（邪恶）错误的根源</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1d0pn/change_is_the_root_of_all_evil_bugs/</link>
-      <description><![CDATA[ 由   提交/u/fernandohur  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1d0pn/change_is_the_root_of_all_evil_bugs/</guid>
-      <pubDate>Thu, 01 Jan 2026 19:42:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>分布式计算的 8 个谬误：您需要知道的一切 + 为什么它在 2026 年仍然重要</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1cblg/the_8_fallacies_of_distributed_computing_all_you/</link>
-      <description><![CDATA[ 由   提交/u/trolleid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1cblg/the_8_fallacies_of_distributed_computing_all_you/</guid>
-      <pubDate>Thu, 01 Jan 2026 19:15:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>我分析了 1,398 个 GitHub 问题，以找出开发人员真正遇到的困难 - 以下是我了解到的内容</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1c4v8/i_analyzed_1398_github_issues_to_find_what/</link>
-      <description><![CDATA[ 由   提交/u/Peach_Baker  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1c4v8/i_analyzed_1398_github_issues_to_find_what/</guid>
-      <pubDate>Thu, 01 Jan 2026 19:07:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>根据 r/LocalLLaMA 和社区反馈编写了本地 AI 编码指南</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1c37w/compiled_a_guide_to_local_ai_coding_from/</link>
-      <description><![CDATA[花时间阅读 r/LocalLLaMA、HN 和开发论坛。将最佳设置、基准测试和陷阱编译成一份指南。涵盖 Ollama、Qwen、Continue dot dev、硬件要求、常见错误。 Github   由   提交/u/Successful-Tax6498   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1c37w/compiled_a_guide_to_local_ai_coding_from/</guid>
-      <pubDate>Thu, 01 Jan 2026 19:06:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>热门观点：我们使用人工智能作为飞行前的公关审核员和验证员，以缩短审核时间并节省认知工作。</title>
-      <link>https://www.reddit.com/r/programming/comments/1q19wnp/hot_take_we_used_ai_as_a_preflight_pr_reviewer/</link>
-      <description><![CDATA[大多数 AI-in-dev 讨论都是关于代码生成，但我们的瓶颈是代码审查。  我们还不希望人工智能做出架构决策，所以我们只让它处理验证：“这个 PR 是否遵循我们已经商定的规则？”而不是“这是一个好的设计吗？”。 基本蓝图： - 存储库中的说明（架构边界、分析模式、访问控制规则等） - AI 在人类看到 PR 之前运行（在差异上进行飞行前，而不是队列中的另一个审阅者） - 输出按严重性构建（阻塞/高/中/低）以避免噪音 -人工智能标记验证类问题（缺少分析参数、设计模式违规、访问检查、TODO/调试代码），而人类专注于判断 最大的变化？并不是说“人工智能捕获了一切”，而是开发人员在要求同事审查之前就开始解决明显的问题。这开始节省每个人的时间和精力！ 我在这里写了完整的工作流程文章（包含示例说明文件、严重性标准等）： https://blog.groundctrl.dev/boost-your-software-team-productivity-with-ai-driven-pr-reviews-a-step-by-step-guide  我很好奇这与其他团队的经验如何相符： - 您是否在验证审查层（清单、模式、分析、访问控制）尝试过人工智能，或者仅用于代码生成？  - 在信任机器人对你的 PR 发表评论之前，你会坚持什么护栏（或者你见过的恐怖故事）？ - 一般来说，你们对人工智能的信任是什么？    由   提交/u/benglorious  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q19wnp/hot_take_we_used_ai_as_a_preflight_pr_reviewer/</guid>
-      <pubDate>Thu, 01 Jan 2026 17:40:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
