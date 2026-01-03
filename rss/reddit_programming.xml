@@ -4,7 +4,56 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 03 Jan 2026 18:37:24 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 21:23:14 GMT</lastBuildDate>
+    <item>
+      <title>让 Claude Code 与 Windows 98 对话（C 客户端、.NET 代理）</title>
+      <link>https://www.reddit.com/r/programming/comments/1q359tj/making_claude_code_talk_to_windows_98_c_client/</link>
+      <description><![CDATA[ 由   提交/u/shinto29  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q359tj/making_claude_code_talk_to_windows_98_c_client/</guid>
+      <pubDate>Sat, 03 Jan 2026 20:31:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>免费的在线开发者实用工具包和模拟器（欢迎反馈）</title>
+      <link>https://www.reddit.com/r/programming/comments/1q3558w/free_online_developer_utility_toolkit_and/</link>
+      <description><![CDATA[我收集了一些免费的小型开发实用程序和模拟器（JSON、JWT、Base64、Regex、webhook 测试等）： 欢迎提供反馈或建议。 https://toolkit.whysonil.dev   由   提交/u/nulless  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q3558w/free_online_developer_utility_toolkit_and/</guid>
+      <pubDate>Sat, 03 Jan 2026 20:26:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>用纯 C 语言编写 SIMD 优化的 Parquet 库：实施 Thrift 解析、位打包和运行时 CPU 调度的经验教训</title>
+      <link>https://www.reddit.com/r/programming/comments/1q3430e/writing_a_simdoptimized_parquet_library_in_pure_c/</link>
+      <description><![CDATA[我需要纯 C 项目的 Parquet 支持。 Apache Arrow 的 C 接口实际上是 C++ 的包装器，具有很强的依赖性，因此我从头开始构建了自己的接口（在 Claude Code 的帮助下）。 有趣的技术位： • Thrift Compact 协议 - Parquet 元数据使用 Thrift 序列化。在 C 中实现紧凑的协议解析器意味着无需任何代码生成即可处理变体、zigzag 编码和嵌套结构递归。在您遇到可选字段和复杂模式之前，该规范看似简单。 • 位打包和压缩RLE 混合编码 - Parquet 的整数编码以任意位宽度（1-32 位）打包值。有效地将 8 个值解包为 5 位，需要仔细的位操作。我为每个宽度 1-8 编写了专门的解包程序，然后为更宽的路径编写了 SIMD 版本。 • 运行时 SIMD 调度 - 该库在 init 时检测 CPU 功能（x86 上的 SSE4.2/AVX2/AVX-512，ARM 上的 NEON/SVE）并将函数指针设置为最佳实现。这包括浮点数的 BYTE_STREAM_SPLIT 解码，使用 AVX2 可以将速度提高约 4 倍。 • 跨平台难题 - MSVC 没有 __builtin_ctz 或 __builtin_prefetch。 ARM NEON 内在函数因编译器而异。代码库现在有相当多的 #ifdef 考古学。 结果：基准测试显示 pyarrow 在大文件上的读取性能具有竞争力，静态库约为 50KB，而 Arrow 的多 MB 占用空间。 代码：https://github.com/Vitruves/carquet 很高兴讨论实现细节或采取对这种方法的批评。 祝你度过愉快的一天/晚上/夜晚！   由   提交/u/Vitruves   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q3430e/writing_a_simdoptimized_parquet_library_in_pure_c/</guid>
+      <pubDate>Sat, 03 Jan 2026 19:45:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>小程序正式消失，但浏览器中的 Java 比以往任何时候都更好</title>
+      <link>https://www.reddit.com/r/programming/comments/1q33u5b/applets_are_officially_gone_but_java_in_the/</link>
+      <description><![CDATA[ 由   提交/u/henk53  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q33u5b/applets_are_officially_gone_but_java_in_the/</guid>
+      <pubDate>Sat, 03 Jan 2026 19:35:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>当 std::shared_mutex 优于 std::mutex 时：关于扩展和开销的 Google 基准研究</title>
+      <link>https://www.reddit.com/r/programming/comments/1q33sj9/when_stdshared_mutex_outperforms_stdmutex_a/</link>
+      <description><![CDATA[在这篇文章中，我研究了读取繁重的 C++ 工作负载中 std::mutex 和 std::shared_mutex 之间的性能权衡。对于基准测试，我使用了 Google Benchmark 框架。它基于读写器访问模式，随着读取器并发性的增加，测量每个操作的执行时间。结果显示，线程数较少时 std::mutex 的开销较低，随后出现一个明显的交叉点，其中 std::shared_mutex 在增加读取争用的情况下可以更有效地扩展。   由   提交 /u/Clean-Upstairs-8481   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q33sj9/when_stdshared_mutex_outperforms_stdmutex_a/</guid>
+      <pubDate>Sat, 03 Jan 2026 19:34:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>法学硕士永远不会活着或聪明，“代理人”永远不会知道并满足我们的每一个需求</title>
+      <link>https://www.reddit.com/r/programming/comments/1q331xu/llms_will_never_be_alive_or_intelligent_and/</link>
+      <description><![CDATA[ 由   提交/u/hatwd  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q331xu/llms_will_never_be_alive_or_intelligent_and/</guid>
+      <pubDate>Sat, 03 Jan 2026 19:05:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>将业务逻辑视为一个单独的、可测试的工件——有人这样做吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1q32xif/treating_business_logic_as_a_separate_testable/</link>
+      <description><![CDATA[我一直在思考业务规则如何分散在代码库中——埋藏在服务层中、与验证混合在一起，或者陷入不同步的 Confluence 文档中。 如果业务逻辑是一流的工件怎么办？类似于： yaml 规则： - id: enterprise_discount when: customer_tier: enterprise then:discount_percent: 20  想法是： - 规则是声明性的，而不是强制性的 - 首先匹配获胜评估（如防火墙规则） - 测试与规则一起进行 - 如果逻辑测试失败，CI 会阻止 PR 这将“应该发生什么”与“应该发生什么”分开来自“它是如何实现的。” 随着人工智能生成更多代码，我一直想知道实现是否变得比逻辑本身更有价值。代码可以重新生成——但业务决策才是真正定义产品的因素。 有人在这样的系统上工作过吗？对现有技术、模式或为什么这可能是一个糟糕的想法感到好奇。   由   提交/u/One_Lengthiness1685   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q32xif/treating_business_logic_as_a_separate_testable/</guid>
+      <pubDate>Sat, 03 Jan 2026 19:01:19 GMT</pubDate>
+    </item>
     <item>
       <title>Naughty Words Every Programmer Should Know - 一本使用 NSFW 缩写词作为助记符的免费电子书</title>
       <link>https://www.reddit.com/r/programming/comments/1q31uq9/naughty_words_every_programmer_should_know_a_free/</link>
@@ -22,7 +71,7 @@
     <item>
       <title>开源软件的一个角色变化</title>
       <link>https://www.reddit.com/r/programming/comments/1q30dqt/one_character_change_in_open_source_software/</link>
-      <description><![CDATA[我最新的贡献是一个字符的更改。我从“？”更改了一个字符串&#39;!&#39;，它修复了下游的一个错误，因为它将字符串检测为模式而不是文字。 这是一个更大的 PR 的一次提交，总共大约有 100 行实质性更改。 没有人评论任何实质性内容，但单字符的更改产生了 10 条评论，并引发了一场激烈的争论，内容涉及到底应该在哪里检测模式、应该如何引用（或不应该进行引用等）以及整个设计 现在我没有为此获得报酬，所以我只是删除了一个字符的更改，只是为了满足审核者的要求，这样就可以审核实质性更改并修复潜在的错误。 这里有一个问题：“真的吗？”我维护着一些流行的开源项目，而且我从来没有这么迂腐。我注意到很多人过于关心愚蠢的细节，而不是项目的总体目标。 是什么推动了这一点？为什么不牢记总体目标，而不是为单字符更改之类的愚蠢事情而陷入困境？   由   提交/u/lprimak   [link] [评论]]]></description>
+      <description><![CDATA[我最新的贡献是一个字符的更改。我从“？”更改了一个字符串&#39;!&#39;，它修复了下游的一个错误，因为它将字符串检测为模式而不是文字。 这是一个更大的 PR 的一次提交，总共大约有 100 行实质性更改。 没有人评论任何实质性内容，但单字符的更改产生了 10 条评论，并就应该在哪里检测模式、应该如何引用（或不应该进行引用等）以及整个设计进行了激烈的争论 现在我没有为此获得报酬，所以我只是删除了一个字符的更改，只是为了满足审核者的要求，这样就可以审核实质性更改并修复潜在的错误。 这里有一个问题：“真的吗？”我维护着一些流行的开源项目，而且我从来没有这么迂腐。我注意到很多人过于关心愚蠢的细节，而不是项目的总体目标。 是什么推动了这一点？为什么不牢记总体目标，而不是为单字符更改之类的愚蠢事情而陷入困境？   由   提交/u/lprimak   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q30dqt/one_character_change_in_open_source_software/</guid>
       <pubDate>Sat, 03 Jan 2026 17:25:16 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[大家好 我刚刚上传了我的 JavaFX 和 JavaFX 的第 7 部分。 MySQL 用户管理系统系列。 在这一部分中，我重点介绍如何使用简洁的 UI 概念和桌面应用程序的最佳实践，在 JavaFX 中设计现代登录表单。 本系列面向想要逐步构建真实 JavaFX 项目的初学者和学生。 在 YouTube 上观看完整内容： 第 7 部分 | JavaFX 中的用户管理系统MySQL |在 JavaFX 中设计现代登录表单 随时欢迎反馈和建议   由   提交/u/Substantial-Log-9305   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q2w17u/part_7_user_management_system_in_javafx_mysql/</guid>
       <pubDate>Sat, 03 Jan 2026 14:33:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>身份是一种物理财产，而不是数字许可</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2vf8z/identity_is_a_physical_property_not_a_digital/</link>
-      <description><![CDATA[问题 如今，几乎所有防伪或身份验证系统都以数字身份开始，并尝试将其附加到物理事物上。 QR 码、序列号、NFC 标签、云验证，甚至基于 ML 的“真假”分析图像检查——它们都有一个假设：数字层是事实的来源。物理对象只是一个载体。 这种假设开始感觉倒退了。 核心思想：提取，而不是分配 如果一个物理对象在其创建过程中已经形成了一个独特的、可测量的身份（微观错位、印刷缺陷、层偏移）怎么办？ 如果我们不把数字代码粘在上面，而只是测量已经存在的东西，会怎么样？那里并使数字层成为该物理指纹的参考？ 这就是 PBM（基于视角的标记）的前提。这是一个简单的物理层实验。 工作原理（简单版本） 设置故意采用低技术含量：  打印两个高频网格图案，一个在另一个上面，它们之间有一个微小的、固定的物理间隙（毫米）。 从一个小角度捕获图像。 物理部分：如果是真实的3D 间隙存在，您会得到视差（网格在图像中相对于彼此移动）。如果是平面照片、屏幕重播或重印，视差场就会崩溃。数学是二进制的。  它不使用什么 这是重要的部分：  没有神经网络 没有“AI 置信度得分” 没有用于核心验证的云 API 调用 没有训练数据或启发式  它使用什么  确定性信号处理：FFT 和相位相关。 简单的信噪比阈值。 输出为 PHYSICAL、NON_PHYSICAL 或 UNDECIDABLE。  UNDECIDABLE 结果是故意的。如果信号不明确，系统会声明“我不知道”。它不会猜测。这感觉比幻觉确定性的系统更健康。 经过测试的绕过方法（它们失败了） 我尝试了明显的攻击：  拍摄令牌照片并将其打印 在手机屏幕上显示令牌 高分辨率重印对于人眼来说，它们看起来很完美。他们甚至可能会传递“强烈信号”查看。但是两个网格层之间的相对视差呢？零。物理不会协商。  你可以自己尝试（认真地）你不需要实验室。要看到视差效果：  一台喷墨打印机 A4纸 CD盒之类的垫片，用于形成间隙 一滴食用油（使最上面的纸半透明并看到两层）这足以观察核心原理。  为什么公开发布此内容？我不想让它变成这样变成：  “信任我们的专有模型” “上传到我们的验证 API” “可用企业定价”  这描述了基于物理的约束，而不是产品。如果这个方法有缺陷，我希望它被公开打破。如果它是有效的，它应该属于任何理解数学的人。 存储库和完整的技术规范是公开的（评论中的链接）。我很高兴讨论为什么这可能是一个死胡同，或者它在哪里可能真正有用。 新年快乐。 https://github.com/illegal-instruction-co/pbm-core   由   提交/u/Humble-Plastic-5285   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2vf8z/identity_is_a_physical_property_not_a_digital/</guid>
-      <pubDate>Sat, 03 Jan 2026 14:05:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>以单一文本格式封装音频元数据和编辑逻辑</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2rvgs/encapsulating_audio_metadata_and_edit_logic_in_a/</link>
-      <description><![CDATA[CUE 表描述了音频时间戳和元数据，但我想要更具表现力的东西。我构建了一个基于 CUE 的文本格式和一个具有类似 SQL 方法的工具，使其小巧且易于实现，同时允许简单但有效的编辑。 在演示中，仅使用 MP3 拖动和播放即可创建专辑混合曲。拖放和文本复制/粘贴—无需波形编辑。   由   提交 /u/cutandjoin   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2rvgs/encapsulating_audio_metadata_and_edit_logic_in_a/</guid>
-      <pubDate>Sat, 03 Jan 2026 10:58:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么开发人员的专业知识在人工智能时代比以往任何时候都更加重要</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2qa5m/why_developer_expertise_matters_more_than_ever_in/</link>
-      <description><![CDATA[阅读“为什么开发人员的专业知识在人工智能时代比以往任何时候都更加重要”    由   提交/u/iammidhul  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2qa5m/why_developer_expertise_matters_more_than_ever_in/</guid>
-      <pubDate>Sat, 03 Jan 2026 09:21:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>研究发现压痕深度与圈复杂度相关。一种与语言无关的测量代码复杂性的方法</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2q1ib/research_found_indentation_depth_correlates_with/</link>
-      <description><![CDATA[ 由   提交/u/itaymendi   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2q1ib/research_found_indentation_depth_correlates_with/</guid>
-      <pubDate>Sat, 03 Jan 2026 09:05:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>Uber 如何实时显示数百万司机的位置</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2o00b/how_uber_shows_millions_of_drivers_location_in/</link>
-      <description><![CDATA[ 由   提交/u/Sushant098123  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2o00b/how_uber_shows_millions_of_drivers_location_in/</guid>
-      <pubDate>Sat, 03 Jan 2026 07:04:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>可延展的软件：在锁定应用程序的世界中恢复用户代理</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2kz3k/malleable_software_restoring_user_agency_in_a/</link>
-      <description><![CDATA[ 由   提交 /u/misterolupo   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2kz3k/malleable_software_restoring_user_agency_in_a/</guid>
-      <pubDate>Sat, 03 Jan 2026 04:27:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>经验证的基于模型的傻瓜一致性测试</title>
-      <link>https://www.reddit.com/r/programming/comments/1q2k9dl/verified_modelbased_conformance_testing_for/</link>
-      <description><![CDATA[ 由   提交/u/DrJimmyBrungus_   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q2k9dl/verified_modelbased_conformance_testing_for/</guid>
-      <pubDate>Sat, 03 Jan 2026 03:53:37 GMT</pubDate>
     </item>
     </channel>
 </rss>
