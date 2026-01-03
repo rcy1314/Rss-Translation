@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 03 Jan 2026 03:57:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 06:39:05 GMT</lastBuildDate>
+    <item>
+      <title>vanilla PHP 中的零依赖性遗传学引擎：14 个基因座、性连锁遗传、10,000 多种表型组合</title>
+      <link>https://www.reddit.com/r/programming/comments/1q2mw5y/zerodependency_genetics_engine_in_vanilla_php_14/</link>
+      <description><![CDATA[ 由   提交/u/Mammoth-Promotion-10   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q2mw5y/zerodependency_genetics_engine_in_vanilla_php_14/</guid>
+      <pubDate>Sat, 03 Jan 2026 06:04:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>原生 PHP 中的零依赖性遗传学引擎：14 个基因座、性连锁遗传、10,000 多种表型组合的笛卡尔积</title>
+      <link>https://www.reddit.com/r/programming/comments/1q2mpdb/zerodependency_genetics_engine_in_vanilla_php_14/</link>
+      <description><![CDATA[为鸟类饲养者 (Agapornis Roseicollis) 构建遗传学计算器：  纯 PHP，无框架，无库 通过笛卡尔积计算 14 个独立位点 性别连锁遗传矩阵（ZZ/ZW 鸟类系统） Wright 近交系数谱系图上的递归 DFS 用于反向基因型估计的类贝叶斯推理引擎 通过分层优先级系统解析了 310 多种表型  数学很有趣 - Punnett 跨 14 个维度进行平方，然后折叠相同的表型。 演示： http://kanarazu-project.com/gene-forge/Rosy-faced-Lovebird/?lang=en GitHub： https://github.com/kanarazu-project/gene-forge 烤我的代码或询问有关架构的任何信息。   由   提交/u/Mammoth-Promotion-10   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q2mpdb/zerodependency_genetics_engine_in_vanilla_php_14/</guid>
+      <pubDate>Sat, 03 Jan 2026 05:54:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>计划、检查、验证、回顾：人工智能辅助编码框架</title>
+      <link>https://www.reddit.com/r/programming/comments/1q2ldrq/plan_do_check_verify_retrospect_a_framework_for/</link>
+      <description><![CDATA[在过去的一年里，我一直在使用多个模型（Anthropic、GLM）和工具（Bolt、Cursor、Cline、Claude Code）进行 AI 辅助编码。 经过多次尝试和错误，我有了一个稳定的框架、提示或提示模板、模型和工具，用于我的 AI 辅助编码。 我使用的框架不是新的，但是灵感来自 InfoQ 上的一篇文章（评论中的链接）。它被称为计划、检查、验证、回顾（PDCVR）框架。 在详细说明每个步骤之前，这是我当前的设置： * 工具：Claude Code * 模型：Z.ai 的 GLM 4.7 现在，让我详细说明该框架： * PLAN * 对于您计划执行的任何任务，您都从一个计划开始。您希望模型只计划而不创建任何代码 * 是的，Claude Code 有计划模式，但我更喜欢不在模式之间切换并使用提示来处理相同的情况  * 您需要一个提示来帮助创建一个极其详细的计划，该计划提供逐步执行计划和强制性代码库调查，以便它不会重新创建某些内容或破坏现有的某些内容 * 最重要的一点要记住的是 2 每次开始新任务时都专注于 **1 个单一目标** *除此之外，当您进行人工智能辅助编码时，**TDD 是最重要的方面**。因此，您需要有一个提示，告诉模型先执行红色阶段（失败的测试），然后执行绿色阶段（成功的测试）*对于每个提示，我都会告诉法学硕士计划并使用 TDD（即使是 DO 步骤）  DO  阅读上面创建的计划，如果不满意，请迭代 一旦您感到满意，就可以继续实施 您可以说“从第 1 步开始”或“继续步骤1”或“实施后续步骤”或“实施计划的步骤”  检查  这一步非常重要，因为有时，LLM 可能不记得他们需要实施的后续步骤，并且会在不实施后续步骤的情况下完成工作 因此，您需要进行完整性检查，以确保 LLM 检查和评估是否一切都已实施并且正确，如果不是，那么它将告诉您接下来的步骤或剩余步骤  验证  此步骤与检查相同，但在这一步中，我调用克劳德代码代理，构建验证以确保所有内容都成功编译，并验证所有内容是否都作为任务的一部分实现  回顾  无论提示多么细致漂亮，无论模型多么智能，无论在SWE Bench编码中排名多么靠前，LLM都难免会犯错误 在这种情况下，你需要要求LLM对当前正在做的任务进行回顾，以便下次记录文档并记住所学内容  https://www.infoq.com/articles/PDCA-AI-code- Generation/?topicPageSponsorship=cb9cfb95-79e8-442a-8f4b-72cfb3789778 ：本文所基于的原始框架 https://arxiv.org/pdf/2312.04687：证明TDD非常重要并且是LLM所必需的论文 https://github.com/nilukush/plan-do-check-verify-retrospect/tree/master/prompts-templates：您将找到用于编码的通用提示模板，其中始终包含计划提示，这意味着您发送给LLM的每个提示，计划提示始终是通用提示模板的一部分  此外，它还有CHECK（完整性检查）和RETROSPECT的提示  https://github.com/nilukush/plan-do-check-verify-retrospect/tree/master/claude-code-subagents-for-coding 包含我在 Claude Code 中用于编码的所有子代理。您只需将其复制粘贴到 .claude/agents  它包括从 Orchestrator、产品经理到 DevOps 的代理，包括调试器、分析器和通用执行器子代理     由   提交 /u/nilukush   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q2ldrq/plan_do_check_verify_retrospect_a_framework_for/</guid>
+      <pubDate>Sat, 03 Jan 2026 04:47:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>可延展的软件：在锁定应用程序的世界中恢复用户代理</title>
+      <link>https://www.reddit.com/r/programming/comments/1q2kz3k/malleable_software_restoring_user_agency_in_a/</link>
+      <description><![CDATA[ 由   提交/u/misterolupo  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q2kz3k/malleable_software_restoring_user_agency_in_a/</guid>
+      <pubDate>Sat, 03 Jan 2026 04:27:50 GMT</pubDate>
+    </item>
     <item>
       <title>经验证的基于模型的傻瓜一致性测试</title>
       <link>https://www.reddit.com/r/programming/comments/1q2k9dl/verified_modelbased_conformance_testing_for/</link>
@@ -43,7 +71,7 @@
     <item>
       <title>唯一正确的方法谬论：为什么成熟的开发人员不崇拜单一的编程范式</title>
       <link>https://www.reddit.com/r/programming/comments/1q2761m/the_onetrueway_fallacy_why_mature_developers_dont/</link>
-      <description><![CDATA[ 由   提交 /u/waozen   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/waozen   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q2761m/the_onetrueway_fallacy_why_mature_developers_dont/</guid>
       <pubDate>Fri, 02 Jan 2026 18:55:43 GMT</pubDate>
     </item>
@@ -78,37 +106,9 @@
     <item>
       <title>“Hello World”程序的起源</title>
       <link>https://www.reddit.com/r/programming/comments/1q1z9yg/the_genesis_of_the_hello_world_programs/</link>
-      <description><![CDATA[ 由   提交/u/amitmerchant  [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交 /u/amitmerchant   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q1z9yg/the_genesis_of_the_hello_world_programs/</guid>
       <pubDate>Fri, 02 Jan 2026 13:58:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么我从 Zig 转向 C3</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1wsgv/why_i_switched_away_from_zig_to_c3/</link>
-      <description><![CDATA[ 由   提交/u/Nuoji  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1wsgv/why_i_switched_away_from_zig_to_c3/</guid>
-      <pubDate>Fri, 02 Jan 2026 11:56:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们对初级软件工程师的死亡还不够关心</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1wrjj/were_not_concerned_enough_about_the_death_of_the/</link>
-      <description><![CDATA[ 由   提交/u/ReplacementNo598  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1wrjj/were_not_concerned_enough_about_the_death_of_the/</guid>
-      <pubDate>Fri, 02 Jan 2026 11:55:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>文章：不可知的云世界中 Kubernetes 负载均衡器“服务”的故事</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1vk1m/article_the_tale_of_kubernetes_loadbalancer/</link>
-      <description><![CDATA[ 由   提交/u/MindCorrupted  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1vk1m/article_the_tale_of_kubernetes_loadbalancer/</guid>
-      <pubDate>Fri, 02 Jan 2026 10:45:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>学习 JavaScript 的第一天</title>
-      <link>https://www.reddit.com/r/programming/comments/1q1urws/day_one_of_learning_javascript/</link>
-      <description><![CDATA[ 由   提交 /u/Darkwing1501   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q1urws/day_one_of_learning_javascript/</guid>
-      <pubDate>Fri, 02 Jan 2026 09:58:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
