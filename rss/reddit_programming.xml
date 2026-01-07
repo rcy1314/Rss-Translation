@@ -4,7 +4,70 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 07 Jan 2026 09:33:49 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 12:56:18 GMT</lastBuildDate>
+    <item>
+      <title>为什么开发人员正在远离 Stack Overflow？</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6e9ml/why_developers_are_moving_away_from_stack_overflow/</link>
+      <description><![CDATA[ 由   提交/u/ImpressiveContest283  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6e9ml/why_developers_are_moving_away_from_stack_overflow/</guid>
+      <pubDate>Wed, 07 Jan 2026 12:37:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>当人工智能编写几乎所有代码时，软件工程会发生什么？</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6dvh4/when_ai_writes_almost_all_code_what_happens_to/</link>
+      <description><![CDATA[ 由   提交 /u/thewritingwallah   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6dvh4/when_ai_writes_almost_all_code_what_happens_to/</guid>
+      <pubDate>Wed, 07 Jan 2026 12:17:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在 Apple Silicon 上构建了 GPU 加速的 SQLite 来测试有关 PCIe 瓶颈的理论。这是我发现的。</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6dj59/i_built_a_gpuaccelerated_sqlite_on_apple_silicon/</link>
+      <description><![CDATA[看，我知道这里的每个人都喜欢 NVIDIA。有充分的理由——这些牌都是野兽。但我已经在网上与人们争论了几个月对我来说似乎显而易见的事情，但没有人相信。 当您使用 GPU 数据库（cuDF、BlazingSQL 等）时，您的数据位于常规 RAM 中。 GPU 有自己的 VRAM。因此，在进行任何计算之前，您必须通过 PCIe 复制所有内容。 PCIe 4.0 x16？实际情况约为 25 GB/s。有 10 GB 数据集吗？这就是 400 毫秒的等待时间。移动字节。 GPU 坐在那里什么也不做。 我一直说“统一内存修复了这个问题”人们一直说“好吧，苹果迷”哈哈 ## 所以我实际上建造了这个东西 我的桌子上有一台 M4 Mac mini。 GPU 和 CPU 共享相同的 RAM - 无需复制。我想看看这在实践中是否真的重要，或者我是否对此充满了兴趣。 使用 Metal 计算着色器构建了一个 SQLite 包装器。为什么选择 SQLite？因为它很简单，没有人可以指责我挑选一些有利于我的论点的晦涩数据库。每个人都知道 SQLite。 着色器执行并行缩减（对于 SUM/AVG/MIN/MAX）、双调排序、过滤 - 您想要加速的常见内容。 ## 我发现的内容 小东西（低于 10k 行）- CPU 获胜，甚至相差甚远。 GPU 调度有开销，对于小数据来说不值得。 中（100k 行）- GPU 开始获胜。大约快 2-3 倍，具体取决于您正在做什么。 大型（100 万行以上）- GPU 获胜。大多数操作为 5-8 倍。 现在事情是这样的 - 我并不是说我的 M4 的 GPU 比 4090 更快。那太疯狂了，4090 会在原始计算中毁掉它。 但我不必支付转让税。我的数据已经“在那里”了从GPU的角度来看。因此，对于需要移动大量数据的工作负载，精美的 NVIDIA 卡会花费一半的时间等待字节显示。 ## 代码 https://github.com/sadopc/unified-db ~400 次测试，包括基准测试工具。戳个洞，我真的很好奇我是否遗漏了一些东西。 ## 我仍然想知道的东西 - 有人有 M4 Max 或 M3 Ultra 来尝试一下吗？更多 GPU 核心 + 更高的内存带宽应该会有很大帮助  - 接下来尝试 JOIN 和 GROUP BY 会很有趣 - 还有其他人在研究 UMA 优化的数据库吗？ 无论如何，请嘲笑我或告诉我我正在做某事。不管怎样，我在构建这个过程中学到了很多东西。   由   提交/u/sado361  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6dj59/i_built_a_gpuaccelerated_sqlite_on_apple_silicon/</guid>
+      <pubDate>Wed, 07 Jan 2026 12:00:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>Bmg.js – TypeScript/JavaScript 的类型安全关系代数</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6d7lo/bmgjs_typesafe_relational_algebra_for/</link>
+      <description><![CDATA[Claude Code 帮助我实现了 BMG 的 Typescript 实现 (https://www.relational-algebra.dev/) BMG 最初存在于 Ruby 中（那里有一个尚未移植到 TS 的 SQL 编译器）。 你不再有任何借口去构建复杂的 Typescript/Javascript 代码来操作数据。就学 RA 吧。   由   提交/u/blambeau  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6d7lo/bmgjs_typesafe_relational_algebra_for/</guid>
+      <pubDate>Wed, 07 Jan 2026 11:42:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>代码生成：为什么使用模板而不是生成式人工智能？</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6d6in/code_generation_why_use_templating_rather_than/</link>
+      <description><![CDATA[领域驱动设计在代码生成方面的力量：为什么领域模型元数据驱动模板胜过您的 Vibe 编码提示   由   提交 /u/lguer1   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6d6in/code_generation_why_use_templating_rather_than/</guid>
+      <pubDate>Wed, 07 Jan 2026 11:41:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>hn4/docs/math.md 位于 main · hn4-dev/hn4</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6c5wj/hn4docsmathmd_at_main_hn4devhn4/</link>
+      <description><![CDATA[ 由   提交/u/Afraid-Technician-74  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6c5wj/hn4docsmathmd_at_main_hn4devhn4/</guid>
+      <pubDate>Wed, 07 Jan 2026 10:42:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>我正在制作一个网站，需要有关使用哪种编程语言的帮助（链接有些相关）</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6bqw9/i_am_making_an_website_and_need_help_on_what/</link>
+      <description><![CDATA[就上下文而言，我正在制作一个类似于谷歌翻译的网站，用于翻译我所在地区的文化语言，这是我的期末考试的一个小项目。 我需要一些帮助来了解该项目应该使用哪种编程语言。我有大约 3 个月的时间进行开发，因此可以考虑学习该语言需要多努力，但只是再考虑一下。   由   提交/u/lunianshop  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6bqw9/i_am_making_an_website_and_need_help_on_what/</guid>
+      <pubDate>Wed, 07 Jan 2026 10:18:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>TigerBeetle 有什么有趣的地方？</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6bhvh/whats_interesting_about_tigerbeetle/</link>
+      <description><![CDATA[ 由   提交/u/adamw1pl   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6bhvh/whats_interesting_about_tigerbeetle/</guid>
+      <pubDate>Wed, 07 Jan 2026 10:03:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>PHP 9 可能会很棒</title>
+      <link>https://www.reddit.com/r/programming/comments/1q6b4pt/php_9_could_be_awesome/</link>
+      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1q6b4pt/php_9_could_be_awesome/</guid>
+      <pubDate>Wed, 07 Jan 2026 09:39:52 GMT</pubDate>
+    </item>
     <item>
       <title>坏代码的心理</title>
       <link>https://www.reddit.com/r/programming/comments/1q6a9qi/the_psychology_of_bad_code/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[我尝试将每个终端 UI 区域视为具有消息传递和监督的独立参与者。  是的，对于简单的 TUI 来说有点过分了，但更复杂的 TUI 存在重叠问题：  隔离：每个地区都拥有自己的国家。没有共享可变变量，没有“这个改变在哪里？”调试。 显式数据流：当页脚重新绘制时，我知道哪条消息触发了它。 监督：如果某个区域崩溃，监督者会重新启动它。应用程序继续。对于长时间运行的仪表板或其他类似的应用程序来说很重要。  子级永远不会直接写入终端 - 他们将渲染请求发送给父级。由架构强制执行的单作者语义。 将其写在我的博客上，并使用源代码进行摆弄：https://www.rodriguez.today/articles/reactive-tui-architecture-with-actors  好奇其他人是否已将分布式系统模式应用于 UI问题？   由   提交 /u/rrrodzilla   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1q63eio/what_if_tui_regions_were_erlangstyle_actors/</guid>
       <pubDate>Wed, 07 Jan 2026 02:42:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>面向系统工程师的 io_uring</title>
-      <link>https://www.reddit.com/r/programming/comments/1q6127d/io_uring_for_systems_engineers/</link>
-      <description><![CDATA[ 由   提交/u/mttd  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q6127d/io_uring_for_systems_engineers/</guid>
-      <pubDate>Wed, 07 Jan 2026 01:00:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>可靠基准的统计方法</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5xfxe/statistical_methods_for_reliable_benchmarks/</link>
-      <description><![CDATA[ 由   提交 /u/modulovalue   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5xfxe/statistical_methods_for_reliable_benchmarks/</guid>
-      <pubDate>Tue, 06 Jan 2026 22:34:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>PostgreSQL 脚本编写技巧</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5rq2a/postgresql_scripting_tips/</link>
-      <description><![CDATA[ 由   提交 /u/pgr0ss   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5rq2a/postgresql_scripting_tips/</guid>
-      <pubDate>Tue, 06 Jan 2026 19:07:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>蒙蒂霍尔问题，并行模拟</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5rlyf/the_monty_hall_problem_a_sidebyside_simulation/</link>
-      <description><![CDATA[ 由   提交/u/R2_SWE2  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5rlyf/the_monty_hall_problem_a_sidebyside_simulation/</guid>
-      <pubDate>Tue, 06 Jan 2026 19:03:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>完美的代码审查：如何在提高质量的同时减少认知负荷</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5r0a0/the_perfect_code_review_how_to_reduce_cognitive/</link>
-      <description><![CDATA[大家好，在这里，我从我的个人网站分享了有关代码审查过程基本方法的文章的链接。我追求的主要目标是引起人们对我对正确代码审查的想法的关注，并根据其他开发人员的意见和经验获得反馈。那里的具体建议主要基于我的经验，但我试图尽可能地概括该方法，以便它与任何软件开发项目相关。我已经在几个团队和项目中尝试过这种方法，并且效果非常好。这就是为什么我想分享它，从更广泛的受众那里获得反馈，并了解这是否是一种真正有价值的方法，或者只是对其他人没有用的非常具体的方法。   由   提交/u/areklanga  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5r0a0/the_perfect_code_review_how_to_reduce_cognitive/</guid>
-      <pubDate>Tue, 06 Jan 2026 18:42:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过确定性模拟测试分布式系统（为 Raft、网络和磁盘故障编写“管理程序”）</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5qevu/testing_distributed_systems_via_deterministic/</link>
-      <description><![CDATA[过去几个月我一直在编写分布式共识“内核”。在 Rust 中，我想分享用于验证正确性的特定测试架构，因为标准单元测试通常不足以满足分布式系统的需求。 该项目 (Octopii) 旨在提供共识、网络和存储原语来构建有状态的分布式应用程序。然而，最具挑战性的部分不是 Raft 实现本身，而是验证它在电源故障或网络分区等边缘情况下不会丢失数据。 为了解决这个问题，我实现了一个确定性模拟测试工具（受 FoundationDB 和 Tigerbeetle 的启发），它充当“矩阵”对于集群。 1.虚拟化物理 系统不使用标准 I/O，而是在虚拟化环境的自定义运行时内运行。  时间： 我们替换系统时钟。时间仅在模拟器运行时才会前进，使我们能够快进“天”。关键竞争条件期间的稳定性或冻结时间。 磁盘 (VFS)：我实现了一个模拟“撕裂写入”的内存虚拟文件系统。如果节点写入 4KB 但“崩溃”中途，VFS 会准确保留断电前写入盘片的字节。这验证了 WAL 恢复逻辑（校验和/提交标记）确实有效。 网络：虚拟路由器拦截所有数据包，使我们能够根据种子 RNG 确定性地删除、重新排序或分区特定节点。  2. “上帝模式”为了验证正确性，测试套件使用状态预言机来跟踪“意图”。与“物理”的比较每个操作的。  线性化：预言机跟踪集群的全局历史。如果客户端读取了违反线性化能力的过时值，则测试会失败。 持久性： Oracle 会准确跟踪写入命中虚拟磁盘的时间。如果节点崩溃，预言机知道哪些数据必须存活（完全刷新）以及哪些数据可能丢失（撕裂写入）。如果“必须生存”恢复时数据丢失，测试失败。  3.硬件感知存储 (Walrus) 为了支持严格的延迟要求，我编写了一个自定义存储引擎，而不是使用 std::fs。  它检测 Linux 使用 io_uring 进行批量提交（回退到其他地方的 mmap）。 它使用用户空间自旋锁（通过原子 CAS）作为块分配器，绕过操作系统纳秒级分配延迟的互斥开销。  我很想听听您对架构的想法   由   提交/u/Ok_Marionberry8922   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5qevu/testing_distributed_systems_via_deterministic/</guid>
-      <pubDate>Tue, 06 Jan 2026 18:20:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>代理和 Gradle 相处不好 - 我用两个命令解决了这个问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5p6xv/agents_and_gradle_dont_get_along_i_fixed_it_in/</link>
-      <description><![CDATA[ 由   提交 /u/Nek_12   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5p6xv/agents_and_gradle_dont_get_along_i_fixed_it_in/</guid>
-      <pubDate>Tue, 06 Jan 2026 17:37:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>C 是最好的</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5m2ec/c_is_best/</link>
-      <description><![CDATA[ 由   提交/u/Sensiduct  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5m2ec/c_is_best/</guid>
-      <pubDate>Tue, 06 Jan 2026 15:44:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么开发人员需要 DevOps</title>
-      <link>https://www.reddit.com/r/programming/comments/1q5kll0/why_devs_need_devops/</link>
-      <description><![CDATA[在与开发人员的交谈中，我发现了许多对 DevOps 的误解。我写了一篇文章解释为什么作为一名开发人员，我将 DevOps 原则视为基础知识。   由   提交 /u/chesus_chrust   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1q5kll0/why_devs_need_devops/</guid>
-      <pubDate>Tue, 06 Jan 2026 14:49:59 GMT</pubDate>
     </item>
     </channel>
 </rss>
