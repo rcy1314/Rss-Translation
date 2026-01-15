@@ -4,7 +4,70 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 15 Jan 2026 18:45:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jan 2026 21:28:31 GMT</lastBuildDate>
+    <item>
+      <title>Vercel 上对“/”的神秘 4000 多个请求 - 仅在移动 Safari 上，无法一致重现</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdvw19/mysterious_4000_requests_to_on_vercel_only_on/</link>
+      <description><![CDATA[大家好，我几天来一直在追寻一个非常奇怪的错误，我完全被难住了。 我有一个用 Vite 构建的 React SPA，部署在 Vercel 上，使用 Supabase 进行身份验证和数据库。我还安装了 u/vercel 用于分析。 当我注意到我的 iPhone 在使用我的应用程序时变得异常热时，问题就开始了。我检查了 Vercel 分析并发现了超过 4000 个针对“/”的 GET 请求。是在很短的时间内完成的。疯狂的是，当这种情况发生时，我位于一个完全不同的页面（/app），甚至不在主页上。 我花了几个小时进行调查。我检查了所有的 React useEffects ，它们的依赖关系看起来很好，所以它不是一个无限的渲染循环。 Supabase 日志显示完全正常的活动，远未达到 4000 个请求。我的应用程序中没有注册服务人员，并且我的代码中没有 setInterval 或轮询。更奇怪的是，在发生这种情况时，我的浏览器的“网络”选项卡没有显示任何异常。 当我深入研究 Vercel 日志时，我发现了一些有趣的线索。其中大约 3.9K 个请求具有“无引荐来源网址”，并且它们来自 Akamai IP 地址 (AS36183)，而不是我的实际 WiFi IP。缓存命中率为 99.9%，这意味着相同的内容被一遍又一遍地请求。这仅发生在移动 Safari 上，我从未能够在桌面上重现它。有时它发生在隐私浏览模式下，有时则不会。最令人沮丧的是，它完全是间歇性的，我无法可靠地触发它。 我目前的理论是 u/vercel 可能会导致这种情况。 Akamai IP 与无引荐来源网址相结合表明这些请求并非直接来自我的浏览器，而是来自某种 CDN 或监控服务。我暂时禁用了 SpeedInsights 来测试这个理论。 有人经历过类似的事情吗？有什么想法可能会导致数千个看似与移动 Safari 使用情况相关的服务器端流量的请求吗？我真的被困在这里了。 感谢您的帮助！   由   提交/u/Petit_Francais   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdvw19/mysterious_4000_requests_to_on_vercel_only_on/</guid>
+      <pubDate>Thu, 15 Jan 2026 21:09:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果你是 stackoverflow 的 CEO，你会如何拯救这艘正在下沉的船？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdvfzv/if_you_were_ceo_of_stackoverflow_how_would_you/</link>
+      <description><![CDATA[我已经使用它很多年了，其他人也是如此。但我们都知道时代已经变了。 假设问题 - 如果你是这艘正在下沉的船的首席执行官，你会采取什么措施来拯救它？  你会完全转向并推出像任何其他人工智能一样的 Stack AI。 或 可能会推出 AaaS 吗？代理即服务并在 VSCode 或 Cursor 内提供解决方案？ 启动您自己的编辑器，重点修复错误？ 还是做其他事情？  您想什么？    由   提交 /u/KeyProject2897   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdvfzv/if_you_were_ceo_of_stackoverflow_how_would_you/</guid>
+      <pubDate>Thu, 15 Jan 2026 20:52:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>你如何利用人工智能？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdug97/how_do_you_utilize_ai/</link>
+      <description><![CDATA[嘿， 我是一名 SWE，现在拥有大约两年的专业经验。在此之前，这更像是一种爱好。几天前我下载了 X，该死的，每个帖子都是关于人工智能的。人工智能会杀死软件工程师，人工智能构建了这个，构建了那个。 我想知道你最常使用人工智能吗？你真的会在人工智能的提示下开始一个新项目吗？我最近几天尝试过它（BC 所有的 X 帖子），它有点 - 可怕？我的意思是它写东西的速度比我快，但没有什么令人印象深刻的。 我的一般工作流程基本上是：只是编码，就像我们过去常常做的那样，并利用人工智能来处理重复的部分或我知道人工智能能够做到的事情。这主要是我也知道的东西，但人工智能写得更快。 你的工作流程是什么？你真的使用过这些人工智能代码编辑器之类的东西吗？我仍在使用 NeoVim 并在浏览器中安装了 Gemini，因此我可以复制并粘贴片段。 编辑：这不像另一个人工智能“会抢走我们的工作”（我知道它不会）发布，我有点想知道我是否遗漏了一些东西。   由   提交/u/ilowo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdug97/how_do_you_utilize_ai/</guid>
+      <pubDate>Thu, 15 Jan 2026 20:14:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何上传 html/css 文件到 goDaddy 域</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdufiw/how_to_upload_htmlcss_files_to_godaddy_domain/</link>
+      <description><![CDATA[我正在与一个在 goDaddy 购买了域名的客户合作，由于我从未与 goDaddy 合作过，所以我希望将网站文件 (html/css) 发布到此 godaddy 域名，并寻求有关如何执行此操作的帮助。 我在 github 存储库中拥有所有文件，网站已准备就绪，我只是想弄清楚如何将文件链接到域，并且我已经拥有访问权限到客户的 goDaddy 帐户。   由   提交/u/InstantClassic7  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdufiw/how_to_upload_htmlcss_files_to_godaddy_domain/</guid>
+      <pubDate>Thu, 15 Jan 2026 20:13:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>更改父比例后 Firefox 中的 SVG 变得模糊</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdsicq/blurry_svgs_in_firefox_after_changing_parent_scale/</link>
+      <description><![CDATA[      嗨，我有一个类似于此简化的设置我的网站上的示例：   &lt;路径&gt; &lt;路径&gt; &lt;/svg&gt;  #容器{宽度：1024；高度：1024；位置：相对；变换原点：0 0；光标：抓取；溢出：隐藏； } #svg { 位置：绝对；高度：继承；宽度：继承； z 索引：1； }  缩放容器时，SVG 内的路径有时会在随机缩放阶段变得模糊。这种情况仅发生在桌面版 Firefox 中，不会在任何其他浏览器中发生，也不会在移动设备上发生。 一旦我再次拖动地图，路径就会再次变得清晰（[示例视频](https://imgur.com/a/yHvlkF6)）。作为测试，我设置了一个超时，在拖动/缩放停止后一秒将地图移动一个像素，这使得 SVG 再次清晰。在停止拖动/缩放后，将地图在下一个动画帧上移动一个像素并没有修复它，间隔需要大于大约 500 毫秒才能工作。 通过谷歌搜索，我认为这与 Firefox 问题有关，该问题导致 SVG 在缩放父级时以错误的比例创建位图，但我不确定。 这些帖子中提到的几个修复都没有，即  设置“willChange:transform”在 SVG 上 设置“image-rendering:”在 SVG 上设置“translate:tranformZ(0)”在SVG上 使用container.offsetWidth拖动/缩放后导致回流  有效。 你知道吗... a) 我走错了路，问题是由其他原因引起的。如果是这样，我该如何解决它？ b）我走在正确的轨道上。如果是这样，您是否知道一种干净的方法来强制 SVG 以正确的比例重新渲染（或者从一开始就不会错误渲染）？ 非常感谢您的回答！ 模糊 SVG 常规 SVG   由   提交 /u/Fl4shBrother   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdsicq/blurry_svgs_in_firefox_after_changing_parent_scale/</guid>
+      <pubDate>Thu, 15 Jan 2026 19:03:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>深色模式查询</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdsgm9/dark_mode_inquiry/</link>
+      <description><![CDATA[嘿，大家有一个关于如何在 Web 应用程序中处理暗模式的问题。我见过应用程序有深色模式选项。但为什么呢？ 浏览器支持根据自己的喜好切换到暗模式，更改样式表。 因此，编码时间来实现自己的暗模式是否有意义？  我们可以通过浏览器而不是我们的网站将控制权交给用户。  我们能否相信用户知道此选项，以便我们可以节省时间并处理更优先的功能？ 我们是否有理由覆盖浏览器暗模式样式表？有没有人遇到过这个原因而不是理论？   由   提交/u/thehorns666  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdsgm9/dark_mode_inquiry/</guid>
+      <pubDate>Thu, 15 Jan 2026 19:01:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人在他们的生产网站上使用过简单的辅助功能小部件吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdsd6o/has_anyone_used_a_simple_accessibility_widget_on/</link>
+      <description><![CDATA[我最近向几个 WordPress 客户端站点添加了一个轻量级辅助工具栏，因为他们想要基本的合规性，而不会使代码膨胀或减慢速度。  我选择的插件只需单击一下即可安装，添加了一个用于对比度模式、字体大小和键盘导航的浮动按钮，并且在性能方面完全不引人注意。客户很高兴他们可以说他们满足了最低的可访问性标准，这让我少了一件必须自定义代码的事情。 还有其他人实施过这样的快速可访问性解决方案吗？它对任何审核或客户请求有帮助吗？   由   提交 /u/btwife_4k   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdsd6o/has_anyone_used_a_simple_accessibility_widget_on/</guid>
+      <pubDate>Thu, 15 Jan 2026 18:58:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>支持 Shadow Dom 的富文本编辑器？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qdsaec/rich_text_editor_with_shadow_dom_support/</link>
+      <description><![CDATA[我需要一个富文本编辑器来使用使用 Web 组件和 Shadow dom 的 Service Now UI 框架。  我尝试过Quill（不支持shadow dom）、TipTap（不加载shadow dom）和TinyMCE。 有没有易于使用和实现的替代方案？目前，我需要的只是创建带有突出显示文本的链接、插入图像和表情符号以及自定义按钮支持。   由   提交 /u/OddExpert8851   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qdsaec/rich_text_editor_with_shadow_dom_support/</guid>
+      <pubDate>Thu, 15 Jan 2026 18:55:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个 HTML/JS/TS 游乐场，在沙盒 iframe 中运行代码（免费）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qds461/built_an_htmljsts_playground_that_runs_code_in_a/</link>
+      <description><![CDATA[构建了一个小型开发者工具/游乐场。 它支持：  HTML / JavaScript / TypeScript 单击运行 TS 转译 → 浏览器中的 JS（无后端） 代码在沙盒 iframe 内运行 显示实时 预览  我还添加了对 Three.js（基于 CDN 的导入）等库的支持，因此 3D 代码可以立即运行和预览。只需要有关如何进一步改进的反馈。   由   提交 /u/Fine_Factor_456   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qds461/built_an_htmljsts_playground_that_runs_code_in_a/</guid>
+      <pubDate>Thu, 15 Jan 2026 18:49:27 GMT</pubDate>
+    </item>
     <item>
       <title>您使用哪些第三方 API？</title>
       <link>https://www.reddit.com/r/webdev/comments/1qdruf5/what_third_party_apis_do_you_use/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[在 Web 开发中，我看到了向 CLI 原生实用程序的转变，这些实用程序使人类保持在循环中。  MCP 刚刚诞生一年，其承诺是代理将发现并使用这些网关。但我一直是 MCP 怀疑论者，因为在我的使用中，当代理失败时，你不能轻易介入。 但是，如果我告诉 Claude 或 Gemini 使用 CLI，我可以轻松干预。该模型还可以使用 bash 脚本实现 CLI 自动化，从而减少昂贵的令牌使用。 以下是引领这一趋势的四个全新项目：  Steve Yegge 的 Beads – 您的代理（和您）可以从终端进行控制的轻量级本地项目和任务管理。 Vercel 的代理浏览器 – 一个快速、后台进程支持的 Playwright 控制器，用于前端调试和设计。 Worktrunk – 简化 Git 工作树，以便多个代理可以并行运行。 Sprites（由 Fly/.io 提供） – 为代理提供持久的沙盒终端，以便在“YOLO 模式”下安全运行。    由   提交 /u/thehashimwarren   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1qdobry/trend_im_seeing_clifirst_tools_for_ai_coding/</guid>
       <pubDate>Thu, 15 Jan 2026 16:34:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何不设计积分系统</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdnxzi/how_not_to_design_a_points_system/</link>
-      <description><![CDATA[我是一名学生，由于考试临近，我正在寻找放学后上课的地方。然后我发现了一个持续了一年的在线课程系统，它有很酷的东西，比如在线课程，向老师提问之类的。而且价格也很合理，一年2.083美元。最酷的功能是称为“奖励积分”的积分功能。当您解决问题时您会得到奖励。满分上限为150分，每题2分。但你可能会问这些点是什么，不，它们不是为了在排行榜上炫耀。当你达到 65.000 积分时，你可以用你的积分购买 iPhone 17 pro，或者 62.000 积分购买 PS5，这样的例子不胜枚举（20.000 积分购买 Android 盒子等） 我注册了，但网站看起来很糟糕，看起来像是某个随意的家伙要求 Cursor AI 制作一个网站。该网站充满了错误，而且按钮毫无作用。然后我开始更深入地挖掘，看看网站是如何运作的。然后我分析了所有的流星呼叫，结果发现服务器对 2700 美元的客户端过于信任（iPhone 17 Pro 在我的国家售价 2700 美元），而问题系统很复杂（你用主题 ID、问题 ID 和答案 ID 进行流星呼叫），服务器给你 2 分，但有限制。但是有一个未使用的流星调用，名为“student ratings.addBonusPoints”你只需指定你想要多少分，它就会给你分数，而无需说什么。它甚至没有将其记录到排行榜中。比如，开发者在想什么？这感觉就像是故意的后门，或者是 CTF 挑战。  这是如何获得批准的？？？   由   提交/u/Hairy_Educator1918  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdnxzi/how_not_to_design_a_points_system/</guid>
-      <pubDate>Thu, 15 Jan 2026 16:20:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python 可变性和浅拷贝与深拷贝</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdmbpo/python_mutability_and_shallow_vs_deep_copy/</link>
-      <description><![CDATA[      帮助为 Python 数据构建正确心智模型的练习。 “解决方案”链接使用 memory_graph 来可视化执行情况并揭示实际发生的情况： - 解决方案 - 说明 - 更多练习   由   提交/u/Sea-Ad7805   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdmbpo/python_mutability_and_shallow_vs_deep_copy/</guid>
-      <pubDate>Thu, 15 Jan 2026 15:20:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果您已经有了 CI/CD，那么部署时间真的是您的问题吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdm8g7/if_you_already_have_cicd_is_deploy_time_really/</link>
-      <description><![CDATA[与我合作过的大多数团队现在都可以在几分钟内投入生产。痛苦的部分是围绕着它的一切：来回跳票；等待审核的 PR；手动 QA 步骤；并跟踪 3 个不同工具的日志。 对于拥有相当现代化的管道的团队：部署仍然是您的瓶颈，还是有其他因素秘密地减慢您的速度？   由   提交/u/sp_archer_007   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdm8g7/if_you_already_have_cicd_is_deploy_time_really/</guid>
-      <pubDate>Thu, 15 Jan 2026 15:17:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>引入 <geolocation> HTML 元素</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdlblw/introducing_the_geolocation_html_element/</link>
-      <description><![CDATA[       由   提交/u/magenta_placenta   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdlblw/introducing_the_geolocation_html_element/</guid>
-      <pubDate>Thu, 15 Jan 2026 14:42:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Safari 不支持透明的动画 AVIF 吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdksix/does_safari_not_support_animated_avifs_with/</link>
-      <description><![CDATA[我一直在网络上探索透明视频并尝试不同的方法来制作它们。动画 AVIF 似乎不支持透明度？此处演示：https://codepen.io/zaxwebs/pen/WbxoYXG   由   提交/u/zaxwebs  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdksix/does_safari_not_support_animated_avifs_with/</guid>
-      <pubDate>Thu, 15 Jan 2026 14:21:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>切换评论应用后，Google 购物星星消失了。最好的前进道路？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdklqj/google_shopping_stars_disappeared_after_switching/</link>
-      <description><![CDATA[我正在尝试找出在我的 Google 购物商品详情下重新获得产品评价星级的最佳方式。 之前，我使用的是 Stamped Reviews，我的购物广告在商品详情下显示星级。这正如预期的那样工作。 最近，我切换到 Judge.me。我现在有大约 37 条产品评论，但没有一条显示在 Google 购物上。 在深入 Judge.me 的设置时，我注意到一个与 Google 购物/Google 产品评论相关的选项。据我所知，这与 Google 的产品评级或合作伙伴计划相关，该计划似乎需要 50 条评论才能参与。 Judge.me 本身并不是经过批准的 Google 评价聚合器，这让我更加困惑。 另外，我通过 Google 跟踪代码管理器设置了与 Google 评价相关的内容，但我不清楚这是否适用于： • 商家评价（Google 商家资料），或 • 可以在购物广告中显示星星的实际产品级评价。 因此，我接下来的主要问题是： • 我是否应该继续使用 Judge.me，推送到 50 条评价，提交它们，并希望 Google即使 Judge.me 不是经过批准的聚合商，也会选择它们？ • 我是否应该切换到 Google 批准的评论聚合器并重新开始？ • 有没有一种方法可以直接通过Google 收集产品评论，从而更立即地在购物清单上显示星星？ • 鉴于我已经有 37 条评论，让我的购物广告下重新获得星星的最实际途径是什么？ 最终，我的唯一目标是让产品评论星星出现在我的 Google 购物商品详情下。我正在尝试确定继续使用 Judge.me、切换平台还是使用 Google 原生解决方案是否最有意义。 非常感谢任何处理过此问题或了解 Google 目前实际如何处理产品评论的人的意见。   由   提交 /u/Goingbychrundle   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdklqj/google_shopping_stars_disappeared_after_switching/</guid>
-      <pubDate>Thu, 15 Jan 2026 14:13:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过快照测试捕获 API 回归</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdkjqo/catching_api_regressions_with_snapshot_testing/</link>
-      <description><![CDATA[       由   提交 /u/mallenspach   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdkjqo/catching_api_regressions_with_snapshot_testing/</guid>
-      <pubDate>Thu, 15 Jan 2026 14:11:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Three.js 是跨多个设备和浏览器部署此类演示的最佳方式吗？为了适应 CPU/GPU 功率较低的设备？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdk3c6/is_threejs_the_best_way_to_deploy_a_demo_like/</link>
-      <description><![CDATA[       由   提交/u/bigjobbyx   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdk3c6/is_threejs_the_best_way_to_deploy_a_demo_like/</guid>
-      <pubDate>Thu, 15 Jan 2026 13:53:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年电子商务应用程序的 React Router v7 与 Next.js</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qdjhpd/react_router_v7_vs_nextjs_for_a_2026_ecommerce_app/</link>
-      <description><![CDATA[我一直在想，对于优先考虑性能的现代可扩展电子商务应用程序，您会选择哪种技术？ 就个人而言，我最近尝试了 React Router（准确地说是 v7），这是一个非常好的选择。最重要的是，使用 SSR 和路由非常直观 - 我认为这是一个巨大的胜利。另外，我不禁觉得它的开发比 Next.js 更直接、更快。 相比之下，Next.js 有使事情变得过于复杂的倾向，有很多“幕后”功能。实际上会减慢开发速度的配置。 你觉得怎么样？   由   提交/u/Beecommerce  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qdjhpd/react_router_v7_vs_nextjs_for_a_2026_ecommerce_app/</guid>
-      <pubDate>Thu, 15 Jan 2026 13:27:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
