@@ -4,7 +4,56 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 17 Jan 2026 15:26:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jan 2026 18:35:16 GMT</lastBuildDate>
+    <item>
+      <title>用 Rust 设计列式数据库：有关 io_uring、SIMD 的课程以及我避免使用 Async/Await 的原因</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfkijn/engineering_a_columnar_database_in_rust_lessons/</link>
+      <description><![CDATA[我最近发布了 Frigatebird 的核心引擎，这是一个从头开始构建的 OLAP（列式）数据库。在构建它的过程中，我做出了一些违反“标准”的架构决策。 Rust 网络/系统路径。我想分享这些选择的基本原理和性能影响。 1.为什么我放弃 Async/Await 而选择自定义运行时 Rust 中的标准建议是“只使用 Tokio”。然而，通用异步运行时主要是为具有许多空闲连接的 IO 绑定任务而设计的。在数据库执行管道中，任务通常占用大量 CPU（扫描/过滤压缩页面）。 我发现将大量计算与标准异步执行器混合会导致不可预测的调度延迟。相反，我实现了一个Morsel-Driven Parallelism模型（受到DuckDB/Hyper的启发）：  查询被分解为“morsels”。 （固定大小的行组）。 工作线程使用无锁工作窃取，而不是中央调度程序。 查询作业保存一个 AtomicUsize 计数器。线程竞相增加它（CAS），有效地“声明”线程。管道的下一步。 这可以保持 CPU 核心固定并最大化指令缓存局部性，因为线程倾向于坚持特定的逻辑循环（扫描与过滤）。  2.批处理 io_uring 与标准系统调用 对于 WAL（预写日志），fsync 延迟是杀手。我构建了一个自定义存储引擎（“Walrus”）来利用 Linux 的 io_uring。  编写者不是逐个发出 pwrite 系统调用，而是在用户空间中构造了一个包含约 2,000 个条目的提交队列。 它发出一个 Submit_and_wait 系统调用来刷新所有条目。 这显着减少了上下文切换开销，使引擎达到饱和。单线程上的 NVMe 带宽。  3. “自旋锁”分配器这是风险最大的决定。标准操作系统互斥体 (pthread_mutex) 使线程进入睡眠状态，耗费微秒。  对于磁盘块分配器，我实现了自定义 AtomicBool 自旋锁。 它在紧密循环 (std::hint::spin_loop()) 中旋转纳秒。 权衡：如果操作系统抢占持有锁的线程，系统停顿。但由于关键部分只是简单的整数数学（计算偏移量），因此它的执行速度比操作系统调度程序量子更快，这使得它在统计上安全且速度极快。  4。零拷贝序列化我使用rkyv而不是serde。 Serde 很棒，但它通常涉及反序列化步骤（将字节解析为结构）。 rkyv 保证内存中的表示与磁盘上的表示相同，只需在原始缓冲区上投射指针即可实现真正的零复制访问。 我很好奇这里的其他人是否在 CPU 限制的上下文中与 Tokio 遇到了类似的问题，或者我只是未能正确调整它？   由   提交/u/Ok_Marionberry8922   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfkijn/engineering_a_columnar_database_in_rust_lessons/</guid>
+      <pubDate>Sat, 17 Jan 2026 18:16:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>初级开发者的消失：2026年如何开启职业生涯</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfjtn2/the_disappearance_of_the_junior_developer_how_to/</link>
+      <description><![CDATA[ 由   提交/u/RevillWeb  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfjtn2/the_disappearance_of_the_junior_developer_how_to/</guid>
+      <pubDate>Sat, 17 Jan 2026 17:51:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>MindFry：一个开源数据库，可以忘记、强化和抑制生物记忆等数据</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfjptb/mindfry_an_opensource_database_that_forgets/</link>
+      <description><![CDATA[ 由   提交/u/laphilosophia   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfjptb/mindfry_an_opensource_database_that_forgets/</guid>
+      <pubDate>Sat, 17 Jan 2026 17:46:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vibe 编码的二阶和三阶效应</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfjjbk/second_and_third_order_effects_of_vibe_coding/</link>
+      <description><![CDATA[未来对每个人来说都将更具创业精神。我在未来 6-12 个月内看到了氛围编码的机会。   由   提交/u/EnterpriseVibeCode   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfjjbk/second_and_third_order_effects_of_vibe_coding/</guid>
+      <pubDate>Sat, 17 Jan 2026 17:40:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>设计键值存储</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfjeos/designing_a_keyvalue_store/</link>
+      <description><![CDATA[ 由   提交 /u/okutac   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfjeos/designing_a_keyvalue_store/</guid>
+      <pubDate>Sat, 17 Jan 2026 17:35:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>基蒂锻造</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfipcu/kittyforge/</link>
+      <description><![CDATA[嘿 r/programming， 我构建了 KittyForge (https://www.kittyforge.com) – 一套有趣的、完全免费的开发者工具套件，带有有趣的小猫主题。 寻求反馈：  最有用/最不有用的工具？ 缺少功能？ 用户体验改进或性能调整？  尝试一下并分享想法 - 基于开发输入进行迭代！   由   提交/u/Ar_J-  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfipcu/kittyforge/</guid>
+      <pubDate>Sat, 17 Jan 2026 17:08:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>执行翻译层的工程师</title>
+      <link>https://www.reddit.com/r/programming/comments/1qfgy7j/the_engineer_to_executive_translation_layer/</link>
+      <description><![CDATA[ 由   提交/u/Ordinary_Leader_2971   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qfgy7j/the_engineer_to_executive_translation_layer/</guid>
+      <pubDate>Sat, 17 Jan 2026 16:02:20 GMT</pubDate>
+    </item>
     <item>
       <title>ArchiMate 理念和行为驱动开发</title>
       <link>https://www.reddit.com/r/programming/comments/1qfg0ea/archimate_philosophy_and_behaviour_driven/</link>
@@ -57,58 +106,9 @@
     <item>
       <title>如何使用三种 AI 工具将代码质量提高 10 倍</title>
       <link>https://www.reddit.com/r/programming/comments/1qf74ws/how_to_10x_your_code_quality_with_three_ai_tools/</link>
-      <description><![CDATA[ 由   提交/u/pepincho   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/pepincho  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qf74ws/how_to_10x_your_code_quality_with_three_ai_tools/</guid>
       <pubDate>Sat, 17 Jan 2026 07:40:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>学习更好的决策树分割 - 法学硕士作为程序综合的启发式方法</title>
-      <link>https://www.reddit.com/r/programming/comments/1qf5cd9/learning_better_decision_tree_splits_llms_as/</link>
-      <description><![CDATA[ 由   提交 /u/m-chav   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qf5cd9/learning_better_decision_tree_splits_llms_as/</guid>
-      <pubDate>Sat, 17 Jan 2026 06:00:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>Django 中日志注入错误的三个安全编码教训</title>
-      <link>https://www.reddit.com/r/programming/comments/1qeyuja/three_secure_coding_lessons_from_a_log_injection/</link>
-      <description><![CDATA[ 由   提交 /u/pi3ch   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qeyuja/three_secure_coding_lessons_from_a_log_injection/</guid>
-      <pubDate>Sat, 17 Jan 2026 01:14:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zed 是所有 IDE 的杀手吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qev4ut/is_zed_the_killer_of_all_ides/</link>
-      <description><![CDATA[ 由   提交/u/ThinkTourist8076  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qev4ut/is_zed_the_killer_of_all_ides/</guid>
-      <pubDate>Fri, 16 Jan 2026 23:00:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI 起源属于 Git</title>
-      <link>https://www.reddit.com/r/programming/comments/1qercxu/ai_provenance_belongs_in_git/</link>
-      <description><![CDATA[ 由   提交 /u/fosterfriendship   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qercxu/ai_provenance_belongs_in_git/</guid>
-      <pubDate>Fri, 16 Jan 2026 20:33:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是 JOSE ZARAZUA 的 15 秒编码测试，可立即过滤掉 50% 不合格的申请人</title>
-      <link>https://www.reddit.com/r/programming/comments/1qeqfmo/here_is_the_15_sec_coding_test_to_instantly/</link>
-      <description><![CDATA[ 由   提交/u/RevillWeb  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qeqfmo/here_is_the_15_sec_coding_test_to_instantly/</guid>
-      <pubDate>Fri, 16 Jan 2026 19:58:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>您真的需要快速的工程来从人工智能中获取价值吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qepyw8/do_you_actually_need_prompt_engineering_to_get/</link>
-      <description><![CDATA[在构建本地人工智能推理应用程序时，我已经每天使用人工智能大约 6 个月了，令我惊讶的一件事是，与其他因素相比，即时工程的重要性是如此之小。 最终对我来说最大的不同是：  为模型提供足够的背景 迭代想法与在编写真正的代码之前先了解模型 选择实际上擅长特定任务的模型  因为LLM具有一定的随机性，我发现它们在早期（当你还在弄清楚事情的时候）是最有用的。在我致力于某种方法之前，对模型进行迭代有助于浮现错误的假设。如果你继续对话，从而建立上下文，他们特别擅长从广泛的范围开始，然后缩小范围。 当我现在添加新功能时，我不再解释我的应用程序的架构。我只是链接相关的 GitHub 存储库，以便模型可以看到事物的结构。仅此一项就将功能开发时间从几周缩短到一天左右。 我并不是说即时工程毫无用处，只是对于大多数实际工作来说，上下文、迭代和模型选择对我来说更重要。 很好奇这里的其他人如何处理这个问题。及时的工程对您来说是否至关重要，或者您是否看到过类似的结果？ （如果有人想了解更多详细信息，我在这里写下了完整的经验：https://xthebuilder.github.io）   由   提交 /u/Xthebuilder   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qepyw8/do_you_actually_need_prompt_engineering_to_get/</guid>
-      <pubDate>Fri, 16 Jan 2026 19:40:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>设计系统工程的精彩指南，以及人工智能如何（和不）提供帮助</title>
-      <link>https://www.reddit.com/r/programming/comments/1qep1zw/awesome_guide_to_design_system_engineering_and/</link>
-      <description><![CDATA[人工智能可以帮助你制作设计系统吗？  本指南说不：  “人工智能时代的设计系统库”。新技术对许多任务都有帮助，但生成一致的设计系统并不是其中之一”  但作者表示，人工智能正在帮助他的跨职能团队在设计系统上进行协作，即通过编写加强护栏和防止回归的单元测试：  “在过去的一年里，我们开始严重依赖人工智能来编写单元测试，并发现它不仅节省了时间，而且还提高了性能更多边缘情况。借助人工智能，我们可以通过非常短的提示生成具有极高代码覆盖率的测试。”  与我交谈的人正在发现与文章作者相同的用例。当人工智能能够帮助团队更快地合作时，它的效果最佳。   由   提交/u/sean-adapt  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qep1zw/awesome_guide_to_design_system_engineering_and/</guid>
-      <pubDate>Fri, 16 Jan 2026 19:06:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
