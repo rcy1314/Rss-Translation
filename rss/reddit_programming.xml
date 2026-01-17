@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 16 Jan 2026 21:27:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jan 2026 01:59:35 GMT</lastBuildDate>
+    <item>
+      <title>Django 中日志注入错误的三个安全编码教训</title>
+      <link>https://www.reddit.com/r/programming/comments/1qeyuja/three_secure_coding_lessons_from_a_log_injection/</link>
+      <description><![CDATA[ 由   提交 /u/pi3ch   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qeyuja/three_secure_coding_lessons_from_a_log_injection/</guid>
+      <pubDate>Sat, 17 Jan 2026 01:14:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>Zed 是所有 IDE 的杀手吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qev4ut/is_zed_the_killer_of_all_ides/</link>
+      <description><![CDATA[ 由   提交/u/ThinkTourist8076  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qev4ut/is_zed_the_killer_of_all_ides/</guid>
+      <pubDate>Fri, 16 Jan 2026 23:00:14 GMT</pubDate>
+    </item>
     <item>
       <title>AI 起源属于 Git</title>
       <link>https://www.reddit.com/r/programming/comments/1qercxu/ai_provenance_belongs_in_git/</link>
@@ -85,7 +99,7 @@
     <item>
       <title>如果您曾经见过美丽的 CGI 模拟鸟类真实的集群行为，您可能想知道它是如何完成的 - 方法如下：</title>
       <link>https://www.reddit.com/r/programming/comments/1qeho0v/if_you_have_ever_seen_beautiful_cgi_simulations/</link>
-      <description><![CDATA[基本前提是聚集是一种自下而上的现象，它几乎是从一些简单的规则中神奇地出现的。一旦找到并测试了规则，程序员就可以在代码中创建它们的模型，他或她将执行该模型来测试其是否有效。然后将该模型交给图形艺术家，然后图形艺术家可以使用该模型驱动图形软件将其绘制在屏幕上。正如您所见，现代图形处理器可以创建极其逼真、令人惊叹的图像。当然，艺术家可能很有才华，但真正的功劳归于创造模型的人。我并不是想削弱艺术家的创造力或想象力。在我们的例子中，聚集行为模型背后的奇才是一位名叫克雷格·雷诺兹的年轻人，他在 1986 年发现了一些简单的规则。查找他。 以下是雷诺的规则： 规则 1：转向以避免碰撞。这是一种排斥力。它确保鸟类不会发生碰撞。每只鸟在自己周围都有一个小的保护区。如果另一只鸟进入这个区域，那么这只鸟就会朝相反的方向转向。 规则 2：转向当地同伴的平均航向。这只鸟会观察其邻居的速度（速度+方向）并尝试与之匹配。这种行为使群体具有“流动性”，并防止个体分散到不同的方向。 规则 3：转向当地群体成员的平均位置（质心）。这使得鸟儿想要处于它能看到的群体的中间。它可以防止个体陷入孤立状态，确保群体保持“群体”状态。而不是一群独立行动者的集合。 雷诺兹的逻辑中有一个微妙但至关重要的细节：雷诺兹指出，个别鸟儿看不到整个鸟群；而鸟群的情况则不同。他们只看到附近的东西。这就是为什么一群人可以绕过建筑物和其他障碍物并重新聚集成一个群体。 如果您不是程序员，请停止阅读此处。程序员可能需要一个示例来了解这些简单规则的实际编码方式。这是我的实现，用伪代码编写，因为我与语言无关。请注意，雷诺兹将这些鸟称为“Boid”，以将它们与真实的鸟区分开来： // 计算单个 Boid &#39;b&#39; 的三个力 PROCEDUREcalculate_forces(boid b,flock): Vectorseparation_force = [0, 0] Vectoralignment_avg_vel = [0,0]Vector cohesion_avg_pos = [0, 0] int neighbor_count = 0 对于集群中的每个 boid 邻居： IF neighbor != b AND distance(b, neighbor) &lt; VISUAL_RADIUS: neighbor_count++ //规则1：分离（向量点远离邻居） IF distance(b, neighbor) &lt; PROTECTED_RANGE: separation_force += (b.position - neighbor.position) // 规则 2：对齐（累加速度） alignment_avg_vel += neighbor.velocity // 规则 3：内聚（累加位置） cohesion_avg_pos += neighbor.position 如果邻居计数&gt; 0: // 最终确定对齐：平均速度并转向它 alignment_avg_vel /= neighbour_count alignment_force = (alignment_avg_vel - b.velocity) * ALIGN_WEIGHT // 最终确定凝聚力：找到质心并转向它 cohesion_avg_pos /= neighbour_count cohesion_force = (cohesion_avg_pos - b.position) * COHESION_WEIGHT // 最终确定分离：缩放斥力 separation_force *= SEPARATE_WEIGHT 返回separation_force +alignment_force + cohesion_force 如果你想找到Craig，那么就可以找到他在互联网上：http://www.red3d.com/cwr/ 如您所见，他的存在非常低调。   由   提交/u/MarioGianota  [链接] [评论]]]></description>
+      <description><![CDATA[基本前提是聚集是一种自下而上的现象，它几乎是从一些简单的规则中神奇地出现的。一旦找到并测试了规则，程序员就可以在代码中创建它们的模型，他或她将执行该模型来测试其是否有效。然后将该模型交给图形艺术家，然后图形艺术家可以使用该模型驱动图形软件将其绘制在屏幕上。正如您所见，现代图形处理器可以创建极其逼真、令人惊叹的图像。当然，艺术家可能很有才华，但真正的功劳归于创造模型的人。我并不是想削弱艺术家的创造力或想象力。在我们的例子中，聚集行为模型背后的奇才是一位名叫克雷格·雷诺兹的年轻人，他在 1986 年发现了一些简单的规则。查找他。 以下是雷诺的规则： 规则 1：转向以避免碰撞。这是一种排斥力。它确保鸟类不会发生碰撞。每只鸟在自己周围都有一个小的保护区。如果另一只鸟进入这个区域，那么这只鸟就会朝相反的方向转向。 规则 2：转向当地同伴的平均航向。这只鸟会观察其邻居的速度（速度+方向）并尝试与之匹配。这种行为使群体具有“流动性”，并防止个体分散到不同的方向。 规则 3：转向当地群体成员的平均位置（质心）。这使得鸟儿想要处于它能看到的群体的中间。它可以防止个体陷入孤立状态，确保群体保持“群体”状态。而不是一群独立行动者的集合。 雷诺兹的逻辑中有一个微妙但至关重要的细节：雷诺兹指出，个别鸟儿看不到整个鸟群；而鸟群的情况则不同。他们只看到附近的东西。这就是为什么一群人可以绕过建筑物和其他障碍物并重新聚集成一个群体。 如果您不是程序员，请停止阅读此处。程序员可能需要一个示例来了解这些简单规则的实际编码方式。这是我的实现，用伪代码编写，因为我与语言无关。请注意，雷诺兹将这些鸟称为“Boid”，以将它们与真实的鸟区分开来： // 计算单个 Boid &#39;b&#39; 的三个力 PROCEDUREcalculate_forces(boid b,flock): Vectorseparation_force = [0, 0] Vectoralignment_avg_vel = [0,0]Vector cohesion_avg_pos = [0, 0] int neighbor_count = 0 对于集群中的每个 boid 邻居： IF neighbor != b AND distance(b, neighbor) &lt; VISUAL_RADIUS: neighbor_count++ //规则1：分离（向量点远离邻居） IF distance(b, neighbor) &lt; PROTECTED_RANGE: separation_force += (b.position - neighbor.position) // 规则 2：对齐（累加速度） alignment_avg_vel += neighbor.velocity // 规则 3：内聚（累加位置） cohesion_avg_pos += neighbour.position 如果邻居计数&gt; 0: // 最终确定对齐：平均速度并转向它 alignment_avg_vel /= neighbour_count alignment_force = (alignment_avg_vel - b.velocity) * ALIGN_WEIGHT // 最终确定凝聚力：找到质心并转向它 cohesion_avg_pos /= neighbour_count cohesion_force = (cohesion_avg_pos - b.position) * COHESION_WEIGHT // 最终确定分离：缩放斥力 separation_force *= SEPARATE_WEIGHT 返回separation_force +alignment_force + cohesion_force 如果你想找到Craig，那么就可以找到他在互联网上：http://www.red3d.com/cwr/ 如您所见，他的存在非常低调。   由   提交/u/MarioGianota  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qeho0v/if_you_have_ever_seen_beautiful_cgi_simulations/</guid>
       <pubDate>Fri, 16 Jan 2026 14:38:32 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交/u/creaturefeature16   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qegrhb/programming_is_dead_and_this_man_killed_it/</guid>
       <pubDate>Fri, 16 Jan 2026 14:02:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>我主持站立会议的方式 作者：Marc G Gauthier</title>
-      <link>https://www.reddit.com/r/programming/comments/1qegncf/the_way_i_run_standup_meetings_by_marc_g_gauthier/</link>
-      <description><![CDATA[ 由   提交/u/RevillWeb  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qegncf/the_way_i_run_standup_meetings_by_marc_g_gauthier/</guid>
-      <pubDate>Fri, 16 Jan 2026 13:58:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为软件开发人员，你需要了解什么才能赶上 Gen AI</title>
-      <link>https://www.reddit.com/r/programming/comments/1qegclh/what_you_need_to_know_to_catch_up_with_gen_ai_as/</link>
-      <description><![CDATA[该视频展示了如何超越基本提示并使用检索增强生成 (RAG) 和矢量搜索构建真正的 AI 应用程序。虽然我谈到了 GPT 的基础知识，但真正的重点是软件开发人员需要了解的关键术语以及他们如何使用 AI 模型来处理自己的私有数据。 视频的主要部分解释了检索增强生成 (RAG) 以及为什么它通常是比更昂贵的替代方案（微调）更好的路径。我展示了向量嵌入实际上是什么，它们如何充当意义的数学表示，这使我们能够在自己的数据中找到相关上下文。我还给出了一个使用 MariaDB（这是一种具有高级高性能向量存储和搜索功能的关系数据库）的示例，以说明 SQL 代码级别的情况。 最后，我再次使用 MariaDB 直接通过 SQL 处理向量存储和相似性搜索，并进行了一个实践演示。我介绍了一个基于 Java 的推荐聊天机器人，它通过计算向量之间的数学距离来查找产品。使用像 MariaDB 这样的多存储引擎数据库来开发 GenAI 应用程序的一个结果是，它简化了您的技术堆栈，因为您可以在单个系统中管理关系数据和矢量数据，而不需要具有自己的连接器、SQL 方言甚至最糟糕的专有 API 的专用矢量数据库。   由   提交/u/alejandro-du   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qegclh/what_you_need_to_know_to_catch_up_with_gen_ai_as/</guid>
-      <pubDate>Fri, 16 Jan 2026 13:45:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
