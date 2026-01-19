@@ -4,7 +4,14 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Mon, 19 Jan 2026 09:40:42 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Jan 2026 13:00:28 GMT</lastBuildDate>
+    <item>
+      <title>dc-input：将任何数据类模式转变为强大的交互式输入会话</title>
+      <link>https://www.reddit.com/r/software/comments/1qh2irm/dcinput_turn_any_dataclass_schema_into_a_robust/</link>
+      <description><![CDATA[大家好！我想分享一个我一直在开发的 Python 库。非常欢迎提供反馈，尤其是关于用户体验、边缘情况或缺失功能的反馈。 https://github.com/jdvanwijk/dc-input 我的项目的用途 我经常最终编写需要结构化用户输入的小脚本或内部工具。这很快就会变得乏味（而且脆弱），尤其是在添加嵌套、可选部分、重复等之后。 这个库会遍历数据类模式，并从中派生交互式输入会话（嵌套数据类、可选字段、可重复容器、默认值、撤消支持等）。 有关交互式会话示例，请参阅：https://asciinema.org/a/767996 ​这对我来说在内部脚本和小工具中非常有用，在这些脚本和小工具中，我需要结构化输入，而不需要将整个东西变成 CLI 框架。 ------------------------ 对于任何好奇其在幕后工作原理的人，这里有一个技术概述（很乐意回答问题或听取想法）这种方法）： 我使用的管道是：模式验证 -&gt;模式规范化 -&gt;构建会话图 -&gt;遍历图表并询问用户输入 -&gt;重建模式。在某些方面，它实际上与编译器的工作方式非常相似。 验证 当模式无效时，程序应该立即崩溃：当这种情况在数据输入期间发生时，用户体验很差（并且很难调试！）我强制执行三个主要规则：  拒绝不明确的类型（例如：str | int -&gt; 解析器应该选择 str 还是 int？） 拒绝导致最终用户输入嵌套括号的类型：这 (imo) 会导致糟糕的用户体验（例如：list[list[list[str]]] 需要用户输入 ((str, ...), ...) ） 拒绝导致最终用户在图表中迷失方向的类型（例如：作为字典值的嵌套架构）  以下步骤都不应质疑所获取的架构的有效性过了这一点。 标准化 此步骤的存在是为了使后续步骤不必进行进一步的类型内省，也不必引用原始模式，因为这些事情通常是错误的来源。两个主要目标：  从原始架构中提取相关元数据（例如默认值） 将字段类型抽象为与管道中的后续步骤相关的形状。以 ContainerShape 为例，我将其定义为“表示终端元素的同质容器的形状”。管道中更上方的会话图并不关心基础类型是 list[str]、set[str] 还是 tuple[str, ...]：它需要知道的是“向用户询问任意数量的类型 T 的值，并且不要扩展到新的上下文中”。  构建会话图 此步骤构建一个回答以下一些问题的图：  此字段是新上下文还是输入步骤？ 此步骤是可选的（即我可以在图表中向前跳转）吗？ 用户可以循环回到图表中较早的点吗？ （示例：在 list[T] 的最后一个条目之后，其中 T 是模式）  用户会话 这里我们遍历图表并收集输入：这是面向用户的部分。会话应该能够仅在我们之前定义的形状和图形上进行切换（主要是为了防止错误）。 输入存储在 UserInput 对象的数组中：这些是简单的结构，用于保存输入和指向图形上匹配步骤的指针。我这样构造它，以便撤消输入就像弹出该数组的最后一个索引一样简单，无论该值来自哪个上下文。撤消功能对我来说非常重要：因为我自己犯了很多拼写错误，所以当我因为上一个条目中的拼写错误而必须重做整个表单时，我总是很恼火！ 输入验证和解析是在辅助模块 (_parse_input) 中完成的。 架构重建 获取原始架构和会话结果，并返回一个实例。   由   提交 /u/Emotional-Pipe-335   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1qh2irm/dcinput_turn_any_dataclass_schema_into_a_robust/</guid>
+      <pubDate>Mon, 19 Jan 2026 12:11:05 GMT</pubDate>
+    </item>
     <item>
       <title>我发布了 Yoop，一个完全开源且速度非常快的跨操作系统 AirDrop</title>
       <link>https://www.reddit.com/r/software/comments/1qgxz7j/i_released_yoop_a_fully_open_source_and_very_fast/</link>
@@ -64,7 +71,7 @@
     <item>
       <title>制作了一个工具来可视化和监控自托管服务的流量（Traefik/Pangolin/Caddy 兼容）</title>
       <link>https://www.reddit.com/r/software/comments/1qghgj7/made_a_tool_to_visualize_and_monitor_traffic_on/</link>
-      <description><![CDATA[嗨，redditors， 我想分享一个我构建的项目，该项目是为了解决我自从开始自托管爱好以来一直遇到的问题。 像许多人一样，我认为，我将一些服务公开到互联网供个人使用，并且我从 Traefik、Caddy 或 NPM 等反向代理开始。然而，我从来没有觉得自己能够很好地了解谁正在连接或尝试访问我的域和服务。 我最近切换到 Pangolin（它使用 Traefik 作为反向代理），但我仍然觉得缺少一些东西：带有仪表板的专用日志解析器（我还公开了一些 API 端点）。由于我找不到我需要的东西，所以我决定自己构建它。 这是一个日志解析器，目前可以与：  Pangolin（非常容易使用 docker compose 配置） Traefik 安装 Caddy 安装  我一直在寻找想要贡献或提出改进想法的人。如果您有任何反馈，请随时提出问题。 如果有人想使用它或只是查看存储库，请点击以下链接：loglynx   由   提交/u/No-Bee9606   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，redditors， 我想分享一个我构建的项目，该项目是为了解决我自从开始自托管爱好以来一直遇到的问题。 像许多人一样，我认为，我将一些服务公开到互联网供个人使用，并且我从 Traefik、Caddy 或 NPM 等反向代理开始。然而，我从来没有觉得自己能够很好地了解谁正在连接或尝试访问我的域和服务。 我最近切换到 Pangolin（它使用 Traefik 作为反向代理），但我仍然觉得缺少一些东西：带有仪表板的专用日志解析器（我还公开了一些 API 端点）。由于我找不到我需要的东西，所以我决定自己构建它。 这是一个日志解析器，目前可以与：  Pangolin（非常容易使用 docker compose 配置） Traefik 安装 Caddy 安装  我一直在寻找想要贡献或提出改进想法的人。如果您有任何反馈，请随时提出问题。 如果有人想使用它或只是查看存储库，请点击以下链接：loglynx   由   提交/u/No-Bee9606  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1qghgj7/made_a_tool_to_visualize_and_monitor_traffic_on/</guid>
       <pubDate>Sun, 18 Jan 2026 19:13:41 GMT</pubDate>
     </item>
@@ -99,16 +106,9 @@
     <item>
       <title>EKSA EM500 程序</title>
       <link>https://www.reddit.com/r/software/comments/1qg5qgy/eksa_em500_programme/</link>
-      <description><![CDATA[哪里可以找到我的鼠标程序，我发现我用错了，但是eksa官网没有。有人可以帮忙吗，我确实找到了一个包含它的谷歌文档，但我不知道我是否可以信任它，并且我通过文件扫描仪运行它来检查病毒  https://preview.redd.it/i4ikqysw93eg1.png?width=1233&amp;format=png&amp;auto=webp&amp;s=46b80e83cf6b722976625caa36bb556033744032 这表明这是唯一的问题，那么它安全吗？   由   提交/u/Background_Choice420   [链接] [评论]]]></description>
+      <description><![CDATA[哪里可以找到我的鼠标程序，我发现我用错了，但是 eksa 官网没有。有人可以帮忙吗，我确实找到了一个包含它的谷歌文档，但我不知道我是否可以信任它，并且我通过文件扫描仪运行它来检查病毒  https://preview.redd.it/i4ikqysw93eg1.png?width=1233&amp;format=png&amp;auto=webp&amp;s=46b80e83cf6b722976625caa36bb556033744032 这表明这是唯一的问题，那么它安全吗？   由   提交/u/Background_Choice420   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1qg5qgy/eksa_em500_programme/</guid>
       <pubDate>Sun, 18 Jan 2026 10:56:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在寻找能够识别和提取 Zoom 会议期间 PowerPoint 幻灯片上显示的所有文本（不是语音转录）的应用程序。</title>
-      <link>https://www.reddit.com/r/software/comments/1qg4dlo/im_looking_for_apps_that_can_recognize_and/</link>
-      <description><![CDATA[基本上，我正在上在线课程，幻灯片包含很多信息。我想要一个可以直接从幻灯片中读取文本并将其编译成文本文件的应用程序。我希望它可以在会议期间实时工作，但如果我将会议记录为视频，然后使用应用程序从该记录中提取文本，也可以。 如有任何建议，我们将不胜感激。    由   提交/u/Vietcong777  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1qg4dlo/im_looking_for_apps_that_can_recognize_and/</guid>
-      <pubDate>Sun, 18 Jan 2026 09:35:53 GMT</pubDate>
     </item>
     </channel>
 </rss>
