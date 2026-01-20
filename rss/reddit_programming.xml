@@ -4,27 +4,97 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 20 Jan 2026 09:38:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Jan 2026 13:00:52 GMT</lastBuildDate>
+    <item>
+      <title>应用程序的未来</title>
+      <link>https://www.reddit.com/r/programming/comments/1qi0bz6/the_future_of_apps/</link>
+      <description><![CDATA[您好！我有一个问题，目前我是一名 Web 应用程序开发人员，问题是当我需要为手机创建一个应用程序时，存在很多选项，但我研究了一种 Flutter 技术，因为我只需要创建一个项目，您的意见是什么？ pd：对不起我的英语   由   提交/u/Accurate-Camel-7896   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qi0bz6/the_future_of_apps/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:54:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 代理框架中的“通过代码进行配置”</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzqx2/configuration_over_code_in_ai_agent_frameworks/</link>
+      <description><![CDATA[我们看到 JS/TS 生态系统的趋势是从繁重的编排代码（如早期的 LangChain）转向配置繁重的框架。 Mastra 是这里的新进入者，它将这一点推向了极致。 我通过构建一个数据提取工具对其进行了测试。该框架的核心论点是，90% 的代理代码（内存管理、日志记录、API 包装）都是不应重写的样板文件。 开发人员体验 在 Mastra 中，您无需编写执行循环。您可以对其进行配置： TypeScript export const agent = new Agent({ name: &quot;ExportBot&quot;, model: &quot;gemini-pro&quot;, tools: { searchTool, exportTool }, // Zod-inferred schemas memory: new Memory(), });  Zod 作为接口 最有趣的技术选择是使用 Zod 模式不仅用于验证，还用于提示注入。该框架直接从 TypeScript 函数的 Zod 模式推断出 LLM 的工具定义。 这在 LLM 对工具的理解和实际运行时执行之间创建了严格的类型安全性。如果我将 searchTool 更改为需要 Zod 中的 limit 参数，代理会自动知道它需要向用户询问该限制，而无需我更新系统提示。 这是一种与 Python 框架不同的方法，对于 TypeScript 团队来说，这可能是正确的抽象级别。   由   提交/u/SirAdmirable4773  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzqx2/configuration_over_code_in_ai_agent_frameworks/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:25:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>将有限状态机 (FSM) 应用于非确定性 LLM 代理</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzq1i/applying_finite_state_machines_fsm_to/</link>
+      <description><![CDATA[代理工程中最难的问题之一是法学硕士的非确定性。你要求 JSON，你就会得到 Markdown。您要求进行工具调用，就会得到独白。 我发现将代理视为有向循环图（状态机）是在生产中处理此问题的唯一可靠方法。我使用 LangGraph 来实现“有状态” LinkedIn 导出机器人。 实现 我们定义的不是链，而是节点：  AgentNode：LLM 决定要做什么。 ToolNode：执行 API 调用 (ConnectSafely.ai)。 Router：条件边。  关键见解：类型化状态 LangGraph 允许您定义图形状态的架构。 TypeScript const AgentState = Annotation.Root({ messages: Annotation({ reducer: (x, y) =&gt; x.concat(y), }), searchResults: Annotation({ reducer: (x, y) =&gt; y, // 替换策略 }), });  通过在状态上强制执行模式，我们可以防止“上下文漂移”。这通常会杀死长期运行的代理。如果 ToolNode 未返回有效的 Person[] 数组，则在 LLM 尝试基于错误数据产生幻觉响应之前，图表会出错。 它比简单的链需要更多的样板文件，但可调试性更高。您可以从字面上跟踪代理通过图表所采取的路径。   由   提交/u/SirAdmirable4773  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzq1i/applying_finite_state_machines_fsm_to/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:24:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>命令式架构与基于角色的架构：CrewAI 只是语法糖吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzozc/imperative_vs_rolebased_architectures_is_crewai/</link>
+      <description><![CDATA[我一直在评估用于构建 AI 代理的不同抽象层。该行业似乎分为两个阵营：基于图的 (LangGraph) 和基于角色的 (CrewAI)。 我在两个阵营中重新构建了相同的应用程序（LinkedIn 抓取/导出器）以了解权衡。 CrewAI 抽象 CrewAI 抽象了执行循环。在标准 Python 中，您可以编写： while not_done: model.predict() 在 CrewAI 中，您可以定义一个 Task 和 Agent。 Python # “manager”逻辑被抽象化了 Researcher = Agent(role=&#39;Researcher&#39;, goal=&#39;Find profile...&#39;) task = Task(description=&#39;Find CTOs in Austin&#39;, agent=researcher)  权衡  优点： 它强制“关注点分离”。您停止编写单一的提示并开始编写特定的“职位描述”。在我的测试中，这减少了幻觉，因为“研究员”代理不知道“导出”工具，从而阻止它尝试同时执行两件事。 缺点：您失去了对确切执行流程的控制。如果代理陷入循环，则很难注入“中断”。条件比标准 while 循环中的条件要好。  对于严格线性的工作流程（搜索 -&gt; 处理 -&gt; 导出），基于角色的模型更加清晰。对于分支逻辑，它限制了你。   由   提交/u/SirAdmirable4773  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzozc/imperative_vs_rolebased_architectures_is_crewai/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:23:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>命令式架构与基于角色的架构：CrewAI 只是语法糖吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzot8/imperative_vs_rolebased_architectures_is_crewai/</link>
+      <description><![CDATA[我一直在评估用于构建 AI 代理的不同抽象层。该行业似乎分为两个阵营：基于图的 (LangGraph) 和基于角色的 (CrewAI)。 我在两个阵营中重新构建了相同的应用程序（LinkedIn 抓取/导出器）以了解权衡。 CrewAI 抽象 CrewAI 抽象了执行循环。在标准 Python 中，您可以编写： while not_done: model.predict() 在 CrewAI 中，您可以定义一个 Task 和 Agent。 Python # “manager”逻辑被抽象化了 Researcher = Agent(role=&#39;Researcher&#39;, goal=&#39;Find profile...&#39;) task = Task(description=&#39;Find CTOs in Austin&#39;, agent=researcher)  权衡  优点： 它强制“关注点分离”。您停止编写单一的提示并开始编写特定的“职位描述”。在我的测试中，这减少了幻觉，因为“研究员”代理不知道“导出”工具，从而阻止它尝试同时执行两件事。 缺点：您失去了对确切执行流程的控制。如果代理陷入循环，则很难注入“中断”。条件比标准 while 循环中的条件要好。  对于严格线性的工作流程（搜索 -&gt; 处理 -&gt; 导出），基于角色的模型更加清晰。对于分支逻辑，它限制了您。 我在下面的存储库中记录了完整的比较和代码结构。   由   提交/u/SirAdmirable4773  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzot8/imperative_vs_rolebased_architectures_is_crewai/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:22:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 LLM 代理中将状态与执行解耦：生产 AutoGen 的模式</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzntc/decoupling_state_from_execution_in_llm_agents_a/</link>
+      <description><![CDATA[大多数“Hello World” AI 代理的示例将 LLM 响应逻辑与工具执行逻辑紧密耦合。在生产中，这变成了调试噩梦。如果该工具失败，代理通常会产生成功的幻觉或无限循环。 我最近花了一些时间使用 Microsoft 的 AutoGen 重构 LinkedIn 数据提取管道，特别是尝试解决“人在循环”问题。可靠性问题。 架构挑战我们的目标是拥有一个代理来搜索配置文件（通过 API）并导出它们。挑战在于 LLM 不擅长维护长 JSON 有效负载的上下文。 解决方案：专用内存管理器模式与标准 AssistantAgent 一起使用。  工具执行： 该工具获取数据（在本例中使用 ConnectSafely.ai）。 上下文压缩： 该工具不是将完整的 JSON 返回到聊天上下文，而是返回摘要状态并将完整对象缓存在本地类实例中。 参考：法学硕士仅看到“找到 50 个个人资料”。参考 ID：X.&quot;  代码模式： Python # 而不是将数据转储到上下文窗口 def search_tool(query): results = api.search(query) # 代理不需要查看 50kb 的 JSON Memory.store(results) return f&quot;Success.已找到 {len(结果)}。存储在内存中。”  这将令牌使用量减少了约 60%，并显着提高了代理遵循多步指令的能力（例如，“导出先前结果”）。 如果您对内存管理器模式或 AutoGen 配置的具体实现感兴趣，我已将源代码放在 GitHub 上。   由   提交/u/SirAdmirable4773  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzntc/decoupling_state_from_execution_in_llm_agents_a/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:21:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>仅有的两种标记语言</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhzgtc/the_only_two_markup_languages/</link>
+      <description><![CDATA[ 由   提交 /u/gingerbill   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhzgtc/the_only_two_markup_languages/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:11:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>未来的编程语言是人工智能的吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhz916/are_future_programming_languages_for_ais/</link>
+      <description><![CDATA[我一直在思考编程语言的下一个重大进步是否不是新的人类友好语法，而是向人工智能表示的转变，因为当今最流行的语言（Python、JavaScript、C++...）显然是为人类设计的。  可读性和叙述流程 为了清晰而冗余 隐含的约定和“明显”人工智能可以使用这些语言，但只能通过模仿人类对并非为它们设计的语法进行推理来实现。 所以问题是： 如果人工智能成为代码的主要编写者、重构者和维护者，那么核心“语言”不应该针对机器进行优化，并且基本上针对代币使用等进行优化……这样它就可以成为性能和定价之间的平衡。   密集、明确的语义（每个标记具有高含义） 显式约束和不变量 轻松转换、重构和验证 最少的语法糖或历史包袱  这让我想知道汇编（或类似汇编的东西）是否可以作为一个起点，不是因为它很好，而是因为它的构建更倾向于machi，es。 从那里，可以向上构建更高级别的人工智能原生抽象，而不是向下降低人类代码。人类仍然会编写 Python、JS……人工智能会在底层运行一些非常不同的东西。  你认为我们会看到完全人工智能原生的语言，还是只是更好的中间表示？ 我链接了一个 github 存储库，它让我思考了这个问题。   由   提交/u/Punk_Saint  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhz916/are_future_programming_languages_for_ais/</guid>
+      <pubDate>Tue, 20 Jan 2026 12:00:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>0-RTT 重放：HTTP/3 中绕过幂等性的高速缺陷</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhz1i7/0rtt_replay_the_highspeed_flaw_in_http3_that/</link>
+      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhz1i7/0rtt_replay_the_highspeed_flaw_in_http3_that/</guid>
+      <pubDate>Tue, 20 Jan 2026 11:49:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>适用于 Java 的 OpenAI Agent SDK</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhyum5/openai_agent_sdk_for_java/</link>
+      <description><![CDATA[ 由   提交/u/henk53  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhyum5/openai_agent_sdk_for_java/</guid>
+      <pubDate>Tue, 20 Jan 2026 11:39:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>那些从人工智能编码工具中获得最大收益的人一直都是表现最好的人</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhxk43/those_getting_the_most_from_ai_coding_tools_were/</link>
+      <description><![CDATA[GitClear 分析了流行编码代理 API 中的 30k 个数据点，包括 Claude Code、GitHub Copilot 和 Cursor。   由   提交 /u/scarey102   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhxk43/those_getting_the_most_from_ai_coding_tools_were/</guid>
+      <pubDate>Tue, 20 Jan 2026 10:26:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个 CLI，可以为大型代码库生成可重现的结构图</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhws6k/i_built_a_cli_that_generates_a_reproducible/</link>
+      <description><![CDATA[在使用大型存储库（100k–1M+ LOC）时，我不断遇到同样的问题： 人类和法学硕士都在努力形成可靠的代码库心智模型。 因此我构建了 RepoMap — 一个小型 CLI，可以生成稳定、可重复的“存储库地图”： - 模块级索引 - 检测到的入口点（路由、控制器、CLI、作业） - 人工智能友好的 summary.md 目标不是语义理解或自动编辑， 而是在使用 rg、RAG 或代理之前提供结构先验。 它是只读的、增量的，旨在避免差异噪声。 GitHub：https://github.com/Nicenonecb/RepoMap 很高兴听到反馈，尤其是有关 monorepos 或不寻常的仓库布局的反馈。   由   提交 /u/Nicenonecb   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhws6k/i_built_a_cli_that_generates_a_reproducible/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:40:23 GMT</pubDate>
+    </item>
     <item>
       <title>有人尝试过 xHost 作为托管替代方案吗？</title>
       <link>https://www.reddit.com/r/programming/comments/1qhwol1/anyone_tried_xhost_as_a_managed_alternative/</link>
       <description><![CDATA[我知道这个 sub 喜欢自托管一切，但有时我只需要立即运行一些东西，而无需启动 VPS。 一直在使用 xHost.live 进行快速部署 - GitHub 集成、即时部署、免费层（是的，它比 vercel、render 和 netlify 更好） 使用它还有我自己托管的用于客户演示和快速原型的东西。两全其美？   由   提交/u/ammohitchaprana   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qhwol1/anyone_tried_xhost_as_a_managed_alternative/</guid>
       <pubDate>Tue, 20 Jan 2026 09:34:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Databricks 联合创始人 Ali Ghodsi 表示“键盘将会消失”——你同意吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhwmkq/databricks_cofounder_ali_ghodsi_says_the_keyboard/</link>
-      <description><![CDATA[Databricks 联合创始人 Ali Ghodsi 曾多次公开表示“键盘将会消失”。随着人工智能和新的交互方法的不断发展。 作为一个每天大部分时间都在打字（编码、调试、编写查询、SSH 等）的人，我对此表示怀疑。 对于这里的人： 打字在哪些方面仍然明显击败语音/人工智能？ 是否有工作流程已经减少了键盘的使用？ 这是一个真正的转变，还是只是一个高级抽象争论？ 想听听现实世界的经历，而不仅仅是未来的愿景。   由   提交 /u/Individual-Eye9833   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhwmkq/databricks_cofounder_ali_ghodsi_says_the_keyboard/</guid>
-      <pubDate>Tue, 20 Jan 2026 09:31:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>pg-aiguide - PostgreSql 的代理编码</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhwfjh/pgaiguide_agentic_coding_for_postgresql/</link>
-      <description><![CDATA[ 由   提交/u/pmz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhwfjh/pgaiguide_agentic_coding_for_postgresql/</guid>
-      <pubDate>Tue, 20 Jan 2026 09:19:16 GMT</pubDate>
     </item>
     <item>
       <title>我让 Claude Code 来审查可爱的前端代码</title>
@@ -39,76 +109,6 @@
       <description><![CDATA[ 由   提交 /u/Clean-Upstairs-8481   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qhwcnu/c17_efficiently_returning_stdvector_from_functions/</guid>
       <pubDate>Tue, 20 Jan 2026 09:14:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>一名黑客正在制作一份 vivicoded 应用程序列表，其中 198 个扫描了 196 个存在漏洞的应用程序</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhw9zg/a_hacker_is_making_a_list_of_vibecoded_apps_198/</link>
-      <description><![CDATA[ 由   提交/u/bored_wombat_v1   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhw9zg/a_hacker_is_making_a_list_of_vibecoded_apps_198/</guid>
-      <pubDate>Tue, 20 Jan 2026 09:09:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>浮点打印和解析既简单又快速（浮点格式，第 3 部分）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhw709/floatingpoint_printing_and_parsing_can_be_simple/</link>
-      <description><![CDATA[ 由   提交/u/Dragdu   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhw709/floatingpoint_printing_and_parsing_can_be_simple/</guid>
-      <pubDate>Tue, 20 Jan 2026 09:04:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Apache Arrow 在 Python 中构建更快的数据管道</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhvr7t/building_faster_data_pipelines_in_python_with/</link>
-      <description><![CDATA[ 由   提交/u/Low-Engineering-4571   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhvr7t/building_faster_data_pipelines_in_python_with/</guid>
-      <pubDate>Tue, 20 Jan 2026 08:37:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>X 开源了他们的新 𝕏 算法，该算法由与 xAI 的 Grok 模型相同的 Transformer 架构提供支持。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhunm9/x_has_opensourced_their_new_𝕏_algorithm_powered/</link>
-      <description><![CDATA[ 由   提交 /u/nix-solves-that-2317   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhunm9/x_has_opensourced_their_new_𝕏_algorithm_powered/</guid>
-      <pubDate>Tue, 20 Jan 2026 07:30:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lapce：基于 Rust 的本机代码编辑器，比 VSCode 和 Zed 更轻</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhuhw3/lapce_a_rustbased_native_code_editor_lighter_than/</link>
-      <description><![CDATA[ 由   提交/u/delvin0  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhuhw3/lapce_a_rustbased_native_code_editor_lighter_than/</guid>
-      <pubDate>Tue, 20 Jan 2026 07:20:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>讨论：GitHub Copilot 诉讼凸显了代码托管和培训中的结构性利益冲突——中立宪章提案</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhqj5k/discussion_github_copilot_litigation_highlights/</link>
-      <description><![CDATA[我是一名独立开发者，一直在密切关注 Copilot 诉讼，我认为当前的法律方法错过了一个关键的结构性修复。 对微软进行罚款并不能解决潜在的利益冲突。只要一家价值数万亿美元的人工智能公司控制着世界上最重要的代码存储库，“收获”代码的动机将永远超过负责任地托管代码的责任。 今天，我向首席律师 (Saveri &amp; Butterick) 提交了一份拟议的非当事人意见陈述，其中概述了一份简单的中立宪章： • 结构分离。将 GitHub 转变为一个中立的、由基金会支持的实用程序（例如 Linux 基金会），以便它为社区而不是单个公司服务。 • 同意优先的培训。如果没有贡献者明确、透明的选择加入，任何代码都不应用于人工智能训练。 • 中立治理。建立一个由社区领导的委员会，拥有审核数据使用和执行章程的实际权力。  我正在等待法律团队同意向法院正式提交此文件。我们需要停止将自己视为 GitHub 的被动“用户”，而开始充当它的架构师。 我希望得到社区对这些支柱的反馈 - 如果我们现在不修复结构，我们什么时候修复？   由   提交 /u/Litteralybadenglish   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhqj5k/discussion_github_copilot_litigation_highlights/</guid>
-      <pubDate>Tue, 20 Jan 2026 03:54:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>由于最琐碎的原因，我决定制作一个更糟糕的 UUID。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhq372/i_decided_to_make_a_worse_uuid_for_the_pettiest/</link>
-      <description><![CDATA[ 由   提交 /u/theghostofm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhq372/i_decided_to_make_a_worse_uuid_for_the_pettiest/</guid>
-      <pubDate>Tue, 20 Jan 2026 03:33:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>不安静的睡眠 - 音乐示例和讨论</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhojjp/unquiet_sleep_musical_example_and_discussion/</link>
-      <description><![CDATA[ 由   提交/u/apeloverage  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhojjp/unquiet_sleep_musical_example_and_discussion/</guid>
-      <pubDate>Tue, 20 Jan 2026 02:23:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Babylon 和 HAT 从 Java 优化 GPU 程序</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhmlg6/optimizing_gpu_programs_from_java_using_babylon/</link>
-      <description><![CDATA[ 由   提交/u/davidalayachew   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhmlg6/optimizing_gpu_programs_from_java_using_babylon/</guid>
-      <pubDate>Tue, 20 Jan 2026 00:58:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为域逻辑进行过滤</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhli6l/filtering_as_domain_logic/</link>
-      <description><![CDATA[ 由   提交/u/kivarada   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhli6l/filtering_as_domain_logic/</guid>
-      <pubDate>Tue, 20 Jan 2026 00:11:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
