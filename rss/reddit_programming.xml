@@ -4,7 +4,77 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 20 Jan 2026 06:43:47 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Jan 2026 09:38:04 GMT</lastBuildDate>
+    <item>
+      <title>有人尝试过 xHost 作为托管替代方案吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhwol1/anyone_tried_xhost_as_a_managed_alternative/</link>
+      <description><![CDATA[我知道这个 sub 喜欢自托管一切，但有时我只需要立即运行一些东西，而无需启动 VPS。 一直在使用 xHost.live 进行快速部署 - GitHub 集成、即时部署、免费层（是的，它比 vercel、render 和 netlify 更好） 使用它还有我自己托管的用于客户演示和快速原型的东西。两全其美？   由   提交/u/ammohitchaprana   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhwol1/anyone_tried_xhost_as_a_managed_alternative/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:34:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>Databricks 联合创始人 Ali Ghodsi 表示“键盘将会消失”——你同意吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhwmkq/databricks_cofounder_ali_ghodsi_says_the_keyboard/</link>
+      <description><![CDATA[Databricks 联合创始人 Ali Ghodsi 曾多次公开表示“键盘将会消失”。随着人工智能和新的交互方法的不断发展。 作为一个每天大部分时间都在打字（编码、调试、编写查询、SSH 等）的人，我对此表示怀疑。 对于这里的人： 打字在哪些方面仍然明显击败语音/人工智能？ 是否有工作流程已经减少了键盘的使用？ 这是一个真正的转变，还是只是一个高级抽象争论？ 想听听现实世界的经历，而不仅仅是未来的愿景。   由   提交 /u/Individual-Eye9833   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhwmkq/databricks_cofounder_ali_ghodsi_says_the_keyboard/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:31:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>pg-aiguide - PostgreSql 的代理编码</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhwfjh/pgaiguide_agentic_coding_for_postgresql/</link>
+      <description><![CDATA[ 由   提交/u/pmz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhwfjh/pgaiguide_agentic_coding_for_postgresql/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:19:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>我让 Claude Code 来审查可爱的前端代码</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhwf9f/i_got_claude_code_to_review_lovable_front_end_code/</link>
+      <description><![CDATA[我是一名产品经理，四十多岁了，在各种规模的科技公司拥有丰富的经验。技术人员，但有一段时间没有成为开发人员了。我现在只是以发送电子邮件和参加会议为生。  所以在过去的几个月里我一直在使用各种低代码工具。只是为了开怀大笑，看看他们能做什么，而不是为了创业或其他什么。 当下发生了很多事情，所以发现自己错过了奇妙清单，它曾经是我最喜欢的应用程序，被微软收购并不幸被微软杀死。因此，尝试使用 Lovable [Claude Code 后端、Railway 数据库和 CICD] 重建它。不是出于商业原因，只是可能用作我和我妻子的个人任务管理器，以及一个包含所有这些工具的项目。 昨晚，我将可爱的代码库导出到 gitrepo，并要求 Claude 代码对其进行审查，就像在一家新公司推出它一样。  我将为您审查 Lovable 前端存储库。让我探索代码库，以了解其结构、技术并确定任何潜在的改进。 TaskReview Lovable 前端代码库 使用了 57 个工具 根据我对 Lovable 前端存储库的全面审查，我发现了以下内容：  总体评估：6.5/10  这是一个结构良好的现代 React 应用程序，具有高质量的工具，但有一些需要立即关注的关键配置问题。 🔴 关键问题（立即修复） 1. TypeScript 严格模式已禁用 您的 tsconfig.json 已关闭关键类型安全功能： “noImplicitAny”: false, // 允许到处使用“任何”类型 “strictNullChecks”: false, // 允许 null/未定义的 bug “noUnusedLocals”: false, // 允许未使用的变量 影响：您将失去 TypeScript 的大部分优势。这将导致运行时错误。 2.零测试覆盖率 仅存在一个占位符测试。没有组件、挂钩或集成测试。 3. Git 中的环境变量 .env 文件似乎在 git 中被跟踪（安全风险）。 4.无代码分割 所有页面都预先加载，而不是延迟加载路由。这会影响初始加载时间。 5.缺少 useEffect 依赖项 Sidebar.tsx:156 中的示例 - 缺少 onClose 依赖项，这可能会导致陈旧的关闭错误。 🟡 高优先级改进 重复代码：Index.tsx 和 Tasks.tsx 几乎相同 - 创建共享布局 硬编码 API URL：移至环境变量 字体加载：从 Google CDN 加载 4 种字体 - 减慢页面加载 禁用 ESLint：关闭未使用的变量检查 无错误边界：应用程序将在任何组件错误上完全崩溃  ✅ 有什么好处  现代堆栈：React 18 + TypeScript + Vite + TanStack Query 干净的组件使用 shadcn/ui 进行组织 出色的自定义挂钩模式 (useRailwayData.ts) UI 组件与功能组件良好分离 正确使用具有一致主题的 Tailwind  📝 具体建议  您希望我： 修复 TypeScript 配置以启用严格模式吗？ 使用 React 延迟加载添加代码分割？ 创建共享布局组件以消除重复？ 设置基本组件测试？ 将硬编码值移至环境变量？ 添加错误边界以更好地处理错误？ 我可以一一解决这些问题，也可以根据对您最重要的内容确定优先级。您想首先关注什么？    由   提交/u/Vaggab0nd   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhwf9f/i_got_claude_code_to_review_lovable_front_end_code/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:18:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>C++17：从函数高效返回 std::vector</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhwcnu/c17_efficiently_returning_stdvector_from_functions/</link>
+      <description><![CDATA[ 由   提交 /u/Clean-Upstairs-8481   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhwcnu/c17_efficiently_returning_stdvector_from_functions/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:14:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>一名黑客正在制作一份 vivicoded 应用程序列表，其中 198 个扫描了 196 个存在漏洞的应用程序</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhw9zg/a_hacker_is_making_a_list_of_vibecoded_apps_198/</link>
+      <description><![CDATA[ 由   提交/u/bored_wombat_v1   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhw9zg/a_hacker_is_making_a_list_of_vibecoded_apps_198/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:09:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>浮点打印和解析既简单又快速（浮点格式，第 3 部分）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhw709/floatingpoint_printing_and_parsing_can_be_simple/</link>
+      <description><![CDATA[ 由   提交/u/Dragdu   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhw709/floatingpoint_printing_and_parsing_can_be_simple/</guid>
+      <pubDate>Tue, 20 Jan 2026 09:04:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Apache Arrow 在 Python 中构建更快的数据管道</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhvr7t/building_faster_data_pipelines_in_python_with/</link>
+      <description><![CDATA[ 由   提交/u/Low-Engineering-4571   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhvr7t/building_faster_data_pipelines_in_python_with/</guid>
+      <pubDate>Tue, 20 Jan 2026 08:37:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>X 开源了他们的新 𝕏 算法，该算法由与 xAI 的 Grok 模型相同的 Transformer 架构提供支持。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhunm9/x_has_opensourced_their_new_𝕏_algorithm_powered/</link>
+      <description><![CDATA[ 由   提交 /u/nix-solves-that-2317   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhunm9/x_has_opensourced_their_new_𝕏_algorithm_powered/</guid>
+      <pubDate>Tue, 20 Jan 2026 07:30:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lapce：基于 Rust 的本机代码编辑器，比 VSCode 和 Zed 更轻</title>
+      <link>https://www.reddit.com/r/programming/comments/1qhuhw3/lapce_a_rustbased_native_code_editor_lighter_than/</link>
+      <description><![CDATA[ 由   提交/u/delvin0  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qhuhw3/lapce_a_rustbased_native_code_editor_lighter_than/</guid>
+      <pubDate>Tue, 20 Jan 2026 07:20:44 GMT</pubDate>
+    </item>
     <item>
       <title>讨论：GitHub Copilot 诉讼凸显了代码托管和培训中的结构性利益冲突——中立宪章提案</title>
       <link>https://www.reddit.com/r/programming/comments/1qhqj5k/discussion_github_copilot_litigation_highlights/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[ 由   提交/u/kivarada   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qhli6l/filtering_as_domain_logic/</guid>
       <pubDate>Tue, 20 Jan 2026 00:11:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么 ANTcell 可能是一个坏主意——对 AI 原生团队的结构性批评</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhks4v/why_antcell_might_be_a_bad_idea_a_structural/</link>
-      <description><![CDATA[我一直在写关于 ANTcell 的文章 — 在人工智能原生工程中，最小的有意义的单位不是一个团队，而是一个不可简化的责任单元。 这篇文章采取了相反的立场。 它列出了我能想到的最强烈的反对意见：碎片化、倦怠风险、精英偏见、隐藏的权力结构和故障恢复。 不试图在这里“捍卫”这个想法——只是对其进行压力测试。   由   提交/u/dqj1998  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhks4v/why_antcell_might_be_a_bad_idea_a_structural/</guid>
-      <pubDate>Mon, 19 Jan 2026 23:41:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>电网不是集群：技术专家对能源的误解</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhjnuy/the_grid_isnt_a_cluster_what_technologists_get/</link>
-      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhjnuy/the_grid_isnt_a_cluster_what_technologists_get/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:56:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>我认为人工智能时代将持续存在且长期参与的语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhjekg/languages_that_i_think_will_last_and_are_long/</link>
-      <description><![CDATA[我一直从 SEO/市场研究的角度审视技术堆栈：谁在实际使用它们、谁在招聘、公司迁移需要多长时间，以及最重要的是，什么能够真正将其投入生产而不会变成灾难。 我正在跟踪可扩展性、监控、维护开销、调试、分析、架构质量等内容，以及团队是否真正遵循设计模式或只是说说而已关于他们。我从抓取的数据、付费报告、技术和金融科技博客、职位发布、开发者评论等中提取数据。 以下是我对语言的看法，如果你现在开始，这些语言实际上可以让你长期工作。 ⸻ C# / .NET 大多数是企业。这些商店中的大多数都没有做任何与法学硕士相关的前沿工作。这通常是体力劳动：修复遗留系统，升级旧应用程序，集成已经有五年历史的“新”功能。来源：评估客户的经验 为什么参与会永远持续： 如果你接触 .NET Framework 4.7 上的任何内容，你就会被困在那里一段时间。即使是现代 .NET 在大型组织中的发展也不是很快。建议集成 Power BI、Fabric 或 Microsoft 365，恭喜您，您的合同又增加了一年。通讯、医疗保健、政府都以极快的速度发展。尤其是政府——一旦你加入，你基本上就已经确定了。 ⸻ C 没有替代者。人们一直说会有，但实际上没有。从嵌入式系统到大型异构平台，大量的东西仍然在 C 上运行。我说的是低级工作。这是痛苦的，是无情的，没有人愿意这样做——但优秀的 C 开发人员不会被解雇。 ⸻ C++ 我在这里有点纠结，但它仍然无处不在。框架、服务器、游戏、桌面应用程序和大量遗留系统。金融科技仍然特别喜欢 C++。即使没有活跃的 C++ 项目，强大的 C++ 开发人员通常也会坚持下去，因为没有人愿意失去这种技能。 ⸻ 函数式语言（F#、Scala、Haskell） 你会在高并发、数学密集型算法系统中看到这些语言，其中正确性和性能实际上很重要。财务、数据处理、某些后端系统。不是主流，但一旦公司做出承诺就非常粘。 ⸻ 也许是未来的东西 • Julia – 非常适合数字和研究密集型工作负载 • Nim – 对于系统级性能很有趣，没有完全的 C++ 痛苦  还不是主流，但值得关注。 ⸻ Web / 运行时想法 WebAssembly 实际上可能会变得更大。 JavaScript 和 TypeScript 可能不会消失，但如果它们在核心逻辑方面失利，我也不会感到惊讶。许多解释语言工作（Python、JS、TS）已经转变为围绕 AI 系统的“粘合代码”。 我们将继续编写系统代码，AI 将越来越多地编写 Python/JS 编排。基于 WASM 的 UI 和混合 Web/OS 的东西（Blazor 等）可能会受到更多关注。 ⸻gA 计算/加速 CUDA 不会消失。它的生态系统也是如此。 Vulkan、ROCm、OpenAPI 都很重要。如果 OpenCL 得到清理，它可能会获得第二次生命。异构计算只会增加。 ⸻ 其他明显的提及 我离开了 RUST 和 GO，因为我没有足够的信息。伟大的语言，接下来我将分析业界语言的未来 ALSO。不相关但 HDL 语言（例如用于 FPGA 和 ASIC 原型设计的 Verilog 和 VHDL）可能会变得更大。关注AI行业NPU、TPU、DPU(FPGA、ASIC)等ASIC空间。它们都需要 HDL 语言。因此，请密切关注那些更好的人，开始涉足其中。  看看高通公司，他们现在需要这些类型的工程师。  请不要发生语言战争。这是我的意见，纯粹是主观的。这并没有通过 GitHub 上最流行的语言，该列表是一个逻辑谬误。 告诉我你的想法   由   提交 /u/Dontdoitagain69   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhjekg/languages_that_i_think_will_last_and_are_long/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:46:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找订阅费用API</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhjc2s/looking_for_subscription_costs_api/</link>
-      <description><![CDATA[我正在寻找具有最新服务价格的 Api，例如 netflix amazon prime hulu xbox pass 等，它可以为我提供成本和等级，有类似的信息吗？   由   提交/u/department_of_eyes  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhjc2s/looking_for_subscription_costs_api/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:43:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>收入决策如何影响技术债务</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhisx9/how_revenue_decisions_shape_technical_debt/</link>
-      <description><![CDATA[ 由   提交/u/ArtisticProgrammer11  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhisx9/how_revenue_decisions_shape_technical_debt/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:23:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fluxly - 一个轻量级、独立的 DAG 工作流框架（与编排解耦）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhikgp/fluxly_a_lightweight_selfcontained_dag_workflow/</link>
-      <description><![CDATA[大家好， 我想分享 Fluxly，这是我为运行可移植、独立的 DAG 工作流程而构建的框架，其灵感来自我在 Mobileye 工作的架构模式。 核心思想： 每个工作流程都是一个独立执行端点 - 结构化、类型化、并且无需耦合到任何编排器即可运行。 GitHub： https://github.com/ShaharBand/fluxly --- 🚀 Fluxly 是什么 Fluxly 允许您定义基于 DAG 的工作流程，其中：  每个工作流程都作为单个独立单元运行 可以通过CLI、API 或环境变量触发 它可以打包到Docker 映像 任何外部调度程序（Airflow、Argo、CI/CD、cron 等）都可以触发它无需粘合代码  工作流程拥有自己的逻辑、验证、重试和结构 - 编排是可选的、外部的。 --- ❓ 我为什么构建它（它试图解决的问题） 根据经验，许多容器化管道最终会变成：  临时脚本分散在容器中 不一致的输入/输出 重试、超时和日志记录逻辑重复或遗忘 与特定编排器 SDK 紧密耦合  另一方面：  当您想要的只是可移植作业时，繁重的编排器（Airflow 等）会带来运营开销 编排器耦合 SDK 假定持久后端和远程控制平面，这不适合即发即忘工作负载  Fluxly 保持工作流程干净和隔离：  显式 DAG 类型化 I/O 模型 统一入口点（CLI / API / env） 清晰的节点边界 没有隐藏的运行时耦合  它在以下情况下效果特别好：  每个 Docker 镜像应该简单且自治 您希望结构没有基础设施开销 您希望相同的工作流程在本地、CI 或任何调度程序下运行  在 monorepos（或通过瘦包装器）中，Fluxly 还可以跨多个管道标准化验证、日志记录、元数据和接口。 --- ✨ 主要功能  基于 DAG 的工作流程，具有显式功能依赖项 每个工作流程自动生成CLI命令和FastAPI端点 使用Pydantic模型进行严格验证 节点管理自己的执行和重试 本地优先开发，生产就绪执行 通过日志记录、指标或组织特定的包装器轻松扩展  --- 🛠️ Stack Python、Pydantic、Typer、FastAPI、Uvicorn、Loguru、Diagrams、Pixi、Ruff、Mypy、Pytest、MkDocs --- 📦 安装 pip install Fluxly  --- 🙏 欢迎反馈 我很乐意提供反馈并乐意回答问题或讨论权衡。   由   提交 /u/ShaharBand   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhikgp/fluxly_a_lightweight_selfcontained_dag_workflow/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:14:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>让我们从头开始构建一个编码代理</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhid4y/lets_build_a_coding_agent_from_scratch/</link>
-      <description><![CDATA[ 由   提交/u/Helpful_Geographer430   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhid4y/lets_build_a_coding_agent_from_scratch/</guid>
-      <pubDate>Mon, 19 Jan 2026 22:06:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为一名在职软件工程师学习 Rust（真正的开发视频博客）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhf5l3/learning_rust_as_a_working_software_engineer_real/</link>
-      <description><![CDATA[我最近开始学习 Rust，并录制了一个简短的开发视频日志，展示了非常早阶段 - 阅读文档、编写代码、感到困惑以及处理编译器。 这不是教程或精美的内容，只是公开学习并分享 Rust 在开始时的实际感受。 视频： https://youtu.be/0TQr2YJ5ogY 欢迎 Rust 社区提供反馈 🦀   由   提交 /u/ms-arch   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhf5l3/learning_rust_as_a_working_software_engineer_real/</guid>
-      <pubDate>Mon, 19 Jan 2026 20:08:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>Agentform：一种定义 AI 代理系统的开源声明式方式</title>
-      <link>https://www.reddit.com/r/programming/comments/1qheyqz/agentform_an_open_source_declarative_way_to/</link>
-      <description><![CDATA[我一直在开发一个名为 Agentform 的新开源项目，并想在这里分享它。 当使用多个代理构建 AI 系统时，系统的结构通常会被埋藏在命令式代码中，如果不触及大量逻辑，就很难理解或更改。 Agentform 试图通过让您以声明方式定义代理系统的结构，同时将实际行为保留在正常代码中来解决这个问题。 它并不是要取代编程，只是为了使复杂的代理设置更容易推理和发展。 项目仍处于早期阶段和实验阶段。非常欢迎提供反馈和想法。 仓库： https://github.com/agentform-org/agentform   由   提交/u/nirberko  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qheyqz/agentform_an_open_source_declarative_way_to/</guid>
-      <pubDate>Mon, 19 Jan 2026 20:01:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>建造世界上第一台开源量子计算机</title>
-      <link>https://www.reddit.com/r/programming/comments/1qhex3i/building_the_worlds_first_opensource_quantum/</link>
-      <description><![CDATA[ 由   提交/u/donutloop  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qhex3i/building_the_worlds_first_opensource_quantum/</guid>
-      <pubDate>Mon, 19 Jan 2026 20:00:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
