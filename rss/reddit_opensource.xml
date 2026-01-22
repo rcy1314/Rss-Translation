@@ -4,7 +4,56 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 21 Jan 2026 21:34:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Jan 2026 02:10:05 GMT</lastBuildDate>
+    <item>
+      <title>我构建了一个开源黑客工具！</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjh8zx/i_built_an_open_source_hacking_tool/</link>
+      <description><![CDATA[在我的安全研究过程中，我遇到了一个易受攻击的 Windows 内核驱动程序，该驱动程序暴露了不受保护的 IOCTLS，从而触发了导入的内核函数 ZwTermiateProcess。经过初步分析，尽管长期以来已知该驱动程序存在漏洞，但该驱动程序仍未被列入 Microsoft 黑名单。 我编写了一个 PoC 来演示恶意软件如何利用此签名驱动程序来篡改保护并终止 EDR 进程。 您可以在我的 GitHub 存储库上查看它： https://github.com/xM0kht4r/AV-EDR-Killer   由   提交 /u/Suspicious-Angel666   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjh8zx/i_built_an_open_source_hacking_tool/</guid>
+      <pubDate>Thu, 22 Jan 2026 01:46:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>Pedro Organiza 快速指南，跟进我上一篇文章</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjgiq5/quick_guide_to_pedro_organiza_follow_up_from_my/</link>
+      <description><![CDATA[基本工作流程 Pedro 遵循严格的两阶段模型： 摄取和提取将音乐库分析为 SQLite 知识库 查看结果（CLI 或 UI） 明确计划并应用操作 默认情况下，不会修改您的文件。  从音乐文件夹创建新的知识数据库  pedro ingest /path/to/music --db pedro.db 作用： 递归扫描文件夹 提取元数据 计算哈希值/指纹 将所有内容写入 pedro.db 不修改任何文件  运行分析和聚类  pedroanalyze --db pedro.db 此： 检测重复项和变体 构建别名集群 计算置信度信号 仍然没有文件突变  检查结果（CLI 示例）  列出检测到的重复簇： pedro Clusters list --db pedro.db 检查一个簇： pedro Clusters show ; --db pedro.db 搜索曲目： pedro 曲目搜索“Pink Floyd” --db pedro.db  （可选）启动 UI  pedro ui --db pedro.db 这将启动本地 React UI： 浏览完整库 检查集群 编辑标签 计划操作  计划和应用操作（仅显式）目前正在开发中。  示例： pedro plan 标签 --cluster ; --artist “正确的艺术家” pedro apply --db pedro.db Pedro 将： 仅应用明确计划的操作 绝不自动删除文件 将所有内容记录在数据库中 * 通用标志 --db  SQLite 知识数据库的路径  --dry-run 显示会发生什么，什么也不做  --verbose 详细日志记录  --limit ;限制已处理文件的数量  --resume 恢复中断的作业  * 设计保证 在摄取或分析期间不会修改文件 所有操作都经过规划 所有状态存储在 SQLite 完全可恢复和可审计 * 典型的第一个会话 pedro ingest ~/Music --db pedro.db pedro 分析 --db pedro.db pedro ui --db pedro.db   由   提交 /u/ArtisticMushroom4173   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjgiq5/quick_guide_to_pedro_organiza_follow_up_from_my/</guid>
+      <pubDate>Thu, 22 Jan 2026 01:14:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建现代的、与供应商无关的开源数据建模工具</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjg5vb/building_a_modern_vendoragnostic_open_source_data/</link>
+      <description><![CDATA[大家好， 我使用数据库已经有一段时间了，我注意到一个一致的“痛点”：在我们的行业中：缺乏现代的、真正开源的、独立于平台的数据建模工具。 虽然我们有很棒的专有选项（ERwin、PowerDesigner）和一些特定于数据库的工具（MySQL Workbench），但 FOSS 社区似乎缺少一个首选解决方案：  多数据库： 支持 PostgreSQL、MySQL、SQLite，也许NoSQL。 Git 友好：以基于文本的格式（如 JSON 或 YAML）存储架构，以便进行版本控制和轻松比较。 跨平台：在 Linux、Windows 和 macOS 上无缝运行。 可扩展：允许插件和自定义 SQL 生成模板。  愿景 目标是创建一个工具，让我们可以设计逻辑和物理模型，对现有数据库执行逆向工程，并生成干净、优化的 SQL 脚本。将其视为“数据建模的 VS 代码”。 - 轻量级、模块化和社区驱动。 为什么是现在？ 随着数据工程和“现代数据堆栈”的兴起，我们看到回归稳健建模的趋势。然而，进入的障碍通常是高昂的许可费或笨重、过时的用户界面。我相信我们可以一起构建更好的东西。 我正在寻找：  开发人员：尤其是那些具有 TypeScript/React（针对 UI）或 Python/Go（针对后端/CLI）经验的人员。 数据架构师：帮助定义核心功能和元数据标准。 UI/UX 设计师：制作数据再次建模视觉和直观。  你觉得怎么样？社区是否也感受到同样的差距？如果有足够的兴趣，我很乐意建立一个 GitHub 组织和一个 Discord/Slack 来开始讨论技术堆栈和初始路线图。 让我们一起构建数据架构的未来！   由   提交/u/brhenz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjg5vb/building_a_modern_vendoragnostic_open_source_data/</guid>
+      <pubDate>Thu, 22 Jan 2026 00:58:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>生成引擎优化</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjfxr4/generative_engine_optimization/</link>
+      <description><![CDATA[有哪些好的开源项目可以优化 AI 搜索网站？有人在这个空间里建造吗？    由   提交 /u/Outrageous-Arm5839   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjfxr4/generative_engine_optimization/</guid>
+      <pubDate>Thu, 22 Jan 2026 00:49:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>Pedro Organiza：我一直在构建的一个确定性、非破坏性、应用前审查的音乐库管理器，它是本地首个音乐库管理器，适合拥有大量、凌乱收藏的人</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qje7mb/pedro_organiza_a_deterministic_nondestructive/</link>
+      <description><![CDATA[大家好， 在过去的几个月里，我一直在构建一个名为 Pedro Organiza 的个人项目 - 一个桌面工具，用于以安全、确定性、应用前审查的方式分析、清理和重新组织大型音乐库。 它开始于个人需求：我有一个非常大、混乱的音乐收藏重复、不一致的标签、破损的专辑以及多年积累的混乱。现有的工具要么太自动化，要么太具有破坏性，要么太不透明，不适合我的口味。 因此，我决定构建一些具有非常严格理念的东西：  没有无声的破坏性行为 没有无法检查的“神奇”操作 始终分析→审查→应用 本地优先：你的音乐永远不会离开你的机器 确定性行为：相同的输入，相同的结果  Pedro 已经可以做什么 当前核心功能：  大型库（数万个文件）的递归扫描 使用 Mutagen 提取元数据 文件指纹和散列 智能别名规范化（艺术家/标题/专辑变体） 重复检测使用： 文件哈希 元数据相似性 模糊匹配  潜在重复项和别名的聚类 两阶段工作流程： 分析和分析建议操作 在 UI 中查看 显式应用   UI 允许您：  从本地 SQLite DB 浏览和搜索整个库 单独或批量编辑标签 在触摸任何内容之前检查重复的集群 准确查看之前将更改的内容执行  后端是Python（FastAPI + CLI工具），前端是React。 设计理念 我一直非常严格遵循的一些原则：  没有自动删除 未经审查就没有不可逆的操作 透明度高于便利性 对于非技术用户来说UI优先，但CLI仍然存在 附加数据库架构（架构演变时不会强制重新扫描）  简而言之：Pedro 适合那些非常关心自己的音乐且不信任黑匣子的人。 目前正在进行的工作 当前正在处理：  完善启动/首次运行的用户体验 提高超大型库（超过 50k 首曲目）的性能 改进别名规范化和集群质量 UI 中更好的进度报告和日志记录 标记侧面板以加快元数据编辑速度  计划的后续功能 已为未来版本规划的一些想法：  新文件的后台观察程序 拖拽删除 UI 中的支持 专辑艺术获取和管理 将过滤后的视图导出为播放列表（.m3u 等） 针对 Windows / macOS / Linux 的打包（AppImage、.exe、.dmg） Flatpak 版本  长期：  用于自定义分析器的插件系统 可选的在线元数据提供商 更好地可视化图书馆健康状况  项目状态  积极开发 尚未“1.0”，但已经可用 开源（许可证仍在最终确定中） 当前在 Linux 上运行，Windows 支持正在进行中  我不是在尝试构建商业应用产品 - 对于拥有大量杂乱收藏的人来说，这是一个严肃的长期开源工具。 寻找 我非常感谢以下人员的反馈：  拥有大型音乐库 尝试过甜菜、MusicBrainz Picard、MediaMonkey 等工具。 关心安全工作流程  我的问题特别感兴趣的是：  您组织音乐的最大痛点是什么？ 您错过了现有工具中的哪些功能？ 您喜欢更多自动化还是更多控制？  如果有兴趣，我很乐意在下一个里程碑发布后分享屏幕截图、设计说明等。 您可以查看一下（正在开发中，因此期待 regulra 更新） https://github.com/crevilla2050/pedro-organiza/ 感谢您的阅读 - 并提前感谢您的任何反馈。   由   提交 /u/ArtisticMushroom4173   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qje7mb/pedro_organiza_a_deterministic_nondestructive/</guid>
+      <pubDate>Wed, 21 Jan 2026 23:37:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>AudioMuse-AI - 幕后花絮</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjd3k2/audiomuseai_behind_the_scene/</link>
+      <description><![CDATA[ 由   提交 /u/Old_Rock_9457   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjd3k2/audiomuseai_behind_the_scene/</guid>
+      <pubDate>Wed, 21 Jan 2026 22:53:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于文本到 SQL 数据代理开源项目的思考</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qjc4wj/thoughts_on_texttosql_data_agent_open_source/</link>
+      <description><![CDATA[大家好，正在寻找对我最近开源的项目的反馈：https://github.com/basejump-ai/basejump 让我知道您的想法 - 寻找一个社区来真正帮助测试它并提供反馈。谢谢！   由   提交/u/Cool-Focus6556  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qjc4wj/thoughts_on_texttosql_data_agent_open_source/</guid>
+      <pubDate>Wed, 21 Jan 2026 22:15:50 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了一个 CLI 工具，可以按含义搜索文件，而不仅仅是关键字</title>
       <link>https://www.reddit.com/r/opensource/comments/1qja1h0/i_built_a_cli_tool_that_searches_files_by_their/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[ 由   提交/u/swe129  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qj4zd7/skip_is_now_free_and_open_source/</guid>
       <pubDate>Wed, 21 Jan 2026 17:55:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于打开 Clip Studio 文件的 FOSS 应用程序</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qj4g8e/foss_app_for_opening_clip_studio_files/</link>
-      <description><![CDATA[有没有一些开源应用程序可以用来打开和查看 .clip（clip studio Paint）文件，并将它们转换为 krita（或 gimp）可以使用的格式。 我没有自己的 Clip Studio Paint（或认识任何人），所以我无法将它们导出为不同的文件 我曾经使用过转换器脚本，但它也搞砸了颜色，所以我不认为这是一个选项   由   提交/u/Zonkko  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qj4g8e/foss_app_for_opening_clip_studio_files/</guid>
-      <pubDate>Wed, 21 Jan 2026 17:36:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>你好！我制作了一个应用程序，可让您使用 AR 将 DSi 草图拉入现实世界......</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qj26cn/hi_i_made_an_app_that_lets_you_pull_your_dsi/</link>
-      <description><![CDATA[      我一直对 Flipnote Studio 着迷。我曾经花几个小时制作短片动画，我特别喜欢“踢屁股”动画。动画片。我想看看是否可以让 DSi 通过互联网与现代后端对话，这就是结果。 它被称为 AetherShell 。它捕获您在 DSi 触摸屏上绘制的内容，并将其实时投影到手机上的 3D 空间中。 它免费且开源。   由   提交/u/royalPayneEenDaArse   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qj26cn/hi_i_made_an_app_that_lets_you_pull_your_dsi/</guid>
-      <pubDate>Wed, 21 Jan 2026 16:14:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为 GitHub Actions 构建了一个lazygit风格的TUI</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qizhdv/i_built_a_lazygitstyle_tui_for_github_actions/</link>
-      <description><![CDATA[      简单问题：推送代码、alt-tab 到浏览器、导航到 Actions、等待页面加载、查找工作流程、检查状态。每天重复 20 次。 解决方案：lazyactions - 一个 TUI，它将 GitHub Actions 带到我已经所在的位置。 它基本上是lazygit，但适用于 CI/CD。三窗格布局、vim 键、实时日志流。 使用现有的 gh CLI 身份验证。 brew install nnnkkk7/tap/lazyactions https://github.com/nnnkkk7/lazyactions   由   提交 /u/okkywhity   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qizhdv/i_built_a_lazygitstyle_tui_for_github_actions/</guid>
-      <pubDate>Wed, 21 Jan 2026 14:34:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>PSF、Rust Foundation、OSI、Apereo、Apache 的 2026 年开源状况</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qiyjmr/state_of_open_source_in_2026_from_psf_rust/</link>
-      <description><![CDATA[      2026 年，我们将加倍支持 #opensource。 2026 年开源活动是我们的第一步。请花点时间聆听这些领导人讲述他们在 2026 年面临的挑战，并在力所能及的范围内提供支持 Ruth Suehle |黛布·尼克尔森 |洛里·洛鲁索 |凯蒂·斯蒂恩-詹姆斯 |帕特里克·马森   由   提交 /u/WalrusOk4591   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qiyjmr/state_of_open_source_in_2026_from_psf_rust/</guid>
-      <pubDate>Wed, 21 Jan 2026 13:56:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个 GPS 跟踪器，可以将数据直接发送到您的服务器（无云）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qiwua1/i_built_a_gps_tracker_that_sends_data_directly_to/</link>
-      <description><![CDATA[嘿 r/opensource， 我厌倦了 GPS 应用程序，它们强迫你通过云端或让你运行复杂的中间件只是为了将位置记录到自己的数据库中。 所以我构建了 Colota -非常简单：  将其指向您的服务器（任何 HTTPS 端点） 它会使用您的 GPS 坐标 POST JSON 完成。  您可能会关心的原因：  首先离线工作 - 保存到本地 SQLite，尽可能同步 自定义 JSON fields - 您的 API 需要 latitude 而不是 lat？只需在设置中重命名即可 地理围栏 - 在家庭/工作中自动暂停跟踪（隐私 + 电池） 无云/遥测/跟踪 - 您的数据保留在您的设备或服务器上 开源 (Github)  示例用例：  个人网站上的实时地图 简单的 INSERT INTO 位置到 PostgreSQL Home Assistant webhook 任何接受 POST 请求的服务器  当前有效的集成：  Dawarich（开箱即用） OwnTracks Recorder Home Assistant 自定义后端（只需接受 JSON）  路线图中的功能：  智能地理围栏管理（可视化地理围栏编辑器（拖动以调整大小）和统计信息：“您工作了 8 小时”今天” 带日期过滤器的位置历史轨迹（查看您一段时间内的移动路径） 统计仪表板（行驶距离（每日/每周/每月；访问最多的地点）  我需要 12 名 Beta 测试人员来满足 Google Play 要求（14 天） 如果您有：  ✅ Android 手机 ✅ 您的拥有自己的服务器（或想要测试离线模式） ✅ 5 分钟安装并提供反馈  加入 Google 群组 [colota-beta-testing@googlegroups.com](mailto:colota-beta-testing@googlegroups.com），然后您可以在 https://play.google.com/apps/testing/com.Colota 常见问题解答： 问题：它会耗尽电池电量吗？ 答：优化后每小时约 5-10%。 问：与 OwnTracks 有什么区别？ 答：持久 SQLite（OwnTracks 使用内存）、更好的重试逻辑、内置导出、无需服务器软件。 问：我需要一个服务器？ 答：100% 离线工作。您可以从应用程序导出数据并在 QGIS 中使用它 问：它发送什么数据？答：仅向您的端点发送 GPS 坐标。 永久免费。   提交者/u/DaTurboD[链接]  &gt;[评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qiwua1/i_built_a_gps_tracker_that_sends_data_directly_to/</guid>
-      <pubDate>Wed, 21 Jan 2026 12:40:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在作弊吗？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qiuagx/am_i_cheating/</link>
-      <description><![CDATA[因此，我正在 GitHub 上运行一个规模较小的开源项目，约有 1.2k 颗星（有趣的是，它既不是开发工具也不是库，而是我在线托管的一个超级利基、面向消费者的教育工具）。  最近，我有了自动生成“good first issues”的想法。回购协议旨在鼓励项目增长并增加项目流量。这些问题非常简单，任何在我们的技术堆栈甚至一般编程方面具有 0 经验的人都可以进来，在一分钟内完成它们，打开 PR 并完成它。  你瞧，这个 repo 已经获得了 100 多个新的一次性贡献者以及相应数量的 star 和 fork，以至于我觉得我这样做是在欺骗系统和 GitHub 的算法；自动创建的“良好优先问题”充其量是单调和脑死亡的，即使它们的内容在技术上到达了最终用户，这些问题/贡献除了持续地、人为地夸大我的存储库的明星/分叉/贡献者数量之外，没有提供任何真正有意义的价值。  那么，我是在作弊吗？欢迎所有反馈。    由   提交 /u/tentoumushy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qiuagx/am_i_cheating/</guid>
-      <pubDate>Wed, 21 Jan 2026 10:21:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个轻量级、仅限客户端的电子表格 Web 应用程序。所有数据都保留在 URL 哈希中，以便即时共享，无需后端。可选的 AES-GCM 密码保护无需服务器即可锁定共享链接</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qitjkx/a_lightweight_clientonly_spreadsheet_web/</link>
-      <description><![CDATA[   我们正在构建一个无服务器电子表格工具，可直接将数据保留在 URL 中以进行即时共享。抛弃后端，加密您的工作表，并通过单个链接安全地共享它们。 评论部分中附有存储库链接和演示链接   由   提交/u/lakmal007  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qitjkx/a_lightweight_clientonly_spreadsheet_web/</guid>
-      <pubDate>Wed, 21 Jan 2026 09:35:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
