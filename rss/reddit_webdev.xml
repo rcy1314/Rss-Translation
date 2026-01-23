@@ -4,7 +4,70 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 23 Jan 2026 18:43:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Jan 2026 21:27:53 GMT</lastBuildDate>
+    <item>
+      <title>我使用零信任服务器架构构建了加密文件/文件夹共享服务</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql33rg/i_built_an_encrypted_filefolder_sharing_service/</link>
+      <description><![CDATA[      我一直遇到一个问题，我需要在我的服务器上托管一些文件并让其他人在自己的时间下载，但这些文件不应该无限期地存在于服务器上。 因此我构建了一个具有自动文件驱逐逻辑的加密文件/文件夹共享平台。 我的项目的用途：  允许用户无需注册即可上传文件。 自动从 s3 (rustfs) 存储中逐出文件。 客户端加密，服务器只是前端和 s3 存储之间的一个哑接口。  比较：  前端 ui 的可自定义限制（firefox send 中不存在） 未来对 CLI 和 TUI 的支持 社区希望的任何内容  目标受众  有兴趣托管自己的私有文件/文件夹共享平台实例的人 想要自行托管更具可定制性版本的firefox send 或其 Tim Visée fork  Stack  [Svelte + Shadcn-svelte] 用于前端 Fastapi 用于后端 Celery 用于处理后台任务 Rustfs 用于处理 s3 文件 Redis 用于消息队列  查看：https://chithi.dev Github 链接：https://github.com/chithi-dev/chithi 管理界面图片：图片 1 图片 2 图片3 请注意，公共服务器运行在具有 4GB RAM 的 core 2 duo 上，具有 250Mbps 上行链路和 50GB sata2 ssd（由 rustfs 引用），与运行大量服务的家庭连接共享。 感谢您的阅读！很高兴收到任何类型的反馈:)   对于任何想了解我在项目中实现的一些奇特网络事物的人 Fastapi  通过取决于：守卫和装饰器 分块的 S3 上传  前端  在前端压缩 Argon 2 加密     由   提交/u/BasePlate_Admin  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql33rg/i_built_an_encrypted_filefolder_sharing_service/</guid>
+      <pubDate>Fri, 23 Jan 2026 21:10:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 React、Vite 6 和 HTML5 Canvas（开源）构建了一个无服务器图像转换器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql2gcm/i_built_a_serverless_image_converter_using_react/</link>
+      <description><![CDATA[我想了解如何在没有后端的情况下在浏览器中处理文件。 我构建了Secure Converter。它使用 WebAssembly 和 Canvas toBlob 完全在客户端处理 JPG、PNG、WebP 和 HEIC 转换。 技术堆栈：  React + TypeScript Vite 6（最新版本） Zustan（用于修复重新渲染循环的原子选择器） Tailwind CSS  我还必须实现自定义服务模式来延迟加载繁重的 HEIC 库，以便初始包保持较小（~400kb）。 Repo 和现场演示： https://github.com/AmineAce/privacy-converter   由   提交 /u/AmineAce   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql2gcm/i_built_a_serverless_image_converter_using_react/</guid>
+      <pubDate>Fri, 23 Jan 2026 20:46:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>分享您在工作/日常生活中使用人工智能的过程。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql1t3e/share_your_process_of_using_ai_in_your_workdaily/</link>
+      <description><![CDATA[我最近买了一个更大的显示器，这样我就可以并行运行多个人工智能代理。您是否开发了一个在日常生活或工作中使用人工智能的系统？ 以下是我的流程以及我如何努力在这个疯狂的快节奏中保持相关性： 我使用 ChatGPT“扩展思维”来创建高级思维，供其他法学硕士使用。它提供了详细的信息说明并帮助我填写日常细节。 但是，充分利用人工智能的一个好方法是避免在新项目开始时使用它。尽可能放下你的愿景。避免用它来设定你想要实现的目标的北极星的诱惑。只有在你完全说完你要说的话之后才使用它。 然后，只有到那时，你才能将你写的内容输入人工智能，这样你就可以进一步发展你的想法。它是放大器，而不是催化剂。 我发现我经常在 YouTube 视频中看到的（完成软件的一次性提示）与现实相去甚远。总会有错误、需要改进的地方，甚至想法本身也会随着时间的推移而发展。 以下是我通常如何将这种思维应用到编码中：我使用 Antigravity 作为我的 IDE，以及 Gemini CLI 和 OpenCode。我主要使用 OpenCode 来启动项目，因为我喜欢它在构建模式下需要最少的干预，并且它提供了相当不错的免费模型。 然后我转向 Antigravity 并使用 Gemini （高）模型来评估 OpenCode 的输出、验证它，并制定明确的行动计划来处理项目的其余部分。 这个过程帮助我更快地创建。我目前正在致力于使用人工智能代理实现此工作流程的自动化。 这就是我所拥有的一切。这就是我收敛的过程。有如此多的内容——成千上万的人说“这就是你应该如何使用人工智能”——这就是我的方式。   由   提交 /u/__Yassine__   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql1t3e/share_your_process_of_using_ai_in_your_workdaily/</guid>
+      <pubDate>Fri, 23 Jan 2026 20:21:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>用户脚本的编码代理</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql169p/coding_agent_for_user_scripts/</link>
+      <description><![CDATA[      我一直在尝试将 Claude Code 风格的编码代理直接嵌入到浏览器中。 在较高级别上，该代理生成并维护在页面加载时重新应用的用户脚本和 CSS。代理不仅仅是在控制台中通过 JS 编辑 DOM，而是将页面和 DOM 视为文件。 模型通常在 RL 沙箱中进行训练，可以完全访问文件系统和 bash，因此它们非常擅长使用它。因此，为了使代理表现良好，我模拟了这个环境。 页面和脚本的整个状态是作为在 browser.local 存储之上破解的虚拟文件系统实现的。 URL 映射到目录，代理在该目录内启动。它有读取/编辑文件的工具、grep around 和一个仅用于运行脚本和执行 JS 代码的伪 bash 命令。 到目前为止，我只使用 Opus 4.5 进行了测试，它工作得相当可靠。 文件系统的状态可以通过 JSON 保存/恢复，但理想情况下我希望有一个无缝的 FS，可以直接写入本地计算机上的某个沙盒目录。   由   提交/u/heraldev  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql169p/coding_agent_for_user_scripts/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:57:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个游戏化的健身网络应用程序（现在我可以坚持锻炼了）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql10ad/built_a_gamified_fitness_web_app_now_i_can_stick/</link>
+      <description><![CDATA[      我一直在努力一个健身网络应用程序作为一个副项目，我正处于一个非常重视外部反馈的阶段。 我只是喜欢游戏化的东西，因为大多数锻炼应用程序甚至都提供了最基本的功能付费，所以我想创建一些有趣的东西，所以我把它当作一个游戏系统。 这仍然是一个早期版本，但这是我已经实现的 -   基于您的锻炼的升级系统完成。 能够创建例程（私人或公共）并根据这些例程开始锻炼课程。 排行榜!!! 以及连胜系统。  如果您愿意测试或只是想探讨一下这个想法（笑），我洗耳恭听！ 看看 -&gt; https://fitxp.vercel.app   由   提交/u/fuzzypop_  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql10ad/built_a_gamified_fitness_web_app_now_i_can_stick/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:51:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>[周六展示]：我们建立了一个网站，解释增强岩石风化背后的科学原理[第 2 部分]</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql0szn/showoff_saturday_we_built_a_website_explaining/</link>
+      <description><![CDATA[       由   提交/u/madovermoto   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql0szn/showoff_saturday_we_built_a_website_explaining/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:43:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 React.js 中跨页面视图保留动画状态</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql0sgw/persisting_animation_state_across_pageviews_in/</link>
+      <description><![CDATA[      通过使用种子随机数和本地存储，我们可以帮助静态站点感觉像一个持久的应用程序。 JavaScript 只是处理“数学”问题。一开始，CSS 处理“艺术”。会话的其余部分。   由   提交 /u/AndyMagill   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql0sgw/persisting_animation_state_across_pageviews_in/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:43:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>制作酒店网站用什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql0jy0/what_to_use_for_making_a_hotel_website/</link>
+      <description><![CDATA[嘿，如果这不是提问的正确位置，那么我深表歉意，并将我重定向到正确的 Reddit 子版块。 我需要为某人制作一个酒店网站，但我不确定最好的方法是什么。我需要制作前端/外观以及功能，例如添加房间、预订可用性日历、付款选项等。 现在我是一名后端开发人员（PHP/Symfony），但我无法想象解决此问题的正确方法是自己从头开始构建所有内容。我已经考虑过使用 Wordpress，但大多数插件似乎需要专业版才能真正被真正的酒店使用，免费版本似乎更像是一个“展示”版本。让你选择专业版（这是完全可以理解的，我对此没有任何问题，除了我现在真的付不起钱）。  我不想陷入这种情况，但基本上我想自己构建这个，而不是向人要钱购买插件等，所以就把它当作给定的。 你们对这类事情有什么建议或经验吗？   由   提交/u/Letalis_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql0jy0/what_to_use_for_making_a_hotel_website/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:34:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>评价该网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ql001l/rate_this_website/</link>
+      <description><![CDATA[下午好，我想让您看看我的第二个网站。我今天完成了，但我想向更有经验的人请教一些建议。   由   提交/u/Vsk-0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ql001l/rate_this_website/</guid>
+      <pubDate>Fri, 23 Jan 2026 19:14:13 GMT</pubDate>
+    </item>
     <item>
       <title>将 PDFMe 与 PayloadCMS 集成以实现可视化模板设计器和后台作业</title>
       <link>https://www.reddit.com/r/webdev/comments/1qkxufa/integrating_pdfme_with_payloadcms_for_a_visual/</link>
@@ -18,13 +81,6 @@
       <description><![CDATA[经营一家在线家居用品商店。规模不错，月收入80万左右。去年，移动购物车中出现了这个小错误，其中结帐按钮在某些 Android 设备上被部分隐藏。 似乎并不重要，因为一切正常，按钮从技术上来说只是不明显。我们认为我们会在下一个冲刺中修复它。 六周后，我们终于开始关注移动分析。 Android 上的购物车放弃率比 iOS 上高 31%。修复了按钮可见性和放弃率立即回落到正常水平的问题。 做了数学计算。在这六周内，一个小小的 UI 问题可能让我们损失了大约 45,000 美元的收入。一旦我们真正查看了它，就花了 30 分钟来解决这个问题。 现在我痴迷于测试任何靠近资金流的东西。结帐、购物车、付款方式、促销代码。我能想到的每一个设备、每一个浏览器、每一个边缘情况。 你真的无法承受购买路径中任何地方的错误。即使是看似微不足道的用户界面问题，也可能在您注意到之前数周内默默地减少收入。 还有其他人遇到过看似很小但花费了真正金钱的错误吗？   由   提交 /u/Sea_Weather5428   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1qkxffb/small_ui_bugs_can_silently_cost_thousands_learned/</guid>
       <pubDate>Fri, 23 Jan 2026 17:41:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>修复菱形疼痛结（以及为什么我停止拉伸）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkx3ag/fixing_the_rhomboid_pain_knot_and_why_i_stopped/</link>
-      <description><![CDATA[      由于我们中的许多人每天要花 8-10 个小时埋头编写代码，我想分享一下在 3 年失败后最终解决了我的肩胛骨（菱形肌）之间的灼痛的方法。 我过去常常在显示器旁边的桌子上放一个长曲棍球。每当构建花费太长时间或者我遇到错误时，我都会把它压在我的背上。 20 分钟感觉很好，但第二天结总是变得更糟。 作为开发人员，我们在调试代码方面很合乎逻辑，但在调试我们的身体方面却很糟糕。我终于明白了残酷的事实：我的背部肌肉并不“紧绷”。它们被“锁定很长时间”。 想想你的编码姿势。肩膀向前滚动，头伸向屏幕。你的菱形肌一整天都在被拉开。当你拉伸它们时（这是我们的本能），你正在撕裂已经达到物理极限的肌肉。 我正在治疗症状（背部疼痛），而不是根本原因（打字造成的胸部紧绷）。 这是最终打破循环的方案：  停止拉伸背部。停止下巴收紧和斜跨身体拉伸。您正在刺激过度拉伸的组织。 打开前部。您的胸肌因悬停在键盘上而紧张。使用门框伸展胸部。这可以阻止它们向前拖拽您的肩膀。 胸部灵活性。我们因坐着而变得僵硬。使用泡沫轴轻轻伸展上背部（向后弯曲），使脊柱移动。 启动下斜方肌。压力使我们耸肩（上斜方肌）。我必须重新学习如何将肩胛骨向下拉，减轻菱形肌的负担。  如果您目前正坐在那里试图让背部骨折，请尝试打开胸部。 我在这里写了一份完整的日常安排和具体练习细目：我与无法治愈的菱形疼痛的三年斗争   由   提交/u/Free_Scratch4152   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkx3ag/fixing_the_rhomboid_pain_knot_and_why_i_stopped/</guid>
-      <pubDate>Fri, 23 Jan 2026 17:29:00 GMT</pubDate>
     </item>
     <item>
       <title>我对打字错误表示歉意。 Egghead.io 是一个骗局，请注意。</title>
@@ -53,62 +109,6 @@
       <description><![CDATA[刚刚为重构的树遍历编写测试时有点懒。我打开了 ChatGPT，尽我所能地解释了目的和预期行为，给了它原始和重构的代码，并向它展示了一些示例用法和输出。 在它甚至有机会在技术细节上犯错误之前，它给了我； ts // 供参考，`EnterExitPair` 这里只包含 `enter` 和 `exit`，没有更多功能 someTestHelper( traversalFn: TraversalFnType, root: NodeType, Cases: EnterExitPair, ) { const result = traversalFn(root, { ...cases, Enter: (node) =&gt; /*一些跟踪内容*/, exit: (node) =&gt; /*更多一些跟踪内容*/, }) }  有效保证 someTestHelper 的任何非平凡使用都会导致测试失败，因为提供的情况永远不会运行。 这并不是说我没有给它足够的信息或任何东西，这只是基本的 ES6 对象。 有人用这些东西构建整个应用程序。他们究竟如何处理这些散布在代码中的初学者错误？尤其是使用法学硕士进行编程的非开发人员。开发周期只是“要求重构直到它起作用”吗？ 总之，它只是提醒了我为什么不让 LLM 编写代码。   由   提交 /u/Squidgical   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1qkvl30/how_on_earth_do_folks_get_anything_good_out_of/</guid>
       <pubDate>Fri, 23 Jan 2026 16:34:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>最小化、无干扰的实时 Markdown 编辑器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkunvu/minimal_distractionfree_live_markdown_editor/</link>
-      <description><![CDATA[      最小干扰的实时 Markdown 编辑器 https://github.com/getmarkon/markon https://getmarkon.com/    由   提交/u/Last_Establishment_1   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkunvu/minimal_distractionfree_live_markdown_editor/</guid>
-      <pubDate>Fri, 23 Jan 2026 16:00:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用正则表达式模式 + AI 构建混合安全扫描器 - 对方法的想法？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qktqkb/built_a_hybrid_security_scanner_using_regex/</link>
-      <description><![CDATA[我差点在凌晨 2 点的编码会话中将硬编码的 AWS 凭证发送到生产环境。开始寻找自动化安全扫描仪，但对于独立开发人员来说，企业级的一切都是每月 200 美元以上。 使用混合方法构建自己的解决方案，我想从 r/webdev 获得反馈。 技术架构 模式匹配层 (60-70%)覆盖率）  针对常见漏洞的 80 多个手写正则表达式模式 首先运行、零 API 成本、即时结果 模式：硬编码机密、SQL 注入、XSS、弱加密、路径遍历  硬编码 AWS 密钥的示例模式： (?i)(aws_access_key_id|aws_secret_access_key)\s*=\s*[&#39;&quot;][A-Z0-9]{20}[&#39;&quot;]  AI 语义层（30-40% 复杂问题）  用于上下文相关分析的 DeepSeek V3 处理：微妙的逻辑错误、数据流分析、架构气味 带有特定检测指令的约 1500 个令牌提示  为什么混合？  纯正则表达式：速度快，但会错过上下文相关的问题 纯人工智能：昂贵、速度较慢、误报 混合：两全其美  技术实现 后端：Vercel 上的 Node.js 无服务器功能  基于优先级的扫描（安全→错误→质量） 用于实时流结果的服务器发送事件 流行存储库的社区缓存层 (Redis)  分析管道：  GitHub API 获取存储库文件 模式匹配首先运行（即时反馈） AI 分析排队进行复杂检查 结果在发现时通过 SSE 流回  数据库：无服务器 PostgreSQL (Neon)  缓存扫描结果 通过 GitHub OAuth 进行用户身份验证  r/webdev 的问题：  混合方法是否过度设计？我应该只使用 AI 来完成所有事情并承担成本吗？ 正则表达式维护：目前有 80 多种模式。在什么时候这会变得无法维护？ 误报率：从 AI 层获得约 5-10% 的误报。值得权衡吗？ 无服务器扩展：有人在执行此类计算密集型任务时使用 Vercel 函数达到了限制吗？ 替代架构：您会采用不同的方法吗？  示例输出 扫描给出 0-100 的分数并对问题进行分类：  安全性：硬编码秘密、SQL 注入、XSS 错误：空引用、竞争条件、内存泄漏 质量：重复、复杂性、过时的模式  技术堆栈  前端：React + TypeScript + Vite 后端：Node.js + Express（无服务器） 数据库：PostgreSQL (Neon) AI：DeepSeek V3 和 Zai API Auth：GitHub OAuth  将其构建为开源 (MIT) - 如果有人想查看实现细节，代码可以在我的个人资料中。 很好奇 r/webdev 对这种架构的看法。您是否信任生产安全扫描的混合方法？ Live：codevibes.akadanish.dev Github：github.com/danish296/codevibes   由   提交 /u/NeedleworkerThis9104   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qktqkb/built_a_hybrid_security_scanner_using_regex/</guid>
-      <pubDate>Fri, 23 Jan 2026 15:25:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>添加了用于 3D 建模的 X 射线模式和命令快捷方式。 #trijs</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkskoq/added_xray_mode_and_command_shortcuts_for_3d/</link>
-      <description><![CDATA[       由   提交/u/Sengchor  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkskoq/added_xray_mode_and_command_shortcuts_for_3d/</guid>
-      <pubDate>Fri, 23 Jan 2026 14:41:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站审查</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkqv53/website_review/</link>
-      <description><![CDATA[大家好，我很乐意在我的网站上获得反馈，我一直在为即将发布的漫画书而努力。从我开始的地方到现在我对这个外观非常满意。但我想向公众开放它并获得一些反馈！ Dark Root Comics 仅供我参考，鉴于我住在澳大利亚悉尼，所以请不要删除！   由   提交/u/GrkGod29  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkqv53/website_review/</guid>
-      <pubDate>Fri, 23 Jan 2026 13:31:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为编码教程视频的创作者，我非常感谢一些关于下一步该做什么的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkqm7p/as_a_creator_of_coding_tutorial_videos_i_would/</link>
-      <description><![CDATA[我需要一些生活建议（也许这不是正确的 Reddit 子版块，但 Web 开发是我过去 28 年一直从事的领域，并且与此相关）。 我自 1998 年以来一直从事 Web 应用程序开发（是的，我已经工作了一段时间 - ASP、LAMP 等）。 很久以前2012 年，我在 Udemy 上发布了课程（使用 PHP 和 MySQL 进行身份验证）。  虽然它并没有让我变得富有，但它确实让我意识到我喜欢教学，而视频课程是一种给我自由的方式（主要是因为我可以按照自己的时间表工作，这样我就可以在我的孩子成长过程中陪伴他们）。 从那时起，我几乎把 Udemy（有更多课程，专注于 PHP 的后端开发）和 YouTube 作为我唯一的收入来源，而且它给了我很好的收入我的收入足以维持生计。 但是，视频教程似乎已经过时了。据我从这里阅读的其他帖子来看，这是由于人工智能（例如，使用人工智能而不是在 YouTube 上查找教程，还有氛围编码）和较短的注意力跨度。 这一点已被 Jeffrey Way 和 Brad Traversy 等大人物在他们的文章中证实。类似主题的视频。 （相比之下，我是一条非常小的鱼） 我真的很喜欢创建编码教程，我从视频中得到的反馈表明人们喜欢它们并发现它们有用，但这不再转化为有用的收入。 所以我的问题是 -  编码教程视频（和更长的视频课程）不再值得麻烦吗？当你想学习新东西或解决问题时，人工智能现在是你首选的老师吗？ 基本上，我想知道是否继续尝试创建 Web 开发课程和教程，或者接受我需要完全转向其他东西。 （请在回复时保持温和，我觉得我正处于职业生涯的十字路口！）   由   提交/u/dholli  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkqm7p/as_a_creator_of_coding_tutorial_videos_i_would/</guid>
-      <pubDate>Fri, 23 Jan 2026 13:20:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>3 YOE 开发人员经常忘记我读过的东西。您的捕获 + LLM 工作流程是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkqkya/3_yoe_dev_constantly_forgetting_the_stuff_i_read/</link>
-      <description><![CDATA[3 年了（主要是 JS/TS、React、Node），我在这方面仍然很糟糕：我用 Google 搜索一个概念，认为“很酷”，关闭选项卡，然后完全忘记它。 6 个月后，我再次学习它，就像它是全新的一样。 即使当我将内容保存在 Notion 中或阅读文档时，大多数内容仍然是半懂半懂，而我关心的原因为零。 我喜欢一个简单的浏览器扩展或工具，它可以让我：  在任何地方突出显示文本/概念→一键发送到队列 标记为待处理 /半生不熟/扎实/掌握 自动获得 LLM 以获得清晰的解释+真实的 JS/React 示例+我过去笔记的链接 保留一些我的堆栈记忆，以便随着时间的推移答案会变得更聪明 添加温和的提醒或间隔重复  尝试过 Readwise、Obsidian Clipper、Raindrop + AI hacks 和 Anki - 没有什么完全击中目标。 有人找到了真正适用于此的良好设置（付费、免费或简陋组合）吗？很想听听您真实的工作流程。   由   提交 /u/Which_Remove_6108   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkqkya/3_yoe_dev_constantly_forgetting_the_stuff_i_read/</guid>
-      <pubDate>Fri, 23 Jan 2026 13:18:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何与 Hono、Hocuspocus 和 Bun 实现“类似 Google 文档”的协作</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkqi3p/how_i_implemented_googledocslike_collaboration/</link>
-      <description><![CDATA[嘿 r/webdev， 我一直在构建一个开源文档编辑器 + 写作工作区，最近开始实现实时协作。  我以前从未实现过协作编辑，而且我来自 AWS Lambda / Vercel 世界，因此 WebSocket 和长时间运行的进程（甚至在 Bun 下运行）对我来说都是新领域。  我最终在客户端连接了 TipTap + Yjs，在后端连接了 Hocuspocus。一些可能节省某人时间的实用知识： 我非常惊讶 Hocuspocus 封装了所有复杂逻辑，因此您只需根据授权和持久性定义业务逻辑。更重要的是，因为它们与 TipTap（由同一团队创建）紧密集成。 我确实看到上述几点也可能是一件消极的事情；就我而言，我不需要任何疯狂的功能，因此它非常适合我的扩展和接口 Hocuspocus 提供的功能，但我可以看到它们的抽象将如何使“深入”应用变得更加困难。在功能上 - 在这种情况下，我认为直接使用 Yjs（使用 y-websocket 之类的东西）会更明智。 在服务器端，我使用 Hono 作为 API，并通过添加 WebSocket 路由并将原始套接字交给 Hocuspocus 的 handleConnection 来在同一进程中保持协作。这部分很简单。  第一个真正的问题是运行时级别的：我最初在 Bun 下运行服务器，但我使用的 Hocuspocus 集成需要 Node 的 WebSocket 接口。 Bun 的 WebSocket 很接近，但又足够不同，以至于我最终将该服务切换回 Node。如果你想把所有东西都放在 Bun 上，那么值得尽早检查。  Auth 最终变得非常干净。 Hocuspocus 在同步任何文档状态之前调用 onAuthenticate 挂钩，因此您可以快速失败。我从请求标头验证会话（我正在使用 better-auth），然后进行简单的访问检查。我的文档是组织范围的，所以基本上是：加载文档&gt;获取组织ID&gt;确认成员身份。 如前所述，持久性是我最不关心的问题，因为 Hocuspocus 为不同的存储提供了一些非常方便的适配器 - 在我的例子中，我使用数据库扩展轻松地将其连接到我的 Postgres 数据库（与 Drizzle 一起）。文档从Yjs格式（UInt8Array）序列化为base64，以便于存储。  这里需要注意的是，您不想坚持每次击键。 Hocuspocus 有内置的去抖功能，所以我只坚持 25 秒后不进行编辑。这也成为副作用的一个方便的边界。  就我而言，我会在文档发生变化时从文档生成派生数据（语义搜索/嵌入）。在同一个去抖存储钩子中运行该工作是一个很好的折衷方案：它的每次击键成本并不高，但它保持相当新鲜。  说实话，我推迟了在编辑器中实现实时协作（尽管知道这是必须的），而且我很惊讶今天的技术是多么容易实现（以及它们协同工作的效果）。 有兴趣听听您的看法！ 也有兴趣听听使用实时协作的更成熟项目的故事。我的项目仍处于早期阶段，但我感兴趣的是在支持这样的流程时资源需要如何扩展。我目前正在最便宜的 EC2 实例上运行。  我在下面的文章中写了关于实现协作部分的过程的完整且更具技术性的文章： https://lydie.co/blog/real-time-collaboration-implementation-in-lydie  很高兴分享更多详细信息，如果是的话有用。   由   提交 /u/Chucki_e   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkqi3p/how_i_implemented_googledocslike_collaboration/</guid>
-      <pubDate>Fri, 23 Jan 2026 13:15:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>处理许多打开的选项卡时的跳房子工作流程</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qkq1ik/hoppscotch_workflow_when_dealing_with_many_open/</link>
-      <description><![CDATA[我一定错过了一些显而易见的东西。我目前正在探索新的 REST api 并使用 hopscotch。我很快就打开了大约 20 个选项卡。  如何查看打开的选项卡列表？ 如何快速更改选项卡窗口？ 如何重新排序，甚至更好地分组组织选项卡？  导航比窗口更多的打开选项卡实际上是不可能的。我一定错过了什么？   由   提交 /u/JohnDoe365   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qkq1ik/hoppscotch_workflow_when_dealing_with_many_open/</guid>
-      <pubDate>Fri, 23 Jan 2026 12:54:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
