@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 24 Jan 2026 15:25:47 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jan 2026 18:37:06 GMT</lastBuildDate>
+    <item>
+      <title>编写一个通用的 JSON.stringify 来序列化任何 C 结构？通过反射使其成为可能的实验</title>
+      <link>https://www.reddit.com/r/programming/comments/1qluj9z/writing_a_generic_jsonstringify_that_serializes/</link>
+      <description><![CDATA[C 没有模板，也没有本机反射，这通常会导致一个熟悉的问题：任何时候您需要序列化、验证、克隆或遍历结构时，最终都会重复编写相同的逻辑或为每种类型生成大量样板代码。 减少这种重复的一种方法是将元数据生成与运行时逻辑分开。 这篇文章着眼于 Reflect-C，一个探索这一想法的小型 C 项目：它不是为每种类型生成序列化器/解析器，而是在构建时仅生成一个元数据层，然后使用该元数据驱动通用运行时代码。 核心思想 在构建时：  类型在类似 DSL 的“配方”标头中描述一次 生成器发出描述字段名称、类型、偏移量、限定符等的静态元数据。  在运行时：  实例被包装在轻量级反射句柄中 通用代码迭代元数据以统一检查或操作字段  重要的约束是不会发生运行时类型发现。所有信息在编译时都是已知的，并以纯 C 数据结构的形式发出。 为什么这在 C 中很有趣 没有模板或泛型，C 代码通常将逻辑与类型结合起来。例如，JSON 序列化通常会变成：  每个结构一个函数 或者发出完整序列化器的大型代码生成步骤  通过仅生成元数据，通用逻辑（JSON、二进制编码、验证、比较等）可以驻留在一个地方并适用于许多不相关的结构！这会将代码生成从行为转变为描述。 最小示例：通用 JSON stringify /* C 中的通用 JSON.stringify() */ static void json_stringify(const struct Reflectc_wrap *obj, char buf[], size_t bufsize) { /* 迭代字段，检查类型信息，发出 JSON */ }  在调用站点，不需要每种类型的序列化器： struct person alice = {“Alice”, 30, true, “alice@example.com”};结构reflectc*registry=reflectc_init(); struct Reflectc_wrap *w = Reflectc_from_person(registry, &amp;alice, NULL);字符 json[256]； json_stringify(w, json, sizeof json);  序列化器只能看到元数据+指针，而不是具体类型。 完整的工作实现可以在这里找到：https://github.com/lcsmuller/reflect-c/blob/master/test/runtime.c 设计约束和权衡 这种方法故意避免：  动态类型 ABI 自省 编译器插件或 AST 工具  作为交换，它需要：  生成元数据的构建步骤 通过配方标头显式选择加入  结果不是“真正的反射”，而是一种在 C 的约束范围内工作的务实的中间立场，并保持运行时代码简单和可重用。 何时这种模式有意义  REST API 规范包装器（我的主要用例） 协议或序列化层 验证和检查工具 类型定义稳定但逻辑不断发展的情况  这不是灵丹妙药，但它是重新思考 C 语言密集型代码库中实际需要多少重复的有趣方法。   由   提交 /u/LucasMull   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qluj9z/writing_a_generic_jsonstringify_that_serializes/</guid>
+      <pubDate>Sat, 24 Jan 2026 18:23:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>RustyPP：一个 C++20 库和 Clang 工具，用于强制执行类似 Rust 的安全性和可变性。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qluakt/rustypp_a_c20_library_and_clang_tool_to_enforce/</link>
+      <description><![CDATA[在这里找到源代码！：https://github.com/I-A-S/RustyPP 嘿伙计们 我最近开始学习 Rust，非常喜欢借用检查机制，更重要的是“默认情况下不可变”。方面（实际上还有更多方面）。 随着 Microsoft 将 Rust 放入 Windows 内核，Linus 批准将其用于 Linux 内核，让我们承认，Rust 正在成为对 C++ 的复仇者级别威胁。出于充分的原因，在当今时代，安全性和安全性变得越来越重要。 我的目标是推广（并使用 rustypp-validator 强制执行），将 Rust 的优点用于 C++。 以下是 RustyPP 目前提供的内容：  单个标头包含：rustypp.hpp（这为您提供了 Mut、Const、Ref、MutRef、Result 和基本可选选项）类型别名 u8、i32 等） rustypp-validator：这是一个独立的 C++ 编写的可执行文件，嵌入 clang 以强制执行“安全”验证。编码实践。 rustypp-vscode：VSCode 扩展，可在您输入时为您提供实时验证器检查  以下内容已计划但尚未提供：  CLion 扩展 RustyPP 转换器  RustyPP 仍然是 v0.1.0 顺便说一句，因此 API 不是最终版本，可能会发生变化（尽管如果收益大于成本，我只会添加重大更改） 我的希望是使 C++ 代码库更加安全（和标准化）。我喜欢 cpp，而不是让 Rust 成为我的日常驱动程序，我试图将 Rust 真正好的方面带到 cpp 中。 项目是在 Apache v2 下发布的。 欢迎任何和所有反馈！   由   提交/u/I-A-S-  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qluakt/rustypp_a_c20_library_and_clang_tool_to_enforce/</guid>
+      <pubDate>Sat, 24 Jan 2026 18:14:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>嘿，我是一名全栈 Web 开发人员，我自己构建了几个全栈多功能项目，有人请告诉我如何获得 10,000 卢比的校外实习机会吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qltoc4/hey_im_a_full_stack_web_developer_and_i_have/</link>
+      <description><![CDATA[ 由   提交/u/davygamer18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qltoc4/hey_im_a_full_stack_web_developer_and_i_have/</guid>
+      <pubDate>Sat, 24 Jan 2026 17:52:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>对我的新作品集的反馈！！</title>
+      <link>https://www.reddit.com/r/programming/comments/1qlthsh/feedback_on_my_new_portfolio/</link>
+      <description><![CDATA[..   由   提交/u/davygamer18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qlthsh/feedback_on_my_new_portfolio/</guid>
+      <pubDate>Sat, 24 Jan 2026 17:45:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>初级 React 开发人员的工资是按小时计算的吗？我怎样才能轻松找到一个？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qltdui/junior_react_developer_salary_rate_hourly_based/</link>
+      <description><![CDATA[对于经验不足一年的初级 React 开发人员。 对于这种相关项目或工作，我可以以全职或承包商的身份开始收费多少？ 我想根据开发职业年龄了解你的薪水。   由   提交 /u/Flashy_Roof3908   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qltdui/junior_react_developer_salary_rate_hourly_based/</guid>
+      <pubDate>Sat, 24 Jan 2026 17:41:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>google在浏览器级别满足使用什么样的RPC？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qltayt/what_kind_of_rpc_does_google_meet_use_at_the/</link>
+      <description><![CDATA[我很好奇 google meet 应用程序从浏览器进行的网络调用是什么，并遇到了对 /$rpc/google.rtc.meetings.v1.MeetingSpaceService/SyncMeetingSpaceCollections 的网络调用，其内容类型为 x-protobuf。任何人都知道这是什么类型的远程过程调用。是 gRPC-web 还是仅在 Google 内部使用的自定义版本？   由   提交 /u/CaptainCodeKe   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qltayt/what_kind_of_rpc_does_google_meet_use_at_the/</guid>
+      <pubDate>Sat, 24 Jan 2026 17:38:31 GMT</pubDate>
+    </item>
     <item>
       <title>电子纸笔记本电脑的抖动</title>
       <link>https://www.reddit.com/r/programming/comments/1qlowl6/dithering_for_an_epaper_laptop/</link>
@@ -13,25 +55,11 @@
       <pubDate>Sat, 24 Jan 2026 14:50:48 GMT</pubDate>
     </item>
     <item>
-      <title>宣战理由工程：牺牲建筑</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlob0x/casus_belli_engineering_the_sacrificial/</link>
-      <description><![CDATA[ 由   提交/u/kivarada   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlob0x/casus_belli_engineering_the_sacrificial/</guid>
-      <pubDate>Sat, 24 Jan 2026 14:25:31 GMT</pubDate>
-    </item>
-    <item>
       <title>啊，SEO 不再一样了，谷歌没有列出它们？</title>
       <link>https://www.reddit.com/r/programming/comments/1qlo3rx/ahh_seo_no_longer_same_anymore_google_not_listing/</link>
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qlo3rx/ahh_seo_no_longer_same_anymore_google_not_listing/</guid>
       <pubDate>Sat, 24 Jan 2026 14:16:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chrome 的 Gemini Nano 已投入生产：合格率 41%，速度慢 6 倍，成本 0 美元</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlny08/chromes_gemini_nano_in_production_41_eligibility/</link>
-      <description><![CDATA[ 由   提交/u/mbuckbee  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlny08/chromes_gemini_nano_in_production_41_eligibility/</guid>
-      <pubDate>Sat, 24 Jan 2026 14:10:05 GMT</pubDate>
     </item>
     <item>
       <title>我开始将决定具体化，然后在做出承诺之前把它们写下来，这样我的大脑就可以不再把它们放在后台。很好奇这里的其他人是否做了类似的事情，或者您是否找到了另一种减少认知负荷的方法。</title>
@@ -81,34 +109,6 @@
       <description><![CDATA[我想为我的汽车制作一个人工智能语音助手，我可以为其添加哪些功能？   由   提交 /u/Pristine_Mirror_4052   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qljo9k/хочу_открыть_стартап/</guid>
       <pubDate>Sat, 24 Jan 2026 10:29:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么 Microsoft SharePoint 开发是一次可怕、可怕且痛苦的经历</title>
-      <link>https://www.reddit.com/r/programming/comments/1qljjlx/why_developing_for_microsoft_sharepoint_is_a/</link>
-      <description><![CDATA[我写了一篇小文章，阐述为什么我认为 SharePoint 很糟糕。也许可以写更多，但我重视我的理智。开发经历是痛苦的，性能下降到一个适当的数据库会嘲笑的数字，而且架构感觉就像是委员会在消防演习期间设计的。写这篇文章比其他任何事情都更像是一种治疗。 我最近从 SharePoint 迁移到了自定义的东西。你们中有多少人仍在使用（或在 SharePoint 上工作），您会推荐什么？   由   提交 /u/jordansrowles   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qljjlx/why_developing_for_microsoft_sharepoint_is_a/</guid>
-      <pubDate>Sat, 24 Jan 2026 10:22:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>cURL 因 AI Slop 溢出而取消了 Bug 赏金计划</title>
-      <link>https://www.reddit.com/r/programming/comments/1qljc0t/curl_gets_rid_of_its_bug_bounty_program_over_ai/</link>
-      <description><![CDATA[ 由   提交 /u/RobertVandenberg   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qljc0t/curl_gets_rid_of_its_bug_bounty_program_over_ai/</guid>
-      <pubDate>Sat, 24 Jan 2026 10:09:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>Android 外汇向应用程序发出严格的风险规则执行编程挑战</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlidk0/android_forex_signals_app_with_strict_riskrule/</link>
-      <description><![CDATA[大家好，大家好！ 我一直在外汇交易领域开发一个 Android 项目，最具挑战性的部分不是指标或计算，而是架构和规则执行。 核心技术目标是确保仅在满足预定义的风险约束时才产生交易信号。从编程角度来看，这需要将风险规则视为硬不变量，而不是咨询检查。 这导致了一些不平凡的工程挑战：  在域层而不是 UI 上强制执行 SL/TP 和风险限制 对交易状态进行建模，使无效状态无法表示 设计状态转换，通过构造拒绝不安全的操作 处理 Android生命周期和异步更新，不允许绕过规则 尽管存在并发数据流，但仍保持信号评估的确定性 抵制削弱不变量并增加分支复杂性的特征蠕变  一个有趣的结果是，更严格的约束导致更简单的代码库：更少的条件、更少的边缘情况和更少的防御逻辑。 我对围绕编程的讨论感兴趣方面，特别是：  如何在 Android 应用程序中构建规则密集型逻辑？ 您更喜欢状态机、DDD 式聚合还是其他不变执行方法？ 当 UI、ViewModel 和域关注点重叠时，您在哪里执行约束？ 如何在高风险域中平衡可用性与严格规则执行？  这篇文章的目的纯粹是为了关于 Android 架构和约束驱动设计的技术讨论。   由   提交 /u/thewickstruth   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlidk0/android_forex_signals_app_with_strict_riskrule/</guid>
-      <pubDate>Sat, 24 Jan 2026 09:11:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>C 应该做的显而易见的事情</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlgcjb/obvious_things_c_should_do/</link>
-      <description><![CDATA[ 由   提交 /u/lelanthran   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlgcjb/obvious_things_c_should_do/</guid>
-      <pubDate>Sat, 24 Jan 2026 07:11:06 GMT</pubDate>
     </item>
     </channel>
 </rss>
