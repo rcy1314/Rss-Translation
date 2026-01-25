@@ -4,7 +4,77 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 25 Jan 2026 09:27:40 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Jan 2026 12:53:02 GMT</lastBuildDate>
+    <item>
+      <title>我厌倦了代理中的手动优先级权重，因此我使用反向基数树代替</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmhw95/i_got_tired_of_manual_priority_weights_in_proxies/</link>
+      <description><![CDATA[大多数反向代理（如 Nginx 或 Traefik）按照您编写域规则的顺序或使用那些烦人的“优先级”来处理域规则。标签。如果您有重叠的通配符，例如 *.myapp.test 和 api.myapp.test，您通常必须玩“优先俄罗斯方块”确保正确的规则获胜。 我想要一些更具确定性和直观性的东西。我想要一个系统，其中最具体的匹配总是获胜，而不必每次添加子域时都修改配置权重。 我最终构建了一个反向基数树。基本思想是域层次结构实际上是从右到左：test -&gt; myapp -&gt; api。通过用点分割域并在将它们放入树中之前反转这些段，数据结构最终匹配 DNS 实际工作的方式。 为了处理多个模式可能匹配的情况（例如 api-* 与 *），我添加了一个“文字密度”分数。解析器计算一个段中有多少个非通配符，并尝试“最密集”的字符。 （最具体的）首先。当您沿着树走下去时，这种情况会自然发生，因此层次结构本身充当过滤器。 我写了一篇关于逻辑、评分如何工作以及如何使用命名参数来补充动态上游的文章： https://getlode.app/blog/2026-01-25-stop-playing-priority-tetris 你们如何处理复杂的通配符路由？您是否认为手动权重是一种不可避免的罪恶，还是更喜欢这样的分层方法？   由   提交/u/robbiedobbie  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmhw95/i_got_tired_of_manual_priority_weights_in_proxies/</guid>
+      <pubDate>Sun, 25 Jan 2026 12:30:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么还在使用 npm？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmhvp9/why_are_you_still_using_npm/</link>
+      <description><![CDATA[经过多年观察 npm/yarn spinner，我终于承诺在多个项目中进行一整月的 Bun.js 迁移，并且不再回头，尤其是 Nuno 宣布他将全面使用 Bun。 https://nitter.net/enunomaduro/status/2015149127114301477?s=20 不可否认，去年晚些时候我实际上不得不使用 pnpm （并且大部分都喜欢它），但我最终屈服于 Bun。   由   提交/u/jpcaparas   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmhvp9/why_are_you_still_using_npm/</guid>
+      <pubDate>Sun, 25 Jan 2026 12:30:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>“使用人工智能的工程师学习速度变慢”的说法只是装作智慧的应对之策</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmh3sj/the_engineers_using_ai_are_learning_slower_take/</link>
+      <description><![CDATA[看到一篇病毒式传播的帖子，声称使用 Claude Code 的工程师“交付速度更快，但学习速度更慢”因为他们无法解释人工智能做出的架构决策。 事情是这样的：这些工程师中的大多数都无法解释装配的工作原理。或者 TCP/IP 内部结构。或者 malloc 实际上在幕后做了什么。没有人关心。 软件工程的整个历史实际上只是抽象层，每个新层都使前一层与您的日常工作无关。我们不要求网络开发人员在允许发布 React 应用程序之前了解晶体管物理学。 人工智能只是下一个抽象层。就是这样。 真正获胜的工程师并不是那些虔诚地记录克劳德所做的每一个决定的人，就像它是某种工程期刊一样。他们是弄清楚这个级别上真正重要的事情的人：  如何有效地促进 更高层次的系统设计思维 当人工智能确信错误时进行模式识别 了解哪些输出值得信任，哪些输出值得验证  “理解代码”已经是一个神话了。你了解你的层。现在你的之上有了一个新的层。 对此的焦虑只是开发人员意识到他们的层正在成为新的组件 - 大多数人不需要每天考虑的重要基础设施。 适应或应对。   由   提交/u/dktkTech  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmh3sj/the_engineers_using_ai_are_learning_slower_take/</guid>
+      <pubDate>Sun, 25 Jan 2026 11:49:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>PHP if 语句解释。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmgxwq/php_if_statements_explained/</link>
+      <description><![CDATA[ 由   提交 /u/Malebranche_Tokisaki   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmgxwq/php_if_statements_explained/</guid>
+      <pubDate>Sun, 25 Jan 2026 11:39:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>在生产中使用 Chrome 的内置 AI 模型：41% 的资格、6 倍的速度、0 美元的成本</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmgv5v/using_chromes_built_in_ai_model_in_production_41/</link>
+      <description><![CDATA[ 由   提交/u/mbuckbee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmgv5v/using_chromes_built_in_ai_model_in_production_41/</guid>
+      <pubDate>Sun, 25 Jan 2026 11:35:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>SARA：一种 CLI 工具，用于以知识图的形式管理架构和需求</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmfzir/sara_a_cli_tool_for_managing_architecture/</link>
+      <description><![CDATA[ 由   提交/u/Goldo_kriska  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmfzir/sara_a_cli_tool_for_managing_architecture/</guid>
+      <pubDate>Sun, 25 Jan 2026 10:45:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>2024 年 CrowdStrike 中断剖析：一次更新，全球影响</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmfv3y/anatomy_of_the_2024_crowdstrike_outage_a_single/</link>
+      <description><![CDATA[ 由   提交 /u/Digitalunicon   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmfv3y/anatomy_of_the_2024_crowdstrike_outage_a_single/</guid>
+      <pubDate>Sun, 25 Jan 2026 10:38:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Carbon 的 ValueStore 中发现了一个奇怪的瓶颈（加速 58 倍）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmftt4/found_a_weird_bottleneck_in_carbons_valuestore/</link>
+      <description><![CDATA[在深入研究 Carbon 的源代码时，我注意到 ValueStore::Reserve 使用 .resize() 以 4KB 块的形式分配内存。 ​问题是什么？ .resize() 急切地用零填充所有内容，即使数据会立即被覆盖。在我的基准测试中，切换到 .reserve() 将时间从 194 毫秒缩短到 3.3 毫秒。 ​这是一个简单的修复，但对于大型翻译单元来说，性能提升是巨大的。 ​如果有人想查看差异，可以在这里查看 PR：https://github.com/carbon-language/carbon-lang/pull/6656   由   提交/u/PalpitationUnlikely5  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmftt4/found_a_weird_bottleneck_in_carbons_valuestore/</guid>
+      <pubDate>Sun, 25 Jan 2026 10:36:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>你知道编码中有哪些不公平的优势吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmfpd5/do_you_know_about_any_unfair_advantages_in_coding/</link>
+      <description><![CDATA[首先开始：学生开发包 github。 好处：免费域名。 免费专业副驾驶等。   由   提交/u/davygamer18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmfpd5/do_you_know_about_any_unfair_advantages_in_coding/</guid>
+      <pubDate>Sun, 25 Jan 2026 10:29:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么“不要同时处理多项任务”对软件工程师来说是个糟糕的建议</title>
+      <link>https://www.reddit.com/r/programming/comments/1qmeodd/why_never_multitask_is_bad_advice_for_software/</link>
+      <description><![CDATA[ 由   提交 /u/strategizeyourcareer   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qmeodd/why_never_multitask_is_bad_advice_for_software/</guid>
+      <pubDate>Sun, 25 Jan 2026 09:29:18 GMT</pubDate>
+    </item>
     <item>
       <title>为什么本地开发测试与生产不同的系统</title>
       <link>https://www.reddit.com/r/programming/comments/1qme8sq/why_local_development_tests_a_different_system/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[ 由   提交/u/JadeLuxe  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qmc8se/directive_deception_exploiting_custom_graphql/</guid>
       <pubDate>Sun, 25 Jan 2026 07:06:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Electron + TypeScript 的日记应用程序</title>
-      <link>https://www.reddit.com/r/programming/comments/1qmbxmm/journal_app_with_electron_typescript/</link>
-      <description><![CDATA[ 由   提交/u/PracticalSource8942   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qmbxmm/journal_app_with_electron_typescript/</guid>
-      <pubDate>Sun, 25 Jan 2026 06:50:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>为开发者发现 90 多个免费在线工具 – DailyDevTools</title>
-      <link>https://www.reddit.com/r/programming/comments/1qmbj8e/discover_90_free_online_tools_for_developers/</link>
-      <description><![CDATA[嘿r/programming！ 👋 我一直在开发 [DailyDevTools]()，这是一个将90 多种免费在线开发者工具集成到一个地方的平台。从代码格式化程序和验证程序到 API 测试和生产力提升器，这一切都是为了节省开发人员的时间和麻烦。 我希望得到其他程序员的反馈 - 您希望接下来添加哪些工具？ 检查一下并简化您的工作流程：DailyDevTools   由   提交/u/Numerous-Coffee-8938   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qmbj8e/discover_90_free_online_tools_for_developers/</guid>
-      <pubDate>Sun, 25 Jan 2026 06:28:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>Stackmaxxing 创造递归世界纪录</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm9ilz/stackmaxxing_for_a_recursion_world_record/</link>
-      <description><![CDATA[ 由   提交/u/Chii  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm9ilz/stackmaxxing_for_a_recursion_world_record/</guid>
-      <pubDate>Sun, 25 Jan 2026 04:44:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过混合搜索 + 重新排名将 7,432 页旧文档转换为 3 秒查询</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm7u5z/7432_pages_of_legacy_docs_to_3s_queries_with/</link>
-      <description><![CDATA[为已有 20 年历史的 Essbase 文档构建了 RAG 系统。混合检索（BM25 + 矢量搜索）与 FlashRank 重新排名。经过 4 个 LLM 系列的验证，以避免供应商锁定。 170 秒建立索引，3 秒查询，每年 20 美元的运营成本。写了它是如何工作的。   由   提交/u/antidrugue  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm7u5z/7432_pages_of_legacy_docs_to_3s_queries_with/</guid>
-      <pubDate>Sun, 25 Jan 2026 03:22:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>高流量系统中的连接耗尽</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm4lyi/connection_exhaustion_in_hightraffic_systems/</link>
-      <description><![CDATA[ 由   提交/u/Extra_Ear_10   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm4lyi/connection_exhaustion_in_hightraffic_systems/</guid>
-      <pubDate>Sun, 25 Jan 2026 00:57:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA 真正的护城河不是硬件，而是 400 万开发者</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm3ugz/nvidias_real_moat_isnt_hardware_its_4_million/</link>
-      <description><![CDATA[我无法停止思考 Theo 的“为什么 NVIDIA 正在消亡”视频。这篇论文感觉很重要，足以验证。因此，我仔细研究了 SEC 文件、收益报告和技术基准。 我发现：  NVIDIA 并没有消亡。其 35.1B 美元的季度收入增长了 94% 是的，市场份额下降了（90% → 70-80%），但蛋糕增长得更快 Groq 和 Cerebras 拥有令人印象深刻的芯片，但星号无处不在 真正的护城河：400 万开发人员不能就这么放弃 20 年的 CUDA 工具 情节转折：最大的威胁是谷歌/亚马逊/微软，而不是初创公司    由   提交/u/jpcaparas   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm3ugz/nvidias_real_moat_isnt_hardware_its_4_million/</guid>
-      <pubDate>Sun, 25 Jan 2026 00:24:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找编程语言的贡献者</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm1y2v/looking_for_contributers_for_a_programming/</link>
-      <description><![CDATA[嗨，我创建了一种自定义的、开源的、动态的、嵌入式就绪的编程语言，我想知道是否有人愿意贡献。要加入，请向我发送消息或在此帖子上发帖表示您想加入，并告诉我原因和您的 GitHub 用户名。   由   提交/u/Strong_Ad5610   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm1y2v/looking_for_contributers_for_a_programming/</guid>
-      <pubDate>Sat, 24 Jan 2026 23:05:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>为你的法学硕士发出声音</title>
-      <link>https://www.reddit.com/r/programming/comments/1qm1giz/give_a_voice_to_your_llm/</link>
-      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qm1giz/give_a_voice_to_your_llm/</guid>
-      <pubDate>Sat, 24 Jan 2026 22:45:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在大型代码库中快速有效地进行调试</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlyta3/how_to_debug_fast_and_effectively_in_a_large/</link>
-      <description><![CDATA[ 由   提交/u/koira-muniu   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlyta3/how_to_debug_fast_and_effectively_in_a_large/</guid>
-      <pubDate>Sat, 24 Jan 2026 21:02:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>你的代理人正在建造你永远不会使用的东西</title>
-      <link>https://www.reddit.com/r/programming/comments/1qlxpy1/your_agent_is_building_things_youll_never_use/</link>
-      <description><![CDATA[ 由   提交/u/myusuf3  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qlxpy1/your_agent_is_building_things_youll_never_use/</guid>
-      <pubDate>Sat, 24 Jan 2026 20:20:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
