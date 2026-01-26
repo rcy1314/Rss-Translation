@@ -4,7 +4,70 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 26 Jan 2026 09:39:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jan 2026 12:59:55 GMT</lastBuildDate>
+    <item>
+      <title>您的 CI/CD 管道无法理解您刚刚编写的代码</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnfaem/your_cicd_pipeline_doesnt_understand_the_code_you/</link>
+      <description><![CDATA[ 由   提交/u/Samdrian  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnfaem/your_cicd_pipeline_doesnt_understand_the_code_you/</guid>
+      <pubDate>Mon, 26 Jan 2026 12:56:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能对 Tailwind 的残酷影响</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnf3te/the_brutal_impact_of_ai_on_tailwind/</link>
+      <description><![CDATA[ 由   提交 /u/thewritingwallah   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnf3te/the_brutal_impact_of_ai_on_tailwind/</guid>
+      <pubDate>Mon, 26 Jan 2026 12:47:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>两把空椅子：为什么“明显”的决定不断破坏生产</title>
+      <link>https://www.reddit.com/r/programming/comments/1qneymk/two_empty_chairs_why_obvious_decisions_keep/</link>
+      <description><![CDATA[ 由   提交/u/dmp0x7c5  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qneymk/two_empty_chairs_why_obvious_decisions_keep/</guid>
+      <pubDate>Mon, 26 Jan 2026 12:40:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>可观察性（指标、日志和跟踪）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnetze/observability_metrics_logs_and_traces/</link>
+      <description><![CDATA[ 由   提交/u/stmoreau  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnetze/observability_metrics_logs_and_traces/</guid>
+      <pubDate>Mon, 26 Jan 2026 12:34:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>C 实验：用 C 编写通用序列化器</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnegh3/c_experiment_writing_a_generic_serializer_in_c/</link>
+      <description><![CDATA[C 没有模板，也没有本机反射，这通常会导致熟悉的模式： 任何时候您需要序列化、验证、克隆或遍历结构时，最终都会重复编写相同的逻辑，或者为每种类型生成大量样板代码。 减少这种重复的一种方法是将元数据生成与运行时分开逻辑。 在这里，我们探讨这个想法：不是为每种类型生成序列化器/解析器，而是在构建时仅生成一个元数据层，然后使用该元数据驱动通用运行时代码。 工作流程 在构建时：  类型在“配方”标头中以类似 DSL 的 C 宏进行描述 生成器发出静态元数据描述字段名称、类型、偏移量、限定符等。  运行时：  实例包装在轻量级反射句柄中 通用代码迭代元数据以检查或操作字段  不会发生运行时类型发现。所有信息在编译时已知，并以纯 C 数据结构形式发出！ 为什么？ 没有模板或泛型，C 代码通常将逻辑直接耦合到类型。例如，序列化通常会变成：  每个结构一个函数，或者 发出完整序列化器的大型代码生成步骤  通过仅生成元数据，通用逻辑（即 JSON、二进制编码、验证、比较等）可以存在于一个序列化中。许多不相关结构的位置和工作。重点是生成描述而不是行为。 最小示例：C 中的 JSON.stringify() 下面是如何完全由反射元数据驱动通用 JSON 序列化器的简化草图： /* C 中的通用序列化器 */ static void json_stringify(const struct Reflectc_wrap *obj, char buf[], size_t bufsize) { /* 迭代字段，检查类型信息，发出输出 */ }  在调用站点，不需要每个类型的序列化器： struct person alice = {&quot;Alice&quot;, 30, true, &quot;alice@example.com&quot;};结构reflectc*registry=reflectc_init(); struct Reflectc_wrap *w = Reflectc_from_person(registry, &amp;alice, NULL);查出[256]； json_stringify(w, out, sizeof out); printf(“%s”, 输出); // &#39;struct person&#39; 的 JSON 表示  序列化器只能看到元数据和指针，而不是具体类型。 完整的工作实现可以在这里找到： https://github.com/lcsmuller/reflect-c/blob/master/test/runtime.c TL;DR：不是在 C 中为每个结构生成序列化器/解析器，而是生成仅编译时元数据（字段名称、类型、偏移量）并驱动所有运行时逻辑一般来自该元数据。这减少了重复的代码，同时保持在 C 的约束范围内（即没有模板，没有运行时类型发现）。 这不是灵丹妙药，而是重新思考在 C 密集型系统中实际需要多少重复的有趣方法！我的主要用例是为 REST API 数据类型编写通用序列化器/解析器   由   提交 /u/LucasMull   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnegh3/c_experiment_writing_a_generic_serializer_in_c/</guid>
+      <pubDate>Mon, 26 Jan 2026 12:15:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>与区域设置相关的大小写转换错误仍然存​​在（Kotlin 作为现实世界的示例）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qndjes/localedependent_case_conversion_bugs_persist/</link>
+      <description><![CDATA[当字符串大小写转换取决于环境区域设置时，不区分大小写的逻辑可能会以令人惊讶的方式失败。许多程序假设 ToLower() 或 ToUpper() 等操作与区域设置无关，但实际上它们的行为可能会因系统设置而异。这可能会导致微妙的错误，通常涉及众所周知的“土耳其 I”大小写规则，其中标识符、键或比较在 en-US 环境之外无法正常工作。此处链接的 Kotlin 编译器事件是这一更广泛的与区域设置相关的大小写转换错误的实际示例。   由   提交/u/BoloFan05  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qndjes/localedependent_case_conversion_bugs_persist/</guid>
+      <pubDate>Mon, 26 Jan 2026 11:28:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>浏览器就是沙箱</title>
+      <link>https://www.reddit.com/r/programming/comments/1qndgqf/the_browser_is_the_sandbox/</link>
+      <description><![CDATA[ 由   提交 /u/misterolupo   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qndgqf/the_browser_is_the_sandbox/</guid>
+      <pubDate>Mon, 26 Jan 2026 11:24:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>宣布推出 MapLibre Tile：一种现代且高效的矢量切片格式</title>
+      <link>https://www.reddit.com/r/programming/comments/1qndbz5/announcing_maplibre_tile_a_modern_and_efficient/</link>
+      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qndbz5/announcing_maplibre_tile_a_modern_and_efficient/</guid>
+      <pubDate>Mon, 26 Jan 2026 11:16:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我写了一篇关于单例模式的指南，其中包含示例和实现中的问题。欢迎反馈</title>
+      <link>https://www.reddit.com/r/programming/comments/1qncs89/i_wrote_a_guide_on_singleton_pattern_with/</link>
+      <description><![CDATA[ 由   提交/u/hardasspunk  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qncs89/i_wrote_a_guide_on_singleton_pattern_with/</guid>
+      <pubDate>Mon, 26 Jan 2026 10:46:09 GMT</pubDate>
+    </item>
     <item>
       <title>将 PostgreSQL 扩展到每秒数百万个查询：OpenAI 的经验教训</title>
       <link>https://www.reddit.com/r/programming/comments/1qnbllg/scaling_postgresql_to_millions_of_queries_per/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[我写了一篇有关 Prime 最新表演艺术的文章：一个 AI 技能库，从表面上看看起来合法，但包含有毒的示例。 事实：  Prime 发推文“伙计们，我错了”并链接到 is-even AI 技能 该存储库包含 391 行代码，用于检查数字是否可以被 2 整除 总共有 69 个示例（34 个偶数，35 个奇数） is-odd 技能表示它“否定了 is-even”。但示例显示 0 为奇数，1 为偶数 提交消息：“通过理解现实和时间的抽象来彻底改变人工智能”  现实中：  Prime 没有改变他对振动编码的看法 错误的示例对于那些没有阅读就安装的人来说是一个陷阱 任何部署到生产环境的人现在都想知道为什么is_odd(2) 返回 true 观看“Prime 终于明白了”的 56,000 人它们是亮点  就上下文而言，2016 年破坏 npm 的原始 left-pad 包有 11 行。 Prime 的版本是 153。 更新：此后他取消了有毒技能，并用 Cloudflare 技能取代它们。   由   提交/u/jpcaparas   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qn7f7q/theprimeagen_told_his_followers_to_install_a/</guid>
       <pubDate>Mon, 26 Jan 2026 05:36:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于创建编码职业学校 (CCC) 骗局的警告</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn7d6y/warning_about_the_creating_coding_careers_school/</link>
-      <description><![CDATA[我是一名拥有 7 年经验的 IOS 开发人员，他指导我的孩子完成了我们于 2025 年 10 月完成的 CCC 学徒前计划证书课程。简而言之，这是我今天给他们的帖子： 现在已经 2.5 个月了，我还没有获得我的学徒前证书。我上次给你发邮件是在 2025 年 12 月 30 日。我不会再问了，因为看来我浪费了我和我两个儿子的时间。现在我们只能返回 Udemy 寻找自己的出路。我不会再向我遇到的任何人推荐这个，并将在我的社交媒体中发布有关您在这里的陷阱的信息。没有人能联系到你，因为你的手机就是一个人工智能助手，但你无法让那个人工智能助手来制作证书。再见！   由   提交/u/ZombieHuntah  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn7d6y/warning_about_the_creating_coding_careers_school/</guid>
-      <pubDate>Mon, 26 Jan 2026 05:33:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>编译器、汇编器和链接器中的长分支</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn5twv/long_branches_in_compilers_assemblers_and_linkers/</link>
-      <description><![CDATA[ 由   提交 /u/MaskRay   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn5twv/long_branches_in_compilers_assemblers_and_linkers/</guid>
-      <pubDate>Mon, 26 Jan 2026 04:17:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>R2web：随时随地访问radare2。现在 r2 变得比以前更容易访问，无需本地安装，可以随时随地从任何设备使用它</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn5kx0/r2web_access_radare2_from_anywhere_anytime_now/</link>
-      <description><![CDATA[ 由   提交/u/NoProcedure7943   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn5kx0/r2web_access_radare2_from_anywhere_anytime_now/</guid>
-      <pubDate>Mon, 26 Jan 2026 04:05:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>损坏的工具和片状测试 (CI/CD)</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn30qx/broken_tooling_flaky_tests_cicd/</link>
-      <description><![CDATA[ 由   提交/u/Tech_News_Blog   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn30qx/broken_tooling_flaky_tests_cicd/</guid>
-      <pubDate>Mon, 26 Jan 2026 02:11:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>Megathread 提交 Cosmic Al：GitHub Repo 扫描仪以美元量化技术债务 - 早期反馈？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn2ztp/megathread_submission_cosmic_al_github_repo/</link>
-      <description><![CDATA[大家好 megathread 朋友们，按照规则，在这里分享我的小 MVP：Cosmic Al，一个受常见 GitHub 启发的工具 诸如技术债务减慢存储库之类的痛苦。 快速概述： 通过 GitHub OAuth 连接以扫描您的存储库。创建问题热图（红色紧急/黄色手表/绿色健康） 以美元/投资回报率量化债务（例如，如果修复，可节省 6.7 万美元/atr），以帮助说服 PM 进行重构。 现在可以免费进行基本扫描（完整报告的候补名单）。 Buili 因为我自己在遗留代码上浪费了数周时间 - 希望它能帮助解决缓慢的 CI、不稳定的测试等问题。链接：cosmic-ai.pages.dev 欢迎反馈：ROI 计算感觉准确吗？要添加哪些指标（例如 SonarQube 关系）？我是一个独立的技术人员 根据实际使用进行迭代。 感谢您将其保留在超级线程中   由   提交/u/Tech_News_Blog   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn2ztp/megathread_submission_cosmic_al_github_repo/</guid>
-      <pubDate>Mon, 26 Jan 2026 02:10:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>恩尼格玛机模拟器</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn2j6d/enigma_machine_simulator/</link>
-      <description><![CDATA[ 由   提交/u/thepan73  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn2j6d/enigma_machine_simulator/</guid>
-      <pubDate>Mon, 26 Jan 2026 01:49:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>受 macOS 日历启发的开源 React 日历 – DayFlow</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn1gmz/the_opensource_react_calendar_inspired_by_macos/</link>
-      <description><![CDATA[大家好 👋 我想分享 DayFlow，这是我在过去一年中构建的一个开源全日历网络组件。 我是 macOS 日历的重度用户，当我在 GitHub 上寻找一个干净、现代的日历 UI 时（尤其是与 Tailwind 配合良好的一个）/ shadcn-ui），我找不到完全符合我需求的东西。因此，我决定自己构建一个。 DayFlow 专注于：  干净、现代的日历 UI，灵感来自 macOS 日历 使用 React 构建，专为现代 Web 应用程序而设计 易于与 shadcn-ui 和其他 Tailwind UI 库集成 模块化架构（视图、事件、面板均可自定义） 积极致力于国际化支持  该项目是完全开源的，我非常感激：  有关 API 和 API 的反馈架构 功能建议 错误报告 或者PR（如果您有兴趣贡献）  GitHub：**https://github.com/dayflow-js/calendar\*\* 演示：**https://dayflow-js.github.io/calendar/\*\* 感谢您的阅读，我很想听听您的想法🙏   由   提交/u/Cultural_Mission_482   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn1gmz/the_opensource_react_calendar_inspired_by_macos/</guid>
-      <pubDate>Mon, 26 Jan 2026 01:03:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>第 5 天：心跳协议 – 大规模检测失效连接</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn14mc/day_5_heartbeat_protocol_detecting_dead/</link>
-      <description><![CDATA[ 由   提交/u/Extra_Ear_10   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn14mc/day_5_heartbeat_protocol_detecting_dead/</guid>
-      <pubDate>Mon, 26 Jan 2026 00:49:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>谦虚地捍卫 .zip TLD</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn02yc/in_humble_defense_of_the_zip_tld/</link>
-      <description><![CDATA[ 由   提交/u/yathern   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn02yc/in_humble_defense_of_the_zip_tld/</guid>
-      <pubDate>Mon, 26 Jan 2026 00:04:18 GMT</pubDate>
     </item>
     </channel>
 </rss>
