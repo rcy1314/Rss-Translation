@@ -4,111 +4,111 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 26 Jan 2026 15:35:48 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jan 2026 18:44:24 GMT</lastBuildDate>
     <item>
-      <title>Ralph：开源 AI 代理，可将线性问题转换为 GitHub PR（Node.js、Claude AI）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnj9mi/ralph_opensource_ai_agent_that_converts_linear/</link>
-      <description><![CDATA[在过去的几个月里构建了这个 - 一个事件驱动的 AI 编码代理。  FLOW： 线性 webhook → Redis 队列 → Claude Opus（规划）→ Claude Sonnet（使用工具进行编码）→ 多语言验证 →  GitHub PR  验证工具链： - TypeScript：Biome + TSC  - Python：Ruff + Mypy  -安全性：琐碎 多存储库支持： 每个 Linear 团队都映射到 GitHub 存储库。使用团队到存储库的映射设置 LINEAR_TEAM_REPOS 环境变量。  遵循 Linear 的理念：团队 = 存储库。  我为什么构建它： 想要自动化处理无聊的票据。将问题标记为“Ralph”，然后回到 PR。并不总是能完美地工作，但 它在简单的任务上出奇地好。  技术： - Node.js + TypeScript  - 用于作业队列的 BullMQ (Redis)  - 用于 GKE 部署的 Helm + Terraform  - 用于可观察性的 Langfuse  最困难的部分：确保 run_command 安全。 AI特工+外壳=可怕。最终导致命令白名单+危险 模式阻止。   由   提交/u/No_Professional7654   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnj9mi/ralph_opensource_ai_agent_that_converts_linear/</guid>
-      <pubDate>Mon, 26 Jan 2026 15:34:26 GMT</pubDate>
+      <title>介绍 |格莱克斯</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnop2p/introducing_glex/</link>
+      <description><![CDATA[大家好，我最近加入 Reddit 只是为了谈论我刚刚完成的项目。它是一个完全在本地 chrome 浏览器中运行的 webOS，无需任何互联网。这是一个非常难以完成的项目，总体上已经花了九个月的时间进行规划和编码，如果你查看我的个人资料，你可以查看一下。我很高兴能添加任何建议。我做了这个！我确实遇到了一些技术困难，但我想知道我可以添加什么   由   提交/u/Regular_Archer_726   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnop2p/introducing_glex/</guid>
+      <pubDate>Mon, 26 Jan 2026 18:39:48 GMT</pubDate>
     </item>
     <item>
-      <title>企业服务总线之死被过分夸大</title>
-      <link>https://www.reddit.com/r/programming/comments/1qniv4c/the_dead_of_the_enterprise_service_bus_was/</link>
-      <description><![CDATA[每隔六个月左右，我就会在 Hackernews 等网站上读到一篇文章，指出企业服务总线概念已经消亡，而且从一开始就是一个可怕的概念。然而，我个人对它们有很好的经验，即使是在大型、混乱的企业环境中也是如此。这似乎是写一篇关于它们是什么、如何使用它们以及它们的陷阱的文章的绝佳机会。从企业架构的角度来看，即我将把集成架构留给其他人。 什么是 ESB 您可以将 ESB 视为机场枢纽，特别是用于转机的机场枢纽。飞机飞来，放下乘客，他们有时必须通过安检，然后乘坐另一架航班前往最终目的地。 ESB 是一个中介层，可以执行路由、转换、编排和排队。更重要的是，集中处理这些问题的责任。从非常基本的意义上讲，这意味着您将应用程序 A 连接到 ESB 的一端，而应用程序 B 和 ESB 的一端连接到应用程序 A。 C 另一个。您只需担心 ESB 之间的连接即可。 组织的巨大优势 边缘解耦 ESB 将复杂的多系统检修转变为本地化更新。它允许您更换技术堆栈的主要组件，而无需重新连接每个为其提供数据的应用程序。 集中集成控制 ESB 还可以让您更好地控制这些连接。假设您的订购工具突然受到大促销的打击。该网站可能会跟上，但您的旧订单工具可能不会。这里再次通过中间的 ESB，您可以对这些调用进行排队。假设一切都保持正常，但旧邮件系统无法处理负载。没问题，我们将连接保留在队列中，它们不会丢失，并且我们会限制它们。该工具现在每秒处理 1 个请求，而不是不间断的请求。 操作可见性 所有连接都通过 ESB，您还可以关注流经它的所有信息。特别是对于企业架构师的办公室来说，这是一件非常好的事情。 但这都是理论上的 隐藏的业务逻辑 在您意识到之前，您正在集成层的文本框中编写业务关键逻辑。没有测试、没有文档、没有源代码控制……实际上，您现在已经在 ESB 内创建了一个影子域模型。这通常是所有“ESB 已死”帖子的核心。 紧密耦合伪装成松散耦合 是的，您可以即插即用连接，但一切仍然集中在 ESB 中。这意味着如果 ESB 很慢，那么一切都会很慢。与宕机的情况相比，这根本不算什么。 技能瓶颈 你总是可以培训人们使用 ESB 软件，它不一定是世界上最复杂的材料（取决于你如何使用它），但它是一个不同的角色。一种你必须去市场才能填补的东西。至少当您开始设置时，您不希望从未做过的人对您的应用程序组合的核心神经系统“尝试一下”。 成本 这是您进行点对点时不会有的额外成本。当然，我们的承诺是您可以通过更简单的项目和集成来收回成本。但这是您必须为组织计算的事情。 何时使用 ESB 企业服务总线仅在大型组织中才有意义（因此得名）。但即使如此也不能保证它们永远适合。如果您的投资组合充满了自制的自定义应用程序，我可能会跳过此设置。您有开发人员，请利用您所拥有的灵活性。  这是整篇文章的（简短）摘要，由于存在字符数限制，我在这里掩盖了很多内容。   由   提交 /u/GeneralZiltoid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qniv4c/the_dead_of_the_enterprise_service_bus_was/</guid>
-      <pubDate>Mon, 26 Jan 2026 15:19:54 GMT</pubDate>
+      <title>软件工程师的最佳面试准备策略</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnom4h/top_interview_prep_strategies_for_software/</link>
+      <description><![CDATA[ 由   提交 /u/narutomax   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnom4h/top_interview_prep_strategies_for_software/</guid>
+      <pubDate>Mon, 26 Jan 2026 18:37:08 GMT</pubDate>
     </item>
     <item>
-      <title>MenuetOS 运行一些简单的 Linux Mint X11 二进制文件。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnicju/menuetos_running_some_simple_linux_mint_x11/</link>
-      <description><![CDATA[这些是 Linux Mint 应用程序和库，它们被复制到 MenuetOS 并运行得很好。无需重新编译。我已经测试了大约 100 个库，至少链接和初始化都很好。 ( menuetos.net )   由   提交 /u/Apart_Deer_8124   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnicju/menuetos_running_some_simple_linux_mint_x11/</guid>
-      <pubDate>Mon, 26 Jan 2026 15:01:03 GMT</pubDate>
+      <title>似乎大型科技公司（包括 Anthropic）正在为超级 PAC 提供资金以应对人工智能法规</title>
+      <link>https://www.reddit.com/r/programming/comments/1qno0t2/seems_like_big_tech_including_anthropic_is/</link>
+      <description><![CDATA[此视频正在报道大型科技公司如何试图扭曲法规（包括滥用其社交媒体垄断）。看来这篇帖子中获得最多支持的答案毕竟是有道理的。相信几乎所有大型科技公司也在大力资助 astroturfing，这有多夸张？ 这也可以解释假期期间人工智能编码在推特上的疯狂增长。 这也引发了一个问题，即使用像 anthropic 这样的供应商的人工智能进行编码是否道德，除非你也被迫（OpenAI 高管胜过了最大的捐助者）。   由   提交/u/Cyrrus1234  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qno0t2/seems_like_big_tech_including_anthropic_is/</guid>
+      <pubDate>Mon, 26 Jan 2026 18:17:15 GMT</pubDate>
     </item>
     <item>
-      <title>R studio 完全新手</title>
-      <link>https://www.reddit.com/r/programming/comments/1qni3zi/total_newbie_with_r_studio/</link>
-      <description><![CDATA[嗨！正如标题所提到的，我是一个完全的新手。我一直在youtube上关注初学者教程，但是，当我尝试安装软件包时，我遇到了这个： install.packages中的警告：软件包“packagename”不适用于此版本的R 您的R版本的此软件包的版本可能在其他地方可用，请参阅https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 的想法  我的 R studio 版本是 4.5.2 顺便说一句   由   提交/u/Abject_Relative936  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qni3zi/total_newbie_with_r_studio/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:52:15 GMT</pubDate>
+      <title>有美国 DBA 帮忙吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnneut/any_help_any_american_dbas/</link>
+      <description><![CDATA[我是一名正在学习数据分析课程的学生，我的期末项目要求我对从事数据、报告或信息驱动决策工作的人员进行一些简短的采访。 我在这里发帖，希望能找到一些愿意抽出15-20分钟进行虚拟聊天的好心人。   由   提交 /u/dios_ito   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnneut/any_help_any_american_dbas/</guid>
+      <pubDate>Mon, 26 Jan 2026 17:57:25 GMT</pubDate>
     </item>
     <item>
-      <title>[Meta] Mods，你们什么时候才能赶上不断出现的 AI 垃圾帖子？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qni22q/meta_mods_when_will_you_get_on_top_of_the/</link>
-      <description><![CDATA[他们在业力或参与度方面从来都表现不佳。他们所做的只是在提要中占据更适合实际有意义内容的位置。 他们不断违反规则 2、3 和 6。至少，这应该足以成为删除它们的理由。 但更重要的是，人工智能与编程的关系与视觉艺术的关系一样多。也就是说，对于那些关心的人来说，什么都没有。 LLM 及其爱好者还有其他空间来分享他们的帖子。众所周知，/r/programming 不想成为其中之一。 在这一点上，我只是为了字数统计而填充内容。因此，出于开玩笑的目的，Gemeni 毫无意义地重新解释了上面已经说过的内容，因为这显然是这里的内容水平。 ---- 选项 1：直接且以政策为中心 这个版本保持专业并强调 Reddit 子版块的标准。 与人工智能相关的帖子始终存在低参与度和不良业力，但它们仍然混乱提供并取代更高质量的内容。更重要的是，这些帖子经常违反规则 2、3 和 6，仅凭这些规则就值得删除。 就像在艺术世界中一样，开发者社区中的许多人将人工智能视为与工艺本身不同的实体。由于有专门的 LLM 讨论空间，而且这里的共识显然是否定的，因此我们应该将 /r/programming 重点放在实际编程上。 选项 2：以社区为中心（“纯粹主义者”视角） 这个版本倾向于认为人工智能不是“真实的”。编程工作。 是时候承认人工智能内容不属于这里了。这些帖子很少引发有意义的讨论，而且常常让人感觉像是真正的开发主题的提要中的噪音。 除了它们经常违反子规则（特别是 2、3 和 6）的技术性之外，还有一个更深层次的问题：对于程序员来说，LLM 是一种工具，而不是手艺。如果社区想要这些内容，它就不会一直被否决。让我们把 AI 炒作留给 AI subreddits，并为代码保留这个空间。 选项 3：简短而有力 最适合快速评论或长篇大论。 AI 帖子不太适合 /r/programming。它们始终未能获得关注，违反了多项社区规则（2、3 和 6），并且与那些重视实际编程技巧的人的利益不一致。对于 LLM 爱好者来说，还有更好的 Reddit 子版块；让我们将此提要专门用于有意义的相关内容。   由   提交 /u/Omnipresent_Walrus   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qni22q/meta_mods_when_will_you_get_on_top_of_the/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:50:16 GMT</pubDate>
+      <title>上下文为王：修复此问题以获得 10 倍更好的 AI 输出。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnn24y/context_is_king_fix_this_to_get_10x_better_ai/</link>
+      <description><![CDATA[ 由   提交/u/AdAgreeable8989  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnn24y/context_is_king_fix_this_to_get_10x_better_ai/</guid>
+      <pubDate>Mon, 26 Jan 2026 17:45:35 GMT</pubDate>
     </item>
     <item>
-      <title>技能：50行markdown文件让我不再重复AI</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnhxp2/skills_the_50line_markdown_file_that_stopped_me/</link>
-      <description><![CDATA[每次会议，我都会向 Claude 重新解释我的测试模式。 “使用 Vitest，而不是 Jest。以这种方式模拟 Prisma。” 然后我编写了一项技能 - 一个对我的模式进行编码的 Markdown 文件。现在克劳德会自动应用它们。每个会话。 --- 描述：“添加测试或查看测试代码时触发” --- # 测试模式 - 框架：Vitest（不是 Jest） - 集成测试：__tests__/api/*.test.ts 技能遵循 Anthropic 的开放标准。他们也可以捆绑脚本 - 我的工作树设置技能包括一个 bash 脚本，该脚本创建具有所有已知修复的 git 工作树。 技能生命周期：  第一次 → 探索 第二次 → 识别模式 第三次 → 编码技能 每次失败 → 更新技能  两个月后：30+技能。功能设置从约 20 分钟缩短到约 2 分钟。 这是我的 Vibe 工程系列的第 3 部分：https://medium.com/@andreworobator/vibe-engineering-from-random-code-to-deterministic-systems-d3e08a9c13b0 模板： github.com/AOrobator/vibe-engineering-starter (http://github.com/AOrobator/vibe-engineering-starter) 您会编码什么模式？   由   提交/u/boomchaos  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnhxp2/skills_the_50line_markdown_file_that_stopped_me/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:45:38 GMT</pubDate>
+      <title>我构建了一个生产风格的 OAuth 2.0 和 OpenID Connect 身份验证系统（React + Express + TS + Prisma） - 包括 POC、代码和文章</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnmlzs/i_built_a_productionstyle_oauth_20_openid_connect/</link>
+      <description><![CDATA[我最近发布了一篇博客，其中我超越了理论，从头开始实现了 OAuth 2.0 和 OpenID Connect 端到端，无需使用任何特定于身份验证的框架。 这是我正在开发的以身份验证为重点的系列的一部分。中间有大约 2-3 个月的短暂中断（由于办公室工作和其他承诺，比我计划的时间要长），但我最终会以更实际的生产风格方法继续该系列。 此实现中涵盖的内容：  OAuth 2.0 + OpenID Connect 全流程 基于密码的身份验证 + Google 登录 帐户链接（Google + 密码 →两者） 访问和访问刷新令牌设置 管理员级授权（查看用户、强制注销、删除帐户） React 前端 + Express + TypeScript 后端 用于数据建模的 Prisma AWS EC2 上托管的后端 用于 SSL 证书终止的 NGINX 速率限制以保护后端免遭滥用  我已包括：  📝 博客文章：BLOG_URL 🔗 实时 POC：POC_URL 💻 GitHub 存储库：Repo_URL 📬 时事通讯（用于本 auth 系列中的未来帖子）：时事通讯  我还在帖子中分享了一个流程图（由我制作），以解释身份验证流程如何端到端地工作。 本系列的后续帖子将深入探讨：  基于 OTP 的身份验证 魔法链接 电子邮件验证 密码恢复 生产系统中常用的其他身份验证模式  希望获得反馈，尤其是来自在生产中构建或审查身份验证系统的人员的反馈。很高兴回答问题或讨论权衡。   由   提交 /u/Alarm-Superb   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnmlzs/i_built_a_productionstyle_oauth_20_openid_connect/</guid>
+      <pubDate>Mon, 26 Jan 2026 17:29:48 GMT</pubDate>
     </item>
     <item>
-      <title>每个开发人员都应该了解的 75 种以上 API 模式 • Mike Amundsen</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnhu8a/75_api_patterns_every_developer_should_know_mike/</link>
-      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnhu8a/75_api_patterns_every_developer_should_know_mike/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:41:56 GMT</pubDate>
+      <title>Ralph Wiggum Loop 真的会永远改变开发吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnmkmo/is_the_ralph_wiggum_loop_actually_changing/</link>
+      <description><![CDATA[过去几周我到处都能看到 Ralph Wiggum，这自然引起了我的好奇。我什至写了一篇关于它的博客（工程中的 RALPH 是什么，为什么它很重要，以及它的起源是什么）：https://benjamin-rr.com/blog/what-is-ralph-in-engineering?utm_source=reddit&amp;utm_medium=community&amp;utm_campaign=new-blog-promotion&amp;utm_content=blog-share  但这让我真的很好奇其他开发人员对这项技术的看法。我的观点是，它为公司提供了更多的工具和资源，再次需要更少的开发人员，这是减少对技术开发人员技能的需求的一个小而实质性的举措。我觉得每个月都有新技术、新突破和新进展，永远不需要人工智能前开发人员的招聘回报，这让我思考，Ralph Wiggum Loop 真的会永远改变开发吗？我们是否真的会看到初级开发人员招聘的回归，或者我们会继续看到公司雇用中高级开发人员，或者我们可能会看到公司只雇用高级开发人员，直到不再需要他们为止？  或者我应该去吃一颗定心丸并继续编码而不担心所有的进步？哈哈。   由   提交 /u/TheEnormous   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnmkmo/is_the_ralph_wiggum_loop_actually_changing/</guid>
+      <pubDate>Mon, 26 Jan 2026 17:28:30 GMT</pubDate>
     </item>
     <item>
-      <title>如果错误自行修复了怎么办？让 AI 代理主动检测错误、修复代码并创建 PR。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnhkbh/what_if_the_bug_fixed_itself_letting_ai_agents/</link>
-      <description><![CDATA[ 由   提交 /u/arhimedosin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnhkbh/what_if_the_bug_fixed_itself_letting_ai_agents/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:31:12 GMT</pubDate>
+      <title>经过两年的 vivicoding 之后，我又开始用手写了</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnlk8z/after_two_years_of_vibecoding_im_back_to_writing/</link>
+      <description><![CDATA[一个有趣的观点。   由   提交/u/BinaryIgor  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnlk8z/after_two_years_of_vibecoding_im_back_to_writing/</guid>
+      <pubDate>Mon, 26 Jan 2026 16:54:31 GMT</pubDate>
     </item>
     <item>
-      <title>Neutralinojs v6.5 发布</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnhaw9/neutralinojs_v65_released/</link>
-      <description><![CDATA[ 由   提交/u/delvin0  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnhaw9/neutralinojs_v65_released/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:20:53 GMT</pubDate>
+      <title>看不见的故障：我们在生产中犯的 Python 服务器错误</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnl7fj/invisible_failures_the_python_server_mistake_we/</link>
+      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnl7fj/invisible_failures_the_python_server_mistake_we/</guid>
+      <pubDate>Mon, 26 Jan 2026 16:42:19 GMT</pubDate>
     </item>
     <item>
-      <title>GraphRAG 的似曾相识：为什么我们会重复图数据库错误（从我的上一篇文章深入探讨）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnh1uu/graphrags_deja_vu_why_were_repeating_graph_db/</link>
-      <description><![CDATA[嘿 r/programming — 我的 最后一篇文章达到 11K 浏览量/18 条评论（26 天前，动态重建会谈仍在嗡嗡作响）。将其扩展为中等深度探讨：GraphRAG 的核心问题不是图表，而是将 LLM 的猜测冻结为边缘​​。 炒作和立即不安 GraphRAG：LLM 提取关系 → 构建图表 → 遍历以实现“更好的推理”。纸面上令人印象深刻，但来自 IMS/CODASYL 的似曾相识（显式指针丢失到关系数据库 - 假设的预先关系）。 它如何冻结假设 摄取：LLM 猜测 → 冻结边缘。查询强制通过了昨天的上下文相关猜测。节点=事实，边缘=猜测→偏差检索，意图转变很脆弱。 可预测性权衡 大声评论：可审核路径（godofpumpkins）在产品中击败了不透明查询时的LLM。公平——将不确定性左移。但语义呢？带有偏见/不完整的未来知识的推断 → 可预见的错误。 图表闪光/不闪光的地方 非常适合稳定/显式（代码依赖、欺诈）。大多数RAG？隐式/意图相关 → 简单的 RAG + 混合 + 重新排序获胜（无过度建模）。 完整阅读（带历史课程）：Medium 好友链接 您的产品中 GraphRAG 击败简单 RAG 的位置在哪里（延迟/准确性/可维护性）？动态重建（igbradley1）修复脆性？微调得更好？ 讨论！   由   提交/u/dqj1998  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnh1uu/graphrags_deja_vu_why_were_repeating_graph_db/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:10:59 GMT</pubDate>
+      <title>在 C++ 中使用浮点：什么有效、什么无效以及原因 - Egor Suvorov - CppCon 2025</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnl3d6/using_floatingpoint_in_c_what_works_what_breaks/</link>
+      <description><![CDATA[ 由   提交/u/BlueGoliath  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnl3d6/using_floatingpoint_in_c_what_works_what_breaks/</guid>
+      <pubDate>Mon, 26 Jan 2026 16:38:27 GMT</pubDate>
     </item>
     <item>
-      <title>MCP 的含义及其工作原理</title>
-      <link>https://www.reddit.com/r/programming/comments/1qngyeh/what_mcp_means_and_how_it_works/</link>
-      <description><![CDATA[ 由   提交 /u/shift_devs   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qngyeh/what_mcp_means_and_how_it_works/</guid>
-      <pubDate>Mon, 26 Jan 2026 14:07:05 GMT</pubDate>
+      <title>自动检测和保存家庭记忆</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnk9po/automating_detection_and_preservation_of_family/</link>
+      <description><![CDATA[在寒假期间，我构建了一个原型，它实际上是一个设备（当前为 Raspberry Pi），可以监听并检测“有意义的时刻”。对于特定的家庭或家庭。我有两个年幼的孩子，所以它在某种程度上是为那种环境量身定制的。 到目前为止，我所拥有的一切都有效，并且捕获了 1000 个“瞬间”中的 80%。我手动标记并认为值得保留。我相信我可以做得更好，但是我面前还有一堵优化问题的墙。以下是所执行的任务以及我接下来面临的问题的简要摘要。 1) 麦克风 -&gt; 2) 在内存中滚动音频缓冲区 -&gt; 3) 转录（使用 Whisper - 很好，但昂贵）-&gt; 4) 量化本地 LLM （想想 Mistral 等）判断 Whisper 的输出。包括文字记录，还包括有关对话的语义详细信息，包括语气、轮流、能量、停顿等。-&gt; 5) 输出结构化 JSON，分箱到天/周，可在 Web 应用程序中查看，包括用于收听录制时刻的播放器 我目前正在使用 Raspberry Pi 外部计算进行大量繁重的工作。我希望一切都在船上，不需要外部连接/计算。这很快就会成为一个非常繁重的优化问题，以便能够通过完全离线边缘计算来实现所有这些，同时保持质量。 当然，您可以使用更多的精炼模型，但做得越多，质量就会明显受到影响。另外，我不知道有多少边缘加速器是专门为法学硕士构建的，我想一些有前途的选择很快就会出现在市场上。我也很想探索 TinyML 等选项。 TinyML 打开了真正边缘计算的大门，但是边缘的法学硕士呢？我正在努力了解这个领域最新和最伟大的成功。   由   提交/u/GoochCommander  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnk9po/automating_detection_and_preservation_of_family/</guid>
+      <pubDate>Mon, 26 Jan 2026 16:09:48 GMT</pubDate>
     </item>
     <item>
-      <title>WebAuthn 循环：“无密码”握手中的常见逻辑缺陷</title>
-      <link>https://www.reddit.com/r/programming/comments/1qngoqw/the_webauthn_loop_common_logic_flaws_in_the/</link>
-      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qngoqw/the_webauthn_loop_common_logic_flaws_in_the/</guid>
-      <pubDate>Mon, 26 Jan 2026 13:56:32 GMT</pubDate>
+      <title>无聊的突破</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnk0fw/the_boring_breach/</link>
+      <description><![CDATA[我登录到数据库，一切都消失了。没有损坏，没有加密，只是删除并替换为礼貌的比特币请求。 奇怪的部分不是勒索信。它意识到损害是在真正的错误发生几个月后发生的。   由   提交/u/Unhappy_Concept237  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnk0fw/the_boring_breach/</guid>
+      <pubDate>Mon, 26 Jan 2026 16:00:50 GMT</pubDate>
     </item>
     <item>
-      <title>对抗 ANR</title>
-      <link>https://www.reddit.com/r/programming/comments/1qngkaq/fighting_anrs/</link>
-      <description><![CDATA[ 由   提交 /u/Pristine-Summer1819   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qngkaq/fighting_anrs/</guid>
-      <pubDate>Mon, 26 Jan 2026 13:51:40 GMT</pubDate>
+      <title>烤我的Linkedin。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnjzag/roast_my_linkedin/</link>
+      <description><![CDATA[ 由   提交/u/davygamer18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnjzag/roast_my_linkedin/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:59:47 GMT</pubDate>
     </item>
     <item>
-      <title>使用 Google Gemini 创建车辆沙箱</title>
-      <link>https://www.reddit.com/r/programming/comments/1qngige/creating_a_vehicle_sandbox_with_google_gemini/</link>
-      <description><![CDATA[ 由   提交/u/Hydrogen18  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qngige/creating_a_vehicle_sandbox_with_google_gemini/</guid>
-      <pubDate>Mon, 26 Jan 2026 13:49:37 GMT</pubDate>
+      <title>了解新兴环境模拟市场</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnjgcy/understanding_the_emerging_environment_simulation/</link>
+      <description><![CDATA[ 由   提交/u/MiserableWriting2919  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnjgcy/understanding_the_emerging_environment_simulation/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:41:02 GMT</pubDate>
     </item>
     <item>
-      <title>AI 生成测试作为仪式</title>
-      <link>https://www.reddit.com/r/programming/comments/1qng7j6/ai_generated_tests_as_ceremony/</link>
-      <description><![CDATA[ 由   提交 /u/toolbelt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qng7j6/ai_generated_tests_as_ceremony/</guid>
-      <pubDate>Mon, 26 Jan 2026 13:36:50 GMT</pubDate>
+      <title>检索和重新排序：无需离开 Postgres 的个性化搜索</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnjcbc/retrieve_and_rerank_personalized_search_without/</link>
+      <description><![CDATA[ 由   提交/u/philippemnoel  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnjcbc/retrieve_and_rerank_personalized_search_without/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:37:06 GMT</pubDate>
     </item>
     </channel>
 </rss>
