@@ -4,111 +4,111 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 26 Jan 2026 12:59:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jan 2026 15:35:48 GMT</lastBuildDate>
     <item>
-      <title>您的 CI/CD 管道无法理解您刚刚编写的代码</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnfaem/your_cicd_pipeline_doesnt_understand_the_code_you/</link>
-      <description><![CDATA[ 由   提交/u/Samdrian  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnfaem/your_cicd_pipeline_doesnt_understand_the_code_you/</guid>
-      <pubDate>Mon, 26 Jan 2026 12:56:15 GMT</pubDate>
+      <title>Ralph：开源 AI 代理，可将线性问题转换为 GitHub PR（Node.js、Claude AI）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnj9mi/ralph_opensource_ai_agent_that_converts_linear/</link>
+      <description><![CDATA[在过去的几个月里构建了这个 - 一个事件驱动的 AI 编码代理。  FLOW： 线性 webhook → Redis 队列 → Claude Opus（规划）→ Claude Sonnet（使用工具进行编码）→ 多语言验证 →  GitHub PR  验证工具链： - TypeScript：Biome + TSC  - Python：Ruff + Mypy  -安全性：琐碎 多存储库支持： 每个 Linear 团队都映射到 GitHub 存储库。使用团队到存储库的映射设置 LINEAR_TEAM_REPOS 环境变量。  遵循 Linear 的理念：团队 = 存储库。  我为什么构建它： 想要自动化处理无聊的票据。将问题标记为“Ralph”，然后回到 PR。并不总是能完美地工作，但 它在简单的任务上出奇地好。  技术： - Node.js + TypeScript  - 用于作业队列的 BullMQ (Redis)  - 用于 GKE 部署的 Helm + Terraform  - 用于可观察性的 Langfuse  最困难的部分：确保 run_command 安全。 AI特工+外壳=可怕。最终导致命令白名单+危险 模式阻止。   由   提交/u/No_Professional7654   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnj9mi/ralph_opensource_ai_agent_that_converts_linear/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:34:26 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能对 Tailwind 的残酷影响</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnf3te/the_brutal_impact_of_ai_on_tailwind/</link>
-      <description><![CDATA[ 由   提交 /u/thewritingwallah   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnf3te/the_brutal_impact_of_ai_on_tailwind/</guid>
-      <pubDate>Mon, 26 Jan 2026 12:47:27 GMT</pubDate>
+      <title>企业服务总线之死被过分夸大</title>
+      <link>https://www.reddit.com/r/programming/comments/1qniv4c/the_dead_of_the_enterprise_service_bus_was/</link>
+      <description><![CDATA[每隔六个月左右，我就会在 Hackernews 等网站上读到一篇文章，指出企业服务总线概念已经消亡，而且从一开始就是一个可怕的概念。然而，我个人对它们有很好的经验，即使是在大型、混乱的企业环境中也是如此。这似乎是写一篇关于它们是什么、如何使用它们以及它们的陷阱的文章的绝佳机会。从企业架构的角度来看，即我将把集成架构留给其他人。 什么是 ESB 您可以将 ESB 视为机场枢纽，特别是用于转机的机场枢纽。飞机飞来，放下乘客，他们有时必须通过安检，然后乘坐另一架航班前往最终目的地。 ESB 是一个中介层，可以执行路由、转换、编排和排队。更重要的是，集中处理这些问题的责任。从非常基本的意义上讲，这意味着您将应用程序 A 连接到 ESB 的一端，而应用程序 B 和 ESB 的一端连接到应用程序 A。 C 另一个。您只需担心 ESB 之间的连接即可。 组织的巨大优势 边缘解耦 ESB 将复杂的多系统检修转变为本地化更新。它允许您更换技术堆栈的主要组件，而无需重新连接每个为其提供数据的应用程序。 集中集成控制 ESB 还可以让您更好地控制这些连接。假设您的订购工具突然受到大促销的打击。该网站可能会跟上，但您的旧订单工具可能不会。这里再次通过中间的 ESB，您可以对这些调用进行排队。假设一切都保持正常，但旧邮件系统无法处理负载。没问题，我们将连接保留在队列中，它们不会丢失，并且我们会限制它们。该工具现在每秒处理 1 个请求，而不是不间断的请求。 操作可见性 所有连接都通过 ESB，您还可以关注流经它的所有信息。特别是对于企业架构师的办公室来说，这是一件非常好的事情。 但这都是理论上的 隐藏的业务逻辑 在您意识到之前，您正在集成层的文本框中编写业务关键逻辑。没有测试、没有文档、没有源代码控制……实际上，您现在已经在 ESB 内创建了一个影子域模型。这通常是所有“ESB 已死”帖子的核心。 紧密耦合伪装成松散耦合 是的，您可以即插即用连接，但一切仍然集中在 ESB 中。这意味着如果 ESB 很慢，那么一切都会很慢。与宕机的情况相比，这根本不算什么。 技能瓶颈 你总是可以培训人们使用 ESB 软件，它不一定是世界上最复杂的材料（取决于你如何使用它），但它是一个不同的角色。一种你必须去市场才能填补的东西。至少当您开始设置时，您不希望从未做过的人对您的应用程序组合的核心神经系统“尝试一下”。 成本 这是您进行点对点时不会有的额外成本。当然，我们的承诺是您可以通过更简单的项目和集成来收回成本。但这是您必须为组织计算的事情。 何时使用 ESB 企业服务总线仅在大型组织中才有意义（因此得名）。但即使如此也不能保证它们永远适合。如果您的投资组合充满了自制的自定义应用程序，我可能会跳过此设置。您有开发人员，请利用您所拥有的灵活性。  这是整篇文章的（简短）摘要，由于存在字符数限制，我在这里掩盖了很多内容。   由   提交 /u/GeneralZiltoid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qniv4c/the_dead_of_the_enterprise_service_bus_was/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:19:54 GMT</pubDate>
     </item>
     <item>
-      <title>两把空椅子：为什么“明显”的决定不断破坏生产</title>
-      <link>https://www.reddit.com/r/programming/comments/1qneymk/two_empty_chairs_why_obvious_decisions_keep/</link>
-      <description><![CDATA[ 由   提交/u/dmp0x7c5  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qneymk/two_empty_chairs_why_obvious_decisions_keep/</guid>
-      <pubDate>Mon, 26 Jan 2026 12:40:34 GMT</pubDate>
+      <title>MenuetOS 运行一些简单的 Linux Mint X11 二进制文件。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnicju/menuetos_running_some_simple_linux_mint_x11/</link>
+      <description><![CDATA[这些是 Linux Mint 应用程序和库，它们被复制到 MenuetOS 并运行得很好。无需重新编译。我已经测试了大约 100 个库，至少链接和初始化都很好。 ( menuetos.net )   由   提交 /u/Apart_Deer_8124   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnicju/menuetos_running_some_simple_linux_mint_x11/</guid>
+      <pubDate>Mon, 26 Jan 2026 15:01:03 GMT</pubDate>
     </item>
     <item>
-      <title>可观察性（指标、日志和跟踪）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnetze/observability_metrics_logs_and_traces/</link>
-      <description><![CDATA[ 由   提交/u/stmoreau  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnetze/observability_metrics_logs_and_traces/</guid>
-      <pubDate>Mon, 26 Jan 2026 12:34:16 GMT</pubDate>
+      <title>R studio 完全新手</title>
+      <link>https://www.reddit.com/r/programming/comments/1qni3zi/total_newbie_with_r_studio/</link>
+      <description><![CDATA[嗨！正如标题所提到的，我是一个完全的新手。我一直在youtube上关注初学者教程，但是，当我尝试安装软件包时，我遇到了这个： install.packages中的警告：软件包“packagename”不适用于此版本的R 您的R版本的此软件包的版本可能在其他地方可用，请参阅https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 的想法  我的 R studio 版本是 4.5.2 顺便说一句   由   提交/u/Abject_Relative936  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qni3zi/total_newbie_with_r_studio/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:52:15 GMT</pubDate>
     </item>
     <item>
-      <title>C 实验：用 C 编写通用序列化器</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnegh3/c_experiment_writing_a_generic_serializer_in_c/</link>
-      <description><![CDATA[C 没有模板，也没有本机反射，这通常会导致熟悉的模式： 任何时候您需要序列化、验证、克隆或遍历结构时，最终都会重复编写相同的逻辑，或者为每种类型生成大量样板代码。 减少这种重复的一种方法是将元数据生成与运行时分开逻辑。 在这里，我们探讨这个想法：不是为每种类型生成序列化器/解析器，而是在构建时仅生成一个元数据层，然后使用该元数据驱动通用运行时代码。 工作流程 在构建时：  类型在“配方”标头中以类似 DSL 的 C 宏进行描述 生成器发出静态元数据描述字段名称、类型、偏移量、限定符等。  运行时：  实例包装在轻量级反射句柄中 通用代码迭代元数据以检查或操作字段  不会发生运行时类型发现。所有信息在编译时已知，并以纯 C 数据结构形式发出！ 为什么？ 没有模板或泛型，C 代码通常将逻辑直接耦合到类型。例如，序列化通常会变成：  每个结构一个函数，或者 发出完整序列化器的大型代码生成步骤  通过仅生成元数据，通用逻辑（即 JSON、二进制编码、验证、比较等）可以存在于一个序列化中。许多不相关结构的位置和工作。重点是生成描述而不是行为。 最小示例：C 中的 JSON.stringify() 下面是如何完全由反射元数据驱动通用 JSON 序列化器的简化草图： /* C 中的通用序列化器 */ static void json_stringify(const struct Reflectc_wrap *obj, char buf[], size_t bufsize) { /* 迭代字段，检查类型信息，发出输出 */ }  在调用站点，不需要每个类型的序列化器： struct person alice = {&quot;Alice&quot;, 30, true, &quot;alice@example.com&quot;};结构reflectc*registry=reflectc_init(); struct Reflectc_wrap *w = Reflectc_from_person(registry, &amp;alice, NULL);查出[256]； json_stringify(w, out, sizeof out); printf(“%s”, 输出); // &#39;struct person&#39; 的 JSON 表示  序列化器只能看到元数据和指针，而不是具体类型。 完整的工作实现可以在这里找到： https://github.com/lcsmuller/reflect-c/blob/master/test/runtime.c TL;DR：不是在 C 中为每个结构生成序列化器/解析器，而是生成仅编译时元数据（字段名称、类型、偏移量）并驱动所有运行时逻辑一般来自该元数据。这减少了重复的代码，同时保持在 C 的约束范围内（即没有模板，没有运行时类型发现）。 这不是灵丹妙药，而是重新思考在 C 密集型系统中实际需要多少重复的有趣方法！我的主要用例是为 REST API 数据类型编写通用序列化器/解析器   由   提交 /u/LucasMull   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnegh3/c_experiment_writing_a_generic_serializer_in_c/</guid>
-      <pubDate>Mon, 26 Jan 2026 12:15:54 GMT</pubDate>
+      <title>[Meta] Mods，你们什么时候才能赶上不断出现的 AI 垃圾帖子？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qni22q/meta_mods_when_will_you_get_on_top_of_the/</link>
+      <description><![CDATA[他们在业力或参与度方面从来都表现不佳。他们所做的只是在提要中占据更适合实际有意义内容的位置。 他们不断违反规则 2、3 和 6。至少，这应该足以成为删除它们的理由。 但更重要的是，人工智能与编程的关系与视觉艺术的关系一样多。也就是说，对于那些关心的人来说，什么都没有。 LLM 及其爱好者还有其他空间来分享他们的帖子。众所周知，/r/programming 不想成为其中之一。 在这一点上，我只是为了字数统计而填充内容。因此，出于开玩笑的目的，Gemeni 毫无意义地重新解释了上面已经说过的内容，因为这显然是这里的内容水平。 ---- 选项 1：直接且以政策为中心 这个版本保持专业并强调 Reddit 子版块的标准。 与人工智能相关的帖子始终存在低参与度和不良业力，但它们仍然混乱提供并取代更高质量的内容。更重要的是，这些帖子经常违反规则 2、3 和 6，仅凭这些规则就值得删除。 就像在艺术世界中一样，开发者社区中的许多人将人工智能视为与工艺本身不同的实体。由于有专门的 LLM 讨论空间，而且这里的共识显然是否定的，因此我们应该将 /r/programming 重点放在实际编程上。 选项 2：以社区为中心（“纯粹主义者”视角） 这个版本倾向于认为人工智能不是“真实的”。编程工作。 是时候承认人工智能内容不属于这里了。这些帖子很少引发有意义的讨论，而且常常让人感觉像是真正的开发主题的提要中的噪音。 除了它们经常违反子规则（特别是 2、3 和 6）的技术性之外，还有一个更深层次的问题：对于程序员来说，LLM 是一种工具，而不是手艺。如果社区想要这些内容，它就不会一直被否决。让我们把 AI 炒作留给 AI subreddits，并为代码保留这个空间。 选项 3：简短而有力 最适合快速评论或长篇大论。 AI 帖子不太适合 /r/programming。它们始终未能获得关注，违反了多项社区规则（2、3 和 6），并且与那些重视实际编程技巧的人的利益不一致。对于 LLM 爱好者来说，还有更好的 Reddit 子版块；让我们将此提要专门用于有意义的相关内容。   由   提交 /u/Omnipresent_Walrus   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qni22q/meta_mods_when_will_you_get_on_top_of_the/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:50:16 GMT</pubDate>
     </item>
     <item>
-      <title>与区域设置相关的大小写转换错误仍然存​​在（Kotlin 作为现实世界的示例）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qndjes/localedependent_case_conversion_bugs_persist/</link>
-      <description><![CDATA[当字符串大小写转换取决于环境区域设置时，不区分大小写的逻辑可能会以令人惊讶的方式失败。许多程序假设 ToLower() 或 ToUpper() 等操作与区域设置无关，但实际上它们的行为可能会因系统设置而异。这可能会导致微妙的错误，通常涉及众所周知的“土耳其 I”大小写规则，其中标识符、键或比较在 en-US 环境之外无法正常工作。此处链接的 Kotlin 编译器事件是这一更广泛的与区域设置相关的大小写转换错误的实际示例。   由   提交/u/BoloFan05  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qndjes/localedependent_case_conversion_bugs_persist/</guid>
-      <pubDate>Mon, 26 Jan 2026 11:28:38 GMT</pubDate>
+      <title>技能：50行markdown文件让我不再重复AI</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnhxp2/skills_the_50line_markdown_file_that_stopped_me/</link>
+      <description><![CDATA[每次会议，我都会向 Claude 重新解释我的测试模式。 “使用 Vitest，而不是 Jest。以这种方式模拟 Prisma。” 然后我编写了一项技能 - 一个对我的模式进行编码的 Markdown 文件。现在克劳德会自动应用它们。每个会话。 --- 描述：“添加测试或查看测试代码时触发” --- # 测试模式 - 框架：Vitest（不是 Jest） - 集成测试：__tests__/api/*.test.ts 技能遵循 Anthropic 的开放标准。他们也可以捆绑脚本 - 我的工作树设置技能包括一个 bash 脚本，该脚本创建具有所有已知修复的 git 工作树。 技能生命周期：  第一次 → 探索 第二次 → 识别模式 第三次 → 编码技能 每次失败 → 更新技能  两个月后：30+技能。功能设置从约 20 分钟缩短到约 2 分钟。 这是我的 Vibe 工程系列的第 3 部分：https://medium.com/@andreworobator/vibe-engineering-from-random-code-to-deterministic-systems-d3e08a9c13b0 模板： github.com/AOrobator/vibe-engineering-starter (http://github.com/AOrobator/vibe-engineering-starter) 您会编码什么模式？   由   提交/u/boomchaos  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnhxp2/skills_the_50line_markdown_file_that_stopped_me/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:45:38 GMT</pubDate>
     </item>
     <item>
-      <title>浏览器就是沙箱</title>
-      <link>https://www.reddit.com/r/programming/comments/1qndgqf/the_browser_is_the_sandbox/</link>
-      <description><![CDATA[ 由   提交 /u/misterolupo   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qndgqf/the_browser_is_the_sandbox/</guid>
-      <pubDate>Mon, 26 Jan 2026 11:24:26 GMT</pubDate>
+      <title>每个开发人员都应该了解的 75 种以上 API 模式 • Mike Amundsen</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnhu8a/75_api_patterns_every_developer_should_know_mike/</link>
+      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnhu8a/75_api_patterns_every_developer_should_know_mike/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:41:56 GMT</pubDate>
     </item>
     <item>
-      <title>宣布推出 MapLibre Tile：一种现代且高效的矢量切片格式</title>
-      <link>https://www.reddit.com/r/programming/comments/1qndbz5/announcing_maplibre_tile_a_modern_and_efficient/</link>
-      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qndbz5/announcing_maplibre_tile_a_modern_and_efficient/</guid>
-      <pubDate>Mon, 26 Jan 2026 11:16:58 GMT</pubDate>
+      <title>如果错误自行修复了怎么办？让 AI 代理主动检测错误、修复代码并创建 PR。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnhkbh/what_if_the_bug_fixed_itself_letting_ai_agents/</link>
+      <description><![CDATA[ 由   提交 /u/arhimedosin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnhkbh/what_if_the_bug_fixed_itself_letting_ai_agents/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:31:12 GMT</pubDate>
     </item>
     <item>
-      <title>我写了一篇关于单例模式的指南，其中包含示例和实现中的问题。欢迎反馈</title>
-      <link>https://www.reddit.com/r/programming/comments/1qncs89/i_wrote_a_guide_on_singleton_pattern_with/</link>
-      <description><![CDATA[ 由   提交/u/hardasspunk  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qncs89/i_wrote_a_guide_on_singleton_pattern_with/</guid>
-      <pubDate>Mon, 26 Jan 2026 10:46:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 PostgreSQL 扩展到每秒数百万个查询：OpenAI 的经验教训</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnbllg/scaling_postgresql_to_millions_of_queries_per/</link>
-      <description><![CDATA[OpenAI 如何扩展 PostgreSQL，以通过单个主数据库和 50 个只读副本来处理 8 亿 ChatGPT 用户。数据库工程师的实用见解。   由   提交/u/rajkumarsamra   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnbllg/scaling_postgresql_to_millions_of_queries_per/</guid>
-      <pubDate>Mon, 26 Jan 2026 09:35:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>研究发现，许多软件开发人员在发布可能与民主价值观相冲突的产品时感到道德压力</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnaguj/study_finds_many_software_developers_feel_ethical/</link>
-      <description><![CDATA[ 由   提交 /u/SentFromHeav3n   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnaguj/study_finds_many_software_developers_feel_ethical/</guid>
-      <pubDate>Mon, 26 Jan 2026 08:26:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>这种代码审查技巧在应对难缠的客户时确实有效</title>
-      <link>https://www.reddit.com/r/programming/comments/1qnagu2/this_code_review_hack_actually_works_when_dealing/</link>
-      <description><![CDATA[ 由   提交 /u/goto-con   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qnagu2/this_code_review_hack_actually_works_when_dealing/</guid>
-      <pubDate>Mon, 26 Jan 2026 08:26:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>Tcl：最被低估但最高效的编程语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn8vpq/tcl_the_most_underrated_but_the_most_productive/</link>
+      <title>Neutralinojs v6.5 发布</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnhaw9/neutralinojs_v65_released/</link>
       <description><![CDATA[ 由   提交/u/delvin0  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn8vpq/tcl_the_most_underrated_but_the_most_productive/</guid>
-      <pubDate>Mon, 26 Jan 2026 06:54:42 GMT</pubDate>
+      <guid>https://www.reddit.com/r/programming/comments/1qnhaw9/neutralinojs_v65_released/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:20:53 GMT</pubDate>
     </item>
     <item>
-      <title>如何获得网络开发实习或工作？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn8nb5/how_to_get_a_internship_or_a_job_in_web_dev/</link>
-      <description><![CDATA[ 由   提交/u/davygamer18  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn8nb5/how_to_get_a_internship_or_a_job_in_web_dev/</guid>
-      <pubDate>Mon, 26 Jan 2026 06:41:49 GMT</pubDate>
+      <title>GraphRAG 的似曾相识：为什么我们会重复图数据库错误（从我的上一篇文章深入探讨）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qnh1uu/graphrags_deja_vu_why_were_repeating_graph_db/</link>
+      <description><![CDATA[嘿 r/programming — 我的 最后一篇文章达到 11K 浏览量/18 条评论（26 天前，动态重建会谈仍在嗡嗡作响）。将其扩展为中等深度探讨：GraphRAG 的核心问题不是图表，而是将 LLM 的猜测冻结为边缘​​。 炒作和立即不安 GraphRAG：LLM 提取关系 → 构建图表 → 遍历以实现“更好的推理”。纸面上令人印象深刻，但来自 IMS/CODASYL 的似曾相识（显式指针丢失到关系数据库 - 假设的预先关系）。 它如何冻结假设 摄取：LLM 猜测 → 冻结边缘。查询强制通过了昨天的上下文相关猜测。节点=事实，边缘=猜测→偏差检索，意图转变很脆弱。 可预测性权衡 大声评论：可审核路径（godofpumpkins）在产品中击败了不透明查询时的LLM。公平——将不确定性左移。但语义呢？带有偏见/不完整的未来知识的推断 → 可预见的错误。 图表闪光/不闪光的地方 非常适合稳定/显式（代码依赖、欺诈）。大多数RAG？隐式/意图相关 → 简单的 RAG + 混合 + 重新排序获胜（无过度建模）。 完整阅读（带历史课程）：Medium 好友链接 您的产品中 GraphRAG 击败简单 RAG 的位置在哪里（延迟/准确性/可维护性）？动态重建（igbradley1）修复脆性？微调得更好？ 讨论！   由   提交/u/dqj1998  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qnh1uu/graphrags_deja_vu_why_were_repeating_graph_db/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:10:59 GMT</pubDate>
     </item>
     <item>
-      <title>ThePrimeagen 告诉他的追随者安装有毒的人工智能技能</title>
-      <link>https://www.reddit.com/r/programming/comments/1qn7f7q/theprimeagen_told_his_followers_to_install_a/</link>
-      <description><![CDATA[我写了一篇有关 Prime 最新表演艺术的文章：一个 AI 技能库，从表面上看看起来合法，但包含有毒的示例。 事实：  Prime 发推文“伙计们，我错了”并链接到 is-even AI 技能 该存储库包含 391 行代码，用于检查数字是否可以被 2 整除 总共有 69 个示例（34 个偶数，35 个奇数） is-odd 技能表示它“否定了 is-even”。但示例显示 0 为奇数，1 为偶数 提交消息：“通过理解现实和时间的抽象来彻底改变人工智能”  现实中：  Prime 没有改变他对振动编码的看法 错误的示例对于那些没有阅读就安装的人来说是一个陷阱 任何部署到生产环境的人现在都想知道为什么is_odd(2) 返回 true 观看“Prime 终于明白了”的 56,000 人它们是亮点  就上下文而言，2016 年破坏 npm 的原始 left-pad 包有 11 行。 Prime 的版本是 153。 更新：此后他取消了有毒技能，并用 Cloudflare 技能取代它们。   由   提交/u/jpcaparas   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qn7f7q/theprimeagen_told_his_followers_to_install_a/</guid>
-      <pubDate>Mon, 26 Jan 2026 05:36:22 GMT</pubDate>
+      <title>MCP 的含义及其工作原理</title>
+      <link>https://www.reddit.com/r/programming/comments/1qngyeh/what_mcp_means_and_how_it_works/</link>
+      <description><![CDATA[ 由   提交 /u/shift_devs   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qngyeh/what_mcp_means_and_how_it_works/</guid>
+      <pubDate>Mon, 26 Jan 2026 14:07:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>WebAuthn 循环：“无密码”握手中的常见逻辑缺陷</title>
+      <link>https://www.reddit.com/r/programming/comments/1qngoqw/the_webauthn_loop_common_logic_flaws_in_the/</link>
+      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qngoqw/the_webauthn_loop_common_logic_flaws_in_the/</guid>
+      <pubDate>Mon, 26 Jan 2026 13:56:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>对抗 ANR</title>
+      <link>https://www.reddit.com/r/programming/comments/1qngkaq/fighting_anrs/</link>
+      <description><![CDATA[ 由   提交 /u/Pristine-Summer1819   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qngkaq/fighting_anrs/</guid>
+      <pubDate>Mon, 26 Jan 2026 13:51:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 Google Gemini 创建车辆沙箱</title>
+      <link>https://www.reddit.com/r/programming/comments/1qngige/creating_a_vehicle_sandbox_with_google_gemini/</link>
+      <description><![CDATA[ 由   提交/u/Hydrogen18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qngige/creating_a_vehicle_sandbox_with_google_gemini/</guid>
+      <pubDate>Mon, 26 Jan 2026 13:49:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 生成测试作为仪式</title>
+      <link>https://www.reddit.com/r/programming/comments/1qng7j6/ai_generated_tests_as_ceremony/</link>
+      <description><![CDATA[ 由   提交 /u/toolbelt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qng7j6/ai_generated_tests_as_ceremony/</guid>
+      <pubDate>Mon, 26 Jan 2026 13:36:50 GMT</pubDate>
     </item>
     </channel>
 </rss>
