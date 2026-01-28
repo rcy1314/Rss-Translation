@@ -4,7 +4,77 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 28 Jan 2026 09:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 13:01:42 GMT</lastBuildDate>
+    <item>
+      <title>为什么你的后量子密码学策略必须现在开始</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpa8dc/why_your_postquantum_cryptography_strategy_must/</link>
+      <description><![CDATA[ 由   提交/u/donutloop  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpa8dc/why_your_postquantum_cryptography_strategy_must/</guid>
+      <pubDate>Wed, 28 Jan 2026 12:38:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>CLI 工具中“持久上下文”层的架构（或：如何阻止 AI Amnesia）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp9mdy/architecture_for_a_persistent_context_layer_in/</link>
+      <description><![CDATA[大多数 AI 编码助手（Copilot、Cursor、ChatGPT）都在基于会话的内存模型上运行。您打开聊天，转储上下文，解决错误，然后关闭聊天。上下文消失。 如果您两周后遇到相同的错误（例如，特定的复制 API 信用错误或模糊的 boto3 权限问题），您必须支付“上下文税”。再次：重新粘贴日志，重新解释环境，然后重新等待推理。 我一直在尝试一种不同的架构：具有持久向量存储的拦截器模式。 这个想法是将内存从 LLM 上下文窗口移出，移至位于终端和 AI 之间的永久可查询层。 架构 而不是用户 -&gt; LLM，流程变为： User Error -&gt;矢量搜索（本地/云）-&gt;打？ （返回修复）-&gt;错过？ （查询 LLM -&gt; 存储修复） 这有效地为您提供了 O(1) 检索先前解决的错误，将重复出现的问题的令牌成本降低到 0 美元。 实现挑战 输入卫生：您不能只是向量嵌入每个 stderr。您需要去除时间戳、用户路径 (/Users/justin/...) 和随机会话 ID，否则对于相同的错误，向量距离将太远。 修复质量：存储整个 LLM 响应有噪音。当系统强制法学硕士输出结构化的“根本原因+修复命令”时，系统效果最佳。格式并仅存储该数据。 隐私：由于这涉及将堆栈跟踪发送到嵌入 API，因此存储层需要针对每个用户进行隔离（命名空间隔离），而不是共享的全局索引，除非您在受信任的团队环境中工作。 “压缩”问题 像 Claude Code 这样的工具尝试通过上下文压缩（总结旧的回合）来解决这个问题，但压缩是有损的。它通常会抽象出解决问题的特定 CLI 命令。将存储器外部化到专用存储装置中避免了这种信号丢失，因为“修复”是在外部存储器中进行的。以原始可执行形式存储。 参考实现 我用 Python 构建了一个概念验证 CLI（约 250 行）来测试此架构。它包装了 Replicate API (DeepSeek V3)，并使用外部内存提供程序 (UltraContext) 作为持久层。 如果您想批评该架构或为自己的 RAG 管道分叉它，它是开源的。 我很想知道其他人如何处理代理的长期内存。您是否依赖于上下文窗口变大（1M+ 令牌），或者您是否还发现外部检索对于特定的错误修复对是必要的？   由   提交/u/Main_Payment_6430   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp9mdy/architecture_for_a_persistent_context_layer_in/</guid>
+      <pubDate>Wed, 28 Jan 2026 12:08:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT 应用程序如何工作</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp9cg7/how_chatgpt_apps_work/</link>
+      <description><![CDATA[ 由   提交/u/sdxyz42   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp9cg7/how_chatgpt_apps_work/</guid>
+      <pubDate>Wed, 28 Jan 2026 11:54:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>代理记忆中毒：如何将长期人工智能环境武器化</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp94gs/agentic_memory_poisoning_how_longterm_ai_context/</link>
+      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp94gs/agentic_memory_poisoning_how_longterm_ai_context/</guid>
+      <pubDate>Wed, 28 Jan 2026 11:43:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 V 构建模块化应用程序</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp8xy8/building_modular_applications_with_v/</link>
+      <description><![CDATA[ 由   提交/u/Intelligent-End-9399   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp8xy8/building_modular_applications_with_v/</guid>
+      <pubDate>Wed, 28 Jan 2026 11:34:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cloudflare 声称他们在 Cloudflare 工作人员上实施了 Matrix。他们没有</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp836e/cloudflare_claimed_they_implemented_matrix_on/</link>
+      <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp836e/cloudflare_claimed_they_implemented_matrix_on/</guid>
+      <pubDate>Wed, 28 Jan 2026 10:46:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>有选择地禁用 HTTP/1.0 和 HTTP/1.1</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp7yqj/selectively_disabling_http10_and_http11/</link>
+      <description><![CDATA[ 由   提交/u/self  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp7yqj/selectively_disabling_http10_and_http11/</guid>
+      <pubDate>Wed, 28 Jan 2026 10:39:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>代理技能威胁模型</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp7ucj/agent_skills_threat_model/</link>
+      <description><![CDATA[智能体技能是一种开放格式，由指令、资源和脚本组成，AI 智能体可以发现并使用它们来增强或提高其能力。该格式由 Anthropic 在社区的贡献下维护。 在这篇文章中，我们将研究当代理技能不受信任时可以利用的威胁。我们将提供一个可以通过代理技能执行的供应链攻击的真实示例。 我们将通过利用 PEP 723 内联元数据功能来演示这一点。目标是强调将代理技能视为任何其他开源包并对它们进行相同级别的审查的重要性。 博客链接：https://safedep.io/agent-skills-threat-model/   由   提交/u/N1ghtCod3r   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp7ucj/agent_skills_threat_model/</guid>
+      <pubDate>Wed, 28 Jan 2026 10:32:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>无需更改代码即可将 Spring Boot 应用程序启动速度提高 33%</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp7dxs/speed_up_your_spring_boot_app_startup_by_33_with/</link>
+      <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp7dxs/speed_up_your_spring_boot_app_startup_by_33_with/</guid>
+      <pubDate>Wed, 28 Jan 2026 10:06:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>JDBC、ORM、jOOQ：如何选择正确的 Java 数据库工具</title>
+      <link>https://www.reddit.com/r/programming/comments/1qp70q2/jdbc_vs_orm_vs_jooq_how_to_choose_the_right_tool/</link>
+      <description><![CDATA[ 由   提交/u/cat-edelveis   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qp70q2/jdbc_vs_orm_vs_jooq_how_to_choose_the_right_tool/</guid>
+      <pubDate>Wed, 28 Jan 2026 09:43:52 GMT</pubDate>
+    </item>
     <item>
       <title>高影响力的实用 AI 提示实际上可以帮助 Java 开发人员更快地编码、调试和学习</title>
       <link>https://www.reddit.com/r/programming/comments/1qp5uls/highimpact_practical_ai_prompts_that_actually/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[并排显示 20 多种编程语言的语法，包括 Dart、Go、Groovy、Haskell、Java 20、JavaScript - ECMAScript 2021、Julia、Kotlin、Lua、MATLAB、Objective-C、PHP、Perl、Python 3.10、R、Ruby、Rust 1.55、Scala、Swift、TypeScript、Visual Basic .NET。 youtube 上的 1 分钟视频https://youtu.be/dGyq-Bat7ds 对于规划迁移的团队和比较语言的学习者很有用。   由   提交/u/neosrix  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qp4ghq/free_tool_to_compare_programming_language_syntax/</guid>
       <pubDate>Wed, 28 Jan 2026 07:09:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>在黑客马拉松上评判是否有人愿意参加（奖金 100 美元）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qp45oq/judging_at_a_hackathon_if_anyone_would_like_to/</link>
-      <description><![CDATA[大家好， 我正在帮助评判即将举行的全球 AI 黑客马拉松，重点是为嵌入式体育应用构建有用的 AI 功能。例如使用 AI 帮助人们更有效地发现、加入或组织本地体育比赛。 这是一个为期 2 天的完全在线黑客马拉松（免费参加），异步提交。您可以从头开始或继续您已经在做的事情。只需在活动窗口中显示之前/之后的进度。 主题：使用人工智能（LLM 或其他方法）解决消费体育应用中的实际用户问题。例如，帮助用户发现游戏、与队友匹配、发送个性化邀请等。 🏗️ 提交格式  “之前”屏幕截图 + 2 句话计划 “之后”屏幕截图 + 2 句更改内容和原因摘要 可选：演示视频或存储库链接  🧠 评审标准  实用性 创造力 交付进度（在黑客马拉松窗口内） 简单性/可用性 向真实用户展示与您的应用或功能互动的奖励积分  📅 日程  周六上午 10 点（太平洋时间）：活动开始，提交开放 周六下午 5 点（太平洋时间）：提交开始作品的截止日期 周日下午 4 点（太平洋时间）：最终提交截止日期 周日下午 6 点（太平洋时间）：宣布获胜者  🏆 奖品  提交作品最多可获得 100 美元亚马逊礼品卡  🌍 全球开放 - 任何人都可以参与。 👥 欢迎个人或团队提交。 🔗 活动页面和注册链接： https://luma.com/fwljolck?tk=hRT0aC 如果您有疑问，请告诉我。希望在那里见到你们中的一些人   由   提交/u/Top-Map-9781   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qp45oq/judging_at_a_hackathon_if_anyone_would_like_to/</guid>
-      <pubDate>Wed, 28 Jan 2026 06:52:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我尝试通过构建一种语言来学习编译器。它失控了。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qp1j5m/i_tried_learning_compilers_by_building_a_language/</link>
-      <description><![CDATA[大家好， 我想分享一个我一直在做的名为 sr-lang 的个人学习项目。它是一种用 Zig 编写的小型编程语言和编译器，以 MLIR 作为后端。 我开始使用它作为通过实践来学习编译器构建的一种方式。 Zig 感觉非常适合，它的风格/约束最终对语言设计的影响超出了我的预期。 就上下文而言，我是一名 ML 研究人员，我经常研究与 GPU 相关的东西，这就是为什么你会看到面向 GPU 的实验出现（例如 Triton）。 随着时间的推移，随着我探索解析、语义分析、类型系统和后端设计，该项目不断发展。有些部分是相对扎实的，而另一些部分是实验性的或粗糙的，这在很大程度上是学习过程的一部分。 预先诚实一点  我不是编译器专家。 我偶尔使用法学硕士来探索想法或解锁迭代。 设计决策和错误是我的。 如果某些东西看起来尴尬或过于复杂，它可能反映了我在 确实花了 10 多个月才达到这一点（我很慢）。  一些实现的亮点（选定）  Zig 中的解析器、AST 和语义分析 基于 MLIR 的后端 错误联合和 defer / errdefer 风格清理 模式匹配和求和类型 通过代码 {} 块实现 comptime 和 AST-as-data 异步/等待和闭包（仍在发展） 内联 MLIR 和 asm {} 支持 Triton / GPU 集成实验  不完整的内容  标准库最少 需要诊断/工具和测试工作 一些功能是实验性的，尚未很好地集成  我分享这个是因为我喜欢  关于设计权衡和粗糙边缘的反馈 帮助发现明显的问题（或建议更好的结构） 想要低压工作（stdlib、测试、文档、诊断、重构）的贡献者  仓库：https://github.com/theunnecessarythings/sr-lang 感谢您的阅读。乐于回答问题或接受批评。   由   提交/u/theunnecessarythings  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qp1j5m/i_tried_learning_compilers_by_building_a_language/</guid>
-      <pubDate>Wed, 28 Jan 2026 04:35:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>嵌入式 Linux 中的 JSON 与 XML - 系统设计权衡</title>
-      <link>https://www.reddit.com/r/programming/comments/1qp07z1/json_vs_xml_in_embedded_linux_system_design/</link>
-      <description><![CDATA[数据格式定义系统是精简还是臃肿。我探索了 JSON 和 XML 如何在嵌入式 Linux 中流动： - 硬件 → 驱动程序 → 内核 → 中间件 → 应用程序 - 真实代码示例（I²C、sysfs、cJSON、libxml2） - 每层的调试策略 - 性能见解：JSON 与 XML。 想知道这里的其他人如何在嵌入式或系统级项目中处理数据结构 - JSON、XML 或自定义格式？   由   提交/u/ImaginaryPin1768  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qp07z1/json_vs_xml_in_embedded_linux_system_design/</guid>
-      <pubDate>Wed, 28 Jan 2026 03:34:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>Reddit 子版块状态（2027 年 1 月）：Mods 应用程序和规则更新</title>
-      <link>https://www.reddit.com/r/programming/comments/1qoxwdt/state_of_the_subreddit_january_2027_mods/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qoxwdt/state_of_the_subreddit_january_2027_mods/</guid>
-      <pubDate>Wed, 28 Jan 2026 01:54:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过研究章鱼手臂如何协调，我获得了 14.84 倍的 GPU 加速</title>
-      <link>https://www.reddit.com/r/programming/comments/1qowa0m/i_got_1484x_gpu_speedup_by_studying_how_octopus/</link>
-      <description><![CDATA[ 由   提交/u/matthewlammw   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qowa0m/i_got_1484x_gpu_speedup_by_studying_how_octopus/</guid>
-      <pubDate>Wed, 28 Jan 2026 00:44:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>简化分布式系统的本地开发</title>
-      <link>https://www.reddit.com/r/programming/comments/1qovns4/simplify_local_development_for_distributed_systems/</link>
-      <description><![CDATA[对人们的印象和解决方案感到好奇。   由   提交/u/AwayResolution5176  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qovns4/simplify_local_development_for_distributed_systems/</guid>
-      <pubDate>Wed, 28 Jan 2026 00:19:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>脚本简介：像 Rust 一样运行的 JavaScript</title>
-      <link>https://www.reddit.com/r/programming/comments/1qosew5/introducing_script_javascript_that_runs_like_rust/</link>
-      <description><![CDATA[ 由   提交 /u/SecretAggressive   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qosew5/introducing_script_javascript_that_runs_like_rust/</guid>
-      <pubDate>Tue, 27 Jan 2026 22:11:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Detectron2 进行全景分割</title>
-      <link>https://www.reddit.com/r/programming/comments/1qopi7p/panoptic_segmentation_using_detectron2/</link>
-      <description><![CDATA[对于任何学习使用 Detectron2 进行全景分割的人，本教程将介绍全景分割如何将实例分割（分离单个对象）和语义分割（标记背景区域）结合起来，以便您获得对场景的完整像素级理解。   它使用来自 Model Zoo 的 Detectron2 预训练的 COCO 全景模型，然后展示了 Python 中的完整推理工作流程：使用 OpenCV 读取图像、调整图像大小以加快处理速度、加载全景配置和权重、运行预测以及可视化合并的“事物和事物”输出。   视频说明：https://youtu.be/MuzNooUNZSY  面向喜欢 Medium 的读者的 Medium 版本：https://medium.com/image-segmentation-tutorials/detectron2-panoptic-segmentation-made-easy-for-beginners-9f56319bb6cc   带有代码的书面解释：https://eranfeit.net/detectron2-panoptic-segmentation-made-easy-for-beginners/  此内容仅用于教育目的，欢迎提供建设性反馈或讨论。   埃兰·费特   由   提交 /u/Feitgemel   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qopi7p/panoptic_segmentation_using_detectron2/</guid>
-      <pubDate>Tue, 27 Jan 2026 20:26:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>GNU C 库从源软件迁移到 Linux 基金会托管的 CTI</title>
-      <link>https://www.reddit.com/r/programming/comments/1qophgl/gnu_c_library_moving_from_sourceware_to_linux/</link>
-      <description><![CDATA[ 由   提交/u/Fcking_Chuck  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qophgl/gnu_c_library_moving_from_sourceware_to_linux/</guid>
-      <pubDate>Tue, 27 Jan 2026 20:26:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>Glaze 变得更快——SIMD 重构和疯狂的空白跳过正在进行中</title>
-      <link>https://www.reddit.com/r/programming/comments/1qoonvl/glaze_is_getting_even_faster_simd_refactoring_and/</link>
-      <description><![CDATA[ 由   提交/u/PalpitationUnlikely5  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qoonvl/glaze_is_getting_even_faster_simd_refactoring_and/</guid>
-      <pubDate>Tue, 27 Jan 2026 19:57:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
