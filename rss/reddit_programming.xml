@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 28 Jan 2026 18:44:24 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 21:34:55 GMT</lastBuildDate>
+    <item>
+      <title>表情符号可能会让法学硕士感到困惑，导致编码响应中的“无声失败”</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpoh6w/emoticons_can_confuse_llms_causing_silent/</link>
+      <description><![CDATA[ 由   提交/u/waozen   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpoh6w/emoticons_can_confuse_llms_causing_silent/</guid>
+      <pubDate>Wed, 28 Jan 2026 21:23:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们分析了 6 个跨 6 种语言的现实世界框架——以下是大规模的耦合、循环和依赖结构</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpkt35/we_analyzed_6_realworld_frameworks_across_6/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpkt35/we_analyzed_6_realworld_frameworks_across_6/</guid>
+      <pubDate>Wed, 28 Jan 2026 19:10:07 GMT</pubDate>
+    </item>
     <item>
       <title>揭秘代理 AI：使用 Clojure 从头开始​​构建最小代理引擎</title>
       <link>https://www.reddit.com/r/programming/comments/1qpjd1d/demystifying_agentic_ai_building_a_minimal_agent/</link>
@@ -29,7 +43,7 @@
     <item>
       <title>决定你看到什么的 X 算法演练</title>
       <link>https://www.reddit.com/r/programming/comments/1qpharr/walkthrough_of_xs_algorithm_that_decides_what_you/</link>
-      <description><![CDATA[X 于 1 月 20 日开源了 For You feed 背后的算法 (https://github.com/xai-org/x-algorithm)。 候选检索 两个来源为管道提供数据：  Thunder：内存服务，在 DashMap（并发 HashMap）中保存过去 48 小时的推文，按作者索引。它为您通过 gRPC 关注的帐户提供网络内帖子。 Phoenix：用于发现的两塔神经网络。用户塔是一个具有均值池化功能的 Grok 变压器。候选塔是带有 SiLU 的 2 层 MLP。两者都是 L2 归一化，因此检索只是预先计算的语料库嵌入的点积。  评分 Phoenix 在单个变压器正向传递中对所有候选者进行评分，预测每个帖子的 18 个参与概率 - 点赞、回复、转发、分享、阻止、静音、报告、停留、视频完成等。 高效地进行批处理，而候选者不会影响每个帖子其他人的分数，他们使用自定义的注意力蒙版。每个候选者都会关注用户上下文及其自身，但跨候选者的注意力会被归零。 WeightedScorer 将 18 个预测合并为一个数字。积极的信号（喜欢、回复、分享）会增加分数。负面信号（阻止、静音、报告）会被减去。 然后进行两项调整：  作者多样性 - 指数衰减，因此一位作者无法主导您的 Feed。下限参数（例如 0.3）确保后面的帖子仍然具有一定的权重。 网络外惩罚：来自未关注帐户的 0 个帖子乘以权重（例如 0.7）。  过滤 在评分之前运行 10 个预过滤器（去重、年龄限制、静音关键字、阻止列表、之前通过 Bloom 过滤器看到的帖子）。评分后，可见性过滤器会查询外部安全服务，对话重复数据删除过滤器仅保留每个线程得分最高的帖子。   由   提交/u/noninertialframe96  [链接] [评论]]]></description>
+      <description><![CDATA[X 于 1 月 20 日开源了 For You feed 背后的算法 (https://github.com/xai-org/x-algorithm)。 候选检索 两个来源为管道提供数据：  Thunder：内存服务，在 DashMap（并发 HashMap）中保存最近 48 小时的推文，按作者索引。它为您通过 gRPC 关注的帐户提供网络内帖子。 Phoenix：用于发现的两塔神经网络。用户塔是一个具有均值池化功能的 Grok 变压器。候选塔是带有 SiLU 的 2 层 MLP。两者都是 L2 归一化，因此检索只是预先计算的语料库嵌入的点积。  评分 Phoenix 在单个变压器正向传递中对所有候选者进行评分，预测每个帖子的 18 个参与概率 - 点赞、回复、转发、分享、阻止、静音、报告、停留、视频完成等。 高效地进行批处理，而候选者不会影响每个帖子其他人的分数，他们使用自定义的注意力蒙版。每个候选者都会关注用户上下文及其自身，但跨候选者的注意力会被归零。 WeightedScorer 将 18 个预测合并为一个数字。积极的信号（喜欢、回复、分享）会增加分数。负面信号（阻止、静音、报告）会被减去。 然后进行两项调整：  作者多样性 - 指数衰减，因此一位作者无法主导您的 Feed。下限参数（例如 0.3）确保后面的帖子仍然具有一定的权重。 网络外惩罚：来自未关注帐户的 0 个帖子乘以权重（例如 0.7）。  过滤 在评分之前运行 10 个预过滤器（去重、年龄限制、静音关键字、阻止列表、之前通过 Bloom 过滤器看到的帖子）。评分后，可见性过滤器会查询外部安全服务，对话重复数据删除过滤器仅保留每个线程得分最高的帖子。   由   提交/u/noninertialframe96  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qpharr/walkthrough_of_xs_algorithm_that_decides_what_you/</guid>
       <pubDate>Wed, 28 Jan 2026 17:10:28 GMT</pubDate>
     </item>
@@ -41,7 +55,7 @@
       <pubDate>Wed, 28 Jan 2026 16:29:13 GMT</pubDate>
     </item>
     <item>
-      <title>微软强迫我切换到Linux</title>
+      <title>微软强迫我切换到 Linux</title>
       <link>https://www.reddit.com/r/programming/comments/1qpfz0l/microsoft_forced_me_to_switch_to_linux/</link>
       <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qpfz0l/microsoft_forced_me_to_switch_to_linux/</guid>
@@ -95,20 +109,6 @@
       <description><![CDATA[“我一直在以某种形式写博客。那时我的 LiveJournal 非常尴尬，还有几个关于各种事情的博客都流产了。这只是一种偶尔的爱好，直到我的这篇文章在 2024 年 11 月真正开始流行。当我意识到我对技术的看法有观众时，我从每隔几个月写一篇文章变成每隔几天写一篇文章 - 事实证明，一旦我开始说，我就有很多话要说！ ...”   由   提交/u/swdevtest  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qpc0mz/sean_goedecke_on_technical_blogging/</guid>
       <pubDate>Wed, 28 Jan 2026 13:56:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 AWS 无服务器构建代理 AI 系统 • Uma Ramadoss</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpbls0/building_agentic_ai_systems_with_aws_serverless/</link>
-      <description><![CDATA[ 由   提交/u/goto-con   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpbls0/building_agentic_ai_systems_with_aws_serverless/</guid>
-      <pubDate>Wed, 28 Jan 2026 13:39:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么你的后量子密码学策略必须现在开始</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpa8dc/why_your_postquantum_cryptography_strategy_must/</link>
-      <description><![CDATA[ 由   提交/u/donutloop  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpa8dc/why_your_postquantum_cryptography_strategy_must/</guid>
-      <pubDate>Wed, 28 Jan 2026 12:38:27 GMT</pubDate>
     </item>
     </channel>
 </rss>

@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 28 Jan 2026 18:45:16 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 21:35:26 GMT</lastBuildDate>
+    <item>
+      <title>Obsidian 的智能连接插件悄悄切换到专有许可证</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qpoane/smart_connections_plugin_for_obsidian_quietly/</link>
+      <description><![CDATA[ 由   提交 /u/Sad_Environment_9704   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qpoane/smart_connections_plugin_for_obsidian_quietly/</guid>
+      <pubDate>Wed, 28 Jan 2026 21:17:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>桥接蜉蝣和 Gate0。我运行了 1M 迭代模糊浸泡来验证我的新 SSH 策略引擎。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qpk82o/bridging_ephemera_and_gate0_i_ran_a_1m_iteration/</link>
+      <description><![CDATA[嗨， 一个月前，我分享了 Ephemera 的第一个版本，这是一个自托管的 SSH 证书颁发机构，旨在消除长期信任，而无需使用 MITM 代理或云依赖项。 https://www.reddit.com/r/opensource/comments/1pthmwx/ephemera_an_opensource_selfhosted_ssh_certificate/ 从那时起，该项目已经从一个成功的工作原型发展成为一个更强大的原型经过验证的架构。今天，我将分享迄今为止最大的更新，即 Gate0 微策略引擎的集成。 当我第一次构建 Ephemera 时，目标很简单，使用本机 OpenSSH 和 PAM 颁发短期证书。最初的 RBAC 系统完美地处理了核心访问的 YAML 策略。 但是，当我展望项目的未来添加精细控制（例如基于 IP 的限制、时间窗口和每角色 MFA 实施）时，我看到了达到更高级别安全成熟度的机会。我决定将系统中最敏感的部分（决策逻辑）隔离到其自己的一流、可验证的公民中。 解决方案：Gate0 这就是 Gate0 的用武之地。Gate0 是一个高性能微策略引擎（用 Rust 编写），完全专注于安全关键决策映射。我没有让 Ephemera 在一个地方处理思考和行动，而是将两者联系起来。 1) Ephemera 处理繁重的工作：它与 OpenSSH 通信、处理 WebAuthn 并管理 CA。 2) Gate0 成为大脑：它以机械决定论以低于 50us 的速度评估复杂的逻辑。我不希望运行 ssh 时出现任何明显的延迟，如果它不是即时的，则无法使用。 它是如何工作的（桥） -基本上，Ephemera 获取请求上下文（用户、资源、时间等）并将其交给 Gate0 进行决策 -Gate0 评估策略并返回明确的允许/拒绝。 -GateBridge：我构建了这个模糊器以确保转换不会破坏任何内容。它将我的旧逻辑与新的 Gate0 引擎进行比较，以确保它们的行为完全相同。 我取得了什么 通过将 Gate0 与 Ephemera 分离，我实现了以前不可能实现的可靠性水平： 1) 1,000,000 次迭代浸泡测试：我通过桥运行了 100 万次模糊迭代。我生成了数百万个随机、复杂的策略，以证明没有边缘情况会导致逻辑反转。结果，零不匹配。 2) 影子评估：您现在可以在影子模式下运行 Gate0 引擎，在完全提交之前根据实时流量验证其决策。 3) 机械信心：我已经从希望代码正确转变为知道引擎已得到验证。 即使进行了此次升级，Ephemera 仍忠于其根源： 无 MITM SSH 代理：仅直接 OpenSSH 连接。无代理（使用本机 SSH 和 PAM 原语）。 Sovereign（完全自托管，具有基于 shamir 的恢复功能）。 存储库和存储库文档：  Ephemera：https://github.com/Qarait/ephemera Gate0：https://github.com/Qarait/gate0  https://qarait.github.io/ephemera/   由   提交 /u/Antiqueempire   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qpk82o/bridging_ephemera_and_gate0_i_ran_a_1m_iteration/</guid>
+      <pubDate>Wed, 28 Jan 2026 18:50:00 GMT</pubDate>
+    </item>
     <item>
       <title>Wave - 终极终端升级</title>
       <link>https://www.reddit.com/r/opensource/comments/1qpjn9s/wave_ultimate_terminal_upgrade/</link>
@@ -36,16 +50,9 @@
     <item>
       <title>如何才能不构建无用的开源项目呢？</title>
       <link>https://www.reddit.com/r/opensource/comments/1qpg0bi/how_can_i_not_build_useless_open_source_projects/</link>
-      <description><![CDATA[我需要来自开源项目开发者的建议。你如何找到构建项目的确切痛点，以及你认为什么时候可以共享它？ 个人背景 我是一名大学生，想要构建一个流行的开源 github 项目，主要是为了简历填充和 github star（浅薄，我知道）。已经编码了大约一年，并且在 Github 上有一堆没有为任何人服务的项目。这是我尝试过的：  使用LLM深度研究发现问题，并要求它生成代码（又名AI垃圾）  坏主意。 “发现”的问题法学硕士的研究很糟糕，生成的代码也很糟糕。更糟糕的是，我不知道法学硕士使用的技术堆栈/甚至编码语言，也不知道如何在代码损坏时修复代码。  通过 Hacker News 投诉找到问题，自己理解问题，然后让法学硕士生成代码  对于这个，我最终为一个人花了 2 个月的时间为 Perforce 构建了一个 git 堆栈工具（像 git 一样的版本控制），然后最终在单一线索消失后放弃了，我不关心 Perforce 3（现在），寻找流行且无聊的开源软件（想想非 AI 的东西）并尝试让它变得更好 所以我最终构建了一个 OCR chrome 扩展。它有用户，我本人很欣赏一个有用的文本提取器。经过一个月的编码后，我得到的是一个更糟糕的 Windows 文本提取器（来自 ctrl+shift+s）。要让它变得真正好，可能需要做更多的工作。 我的问题 你如何找到构建软件的想法？ 这是个人烦恼，还是很多人抱怨它（在线？reddit？告诉我更多！） 你如何获得营销产品的信心？ 我确实向我的朋友展示了 chrome 扩展，我是提醒一下，Windows 截图工具、Google Lens 是存在的。很公平。几周前，我在 Chrome 网上商店（如应用程序商店）上发布了它，但没有将其发布在 Reddit 论坛和类似的地方。我很难知道，对于大多数人来说，只使用 Mac，Windows 的默认设置现在更好。我的观点是，我在知道存在更好的软件的情况下推荐该工具感到内疚。 你如何实际营销该产品？ 它是 r/opensource ，该软件是免费的。我主要是和几个朋友一起测试这个项目，但我想知道如何与更多的人分享它？依靠 Chrome 网上应用店默认提高认知度是不够的（1 个用户，那就是我！）。在 Reddit 等社交媒体上发布该项目并希望进行互动？    由   提交 /u/tomtepdau   [链接] [评论]]]></description>
+      <description><![CDATA[我需要来自开源项目开发者的建议。你如何找到构建项目的确切痛点，以及你认为什么时候可以共享它？ 个人背景 我是一名大学生，想要构建一个流行的开源 github 项目，主要是为了简历填充和 github star（浅薄，我知道）。已经编码了大约一年，并且在 Github 上有一堆没有为任何人服务的项目。这是我尝试过的：  使用LLM深度研究发现问题，并要求它生成代码（又名AI垃圾）  坏主意。 “发现”的问题法学硕士的研究很糟糕，生成的代码也很糟糕。更糟糕的是，我不知道法学硕士使用的技术堆栈/甚至编码语言，也不知道如何在代码损坏时修复代码。  通过 Hacker News 投诉找到问题，自己理解问题，然后让法学硕士生成代码  对于这个，我最终为一个人花了 2 个月的时间为 Perforce 构建了一个 git 堆栈工具（像 git 一样的版本控制），然后最终在单一线索消失后放弃了，我不关心 Perforce 3（现在），寻找流行且无聊的开源软件（想想非 AI 的东西）并尝试让它变得更好 所以我最终构建了一个 OCR chrome 扩展。它有用户，我本人很欣赏一个有用的文本提取器。经过一个月的编码后，我得到的是一个更糟糕的 Windows 文本提取器（来自 ctrl+shift+s）。要让它变得真正好，可能需要做更多的工作。 我的问题 你如何找到构建软件的想法？ 这是个人烦恼，还是很多人抱怨它（在线？reddit？告诉我更多！） 你如何获得推销产品的信心？ 我确实向我的朋友展示了 chrome 扩展，我是提醒一下，Windows 截图工具、Google Lens 是存在的。很公平。几周前，我在 Chrome 网上商店（如应用程序商店）上发布了它，但没有将其发布在 Reddit 论坛和类似的地方。我很难知道，对于大多数人来说，只使用 Mac，Windows 的默认设置现在更好。我的观点是，我在知道存在更好的软件的情况下推荐该工具感到内疚。 你如何实际营销该产品？ 它是 r/opensource ，该软件是免费的。我主要是和几个朋友一起测试这个项目，但我想知道如何与更多的人分享它？依靠 Chrome 网上应用店默认提高认知度是不够的（1 个用户，那就是我！）。在 Reddit 等社交媒体上发布该项目并希望进行互动？    由   提交 /u/tomtepdau   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qpg0bi/how_can_i_not_build_useless_open_source_projects/</guid>
       <pubDate>Wed, 28 Jan 2026 16:25:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>CLIO：终端-原生 AI 结对编程</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qpf9ek/clio_terminalnative_ai_pair_programming/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qpf9ek/clio_terminalnative_ai_pair_programming/</guid>
-      <pubDate>Wed, 28 Jan 2026 15:59:22 GMT</pubDate>
     </item>
     <item>
       <title>Jira 自动化 + MCP 服务器将 Figma 设计分解为故事</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[我花了很长时间试图完全消除我个人和家庭工作流程中的 Microsoft 影响，同时保持对非技术人员的可用性。在测试了大多数常见的自由和开源软件选项后，我得出了一个可能不太受欢迎的结论： OnlyOffice 是当今 Microsoft Office 的最佳开源替代品 - 对于许多用例来说，它是比 LibreOffice 更好的直接替代品。 这并不是对 LibreOffice 的价值观或历史的打击。这是关于现实世界的兼容性、协作和摩擦。  MS Office 兼容性实际上很重要。实际上，大多数人仍在交换 .docx、.xlsx 和 .pptx。  OnlyOffice 使用 OOXML 作为其本机格式 更可靠地保留布局、间距、表格和样式。破坏更少的复杂 Word 和 Excel 文件 Office 用户立即感到熟悉。  LibreOffice 功能强大，但在现实世界的混合环境中，文档保真度仍然经常失败。  无需大型科技云的协作  OnlyOffice 在自托管时表现出色： 实时协作编辑、版本历史记录、评论、跟踪更改、与 Nextcloud、ownCloud、普通存储或独立版本完全集成。您无需 Google 或 Microsoft 即可获得 Google Docs / M365 式协作。  LibreOffice Online 是存在的，但它更重，部署更复杂，对于非技术用户来说不够完善。  UX 对于采用很重要  OnlyOffice：干净、现代的 UI，Office 用户熟悉的 Ribbon 风格布局，更容易让家庭成员或同事接受。 LibreOffice：非常强大，但仍然感觉像是来自另一个时代的桌面应用程序，需要更多的再培训和对怪癖的容忍，对于大规模采用来说，熟悉不是一种罪过——而是一种功能。  开源和务实  OnlyOffice 是：AGPL 许可（核心）、可自托管、开放与企业透明、积极开发并有清晰的路线图，它在意识形态纯洁性和可用性之间达到了最佳平衡点。  对于许多人来说，这实际上让他们离开专有生态系统而不是爬回来。  并不完美，但最好的权衡  诚实的缺点：VBA 宏支持有限（与 LibreOffice 相同，只是不同的限制），较小的插件生态系统，高级 Excel 边缘情况仍然可能失败，但对于绝大多数日常 Office 用户来说？文档、电子表格、协作、共享和数据的长期所有权 - 它有效。 TL;DR- 如果您的目标是：开源、自托管、无需订阅、强大的 MS Office 兼容性、普通用户的最小摩擦， OnlyOffice 是目前最实用的 FOSS Office 套件。  LibreOffice 仍然是一款出色的强大工具，但 OnlyOffice 是 2025 年 Microsoft Office 的更好替代品。 流行的开源网站也建议使用它： https://openalternative.co/alternatives/microsoft-365 https://opensourcealternative.to/alternativesto/office-online 很想听听其他人的经验，特别是来自在家庭或小团队环境中长期运行的人的经验。   由   提交 /u/libbyslayer   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qpaebb/onlyoffice_is_the_most_practical_foss_alternative/</guid>
       <pubDate>Wed, 28 Jan 2026 12:46:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源 Reddit 帖子调度工具？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qp9ck1/open_source_reddit_post_scheduling_tool/</link>
-      <description><![CDATA[有没有流行的开源项目用于在 Reddit 上安排帖子？我正在寻找一种解决方案，可以使用自己的令牌并对其进行自定义以供个人使用。付费的后期调度应用程序变得越来越昂贵，所以我更愿意建立自己的。有什么建议或项目可以参考吗？   由   提交/u/tech_guy_91  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qp9ck1/open_source_reddit_post_scheduling_tool/</guid>
-      <pubDate>Wed, 28 Jan 2026 11:55:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
