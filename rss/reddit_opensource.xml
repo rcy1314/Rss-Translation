@@ -4,11 +4,25 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 29 Jan 2026 06:57:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Jan 2026 09:52:24 GMT</lastBuildDate>
+    <item>
+      <title>RAG Enterprise – 100% 离线运行的自托管 RAG 系统</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qq3l1q/rag_enterprise_selfhosted_rag_system_that_runs/</link>
+      <description><![CDATA[不久前在 r/Rag 上分享了我的本地 RAG 系统，并得到了很好的反馈，因此也在这里发帖。 这是一个完全离线运行的自托管 RAG - 构建它是因为我需要一些用于隐私敏感文档的东西，而云不是一个选项。 刚刚添加了基准测试如果有人想在自己的硬件上尝试，请提供真实的测试文档。 https://github.com/I3K-IT/RAG-Enterprise 很高兴谈论它！   由   提交 /u/primoco   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qq3l1q/rag_enterprise_selfhosted_rag_system_that_runs/</guid>
+      <pubDate>Thu, 29 Jan 2026 09:00:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 WebAssembly 构建一个快速、私有的图像压缩网站</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qq2e1s/built_a_fast_private_image_compression_website/</link>
+      <description><![CDATA[GitHub：https://github.com/Setispr/image-compressor 现场演示站点：https://img-compress.pages.dev/ 我构建这个是因为我想要一个基于网络的图像压缩器，我实际上可以信任它来处理个人照片，并且厌倦了广告泛滥的网站。目前它支持 JPG、PNG、WEBP、AVIF、QOI、JXL 压缩，并为您提供完全无损或可自定义的有损选项。 没有广告、cookie 或跟踪器，它支持不同的调整大小模式、颜色缩减、剥离 EXIF 元数据、可自定义并行处理、并排图像比较等。 它使用 WebAssembly，因此所有操作都在您的浏览器中进行。没有图像被上传到服务器。与基于标准 JS 的压缩相比，它还使用 WASM 来实现接近本机的性能。 其他类似网站（例如 Squoosh）不支持批量上传，并且大多数支持批量上传的分支仍然存在与 Squoosh 相同的问题，即由于“内存不足”错误而无法压缩。 我很想听听您对压缩质量、任何功能建议或 UI 的想法。   由   提交/u/setispr   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qq2e1s/built_a_fast_private_image_compression_website/</guid>
+      <pubDate>Thu, 29 Jan 2026 07:48:38 GMT</pubDate>
+    </item>
     <item>
       <title>因为 Immich 毁掉了我的旧笔记本电脑，所以在 3 周内构建了一个轻量级的自托管照片备份</title>
       <link>https://www.reddit.com/r/opensource/comments/1qq0kum/built_a_lightweight_selfhosted_photo_backup_in_3/</link>
-      <description><![CDATA[我的父母在设备上散布着数千张照片，他们想要使用 Google 相册。我说不，隐私问题和订阅蔓延。试图在我的旧笔记本电脑上为他们设置 Immich，但 ML 模型让它崩溃了。机器学习功能令人难以置信，但并不是每个人都有可以处理它们的硬件。 解决方案 构建 Kinvault - 使用 Flutter + PocketBase 的最小自托管照片备份应用程序，实际上在马铃薯硬件上运行。 现在有效：  用户身份验证 从图库/文件上传照片 通过缓存自动列出照片 通过 PocketBase 实现安全存储 跨平台 (Flutter) 与其他社交媒体分享功能 实际上可以在我用了 14 年的笔记本电脑上运行，无需热节流  缺少什么：  自动备份 专辑组织 Docker compose（目前需要手动 PocketBase 设置） 任何 ML/人脸识别（通过设计 - 这就是重点） 资源使用基准  技术堆栈  前端： Flutter（跨平台支持） 后端： PocketBase（单个二进制文件，嵌入式数据库） 状态管理： Riverpod 为什么选择 PocketBase？实时订阅、内置身份验证、文件存储，全部集中在一个微小的二进制文件中  当前状态 这是一个工作原型，尚未准备好用于生产。设置仍然需要：  单独运行 PocketBase 手动 .env 配置 通过 PocketBase 管理仪表板创建用户  它适用于我父母的用例，但需要改进以实现更广泛的采用。 我接下来要添加的内容 希望获得有关优先级的反馈：  Docker Compose for单命令部署？ 从手机自动照片备份？ 也许可以尝试一下轻量级机器学习/人脸检测？  为什么分享这个？ 因为有时“足够好并且可以在我的硬件上运行”。击败“完美但需要服务器场”。如果你有旧硬件，并且想要比 Immich/PhotoPrism 更简单的东西，也许这会让人痒痒。 GitHub： https://github.com/hariiiiiiiii/kinvault 许可证： MIT 寻找：反馈、功能优先级，如果有人对真正的轻量级替代方案感兴趣，也许还可以是贡献者。 注意：这实际上是 24 小时前的事情。预计会有粗糙的边缘、缺失的功能，并且可能还会出现一些错误。但它会上传照片，而且我的笔记本电脑听起来不再像喷气发动机了，所以...成功了吗？   由   提交 /u/Hariii111   [链接] [评论]]]></description>
+      <description><![CDATA[我的父母在设备上散布着数千张照片，他们想要使用 Google 相册。我说不，隐私问题和订阅蔓延。试图在我的旧笔记本电脑上为他们设置 Immich，但 ML 模型让它崩溃了。机器学习功能令人难以置信，但并不是每个人都有可以处理它们的硬件。 解决方案 构建 Kinvault - 使用 Flutter + PocketBase 的最小自托管照片备份应用程序，实际上在马铃薯硬件上运行。 现在有效：  用户身份验证 从图库/文件上传照片 通过缓存自动列出照片 通过 PocketBase 实现安全存储 跨平台 (Flutter) 与其他社交媒体分享功能 实际上可以在我用了 14 年的笔记本电脑上运行，无需热节流  缺少什么：  自动备份 专辑组织 Docker compose（目前需要手动 PocketBase 设置） 任何 ML/人脸识别（通过设计 - 这就是重点） 资源使用基准  技术堆栈  前端： Flutter（跨平台支持） 后端： PocketBase（单个二进制文件，嵌入式数据库） 状态管理： Riverpod 为什么选择 PocketBase？实时订阅、内置身份验证、文件存储，全部集中在一个微小的二进制文件中  当前状态 这是一个工作原型，尚未准备好用于生产。设置仍然需要：  单独运行 PocketBase 手动 .env 配置 通过 PocketBase 管理仪表板创建用户  它适用于我父母的用例，但需要改进以实现更广泛的采用。 我接下来要添加的内容 希望获得有关优先级的反馈：  Docker Compose for单命令部署？ 从手机自动照片备份？ 也许可以尝试一下轻量级机器学习/人脸检测？  为什么分享这个？ 因为有时“足够好并且可以在我的硬件上运行”。击败“完美但需要服务器场”。如果你有旧硬件，并且想要比 Immich/PhotoPrism 更简单的东西，也许这会让人痒痒。 GitHub： https://github.com/hariiiiiiiii/kinvault 许可证： MIT 寻找：反馈、功能优先级，如果有人对真正的轻量级替代方案感兴趣，也许还有贡献者。 编辑：评论中出现的一些内容：  是的，您可以在 Immich 中禁用 ML - 在开始之前不知道这一点。即使没有 ML，Immich 仍然感觉比我简单的家庭照片备份所需的要重。这个项目更注重简单性而不是功能。 关于 AI/vibecoding - 自述文件是 AI 生成的，我现在已经披露了这一点。我对其进行了审查和修改，以匹配应用程序的实际运行方式。实际的代码都是我经过三周的工作而得来的。我知道一切的作用，很乐意回答有关其中任何部分的问题。  注意：这实际上是 3 周前的事情。预计会有粗糙的边缘、缺失的功能，并且可能还会出现一些错误。但它会上传照片，而且我的笔记本电脑听起来不再像喷气发动机了，所以...成功了吗？   由   提交 /u/Hariii111   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qq0kum/built_a_lightweight_selfhosted_photo_backup_in_3/</guid>
       <pubDate>Thu, 29 Jan 2026 06:05:30 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[我尝试了 `top` 和 `htop` 并决定构建自己的系统监控 TUI（终端用户界面）。 目标是构建 `htop` 但具有更好的 UI。 我正在使用 Go 和 BubbleTea 构建它，项目名称是`coffee`。 它仍处于早期阶段，最终将具有 htop 的所有功能，但目前，总体 CPU 负载和每个 CPU 核心负载正在实时渲染。  如果你好奇，这里是存储库：https://github.com/ParagGhatage/coffee  如果你喜欢它，请给它一个星星！敬请关注！ #tui #Go #htop   由   提交/u/United_Intention42   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qpikfm/htop_with_better_ui/</guid>
       <pubDate>Wed, 28 Jan 2026 17:53:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>对 Python 原生库与使用 PythonMonkey 的看法</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qpgv4g/opinion_on_python_native_library_vs_using/</link>
-      <description><![CDATA[      我目前正在帮助维护 html-to-docx，并且 Discord 中的一些人要求使用 python 原生库。我正在尝试减少管理两个独立代码库的开销，但想知道人们是否使用像 PythonMonkey 这样的包，以及是否有任何额外的问题/开销我应该考虑清楚。    由   提交/u/nicolascoding  [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qpgv4g/opinion_on_python_native_library_vs_using/</guid>
-      <pubDate>Wed, 28 Jan 2026 16:55:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何才能不构建无用的开源项目呢？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qpg0bi/how_can_i_not_build_useless_open_source_projects/</link>
-      <description><![CDATA[我需要来自开源项目开发者的建议。你如何找到构建项目的确切痛点，以及你认为什么时候可以共享它？ 个人背景 我是一名大学生，想要构建一个流行的开源 github 项目，主要是为了简历填充和 github star（浅薄，我知道）。已经编码了大约一年，并且在 Github 上有一堆没有为任何人服务的项目。这是我尝试过的：  使用LLM深度研究发现问题，并要求它生成代码（又名AI垃圾）  坏主意。 “发现”的问题法学硕士的研究很糟糕，生成的代码也很糟糕。更糟糕的是，我不知道法学硕士使用的技术堆栈/甚至编码语言，也不知道如何在代码损坏时修复代码。  通过 Hacker News 投诉找到问题，自己理解问题，然后让法学硕士生成代码  对于这个，我最终为一个人花了 2 个月的时间为 Perforce 构建了一个 git 堆栈工具（像 git 一样的版本控制），然后最终在单一线索消失后放弃了，我不关心 Perforce 3（现在），寻找流行且无聊的开源软件（想想非 AI 的东西）并尝试让它变得更好 所以我最终构建了一个 OCR chrome 扩展。它有用户，我本人很欣赏一个有用的文本提取器。经过一个月的编码后，我得到的是一个更糟糕的 Windows 文本提取器（来自 ctrl+shift+s）。要让它变得真正好，可能需要做更多的工作。 我的问题 你如何找到构建软件的想法？ 这是个人烦恼，还是很多人抱怨它（在线？reddit？告诉我更多！） 你如何获得营销产品的信心？ 我确实向我的朋友展示了 chrome 扩展，我是提醒一下，Windows 截图工具、Google Lens 是存在的。很公平。几周前，我在 Chrome 网上商店（如应用程序商店）上发布了它，但没有将其发布在 Reddit 论坛和类似的地方。我很难知道，对于大多数人来说，只使用 Mac，Windows 的默认设置现在更好。我的观点是，我在知道存在更好的软件的情况下推荐该工具感到内疚。 你如何实际营销该产品？ 它是 r/opensource ，该软件是免费的。我主要是和几个朋友一起测试这个项目，但我想知道如何与更多的人分享它？依靠 Chrome 网上应用店默认提高认知度是不够的（1 个用户，那就是我！）。在 Reddit 等社交媒体上发布该项目并希望进行互动？    由   提交 /u/tomtepdau   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qpg0bi/how_can_i_not_build_useless_open_source_projects/</guid>
-      <pubDate>Wed, 28 Jan 2026 16:25:34 GMT</pubDate>
     </item>
     </channel>
 </rss>
