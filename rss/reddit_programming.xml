@@ -4,13 +4,13 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 29 Jan 2026 02:29:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Jan 2026 04:43:22 GMT</lastBuildDate>
     <item>
-      <title>ScottT2-spec/autonomous-litter-collector-FSM：模块化自主机器人系统，利用有限状态机 (FSM) 逻辑进行避障和实时环境遥测</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpvqln/scottt2specautonomouslittercollectorfsm_a_modular/</link>
-      <description><![CDATA[ 由   提交/u/General_Blueberry114  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpvqln/scottt2specautonomouslittercollectorfsm_a_modular/</guid>
-      <pubDate>Thu, 29 Jan 2026 02:17:50 GMT</pubDate>
+      <title>用代数代替共识，实现 40 纳秒的因果一致性</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpysme/40ns_causal_consistency_by_replacing_consensus/</link>
+      <description><![CDATA[分布式系统通常为正确性付出毫秒的代价，因为它们将正确性定义为执行顺序。 该项目采取不同的立场：正确性是代数的属性，而不是时间。 如果操作通勤，则不需要协调。如果没有，系统会在准入时以纳秒为单位告诉您。 Cuttlefish 是一个无协调状态内核，它在约 40 纳秒的端到端（L1 缓存规模）下强制执行严格的不变量和因果一致性、零共识、零锁、热路径中的零堆。 在这里，状态转换是形成 DAG 的不可变事实。每个不变量都是纯代数。跟踪伤亡的方式是使用 512 位布隆向量时钟，该时钟恰好达到亚纳秒 700ps 的优势检查。立即检测到非交换性，但如果不变量是可交换的（阿贝尔群/半格/幺半群），则准入不需要协调。 以下是上下文的一些数字（单核、Ryzen 7、Linux 6.x）： 完全因果 + 不变准入：~40ns 无依赖的内核准入：~13ns 持久准入(io_uring WAL): ~5ns 供参考：etcd / Cockroach 为线性化写入支付 1-50ms。 这是什么： 用于构建数据库、账本、复制状态机的低级内核 当代数允许时，严格的不变量无需达成共识 位确定性、无分配、SIMD 友好 Rust 这是基于 CALM、CRDT 理论，和 Bloom 时钟，但针对现代 CPU（缓存行、无分支代码、io_uring）进行了积极的设计。 Repo：https://github.com/abokhalill/cuttlefish 我正在寻找构建共识系统、CRDT 或存储引擎的人们的反馈，并认为这要么是正确的，要么只是废话。   由   提交/u/AdministrativeAsk305   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpysme/40ns_causal_consistency_by_replacing_consensus/</guid>
+      <pubDate>Thu, 29 Jan 2026 04:35:58 GMT</pubDate>
     </item>
     <item>
       <title>真的厌倦了 googlesheets 上的普通 html 输出</title>
@@ -20,13 +20,6 @@
       <pubDate>Thu, 29 Jan 2026 01:16:34 GMT</pubDate>
     </item>
     <item>
-      <title>我今年 16 岁，刚刚编写了我的第一个排序算法。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpuai4/im_16_and_i_just_coded_my_first_own_sorting/</link>
-      <description><![CDATA[这可能没有我想象的那么令人印象深刻，但我真的非常非常高兴它的结果。 代码和自述文件都是由 chatgpt 编写的。不是因为我懒，而是因为我用自己的语言写了一篇文章，并要求 chatgpt 翻译代码和文本，这样你们也可以阅读它，而不仅仅是我。也就是说，其中的所有内容都是我制作的，只是由chatgpt翻译的 另外请记住，我以前从未做过这样的事情，因此这是我的第一个“更大”的作品。项目。大约4-5个小时就做好了。这包括计划和编码的时间。 如果你们中的任何人能给我反馈，我真的很高兴听到你们的想法。 而且，这不是一个原始算法，因为我试图改进插入排序在较长列表方面的问题，因为我不想精疲力竭，而且我不知道如何开始自己计划一切，所以我只是按照我认为可能会好的方式去做。 现在我想标题可能有误导性，但现在是凌晨 2:10，我明天还要上学，但我想分享它，说实话，在集思广益之后我什至无法思考。谢谢大家的关注！ *对于模组，我不知道这是否算是一个演示，但我在自述文件中有一篇三页的文章，介绍了我是如何制作的，为什么我选择这样做或那样，我遇到了什么问题，我的艰难过程等等。   由   提交/u/fallenmeteorite4  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpuai4/im_16_and_i_just_coded_my_first_own_sorting/</guid>
-      <pubDate>Thu, 29 Jan 2026 01:15:21 GMT</pubDate>
-    </item>
-    <item>
       <title>SDL2 TTF 到纹理</title>
       <link>https://www.reddit.com/r/programming/comments/1qptz41/sdl2_ttftotexture/</link>
       <description><![CDATA[SDL2 有两种方式将图像渲染到窗口：表面和纹理。据我所知，纹理被认为是默认选择，因为它们可以进行硬件加速。但对于使用 TTF 文件的文本渲染，主要库/扩展似乎是 SDL2_ttf，它仅支持表面。这个新函数将字形（字符图像）加载到纹理中。 抱歉，这是一个视频而不是一篇文章，可能不是理想的格式，但概述如下： - C - 使用 FreeType（与 SDL2_ttf 相同）加载 TTF 数据 - 字形被加载到包含像素缓冲区的 FT_Face 中 - 像素缓冲区必须重新格式化，因为SDL2似乎没有直接正确解释缓冲区的像素格式  - 性能比使用SDL2_ttf + 将表面转换为纹理更好   由   提交/u/AdventurousLemon8794  [链接] [评论]]]></description>
@@ -34,32 +27,11 @@
       <pubDate>Thu, 29 Jan 2026 01:01:46 GMT</pubDate>
     </item>
     <item>
-      <title>逻辑炸弹</title>
-      <link>https://www.reddit.com/r/programming/comments/1qptwyf/logic_bombs/</link>
-      <description><![CDATA[刚刚开始阅读“Homo Deus”作者：Harari - 第 19 页底部，他表示美国的主要基础设施很可能“拥挤不堪”。与逻辑炸弹。 ”  任何在这个领域有一点重力的人都可以参与进来吗？ 这对我来说感觉不现实。我确信它们可能会受到损害，但暗示它们已经受到损害而没有人注意到？    由   提交 /u/Different-Pay6934   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qptwyf/logic_bombs/</guid>
-      <pubDate>Thu, 29 Jan 2026 00:59:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>拳头力量</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpszm4/hnefatafl/</link>
-      <description><![CDATA[我创建了一个版本的 [哥本哈根 Hnefatafl](https://hnefatafl.org/history.html)。 它包括引擎、服务器、客户端和 AI。它是用 Rust 构建的。服务器 使用自定义协议在 TCP 上运行，该协议使用 [RON](https://github.com/ron-rs/ron) 与纯文本一起进行序列化。单行就是一条消息。 客户端是使用 [iced](https://github.com/iced-rs/iced) 构建的，因此它是一个 桌面和移动应用程序，而不是浏览器应用程序。该客户端具有许多 功能，并被翻译成多种语言。它还支持iced 支持的所有内容的热键。 其中一个功能是评论游戏。你可以玩出任何你喜欢的变化，并使用人工智能来建议动作。完成游戏后，它会保存在服务器上，要查看它，您只需单击“获取存档游戏”即可。您可以通过ID识别该游戏。 我正在寻找更多人来玩。我支持玩时间较短的实时游戏和持续数天的较长游戏。 如果您对人工智能感兴趣，我们也将不胜感激。我 目前认为在 [burn](https://github.com/tracel-ai/burn)获得强化支持 学习之前我不会再做更多的工作。 欢迎任何建议或评论，谢谢。   由   提交/u/Confident_Orchid_902   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpszm4/hnefatafl/</guid>
-      <pubDate>Thu, 29 Jan 2026 00:20:31 GMT</pubDate>
-    </item>
-    <item>
       <title>AT&T 于 1998 年推出了 iTunes。这就是他们取消它的原因。 （《MP3 的另一位之父》的姊妹篇）</title>
       <link>https://www.reddit.com/r/programming/comments/1qpsw4m/att_had_itunes_in_1998_heres_why_they_killed_it/</link>
       <description><![CDATA[最近我发布了《另一个MP3之父》关于贝尔实验室工程师詹姆斯·约翰斯顿 (James Johnston)，他对感知音频编码的贡献已被载入史册。一些评论者询问商业方面发生了什么； AT&amp;T 是如何设法拥有后来成为 iTunes 的技术却仍然失败的。 这就是那个故事。 Howie Singer 和 Larry Miller 使用 Johnston 的 AAC 编解码器在 AT&amp;T 内部构建了 a2b Music。他们比 iPod 早三年就有唱片合约、有效的下载服务和便携式播放器。他们试图将其解开。 AT&amp;T 于 1999 年 5 月取消了分拆。两周后，Napster 推出。 基于对 Singer（现于纽约大学任教，曾任华纳音乐战略技术主管 10 年）和 Miller（纽约大学索尼音频研究所首任主任）的采访。技术已经准备好了。市场不是。拥有百年历史的电话垄断的许可文化无法以互联网的速度发展。   由   提交/u/Traditional_Rise_609   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qpsw4m/att_had_itunes_in_1998_heres_why_they_killed_it/</guid>
       <pubDate>Thu, 29 Jan 2026 00:16:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>停止学习 HTML/CSS：对你的第一份 AI 工作真正重要的 3 种语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1qpsnh4/stop_learning_htmlcss_the_3_languages_that/</link>
-      <description><![CDATA[ 由   提交/u/Western_Direction759   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qpsnh4/stop_learning_htmlcss_the_3_languages_that/</guid>
-      <pubDate>Thu, 29 Jan 2026 00:06:33 GMT</pubDate>
     </item>
     <item>
       <title>缓存为王，路线图</title>
@@ -109,6 +81,34 @@
       <description><![CDATA[除非明确意图，否则文本处理不得依赖于系统区域设置。 某些 API 会根据系统语言默默地更改行为。这会导致意外结果。 土耳其语言环境下的最小可重现示例： “FILE”.ToLower() == “fıle” 大小写反转示例： “file”.ToUpper() == “FіLE” 此工件存在帮助开发人员及早检测区域敏感的故障。用作参考或测试。 （您可以从给定链接下载本文的 .txt 版本）   由   提交/u/BoloFan05  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qpjaj5/localesensitive_text_handling_minimal/</guid>
       <pubDate>Wed, 28 Jan 2026 18:17:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>[视频] 代码注释 - 该隐游戏</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpi3ut/video_code_comments_cain_on_games/</link>
+      <description><![CDATA[ 由   提交/u/levodelellis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpi3ut/video_code_comments_cain_on_games/</guid>
+      <pubDate>Wed, 28 Jan 2026 17:38:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>决定你看到什么的 X 算法演练</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpharr/walkthrough_of_xs_algorithm_that_decides_what_you/</link>
+      <description><![CDATA[X 于 1 月 20 日开源了 For You feed 背后的算法 (https://github.com/xai-org/x-algorithm)。 候选检索 两个来源为管道提供数据：  Thunder：内存服务，在 DashMap（并发 HashMap）中保存最近 48 小时的推文，按作者索引。它为您通过 gRPC 关注的帐户提供网络内帖子。 Phoenix：用于发现的两塔神经网络。用户塔是一个具有均值池化功能的 Grok 变压器。候选塔是带有 SiLU 的 2 层 MLP。两者都是 L2 归一化，因此检索只是预先计算的语料库嵌入的点积。  评分 Phoenix 在单个变压器正向传递中对所有候选者进行评分，预测每个帖子的 18 个参与概率 - 点赞、回复、转发、分享、阻止、静音、报告、停留、视频完成等。 高效地进行批处理，而候选者不会影响每个帖子其他人的分数，他们使用自定义的注意力蒙版。每个候选者都会关注用户上下文及其自身，但跨候选者的注意力会被归零。 WeightedScorer 将 18 个预测合并为一个数字。积极的信号（喜欢、回复、分享）会增加分数。负面信号（阻止、静音、报告）会被减去。 然后进行两项调整：  作者多样性 - 指数衰减，因此一位作者无法主导您的 Feed。下限参数（例如 0.3）确保后面的帖子仍然具有一定的权重。 网络外惩罚：来自未关注帐户的 0 个帖子乘以权重（例如 0.7）。  过滤 在评分之前运行 10 个预过滤器（去重、年龄限制、静音关键字、阻止列表、之前通过 Bloom 过滤器看到的帖子）。评分后，可见性过滤器会查询外部安全服务，对话重复数据删除过滤器仅保留每个线程得分最高的帖子。   由   提交/u/noninertialframe96  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpharr/walkthrough_of_xs_algorithm_that_decides_what_you/</guid>
+      <pubDate>Wed, 28 Jan 2026 17:10:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>简单的类比来理解正向代理与反向代理</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpg40g/simple_analogy_to_understand_forward_proxy_vs/</link>
+      <description><![CDATA[ 由   提交/u/Comfortable-Fan-580   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpg40g/simple_analogy_to_understand_forward_proxy_vs/</guid>
+      <pubDate>Wed, 28 Jan 2026 16:29:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>微软强迫我切换到 Linux</title>
+      <link>https://www.reddit.com/r/programming/comments/1qpfz0l/microsoft_forced_me_to_switch_to_linux/</link>
+      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qpfz0l/microsoft_forced_me_to_switch_to_linux/</guid>
+      <pubDate>Wed, 28 Jan 2026 16:24:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
