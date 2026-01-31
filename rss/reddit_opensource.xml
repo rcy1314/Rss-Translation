@@ -4,13 +4,27 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 31 Jan 2026 15:30:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 18:41:31 GMT</lastBuildDate>
     <item>
-      <title>Tele 简介 - Telegram for TV (FOSS)</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qs3c92/introducing_tele_telegram_for_tv_foss/</link>
-      <description><![CDATA[Tele 很简单，您可以进行身份​​验证并输入您的 TG api 密钥（ezz setup dw） 并观看您所有的媒体文件显示。试试吧。 Github 链接 - https://github.com/saieshshirodkar/Tele v0.0.1 现已发布！ 如果需要快速信息，AI 摘要，但您可以查看存储库以获取更多信息。 ---------------------------- Tele - 快速摘要 Tele 是一款 Android TV 应用，可让您在电视上观看 Telegram 聊天视频。可以将其视为 Telegram 媒体的电视遥控器。 它的作用： - 连接到您的 Telegram 帐户 - 显示“已保存消息”中的视频。和其他聊天 - 让您使用 Telegram 机器人搜索电影/媒体 - 通过 MPV 等外部播放器流式传输视频 工作原理：  首次：您输入 Telegram API 凭据（从 my.telegram.org 获取） 登录：输入电话号码 → 验证码 → 可选 2FA 密码 浏览：将您的所有视频视为缩略图网格 观看：点击视频即可通过快速下载链接进行流式传输  技术内容： - 内置：Kotlin + Android TV Leanback 库 - Telegram 连接：使用官方 TDLib（Telegram 库） - 架构：干净分离 - UI 层 → 域模型 → 数据存储库 → TDLib - 没有内置 API 密钥：用户输入自己的凭据（安全！） 关键文件： - MainActivity.kt - 在登录和浏览之间切换的主屏幕 - TelegramAuthManager.kt - 使用 Telegram 处理登录流程 - SavedMessagesRepository.kt - 从 Telegram 获取视频 - BrowseFragment.kt - 显示视频网格 - libtdjni.so - 原生 Telegram 库 构建它： - 最低 Android 6.0，目标 Android 16 - 需要 Android Studio + JDK 17 - 将 API 密钥添加到 local.properties - 运行./gradlew installDebug 发布： - 当您推送 v0.0.1 之类的标签时，GitHub Actions 会自动构建签名的 APK - APK 已签名，但不包含硬编码的 API 密钥 - 用户下载并输入自己的凭据 ---------------------------- 非常感谢反馈 纯手写代码我。 下一个即将推出的是 Google Photos for TV，敬请留意。   由   提交 /u/Syndicate_74   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qs3c92/introducing_tele_telegram_for_tv_foss/</guid>
-      <pubDate>Sat, 31 Jan 2026 14:10:33 GMT</pubDate>
+      <title>隐私不是一种产品</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qs7ga4/privacy_is_not_a_product/</link>
+      <description><![CDATA[供任何启动“注重操作系统隐私的 XYZ”项目（例如“注重隐私的社交媒体”）的人参考。或“XYZ 的端到端加密版本”。 这些几乎永远不会吸引用户。并不是因为隐私不好，而是因为隐私本身并不能决定产品的成功或失败。 隐私就像数据安全一样。这是赌注。 **理想情况**每个应用程序都有它。但没有人注册，因为你说“这个社交应用程序从未被黑客攻击过”。一定有其他的钩子。 我这么说是因为我一直看到大量的时间和精力投入到了没有任何进展的发布中，仅仅是因为它们是建立在错误的前提上的。 现在我知道一半的人构建这些只是为了好玩，并不打算让人们使用它。但对于那些想要真正构建一些东西的人来说，我认为重要的是要知道，仅靠价格是无法让你注册的。 ​   由   提交 /u/Tylernator   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qs7ga4/privacy_is_not_a_product/</guid>
+      <pubDate>Sat, 31 Jan 2026 16:51:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个 Django 工具来使用 LLM 翻译 .po 文件</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qs77uh/i_built_a_django_tool_to_translate_po_files_with/</link>
+      <description><![CDATA[我构建了 TranslateBot，一个以 Django 为中心的 CLI/库，它使用您选择的 LLM 提供程序（OpenAI / Claude / Gemini / 等）翻译您的 gettext .po 文件，而无需使用“copy msgid -&gt;”粘贴到翻译器 -&gt;中断占位符 -&gt;永远重复”工作流程。 项目 + 文档： https://translatebot.dev/docs/ GitHub：https://github.com/gettranslatebot/translatebot-django 它的作用  扫描您的 Django 语言环境 .po 文件 默认情况下仅翻译未翻译的条目（或者根据需要重新翻译所有内容） 保留占位符，这样 {name}、%(count)d、HTML 位等就不会被损坏 与标准 Django i18n（makemessages）配合使用，并能与现实世界的 PO 文件完美配合  v0.4.0 中的新功能：TRANSLATING.md（翻译上下文） 最大的升级是一致的术语和语气。 将 TRANSLATING.md 文件放入项目根目录中，TranslateBot 会将其包含在每个翻译请求中。 这就是阻止法学硕士执行以下操作的方法：  翻译“工作空间” UI 中的 3 种不同方式随机切换正式/非正式语气（Sie/du、vous/tu） 翻译永远不应该更改的产品名称  文档 + 模板： https://translatebot.dev/docs/usage/translation-context/ 为什么这比“仅使用 Claude Code”更好 Claude Code（或任何编码代理）绝对可以帮助完成翻译任务，但它并未针对 gettext/PO 正确性和可重复翻译运行进行优化：  一致性：TRANSLATING.md 为您提供跨语言和运行的术语 + 语气的单一事实来源。 PO 感知工作流程：TranslateBot 直接对 PO 条目进行操作 (msgid/msgstr)，而不是“在文件中尽力编辑”。 占位符安全：它旨在可靠地保留占位符和格式（.po translatino 中的 #1 footgun）。 默认增量：仅翻译缺失的条目，除非您选择重新翻译。非常适合 CI/持续开发。 与提供商无关：通过 API 密钥使用任何 LLM；您不会被锁定在一个环境/工具中。 专为 Django 打造：适用于 makemessages、区域设置结构和典型的 Django i18n 约定。  快速入门 # On the shell uv add translatebot-django --group dev # Django 设置 import os INSTALLED_APPS = [ # ... &quot;translatebot_django&quot;, ] TRANSLATEBOT_API_KEY = os.getenv(&quot;OPENAI_API_KEY&quot;) # 或其他提供商密钥 TRANSLATEBOT_MODEL = &quot;gpt-4o-mini&quot;; # On the shell ./manage.py makemessages -l fr --no-obsolete ./manage.py translate --target-lang fr  成本/许可证  该软件包开源（MPL 2.0） 您向 LLM 提供商付费（对于许多应用程序，每种语言大约需要几美分）  如果您维护具有多种语言的 Django 应用程序，我希望得到反馈！ 再次链接：https://translatebot.dev/docs/ | https://github.com/gettranslatebot/   由   提交 /u/leipegokker   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qs77uh/i_built_a_django_tool_to_translate_po_files_with/</guid>
+      <pubDate>Sat, 31 Jan 2026 16:43:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>引入一种工具，将软件架构转变为版本化和可查询的数据</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qs62vr/introducing_a_tool_turning_software_architecture/</link>
+      <description><![CDATA[代码： https://github.com/pacta-dev/pacta-cli 文档： https://pacta-dev.github.io/pacta-cli/getting-started/ 我的项目做什么 Pacta 旨在随着时间的推移对软件架构进行版本控制、测试和观察。 使用 pacta，您能够：  采用架构快照：像代码一样版本化您的架构 查看历史和趋势：依赖关系、耦合和违规如何演变 在快照之间进行差异：像 Git 提交 获取指标和见解：构建捕获模块、依赖关系、违规和耦合的图表 定义规则和规则治理：可以逐步实施的架构意图 使用基线模式：采用治理，而不会受到遗留债务的阻碍  它可以帮助团队了解架构如何演变并防止架构缓慢衰退。 目标受众 这是针对现实世界的代码库。 最适合：维护模块化系统（包括遗留系统）的工程师/架构。 比较 Pacta 随着时间的推移添加了架构的历史记录、趋势和快照差异，而 linter（如 Import Linter 或 ArchUnit）则专注于当前状态。 规则测试工具不足以适应遗留系统。 Pacta 支持基线模式，因此您可以防止新的违规行为，而无需先修复整个过去的问题。 此工具是 Git + 测试 + 架构指标。  简要指南  安装并定义您的架构模型：  bash pip install pacta  创建一个 architecture.yml 来描述您的架构  保存当前状态的快照：  bash pacta snapshot save 。 --model Architecture.yml   检查历史记录：  bash pacta 历史记录显示 --last 5  示例：  时间戳快照节点边缘违规 2024-01-22 14:30:00 f7a3c2... 48 82 0 2024-01-15 10:00:00 abc123... 45 78 0  跟踪趋势（例如，依赖项计数/边缘）： bash pacta 历史趋势 。 --公制边缘  示例： ``` 边缘计数趋势（5 条） 82 │ ● │ ●---------------- 79 │ ●------------ │ 76 ├●--- └────────────────────────────── Jan 15 Jan 22 趋势：↑ 增加（随时间推移增加 6） 第一个：76 个边（1 月 15 日）最后一个：82 个边（1 月 22 日） 平均：79 个边 最小值：76，最大值：82 ```  强制执行架构规则 (rules.pacta.yml)：  ``bash 选项 A：检查现有快照 pacta 检查。 --rules Rules.pacta.yml 选项 B：快照 + 一步检查 pacta 扫描。 --model Architecture.yml --rules Rules.pacta.yml ``` 违规输出示例： ``` ✗ 2 个违规（2 个错误）[2 个新] ✗ 错误 [no_domain_to_infra] @ src/domain/user.py:3:1 状态：新的域层不得从基础设施导入 ``` 如果您想贡献或尝试项目，请参阅到这些链接： 代码： https://github.com/pacta-dev/pacta-cli 文档： https://pacta-dev.github.io/pacta-cli/getting-started/   由   提交/u/MatchLittle5000  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qs62vr/introducing_a_tool_turning_software_architecture/</guid>
+      <pubDate>Sat, 31 Jan 2026 16:00:31 GMT</pubDate>
     </item>
     <item>
       <title>寻找 GA4 + GSC（管理 KPI）的 SEO/网站绩效报告工具</title>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交 /u/Inside_Mix31   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qqlm3w/i_want_to_donate_1m_to_a_linux_or_open/</guid>
       <pubDate>Thu, 29 Jan 2026 21:26:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年真正发挥作用的 Linux MIDI 和音频接口（即插即用获胜者）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qqli84/linux_midi_audio_interfaces_that_actually_work/</link>
-      <description><![CDATA[ 由   提交 /u/huckleberry10101   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qqli84/linux_midi_audio_interfaces_that_actually_work/</guid>
-      <pubDate>Thu, 29 Jan 2026 21:22:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>QR Code Pretty：用于生成漂亮的可定制 QR 码的 CLI 工具</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qql3uq/qr_code_pretty_cli_tool_to_generate_beautiful/</link>
-      <description><![CDATA[这个项目最初是我为工作构建的一个工具。 我需要创建公司品牌的 QR 码来对 URL 进行编码。但我为包管理器找到的工具不允许进行太多自定义。所以我尝试了一些在线二维码生成器，它提供了精美的设计选项。当我扫描生成的二维码时，它们会显示一些随机 URL，除非我付费，否则这些 URL 会在一周后过期。因此，我自己构建了一个简单的 CLI 工具，可以生成公司品牌的二维码，该工具也可以集成到自动化工作流程中。下一步是通过添加命令选项来推广该工具，以便任何人都可以轻松自定义他们的二维码。这就是QR Code Pretty的诞生。 对于那些想知道为什么我现在才推广它（8个月后）的人：我只是从来没有时间将它打包以便于安装......直到现在。 在我的存储库中查看一些漂亮的示例！   由   提交 /u/godafk   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qql3uq/qr_code_pretty_cli_tool_to_generate_beautiful/</guid>
-      <pubDate>Thu, 29 Jan 2026 21:07:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
