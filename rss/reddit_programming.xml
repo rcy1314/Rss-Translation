@@ -4,7 +4,70 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 31 Jan 2026 09:35:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 15:29:32 GMT</lastBuildDate>
+    <item>
+      <title>有所不同的是，ChatGPT 5.2 完全免费，无需帐户。使用他们的官方 /translate 页面。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs4rxj/something_different_chatgpt_52_completely_for/</link>
+      <description><![CDATA[OpenAI 最近发布了他们新的 hella vivicoded 翻译页面，该页面使用 ChatGPT 5.2，无需登录。使用此信息，我编写了这个小 Chrome 扩展，它完全删除了它们的翻译 UI，并将其替换为功能性聊天界面（该 UI 使用 chatgpt lol 进行了 vivicoded）。 然后，我拦截到其 /conversation 端点的请求，并使用模型、系统提示和开发人员提示更改请求正文。    由   提交/u/Jolle_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs4rxj/something_different_chatgpt_52_completely_for/</guid>
+      <pubDate>Sat, 31 Jan 2026 15:09:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我遵循一个我称之为“集体失忆法则”的建筑原则</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs4ggc/i_follow_an_architecture_principle_i_call_the_law/</link>
+      <description><![CDATA[ 由   提交/u/madflojo  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs4ggc/i_follow_an_architecture_principle_i_call_the_law/</guid>
+      <pubDate>Sat, 31 Jan 2026 14:56:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>Q-学习代理</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs41bs/qlearning_agent/</link>
+      <description><![CDATA[ 由   提交/u/Suspicious_Ad_9210  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs41bs/qlearning_agent/</guid>
+      <pubDate>Sat, 31 Jan 2026 14:39:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>软件开发已经彻底改变。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs3gr3/software_development_has_changed_for_good/</link>
+      <description><![CDATA[前特斯拉 AI 总监现在主要用简单的英语进行 AI 编程，称其为 20 年来最大的工作流程变化。   由   提交/u/shift_devs  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs3gr3/software_development_has_changed_for_good/</guid>
+      <pubDate>Sat, 31 Jan 2026 14:15:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 macOS 上构建可靠的多显示器窗口恢复实际上需要什么（以及为什么它比看起来更难）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs1c76/what_it_actually_took_to_build_reliable/</link>
+      <description><![CDATA[我已经担任开发人员 27 年了。我已经在 macOS 窗口布局工具上工作了 3 年，我想分享一些从构建可靠的多显示器 + 任务控制支持中获得的**工程经验** - 因为问题空间比从外部看起来要棘手得多。我更感兴趣的是与经历过类似战斗的人讨论技术限制和权衡。 ### 这个问题听起来很简单（但事实并非如此） &gt; “保存我的所有窗口，并将它们放回到原来的位置。” 在 macOS 上，这涉及导航： * 每个显示器坐标空间 * 混合 DPI + 负坐标原点 * 报告相同名称的相同显示器型号 * 翻盖模式（内部显示消失） * 不公开稳定标识符的窗口 *异步启动窗口 * Mission Control Spaces（没有**没有公共API**） 其中每一个都可以单独管理。结合起来，它们是残酷的。 ### 坐标系统会背叛你 我遇到的最早的错误之一是 **Windows 在外部显示器上恢复到错误的垂直位置**。 根本原因： * 捕获使用 **完整显示边界** * 恢复使用 **visibleFrame** * 菜单栏/停靠点偏移默默地破坏了标准化 修复： * *仅*针对visibleFrame进行归一化 * 存储绝对和归一化几何图形 * 防御性夹紧恢复 教训： **在未明确记录原点和插入假设的情况下切勿混合坐标空间。** ### 相同的显示器会破坏幼稚的身份匹配 两个相同的戴尔显示器 = 相同的名称、相同的分辨率，相同的 DPI。 按名称匹配是没有用的。 唯一可靠的方法是**分层显示身份**：  显示 UUID EDID 供应商/产品/序列 几何指纹 + 相对位置  当一切发生冲突时： *通过**相对布局**（左/右/上）而不是身份来映射 这完全消除了“窗口交换监视器”错误。 ### Spaces 支持：Apple 不希望你做的部分 没有受支持的 API 在任务控制空间之间移动窗口。 公共 API：❌ 私有 API：⚠️ 脆弱 辅助 API：❌不足 最终有效的方法（尽力而为、防御性）： * 使用可用的内部 CGS API 捕获空间 ID * 首先恢复几何图形（始终安全） * 使用多个内部路径尝试空间重新分配 * **每次移动后验证** * 如果操作系统阻止，则自动回退 Key规则： &gt;几何图形必须*始终*正确恢复，即使 Spaces 不能。 ### 当您认为 Windows 不存在时，它们并不存在 许多应用程序： * 在窗口完全实现之前报告窗口 * 启动后更改窗口 ID * 忽略前几次 SetWindowPos 调用 因此恢复需要： * 有界重试 * 移动后验证 * 容差阈值 * 以及在不中止快照的情况下跳过一个窗口的能力 ### 日志记录比功能更重要 一旦系统变得复杂，**日志是推理故障的唯一方法**。 但是： * 记录热路径内破坏了信号 * 重复的观察者创建了假错误 * 不清楚的日志使工作代码*看起来损坏* 解决方案： * 记录一次语义 * 每次恢复相关ID * 验证并记录而不是假设和记录 最近的一些**第三方评论**意外地集中在这个问题空间的技术方面，这让我意识到从工程角度来看它的记录是多么的不足： * 独立撰写： https://appaddict.app/post/snapsofapps-has-new-powerful-features 我不会将这些链接作为认可 - 只是作为我现在更深入地思考这个问题的背景。 我很想听听其他处理过以下问题的人的意见： * macOS 或 Windows 上的窗口管理 * 协调跨显示器的规范化 * 具有不可避免的私有 API 回退的系统 * 构建“尽最大努力但永不中断”的用户体验 很高兴回答技术问题或讨论设计决策。   由   提交/u/Prudent-Refuse-209   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs1c76/what_it_actually_took_to_build_reliable/</guid>
+      <pubDate>Sat, 31 Jan 2026 12:40:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>矢量引擎：构建用于稳定扩散 SVG 生成的 Python 工作流程管道 在本演练中，我们正在弥合原始 AI 生成和生产就绪设计之间的差距。我正在分解一个专门为处理稳定扩散而设计的自定义 Python 矢量工作流管道</title>
+      <link>https://www.reddit.com/r/programming/comments/1qs0jzw/the_vector_engine_building_a_python_workflow/</link>
+      <description><![CDATA[ 由   提交/u/Appressive_Rub_221   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qs0jzw/the_vector_engine_building_a_python_workflow/</guid>
+      <pubDate>Sat, 31 Jan 2026 12:00:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么浏览时网址清理很重要</title>
+      <link>https://www.reddit.com/r/programming/comments/1qrzvtp/why_url_cleaning_is_important_while_browsing/</link>
+      <description><![CDATA[为什么浏览网页时 URL 清理极其重要 跟踪 URL 会悄悄暴露您的浏览行为、泄露私人数据并增加安全风险。了解为什么清理网址很重要、跟踪参数的作用以及浏览器扩展如何保护您的隐私。   由   提交/u/justok25  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qrzvtp/why_url_cleaning_is_important_while_browsing/</guid>
+      <pubDate>Sat, 31 Jan 2026 11:23:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>我开源了一个 AI 代理，可将 Jira 和 ClickUp 票证转换为 GitHub PR</title>
+      <link>https://www.reddit.com/r/programming/comments/1qrzd9s/i_opensourced_an_ai_agent_that_turns_jira_clickup/</link>
+      <description><![CDATA[过去几个月我一直在构建 Afelyon，并且刚刚将其开源。它是一个 AI 代理，可以读取您的 Jira 或 ClickUp 票证、克隆您的存储库、理解代码库、生成代码，并端到端地打开拉取请求，在代码审查之前没有人参与循环。 **它与仅将票证粘贴到 ChatGPT 中的不同之处在于：** AI 代码生成的核心问题是上下文。 Afelyon 有一个真正理解您的项目的混合上下文系统： - **任务路由** UI 任务获取与数据库迁移不同的上下文。它将“将按钮添加到设置页面”路由到与“添加新的 API 端点”不同。 - **样式检测** 它会在生成任何内容之前检测您的 CSS 框架、组件模式、命名约定和测试结构。 - **语义搜索** 使用 pgvector 嵌入为每个任务查找最相关的代码文件。 - **智能探索** 根据导入、导出和使用模式动态发现相关文件。 - **项目config** 读取“AFELYON.md”文件（如“.cursorrules”）以获取特定于项目的规则。 **管道：**  来自 Jira/ClickUp 的 Webhook 触发作业 BullMQ 排队并处理它 代理克隆存储库，分析架构 上下文系统选择相关文件 Claude 生成更改 Linter + 测试运行程序验证 创建 PR 并附有详细描述  **Stack:** TypeScript monorepo、Fastify API、BullMQ + Redis 队列、Prisma + PostgreSQL、Claude AI (Anthropic或 AWS Bedrock）。 **GitHub：** https://github.com/Abdohurbly/afelyon-ai AGPL-3.0 已获得许可。使用 Docker 自托管或使用云版本。寻找贡献者，特别是添加 Linear、GitLab 和 Asana 集成的贡献者。   由   提交/u/Abdulwahab93   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qrzd9s/i_opensourced_an_ai_agent_that_turns_jira_clickup/</guid>
+      <pubDate>Sat, 31 Jan 2026 10:54:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>有史以来最愚蠢的性能修复</title>
+      <link>https://www.reddit.com/r/programming/comments/1qrysmp/the_dumbest_performance_fix_ever/</link>
+      <description><![CDATA[ 由   提交/u/Kyn21kx   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qrysmp/the_dumbest_performance_fix_ever/</guid>
+      <pubDate>Sat, 31 Jan 2026 10:20:25 GMT</pubDate>
+    </item>
     <item>
       <title>最糟糕的程序员是过去的自己（以及其他无私的编程原则）</title>
       <link>https://www.reddit.com/r/programming/comments/1qrxlgu/the_worst_programmer_is_your_past_self_and_other/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[当你可以编码时为什么要拖放？在本演练中，我们将放弃 Canva 等手动设计工具，转而使用 Manim 构建完全可编程的过渡屏幕。   由   提交/u/Appressive_Rub_221   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qrv2lc/programmable_graphics_moving_from_canva_to_manim/</guid>
       <pubDate>Sat, 31 Jan 2026 06:39:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>自主 IaC 漂移：当 AI 修复逆转您的安全补丁时</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrsd4h/autonomous_iac_drift_when_ai_remediation_reverses/</link>
-      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrsd4h/autonomous_iac_drift_when_ai_remediation_reverses/</guid>
-      <pubDate>Sat, 31 Jan 2026 04:21:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>AI 代码审查推动 Linux 内核计划取得进展</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrqx99/ai_code_review_prompts_initiative_making_progress/</link>
-      <description><![CDATA[ 由   提交 /u/Fcking_Chuck   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrqx99/ai_code_review_prompts_initiative_making_progress/</guid>
-      <pubDate>Sat, 31 Jan 2026 03:12:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>Anthropic 和 OpenAI 的顶级工程师：AI 现在 100% 编写我们的代码</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrpkth/top_engineers_at_anthropic_openai_ai_now_writes/</link>
-      <description><![CDATA[这一定是谎言？    由   提交 /u/Imnotneeded   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrpkth/top_engineers_at_anthropic_openai_ai_now_writes/</guid>
-      <pubDate>Sat, 31 Jan 2026 02:12:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>最重要的代码是无人拥有的代码</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrpdkb/the_most_important_code_is_the_code_no_one_owns/</link>
-      <description><![CDATA[对孤立依赖项、废弃库和志愿者维护者的详细检查，解释隐形所有权如何成为现代软件供应链中最严重的风险之一。   由   提交/u/justok25  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrpdkb/the_most_important_code_is_the_code_no_one_owns/</guid>
-      <pubDate>Sat, 31 Jan 2026 02:03:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>Kindler：一个新的、基于 lua 的构建系统，旨在在任何地方运行</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrofk8/kindler_a_new_luabased_build_system_designed_to/</link>
-      <description><![CDATA[ 由   提交 /u/IRIX_Raion   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrofk8/kindler_a_new_luabased_build_system_designed_to/</guid>
-      <pubDate>Sat, 31 Jan 2026 01:21:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vibe Engineering：我在使用 AI 编码代理时学到了什么</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrkqeg/vibe_engineering_what_ive_learned_working_with_ai/</link>
-      <description><![CDATA[ 由   提交/u/mrexodia   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrkqeg/vibe_engineering_what_ive_learned_working_with_ai/</guid>
-      <pubDate>Fri, 30 Jan 2026 22:48:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>教别人编程</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrixkr/teaching_others_to_program/</link>
-      <description><![CDATA[希望在这里发帖是可以的，不是为了自我推销，只是希望得到诚实的反馈。 长期以来，我对人们学习编程的方式感到沮丧。大学在奠定基础方面做得很好，但优秀的程序员在一两个学期内就能掌握这些基础知识。在那之后，我自己和许多其他人都感到被遗弃了。 在一个特别缓慢的周五下午坐在这里，距离我的大学时代已经过去了几年。我再次思考这个问题，并决定尝试做点什么。我制作了一个系列中的第一个快速视频，介绍了实际企业如何编写应用程序。 我计划将其保持在相当初级的水平，但希望让那些拥有坚实基础的人了解当他们进入现实世界时会发生什么。希望大家能提供任何反馈。   由   提交/u/CRDC0292  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrixkr/teaching_others_to_program/</guid>
-      <pubDate>Fri, 30 Jan 2026 21:39:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>让 Flix 编译器错误变得有用且令人愉快</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrg080/making_flix_compiler_errors_helpful_and_delightful/</link>
-      <description><![CDATA[ 由   提交/u/jorkadeen   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrg080/making_flix_compiler_errors_helpful_and_delightful/</guid>
-      <pubDate>Fri, 30 Jan 2026 19:51:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>代码生成器之旅：从手动地狱到声明式天堂</title>
-      <link>https://www.reddit.com/r/programming/comments/1qrf8mn/the_code_generator_journey_from_manual_hell_to/</link>
-      <description><![CDATA[ 由   提交/u/PigeonCodeur  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qrf8mn/the_code_generator_journey_from_manual_hell_to/</guid>
-      <pubDate>Fri, 30 Jan 2026 19:23:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
