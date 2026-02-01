@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 01 Feb 2026 18:42:26 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Feb 2026 21:30:00 GMT</lastBuildDate>
+    <item>
+      <title>我如何在浏览器扩展中使用 Cloudflare Email Routing 替换 Apple 的 Hide My Email</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qtavqd/how_i_replaced_apples_hide_my_email_with/</link>
+      <description><![CDATA[构建 hide-my-mail-cloudflare 因为 Apple 的隐藏我的电子邮件让我发疯 - 速度太慢并且超出了我的常规浏览器流程。想分享 Cloudflare 如何让构建更好且完全免费的东西成为可能。 Apple 的“隐藏我的电子邮件”在理论上很棒，但在实践中： - 漫长的等待时间 - 深埋在设置中 - Apple 独有 我想要一些快速、跨平台和自托管的东西。 我想要的流程是： - 在随机站点注册时，您需要一封一次性电子邮件 - 打开 chrome 扩展 - 复制或创建一键点击新邮箱（在您自己的 Cloudflare 域名上） - 继续注册 - 电子邮件到达您的常规收件箱（厌倦了该服务的促销邮件？只需删除临时电子邮件） 输入 Cloudflare 电子邮件路由 它可以很好地处理路由，但我们需要正确跟踪已使用/未使用的地址和别名。我希望它是无状态的，因此所有状态都必须位于 Cloudflare 中。  黑客：我需要为每个别名存储元数据（创建日期、标签、注释）。 在电子邮件路由规则的仪表板中，您只能看到电子邮件地址和操作，但是 - 如果您深入研究文档 - 还有另一个字段在仪表板中不可见，但可以通过 api 访问 - 规则名称。因此，我利用这 256 个字符以以下格式保留与电子邮件别名相关的所有状态： `` ${APP_PREFIX}${SEPARATOR}${TIMESTAMP}${SEPARATOR}${rule_name}${SEPARATOR}${rule_desc || EMPTY_LABEL}`, ``` 这样我们就能够跟踪使用过的电子邮件、创建顺序、描述等。 第二个问题是地址更改需要很长时间才能传播 - 超过 60 秒。这使得它比苹果的服务还要慢！  解决方法很简单 - 我们将在设置过程中预先创建 180 封电子邮件 - 这样当您创建新的收件箱电子邮件时 - 所有路由规则都已设置完毕，唯一发生的事情是我们使用您的别名更新路由名称字段并将其标记为已使用，以便它显示在您的收件箱列表中。  这使得创建新的电子邮件别名变得即时，并且单击“创建”后即可使用电子邮件。  当您删除未使用的电子邮件时 - 我们将删除旧的电子邮件并立即创建新的未使用的电子邮件（它将位于基于时间戳排序的队列末尾，因此即使您在传播 DNS 时创建新的邮箱 - 除非您用完地址）。 我在我的博客中详细介绍了所有这些内容。我会发布一个链接，但不确定是否允许。    由   提交/u/matolabs  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qtavqd/how_i_replaced_apples_hide_my_email_with/</guid>
+      <pubDate>Sun, 01 Feb 2026 21:10:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过代码和计算为科学做出贡献</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qtaggj/contributing_to_science_via_code_and_compute/</link>
+      <description><![CDATA[如果您想支持开源科学，请查看 BOINC。  除了运行客户端之外，许多项目都有 GitHub 赏金，或者需要针对新指令集进行代码优化的帮助。  这是为“公民科学”做出贡献的一种很酷的方式。通过捐赠空闲周期或帮助优化这些项目利用 NPU 等现代硬件的方式。   由   提交 /u/Putrid_Draft378   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qtaggj/contributing_to_science_via_code_and_compute/</guid>
+      <pubDate>Sun, 01 Feb 2026 20:54:04 GMT</pubDate>
+    </item>
     <item>
       <title>50 年前，年轻的比尔盖茨与“软件盗版者”展开较量</title>
       <link>https://www.reddit.com/r/opensource/comments/1qt694l/50_years_ago_a_young_bill_gates_took_on_the/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[我为 macOS 构建了一个真正开源的听写应用：  MIT 许可证 无付费层级 无遥测 纯 Swift/SwiftUI 用于本地 AI 的 WhisperKit  与 Handy/OpenWhispr（使用Tauri），Pindrop 是原生 Swift，可在 Apple Silicon 上实现更好的性能和电池寿命。 技术堆栈：  Swift 5.9+ SwiftUI WhisperKit（Apple 的 Core ML Whisper） SwiftData  GitHub： https://github.com/watzon/pindrop   由   提交 /u/dev0urer   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qrewny/pindrop_100_open_source_macnative_dictation_app/</guid>
       <pubDate>Fri, 30 Jan 2026 19:12:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>2019 年推出后，我的免费 3D 资源搜索引擎现已开源</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qre9lf/after_launching_in_2019_my_search_engine_for_free/</link>
-      <description><![CDATA[      我在 2019 年构建了 3Dassets.one 作为ambientCG 的合作伙伴网站，现在决定公开代码。   由   提交 /u/Struffel   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qre9lf/after_launching_in_2019_my_search_engine_for_free/</guid>
-      <pubDate>Fri, 30 Jan 2026 18:49:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的第一期已经发货了！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qr7x04/shipped_my_first_issue/</link>
-      <description><![CDATA[      上周我开始了一个新的宠物项目，有人立即提出了一个问题。 今天我解决了它！感觉很棒   由   提交/u/kova98k  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qr7x04/shipped_my_first_issue/</guid>
-      <pubDate>Fri, 30 Jan 2026 15:05:14 GMT</pubDate>
     </item>
     </channel>
 </rss>
