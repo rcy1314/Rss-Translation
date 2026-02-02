@@ -4,7 +4,56 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 01 Feb 2026 21:29:18 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Feb 2026 02:39:27 GMT</lastBuildDate>
+    <item>
+      <title>模式验证遗漏了什么：跟踪 MCP 服务器中的响应结构漂移</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtgt62/what_schema_validation_misses_tracking_response/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtgt62/what_schema_validation_misses_tracking_response/</guid>
+      <pubDate>Mon, 02 Feb 2026 01:08:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>对于每一位接近倦怠的开发人员，请阅读本文 · theSeniorDev</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtg70y/to_every_developer_close_to_burnout_read_this/</link>
+      <description><![CDATA[如果你可以摆脱以下三个选择来减轻倦怠，你会摆脱这三个选择中的哪一个？  糟糕的管理 人工智能 有毒的同事 不可能的最后期限 高流动率    由   提交 /u/Inner-Chemistry8971   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtg70y/to_every_developer_close_to_burnout_read_this/</guid>
+      <pubDate>Mon, 02 Feb 2026 00:42:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>`jsongrep` – 在路径上使用正则表达式查询 JSON，编译为 DFA</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtfh1j/jsongrep_query_json_using_regular_expressions/</link>
+      <description><![CDATA[我一直在开发 jsongrep，这是一个 CLI 工具和库，用于使用正则路径表达式查询 JSON 文档。我想分享这个工具及其背后的一些理论。 这个想法 JSON 文档是树。 jsongrep 将此树中的路径视为字段名称和数组索引字母表上的字符串。您无需编写命令式遍历代码，而是编写一个正则表达式来描述要匹配的路径： $ echo &#39;{&quot;users&quot;: [{&quot;name&quot;: &quot;Alice&quot;}, {&quot;name&quot;: &quot;Bob&quot;}]}&#39; | jg &#39;**.name&#39; [&quot;Alice&quot;, &quot;Bob&quot;]  ** 是 Kleene 星形 — 匹配零个或多个边。因此，**.name 的意思是“在任意深度查找 name”。 它是如何工作的（有趣的部分） 查询引擎通过经典的自动机管道编译表达式：  解析：PEG 语法（通过 pest）将查询解析为 AST NFA 构造：AST 使用 Glushkov 构造编译为无 epsilon 的 NFA：没有 epsilon 转换意味着没有 epsilon 闭包开销 确定：子集构造将 NFA 转换为 DFA 执行：DFA 针对 JSON 树进行模拟，收集接受状态下的值  字母表依赖于查询且是有限的。字段名称变成离散符号，数组索引被划分为不相交的范围（因此 [0]、[1:3] 和 [*] 不会重叠）。这使 DFA 转换表保持紧凑。 查询：foo[0].bar.*.baz 字母表：{foo, bar, baz, *, [0], [1..∞), ∅} DFA 状态：6  查询语法 语法支持标准正则表达式运算符，适用于树路径：   运算符 示例 含义    序列 foo.bar 连接   析取 `foo bar`   Kleene star ** 任何路径（零个或多个步骤）   重复 foo* 重复字段零次或多次 通配符*，[*]任何字段/任何索引可选 foo? 存在则匹配   范围 [1:3] 数组切片   代码结构  src/query/grammar/query.pest – PEG语法 src/query/nfa.rs – Glushkov NFA构建 src/query/dfa.rs – 子集构建+DFA模拟 直接使用serde_json::Value（无自定义JSON） type)  实验：正则表达式字段匹配 该语法支持 /regex/ 语法，用于按模式匹配字段名称，但完整实现因一个有趣的问题而受阻：确定重叠的正则表达式需要同时跨多个正则表达式 NFA 进行子集构造。如果有人有这方面的文献，我很想听听。 vs jq jq 更强大（它是图灵完备的），但对于纯粹的提取任务，jsongrep 提供了更具声明性的语法。你说匹配什么，而不是如何遍历。 安装&amp;链接 cargo install jsongrep   GitHub：https://github.com/micahkepe/jsongrep Crates.io：https://crates.io/crates/jsongrep  CLI 二进制文件为 jg。 Shell 补全和手册页可通过 jggenerate 获得。 欢迎提供反馈、问题和 PR！   由   提交 /u/fizzner   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtfh1j/jsongrep_query_json_using_regular_expressions/</guid>
+      <pubDate>Mon, 02 Feb 2026 00:11:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>中国32岁程序员据称因过劳死，住院期间仍加入工作群聊天</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtf1rs/32yearold_programmer_in_china_allegedly_dies_from/</link>
+      <description><![CDATA[ 由   提交 /u/CopiousCool   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtf1rs/32yearold_programmer_in_china_allegedly_dies_from/</guid>
+      <pubDate>Sun, 01 Feb 2026 23:53:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>开发工具</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtdgr6/devtools/</link>
+      <description><![CDATA[您好，我前段时间找到了一些开发工具，首先是手工操作，但后来我决定使用 claude 代码进行重构和改进。结果至少对我来说令人印象深刻。你怎么认为？还有什么可以补充的吗？在 https://www.devtools24.com/ 上免费查看，还用它来进行搜索引擎优化和谷歌添加的完整往返，就像免责声明一样。   由   提交/u/Capital_Pick6672   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtdgr6/devtools/</guid>
+      <pubDate>Sun, 01 Feb 2026 22:49:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>机器学习管道基础设施的成熟度差距</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtch0m/the_maturity_gap_in_ml_pipeline_infrastructure/</link>
+      <description><![CDATA[ 由   提交 /u/CackleRooster   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtch0m/the_maturity_gap_in_ml_pipeline_infrastructure/</guid>
+      <pubDate>Sun, 01 Feb 2026 22:10:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>语义压缩——为什么在 OOP 中建模“现实世界对象”经常失败</title>
+      <link>https://www.reddit.com/r/programming/comments/1qtbi2l/semantic_compression_why_modeling_realworld/</link>
+      <description><![CDATA[在评论线程中看到它被引用后阅读此内容。它推翻了通常的“用类对现实世界进行建模”的方法，并解释了为什么它在实践中往往会崩溃。 作者使用了 The Witness 编辑器中的一个真实的 C++ 示例，并展示了如何首先编写具体代码，然后在出现共享片段时取出它们，从而获得比预先设计类层次结构更清晰的结构。它固执己见，但基于实际代码而不是图表或流行语。   由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qtbi2l/semantic_compression_why_modeling_realworld/</guid>
+      <pubDate>Sun, 01 Feb 2026 21:33:23 GMT</pubDate>
+    </item>
     <item>
       <title>如何将MOLTBook这样的人工智能学习平台与机器人技术相结合，打造智能机器人竞赛和活动竞赛？</title>
       <link>https://www.reddit.com/r/programming/comments/1qtantb/how_can_we_integrate_an_ai_learning_platform_like/</link>
@@ -15,21 +64,14 @@
     <item>
       <title>使用机器人为人类制作谜题</title>
       <link>https://www.reddit.com/r/programming/comments/1qt9pto/using_robots_to_generate_puzzles_for_humans/</link>
-      <description><![CDATA[ 由   提交/u/vanHavel   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交 /u/vanHavel   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qt9pto/using_robots_to_generate_puzzles_for_humans/</guid>
       <pubDate>Sun, 01 Feb 2026 20:26:18 GMT</pubDate>
     </item>
     <item>
-      <title>对话的诞生：为什么我要构建 Tabularis</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt9ezq/the_birth_of_a_dialogue_why_im_building_tabularis/</link>
-      <description><![CDATA[ 由   提交/u/debba_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt9ezq/the_birth_of_a_dialogue_why_im_building_tabularis/</guid>
-      <pubDate>Sun, 01 Feb 2026 20:15:20 GMT</pubDate>
-    </item>
-    <item>
       <title>Telegram + 光标集成 – 通过密码保护从任何地方控制您的 IDE</title>
       <link>https://www.reddit.com/r/programming/comments/1qt8sdj/telegram_cursor_integration_control_your_ide_from/</link>
-      <description><![CDATA[ 由   提交/u/Perfect_Dance6757  [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/Perfect_Dance6757  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qt8sdj/telegram_cursor_integration_control_your_ide_from/</guid>
       <pubDate>Sun, 01 Feb 2026 19:53:18 GMT</pubDate>
     </item>
@@ -43,7 +85,7 @@
     <item>
       <title>喜欢OBS</title>
       <link>https://www.reddit.com/r/programming/comments/1qt6vkp/obs_like/</link>
-      <description><![CDATA[改进和审计高级副总裁！   由   提交/u/rayanlasaussice  [链接] [评论]]]></description>
+      <description><![CDATA[改进和审计高级副总裁！   由   提交/u/rayanlasaussice   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qt6vkp/obs_like/</guid>
       <pubDate>Sun, 01 Feb 2026 18:46:08 GMT</pubDate>
     </item>
@@ -57,7 +99,7 @@
     <item>
       <title>高级职位面试</title>
       <link>https://www.reddit.com/r/programming/comments/1qt34ks/senior_position_interview/</link>
-      <description><![CDATA[伙计们，我被要求参加一个高级职位的面试，我在一个领域拥有丰富的经验，但我并没有完全掌握最现代的工具。招聘人员喜欢我的简历，并说它很适合公司的招聘要求，但我担心我会在选拔过程中让自己难堪。 更详细地解释一下：我从本科学习开始一直在大学实验室工作，直到现在的硕士课程，我应该在下个月完成硕士课程。我与我们提供服务的公司有近四年的密切接触，但我从未直接为这些公司工作过。我意识到这是一个巨大的差距。 尽管如此，我恐怕无法胜任这个级别的职位。我认为从现在的位置晋升到高级职位是一个非常大的飞跃。 无论如何，我都会尝试这个职位。我听过一些人在什么都不知道的情况下成为老年人的故事，这甚至让我感到安慰，哈哈，但我承认我很担心。 我想知道你是否经历过类似的事情，以及我是否不应该太担心。   由   提交/u/mixmaxze  [link] [评论]]]></description>
+      <description><![CDATA[各位，我被要求参加一个高级职位的面试，我在一个领域拥有丰富的经验，但我还没有完全掌握最现代的工具。招聘人员喜欢我的简历，并说它很适合公司的招聘要求，但我担心我会在选拔过程中让自己难堪。 更详细地解释一下：我从本科学习开始一直在大学实验室工作，直到现在的硕士课程，我应该在下个月完成硕士课程。我与我们提供服务的公司有近四年的密切接触，但我从未直接为这些公司工作过。我意识到这是一个巨大的差距。 尽管如此，我恐怕无法胜任这个级别的职位。我认为从现在的位置晋升到高级职位是一个非常大的飞跃。 无论如何，我都会尝试这个职位。我听过一些人在什么都不知道的情况下成为老年人的故事，这甚至让我感到安慰，哈哈，但我承认我很担心。 我想知道你是否经历过类似的事情，以及我是否不应该太担心。   由   提交/u/mixmaxze  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qt34ks/senior_position_interview/</guid>
       <pubDate>Sun, 01 Feb 2026 16:33:18 GMT</pubDate>
     </item>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交/u/0xchamin  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qt24m9/voyager_ai_convert_technical_or_any_article_to/</guid>
       <pubDate>Sun, 01 Feb 2026 15:56:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>Bjarne Stroustrup 似乎是一个不愉快的共事者</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt1df4/bjarne_stroustrup_seems_like_an_unpleasant_person/</link>
-      <description><![CDATA[（删除旧帖子并发布新帖子，因为旧帖子上的链接已损坏） 来自 Ken Thompson： &gt;在一次采访中我确实说过，我不使用它只是因为它不会连续两天保持静止。当斯特鲁斯特鲁普读到这篇采访时，他冲进我的房间尖叫着说我是如何破坏他的，我说的话很重要，我说这是一种糟糕的语言。我从来没有说过这是一种不好的语言。一直不断。从那时起我就避免了这种事情。   由   提交/u/pogodachudesnaya   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt1df4/bjarne_stroustrup_seems_like_an_unpleasant_person/</guid>
-      <pubDate>Sun, 01 Feb 2026 15:27:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在构建一个支付开关，希望得到一些反馈。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt0vzz/i_am_building_a_payment_switch_and_would/</link>
-      <description><![CDATA[ 由   提交/u/TickleMyPiston  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt0vzz/i_am_building_a_payment_switch_and_would/</guid>
-      <pubDate>Sun, 01 Feb 2026 15:09:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>为 Pull-Request 创建 CI/CD 管道的终极指南</title>
-      <link>https://www.reddit.com/r/programming/comments/1qsz4sa/the_ultimate_guide_to_creating_a_cicd_pipeline/</link>
-      <description><![CDATA[ 由   提交/u/tafsmurai  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qsz4sa/the_ultimate_guide_to_creating_a_cicd_pipeline/</guid>
-      <pubDate>Sun, 01 Feb 2026 13:57:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想为我的公司制作一个内部 Idealo，从哪里开始？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qsyp7s/quiero_hacer_un_idealo_interno_para_mi_empresa/</link>
-      <description><![CDATA[我有一家公司，我想创建一个 Idealo 类型的应用程序或网站，但仅供内部使用。 这个想法是比较其他电子商务的价格，以更好地分析竞争。 有人知道这通常是如何完成的（API、抓取、架构等）吗？ 如果您知道有人已经做过类似的事情，我也可以联系你。   由   提交/u/francoluis_danrugt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qsyp7s/quiero_hacer_un_idealo_interno_para_mi_empresa/</guid>
-      <pubDate>Sun, 01 Feb 2026 13:39:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 0 美元堆栈用于作为非编码人员构建人工智能驱动的应用程序（实际上有效）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qsyb2b/my_0_stack_to_build_ai_powered_apps_as_a_noncoder/</link>
-      <description><![CDATA[老实说，我根本不知道如何编码。但我最近成功地在不花任何钱的情况下运送了一些小工具 基本上是我的“懒惰”堆栈： 1. Breeze Voice 我讨厌输入提示。我在 Mac 上用它来听写，我只是漫无目的地胡言乱语，它就把它清理干净了。让一切变得更快。 2.可爱（免费积分） 我从这里开始完成视觉内容/用户界面。一旦我耗尽了免费积分（或者它变得太复杂），我就会导出代码。 3。谷歌反重力我将代码移到此处来处理逻辑。由于其代理性，我实际上并不编写代码，我只是告诉代理要修复或添加什么。感觉就像我在作弊哈哈。 4。 Github纯粹用于代码管理。我几乎不懂 git，但我使用它，这样我就不会意外删除我的项目。 5.格罗克Cerebras 用于应用程序内的实际人工智能。我只是从他们那里获取免费的 API 密钥。 Groq 速度很快，而 Cerebras 适合举重。 6. Vercel 终于把它放到网上了。我实际上只是连接 github 存储库，它就会自动部署。  你现在可以对着你的电脑大喊大叫，然后拖动文件，太疯狂了。 让我知道我是否缺少其他免费工具。   由   提交/u/IGNPandaHub   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qsyb2b/my_0_stack_to_build_ai_powered_apps_as_a_noncoder/</guid>
-      <pubDate>Sun, 01 Feb 2026 13:21:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>代理劫持和意图破坏：新的面向目标的攻击面</title>
-      <link>https://www.reddit.com/r/programming/comments/1qsxve8/agent_hijacking_intent_breaking_the_new/</link>
-      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qsxve8/agent_hijacking_intent_breaking_the_new/</guid>
-      <pubDate>Sun, 01 Feb 2026 13:01:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
