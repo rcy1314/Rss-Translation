@@ -4,111 +4,111 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 02 Feb 2026 02:39:27 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Feb 2026 13:13:31 GMT</lastBuildDate>
     <item>
-      <title>模式验证遗漏了什么：跟踪 MCP 服务器中的响应结构漂移</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtgt62/what_schema_validation_misses_tracking_response/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtgt62/what_schema_validation_misses_tracking_response/</guid>
-      <pubDate>Mon, 02 Feb 2026 01:08:55 GMT</pubDate>
+      <title>精选的 1000 多个专有软件开源替代品列表</title>
+      <link>https://www.reddit.com/r/programming/comments/1qurjsb/curated_list_of_1000_opensource_alternatives_to/</link>
+      <description><![CDATA[大家好！我一直在编译一个开源替代品数据库，到目前为止我对此感到非常自豪。它充当高质量开源的可搜索目录。经过大量的时间，我已经成功编译了一个包含 1000 多个开源软件的数据库。 我见过其他具有相同前提和所有 GitHub Awesome 列表的网站，但它们缺乏显示该存储库是否处于活动状态、废弃状态、实验性状态、有缺陷/不稳定、是否具有像这样的限制性许可证或公司影响力。 感谢您抽出时间，如果您对功能/添加有任何建议，我很想听听。   由   提交/u/NoFirefighter8227   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qurjsb/curated_list_of_1000_opensource_alternatives_to/</guid>
+      <pubDate>Tue, 03 Feb 2026 13:11:56 GMT</pubDate>
     </item>
     <item>
-      <title>对于每一位接近倦怠的开发人员，请阅读本文 · theSeniorDev</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtg70y/to_every_developer_close_to_burnout_read_this/</link>
-      <description><![CDATA[如果你可以摆脱以下三个选择来减轻倦怠，你会摆脱这三个选择中的哪一个？  糟糕的管理 人工智能 有毒的同事 不可能的最后期限 高流动率    由   提交 /u/Inner-Chemistry8971   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtg70y/to_every_developer_close_to_burnout_read_this/</guid>
-      <pubDate>Mon, 02 Feb 2026 00:42:13 GMT</pubDate>
+      <title>Redis 缓存 - 终于在没有魔法的情况下得到了解释</title>
+      <link>https://www.reddit.com/r/programming/comments/1quqxs1/redis_caching_finally_explained_without_the_magic/</link>
+      <description><![CDATA[曾经使用过 Redis 缓存并思考过：“它确实有效……但是幕后到底发生了什么？” 🤔 我最近深入研究了 Redis 缓存，并从基本原则对其进行了分解： - Redis 真正存储的内容（剧透：它是字节，而不是 JSON） - Java 对象如何成为缓存条目 - 序列化器和 ObjectMapper 的真正作用 - 为什么缓存命中很快而缓存未命中却不 - Spring Cache 如何将所有内容联系在一起 而不仅仅是配置在代码片段中，我重点关注数据实际如何流动：Java 对象 → JSON → 字节 → Redis → 字节 → JSON → Java 对象 如果您曾经在向队友、初级人员甚至面试中清楚地解释 Redis 缓存方面遇到困难 - 这篇文章适合您。 在此阅读全文： https://medium.com/@khajamoinuddinsameer/redis-caching-explained-simply-how-it-really-works-under-the-hood-with-spring-boot-examples-f5d7a5e51620 💬很想听听：您在项目中如何使用 Redis？您在生产中遇到过任何缓存陷阱吗？   由   提交/u/East-Wrangler-1680   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quqxs1/redis_caching_finally_explained_without_the_magic/</guid>
+      <pubDate>Tue, 03 Feb 2026 12:43:30 GMT</pubDate>
     </item>
     <item>
-      <title>`jsongrep` – 在路径上使用正则表达式查询 JSON，编译为 DFA</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtfh1j/jsongrep_query_json_using_regular_expressions/</link>
-      <description><![CDATA[我一直在开发 jsongrep，这是一个 CLI 工具和库，用于使用正则路径表达式查询 JSON 文档。我想分享这个工具及其背后的一些理论。 这个想法 JSON 文档是树。 jsongrep 将此树中的路径视为字段名称和数组索引字母表上的字符串。您无需编写命令式遍历代码，而是编写一个正则表达式来描述要匹配的路径： $ echo &#39;{&quot;users&quot;: [{&quot;name&quot;: &quot;Alice&quot;}, {&quot;name&quot;: &quot;Bob&quot;}]}&#39; | jg &#39;**.name&#39; [&quot;Alice&quot;, &quot;Bob&quot;]  ** 是 Kleene 星形 — 匹配零个或多个边。因此，**.name 的意思是“在任意深度查找 name”。 它是如何工作的（有趣的部分） 查询引擎通过经典的自动机管道编译表达式：  解析：PEG 语法（通过 pest）将查询解析为 AST NFA 构造：AST 使用 Glushkov 构造编译为无 epsilon 的 NFA：没有 epsilon 转换意味着没有 epsilon 闭包开销 确定：子集构造将 NFA 转换为 DFA 执行：DFA 针对 JSON 树进行模拟，收集接受状态下的值  字母表依赖于查询且是有限的。字段名称变成离散符号，数组索引被划分为不相交的范围（因此 [0]、[1:3] 和 [*] 不会重叠）。这使 DFA 转换表保持紧凑。 查询：foo[0].bar.*.baz 字母表：{foo, bar, baz, *, [0], [1..∞), ∅} DFA 状态：6  查询语法 语法支持标准正则表达式运算符，适用于树路径：   运算符 示例 含义    序列 foo.bar 连接   析取 `foo bar`   Kleene star ** 任何路径（零个或多个步骤）   重复 foo* 重复字段零次或多次 通配符*，[*]任何字段/任何索引可选 foo? 存在则匹配   范围 [1:3] 数组切片   代码结构  src/query/grammar/query.pest – PEG语法 src/query/nfa.rs – Glushkov NFA构建 src/query/dfa.rs – 子集构建+DFA模拟 直接使用serde_json::Value（无自定义JSON） type)  实验：正则表达式字段匹配 该语法支持 /regex/ 语法，用于按模式匹配字段名称，但完整实现因一个有趣的问题而受阻：确定重叠的正则表达式需要同时跨多个正则表达式 NFA 进行子集构造。如果有人有这方面的文献，我很想听听。 vs jq jq 更强大（它是图灵完备的），但对于纯粹的提取任务，jsongrep 提供了更具声明性的语法。你说匹配什么，而不是如何遍历。 安装&amp;链接 cargo install jsongrep   GitHub：https://github.com/micahkepe/jsongrep Crates.io：https://crates.io/crates/jsongrep  CLI 二进制文件为 jg。 Shell 补全和手册页可通过 jggenerate 获得。 欢迎提供反馈、问题和 PR！   由   提交 /u/fizzner   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtfh1j/jsongrep_query_json_using_regular_expressions/</guid>
-      <pubDate>Mon, 02 Feb 2026 00:11:14 GMT</pubDate>
+      <title>我使用 Python 和 PID 控制为 iGaming 构建了一个开源数学引擎</title>
+      <link>https://www.reddit.com/r/programming/comments/1quq7oo/i_built_an_opensource_math_engine_for_igaming/</link>
+      <description><![CDATA[大家好，我最近发布了一个名为 The-Chamelot-Engine 的开源项目。它是一个基于 Python 的数学引擎，专为 iGaming 模拟而设计，特别专注于稳定 RTP（返回玩家）。 核心逻辑使用 PID 控制器来管理游戏结果的动态调整，确保 RTP 收敛到目标，同时保持引擎的随机性。  GitHub： https://github.com/Katunyu-Boonchumjai/The-Chamelot-Engine LinkedIn： https://www.linkedin.com/in/katunyu-boonchumjai-12ba6334b/  随时查看代码或贡献！   由   提交/u/Serious-Farm2006   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quq7oo/i_built_an_opensource_math_engine_for_igaming/</guid>
+      <pubDate>Tue, 03 Feb 2026 12:07:09 GMT</pubDate>
     </item>
     <item>
-      <title>中国32岁程序员据称因过劳死，住院期间仍加入工作群聊天</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtf1rs/32yearold_programmer_in_china_allegedly_dies_from/</link>
-      <description><![CDATA[ 由   提交 /u/CopiousCool   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtf1rs/32yearold_programmer_in_china_allegedly_dies_from/</guid>
-      <pubDate>Sun, 01 Feb 2026 23:53:29 GMT</pubDate>
+      <title>AI幻觉抢注：供应链攻击新领域</title>
+      <link>https://www.reddit.com/r/programming/comments/1quq4y2/ai_hallucination_squatting_the_new_frontier_of/</link>
+      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quq4y2/ai_hallucination_squatting_the_new_frontier_of/</guid>
+      <pubDate>Tue, 03 Feb 2026 12:03:10 GMT</pubDate>
     </item>
     <item>
-      <title>开发工具</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtdgr6/devtools/</link>
-      <description><![CDATA[您好，我前段时间找到了一些开发工具，首先是手工操作，但后来我决定使用 claude 代码进行重构和改进。结果至少对我来说令人印象深刻。你怎么认为？还有什么可以补充的吗？在 https://www.devtools24.com/ 上免费查看，还用它来进行搜索引擎优化和谷歌添加的完整往返，就像免责声明一样。   由   提交/u/Capital_Pick6672   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtdgr6/devtools/</guid>
-      <pubDate>Sun, 01 Feb 2026 22:49:19 GMT</pubDate>
+      <title>工程师和经理的 7 个 Slack 技巧</title>
+      <link>https://www.reddit.com/r/programming/comments/1qupj40/7_slack_hacks_for_engineers_and_managers/</link>
+      <description><![CDATA[ 由   提交/u/zaidesanton  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qupj40/7_slack_hacks_for_engineers_and_managers/</guid>
+      <pubDate>Tue, 03 Feb 2026 11:30:48 GMT</pubDate>
     </item>
     <item>
-      <title>机器学习管道基础设施的成熟度差距</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtch0m/the_maturity_gap_in_ml_pipeline_infrastructure/</link>
-      <description><![CDATA[ 由   提交 /u/CackleRooster   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtch0m/the_maturity_gap_in_ml_pipeline_infrastructure/</guid>
-      <pubDate>Sun, 01 Feb 2026 22:10:29 GMT</pubDate>
+      <title>应届毕业生如何快速提高编程能力</title>
+      <link>https://www.reddit.com/r/programming/comments/1quoesl/how_to_improve_programing_skills_fastly_for_the/</link>
+      <description><![CDATA[我尝试阅读编程书籍并观看编程视频，然后在 IDE 中输入。 但这对我来说似乎效率不高。 我的导师告诉我，你应该更多地编写和审查优秀的代码。 但是我怎样才能找到优秀的代码来审查呢？我应该写什么代码？ 喜欢我的公司代码吗？   由   提交/u/Realistic_Sun_2586   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quoesl/how_to_improve_programing_skills_fastly_for_the/</guid>
+      <pubDate>Tue, 03 Feb 2026 10:25:07 GMT</pubDate>
     </item>
     <item>
-      <title>语义压缩——为什么在 OOP 中建模“现实世界对象”经常失败</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtbi2l/semantic_compression_why_modeling_realworld/</link>
-      <description><![CDATA[在评论线程中看到它被引用后阅读此内容。它推翻了通常的“用类对现实世界进行建模”的方法，并解释了为什么它在实践中往往会崩溃。 作者使用了 The Witness 编辑器中的一个真实的 C++ 示例，并展示了如何首先编写具体代码，然后在出现共享片段时取出它们，从而获得比预先设计类层次结构更清晰的结构。它固执己见，但基于实际代码而不是图表或流行语。   由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtbi2l/semantic_compression_why_modeling_realworld/</guid>
-      <pubDate>Sun, 01 Feb 2026 21:33:23 GMT</pubDate>
+      <title>零信任安全模型网络安全的现代方法</title>
+      <link>https://www.reddit.com/r/programming/comments/1quo6sz/zero_trust_security_model_a_modern_approach_to/</link>
+      <description><![CDATA[零信任安全模型：网络安全的现代方法 掌握零信任安全模型。了解其核心原则、优势，以及为什么“永不信任，始终验证”对于现代网络安全至关重要。   由   提交/u/justok25  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quo6sz/zero_trust_security_model_a_modern_approach_to/</guid>
+      <pubDate>Tue, 03 Feb 2026 10:11:51 GMT</pubDate>
     </item>
     <item>
-      <title>如何将MOLTBook这样的人工智能学习平台与机器人技术相结合，打造智能机器人竞赛和活动竞赛？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qtantb/how_can_we_integrate_an_ai_learning_platform_like/</link>
-      <description><![CDATA[我一直在考虑将 MOLTBook 等基于人工智能的学习系统与机器人技术相结合，以创造更具互动性和实践性的东西，例如机器人竞赛和智能活动挑战。学生们不仅可以在屏幕上学习人工智能概念，还可以使用机器学习、计算机视觉和传感器来训练自己的机器人。例如，机器人可以学习走线、避开障碍物、识别物体或实时做出决策。然后我们可以组织比赛，让机器人使用它们开发的智能（而不仅仅是预先编写的代码）进行竞赛或完成任务。这个想法是让机器人技术更加实用和有趣。学生们不仅会组装硬件，还会组装硬件。他们还将像现实世界的工程项目一样训练人工智能模型、测试策略并提高性能。可以将其想象为一级方程式赛车，但适用于人工智能驱动的机器人。这对于学校、学院和技术机构来说非常有用，因为它将编码、电子和解决问题混合到一项活动中。它还鼓励团队合作和创新。这里有没有人尝试过构建类似的东西或将人工智能平台与机器人竞赛相结合？我希望获得有关入门工具、硬件或框架的建议。   由   提交/u/DheMagician   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qtantb/how_can_we_integrate_an_ai_learning_platform_like/</guid>
-      <pubDate>Sun, 01 Feb 2026 21:01:41 GMT</pubDate>
+      <title>学术生产 Linux 应用程序</title>
+      <link>https://www.reddit.com/r/programming/comments/1quo2oc/um_app_para_linux_de_produção_acadêmica/</link>
+      <description><![CDATA[ 由   提交/u/jaleui  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quo2oc/um_app_para_linux_de_produção_acadêmica/</guid>
+      <pubDate>Tue, 03 Feb 2026 10:04:51 GMT</pubDate>
     </item>
     <item>
-      <title>使用机器人为人类制作谜题</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt9pto/using_robots_to_generate_puzzles_for_humans/</link>
-      <description><![CDATA[ 由   提交 /u/vanHavel   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt9pto/using_robots_to_generate_puzzles_for_humans/</guid>
-      <pubDate>Sun, 01 Feb 2026 20:26:18 GMT</pubDate>
+      <title>如何像代码工件一样编写有效的提示，而不是问题？</title>
+      <link>https://www.reddit.com/r/programming/comments/1quna8w/how_to_write_effective_prompts_like_code/</link>
+      <description><![CDATA[提示应该像 Java 工件一样编写，而不是问题。例如：  提示的行为类似于方法签名：它定义输入和预期输出 上下文的行为类似于Jira 票据：业务+技术要求 角色分配类似于注释：它改变行为 约束的工作方式类似于NotNull/验证：它们限制执行范围 另一个重大改进来自于避免“一次做所有事情”提示并切换到基于步骤的提示（分析-&gt;计划-&gt;执行-&gt;解释）。仅此一点就使得输出对于调试、重构和架构讨论来说更加可靠。  关于“如何使用代码类比编写有效提示”的详细文章正在解释这种以 Java 为中心的 AI 提示编写方式，并结合 Spring Boot 和后端开发的真实示例。   由   提交/u/erdsingh24  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1quna8w/how_to_write_effective_prompts_like_code/</guid>
+      <pubDate>Tue, 03 Feb 2026 09:14:24 GMT</pubDate>
     </item>
     <item>
-      <title>Telegram + 光标集成 – 通过密码保护从任何地方控制您的 IDE</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt8sdj/telegram_cursor_integration_control_your_ide_from/</link>
-      <description><![CDATA[ 由   提交/u/Perfect_Dance6757  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt8sdj/telegram_cursor_integration_control_your_ide_from/</guid>
-      <pubDate>Sun, 01 Feb 2026 19:53:18 GMT</pubDate>
+      <title>实际上使用所有 CPU/GPU 核心的浏览器基准测试</title>
+      <link>https://www.reddit.com/r/programming/comments/1qumlzn/a_browser_benchmark_that_actually_uses_all_your/</link>
+      <description><![CDATA[大家好。我觉得当前的基准过于综合。这就是为什么我构建了 SpeedPower.run 作为“最大计算”测试，该测试运行七个并发基准测试：Javascript（多核 JS 处理）、Exchange（工作器通信）和五个不同的 AI 推理模型。 我们在市场上是独一无二的，因为我们同时运行基于流行堆栈（TensorFlow.js 和 Transformers.js v3）构建的不同 AI 模型，以获取系统范围内的真实衡量结果并发性。 探讨我们的方法或分享您的分数。我们在这里寻求反馈。   由   提交/u/Kirk_GC   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qumlzn/a_browser_benchmark_that_actually_uses_all_your/</guid>
+      <pubDate>Tue, 03 Feb 2026 08:31:36 GMT</pubDate>
     </item>
     <item>
-      <title>研究人员发现数千个暴露在互联网上的 OpenClaw 实例</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt7w80/researchers_find_thousands_of_openclaw_instances/</link>
-      <description><![CDATA[ 由   提交/u/_ahku  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt7w80/researchers_find_thousands_of_openclaw_instances/</guid>
-      <pubDate>Sun, 01 Feb 2026 19:21:23 GMT</pubDate>
+      <title>OpenAI 的 Codex 应用程序想要取代您的 IDE。我不确定是否应该。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qumh9t/openais_codex_app_wants_to_replace_your_ide_im/</link>
+      <description><![CDATA[ 由   提交/u/Upper-Host3983  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qumh9t/openais_codex_app_wants_to_replace_your_ide_im/</guid>
+      <pubDate>Tue, 03 Feb 2026 08:23:14 GMT</pubDate>
     </item>
     <item>
-      <title>喜欢OBS</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt6vkp/obs_like/</link>
-      <description><![CDATA[改进和审计高级副总裁！   由   提交/u/rayanlasaussice   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt6vkp/obs_like/</guid>
-      <pubDate>Sun, 01 Feb 2026 18:46:08 GMT</pubDate>
+      <title>我们正在将人工智能功能构建到实际产品中，而不是演示中。开发人员的实际要求让我感到惊讶。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qum28c/were_building_ai_features_into_real_products_not/</link>
+      <description><![CDATA[我与一个小团队合作，构建真实生产应用程序中人工智能驱动的功能，而不是玩具演示。 开发团队通常要求：  插入现有后端的人工智能代理 无需重写整个堆栈即可实现自动化 他们可以拥有的系统，而不是黑系统框  我们在 Linova Labs 的大部分工作最终都是：  自定义 AI 逻辑 干净的 API 集成 让 AI 变得无聊（可靠 &gt; 华丽）  好奇其他人如何在产品中交付 AI：  您使用什么堆栈？ 维护什么是一场噩梦？    由   提交/u/ExpertEducation2311   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qum28c/were_building_ai_features_into_real_products_not/</guid>
+      <pubDate>Tue, 03 Feb 2026 07:57:12 GMT</pubDate>
     </item>
     <item>
-      <title>Linux 的 b4 内核开发工具现在正在为其 AI 代理代码审查助手提供支持</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt63c6/linuxs_b4_kernel_development_tool_now_dogfeeding/</link>
-      <description><![CDATA[&quot;Linux 内核开发人员用来帮助管理围绕 Linux 内核贡献的补丁工作流程的 b4 工具已经在文本用户界面上发挥作用，以帮助 AI 代理辅助代码审查。这个周末，它成功地用 b4 review TUI 审查了 b4 工具本身的补丁。 Konstantin Ryabitsev 与 Linux 基金会和 b4 工具的首席开发人员一直致力于为内核开发人员开发“b4 review tui”，为内核开发人员提供一个漂亮的文本用户界面，使用该实用程序来管理补丁，并希望选择使用 Claude Code 等 AI 代理来帮助进行代码审查。由于 b4 已成为 Linux 内核开发人员事实上的工具，因此对于内核开发人员来说，加入这种 AI 辅助将是一个有趣的选择，以增强他们的工作流程，并有望节省一些时间和/或发现一些未发现的问题。对于那些积极需要人工智能助手帮助的人来说，这严格来说是 b4 的可选功能。” - Phoronix   由   提交/u/Fcking_Chuck  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt63c6/linuxs_b4_kernel_development_tool_now_dogfeeding/</guid>
-      <pubDate>Sun, 01 Feb 2026 18:18:54 GMT</pubDate>
+      <title>在我的 WordPress 网站上花了几周时间……Google PageSpeed 毁了我</title>
+      <link>https://www.reddit.com/r/programming/comments/1qum0ts/spent_weeks_on_my_wordpress_site_google_pagespeed/</link>
+      <description><![CDATA[我们花了几周的时间来完善我们的 WordPress 网站，选择最好的图像，然后当我们运行 Google PageSpeed 时……洗个冷水澡。 一切都是红色的，网站速度很慢，你开始认为 SEO 会埋葬你。 老实说，我厌倦了阅读 50 页的指南，这些指南听起来好像你需要成为一名 NASA 工程师才能在你的网站上获得 3 分。得分。 所以我决定编写一些简单但对网站管理员非常有效的代码。一个工具，你可以粘贴你的 URL，而不是仅仅给你一个不好的分数，它直接为你提供 PHP/JS 代码来复制粘贴来解决问题。 它是免费的，它很实用，而且它可以让你免于安装 15 个插件，这些插件最终会进一步减慢你的网站，哈哈。 我为什么要这样做？因为这是我的热情，我希望每个人都能从中受益。我们都知道，速度缓慢的网站对于转化、SEO 等可能会造成灾难性的后果。 我只想在 2026 年让网络更快，以获得更好的用户体验。 #WordPress #SEO #WebPerformance #WebMarketing #GrowthHacking    由   提交/u/AlternativeYou4536   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qum0ts/spent_weeks_on_my_wordpress_site_google_pagespeed/</guid>
+      <pubDate>Tue, 03 Feb 2026 07:54:51 GMT</pubDate>
     </item>
     <item>
-      <title>高级职位面试</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt34ks/senior_position_interview/</link>
-      <description><![CDATA[各位，我被要求参加一个高级职位的面试，我在一个领域拥有丰富的经验，但我还没有完全掌握最现代的工具。招聘人员喜欢我的简历，并说它很适合公司的招聘要求，但我担心我会在选拔过程中让自己难堪。 更详细地解释一下：我从本科学习开始一直在大学实验室工作，直到现在的硕士课程，我应该在下个月完成硕士课程。我与我们提供服务的公司有近四年的密切接触，但我从未直接为这些公司工作过。我意识到这是一个巨大的差距。 尽管如此，我恐怕无法胜任这个级别的职位。我认为从现在的位置晋升到高级职位是一个非常大的飞跃。 无论如何，我都会尝试这个职位。我听过一些人在什么都不知道的情况下成为老年人的故事，这甚至让我感到安慰，哈哈，但我承认我很担心。 我想知道你是否经历过类似的事情，以及我是否不应该太担心。   由   提交/u/mixmaxze  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt34ks/senior_position_interview/</guid>
-      <pubDate>Sun, 01 Feb 2026 16:33:18 GMT</pubDate>
+      <title>Vivaldi 7.8：真正信任您的浏览器 · cekrem.github.io</title>
+      <link>https://www.reddit.com/r/programming/comments/1qul8wj/vivaldi_78_a_browser_that_actually_trusts_you/</link>
+      <description><![CDATA[ 由   提交 /u/cekrem   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qul8wj/vivaldi_78_a_browser_that_actually_trusts_you/</guid>
+      <pubDate>Tue, 03 Feb 2026 07:08:16 GMT</pubDate>
     </item>
     <item>
-      <title>Voyager AI：通过 GitHub Co-Pilot 将技术（或任何文章）转换为交互式 Jupyter 笔记本</title>
-      <link>https://www.reddit.com/r/programming/comments/1qt24m9/voyager_ai_convert_technical_or_any_article_to/</link>
-      <description><![CDATA[ 由   提交/u/0xchamin  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qt24m9/voyager_ai_convert_technical_or_any_article_to/</guid>
-      <pubDate>Sun, 01 Feb 2026 15:56:25 GMT</pubDate>
+      <title>在 Twitter 上看到一篇帖子：“当我们可以写入文件时，为什么我们需要数据库？”这让我真的很感兴趣......</title>
+      <link>https://www.reddit.com/r/programming/comments/1qul8ri/saw_a_post_on_twitter_why_do_we_need_databases/</link>
+      <description><![CDATA[当我第一次进入大型科技行业时，我曾经与量化分析师一起工作，他们大多使用 Excel 或基于 csv 的系统。有一次我正在处理一份 Excel 文档，一个家伙说“是的，当我们离开时，我们会让这个人为我们管理数据库”。这让我思考，“我们到底为什么需要数据库管理系统？”。就在今天早上，我在 Twitter 上遇到了同样的问题，有一些非常有趣的回复，但你知道 Twitter 有多浅薄，所以我想，也许让我在 Reddit 上问这个问题。  那么...为什么我们需要数据库？   由   提交/u/pattison_iman   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qul8ri/saw_a_post_on_twitter_why_do_we_need_databases/</guid>
+      <pubDate>Tue, 03 Feb 2026 07:08:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
