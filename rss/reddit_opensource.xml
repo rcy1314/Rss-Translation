@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 03 Feb 2026 21:41:40 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Feb 2026 02:31:24 GMT</lastBuildDate>
+    <item>
+      <title>Vibe 编码如何扼杀开源</title>
+      <link>https://www.reddit.com/r/opensource/comments/1qv62hq/how_vibe_coding_is_killing_open_source/</link>
+      <description><![CDATA[       由   提交 /u/SubliminalPoet   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1qv62hq/how_vibe_coding_is_killing_open_source/</guid>
+      <pubDate>Tue, 03 Feb 2026 22:14:13 GMT</pubDate>
+    </item>
     <item>
       <title>Digiwha Labs 推出免费的 PWA 恶作剧</title>
       <link>https://www.reddit.com/r/opensource/comments/1qupvj7/digiwha_labs_presents_free_pwa_shenanigans/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[我构建了 TranslateBot，一个以 Django 为中心的 CLI/库，它使用您选择的 LLM 提供程序（OpenAI / Claude / Gemini / 等）翻译您的 gettext .po 文件，而无需使用“copy msgid -&gt;”粘贴到翻译器 -&gt;中断占位符 -&gt;永远重复”工作流程。 项目 + 文档： https://translatebot.dev/docs/ GitHub：https://github.com/gettranslatebot/translatebot-django 它的作用  扫描您的 Django 语言环境 .po 文件 默认情况下仅翻译未翻译的条目（或者根据需要重新翻译所有内容） 保留占位符，这样 {name}、%(count)d、HTML 位等就不会被损坏 与标准 Django i18n（makemessages）配合使用，并能与现实世界的 PO 文件完美配合  v0.4.0 中的新功能：TRANSLATING.md（翻译上下文） 最大的升级是一致的术语和语气。 将 TRANSLATING.md 文件放入项目根目录中，TranslateBot 会将其包含在每个翻译请求中。 这就是阻止法学硕士执行以下操作的方法：  翻译“工作空间” UI 中的 3 种不同方式随机切换正式/非正式语气（Sie/du、vous/tu） 翻译永远不应该更改的产品名称  文档 + 模板： https://translatebot.dev/docs/usage/translation-context/ 为什么这比“仅使用 Claude Code”更好 Claude Code（或任何编码代理）绝对可以帮助完成翻译任务，但它并未针对 gettext/PO 正确性和可重复翻译运行进行优化：  一致性：TRANSLATING.md 为您提供跨语言和运行的术语 + 语气的单一事实来源。 PO 感知工作流程：TranslateBot 直接对 PO 条目进行操作 (msgid/msgstr)，而不是“在文件中尽力编辑”。 占位符安全：它旨在可靠地保留占位符和格式（.po translatino 中的 #1 footgun）。 默认增量：仅翻译缺失的条目，除非您选择重新翻译。非常适合 CI/持续开发。 与提供商无关：通过 API 密钥使用任何 LLM；您不会被锁定在一个环境/工具中。 专为 Django 打造：适用于 makemessages、区域设置结构和典型的 Django i18n 约定。  快速入门 # On the shell uv add translatebot-django --group dev # Django 设置 import os INSTALLED_APPS = [ # ... &quot;translatebot_django&quot;, ] TRANSLATEBOT_API_KEY = os.getenv(&quot;OPENAI_API_KEY&quot;) # 或其他提供商密钥 TRANSLATEBOT_MODEL = &quot;gpt-4o-mini&quot;; # On the shell ./manage.py makemessages -l fr --no-obsolete ./manage.py translate --target-lang fr  成本/许可证  该软件包开源（MPL 2.0） 您向 LLM 提供商付费（对于许多应用程序，每种语言大约需要几美分）  如果您维护具有多种语言的 Django 应用程序，我希望得到反馈！ 再次链接：https://translatebot.dev/docs/ | https://github.com/gettranslatebot/   由   提交 /u/leipegokker   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1qs77uh/i_built_a_django_tool_to_translate_po_files_with/</guid>
       <pubDate>Sat, 31 Jan 2026 16:43:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>引入一种工具，将软件架构转变为版本化和可查询的数据</title>
-      <link>https://www.reddit.com/r/opensource/comments/1qs62vr/introducing_a_tool_turning_software_architecture/</link>
-      <description><![CDATA[代码： https://github.com/pacta-dev/pacta-cli 文档： https://pacta-dev.github.io/pacta-cli/getting-started/ 我的项目做什么 Pacta 旨在随着时间的推移对软件架构进行版本控制、测试和观察。 使用 pacta，您能够：  采用架构快照：像代码一样版本化您的架构 查看历史和趋势：依赖关系、耦合和违规如何演变 在快照之间进行差异：像 Git 提交 获取指标和见解：构建捕获模块、依赖关系、违规和耦合的图表 定义规则和规则治理：可以逐步实施的架构意图 使用基线模式：采用治理，而不会受到遗留债务的阻碍  它可以帮助团队了解架构如何演变并防止架构缓慢衰退。 目标受众 这是针对现实世界的代码库。 最适合：维护模块化系统（包括遗留系统）的工程师/架构。 比较 Pacta 随着时间的推移添加了架构的历史记录、趋势和快照差异，而 linter（如 Import Linter 或 ArchUnit）则专注于当前状态。 规则测试工具不足以适应遗留系统。 Pacta 支持基线模式，因此您可以防止新的违规行为，而无需先修复整个过去的问题。 此工具是 Git + 测试 + 架构指标。  简要指南  安装并定义您的架构模型：  bash pip install pacta  创建一个 architecture.yml 来描述您的架构  保存当前状态的快照：  bash pacta snapshot save 。 --model Architecture.yml   检查历史记录：  bash pacta 历史记录显示 --last 5  示例：  时间戳快照节点边缘违规 2024-01-22 14:30:00 f7a3c2... 48 82 0 2024-01-15 10:00:00 abc123... 45 78 0  跟踪趋势（例如，依赖项计数/边缘）： bash pacta 历史趋势 。 --公制边缘  示例： ``` 边缘计数趋势（5 条） 82 │ ● │ ●---------------- 79 │ ●------------ │ 76 ├●--- └────────────────────────────── Jan 15 Jan 22 趋势：↑ 增加（随时间推移增加 6） 第一个：76 个边（1 月 15 日）最后一个：82 个边（1 月 22 日） 平均：79 个边 最小值：76，最大值：82 ```  强制执行架构规则 (rules.pacta.yml)：  ``bash 选项 A：检查现有快照 pacta 检查。 --rules Rules.pacta.yml 选项 B：快照 + 一步检查 pacta 扫描。 --model Architecture.yml --rules Rules.pacta.yml ``` 违规输出示例： ``` ✗ 2 个违规（2 个错误）[2 个新] ✗ 错误 [no_domain_to_infra] @ src/domain/user.py:3:1 状态：新的域层不得从基础设施导入 ``` 如果您想贡献或尝试项目，请参阅到这些链接： 代码： https://github.com/pacta-dev/pacta-cli 文档： https://pacta-dev.github.io/pacta-cli/getting-started/   由   提交/u/MatchLittle5000  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1qs62vr/introducing_a_tool_turning_software_architecture/</guid>
-      <pubDate>Sat, 31 Jan 2026 16:00:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
