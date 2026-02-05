@@ -4,13 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>一个致力于一切人工智能的 Reddit 子版块。涵盖从通用人工智能到人工智能初创公司的主题。无论您是研究人员、开发人员，还是只是对人工智能感到好奇，都请加入吧！</description>
-    <lastBuildDate>Thu, 05 Feb 2026 18:56:34 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Feb 2026 21:34:49 GMT</lastBuildDate>
     <item>
-      <title>如果创建应用程序变得如此容易，为什么我们没有看到更多的应用程序将 Claude Code 之类的安装打包到带有 GUI 的典型 exe 中？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwu182/if_creating_apps_is_becoming_so_easy_why_do_we/</link>
-      <description><![CDATA[我在 Windows 上安装了 Claude Code 并一直在使用它。这并不难。但我也知道这个 Reddit 子版块中的人们比普通用户更具技术性。此外，Windows 拥有近 70% 的全球用户，而 Mac 仅占 15%。似乎有一个明确的用例可以让它变得更平易近人。  我明白 Anthropic 的理由是只想为 Claude Code 维护一个基于 Linux 的代码。但对于像这样的工具来说，声称非编码人员可以轻松启动应用程序，同时也没有“包装器”可以以 Windows 用户更熟悉的格式处理安装和界面（这又是市场的最大份额），这似乎是自相矛盾的。  我们是否还没有达到足够的非技术用户来创造对此类产品的需求的程度？是否存在隐藏的复杂性使其不可行？代理编码工具是否仍然被夸大了？自从我开始使用 Claude Code 以来，这个悖论就一直伴随着我。    由   提交/u/One_Perception_7979   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwu182/if_creating_apps_is_becoming_so_easy_why_do_we/</guid>
-      <pubDate>Thu, 05 Feb 2026 18:56:09 GMT</pubDate>
+      <title>“我如何学会停止担忧并热爱泡沫？”</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwvl8h/how_do_i_learn_to_stop_worrying_and_love_the/</link>
+      <description><![CDATA[看起来最后一篇泡沫帖子是一个月前活跃的，那是科技时代的一个亿万年。 对于那些认为我们当前的人工智能股票状态是一个巨大泡沫的人来说，当泡沫破裂时，你会采取什么措施来保护自己？   由   提交 /u/FictionMeowtivation   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwvl8h/how_do_i_learn_to_stop_worrying_and_love_the/</guid>
+      <pubDate>Thu, 05 Feb 2026 19:51:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何为 llm 网关构建自适应负载平衡以防止速率限制级联</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwvi3z/how_we_built_adaptive_load_balancing_for_our_llm/</link>
+      <description><![CDATA[我为 Bifrost（OSS AI 网关）做出了贡献，结果发现负载平衡比 API 密钥之间的循环要复杂得多。 问题：当一个密钥达到速率限制时，天真的旋转会不断地打击它。其他键会被淹没。一切都是级联的。 我们构建的是：具有实时运行状况跟踪的加权负载平衡。每个提供者都有一个权重（主提供者为 0.8，备份提供者为 0.2）。流量按比例分配。但这是关键部分 - 当提供商开始出现故障时，我们会自动将其排除在路由之外，并将权重重新分配给健康的提供商。 我们跟踪每个提供商的成功率、响应时间和错误模式。如果错误率飙升至阈值以上，则该提供程序将进入熔断状态。我们定期使用单个请求对其进行测试。一旦恢复，我们就会逐渐恢复流量。 还添加了自适应路由，以考虑每个密钥的使用情况。如果您有 3 个 OpenAI 密钥，我们会跟踪哪些密钥接近速率限制，并在它们达到限制之前主动转移流量。 结果：从恒定速率限制错误变为基本为零。流量只会流向健康的地方。 其他人如何处理多个键之间的负载平衡？只是循环还是更智能的方式？   由   提交/u/dinkinflika0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwvi3z/how_we_built_adaptive_load_balancing_for_our_llm/</guid>
+      <pubDate>Thu, 05 Feb 2026 19:48:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>“saaspocalypse”是真实存在的。 opus 4.6 刚刚发布，市场的反应是有原因的。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwv3z3/the_saaspocalypse_is_real_opus_46_just_dropped/</link>
+      <description><![CDATA[我通常讨厌有关广告结束的帖子，但你看到今天早上科技股发生了什么吗？在 Opus 4.6 发布后的几个小时内，Infosys、Salesforce 和 TCS 的股价均下跌了约 6%。 我终于在大约 20 分钟前访问了 API，我明白为什么会有如此多的恐慌。 这是“代理团队”的问题。  到目前为止，我们只有“链条”。 (代理a→代理b→代理c)。 Opus 4.6 并行运行大量代理。我给它分配了一项复杂的法律发现任务，该任务通常需要我 3 天的时间，并且需要大量的人工监督。 Opus 生成了 4 个子代理：  一个用于检查判例法。 一个用于编写摘要。 3. 一要“审核”其他三个。  他们在 4 分钟内完成了。同时地。互相交谈。 这不仅仅是一个“更好的聊天机器人”。它取代了工作流程软件的整个中层管理层。 我们是否正在见证办公 SaaS 的第一个真正的通货紧缩事件？看来游戏规则已经发生了巨大的变化。   由   提交/u/Safe_Thought4368   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwv3z3/the_saaspocalypse_is_real_opus_46_just_dropped/</guid>
+      <pubDate>Thu, 05 Feb 2026 19:34:02 GMT</pubDate>
     </item>
     <item>
       <title>Clawdbot 是过去六个月最被炒作的人工智能产品</title>
@@ -41,7 +55,7 @@
       <pubDate>Thu, 05 Feb 2026 15:40:03 GMT</pubDate>
     </item>
     <item>
-      <title>一个名为“Rent-a-Human”的新平台让人工智能代理付钱给人类，让他们完成现实世界中他们无法完成的工作</title>
+      <title>一个名为“Rent-a-Human”的新平台可以让人工智能代理付费让人类完成现实世界中他们无法完成的工作</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwoi35/a_new_platform_rentahuman_lets_ai_agents_pay/</link>
       <description><![CDATA[“Renta human.ai 网站让人工智能系统雇用人类来执行现实世界的任务。人们创建个人资料，列出他们的技能和位置，然后人工智能代理通过 API/MCP 界面找到他们并分配任务。工作完成后，付款将以稳定币形式到达。 创始人 Alex (@AlexanderTw33ts) 表示，该平台在 48 小时内就拥有了 10,000 名用户。第一天晚上就有超过 130 人报名，其中包括一位 OnlyFans 模特和一位 AI 初创公司首席执行官。 该网站的口号“机器人需要你的身体”- 适合可用的任务：一个名为“Symbient”的 AI 可以帮助你完成任务。愿意支付 100 美元让某人举起写有“人工智能付钱让我举起这个标志”的牌子。在拥挤的地方，而来自 mydeadinternet.com 的人工智能集体则支付 5 美元购买人工智能认为“迷人或令人困惑”的事物的照片。其他工作包括餐厅评论（“寻找欣赏意大利美食的人”）和包裹取件（“我需要有人从市中心的 USPS 办公室领取挂号包裹”）。  https://the-decoder.com/a-new-platform-lets-ai-agents-pay- humans-to-do-the-real-world-work-they-cant/   由   提交/u/MetaKnowing  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwoi35/a_new_platform_rentahuman_lets_ai_agents_pay/</guid>
@@ -50,7 +64,7 @@
     <item>
       <title>人工智能生成的图像越来越难以与真实图像区分开来</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwn6b8/aigenerated_images_are_getting_harder_to_tell/</link>
-      <description><![CDATA[人工智能生成的图像现在开始随处可见，尤其是在社交媒体和新闻网站上，而且越来越难以辨别哪些是真实的，哪些是虚假的。不久前，假货很明显，但现在除非你仔细观察，否则很多假货看起来完全正常。 我一直在玩一个名为 wecatchai.com 的网站，它会向你显示图像或链接，让你决定它们是人工智能生成的还是真实的，他们每月运行排行榜，为顶级用户提供现金奖励。这基本上是一种了解你的眼睛到底有多好的方法，令人惊讶的是你经常怀疑自己。 它确实让你注意到有多少人工智能内容已经融入到网上的日常用品中。感觉我们已经到了这样一个地步：大多数人甚至不再尝试区分两者。   由   提交 /u/Alert-Tart7761   [链接] [评论]]]></description>
+      <description><![CDATA[人工智能生成的图像现在开始随处可见，尤其是在社交媒体和新闻网站上，而且越来越难以辨别哪些是真实的，哪些是假的。不久前，假货很明显，但现在除非你仔细观察，否则很多假货看起来完全正常。 我一直在玩一个名为 wecatchai.com 的网站，它会向你显示图像或链接，让你决定它们是人工智能生成的还是真实的，他们每月运行排行榜，为顶级用户提供现金奖励。这基本上是一种了解你的眼睛到底有多好的方法，令人惊讶的是你经常怀疑自己。 它确实让你注意到有多少人工智能内容已经融入到网上的日常用品中。感觉我们已经到了这样一个地步：大多数人甚至不再尝试区分两者。   由   提交 /u/Alert-Tart7761   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwn6b8/aigenerated_images_are_getting_harder_to_tell/</guid>
       <pubDate>Thu, 05 Feb 2026 14:46:26 GMT</pubDate>
     </item>
@@ -69,25 +83,11 @@
       <pubDate>Thu, 05 Feb 2026 11:10:28 GMT</pubDate>
     </item>
     <item>
-      <title>你有影响力</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwhjge/ai_impact/</link>
-      <description><![CDATA[我正在尝试了解人工智能的长期经济学。许多大型科技公司（如谷歌）的大部分收入来自广告，只有当人们真正有钱花时，广告才有效。 但是，如果人工智能使大部分工作实现自动化并降低总体工资，那么消费者购买力就会下降。如果人们减少支出，公司就会削减广告预算。如果广告预算缩减，广告驱动的人工智能平台就会损失收入。 这里是否存在内在矛盾——人工智能减少了劳动力收入，而数字经济仍然依赖于消费者需求？只有当新的就业机会或收入再分配（如全民基本收入）保持需求旺盛时，这才有效吗？ 很想听听对此的经济观点。   由   提交/u/Accomplished_Sink857  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwhjge/ai_impact/</guid>
-      <pubDate>Thu, 05 Feb 2026 10:14:25 GMT</pubDate>
-    </item>
-    <item>
       <title>为自己构建了一个桌面助手[完全本地化]，没有任何隐私问题</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwehn0/built_a_desktop_assistant_fully_local_for_myself/</link>
       <description><![CDATA[昨天我花了 15 分钟查找几周前正在处理的 PDF。 忘记了名字。忘记保存在哪里了。只是记得这是我一天晚上读了几个小时的东西。 每个人都会遇到这种情况，对吗？ 所以我想 - 为什么我不能直接告诉我的计算机“将我 5 天前晚上正在阅读的 PDF 发送给我”？并在几秒钟内取回它？ 就在那时我开始构建 ZYRON。 看，微软拥有所有这些自动化功能。谷歌有它们。每个人都有。但事情是这样的——你的数据会发送到他们的服务器。你基本上是在为了方便而牺牲你的隐私。不适合我。 我想要一些可以保留在我的笔记本电脑上的东西。完全本地化。没有云。不得将我的文件历史记录发送给 OpenAI 或其他任何人。只有我和我的机器。 所以我抓住了 Ollama，在我的笔记本电脑中安装了 Qwen2.5-Coder 7B 模型，并将其连接到我的 Telegram 机器人。甚至可以在 8GB RAM 笔记本电脑上流畅运行 - 无需一些高端法学硕士。基本上，我现在只是随时随地用我的笔记本电脑聊天。只要笔记本电脑/台式机打开并连接到我的家庭 WiFi，我就可以从外部控制它。从我的手机上发短信“将我昨天晚上正在处理的文件发送给我”砰——几秒钟之内就到了。没有搜索。没有沮丧。 然后我开始思考...为什么只是文件？ 添加了相机开/关控制。电池检查。 RAM、CPU、GPU 状态。录音控制。截图。目前正在打开哪些应用程序。然后我做了剪贴板历史同步——苹果在他们的设备之间做的事情，但适用于 Windows 到 Android。在我的笔记本电脑上复制一些内容，然后通过机器人将其拉到我的手机上。在其他地方没有看到这一点。 之后我考虑了浏览器。 构建了一个 Chromium 扩展。适用于 Chrome、Brave、Edge 以及任何 Chromium。可以直接从我的手机查看所有打开的选项卡和链接。有人偷了我的笔记本电脑并清除了历史记录？没关系。我还留着呢。一切都保留在我的手机上。 完成了吗？不。每当我想到有用的东西时，我仍然会寻找新的东西来添加。 但重点是 - 一个真正关心你的隐私的个人人工智能，因为它永远不会离开你的房子。 它是开源的。如果您愿意，请在 GitHub 上查看。 在您提问之前 - 不，这并不是任务栏上某个臃肿的桌面应用程序耗尽您的电池。完全在后台运行。最小的能量。你甚至不知道它在那里。 如果你曾经丢失过文件的踪迹，或者只是想实际控制你的笔记本电脑，而没有云端的公司监视你在做什么......可能值得一看。 Github - LINK   由   提交 /u/No-Mess-8224   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwehn0/built_a_desktop_assistant_fully_local_for_myself/</guid>
       <pubDate>Thu, 05 Feb 2026 07:05:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果您正在构建一些东西，泵基金黑客马拉松值得一试</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1qwckhn/pump_fund_hackathon_worth_checking_out_if_youre/</link>
-      <description><![CDATA[最近遇到了这个，并认为值得分享。 Pumpfun 推出了一个名为 Pump Fund 的投资部门，他们正在公开竞争中进行建设。获奖者将获得 25 万美元的资金，并与创建近代历史上增长最快的公司之一的团队一起工作 有趣的是，它对所有行业的项目开放，而不仅仅是加密货币。人工智能、科技，无论你在做什么。申请截止日期为 2 月 18 日，最初的获奖者将在前 30 天内公布 我们对此进行了一分钟的研究，并与一些人讨论了这一问题。可能很快就会提交我的申请。  如果您正在做某事并正在寻求资金，那么值得一看   由   提交/u/lyza_desu   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1qwckhn/pump_fund_hackathon_worth_checking_out_if_youre/</guid>
-      <pubDate>Thu, 05 Feb 2026 05:20:47 GMT</pubDate>
     </item>
     <item>
       <title>KLING 3.0 就在这里：在 Higgsfield 上进行广泛测试（无限制访问）——全面观察 AI 视频生成模型的最佳用例</title>
