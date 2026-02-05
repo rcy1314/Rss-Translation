@@ -4,111 +4,111 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 05 Feb 2026 13:13:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Feb 2026 18:58:27 GMT</lastBuildDate>
     <item>
-      <title>乐观锁定与悲观锁定：并发控制、冲突、更新丢失、重试和阻塞</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwkuh4/optimistic_vs_pessimistic_locking_concurrency/</link>
-      <description><![CDATA[在许多应用程序和系统中，我们必须处理并发的、经常发生冲突且可能丢失的更新。这正是并发控制问题的全部内容。忽略它意味着许多错误、困惑的用户和损失金钱。避免所有这些事情肯定是更好的选择！ 因此，解决并发问题的第一个解决方案是乐观的。 我们假设我们的更新不会与其他更新冲突；如果确实如此，则会引发异常，并将处理留给用户/客户端。由他们决定是重试还是完全放弃操作。 如何检测此类冲突？ 必须有一种方法来确定记录是否在我们处理记录的同时被修改。为此，我们添加一个简单的数字版本列，并按如下方式使用： UPDATE Campaign SET预算 = 1000, version = version + 1 WHERE id = 1 AND version = 1;  每次修改活动实体时，其版本也会增加；此外，版本值（在事务开始时已知，在更新语句之前获取）被添加到 where 子句中。大多数语言的大多数数据库驱动程序都支持从数据操作语言 (DML) 语句（如 UPDATE）返回受影响的行数；在我们的例子中，我们期望得到恰好一个受影响的行。如果情况并非如此，则意味着该版本是由另一个并行运行的查询增加的 - 可能存在冲突！在这种情况下，我们只需抛出某种OptimisticLockException。 结果：  没有冲突的更新 - 如果实体在此期间被修改，如意外更改的版本值通知，操作将中止 用户/客户端决定如何处理中止的操作 - 他们可能会刷新页面，看到数据变化，判断现在已经好了，不需要修改；或者他们可能会以相同或不同的方式修改它，但要点是：没有一个更新丢失  因此，并发问题的第二种解决方案是悲观的。 我们预先假设会发生冲突，并在所需的时间内锁定修改的记录。 对于此策略，无需以任何方式修改架构。要使用它，我们只需悲观地在事务持续时间内锁定正在修改的行。触发预算修改的点击示例： -- click1 是第一个 -- BEGIN;从预算中选择 *，其中 id = 1 进行更新；更新预算 SET available_amount = 50 WHERE id = 1;犯罪; -- 并行单击2，但第二次 -- BEGIN; -- 交易在此锁定，直到 click1 交易结束 -- SELECT * FROM Budget WHERE id = 1 FOR UPDATE; -- 在 click1 事务提交/回滚后，事务在此处恢复， -- -- 始终保持最新的预算 -- 更新预算 -- 值正确设置为 0，因为我们始终获得最新的预算 -- SET available_amount = 0 WHERE id = 1;犯罪;  结果：  在任何给定时间只有一个更新执行 - 如果另一个进程尝试更改同一实体，则会被阻止；然后，该进程必须等到第一个进程结束并释放锁 我们总是获取最新数据 - 每个进程首先（尝试）锁定实体，然后才修改它 客户端/用户不知道并行的、潜在冲突的更新 - 每个进程首先获取实体上的锁，但没有直接的方法知道同时发生了冲突的更新；我们只需等待轮到我们  有趣的是，还可以使用悲观锁来模拟一些乐观锁定功能 - 使用 NOWAIT 和 SKIP LOCKED SQL 子句:)   由   提交 /u/BinaryIgor   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwkuh4/optimistic_vs_pessimistic_locking_concurrency/</guid>
-      <pubDate>Thu, 05 Feb 2026 13:09:37 GMT</pubDate>
+      <title>分割任何内容教程：Python 中的快速自动蒙版</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwu2e8/segment_anything_tutorial_fast_auto_masks_in/</link>
+      <description><![CDATA[对于学习分段任意 (SAM) 和在 Python 中自动生成掩模的人来说，本教程将引导您加载 SAM ViT-H 检查点、运行 SamAutomaticMaskGenerator 从单个图像生成掩模，并并排可视化结果。 它还展示了如何将 SAM 的输出转换为监督检测，在原始图像上注释掩模，然后按面积（从大到小）对掩模进行排序，并绘制完整的掩模网格进行分析。   Medium 版本（适合喜欢 Medium 的读者）：https://medium.com/image-segmentation-tutorials/segment-anything-tutorial-fast-auto-masks-in-python-c3f61555737e 书面解释代码：https://eranfeit.net/segment-anything-tutorial-fast-auto-masks-in-python/ 视频说明：https://youtu.be/vmDs2d0CTFk?si=nvS4eJv5YfXbV5K7     此内容仅用于教育目的，欢迎提供建设性反馈或讨论。   埃兰·费特   由   提交 /u/Feitgemel   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwu2e8/segment_anything_tutorial_fast_auto_masks_in/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:57:20 GMT</pubDate>
     </item>
     <item>
-      <title>Elm 入门：与 MutationObserver 的声明式对话 · cekrem.github.io</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwkt6y/an_elm_primer_declarative_dialogs_with/</link>
-      <description><![CDATA[ 由   提交 /u/cekrem   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwkt6y/an_elm_primer_declarative_dialogs_with/</guid>
-      <pubDate>Thu, 05 Feb 2026 13:08:00 GMT</pubDate>
+      <title>一个由构建者为构建者提供的小型共享技能库。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwtkzr/a_small_shared_skill_library_by_builders_for/</link>
+      <description><![CDATA[ 由   提交/u/PsiACE   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwtkzr/a_small_shared_skill_library_by_builders_for/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:39:47 GMT</pubDate>
     </item>
     <item>
-      <title>良好激励的 3 个原则</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwjrts/3_principles_of_good_incentives/</link>
-      <description><![CDATA[ 由   提交/u/dmp0x7c5  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwjrts/3_principles_of_good_incentives/</guid>
-      <pubDate>Thu, 05 Feb 2026 12:18:24 GMT</pubDate>
+      <title>🎙️ Lucas Roesler：快速反馈循环的优势 |可维护的播客</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwtenm/lucas_roesler_the_fast_feedback_loop_advantage/</link>
+      <description><![CDATA[在本集中，Robby 与 Lucas Roesler（Contiamo 的执行合伙人兼首席技术官）进行了交谈。 Lucas 从柏林加入，解开当您处理实际约束时的可维护性在实践中的样子……有限的上下文、缺失的文档和难以理解的系统。   由   提交 /u/robbyrussell   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwtenm/lucas_roesler_the_fast_feedback_loop_advantage/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:33:38 GMT</pubDate>
     </item>
     <item>
-      <title>Redis 将如何杀死您的数据库（以及如何阻止它）</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwj6an/how_redis_will_kill_your_database_and_how_to_stop/</link>
-      <description><![CDATA[ 由   提交 /u/SevereGolf3232   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwj6an/how_redis_will_kill_your_database_and_how_to_stop/</guid>
-      <pubDate>Thu, 05 Feb 2026 11:47:11 GMT</pubDate>
+      <title>一个实际上比 OpenClaw 更安全的开源替代品</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwt9lw/an_actually_safer_opensource_alternative_to/</link>
+      <description><![CDATA[OpenClaw 的炒作让我陷入了开源代理框架的兔子洞。其中大多数在纸面上看起来不错，但一旦你真正尝试运行它们，就会崩溃。 我尝试过的一个项目是 MemU (https://github.com/NevaMind-AI/memU)。它并不华丽，但它解决了一些 openclaw 挥手的问题。 对我来说最突出的是： 1）它实际上是可安装的，我在 10 分钟内就让它运行起来，而无需挖掘 docker、k8s 或模糊的依赖项。这已经使其领先于大多数假设您在家中运行 DevOps 实验室的代理框架。 2) 内存是一个真实的系统，而不仅仅是大提示，memU 不是将所有内容转储到巨大的上下文窗口中，而是存储和检索结构化内存。这意味着：•你上周告诉它的事情不会被忘记•但每次谈话时它们也不会花钱•并且可以有选择地回忆它们 这就是“长期记忆”的首要含义。 3）默认情况下本地优先openclaw 推送云+ API + 插件。 memU 在本地运行，仅在需要时调用模型。这提供了： •可预测的成本 •默认的隐私 •更少的攻击面 对于应该有权访问您的系统的代理来说，这很重要。 4）没有市场攻击面 OpenClaw 的“技能市场”基本上是可以在您的计算机上执行代码的代理的 npm。从安全角度来看，这很可怕。 memU 不具备这一点 - 您可以控制运行的内容。 它并不完美： •UI 很基本 •某些工作流程仍然需要完善 •较少的“哇”演示 但感觉就像您可以实际日常使用而不仅仅是在 Twitter 上展示的东西。 openclaw 出售了个人 AI 操作系统的梦想。 memU 感觉更接近于一个无聊、实用的版本——这可能是获胜的地方。 很好奇这里的其他人是否尝试过开源代理并发现了比大型炒作项目更好的东西。   由   提交 /u/Hefty-Citron2066   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwt9lw/an_actually_safer_opensource_alternative_to/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:28:41 GMT</pubDate>
     </item>
     <item>
-      <title>我厌倦了通用的速度测试，所以我构建了自己的 WP 审核工具。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwig9p/i_got_tired_of_generic_speed_tests_so_i_built_my/</link>
-      <description><![CDATA[ 由   提交/u/AlternativeYou4536   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwig9p/i_got_tired_of_generic_speed_tests_so_i_built_my/</guid>
-      <pubDate>Thu, 05 Feb 2026 11:07:27 GMT</pubDate>
+      <title>Sudo 的维护者需要资源来保持实用程序的更新</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwsvh9/sudos_maintainer_needs_resources_to_keep_utility/</link>
+      <description><![CDATA[“如果没有某种形式的帮助，这是站不住脚的，”米勒说。   由   提交 /u/CackleRooster   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwsvh9/sudos_maintainer_needs_resources_to_keep_utility/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:14:35 GMT</pubDate>
     </item>
     <item>
-      <title>征集贡献者 - Laminas 项目</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwhlkf/call_for_contributors_laminas_project/</link>
-      <description><![CDATA[ 由   提交 /u/arhimedosin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwhlkf/call_for_contributors_laminas_project/</guid>
-      <pubDate>Thu, 05 Feb 2026 10:17:49 GMT</pubDate>
+      <title>板条箱分析仪</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwsp0b/crate_analyzer/</link>
+      <description><![CDATA[ 由   提交 /u/grandmamoko   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwsp0b/crate_analyzer/</guid>
+      <pubDate>Thu, 05 Feb 2026 18:08:10 GMT</pubDate>
     </item>
     <item>
-      <title>多人游戏中的 UDP 与 TCP：状态同步和滞后补偿</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwhaca/udp_vs_tcp_in_multiplayer_gaming_state/</link>
-      <description><![CDATA[ 由   提交/u/Extra_Ear_10  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwhaca/udp_vs_tcp_in_multiplayer_gaming_state/</guid>
-      <pubDate>Thu, 05 Feb 2026 09:59:26 GMT</pubDate>
+      <title>介绍 GitButler CLI</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwpm3w/introducing_the_gitbutler_cli/</link>
+      <description><![CDATA[ 由   提交/u/aspleenic  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwpm3w/introducing_the_gitbutler_cli/</guid>
+      <pubDate>Thu, 05 Feb 2026 16:17:54 GMT</pubDate>
     </item>
     <item>
-      <title>在 Allegro 进行实战测试 Lynx</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwgxtn/battletesting_lynx_at_allegro/</link>
-      <description><![CDATA[在 Allegro 构建和运行我们自己的服务器驱动 UI 超过 6 年之后，我们决定是时候问一下：下一步是什么？ 随着去年围绕 LynxJS 的大肆宣传，我们仔细研究了它是否真的符合预期。在这篇文章中，我们分享了我们的经验、教训以及在实际生产环境中使用它的想法。 如果您对移动架构、SDUI、React 或跨平台开发感兴趣   由   提交/u/d0zerus  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwgxtn/battletesting_lynx_at_allegro/</guid>
-      <pubDate>Thu, 05 Feb 2026 09:37:35 GMT</pubDate>
+      <title>Postman：从 API 客户端到“一切应用程序”</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwpi5i/postman_from_api_client_to_everything_app/</link>
+      <description><![CDATA[Postman 刚刚宣布其 2026 年 3 月更新，这是一个巨大的变化，偏离了其作为 API 测试和文档工具的初衷。我认为这是供应商锁定（对其用户而言）和 Postman 本身功能蔓延的一个很好的例子。 https://codingismycraft.blog/index.php/2026/02/05/postman-from-api-client-to-everything-app/   由   提交 /u/Greedy_Principle5345   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwpi5i/postman_from_api_client_to_everything_app/</guid>
+      <pubDate>Thu, 05 Feb 2026 16:13:48 GMT</pubDate>
     </item>
     <item>
-      <title>JDK 26 中的 LazyConstants - Inside Java Newscast #106</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwg58i/lazyconstants_in_jdk_26_inside_java_newscast_106/</link>
-      <description><![CDATA[ 由   提交/u/davidalayachew   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwg58i/lazyconstants_in_jdk_26_inside_java_newscast_106/</guid>
-      <pubDate>Thu, 05 Feb 2026 08:47:38 GMT</pubDate>
+      <title>不要租用云，而是拥有云</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwp73g/dont_rent_the_cloud_own_instead/</link>
+      <description><![CDATA[ 由   提交/u/yusufaytas   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwp73g/dont_rent_the_cloud_own_instead/</guid>
+      <pubDate>Thu, 05 Feb 2026 16:02:39 GMT</pubDate>
     </item>
     <item>
-      <title>新的 DeepSeek 研究——未来就在这里！</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwcddm/new_deepseek_research_the_future_is_here/</link>
-      <description><![CDATA[ 由   提交/u/Chii   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwcddm/new_deepseek_research_the_future_is_here/</guid>
-      <pubDate>Thu, 05 Feb 2026 05:10:43 GMT</pubDate>
+      <title>为什么人工智能生成的代码会伤害客户和公司</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwo8ld/why_aigenerated_code_will_hurt_both_customers_and/</link>
+      <description><![CDATA[ 由   提交/u/drakedemon  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwo8ld/why_aigenerated_code_will_hurt_both_customers_and/</guid>
+      <pubDate>Thu, 05 Feb 2026 15:27:24 GMT</pubDate>
     </item>
     <item>
-      <title>百合编程语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1qwawxu/lily_programming_language/</link>
-      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qwawxu/lily_programming_language/</guid>
-      <pubDate>Thu, 05 Feb 2026 04:00:22 GMT</pubDate>
+      <title>史诗般的逆向工程+编程错误修复。你怎么认为？</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwo7k1/epic_reverseengineering_programming_a_bugfix_what/</link>
+      <description><![CDATA[我偶然发现了几年前发现的 GTA Online 的 bugix。 对我来说，这是天才的作品，它涉及到所有部分：  检查 假设 逆向工程 在假设下编写 bug 修复程序 二进制修补 测试 bug  你觉得怎么样？   由   提交/u/germandiago  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwo7k1/epic_reverseengineering_programming_a_bugfix_what/</guid>
+      <pubDate>Thu, 05 Feb 2026 15:26:21 GMT</pubDate>
     </item>
     <item>
-      <title>通过制作 Game Boy 模拟器来学习底层计算和 C++</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw8zjg/learning_lowlevel_computing_and_c_by_making_a/</link>
-      <description><![CDATA[ 由   提交/u/NXGZ   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw8zjg/learning_lowlevel_computing_and_c_by_making_a/</guid>
-      <pubDate>Thu, 05 Feb 2026 02:32:19 GMT</pubDate>
+      <title>2026 年颤振状况</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwnfm6/state_of_flutter_2026/</link>
+      <description><![CDATA[ 由   提交/u/dev_newsletter  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwnfm6/state_of_flutter_2026/</guid>
+      <pubDate>Thu, 05 Feb 2026 14:56:45 GMT</pubDate>
     </item>
     <item>
-      <title>主页最差的工具往往是最好的</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw72pb/tools_with_the_worst_homepages_are_often_the_best/</link>
-      <description><![CDATA[像 NGINX 这样的一些最可靠、经过实战考验的工具（库）的主页丑陋、简约、过时。 同时，具有精美登陆页面、动画和营销文案的库往往会显得肤浅、不稳定或被遗弃。 糟糕的主页通常意味着作者针对 API、正确性和文档进行了优化，而不是 好的主页通常意味着项目需要营销才能生存。   由   提交/u/IcyMixture4339   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw72pb/tools_with_the_worst_homepages_are_often_the_best/</guid>
-      <pubDate>Thu, 05 Feb 2026 01:09:02 GMT</pubDate>
+      <title>旧金山首届官方 ClawCon</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwn8lh/the_first_official_clawcon_in_sf/</link>
+      <description><![CDATA[ 由   提交/u/Dheeruj   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwn8lh/the_first_official_clawcon_in_sf/</guid>
+      <pubDate>Thu, 05 Feb 2026 14:48:59 GMT</pubDate>
     </item>
     <item>
-      <title>C、Golang 和 Rust 适用于真实硬件上的 PS2 + N64 在线超级马里奥 64 合作社</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw6lrd/c_golang_and_rust_for_ps2_n64_online_super_mario/</link>
-      <description><![CDATA[ 由   提交/u/s33d5  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw6lrd/c_golang_and_rust_for_ps2_n64_online_super_mario/</guid>
-      <pubDate>Thu, 05 Feb 2026 00:48:36 GMT</pubDate>
+      <title>多模式提示注入：多语言 SVG 对 AI 的攻击</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwlx0c/multimodal_prompt_injection_the_polyglot_svg/</link>
+      <description><![CDATA[ 由   提交/u/JadeLuxe  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwlx0c/multimodal_prompt_injection_the_polyglot_svg/</guid>
+      <pubDate>Thu, 05 Feb 2026 13:55:20 GMT</pubDate>
     </item>
     <item>
-      <title>[IntelliJ] 2026.1 EAP 中默认使用 Wayland</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw5o6z/intellij_wayland_by_default_in_20261_eap/</link>
-      <description><![CDATA[ 由   提交 /u/BlueGoliath   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw5o6z/intellij_wayland_by_default_in_20261_eap/</guid>
-      <pubDate>Thu, 05 Feb 2026 00:08:42 GMT</pubDate>
+      <title>我需要一台食品追踪机</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwlpyv/i_need_a_food_tracking_machine/</link>
+      <description><![CDATA[这是一篇一团糟的帖子，所以请随意忽略这一点，我在第 2 段中的真正观点 （还有 url 的事情？？？） 所以我目前正在吃食物，这听起来很奇怪，但我认为我的很多身体和精神问题都是因为我吃的食物和质量（加上我想减肥，但也达到了我的每日任务）无论如何，而不仅仅是减少卡路里我对获得每日营养配额很感兴趣。我是素食主义者，吃得像垃圾一样，谁能想到，我会随机感到极大的疲劳和身体疼痛。我也有很多健康意识，因为虽然我没有任何问题 - 我知道 - 它很容易成为发展中的问题。但当我真正开始制作一份关于蛋白质（必需氨基酸）、维生素矿物质的每日配额的 Excel 表格时，我意识到这么多食物对你来说是多么垃圾，因为它缺乏我所消耗的每克营养密度和卡路里。我对预算也很陌生，所以需要知道我需要多少食物，我需要吃多少食物，这样当我上大学时，我就可以吃我公关计划的食物，而不必担心它，并知道我得到了一切。  自从我也重新开始编程以来，我想我可以制作一个东西，可以浏览我发现的某些网页，其中包含有关食物组的营养详细信息，然后对其进行组织，按价格范围对其进行过滤，并制定各种类似每日计划的各种食物组合，我可以在一天中吃到每天的食物。我可能最终会手动完成此操作，但制作维生素和矿物质表已经足够困难了，因此任何最终制作某种网页、Excel 甚至应用程序的方法，我都洗耳恭听   由   提交/u/CalendarUsed2597   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwlpyv/i_need_a_food_tracking_machine/</guid>
+      <pubDate>Thu, 05 Feb 2026 13:47:15 GMT</pubDate>
     </item>
     </channel>
 </rss>
