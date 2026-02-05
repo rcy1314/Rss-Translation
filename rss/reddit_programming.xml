@@ -4,7 +4,56 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 05 Feb 2026 09:52:39 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Feb 2026 13:13:18 GMT</lastBuildDate>
+    <item>
+      <title>乐观锁定与悲观锁定：并发控制、冲突、更新丢失、重试和阻塞</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwkuh4/optimistic_vs_pessimistic_locking_concurrency/</link>
+      <description><![CDATA[在许多应用程序和系统中，我们必须处理并发的、经常发生冲突且可能丢失的更新。这正是并发控制问题的全部内容。忽略它意味着许多错误、困惑的用户和损失金钱。避免所有这些事情肯定是更好的选择！ 因此，解决并发问题的第一个解决方案是乐观的。 我们假设我们的更新不会与其他更新冲突；如果确实如此，则会引发异常，并将处理留给用户/客户端。由他们决定是重试还是完全放弃操作。 如何检测此类冲突？ 必须有一种方法来确定记录是否在我们处理记录的同时被修改。为此，我们添加一个简单的数字版本列，并按如下方式使用： UPDATE Campaign SET预算 = 1000, version = version + 1 WHERE id = 1 AND version = 1;  每次修改活动实体时，其版本也会增加；此外，版本值（在事务开始时已知，在更新语句之前获取）被添加到 where 子句中。大多数语言的大多数数据库驱动程序都支持从数据操作语言 (DML) 语句（如 UPDATE）返回受影响的行数；在我们的例子中，我们期望得到恰好一个受影响的行。如果情况并非如此，则意味着该版本是由另一个并行运行的查询增加的 - 可能存在冲突！在这种情况下，我们只需抛出某种OptimisticLockException。 结果：  没有冲突的更新 - 如果实体在此期间被修改，如意外更改的版本值通知，操作将中止 用户/客户端决定如何处理中止的操作 - 他们可能会刷新页面，看到数据变化，判断现在已经好了，不需要修改；或者他们可能会以相同或不同的方式修改它，但要点是：没有一个更新丢失  因此，并发问题的第二种解决方案是悲观的。 我们预先假设会发生冲突，并在所需的时间内锁定修改的记录。 对于此策略，无需以任何方式修改架构。要使用它，我们只需悲观地在事务持续时间内锁定正在修改的行。触发预算修改的点击示例： -- click1 是第一个 -- BEGIN;从预算中选择 *，其中 id = 1 进行更新；更新预算 SET available_amount = 50 WHERE id = 1;犯罪; -- 并行单击2，但第二次 -- BEGIN; -- 交易在此锁定，直到 click1 交易结束 -- SELECT * FROM Budget WHERE id = 1 FOR UPDATE; -- 在 click1 事务提交/回滚后，事务在此处恢复， -- -- 始终保持最新的预算 -- 更新预算 -- 值正确设置为 0，因为我们始终获得最新的预算 -- SET available_amount = 0 WHERE id = 1;犯罪;  结果：  在任何给定时间只有一个更新执行 - 如果另一个进程尝试更改同一实体，则会被阻止；然后，该进程必须等到第一个进程结束并释放锁 我们总是获取最新数据 - 每个进程首先（尝试）锁定实体，然后才修改它 客户端/用户不知道并行的、潜在冲突的更新 - 每个进程首先获取实体上的锁，但没有直接的方法知道同时发生了冲突的更新；我们只需等待轮到我们  有趣的是，还可以使用悲观锁来模拟一些乐观锁定功能 - 使用 NOWAIT 和 SKIP LOCKED SQL 子句:)   由   提交 /u/BinaryIgor   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwkuh4/optimistic_vs_pessimistic_locking_concurrency/</guid>
+      <pubDate>Thu, 05 Feb 2026 13:09:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>Elm 入门：与 MutationObserver 的声明式对话 · cekrem.github.io</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwkt6y/an_elm_primer_declarative_dialogs_with/</link>
+      <description><![CDATA[ 由   提交 /u/cekrem   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwkt6y/an_elm_primer_declarative_dialogs_with/</guid>
+      <pubDate>Thu, 05 Feb 2026 13:08:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>良好激励的 3 个原则</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwjrts/3_principles_of_good_incentives/</link>
+      <description><![CDATA[ 由   提交/u/dmp0x7c5  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwjrts/3_principles_of_good_incentives/</guid>
+      <pubDate>Thu, 05 Feb 2026 12:18:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>Redis 将如何杀死您的数据库（以及如何阻止它）</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwj6an/how_redis_will_kill_your_database_and_how_to_stop/</link>
+      <description><![CDATA[ 由   提交 /u/SevereGolf3232   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwj6an/how_redis_will_kill_your_database_and_how_to_stop/</guid>
+      <pubDate>Thu, 05 Feb 2026 11:47:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>我厌倦了通用的速度测试，所以我构建了自己的 WP 审核工具。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwig9p/i_got_tired_of_generic_speed_tests_so_i_built_my/</link>
+      <description><![CDATA[ 由   提交/u/AlternativeYou4536   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwig9p/i_got_tired_of_generic_speed_tests_so_i_built_my/</guid>
+      <pubDate>Thu, 05 Feb 2026 11:07:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>征集贡献者 - Laminas 项目</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwhlkf/call_for_contributors_laminas_project/</link>
+      <description><![CDATA[ 由   提交 /u/arhimedosin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwhlkf/call_for_contributors_laminas_project/</guid>
+      <pubDate>Thu, 05 Feb 2026 10:17:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>多人游戏中的 UDP 与 TCP：状态同步和滞后补偿</title>
+      <link>https://www.reddit.com/r/programming/comments/1qwhaca/udp_vs_tcp_in_multiplayer_gaming_state/</link>
+      <description><![CDATA[ 由   提交/u/Extra_Ear_10  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qwhaca/udp_vs_tcp_in_multiplayer_gaming_state/</guid>
+      <pubDate>Thu, 05 Feb 2026 09:59:26 GMT</pubDate>
+    </item>
     <item>
       <title>在 Allegro 进行实战测试 Lynx</title>
       <link>https://www.reddit.com/r/programming/comments/1qwgxtn/battletesting_lynx_at_allegro/</link>
@@ -60,55 +109,6 @@
       <description><![CDATA[ 由   提交 /u/BlueGoliath   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qw5o6z/intellij_wayland_by_default_in_20261_eap/</guid>
       <pubDate>Thu, 05 Feb 2026 00:08:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>正如岩石所想</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw5dv7/as_rocks_may_think/</link>
-      <description><![CDATA[ 由   提交/u/10ForwardShift  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw5dv7/as_rocks_may_think/</guid>
-      <pubDate>Wed, 04 Feb 2026 23:57:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Proton mail 开源了为其移动应用程序提供支持的 Rust 箱</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw5b5d/proton_mail_open_sourced_the_rust_crates_powering/</link>
-      <description><![CDATA[ 由   提交 /u/NYPuppy   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw5b5d/proton_mail_open_sourced_the_rust_crates_powering/</guid>
-      <pubDate>Wed, 04 Feb 2026 23:54:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>取得平衡：近十年来完全远程工作</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw3kj5/striking_a_balance_working_fully_remote_for/</link>
-      <description><![CDATA[ 由   提交/u/rionmonster  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw3kj5/striking_a_balance_working_fully_remote_for/</guid>
-      <pubDate>Wed, 04 Feb 2026 22:43:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>我刚刚向 Tabularis 添加了一个 AI 助手</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw2tqv/i_just_added_an_ai_assistant_to_tabularis/</link>
-      <description><![CDATA[Tabularis 是一个使用 Rust + Tauri 构建的原生跨平台数据库客户端， 旨在快速、本地优先且对开发人员友好。 新的 AI Assistant 完全符合这一理念： 它适用于云模型和本地 LLM。 没有强制 API。 没有强制帐户。 除非您选择，否则数据不会离开您的计算机。 助手在您的数据库旁边运行，而不是在其他地方。 ✔️询问有关您的架构的问题 ✔️用简单的英语生成 SQL ✔️解释查询和结果 ✔️使用本地模型来处理隐私敏感数据 ✔️根据任务切换模型 这不是“AI无处不在”。 它是真正有用的人工智能。 Tabularis 仍处于测试阶段，但方向很明确： 强大的数据库工具，原生构建，无需放弃控制。 如果您关心数据库、隐私和尊重开发人员的工具，这可能值得一看！   由   提交/u/debba_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw2tqv/i_just_added_an_ai_assistant_to_tabularis/</guid>
-      <pubDate>Wed, 04 Feb 2026 22:14:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>感谢您，我的应用程序已被超过 3500 位用户下载。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw2gtx/thanks_to_you_my_app_has_been_downloaded_by_3500/</link>
-      <description><![CDATA[一开始，我非常悲观，不相信这会发生，但感谢 subreddits，超过 3,500 位用户下载了我开发的应用程序，使照片删除变得更容易。 非常感谢您的兴趣和支持。 如果您想查看我的应用程序，您可以搜索Swypic 在 App Store 上。   由   提交 /u/alidoganyeniacun   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw2gtx/thanks_to_you_my_app_has_been_downloaded_by_3500/</guid>
-      <pubDate>Wed, 04 Feb 2026 22:01:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>Boilerplate Tax - 按密度对流行编程语言进行排名</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw293c/boilerplate_tax_ranking_popular_programming/</link>
-      <description><![CDATA[ 由   提交/u/boyter  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw293c/boilerplate_tax_ranking_popular_programming/</guid>
-      <pubDate>Wed, 04 Feb 2026 21:53:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>LogicArt - 将任何 GitHub 文件转换为交互式流程图</title>
-      <link>https://www.reddit.com/r/programming/comments/1qw10na/logicart_turn_any_github_file_into_an_interactive/</link>
-      <description><![CDATA[ 由   提交/u/jpaulgrayson   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qw10na/logicart_turn_any_github_file_into_an_interactive/</guid>
-      <pubDate>Wed, 04 Feb 2026 21:07:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
