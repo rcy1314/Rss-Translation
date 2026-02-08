@@ -4,7 +4,77 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 08 Feb 2026 13:01:14 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Feb 2026 15:33:02 GMT</lastBuildDate>
+    <item>
+      <title>构建了微服务电子商务后端，以从前端过渡到系统设计。希望“品尝”我的实现。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzbux1/built_a_microservices_ecommerce_backend_to/</link>
+      <description><![CDATA[   大家好，过去 3.5 年我主要在 React/React Native 世界中度过。虽然我专业地接触过 Node.js，但我从来没有掌握过“架构钥匙”。到王国。  最近，我决定利用一些停机时间从头开始构建一个分布式电子商务主干，以真正理解微服务的痛点。 我正在寻找对我选择的模式的深入研究/批评。 我不是在寻找“看起来不错”的模式。评论 - 我想知道这将在哪里大规模破坏。 仓库：https://github.com/shoaibkhan188626/ecome_microservice_BE 堆栈：Node.js、MongoDB、Redis、RabbitMQ、Docker、Monorepo (npm工作区）。 我做出的具体架构选择（并希望得到反馈）： 库存并发：我正在使用 Redlock 算法进行分布式锁定。我关心的是：锁定每个库存更新的 Redis 开销在什么时候会成为瓶颈？对于高并发“闪购”，您是否有更乐观的方法推荐？ 产品架构：我为目录服务采用了 EAV（实体属性值）模式，以避免动态属性的迁移。  我知道 EAV 对于复杂查询来说可能是一场噩梦。如果您在生产中处理过这个问题，您是坚持使用 EAV 还是转向 Postgres 中的 JSONB 方法？ 类别嵌套：我使用了物化路径。它击败了递归查找，但我担心如果移动顶级类别，更新路径的成本。 一致性：我目前正在实现事务发件箱模式，以确保我的 MongoDB 更新和 RabbitMQ 消息是原子的。处理“至少一次”问题消费者端的交付逻辑是我目前陷入困境的地方。 当前困境：服务边界：我的“库存”和“订单”服务感觉很“闲聊”。在现实场景中，您会合并这些还是将它们分开并处理最终的一致性问题？ Auth：使用集中式网关进行 JWT 验证，但将标头中的用户上下文传递给内部服务。这是标准，还是服务应该自己验证令牌？ 提交历史记录注意：您会看到存储库是最新的（最近几周）。我一直处于“冲刺模式”尝试将我读到的有关系统设计的所有内容综合到实际代码中。 请尽可能保持批判性。我是来学习的。   由   提交/u/silent_assassin_1997   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzbux1/built_a_microservices_ecommerce_backend_to/</guid>
+      <pubDate>Sun, 08 Feb 2026 15:30:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么 gradle 必须如此令人沮丧？！？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzbtpu/why_does_gradle_have_to_be_so_frustrating/</link>
+      <description><![CDATA[我似乎永远无法让 gradle 工作并包装我的项目。有没有针对初学者的提示或技巧（不是编码，而是 gradle，我猜是 kotlin）？还有谁认为 Gradle 是废话！！！   由   提交 /u/gunmetal_slam   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzbtpu/why_does_gradle_have_to_be_so_frustrating/</guid>
+      <pubDate>Sun, 08 Feb 2026 15:29:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪种堆栈设计？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzblke/which_stack_design/</link>
+      <description><![CDATA[大家好，这是一个关于网页设计堆栈选择的问题。  我有经验并且喜欢使用 Svelte，我正在尝试创建一个可以由 cloudflare 静态托管和服务的网站（我之前已经实现了这一点），但我正在尝试的当前设计将： 1) 适用于协会 - 150 名左右的用户 2) 拥有可公开访问的页面 3) 允许用户登录并查看和编辑自己的用户信息（更改电子邮件等） 4）允许经过验证的用户查看包含新闻文章、即将发生的事件的额外页面 我希望有某种形式的客户关系管理（CRM）可供非编码人员访问管理。例如管理仪表板。  该用例是特定的，因为所有成员都将由管理员单独批准和验证，因此不需要自主注册流程。  奖金将能够处理订阅管理和付款，但这不是必需的，因为这可以离线进行并由管理员验证（应该节省处理成本）。 我当前遇到的问题是，我想确保包括密码、登录和重置在内的安全性由有能力的第三方处理 - 尽管我可以通过文档集成解决方案，但我没有足够的经验来单独解决这个问题。 当前想法： 1) cloudflare 上受保护的路由，用户通过 Auth0 集成获得访问权限。管理员利用 Auth0 门户来添加/批准/撤销成员。 2) 使用像 Outseta 这样的完整 CRM（显然存在其他 CRM - 我对它们没有真正的经验）。这里的好处包括组织管理功能。 3) 选择 Supabase 之类的东西。在用户管理和数据库控制方面，这个用例的功能似乎比 Auth0 更丰富 - 但是我需要构建与数据库通信的 CRM 元素。 这个项目的用户数量永远不会超过 300 个，我希望采用最小摩擦的方法，同时保持低成本，在 cloudflare 上创建静态页面并连接某种形式的 CRM。我不介意付费，但每月总费用低于 70 英镑是最好的。 我非常感谢有关实现此目标的经验丰富且合理的建议，我愿意学习并希望将其用作开发机会，但以安全的方式确保安全方面得到专业处理。 感谢您的帮助。   由   提交/u/Brassic_Bank   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzblke/which_stack_design/</guid>
+      <pubDate>Sun, 08 Feb 2026 15:20:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建用于从网站抓取数据的 API 合法吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzbd2e/is_creating_an_api_for_scraping_data_from_a/</link>
+      <description><![CDATA[我想创建一个用于抓取的 API 并在 RapidAPI 上出售它，所有数据都是公开的（登录后没有任何内容），这合法吗？我能解决这个问题吗？   由   提交 /u/justDeveloperHere   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzbd2e/is_creating_an_api_for_scraping_data_from_a/</guid>
+      <pubDate>Sun, 08 Feb 2026 15:11:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>您为新客户写提案/报价需要多长时间？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzbcmg/how_long_does_it_take_you_to_write_a/</link>
+      <description><![CDATA[对这里其他自由职业者的流程感到好奇。每次我与潜在客户通电话时，我都会花费太长时间来整理提案 - 确定定价、编写范围、使其看起来很专业等等。 有时我想知道我是否会因为花太长时间发送提案而失去交易。 你们的流程是什么样的？你使用模板吗？一个工具？只是在 Google 文档中即兴发挥吗？从呼叫到“发送”整个过程需要多长时间？   由   提交/u/Every_Box5920   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzbcmg/how_long_does_it_take_you_to_write_a/</guid>
+      <pubDate>Sun, 08 Feb 2026 15:11:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何从本地主机转到可以从多台机器访问的主机</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qzb0w4/how_to_go_from_local_host_to_something_that_can/</link>
+      <description><![CDATA[大家好！超级初学者在这里。我做过一些软件开发，但从来没有做过任何非本地的软件开发。  我一直在尝试为我的男朋友制作一个情人节应用程序，并且我已经成功地创建了一些在本地运行良好的应用程序（在本地主机上打开两个选项卡，该应用程序通信良好 - 我使用 node.js 发送和接收消息）但是，我正在尝试找到一种方法使其在两台不同的计算机上工作，如果他要下载该应用程序，他也可以在不使用我的本地服务器的情况下发送或接收消息。有没有免费或低成本的方法来做到这一点？我现在的问题是，我根本不知道要查找什么才能开始，而且术语让我有点困惑，所以如果这个问题措辞错误，我深表歉意。  我不需要很多 CPU 或任何东西！如果有人能给我指出一些文档的方向，那就太棒了:) 提前致谢！    由   提交/u/petitroi-soleil   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qzb0w4/how_to_go_from_local_host_to_something_that_can/</guid>
+      <pubDate>Sun, 08 Feb 2026 14:58:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>我从来不理解 justify-content 与align-items，所以我构建了一个具有流畅动画的交互式 Flexbox 指南</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qza6d8/i_never_understood_justifycontent_vs_alignitems/</link>
+      <description><![CDATA[      我一直在 Flexbox 上花了很多时间，我意识到我对 Flexbox 概念的真正理解是多么的少，所以我制作了一个可视化的CSS Flexbox 学习工具。我想听听您的反馈并看看我还应该涵盖哪些其他概念。也许我错过了一些元素，但至少如果你尝试一下，你就不必再用谷歌搜索“哪个是横轴”。   由   提交/u/websilvercraft  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qza6d8/i_never_understood_justifycontent_vs_alignitems/</guid>
+      <pubDate>Sun, 08 Feb 2026 14:23:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>我讨厌手动检查我的应用程序是否存在漏洞，因此我构建了一个可视化工具来执行此操作（开源）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qza1gp/i_hated_manually_checking_my_apps_for/</link>
+      <description><![CDATA[嘿，开发人员， 我是一名安全工程师，但我与很多全栈团队合作。我听到的第一大抱怨是安全检查会减慢运输速度。 没有人愿意在每次部署之前手动运行扫描程序或 grep 获取 API 密钥。 我构建了 ShipSec Studio 来自动执行此操作。它是一个可视化构建器，可让您创建“安全检查”无需编写粘合代码即可用于您的项目。 Web 开发人员的用例：  秘密扫描：自动检查存储库中是否有意外提交的 .env 文件或 API 密钥。 端口监视：如果您不小心将数据库端口向公众开放，则会收到警报。 漏洞扫描：运行在上线之前快速扫描您的暂存 URL。  它是开源的 (Apache 2.0)，并通过 Docker 运行。希望它可以帮助您避免深夜恐慌。 Repo：https://github.com/shipsecai/studio   由   提交 /u/Deep-Bandicoot-7090   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qza1gp/i_hated_manually_checking_my_apps_for/</guid>
+      <pubDate>Sun, 08 Feb 2026 14:17:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>向我推荐一个 Rust 后端项目创意（简短且非通用 SaaS 或 Crud Apis 应用程序）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qz8u0p/suggest_me_a_backend_project_idea_for_rust_short/</link>
+      <description><![CDATA[你好朋友，我正在寻找 Rust 后端 Rust 项目的想法，但不想要一些我尝试创建的 Crud 或 SaaS 应用程序，我想要一些新的或不同的东西。这是我的第一个 Rust 项目。并且不想要什么大项目。谢谢   由   提交 /u/rjkush17   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qz8u0p/suggest_me_a_backend_project_idea_for_rust_short/</guid>
+      <pubDate>Sun, 08 Feb 2026 13:24:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>firebase(firestore) 对于许多项目来说是否限制太多？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1qz8t95/is_firebasefirestore_too_limiting_for_many/</link>
+      <description><![CDATA[嘿！ 首先我想说的是，我大约一年前进入 Firebase，当时我开始了一份新工作。我以前在 Rails、Postgres 上使用 Ruby，可以轻松访问后台作业、灵活的关系以及更轻松地选择从数据库中获取内容等内容。 我喜欢 Firebase，而且我觉得它非常适合我目前的工作。我看到我们已经完成了很多解决方案，Firebase 及其所有工具为我们提供了这些解决方案，这些解决方案看起来非常酷。客户端SDK确实很方便。能够通过快照侦听器等获得直接反馈真是太好了。我喜欢身份验证及其易于使用的方式。部署非常简单，文档创建/更新/删除事件作为无服务器功能非常好。 很自然地，我尝试将它用于我自己的个人项目。然而，我常常感到不知所措，因为我觉得我更多的是在与它作斗争，而不是从中受益。无法从文档中获取某些键，具有更复杂的关系，而不仅仅是子集合，没有模糊查询，非常有限的后台作业，没有“采样”（获取随机文档），只能使用光标进行分页（显然，使用偏移量 stilla dds 读取偏移量下的任何内容）。大多数都是可以解决的，但这一切感觉就像我正在围绕一个有缺陷的系统工作，让我必须采取额外的行动来完成一些简单的事情。 我觉得这部分是一个技能问题。我知道它在我的工作中效果很好。这是我如何构建数据的问题吗？对于我想做的项目类型来说，这不是一个很好的用途吗？我使用它的次数越多，我就越怀念使用传统后端的情况。 很想听听人们对 Firebase 的看法。我已经知道 NoSQL 数据库在这里并不那么流行，所以我想大多数人都会理解我的痛苦，但我也想听听其他的事情。   由   提交/u/licorices  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1qz8t95/is_firebasefirestore_too_limiting_for_many/</guid>
+      <pubDate>Sun, 08 Feb 2026 13:23:48 GMT</pubDate>
+    </item>
     <item>
       <title>需要有关对账工具网站的指导</title>
       <link>https://www.reddit.com/r/webdev/comments/1qz86wx/need_guidance_regarding_a_reconciliation_tool/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[自由职业者 - 您如何实际跟进您的发票。您使用任何工具还是仅手动跟进？试图了解这是否是一个真正令人头痛的问题，还是人们已经解决的问题。”   由   提交/u/Every_Box5920   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1qz7an5/freelancers_how_do_you_manage_your_invoices/</guid>
       <pubDate>Sun, 08 Feb 2026 12:07:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我编写了一个脚本来自动设置新的 Mac 以进行开发和 DevOps（Intel + Apple Silicon）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz5o7u/i_wrote_a_script_to_automate_setting_up_a_fresh/</link>
-      <description><![CDATA[大家好， 我最近重新格式化了我的机器，并意识到手动安装 Homebrew、配置 Zsh、设置 git 别名以及一一下载所有必要的 SDK（Node、Go、Python 等）是多么乏味。 为了解决这个问题，我构建了 mac-dev-setup – 一个 shell 脚本，它可以自动完成引导程序的整个过程。用于软件工程和 DevOps 的 macOS 环境。 Repo：https://github.com/itxDeeni/mac-dev-setup 我构建此环境的原因：我在较旧的 Intel MacBook Pro 和较新的 M 系列 Mac 之间切换。我需要一个足够智能的脚本来检测架构并正确设置路径（/usr/local 与 /opt/homebrew），而不破坏任何东西。 主要功能：  自动架构检测：自动调整 Intel (x86) 或 Apple Silicon (ARM)，这样您就不必摆弄路径。 幂等：您可以多次运行它来更新工具，而无需复制配置或破坏现有的工具设置。 模块化标志： --minimal：只是必需品（Git、Zsh、Homebrew）。 --skip-databases：如果您更喜欢使用 Docker，则防止安装 Postgres/MySQL 等繁重的后台服务（在旧计算机上节省 RAM！）。 --skip-cloud：如果不需要，则跳过 AWS/GCP/Azure CLI   DevOps Ready：包括 Terraform、Kubernetes 工具（kubectl、k9s）、Docker 和开箱即用的 Ansible。  它安装的内容（默认情况下）：  核心：Homebrew、Git、Zsh（带有 Oh My Zsh 和插件）。 语言：Node.js（通过nvm)、Python、Go、Rust。 现代 CLI 工具：bat、ripgrep、fzf、jq、htop。 应用程序：VS Code、iTerm2、Docker、Postman。  如何使用它：您可以克隆存储库并检查代码（始终推荐！），或者直接使用 bash 运行它： Bash git clone https://github.com/itxDeeni/mac-dev-setup.git cd mac-dev-setup bash setup.sh  专业提示：如果您想自定义安装（例如，跳过繁重的数据库以节省 RAM），只需直接传递标志即可： Bash bash setup.sh --skip-databases --minimal  如果有人拥有他们认为应该添加到核心列表中的特定工具，我正在寻找反馈或拉取请求。 希望这可以节省某人几个小时的设置时间！ 干杯，   由   提交 /u/itzdeeni   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz5o7u/i_wrote_a_script_to_automate_setting_up_a_fresh/</guid>
-      <pubDate>Sun, 08 Feb 2026 10:32:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>也许心智模型是前后端都难的原因</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz5lby/maybe_the_mental_model_is_the_reason_good_at_both/</link>
-      <description><![CDATA[为什么后端开发人员通常在前端方面表现不佳？ 我认为一个重要原因是思维模型的不同。后端是声明性的，而前端是事件驱动的。 后端开发人员通常接收 REST 请求，处理它，并手动触发所有需要的更改。有时他们使用 Kafka 或其他事件代理，但流程通常仍然很容易掌握。 虽然大多数前端框架我们使用事件驱动的方法：您更改一个状态，然后它会触发该状态的所有依赖项（通过观察者）。这确实有助于前端代码的清洁。但我见过许多后端开发人员分离状态并在更改事件上手动更新其他状态。 这就是我看到的模式。看来是思维方式不同，导致前端和后端都很难做好。 你对此有何看法？   由   提交 /u/lactranandev   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz5lby/maybe_the_mental_model_is_the_reason_good_at_both/</guid>
-      <pubDate>Sun, 08 Feb 2026 10:27:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一个直接的 npm 包下载器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz5gew/i_made_a_straightforward_npm_package_downloader/</link>
-      <description><![CDATA[      这是一个方便的小工具，当您出于任何原因需要审核软件包时，例如安全、逆向工程或只是学习。 托管在 cloudflare 上，没什么特别复杂的，但如果您对堆栈有任何疑问，很乐意回答！ 链接： https://npm-downloader.webdevstudio.workers.dev/   由   提交/u/teri-gand  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz5gew/i_made_a_straightforward_npm_package_downloader/</guid>
-      <pubDate>Sun, 08 Feb 2026 10:19:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么一切都需要 npm 包？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz512k/why_npm_packgage_for_everything/</link>
-      <description><![CDATA[嗨，所以我只是想为什么人们使用 npm 包来处理所有事情。尤其是现在，使用人工智能编码，简单的事情（例如 Toast 或表单验证）都可以通过一个命令完成。因此，创建自己的组件实际上比使用 npm 更快，在 npm 中你首先必须进行研究，尝试理解糟糕的文档……如果你遇到问题，那么祝你好运。调试您自己的组件很容易。所以，是的，我个人只在非常复杂的情况下才使用 npm。我在这里以 Toast 和表单验证为例，因为我将这两者都作为 npm，然后决定创建自己的，因为它更容易、更可靠，因为我可以真正根据我的需求调整它，到目前为止我从未后悔切换。它让我的生活变得更加轻松。不要想：“它的行为是这样吗？我希望它的行为是这样的查看文档 这是什么？”这些是谁写的？我可以转到我的代码并实现我想要的任何内容。而且我永远不必担心已弃用的软件包。那么你觉得怎么样？或者大多数人都使用他们的自定义组件，并且似乎人们使用 npm 来做所有事情？   由   提交/u/xelamoth  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz512k/why_npm_packgage_for_everything/</guid>
-      <pubDate>Sun, 08 Feb 2026 09:53:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一个 chrome 扩展，可以在观看讲座时记下带时间戳的笔记。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz3cmc/i_made_a_chrome_extension_to_take_timestamped/</link>
-      <description><![CDATA[用 SS + 笔记CMD+SHIFT+K 查看扩展主页上的所有笔记页面。 只需单击一下即可复制选定的笔记。 轻松将笔记粘贴到您选择的任何笔记应用程序中。 我构建了一个小型 Chrome 扩展程序，可以在观看讲座时做笔记，并可以轻松将它们复制到 OneNote / Obsidian 中。 回到大学时，我曾经将大量屏幕截图作为笔记。后来的问题是，我经常需要返回视频，但记不起哪个视频或截取屏幕截图的时间。 此扩展通过将视频时间戳附加到每个屏幕截图来解决这个问题，这样您就可以直接跳回到确切的时刻。 请随意尝试一下，如果它对您有用，我会很高兴。另外，所有内容都存储在本地，因此请使用复制功能备份您的笔记。 使用技术。 - IndexedDB、Vue.js、crxjs PS - 不要忘记将笔记复制到某些笔记记录应用程序，此扩展是 100% 本地的，没有云同步，您可能会面临丢失笔记的风险。   由   提交/u/CatChasedRhino   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz3cmc/i_made_a_chrome_extension_to_take_timestamped/</guid>
-      <pubDate>Sun, 08 Feb 2026 08:11:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>成人内容平台通常如何评估基础设施提供商？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz2fuj/how_do_adultcontent_platforms_usually_evaluate/</link>
-      <description><![CDATA[大家好， 我试图了解在高流量、成人内容平台上工作的工程或 DevOps 团队通常如何评估和选择他们的基础设施或存储提供商。 从运营角度来看，这些决策通常是由推荐、私人社区、行业特定论坛或直接外展驱动的吗？与其他行业相比，是否存在更重要的特定技术问题（流量模式、滥用处理、存储性能、法律工作流程等）？ 我不想在这里推销任何内容 - 只是想了解该细分市场如何处理基础设施决策，以便我更好地了解生态系统。 任何见解或经验都会非常有帮助。 谢谢！   由   提交/u/LMAO_Llamaa   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz2fuj/how_do_adultcontent_platforms_usually_evaluate/</guid>
-      <pubDate>Sun, 08 Feb 2026 07:16:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>受 Monkeytype 的启发，我制作了一个可爱的开源日语学习应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz2b22/i_made_a_cute_opensource_app_for_learning/</link>
-      <description><![CDATA[      作为一个同时热爱编码和语言学习的人（我现在正在学习日语），我一直希望有一个 100% 免费的开源工具来学习日语，就像打字社区中的 Monkeytype 一样。 这里是主要卖点：我添加了无数不同的颜色主题、字体和其他疯狂的自定义选项，直接受到启发猴子型。另外，我把这个应用程序做成了类似 Duolingo 的样子，因为我目前正在用它来学习日语，而且很多语言学习者都已经熟悉了它。 奇迹般的是，人们喜欢这个想法，该项目现在甚至在 GitHub 上获得了 1000 颗星。现在，我希望继续从事该项目，看看下一步可以走向何方。 GitHub（欢迎所有贡献！）：https://github.com/lingdojo/kanadojo 我为什么要做这一切？ 因为我是个肮脏的家伙。   由   提交 /u/tentoumushy   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz2b22/i_made_a_cute_opensource_app_for_learning/</guid>
-      <pubDate>Sun, 08 Feb 2026 07:08:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>[周六秀] Goshi——用 Go 编写的本地优先、注重安全的 AI CLI</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz19gb/showoff_saturday_goshi_a_localfirst_safetyfocused/</link>
-      <description><![CDATA[TL;DR：构建一个基于 Go 的、本地优先的 AI CLI，它像 git 提交一样对待文件系统更改（建议 → 审查 → 应用）。没有云依赖，没有静默写入。早期但坚实的基础。 嘿伙计们：D 我一直在研究 Goshi，一个开源的、基于 Go 的 AI CLI，它有意本地优先、可审计且难以滥用。 核心思想很简单：一个 AI 助手，其行为就像一个保护仆人，而不是一个神奇的黑匣子。 是什么让 Goshi 与众不同  默认情况下本地优先（Ollama，无云锁定） 通过提案 → 应用流程实现文件系统安全（无静默写入） 可审核的操作（一切都是显式的，没有隐式的） 可逆思维（先进行空运行，只有在确认后才进行突变） 专为开发人员设计，而不是提示黑客攻击  您可以：  读取和列出文件安全地提出文件更改，而不改变任何内容 稍后明确应用这些更改 与本地 LLM 交互聊天 检查和测试每一层（FS、运行时、CLI）  它是用 Go 编写的，使用 cobra 作为 CLI 结构，并且有意对以下之间的边界有意见：  CLI (UX) 运行时（策略） 文件系统（机制）  当前状态  核心 FS 提议/应用管道已完成 运行时调度程序已连接 CLI 正常运行且几乎是交互式的（REPL 式聊天） 测试存在于正确的层（没有神奇的全局变量） 还处于早期阶段，但结构稳固  谁可能会觉得这很有趣  Go 开发者 CLI 工具构建者 关注 AI 工具悄然改变系统的人们 任何想要可以推理和信任的 AI 助手的人  Repo：https://github.com/cshaiku/goshi 欢迎提供反馈、批评和贡献者 - 特别是在以下方面：  CLI UX 安全模型 测试策略 可扩展性  很高兴回答问题。感谢您查看！   由   提交/u/cshaiku  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz19gb/showoff_saturday_goshi_a_localfirst_safetyfocused/</guid>
-      <pubDate>Sun, 08 Feb 2026 06:09:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>水暖网站重新设计</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qz13hl/plumbing_website_redesign/</link>
-      <description><![CDATA[我们最近完成了一个管道网站，但说实话，对设计或布局并不完全满意。 这里有人以前在澳大利亚管道或贸易服务网站工作过吗？我们希望重新设计该网站，同时重用所有现有内容。 该网站将大量用于 Google Ads 和 SEO，因此我们需要它加载速度快、转化率高、适合移动设备，并且在构建时考虑到潜在客户的开发。 如果您有这方面的经验，请分享： • 您曾经工作过的管道或贸易网站示例  • 您所取得的速度或转化改进的任何证明 • 重新设计基于服务的网站的一般方法 • 大致定价和时间表 我们正在专门寻找熟悉澳大利亚市场的人。 谢谢传奇人物。   由   提交/u/Electronic-Repair124  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qz13hl/plumbing_website_redesign/</guid>
-      <pubDate>Sun, 08 Feb 2026 06:00:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>启动我的反馈工具，让用户记录他们的屏幕</title>
-      <link>https://www.reddit.com/r/webdev/comments/1qyzuvm/launching_my_feedback_tool_that_lets_users_record/</link>
-      <description><![CDATA[大家好！在花费太多时间调试“它不起作用”之后错误报告，我构建了 Feedport。 这是一个反馈小部件，可让用户记录屏幕（30-60 秒）并准确显示出了问题。 为什么我构建此：  屏幕截图错过了事件的顺序 错误消息闪烁并消失 用户无法清楚地解释技术问题 来回浪费每个人的时间  通过视频反馈，您会看到：  他们点击了什么以及按什么顺序 错误消息（即使是简短的消息） 加载状态和计时问题 问题的完整背景  定价：每月 19 美元，无限量使用（或永久免费但有限制） 设置：一行 JavaScript，在任何地方都可以使用 希望得到您的反馈（双关语）：https://feedport.app 很高兴回答任何问题！   由   提交 /u/DevWorkKun   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1qyzuvm/launching_my_feedback_tool_that_lets_users_record/</guid>
-      <pubDate>Sun, 08 Feb 2026 04:54:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
