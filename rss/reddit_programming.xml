@@ -4,41 +4,13 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 08 Feb 2026 15:32:28 GMT</lastBuildDate>
-    <item>
-      <title>用纯 JavaScript 编写 ARM 模拟器：哪些有效，哪些无效</title>
-      <link>https://www.reddit.com/r/programming/comments/1qzbs5l/writing_an_arm_emulator_in_pure_javascript_what/</link>
-      <description><![CDATA[在过去的一年里，我们构建了一个完全在 JavaScript 中运行的 ARMv4 CPU 模拟器，而不是 WebAssembly。想分享一些学到的技术经验教训。 **为什么要使用纯 JS 而不是 WASM？** 部分是固执，部分是对现代 JS JIT 能走多远的好奇。答案：令人惊讶的遥远，但有一些警告。 **对性能真正重要的是：**  平面指令解码 - 最初我有一个很好的操作码 OOP 层次结构。扼杀了表演。切换到具有内联逻辑的巨型 switch 语句。丑陋，但速度快了 3 倍。 到处都是类型化数组，但 DataView 除外。手动位操作 (`| &lt;&lt; &gt;&gt; &amp;`) 在 V8、SpiderMonkey 和 JSC 的热路径中始终优于 DataView.getUint32()。 避免在热循环中进行分配 — 在指令执行期间不创建对象。预先分配一切。在此之前，GC 暂停在 60fps 时非常严重。 条件执行很棘手 - 每个 ARM 指令都可以是有条件的。朴素的实现通过函数调用检查条件。将条件检查内联到每个指令处理程序中会产生明显的差异。  **JS 的伤害：** - 没有原生 64 位整数使得某些操作比 WASM 中的操作更混乱。 - 桶式移位器模拟。 ARM 具有移位功能的灵活操作数2 在硬件上非常优雅，但在 JS 中有效模拟却很丑陋。 **结果：** 4 MHz 虚拟时钟以 60fps 运行，在现代浏览器上有剩余空间。 Mobile Safari 是最难优化的——与 V8 不同的 JIT 行为。 注意：这并不完全是周期准确的——我优先考虑的是“足够好”。计时超过严格的准确性，这简化了很多边缘情况。 如果有人想深入了解实现，请参阅来源：https://github.com/beep8/beep8-sdk 想知道其他人是否已经解决了 JS 中的 CPU 模拟问题 - 哪些方法适合您？   由   提交/u/Positive_Board_8086  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qzbs5l/writing_an_arm_emulator_in_pure_javascript_what/</guid>
-      <pubDate>Sun, 08 Feb 2026 15:27:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>身份验证——它不构成身份吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1qzbqim/authentication_does_it_not_form_identity/</link>
-      <description><![CDATA[这样理解对吗？认证不构成身份吗？请问对此有什么指示吗？    由   提交/u/mmk4mmk_simplizes   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qzbqim/authentication_does_it_not_form_identity/</guid>
-      <pubDate>Sun, 08 Feb 2026 15:26:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>SNMP 浏览器 - Microsoft Store #snmp</title>
-      <link>https://www.reddit.com/r/programming/comments/1qzal16/snmp_browser_microsoft_store_snmp/</link>
-      <description><![CDATA[ 由   提交/u/Suspicious_Ad_9210   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qzal16/snmp_browser_microsoft_store_snmp/</guid>
-      <pubDate>Sun, 08 Feb 2026 14:40:14 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sun, 08 Feb 2026 18:43:51 GMT</lastBuildDate>
     <item>
       <title>技术文章：实施 Discord 的速率限制、网关管理和“清晰度胜过魔法”</title>
       <link>https://www.reddit.com/r/programming/comments/1qzajdj/technical_writeup_implementing_discords_rate/</link>
-      <description><![CDATA[我写了一篇关于在最小的 Python 客户端中实现 Discord 速率限制和网关管理的深入技术分解。 Discord 的速率限制很棘手：端点通过不透明的“存储桶”共享限制。其 ID 仅在提出请求后才会公开。该设计没有对 429 做出反应，而是使用每个端点队列和工作线程，在限制耗尽时主动休眠，从而保持行为明确且可预测。 该文章还涵盖了网关连接管理、自动分片和数据模型设计，以及每个子系统的图表。这些示例来自我编写的一个小型 Discord API 客户端 (ScurryPy)，但重点是底层问题和解决方案，而不是库本身。 “清晰胜于魔法”这里意味着所有行为：速率限制、状态更改、重试都是明确的，没有隐藏的后台工作或推断的意图。 很高兴回答有关实现或设计权衡的问题   由   提交/u/Furmissle5567  [链接] [评论]]]></description>
+      <description><![CDATA[我写了一篇关于在最小的 Python 客户端中实现 Discord 速率限制和网关管理的深入技术分解。 Discord 的速率限制很棘手：端点通过不透明的“存储桶”共享限制。其 ID 仅在提出请求后才会公开。该设计没有对 429 做出反应，而是使用每个端点的队列和工作线程，在限制耗尽时主动休眠，从而保持行为明确且可预测。 该文章还涵盖了网关连接管理、自动分片和数据模型设计，以及每个子系统的图表。这些示例来自我编写的一个小型 Discord API 客户端 (ScurryPy)，但重点是底层问题和解决方案，而不是库本身。 “清晰胜于魔法”这里意味着所有行为：速率限制、状态更改、重试都是明确的，没有隐藏的后台工作或推断的意图。 很高兴回答有关实现或设计权衡的问题   由   提交/u/Furmissle5567  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qzajdj/technical_writeup_implementing_discords_rate/</guid>
       <pubDate>Sun, 08 Feb 2026 14:38:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>ScottT2-spec/grid-pathfinder：BFS、DFS 和 A* 寻路算法的移动构建实现，在基于云的 Python 环境中具有实时网格可视化。</title>
-      <link>https://www.reddit.com/r/programming/comments/1qz886t/scottt2specgridpathfinder_mobilebuilt/</link>
-      <description><![CDATA[ 由   提交/u/General_Blueberry114  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qz886t/scottt2specgridpathfinder_mobilebuilt/</guid>
-      <pubDate>Sun, 08 Feb 2026 12:56:13 GMT</pubDate>
     </item>
     <item>
       <title>兰斯表格式解释简单，愚蠢</title>
@@ -55,32 +27,11 @@
       <pubDate>Sun, 08 Feb 2026 12:35:23 GMT</pubDate>
     </item>
     <item>
-      <title>OpenClaw 安全灾难：当 10 万开发人员授予 AI 根访问权限时会发生什么</title>
-      <link>https://www.reddit.com/r/programming/comments/1qz6hgp/the_openclaw_security_disaster_what_happens_when/</link>
-      <description><![CDATA[AI 代理需要违反传统安全模型的权限。 OpenClaw 的代码设计良好，但存在架构漏洞。发布后几周内，暴露了 1,600 多个实例，发现了多个严重漏洞。  好奇其他人对“有用与安全”的看法如何。这里进行权衡。    由   提交/u/elsaka0  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qz6hgp/the_openclaw_security_disaster_what_happens_when/</guid>
-      <pubDate>Sun, 08 Feb 2026 11:21:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>Feedoise - 打破产品反馈中的语言障碍</title>
-      <link>https://www.reddit.com/r/programming/comments/1qz6066/feedoise_breaking_language_barriers_in_product/</link>
-      <description><![CDATA[ 由   提交 /u/Ok-Succotash-7724   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qz6066/feedoise_breaking_language_barriers_in_product/</guid>
-      <pubDate>Sun, 08 Feb 2026 10:52:40 GMT</pubDate>
-    </item>
-    <item>
       <title>人工智能让简单的部分变得更容易，让困难的部分变得更难</title>
       <link>https://www.reddit.com/r/programming/comments/1qz5g7g/ai_makes_the_easy_part_easier_and_the_hard_part/</link>
       <description><![CDATA[ 由   提交 /u/BlunderGOAT   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qz5g7g/ai_makes_the_easy_part_easier_and_the_hard_part/</guid>
       <pubDate>Sun, 08 Feb 2026 10:19:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何设计真正可扩展的系统？像高级工程师一样思考</title>
-      <link>https://www.reddit.com/r/programming/comments/1qz5ah4/how_to_design_systems_that_actually_scale_think/</link>
-      <description><![CDATA[ 由   提交/u/javinpaul   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1qz5ah4/how_to_design_systems_that_actually_scale_think/</guid>
-      <pubDate>Sun, 08 Feb 2026 10:09:39 GMT</pubDate>
     </item>
     <item>
       <title>如何巧妙减少 40% 的遥测量</title>
@@ -109,6 +60,55 @@
       <description><![CDATA[ 由   提交/u/Sushant098123  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1qyztns/how_google_finds_websites_its_not_magic/</guid>
       <pubDate>Sun, 08 Feb 2026 04:52:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>奥丁如何完善简单性</title>
+      <link>https://www.reddit.com/r/programming/comments/1qyyxj0/how_odin_perfected_simplicity/</link>
+      <description><![CDATA[ 由   提交/u/BlueGoliath  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qyyxj0/how_odin_perfected_simplicity/</guid>
+      <pubDate>Sun, 08 Feb 2026 04:07:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>好代码的无声消亡</title>
+      <link>https://www.reddit.com/r/programming/comments/1qyytvj/the_silent_death_of_good_code/</link>
+      <description><![CDATA[ 由   提交/u/10ForwardShift  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qyytvj/the_silent_death_of_good_code/</guid>
+      <pubDate>Sun, 08 Feb 2026 04:02:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>FOSDEM 2026 - 破解最后一台 Z80 计算机</title>
+      <link>https://www.reddit.com/r/programming/comments/1qyvg0b/fosdem_2026_hacking_the_last_z80_computer_ever/</link>
+      <description><![CDATA[ 由   提交/u/goldensyrupgames  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qyvg0b/fosdem_2026_hacking_the_last_z80_computer_ever/</guid>
+      <pubDate>Sun, 08 Feb 2026 01:22:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netflix 工程：为印象事件创建真相来源</title>
+      <link>https://www.reddit.com/r/programming/comments/1qys7xs/netflix_engineering_creating_a_source_of_truth/</link>
+      <description><![CDATA[ 由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qys7xs/netflix_engineering_creating_a_source_of_truth/</guid>
+      <pubDate>Sat, 07 Feb 2026 23:00:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>微软任命了一位质量沙皇。他没有直接报告，也没有预算。</title>
+      <link>https://www.reddit.com/r/programming/comments/1qypkz0/microsoft_appointed_a_quality_czar_he_has_no/</link>
+      <description><![CDATA[ 由   提交/u/jpcaparas  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qypkz0/microsoft_appointed_a_quality_czar_he_has_no/</guid>
+      <pubDate>Sat, 07 Feb 2026 21:12:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>让我们像 1997 年一样编译 Quake！</title>
+      <link>https://www.reddit.com/r/programming/comments/1qyo5o2/lets_compile_quake_like_its_1997/</link>
+      <description><![CDATA[ 由   提交/u/NXGZ   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qyo5o2/lets_compile_quake_like_its_1997/</guid>
+      <pubDate>Sat, 07 Feb 2026 20:16:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>超越代理编码</title>
+      <link>https://www.reddit.com/r/programming/comments/1qyjria/beyond_agentic_coding/</link>
+      <description><![CDATA[ 由   提交/u/Tekmo   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1qyjria/beyond_agentic_coding/</guid>
+      <pubDate>Sat, 07 Feb 2026 17:28:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
