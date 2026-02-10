@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 10 Feb 2026 05:08:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 07:12:37 GMT</lastBuildDate>
+    <item>
+      <title>哪些 2FA 解决方案支持多渠道 OTP 交付？做了一些挖掘，分享笔记</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r0tnqe/which_2fa_solutions_support_multichannel_otp/</link>
+      <description><![CDATA[我最近在处理身份验证流程时不得不深入研究这一点，其中仅短信不够可靠。最终花费了比预期更多的时间来测试和比较提供商，所以我想我应该在这里分享我的笔记，以防它为其他人节省几个小时。 这不是赞助的，我不隶属于任何这些。只是案头研究加上实际注册和登录流程中的一些实际测试。 以下 4 个提供商实际上支持多通道 OTP，而不仅仅是“短信 + 如果您自己接线的话可能是语音”。 Twilio 验证 渠道： SMS、语音、WhatsApp 可能是许多团队的默认选择。 脱颖而出：  非常可靠的 API 和 SDK 易于快速构建原型 庞大的生态系统和文档  需要注意的事项：  WhatsApp OTP 需要额外的设置和批准 一旦数量增加，成本就会快速增长 回退逻辑主要是您自己实现的  MessageBird验证 渠道：短信、语音、WhatsApp、电子邮件 感觉更像是托管验证产品。 突出之处：  内置验证层 良好的 EMEA 交付 与原始消息 API 相比，粘合代码更少  需要注意的事项：  低级控制较少 调试交付问题可能有点不透明  Sinch Verification 渠道：短信、语音、WhatsApp、Flash Call 更多电信业务，但可靠。 突出之处：  强大的运营商关系 Flash Call 很有用SMS 难以实现的地方 良好的全球路由  需要注意的事项：  企业风格的入门 API 感觉比 Twilio 更不易“破解”  Dexatel 验证 渠道： SMS、WhatsApp、语音、电子邮件 这让我有点惊讶 突出之处：  具有回退功能的原生多渠道 OTP 提供商方面处理渠道优先级 定价比一些较大的 CPaaS 参与者更清晰  需要注意的事项：  较小的生态系统 较少的 StackOverflow 风格示例  测试的最终想法 最大的差异不在于渠道本身，而是：  回退逻辑所在的位置 重试的速度有多快 区域交付怪癖 扩展后的成本可预测性  大多数团队一开始只使用短信，后来会后悔。在我的案例中，预先设计多通道 OTP 可以节省大量返工。 如果有人现在正在评估这些供应商，请随时询问。我很高兴分享我在测试它们时学到的东西。   由   提交/u/PerfectOlive2878  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r0tnqe/which_2fa_solutions_support_multichannel_otp/</guid>
+      <pubDate>Tue, 10 Feb 2026 06:44:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建一个索赔密封应用程序 - 这是 MVP [Prooflater 2] 中提供的内容</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r0tcmm/building_a_claimsealing_app_heres_what_shipped_in/</link>
+      <description><![CDATA[Prooflater 上的更新（您可以在该应用程序中密封预测和承诺，以便以后没有人可以逃避）。 上一篇文章是这个概念。以下是实际发货的内容： 我满意的东西： - 索赔在您密封后就会被散列。哈希值是可见的，声明在揭晓之日之前保持隐藏。可验证，不可篡改。 - 每个房间都有实时倒计时器 - 通过 cron 自动揭晓（每分钟检查一次，自动打破密封） - 揭晓后有 48 小时投票窗口，然后由多数决定结果 - 结果卡 - 下载为 PNG 或分享到 X/WhatsApp - 整个 UI 具有温暖的编辑氛围。奶油色背景、海军蓝文字、珊瑚色装饰、衬线标题。密封的声明上有一个蜡封，当它暴露时实际上会破裂。 不那么迷人但重要的东西： - 通过 React Email + Resend 发送电子邮件通知（邀请、透露警报、30d/7d/1d/1h 提醒、结果） - 带有未读徽章的应用内通知中心 - Upstash Redis 的速率限制（滑动窗口、优雅降级） - CSP 标头、错误边界、RLS在每个 Supabase 表上 - 公开配置文件 - 您的预测跟踪记录可见 - 正在运行 3 个 cron 作业：显示房间、关闭投票、发送提醒 堆栈： Next.js 16（应用程序路由器、服务器组件、服务器操作）、Supabase（Postgres + Auth）、Tailwind v4、shadcn/ui、Framer Motion、Zustand、React Hook Form + Zod。所有 TypeScript 严格模式。 10 个数据库表、3 个 cron、15 个页面、约 40 个组件、5 个电子邮件模板。 仍在争论：免费层应该是 5 个活动房间还是 3 个？真的不确定。   由   提交 /u/Beginning-Scholar105   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r0tcmm/building_a_claimsealing_app_heres_what_shipped_in/</guid>
+      <pubDate>Tue, 10 Feb 2026 06:26:45 GMT</pubDate>
+    </item>
     <item>
       <title>在哪里可以找到可供学习的在线调查示例？</title>
       <link>https://www.reddit.com/r/webdev/comments/1r0rcfj/where_to_find_examples_of_online_surveys_to_learn/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[您好，我是一名大学生，想要为我的工程项目设计一个网站。该项目是一个足球VAR系统，该网站基本上有一些非常基本的功能，应该能够显示是否有进球，以及一些有关进球的额外信息，例如球的速度等，我也在考虑在网站上添加某种实时视频源，我希望该网站对移动设备和桌面设备友好。有人可以给我一些指导，告诉我从哪里开始，选择什么软件，并学习如何实现这一目标吗？谢谢！   由   提交 /u/IIToodlesII   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1r0igun/first_time_website_designing/</guid>
       <pubDate>Mon, 09 Feb 2026 22:16:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>MrBeast Salesforce 网站 - 检查的元素显示奇怪的网站？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r0ic18/mrbeast_salesforce_website_inspected_elements/</link>
-      <description><![CDATA[      抱歉，如果这也不是发布此内容的正确 subreddit，我只是在寻找答案。 希望更聪明的人可以向我解释这一点，但在尝试 MrBeasts Salesforce 难题时，我决定检查 https://mrbeast.salesforce.com/。基本上只需右键单击网站，然后单击“检查”即可。它将在屏幕右侧打开一个框。该框的第一行是带有下拉菜单的#adopted-style-sheet。我决定单击下拉箭头，看看里面有什么信息。浏览了一下，发现这里列出了一大堆奇怪的网站。看照片。有比我聪明得多的人请解释一下为什么这些网站会出现吗？郑重声明，我从未访问过这些网站。   由   提交/u/akozlows  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r0ic18/mrbeast_salesforce_website_inspected_elements/</guid>
-      <pubDate>Mon, 09 Feb 2026 22:11:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>在 Web 开发中，您使用 JS 和那些 NPM 软件包，那么 2026 年开发人员应该使用什么防病毒软件？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r0grgr/in_web_dev_you_work_with_js_and_those_npm/</link>
-      <description><![CDATA[   /u/lune-soft  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r0grgr/in_web_dev_you_work_with_js_and_those_npm/</guid>
-      <pubDate>Mon, 09 Feb 2026 21:13:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
