@@ -4,13 +4,34 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 15 Feb 2026 21:30:56 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 02:38:07 GMT</lastBuildDate>
     <item>
-      <title>做那些操蛋的 docker compose</title>
-      <link>https://www.reddit.com/r/programming/comments/1r5qmua/doing_the_unfucked_docker_compose/</link>
-      <description><![CDATA[你知道，长期以来我讨厌 docker compose，因为我无法在真机上运行进程。现在我对守护进程进行了编码（不是狗屎=D）。你们觉得怎么样，伙计们 示例yaml： services: backend: runner: type: script script: run: npm run start:devworking_dir: backend hooks: pre-up: - run: npm run migration:runworking_dir: backend timeout: “120s”推出：类型：重新创建重新创建：端口：http：8042代理：主机：api.nosh-guide.local路径：/ healthcheck：类型：tcp tcp：端口：“{{runtime.port.http}}”环境：dotenv：文件：-backend/.env.local 静态：端口：“8042” DATABASE_HOST：本地主机 DATABASE_PORT：“8045” DATABASE_NAME：nosh_guide    由   提交/u/mgorunuch  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r5qmua/doing_the_unfucked_docker_compose/</guid>
-      <pubDate>Sun, 15 Feb 2026 21:29:08 GMT</pubDate>
+      <title>UPG Desktop 0.2.2 - 通用项目生成器，可将种子号转化为完整的软件项目</title>
+      <link>https://www.reddit.com/r/programming/comments/1r5xh8u/upg_desktop_022_a_universal_project_generator/</link>
+      <description><![CDATA[Retro Vibecoder 发布了 0.2.2 版 - 一个基于种子的项目生成器，其灵感来自于 Minecraft 如何生成世界。向其提供整数和可选约束，它会生成跨 TypeScript、Python、Rust、Go、Swift 等的完整技术堆栈（后端、前端、移动应用、游戏、桌面应用）。 主要功能： - 从种子数确定性生成 - 基于约束的组装（原型 + 语言 + 框架） - 支持跨 7 层的 40 多个技术堆栈 - 跨平台桌面应用程序 + CLI 版本 0.2.2 包括 Windows 兼容性修复、改进的版本注入以及针对汇编器和验证器的各种错误修复。 作为 MIT 许可的单独开发项目构建。欢迎反馈！   由   提交/u/Inknown_Research_43  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r5xh8u/upg_desktop_022_a_universal_project_generator/</guid>
+      <pubDate>Mon, 16 Feb 2026 02:30:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何构建基于浏览器的 3D 建模应用程序（技术概述）</title>
+      <link>https://www.reddit.com/r/programming/comments/1r5vuzv/how_to_build_a_browserbased_3d_modeling_app/</link>
+      <description><![CDATA[对于任何对基于浏览器的 3D 建模感兴趣的人，这里详细介绍了可用于在网络上实现完整建模工作流程的技术方法。 渲染和渲染stack  Three.js 处理所有 3D 渲染。 所有核心逻辑均用纯 JavaScript 编写。 Supabase 用于身份验证（注册/登录）并作为后端/数据库。  核心网格表示 而不是编辑直接使用 Three.js 几何图形，我基于顶点-边缘-面 (VEF) 邻接网格构建了一个自定义网格数据结构。  所有建模操作（拉伸、移动、分割等）都在此网格数据上进行。 每次操作后，网格数据都会转换为 BufferGeometry。 然后将该几何图形传递给 Three.js，纯粹是为了  这种分离使建模逻辑独立于渲染器，并允许直接表示多边形面，包括四边形，而不是将所有内容强制转换为三角形，这不适合 3D 建模工作流程。 撤消/重做 每个建模操作都存储为命令（命令模式样式）：  命令知道如何应用和执行恢复他们的更改。 撤消/重做只是在命令堆栈中向后或向前移动。  编辑助手和编辑助手。场景  顶点、边缘和面助手只是轻量级的 BufferGeometry 对象。 这些助手位于专用的编辑场景中。 实际对象位于主场景中，这使得您可以轻松地： 循环遍历对象以获取轮廓 基于光线投射的轻松选择 将视觉效果编辑与最终几何图形分开   建模的基本工具 您不需要很多工具即可开始 3D 建模。核心是选择、移动、旋转、缩放、拉伸、循环切割、刀具、删除和创建边缘/面。 这些足以对大多数基本形状进行建模。其他工具主要是为了方便或处理更复杂的特定情况而存在，并且通常是在这些基础知识之后构建的。 数学要求 您不需要硬核图形编程，但您确实需要：  线性代数基础知识（向量、矩阵） 3D 空间中的变换 小玩意的四元数旋转 网格操作的可靠算法思维  大多数困难不是纯数学，而是设计强大的数据结构并编写干净的几何操作算法。 要点 如果您正在考虑在网络上构建 3D 建模工具：  将渲染器视为查看器，而不是您的来源真相 构建您自己的网格数据模型 尽早使用基于命令的操作  希望这可以帮助任何探索基于浏览器的 3D 工具的人。   由   提交 /u/Sengchor   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r5vuzv/how_to_build_a_browserbased_3d_modeling_app/</guid>
+      <pubDate>Mon, 16 Feb 2026 01:14:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 DuckDB 构建自托管 Google Trends 替代方案</title>
+      <link>https://www.reddit.com/r/programming/comments/1r5v2kl/building_a_selfhosted_google_trends_alternative/</link>
+      <description><![CDATA[ 由   提交/u/Low-Engineering-4571   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r5v2kl/building_a_selfhosted_google_trends_alternative/</guid>
+      <pubDate>Mon, 16 Feb 2026 00:37:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>本地 WebSocket：构建无需云即可运行的实时应用程序</title>
+      <link>https://www.reddit.com/r/programming/comments/1r5quh6/local_websocket_building_realtime_apps_that_work/</link>
+      <description><![CDATA[我发表了一篇文章，介绍我的新 Dart/Flutter 包：`local_websocket`，无需云服务器即可在本地网络上启用实时应用程序，非常适合离线优先、本地或医疗保健系统等隐私敏感用例。 涵盖的主要功能： - 自动设备发现和 LAN WebSocket 通信。 - 纯 Dart 实现服务器扫描功能。 - 仪表板、协作和关键任务应用程序的实用示例。 欢迎就生产使用、重新连接策略或与 Flutter 项目的集成技巧提供反馈。   由   提交 /u/_Flame_Of_Udun_   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r5quh6/local_websocket_building_realtime_apps_that_work/</guid>
+      <pubDate>Sun, 15 Feb 2026 21:37:29 GMT</pubDate>
     </item>
     <item>
       <title>代理编码可以提高质量标准吗？</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交/u/max123246  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r59xjq/package_management_namespaces/</guid>
       <pubDate>Sun, 15 Feb 2026 08:57:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程的未来两年</title>
-      <link>https://www.reddit.com/r/programming/comments/1r58zqv/the_next_two_years_of_software_engineering/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r58zqv/the_next_two_years_of_software_engineering/</guid>
-      <pubDate>Sun, 15 Feb 2026 07:58:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年安全工程师需要了解的量子密码学知识（流行语之外）</title>
-      <link>https://www.reddit.com/r/programming/comments/1r4r7v4/what_security_engineers_need_to_know_about/</link>
-      <description><![CDATA[对 PQC 与 QKD、混合模式进行诚实的技术评估，以及为什么修复基本的安全卫生比现在担心量子计算机更重要。 https://cybernews-node.blogspot.com/2026/02/quantum-cryptography-in-2026-still-more.html   由   提交 /u/No_Fisherman1212   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r4r7v4/what_security_engineers_need_to_know_about/</guid>
-      <pubDate>Sat, 14 Feb 2026 17:57:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>将日志管理平台与 Dokploy 集成</title>
-      <link>https://www.reddit.com/r/programming/comments/1r4qhbr/integrating_a_log_management_platform_with_dokploy/</link>
-      <description><![CDATA[ 由   提交/u/tanin47  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r4qhbr/integrating_a_log_management_platform_with_dokploy/</guid>
-      <pubDate>Sat, 14 Feb 2026 17:28:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
