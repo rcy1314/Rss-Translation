@@ -4,20 +4,41 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 17 Feb 2026 09:56:09 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 13:14:38 GMT</lastBuildDate>
     <item>
-      <title>以及在某个特殊的地方......</title>
-      <link>https://www.reddit.com/r/programming/comments/1r71ka9/as_well_somewhere_at_the_special_place/</link>
-      <description><![CDATA[该死的 MAX_USERS = 100  innit (userCount &lt; MAX_USERS) { allowedLogin() } else { 废话(“用户太多”) }   由   提交/u/ZlatanYU   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r71ka9/as_well_somewhere_at_the_special_place/</guid>
-      <pubDate>Tue, 17 Feb 2026 09:30:37 GMT</pubDate>
+      <title>人工智能的采用反映了早期的互联网</title>
+      <link>https://www.reddit.com/r/programming/comments/1r75an2/ai_adoption_mirrors_the_early_internet/</link>
+      <description><![CDATA[兴奋、盲目信任、没人愿意谈论的安全漏洞。今天的人工智能采用看起来非常像早期的网络 - 我们正在重复同样的错误。   由   提交/u/Sad-Interaction2478  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r75an2/ai_adoption_mirrors_the_early_internet/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:57:16 GMT</pubDate>
     </item>
     <item>
-      <title>与此同时，在一个特殊的地方……</title>
-      <link>https://www.reddit.com/r/programming/comments/1r71j5m/meanwhile_somewhere_at_the_special_place/</link>
-      <description><![CDATA[user@aussie:~/project$ git push origin mate   由   提交/u/ZlatanYU   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r71j5m/meanwhile_somewhere_at_the_special_place/</guid>
-      <pubDate>Tue, 17 Feb 2026 09:28:38 GMT</pubDate>
+      <title>Ralph Wiggum 循环不知道他们是否实现了您的目标。他们只知道他们不再犯错误了。</title>
+      <link>https://www.reddit.com/r/programming/comments/1r74xho/ralph_wiggum_loops_dont_know_if_they_achieved/</link>
+      <description><![CDATA[每个人都在谈论 Ralph Wiggum 循环 — Claude 代码在 while 循环中自主运行，直到任务完成。对于单个任务来说，它的效果出奇的好。 但这是没有人解决的问题：循环不知道它是否实现了您的目标。它知道它停止了错误。这些是不同的事情。 # Ralph Wiggum 模式（简化），未完成时： result = agent.do_next_thing() if agent.thinks_its_done: feed_prompt_back() # 不，继续进行 这对于“将测试从 Jest 迁移到 Vitest”非常有用。 — 有明确的终点线（所有测试都通过）。它在“使用电子邮件摘要设置添加用户通知首选项”方面失败了。 —“完成”的地方涉及 API 端点、数据库迁移、前端组件以及验证业务逻辑的测试，而不仅仅是编译。 我现在看到的解决多代理协调问题的工具：  Ralph Wiggum — 单代理持久循环。简单、有效、无需协调。 OpenClaw — 具有会话管理功能的代理框架。很棒的生态系统，但您仍然是协调者，决定什么时候运行。 Dorothy - 会话仪表板和元代理。解决“哪个会话正在做什么？”问题。 洛基模式 - 37 名专业特工。雄心勃勃，但 r/ClaudeAI 的共识是它夸大了并且需要证据。 LangGraph - 用于代理工作流程的 DAG 原语。功能强大，但级别较低。  这些都不能很好地解决问题：系统如何知道多个并行代理的组合输出是否确实满足原始要求？ Ralph 循环检查“我是否停止出错了。” Loki 模式检查单个代理的完成情况。但是谁会检查后端代理编写的 API 端点是否与其他代理构建的前端组件实际匹配？谁验证数据库迁移是否支持 API 所需的查询模式？ 我一直在解决这个特定问题。我的方法：将规范作为机器可检查的事实来源。  在任何代理运行之前，将功能构建为具有验收标准的需求 分解为任务依赖关系图 - 哪些可以并行化，哪些被阻止 每个任务都在隔离的沙箱中运行（Daytona 容器，自己的 git 分支） 每个任务之后：单独的验证步骤根据验收标准检查输出。不是“它编译了吗”？但“它是否满足要求” 失败 → 使用失败上下文重试。通过 → 合并。  关键见解：如果系统有“完成”的结构化定义，那么它可以回答“我们到了吗？”不问你。 Ralph Wiggum 留给持久性的监督循环，以及 Loki 模式留给代理计数的监督循环，被规范验证所取代。 这不是一个新想法 - 它基本上是将 CI/CD 应用于 AI 代理输出。但这是我认为当前代理编排对话中缺少的部分。 我一直在将其构建为一个开源工具：https://github.com/kivo360/OmoiOS 使用 FastAPI、PostgreSQL + pgvector、Redis pub/sub、Next.js 和用于 DAG 可视化的 React Flow 构建。 Apache 2.0。 还处于早期阶段，还有一些粗糙的地方，我并不是说它已经解决了。跨并行代理分支的 git 合并问题确实很困难，克劳德有时会“同意自己的观点”。验证期间。但核心循环是有效的。 你的看法是——基于规范的验证是添加的正确层，还是 Ralph Wiggum 的“只是保持循环”？方法足以应对大多数实际工作吗？   由   提交/u/One_Pomegranate_367   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r74xho/ralph_wiggum_loops_dont_know_if_they_achieved/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:40:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>在十次网络研讨会的过程中，我们的团队将开发自己的编程语言。让我们看看他们如何成功实现这一目标......</title>
+      <link>https://www.reddit.com/r/programming/comments/1r73utl/over_the_course_of_ten_webinars_our_team_will/</link>
+      <description><![CDATA[你也能做到！报名参加 PVS-Studio 网络研讨会系列，学习如何使用 C++ 创建您自己的编程语言！ 在第一场会议中，我们将用简单的术语一步步分解“黑匣子”内部的内容：我们将介绍词法分析器和解析器、语义分析器和求值器。 我们将讨论这些组件是什么、为什么需要它们以及它们到底做什么。 它将具有吸引力且平易近人。加入我们！   由   提交/u/Xadartt  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r73utl/over_the_course_of_ten_webinars_our_team_will/</guid>
+      <pubDate>Tue, 17 Feb 2026 11:46:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>您的待办事项无法跟上您的代理的进度</title>
+      <link>https://www.reddit.com/r/programming/comments/1r73qis/your_backlog_cant_keep_up_with_your_agents/</link>
+      <description><![CDATA[ 由   提交 /u/magicsrb   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r73qis/your_backlog_cant_keep_up_with_your_agents/</guid>
+      <pubDate>Tue, 17 Feb 2026 11:39:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>您将如何为高流量系统设计分布式缓存？</title>
+      <link>https://www.reddit.com/r/programming/comments/1r72rzk/how_would_you_design_a_distributed_cache_for_a/</link>
+      <description><![CDATA[ 由   提交/u/javinpaul   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r72rzk/how_would_you_design_a_distributed_cache_for_a/</guid>
+      <pubDate>Tue, 17 Feb 2026 10:45:29 GMT</pubDate>
     </item>
     <item>
       <title>同行评审研究：人工智能生成的更改在不健康的代码中更容易失败（缺陷风险高出 30% 以上）</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交 /u/Happycodeine   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r6pcec/common_async_coalescing_patterns/</guid>
       <pubDate>Mon, 16 Feb 2026 23:16:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>最终之战：增强版 - 最终版 - 完整分解</title>
-      <link>https://www.reddit.com/r/programming/comments/1r6mwlv/final_fight_enhanced_final_edition_complete/</link>
-      <description><![CDATA[​这是一次基本的更新，取消了 AmigaOS 的使用，并使游戏在 2MB 的 ChipMem 下运行。其他改进包括更宽的屏幕显示、更多的敌人攻击、更多的玩家动作、新的音效、盒子艺术以及大量其他调整。 更新的游戏流程。   由   提交/u/NXGZ   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r6mwlv/final_fight_enhanced_final_edition_complete/</guid>
-      <pubDate>Mon, 16 Feb 2026 21:42:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年的合成数据：将合法用例与代价高昂的错误分开</title>
-      <link>https://www.reddit.com/r/programming/comments/1r6j1a8/synthetic_data_in_2026_separating_the_legitimate/</link>
-      <description><![CDATA[对 GAN、扩散模型和差分隐私进行技术现实检查 - 技术在哪些方面实际有效，哪些方面仍存在困难。 https://cybernews-node.blogspot.com/2026/02/synthetic-data-hype-horror-and.html   由   提交 /u/No_Fisherman1212   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r6j1a8/synthetic_data_in_2026_separating_the_legitimate/</guid>
-      <pubDate>Mon, 16 Feb 2026 19:19:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>我遇到过的最烦人的编程挑战之一（端口进程识别）</title>
-      <link>https://www.reddit.com/r/programming/comments/1r6iypm/one_of_the_most_annoying_programming_challenges/</link>
-      <description><![CDATA[ 由   提交/u/goldensyrupgames  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r6iypm/one_of_the_most_annoying_programming_challenges/</guid>
-      <pubDate>Mon, 16 Feb 2026 19:16:33 GMT</pubDate>
     </item>
     </channel>
 </rss>

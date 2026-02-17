@@ -4,13 +4,76 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 09:56:34 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 13:15:02 GMT</lastBuildDate>
     <item>
-      <title>这个网页够漂亮吗？？？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r71xst/is_this_webpage_beautiful_enough/</link>
-      <description><![CDATA[      网页 - https://adityaprasad-sudo.github.io/ExploreSingapore/ GitHub 源代码（开源项目） - https://github.com/adityaprasad-sudo/ExploreSingapore/ 非常欢迎提供反馈和建议，如果您想表达一些支持，请为存储库加星标   由   提交/u/Fantastic_suit143  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r71xst/is_this_webpage_beautiful_enough/</guid>
-      <pubDate>Tue, 17 Feb 2026 09:54:10 GMT</pubDate>
+      <title>后端开发3.0报告</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r75khu/backend_development_30_report/</link>
+      <description><![CDATA[       由   提交/u/chernya   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r75khu/backend_development_30_report/</guid>
+      <pubDate>Tue, 17 Feb 2026 13:09:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>为我的应用程序接收 Whatsapp OTP 的最佳方式？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r758bu/best_way_to_receive_whatsapp_otp_for_my_app/</link>
+      <description><![CDATA[我读到了你们   由   提交/u/StruggleNo10  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r758bu/best_way_to_receive_whatsapp_otp_for_my_app/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:54:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>回到侧面项目 -> JuriCt</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r74y1f/getting_back_into_side_projecting_jurict/</link>
+      <description><![CDATA[大家好，经过几年的全职工作，我终于坐下来构建了一些东西作为一个业余项目，主要是为了学习所有正在进行的人工智能内容 我使用了 AI SDK v6、NextJs、HonoJs  JuriCt 是一个实时人工智能辩论委员会，5 个具有不同性格特征的代理就用户提交的主题进行辩论！有关以下更改日志的更多信息 您可以查看旧主题/重播它们，分享它们！  https://www.jurict.com/ https://www.jurict.com/changelog/introducing-jurict-v1 https://www.jurict.com/debate/debate-1771264863610-ae60f039 非常感谢！    由   提交 /u/slugfingers-kun   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r74y1f/getting_back_into_side_projecting_jurict/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:40:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>React SPA – 2000 行“Player”组件处理 3 个视图。重构不断破坏。你会如何处理这个问题？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r74u31/react_spa_2000line_player_component_handling_3/</link>
+      <description><![CDATA[抱歉这篇文章是在 AI 的帮助下写的，英语不是我掌握的语言，我认为 AI 会更好地用正确的术语表达我的想法。 我有一个 React (Vite + Supabase) SPA，其主验证页面：Player.jsx（约 2000 行）。 目前处理一个组件内的 3 个不同视图，由本地状态控制： const [view, setView] = useState(&#39;accueil&#39;) // &#39;accueil&#39; | &#39;测验&#39; | &#39;fin&#39;  它包含什么 1.仪表板（Accueil）  主题选择 过滤器 全局统计 “恢复会话”小部件 startQuiz()逻辑  2.测验会话（游戏引擎）  useReducer (quizReducer) 问题索引 选定的答案 验证逻辑 实时比分和结果stats UI 状态（侧边栏、字体大小、考试模式等）  3.总结（Fin）  最终得分 XP 获得 会话统计  主要问题 一切都在Player.jsx内紧密耦合。 仪表板可以直接修改测验状态（例如startQuiz()初始化reducer状态）。 没有路由 - 只是 view 切换。 所以：  没有 /app/dashboard 没有 /app/session/:id 没有深层链接 重新加载逻辑很脆弱 职责是混合的（UI 状态、游戏逻辑、持久性、统计、XP、 Supabase 数据）  该组件在生产中运行良好，但难以维护且难以重构。 目标 分为：  Dashboard.jsx GameSession.jsx SessionSummary.jsx  理想情况下使用 React Router 和正确的基于 URL 的导航。 我的实际问题： 在不进行危险的大爆炸重构的情况下逐步解耦的最安全方法是什么？ 具体来说：  你会先引入路由吗？ 在拆分组件之前提取 SessionContext ？ 首先只移动 JSX 并保持状态提升？ 还是不管它，直到扩展压力迫使重构？  我正在寻找一种分阶段的、低风险的方法，来自那些重构过类似“MVP 转变为单体”React 组件的人。   由   提交 /u/Petit_Francais   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r74u31/react_spa_2000line_player_component_handling_3/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:35:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了一个永久免费的开源工具，用于更快的错误报告和用户反馈：屏幕+语音→AI-ready markdown</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r74gz1/i_made_a_free_forever_opensource_tool_for_faster/</link>
+      <description><![CDATA[   /u/eddiesj22  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r74gz1/i_made_a_free_forever_opensource_tool_for_faster/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:17:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要安装 Yii2 的帮助</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r74ctg/need_help_installing_yii2/</link>
+      <description><![CDATA[       https://preview.redd.it/qtku0lvwp1kg1.png?width=1913&amp;format=png&amp;auto=webp&amp;s=4caf69d7aea458a0c806fae2e36f97c54f2b695f 我正在尝试在没有 Composer 的情况下安装 Yii2。我已经创建了一个主机，解压了存档，并链接了数据库，但是当我尝试启动页面本身时，我收到消息“此页面当前无法工作。”有谁知道可能导致此问题的原因是什么？ ChatGPT 建议检查主机文件夹，一切都已就位。   由   提交 /u/Ancient-Scratch8820   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r74ctg/need_help_installing_yii2/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:11:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了 GitShow：在视觉开发人员组合的任何配置文件 URL 中将“github.com”替换为“gitshow.dev”</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r74arp/i_built_gitshow_replace_githubcom_with_gitshowdev/</link>
+      <description><![CDATA[GitHub 配置文件显示存储库的平面列表。我想要一些能讲述更好故事的东西。 **它是如何工作的：**替换“github.com”与“gitshow.dev”在任何 GitHub 配置文件 URL 中。 `github.com/username` → `gitshow.dev/username` 它显示 GitHub 没有的内容： - **npm 下载统计** - 所有包的每月总下载量，以及每个包的条形图 - **自动分类项目** - 按实际内容分组的存储库（MCP 服务器、CLI 工具、React 和 UI、基于语言、主题和描述的 DevOps 等） - **技术堆栈栏** - 可视化语言细分 - **重点领域** - 聚合主题云显示您的专长 - **项目时间表** - 当您交付项目时，而不仅仅是当您提交时 一些可供尝试的配置文件： - [gitshow.dev/sindresorhus](https://gitshow.dev/sindresorhus) - 90 个项目，43B npm 下载/月 - [gitshow.dev/torvalds](https://gitshow.dev/torvalds) - 6 个存储库，225k 星 - [gitshow.dev/ThePrimeagen](https://gitshow.dev/ThePrimeagen) - Rust、JS、TS、Lua 跨越 89 个存储库 - [gitshow.dev/t3dotgg](https://gitshow.dev/t3dotgg) - 76 个项目，180 万个 npm dl/mo **堆栈：** Next.js 16、TypeScript、Tailwind CSS、Vercel。 GitHub REST API + npm 注册表 API。具有 1 小时缓存的 ISR。 **来源：** [github.com/ofershap/gitshow](https://github.com/ofershap/gitshow) 您还希望在开发者组合页面上看到什么？   由   提交/u/ofershap  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r74arp/i_built_gitshow_replace_githubcom_with_gitshowdev/</guid>
+      <pubDate>Tue, 17 Feb 2026 12:09:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>我可以仅凭 WebDev 副学士学位就获得 6 位数的工作职位吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r73ibb/could_i_land_a_6_figure_job_position_with_only_a/</link>
+      <description><![CDATA[如果这里不是提供职业问题和职业建议的地方，提前抱歉。 几个月后，我就从西班牙一所公立学校的 Web 开发副学士学位毕业了，自从我开始学习以来，我一直都有雄心勃勃的目标，但是，我意识到 Web 开发副学士学位可能会低于我的期望，而这大多是 6 位数的薪水，得益于我的课程，我能够从西班牙搬到美国或加拿大。  我正在寻找现实检查，如果可能的话，建议如何做才能拥有价值六位数薪水的课程，即使只有西班牙公立学校的副学士学位。  寻找与技术无关的项目、技术、技能。例如，我读了很多有关经济的书籍，并且我对宏观经济学的广泛知识非常感兴趣。我还喜欢数据分析，并且计划构建体育博彩、加密货币、股票和预测市场的套利机器人，因为我对数据管理非常热衷。 我可以将我的编程技能与其他类似技能结合起来，以获得一份“高”薪工作和一个足以成为移居北美的有吸引力的候选人的课程吗？ 谢谢！   由   提交 /u/FishermanParty   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r73ibb/could_i_land_a_6_figure_job_position_with_only_a/</guid>
+      <pubDate>Tue, 17 Feb 2026 11:27:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用常规网站构建器可以做到这一点吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r738gr/is_this_possible_to_do_using_a_regular_website/</link>
+      <description><![CDATA[      嗨！ 我是一名自由漫画艺术家，使用 Wix 制作了我的作品集，因为我对编码或网页设计知之甚少。 我的想法是让它看起来像漫画书页面，您可以单击不同的面板来访问网站的相应页面。 虽然实际上将页面放在一起，但我找不到一种方法来做到这一点，我能想到的最好办法就是使用文本作为按钮。 我不太喜欢他们提供的字体，而且文本会四处移动，有时会根据屏幕的分辨率进行划分，这种情况在手机中经常发生。所以，是的，我想知道是否可以回到最初的想法并使实际的面板可点击。这样我就可以更好地定制整个内容，并将文本放在看起来最好的地方，而不是会产生较少问题的地方。 使用网站构建器是否可以做到这一点，或者这里最好的解决方案是什么？ 非常感谢您的帮助，我希望可以在这里发布。 感谢您的阅读！ 🙏   由   提交/u/Admirable_Charge4265   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r738gr/is_this_possible_to_do_using_a_regular_website/</guid>
+      <pubDate>Tue, 17 Feb 2026 11:11:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>您是否构建了 SaaS 并失败了，您认为它失败的原因是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1r736wu/have_you_build_a_saas_failed_why_do_you_think_it/</link>
+      <description><![CDATA[一切顺利&amp;很高兴听到成功的故事，但我很少听到失败的故事和失败的故事。我很想听听这个故事，因为毫无疑问有很多这样的故事   由   提交 /u/Mindless-Fly2086   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1r736wu/have_you_build_a_saas_failed_why_do_you_think_it/</guid>
+      <pubDate>Tue, 17 Feb 2026 11:09:16 GMT</pubDate>
     </item>
     <item>
       <title>更轻松地搜索 Drupal 模块</title>
@@ -46,69 +109,6 @@
       <description><![CDATA[      https://anupamkonwar93.github.io/elite/ 伙计们，这是我尝试的第二个项目。 HTML/CSS 和一点点 JavaScript 。它的网站要小得多，只是一个简单的产品登陆页面。您认为这里的优点和缺点是什么   由   提交/u/bustedwideopen  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1r70ebq/this_is_the_second_one_i_tried/</guid>
       <pubDate>Tue, 17 Feb 2026 08:15:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能不是智能，而是预测（以及为什么我的恐慌已经过去）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r708m6/ai_isnt_intelligent_its_prediction_and_why_my/</link>
-      <description><![CDATA[在过去的一周里，我一直感到有点不安，因为 Anthropic 导致市场暴跌，并且读到 Dario Amodei 说在六个月内，模型将完成开发人员所做的一切。但我意识到，根据我所看到的，我们的定义是错误的。 Claude Cowork 并不“聪明”，而是“聪明”。它是一个算法预测引擎。它是一个需要持续维护和管理的协调器，就像 70 年代计算进入企业时突然需要整个 IT 部门，而这之前甚至不存在。 最后，这实际上就像一个指南针或 Excel。他们正在使工具民主化。指南针很便宜。 Google 表格实际上是免费的。没有人会聘请“指南针专家”；你雇佣了一位懂得导航并使用指南针避免迷路的船长。同样的事情也会发生：一个通用的“AI 配置文件”不会取代我们。相反，每个领域的专家（金融专业人士、设计师或像我们这样的音乐技术开发人员）将必须管理该预测，因为它是一个预测工具。没有人将他们的 Excel 个人资料称为“Excel 专家”。 Excel 不会仅仅因为它有宏就在您的领域做出业务决策，如果没有专家来验证它所帮助的业务领域的方向是否正确，这个人工智能驱动的系统就不会创建复杂而有意义的工作流程。 我认为这是一个很好的例子。有人觉得这个推理有什么问题吗？ 我不相信“端到端”的说法。恐慌。我认为未来的重点是培养成为知道如何管理工具的工人的技能。未来，LinkedIn 不会充斥着“AI 专家”，而是充满了“AI 专家”。而是那些知道如何在其行业中应用预测的人。这是更多的工作，而不是更少，而且必须有人来掌舵，因为没有治理的预测是没有用的。 让我知道你对这个反思的看法:)   由   提交 /u/willymunoz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r708m6/ai_isnt_intelligent_its_prediction_and_why_my/</guid>
-      <pubDate>Tue, 17 Feb 2026 08:05:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个您可以自由使用的电影产品启动 UI — Verdant（开放模板）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6zsp1/i_built_a_cinematic_productlaunch_ui_you_can/</link>
-      <description><![CDATA[      大家好👋 我一直在开发一个名为 Verdant 的高端产品发布界面 - 目标是创建一些感觉更接近于高级品牌展示页面而不是典型登陆页面的东西。 我没有将其保持私有，而是将其变成了完全免费的公共模板，以便任何人都可以将其用于自己的项目，初创公司、投资组合或实验。 GitHub：https://github.com/pro-grammer-SD/verdant 它的重点是什么： • 干净的版式层次结构 • 流畅的运动和微交互 • 现代组件架构 • 响应式布局（桌面/平板电脑/移动设备） • 生产风格的项目结构 您可以克隆它、修改它，或者在此基础上构建您自己的产品 - 无成本，无限制。  我非常感谢开发人员和设计师的反馈： • UI/UX 建议•性能改进•可访问性修复•架构创意•功能提案 如果您想做出贡献：提出问题、提交 PR 或只是分享想法 — 一切都有助于改进项目。 我特别有兴趣了解其他人如何扩展或改进系统。 感谢您查看🙏   由   提交/u/Klutzy_Bird_7802   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6zsp1/i_built_a_cinematic_productlaunch_ui_you_can/</guid>
-      <pubDate>Tue, 17 Feb 2026 07:38:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的第一个项目之一</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6zi02/one_of_my_first_project/</link>
-      <description><![CDATA[       由   提交/u/bustedwideopen  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6zi02/one_of_my_first_project/</guid>
-      <pubDate>Tue, 17 Feb 2026 07:20:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>高中生正在寻找高级项目面试 Web 开发人员</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6y6hh/high_school_senior_looking_for_a_interview_web/</link>
-      <description><![CDATA[您好，感谢您花时间帮助我的高级项目。我有兴趣成为一名 Web 开发人员，并且很想了解您在该领域的经验。  您是如何进入这个职业的？ 在进入这个职业之前您做了什么？ 典型的一天是怎样的？ 您的职责是什么？ 您有什么建议？准备在这个领域工作的人有什么经验？ 什么课程和/或高级学位对我有帮助？ 进入这个领域需要什么经验？ 你最喜欢/最不喜欢你的工作？ 你是如何进入这个组织行业的 还有哪些其他经验？您曾经工作过的组织吗？ 描述您的工作环境。 您所在领域的发展和晋升潜力如何？ 目前，您所在领域的职位有多安全？ 该领域的哪些领域正在发展/变化 该领域的典型起薪范围是多少字段？    由   提交/u/SunIndependent6200  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6y6hh/high_school_senior_looking_for_a_interview_web/</guid>
-      <pubDate>Tue, 17 Feb 2026 06:04:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>您永远不会忘记的一个工作日，发生了什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6xmvm/that_one_workday_you_will_never_forget_what/</link>
-      <description><![CDATA[对我来说，这发生在我在保险行业工作时。一天早上 8:30 左右，弹出一条有关严重生产错误的消息。那天我开始得早一些，我的团队中没有其他人回应。由于我已经在线，所以我说我会看一下。 我原以为快速检查变成了两个小时的深入日志、跟踪代码并试图了解问题所在。我终于找到了问题并提出了解决方案。由于压力和紧迫性，我跳过了完整的单元测试。我们推出了热修复程序，希望能有所缓解。相反，它让事情变得更糟。 在那一刻，我的心真的沉下去了。我们必须把一切都回滚并重新开始，这次做得正确。尽管我的上级非常支持，但这仍然是我经历过的压力最大的日子之一。到最后，我已经筋疲力尽，只是庆幸这一天结束了。 很想听听你的。作为一名开发人员，哪一天真正考验了您？   由   提交 /u/LifespanLearner   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6xmvm/that_one_workday_you_will_never_forget_what/</guid>
-      <pubDate>Tue, 17 Feb 2026 05:34:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>当人工智能的需求不断增长时，作为一名开发人员，您如何跟上步伐？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6w8b1/how_do_you_keep_up_as_a_developer_when_the_demand/</link>
-      <description><![CDATA[标题几乎就是帖子。我作为一名自学成才的开发人员已有 20 多年的历史（也接受过正规教育）。我看到了 Web 开发（CMS、网站构建器等）的不同趋势，但有了人工智能，每个人都认为自己是开发人员。 越来越多的人会提示他们需要什么，而不是让真正的开发人员构建他们需要的东西。如果你问我，这有点可怕。 我为州政府工作，最近我看到整个部门因为人工智能而被取代。   由   提交 /u/boredrhino   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6w8b1/how_do_you_keep_up_as_a_developer_when_the_demand/</guid>
-      <pubDate>Tue, 17 Feb 2026 04:22:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>摄影作品集的 CMS 选项？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6ur3s/cms_options_for_photography_portfolio/</link>
-      <description><![CDATA[嗨朋友们， 我想快速建立一个简单的摄影作品集。我想避免使用 Wix 或 Squarespace 之类的东西，这样我就可以完全控制外观并自己构建前端。 我一开始可以自己对所有图像进行硬编码，但希望以后能有一些更动态的东西，以便我可以轻松更新它。 我们都喜欢哪些后端 CMS 选项，特别是对于以图像为中心的网站？  我之前在之前的项目中使用过 Sanity，但我不喜欢他们如何托管上传到自己的 CDN 的图像，但在其他方面喜欢它的可定制性和轻量级。我的其他主要经历是 WordPress，但由于各种原因我不喜欢它。    由   提交/u/mrsaberhagen   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6ur3s/cms_options_for_photography_portfolio/</guid>
-      <pubDate>Tue, 17 Feb 2026 03:11:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>除了使用 certbot / acme.sh 之外，你们如何生成 SSL？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6twkb/how_do_you_guys_generate_ssl_other_than_using/</link>
-      <description><![CDATA[在遥远的过去，我们有数千个网站免费为我们生成 SSL，信息最少。既然 ZeroSSL 已经有效地购买了所有这些并将其转换为付费服务，那么还有哪些替代方案？   由   提交 /u/lakimens   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6twkb/how_do_you_guys_generate_ssl_other_than_using/</guid>
-      <pubDate>Tue, 17 Feb 2026 02:33:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>评价我为我的吉他老师制作的网站！（：</title>
-      <link>https://www.reddit.com/r/webdev/comments/1r6tu3h/rate_the_website_i_made_for_my_guitar_teacher/</link>
-      <description><![CDATA[为我的吉他老师构建了一个小型登陆页面并刚刚启动。希望得到一些关于设计、布局和整体感觉的诚实反馈，您会改进哪些方面？由   提交/u/No-Vegetable5956   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1r6tu3h/rate_the_website_i_made_for_my_guitar_teacher/</guid>
-      <pubDate>Tue, 17 Feb 2026 02:30:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
