@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 18 Feb 2026 13:15:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 15:57:27 GMT</lastBuildDate>
+    <item>
+      <title>CasperAI – 用于跨平台工程环境的本地 MCP 服务器</title>
+      <link>https://www.reddit.com/r/programming/comments/1r86dq1/casperai_a_local_mcp_server_for_crossplatform/</link>
+      <description><![CDATA[ 由   提交/u/jance28  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r86dq1/casperai_a_local_mcp_server_for_crossplatform/</guid>
+      <pubDate>Wed, 18 Feb 2026 15:42:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>设计流优先存档格式：打破“文件可查找”假设的经验教训</title>
+      <link>https://www.reddit.com/r/programming/comments/1r85uwu/designing_a_streamingfirst_archive_format_lessons/</link>
+      <description><![CDATA[大多数归档格式是在很少明确说明的假设下创建的： 数据源是可查找的。 这个假设渗透到所有内容： 元数据在最后写入 全局选择压缩 恢复被视为验证，而不是继续 索引需要完整扫描或最终的页脚 这些选择对于基于磁盘的打包有意义，但在以下环境中表现不佳： 基于管道的工作流程 网络优先数据移动 连续生成的数据集 中断或部分写入 删除作为原语的查找 如果不允许向后查找，则存档必须逐渐变得有效。这意味着结构必须是编写时进行自我描述，而不是回顾性定义。 这使布局更接近日志系统而不是容器：每个段都必须在没有全局知识的情况下独立解释。 压缩不再是文件级决策 现实世界的数据流是异构的。 将压缩视为存档范围的属性会导致效率低下：同一数据集的不同区域可能具有截然不同的熵允许块级编解码器选择提高了适应性，但提出了难题： 如何在不紧密耦合的情况下描述解码要求 如何保持前向兼容性 如何避免将格式锁定到特定算法系列 作为一流属性进行恢复 大多数格式都会检测到损坏。很少有格式允许从截断中进行有意义的恢复。 在流环境中，更有用的不变量是： 损坏的存档应该降级为较短的有效存档。 实现这一点需要定期的结构检查点，但检查点密度直接影响开销和写入放大。 这将恢复变成可调整的系统权衡而不是错误情况。 没有最终确定步骤的索引 传统上，快速列表取决于最后写入的中央目录。 但是单遍生成，“最后”可能永远不会到达。 一种替代方案是将索引视为可机会发现的仅附加结构，允许读者以完整性换取即时性。 更广泛的问题 一旦不再假定随机访问，存档开始类似于具有压缩语义的结构化日志。 此时，可能需要对存档格式的许多长期存在的设计模式进行更改。重新考虑。 好奇其他人如何在不可寻求的约束下处理格式设计（或存储协议），以及在实践中证明哪些权衡最难管理。   由   提交/u/cyh-c   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r85uwu/designing_a_streamingfirst_archive_format_lessons/</guid>
+      <pubDate>Wed, 18 Feb 2026 15:23:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>爱泼斯坦文件浏览器</title>
+      <link>https://www.reddit.com/r/programming/comments/1r841w7/epstein_files_explorer/</link>
+      <description><![CDATA[[OC] 我构建了一个自动化管道，用于从 Epstein 文档库中提取、可视化和交叉引用超过 100 万页 在过去的约 2 周内，我一直在构建一个开源工具来系统地分析 Epstein 文件 - 共 12 卷发布的大量法庭文件、飞行日志、电子邮件、证词和财务记录。该语料库包含 1,050,842 个文档，跨越 208 万页。 我构建了一个 18 级 NLP/计算机视觉管道，可以自动执行以下操作： 提取和 OCR 每个 PDF，检测每个页面上的编辑区域 识别 163,000 多个命名实体（人员、组织、地点、日期、财务数据），总计超过1500 万次提及，然后解析别名，例如“Jeffrey Epstein”、“JEFFREY EPSTEN”和“Jeffrey Epstein*”全部映射到一个规范条目 提取事件（会议、旅行、通信、金融交易）以及参与者、日期、地点和置信度 在文档图像和视频中检测 20,779 张面孔，将它们聚类成 8,559 个身份组，并将 2,369 个聚类与维基百科个人资料照片进行匹配 - 自动识别 Epstein、Maxwell、安德鲁王子、克林顿等人 发现通过比较接近重复的文档来发现编辑不一致：在 2200 万个接近重复的对和 560 万个编辑的文本片段中，它标记了 100 个文本在一个副本中被编辑但在另一个副本中保持可见的情况 构建可搜索的语义索引，以便您可以按含义进行搜索，而不仅仅是关键字 整个内容都输入到我用 Next.js 构建的 Web 界面中。以下是每个屏幕截图显示的内容： 文档 - 主语料库浏览器。 1,050,842 个文档可按贝茨数搜索并可按卷过滤。  搜索结果 - 全文语义搜索。搜索“Ghislaine Maxwell”返回 8,253 个文档，其中包含突出显示的匹配项和实体标签。 文档查看器 - 具有可切换密文和实体叠加功能的集成 PDF 查看器。这是一封关于 Maxwell Reddit 帐户 (r/maxwellhill) 的转发电子邮件，该帐户在被捕后陷入沉默。 实体 - 163,289 个提取的实体按提及频率排名。杰弗里·爱泼斯坦 (Jeffrey Epstein) 在 40 万多个文档中被提及超过 100 万次，位居榜首。 关系网络 - 跨文档实体共现的强制导向图，按类型（人员、组织、地点、日期、组）进行颜色编码。 文档时间线 - 每个文档按日期绘制，按数量进行颜色编码。您可以清楚地看到 2000 年代初聚集的文档活动。 人脸集群 - 自动人脸检测和维基百科匹配。系统发现了 Epstein 的 2,770 个人脸实例、Maxwell 的 457 个人脸实例、安德鲁王子的 61 个人脸实例以及 Clinton 的 59 个人脸实例，所有这些均从文档图像中自动匹配。 编辑不一致 - 该管道比较了 2200 万个近乎重复的文档对，发现了 100 个文档中的编辑文本在另一个文档中可见的情况。每个不一致都会并排显示显示的文本、已编辑的源代码和未编辑的源代码。  工具：Python（spaCy、InsightFace、PyMuPDF、句子转换器、OpenAI API）、Next.js、TypeScript、Tailwind CSS、S3 来源：github.com/doInfinitely/epsteinaanalysis 数据来源：公开发布爱泼斯坦法庭文件（EFTA 第 1-12 卷）   由   提交/u/lymn   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r841w7/epstein_files_explorer/</guid>
+      <pubDate>Wed, 18 Feb 2026 14:12:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>Python 中改进格子攻击的体积缩放技术</title>
+      <link>https://www.reddit.com/r/programming/comments/1r83brx/volume_scaling_techniques_for_improved_lattice/</link>
+      <description><![CDATA[ 由   提交/u/DataBaeBee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r83brx/volume_scaling_techniques_for_improved_lattice/</guid>
+      <pubDate>Wed, 18 Feb 2026 13:42:55 GMT</pubDate>
+    </item>
     <item>
       <title>编码代理和语言进化：探索未知领域 • José Valim</title>
       <link>https://www.reddit.com/r/programming/comments/1r82lwm/coding_agents_language_evolution_navigating/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交 /u/cekrem   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r75tvu/solid_in_fp_single_responsibility_or_how_pure/</guid>
       <pubDate>Tue, 17 Feb 2026 13:20:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>您的待办事项无法跟上您的代理的进度</title>
-      <link>https://www.reddit.com/r/programming/comments/1r73qis/your_backlog_cant_keep_up_with_your_agents/</link>
-      <description><![CDATA[ 由   提交 /u/magicsrb   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r73qis/your_backlog_cant_keep_up_with_your_agents/</guid>
-      <pubDate>Tue, 17 Feb 2026 11:39:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>您将如何为高流量系统设计分布式缓存？</title>
-      <link>https://www.reddit.com/r/programming/comments/1r72rzk/how_would_you_design_a_distributed_cache_for_a/</link>
-      <description><![CDATA[ 由   提交/u/javinpaul   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r72rzk/how_would_you_design_a_distributed_cache_for_a/</guid>
-      <pubDate>Tue, 17 Feb 2026 10:45:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>类型注释中的运行时验证</title>
-      <link>https://www.reddit.com/r/programming/comments/1r6zc2r/runtime_validation_in_type_annotations/</link>
-      <description><![CDATA[ 由   提交/u/Xadartt  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r6zc2r/runtime_validation_in_type_annotations/</guid>
-      <pubDate>Tue, 17 Feb 2026 07:10:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>用 C# 编写原生 VLC 插件</title>
-      <link>https://www.reddit.com/r/programming/comments/1r6xv63/writing_a_native_vlc_plugin_in_c/</link>
-      <description><![CDATA[有任何问题请随时提问！   由   提交/u/mtz94  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r6xv63/writing_a_native_vlc_plugin_in_c/</guid>
-      <pubDate>Tue, 17 Feb 2026 05:47:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
