@@ -4,13 +4,34 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 19 Feb 2026 13:17:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Feb 2026 15:54:46 GMT</lastBuildDate>
     <item>
-      <title>互联网可视化</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8yw8l/visualization_of_the_internet/</link>
-      <description><![CDATA[有人能给我解释一下这张图片吗？我知道很多，但找到它后很好奇，我不想问人工智能。 我之前在 Compsci 上发布过这个，但因为偏离主题而被删除。我很高兴阅读并回复评论，所以我要在这里再试一次。谢谢你！    由   提交/u/keek4567  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8yw8l/visualization_of_the_internet/</guid>
-      <pubDate>Thu, 19 Feb 2026 13:14:36 GMT</pubDate>
+      <title>-fbounds-safety：强制 C 的边界安全</title>
+      <link>https://www.reddit.com/r/programming/comments/1r92foq/fboundssafety_enforcing_bounds_safety_for_c/</link>
+      <description><![CDATA[ 由   提交 /u/Maybe-monad   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r92foq/fboundssafety_enforcing_bounds_safety_for_c/</guid>
+      <pubDate>Thu, 19 Feb 2026 15:38:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>MySQL 和 PostgreSQL：解决同一问题的不同方法</title>
+      <link>https://www.reddit.com/r/programming/comments/1r90loc/mysql_and_postgresql_different_approaches_to/</link>
+      <description><![CDATA[两个数据库都解决相同的问题：  如何以符合 ACID 的方式最有效地存储和提供对数据的访问？  ACID 合规性可以通过多种方式实现，而 SQL 数据库选择的实现方式可能有很大差异。特别是 MySQL，使用默认的 InnoDB 引擎，采用了与 Postgres 完全不同的方法。 两种实现都有自己的权衡、优点和缺点。 理论上，MySQL (InnoDB) 方法应该在以下方面具有优势：  对具有更多索引的表进行部分更新 - 并非所有索引，而只需修改已更改的列 由主数据库查询表关键 - 索引是表，因此它应该尽可能快，因为数据是从单个位置读取的 以前的行版本存储在磁盘上的单独空间中，因此活动事务受潜在较大的旧行版本的影响较小  Postgres优点是：  所有索引的统一搜索性能 - 没有主/辅索引区别，所有索引的性能都是相同的 随机插入的惩罚较小，因为表以随机顺序存储在堆上，与排序的 MySQL 聚集索引（表）相比 先前启动的事务可以更好地访问先前的行版本，因为它们存储在相同的磁盘空间中 支持更严格的隔离级别和并发访问所需的锁定（几乎不需要） - 先前的行版本存储在相同的磁盘空间中，可以根据特殊列考虑或丢弃（大部分是xmin、xmax）  理论上，理论和实践是一样的。但是，让我们看看实际情况如何！   由   提交/u/BinaryIgor  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r90loc/mysql_and_postgresql_different_approaches_to/</guid>
+      <pubDate>Thu, 19 Feb 2026 14:27:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>宇宙学上唯一的ID</title>
+      <link>https://www.reddit.com/r/programming/comments/1r90jg9/cosmologically_unique_ids/</link>
+      <description><![CDATA[ 由   提交/u/schmul112  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r90jg9/cosmologically_unique_ids/</guid>
+      <pubDate>Thu, 19 Feb 2026 14:24:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>编译器教育值得一场革命</title>
+      <link>https://www.reddit.com/r/programming/comments/1r90cwl/compiler_education_deserves_a_revolution/</link>
+      <description><![CDATA[ 由   提交 /u/thunderseethe   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r90cwl/compiler_education_deserves_a_revolution/</guid>
+      <pubDate>Thu, 19 Feb 2026 14:17:01 GMT</pubDate>
     </item>
     <item>
       <title>通过示例学习 C++ • Frances Buontempo 和 Matt Godbolt</title>
@@ -20,32 +41,11 @@
       <pubDate>Thu, 19 Feb 2026 13:10:23 GMT</pubDate>
     </item>
     <item>
-      <title>OpenGUI – MIT 许可的 OpenCode 本机桌面客户端（AI 编码助手），寻找贡献者</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8yp73/opengui_mitlicensed_native_desktop_client_for/</link>
-      <description><![CDATA[我将发布 OpenGUI，它是开源 AI 编码助手 OpenCode (opencode.ai) 的本机桌面 GUI。它已获得 MIT 许可，我正在寻找贡献者。 OpenCode 是一个很棒的工具，但它的界面是终端中的 TUI。我想要一个合适的桌面客户端，可以处理更长、更复杂的编码会话，所以我构建了一个。 OpenGUI 在单个窗口中添加了提示队列、会话分叉、对话恢复、git 工作树管理、语音输入和多项目支持等功能。 该项目版本为 v0.1.7。它很实用，是我每天都会使用的东西，但还为时过早。还有很大的改进空间，我非常感谢任何感兴趣的人的帮助。 贡献特别有价值的领域：  Windows 支持（目前仅限 Linux 和 macOS） 辅助功能改进 其他会话管理功能 来自不同环境和工作流程的错误报告  技术堆栈包括 Electron、React 19、TypeScript、顺风和包子。代码库很简单，而且并不庞大 - 这是在大约 4 天的时间内构建的，因此没有需要费力研究的深刻遗留问题。 如果您使用 OpenCode 并希望获得更丰富的 UI，请看一下并让我知道您的想法。   由   提交/u/Substantial-Two-8132   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8yp73/opengui_mitlicensed_native_desktop_client_for/</guid>
-      <pubDate>Thu, 19 Feb 2026 13:05:40 GMT</pubDate>
-    </item>
-    <item>
       <title>我跟踪了 3,177 个 API 调用，以查看 4 个 AI 编码工具在上下文窗口中放入了什么内容</title>
       <link>https://www.reddit.com/r/programming/comments/1r8yh5h/i_traced_3177_api_calls_to_see_what_4_ai_coding/</link>
       <description><![CDATA[ 由   提交/u/wouldaouldashoulda  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r8yh5h/i_traced_3177_api_calls_to_see_what_4_ai_coding/</guid>
       <pubDate>Thu, 19 Feb 2026 12:55:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年 Java 性能仍然具有竞争优势吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8y4sy/is_java_performance_still_a_competitive_advantage/</link>
-      <description><![CDATA[对于运行 Spring Boot / JVM 服务的团队来说是一个严重的问题。 你：  主动优化延迟和 GC 调优吗？ 依赖 JVM 成熟度和“它足够快”吗？ 关心通过代码优化降低基础设施成本吗？  我看到一些混合信号，有人说优化是现在，其他人说它是金融科技和大规模 SaaS 的核心。 有一个观点是，在代理编写大部分代码的时代，它非常需要。 您在实际生产环境中的经验是什么？   由   提交/u/Zealousideal-Air930   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8y4sy/is_java_performance_still_a_competitive_advantage/</guid>
-      <pubDate>Thu, 19 Feb 2026 12:39:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们在 LiteLLM、LobeChat 和 Chatbot UI 上运行对抗性代码验证 — 总共发现 250 个错误</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8xbqs/we_ran_adversarial_code_verification_on_litellm/</link>
-      <description><![CDATA[ 由   提交/u/Scary_Ad_6988   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8xbqs/we_ran_adversarial_code_verification_on_litellm/</guid>
-      <pubDate>Thu, 19 Feb 2026 11:57:43 GMT</pubDate>
     </item>
     <item>
       <title>作为一名经验丰富的程序员，为什么我只使用网站构建器</title>
@@ -85,7 +85,7 @@
     <item>
       <title>编码代理表现最好的编程语言不是 Python、TypeScript 或 Java。它是函数式编程语言 Elixir。</title>
       <link>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</link>
-      <description><![CDATA[我自己也有这样的感觉。转向功能架构给我的代码库带来了最大的开发产品提升。 我的看法是 FP 及其模式强制执行： - 更有效地表示实际系统，减少意外复杂性 - 更清晰的人类/人工智能分工 - 取代不可靠纪律的结构护栏 为什么？  代币效率。一行 = 完美上下文  在 FP 中，函数签名告诉您输入类型、输出类型，而在强 FP 语言中，则告诉您副作用（单子！）。在 OOP 中，副作用是分散的，模型必须检索更多更分散的上下文。这就是模型的上下文膨胀和认知负载。  代理非常擅长映射模式  您可以将它们视为一个函数：`f(pattern_in, context,constraints) =&gt; pattern_out` 它们将训练数据压缩到世界模型中，然后在表示之间进行映射。所以从 English 到 Rust 是小菜一碟。对于新颖的架构而言并非如此。 因此，为了充分利用代理，我们的工作就变成了定义高级模式。在 FP 中，功能组合和类型签名就是模式。更容易区分架构和底层代码。  将杂质推向边缘  法学硕士将纯函数编写得非常好。它们很容易测试，并且完全由连续的文本定义。不纯函数的副作用更难测试。 在我的代码库中，纯函数和不纯函数被分成不同的文件夹。这样我就可以只关注高风险的变化：我仔细审查功能组合（架构）、边缘功能和测试用例摘要，忽略纯函数体。  FP 强制实施最佳实践  纯度是默认值，选择 INTO 副作用。不变性是默认的，选择 INTO 突变。 代理非常懒。他们会随心所欲地使用工具。 我为代理编写了一个 MCP 工具来创建图，它不断创建单个节点。因此，如果节点长度太长，我会阻止它，但如果它阅读说明并解释原因，则可以选择覆盖它。克劳德做了什么？它没有阅读说明，每次都会用合理的解释来覆盖。 当我删除覆盖功能时，我想要的行为被强制执行，但灵活性有所降低。 FP 理念。 我自己和法学硕士在 FP 方面都表现得更好。我不认为这与语言的细节有关，而是与它所鼓励的新兴架构有关。 很想听听在 FP 代码库中使用编码代理的工程师的意见。   由   提交/u/manummasson  [link] [评论]]]></description>
+      <description><![CDATA[我自己也有这样的感觉。转向功能架构给我的代码库带来了最大的开发产品提升。 我的看法是 FP 及其模式强制执行： - 更有效地表示实际系统，减少意外复杂性 - 更清晰的人类/人工智能分工 - 取代不可靠纪律的结构护栏 为什么？  代币效率。一行 = 完美上下文  在 FP 中，函数签名告诉您输入类型、输出类型，而在强 FP 语言中，则告诉您副作用（单子！）。在 OOP 中，副作用是分散的，模型必须检索更多更分散的上下文。这就是模型的上下文膨胀和认知负载。  代理非常擅长映射模式  您可以将它们视为一个函数：`f(pattern_in, context,constraints) =&gt; pattern_out` 它们将训练数据压缩到世界模型中，然后在表示之间进行映射。所以从 English 到 Rust 是小菜一碟。对于新颖的架构而言并非如此。 因此，为了充分利用代理，我们的工作就变成了定义高级模式。在 FP 中，功能组合和类型签名就是模式。更容易区分架构和底层代码。  将杂质推向边缘  法学硕士将纯函数编写得非常好。它们很容易测试，并且完全由连续的文本定义。不纯函数的副作用更难测试。 在我的代码库中，纯函数和不纯函数被分成不同的文件夹。这样我就可以只关注高风险的变化：我仔细审查功能组合（架构）、边缘功能和测试用例摘要，忽略纯函数体。  FP 强制实施最佳实践  纯度是默认值，选择 INTO 副作用。不变性是默认的，选择 INTO 突变。 代理非常懒。他们会随心所欲地使用工具。 我为代理编写了一个 MCP 工具来创建图，它不断创建单个节点。因此，如果节点长度太长，我会阻止它，但如果它阅读说明并解释原因，则可以选择覆盖它。克劳德做了什么？它没有阅读说明，每次都会用合理的解释来覆盖。 当我删除覆盖功能时，我想要的行为被强制执行，但灵活性有所降低。 FP 哲学。 我自己和法学硕士在 FP 方面都表现得更好。我不认为这与语言的细节有关，而是与它所鼓励的新兴架构有关。 很想听听在 FP 代码库中使用编码代理的工程师的意见。   由   提交/u/manummasson  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</guid>
       <pubDate>Thu, 19 Feb 2026 02:39:40 GMT</pubDate>
     </item>
