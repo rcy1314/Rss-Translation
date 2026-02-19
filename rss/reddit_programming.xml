@@ -4,7 +4,42 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 19 Feb 2026 02:37:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Feb 2026 04:57:26 GMT</lastBuildDate>
+    <item>
+      <title>保护 LLM 集成的 Web 应用程序：构建 AI 工具的经验教训</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8plyy/securing_llmintegrated_web_apps_lessons_from/</link>
+      <description><![CDATA[我最近构建并发布了一个人工智能驱动的 Web 应用程序，并很快意识到，当您向 LLM 进行 API 调用时，传统的 Web 安全性是不够的。每个请求都需要花钱，用户可以操纵模型参数，并且提示注入是一个真正的威胁。  我写下了我实现和学到的所有内容： 速率限制 - 不同端点的不同限制。聊天端点需要更严格的限制，因为每次通话都需要付费。  提示注入检测 - 针对常见攻击向量的基于模式的检测（例如，“忽略先前的指令”）。虽然不是万无一失，但很重要。  服务器端参数验证 — 最重要的。我的应用程序最初在客户端将 max_tokens 设置为 100,000。任何人都可以修改它。现在一切都在服务器端进行了验证和限制。  身份验证 - 从客户端密码检查（是的，我知道）转移到使用仅 HTTP cookie、会话令牌和暴力保护的服务器端身份验证。  安全标头和安全标头CSP - 通常的嫌疑人，但考虑到特定于 AI 的考虑因素，例如将 connect-src 限制为仅限您的 LLM API 提供商。  带有代码示例的完整文章：https://medium.com/@jabrsalm449/securing-ai-powered-applications-a-compressive-guide-to-protecting-your-llm-integrated-web-app-dcf8d7963e78  很高兴回答有关任何实现的问题。您在人工智能集成方面遇到了哪些安全挑战？   由   提交/u/Own_Towel_7015   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8plyy/securing_llmintegrated_web_apps_lessons_from/</guid>
+      <pubDate>Thu, 19 Feb 2026 04:28:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>C++26 的实用反思 - Barry Revzin - CppCon 2025</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8pihz/practical_reflection_with_c26_barry_revzin_cppcon/</link>
+      <description><![CDATA[ 由   提交/u/BlueGoliath  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8pihz/practical_reflection_with_c26_barry_revzin_cppcon/</guid>
+      <pubDate>Thu, 19 Feb 2026 04:23:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>Octave 终端模式下的 2d FFT 演示视频。</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8palq/2d_fft_demo_video_in_octave_terminal_mode/</link>
+      <description><![CDATA[ 由   提交/u/MeasurementDull7350  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8palq/2d_fft_demo_video_in_octave_terminal_mode/</guid>
+      <pubDate>Thu, 19 Feb 2026 04:12:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>毒泉：一种反人工智能武器</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8oxt9/poison_fountain_an_antiai_weapon/</link>
+      <description><![CDATA[除了法学硕士的输出之外，你不会阅读。 除了法学硕士的提示之外，你不会写作。当机器可以为你编写代码或散文时，为什么还要编写代码或散文？ 你不会思考、分析或理解。法学硕士会做到这一点。 这是你人性的终结。最终，我们物种的终结。 目前，毒药喷泉（一种反 AI 武器，请参阅 https://news.ycombinator.com/item?id=46926439）向网络爬虫提供 2 GB 的高质量毒药（免费生成，检测昂贵）  我们的目标是到 2026 年 12 月每天产生 1 TB 的毒药。 加入我们，或者更好：建造和部署您自己设计的武器。   由   提交/u/RNSAFFN   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8oxt9/poison_fountain_an_antiai_weapon/</guid>
+      <pubDate>Thu, 19 Feb 2026 03:55:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>编码代理表现最好的编程语言不是 Python、TypeScript 或 Java。它是函数式编程语言 Elixir。</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</link>
+      <description><![CDATA[我自己也有这样的感觉。转向功能架构给我的代码库带来了最大的开发产品提升。 我的看法是 FP 及其模式强制执行： - 更有效地表示实际系统，减少意外复杂性 - 更清晰的人类/人工智能分工 - 取代不可靠纪律的结构护栏 为什么？  代币效率。一行 = 完美上下文  在 FP 中，函数签名告诉您输入类型、输出类型，而在强 FP 语言中，则告诉您副作用（单子！）。在 OOP 中，副作用是分散的，模型必须检索更多更分散的上下文。这就是模型的上下文膨胀和认知负载。  代理非常擅长映射模式  您可以将它们视为一个函数：`f(pattern_in, context,constraints) =&gt; pattern_out` 它们将训练数据压缩到世界模型中，然后在表示之间进行映射。所以从 English 到 Rust 是小菜一碟。对于新颖的架构而言并非如此。 因此，为了充分利用代理，我们的工作就变成了定义高级模式。在 FP 中，功能组合和类型签名就是模式。更容易区分架构和底层代码。  将杂质推向边缘  法学硕士将纯函数编写得非常好。它们很容易测试，并且完全由连续的文本定义。不纯函数的副作用更难测试。 在我的代码库中，纯函数和不纯函数被分成不同的文件夹。这样我就可以只关注高风险的变化：我仔细审查功能组合（架构）、边缘功能和测试用例摘要，忽略纯函数体。  FP 强制实施最佳实践  纯度是默认值，选择 INTO 副作用。不变性是默认的，选择 INTO 突变。 代理非常懒。他们会随心所欲地使用工具。 我为代理编写了一个 MCP 工具来创建图，它不断创建单个节点。因此，如果节点长度太长，我会阻止它，但如果它阅读说明并解释原因，则可以选择覆盖它。克劳德做了什么？它没有阅读说明，每次都会用合理的解释来覆盖。 当我删除覆盖功能时，我想要的行为被强制执行，但灵活性有所降低。 FP 哲学。 我自己和法学硕士在 FP 方面都表现得更好。我不认为这与语言的细节有关，而是与它所鼓励的新兴架构有关。 很想听听在 FP 代码库中使用编码代理的工程师的意见。   由   提交/u/manummasson  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</guid>
+      <pubDate>Thu, 19 Feb 2026 02:39:40 GMT</pubDate>
+    </item>
     <item>
       <title>迈克尔·弗林的口述历史</title>
       <link>https://www.reddit.com/r/programming/comments/1r8i768/oral_history_of_michael_j_flynn/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[该论文上周还发表在《Oxford Journal of International Law and IT》上。作者提出并分析了一个新的 Copyleft 许可证，该许可证基本上是 AGPLv3 + 一个条款，该条款将许可证病毒性扩展到训练数据集、代码和模型，与OSI 采用的开源 AI 定义保持一致。基本上，这里的预期含义是，根据该许可证授权的代码只能在人工智能实验室向所有用户提供的条件下用于训练模型：训练集的描述、用于训练模型的代码以及训练后的模型本身。  它有 19 页，但很容易阅读，其中对美国和欧盟的相关版权和监管环境进行了一些非常相关的讨论，并且拟议的许可证本身可以预览 [A]GPLv4 未来的样子。   由   提交 /u/cockdewine   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r7h52q/the_case_for_contextual_copyleft_licensing_open/</guid>
       <pubDate>Tue, 17 Feb 2026 20:07:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>WebSocket：以正确的方式构建实时应用程序 (Golang)</title>
-      <link>https://www.reddit.com/r/programming/comments/1r7gw3i/websocket_build_realtime_apps_the_right_way_golang/</link>
-      <description><![CDATA[ 由   提交/u/huseyinbabal  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r7gw3i/websocket_build_realtime_apps_the_right_way_golang/</guid>
-      <pubDate>Tue, 17 Feb 2026 19:58:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pytorch 现在使用 Pyrefly 进行类型检查</title>
-      <link>https://www.reddit.com/r/programming/comments/1r777dn/pytorch_now_uses_pyrefly_for_type_checking/</link>
-      <description><![CDATA[来自 Pytorch 官方博客：  我们很高兴与大家分享，PyTorch 现在利用 Pyrefly 来支持我们的核心存储库以及 PyTorch 生态系统中的许多项目的类型检查：Helion、TorchTitan 和 Ignite。对于 PyTorch 规模的项目，利用类型和类型检查长期以来对于确保一致性和防止动态代码中经常被忽视的常见错误至关重要。 迁移到 Pyrefly 为这些开发工作流程带来了急需的升级，提供了闪电般快速、符合标准的类型检查和现代 IDE 体验。借助 Pyrefly，我们的维护人员和贡献者可以更早地发现错误，从本地运行和 CI 运行之间的一致结果中受益，并利用高级打字功能。在这篇博文中，我们将分享我们进行这一转变的原因，并重点介绍 PyTorch 自采用 Pyrefly 以来所经历的改进。  完整博文：https://pytorch.org/blog/pyrefly-now-type-checks-pytorch/   由   提交/u/BeamMeUpBiscotti   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r777dn/pytorch_now_uses_pyrefly_for_type_checking/</guid>
-      <pubDate>Tue, 17 Feb 2026 14:18:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>Servo 项目及其对 Web 平台生态系统的影响</title>
-      <link>https://www.reddit.com/r/programming/comments/1r772gl/the_servo_project_and_its_impact_on_the_web/</link>
-      <description><![CDATA[ 由   提交/u/fpcoder  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r772gl/the_servo_project_and_its_impact_on_the_web/</guid>
-      <pubDate>Tue, 17 Feb 2026 14:12:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>静态分析器开发人员介绍如何用 C++ 构建您自己的编程语言的网络研讨会</title>
-      <link>https://www.reddit.com/r/programming/comments/1r76yj2/webinar_on_how_to_build_your_own_programming/</link>
-      <description><![CDATA[PVS-Studio 举办了一系列关于如何使用 C++ 构建您自己的编程语言的网络研讨会。在第一场会议中，PVS-Studio 将回顾“黑匣子”内部的内容。他们将用清晰明了的术语解释什么是词法分析器、解析器、语义分析器和评估器。 PVS-Studio 的 C++ 架构师 Yuri Minaev 将讨论这些组件是什么、为什么需要它们以及它们如何工作。欢迎加入   由   提交/u/Xadartt  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r76yj2/webinar_on_how_to_build_your_own_programming/</guid>
-      <pubDate>Tue, 17 Feb 2026 14:08:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>FP 中的 SOLID：单一职责，或者纯函数如何解决它 · cekrem.github.io</title>
-      <link>https://www.reddit.com/r/programming/comments/1r75tvu/solid_in_fp_single_responsibility_or_how_pure/</link>
-      <description><![CDATA[ 由   提交 /u/cekrem   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r75tvu/solid_in_fp_single_responsibility_or_how_pure/</guid>
-      <pubDate>Tue, 17 Feb 2026 13:20:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
