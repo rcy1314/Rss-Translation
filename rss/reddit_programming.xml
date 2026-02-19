@@ -4,20 +4,13 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 19 Feb 2026 07:06:52 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Feb 2026 09:55:44 GMT</lastBuildDate>
     <item>
-      <title>XLogger – 基于浏览器的 Android 日志查看器：正则表达式过滤器、语法突出显示、AI 分析。所有处理都在本地运行，日志永远不会离开您的设备</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8rd6d/xlogger_browserbased_android_log_viewer_regex/</link>
-      <description><![CDATA[嘿 r/programming， **XLogger** – 完全在浏览器中运行的基于 Web 的 Android 日志查看器。无需安装应用程序，无需服务器上传。一切（解析、过滤，甚至人工智能分析）都发生在本地。 **为什么：** - 厌倦了 adb logcat、grep 和文本编辑器 - 想要一些可以在任何设备（桌面 + 移动）上运行的东西 - 需要保持日志的私密性 - 不向第三方发送敏感数据 **它的作用：** - **正则表达式和正则表达式关键字过滤** – 多行关键字、排除、区分大小写/整个单词 - **时间范围** – 按开始/结束时间或“最后 N 分钟”过滤 - **日志级别** – 一键单击 V/D/I/W/E - **PID/TID 过滤器** – 缩小到特定进程/线程 - **存档支持** – 删除 .zip / .tgz / .tar.gz，它流式提取并查找日志文件 - **规则** – 保存常用标签/关键字并一键应用 - **上下文视图** – 单击过滤后的行以查看其在原始日志中的上下文 - **可选人工智能分析** – 使用人工智能分析过滤后的日志（需要后端配置） **隐私：** - 所有解析和过滤在浏览器中运行 - 日志存储在 IndexedDB 中（仅限本地） - 除非明确使用 AI 分析，否则不会上传服务器 **尝试一下：** https://xlogger.cn 适用于桌面和移动设备。欢迎反馈。   由   提交/u/hodl2035  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8rd6d/xlogger_browserbased_android_log_viewer_regex/</guid>
-      <pubDate>Thu, 19 Feb 2026 06:01:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>保护 LLM 集成的 Web 应用程序：构建 AI 工具的经验教训</title>
-      <link>https://www.reddit.com/r/programming/comments/1r8plyy/securing_llmintegrated_web_apps_lessons_from/</link>
-      <description><![CDATA[我最近构建并发布了一个人工智能驱动的 Web 应用程序，并很快意识到，当您向 LLM 进行 API 调用时，传统的 Web 安全性是不够的。每个请求都需要花钱，用户可以操纵模型参数，并且提示注入是一个真正的威胁。  我写下了我实现和学到的所有内容： 速率限制 - 不同端点的不同限制。聊天端点需要更严格的限制，因为每次通话都需要付费。  提示注入检测 - 针对常见攻击向量的基于模式的检测（例如，“忽略先前的指令”）。虽然不是万无一失，但很重要。  服务器端参数验证 — 最重要的。我的应用程序最初在客户端将 max_tokens 设置为 100,000。任何人都可以修改它。现在一切都在服务器端进行了验证和限制。  身份验证 - 从客户端密码检查（是的，我知道）转移到使用仅 HTTP cookie、会话令牌和暴力保护的服务器端身份验证。  安全标头和安全标头CSP - 通常的嫌疑人，但考虑到特定于 AI 的考虑因素，例如将 connect-src 限制为仅限您的 LLM API 提供商。  带有代码示例的完整文章：https://medium.com/@jabrsalm449/securing-ai-powered-applications-a-compressive-guide-to-protecting-your-llm-integrated-web-app-dcf8d7963e78  很高兴回答有关任何实现的问题。您在人工智能集成方面遇到了哪些安全挑战？   由   提交/u/Own_Towel_7015   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1r8plyy/securing_llmintegrated_web_apps_lessons_from/</guid>
-      <pubDate>Thu, 19 Feb 2026 04:28:16 GMT</pubDate>
+      <title>人工智能、熵和现代软件中的融合错觉</title>
+      <link>https://www.reddit.com/r/programming/comments/1r8u5kq/ai_entropy_and_the_illusion_of_convergence_in/</link>
+      <description><![CDATA[大家好！ 我最近刚刚开始写博客，上周我终于发表了我的第一篇较长的技术博客文章：它是关于熵、发散与收敛，以及为什么测试不仅仅是验证 - 它们是收敛机制。 tldr; -----人工智能工具极大地降低了分歧的成本：探索、变化以及快速生成代码和测试。 在健康的系统中，分歧之后必须是收敛，即刻意将可能性分解为定义必须保持真实的契约。以这种方式重新构建的测试不仅仅是检查，而且是收敛机制：它们对系统将随着时间的推移积极捍卫的承诺进行编码。 当分歧变得几乎无摩擦而收敛却不能时，系统扩展的速度比人类收敛它们的速度快。结果呢？测试反映偶然的实现细节，而不是编码稳定的意图。他们没有逆转熵，而是通过将系统委托给那些本来就不应该稳定的事物来放大熵。 ----- 如果您有兴趣，请阅读它，我将不胜感激。如果没有，也许让我知道我可以做得更好！ 感谢任何反馈，并乐意参与讨论:)   由   提交/u/TranslatorRude4917   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r8u5kq/ai_entropy_and_the_illusion_of_convergence_in/</guid>
+      <pubDate>Thu, 19 Feb 2026 08:49:51 GMT</pubDate>
     </item>
     <item>
       <title>C++26 的实用反思 - Barry Revzin - CppCon 2025</title>
@@ -43,7 +36,7 @@
     <item>
       <title>编码代理表现最好的编程语言不是 Python、TypeScript 或 Java。它是函数式编程语言 Elixir。</title>
       <link>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</link>
-      <description><![CDATA[我自己也有这样的感觉。转向功能架构给我的代码库带来了最大的开发产品提升。 我的看法是 FP 及其模式强制执行： - 更有效地表示实际系统，减少意外复杂性 - 更清晰的人类/人工智能分工 - 取代不可靠纪律的结构护栏 为什么？  代币效率。一行 = 完美上下文  在 FP 中，函数签名告诉您输入类型、输出类型，而在强 FP 语言中，则告诉您副作用（单子！）。在 OOP 中，副作用是分散的，模型必须检索更多更分散的上下文。这就是模型的上下文膨胀和认知负载。  代理非常擅长映射模式  您可以将它们视为一个函数：`f(pattern_in, context,constraints) =&gt; pattern_out` 它们将训练数据压缩到世界模型中，然后在表示之间进行映射。所以从 English 到 Rust 是小菜一碟。对于新颖的架构而言并非如此。 因此，为了充分利用代理，我们的工作就变成了定义高级模式。在 FP 中，功能组合和类型签名就是模式。更容易区分架构和底层代码。  将杂质推向边缘  法学硕士将纯函数编写得非常好。它们很容易测试，并且完全由连续的文本定义。不纯函数的副作用更难测试。 在我的代码库中，纯函数和不纯函数被分成不同的文件夹。这样我就可以只关注高风险的变化：我仔细审查功能组合（架构）、边缘功能和测试用例摘要，忽略纯函数体。  FP 强制实施最佳实践  纯度是默认值，选择 INTO 副作用。不变性是默认的，选择 INTO 突变。 代理非常懒。他们会随心所欲地使用工具。 我为代理编写了一个 MCP 工具来创建图，它不断创建单个节点。因此，如果节点长度太长，我会阻止它，但如果它阅读说明并解释原因，则可以选择覆盖它。克劳德做了什么？它没有阅读说明，每次都会用合理的解释来覆盖。 当我删除覆盖功能时，我想要的行为被强制执行，但灵活性有所降低。 FP 哲学。 我自己和法学硕士在 FP 方面都表现得更好。我不认为这与语言的细节有关，而是与它所鼓励的新兴架构有关。 很想听听在 FP 代码库中使用编码代理的工程师的意见。   由   提交/u/manummasson  [link] [评论]]]></description>
+      <description><![CDATA[我自己也有这样的感觉。转向功能架构给我的代码库带来了最大的开发产品提升。 我的看法是 FP 及其模式强制执行： - 更有效地表示实际系统，减少意外复杂性 - 更清晰的人类/人工智能分工 - 取代不可靠纪律的结构护栏 为什么？  代币效率。一行 = 完美上下文  在 FP 中，函数签名告诉您输入类型、输出类型，而在强 FP 语言中，则告诉您副作用（单子！）。在 OOP 中，副作用是分散的，模型必须检索更多更分散的上下文。这就是模型的上下文膨胀和认知负载。  代理非常擅长映射模式  您可以将它们视为一个函数：`f(pattern_in, context,constraints) =&gt; pattern_out` 它们将训练数据压缩到世界模型中，然后在表示之间进行映射。所以从 English 到 Rust 是小菜一碟。对于新颖的架构而言并非如此。 因此，为了充分利用代理，我们的工作就变成了定义高级模式。在 FP 中，功能组合和类型签名就是模式。更容易区分架构和底层代码。  将杂质推向边缘  法学硕士将纯函数编写得非常好。它们很容易测试，并且完全由连续的文本定义。不纯函数的副作用更难测试。 在我的代码库中，纯函数和不纯函数被分成不同的文件夹。这样我就可以只关注高风险的变化：我仔细审查功能组合（架构）、边缘功能和测试用例摘要，忽略纯函数体。  FP 强制实施最佳实践  纯度是默认值，选择 INTO 副作用。不变性是默认的，选择 INTO 突变。 代理非常懒。他们会随心所欲地使用工具。 我为代理编写了一个 MCP 工具来创建图，它不断创建单个节点。因此，如果节点长度太长，我会阻止它，但如果它阅读说明并解释原因，则可以选择覆盖它。克劳德做了什么？它没有阅读说明，每次都会用合理的解释来覆盖。 当我删除覆盖功能时，我想要的行为被强制执行，但灵活性有所降低。 FP 理念。 我自己和法学硕士在 FP 方面都表现得更好。我不认为这与语言的细节有关，而是与它所鼓励的新兴架构有关。 很想听听在 FP 代码库中使用编码代理的工程师的意见。   由   提交/u/manummasson  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r8nbtz/the_programming_language_coding_agents_perform/</guid>
       <pubDate>Thu, 19 Feb 2026 02:39:40 GMT</pubDate>
     </item>
@@ -109,6 +102,13 @@
       <description><![CDATA[ 由   提交/u/BlueGoliath  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1r7moxx/opensource_game_engine_godot_is_drowning_in_ai/</guid>
       <pubDate>Tue, 17 Feb 2026 23:38:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>上下文 Copyleft 案例：许可开源训练数据和生成人工智能</title>
+      <link>https://www.reddit.com/r/programming/comments/1r7h52q/the_case_for_contextual_copyleft_licensing_open/</link>
+      <description><![CDATA[该论文上周还发表在《Oxford Journal of International Law and IT》上。作者提出并分析了一个新的 Copyleft 许可证，该许可证基本上是 AGPLv3 + 一个条款，该条款将许可证病毒性扩展到训练数据集、代码和模型，与OSI 采用的开源 AI 定义保持一致。基本上，这里的预期含义是，根据该许可证授权的代码只能在人工智能实验室向所有用户提供的条件下用于训练模型：训练集的描述、用于训练模型的代码以及训练后的模型本身。  它有 19 页，但很容易阅读，其中对美国和欧盟的相关版权和监管环境进行了一些非常相关的讨论，并且拟议的许可证本身可以预览 [A]GPLv4 未来的样子。   由   提交 /u/cockdewine   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1r7h52q/the_case_for_contextual_copyleft_licensing_open/</guid>
+      <pubDate>Tue, 17 Feb 2026 20:07:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
