@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 21 Feb 2026 02:25:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 04:41:26 GMT</lastBuildDate>
+    <item>
+      <title>了解数据库如何在磁盘上存储数据</title>
+      <link>https://www.reddit.com/r/programming/comments/1ragzl5/understanding_how_databases_store_data_on_the_disk/</link>
+      <description><![CDATA[ 由   提交/u/Comfortable-Fan-580   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ragzl5/understanding_how_databases_store_data_on_the_disk/</guid>
+      <pubDate>Sat, 21 Feb 2026 03:55:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我用 Rust 构建了一个 LLM 网关，因为我厌倦了 API 失败</title>
+      <link>https://www.reddit.com/r/programming/comments/1ragk3f/i_built_an_llm_gateway_in_rust_because_i_was/</link>
+      <description><![CDATA[我在生产中不断遇到与 LLM 相同的问题： - OpenAI 宕机 → 我的应用程序崩溃了 - 我使用昂贵的模型来完成简单的任务 - 无法了解我的花费 - PII 泄漏到外部 API 因此我构建了 Sentinel - 一个开源网关，可以处理所有 它的作用： - 自动故障转移（OpenAI 关闭？切换到 Anthropic） - 成本跟踪（准确查看您的支出） - PII 编辑（在敏感数据离开网络之前将其删除） - 智能缓存（在重复查询时节省费用） - 与 OpenAI 兼容的 API（只需更改您的基本 URL） 技术： - 内置 Rust 以提高性能 - 亚毫秒级开销 - 支持 9 个 LLM 提供程序 - 用于日志记录的 SQLite，用于缓存的 DashMap GitHub：https://github.com/fbk2111/Sentinel 我正在寻找： - 对架构的反馈 - 错误报告（如果您尝试一下） - 对缺失内容的想法 为我自己构建这个，但认为其他人可能也有相同的痛点。   由   提交/u/SchemeVivid4175   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1ragk3f/i_built_an_llm_gateway_in_rust_because_i_was/</guid>
+      <pubDate>Sat, 21 Feb 2026 03:33:40 GMT</pubDate>
+    </item>
     <item>
       <title>在终端中渲染动画</title>
       <link>https://www.reddit.com/r/programming/comments/1rabynp/rendering_animations_in_your_terminal/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交/u/huseyinbabal  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1raa5al/graphql_you_dont_have_to_like_it_but_you_should/</guid>
       <pubDate>Fri, 20 Feb 2026 22:48:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>贪吃蛇游戏，但每一帧都是一个 C 程序，编译成贪吃蛇游戏，其中每一帧都是一个 C 程序......</title>
-      <link>https://www.reddit.com/r/programming/comments/1ra9p5k/snake_game_but_every_frame_is_a_c_program/</link>
-      <description><![CDATA[GitHub 上的源代码 这个项目演示了一个称为 quine 的概念，或“自我复制程序”。 我面临的主要问题，我猜任何人在制作这样的程序时都会面临的问题是，你所做的每一次打印都必须自己打印，因此乍一看，您可能会认为代码大小必须是无限的。  允许它工作的主要技巧滥用了这样一个事实：当字符串被传递到格式化函数时，只有当它们作为第一个参数传递时才会被格式化，而不是通过 %s 传递时，因此格式化“...%s”会被格式化。字符串输入为“...”将为您提供字符串的格式化版本和未格式化版本。 因此，如果您想要一个包含 “a” 的字符串，您可以执行 char *f=“a”; ，然后执行 sprintf(buffer, f)，这是显而易见的，但是，扩展我们描述的逻辑，您可以得到 “char *f=\”achar通过定义 char *f=&quot;a%s&quot;; 并使用 sprintf(buffer, f, f) 将 *f=\\\&quot;a%s\\\&quot;\&quot;&quot;&quot; 写入缓冲区，并且您可以使用任何格式化函数，而不仅仅是 sprintf。 我遇到的另一个问题是，当我想要从 Windows 运行程序时，我必须将 main格式化的字符串更长，这是我不想要的，所以我使用的技巧是让第一个程序作为一种“生成器”运行，与其余程序不同。 我为此想到的另一个小技巧是定义 #define X(...) #__VA_ARGS__、#define S(x) X(x)，它们与我定义的特定于平台的宏一起帮助使主要格式化适合其预处理平台的字符串。 由于使用生成器，可以在运行时生成任何内容，因此我们不需要定义编译器在编译时执行的操作，例如我们可以让游戏的行和列在生成器运行时计算，使 C 代码更优雅，更重要的是更容易重构和更改。 剩下的就是一些基本的 I/O 技巧，你可以自己在代码中阅读，因为这样在我看来比不阅读代码更容易理解。   由   提交/u/Perfect-Highlight964  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ra9p5k/snake_game_but_every_frame_is_a_c_program/</guid>
-      <pubDate>Fri, 20 Feb 2026 22:30:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>不要进行 N+1 查询，因为您忘记了原始查询中的列</title>
-      <link>https://www.reddit.com/r/programming/comments/1ra3gdz/dont_make_n1_queries_because_you_forgot_a_column/</link>
-      <description><![CDATA[ 由   提交 /u/natanasrat   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ra3gdz/dont_make_n1_queries_because_you_forgot_a_column/</guid>
-      <pubDate>Fri, 20 Feb 2026 18:33:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
