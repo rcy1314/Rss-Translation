@@ -4,20 +4,41 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 22 Feb 2026 06:56:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 09:38:08 GMT</lastBuildDate>
+    <item>
+      <title>你没有被抛在后面</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbhfvz/you_are_not_left_behind/</link>
+      <description><![CDATA[在当前法学硕士和法学硕士的背景下，对新软件开发工具不断发展成熟的看法很好。  结论：在决定更广泛采用和推广之前，等待并让工具真正成熟（如果会的话，情况并不总是如此）通常是更明智的做法。大量的时间和精力投入。   由   提交/u/BinaryIgor  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbhfvz/you_are_not_left_behind/</guid>
+      <pubDate>Sun, 22 Feb 2026 09:22:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Linux 7.0 为 Rust 1.95 做准备</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbgk2f/linux_70_makes_preparations_for_rust_195/</link>
+      <description><![CDATA[ 由   提交/u/BlueGoliath  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbgk2f/linux_70_makes_preparations_for_rust_195/</guid>
+      <pubDate>Sun, 22 Feb 2026 08:28:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>终端实际上​​如何运行程序。</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbg158/how_a_terminal_actually_runs_programs/</link>
+      <description><![CDATA[ 由   提交/u/Sushant098123  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbg158/how_a_terminal_actually_runs_programs/</guid>
+      <pubDate>Sun, 22 Feb 2026 07:57:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我为 1 个用户（我）构建了一个具有端到端加密的企业级应用程序 - 然后意识到移动优先消除了整个问题</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbfz5b/i_built_an_enterprisegrade_app_with_e2e/</link>
+      <description><![CDATA[我是一名后端/基础设施工程师，多年来我一直以构建生产系统的方式构建个人工具。上周，我构建了一个预算跟踪器，其中包括端到端加密、DDD 架构、完整单元和 E2E 测试、通过 GitHub Actions、Postgres、Hetzner 托管、监控进行的 CI/CD... 然后在 Docker 构建过程中我愣住了：为什么我需要企业基础设施来构建一个仅我使用的应用程序？ 简单的个人应用程序的非功能性要求是疯狂的：安全性、身份验证、监控、CI/CD、服务器管理、数据库管理。功能（实际价值）受到的关注最少。 因此，我使用 Claude Code 将所有内容迁移到 iOS 移动应用程序。现在：SQLite 代替 Postgres，FaceID 代替自定义身份验证，无需破解服务器，无需管理基础设施。 100% 专注于功能。 更重要的是——自 2018 年 Android 以来我就没有做过移动开发，也不了解 Swift。无论如何，Vibe 编码使之成为可能。 包含图表和详细信息的博客文章：https://www.vitaliihonchar.com/insights/what-changed-in-the-personal-application-development-in-the-vibe-coding-era 还有其他人发现自己出于职业习惯而过度设计个人项目吗？   由   提交 /u/Historical_Wing_9573   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbfz5b/i_built_an_enterprisegrade_app_with_e2e/</guid>
+      <pubDate>Sun, 22 Feb 2026 07:53:54 GMT</pubDate>
+    </item>
     <item>
       <title>技术事后剖析：将加密验证直接嵌入到 Rust 编译器管道中的架构摩擦</title>
       <link>https://www.reddit.com/r/programming/comments/1rbe7fr/technical_postmortem_the_architectural_friction/</link>
       <description><![CDATA[我刚刚花了两周时间从头开始编写一个编译器（Ark-Lang，Rust 中的 ~21k LOC），我想写一篇关于我遇到的最困难的架构摩擦点的文章：将 SOC-2 级加密验证直接嵌入到 AST 解析阶段。 通常，编译器是黑匣子。你给他们提供源代码，他们会吐出字节码或 WASM。我希望编译器能够在物理上证明它在没有外部 linter 的情况下完成了工作。  工程挑战： 我必须构建一个 5 阶段管道，其中 AST 实际上在 Lexer/Parser 完成后立即进行 Merkle 哈希处理。   词法分析/解析 AST Merkle-root 哈希 线性类型检查（跟踪资源消耗以防止双花） Codegen（针对自定义堆栈虚拟机和本机 WASM） 生成 HMAC 签名ProofBundle。  这里的绝对噩梦是保持线性类型检查器与 WASM 内存偏移同步，同时确保 AST 哈希在优化过程中不会发生变化。我基本上必须冻结 AST 状态，对其进行哈希处理，然后将不可变的引用传递给线性检查器（“checker.rs”）。  凌晨 4 点手动编写 WASM 代码生成器可能是一个错误，但现在可以干净地编译了。  还有其他人尝试过在编译器级别生成加密收据吗？好奇其他人如何在多遍优化期间处理 AST 冻结。    由   提交/u/AbrocomaAny8436  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rbe7fr/technical_postmortem_the_architectural_friction/</guid>
       <pubDate>Sun, 22 Feb 2026 06:10:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>经过一年的日常使用 Cursor、Claude Code、Antigravity 和 Copilot，我认为人工智能工具让很多开发人员变得更慢，而不是更快。原因如下。</title>
-      <link>https://www.reddit.com/r/programming/comments/1rbdl1k/after_a_year_of_using_cursor_claude_code/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rbdl1k/after_a_year_of_using_cursor_claude_code/</guid>
-      <pubDate>Sun, 22 Feb 2026 05:36:06 GMT</pubDate>
     </item>
     <item>
       <title>亲爱的人工智能，不错的尝试。现在我们来谈谈生产。</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交 /u/matklad   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rato8d/index_count_offset_size/</guid>
       <pubDate>Sat, 21 Feb 2026 15:19:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程的未来是 SRE</title>
-      <link>https://www.reddit.com/r/programming/comments/1ranlug/the_future_of_software_engineering_is_sre/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ranlug/the_future_of_software_engineering_is_sre/</guid>
-      <pubDate>Sat, 21 Feb 2026 10:10:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>不要在不使用distinct=True 的情况下错误地评估涉及连接的多个计数。</title>
-      <link>https://www.reddit.com/r/programming/comments/1ramrtr/dont_make_the_mistake_of_evaluating_multiple/</link>
-      <description><![CDATA[拜托，Django 开发者！！不要在不使用distinct=True的情况下评估涉及连接的多个计数。如果您在单个查询中计算一本书的作者和商店（2个作者和3个商店），Django会报告6个作者和6个商店，而不是2个和6个商店。 3!!   由   提交 /u/natanasrat   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ramrtr/dont_make_the_mistake_of_evaluating_multiple/</guid>
-      <pubDate>Sat, 21 Feb 2026 09:20:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>Claude Code 创始人：“编码是解决问题的”</title>
-      <link>https://www.reddit.com/r/programming/comments/1rakdst/creator_of_claude_code_coding_is_solved/</link>
-      <description><![CDATA[Boris Cherny 是 Claude Code（用 React 编写的 cli 代理。这不是玩笑）的创建者，并负责以下具有超过 5k 问题的存储库： https://github.com/anthropics/claude-code/issues 既然编码已经解决，我想知道为什么他们不只是使用 Claude Code 来调查并解决 Claude Code 存储库中出现的所有问题吗？哎呀，我想知道如果编码解决了，为什么还会出现任何问题？谁或是什么制造了所有新的错误，小妖精？   由   提交/u/Gil_berth  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rakdst/creator_of_claude_code_coding_is_solved/</guid>
-      <pubDate>Sat, 21 Feb 2026 06:55:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
