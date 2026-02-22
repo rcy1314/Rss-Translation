@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 22 Feb 2026 04:53:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 06:56:16 GMT</lastBuildDate>
+    <item>
+      <title>技术事后剖析：将加密验证直接嵌入到 Rust 编译器管道中的架构摩擦</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbe7fr/technical_postmortem_the_architectural_friction/</link>
+      <description><![CDATA[我刚刚花了两周时间从头开始编写一个编译器（Ark-Lang，Rust 中的 ~21k LOC），我想写一篇关于我遇到的最困难的架构摩擦点的文章：将 SOC-2 级加密验证直接嵌入到 AST 解析阶段。 通常，编译器是黑匣子。你给他们提供源代码，他们会吐出字节码或 WASM。我希望编译器能够在物理上证明它在没有外部 linter 的情况下完成了工作。  工程挑战： 我必须构建一个 5 阶段管道，其中 AST 实际上在 Lexer/Parser 完成后立即进行 Merkle 哈希处理。   词法分析/解析 AST Merkle-root 哈希 线性类型检查（跟踪资源消耗以防止双花） Codegen（针对自定义堆栈虚拟机和本机 WASM） 生成 HMAC 签名ProofBundle。  这里的绝对噩梦是保持线性类型检查器与 WASM 内存偏移同步，同时确保 AST 哈希在优化过程中不会发生变化。我基本上必须冻结 AST 状态，对其进行哈希处理，然后将不可变的引用传递给线性检查器（“checker.rs”）。  凌晨 4 点手动编写 WASM 代码生成器可能是一个错误，但现在可以干净地编译了。  还有其他人尝试过在编译器级别生成加密收据吗？好奇其他人如何在多遍优化期间处理 AST 冻结。    由   提交/u/AbrocomaAny8436  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbe7fr/technical_postmortem_the_architectural_friction/</guid>
+      <pubDate>Sun, 22 Feb 2026 06:10:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>经过一年的日常使用 Cursor、Claude Code、Antigravity 和 Copilot，我认为人工智能工具让很多开发人员变得更慢，而不是更快。原因如下。</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbdl1k/after_a_year_of_using_cursor_claude_code/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbdl1k/after_a_year_of_using_cursor_claude_code/</guid>
+      <pubDate>Sun, 22 Feb 2026 05:36:06 GMT</pubDate>
+    </item>
     <item>
       <title>亲爱的人工智能，不错的尝试。现在我们来谈谈生产。</title>
       <link>https://www.reddit.com/r/programming/comments/1rbc23l/nice_try_dear_ai_now_lets_talk_about_production/</link>
@@ -15,7 +29,7 @@
     <item>
       <title>零 GC 和 78M 样本/秒：将 Node.js 22 推向有状态 DSP 的极限</title>
       <link>https://www.reddit.com/r/programming/comments/1rbbvh2/zerogc_and_78m_samplessec_pushing_nodejs_22_to/</link>
-      <description><![CDATA[我一直在对 Node.js (dspx) 的硬件感知信号处理库进行基准测试，发现使用正确的架构，您可以有效地绕过 V8 垃圾收集器。通过实施零复制管道，我成功地在 AWS Lambda（1769MB RAM）上的单个 vCPU 上实现了每秒 7800 万个样本。更有趣的是内存配置文件：在输入大小介于 24 和 220 之间时，系统显示零或负堆增长，从而导致确定性 p99 延迟即使在重负载下也能保持平稳。 我还专注于微秒级状态序列化，以使有状态函数（如卡尔曼滤波器）在 Lambda 等临时运行时上可行。部署大小仅为 1.3MB，使冷启动时间始终保持在 170 毫秒到 240 毫秒之间。它包括从 MFCC 和 Mel-Spectrograms 到自适应滤波器和 ICA/PCA 转换的完整工具包。 默认情况下，它在 C++ 和 JavaScript 端都是单线程的，因此用户可以使用工作线程、原子和 SharedArrayBuffers 在 JavaScript 中对其进行多线程处理。 基准存储库：https://github.com/A-KGeorge/dspx   由   提交/u/sarcasm4052  [链接] [评论]]]></description>
+      <description><![CDATA[我一直在对 Node.js (dspx) 的硬件感知信号处理库进行基准测试，发现使用正确的架构，您可以有效地绕过 V8 垃圾收集器。通过实施零复制管道，我成功地在 AWS Lambda（1769MB RAM）上的单个 vCPU 上实现了每秒 7800 万个样本。更有趣的是内存配置文件：在输入大小介于 212 和 220 之间时，系统显示零或负堆增长，从而导致确定性 p99 延迟即使在重负载下也能保持平稳。 我还专注于微秒级状态序列化，以使有状态函数（如卡尔曼滤波器）在 Lambda 等临时运行时上可行。部署大小仅为 1.3MB，使冷启动时间始终保持在 170 毫秒到 240 毫秒之间。它包括从 MFCC 和 Mel-Spectrograms 到自适应滤波器和 ICA/PCA 转换的完整工具包。 默认情况下，它在 C++ 和 JavaScript 端都是单线程的，因此用户可以使用工作线程、原子和 SharedArrayBuffers 在 JavaScript 中对其进行多线程处理。 基准存储库：https://github.com/A-KGeorge/dspx-benchmark 代码存储库：https://github.com/A-KGeorge/dspx   由   提交/u/sarcasm4052  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rbbvh2/zerogc_and_78m_samplessec_pushing_nodejs_22_to/</guid>
       <pubDate>Sun, 22 Feb 2026 04:06:14 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[Boris Cherny 是 Claude Code（用 React 编写的 cli 代理。这不是玩笑）的创建者，并负责以下具有超过 5k 问题的存储库： https://github.com/anthropics/claude-code/issues 既然编码已经解决，我想知道为什么他们不只是使用 Claude Code 来调查并解决 Claude Code 存储库中出现的所有问题吗？哎呀，我想知道如果编码解决了，为什么还会出现任何问题？谁或是什么制造了所有新的错误，小妖精？   由   提交/u/Gil_berth  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rakdst/creator_of_claude_code_coding_is_solved/</guid>
       <pubDate>Sat, 21 Feb 2026 06:55:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>面向建筑商的 CSRF</title>
-      <link>https://www.reddit.com/r/programming/comments/1rajmou/csrf_for_builders/</link>
-      <description><![CDATA[ 由   提交/u/Missics  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rajmou/csrf_for_builders/</guid>
-      <pubDate>Sat, 21 Feb 2026 06:13:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解数据库如何在磁盘上存储数据</title>
-      <link>https://www.reddit.com/r/programming/comments/1ragzl5/understanding_how_databases_store_data_on_the_disk/</link>
-      <description><![CDATA[ 由   提交/u/Comfortable-Fan-580   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1ragzl5/understanding_how_databases_store_data_on_the_disk/</guid>
-      <pubDate>Sat, 21 Feb 2026 03:55:32 GMT</pubDate>
     </item>
     </channel>
 </rss>
