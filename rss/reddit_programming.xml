@@ -4,20 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 22 Feb 2026 15:31:32 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 18:44:05 GMT</lastBuildDate>
     <item>
-      <title>有没有人真正偶然目睹过哈希冲突？或者有什么接近的东西吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1rboikd/has_anyone_ever_actually_witnessed_a_hash/</link>
-      <description><![CDATA[再次询问，因为上一篇文章是 16 年前的。   由   提交/u/brandonmaxwell113  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rboikd/has_anyone_ever_actually_witnessed_a_hash/</guid>
-      <pubDate>Sun, 22 Feb 2026 15:22:36 GMT</pubDate>
+      <title>TLS 握手一步步 — 交互式 HTTPS 故障</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbtq2y/tls_handshake_stepbystep_interactive_https/</link>
+      <description><![CDATA[ 由   提交/u/nulless  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbtq2y/tls_handshake_stepbystep_interactive_https/</guid>
+      <pubDate>Sun, 22 Feb 2026 18:39:50 GMT</pubDate>
     </item>
     <item>
-      <title>为 VS Code 构建 Markdown 扩展的经验</title>
-      <link>https://www.reddit.com/r/programming/comments/1rbof3f/experience_of_build_a_markdown_extension_for_vs/</link>
-      <description><![CDATA[我是 MEO（Markdown 编辑器优化）的作者，我构建它的全部原因是因为在 VS Code 中编辑 Markdown 有点混乱：没有真正的渲染编辑，你不断地跳转到另一个应用程序只是为了阅读文档，当你通过源代码管理打开 .md 文件时，几乎每个 Markdown 扩展都会默默地破坏你的 git diff 视图。 该扩展在 VS Code 的 webview API 上运行，说实话，使用它是一场噩梦，自定义编辑器如何注册自身有很多限制，并且弄清楚如何不吞下 git 的虚拟文档花了我和 Codex 相当长的时间。 一旦我找到它，实际的修复就非常简单：只需将 git:/** 和 gitlens-git:/** 固定到默认编辑器即可workbench.editorAssociations 这样 MEO 就知道当 VS Code 执行 git 操作时要避开。现在它只打开真实的文件，差异视图的工作方式与您期望的完全一样，并且您不会仅仅因为文件恰好是 markdown 就丢失红绿更改标记。花费的时间比应有的时间长得多，但仅这一点就比我尝试过的所有其他 Markdown 扩展都值得。 很高兴回答任何问题。   由   提交/u/tomnewmann  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rbof3f/experience_of_build_a_markdown_extension_for_vs/</guid>
-      <pubDate>Sun, 22 Feb 2026 15:18:37 GMT</pubDate>
+      <title>一个输出 zip 的程序，包含一个输出 zip 的程序，包含一个程序...</title>
+      <link>https://www.reddit.com/r/programming/comments/1rbsilp/a_program_that_outputs_a_zip_containing_a_program/</link>
+      <description><![CDATA[[Github 上的源代码](https://github.com/donno2048/zip-quine) 在上一篇文章中，我解释了我发现的技巧，这些技巧使我能够创建一个贪吃蛇游戏，其每一帧都是贪吃蛇游戏的代码。 我面临的一个大问题是交叉编译，因为这意味着输出必须支持两个操作系统，因此它将非常大，并且很难适合终端。 我发现的技巧是将原始程序视为生成器，这样生成的程序可以与生成器不自相似，而只能与它们自身相似。  然后我意识到我可以使用相同的策略并进一步滥用它来生成视频中的程序。 由于这种方法，生成器并不是很复杂，但几乎所有代码都是宏，这使得有效负载（预处理）非常小，我非常喜欢，但作为副作用，现在 quines 有效负载大小和预处理有效负载之间的比率是荒谬的。 通过制作宏实现了另一个小收益对于字符串和字符数组版本中的常量字符串，这样我们就可以轻松地将它们直接添加到有效负载中并在代码中使用它们，而无需稍后进行复杂的格式化以使代码出现在预处理的播放负载中，我对此感到非常高兴，因为它看起来（与我在前一篇文章中描述的 S(x) X(x) 方法一起）是可能导致通用 quine 的最大突破。 我无法强迫 gcc 让我创建 n 个副本字符格式化字符串，所以我使用了非常丑陋的技巧“#define f4＆quot;％c％c％c％c” #define f3 “%c%c%c” #define f10 f3 f3 f4`并使用了这三个宏...也许有一种方法可以告诉 sprintf 将接下来的 n 个参数作为我不知道的字符... 我想到的另一个技巧是欺骗 fmt 进行不带空字符的格式化，这样我就可以在不保存缓冲区大小的情况下进行指针搜索和算术，然后再次正确地进行 fmt-ing。 最后一个技巧是非常校准的使用“run”宏来启动有效负载并运行程序来生成 quine 并格式化有效负载，在不显示代码的情况下很难解释细节，因此如果听起来很有趣，我建议您阅读“run”宏和两个用途（在 S() 或有效负载中很容易错过一个）。 剩下的基本上是阅读有关 ZIP 文件格式的内容，以便能够做到这一点。   由   提交 /u/Perfect-Highlight964   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rbsilp/a_program_that_outputs_a_zip_containing_a_program/</guid>
+      <pubDate>Sun, 22 Feb 2026 17:55:37 GMT</pubDate>
     </item>
     <item>
       <title>Unicode 的 confusables.txt 和 NFKC 标准化在 31 个字符上不一致</title>
