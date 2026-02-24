@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 23 Feb 2026 21:52:54 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 02:36:27 GMT</lastBuildDate>
+    <item>
+      <title>我正在使用 FastAPI 和 PostgreSQL 构建一个开源漏洞情报平台，我真的需要一些反馈/贡献者！</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rcxaio/im_building_an_opensource_vulnerability/</link>
+      <description><![CDATA[大家好， 我一直在致力于一个名为 Cyber​​Sec Alert SaaS (https://github.com/mangod12/cybersecuritysaas) 的热情项目。它是一个企业级漏洞情报平台，旨在自动化资产关联、生成警报和跟踪实时威胁。 问题：安全团队淹没在噪音中。手动跟踪 NVD、Microsoft MSRC、Cisco PSIRT、Red Hat 和自定义 RSS 源的 CVE 是一场噩梦。 解决方案：我正在构建一个集中式引擎，用于聚合所有这些源，将它们与公司的实际资产关联起来，并仅在重要时向它们发出警报。 堆栈： Python (86%)、FastAPI 和PostgreSQL。 我在这里发帖是因为我想让它成为一个真正有用的开源工具，而且我知道我不能凭空构建它。我正在寻找：  代码审查： 拆开我的 FastAPI 架构。告诉我可以优化哪些内容。 贡献者：如果您想开发网络安全工具来增强您的产品组合，路线图上有大量集成和功能。 一般反馈：这看起来像您会部署的工具吗？  在此处查看存储库：https://github.com/mangod12/cybersecuritysaas 任何建议、PR，甚至只是一个星星对我来说都意味着全世界。感谢您抽出时间！   由   提交 /u/bekar81   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rcxaio/im_building_an_opensource_vulnerability/</guid>
+      <pubDate>Mon, 23 Feb 2026 23:12:14 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了一个开源 Google Analytics 和 reCAPTCHA 替代方案</title>
       <link>https://www.reddit.com/r/opensource/comments/1rcoo45/i_built_an_open_source_google_analytics_recaptcha/</link>
@@ -99,16 +106,9 @@
     <item>
       <title>CrowdStrike 发布了针对 OpenClaw AI 代理的威胁评估 - 我们构建了开源安全层，他们正在出售其企业替代品</title>
       <link>https://www.reddit.com/r/opensource/comments/1rb2pgj/crowdstrike_published_a_threat_assessment_for/</link>
-      <description><![CDATA[CrowdStrike 发布了 [“安全团队需要了解 OpenClaw 的知识”]( 他们的结论是正确的。具有 shell 访问、文件 I/O、浏览器控制和电子邮件功能的 AI 代理是真正的安全问题。几个月来我们一直在说同样的话。  我们的分歧在于解决方案。 CrowdStrike 的答案涉及 Falcon AIDR、Falcon Exposure Management、Falcon for IT、下一代 SIEM 以及“搜索和管理”。删除内容包” — 本质上是一个企业堆栈，用于检测 OpenClaw 并将其从您的环境中删除。  **“检测并删除”的问题：** OpenClaw 拥有 15 万+ GitHub 星。人们使用它是因为它确实有用。告诉企业根除它就像在 2015 年告诉人们停止使用 Docker 一样。更好的方法是保护它。  **我们构建的内容：** [ClawMoat](https://github.com/darfaz/clawmoat) 是一个开源 (MIT)、零依赖 Node.js 库，充当 AI 代理的运行时安全层。它解决了 CrowdStrike 识别的相同威胁向量：   CrowdStrike Identified Threat ClawMoat Mitigation    提示注入（直接和间接） 多层扫描：模式匹配、启发式分析、结构检测   凭证/秘密泄露 30 多种凭证模式、禁区（SSH、AWS、GPG、自动保护的加密钱包）   恶意技能执行 权限级别（Observer/Worker/Standard/Full）、YAML 策略引擎   未经授权的网络出口 域允许/阻止列表、网络出口日志记录   代理横向移动劫持 代理间消息扫描、行为审计跟踪   人工智能错位/内部威胁 基于 Anthropic 错位的内部威胁检测研究   **它是如何工作的：**  ```bash npm install -g duckmoatclawmoat protected --config couchmoat.yml ```  ClawMoat 位于您的代理与其工具之间。每个消息和工具调用都会经过三层扫描管道。它与框架无关——可与 LangChain、CrewAI、AutoGen、OpenAI Agents 或自定义设置配合使用。  Host Guardian 模块实现了控制代理可以执行的操作的权限层，以及保护敏感目录（无论层如何）的禁区。想想 AppArmor/SELinux，但对于 AI 代理来说。  **与 CrowdStrike 方法的主要区别：**  - **免费开源**（MIT 许可证）与企业许可 - **运行时保护**（保护代理）与检测和删除（杀死代理） - **本地运行** — 无云依赖，无遥测，您的数据归您所有 - **零依赖** — 纯 Node.js，亚毫秒级扫描，无可供下载的 ML 模型 - **社区驱动** - 欢迎 PR，而不是付费墙后面的产品路线图  我不是在批评 CrowdStrike - 他们拥有出色的威胁研究，并且他们的即时注入技术分类确实很有用。但并不是每个人都订阅了 Falcon，并且在笔记本电脑上运行 OpenClaw 的 15 万开发人员需要可以在 30 秒内安装的东西。  **链接：** - GitHub：https://github.com/darfaz/clawmoat - 网站：https://clawmoat.com - npm：https://www.npmjs.com/package/clawmoat  很高兴回答技术问题。如果有用的话，我们还将我们的覆盖范围映射到 OWASP Top 10 for Agentic AI 中的所有 10 个风险。   由   提交 /u/LeopoldCare   [链接] [评论]]]></description>
+      <description><![CDATA[CrowdStrike 发布了 [“安全团队需要了解 OpenClaw 的知识”]( 他们的结论是正确的。具有 shell 访问、文件 I/O、浏览器控制和电子邮件功能的 AI 代理是真正的安全问题。几个月来我们一直在说同样的话。  我们的分歧在于解决方案。 CrowdStrike 的答案涉及 Falcon AIDR、Falcon Exposure Management、Falcon for IT、下一代 SIEM 以及“搜索和管理”。删除内容包” — 本质上是一个企业堆栈，用于检测 OpenClaw 并将其从您的环境中删除。  **“检测并删除”的问题：** OpenClaw 拥有 15 万+ GitHub 星。人们使用它是因为它确实有用。告诉企业根除它就像在 2015 年告诉人们停止使用 Docker 一样。更好的方法是保护它。  **我们构建的内容：** [ClawMoat](https://github.com/darfaz/clawmoat) 是一个开源 (MIT)、零依赖 Node.js 库，充当 AI 代理的运行时安全层。它解决了 CrowdStrike 识别的相同威胁向量：   CrowdStrike Identified Threat ClawMoat Mitigation    提示注入（直接和间接） 多层扫描：模式匹配、启发式分析、结构检测   凭证/秘密泄露 30 多种凭证模式、禁区（SSH、AWS、GPG、自动保护的加密钱包）   恶意技能执行 权限级别（Observer/Worker/Standard/Full）、YAML 策略引擎   未经授权的网络出口 域允许/阻止列表、网络出口日志记录   代理横向移动劫持 代理间消息扫描、行为审计跟踪   人工智能错位/内部威胁 基于 Anthropic 错位的内部威胁检测研究   **它是如何工作的：**  ```bash npm install -g duckmoatclawmoat protected --config couchmoat.yml ```  ClawMoat 位于您的代理及其工具之间。每个消息和工具调用都会经过三层扫描管道。它与框架无关——可与 LangChain、CrewAI、AutoGen、OpenAI Agents 或自定义设置配合使用。  Host Guardian 模块实现了控制代理可以执行的操作的权限层，以及保护敏感目录（无论层如何）的禁区。想想 AppArmor/SELinux，但对于 AI 代理来说。  **与 CrowdStrike 方法的主要区别：**  - **免费开源**（MIT 许可证）与企业许可 - **运行时保护**（保护代理）与检测和删除（杀死代理） - **本地运行** — 无云依赖，无遥测，您的数据归您所有 - **零依赖** — 纯 Node.js，亚毫秒级扫描，无可供下载的 ML 模型 - **社区驱动** - 欢迎 PR，而不是付费墙后面的产品路线图  我不是在批评 CrowdStrike - 他们拥有出色的威胁研究，并且他们的即时注入技术分类确实很有用。但并不是每个人都订阅了 Falcon，并且在笔记本电脑上运行 OpenClaw 的 15 万开发人员需要可以在 30 秒内安装的东西。  **链接：** - GitHub：https://github.com/darfaz/clawmoat - 网站：https://clawmoat.com - npm：https://www.npmjs.com/package/clawmoat  很高兴回答技术问题。如果有用的话，我们还将我们的覆盖范围映射到 OWASP Top 10 for Agentic AI 中的所有 10 个风险。   由   提交 /u/LeopoldCare   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rb2pgj/crowdstrike_published_a_threat_assessment_for/</guid>
       <pubDate>Sat, 21 Feb 2026 21:13:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>发布 OpenRA-RL：用于本地 AI 代理的成熟 RTS 环境（开源，1 行安装）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rb14j7/releasing_openrarl_a_fullfledged_rts_environment/</link>
-      <description><![CDATA[ 由   提交 /u/QuirkyDream6928   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rb14j7/releasing_openrarl_a_fullfledged_rts_environment/</guid>
-      <pubDate>Sat, 21 Feb 2026 20:08:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
