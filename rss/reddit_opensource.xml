@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 25 Feb 2026 13:17:57 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 16:10:06 GMT</lastBuildDate>
+    <item>
+      <title>基础设施层的 AGPL 正在成为一个真正的问题，这里有一个 PDF 库的具体示例</title>
+      <link>https://www.reddit.com/r/opensource/comments/1regjdw/agpl_at_the_infrastructure_layer_is_becoming_a/</link>
+      <description><![CDATA[这并不是针对 AGPL 的一般性咆哮。我认为 Copyleft 很重要，并且我尊重 Artifex 以他们想要的方式许可 MuPDF 的权利。 但是我一直看到一种让我烦恼的模式：关键基础设施库采用 AGPL，而团队只有在依赖关系树深处才意识到这一点。到那时，选项是 (a) 删除它，(b) 开源整个应用程序，或者 (c) 购买您没有预算的商业许可证。 PDF 处理是最糟糕的例子之一。 PyMuPDF 是用于快速文本提取的首选 Python 库。这确实是个好软件。但它是 AGPL-3.0，大多数人在 Web 服务、数据管道、SaaS 产品中使用它的方式都会触发 Copyleft 义务。很多团队发现这个问题已经太晚了。 替代方案...不太好：  pypdf：MIT，但慢 15 倍，通过率约为 98%（意味着大约 2% 的文档失败） pdfplumber：MIT，适合表格，但在大规模上运行缓慢 pypdfium2：Apache-2.0，但包装了 Google 的 C 库 - 大型二进制文件，更难审核  所以存在这样的差距：快速+可靠+宽松的许可证。它不存在。 我最终写了一个。 pdf_oxy 是一个使用 Rust 与 Python 绑定从头开始编写的 PDF 库。麻省理工学院许可。不是任何东西的包装器，整个解析器、字体解码器和布局引擎都是 Rust，您可以阅读和审核。 对 3,830 个 PDF 进行测试的一些数字： 库平均通过率 License pdf_oxy 0.8ms 100% MIT PyMuPDF 4.6ms 99.3% AGPL-3.0 pypdfium2 4.1ms 99.2% Apache-2.0 pypdf 12.1ms 98.4% BSD-3  我想清楚这不是什么：  在任何意义上都不是 PyMuPDF 的替代品。 PyMuPDF 已经成熟多年。 pdf_oxy 中的表提取是基本的。大约有 10 个已知的边缘情况 PDF 存在轻微的提取问题。 这并不是说 AGPL 不好。它声明基础设施层库应该有宽松的选项。 WASM 支持已在路线图上，但尚未完成。  它处理的不仅仅是提取 — Markdown 转换、从 Markdown/HTML 创建 PDF、页面操作、表单填写、OCR（通过 ONNX 的 PaddleOCR）、加密。但核心要点实际上很简单：您不必在快速和免费之间进行选择。  pip install pdf_oxy  来源：https://github.com/yfedoseev/pdf_oxy 文档：https://pdf.oxy.fyi 好奇其他人是否遇到过 AGPL-in-the-dep-tree 问题，无论是 PDF 还是其他形式。你是怎么处理的？   由   提交 /u/yfedoseev   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1regjdw/agpl_at_the_infrastructure_layer_is_becoming_a/</guid>
+      <pubDate>Wed, 25 Feb 2026 15:38:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>从皮卡丘到ZYRON：我们打造了完全本地化、完全离线运行的AI桌面助手</title>
+      <link>https://www.reddit.com/r/opensource/comments/1redrmv/from_pikachu_to_zyron_we_built_a_fully_local_ai/</link>
+      <description><![CDATA[几个月前，我在这里发布了我正在构建的一个小型个人项目，名为皮卡丘，一个本地桌面语音助手。从那时起，这个项目的规模远远超出了我的预期，得到了一些真正有才华的人的贡献，并发展成为更加严肃的事情。我们将其重命名为 ZYRON，它基本上变成了一个完整的本地 AI 桌面助手，完全在您自己的机器上运行。 主要目标始终很简单。我喜欢人工智能助手的想法，但我讨厌将我的文件、语音、屏幕截图和日常计算机活动上传到云服务的想法。所以我们建造了相反的东西。 ZYRON 通过 Ollama 使用本地法学硕士完全离线运行，整个系统都是围绕隐私第一进行设计的。除非我明确要求它向我自己的 Telegram 发送某些内容，否则不会向任何地方发送任何内容。 您可以通过说出唤醒词然后正常说话来通过语音控制 PC。它可以打开应用程序、控制媒体、设置音量、截屏、关闭电脑、在后台搜索网络以及运行连锁命令，例如一次性打开浏览器和搜索某些内容。它还使用离线文本到语音进行响应，这使得日常使用感觉非常自然。 远程控制端成为最有趣的部分之一。我可以通过手机向 Telegram 机器人发送消息，并且基本上可以从任何地方控制我的笔记本电脑。如果我忘记了某个文件，我可以要求它找到我之前打开的文档，然后它会将文件直接发送给我。它保留 30 天的文件活动历史记录，并允许我使用自然语言进行搜索。仅这个功能就已经多次救了我的命。 我们还大力关注安全和监控。 ZYRON 可以默默地捕获屏幕截图、拍摄网络摄像头照片、录制简短的音频剪辑并将其发送到 Telegram。如果笔记本电脑被盗并连接到互联网，它可以报告 IP 地址、ISP、城市、坐标和 Google 地图链接。老实说，构建和测试该部分第一次工作时感觉超现实。 在生产力方面，它变成了一个完整的系统监视器。它可以报告 CPU、RAM、电池、存储、正在运行的应用程序，甚至读取所有打开的浏览器选项卡。有一个剪贴板历史记录器，因此复制的文本永远不会丢失。有一种焦点模式可以杀死分散注意力的应用程序并自动关闭被阻止的网站。甚至还有一个“僵尸进程”监视器，可以检测在后台占用 RAM 的应用程序，并让您远程杀死它们。 我个人喜欢的一个功能是隐形研究模式。有一个 Firefox 扩展可以在浏览器和助手之间架起一座桥梁，因此它可以悄悄地打开后台选项卡、读取内容并关闭它，而不会出现任何窗口。提出随机问题并从看起来闲置的笔记本电脑上获得答案是一种奇怪的满足感。 该项目的整个理念是，它不会试图在撰写论文方面与巨型云模型竞争。相反，它专注于成为尊重隐私的强大本地系统自动化助手。本地模型较小，但对于控制计算机来说已经足够了，而且这种权衡是值得的。 我们接下来有很多计划。 Linux 和 macOS 支持、地理围栏警报、运动触发相机捕捉、调度和自动化、更长的内存，以及最终一个合适的移动伴侣应用程序而不是 Telegram。随着本地模型的改进，助手自然也会变得更聪明。 这最初是一个周末实验，慢慢变成了我现在每天使用的东西。我真诚地希望得到这里的人们的反馈、想法或批评。如果您曾经想要一个仅在您自己的计算机上运行的 AI 助手，我想您可能会觉得这很有趣。 GitHub 存储库 - 链接   由   提交 /u/No-Mess-8224   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1redrmv/from_pikachu_to_zyron_we_built_a_fully_local_ai/</guid>
+      <pubDate>Wed, 25 Feb 2026 13:51:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 FOSS 许可证从 AGPL 3.0 切换到 Apache 2.0，试图找出许可证对采用的影响有多大</title>
+      <link>https://www.reddit.com/r/opensource/comments/1redck9/switched_foss_license_from_agpl_30_to_apache_20/</link>
+      <description><![CDATA[我之前的大部分项目也都获得了 Apache 2.0 的许可，并获得了足够的知名度和认可度。使用（一个 Chrome 扩展程序、一个 Kotlin 库和一个其他一些）。 对于我的最新项目，我开始了使用 AGPL 3.0，旨在个人使用和使用较小的公司（即那些没有法律部门建议他们反对 AGPL 3.0 的公司）将能够永久免费使用它，但较大的公司将是付费专有许可证的良好候选者。 几周后，我改变了这一立场。对于像这样的小型项目，将其全部采用 Apache 2.0（或 MIT 或 BSD）可能更有意义，因为这向任何想要使用它的人敞开了大门。 我们听说过（负面的）许多项目以 Apache 2.0 开始，然后最终成为专有的。  想知道人们是否有经验可以分享，从病毒式的 GPL 式许可证开始，然后开放它，以及这对采用有何影响。 （如果您对特定项目感到好奇，它是一个自托管工具，可以从模板自动生成 OpenGraph 图像。可以将其视为 Bannerbear、RenderForm 等 SaaS 工具的开源版本）。   由   提交 /u/chimbori   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1redck9/switched_foss_license_from_agpl_30_to_apache_20/</guid>
+      <pubDate>Wed, 25 Feb 2026 13:34:16 GMT</pubDate>
+    </item>
     <item>
       <title>人工智能和开源可访问性可以为家庭做些什么的例子</title>
       <link>https://www.reddit.com/r/opensource/comments/1rebxb4/an_example_of_what_ai_and_open_source/</link>
@@ -76,7 +97,7 @@
       <pubDate>Mon, 23 Feb 2026 23:12:14 GMT</pubDate>
     </item>
     <item>
-      <title>我构建了一个开源 Google Analytics 和 reCAPTCHA 替代品</title>
+      <title>我构建了一个开源 Google Analytics 和 reCAPTCHA 替代方案</title>
       <link>https://www.reddit.com/r/opensource/comments/1rcoo45/i_built_an_open_source_google_analytics_recaptcha/</link>
       <description><![CDATA[      嗨，在过去的 5 年里，我一直在构建 Swetrix - 一个隐私友好、无 cookie 的 OSS，可替代 Google Analytics 和 reCAPTCHA。 Google reCAPTCHA Google 服务对于隐私而言非常糟糕，而且很难设置和使用；大多数现有的 OSS 替代品也太基础，不能完全取代 GA，所以我想构建更好的东西 使用 Swetrix，您可以监控网站的流量和速度，跟踪任何 JavaScript 错误（Sentry 替代品），设置目标或渠道 Swetrix reCAPTCHA 替代品也是 100% 自托管，不会用谜题轰炸您的用户（这类似于 Cloudflare 的 Turnstile）作品） 非常感谢一些反馈:)   由   提交 /u/Sensiduct   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rcoo45/i_built_an_open_source_google_analytics_recaptcha/</guid>
@@ -88,27 +109,6 @@
       <description><![CDATA[       由   提交 /u/0TheNemesis0   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rcnm5y/a_bridge_that_connects_irc_to_lora_mesh_network/</guid>
       <pubDate>Mon, 23 Feb 2026 17:21:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Inkscape 项目因缺乏活跃贡献者而苦苦挣扎 [视频]</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rchq9x/inkscape_project_struggling_with_lack_of_active/</link>
-      <description><![CDATA[       由   提交/u/pimterry  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rchq9x/inkscape_project_struggling_with_lack_of_active/</guid>
-      <pubDate>Mon, 23 Feb 2026 13:41:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>新项目：bserver - https Web 服务器的超快速设置，页面从 yaml 和 markdown 生成</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rc51d7/new_project_bserver_super_fast_setup_for_https/</link>
-      <description><![CDATA[ 由   提交 /u/stgnet   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rc51d7/new_project_bserver_super_fast_setup_for_https/</guid>
-      <pubDate>Mon, 23 Feb 2026 02:17:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源 PocketAgents：一个二进制文件中的自托管 AI 代理运行时（代理 + 工具 + RAG + 身份验证）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rc2f5q/opensourced_pocketagents_selfhosted_ai_agent/</link>
-      <description><![CDATA[我刚刚开源了 PocketAgents 并希望得到开源人群的反馈。 我构建它是因为我想要 AI 后端基础设施而不运行一堆服务。 PocketAgents 作为单个可执行文件运行并提供：  代理/模型/提供者密钥 HTTP/内部工具 RAG 摄取 + 矢量搜索 身份验证 + 范围内的 API 密钥 运行/事件监控 用于监控所有内容的干净管理 UI  它旨在与 Vercel AI SDK 客户端 (useChat) 配对，同时保持操作简单。 存储库：https://github.com/treyorr/pocket-agents 如果您尝试一下，我很乐意提供有关安装体验和操作粗糙边缘的反馈。 对于那些好奇的人，这是用 Bun 构建的。   由   提交 /u/ManOnTheMoon2000   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rc2f5q/opensourced_pocketagents_selfhosted_ai_agent/</guid>
-      <pubDate>Mon, 23 Feb 2026 00:19:22 GMT</pubDate>
     </item>
     </channel>
 </rss>
