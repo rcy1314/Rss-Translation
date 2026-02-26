@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 25 Feb 2026 21:41:11 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 02:34:26 GMT</lastBuildDate>
+    <item>
+      <title>项目架构建议</title>
+      <link>https://www.reddit.com/r/opensource/comments/1reudvn/project_architecture_advice/</link>
+      <description><![CDATA[我过去制作了一些程序，但我的下一个项目有所不同，我可以使用一些建议，它实际上是什么并不是非常重要（对于那些好奇的人来说，它在最后），但重要的是它将在专用迷你电脑上运行（碰巧有一个，会使用树莓派，如果我有的话），它是一个图形应用程序，支持触摸屏，但我从来没有只为一件事设置设备，我是否只安装一个裸机 Linux 发行版，然后在 docker 中运行它？或者是否有针对此类事情优化的发行版？我计划将其开源（显然，否则我为什么会在这里），所以我希望它能够轻松安装，这就是我考虑使用 docker 的原因，但说实话，我从未制作过 docker 应用程序，所以我不确定它是否合适。 它实际上是什么，它是一种数码相框，可以完成商用相框可以做的所有事情，例如远程添加照片或视频，然后播放幻灯片，但我也想要更多类型的“媒体”就像运行有趣的物理模拟的 python 脚本，或者旧的 Windows 屏幕保护程序，其中设置了它将经历的内容   由   提交 /u/GoodForADyslexic   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1reudvn/project_architecture_advice/</guid>
+      <pubDate>Wed, 25 Feb 2026 23:56:53 GMT</pubDate>
+    </item>
     <item>
       <title>这是一个完全清晰的通用协议，用于透明的治理情报。一切始终开源。</title>
       <link>https://www.reddit.com/r/opensource/comments/1reqjqr/this_is_a_fully_articulated_generalized_protocol/</link>
@@ -25,20 +32,6 @@
       <description><![CDATA[大家好， 有哪些真正帮助您提高工作效率的开源项目、工具或设置？ 很想听听您正在使用什么以及它如何适应您的工作流程。 谢谢！   由   提交 /u/Any-Main-3866   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1reildc/what_are_some_open_source_toolsprojects_that/</guid>
       <pubDate>Wed, 25 Feb 2026 16:50:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>基础设施层的 AGPL 正在成为一个真正的问题，这里有一个 PDF 库的具体示例</title>
-      <link>https://www.reddit.com/r/opensource/comments/1regjdw/agpl_at_the_infrastructure_layer_is_becoming_a/</link>
-      <description><![CDATA[这并不是针对 AGPL 的一般性咆哮。我认为 Copyleft 很重要，并且我尊重 Artifex 以他们想要的方式许可 MuPDF 的权利。 但是我一直看到一种让我烦恼的模式：关键基础设施库采用 AGPL，而团队只有在依赖关系树深处才意识到这一点。到那时，选项是 (a) 删除它，(b) 开源整个应用程序，或者 (c) 购买您没有预算的商业许可证。 PDF 处理是最糟糕的例子之一。 PyMuPDF 是用于快速文本提取的首选 Python 库。这确实是个好软件。但它是 AGPL-3.0，大多数人在 Web 服务、数据管道、SaaS 产品中使用它的方式都会触发 Copyleft 义务。很多团队发现这个问题已经太晚了。 替代方案...不太好：  pypdf：MIT，但慢 15 倍，通过率约为 98%（意味着大约 2% 的文档失败） pdfplumber：MIT，适合表格，但在大规模上运行缓慢 pypdfium2：Apache-2.0，但包装了 Google 的 C 库 - 大型二进制文件，更难审核  所以存在这样的差距：快速+可靠+宽松的许可证。它不存在。 我最终写了一个。 pdf_oxy 是一个使用 Rust 与 Python 绑定从头开始编写的 PDF 库。麻省理工学院许可。不是任何东西的包装器，整个解析器、字体解码器和布局引擎都是 Rust，您可以阅读和审核。 对 3,830 个 PDF 进行测试的一些数字： 库平均通过率 License pdf_oxy 0.8ms 100% MIT PyMuPDF 4.6ms 99.3% AGPL-3.0 pypdfium2 4.1ms 99.2% Apache-2.0 pypdf 12.1ms 98.4% BSD-3  我想清楚这不是什么：  在任何意义上都不是 PyMuPDF 的替代品。 PyMuPDF 已经成熟多年。 pdf_oxy 中的表提取是基本的。大约有 10 个已知的边缘情况 PDF 存在轻微的提取问题。 这并不是说 AGPL 不好。它声明基础设施层库应该有宽松的选项。 WASM 支持已在路线图上，但尚未完成。  它处理的不仅仅是提取 — Markdown 转换、从 Markdown/HTML 创建 PDF、页面操作、表单填写、OCR（通过 ONNX 的 PaddleOCR）、加密。但核心要点实际上很简单：您不必在快速和免费之间进行选择。  pip install pdf_oxy  来源：https://github.com/yfedoseev/pdf_oxy 文档：https://pdf.oxy.fyi 好奇其他人是否遇到过 AGPL-in-the-dep-tree 问题，无论是 PDF 还是其他形式。你是怎么处理的？   由   提交 /u/yfedoseev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1regjdw/agpl_at_the_infrastructure_layer_is_becoming_a/</guid>
-      <pubDate>Wed, 25 Feb 2026 15:38:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>从皮卡丘到ZYRON：我们打造了完全本地化、完全离线运行的AI桌面助手</title>
-      <link>https://www.reddit.com/r/opensource/comments/1redrmv/from_pikachu_to_zyron_we_built_a_fully_local_ai/</link>
-      <description><![CDATA[几个月前，我在这里发布了我正在构建的一个小型个人项目，名为皮卡丘，一个本地桌面语音助手。从那时起，这个项目的规模远远超出了我的预期，得到了一些真正有才华的人的贡献，并发展成为更加严肃的事情。我们将其重命名为 ZYRON，它基本上变成了一个完整的本地 AI 桌面助手，完全在您自己的机器上运行。 主要目标始终很简单。我喜欢人工智能助手的想法，但我讨厌将我的文件、语音、屏幕截图和日常计算机活动上传到云服务的想法。所以我们建造了相反的东西。 ZYRON 通过 Ollama 使用本地法学硕士完全离线运行，整个系统都是围绕隐私第一进行设计的。除非我明确要求它向我自己的 Telegram 发送某些内容，否则不会向任何地方发送任何内容。 您可以通过说出唤醒词然后正常说话来通过语音控制 PC。它可以打开应用程序、控制媒体、设置音量、截屏、关闭电脑、在后台搜索网络以及运行连锁命令，例如一次性打开浏览器和搜索某些内容。它还使用离线文本到语音进行响应，这使得日常使用感觉非常自然。 远程控制端成为最有趣的部分之一。我可以通过手机向 Telegram 机器人发送消息，并且基本上可以从任何地方控制我的笔记本电脑。如果我忘记了某个文件，我可以要求它找到我之前打开的文档，然后它会将文件直接发送给我。它保留 30 天的文件活动历史记录，并允许我使用自然语言进行搜索。仅这个功能就已经多次救了我的命。 我们还大力关注安全和监控。 ZYRON 可以默默地捕获屏幕截图、拍摄网络摄像头照片、录制简短的音频剪辑并将其发送到 Telegram。如果笔记本电脑被盗并连接到互联网，它可以报告 IP 地址、ISP、城市、坐标和 Google 地图链接。老实说，构建和测试该部分第一次工作时感觉超现实。 在生产力方面，它变成了一个完整的系统监视器。它可以报告 CPU、RAM、电池、存储、正在运行的应用程序，甚至读取所有打开的浏览器选项卡。有一个剪贴板历史记录器，因此复制的文本永远不会丢失。有一种焦点模式可以杀死分散注意力的应用程序并自动关闭被阻止的网站。甚至还有一个“僵尸进程”监视器，可以检测在后台占用 RAM 的应用程序，并让您远程杀死它们。 我个人喜欢的一个功能是隐形研究模式。有一个 Firefox 扩展可以在浏览器和助手之间架起一座桥梁，因此它可以悄悄地打开后台选项卡、读取内容并关闭它，而不会出现任何窗口。提出随机问题并从看起来闲置的笔记本电脑上获得答案是一种奇怪的满足感。 该项目的整个理念是，它不会试图在撰写论文方面与巨型云模型竞争。相反，它专注于成为尊重隐私的强大本地系统自动化助手。本地模型较小，但对于控制计算机来说已经足够了，而且这种权衡是值得的。 我们接下来有很多计划。 Linux 和 macOS 支持、地理围栏警报、运动触发相机捕捉、调度和自动化、更长的内存，以及最终一个合适的移动伴侣应用程序而不是 Telegram。随着本地模型的改进，助手自然也会变得更聪明。 这最初是一个周末实验，慢慢变成了我现在每天使用的东西。我真诚地希望得到这里的人们的反馈、想法或批评。如果您曾经想要一个仅在您自己的计算机上运行的 AI 助手，我想您可能会觉得这很有趣。 GitHub 存储库 - 链接   由   提交 /u/No-Mess-8224   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1redrmv/from_pikachu_to_zyron_we_built_a_fully_local_ai/</guid>
-      <pubDate>Wed, 25 Feb 2026 13:51:47 GMT</pubDate>
     </item>
     <item>
       <title>将 FOSS 许可证从 AGPL 3.0 切换到 Apache 2.0，试图找出许可证对采用的影响有多大</title>
@@ -83,13 +76,6 @@
       <pubDate>Tue, 24 Feb 2026 19:33:58 GMT</pubDate>
     </item>
     <item>
-      <title>我为 DM 构建了一个免费的任务创建和游戏工具——我计划将其开源，但还不知道如何开源。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rdpkrj/i_built_a_free_quest_creation_and_play_tool_for/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rdpkrj/i_built_a_free_quest_creation_and_play_tool_for/</guid>
-      <pubDate>Tue, 24 Feb 2026 19:13:19 GMT</pubDate>
-    </item>
-    <item>
       <title>我构建了一个简单的开源 Windows 图像查看器，感谢反馈</title>
       <link>https://www.reddit.com/r/opensource/comments/1rdn2jd/i_built_a_simple_opensource_windows_image_viewer/</link>
       <description><![CDATA[在过去一年左右的时间里，我严重忽视了编程，所以我制作了一个简单的图像查看器，可以替换 Windows 上的默认图像查看器。 我认为代码有点混乱，尽管它只有几百行，而且我没有兑现添加更多注释的承诺，但它相对没有错误，至少从我有限的测试中可以推断出（可能错过了很多）边缘情况）。不过，我很高兴我学到了一些新东西（比如如何将我的代码实际制作成可安装的应用程序（Inno Setup Compiler））！ 感谢你们给我的任何反馈！谢谢！ GitHub 存储库链接：https://github.com/Soytu611/OpenPhotoViewer   由   提交/u/TheGameRoom420  [链接] [评论]]]></description>
@@ -109,6 +95,20 @@
       <description><![CDATA[大家好， 我一直在致力于一个名为 Cyber​​Sec Alert SaaS (https://github.com/mangod12/cybersecuritysaas) 的热情项目。它是一个企业级漏洞情报平台，旨在自动化资产关联、生成警报和跟踪实时威胁。 问题：安全团队淹没在噪音中。手动跟踪 NVD、Microsoft MSRC、Cisco PSIRT、Red Hat 和自定义 RSS 源的 CVE 是一场噩梦。 解决方案：我正在构建一个集中式引擎，用于聚合所有这些源，将它们与公司的实际资产关联起来，并仅在重要时向它们发出警报。 堆栈： Python (86%)、FastAPI 和PostgreSQL。 我在这里发帖是因为我想让它成为一个真正有用的开源工具，而且我知道我不能凭空构建它。我正在寻找：  代码审查： 拆开我的 FastAPI 架构。告诉我可以优化哪些内容。 贡献者：如果您想开发网络安全工具来增强您的产品组合，路线图上有大量集成和功能。 一般反馈：这看起来像您会部署的工具吗？  在此处查看存储库：https://github.com/mangod12/cybersecuritysaas 任何建议、PR，甚至只是一个星星对我来说都意味着全世界。感谢您抽出时间！   由   提交 /u/bekar81   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rcxaio/im_building_an_opensource_vulnerability/</guid>
       <pubDate>Mon, 23 Feb 2026 23:12:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个开源 Google Analytics 和 reCAPTCHA 替代方案</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rcoo45/i_built_an_open_source_google_analytics_recaptcha/</link>
+      <description><![CDATA[      嗨，在过去的 5 年里，我一直在构建 Swetrix - 一个隐私友好、无 cookie 的 OSS，可替代 Google Analytics 和 reCAPTCHA。 Google reCAPTCHA Google 服务对于隐私而言非常糟糕，而且很难设置和使用；大多数现有的 OSS 替代品也太基础，不能完全取代 GA，所以我想构建更好的东西 使用 Swetrix，您可以监控网站的流量和速度，跟踪任何 JavaScript 错误（Sentry 替代品），设置目标或渠道 Swetrix reCAPTCHA 替代品也是 100% 自托管，不会用谜题轰炸您的用户（这类似于 Cloudflare 的 Turnstile）作品） 非常感谢一些反馈:)   由   提交 /u/Sensiduct   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rcoo45/i_built_an_open_source_google_analytics_recaptcha/</guid>
+      <pubDate>Mon, 23 Feb 2026 17:59:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>连接 IRC 和 LoRa 网状网络的桥</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rcnm5y/a_bridge_that_connects_irc_to_lora_mesh_network/</link>
+      <description><![CDATA[       由   提交 /u/0TheNemesis0   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rcnm5y/a_bridge_that_connects_irc_to_lora_mesh_network/</guid>
+      <pubDate>Mon, 23 Feb 2026 17:21:53 GMT</pubDate>
     </item>
     </channel>
 </rss>
