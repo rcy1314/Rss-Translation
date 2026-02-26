@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 26 Feb 2026 04:55:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 07:07:18 GMT</lastBuildDate>
+    <item>
+      <title>可视化 HTTPS、OAuth、Git 和 TCP 的实际工作原理</title>
+      <link>https://www.reddit.com/r/programming/comments/1rf38tj/visualizing_how_https_oauth_git_and_tcp_actually/</link>
+      <description><![CDATA[ 由   提交/u/nulless  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rf38tj/visualizing_how_https_oauth_git_and_tcp_actually/</guid>
+      <pubDate>Thu, 26 Feb 2026 06:55:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Keystone Desktop – Native + Web 桌面框架：C# 主机、Bun 运行时、WebKit 渲染器</title>
+      <link>https://www.reddit.com/r/programming/comments/1rf36vi/keystone_desktop_native_web_desktop_framework_c/</link>
+      <description><![CDATA[嗨 — 这是我的开源项目。 Keystone-Desktop，一个桌面应用程序框架，作为三个操作系统进程运行：一个 C# 主机（macOS 上的 AppKit/Metal、Linux 上的 GTK4/Vulkan、Windows 上的 Win32/D3D12）、Bun 子进程（TypeScript 服务、Web 组件捆绑、WebSocket 桥）以及每个窗口的 WebKit 内容进程。 为什么要另一个桌面框架？ 现有框架迫使我们做出选择。 Electron 和 Tauri 为您提供 Web 渲染——非常适合 UI，但如果您需要本机 GPU 渲染（Metal/Vulkan），那么您就不走运了。 Qt 和 SwiftUI 为您提供本机渲染，但没有 Web 生态系统。 Keystone 允许您使用其中之一或两者：单个窗口可以将 GPU/Skia 渲染的内容与 WebKit 内容合成。使用 Web 技术构建整个应用程序，完全使用 GPU 渲染的本机 C# 构建它，或者在每个窗口中混合它们。 三种构建方法： - 仅 Web： TypeScript UI + Bun 服务，零 C# 代码。在配置中声明窗口，作为 Web 组件实现。内置 API 涵盖文件对话框、窗口管理、shell 集成。 - 仅本机： 纯 C#，具有 GPU/Skia 渲染和通过 Taffy (Rust FFI) 的 Flex 布局。无浏览器开销。 - 混合： GPU 渲染的画布用于性能关键的内容，WebKit 用于丰富的 UI — 在同一窗口中组合在一起。 有趣的技术决策： - 每个 IPC 方向都使用特定用途的传输。浏览器-&gt; C# 通过 WKScriptMessageHandler（直接、零网络跃点）。 C# &lt;-&gt; Bun 在 stdin/stdout 上使用 NDJSON（可靠，与进程生命周期同步）。浏览器&lt;-&gt; Bun 使用 WebSocket（异步、发布/订阅、实时数据）。 - 通过可收集的 AssemblyLoadContext 进行热重载 .NET 插件。运行时从程序集引用构建依赖关系图 - 当共享库插件重新加载时，其所有依赖项都会按拓扑顺序级联重新加载。状态在卸载之前被序列化并反序列化到新实例中。亚秒级本机代码迭代，无需重新启动应用程序。 - 每个窗口渲染线程同步到 DisplayLink。空闲窗口暂停其垂直同步订阅。在实时调整大小期间，可绘制大小冻结并且合成器缩放 - 避免了大多数 Metal 应用程序在调整大小期间出现的丢帧问题。 - 双重渲染路径：用于 UI chrome 的保留场景图（帧之间存在差异，通过 Taffy/Rust FFI 进行布局），以及用于自定义可视化的即时模式 Skia。可通过 CanvasNode 进行组合 - 在保留的场景图中嵌入即时模式区域。 当前状态： v1.0.2 ~24k 行框架代码。 macOS 是经过最多考验的路径。由一个人在大约 3 个月的时间内构建，在大约 1 周的时间里从一个整体应用程序提取到一个独立的框架。 MIT 许可。 很高兴回答架构问题。   由   提交/u/hayztrading  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rf36vi/keystone_desktop_native_web_desktop_framework_c/</guid>
+      <pubDate>Thu, 26 Feb 2026 06:52:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>代理无法回答的四个问题：代理编写代码后的软件工程</title>
+      <link>https://www.reddit.com/r/programming/comments/1rf2ymn/four_questions_agents_cant_answer_software/</link>
+      <description><![CDATA[ 由   提交/u/marcua  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rf2ymn/four_questions_agents_cant_answer_software/</guid>
+      <pubDate>Thu, 26 Feb 2026 06:38:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>React 基金会：Linux 基金会托管的 React 新家</title>
+      <link>https://www.reddit.com/r/programming/comments/1rf2sra/the_react_foundation_a_new_home_for_react_hosted/</link>
+      <description><![CDATA[ 由   提交/u/Nimelrian  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rf2sra/the_react_foundation_a_new_home_for_react_hosted/</guid>
+      <pubDate>Thu, 26 Feb 2026 06:29:27 GMT</pubDate>
+    </item>
     <item>
       <title>互联网距离灾难还有几周时间，却无人知晓</title>
       <link>https://www.reddit.com/r/programming/comments/1rex2m0/the_internet_was_weeks_away_from_disaster_and_no/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[“程序员相信时间的谎言”是一个经典的提醒，时间处理从根本上来说是混乱的。 它遍历了错误的假设，例如：  天总是 24 小时 时钟保持同步 时间戳是唯一的 时区不会改变 系统时钟准确  它还引用了实际生产问题（例如，KVM 下的 VM 时钟漂移），以表明这些不是理论上的边缘情况。 与后端、分布式系统和应用程序仍然高度相关。基础设施。   由   提交 /u/Digitalunicon   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rejwmj/falsehoods_programmers_believe_about_time_still/</guid>
       <pubDate>Wed, 25 Feb 2026 17:36:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>30 年的反编译和未解决的结构化问题：第 1 部分</title>
-      <link>https://www.reddit.com/r/programming/comments/1rej3ql/30_years_of_decompilation_and_the_unsolved/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rej3ql/30_years_of_decompilation_and_the_unsolved/</guid>
-      <pubDate>Wed, 25 Feb 2026 17:08:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lambda World 2019 - 使用 Racket 进行面向语言的编程 - Matthias Felleisen</title>
-      <link>https://www.reddit.com/r/programming/comments/1rej17v/lambda_world_2019_languageoriented_programming/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rej17v/lambda_world_2019_languageoriented_programming/</guid>
-      <pubDate>Wed, 25 Feb 2026 17:06:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>安全漏洞的历史</title>
-      <link>https://www.reddit.com/r/programming/comments/1reizwq/the_history_of_a_security_hole/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1reizwq/the_history_of_a_security_hole/</guid>
-      <pubDate>Wed, 25 Feb 2026 17:05:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>curl 安全再次转移[从 GitHub 回到 hackerone；仍然没有错误赏金]</title>
-      <link>https://www.reddit.com/r/programming/comments/1reig96/curl_security_moves_again_from_github_back_to/</link>
-      <description><![CDATA[ 由   提交/u/cake-day-on-feb-29   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1reig96/curl_security_moves_again_from_github_back_to/</guid>
-      <pubDate>Wed, 25 Feb 2026 16:45:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
