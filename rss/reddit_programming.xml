@@ -4,7 +4,98 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 26 Feb 2026 15:58:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 19:00:23 GMT</lastBuildDate>
+    <item>
+      <title>实用的 Java 空安全和不变性解决方案</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfiwrc/a_practical_nullsafety_and_immutability_solution/</link>
+      <description><![CDATA[JADEx（Java 高级开发扩展）是一个运行在 Java 之上的安全层。 目前它最多支持 Java 25 语法，并通过附加的Null-Safety 和 Immutability 功能对其进行了扩展。 在上一篇文章中，我介绍了 Null-Safety 功能。 有关更多详细信息，请参阅至：  GitHub：https://github.com/nieuwmijnleven/JADEx Reddit：https://www.reddit.com/r/java/comments/1r1a1s9/jadex_a_practical_null_safety_solution_for_java/   介绍新功能不变性功能 如果 Null-Safety 消除了由 null 引起的运行时崩溃， 不变性减少了由意外状态更改引起的错误。 随着 v0.41 版本的发布，JADEx 引入了默认不可变模式  核心概念 不变性功能围绕两个简单的主题补充： java 应用不变性；  java mutable  应用不变性；  当您在源文件顶部声明此内容时：  所有字段 所有局部变量（不包括方法参数） 默认情况下被视为不可变。  当JADEx 编译器生成 Java 代码：  它们自动声明为 Final。   可变关键字  只有用 mutable 声明的变量保持可变。 默认情况下，其他所有内容（不包括方法参数）都是不可变的。  JADEx 源代码 ``java package jadex.example; 应用不变性; public class Immutability { private intcapacity = 2; // 不可变的 private String msg = &quot;immutable&quot;; // 不可变的 private int uninitializedCapacity; // 未初始化的不可变私有 String uninitializedMsg; // 未初始化的不可变私有可变 String mutableMsg = &quot;mutable&quot;; // 可变 public static void main(String[] args) { var immutable = new Immutability();不可变的.capacity = 10; //错误immutable.msg =“新的不可变”; //错误immutable.mutableMsg =“更改可变”; System.out.println(&quot;mutableMsg:&quot; + immutable.mutableMsg); System.out.println(&quot;容量：&quot; + immutable.capacity); System.out.println(&quot;msg:&quot; + immutable.msg); }  } ``` 生成的 Java 代码 ``` package jamex.example; //应用不变性； public class Immutability { private final intcapacity = 2; // 不可变的 private Final String msg = &quot;immutable&quot;; // 不可变的 private Final int uninitializedCapacity; // 未初始化的不可变 private Final String uninitializedMsg; // 未初始化的不可变 private String mutableMsg = &quot;mutable&quot;; // 可变 public static void main(String[] args) { Final var immutable = new Immutability();不可变的.capacity = 10; //错误immutable.msg =“新的不可变”; //错误immutable.mutableMsg =“更改可变”; System.out.println(&quot;mutableMsg:&quot; + immutable.mutableMsg); System.out.println(&quot;容量：&quot; + immutable.capacity); System.out.println(&quot;msg:&quot; + immutable.msg); }  } ``` 此功能从 JADEx v0.41 开始可用。由于 JADEx v0.41 的 IntelliJ 插件尚未在 JetBrains Marketplace 上发布，如果您想尝试一下，请从下面的链接下载 JADEx IntelliJ 插件并手动安装。 JADEx v0.41 IntelliJ 插件 我们非常欢迎您对 Null-Safety 和 Immutability 功能提供反馈。 最后，您的支持对保持这个项目的活力和繁荣有很大帮助。 谢谢。   由   提交/u/Delicious_Detail_547  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfiwrc/a_practical_nullsafety_and_immutability_solution/</guid>
+      <pubDate>Thu, 26 Feb 2026 18:56:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI=true 是一种反模式</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfiwf5/aitrue_is_an_antipattern/</link>
+      <description><![CDATA[ 由   提交/u/keleshev   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfiwf5/aitrue_is_an_antipattern/</guid>
+      <pubDate>Thu, 26 Feb 2026 18:56:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>使 WebAssembly 成为 Web 上的一流语言</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgzit/making_webassembly_a_firstclass_language_on_the/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgzit/making_webassembly_a_firstclass_language_on_the/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:46:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>对代码性能进行单元测试，第 2 部分：测试速度变化</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgzdc/unit_testing_your_codes_performance_part_2/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgzdc/unit_testing_your_codes_performance_part_2/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:46:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过嵌入式 Linux 设备上的存储加密实现数据机密性</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgytw/data_confidentiality_via_storage_encryption_on/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgytw/data_confidentiality_via_storage_encryption_on/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:46:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用任意或不规则调色板进行有序抖动</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgyho/ordered_dithering_with_arbitrary_or_irregular/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgyho/ordered_dithering_with_arbitrary_or_irregular/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:45:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过类型定制更快地发展语言</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgy97/evolving_languages_faster_with_type_tailoring/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgy97/evolving_languages_faster_with_type_tailoring/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:45:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>Snakes.run：通过 ssh 每秒渲染 1 亿像素 ·</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgy2v/snakesrun_rendering_100m_pixels_a_second_over_ssh/</link>
+      <description><![CDATA[ 由   提交 /u/ketralnis   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgy2v/snakesrun_rendering_100m_pixels_a_second_over_ssh/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:45:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>反对基于查询的编译器</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfgx8x/against_query_based_compilers/</link>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfgx8x/against_query_based_compilers/</guid>
+      <pubDate>Thu, 26 Feb 2026 17:44:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>规划和执行成功的托管迁移</title>
+      <link>https://www.reddit.com/r/programming/comments/1rff19y/planning_and_executing_a_successful_hosting/</link>
+      <description><![CDATA[ 由   提交/u/AltruisticPrimary34  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rff19y/planning_and_executing_a_successful_hosting/</guid>
+      <pubDate>Thu, 26 Feb 2026 16:37:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Docker 容器的十年</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfeav0/a_decade_of_docker_containers/</link>
+      <description><![CDATA[ 由   提交/u/mariuz  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfeav0/a_decade_of_docker_containers/</guid>
+      <pubDate>Thu, 26 Feb 2026 16:11:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>一位风投和一些大牌程序员正试图永久解决开源的资金问题</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfeaei/a_vc_and_some_bigname_programmers_are_trying_to/</link>
+      <description><![CDATA[ 由   提交 /u/Outrageous-Baker5834   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfeaei/a_vc_and_some_bigname_programmers_are_trying_to/</guid>
+      <pubDate>Thu, 26 Feb 2026 16:11:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>我从《Google 软件工程》这本书中学到了什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1rfe59k/what_i_learned_from_the_book_software_engineering/</link>
+      <description><![CDATA[ 由   提交/u/milanm08  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rfe59k/what_i_learned_from_the_book_software_engineering/</guid>
+      <pubDate>Thu, 26 Feb 2026 16:05:48 GMT</pubDate>
+    </item>
     <item>
       <title>90 年代孩子的代码之旅：从 DOS 课程到网络构建</title>
       <link>https://www.reddit.com/r/programming/comments/1rfdav9/a_90s_kids_journey_into_code_from_dos_classes_to/</link>
@@ -18,97 +109,6 @@
       <description><![CDATA[ 由   提交/u/avin_2020  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rfd40d/why_i_abandoned_datafetching_hooks_for_redux_in/</guid>
       <pubDate>Thu, 26 Feb 2026 15:27:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>开发人员是安全的……得益于企业的繁文缛节</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfc62c/developers_are_safe_thanks_to_corporate_red_tape/</link>
-      <description><![CDATA[ 由   提交/u/Select_Bicycle4711  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfc62c/developers_are_safe_thanks_to_corporate_red_tape/</guid>
-      <pubDate>Thu, 26 Feb 2026 14:51:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能正在扼杀开源吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfbyq3/is_ai_killing_open_source/</link>
-      <description><![CDATA[大家好， 我看到了一种持续的趋势，OSS 本质上正在被 AI 模型消耗，甚至他们的收入（例如，我认为最近收入下降了 80%）。我喜欢并使用了如此多的 OSS，以至于看到 AI 如何消耗 OSS 有点令人沮丧。这里的博客文章分享了当前维护者正在对抗的围绕人工智能的贫困和大量贡献的问题。但总的来说，你认为 OSS 会生存吗？人工智能会杀死开源项目吗？ 如果我必须预测，我认为 OSS 正处于向封闭/私有项目的下降趋势，仅仅是因为人工智能消耗了开放/公共的内容。我当然希望我是错的。我不知道，你觉得怎么样？   由   提交 /u/TheEnormous   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfbyq3/is_ai_killing_open_source/</guid>
-      <pubDate>Thu, 26 Feb 2026 14:43:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>通过一个月的午餐学习 Docker • Elton Stoneman 和 Bret Fisher</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfblao/learn_docker_in_a_month_of_lunches_elton_stoneman/</link>
-      <description><![CDATA[ 由   提交 /u/goto-con   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfblao/learn_docker_in_a_month_of_lunches_elton_stoneman/</guid>
-      <pubDate>Thu, 26 Feb 2026 14:28:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>XZ后门的故事（视频）</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfbgda/story_of_xz_backdoor_video/</link>
-      <description><![CDATA[ 由   提交/u/schmul112  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfbgda/story_of_xz_backdoor_video/</guid>
-      <pubDate>Thu, 26 Feb 2026 14:22:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>从 MySQL 到 Postgres 的迁移每年节省 48 万美元：分步指南</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfb4lj/the_mysqltopostgres_migration_that_saved_480kyear/</link>
-      <description><![CDATA[ 由   提交 /u/narrow-adventure   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfb4lj/the_mysqltopostgres_migration_that_saved_480kyear/</guid>
-      <pubDate>Thu, 26 Feb 2026 14:09:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>C 中的递归宏，揭秘</title>
-      <link>https://www.reddit.com/r/programming/comments/1rfakhp/recursive_macros_in_c_demystified/</link>
-      <description><![CDATA[ 由   提交/u/pmz   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rfakhp/recursive_macros_in_c_demystified/</guid>
-      <pubDate>Thu, 26 Feb 2026 13:46:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>“保存和加载”心理模型：停止将可逆代码视为永久遗留债务</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf8k1n/save_load_mental_model_stop_treating_reversible/</link>
-      <description><![CDATA[ 由   提交/u/dmp0x7c5  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf8k1n/save_load_mental_model_stop_treating_reversible/</guid>
-      <pubDate>Thu, 26 Feb 2026 12:13:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>我希望早点知道的 9 个高级 PostgreSQL 功能</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf6w8g/9_advanced_postgresql_features_i_wish_i_had_known/</link>
-      <description><![CDATA[我觉得太多的团队仍在为 PostgreSQL 可以本地解决的问题编写复杂的应用程序逻辑，而且通常更安全、更高效。 PostgreSQL 不仅仅是一个关系数据库。它的功能出奇的强大，有很多容易被忽视的功能（包括我过去的自己，哈哈）。多年来，我不断发现的功能让我思考：“等等……PostgreSQL 可以做到这一点？！” 因此，我整理了这份高级 PostgreSQL 功能列表，我真的希望自己早点知道。    由   提交/u/Marmelab  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf6w8g/9_advanced_postgresql_features_i_wish_i_had_known/</guid>
-      <pubDate>Thu, 26 Feb 2026 10:40:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>OSS 维护者可以将他们的标准注入贡献者的人工智能工具中</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf6w7s/oss_maintainers_can_inject_their_standards_into/</link>
-      <description><![CDATA[在看到有关 matplotlib 崩溃的新闻后写下这篇文章。我认为对 AI 提交的 PR 的一个不错的解决方案是立即将您的项目标准注入其中。  AI 辅助的 PR 正在以错误的 CSS 框架和未经测试的方式进入维护人员的队列。有时根本没有透露人工智能生成了代码。贡献者通常不会偷工减料。他们的 AI 工具在生成代码时没有项目上下文。 有两个文件可以修复此问题。当贡献者打开项目时，Claude Code 会自动读取 CLAUDE.md。 AGENTS.md 是一个供应商中立的标准，已经受到二十多个工具的支持，并且在所有工具中都执行相同的操作。两者的工作方式相同：当贡献者克隆您的存储库并在其 AI 工具中打开它时，这些文件会在生成一行之前加载到该工具的上下文中。 本文中有更多详细信息，包括我如何在自己的 OSS 项目中管理它。   由   提交/u/aaddrick  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf6w7s/oss_maintainers_can_inject_their_standards_into/</guid>
-      <pubDate>Thu, 26 Feb 2026 10:40:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA 的 CuTe 如何用可组合布局代数取代 GPU 索引算法</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf4hk6/how_nvidias_cute_replaces_gpu_index_arithmetic/</link>
-      <description><![CDATA[ 由   提交 /u/amandeepspdhr   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf4hk6/how_nvidias_cute_replaces_gpu_index_arithmetic/</guid>
-      <pubDate>Thu, 26 Feb 2026 08:09:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>可视化 HTTPS、OAuth、Git 和 TCP 的实际工作原理</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf38tj/visualizing_how_https_oauth_git_and_tcp_actually/</link>
-      <description><![CDATA[ 由   提交/u/nulless  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf38tj/visualizing_how_https_oauth_git_and_tcp_actually/</guid>
-      <pubDate>Thu, 26 Feb 2026 06:55:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>代理无法回答的四个问题：代理编写代码后的软件工程</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf2ymn/four_questions_agents_cant_answer_software/</link>
-      <description><![CDATA[ 由   提交/u/marcua  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf2ymn/four_questions_agents_cant_answer_software/</guid>
-      <pubDate>Thu, 26 Feb 2026 06:38:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>React 基金会：Linux 基金会托管的 React 新家</title>
-      <link>https://www.reddit.com/r/programming/comments/1rf2sra/the_react_foundation_a_new_home_for_react_hosted/</link>
-      <description><![CDATA[ 由   提交/u/Nimelrian  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rf2sra/the_react_foundation_a_new_home_for_react_hosted/</guid>
-      <pubDate>Thu, 26 Feb 2026 06:29:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
