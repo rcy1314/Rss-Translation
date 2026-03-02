@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 02 Mar 2026 18:57:05 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 21:40:53 GMT</lastBuildDate>
+    <item>
+      <title>我构建了一个 API，可以提供基于实时网络搜索的人工智能答案。我该如何改进这个？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj5yt2/i_built_an_api_that_gives_ai_answers_grounded_in/</link>
+      <description><![CDATA[过去几个月我一直在构建 MIAPI — 它是一个 API，它返回 AI 生成的答案，并由真实的网络资源和内嵌引用支持。 一些统计数据：  平均响应时间：1.2 秒 定价：3.80 美元/1K 查询（相对于 Perplexity $5+，Brave 价格为 5-9 美元） 免费套餐：每月 500 次查询 兼容 OpenAI（只需更改 base_url）  支持内容：  带有引文的基于网络的答案 知识模式（来自您自己的文本/文档的答案） 新闻搜索、图像搜索 流式响应 Python SDK (pip install miapi-sdk)  我是一名独立开发人员，这是我的第一个真正的产品。希望获得有关 API 设计、文档或定价的反馈。 https://miapi.uk   由   提交 /u/Key-Asparagus5143   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj5yt2/i_built_an_api_that_gives_ai_answers_grounded_in/</guid>
+      <pubDate>Mon, 02 Mar 2026 21:33:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 vanilla JS、Web Crypto API 和 Supabase 构建了一个加密承诺平台 — 没有框架，没有构建步骤</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj5u99/i_built_a_cryptographic_commitment_platform_with/</link>
+      <description><![CDATA[我刚刚推出了 PSI-COMMIT，这是一个可以让您以加密方式密封预测并在比特币区块链上为其添加时间戳的平台。整个前端是一个 index.html - 没有 React，没有构建工具，没有捆绑器。 它的作用： 用户编写预测，浏览器通过 crypto.getRandomValues() 生成 256 位密钥，使用 Web Crypto API 计算 HMAC-SHA256，并仅发布 MAC。密钥和消息永远不会离开浏览器。稍后，用户可以透露，任何人都可以重新计算 HMAC 进行验证。每项承诺也通过 OpenTimestamps 在比特币上打上时间戳。 堆栈：  单文件前端（约 2000 行 - CSS、HTML、JS 全部集成在一起） 用于 HMAC-SHA256 和 SHA-256 的 Web Crypto API（零加密依赖性） 用于 Google OAuth 和直接数据库查询的 Supabase JS 客户端 用于墙持久性和 OpenTimestamps 锚定的 FastAPI 后端 用于生成化身的 DiceBear API 用于托管的 Railway  技术亮点：  Web Crypto API 处理所有密钥生成和 HMAC 计算客户端。一切都与手动 Uint8Array 缓冲区串联异步 - 冗长但零依赖性风险。 使用 persistSession 和 detectSessionInUrl 的 Supabase 身份验证可以用最少的代码处理整个 Google OAuth 重定向流程。 文件拖放验证 - 用户拖放 .psc 收据文件和 .txt 消息文件进行验证使用 FileReader 和 ondrop 完全在浏览器内进行承诺。 经过 JWT 验证的删除端点 - 后端在服务器端验证 Supabase 令牌，而不是信任客户端标头。 OpenTimestamps 集成锚定了每个比特币承诺的 SHA-256 摘要。确认大约需要 2 小时，然后时间戳是永久且可独立验证的。  免费且开源：psicommit.com | https://github.com/RayanOgh/psi-commit 希望您能提出任何反馈。   由   提交 /u/Difficult_Jicama_759   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj5u99/i_built_a_cryptographic_commitment_platform_with/</guid>
+      <pubDate>Mon, 02 Mar 2026 21:28:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>切换开关能力</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj447h/toggle_switch_abilities/</link>
+      <description><![CDATA[过去几周这个想法一直在我的脑海中燃烧，我需要一些外部意见/知识。我知道切换开关主要用于从浅色模式切换到深色模式，但我有一个想法，即从一个网站切换到另一个视频游戏网站（举个随机的例子：《模拟人生 3》到《模拟人生 4》或其他网站）。  我最大的担心是计算机无法处理的延迟或太多工作。 有人尝试过这个或知道它是否有效？我是一名年轻的开发人员，所以我仍在学习哪些想法有效，哪些无效！   由   提交 /u/cryptogloom   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj447h/toggle_switch_abilities/</guid>
+      <pubDate>Mon, 02 Mar 2026 20:25:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>我审核了流行的免费开发工具的隐私实践。结果是大规模监视。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj3tor/i_audited_the_privacy_practices_of_popular_free/</link>
+      <description><![CDATA[我测试了 Diffchecker、CodeBeautify、Base64Decode 和 Regex101 — 检查每个站点上的网络请求、cookie 和跟踪脚本。 CodeBeautify — 跨 205 个域的 540 个 cookie。单个页面上加载 88 个广告网络脚本。在粘贴任何代码之前，有 605-800 个网络请求。 Base64Decode — 639+ 网络请求。已联系 96 个域。他们自己的隐私政策列出了 1,570 个广告合作伙伴。 Diffchecker — 在服务器端存储您的差异。页面标题随您的内容更新，因此它会显示在您的浏览器历史记录中。 Mixpanel 分析收集 IP 地址。 Regex101 — 例外。使用 Plasible（无 cookie 分析）。正则表达式处理在 WASM 客户端运行。没有第三方跟踪器。证明它可以正确完成。 您将源代码、API 响应、配置和数据库输出粘贴到这些工具中。这些数据正在被数十个广告网络包围的服务器上进行处理。 还有其他人在使用这些广告网络时检查过网络选项卡吗？   由   提交/u/Johin_Joh_3706   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj3tor/i_audited_the_privacy_practices_of_popular_free/</guid>
+      <pubDate>Mon, 02 Mar 2026 20:14:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>可追踪。 - 适合企业或自由职业者的简单、自托管时间跟踪应用程序！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj3fna/trackable_simple_selfhosted_time_tracking_app_for/</link>
+      <description><![CDATA[      大家好！ 我构建了一个我想分享的开源项目： 问题：作为一名自由职业者，我需要一种简单的方法来跟踪我的工作时间 - 最好没有云中的数据，为客户提供 PDF 导出，以及用于会计的 CSV。我发现的所有东西要么是基于订阅的云服务，要么是过于复杂的企业工具。所以我自己构建了它。 解决方案：可跟踪。 - 一个自托管时间跟踪渐进式网络应用程序。 它的作用： - 时间跟踪，包括开始、结束、休息和可选活动注释 - PWA - 可直接从浏览器安装在 iOS、Android 和桌面上 - 多个配置文件 - 单独跟踪不同的客户或工作 - 自动计算工时和收入的每月概览 - PDF 导出（横向 A4）和 CSV 导出（Excel 兼容，分号分隔） - 假期跟踪 — 自动计算工作日（周一至周五，不包括公共假期） - 通过 Django Admin 进行公共假期管理，自动从假期计数中排除 - 内部个人资料注释 — 仅对帐户所有者可见 - 每个月最后一天的自动每月电子邮件摘要 - 每周 SQLite 备份 - 英语和英语德语（自动检测浏览器语言） 技术堆栈：Django 5.0、Gunicorn、WhiteNoise、ReportLab for PDF - 全部在 Docker 中 现场演示：https://www.trackable.cloud GitHub：https://github.com/webCommits/trackable 自述文件：https://github.com/webCommits/trackable#readme 欢迎反馈！   由   提交/u/DCMBRbeats  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj3fna/trackable_simple_selfhosted_time_tracking_app_for/</guid>
+      <pubDate>Mon, 02 Mar 2026 20:00:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>您差点就构建了但没有构建的一项功能是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj323v/whats_one_feature_you_almost_built_but_didnt/</link>
+      <description><![CDATA[我花了一周的时间设计资产管理器功能架构、ui 以及整个事情。然后意识到没有人真正要求它。连我也不行。我在编写任何代码之前就杀死了它。我做出的最好的决定。您几乎在哪些功能上浪费了时间？   由   提交/u/marcochavezco   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj323v/whats_one_feature_you_almost_built_but_didnt/</guid>
+      <pubDate>Mon, 02 Mar 2026 19:47:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在在线代码编辑器中植入了假 API 密钥并监控它们的去向。当您键入时，CodePen 将您的代码发送到服务器。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rj1oac/i_planted_fake_api_keys_in_online_code_editors/</link>
+      <description><![CDATA[我一直在审核开发者工具的隐私实践。这次我测试了在线编辑器中您的代码会发生什么情况。 测试数据：const API_KEY = &quot;sk-secret-test-12345&quot;; const DB_PASSWORD = &quot;hunter2&quot;; CodePen 当您键入时，您的代码将通过对 codepen.io/cpe/process（Babel 转译）和 codepen.io/cpe/boomboom/store（预览渲染）的 POST 请求发送到 CodePen 的服务器。您无需单击“保存”，它是实时发生的。我的假 API 密钥在请求负载中逐字传输。默认情况下，所有笔都是公共的，并自动获得 MIT 许可。私人笔需要 PRO。 每次单击“运行”时，JSFiddle 代码都会发送到 fiddle.jshell.net/_display。对于登录用户，自动保存每 60 秒运行一次，并且每次代码更改都会在 900 毫秒的反跳后触发自动运行。 Fiddles 默认是公开的，并由 Google 索引。已加载三个广告网络（Carbon Ads、BuySellAds、EthicalAds）。他们的 iframe 沙箱配置在控制台中记录了一个逃逸漏洞。 CodeSandbox 运行 6 个独立的分析服务：PostHog、Amplitude、Plausible、Cloudflare Web Analytics、Google Analytics 和 Google Tag Manager。所有代码都存储在服务器端。默认情况下在免费层上公开。他们的条款禁止使用代码进行 LLM 培训，但他们的隐私政策列出了“LLM 提供者”。作为第三方数据接收者。这两种说法直接相互矛盾。 Replit 这句话让我感到震惊。单页面加载生成了 316 个网络请求，并在 150 多个域中设置了 642 个 cookie。 20 多个跟踪脚本，包括 Segment、Amplitude、Google Analytics、Hotjar（完整会话记录）、Facebook Pixel、TikTok Pixel、Twitter Pixel、LinkedIn、Spotify Pixel、FullContact（身份解析）和 Clearbit。公共代码和您的击键用于人工智能模型训练。  公共代表的 Auto-MIT 许可证。数据将在“本协议期限结束后”保留。具有讽刺意味的是：开发人员使用这些工具编写负责处理用户数据的代码，而这些工具本身将开发人员数据视为广告库存。 还有其他人在使用这些工具时检查过“网络”选项卡吗？   由   提交 /u/Johin_Joh_3706   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rj1oac/i_planted_fake_api_keys_in_online_code_editors/</guid>
+      <pubDate>Mon, 02 Mar 2026 18:57:19 GMT</pubDate>
+    </item>
     <item>
       <title>面对人工智能公司的爬虫，你实际上能做什么？ Anthropic 最近的命中是 5 ips 的 10req/s，这完全是荒谬的</title>
       <link>https://www.reddit.com/r/webdev/comments/1rj19g2/what_can_you_realistically_do_against_scrapers/</link>
@@ -55,60 +104,11 @@
       <pubDate>Mon, 02 Mar 2026 16:38:31 GMT</pubDate>
     </item>
     <item>
-      <title>独立开发者尝试使用 akool 快速获得 MVP 内容</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rixjhs/indie_builders_experimenting_with_akool_for_rapid/</link>
-      <description><![CDATA[对于构建 SaaS 产品的独立黑客来说，创建精美的演示视频可能会减慢发布速度。像 akool..com 这样的平台提供了一种快速生成解释内容的方法，而无需大量的生产开销。 人工智能工具如何成为 MVP 堆栈本身的一部分，这真是令人着迷。这些工具是帮助创始人更快地进行验证，还是掩盖了产品清晰度问题？   由   提交/u/Southern-Price5228  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rixjhs/indie_builders_experimenting_with_akool_for_rapid/</guid>
-      <pubDate>Mon, 02 Mar 2026 16:30:55 GMT</pubDate>
-    </item>
-    <item>
       <title>启动网站</title>
       <link>https://www.reddit.com/r/webdev/comments/1rixjhn/launching_a_site/</link>
-      <description><![CDATA[我认为现在创建一个网站既简单又便宜...但我遇到了很多问题！ 首先，它“远”不便宜 - 如果您过去的三个月免费或第一年打折，内容管理系统每月收费 20 美元！如果加上域名费用和电子邮件服务，每年的费用将超过 300 美元！我什至不确定 SSL 是否包含在这个价格中。 其次，虽然设计选项相当出色，但生成的选项太复杂且难以控制 - 我只想要一个包含文章的基本博客！ 我想知道是否有人可以向我指出一些直接且便宜的工具。我的需求是：  使用我自己的域名 建立一个与我的域名关联的电子邮件地址 一个允许我管理网站内容的CMS，包括： 为网站建立一个整体模板，包括横幅和菜单 为文章建立一个子模板   我不需要交互性 - 我不需要让人们能够喜欢/分享/订阅或评论 - 我只需要一个地方来发布一系列正在进行的文章！ 任何负担得起的见解将不胜感激！   由   提交/u/Blubeberry  [链接] [评论]]]></description>
+      <description><![CDATA[我认为现在创建一个网站既简单又便宜...但我遇到了很多问题！ 首先，它“远”不便宜 - 如果您过去的三个月免费或第一年打折，内容管理系统每月收费 20 美元！如果加上域名费用和电子邮件服务，每年的费用将超过 300 美元！我什至不确定 SSL 是否包含在这个价格中。 其次，虽然设计选项非常出色，但生成的选项太复杂且难以控制 - 我只想要一个包含文章的基本博客！ 我想知道是否有人可以向我指出一些直接且便宜的工具。我的需求是：  使用我自己的域名 建立一个与我的域名关联的电子邮件地址 一个允许我管理网站内容的CMS，包括： 为网站建立一个整体模板，包括横幅和菜单 为文章建立一个子模板   我不需要交互性 - 我不需要让人们能够喜欢/分享/订阅或评论 - 我只需要一个地方来发布一系列正在进行的文章！ 任何负担得起的见解将不胜感激！   由   提交/u/Blubeberry  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rixjhn/launching_a_site/</guid>
       <pubDate>Mon, 02 Mar 2026 16:30:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>在经历了近6个月的拒绝之后我该如何生存？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rixez9/how_do_i_survive_after_nearly_6_months_of/</link>
-      <description><![CDATA[就上下文而言，我今年 30 多岁，作为前端开发人员拥有近 10 年的商业经验。我在 3 大框架之一中工作了 5 年。我去年被解雇了，从那以后我找不到工作，现在过得很艰难。 即使我直接询问招聘人员，我也几乎没有收到任何有关我的申请的反馈 - 他们只是在隐瞒我，让我处于未读状态 (LinkedIn)。 我没有前进的路线图（我有想法，但他们没有得到任何人、任何东西的支持）。我掌握了最新的框架版本，提高了我的一般编程知识，但感觉就像在迷雾中徘徊。 我正在考虑创办自己的媒体代理/自由职业者，因为我的经验涵盖了产品的整个生命周期。但是该死的...我不知道从事软件开发是否还有意义。  很抱歉这篇文章的语气是抱怨的，但在被我从事了近十年的领域拒绝之后，我需要发泄一下。 伙计们，请分享一下你们的经历 - 你们是如何度过艰难时期的？   由   提交/u/Jimmy_Jimiosso   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rixez9/how_do_i_survive_after_nearly_6_months_of/</guid>
-      <pubDate>Mon, 02 Mar 2026 16:26:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>是否可以抓取 LinkedIn 帖子？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rixack/is_it_possible_to_scrape_linkedin_posts/</link>
-      <description><![CDATA[我想创建一个自动化程序，可以从 LinkedIn 抓取相关帖子，并通过帖子中提供的电子邮件选项申请工作。 有没有办法安全地执行此操作？  如有任何帮助，我们将不胜感激！   由   提交/u/ChallengeExcellent62  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rixack/is_it_possible_to_scrape_linkedin_posts/</guid>
-      <pubDate>Mon, 02 Mar 2026 16:21:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>我刚刚看到有人在做氛围编码，这完全是一场灾难。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rivnpq/i_just_watched_someone_doing_vibe_coding_and_it/</link>
-      <description><![CDATA[自从 Cursor 推出以来我就一直在使用它。这是一个很好的工具。我去 YouTube 上看看其他程序员如何使用它。 我看到两个人演示“vibe 编码”，但他们似乎都不明白 Cursor 实际上在做什么或它生成的代码。 这些是公司所依赖的做法吗？ 这实际上很可怕，他们甚至将私钥提供给 curser，数据库凭据保存在主 index.php 中。 该频道有20 万订阅者.. 这家伙正在推动人们进入其中，并且对编程的知识为零...... 至少如果你想 vipe 代码，请跟随真正知道如何编码的人..   由   提交 /u/Odd-Tomorrow5553   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rivnpq/i_just_watched_someone_doing_vibe_coding_and_it/</guid>
-      <pubDate>Mon, 02 Mar 2026 15:22:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们应该如何解释这一点？联系 SWE 校长。辞职。并成为一名养鹅户</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rivkc7/how_should_we_interpret_this_reaching_principal/</link>
-      <description><![CDATA[       由   提交/u/lune-soft  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rivkc7/how_should_we_interpret_this_reaching_principal/</guid>
-      <pubDate>Mon, 02 Mar 2026 15:18:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>HummingBird UI - 开源 Tailwind 框架</title>
-      <link>https://www.reddit.com/r/webdev/comments/1riut9r/hummingbird_ui_open_source_tailwind_framework/</link>
-      <description><![CDATA[      为了更快更好地定制 Tailwind，您可以使用 Hummingbird UI。 Github - https://github.com/hummingbirdui/hummingbird   由   提交/u/technext  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1riut9r/hummingbird_ui_open_source_tailwind_framework/</guid>
-      <pubDate>Mon, 02 Mar 2026 14:49:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>Clerk vs Supabase vs NextAuth + Postgres！！ SaaS 的最佳选择？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1riskc6/clerk_vs_supabase_vs_nextauth_postgres_best/</link>
-      <description><![CDATA[我正计划构建 SaaS 作为业余项目，但我以前从未使用过任何这些身份验证选项。我了解编程和 Web 开发的基础知识，但从未构建过实时生产项目。 我目前正在考虑：  Supabase VPS 上的 NextAuth.js + Postgres Clerk  我主要关心的是长期可扩展性和可维护性。我不想选择一旦产品开始增长就会变得昂贵或受到限制的东西。 对于以前做出过此决定的开发人员来说，您的经验是什么？对于今天从头开始构建 SaaS 的人，您会推荐什么？ 就我个人而言，我倾向于 Supabase Auth，因为它提供数据库和身份验证，而且从长远来看，它似乎更实惠。但在做出承诺之前，我真的很感激诚实的意见。   由   提交 /u/One_Pumpkin6751   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1riskc6/clerk_vs_supabase_vs_nextauth_postgres_best/</guid>
-      <pubDate>Mon, 02 Mar 2026 13:17:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
