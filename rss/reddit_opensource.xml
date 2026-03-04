@@ -4,20 +4,13 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 04 Mar 2026 09:49:57 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 13:08:03 GMT</lastBuildDate>
     <item>
-      <title>开源的泰米尔语概念翻译：“Kēṇmuṟai”</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rkghgj/a_tamil_conceptual_translation_for_open_source/</link>
-      <description><![CDATA[# 为什么“开源”在泰米尔语中可以被称为“Kēṇmuṟai” 语言不仅仅是单词的集合。  它反映了文化如何理解思想、关系和系统。 当新概念出现时，语言通常以以下两种方式之一采用它们：  **直接翻译** - 按字面意思转换每个单词。  **概念创造** - 根据想法及其潜在品质形成一个新词。  泰米尔语，泰米尔语之一世界上现存最古老的语言，历史上更喜欢第二种方法。 --- # 一个简单的例子：瀑布 → அருவி (Aruvi) 采用英语单词**“瀑布”。** 直译成泰米尔语是**“நீர்வீழ்ச்சி”（水+瀑布）**。 但古典泰米尔语改为使用**“அருவி”（Aruvi）**。 这个词不会机械翻译英语部分。  相反，它捕捉了**自然现象本身**——水的流动下降。 这不是翻译。  这是一个植根于语言世界观的**概念词**。 --- # 翻译“开源”的问题 在泰米尔语计算讨论中，*开源*通常被翻译为： **“திறந்த மூலம்”（开放 +来源）**  或  **“திறந்த மூல மென்பொருள்”（开源软件）** 这反映了英语结构，但忽略了更深层次的想法。 因为开源不是其核心原则包括： - 协作 - 信任 - 共享所有权 - 集体改进 开源的力量不仅在于访问代码，还在于**人们一起工作**。 --- # 一个概念泰米尔语术语： கேண்முறை（Kēṇmuṟai） 泰米尔语有一个古典词： **கேண்மை（Kēṇmai）** 意思是： ——深厚的陪伴 ——合作关系 -基于信任的联系 它比简单的友谊更强大。  它意味着**人们支持和共同建设的相互纽带**。 如果我们将其与**முறை (muṟai)** 意思是*方法*或*系统*结合起来，我们会得到： **கேண்முறை (Kēṇmuṟai)** 大致意思是： &gt; **建立在共享信任和参与基础上的协作系统。** 这与开源社区的实际运作方式非常吻合。 --- # 为什么“Kēṇmuṟai”符合开源精神 开源项目之所以成功，是因为： - 分布式协作 - 自愿贡献 - 共享知识 -社区驱动的进化 这些品质类似于**合作关系网络**，而不仅仅是一个开放的存储库。 因此，我们可以表达它的**社会哲学**，而不是翻译机械短语**“开源”。 就像： **瀑布 → Aruvi** 我们可能会想到： **开源 → Kēṇmuṟai** --- # 翻译与概念创建 直译侧重于**单词**。  概念创作注重**意义**。 |英语术语 |泰米尔语字面 |概念泰米尔语 | |---------------|---------------|--------------------| |瀑布| நீர்வீழ்ச்சி | அருவி | |开源 | திறந்தமூலம் | கேண்முறை | 两种方法都是有效的，但概念术语往往感觉更**自然和文化根源**。 --- # 讨论邀请 这并不意味着一夜之间取代现有术语。 相反，它是对语言如何**内化全球技术的探索。想法**，同时保留自己的哲学结构。 **Kēṇmuṟai** 能否成为用泰米尔语表达开源精神的一种有意义的方式？ 或者有更好的概念翻译吗？ 我很想听听世界各地的开发人员、语言学家和开源贡献者的想法。   由   提交 /u/Slight_Peace_1237   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rkghgj/a_tamil_conceptual_translation_for_open_source/</guid>
-      <pubDate>Wed, 04 Mar 2026 08:54:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用张量并行性的实验性开源分布式 LLM 推理框架。寻找反馈！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rkema0/an_experimental_opensource_distributed_llm/</link>
-      <description><![CDATA[大家好， 我想分享一个我一直在从事的名为 SkyNet 的业余爱好项目，我很想从这个社区获得一些反馈、批评或建议。 它是什么？ SkyNet 是一个分布式推理框架，用于跨多个节点运行大型语言模型。核心思想是使用张量并行性将 Transformer 模型的 MLP（前馈）层拆分到多个工作节点*。* 工作原理 该架构不是在一台机器上运行整个模型，而是在服务器和“SkyNodes”之间拆分：  服务器加载完整模型（当前为 Qwen2.5-0.5B 配置），在本地计算注意力层，并协调 MLP 分布。 SkyNodes（工作节点）连接到服务器。服务器对 MLP 权重进行切片并将其发送到每个节点。 推论：服务器将 MLP 输入广播到所有节点，每个节点计算其特定的神经元切片，服务器对输出进行聚合/求和以获得最终结果。  我发帖的原因 我想完全透明，这是一个高度实验性的爱好项目。肯定有需要修复的错误、我没有发现的边缘情况，以及巨大的优化空间（网络延迟、批处理等）。我是一名三年级的大学生，我是一名数据科学实习生，我目前陷入了很多工作中，我想快速构建和测试这个想法，所以我承认我确实使用了一些人工智能来编码这个项目。核心架构和逻辑是由我设计和编码的，人工智能主要负责优化和重构。 我正在寻找以下方面的反馈：  架构：我在处理网络上的注意力/MLP 分割方面是否存在明显的瓶颈？ 优化：在广播输入和聚合输出时减少延迟的最佳方法是什么？ PyTorch？ 常规代码测试：我缺少任何 Python/PyTorch 最佳实践吗？  如果这听起来对您感兴趣，请随时查看存储库，在本地运行它（需要在终端中启动至少 6 个节点），甚至打开 PR。 我想让这成为“所有人的自由推理”概念。用户给出计算，他们得到免费的推理。我目前也在构建一个 Android 工作应用程序。 提前感谢您的任何反馈！   由   提交 /u/__z3r0_0n3__   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rkema0/an_experimental_opensource_distributed_llm/</guid>
-      <pubDate>Wed, 04 Mar 2026 06:59:03 GMT</pubDate>
+      <title>我构建了 crikket，这是 jam.dev 和 Marker.io 的开源替代品</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rkjwwb/i_built_crikket_an_open_source_alternative_to/</link>
+      <description><![CDATA[      我想要一种简单的方法来捕获和共享错误，所以我构建了这个。我找不到按照我想要的方式工作的可靠开源替代方案。 与大错误报告工具相比，目前还没有任何第三方集成，但添加这些是我列表中的下一个。 Github：https://github.com/redpangilinan/crikket  网站：https://crikket.io   由   提交 /u/Rikishii   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rkjwwb/i_built_crikket_an_open_source_alternative_to/</guid>
+      <pubDate>Wed, 04 Mar 2026 12:16:42 GMT</pubDate>
     </item>
     <item>
       <title>为什么一些操作系统开发者不喜欢看到他们的工作被分叉？</title>
@@ -27,39 +20,11 @@
       <pubDate>Wed, 04 Mar 2026 06:46:09 GMT</pubDate>
     </item>
     <item>
-      <title>CogniLayer v4 是我为 Claude Code 构建的代码智能 MCP。 Tree-sitter AST、符号搜索、爆炸半径、子代理压缩、跨项目内存。免费，本地运行</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rk37xj/cognilayer_v4_is_code_intelligence_mcp_i_built/</link>
-      <description><![CDATA[过去几天我一直在研究 CogniLayer，刚刚发布了一个重大更新，所以我想分享它现在的情况。 它是什么：我为 Claude Code（和 Codex CLI）构建的 MCP 服务器，添加了代理本身不具备的两件事 - 代码智能和跨会话的结构化知识。 代码智能（新的代码智能） stuff): Tree-sitter AST 解析超过 10 种语言。不是 grep，实际符号解析。 - code_context(“processOrder”) - 显示谁调用它（StripeWebhookHandler、OrderController、AdminPanel）、它调用什么（createOrderRecord、sendConfirmationEmail）、定义位置 - code_impact(“processOrder”) - 触摸任何内容之前的爆炸半径：深度 1 = 将中断，深度 2 = 可能受影响，深度 3 = 需要测试 - code_search(“UserService”) - 查找定义任何函数/类的位置，8 个文件中的 12 个引用 在触及任何一行之前，Claude 知道什么会破坏。重构后不再出现意外失败。 知识层： Claude 不再每次会话重新读取 15 个文件（约 60K 令牌），而是执行 3 个有针对性的查询（约 800 个令牌）：memory_search(“checkout payment flow”) → 事实：“Stripe webhook 命中 /api/webhooks/stripe，验证签名” → 问题：“Stripe 发送 5 秒超时的 Webhooks - processOrder 必须在 5 秒内完成，否则 Webhook 重试会导致重复订单” → error_fix：“通过添加在 2026 年 2 月 20 日修复重复订单 幂等性密钥检查” 14 个事实类型（error_fix、gotcha、api_contract、decision、pattern...），不是平面降价文件。事实会发生热衰变——热的东西首先浮出水面，冷的东西就会消失。跨项目搜索也有效。 子代理上下文压缩： 研究子代理通常将 40K+ 令牌转储到父上下文中。通过 CogniLayer，他们将结果写入数据库并返回 500 个令牌的摘要。 父级通过 memory_search 按需提取详细信息。仅此一项就可以让您在达到上下文限制之前运行更多的子代理。 首次运行 - 一个命令即可扫描整个项目： 输入 /onboard，Claude 会读取您的关键文件 - 配置、API 路由、身份验证、模型、部署脚本。它提取事实（api_contract、模式、陷阱、依赖项...）并将所有文档（.md、.yaml、.json）分块到按标题/键分割的可搜索索引中。下一个会话，它不会重新读取这些文件，而是查询索引。 code_index 然后通过树托管 AST 解析您的实际源代码 - 提取 10 多种语言中的每个函数、类、方法、接口，并映射谁调用什么。这就是 code_context 和 code_impact 的动力。 两者都是一次性的。之后，code_index 增量运行 - 仅重新解析已更改的文件。 v4.2 中的内容： - 代码智能（tree-sitter、4 个新的 MCP 工具） - 带 8 个选项卡的 TUI 仪表板 - 用于浏览代码、事实、会话的终端 UI - 子代理内存协议 - 总共 17 个 MCP 工具，安装后零配置 - 崩溃恢复、会话桥、部署安全门 Claude 如何帮助构建它： 整个事情都是在 Claude 代码会话中构建的。讽刺的是，克劳德总是忘记我们前一天建造的东西——这正是我需要这个的原因。它现在使用自己的工具来自行工作。 安装（免费，Elastic License 2.0）： git clone https://github.com/LakyFx/CogniLayer.git cd CogniLayer python install.py 一切都是本地的，SQLite，没有外部服务。适用于 Windows/Mac/Linux。 GitHub：https://github.com/LakyFx/CogniLayer 很高兴回答有关树托管集成、MCP 工具设计或子代理协议的问题。   由   提交/u/pulec7  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rk37xj/cognilayer_v4_is_code_intelligence_mcp_i_built/</guid>
-      <pubDate>Tue, 03 Mar 2026 22:10:09 GMT</pubDate>
-    </item>
-    <item>
       <title>我为Android制作了一个不依赖Root/VPN的防火墙；静墙</title>
       <link>https://www.reddit.com/r/opensource/comments/1rk2bwr/ive_made_a_firewall_that_doesnt_rely_on_rootvpn/</link>
       <description><![CDATA[大家好！几个月前，我遇到了一些 adb 命令，这些命令可以使用 Android 的 ConnectivityManager 阻止单个应用程序的互联网访问，这完全让我大吃一惊。我不再需要基于 VPN 的防火墙！ 我立即开始编码并制作了 ShizuWall。在 shizuku 的帮助下工作的注重隐私的防火墙。 最近我发布了 v4.3，它比最初的 v1.0 有了显着的发展。它最初是这些命令的简单 GUI 包装器，但现在它是一个功能齐全、经过改进的防火墙应用程序。该应用程序完全开源，很快将在 F-Droid 上提供。虽然我在 Play 商店上提供了付费版本来支持正在进行的开发。 我想让这个应用程序更受欢迎，因为它确实是独一无二的。我真的希望它能够影响更多的人。它还具有白名单和前台模式，此外，我什至构建了一个集成守护程序，使其在某些设置中根本不需要 Shizuku 即可工作。 评论、星标、贡献、问题或任何反馈对我来说意义重大！ 谢谢！ PlayStore：https://play.google.com/store/apps/details?id=com.arslan.shizuwall 源代码：https://github.com/AhmetCanArslan/ShizuWall   由   提交/u/Lazy-Grocery-3410   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rk2bwr/ive_made_a_firewall_that_doesnt_rely_on_rootvpn/</guid>
       <pubDate>Tue, 03 Mar 2026 21:35:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>Anthropic 通过其 Claude for Open Source 计划支持开源 PostgreSQL 备份工具 Databasus</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rjsjq8/anthropic_supported_open_source_postgresql_backup/</link>
-      <description><![CDATA[嗨！ Anthropic 通过其 Claude for Open Source 计划认可了 Databasus，该计划为合格开源项目的维护者提供了免费访问 Claude Max 的权限。 该计划的门槛很高。项目需要 5,000+ GitHub star 或 100 万+每月 NPM 下载、积极维护和真正的社区采用。他们总共接受最多 10,000 名维护者，并单独审查每个申请。因此，进入并不是自动的，该项目必须被实际使用和维护。 对于那些不了解 Databasus 的人 - 它是一个用于数据库备份的开源自托管工具。几年前，它最初是一个名为 Postgresus 的小型内部工具，用于备份 PostgreSQL 数据库。随着时间的推移，该项目开始支持 MySQL、MariaDB 和 MongoDB（尽管 PostgreSQL 仍然是主要焦点），并于 2025 年底将其更名为 Databasus。 GitHub：https://github.com/databasus/databasus 网站：https://databasus.com 它作为单个 Docker 容器运行，所有数据都保留在您的基础设施上。 Apache 2.0 许可证。 主要功能：  计划备份（每小时、每天、每周、每月或自定义 cron） 70 多个存储目的地：本地磁盘、S3、Cloudflare R2、Google Drive、Dropbox、SFTP、NAS 等，通过 Rclone 实现 AES-256-GCM 加密，每个备份文件具有唯一密钥 保留策略：时间段、计数、大小限制或 GFS（祖父-父-子），以实现企业合规性 具有可配置故障阈值的数据库运行状况监控 团队功能：工作区、RBAC（查看器/成员/管理员/所有者）、审核日志 通知：Slack、Discord、Telegram、MS Teams、电子邮件、Webhooks 与 AWS RDS、Google Cloud 等云托管数据库配合使用SQL 和 Azure，这是 pgBackRest 和 Barman 无法做到的 完全备份可移植性：您可以仅使用 Secret.key 和标准工具来解密和恢复备份，而无需使用 Databasus 本身。即使对于开源工具也没有供应商锁定  该项目一直发展良好。 GitHub 上有大约 5,800 颗星，超过 25 万次 Docker 拉取，2025 年，我们超过了 WAL-G、pgBackRest 和 Barman，成为 GitHub 上星数最高的 PostgreSQL 备份工具。 该项目还希望对 AI 使用保持透明。 README 中有专门的 AI 免责声明 (https://github.com/databasus/databasus?tab=readme-ov-file#ai-disclaimer)： AI 用于：  验证代码质量和搜索漏洞 清理和改进文档、注释和代码 开发期间提供帮助 在人工审核后仔细检查 PR 和提交  人工智能不用于：  编写整个代码 “Vibe 代码”方法 无需人工逐行验证的代码 无需测试的代码  我们拥有可靠的测试覆盖率（单元和集成）、带有测试和 linting 的 CI/CD 管道以及经验丰富的开发人员的验证。 Vibe 编码的 PR 默认会被拒绝，这同样适用于人类编写的不良代码。有一些因 AI 问题而被我们拒绝的 PR 的实际例子（https://github.com/databasus/databasus/issues/145）。 开发者对此的看法：使用 AI 作为工具，但不要过度依赖它。归根结底，您要对向公众发布的内容负责。人们信任您的项目及其数据，而这不是您将其交给语言模型的东西。 当像 Anthropic 这样的公司认识到开源项目背后的工作时，这意义重大。这种支持有助于 OSS 继续前进。   由   提交 /u/viktorprogger   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rjsjq8/anthropic_supported_open_source_postgresql_backup/</guid>
-      <pubDate>Tue, 03 Mar 2026 15:39:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源经济及相关副项目</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rjr9ms/open_source_economy_associated_side_projects/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rjr9ms/open_source_economy_associated_side_projects/</guid>
-      <pubDate>Tue, 03 Mar 2026 14:49:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 AI 构建最好的开源 IDE，支持世界上的每个提供商。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rjlkb9/building_the_best_opensource_ide_with_ai_that/</link>
-      <description><![CDATA[       由   提交 /u/litezevin   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rjlkb9/building_the_best_opensource_ide_with_ai_that/</guid>
-      <pubDate>Tue, 03 Mar 2026 10:09:47 GMT</pubDate>
     </item>
     <item>
       <title>哪些治理模式最适合举办公众讨论的开源平台？</title>
@@ -104,11 +69,46 @@
       <pubDate>Mon, 02 Mar 2026 15:47:41 GMT</pubDate>
     </item>
     <item>
-      <title>Bigwizard Media 的开源最后一战</title>
-      <link>https://www.reddit.com/r/opensource/comments/1riri0m/the_last_stand_for_open_source_by_bigwizard_media/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1riri0m/the_last_stand_for_open_source_by_bigwizard_media/</guid>
-      <pubDate>Mon, 02 Mar 2026 12:27:59 GMT</pubDate>
+      <title>Delta：磁盘空间分析器，跟踪磁盘空间的去向</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ri4b8s/delta_a_disk_space_analyzer_that_tracks_where/</link>
+      <description><![CDATA[      想要分享我一直在从事的一个开源项目。 这是一个名为 Delta 的磁盘空间分析器，类似于 WinDirStat 或 WizTree，但它允许您与稍后执行的先前扫描进行比较，从而让您看到文件夹大小的变化。  不久前，我的主驱动器总是神秘地失去空间。在对现有分析器进行一些挖掘后，我发现程序的失败更新每次尝试都会将 1GB 文件悄悄转储到 Windows Installer 文件夹中。我希望我可以比较上周和今天的磁盘快照，并快速确定发生了什么变化。 我有一个想法，如果磁盘空间分析器可以将当前扫描与一周前所做的先前扫描进行比较，只是为了查看大小、文件/文件夹数量、新文件/文件夹和已删除文件/文件夹的变化，从而找出空间的去向，结果会怎样。这基本上就是达美航空的目标。它是一款免费、完全本地且轻量级的本机磁盘空间分析器，能够存储当前扫描并与以前的全磁盘扫描进行比较。  目前它是一名 mvp，因此正在寻求一些反馈。该应用程序以前仅支持 Windows，但我刚刚添加了针对 Linux 平台的最新兼容性和构建。 Repo link &gt; https://github.com/chuunibian/delta 演示视频&gt; 演示视频   由   提交/u/Bian-  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ri4b8s/delta_a_disk_space_analyzer_that_tracks_where/</guid>
+      <pubDate>Sun, 01 Mar 2026 18:08:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我做了 Neaby Share / Connections 的 Linux 实现</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ri05z5/i_made_the_linux_implementation_of_neaby_share/</link>
+      <description><![CDATA[嗨 r/opensource  一些背景信息：我知道多年来很多人都这样做了，但我们一直缺乏的主要是他们都只关注 Wifi LAN。 我的实现分叉了官方的 google 附近代码并为其实现了媒介。具体来说，Wifi LAN、热点、蓝牙和蓝牙 LE。 给你 这些版本包括一个附近的共享客户端，但需要使用配套应用，不幸的是在 Android 上。我无法解决这个问题，因为较新版本的附近共享需要一些谷歌尚未提供的闭源证书。 最重要的是，这实际上并不是旨在成为附近共享客户端。它应该是一个库，其他开发人员可以链接来创建很酷的东西。 但我已经构建了一个客户端，以演示该库的使用。 干杯：） ps：这是我在 r/Android   由   提交 /u/Striking-Storm-6092   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ri05z5/i_made_the_linux_implementation_of_neaby_share/</guid>
+      <pubDate>Sun, 01 Mar 2026 15:32:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找 Cameradar 的维护者</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rhsxyp/looking_for_maintainers_for_cameradar/</link>
+      <description><![CDATA[       由   提交 /u/Ullaakut   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rhsxyp/looking_for_maintainers_for_cameradar/</guid>
+      <pubDate>Sun, 01 Mar 2026 09:22:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quarkdown：具有排版超能力的 Markdown</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rhh972/quarkdown_markdown_with_superpowers_for/</link>
+      <description><![CDATA[      Quarkdown 是一个基于 Markdown 的排版系统，旨在通过简单且众所周知的 Markdown 语法的扩展提供与 LaTeX 和 Typst 相同的灵活性和控制。 在同一工具中，Quarkdown 导出为 HTML（作为静态站点）生成器）、PDF 和纯文本：  分页文档（学术论文、文章、书籍） 普通文档（概念式） 演示文稿 技术文档和 wiki  很想听听您的想法和批评！其他资源：  https://quarkdown.com 文档（用 Quarkdown 编写！）：https://quarkdown.com/wiki    由   提交/u/iamgioh  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rhh972/quarkdown_markdown_with_superpowers_for/</guid>
+      <pubDate>Sat, 28 Feb 2026 23:21:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果 Google 描述的要求 Android 应用开发者身份验证的计划生效，这会与 (L)GPL 冲突吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rhackw/if_the_plans_google_has_described_for_requiring/</link>
+      <description><![CDATA[如果 Google 表示计划对所有应用程序实施在最有用的 Android 设备上运行之前对所有应用程序实施的要求，那么依赖这些具有强制签名的许可证来分发应用程序是否会违反 GPL（可能还有 LGPL）？ 这似乎会与 Copyleft 要求相冲突，即用户必须能够修改和更新 GPL 应用程序以及应用程序的 LGPL 组件，而无需进一步的限制或要求 Kodi 和 VLC 等应用程序将无法再在 Android TV 设备上运行吗？   由   提交/u/Coises  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rhackw/if_the_plans_google_has_described_for_requiring/</guid>
+      <pubDate>Sat, 28 Feb 2026 18:40:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个 WishperFlow 克隆，但完全离线且开源</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rh9bn8/i_build_a_wishperflow_clone_but_totally_offline/</link>
+      <description><![CDATA[我看到了 Wishper Flow 的很多广告，我想我也能构建它，所以我就这么做了，并且使它完全离线。 它是用 Flutter 制作的，因为我想尝试 flutter 对于 Windows 来说有多好。 所有音频文件都存储在本地，它使用系统中安装的本地 Ollama AI 模型。 对于转录，它使用小型 Wishper.cpp下载模型后，如果您愿意，可以用更大的模型替换该模型，但这个小模型工作得很好，您甚至可以同时讲多种语言，它会给您英文的组合转录 最好的部分是，您可以自定义与音频转录一起提供给人工智能的提示，这样您就可以让它像个人代理一样工作。例如：您可以更改提示以使 AI 响应某些单词，例如“系统”或“系统”。作为一个命令，您可以使用它来生成电子邮件、博客等。 还有更多功能可供您尝试 Github 存储库：https://github.com/Ravish-Vishwakarma/Khuspus   由   提交 /u/louise_XVI   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rh9bn8/i_build_a_wishperflow_clone_but_totally_offline/</guid>
+      <pubDate>Sat, 28 Feb 2026 18:01:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
