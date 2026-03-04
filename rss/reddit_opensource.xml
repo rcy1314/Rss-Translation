@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 04 Mar 2026 06:56:59 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 09:49:57 GMT</lastBuildDate>
+    <item>
+      <title>开源的泰米尔语概念翻译：“Kēṇmuṟai”</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rkghgj/a_tamil_conceptual_translation_for_open_source/</link>
+      <description><![CDATA[# 为什么“开源”在泰米尔语中可以被称为“Kēṇmuṟai” 语言不仅仅是单词的集合。  它反映了文化如何理解思想、关系和系统。 当新概念出现时，语言通常以以下两种方式之一采用它们：  **直接翻译** - 按字面意思转换每个单词。  **概念创造** - 根据想法及其潜在品质形成一个新词。  泰米尔语，泰米尔语之一世界上现存最古老的语言，历史上更喜欢第二种方法。 --- # 一个简单的例子：瀑布 → அருவி (Aruvi) 采用英语单词**“瀑布”。** 直译成泰米尔语是**“நீர்வீழ்ச்சி”（水+瀑布）**。 但古典泰米尔语改为使用**“அருவி”（Aruvi）**。 这个词不会机械翻译英语部分。  相反，它捕捉了**自然现象本身**——水的流动下降。 这不是翻译。  这是一个植根于语言世界观的**概念词**。 --- # 翻译“开源”的问题 在泰米尔语计算讨论中，*开源*通常被翻译为： **“திறந்த மூலம்”（开放 +来源）**  或  **“திறந்த மூல மென்பொருள்”（开源软件）** 这反映了英语结构，但忽略了更深层次的想法。 因为开源不是其核心原则包括： - 协作 - 信任 - 共享所有权 - 集体改进 开源的力量不仅在于访问代码，还在于**人们一起工作**。 --- # 一个概念泰米尔语术语： கேண்முறை（Kēṇmuṟai） 泰米尔语有一个古典词： **கேண்மை（Kēṇmai）** 意思是： ——深厚的陪伴 ——合作关系 -基于信任的联系 它比简单的友谊更强大。  它意味着**人们支持和共同建设的相互纽带**。 如果我们将其与**முறை (muṟai)** 意思是*方法*或*系统*结合起来，我们会得到： **கேண்முறை (Kēṇmuṟai)** 大致意思是： &gt; **建立在共享信任和参与基础上的协作系统。** 这与开源社区的实际运作方式非常吻合。 --- # 为什么“Kēṇmuṟai”符合开源精神 开源项目之所以成功，是因为： - 分布式协作 - 自愿贡献 - 共享知识 -社区驱动的进化 这些品质类似于**合作关系网络**，而不仅仅是一个开放的存储库。 因此，我们可以表达它的**社会哲学**，而不是翻译机械短语**“开源”。 就像： **瀑布 → Aruvi** 我们可能会想到： **开源 → Kēṇmuṟai** --- # 翻译与概念创建 直译侧重于**单词**。  概念创作注重**意义**。 |英语术语 |泰米尔语字面 |概念泰米尔语 | |---------------|---------------|--------------------| |瀑布| நீர்வீழ்ச்சி | அருவி | |开源 | திறந்தமூலம் | கேண்முறை | 两种方法都是有效的，但概念术语往往感觉更**自然和文化根源**。 --- # 讨论邀请 这并不意味着一夜之间取代现有术语。 相反，它是对语言如何**内化全球技术的探索。想法**，同时保留自己的哲学结构。 **Kēṇmuṟai** 能否成为用泰米尔语表达开源精神的一种有意义的方式？ 或者有更好的概念翻译吗？ 我很想听听世界各地的开发人员、语言学家和开源贡献者的想法。   由   提交 /u/Slight_Peace_1237   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rkghgj/a_tamil_conceptual_translation_for_open_source/</guid>
+      <pubDate>Wed, 04 Mar 2026 08:54:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用张量并行性的实验性开源分布式 LLM 推理框架。寻找反馈！</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rkema0/an_experimental_opensource_distributed_llm/</link>
+      <description><![CDATA[大家好， 我想分享一个我一直在从事的名为 SkyNet 的业余爱好项目，我很想从这个社区获得一些反馈、批评或建议。 它是什么？ SkyNet 是一个分布式推理框架，用于跨多个节点运行大型语言模型。核心思想是使用张量并行性将 Transformer 模型的 MLP（前馈）层拆分到多个工作节点*。* 工作原理 该架构不是在一台机器上运行整个模型，而是在服务器和“SkyNodes”之间拆分：  服务器加载完整模型（当前为 Qwen2.5-0.5B 配置），在本地计算注意力层，并协调 MLP 分布。 SkyNodes（工作节点）连接到服务器。服务器对 MLP 权重进行切片并将其发送到每个节点。 推论：服务器将 MLP 输入广播到所有节点，每个节点计算其特定的神经元切片，服务器对输出进行聚合/求和以获得最终结果。  我发帖的原因 我想完全透明，这是一个高度实验性的爱好项目。肯定有需要修复的错误、我没有发现的边缘情况，以及巨大的优化空间（网络延迟、批处理等）。我是一名三年级的大学生，我是一名数据科学实习生，我目前陷入了很多工作中，我想快速构建和测试这个想法，所以我承认我确实使用了一些人工智能来编码这个项目。核心架构和逻辑是由我设计和编码的，人工智能主要负责优化和重构。 我正在寻找以下方面的反馈：  架构：我在处理网络上的注意力/MLP 分割方面是否存在明显的瓶颈？ 优化：在广播输入和聚合输出时减少延迟的最佳方法是什么？ PyTorch？ 常规代码测试：我缺少任何 Python/PyTorch 最佳实践吗？  如果这听起来对您感兴趣，请随时查看存储库，在本地运行它（需要在终端中启动至少 6 个节点），甚至打开 PR。 我想让这成为“所有人的自由推理”概念。用户给出计算，他们得到免费的推理。我目前也在构建一个 Android 工作应用程序。 提前感谢您的任何反馈！   由   提交 /u/__z3r0_0n3__   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rkema0/an_experimental_opensource_distributed_llm/</guid>
+      <pubDate>Wed, 04 Mar 2026 06:59:03 GMT</pubDate>
+    </item>
     <item>
       <title>为什么一些操作系统开发者不喜欢看到他们的工作被分叉？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rkeeli/why_do_some_os_devs_dislike_to_see_their_work/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1riri0m/the_last_stand_for_open_source_by_bigwizard_media/</guid>
       <pubDate>Mon, 02 Mar 2026 12:27:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个开源费用和预算跟踪器，因为没有应用程序可以让我的人工智能代理直接与我的财务数据对话</title>
-      <link>https://www.reddit.com/r/opensource/comments/1riog93/i_built_an_opensource_expense_and_budget_tracker/</link>
-      <description><![CDATA[五年多来，我一直在对每笔交易进行分类——从 2 欧元的咖啡到租金。每个月末，我都会合上账簿，查看 12 个月的资金流向预测。 这一切始于我 19 岁时经营我的第一家公司。我不知道自己要用钱做什么，所以我找到了一位财务顾问——一位在企业财务方面拥有多年经验的女性，她让我坐下来，向我展示了公司实际上是如何制定预算的。钱花在哪里、花多少钱、预期收入是多少。基本的东西，但之前没有人向我解释过。我刚刚开始对我的个人财务应用同样的方法，并且从未停止过。 每周一次，我坐下来，将我的银行对账单放入人工智能代理中，它会解析所有内容 - 对交易进行分类，将其插入数据库，检查帐户之间的余额是否匹配。如果某些内容不符合要求，它会在修复之前询问我。 这些年来我尝试了很多应用程序 - CoinKeeper、ZenMoney、电子表格。他们都在某种程度上发挥了作用。但我在任何地方都找不到的一件事是能够将 API 密钥交给人工智能代理，并让它根据需要读取、写入和修改我的财务数据。每个应用程序都希望您单击其 UI 并使用其导入流程。我想要通过任何 LLM 都可以调用的简单 HTTP API 进行SELECT、INSERT、UPDATE、DELETE。 所以我构建了它。放假期间。本来应该休息的，但是一开始就停不下来。从 ZenMoney 迁移了我的所有数据，并且再也没有回头。 主要视图是预算表。过去几个月显示了实际数字——我真正花费和赚到的钱。当月同时显示了实际情况和计划，因此我可以了解自己的跟踪情况。未来几个月是纯粹的计划——预期收入、预期支出、预计余额。所有内容都按类别和月份进行汇总，因此我一眼就能看出我是否能负担得起三个月后的大笔采购，或者是否需要削减某些东西。这基本上就是公司如何进行财务规划，但针对的是一个人。 披露——这是我的项目。我用它来处理我的真实财务状况。我过去几年的所有实际财务数据都存储在这个系统中。自托管、Postgres、MIT 许可。 克隆存储库并部署在您自己的服务器上，而不是使用我的实例。您的数据归您所有。 这里的安全人员 - 请尝试破解它。我的真实数据就在那里。我无法进行正式的错误赏金，我是一个人。但如果你得到我的数据，我会给你买披萨和啤酒。我非常重视安全性，但我想知道是否有什么问题。 欢迎在评论中提出功能请求。如果不是太复杂，我会添加它。 在底层，它是 Next.js 16，在 Postgres 18 之上带有 TypeScript。行级安全性在数据库层强制实施，而不是在应用程序代码中。 API 密钥经过 SHA-256 哈希处理，从不存储明文。汇率每日从五个来源获取（ECB、CBR、NBS、NBU，以及 USDT 挂钩）。本地一切都在 Docker Compose 中运行——Postgres、迁移、Web 应用程序、FX Worker。对于生产，有一个完整的 AWS CDK 堆栈，其中包含 ECS Fargate、RDS、ALB + Cognito auth 和 WAF。整个事情就是关于 9 个表格和一个视图 - 故意保持平坦，这样法学硕士就不会感到困惑。 存储库是我的 GitHub (kirill-markin) 上的expense-budget-tracker。 你如何跟踪你的个人财务状况？你的系统是什么？   由   提交/u/Kirmark   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1riog93/i_built_an_opensource_expense_and_budget_tracker/</guid>
-      <pubDate>Mon, 02 Mar 2026 09:35:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>browser2api - 使用 Playwright + CDP 将仅限浏览器的 AI 工具转变为可编写脚本的 Python API</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rigi7z/browser2api_turn_browseronly_ai_tools_into/</link>
-      <description><![CDATA[       由   提交 /u/rabornkraken   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rigi7z/browser2api_turn_browseronly_ai_tools_into/</guid>
-      <pubDate>Mon, 02 Mar 2026 02:19:20 GMT</pubDate>
     </item>
     </channel>
 </rss>
