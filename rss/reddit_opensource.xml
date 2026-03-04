@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 03 Mar 2026 21:39:52 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 02:29:41 GMT</lastBuildDate>
+    <item>
+      <title>CogniLayer v4 是我为 Claude Code 构建的代码智能 MCP。 Tree-sitter AST、符号搜索、爆炸半径、子代理压缩、跨项目内存。免费，本地运行</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rk37xj/cognilayer_v4_is_code_intelligence_mcp_i_built/</link>
+      <description><![CDATA[过去几天我一直在研究 CogniLayer，刚刚发布了一个重大更新，所以我想分享它现在的情况。 它是什么：我为 Claude Code（和 Codex CLI）构建的 MCP 服务器，添加了代理本身不具备的两件事 - 代码智能和跨会话的结构化知识。 代码智能（新的代码智能） stuff): Tree-sitter AST 解析超过 10 种语言。不是 grep，实际符号解析。 - code_context(“processOrder”) - 显示谁调用它（StripeWebhookHandler、OrderController、AdminPanel）、它调用什么（createOrderRecord、sendConfirmationEmail）、定义位置 - code_impact(“processOrder”) - 触摸任何内容之前的爆炸半径：深度 1 = 将中断，深度 2 = 可能受影响，深度 3 = 需要测试 - code_search(“UserService”) - 查找定义任何函数/类的位置，8 个文件中的 12 个引用 在触及任何一行之前，Claude 知道什么会破坏。重构后不再出现意外失败。 知识层： Claude 不再每次会话重新读取 15 个文件（约 60K 令牌），而是执行 3 个有针对性的查询（约 800 个令牌）：memory_search(“checkout payment flow”) → 事实：“Stripe webhook 命中 /api/webhooks/stripe，验证签名” → 问题：“Stripe 发送 5 秒超时的 Webhooks - processOrder 必须在 5 秒内完成，否则 Webhook 重试会导致重复订单” → error_fix：“通过添加在 2026 年 2 月 20 日修复重复订单 幂等性密钥检查” 14 个事实类型（error_fix、gotcha、api_contract、decision、pattern...），不是平面降价文件。事实会发生热衰变——热的东西首先浮出水面，冷的东西就会消失。跨项目搜索也有效。 子代理上下文压缩： 研究子代理通常将 40K+ 令牌转储到父上下文中。通过 CogniLayer，他们将结果写入数据库并返回 500 个令牌的摘要。 父级通过 memory_search 按需提取详细信息。仅此一项就可以让您在达到上下文限制之前运行更多的子代理。 首次运行 - 一个命令即可扫描整个项目： 输入 /onboard，Claude 会读取您的关键文件 - 配置、API 路由、身份验证、模型、部署脚本。它提取事实（api_contract、模式、陷阱、依赖项...）并将所有文档（.md、.yaml、.json）分块到按标题/键分割的可搜索索引中。下一个会话，它不会重新读取这些文件，而是查询索引。 code_index 然后通过树托管 AST 解析您的实际源代码 - 提取 10 多种语言中的每个函数、类、方法、接口，并映射谁调用什么。这就是 code_context 和 code_impact 的动力。 两者都是一次性的。之后，code_index 增量运行 - 仅重新解析已更改的文件。 v4.2 中的内容： - 代码智能（tree-sitter、4 个新的 MCP 工具） - 带 8 个选项卡的 TUI 仪表板 - 用于浏览代码、事实、会话的终端 UI - 子代理内存协议 - 总共 17 个 MCP 工具，安装后零配置 - 崩溃恢复、会话桥、部署安全门 Claude 如何帮助构建它： 整个事情都是在 Claude 代码会话中构建的。讽刺的是，克劳德总是忘记我们前一天建造的东西——这正是我需要这个的原因。它现在使用自己的工具来自行工作。 安装（免费，Elastic License 2.0）： git clone https://github.com/LakyFx/CogniLayer.git cd CogniLayer python install.py 一切都是本地的，SQLite，没有外部服务。适用于 Windows/Mac/Linux。 GitHub：https://github.com/LakyFx/CogniLayer 很高兴回答有关树托管集成、MCP 工具设计或子代理协议的问题。   由   提交/u/pulec7  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rk37xj/cognilayer_v4_is_code_intelligence_mcp_i_built/</guid>
+      <pubDate>Tue, 03 Mar 2026 22:10:09 GMT</pubDate>
+    </item>
     <item>
       <title>我为Android制作了一个不依赖Root/VPN的防火墙；静墙</title>
       <link>https://www.reddit.com/r/opensource/comments/1rk2bwr/ive_made_a_firewall_that_doesnt_rely_on_rootvpn/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ricjas/aether_compiled_actorbased_language_for/</guid>
       <pubDate>Sun, 01 Mar 2026 23:22:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>计算机使用协议 - 在任何操作系统和环境中使用您的 AI 代理。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ric2t1/computer_use_protocol_use_your_ai_agent_with_any/</link>
-      <description><![CDATA[我构建 CUP 是因为每个 AI 代理框架都在独立地重新发明如何感知桌面 UI，并且碎片化越来越严重。 CUP 是一个标准化所有平台的单一 JSON 模式：59 个 ARIA 派生角色、16 个状态标志、15 个规范操作，并具有针对所有六个平台的显式映射。编写一次代理逻辑，然后针对任何 UI 树运行它。 我认为对于代理来说最重要的部分是紧凑文本格式。 这是 CUP 紧凑中的真实 Spotify 窗口： # CUP 0.1.0 |窗户 | 1920x1080 # app: Spotify # 14 个节点（修剪前 187 个） [e0] win “Spotify” {foc} [e1] nav“主” [e2] lnk“主页” 16,12 248x40 {sel} [clk] [e3] sbx“搜索” 16,56 248x40 [clk,typ] (ph=“你想听什么？”) [e5] lst “最近播放” [scr] [e6] li“喜欢的歌曲 - 2,847 首歌曲” 296,80 192x248 [clk] [e7] li“发现每周” 504,80 192x248 [clk] [e12] tlbr“正在播放” [e13] txt“波西米亚狂想曲” [e14]txt“女王” [e16] btn“上一个” 870,1038 32x32 [clk] [e17] btn“暂停” 914,1034 40x40 {prs} [clk,tog] [e18] btn“下一个” 966,1038 32x32 [clk] [e20] sld “歌曲进度” 720,1072 480x4 [inc,dec,sv] val=“142” (范围=0..354) [e22] sld“体积” 1780,1048 100x4 [inc,dec,sv] val=“72” (range=0..100)  我在一个文本较多的 wiki 页面上将其与其他格式进行了基准测试：   格式 令牌 字符 $/snapshot $/1K 快照    CUP 紧凑型 6,244 18,041 $0.019 $19   剧作家 ARIA 91,339 259,137 $0.274 $274   Vercel 代理浏览器 99,648 276,654 $0.299 $299   CUP JSON（完整） 218,277 3,440,085 $0.655 $655  原始 HTML DOM 299,776 890,796 $0.899 $899   原始 UIA 树 467,755 4,922,099 $1.403 $1,403   GitHub：https://github.com/computeruseprotocol/computeruseprotocol 网站：https://computeruseprotocol.com/   由   提交/u/kiddingmedude  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ric2t1/computer_use_protocol_use_your_ai_agent_with_any/</guid>
-      <pubDate>Sun, 01 Mar 2026 23:03:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
