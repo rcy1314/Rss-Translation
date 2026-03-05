@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 05 Mar 2026 15:56:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2026 19:21:25 GMT</lastBuildDate>
+    <item>
+      <title>Mockmechanics 作为一个库</title>
+      <link>https://www.reddit.com/r/programming/comments/1rlqla2/mockmechanics_as_a_library/</link>
+      <description><![CDATA[嘿伙计们，我已经将我的 MockMechanics 项目重新设计为搅拌器插件和 javascript/ Threejs 库，让您可以创建交互式对象，然后在任何程序中使用它们。它就像一个具有内置交互性的增强型 .glb。请参阅视频，了解创建魔方和按钮的示例，但之前在频道中看到的任何其他对象或机制都应该可以通过这种方式创建。然后您就可以共享该对象，它现在是一个 zip，安装了该库的任何人都可以按照您想要的方式与您的对象进行交互。将来我会将这个库移植到 Unity 等其他框架，以便任何交互式对象都可以在该库可用的任何地方使用。只要你可以用鼠标、VR手等来推拉它的一部分，那么你就可以与它进行交互。   由   提交/u/FelipeReigosa  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rlqla2/mockmechanics_as_a_library/</guid>
+      <pubDate>Thu, 05 Mar 2026 19:10:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>包含 150 多个提要的实时仪表板的要点不会让您的浏览器崩溃</title>
+      <link>https://www.reddit.com/r/programming/comments/1rlpjjl/takeaways_from_a_live_dashboard_of_150_feeds_that/</link>
+      <description><![CDATA[我一直在阅读 World Monitor 的架构，这是一个开源实时情报仪表板，它将 150 多个 RSS 提要、冲突数据库等融合到具有 40 多个数据层的单个交互式地图中。 这里有一些有趣的要点，如果您正在构建，可以参考 数据源 RSS 提要涵盖 15 个类别，超过 150 个条目：  有线服务和有线服务主要媒体：路透社、美联社新闻、BBC 世界、卫报、CNN、法国 24 台、半岛电视台、南华早报、日经亚洲 地区：基辅独立报、Meduza、国土报、阿拉伯新闻、Premium Times（尼日利亚）、Folha de S.Paulo、Animal Politico（墨西哥）、Yonhap（韩国）、VnExpress（越南） 政府和媒体机构：白宫、国务院、五角大楼、联邦紧急事务管理署、美联储、美国证券交易委员会、疾病预防控制中心、联合国新闻、CISA、国际原子能机构、世界卫生组织、联合国难民署 国防与安全OSINT：《防御一号》、《突破防御》、《战区》、Janes、USNI News、Bellingcat、Oryx、Krebs on Security 智囊团：外交事务部、大西洋理事会、CSIS、兰德公司、布鲁金斯学会、卡内基、RUSI、War on the Rocks、詹姆斯敦基金会 金融与金融能源：CNBC、MarketWatch、金融时报、雅虎财经、路透社能源、油价/液化天然气  RSS 之外的结构化 API：  ACLED：战斗、爆炸、针对平民的暴力 UCDP：地理参考冲突事件 GDELT：全球事件情报和抗议跟踪 NASA FIRMS：通过 VIIRS 进行卫星火灾探测 AISStream：通过 WebSocket 实现实时船舶位置 OpenSky Network：军用飞机位置和呼号 Cloudflare Radar：按国家/地区划分的互联网中断严重程度 FRED / EIA / Finnhub：经济指标、能源数据、市场价格 abuse.ch / AlienVault OTX / AbuseIPDB：网络威胁情报 HAPI/HDX：人道主义冲突事件计数  摄取 不是每个浏览器在每次页面加载时触发约 70 个出站请求，而是单个边缘函数以 20 个为一组，在 25 秒的硬性截止日期内批量获取所有提要。两层缓存（每次提要 600 秒，组装摘要 900 秒）意味着接下来 15 分钟的每个客户端都会获取缓存结果。对于 20 个并发用户，这是 1 次上游调用，而不是 1,400 次单独的 Feed 获取。 两次通过异常检测  快速通过：根据 7 天基线滚动关键字频率。术语“尖峰”是指尖峰。当其 2 小时计数超过 2 个以上来源的每日平均值的 3 倍时。冷启动术语（无基线）的置信度上限为 0.8，以防止它们的排名超过已建立的信号。 重度通过：只有尖峰术语才经过 ML 实体分类 (NER) - 通过 Web Worker 中的 ONNX 运行时完全在浏览器内运行。服务器成本为零，但受到模型大小和冷启动延迟的限制。当 ML 不可用时，会退回到正则表达式提取（CVE、APT 组织名称、世界领导人）。  Welford 的时间基线算法 “3 月的星期二，黑海上空的 47 次军事飞行是否不寻常？”回答这个问题需要每个信号、每个区域、每个工作日、每个月的统计数据。他们没有存储完整的历史记录，而是使用 Welford 的在线算法：每个键仅 3 个数字的精确运行平均值和方差（平均值、m2、样本计数）。 Z 分数映射到严重性。异常检测仅在 10 个样本后激活，以避免将第一个观察结果标记为零方差基线。 权衡/设计选择：  手动调整评分权重而不是学习参数（不存在标记数据集） 固定非正态分布上的 z 分数阈值（务实但理论上错误 - 正确的处理将使用泊松/负）二项式） 浏览器端机器学习限制了模型复杂性，但消除了 GPU 基础设施成本 缩放门控意味着信息丢失 - 基于优先级的层预算会更好    由   提交/u/noninertialframe96  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rlpjjl/takeaways_from_a_live_dashboard_of_150_feeds_that/</guid>
+      <pubDate>Thu, 05 Mar 2026 18:33:27 GMT</pubDate>
+    </item>
+    <item>
+      <title></title>
+      <link>https://www.reddit.com/r/programming/comments/1rlnk0o/beating_bellards_formula/</link>
+      <description><![CDATA[ 由   提交 /u/self   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rlnk0o/beating_bellards_formula/</guid>
+      <pubDate>Thu, 05 Mar 2026 17:23:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>快速服务器</title>
+      <link>https://www.reddit.com/r/programming/comments/1rlld1h/fastservers/</link>
+      <description><![CDATA[ 由   提交 /u/BrewedDoritos   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rlld1h/fastservers/</guid>
+      <pubDate>Thu, 05 Mar 2026 16:01:14 GMT</pubDate>
+    </item>
     <item>
       <title>Python 的 asyncio 原语关于共享状态的错误是什么 - Inngest 博客</title>
       <link>https://www.reddit.com/r/programming/comments/1rlkt3a/what_pythons_asyncio_primitives_get_wrong_about/</link>
@@ -18,13 +46,6 @@
       <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rliqsu/software_security_for_developers_laur_spilca/</guid>
       <pubDate>Thu, 05 Mar 2026 14:16:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>队列和堆栈模拟器|所有类型 — 先进先出 (FIFO)、后进先出 (LIFO)、优先级队列、双端队列</title>
-      <link>https://www.reddit.com/r/programming/comments/1rlieiy/queue_stack_simulator_all_types_fifo_lifo/</link>
-      <description><![CDATA[ 由   提交/u/Turbulent_Formal_330   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rlieiy/queue_stack_simulator_all_types_fifo_lifo/</guid>
-      <pubDate>Thu, 05 Mar 2026 14:02:22 GMT</pubDate>
     </item>
     <item>
       <title>但计算机实际上是如何工作的呢？ （从头开始，没有先验知识......</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rl1nmn/the_rust_calling_convention_we_deserve/</guid>
       <pubDate>Wed, 04 Mar 2026 23:44:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>Top K 是关系数据库中一个看似困难的问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1rl1c63/top_k_is_a_deceptively_hard_problem_in_relational/</link>
-      <description><![CDATA[“给我最好的 10 行”感觉很容易，直到您添加文本搜索和过滤器。在Postgres中，GIN（倒排）索引涵盖文本搜索但不能排序。 B 树可以排序，但会因文本搜索而崩溃。  这篇文章解释了 BM25 多列索引为何以及如何通过一个同时处理相等、排序和范围的复合结构来解决 TopK。   由   提交 /u/jamesgresql   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rl1c63/top_k_is_a_deceptively_hard_problem_in_relational/</guid>
-      <pubDate>Wed, 04 Mar 2026 23:30:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>在游戏化环境中通过 RCE 风险模拟风险</title>
-      <link>https://www.reddit.com/r/programming/comments/1rl0mjh/on_simulating_risk_through_the_risk_of_rce_in_a/</link>
-      <description><![CDATA[ 由   提交 /u/passwordwork   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rl0mjh/on_simulating_risk_through_the_risk_of_rce_in_a/</guid>
-      <pubDate>Wed, 04 Mar 2026 23:02:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>追踪 Discord 的长生不老药系统（无需熔化一切）</title>
-      <link>https://www.reddit.com/r/programming/comments/1rkz0lx/tracing_discords_elixir_systems_without_melting/</link>
-      <description><![CDATA[ 由   提交/u/swdevtest  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rkz0lx/tracing_discords_elixir_systems_without_melting/</guid>
-      <pubDate>Wed, 04 Mar 2026 22:00:43 GMT</pubDate>
     </item>
     </channel>
 </rss>
