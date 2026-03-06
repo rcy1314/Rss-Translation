@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 06 Mar 2026 18:55:02 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 21:35:35 GMT</lastBuildDate>
+    <item>
+      <title>带有推荐源的 YouTube 代理？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmpkb0/youtube_proxy_with_recommended_feed/</link>
+      <description><![CDATA[你好。我最近一直在使用 freetube，它很棒，但我确实怀念有一个推荐页面。有没有 YouTube 代理，假设有可能，我不知道，我不太懂技术   由   提交 /u/Square_Associate_771   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmpkb0/youtube_proxy_with_recommended_feed/</guid>
+      <pubDate>Fri, 06 Mar 2026 20:42:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们会看到开源去中心化操作系统慢慢消亡吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmp5e1/are_we_going_to_see_the_slow_death_of_open_source/</link>
+      <description><![CDATA[System76 关于年龄验证法 - System76 博客 https://share.google/mRU5BOTzLUAieB66u 我真的不明白加利福尼亚州和科罗拉多州试图在这里实现什么目标。他们从根本上不了解操作系统是什么，老实说，我 100% 相信这些人认为一切都是从苹果、谷歌、微软的角度运作的，并且用户帐户需要在某个集中的地方，并且一切都始终连接到互联网 24/7。这从根本上来说是对可追溯到计算诞生之初的开源意识形态的侵蚀。我认为，如果我们不进行真正的讨论和反击，我们实际上将生活在 1984 年的状态，就像多米诺骨牌在世界各地倒下一样...... 请记住，加利福尼亚州是第五大经济体，如果它全心全意地倒下，请相信这种情况将继续下去，并且它已经与其他继续以拯救儿童为幌子的公司站在一起。 B******** 当它实际上是关于控制和数据收集时... 咆哮结束。大家觉得怎么样？   由   提交/u/lunarson24  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmp5e1/are_we_going_to_see_the_slow_death_of_open_source/</guid>
+      <pubDate>Fri, 06 Mar 2026 20:26:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>为 LLM API 构建了一个开源 Rust 隐私代理 - RAG 管道的一致假名化</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmob4h/built_an_open_source_rust_privacy_proxy_for_llm/</link>
+      <description><![CDATA[构建 RAG 应用程序已经有几个月了，在某个时候，我实际上坐下来跟踪了在单个用户查询中哪些数据离开了我的网络。 这......不太好。 每个查询都会使用原始文本命中嵌入 API，将向量存储在云数据库中（顺便说一句，由于 **Zero2Text**，这些向量现在是可逆的 - 查一下，它是可怕），然后以明文形式将检索到的上下文 + 查询发送到 LLM。 每个查询有四个单独的泄漏点。 您的文档（合同、财务、人力资源、策略）| v 1. 分块 ← 本地、安全 | v 2. 嵌入 API 调用 ← LEAK #1：发送给提供商的原始文本 | v 3. Vector DB（云）← LEAK #2：可逆嵌入 | v 4. 用户查询嵌入 ← LEAK #3：查询发送到嵌入 API | v 5. 检索上下文 ← 您最敏感的块 | v 6. LLM 生成调用 ← LEAK #4：查询 + 明文上下文 | v 对用户的响应  我查看了现有的解决方案：  - Presidio：python，每次调用增加 50-200 毫秒，无状态（破坏矢量搜索一致性），仅捕获标准 PII - LLM Guard：同样的问题 - 基岩护栏：仅适用于基岩哈哈 - 私人 AI：字面上将您的数据发送给另一个人SaaS来“保护”在将其发送到 OpenAI 之前将其发送给 OpenAI  核心问题是编辑破坏了语义。如果您更换“塔塔汽车”使用[已编辑]，您的嵌入会变成垃圾并且检索会中断。 实际有效的修复方法是一致的假名化 - “Tata Motors”在每个文档和查询中始终映射到“ORG_7”。语义结构被保留，向量搜索仍然有效，法学硕士以假名回应，然后你重新恢复到真实值。提供商永远不会看到实际的实体名称。  “塔塔汽车公司的收入是多少？” | v “ORG_7 的收入是多少？” ← 提供者看到这个 | v LLM 响应 ORG_7 | v“塔塔汽车报告 3.4L Cr 卢比...” ← 用户看到这个  我最终将其构建为开源 Rust 代理 - 位于您的应用程序和 OpenAI 之间，&lt;5 毫秒的开销，更改一个环境变量，现有代码将保持不变。 AES-256-GCM 加密保险库，归零内存（为什么是 Rust 而不是 Python）。 检测：API 密钥、JWT、连接字符串、电子邮件、IP、财务金额、百分比、财务日期、自定义 TOML 规则。 很好奇是否还有其他人对其 RAG 管道进行过此类数据流审核。你找到了什么方法？ 如果有兴趣，请回购：github.com/rohansx/cloakpipe   由   提交/u/synapse_sage  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmob4h/built_an_open_source_rust_privacy_proxy_for_llm/</guid>
+      <pubDate>Fri, 06 Mar 2026 19:55:40 GMT</pubDate>
+    </item>
     <item>
       <title>我一直在问为什么代理框架让代理承担无限的成本，使用他们不应该拥有的凭据，并且不留下任何审计线索。没有人给出答案。所以我建造了一个可以做到这一点的东西。</title>
       <link>https://www.reddit.com/r/opensource/comments/1rmk3m3/i_kept_asking_why_agent_frameworks_let_agents/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[我已经敲定了一个服务器，您可以在其中使用 ed25519 密钥进行注册。您可以查询当前的 IP：端口，并请求与服务器上的其他注册密钥建立连接（服务器客户端列表不会与请求方共享）。基本上，你会得到他们的 ip:port 组合，但你必须确定他们在该服务器上，而他们得到了你的。它是 UDP。 我当前的计划是允许该网络使用 DHT，以便人们可以通过服务器网络进行爬行以找到彼此。但事情是这样的，它不会专用于任何特定的项目或协议。只是设备发现和促进 UDP 打洞。 注册设备需要 ed25519 密钥，而搜索设备只会表明它们对连接的兴趣。注册设备必须采取进一步的安全措施。 默认情况下，服务器毫无疑问地接受所有注册。因此，它们不会将您重定向到网络中更好的服务器——这又取决于您在服务中实现。我认为这是一个操作安全问题。如果您找到一种更有趣的方式来利用网络并阻止不良行为者，您应该可以自由地这样做。 我的问题是，它有用吗？ 编辑：我认为本地 MeshCore (LoRa) 网络可以拥有在网络中注册其密钥的专用设备。然后，当与这些设备建立连接时，它们可以在本地中继收到的消息。全球免费短信。   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rlecdy/how_useful_would_an_open_peer_discovery_network_be/</guid>
       <pubDate>Thu, 05 Mar 2026 10:39:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>TEKIR - 一个开源规范，可阻止 LLM 暴力破解您的 API</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rldu4n/tekir_an_open_source_spec_that_stops_llms_from/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rldu4n/tekir_an_open_source_spec_that_stops_llms_from/</guid>
-      <pubDate>Thu, 05 Mar 2026 10:08:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个工具，可以修复在工作树中运行并行 Claude Code 代理时的 .env / node_modules / 端口冲突问题</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rl2ok3/i_built_a_tool_that_fixes_the_env_node_modules/</link>
-      <description><![CDATA[       由   提交/u/synapse_sage  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rl2ok3/i_built_a_tool_that_fixes_the_env_node_modules/</guid>
-      <pubDate>Thu, 05 Mar 2026 00:27:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>对新手有什么建议吗？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rl2mn5/any_recommendations_for_a_newbie/</link>
-      <description><![CDATA[我 5 个月前开始了自己的项目。这是我第一次创建一个真正的项目，并希望与他人分享。 对于新手有什么建议吗？我专注于制作优秀的文档、清晰的版本等...但我确信我遗漏了很多东西。 例如：社区、处理问题、贡献者或采用方面的错误。 您通过艰难的方式学到了什么？ 提前致谢！   由   提交/u/dygerydoo  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rl2mn5/any_recommendations_for_a_newbie/</guid>
-      <pubDate>Thu, 05 Mar 2026 00:24:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
