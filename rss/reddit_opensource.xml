@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 06 Mar 2026 09:46:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 15:43:39 GMT</lastBuildDate>
+    <item>
+      <title>VellaVeto — 用于 AI 代理工具调用的开源运行时安全性（Rust、MPL-2.0）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmez8e/vellaveto_open_source_runtime_security_for_ai/</link>
+      <description><![CDATA[我已经构建这个 Solo 大约一年了，终于觉得它已经准备好供人们查看了。 VellaVeto 是 MCP 的安全代理，MCP 是 AI 代理用来调用工具（文件访问、HTTP、数据库等）的协议。 MCP 没有内置安全性。没有访问控制、没有审计、没有 DLP。 15 个月内生态系统中出现了 30 多个 CVE。 VellaVeto 位于您的代理和工具之间，并对每次呼叫执行策略。如果出现任何问题 - 没有匹配的策略、缺少上下文、内部错误 - 调用将被拒绝。 cargo install vellaveto-proxy vellaveto-proxy --protectshield -- your-mcp-server  一个命令，无需配置。 Shield 可以立即阻止凭证盗窃、渗透、注入和数据泄露。 为什么开源 简单的回答是，您无法审核的安全软件不是安全软件。该领域的每个 MCP 网关竞争对手要么是闭源 SaaS，要么是“开放核心”。其中与安全相关的部分位于付费墙后面。我希望整个策略引擎（决定允许/拒绝的东西）是开放且可审计的。 核心引擎是 MPL-2.0。基准测试套件（MCPSEC，可以针对任何网关运行的 72 项攻击测试）是 Apache-2.0。 SDK 是 Apache-2.0。企业包（多租户编排、合规性报告、集群模式）为 BUSL-1.1，具有 3 个节点/25 个端点以下的免费层，每个版本在 3 年后转换为 MPL-2.0。 我在许可问题上来来回回了数周。最终采用 MPL-2.0 作为核心，因为它在文件级别是 Copyleft（对我的文件的修改保持打开状态），但允许集成（您可以在专有项目中使用它，而不会感染您的代码）。感觉在保持安全核心开放和不吓跑企业用户之间取得了适当的平衡。 存储库中有什么  具有全局/正则表达式/域匹配、参数约束、时间窗口、ABAC 的策略引擎 - &lt;5 毫秒 P99 评估 20 多个威胁检测层（注入、工具抢占、地毯拉动、DLP、模式中毒） 交叉调用 DLP - 检测跨多个工具调用的秘密，这是其他工具无法做到的 防篡改审计跟踪（SHA-256 链 + Merkle 证明 + Ed25519 检查点） 形式验证：跨 7 个工具（Verus、Kani、TLA+、Lean 4、Coq、Alloy）的 251 个证明实例。所有证明均采用正式/且可重现 适用于Python、TypeScript、Go、Java的SDK 10,470个测试，24个模糊目标 22个Rust箱子，约39K LOC引擎  我可以在哪些方面获得帮助 老实说？用户。我一直在真空中建造。代码很扎实，但我有 2 个 GitHub 星。我需要人们尝试它，打破它，提出问题，告诉我出了什么问题。如果您运行任何 MCP 服务器（Claude Desktop、Cursor、自定义代理）并想尝试使用 --protectshield 包装它们，我很想听听会发生什么。 对打包帮助也感兴趣 - 我想将其放入 Homebrew、AUR、nixpkgs 和 Docker Hub，但我没有时间弄清楚每个的包装。 GitHub：https://github.com/vellaveto/vellaveto 很高兴回答有关架构、许可决策或其他任何问题的问题。   由   提交 /u/CattleAncient4882   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmez8e/vellaveto_open_source_runtime_security_for_ai/</guid>
+      <pubDate>Fri, 06 Mar 2026 14:09:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个自托管、开源的 Datadog 和 Sentry 替代方案</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmeuu1/i_built_a_selfhosted_opensource_alternative_to/</link>
+      <description><![CDATA[       由   提交/u/imafirinmalazorr   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmeuu1/i_built_a_selfhosted_opensource_alternative_to/</guid>
+      <pubDate>Fri, 06 Mar 2026 14:04:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>Glance - 开源 macOS 状态栏替换（Swift/SwiftUI、MIT）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmbu01/glance_opensource_macos_status_bar_replacement/</link>
+      <description><![CDATA[刚刚发布了 Glance v1.0.0，这是一个针对 macOS 的自定义状态栏。 我构建它是因为默认菜单栏感觉太有限了。 Glance 将其替换为可配置的小部件：工作区、正在播放、音量、网络、电池、日历时间。每个小部件都有一个详细的弹出窗口。有 11 种不同配色方案和风格的预设。 技术堆栈：纯 Swift 和 SwiftUI。没有 Electron，没有 Web 视图，除了两个 Swift 包（TOML 解析器和 Markdown 渲染器）之外没有任何依赖项。 Config 是一个具有实时重新加载功能的简单 TOML 文件，您也可以使用内置的设置 GUI。 使用一些私有 CGS API 来支持本机 macOS Spaces（与 SketchyBar、yabai 等相同的方法），并使用辅助功能 API 来防止最大化的窗口超出栏后面。 MIT 许可，欢迎贡献。 GitHub：https://github.com/azixxxxx/glance   由   提交 /u/ffaiithh   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmbu01/glance_opensource_macos_status_bar_replacement/</guid>
+      <pubDate>Fri, 06 Mar 2026 11:45:31 GMT</pubDate>
+    </item>
     <item>
       <title>Opus 专利流氓声称 9 项过期或过期的 Opus 专利</title>
       <link>https://www.reddit.com/r/opensource/comments/1rlxp3d/opus_patent_troll_claims_9_expired_or_postopus/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[我的开源项目有 44 个模块和 35k 多行代码。我需要直观地映射技术债务、复杂性和依赖关系，这些东西直接在 GitHub README 上看起来不错，而不是在单独的 Web 应用程序中。 所以我构建了 canopy 代码。它协调 radon（可维护性/复杂性）、vulture（死代码）和 git log（搅动）来生成代码库的静态 SVG 轨道图。节点按运行状况着色，按 LOC 调整大小，脉冲节点表示高流失率，使用直接在 GitHub README 中呈现的本机 SMIL 动画。  它还生成一个独立的 HTML 文件，其中包含平移/缩放、工具提示、搜索和点击固定依赖项。将 README 图像链接到 HTML 以获得完整的交互体验。 pip install canopy-code &amp;&amp; canopy run 。 实时互动：https://htmlpreview.github.io/?https://github.com/bruno-portfolio/agrobr/blob/main/docs/canopy.html GitHub：https://github.com/bruno-portfolio/canopy-code PyPI：https://pypi.org/project/canopy-code/ 欢迎提供反馈和功能建议。   由   提交/u/niilsb   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rl0wa5/i_built_a_cli_that_generates_orbital_code_health/</guid>
       <pubDate>Wed, 04 Mar 2026 23:13:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了 EasyCopy - 一个小型 macOS 菜单栏应用程序，用于保存和立即复制链接</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rkur7v/i_built_easycopy_a_tiny_macos_menu_bar_app_for/</link>
-      <description><![CDATA[我构建了 EasyCopy，一个小型 macOS 菜单栏应用程序，用于保存链接并快速复制它们。 我在申请工作时制作了它，因为我不断地一遍又一遍地复制/粘贴相同的链接（尤其是我的 LinkedIn、GitHub 和 作品集）。在选项卡之间跳转或重新输入 URL 只是为了触发浏览器自动完成功能，这很快就变得烦人了。 因此，我制作了一款位于 Mac 菜单栏中的轻量级应用程序，让我可以以闪电般的速度一键复制保存的链接。 EasyCopy 可让您：  保存命名链接 立即复制任何链接 编辑/删除链接 通过拖动和重新排序链接drop  该应用程序最初是使用 Electron 构建的，但在看到捆绑包大小后，我将其迁移到 Tauri，这将其从大约 300MB 减少到 9MB！ 它是开源的，我非常感谢反馈。  GitHub：https://github.com/colinfran/easy-copy 最新版本 (.dmg)：https://github.com/colinfran/easy-copy/releases/latest  如果您尝试一下，我很乐意听到什么会让它对您的工作流程更有用。    由   提交 /u/colinfran   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rkur7v/i_built_easycopy_a_tiny_macos_menu_bar_app_for/</guid>
-      <pubDate>Wed, 04 Mar 2026 19:20:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>GNU 崇拜和理查德·斯托曼的垮台</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rktwsl/the_cult_of_gnu_and_the_fall_of_richard_stallman/</link>
-      <description><![CDATA[不知道 RMS (Richard M. Stallman) 对于自由软件和开源来说意味着什么，就像不知道托马斯·杰斐逊 (Thomas Jefferson) 对美国的重要性一样。就像美国历史上的杰斐逊一样，RMS 是开源社区历史上一个有争议的人物。  https://youtu.be/LIpmsUNmEk8 在宇宙末日微集中，我们探讨了各种主题，包括： GNU 崇拜的问题  社区内的理论家 开源中的社会契约 某些开源社区中出现的不自由倾向  与我、Justin Reock 和 Vincent Mayers 一起踏上这段短暂但富有启发性的旅程，讨论 RMS 的“谁”、“什么”、“为什么”和“如何”以及取消文化的影响。    由   提交/u/linuxhiker  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rktwsl/the_cult_of_gnu_and_the_fall_of_richard_stallman/</guid>
-      <pubDate>Wed, 04 Mar 2026 18:49:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>AMA：我是 Ben Halpern，dev.to 的创始人兼开源社区托管软件 Forem 的管理者。请于本周四东部时间下午 1 点向我询问任何问题。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rkt1jw/ama_im_ben_halpern_founder_of_devto_and_steward/</link>
-      <description><![CDATA[大家好，我是 DEV (dev.to) 的创始人，这是一个基于我们的开源软件 Forem 构建的开发者网络。 我们已经经历了 10 多年的历程，并指望致力于所有这一切，我们最近加入 MLH 作为这一历程的下一步。 Forem 是一项与数百名贡献者共同进行的令人着迷的公开构建实验。我们经历了很多成功和失败，但我们将这个新时代视为重新确立长期目标的机会，使 Forem 成为任何人托管社区的可行选择。 我们对人工智能时代开源将如何变化感到好奇和着迷，我很高兴与大家谈论这些。   由   提交 /u/Significant-Fan-8454   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rkt1jw/ama_im_ben_halpern_founder_of_devto_and_steward/</guid>
-      <pubDate>Wed, 04 Mar 2026 18:18:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
