@@ -4,27 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 07 Mar 2026 09:34:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 12:57:47 GMT</lastBuildDate>
     <item>
-      <title>您对 GPT/Opus 代理使用什么推理方法？</title>
-      <link>https://www.reddit.com/r/programming/comments/1rn5qht/what_reasoning_effort_do_you_use_for_gptopus/</link>
-      <description><![CDATA[很好奇这里的人实际上使用什么来进行 GPT/Opus 代理的推理工作。 在我的大部分开发工作和规划中，我一直在 high 上使用 Opus 4.6，而不是 max。有时我也会使用 Codex 5.3 High 进行规划，但通常会切换回 Opus 来实际实现。 很多基准测试讨论似乎都集中在 max/xhigh 推理上，尤其是人工分析。 所以我想知道人们在实际工作流程中做了什么：  你实际上默认使用 max/xhigh 吗？ 或者大多数情况下 high 已经足够好了？ 您是否使用不同的推理工作来进行规划与更简单的代理/执行模式？  一旦延迟和成本开始变得重要，主要是想弄清楚最高设置在实践中是否真的值得。   由   提交/u/Ptz-  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rn5qht/what_reasoning_effort_do_you_use_for_gptopus/</guid>
-      <pubDate>Sat, 07 Mar 2026 09:28:24 GMT</pubDate>
+      <title>节点：微型 Redis 克隆</title>
+      <link>https://www.reddit.com/r/programming/comments/1rn8s6g/nodis_a_miniature_redis_clone/</link>
+      <description><![CDATA[我构建了 Nodis，一个受 Redis 启发的小型内存数据存储，以了解 Redis 内部的工作原理。 它实现了 RESP 协议、命令解析、基本数据结构和 AOF 持久化。我们的目标不是取代 Redis，而是了解协议解析、命令执行和持久性等内容如何在底层实际工作。 研究它帮助我理解了许多在 Redis 中易于使用但在内部难以可视化的概念。 它与 redis-cli 配合使用。 如果您对 Redis 内部结构或从头开始构建数据库感兴趣，您可能会发现探索它很有用。 GitHub：链接 欢迎提供反馈和建议。   由   提交/u/QuietlyDesi  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rn8s6g/nodis_a_miniature_redis_clone/</guid>
+      <pubDate>Sat, 07 Mar 2026 12:28:12 GMT</pubDate>
     </item>
     <item>
-      <title>为什么我在将日志发送到法学硕士之前使用正则表达式过滤日志 - 以及为什么它使人工智能分析显着更好</title>
-      <link>https://www.reddit.com/r/programming/comments/1rn5nac/why_i_filter_logs_with_regex_before_sending_them/</link>
-      <description><![CDATA[构建日志分析工具时，简单的方法是：将所有内容通过管道传输到 LLM 中并要求它查找错误。这可行，但存在三个实际问题：  成本 — 典型的 AOSP 构建日志有 50,000 多行。以大约 4 个字符/令牌计算，大约有 12,500 个令牌用于输入，其中大部分是无用的噪声（Binder 事务、GC 事件、每 500 毫秒重复的音频心跳）。 质量下降 - LLM 的注意力有限。当您在 50,000 行噪声中隐藏 3 个真实错误时，模型就会分心。集中输入可显着改善根本原因分析。 延迟 — 将 50k 行流式传输到本地 Ollama 模型的速度很慢。预过滤甚至可以让小模型感觉很快。  两阶段方法： 第 1 阶段是纯正则表达式 - 不涉及人工智能，运行时间为毫秒。它使用模式匹配来：  删除已知的安全噪声（Binder IPC 喋喋不休、例程 GC、重复的心跳线） 重复数据删除：标准化时间戳/PID 并折叠连续的相同行 始终保留：堆栈跟踪、崩溃签名、包含“错误”、“致命”、“异常”的行  这在涉及任何 AI 之前删除了约 70% 的行。 第 2 阶段仅将过滤后的输出发送到 LLM，并带有结构化提示，要求识别根本原因、错误级联检测和特定的修复命令。 有趣的工程问题：保留什么与丢弃什么？ 棘手的部分不是过滤噪音 - 而是避免漏报。有些线条看起来像噪音，但实际上是因果关系。例如，在Android的VHAL（Vehicle HAL）中，重复100次的属性订阅警告就是噪音。但崩溃前的“第一次”发生是一个信号。过滤器需要是有状态的，而不仅仅是逐行的。 解决方案：跟踪滚动缓冲区中的最后 N 行。如果一条线与“噪音”相匹配，则模式，但接下来的 3 行包含错误，追溯包含它。 同样的架构适用于任何嘈杂的 CLI 工具 - Docker 构建、Cargo 编译、Kubernetes 事件。模式库使其特定于域，而不是核心逻辑。 代码：https://github.com/zoddiacc/AILog 好奇是否有人以不同的方式解决了这个问题 - 特别是围绕有状态上下文窗口问题。   由   提交/u/HapiSerpent  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rn5nac/why_i_filter_logs_with_regex_before_sending_them/</guid>
-      <pubDate>Sat, 07 Mar 2026 09:22:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>Linux CMD 行 -si 开关不与 find 命令一起使用</title>
-      <link>https://www.reddit.com/r/programming/comments/1rn5lm5/linux_cmd_line_si_switch_not_being_used_with_find/</link>
-      <description><![CDATA[为什么我可以在 Linux 的 7zip 命令行中使用 -si 开关，它可以与 zip 存档一起使用，但 7zip 无法从 Linux find 命令中的 stdin 读取？？？   由   提交/u/Equivalent_Meaning46   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rn5lm5/linux_cmd_line_si_switch_not_being_used_with_find/</guid>
-      <pubDate>Sat, 07 Mar 2026 09:20:10 GMT</pubDate>
+      <title>TEMPEST vs TEMPEST — 本书长度的尝试探索和理解 Dave Theurer 的“Tempest”(1981) 和 Jeff Minter 的“Tempest 2000”(1994) 的代码和工艺</title>
+      <link>https://www.reddit.com/r/programming/comments/1rn70n1/tempest_vs_tempest_booklength_attempt_to_explore/</link>
+      <description><![CDATA[ 由   提交/u/r_retrohacking_mod2   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rn70n1/tempest_vs_tempest_booklength_attempt_to_explore/</guid>
+      <pubDate>Sat, 07 Mar 2026 10:47:44 GMT</pubDate>
     </item>
     <item>
       <title>一个社区花了数周时间调试一个自动合并机器人。最后一个错误是单行 GitHub 权限边缘情况。</title>
@@ -41,25 +34,11 @@
       <pubDate>Sat, 07 Mar 2026 09:02:01 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能副驾驶已经够多了！我们需要 AI HUD</title>
-      <link>https://www.reddit.com/r/programming/comments/1rn3g3p/enough_ai_copilots_we_need_ai_huds/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rn3g3p/enough_ai_copilots_we_need_ai_huds/</guid>
-      <pubDate>Sat, 07 Mar 2026 07:12:20 GMT</pubDate>
-    </item>
-    <item>
       <title>是什么取消了我的 Go 上下文？</title>
       <link>https://www.reddit.com/r/programming/comments/1rn0l8f/what_canceled_my_go_context/</link>
       <description><![CDATA[ 由   提交 /u/ketralnis   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rn0l8f/what_canceled_my_go_context/</guid>
       <pubDate>Sat, 07 Mar 2026 04:42:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>LLM 架构大比较</title>
-      <link>https://www.reddit.com/r/programming/comments/1rn0h7j/the_big_llm_architecture_comparison/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rn0h7j/the_big_llm_architecture_comparison/</guid>
-      <pubDate>Sat, 07 Mar 2026 04:36:15 GMT</pubDate>
     </item>
     <item>
       <title>将二进制浮点数转换为最短十进制字符串：实验回顾</title>
@@ -109,6 +88,27 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rmqcev/jank_is_off_to_a_great_start_in_2026/</guid>
       <pubDate>Fri, 06 Mar 2026 21:12:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>浏览器内 AI 的 3W：WebLLM + WASM + WebWorkers</title>
+      <link>https://www.reddit.com/r/programming/comments/1rmp8sp/3w_for_inbrowser_ai_webllm_wasm_webworkers/</link>
+      <description><![CDATA[ 由   提交 /u/hwclass   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rmp8sp/3w_for_inbrowser_ai_webllm_wasm_webworkers/</guid>
+      <pubDate>Fri, 06 Mar 2026 20:30:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>宣布推出 TypeScript 6.0 RC</title>
+      <link>https://www.reddit.com/r/programming/comments/1rmnpz5/announcing_typescript_60_rc/</link>
+      <description><![CDATA[ 由   提交/u/DanielRosenwasser   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rmnpz5/announcing_typescript_60_rc/</guid>
+      <pubDate>Fri, 06 Mar 2026 19:33:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>用不到 125 行 C 语言编写一个简单的 VM（2021）</title>
+      <link>https://www.reddit.com/r/programming/comments/1rmnmpi/writing_a_simple_vm_in_less_than_125_lines_of_c/</link>
+      <description><![CDATA[ 由   提交/u/nomemory  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rmnmpi/writing_a_simple_vm_in_less_than_125_lines_of_c/</guid>
+      <pubDate>Fri, 06 Mar 2026 19:29:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
