@@ -4,7 +4,7 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 07 Mar 2026 04:25:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 09:35:31 GMT</lastBuildDate>
     <item>
       <title>Bird's Nest — 用于非 Transformer 模型的开源本地 AI 管理器（MIT 许可证）</title>
       <link>https://www.reddit.com/r/opensource/comments/1rn07ep/birds_nest_opensource_local_ai_manager_for/</link>
@@ -27,13 +27,6 @@
       <pubDate>Fri, 06 Mar 2026 22:14:24 GMT</pubDate>
     </item>
     <item>
-      <title>开源社区如何处理人工智能和许可问题？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rmrhy7/how_opensource_community_dealing_with_ai_and/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rmrhy7/how_opensource_community_dealing_with_ai_and/</guid>
-      <pubDate>Fri, 06 Mar 2026 21:57:45 GMT</pubDate>
-    </item>
-    <item>
       <title>带有推荐源的 YouTube 代理？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rmpkb0/youtube_proxy_with_recommended_feed/</link>
       <description><![CDATA[你好。我最近一直在使用 freetube，它很棒，但我确实怀念有一个推荐页面。有没有 YouTube 代理，假设有可能，我不知道，我不太懂技术   由   提交 /u/Square_Associate_771   [链接] [评论]]]></description>
@@ -46,20 +39,6 @@
       <description><![CDATA[System76 关于年龄验证法 - System76 博客 https://share.google/mRU5BOTzLUAieB66u 我真的不明白加利福尼亚州和科罗拉多州试图在这里实现什么目标。他们从根本上不了解操作系统是什么，老实说，我 100% 相信这些人认为一切都是从苹果、谷歌、微软的角度运作的，并且用户帐户需要在某个集中的地方，并且一切都始终连接到互联网 24/7。这从根本上来说是对可追溯到计算诞生之初的开源意识形态的侵蚀。我认为，如果我们不进行真正的讨论和反击，我们实际上将生活在 1984 年的状态，就像多米诺骨牌在世界各地倒下一样...... 请记住，加利福尼亚州是第五大经济体，如果它全心全意地倒下，请相信这种情况将继续下去，并且它已经与其他继续以拯救儿童为幌子的公司站在一起。 B******** 当它实际上是关于控制和数据收集时... 咆哮结束。你们觉得怎么样？ 编辑： 显然我低估了这里实际上并不关心开源的人数。哈哈我离题了。    由   提交/u/lunarson24  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rmp5e1/are_we_going_to_see_the_slow_death_of_open_source/</guid>
       <pubDate>Fri, 06 Mar 2026 20:26:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>为 LLM API 构建了一个开源 Rust 隐私代理 - RAG 管道的一致假名化</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rmob4h/built_an_open_source_rust_privacy_proxy_for_llm/</link>
-      <description><![CDATA[构建 RAG 应用程序已经有几个月了，在某个时候，我实际上坐下来跟踪了在单个用户查询中哪些数据离开了我的网络。 这......不太好。 每个查询都会使用原始文本命中嵌入 API，将向量存储在云数据库中（顺便说一句，由于 **Zero2Text**，这些向量现在是可逆的 - 查一下，它是可怕），然后以明文形式将检索到的上下文 + 查询发送到 LLM。 每个查询有四个单独的泄漏点。 您的文档（合同、财务、人力资源、策略）| v 1. 分块 ← 本地、安全 | v 2. 嵌入 API 调用 ← LEAK #1：发送给提供商的原始文本 | v 3. Vector DB（云）← LEAK #2：可逆嵌入 | v 4. 用户查询嵌入 ← LEAK #3：查询发送到嵌入 API | v 5. 检索上下文 ← 您最敏感的块 | v 6. LLM 生成调用 ← LEAK #4：查询 + 明文上下文 | v 对用户的响应  我查看了现有的解决方案：  - Presidio：python，每次调用增加 50-200 毫秒，无状态（破坏矢量搜索一致性），仅捕获标准 PII - LLM Guard：同样的问题 - 基岩护栏：仅适用于基岩哈哈 - 私人 AI：字面上将您的数据发送给另一个人SaaS来“保护”在将其发送到 OpenAI 之前将其发送给 OpenAI  核心问题是编辑破坏了语义。如果您更换“塔塔汽车”使用[已编辑]，您的嵌入会变成垃圾并且检索会中断。 实际有效的修复方法是一致的假名化 - “Tata Motors”在每个文档和查询中始终映射到“ORG_7”。语义结构被保留，向量搜索仍然有效，法学硕士以假名回应，然后你重新恢复到真实值。提供商永远不会看到实际的实体名称。  “塔塔汽车公司的收入是多少？” | v “ORG_7 的收入是多少？” ← 提供者看到这个 | v LLM 响应 ORG_7 | v“塔塔汽车报告 3.4L Cr 卢比...” ← 用户看到这个  我最终将其构建为开源 Rust 代理 - 位于您的应用程序和 OpenAI 之间，&lt;5 毫秒的开销，更改一个环境变量，现有代码将保持不变。 AES-256-GCM 加密保险库，归零内存（为什么是 Rust 而不是 Python）。 检测：API 密钥、JWT、连接字符串、电子邮件、IP、财务金额、百分比、财务日期、自定义 TOML 规则。 很好奇是否还有其他人对其 RAG 管道进行过此类数据流审核。你找到了什么方法？ 如果有兴趣，请回购：github.com/rohansx/cloakpipe   由   提交/u/synapse_sage  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rmob4h/built_an_open_source_rust_privacy_proxy_for_llm/</guid>
-      <pubDate>Fri, 06 Mar 2026 19:55:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>我一直在问为什么代理框架让代理承担无限的成本，使用他们不应该拥有的凭据，并且不留下任何审计线索。没有人给出答案。所以我建造了一个可以做到这一点的东西。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rmk3m3/i_kept_asking_why_agent_frameworks_let_agents/</link>
-      <description><![CDATA[ 由   提交 /u/AffectionateSir8341   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rmk3m3/i_kept_asking_why_agent_frameworks_let_agents/</guid>
-      <pubDate>Fri, 06 Mar 2026 17:21:16 GMT</pubDate>
     </item>
     <item>
       <title>我构建了一个自托管、开源的 Datadog 和 Sentry 替代方案</title>
@@ -83,13 +62,6 @@
       <pubDate>Thu, 05 Mar 2026 23:39:17 GMT</pubDate>
     </item>
     <item>
-      <title>寻求化学研究的主权、开源工作流程（基于欧盟/瑞士的替代方案）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rlpuzu/seeking_a_sovereign_opensource_workflow_for/</link>
-      <description><![CDATA[大家好， 我是葡萄牙的一名化学研究员（专门研究材料和电化学）。最近，我们的学术界大力推动欧洲数字主权，放弃专有格式，转而使用开源、Markdown 和 LaTeX。 我正在尝试转变我的整个工作流程，但遇到了一些障碍。这是我到目前为止所拥有的以及我正在努力的地方： 1。当前成功  参考管理：成功从 EndNote 迁移到 Zotero。 Office 套件：从 Microsoft 365 迁移到 LibreOffice/OnlyOffice。  2.挑战  实验室笔记和实验室笔记同步：我使用 Zettlr 来记录基于 Markdown 的实验笔记和想法。但是，我需要一种可靠的方法来在实验室中在 Android 平板电脑上访问/编辑这些内容。 数据分析和数据分析。绘图：我目前使用OriginPro。我尝试了LabPlot，但它还不太满足我的要求。我正在学习 Python 和 R，但学习曲线很陡，同时我需要保持生产力。 写作和学习AI：我使用 VS Code 进行编程和 LaTeX，因为 AI 集成显着加快了我的工作速度。我尝试过 LyX 和 TeXstudio，但如果没有人工智能的帮助，它们感觉已经过时了。是否有基于欧洲的 IDE 或编辑器可以弥补这一差距？ 云存储和云存储托管：我需要一个安全的欧洲（最好是瑞士）数据存放处。我正在考虑使用 Nextcloud（通过 kDrive 或 Shadow Drive）作为存储空间。 Proton 非常出色，但对于全套套件来说相当昂贵，而且我发现 Anytype 的定价/同步模型对于我的需求来说有点复杂。  3.操作系统困境 我目前使用的是Windows 11。我尝试过通过可启动驱动器运行 Ubuntu，但我仍然依赖一些仅在 Windows 上运行的旧程序，这迫使我回来。 我的目标 我正在寻找一个工作流程：  开源和开源私人（最好位于欧盟/瑞士）。 具有成本效益（对研究人员免费或价格合理）。 集成：处理 Markdown、LaTeX 和基本的管理 Office 任务。  在 Microsoft 是“黄金标准”的领域，在葡萄牙的大学里，脱离是很困难的。有没有人有关于更具凝聚力、主权设置且不会牺牲太多效率的建议？ 干杯！   由   提交 /u/hugodcnt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rlpuzu/seeking_a_sovereign_opensource_workflow_for/</guid>
-      <pubDate>Thu, 05 Mar 2026 18:44:51 GMT</pubDate>
-    </item>
-    <item>
       <title>通过人工智能辅助重写进行重新许可——copyleft 的消亡？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rlmbni/relicensing_with_aiassisted_rewrite_the_death_of/</link>
       <description><![CDATA[ 由   提交/u/cocoon56  [链接] [评论]]]></description>
@@ -109,6 +81,34 @@
       <description><![CDATA[ 由   提交/u/buovjaga  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rlipuu/request_to_the_european_commission_to_adhere_to/</guid>
       <pubDate>Thu, 05 Mar 2026 14:15:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>我开发了一个闹钟应用程序，故意破坏你的睡眠周期，这样你就可以体验重新入睡的乐趣。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rlho73/i_built_an_alarm_app_that_purposely_ruins_your/</link>
+      <description><![CDATA[      当你惊慌失措地醒来，查看时钟，发现距离起床还有 3 小时时，你知道那种令人难以置信的解脱感吗？ 我决定将其自动化。 来认识一下心理警报。您设置实际的起床时间，应用程序会计算一个随机的“惊喜”时间。半夜的时间叫醒你。它会绕过“勿扰模式”，冲破你的锁定屏幕，并猛烈地响铃，只是为了向你显示一个按钮，上面写着：“回去睡觉吧，你还有时间。” 它是为 Android (.NET MAUI) 构建的，并使用一些激进的本机 API，只是为了确保操作系统的电池优化器无法让你摆脱这个可怕的想法。 这对你的健康有好处吗？绝对不是。它会破坏你的快速眼动睡眠，让你痛苦不堪。但为了那短暂的 5 秒钟的心理缓解，这可能是值得的。   由   提交/u/endoplazmikmitokondr   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rlho73/i_built_an_alarm_app_that_purposely_ruins_your/</guid>
+      <pubDate>Thu, 05 Mar 2026 13:30:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我是一名为非洲诊所构建开源 EHR 的医生 - 在 Raspberry Pi 上离线运行，在 Git 中将数据存储为 FHIR JSON。寻找贡献者</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rlfw5k/im_a_doctor_building_an_opensource_ehr_for/</link>
+      <description><![CDATA[      撒哈拉以南非洲地区超过 60% 的诊所不可靠或没有互联网。儿童错过疫苗接种是因为没有记录。大多数 EHR 系统需要服务器和稳定的连接，这使得数千个设施无法使用它们。 Open Nucleus 将临床数据以 FHIR R4 JSON 形式直接存储在 Git 存储库中。每个诊所都有完整的本地副本。无需互联网即可操作。当存在连接（Wi-Fi、网状网络）时，它会使用标准 Git 传输进行同步。整个系统运行在价值 75 美元的 Raspberry Pi 上。 架构：  用于 FHIR 资源存储的微服务（Git + SQLite 索引） Flutter 桌面应用程序作为临床界面（Pi / Linux ARM64） 用于防篡改数据的区块链锚定（Hedera / IOTA）完整性 基于 Forgejo 的区域中心 - 一个“临床数据的 GitHub”，地区卫生办公室在其中浏览各个诊所的记录 人工智能监控代理使用当地法学硕士来检测疫情模式  为什么选择 Git？每次写入都是一次提交（免费审计跟踪），离线优先是本机的，解决了冲突，并且内置了加密完整性。 寻找评论和反馈。即使架构反馈也很有价值。   由   提交 /u/ResearcherFlimsy4431   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rlfw5k/im_a_doctor_building_an_opensource_ehr_for/</guid>
+      <pubDate>Thu, 05 Mar 2026 12:05:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>开放的对等发现网络有多大用处？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rlecdy/how_useful_would_an_open_peer_discovery_network_be/</link>
+      <description><![CDATA[我已经敲定了一个服务器，您可以在其中使用 ed25519 密钥进行注册。您可以查询当前的 IP：端口，并请求与服务器上的其他注册密钥建立连接（服务器客户端列表不会与请求方共享）。基本上，你会得到他们的 ip:port 组合，但你必须确定他们在该服务器上，而他们得到了你的。它是 UDP。 我当前的计划是允许该网络使用 DHT，以便人们可以通过服务器网络进行爬行以找到彼此。但事情是这样的，它不会专用于任何特定的项目或协议。只是设备发现和促进 UDP 打洞。 注册设备需要 ed25519 密钥，而搜索设备只会表明它们对连接的兴趣。注册设备必须采取进一步的安全措施。 默认情况下，服务器毫无疑问地接受所有注册。因此，它们不会将您重定向到网络中更好的服务器——这又取决于您在服务中实现。我认为这是一个操作安全问题。如果您找到一种更有趣的方式来利用网络并阻止不良行为者，您应该可以自由地这样做。 我的问题是，它有用吗？ 编辑：我认为本地 MeshCore (LoRa) 网络可以拥有在网络中注册其密钥的专用设备。然后，当与这些设备建立连接时，它们可以在本地中继收到的消息。全球免费短信。   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rlecdy/how_useful_would_an_open_peer_discovery_network_be/</guid>
+      <pubDate>Thu, 05 Mar 2026 10:39:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>对新手有什么建议吗？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rl2mn5/any_recommendations_for_a_newbie/</link>
+      <description><![CDATA[我 5 个月前开始了自己的项目。这是我第一次创建一个真正的项目，并希望与他人分享。 对于新手有什么建议吗？我专注于制作优秀的文档、清晰的版本等...但我确信我遗漏了很多东西。 例如：社区、处理问题、贡献者或采用方面的错误。 您通过艰难的方式学到了什么？ 提前致谢！   由   提交/u/dygerydoo  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rl2mn5/any_recommendations_for_a_newbie/</guid>
+      <pubDate>Thu, 05 Mar 2026 00:24:54 GMT</pubDate>
     </item>
     </channel>
 </rss>
