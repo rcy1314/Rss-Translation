@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 07 Mar 2026 15:30:09 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 18:41:59 GMT</lastBuildDate>
+    <item>
+      <title>banish v1.2.0 — 状态属性更新</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rndec1/banish_v120_state_attributes_update/</link>
+      <description><![CDATA[几周前我发布了有关驱逐的文章（https://www.reddit.com/r/opensource/comments/1r90h7w/banish_v114_a_rulebased_state_machine_dsl_for/)，用于基于规则的状态机的 proc 宏 DSL在铁锈中。反应令人鼓舞并得到了一些反馈，因此我推出了 1.2.0 版本。以下是更改的内容。 状态属性是主要功能。现在，您可以注释状态以修改其运行时行为，而无需触及规则逻辑。 这是一个简短的示例：  // Caps it&#39;s Looping to 3 // Explicitly Transitions to next state //跟踪记录状态条目和评估的规则 #[max_iter = 3 =&gt; @超时，跟踪] @重试尝试？ ！成功 { try_request(); } // 隔离，因此不能隐式转换为 #[isolate] @timeout 句柄？ { log_failure();返回; }  此外，我很高兴地说编译器错误要好得多。以前一些错误的输入可能会导致内部恐慌。现在一切都会产生一个跨度精确的 syn::Error 指向有问题的令牌。显然，它对开发人员更加友好。 我还重写了文档，使其成为涵盖执行模型、所有语法、每个属性、完整错误参考和已知限制的全面技术参考。如果您之前因为文档太薄而放弃了箱子，这应该会有所帮助。 最后，我为任何希望做出贡献的人添加了一个测试套件。与之前一样，该项目受 MIT 或 Apache-2.0 许可。 参考手册：https://github.com/LoganFlaherty/banish/blob/main/docs/README.md 发行说明：https://github.com/LoganFlaherty/banish/releases/tag/v1.2.0 我很乐意回答任何问题。   由   提交 /u/TitanSpire   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rndec1/banish_v120_state_attributes_update/</guid>
+      <pubDate>Sat, 07 Mar 2026 15:55:01 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了一个开源 AI 代理来控制你的整个 Mac——只需告诉它做什么</title>
       <link>https://www.reddit.com/r/opensource/comments/1rncp1m/i_built_an_opensource_ai_agent_that_controls_your/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[      当你惊慌失措地醒来，查看时钟，发现距离起床还有 3 小时时，你知道那种令人难以置信的解脱感吗？ 我决定将其自动化。 来认识一下心理警报。您设置实际的起床时间，应用程序会计算一个随机的“惊喜”时间。半夜的时间叫醒你。它会绕过“勿扰模式”，冲破你的锁定屏幕，并猛烈地响铃，只是为了向你显示一个按钮，上面写着：“回去睡觉吧，你还有时间。” 它是为 Android (.NET MAUI) 构建的，并使用一些激进的本机 API，只是为了确保操作系统的电池优化器无法让你摆脱这个可怕的想法。 这对你的健康有好处吗？绝对不是。它会破坏你的快速眼动睡眠，让你痛苦不堪。但为了那短暂的 5 秒钟的心理缓解，这可能是值得的。   由   提交/u/endoplazmikmitokondr   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rlho73/i_built_an_alarm_app_that_purposely_ruins_your/</guid>
       <pubDate>Thu, 05 Mar 2026 13:30:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>我是一名为非洲诊所构建开源 EHR 的医生 - 在 Raspberry Pi 上离线运行，在 Git 中将数据存储为 FHIR JSON。寻找贡献者</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rlfw5k/im_a_doctor_building_an_opensource_ehr_for/</link>
-      <description><![CDATA[      撒哈拉以南非洲地区超过 60% 的诊所不可靠或没有互联网。儿童错过疫苗接种是因为没有记录。大多数 EHR 系统需要服务器和稳定的连接，这使得数千个设施无法使用它们。 Open Nucleus 将临床数据以 FHIR R4 JSON 形式直接存储在 Git 存储库中。每个诊所都有完整的本地副本。无需互联网即可操作。当存在连接（Wi-Fi、网状网络）时，它会使用标准 Git 传输进行同步。整个系统运行在价值 75 美元的 Raspberry Pi 上。 架构：  用于 FHIR 资源存储的微服务（Git + SQLite 索引） Flutter 桌面应用程序作为临床界面（Pi / Linux ARM64） 用于防篡改数据的区块链锚定（Hedera / IOTA）完整性 基于 Forgejo 的区域中心 - 一个“临床数据的 GitHub”，地区卫生办公室在其中浏览各个诊所的记录 人工智能监控代理使用当地法学硕士来检测疫情模式  为什么选择 Git？每次写入都是一次提交（免费审计跟踪），离线优先是本机的，解决了冲突，并且内置了加密完整性。 寻找评论和反馈。即使架构反馈也很有价值。   由   提交 /u/ResearcherFlimsy4431   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rlfw5k/im_a_doctor_building_an_opensource_ehr_for/</guid>
-      <pubDate>Thu, 05 Mar 2026 12:05:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
