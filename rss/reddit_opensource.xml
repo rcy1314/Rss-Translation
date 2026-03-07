@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 07 Mar 2026 02:24:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 04:25:32 GMT</lastBuildDate>
+    <item>
+      <title>Bird's Nest — 用于非 Transformer 模型的开源本地 AI 管理器（MIT 许可证）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rn07ep/birds_nest_opensource_local_ai_manager_for/</link>
+      <description><![CDATA[已经开源了我一直在构建的一个项目 - Bird&#39;s Nest 是 macOS 的本地 AI 管理器，运行非 Transformer 模型：RWKV、Mamba、xLSTM 和 StripedHyena。 许可证： MIT - https://github.com/Dappit-io/birdsnest/blob/main/LICENSE 为什么构建它： 我想在本地运行 RWKV 和 Mamba 模型，而不需要为每个架构拼凑单独的脚本。对于非 Transformer 模型，没有相当于 Ollama 或 LM Studio 的工具，因此我构建了一个。 它包含的内容：  跨 4 个非 Transformer 架构的 19 个文本模型，可一键下载 8 个在设备上运行的图像生成模型 (Apple Silicon Metal) AI 在对话期间可以调用的 25 多种工具（搜索、图像生成、代码）执行） 音乐生成（稳定音频、Riffusion） FastAPI 后端、vanilla JS/CSS/HTML 前端（无框架依赖） 完整的用户文档：入门、模型参考、工具参考  该存储库还包括 CONTRIBUTING.md，其中包含添加新模型和工具，以及用于错误报告和功能请求的 GitHub 问题模板。 如果您对项目结构、自述文件或贡献工作流程有任何反馈，我将不胜感激。我致力于维护这一点，并随着新的非变压器架构的出现而构建模型目录。 存储库：https://github.com/Dappit-io/birdsnest   由   提交/u/habachilles  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rn07ep/birds_nest_opensource_local_ai_manager_for/</guid>
+      <pubDate>Sat, 07 Mar 2026 04:22:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>RustChan – 用 Rust 编写的自托管图像板服务器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rmzf3p/rustchan_a_selfhosted_imageboard_server_written/</link>
+      <description><![CDATA[       由   提交 /u/xXCsd113Xx   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rmzf3p/rustchan_a_selfhosted_imageboard_server_written/</guid>
+      <pubDate>Sat, 07 Mar 2026 03:43:47 GMT</pubDate>
+    </item>
     <item>
       <title>上周我尝试了自托管的 Notion 替代方案，但它们似乎都没有像 Notion 那样优先考虑数据库。考虑建立自己的？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rmrx7g/ive_spent_the_last_week_trying_the_selfhosted/</link>
@@ -46,13 +60,6 @@
       <description><![CDATA[ 由   提交 /u/AffectionateSir8341   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rmk3m3/i_kept_asking_why_agent_frameworks_let_agents/</guid>
       <pubDate>Fri, 06 Mar 2026 17:21:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>VellaVeto — 用于 AI 代理工具调用的开源运行时安全性（Rust、MPL-2.0）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rmez8e/vellaveto_open_source_runtime_security_for_ai/</link>
-      <description><![CDATA[我已经构建这个 Solo 大约一年了，终于觉得它已经准备好供人们查看了。 VellaVeto 是 MCP 的安全代理，MCP 是 AI 代理用来调用工具（文件访问、HTTP、数据库等）的协议。 MCP 没有内置安全性。没有访问控制、没有审计、没有 DLP。 15 个月内生态系统中出现了 30 多个 CVE。 VellaVeto 位于您的代理和工具之间，并对每次呼叫执行策略。如果出现任何问题 - 没有匹配的策略、缺少上下文、内部错误 - 调用将被拒绝。 cargo install vellaveto-proxy vellaveto-proxy --protectshield -- your-mcp-server  一个命令，无需配置。 Shield 可以立即阻止凭证盗窃、渗透、注入和数据泄露。 为什么开源 简单的回答是，您无法审核的安全软件不是安全软件。该领域的每个 MCP 网关竞争对手要么是闭源 SaaS，要么是“开放核心”。其中与安全相关的部分位于付费墙后面。我希望整个策略引擎（决定允许/拒绝的东西）是开放且可审计的。 核心引擎是 MPL-2.0。基准测试套件（MCPSEC，可以针对任何网关运行的 72 项攻击测试）是 Apache-2.0。 SDK 是 Apache-2.0。企业包（多租户编排、合规性报告、集群模式）为 BUSL-1.1，具有 3 个节点/25 个端点以下的免费层，每个版本在 3 年后转换为 MPL-2.0。 我在许可问题上来来回回了数周。最终采用 MPL-2.0 作为核心，因为它在文件级别是 Copyleft（对我的文件的修改保持打开状态），但允许集成（您可以在专有项目中使用它，而不会感染您的代码）。感觉在保持安全核心开放和不吓跑企业用户之间取得了适当的平衡。 存储库中有什么  具有全局/正则表达式/域匹配、参数约束、时间窗口、ABAC 的策略引擎 - &lt;5 毫秒 P99 评估 20 多个威胁检测层（注入、工具抢占、地毯拉动、DLP、模式中毒） 交叉调用 DLP - 检测跨多个工具调用的秘密，这是其他工具无法做到的 防篡改审计跟踪（SHA-256 链 + Merkle 证明 + Ed25519 检查点） 形式验证：跨 7 个工具（Verus、Kani、TLA+、Lean 4、Coq、Alloy）的 251 个证明实例。所有证明均采用正式/且可重现 适用于Python、TypeScript、Go、Java的SDK 10,470个测试，24个模糊目标 22个Rust箱子，约39K LOC引擎  我可以在哪些方面获得帮助 老实说？用户。我一直在真空中建造。代码很扎实，但我有 2 个 GitHub 星。我需要人们尝试它，打破它，提出问题，告诉我出了什么问题。如果您运行任何 MCP 服务器（Claude Desktop、Cursor、自定义代理）并想尝试使用 --protectshield 包装它们，我很想听听会发生什么。 对打包帮助也感兴趣 - 我想将其放入 Homebrew、AUR、nixpkgs 和 Docker Hub，但我没有时间弄清楚每个的包装。 GitHub：https://github.com/vellaveto/vellaveto 很高兴回答有关架构、许可决策或其他任何问题的问题。   由   提交 /u/CattleAncient4882   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rmez8e/vellaveto_open_source_runtime_security_for_ai/</guid>
-      <pubDate>Fri, 06 Mar 2026 14:09:34 GMT</pubDate>
     </item>
     <item>
       <title>我构建了一个自托管、开源的 Datadog 和 Sentry 替代方案</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[ 由   提交/u/buovjaga  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rlipuu/request_to_the_european_commission_to_adhere_to/</guid>
       <pubDate>Thu, 05 Mar 2026 14:15:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>我开发了一个闹钟应用程序，故意破坏你的睡眠周期，这样你就可以体验重新入睡的乐趣。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rlho73/i_built_an_alarm_app_that_purposely_ruins_your/</link>
-      <description><![CDATA[      当你惊慌失措地醒来，查看时钟，发现距离起床还有 3 小时时，你知道那种令人难以置信的解脱感吗？ 我决定将其自动化。 来认识一下心理警报。您设置实际的起床时间，应用程序会计算一个随机的“惊喜”时间。半夜的时间叫醒你。它会绕过“勿扰模式”，冲破你的锁定屏幕，并猛烈地响铃，只是为了向你显示一个按钮，上面写着：“回去睡觉吧，你还有时间。” 它是为 Android (.NET MAUI) 构建的，并使用一些激进的本机 API，只是为了确保操作系统的电池优化器无法让你摆脱这个可怕的想法。 这对你的健康有好处吗？绝对不是。它会破坏你的快速眼动睡眠，让你痛苦不堪。但为了那短暂的 5 秒钟的心理缓解，这可能是值得的。   由   提交/u/endoplazmikmitokondr   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rlho73/i_built_an_alarm_app_that_purposely_ruins_your/</guid>
-      <pubDate>Thu, 05 Mar 2026 13:30:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
