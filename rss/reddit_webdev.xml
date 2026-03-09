@@ -4,7 +4,21 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 09 Mar 2026 04:56:42 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 07:10:05 GMT</lastBuildDate>
+    <item>
+      <title>用纯 Python 构建了一个全栈 Web 应用程序，任何地方都没有 JavaScript，后端和前端使用相同的语言</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rotdat/built_a_full_stack_web_app_in_pure_python_no/</link>
+      <description><![CDATA[      嘿r/webdev！ 我最近一直在思考的事情：在你可以相对快速地掌握任何框架或语言的人工智能时代，真正的优势是首先深入一个堆栈。从内到外了解基本原理、模式和生态系统。一旦有了这个基础，其他一切都会变得更容易掌握。 我从 MERN 开始，熟悉了全栈 JS 方法，现在我有意深入研究 Python 及其生态系统。 FastAPI、MongoDB、APScheduler，这一次我也希望前端是 Python，只是为了尝试新东西并真正了解生态系统已经走了多远。 这就是我最终完全使用 Reflex 构建 Post4U 仪表板的方式，Reflex 是一个 Python 框架，可以在底层编译为 React + Next.js。我编写的零 JavaScript。后端是 FastAPI，前端是 Reflex，一种端到端的语言。 基本原理仍然适用：状态管理的工作方式类似于 React，您扩展 rx.State，定义您的变量，并更改自动重新渲染依赖组件。心智模型与 useState 相同，但你永远不会离开 Python。来自 JS，它立即点击了。 我看到很多人因为框架而跳过 HTML 和 CSS，但基础知识仍然很重要，您可以使用预构建的组件，但当您需要自定义样式、精确布局控制时，您将不得不放入 rx.html 并编写原始 HTML。 CSS 仍然会找到你。 PHP 曾经是唯一真正的单语言全栈选项。然后 Node.js 让 JavaScript 全栈成为主流。现在，像 Reflex、Flet 和 NiceGUI 这样的框架正在使 Python 成为真正的全栈竞争者，我认为它的重要性被低估了。 该应用程序本身是一个自托管的社交媒体调度程序，可以交叉发布到 X、Telegram 和 Discord。您的 API 密钥保留在您自己的服务器上，没有 SaaS，没有订阅，一个 docker-compose up。 GitHub：https://github.com/ShadowSlayer03/Post4U-Schedule-Social-Media-Posts 好奇这里是否还有其他人使用纯 Python前端路线以及您的经验是什么。请分享您的宝贵反馈（此处的正确之处和需要改进的地方）以及功能建议。   由   提交/u/ShadowSlayer2242   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rotdat/built_a_full_stack_web_app_in_pure_python_no/</guid>
+      <pubDate>Mon, 09 Mar 2026 07:09:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>复杂性错觉：为什么我放弃 Next.js 而选择 HTMX 的 20MB Rust 二进制文件</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rorrbv/the_complexity_delusion_why_i_abandoned_nextjs/</link>
+      <description><![CDATA[过去几年我完全沉浸在 React 和 Next.js 生态系统中。和其他许多人一样，我相信这是现代网络开发的顶峰。水合作用、客户端与服务器边界以及大量捆绑器的残酷复杂性只是构建“企业级”应用程序的必要成本。昨天，我从头开始构建了一个概念框架，模仿 Next.js 的文件夹人体工程学，但用 Rust、HTMX、Tailwind 和 Alpine.js 完全取代了 Node 生态系统。结果让我对现代网络行业向我们推销的一切提出了质疑。 我想就我认为目前网络开发中最大的问题进行一场辩论。 偶然复杂性的陷阱 如果我们客观地看待它，几乎每一个重大的“创新”都可能会被忽视。过去几年 React 生态系统中的问题是 SPA 架构造成的自伤的创可贴：  我们决定在客户端用 JS 构建 DOM，忽略了 Web（超媒体）的本质。 这破坏了 SEO 和初始加载时间。 作为解决方案，我们发明了服务器端渲染 (SSR)。我们发送 HTML，然后下载兆字节的 JS 来“水合”页面。  这种水合在客户端和服务器之间造成了状态同步问题，从而导致了臭名昭著的水合错误。 为了解决状态映射问题和庞大的包大小，我们引入了 React 服务器组件 (RSC) 和边界指令，例如“使用客户端”   我们最终得到了一个高度脆弱的双头架构，其中代码试图同时存在于二维中，通常需要专有基础设施（边缘网络、Vercel）才能正常运行而没有延迟。他们将其标准化并称之为“开发人员体验”。 RATH 模型（Rust、Axum、Tailwind、HTMX、Alpine） 我决定创建一个纯堆栈。我保留了使 Next.js 舒适的文件系统路由，但消除了所有沉重的 JavaScript 和 NPM 依赖项。 这是我通过返回 Web 的原始超媒体设计发现的，由 Rust 等编译语言提供支持：  服务器决定绝对真理：HTMX 允许任何 HTML 元素对服务器发出突变并使用 HTML 片段更新自身。没有 JSON 序列化。没有状态同步。如果没有重复的状态，多年的潜在 UI 错误将立即被消除。 单一二进制部署：没有 node_modules 文件夹，也没有第三方依赖更新偏执。整个应用程序（包括路由、强类型模板和逻辑）编译成不可变的 20MB 二进制文件。部署实际上就是通过 SSH 进行复制并启动基本的 Linux 服务。运行时 RAM 使用量很少超过 15MB。 真正的安全性与营销安全性：Next.js 继承了 NPM 供应链风险和运行时评估缺陷。使用 Rust 和 SQLx 等包，SQL 查询在编译时得到验证；如果 SQL 语法有一个缺陷，代码根本无法编译。模板引擎默认会禁止 XSS，需要显式转义，同时借用检查器可防止内存泄漏。  他们向我们出售他们所造成问题的解决方案吗？ 任何与用户视口纯粹相关的短暂交互性（下拉菜单、暗模式切换、警报）都通过 Alpine.js 严格在本地解决，无需回收组件树或发出网络调用。对于重要的业务逻辑，浏览器完全能够以暴露虚拟 DOM 缓慢的速度渲染异步 HTML。 我很想听听您的观点。我们是否已经将过度臃肿的技术堆栈标准化，认为它是唯一的“现代”技术？构建网络软件的方法？您认为强类型编译语言支持的超媒体框架会再次主导严肃的企业 Web 开发吗？   由   提交 /u/Obvious_Yoghurt1472   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rorrbv/the_complexity_delusion_why_i_abandoned_nextjs/</guid>
+      <pubDate>Mon, 09 Mar 2026 05:34:10 GMT</pubDate>
+    </item>
     <item>
       <title>Hostinger 长期回顾 2026</title>
       <link>https://www.reddit.com/r/webdev/comments/1roq2wg/hostinger_long_term_review_2026/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[我在一家小企业找到了一份工作，我的经理希望我创建企业电子邮件地址并建立一个用于营销和一些管理任务的网站。我以前从未托管过网站，但经过一番研究后，我发现 Hostinger 对于两者来说都是一个不错的选择。那么，对于那些使用 Hostinger 的人来说，该做什么和不该做什么。在开始之前我应该​​知道什么？有什么警告、提示或任何有用的东西吗？提前致谢。   由   提交 /u/Inevitable_Factor123   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1roem6k/what_should_i_know_about_using_hosringer/</guid>
       <pubDate>Sun, 08 Mar 2026 19:53:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于尝试阻止机器人/网络抓取的注意事项</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rod91x/notes_on_trying_to_block_bots_web_scraping/</link>
-      <description><![CDATA[想写一篇关于我尝试阻止机器人和抓取工具的经验的文章。不知道如何构建它，所以这更像是技术的脑转储以及它们最终失败的地方： IP - 通过 IP 进行阻止只是短期修复，抓取工具可以轻松切换到其他。 ASN - 防火墙供应商往往总是向您提供此服务，例如 Cloudflare 在他们的免费计划中这样做。您可以用它来识别托管服务； DigitalOcean的ASN 14061颇有名气。比 IP 封锁更有效，但恶意行为者隐藏在住宅代理后面也不需要付出太多代价。 住宅代理和其他类型的数据库 - 有付费服务可以告诉您 IP 是否属于住宅代理或托管提供商，或者因为它运行滥用/恶意服务而被标记。与逐个挑选 ASN 相比，这种方法提供了更广泛的覆盖范围。 问题是，这些住宅 IP 上通常有合法用户。而且，归根结底，任何连接到住宅 ISP 的个人设备都可以用作代理。有些人出于金钱原因自愿设置它们，而另一些人则不知道他们安装了一些捆绑的应用程序/恶意软件。 用户代理标头 - 基本抓取工具会显示一些明显的内容，例如 python-requests/2.31.0，您可以在防火墙规则中对其进行操作。问题在于，将此标头覆盖为看起来合法的浏览器的内容是微不足道的。 JA4 哈希和 JA4 哈希值其他客户端指纹识别 - 防火墙供应商提供请求的 JA4 哈希值作为其高级包的一部分。然后还有其他库/供应商根据浏览器的各个其他方面（例如屏幕分辨率、字体等）进行指纹识别 CAPTCHA、Cloudflare Turnstile 和其他类型的挑战 - 这些工作得很好，假设您愿意为用户添加一些摩擦。当然，仍然有软件可以绕过这个问题。但是，如果您非常有动力，您也可以构建自己的验证码解决方案 - 我总是想到这个 subreddit 帖子（不相关）验证码，其中您必须出示香蕉才能通过，这让我很崩溃 假设人们感兴趣的话，我可以就此写更多内容。如果没有，我就回我的洞穴了。   由   提交 /u/ReditusReditai   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rod91x/notes_on_trying_to_block_bots_web_scraping/</guid>
-      <pubDate>Sun, 08 Mar 2026 19:02:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么重要的上下文总是出现在错误的地方？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rocbyp/why_does_important_context_always_end_up_in_the/</link>
-      <description><![CDATA[我一直在开发团队中注意到的事情。 决策是在 Slack 线程上做出的。公关评论中提到了阻止者。优先级转移发生在快速呼叫中。有人找出了一个严重的错误原因并将其发布到随机频道中。 所有这些最终都没有出现在 Jira 中。这些都不会出现在文档中。它只是存在于它发生的地方，然后慢慢消失。 然后两周后有人问为什么做出这个决定，但没有人可以重建它。或者一个新人加入，但不知道上一个冲刺实际发生了什么。 工具都在那里。 GitHub、Slack、线性、概念。但所有这些内容的背景都是支离破碎的，没有人有时间来整合它。 您的团队实际上如何处理这个问题？是否有一个有效的系统，或者重要的上下文是否会悄悄丢失？   由   提交 /u/HiSimpy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rocbyp/why_does_important_context_always_end_up_in_the/</guid>
-      <pubDate>Sun, 08 Mar 2026 18:28:29 GMT</pubDate>
     </item>
     </channel>
 </rss>
