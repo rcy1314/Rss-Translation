@@ -4,13 +4,48 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 10 Mar 2026 09:52:22 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 13:13:24 GMT</lastBuildDate>
     <item>
-      <title>人工智能作为基础设施：工业化、资本扩张和概率</title>
-      <link>https://www.reddit.com/r/programming/comments/1rprbhi/artificial_intelligence_as_infrastructure/</link>
-      <description><![CDATA[ 由   提交/u/FrequentBid2476  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rprbhi/artificial_intelligence_as_infrastructure/</guid>
-      <pubDate>Tue, 10 Mar 2026 08:26:24 GMT</pubDate>
+      <title>Monster Scale 峰会（免费，虚拟）</title>
+      <link>https://www.reddit.com/r/programming/comments/1rpvubu/monster_scale_summit_free_virtual/</link>
+      <description><![CDATA[Monster Scale Summit 提供免费访问 50 多场有关超大规模工程和数据密集型系统的演讲。议程上：antirez、Martin Kleppmann、Camille Fournier、Pat Helland、Murat Demirbas、Discord、Disney、CERN、Pinterest、Rivian、TigerBeetle、turbopuffer   由   提交/u/swdevtest  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rpvubu/monster_scale_summit_free_virtual/</guid>
+      <pubDate>Tue, 10 Mar 2026 12:41:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>一条管道，四个接口：我在图像转换器中使用的一种设计模式</title>
+      <link>https://www.reddit.com/r/programming/comments/1rpvowg/one_pipeline_four_interfaces_a_design_pattern_i/</link>
+      <description><![CDATA[我刚刚发布了一个开源图像转换器，并想分享它背后的架构决策，因为它解决了我认为很多工具都会遇到的问题。 问题：当您通过多个接口（CLI、API、REST、代理工具）提供相同的功能时，代码重复就会成为陷阱。一个界面修复了错误，而其他界面则没有。一个添加了一项功能，其他则落后了。 我采用的解决方案：所有四个接口都调用一个规范的 processImage() 函数。 CLI -&gt; processImage() -&gt; 处理图像写入磁盘 Node.js API -&gt; processImage() -&gt; 处理图像返回一个缓冲区 REST API -&gt; processImage() -&gt; 处理图像返回 HTTP 响应 MCP 服务器 -&gt; processImage() -&gt; 处理图像返回 JSON 工具结果 每个接口处理自己的 I/O，但实际的图像处理在所有接口中都是相同的。相同的输入始终意味着相同的输出，无论您如何称呼它。 我发现的好处：  没有特定于接口的错误。修复适用于所有地方。 测试更简单。测试管道一次，而不是四次。 添加功能的成本很低。新选项免费提供所有四个接口。 清晰分离：I/O 处理位于每个接口中，逻辑位于核心中。  文件布局： lib/imageProcessor.ts &lt;- 单一事实来源 cli/index.ts &lt;- 文件路径 I/O lib/api.ts &lt;- 缓冲区 I/O app/api/route.ts &lt;- 多部分 HTTP I/O cli/mcp.ts &lt;- MCP 工具 I/O MIT 许可，在 Sharp 上构建，在 Jest 中测试。我很好奇其他人是否使用了类似的模式或找到了更好的方法来处理这个问题。 GitHub： https://github.com/dutchbase/img-converter npm： https://www.npmjs.com/package/@dutchbase/img-convert   由   提交 /u/AcanthocephalaOk2774   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rpvowg/one_pipeline_four_interfaces_a_design_pattern_i/</guid>
+      <pubDate>Tue, 10 Mar 2026 12:34:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>容器不是安全边界</title>
+      <link>https://www.reddit.com/r/programming/comments/1rpv2dt/containers_are_not_a_security_boundary/</link>
+      <description><![CDATA[ 由   提交/u/lucavallin   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rpv2dt/containers_are_not_a_security_boundary/</guid>
+      <pubDate>Tue, 10 Mar 2026 12:03:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>探索 C++26 中的可变保守状态</title>
+      <link>https://www.reddit.com/r/programming/comments/1rputf4/exploring_mutable_consteval_state_in_c26/</link>
+      <description><![CDATA[ 由   提交 /u/friedkeenan   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rputf4/exploring_mutable_consteval_state_in_c26/</guid>
+      <pubDate>Tue, 10 Mar 2026 11:51:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 SQL 查询黑客新闻：Tabularis 的新插件</title>
+      <link>https://www.reddit.com/r/programming/comments/1rptbfk/query_hacker_news_with_sql_a_new_plugin_for/</link>
+      <description><![CDATA[ 由   提交/u/debba_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rptbfk/query_hacker_news_with_sql_a_new_plugin_for/</guid>
+      <pubDate>Tue, 10 Mar 2026 10:30:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>p-fast trie：按词法排序的哈希映射</title>
+      <link>https://www.reddit.com/r/programming/comments/1rpt5a7/pfast_trie_lexically_ordered_hash_map/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rpt5a7/pfast_trie_lexically_ordered_hash_map/</guid>
+      <pubDate>Tue, 10 Mar 2026 10:20:38 GMT</pubDate>
     </item>
     <item>
       <title>通过显式调用堆栈模拟删除递归</title>
@@ -74,41 +109,6 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rpd1hi/webpki_and_you/</guid>
       <pubDate>Mon, 09 Mar 2026 21:16:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>无生产数据的生产查询计划</title>
-      <link>https://www.reddit.com/r/programming/comments/1rpd09d/production_query_plans_without_production_data/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rpd09d/production_query_plans_without_production_data/</guid>
-      <pubDate>Mon, 09 Mar 2026 21:14:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年重返 Rails</title>
-      <link>https://www.reddit.com/r/programming/comments/1rpd00d/returning_to_rails_in_2026/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rpd00d/returning_to_rails_in_2026/</guid>
-      <pubDate>Mon, 09 Mar 2026 21:14:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我一直想了解的关于二等价值观的知识</title>
-      <link>https://www.reddit.com/r/programming/comments/1rpczm6/what_i_always_wanted_to_know_about_second_class/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rpczm6/what_i_always_wanted_to_know_about_second_class/</guid>
-      <pubDate>Mon, 09 Mar 2026 21:14:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>FreeBSD Capsicum 与 Linux Seccomp 进程沙箱</title>
-      <link>https://www.reddit.com/r/programming/comments/1rpcz10/freebsd_capsicum_vs_linux_seccomp_process/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rpcz10/freebsd_capsicum_vs_linux_seccomp_process/</guid>
-      <pubDate>Mon, 09 Mar 2026 21:13:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>Mog编程语言</title>
-      <link>https://www.reddit.com/r/programming/comments/1rpcxed/the_mog_programming_language/</link>
-      <description><![CDATA[ 由   提交 /u/ketralnis   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rpcxed/the_mog_programming_language/</guid>
-      <pubDate>Mon, 09 Mar 2026 21:12:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
