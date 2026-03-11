@@ -4,9 +4,72 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 11 Mar 2026 19:01:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 21:42:58 GMT</lastBuildDate>
     <item>
-      <title>我的副业贺卡制造商在大约 3 周内每月吸引了大约 10 万访客……但我 17 岁了，不知道如何将其货币化</title>
+      <title>是否可以更新浏览器以最大程度地减少回流对用户的影响？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr6pwk/could_browsers_be_updated_to_minimize_the_way/</link>
+      <description><![CDATA[我在浏览一个热门网站时产生了这个想法，广告在我的视口中投射了大约 5 秒钟。现在的网络体验很糟糕，即使对于使用 adblock 插件的中级用户来说，也会出现很多卡顿。 我想知道浏览器是否有可能实现某种回流保护，即视口试图在回流后将元素保留在屏幕上一定的容差范围内。我在视频游戏中实现了类似的系统，试图将相关对象保留在相机平截头体内。 一种方法可以是被动监控哪些对象在视图中，根据它们占用的视口大小对它们进行加权，然后在回流时评估有多少查看的项目发生了可测量的移动。您可以缓冲新的回流后状态并防止移动实时视口，直到物体停止移动为止。然后尝试将浏览器滚动位置设置为最适合当前视口状态的位置。 页面可能会被标记为“嘈杂”。经过一段时间后未能满足容差，浏览器可以正常处理页面。也许您甚至可以使用某种指数滚降来重新评估它是否平静下来。 显然存在大量的复杂性和性能问题。但作为一个高层次的概念，这是一个白日梦吗？是否有常见的网页设计模式可以完全分开？   由   提交 /u/Forbizzle   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr6pwk/could_browsers_be_updated_to_minimize_the_way/</guid>
+      <pubDate>Wed, 11 Mar 2026 21:16:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>由 uWebSockets.js 提供支持的 SvelteKit 适配器（SSR 速度提高 2.3 倍，内置 WebSockets + TLS）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr5i7i/sveltekit_adapter_powered_by_uwebsocketsjs_23x/</link>
+      <description><![CDATA[我构建了一个由 uWebSockets.js 提供支持的 SvelteKit 适配器。 这个想法是为 adapter-node 创建一个直接替代品，但具有更好的性能和一流的 WebSocket 支持。 功能：  原生 TLS（无需反向代理） 内置pub/sub WebSocket 系统 基于 Cookie 的 WebSocket 身份验证，使用与 SvelteKit 应用程序相同的会话 用于 WS 消息的反应式客户端存储 静态文件服务速度提高约 6.7 倍 与适配器节点相比，SSR 速度提高约 2.3 倍  可以直接在适配器配置中启用 WebSocket： adapter({ websocket: true })  我们的目标是让 SvelteKit 中的实时功能变得更容易，而不需要额外的服务器或 WS 设置。 存储库： https://github.com/lanteanio/svelte-adapter-uws   由   提交/u/MipBro101   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr5i7i/sveltekit_adapter_powered_by_uwebsocketsjs_23x/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:32:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>服务器发送事件与 WebSocket 的技术分解</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr5hzi/a_tech_breakdown_of_serversent_events_vs/</link>
+      <description><![CDATA[      来自此 subreddit 中的上一个线程 https://www.reddit.com/r/webdev/comments/1rkvqkt/sse\_vs\_websockets\_most\_devs\_default\_to\_websockets 将我收到的所有反馈都纳入本文。让我知道你的想法   由   提交/u/cresta29  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr5hzi/a_tech_breakdown_of_serversent_events_vs/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:32:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>我建立了一个学生操作系统！安排好你的学校生活！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr5e9l/i_built_a_student_os_organize_your_school_life/</link>
+      <description><![CDATA[大家好！ 我从事一个名为 Student OS 的项目已经有一段时间了。它最初是一个简单的本地工具，可以帮助我（和我妹妹）在学校保持井井有条——基本上是一个用于任务、笔记、抽认卡、白板等的仪表板。  在最长的时间里，它只在本地存储上运行，这意味着如果您清除缓存，所有内容都会消失。本周，我终于冒险将整个内容迁移到 Firebase。 我学到/添加的内容： Auth：终于让 Google 和电子邮件正常工作了！ 美学：我喜欢玻璃形态，所以我花了太多时间让 UI 看起来干净且“无干扰”。 我不卖任何东西 - 这只是一个我每天用来帮助我的激情项目研究。我希望其他学生或生产力极客也来看看。 如果您对用户界面有任何反馈或对“学生操作系统”有何想法，请联系我们。丢失了，一定要告诉我！ 链接   由   提交 /u/Larzilla15   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr5e9l/i_built_a_student_os_organize_your_school_life/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:28:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的副项目稀有度测验在 3 天内达到了 5 万次测验提交和 16 万次页面浏览事件。这就是我对早期货币化的了解……</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr5cxb/my_side_project_rarity_quiz_hit_50k_quiz/</link>
+      <description><![CDATA[大家好， 大约一周前，我推出了一个网站，其中包含免费测验，该测验使用同行评审的数据计算您在 35 种真实特征中的统计罕见程度。我把它作为我日常工作的一个副业项目，主要是因为我认为这个概念很有趣，想看看人们是否会参与其中。 http://howrareami.org 它的吸引力让我感到惊讶。前三天完成了 50,000 个测验，大约有 160,000 个页面浏览事件，平均会话时间为 2 分 33 秒，这是我真正没有想到的。 大部分流量来自有机分享（人们参加测验并将结果发送给朋友）。没有付费促销。 该网站完全免费，我想保持这种状态。但考虑到早期的吸引力，我确实在货币化方面迅速采取了行动： - 通过 Ko-fi 的小费罐 - 与每个测验类别相关的亚马逊附属链接（遗传学测验后的 DNA 测试、个性测验后的性格书籍等） - Google AdSense 等待批准 关于附属机构和小费罐的早期结果仍然很薄弱，但只有几天。我想知道其他人是否发现展示广告或联营网站在测验/娱乐网站上表现更好，以及 2 分 33 秒的会话时间是否是我应该在广告投放策略中更多地关注的内容。 谢谢，我期待阅读您的评论！   由   提交/u/No_Routine_17  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr5cxb/my_side_project_rarity_quiz_hit_50k_quiz/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:27:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>基本网站需要多少备份存储？我认为我们被骗了，但我不确定</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr5bcv/how_much_backup_storage_is_required_for_basic/</link>
+      <description><![CDATA[我们正在使用一家公司来设计一个网站，如果我们与他们一起托管，我刚刚被告知他们需要 500GB 的备份存储，因为他们将每月进行更新来调整我们的网站以匹配“算法”。 （当我说我不关心匹配算法时，销售人员告诉我们，他们随后会进行每月维护）我们是一家为选定数量的政府客户工作的公司，网站的流量将相当低，但我们需要它，以便与我们交谈的客户可以看到能力、简历和过去的项目。只有几个页面，页面之间有链接。  我个人认为这太过分了，最重要的是，他们三年要收取 1400 美元。这是按他们的“折扣”率计算的。  我目前与 Wix 有一个计划，他们在三年内收取一半的费用。据我所知，存储空间较小（我专门选择它是因为我们需要域名和业务电子邮件，而且我们没有一个正常运行的网站）。他们达成了一项协议，100GB 的存储空间为每月 19 美元，因此 3 年的托管计划和域名总共为 768 美元，但每年支付 234 美元。我们公司可以轻松做到这一点。  研究已完成：我研究了 Reddit 上的平均存储大小、Wix 上的当前成本、一般存储要求。 我认为，根据我们的需要，他们过度调整了大小。我们目前正在书面通知他们是否会提供每月的维护或算法更新。  我的问题如下： 维护或算法更新真的需要那么多存储空间来确保可靠的功能和安全性吗？ 按照我的理解，我不需要算法更新：我们可以在 Google 上搜索到。由于我们的客户群有限，我们希望那些特别了解我们的人搜索我们的网站。还有其他原因说明我们需要每月更新算法吗？ 或者我完全没有根据吗？这个成本是否太低，是否可能不可靠并且他们歪曲了自己？  我希望保持在 1k 以下，或者分摊每年的成本，而不是三年一次付款，因为这对我们的业务来说成本很高，因为我们去年 12 月才刚刚开始。  我真的很感谢你的帮助，因为我身兼多职，我没有时间像我应该完全理解要求那样进行研究，而且我担心我会犯错误。    由   提交 /u/Frenchorican   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr5bcv/how_much_backup_storage_is_required_for_basic/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:25:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>零配置（且免费）WebSocket。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr4xvi/zeroconfig_and_free_websockets/</link>
+      <description><![CDATA[      我刚刚公开发布了 ittysockets.com。这是一个免费的、社区支持的项目，专门设计用于让独立开发者通过消除几乎所有可以想象到的障碍来体验实时功能。 它是什么？ itty-sockets 是一个超小型 WebSocket 客户端，[可选]与公共中继服务器配对。这对你有什么用？对于不到 500 字节且几乎为零的配置/成本，您可以通过几行代码在应用程序中使用 WebSocket。它处理竞争条件、轻松重新连接、解析等。  ``` import { connect } from &#39;itty-sockets&#39; // ~466 字节 gzipped // user 1 const channel = connect(&#39;my-secret-channel&#39;) .send(&#39;hey there!&#39;) // 可以立即发送 .send([1, 2, 3]) // 任何可字符串化的 JSON ? .on(&#39;message&#39;, ({ message }) =&gt; { // do some })  此站点拥有您入门所需的一切，包括文档、现场演示，以及重要的是：通过 GitHub 登录以保留您自己的受保护命名空间的能力。 您也可以将客户端与任何现有的 JSON WebSocket 服务器一起使用 - 您将失去我的后端的一些功能，但仍然比原始的 DX 有所改进WebSocket 实例化。  免责声明：这已经为生产中的应用程序（私人）提供了大约一年的支持，包括日间交易平台 - 因此它是为了处理一些压力而构建的，尽管作为一项免费服务，它没有任何保证。    由   提交/u/kevin_whitley  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr4xvi/zeroconfig_and_free_websockets/</guid>
+      <pubDate>Wed, 11 Mar 2026 20:11:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何构造 i18n 字符串及其中的位置？包含冠词的语法结构变得越来越复杂。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr4k94/how_do_you_structure_i18n_strings_with_locations/</link>
+      <description><![CDATA[我有一个网站，其中包含城市、地区和国家/地区的基于位置的内容。我的网站上有许多字符串，例如“{location} 中有 {count} 个位置”或“查找 {location} 附近的位置”。 我有超过 15 万个位置，这些位置是从 GeoNames 数据库中提取的，其中包括位置名称的翻译。 Rome 是意大利语中的 Roma，United States 是西班牙语中的 Estados Unidos，等等。 某些地点（例如 United States）需要写为“在美国”。前面有一篇文章，所以我需要添加文章“the”在位置名称前面。在意大利语等语言中，这似乎有点复杂，因为“in the”被合并为“negli”所以这将是“negli Estati Uniti”对于“在美国”，这意味着我的字符串不能再“在{位置}”作为“在”中需要与位置名称一起翻译。 我很乐意手动翻译带有“in”形式的国家/地区名称。并接近”就像为“in the United States”使用单独的字符串一样和“美国附近”，但我无法对地区/城市执行此操作，因为数量太多了。我需要从数据库中获取这些内容。 到目前为止，我最好的猜测是，我需要单独的字符串来表示国家/地区位置和其他位置，因此我可以：  国家/地区版本：“There are {count} 个位置{inLocation}”其中“inLocation”是可以是“在美国”。或“negli Estati Uniti” 城市/地区版本：“{location} 有 {count} 个位置”其中“位置”是是我从罗马/罗马等数据库中获得的内容。  这是最好的方法吗？有没有更聪明的方法来处理这个问题？ 就上下文而言，我已经考虑过重组我的字符串来消除这个问题，只做“United States: {count}个位置”之类的事情，但我需要在几个地方保留句子结构以进行搜索引擎优化。  Yelp 和 Indeed 等网站都有 SEO 页面，例如“伦敦顶级炸玉米饼餐厅”。或“英国的软件工程工作” 20年了，所以我认为这个问题已经解决了。    由   提交/u/leros  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr4k94/how_do_you_structure_i18n_strings_with_locations/</guid>
+      <pubDate>Wed, 11 Mar 2026 19:59:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>以防万一人工智能会接管任何人......</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rr3nu5/just_in_case_anyone_things_ai_will_take_over/</link>
+      <description><![CDATA[仔细阅读亚马逊刚刚发生的事情。说够了。    由   提交/u/jroberts67  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rr3nu5/just_in_case_anyone_things_ai_will_take_over/</guid>
+      <pubDate>Wed, 11 Mar 2026 19:27:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的副业贺卡制作项目在大约 3 周内每月吸引了大约 10 万访客……但我 17 岁了，不知道如何将其货币化</title>
       <link>https://www.reddit.com/r/webdev/comments/1rr0ln1/my_side_project_greeting_card_maker_hit_100k/</link>
       <description><![CDATA[大家好， 大约 3 周前，我启动了一个小型副项目，让人们可以在线创建贺卡。我主要将其构建为一个有趣的项目，以了解有关 SEO 和 Web 开发的更多信息。 出乎意料的是，流量开始快速增长，现在每月约有 10 万访问者。其中大部分来自 SEO，有些页面的排名仍在攀升，因此我估计，如果事情继续以同样的方式发展，几个月内它的月用户数可能会达到约 100 万。 问题在于货币化。 现在网站上的所有内容都是完全免费的。我这样做是有意为之，因为我想首先关注增长并让该工具真正有用。 我的第一个想法是添加展示广告，但我遇到了一个问题：我 17 岁了，所以我无法开设 AdSense 帐户，而且我也无法真正使用我父母的银行帐户进行付款。 所以我陷入了这种奇怪的境地：该网站具有吸引力，但我还不知道创收的最佳方式。 我一直在考虑的一些想法： 展示广告（一旦我弄清楚年龄/付款问题）捐赠 但我不确定什么最有效而不破坏用户体验。 如果这里有人有通过网站获利的经验，我真的很感激任何建议。特别是如果您已经处理过 18 岁以下儿童的付款或广告问题。 谢谢！   由   提交/u/TimeDeep1497  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rr0ln1/my_side_project_greeting_card_maker_hit_100k/</guid>
@@ -15,7 +78,7 @@
     <item>
       <title>Greptile的网站上这个动画效果是怎么做出来的？</title>
       <link>https://www.reddit.com/r/webdev/comments/1rqzz60/how_is_this_animationeffect_made_on_greptiles/</link>
-      <description><![CDATA[      在greptile.com上，有功能卡显示实时浮动和连接的动画图像。这不是 GIF 或视频。我正在尝试找出技术   由   提交/u/unHappygamer10  [链接] [评论] ]]></description>
+      <description><![CDATA[      在greptile.com上，有功能卡显示实时浮动和连接的动画图像。这不是 GIF 或视频。我正在尝试找出技巧   由   提交/u/unHappygamer10  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rqzz60/how_is_this_animationeffect_made_on_greptiles/</guid>
       <pubDate>Wed, 11 Mar 2026 17:19:03 GMT</pubDate>
     </item>
@@ -46,69 +109,6 @@
       <description><![CDATA[最近经历了一次基于人工智能的面试过程，老实说我对此有点矛盾。 我理解为什么公司正在朝这个方向发展。有成千上万的申请者，人工智能可能会帮助他们更快地筛选人员并节省时间。 但这种体验感觉非常……不可触碰。在正常的面试中，您可以解释您的想法、方法以及决策背后的理由。有时你需要一些来回来正确解释一个项目或解决方案背后的逻辑。 对于人工智能面试，感觉更像是响应提示并希望系统正确解释你的意思。如果提示与您的体验不完全匹配，则很难澄清或扩展事情。 并不完全反对它，因为它确实为公司解决了真正的扩展问题。但也感觉在这个过程中丢失了一些重要的东西。 很好奇其他人对此有何感受。人工智能面试对您来说效果好吗，或者感觉相似吗？   由   提交/u/shadow_adi76  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rqvlf4/mixed_feelings_about_ai_interviews/</guid>
       <pubDate>Wed, 11 Mar 2026 14:40:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>产品经理 Vibe 编码</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqv9wl/product_manager_vibe_coding/</link>
-      <description><![CDATA[我的公司大力推动人工智能。现在，产品经理在没有代码知识的情况下编写 PR。还有其他人遇到类似的情况吗？   由   提交/u/GorgoniteScum666   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqv9wl/product_manager_vibe_coding/</guid>
-      <pubDate>Wed, 11 Mar 2026 14:28:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>UPD：电子邮件验证、电子邮件域</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqv0zy/upd_email_verification_email_domain/</link>
-      <description><![CDATA[大家好，又来了。只是想为关心的人提供更新。今天我购买了一个域名，并将 SendGrid 添加到 DNS。只是想问一下，你的传播花了多长时间。我现在在第 2 小时    由   提交/u/Greedy-University-79  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqv0zy/upd_email_verification_email_domain/</guid>
-      <pubDate>Wed, 11 Mar 2026 14:18:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>开发人员：在发布网站之前，您实际运行了哪些 SEO 技术检查？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqt9rt/devs_what_seo_technical_checks_do_you_actually/</link>
-      <description><![CDATA[我从事 SEO 工作，开发团队向我提供的具有基本技术问题的网站数量非常多。不怪任何人——大多数开发人员从来没有学过这些东西。但我经常看到这些需要 10 分钟才能修复但会降低自然流量的问题： 标题层次结构 - 页面上有多个 H1，或者 H3 在 H2 之前。爬虫使用标题结构来理解内容层次结构。每页一个 H1，并逻辑嵌套。 仅图标链接，无文本 -- Font Awesome 图标包裹在锚标记中，可读文本为零。屏幕阅读器和爬虫程序会看到一个空链接。添加 aria-label 或带有描述性文本的视觉隐藏范围。 元描述丢失或重复 - 大多数框架不会为每个页面生成唯一的元描述。如果每个页面都显示“欢迎来到我们的网站”在 SERP 代码段中，您的点击率将非常糟糕。 指向错误 URL 的规范标签 - 尤其常见于 SPA 和同时具有 www 和非 www 或尾部斜杠变体的网站。一个错误的规范，Google 会忽略您真正想要索引的页面。 没有替代文本的图像 - 这是众所周知的，但仍然经常被跳过。尤其是像 Framer 这样的可视化构建器，可以轻松地进行拖放操作，而无需添加 alt 属性。 我很好奇其他开发人员在其工作流程中构建了哪些技术 SEO 检查。您是否有启动前检查清单，或者是在有人抱怨流量之后发生的？   由   提交/u/VRTCLS   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqt9rt/devs_what_seo_technical_checks_do_you_actually/</guid>
-      <pubDate>Wed, 11 Mar 2026 13:07:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找最快的 TypeScript ORM！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqsqgd/in_search_of_the_fastest_typescript_orm/</link>
-      <description><![CDATA[我为什么这样做？  因为我想要并且因为我可以;) - 嘿，开玩笑，请继续阅读！ 我一直看到“避免 ORM，它们太慢了...... 改用查询生成器”重复。所以我决定实际测量一下。 我是 UQL ORM 的作者，我已将基准构建为独立存储库。  继续阅读：https://medium.com/p/f08264108b24   由   提交/u/sonemonu  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqsqgd/in_search_of_the_fastest_typescript_orm/</guid>
-      <pubDate>Wed, 11 Mar 2026 12:44:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>claude 代码审查的费用是每个 PR 15-25 美元，这会很快增加</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqs268/claude_code_review_is_1525_per_pr_thats_gonna_add/</link>
-      <description><![CDATA[anthropic 刚刚放弃了对 claude 代码的代码审查。多代理系统，在人类内部运行，并行捕获错误。听起来很酷，直到你达到定价：平均每个 PR 15-25 美元。 他们的数字看起来不错。 84% 的大型 PR（1000 多行）得到调查结果，平均 7.5 个问题。 50 行以下的小 PR 占 31%，有 0.5 个问题。据他们的工程师称，误报率低于 1%。 但请计算一下。如果您每天在活跃开发中推送 5-10 个 PR，那么每天的费用为 75-250 美元，每月可能需要 1500-5000 美元（仅用于审核）。对于小型团队或独立开发者来说，这很困难。 我已经使用 verdent 的审核功能几个月了。它也是多型号的（gemini 3 pro、opus 4.5、gpt 5.2 并行运行）。典型的公关成本低于 1 美元，有时甚至更低。质量具有可比性，可以发现逻辑错误、边缘情况和风险。他们的基准显示精确度为 74.2%，召回率为 20.1%。 成本差异为 15-25 倍。对于每周执行 50 多个 PR 的团队来说，这就是负担得起的和预算杀手之间的差距。 claude 的目标客户可能是财力雄厚的企业客户。对于我们其他预算紧张的人来说，有一些选择不会牺牲质量，但成本却更低。   由   提交 /u/Dense-Sir-6707   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqs268/claude_code_review_is_1525_per_pr_thats_gonna_add/</guid>
-      <pubDate>Wed, 11 Mar 2026 12:12:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Linkedrecords – SaaS 开发的全新尝试（Supabase/Convex 替代方案）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqr1wl/linkedrecords_a_fresh_take_on_saas_development/</link>
-      <description><![CDATA[ 由   提交/u/WolfOliver  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqr1wl/linkedrecords_a_fresh_take_on_saas_development/</guid>
-      <pubDate>Wed, 11 Mar 2026 11:22:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>PSA：企业主，外包网络开发的人 - 不要等到与开发人员发生争执时才记录您的所有凭据，并了解您的托管是如何工作的。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqqxiu/psa_business_owners_people_who_outsource_your_web/</link>
-      <description><![CDATA[我已经以某种身份获得了新客户，但在深入研究托管时我们遇到了巨大的障碍。 在创建网站之初，您的开发人员将需要设置各种内容 - 作为基线； DNS、网络托管和邮件。一旦您的网站启动并运行，您最终可能会通过一些方法进行更改、更新价格、更改图片等 - 但此时您通常无法实际控制您的网站。  这并不是说您的网站被劫持，但如果您与开发人员之间存在问题（这似乎非常常见），您将需要访问上述所有服务，然后才能雇用新的开发人员。不要等到你们不再说话时才获取并存储这些服务的凭据。找出谁持有您的 DNS 记录，您的托管是通过谁进行的，并将这些信息记录在永久且可访问的地方......就像今天一样。当你读完这篇文章时。 拯救你自己，以及所有参与其中的人，这是一个巨大的头痛。   由   提交 /u/DigitalJedi850   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqqxiu/psa_business_owners_people_who_outsource_your_web/</guid>
-      <pubDate>Wed, 11 Mar 2026 11:16:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我正在从过去的计算机向 Gmail 发送电子邮件。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqqne4/im_sending_email_to_gmail_from_a_computer_from/</link>
-      <description><![CDATA[      本机 MS-DOS 计算机，80486，16mb RAM   由   提交/u/RaisinStraight2992  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqqne4/im_sending_email_to_gmail_from_a_computer_from/</guid>
-      <pubDate>Wed, 11 Mar 2026 11:00:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>完全用 Elixir 和 Phoenix 构建了一个随机文本和语音聊天网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rqphgt/built_a_random_text_and_voice_chat_site_entirely/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rqphgt/built_a_random_text_and_voice_chat_site_entirely/</guid>
-      <pubDate>Wed, 11 Mar 2026 09:54:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
