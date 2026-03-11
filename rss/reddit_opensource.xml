@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 11 Mar 2026 07:02:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 13:12:17 GMT</lastBuildDate>
+    <item>
+      <title>SLANG – 用于多代理工作流程的声明性语言（类似于 SQL，但用于 AI 代理）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rqryee/slang_a_declarative_language_for_multiagent/</link>
+      <description><![CDATA[构建多代理系统的每个团队都在重新发明同一个轮子。当您选择 LangChain、CrewAI 或 AutoGen 时，您会突然深入了解 Python 装饰器、类型化状态对象、YAML 配置和 50 多个类层次结构。您的产品经理无法读取工作流程。您的代理无法更换提供商。以及“编排逻辑”。隐藏在 SDK 样板文件中，团队之外的任何人都无法理解。 我们没有针对代理工作流程的通用语。我们有十几个相互竞争的 SDK。 我们的类比：SQL 并没有取代 Java 的业务逻辑。它创建了一个全新的类别，即声明性数据查询，任何人都可以读取，任何数据库都可以执行，任何工具都可以生成。如果我们对代理编排有相同的东西会怎么样？ 这就是 SLANG：用于代理协商和代理的超级语言。治理。它是一种基于三个原语的声明性元语言： stake → 生成内容并将其发送给代理等待 → 阻塞，直到另一个代理向您发送数据提交 → 接受结果并停止  就是这样。每个多代理模式（管道、DAG、审查循环、升级、广播和聚合）都是这三种操作的组合。带有条件的 Writer/Reviewer 循环如下所示： flow &quot;article&quot; { 代理作家 { 股份写入（主题：“...”）-&gt; @Reviewer 等待反馈 &lt;- @Reviewer 当 Feedback.approved { 提交反馈 } 当 Feedback.rejected { 股份修改(反馈) -&gt; @Reviewer } } 代理审阅者 { 等待草稿 &lt;- @Writer 权益审查（草稿）-&gt; @Writer } 收敛于：commited_count &gt;= 1 }  大声朗读。你已经明白了。这就是要点。 关键设计决策：  LLM 是运行时。您可以将 .slang 文件和零设置系统提示符粘贴到 ChatGPT、Claude 或 Gemini 中，然后它就会执行。无需安装，无需 API 密钥，无需依赖项。这是任何 SDK 都无法提供的。 可跨模型移植。相同的 .slang 文件可在 GPT-4o、Claude、Llama（通过 Ollama）或 300 多个模型（通过 OpenRouter）上运行。不同的代理甚至可以在同一流程中使用不同的提供者。 不是图灵完备的 - 这就是重点。 SLANG 是故意受到限制的。它描述了代理应该做什么，而不是如何做。当您需要细粒度控制时，您可以使用 SDK，就像从 SQL 下降到业务逻辑应用程序代码一样。 LLM 本地生成它。就像文本到 SQL 一样，您可以要求 LLM 根据自然语言描述编写 .slang 流程。语法非常简单，模型可以在几秒钟内获取它。  当您需要真正的运行时时，可以使用带有解析器、依赖解析器、死锁检测、检查点/恢复和可插入适配器（OpenAI、Anthropic、OpenRouter、MCP Sampling）的 TypeScript CLI 和 API。但大多数人都是从零设置模式开始的。 我们所处的位置：现在还为时过早。规范已定义，解析器和运行时工作，MCP 服务器已构建。但语言本身需要针对现实世界的工作流程进行压力测试。我们正在寻找这样的人：  构建多代理系统并对当前工具感到沮丧 对 AI 编排的语言设计感兴趣 愿意尝试用 SLANG 编写工作流程并报告出现问题或感觉错误的地方  如果您曾经想过“应该有一个标准方法来描述这些代理正在做什么”，我们很乐意听取您的意见。该项目已获得 MIT 许可，并开放供贡献。 GitHub：https://github.com/riktar/slang   由   提交/u/riktar89  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rqryee/slang_a_declarative_language_for_multiagent/</guid>
+      <pubDate>Wed, 11 Mar 2026 12:07:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>维护者：您如何构建开源项目的启动和早期分发？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rqpc6b/maintainers_how_do_you_structure_the_launch_and/</link>
+      <description><![CDATA[在处理一些开源项目后，我注意到的一件事是启动阶段通常是即兴的。 大多数团队都重点关注项目本身的构建（这是有道理的），但是当存储库公开时，流程就变成了这样：  发布存储库 post在一些社区中 也许可以提交到 Hacker News / Reddit 在 Twitter 上分享 希望出现势头  有时这可行，但大多数时候该项目在第一周后就消失了。 所以我开始记录什么是更加结构化的 OSS 启动流程可能看起来像。 不是营销技巧 - 更像是维护人员可以重复使用的操作步骤。 例如，考虑分阶段启动： 1.发布前准备 在公开存储库之前：  自述文件清晰度（问题 → 解决方案 → 快速启动） 最少的文档，这样第一批用户就不会陷入困境 示例用法或演示 基本问题/贡献模板 清晰项目定位  很多OSS项目都失败在这里：代码很棒，但第一次用户体验却很混乱。  2.发布日分发 与其随机发布，不如考虑哪些社区扮演哪个角色：  开发社区 → 早期技术反馈 更广泛的技术论坛 → 可见性 利基社区 → 第一个真正的用户  在任何地方发布相同的消息通常不会工作。 每个社区期望的环境略有不同。  3.发布后动力 第一篇文章之后发生的事情通常更为重要。 似乎有帮助的事情：  快速响应早期问题 将用户反馈转化为文档改进 经常发布小更新 突出显示真实的内容来自早期采用者的用例  这通常是将好奇心转化为贡献者的原因。  4.长期可发现性 在发布周之后，大多数 OSS 发现来自：  GitHub 搜索 Google 开发者社区 引用文档的 AI 搜索工具  因此，构建 README 和文档以实现可发现性实际上更重要超出大多数人的预期。  我开始将这些笔记组织到一个小型开放存储库中，以便该过程更容易重用和协作改进。 如果有人好奇，这些笔记位于：https://github.com/Gingiris/gingiris-opensource 很想听听这里的其他维护者如何启动。 当您试图在早期发现一个开源项目时，什么对您真正有用？   由   提交 /u/Unlikely-Complex5138   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rqpc6b/maintainers_how_do_you_structure_the_launch_and/</guid>
+      <pubDate>Wed, 11 Mar 2026 09:45:48 GMT</pubDate>
+    </item>
     <item>
       <title>制作了一个免费工具，可自动将 macOS 屏幕录制从 MOV 转换为 MP4</title>
       <link>https://www.reddit.com/r/opensource/comments/1rq3kgq/made_a_free_tool_that_autoconverts_macos_screen/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[这是一个我知道我无论如何都想解决的问题，但是知道人们正在参与你的工作并足够关心你的工作以使其变得更好是......哇，让所有的时间都觉得值得！   由   提交 /u/brhkim   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ro6350/launched_my_first_real_opensource_project_a/</guid>
       <pubDate>Sun, 08 Mar 2026 14:21:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>LibreOffice 批评欧盟委员会专有 XLSX 格式</title>
-      <link>https://www.reddit.com/r/opensource/comments/1ro3i5y/libreoffice_criticizes_eu_commission_over/</link>
-      <description><![CDATA[       由   提交 /u/pizzaiolo2   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1ro3i5y/libreoffice_criticizes_eu_commission_over/</guid>
-      <pubDate>Sun, 08 Mar 2026 12:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>离线快速笔记应用程序</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rnzf1t/offline_quicknotes_application/</link>
-      <description><![CDATA[我通常经常旅行，在与人交谈时喜欢记下附近咖啡馆、餐馆和风景如画的地方的推荐（有很多标签）。  通常的注释包含一个地图链接（或地点名称），其中至少有三个标签：城市名称、地点类型和评论（如果访问过）-好或坏。 我一直在使用 use memos https://usememos.com/ ，通过互联网公开的家庭实验室，并在我的手机 (IOS) 上添加为 PWA。  因为，它是唯一基于网络的，所以当我在没有互联网的情况下旅行时，我会遇到困难来记下事情。希望推荐是否有适合我的目的的离线快速笔记工具。 提前致谢。   由   提交 /u/delusional-engineer   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rnzf1t/offline_quicknotes_application/</guid>
-      <pubDate>Sun, 08 Mar 2026 08:20:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
