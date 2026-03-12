@@ -4,11 +4,39 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Thu, 12 Mar 2026 16:03:17 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 19:00:15 GMT</lastBuildDate>
+    <item>
+      <title>亚马逊让人类重新参与其中，因为人工智能代理从旧维基中获取的“不准确建议”导致其零售网站崩溃</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrzphl/amazon_puts_humans_back_in_the_loop_as_its_retail/</link>
+      <description><![CDATA[亚马逊周二重新安排了每周例行的零售技术会议，以找出其零售网站不断崩溃的原因。据《金融时报》报道，答案隐藏在内部文件中，然后很快被删除：它自己的人工智能计划。 一周内，其零售网站发生了四起严重事件，其中包括上周四发生的一次长达六小时的崩溃，导致购物者无法结账、无法获取账户信息和产品定价。这次会议由负责亚马逊电子商务基础设施的高级副总裁主持，被认为是对问题所在的“深入探讨”。据英国《金融时报》报道，事实证明，问题出在亚马逊一直在推动自己的工程师采用的人工智能工具。 为会议准备的一份内部文件最初将“GenAI 辅助的变化”确定为可追溯到第三季度的事件模式的一个因素。据查看了该文件的两个版本的《金融时报》报道，该引用在会议召开前已被删除。  了解更多：https://fortune.com/2026/03/12/amazon-retail-site-outages-ai-agent-inaccurate-advice/   由   提交/u/fortune  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrzphl/amazon_puts_humans_back_in_the_loop_as_its_retail/</guid>
+      <pubDate>Thu, 12 Mar 2026 18:59:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能代理的混沌工程：无人谈论的测试差距</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rryw8p/chaos_engineering_for_ai_agents_the_testing_gap/</link>
+      <description><![CDATA[人工智能代理开发中存在测试差距，我认为更广泛的工程社区尚未完全解决这个问题。 我们拥有良好的工具： 确定性代码的单元/集成测试 LLM 输出质量的评估（promptfoo、DeepEval 等） 部署后监控的可观察性（LangSmith、 Datadog） 我们没有成熟的工具来： 预部署混沌测试 - 当环境破坏时，代理能否生存？ 这对代理来说比对传统软件更重要，因为：   代理在设计上是不确定的 - 您无法断言确切的输出  代理具有复杂的工具依赖关系图 - 故障以不明显的方式级联  代理运行自主地 - 传统应用程序中人工审核员捕获的故障不会被注意到  我正在谈论的具体故障类别： 传统混沌工程测试：“当服务 X 出现故障时会发生什么？” 代理混沌工程测试：“当工具 X 超时时会发生什么，并且 LLM 返回解析器不期望的格式，并且之前的工具响应包含对抗性指令？” 该组合不会出现在评估中。它于凌晨 2 点投入生产。 我花了几个月的时间构建了一个开源框架 (Flakestorm)，专门将混沌工程原理应用于人工智能代理。四大支柱：环境错误、行为契约、重放回归、上下文攻击。 好奇更广泛的编程社区对这个问题空间的看法。您的团队正在考虑对代理进行预部署混沌测试吗？您目前在发货前测试代理可靠性的方法是什么？   由   提交 /u/No-Common1466   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rryw8p/chaos_engineering_for_ai_agents_the_testing_gap/</guid>
+      <pubDate>Thu, 12 Mar 2026 18:29:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>SkyClaw v2.5：代理有限大脑和蓝图解决方案。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrvssq/skyclaw_v25_the_agentic_finite_brain_and_the/</link>
+      <description><![CDATA[我们一直在考虑上下文错误。 大多数代理框架将上下文窗口视为缓冲区 - 追加直到填满，然后截断或汇总。这对于聊天来说效果很好。这对于程序任务来说是灾难性的。 当代理成功完成 25 个步骤的部署（Docker 构建、注册表推送、SSH 连接、配置编辑、运行状况检查），然后将其总结为“使用 Docker 部署应用程序”时，知识被破坏了。下一次，代理将从头开始。重新发现每个解决方法。每种故障模式都会重新遇到。每个决策都重新导出。 SkyClaw v2.5 引入了一种根本不同的方法：有限大脑模型。 认知堆栈 SkyClaw 的记忆现在分为四个不同的层，每个层服务于不同的认知功能： 技能 - 代理可以做什么（工具定义） 蓝图 - 代理知道如何做什么（可执行）程序） 学习 - 代理注意到的内容（过去运行的环境信号） 记忆 - 代理记住的内容（事实、凭据、偏好） 蓝图是核心创新。蓝图并不是对所发生事件的总结。这是做什么的秘诀。准确的命令。验证步骤。故障模式和恢复路径。决策点以及它们的信息。这就是关于手术的报纸标题和实际手术过程之间的区别。 自我修复程序 蓝图不是静态的。它们通过使用而演变。当部署过程发生更改（新的迁移步骤、不同的注册表端点、更新的配置格式）时，蓝图在第一次更改后执行时会失败。代理适应、完成任务并完善蓝图。下一次执行无需调整即可成功。 这就是人类专业知识的工作原理。外科医生不会每次都重新学习手术过程。他们遵循练习的顺序，并根据新案例对其进行改进。 大脑看到它的预算 SkyClaw 中的每个资源现在都会预先声明其代币成本。每个上下文重建都包括一个资源预算仪表板 - 代理可以准确地看到消耗了多少工作内存以及剩余了多少工作内存。 当蓝图太大时，SkyClaw 会优雅地降级：完整过程 → 仅大纲 → 目录条目。拒绝前截断。崩溃前拒绝。系统始终利用其拥有的资源尽最大努力。 零额外 LLM 调用 蓝图匹配不需要专门的 LLM 调用。消息分类器（已经在每条入站消息上运行）带有一个额外字段：蓝图类别提示，从数据库中实际存在的类别的基础词汇表中选取。总成本：~2ms 和~20 个令牌添加到现有调用中。 没有幻觉类别。没有自由格式的字符串匹配。没有额外的延迟。上游调用为下游决策提供反馈。 上下文窗口是一个有限的大脑。 v2.5 教 SkyClaw 在头骨内部思考。 Github：https://github.com/nagisanzenin/skyclaw   由   提交 /u/No_Skill_8393   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrvssq/skyclaw_v25_the_agentic_finite_brain_and_the/</guid>
+      <pubDate>Thu, 12 Mar 2026 16:40:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI正悄然从软件竞争转向基础设施控制</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrv0rs/ai_is_quietly_shifting_from_software_competition/</link>
+      <description><![CDATA[大多数关于人工智能的讨论仍然集中在哪种模型最好。 GPT-5 vs Gemini vs Claude。 但现在真正发生的结构性转变是基础设施整合。 最大的人工智能实验室正在构建垂直集成堆栈： • 专有模型架构 • 专有计算供应链 • 开发者平台 • 代理部署环境 这意味着人工智能竞争开始不再像SaaS，而更像云基础设施战争。 为什么这很重要： 下一代人工智能代理将执行真正的经济任务——研究、营销、编码、物流协调、客户支持等。 这些代理运行的地方变得极其重要。 有效托管它们的平台成为劳动力市场基础设施层。 这是一个巨大的经济领域 如果这种趋势持续下去，我们可能会看到类似的情况： • 人工智能代理市场 • 平台控制的代理生态系统 • 公司以当今雇用SaaS 的方式雇用代理 一个可信的反驳是开源模型和去中心化基础设施可以防止这种集中。 但从历史上看，基础设施层往往会整合，因为规模优势会快速复合（参见云计算）。 因此，最大的问题是： 人工智能会成为一个开放的生态系统，还是会整合为几个垂直整合的超级平台？ 很好奇其他人如何看待这种情况。   由   提交 /u/Low-Honeydew6483   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrv0rs/ai_is_quietly_shifting_from_software_competition/</guid>
+      <pubDate>Thu, 12 Mar 2026 16:11:42 GMT</pubDate>
+    </item>
     <item>
       <title>扩展您对 20 美元 Claude 代码计划的使用，我制作了一个 MCP 工具。读这个故事:)</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrsv1r/extend_your_usage_on_20_claude_code_plan_i_made/</link>
-      <description><![CDATA[免费工具： https://grape-root.vercel.app/  Discord（推荐用于设置帮助/错误/新工具更新）： https://discord.gg/rxgVVgCh 故事： 我最近用Claude Code CLI进行了很多实验，并且总是比预期更快地遇到会话限制。 在跟踪令牌使用情况后，我注意到一些有趣的事情：很多令牌不是因为推理而是因为推理而被烧毁在后续提示期间重复重新探索相同的存储库上下文。 因此，我开始构建一个用 Claude 代码构建的小工具，该工具试图通过保留会话期间已探索的文件的轻量内存来减少冗余的存储库探索。 它不是一次又一次地重新发现相同的文件，而是帮助代理直接路由到存储库的相关部分，并有助于减少已读取的未更改文件的重新读取。 什么它目前试图做到：  跟踪哪些文件已经被探索过 避免重复地重新读取未更改的文件 使相关文件保持“温暖” 减少重复的上下文重建  到目前为止，大约100+人已经尝试过，并且有几个人报告在达到使用限制之前明显更长的 Claude 会话。 测试期间有一件令人惊讶的事情：当代理探索存储库时，单个提示有时会触发多个内部文件读取。减少这些冗余读取最终比我预期更早地节省了代币。 仍然是实验性，所以我主要分享它是为了从大量使用 Claude Code 的人那里获得反馈。 很好奇其他人是否注意到类似的事情，代币使用量的激增是来自于推理，还是来自于存储库探索循环？ 希望得到反馈。   由   提交 /u/intellinker   [链接] [评论]]]></description>
+      <description><![CDATA[免费工具： https://grape-root.vercel.app/  Discord（推荐用于设置帮助/错误/新工具更新）： https://discord.gg/rxgVVgCh 故事： 我最近用Claude Code CLI进行了很多实验，并且总是比预期更快地遇到会话限制。 在跟踪令牌使用情况后，我注意到一些有趣的事情：很多令牌不是因为推理而是因为推理而被烧毁在后续提示期间重复重新探索相同的存储库上下文。 因此，我开始构建一个用 Claude 代码构建的小工具，该工具试图通过保留会话期间已探索的文件的轻量内存来减少冗余的存储库探索。 它不是一次又一次地重新发现相同的文件，而是帮助代理直接路由到存储库的相关部分，并有助于减少已读取的未更改文件的重新读取。 什么它目前试图做到：  跟踪哪些文件已经被探索过 避免重复地重新读取未更改的文件 使相关文件保持“温暖” 减少重复的上下文重建  到目前为止，大约100+人已经尝试过，并且有几个人报告在达到使用限制之前明显更长的 Claude 会话。 测试期间有一件令人惊讶的事情：当代理探索存储库时，单个提示有时会触发多个内部文件读取。减少这些冗余读取最终比我预期更早地节省了代币。 仍然是实验性，所以我主要分享它是为了从大量使用 Claude Code 的人那里获得反馈。 很好奇其他人是否注意到类似的事情，代币使用量的激增是来自于推理，还是来自于存储库探索循环？ 希望获得反馈。   由   提交 /u/intellinker   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrsv1r/extend_your_usage_on_20_claude_code_plan_i_made/</guid>
       <pubDate>Thu, 12 Mar 2026 14:51:54 GMT</pubDate>
     </item>
@@ -18,13 +46,6 @@
       <description><![CDATA[ 由   提交/u/wsj   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrshi5/microsofts_new_ai_health_tool_can_read_your/</guid>
       <pubDate>Thu, 12 Mar 2026 14:37:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>伊朗战争预示着人工智能轰炸时代的到来，速度比“思维速度”还要快</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrrucy/iran_war_heralds_era_of_aipowered_bombing_quicker/</link>
-      <description><![CDATA[ 由   提交/u/ThereWas  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrrucy/iran_war_heralds_era_of_aipowered_bombing_quicker/</guid>
-      <pubDate>Thu, 12 Mar 2026 14:12:26 GMT</pubDate>
     </item>
     <item>
       <title>人工智能的繁荣正在使开发人员远离加密项目</title>
@@ -41,25 +62,11 @@
       <pubDate>Thu, 12 Mar 2026 13:43:31 GMT</pubDate>
     </item>
     <item>
-      <title>八月人工智能在自然医学安全基准评估中正确识别每一起紧急情况</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrqcav/august_ai_correctly_identifies_every_emergency/</link>
-      <description><![CDATA[Nature Medicine 的一篇新论文在 960 个分类场景中对 ChatGPT Health 进行了压力测试。 51.6% 的真正紧急情况未得到充分分类。系统识别出警告信号，然后说服自己不再采取行动。  我们与 August 重复了这项研究。 0% 紧急分类不足。 64 分（满分 64 分）。  我分享这一点并不是为了胜利，而是为了证明我已经说过一段时间的话：患者可以信任的临床人工智能是通过多年的工作来衡量的，而不是产品发布。  早在健康人工智能成为一个类别之前，我们就一直在构建专门构建的临床推理系统。专业逐专业。一个接一个的指导方针。按故障模式划分的故障模式。每当我们认为我们已经很接近时，我们就会发现另一个让我们感到谦卑的边缘情况。  回答健康问题的一般模型与将 pCO2 上升视为呼吸衰竭轨迹的临床系统之间的区别不是智力。这是工程深度。据了解，糖尿病酮症酸中毒 (DKA) 从定义上来说是一种紧急情况，而不是高血糖的一种变体。没有任何基础模型能够立即提供数千条临床规则。  任何人都可以构建健康聊天机器人。市场已经表明了这一点。当风险确实存在时，打造一个患者可以认真对待的东西是完全不同的问题。短期内会更慢、更困难。但这是唯一重要的版本。  该论文呼吁对消费者健康人工智能进行上市前安全评估。我们认为这是最低限度，而不是最高限度。   由   提交/u/BoysenberryMelodic96   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrqcav/august_ai_correctly_identifies_every_emergency/</guid>
-      <pubDate>Thu, 12 Mar 2026 13:10:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能伦理 x VBE 论文</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrqazs/paper_on_ai_ethics_x_vbe/</link>
-      <description><![CDATA[大家好， 我正在研究代理人工智能如何改变需求：工具现在可以读取规范并生成工作代码，这意味着需求中任何缺失的道德都可以直接投入生产。我正在测试一个基于价值工程 (IEEE P7000) 的轻量级“道德过滤框架”，该框架为关键要求添加了明确的、可测试的伤害约束（隐私、公平、可解释性、安全）。 我正在寻找开发人员/机器学习工程师/产品人员的反馈。该调查是匿名的，大约 10 分钟，我将与参与者分享简短的结果摘要。 调查：https://forms.gle/uhDSgrd1DU3rNGWo9   由   提交/u/anttiOne  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrqazs/paper_on_ai_ethics_x_vbe/</guid>
-      <pubDate>Thu, 12 Mar 2026 13:09:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>数据中心如何影响电价</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrnsxc/how_data_centres_affect_electricity_prices/</link>
-      <description><![CDATA[数据中心（或任何其他不断增加的负载源）可以通过两种主要方式提高电价。 首先，需要更多的发电容量（或需求响应）。当数据中心等新的大型负载连接到电网时，总电力需求会增加。如果这种需求超出了供应限制——特别是在高峰时期——它可能会收紧批发电力市场，推高流向所有消费者的现货价格。这也可能带来对新一代投资的需求。需求响应——向大消费者支付费用以在紧张时期减少负载——可以有所帮助，但这是系统承担的额外成本。 其次，需要更多的电力网络基础设施来适应高峰需求。简单来说，输配电网络成本最终由所有电力消费者（包括你和我）支付。它部分显示在我们的家庭电费账单中，部分是每日固定费用，部分是按容量收费（您消耗的能源越多，您支付的固定网络总成本就越高）。 https://energyxai.substack.com/p/anthropic-is-coming-to-australia   由   提交 /u/Vegan-bandit   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrnsxc/how_data_centres_affect_electricity_prices/</guid>
-      <pubDate>Thu, 12 Mar 2026 11:08:24 GMT</pubDate>
+      <title>阿里巴巴支持的 PixVerse 投资 3 亿美元后成为人工智能独角兽</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrq8pc/alibababacked_pixverse_becomes_ai_unicorn_after/</link>
+      <description><![CDATA[作为一名用户，PixVerse 的最新型号 v5.6 给我留下了深刻的印象 — 它功能强大且物有所值。他们的 World Model R1 也是一个令人着迷的概念，背后有很多想象力。据我了解，不少游戏工作室已经对这项技术表现出了浓厚的兴趣。很高兴看到资金支持这一点！   由   提交 /u/TheseSir8010   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrq8pc/alibababacked_pixverse_becomes_ai_unicorn_after/</guid>
+      <pubDate>Thu, 12 Mar 2026 13:06:15 GMT</pubDate>
     </item>
     <item>
       <title>如果人工智能取代了大部分工人，谁会真正购买这些产品？</title>
@@ -74,13 +81,6 @@
       <description><![CDATA[&quot;Nvidia (NVDA.O)，打开新标签周三表示将向人工智能云公司 Nebius 投资 20 亿美元 (NBIS.O)，打开新标签标签，增加了这家领先芯片制造商对人工智能公司和数据中心基础设施不断增长的投资清单。 向美国证券交易委员会 (SEC) 提交的一份文件显示，Nvidia 已同意以每股 94.94 美元的价格购买 Nebius 约 8.3% 的股份。总部位于阿姆斯特丹但在纳斯达克上市的 Nebius 股价截至格林威治标准时间 1623 年上涨 13.8%，至 109.72 美元。”   由   提交/u/talkingatoms  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrni07/nvidia_to_invest_2_billion_in_neocloud_nebius/</guid>
       <pubDate>Thu, 12 Mar 2026 10:52:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>这是诈骗吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rrn56w/is_this_a_fraud/</link>
-      <description><![CDATA[我想知道他们是否使用窃取的 API 密钥来免费提供所有这些模型。开发人员表示，他们在 vast.ai 上租用服务器，以便在本地托管所有这些模型，但例如 Claude 模型是闭源的，因此他们要么按使用付费，要么发现了一些泄露的 API 密钥。另外，店主听起来像是……15岁的人。好吧，这取决于你自己的判断，但如果你加入他们的 Discord，你会自己看到它。 这项服务感觉像是一个伪装成免费人工智能服务的骗局。如果有经验的人可以看一下并提供一些说明，我们将不胜感激！ - https://ai.ezif.in/   由   提交/u/seizoux  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rrn56w/is_this_a_fraud/</guid>
-      <pubDate>Thu, 12 Mar 2026 10:32:37 GMT</pubDate>
     </item>
     <item>
       <title>谁是氛围编码迷你应用程序构建者的实际消费者？</title>
