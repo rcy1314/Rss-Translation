@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 12 Mar 2026 02:34:38 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 04:51:34 GMT</lastBuildDate>
+    <item>
+      <title>您将如何为 Web 应用程序构建实时队列系统？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rrhhwg/how_would_you_build_a_realtime_queue_system_for_a/</link>
+      <description><![CDATA[想象一个 Web 应用程序，用户加入队列并需要查看有关其位置和预计等待时间的实时更新。这样的系统通常用于诊所、服务中心或支持台等多人等待服务的地方。 其想法是，用户可以通过手机或浏览器加入队列，而工作人员则通过仪表板管理队列，并在准备好时呼叫下一个人。一旦有人被服务或有新人加入，队列中的每个人都应该立即看到他们的更新位置。 我最好奇的部分是其背后的架构。处理实时更新是一项挑战，但当许多用户同时加入或离开时保持队列一致似乎更加棘手。 一种可能的方法是使用 WebSocket 进行实时更新，并使用 Node.js 后端和 Redis 来管理队列状态，但我想知道其他人会如何设计它。您会使用 WebSocket、服务器发送事件或轮询更新吗？当多个操作同时发生时，管理队列状态并避免竞争条件的最佳方法是什么？ 还想知道如果系统有数千个用户同时与队列交互，这将如何扩展。我很想听听经验丰富的开发人员如何处理这样的事情。   由   提交 /u/Designer_Oven6623   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rrhhwg/how_would_you_build_a_realtime_queue_system_for_a/</guid>
+      <pubDate>Thu, 12 Mar 2026 04:50:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>遇到了一个从 React 中提取所有 useEffect 钩子的工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rrhed7/came_across_a_tool_that_extracts_all_useeffect/</link>
+      <description><![CDATA[遇到了这个名为 efkt 的工具，它扫描 React 代码库并提取所有 useEffect 挂钩，提供 JSON 或 Markdown 输出。对于审计效果或输入自动化/法学硕士来说看起来很方便。 https://github.com/alwalxed/efkt   由   提交 /u/w333l   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rrhed7/came_across_a_tool_that_extracts_all_useeffect/</guid>
+      <pubDate>Thu, 12 Mar 2026 04:44:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>免费发放序列号的最佳方式</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rrfydm/best_way_to_issue_serial_numbers_for_free/</link>
+      <description><![CDATA[无服务器，甚至没有数据库，并通过设计确保唯一性。  https://blooms-product.up.railway.app/   由   提交 /u/Wonderful-Monk-7109   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rrfydm/best_way_to_issue_serial_numbers_for_free/</guid>
+      <pubDate>Thu, 12 Mar 2026 03:32:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>对我的网站要非常诚实</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rrfc7k/be_brutally_honest_about_my_website/</link>
+      <description><![CDATA[大家好， 我是一名计算机科学专业二年级学生，专业是网络安全。我制作了一个副项目网站来挑战自己在这个研究领域的能力，特别是因为我正在学习密码学课程。我探索了 Web3 和零知识架构的交叉点，以构建一个名为 SecureChain 的去中心化密码管理器。 我知道黄金法则是“不要使用自己的加密货币”，而不要使用自己的加密货币。这正是我在这里发帖的原因。我想知道我的盲点在哪里。我已经构建了登陆页面和营销内容，但我真的希望您能拆解底层技术架构。 核心概念 SecureChain 是一个零知识密码库，其中数据在本地加密，存储在 IPFS 上，并通过个人智能合约锚定到 EVM 第 2 层。我没有后端数据库，没有密钥，也无法重置密码。 技术堆栈和密码密码学 以下是当前 v2.3.0 中加密和存储流程的工作原理：  密钥派生： 我使用绑定到金库合约地址和链 ID 的 EIP-712 类型数据签名。这可以防止跨域网络钓鱼重放攻击。签名通过Argon2id（通过浏览器内的 WASM 加载）处理以生成加密密钥。 可选 2FA： 用户可以添加密码。我运行两个独立的 Argon2id 派生（一个用于钱包签名，一个用于密码），将它们异或在一起，然后通过 HKDF-SHA256 传递它们以生成最终的保管库密钥。 本地加密：所有条目均使用 Web Crypto API 的 AES-GCM-256 进行本地加密。 IV 新鲜度不变量是严格执行的，因此 IV 重复使用在结构上是不可能的。 存储和存储区块链注册表：加密的数据 blob 固定到 IPFS（双提供商冗余）。对 IPFS CID 的引用（存储为紧凑的 bytes32 多哈希摘要以节省 Gas）被写入用户的个人智能合约库。  最近的安全强化（我需要关注的地方） 我一直在尝试修补漏洞，因为我了解了这些漏洞：  密文长度 Oracle 缓解： AES-GCM 密文长度用于泄露保管库标题的确切字符数。我已经实现了块填充（空字节到下一个 64 字符边界）来缓解这种情况。 链上 HMAC-SHA256 完整性根：为了防止恶意 RPC 节点提供过时的 IPFS CID（回滚攻击），客户端现在通过所有保管库条目的确定性序列化来计算 HMAC-SHA256。这是对合同的承诺，并在每次解锁时进行验证。  我正在寻找的： 我希望得到任何和所有残酷的反馈，特别是关于：  加密缺陷：我的 XOR + HKDF 方法是否用于组合钱包签名和密码短语？ 架构漏洞：我的 IPFS + Smart 中是否存在边缘情况我缺少合约存储模型？ 侧通道泄漏：除了密文长度之外，我还应该担心其他元数据泄漏吗？ 常规 UX/UI：从用户角度对流程的任何反馈。  以下是链接：https://seccha.vercel.app/ 提前感谢您的宝贵时间和批评。我是来学习的！   由   提交 /u/Awkward-Struggle-669   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rrfc7k/be_brutally_honest_about_my_website/</guid>
+      <pubDate>Thu, 12 Mar 2026 03:03:11 GMT</pubDate>
+    </item>
     <item>
       <title>你如何安排你的工作？</title>
       <link>https://www.reddit.com/r/webdev/comments/1rreomy/how_do_you_organize_your_work/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[我们正在使用一家公司来设计一个网站，如果我们与他们一起托管，我刚刚被告知他们需要 500GB 的备份存储，因为他们将每月进行更新来调整我们的网站以匹配“算法”。 （当我说我不关心匹配算法时，销售人员告诉我们，他们随后会进行每月维护）我们是一家为选定数量的政府客户工作的公司，网站的流量将相当低，但我们需要它，以便与我们交谈的客户可以看到能力、简历和过去的项目。只有几个页面，页面之间有链接。  我个人认为这太过分了，最重要的是，他们三年要收取 1400 美元。这是按他们的“折扣”率计算的。  我目前与 Wix 有一个计划，他们在三年内收取一半的费用。据我所知，存储空间较小（我专门选择它是因为我们需要域名和业务电子邮件，而且我们没有一个正常运行的网站）。他们达成了一项协议，100GB 的存储空间为每月 19 美元，因此 3 年的托管计划和域名总共为 768 美元，但每年支付 234 美元。我们公司可以轻松做到这一点。  研究已完成：我研究了 Reddit 上的平均存储大小、Wix 上的当前成本、一般存储要求。 我认为，根据我们的需要，他们过度调整了大小。我们目前正在书面通知他们是否会提供每月的维护或算法更新。  我的问题如下： 维护或算法更新真的需要那么多存储空间来确保可靠的功能和安全性吗？ 按照我的理解，我不需要算法更新：我们可以在 Google 上搜索到。由于我们的客户群有限，我们希望那些特别了解我们的人搜索我们的网站。还有其他原因说明我们需要每月更新算法吗？ 或者我完全没有根据吗？这个成本是否太低，是否可能不可靠并且他们歪曲了自己？  我希望保持在 1k 以下，或者分摊每年的成本，而不是三年一次付款，因为这对我们的业务来说成本很高，因为我们去年 12 月才刚刚开始。  我真的很感谢你的帮助，因为我身兼多职，我没有时间像我应该完全理解要求那样进行研究，而且我担心我会犯错误。    由   提交 /u/Frenchorican   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rr5bcv/how_much_backup_storage_is_required_for_basic/</guid>
       <pubDate>Wed, 11 Mar 2026 20:25:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>零配置（且免费）WebSocket。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rr4xvi/zeroconfig_and_free_websockets/</link>
-      <description><![CDATA[      我刚刚公开发布了 ittysockets.com。这是一个免费的、社区支持的项目，专门设计用于让独立开发者通过消除几乎所有可以想象到的障碍来体验实时功能。 它是什么？ itty-sockets 是一个超小型 WebSocket 客户端，[可选]与公共中继服务器配对。这对你有什么用？对于不到 500 字节且几乎为零的配置/成本，您可以通过几行代码在应用程序中使用 WebSocket。它处理竞争条件、轻松重新连接、解析等。  ``` import { connect } from &#39;itty-sockets&#39; // ~466 字节 gzipped // user 1 const channel = connect(&#39;my-secret-channel&#39;) .send(&#39;hey there!&#39;) // 可以立即发送 .send([1, 2, 3]) // 任何可字符串化的 JSON ? .on(&#39;message&#39;, ({ message }) =&gt; { // do some })  此站点拥有您入门所需的一切，包括文档、现场演示，以及重要的是：通过 GitHub 登录以保留您自己的受保护命名空间的能力。 您也可以将客户端与任何现有的 JSON WebSocket 服务器一起使用 - 您将失去我的后端的一些功能，但仍然比原始的 DX 有所改进WebSocket 实例化。  免责声明：这已经为生产中的应用程序（私人）提供了大约一年的支持，包括日间交易平台 - 因此它是为了处理一些压力而构建的，尽管作为一项免费服务，它没有任何保证。    由   提交/u/kevin_whitley  [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rr4xvi/zeroconfig_and_free_websockets/</guid>
-      <pubDate>Wed, 11 Mar 2026 20:11:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何构造 i18n 字符串及其中的位置？包含冠词的语法结构变得越来越复杂。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rr4k94/how_do_you_structure_i18n_strings_with_locations/</link>
-      <description><![CDATA[我有一个网站，其中包含城市、地区和国家/地区的基于位置的内容。我的网站上有许多字符串，例如“{location} 中有 {count} 个位置”或“查找 {location} 附近的位置”。 我有超过 15 万个位置，这些位置是从 GeoNames 数据库中提取的，其中包括位置名称的翻译。 Rome 是意大利语中的 Roma，United States 是西班牙语中的 Estados Unidos，等等。 某些地点（例如 United States）需要写为“在美国”。前面有一篇文章，所以我需要添加文章“the”在位置名称前面。在意大利语等语言中，这似乎有点复杂，因为“in the”被合并为“negli”所以这将是“negli Estati Uniti”对于“在美国”，这意味着我的字符串不能再“在{位置}”作为“在”中需要与位置名称一起翻译。 我很乐意手动翻译带有“in”形式的国家/地区名称。并接近”就像为“in the United States”使用单独的字符串一样和“美国附近”，但我无法对地区/城市执行此操作，因为数量太多了。我需要从数据库中获取这些内容。 到目前为止，我最好的猜测是，我需要单独的字符串来表示国家/地区位置和其他位置，因此我可以：  国家/地区版本：“There are {count} 个位置{inLocation}”其中“inLocation”是可以是“在美国”。或“negli Estati Uniti” 城市/地区版本：“{location} 有 {count} 个位置”其中“位置”是是我从罗马/罗马等数据库中获得的内容。  这是最好的方法吗？有没有更聪明的方法来处理这个问题？ 就上下文而言，我已经考虑过重组我的字符串来消除这个问题，只做“United States: {count}个位置”之类的事情，但我需要在几个地方保留句子结构以进行搜索引擎优化。  Yelp 和 Indeed 等网站都有 SEO 页面，例如“伦敦顶级炸玉米饼餐厅”。或“英国的软件工程工作” 20年了，所以我认为这个问题已经解决了。    由   提交/u/leros  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rr4k94/how_do_you_structure_i18n_strings_with_locations/</guid>
-      <pubDate>Wed, 11 Mar 2026 19:59:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>以防万一人工智能会接管任何人......</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rr3nu5/just_in_case_anyone_things_ai_will_take_over/</link>
-      <description><![CDATA[仔细阅读亚马逊刚刚发生的事情。说够了。    由   提交/u/jroberts67  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rr3nu5/just_in_case_anyone_things_ai_will_take_over/</guid>
-      <pubDate>Wed, 11 Mar 2026 19:27:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的副业贺卡制造商在大约 3 周内每月吸引了大约 10 万访客……但我 17 岁了，不知道如何将其货币化</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rr0ln1/my_side_project_greeting_card_maker_hit_100k/</link>
-      <description><![CDATA[大家好， 大约 3 周前，我启动了一个小型副项目，让人们可以在线创建贺卡。我主要将其构建为一个有趣的项目，以了解有关 SEO 和 Web 开发的更多信息。 出乎意料的是，流量开始快速增长，现在每月约有 10 万访问者。其中大部分来自 SEO，有些页面的排名仍在攀升，因此我估计，如果事情继续以同样的方式发展，几个月内它的月用户数可能会达到约 100 万。 问题在于货币化。 现在网站上的所有内容都是完全免费的。我这样做是有意为之，因为我想首先关注增长并让该工具真正有用。 我的第一个想法是添加展示广告，但我遇到了一个问题：我 17 岁了，所以我无法开设 AdSense 帐户，而且我也无法真正使用我父母的银行帐户进行付款。 所以我陷入了这种奇怪的境地：该网站具有吸引力，但我还不知道创收的最佳方式。 我一直在考虑的一些想法： 展示广告（一旦我弄清楚年龄/付款问题）捐赠 但我不确定什么最有效而不破坏用户体验。 如果这里有人有通过网站获利的经验，我真的很感激任何建议。特别是如果您已经处理过 18 岁以下儿童的付款或广告问题。 谢谢！   由   提交/u/TimeDeep1497  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rr0ln1/my_side_project_greeting_card_maker_hit_100k/</guid>
-      <pubDate>Wed, 11 Mar 2026 17:40:41 GMT</pubDate>
     </item>
     </channel>
 </rss>
