@@ -4,7 +4,35 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Sat, 14 Mar 2026 15:32:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 21:30:57 GMT</lastBuildDate>
+    <item>
+      <title>结论：Openclaw 没什么汉堡</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtvd1k/conclusion_openclaw_is_a_nothing_burger/</link>
+      <description><![CDATA[ 由   提交 /u/Alternative-Lime7814   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtvd1k/conclusion_openclaw_is_a_nothing_burger/</guid>
+      <pubDate>Sat, 14 Mar 2026 21:23:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>带 webhooks 的开源 WhatsApp MCP（只需扫描二维码）！</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtv2pl/open_source_whatsapp_mcp_with_webhooks_just_need/</link>
+      <description><![CDATA[      WhatsApp 有一个非常不友好的 API，这使得它很难与 AI 模型一起使用，除非你有一个企业帐户并经历一个繁琐的设置过程。 过去几天花了几天时间构建了一个开源网站，该网站使用 WAHA，让你只需使用 QR 码即可连接你的 Whatsapp 帐户。还添加了 MCP 支持，以便您可以使用任何 AI 模型在 WhatsApp 上发送和阅读消息。最后，它支持注册 Webhook，这使得它可以轻松地与任何自动化平台一起使用。 核心挑战是弄清楚如何扩展持久连接，因为 WAHA 需要一个持续连接的进程，以便能够在消息到达时立即发出通知。 希望这可以帮助人们！ GitHub：https://github.com/dhruvyad/wahooks 网站：wahooks.com   由   提交/u/dhruv1103  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtv2pl/open_source_whatsapp_mcp_with_webhooks_just_need/</guid>
+      <pubDate>Sat, 14 Mar 2026 21:11:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>[脚本] Plex AI Dubber — 使用 AI 语音克隆在 Plex 库中自动配音电影</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtpwl0/script_plex_ai_dubber_autodub_movies_in_your_plex/</link>
+      <description><![CDATA[      大家好！ 👋 我构建了一个工具，可以使用开源 AI 自动将 Plex 库中的电影配音成其他语言，并通过语音克隆保留原始演员的声音。 ## 它的作用 你在 Plex 中用“dub-spanish”等标签标记一部电影，后台服务会拾取它，通过 AI 管道运行它，并向文件添加新的音轨。下次在 Plex 中播放电影时，您可以从音频菜单中选择配音语言 - 就像 Netflix 一样。 ## AI 管道 1. **Demucs** — 将人声与音乐/音效分离 2. **Whisper** — 转录对话 3. **Meta NLLB-200** — 翻译为目标语言 4. **Coqui XTTS v2** — 克隆原始演员的声音并说出翻译内容 5. **FFmpeg/MKVToolNix** — 将新音轨复用到文件中 ## 运行方式安装程序将创建一个专用的 Proxmox LXC，其中包含： - 用于加速的 GPU 直通 (NVIDIA) - 从现有 Plex LXC 自动检测到的 NAS 安装 - 预安装的所有依赖项（Python、PyTorch、Open Dubbing） - “dubber” CLI 命令和可选的标签观察程序 systemd 服务 安装脚本会自动检测您的 GPU、驱动程序版本、存储、模板和媒体安装。它将主机的 NVIDIA 库绑定安装到 LXC 中，以避免驱动程序版本不匹配。 ## 要求 - Proxmox VE 7.x 或 8.x - NVIDIA GPU（GPU 模式建议使用 12+ GB VRAM，较小 GPU 的 CPU 回退） - NFS/CIFS 共享或本地存储上的媒体 - 免费 HuggingFace 帐户（用于说话者分类模型）## 支持的语言（语音克隆）英语、西班牙语、法语、德语、意大利语、葡萄牙语、波兰语、土耳其语、俄语、荷兰语、捷克语、阿拉伯语、中文、匈牙利语、韩语、日语、 Hindi Edge TTS（无语音克隆）添加了 60 多种语言，包括希伯来语、瑞典语等。 ## 快速入门 ```bash git clone : 链接 URL cd Dubber_LXC bash setup_dubber_lxc.sh ``` 安装程序将交互式地引导您完成所有操作。 ## 已知限制 - 语音克隆质量不错，但并不完美（开源模型正在快速改进） - GTX 1060 (6GB) 可以工作，但必须在 CPU 上运行 - 建议 GPU 模式使用 12+ GB VRAM - XTTS v2 尚不支持希伯来语语音克隆（Edge TTS 作为后备） - 首次运行下载 ~5GB 的 AI 模型 这是我的第一个开源项目 - 欢迎反馈和贡献！ 🙏    由   提交/u/TOBISHI   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtpwl0/script_plex_ai_dubber_autodub_movies_in_your_plex/</guid>
+      <pubDate>Sat, 14 Mar 2026 17:49:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>大家都在哪些地方学习自动化和 1 人公司？</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtnxqy/what_are_the_top_places_that_everyone_is_learning/</link>
+      <description><![CDATA[是否有所有案例研究等的来源？   由   提交 /u/CardiographerAdept763   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtnxqy/what_are_the_top_places_that_everyone_is_learning/</guid>
+      <pubDate>Sat, 14 Mar 2026 16:33:43 GMT</pubDate>
+    </item>
     <item>
       <title>我在 n8n 中构建了一个完整的医疗实践操作引擎 — 120 多个节点、8 个模块。医生专注于患者，系统处理其余的事情。</title>
       <link>https://www.reddit.com/r/automation/comments/1rtl43m/i_built_a_full_medical_practice_operations_engine/</link>
@@ -50,7 +78,7 @@
     <item>
       <title>我最终如何使用 Claude 4.6 将 12 年手动 LinkedIn 销售推广自动化（架构和速率限制细分）</title>
       <link>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</link>
-      <description><![CDATA[      大家好，r/automation， 我从事 B2B 销售工作已有十多年了。在过去的 12 年里，我的日常生活一模一样：醒来，喝咖啡，花几个小时手动点击 LinkedIn 个人资料，发送连接请求，并在凌乱的电子表格中生活，只是为了跟踪后续情况。这很耗精力，但我接受了它作为工作的一部分。 我总是避免使用主流自动化工具，因为我害怕我的帐户受到限制，而且我讨厌听起来像通用的垃圾邮件机器人的想法。最近，我决定将其作为内部工程挑战来解决，以解决我自己的头痛问题。 我想分享我如何构建它的架构，因为它完全让我重新获得了时间。希望这可以帮助其他尝试构建类似内容的人。 1。 “反机器人”引擎 (Claude 4.6) 我没有依赖静态模板（人们一英里外就能看到），而是将 Claude 4.6 集成到后端。  工作原理：在起草任何消息之前，系统会抓取潜在客户的个人资料数据（标题、最近的经历、关于部分）。 提示：我提供该上下文用严格的系统提示进入克劳德，以符合我个人的语气——热情、对话和直接。它起草的信息与个人的确切背景高度相关，所以听起来实际上是我花时间手动编写的。  2。 100% 安全的工程 这是我的首要任务。 LinkedIn 是出了名的严格，因此系统必须完美模仿人类行为。  硬限制：我对系统进行了硬编码，以严格遵守 LinkedIn 的安全帐户限制。我预定义了绝对最高的安全最大值（例如，将每日连接请求和消息限制在远低于雷达的范围）。 精细控制：我内置了手动进一步降低这些每日限制的功能。如果我正在热身一个新帐户，我可以将其设置为每天仅执行几个操作。 随机化：它不会立即触发消息。它在后台安静地运行，操作之间有类似人类的随机延迟。  3.结果 我基本上构建了一个“设置好后就不用管它”的系统。工作流程。我不再每天早上花 3 个小时进行手动数据输入。人工智能负责最初的定制外展和后续工作，只有当潜在客户真正回复时我才会介入。 我只是想与社区分享这一巨大的个人胜利。如果有人试图构建类似的自动化或在逻辑上遇到困难，我很乐意在评论中回答有关我如何构建克劳德提示或处理速率限制数学的任何技术问题！干杯。   由   提交/u/Acute-SensePhil   [链接] [评论] ]]></description>
+      <description><![CDATA[      大家好，r/automation， 我从事 B2B 销售工作已有十多年了。在过去的 12 年里，我的日常生活一模一样：醒来，喝咖啡，花几个小时手动点击 LinkedIn 个人资料，发送连接请求，并在凌乱的电子表格中生活，只是为了跟踪后续情况。这很耗精力，但我接受了它作为工作的一部分。 我总是避免使用主流自动化工具，因为我害怕我的帐户受到限制，而且我讨厌听起来像通用的垃圾邮件机器人的想法。最近，我决定将其作为内部工程挑战来解决，以解决我自己的头痛问题。 我想分享我如何构建它的架构，因为它完全让我重新获得了时间。希望这可以帮助其他尝试构建类似内容的人。 1。 “反机器人”引擎 (Claude 4.6) 我没有依赖静态模板（人们一英里外就能看到），而是将 Claude 4.6 集成到后端。  工作原理：在起草任何消息之前，系统会抓取潜在客户的个人资料数据（标题、最近的经历、关于部分）。 提示：我提供该上下文用严格的系统提示进入克劳德，以符合我个人的语气——热情、对话和直接。它起草的信息与个人的确切背景高度相关，所以听起来实际上是我花时间手动编写的。  2。 100% 安全的工程 这是我的首要任务。 LinkedIn 是出了名的严格，因此系统必须完美模仿人类行为。  硬限制：我对系统进行了硬编码，以严格遵守 LinkedIn 的安全帐户限制。我预定义了绝对最高的安全最大值（例如，将每日连接请求和消息限制在远低于雷达的范围）。 精细控制：我内置了手动进一步降低这些每日限制的功能。如果我正在热身一个新帐户，我可以将其设置为每天仅执行几个操作。 随机化：它不会立即触发消息。它在后台安静地运行，操作之间有类似人类的随机延迟。  3.结果 我本质上构建了一个“设置好然后忘记它”的系统。工作流程。我不再每天早上花 3 个小时进行手动数据输入。人工智能负责最初的定制外展和后续工作，只有当潜在客户真正回复时我才会介入。 我只是想与社区分享这一巨大的个人胜利。如果有人试图构建类似的自动化或在逻辑上遇到困难，我很乐意在评论中回答有关我如何构建克劳德提示或处理速率限制数学的任何技术问题！干杯。   由   提交/u/Acute-SensePhil   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</guid>
       <pubDate>Sat, 14 Mar 2026 09:10:53 GMT</pubDate>
     </item>
@@ -76,39 +104,11 @@
       <pubDate>Sat, 14 Mar 2026 05:50:18 GMT</pubDate>
     </item>
     <item>
-      <title>免费开源 pdf 提取器</title>
-      <link>https://www.reddit.com/r/automation/comments/1rt5eo4/free_open_source_pdf_extrator/</link>
-      <description><![CDATA[大家好， 工作中遇到一个问题，目前在空运物流工作，在我们完成发货后，我们打印一份文件副本，这样我们就可以确保它按照预定的第二天出发。 问题是我们需要自己输入运单号，在我看来，这造成了不必要的工作。 所以我正在寻找一个开源软件pdf 提取器，可以读取我们的扫描件并从 pdf 文件中提取数字，也许还可以创建仅包含这些数字的 Excel 或表格。 希望上面有点清楚，   由   提交 /u/HuckleberryOwn9955   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rt5eo4/free_open_source_pdf_extrator/</guid>
-      <pubDate>Sat, 14 Mar 2026 00:53:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建了一个代理来检查您的克劳德代码会话并建议工作流程自动化和重复错误更正。</title>
-      <link>https://www.reddit.com/r/automation/comments/1rt4u6c/created_an_agent_that_reviews_your_claude_code/</link>
-      <description><![CDATA[   这是一个即将实现的开源项目，它会分析您之前的 Claude Code 会话。提供自动化修复重复错误的机会。  https://preview.redd.it/2ljto2xqnwog1.png?width=2642&amp;format=png&amp;auto=webp&amp;s=ce9bd9c7cff21ff0ff09b2348b0387f65d783209 你觉得怎么样？最近发表的一些论文支持这对 Claude 代码有多大的改进。    由   提交 /u/Ok-Dragonfly-6224   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rt4u6c/created_an_agent_that_reviews_your_claude_code/</guid>
-      <pubDate>Sat, 14 Mar 2026 00:29:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>在客户说“看起来不错”之后，真正谈论人工智能自动化的实际突破</title>
-      <link>https://www.reddit.com/r/automation/comments/1rt0bnn/real_talk_on_what_actually_breaks_in_ai/</link>
-      <description><![CDATA[构建和管理自动化已经有一段时间了，主要围绕中小型企业的潜在客户外展、CRM 工作流程和语音 AI。 出问题的永远不是您测试过的内容。 潜在客户以奇怪的电子邮件格式出现，并导致整个序列崩溃。语音代理可以完美处理 95% 的呼叫，然后完全冻结在无人思考的问题上。这是 CRM 领域，在您围绕它构建了所有内容三周后，有人对其进行了重新命名。 老实说，构建是最简单的部分。没有人谈论足够多的是持续的管理方面。提示需要更新。 API 发生变化。客户在第二个月的实际流程看起来与他们在第一个月所描述的完全不同。 很好奇其他人在维护方面遇到了什么。是否有人构建了自我修复逻辑，或者您主要只是手动监控和修复？   由   提交 /u/rastize   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rt0bnn/real_talk_on_what_actually_breaks_in_ai/</guid>
-      <pubDate>Fri, 13 Mar 2026 21:27:26 GMT</pubDate>
-    </item>
-    <item>
       <title>人们真的使用人工智能从真实照片生成电子商务产品图像/视频吗？</title>
       <link>https://www.reddit.com/r/automation/comments/1rsyczq/are_people_actually_using_ai_to_generate_product/</link>
       <description><![CDATA[我想知道这里是否有人已经在认真使用人工智能从真实的产品照片开始为电子商务创建产品内容。例如，通过组合多张照片从不同角度生成新图像，从白色背景静物照片开始创建生活方式图像，生成展示产品如何使用的解释性图像，或者仅从几张照片生成简短的产品视频（如演示或亚马逊风格的列表剪辑）。我并不是指完全从头开始生成的图像，而是指从真实的产品照片开始，人工智能将其扩展或转换为新内容的工作流程。这里有人系统地做这件事吗？您是在内部处理还是依赖自由职业者或机构？我也很想知道您正在使用哪些工具，结果是否足够可靠，可以在列表中实际使用，以及与传统摄影或视频制作相比，成本大致如何。   由   提交 /u/Ok-Cucumber101   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rsyczq/are_people_actually_using_ai_to_generate_product/</guid>
       <pubDate>Fri, 13 Mar 2026 20:14:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>自动发布到 100 多个 Facebook 群组 以下是工作流程的实际运作方式</title>
-      <link>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</link>
-      <description><![CDATA[开始为我正在运行的 SaaS 进行 Facebook 群组营销。效果很好，我想对其进行扩展，但手动将其扩展到 80-100 个组需要每周花费 4-5 个小时。 构建了一个 Chrome 扩展来处理它。它的基本工作原理如下： 该扩展程序保留一个包含元数据的组列表 - 最后发布日期、发布频率设置、是否跳过（如果在过去 X 天内已发布）。当您启动会话时，它会遍历列表，打开每个组，将帖子内容注入编辑器，提交，记录结果，然后继续。 Facebook 的编辑器是由 React 控制的，因此您不能仅以正常方式设置输入值。标准 DOM 赋值不会触发 React 的状态。必须模拟实际的击键才能正确注册。 组具有不同的编辑器布局，具体取决于它是常规组、具有帖子批准的组还是市场组。在尝试发布之前，必须构建检测逻辑来识别正在处理的类型。 速率限制非常重要。发帖速度太快，Facebook 会标记该帐户。不仅在帖子之间而且在帖子内的各个交互之间内置了操作之间的随机延迟。模仿人类计时缺陷。 Spintax 支持最终也很重要。跨组轮换内容变体，这样您就不会将相同的文本发布 100 次。 该扩展程序最终引起了足够的兴趣，我将其放在 Chrome 网上应用店中。但实际的自动化逻辑是我发现构建起来很有趣的部分 - React 输入注入和避免检测的行为模仿是许多浏览器自动化上下文中出现的问题。 如果有用的话，很乐意深入研究任何技术部分。   由   提交 /u/Constant_Border_8994   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</guid>
-      <pubDate>Fri, 13 Mar 2026 14:32:33 GMT</pubDate>
     </item>
     </channel>
 </rss>

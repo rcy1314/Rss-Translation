@@ -4,7 +4,35 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Sat, 14 Mar 2026 18:47:13 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 21:31:53 GMT</lastBuildDate>
+    <item>
+      <title>我需要一个不使用 AI 的 TTS 软件（适用于 Android 或 Chrome 浏览器）</title>
+      <link>https://www.reddit.com/r/software/comments/1rturpu/i_need_a_tts_software_that_doesnt_use_ai_for/</link>
+      <description><![CDATA[我不需要它成为市场上最现实的东西，我只是想找到一些可以大声朗读文本的东西。我在道德上反对人工智能，我理解大多数现代*和旧*软件在某种程度上使用人工智能，但我真的很喜欢将其保持在绝对最低限度，非常感谢（：     提交者    /u/sillkflwr   [链接]   href=&quot;https://www.reddit.com/r/software/comments/1rturpu/i_need_a_tts_software_that_doesnt_use_ai_for/&quot;&gt;[评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1rturpu/i_need_a_tts_software_that_doesnt_use_ai_for/</guid>
+      <pubDate>Sat, 14 Mar 2026 20:59:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>厌倦了同步状态和动画？我构建了一个 UI 框架，其中状态向目的地移动。</title>
+      <link>https://www.reddit.com/r/software/comments/1rtt26b/tired_of_syncing_state_and_animations_i_built_a/</link>
+      <description><![CDATA[大多数现代框架将 UI 建模为状态函数：更改状态、重新渲染。但现代丰富的用户体验越来越关注状态之间的空间：如何从一种状态平滑地转移到另一种状态。 这通常通过使用 Framer Motion 或 GS​​AP 等外部库来解决。这通常意味着同步两个心理模型：  一个用于状态/渲染 一个用于动画/效果  我正在构建 TargetJS 来试验不同的模型： 1.状态作为目标：您不是立即设置状态，而是声明框架要达到的目标。类字段和方法的值成为框架基于可配置数量的“步骤”迭代的目的地。没有步骤意味着状态立即跳转到该值。添加步骤将更改转变为过渡。  2.统一原语： TargetJS 在内部将类字段和方法转换为称为“目标”的独立单元，这些单元可以拥有自己的状态、计时、生命周期、循环、执行条件和回调。 3. UI 作为序列： UI 序列如下： 单击 → 动画按钮 → 链接辅助动画 → 获取数据 → 渲染列表 → 为项目添加动画 → 暂停 → 为重要项目添加动画 目标结构通过代码顺序直接镜像这些序列。异步操作是通过添加延迟执行直到前面的目标完成的反应性来处理的。因此不需要 async/await 或 .then() 链。 4.一种模型：动画、API 调用和事件处理被统一处理，并且也可以具有相同的反应性、状态、生命周期和循环 5。高效动画：使用 Web Animations API 实现名称与 CSS 样式名称匹配的目标的转换，以提供 CSS 级效率。 示例：对宽度/高度进行动画处理，然后更改颜色，然后记录消息。 React + GSAP 方法 import React, { useLayoutEffect, useRef } from &quot;react&quot;;从“gsap”导入 gsap；导出默认函数 TargetBox() { const box = useRef(null); useLayoutEffect(() =&gt; { const ctx = gsap.context(() =&gt; { const时间线 = gsap.timeline();时间线.to(box.current, { 宽度: 200, 高度: 200, 持续时间: 0.8 }) .to(box.current, { 背景颜色: “红色”, 持续时间: 0.8 }) .call(() =&gt;; { console.log(“你好世界！”) }, box); return () =&gt; ctx.revert(); return ( ); }  TargetJS 方法 从“targetj”导入 { App }; App({ backgroundColor: &#39;blue&#39;, // 立即开始 width: { value: [100, 200], Steps: 100, Interval: 8 }, // 立即开始 height: { value: [100, 200], Steps: 100, Interval: 8 }, // 立即开始 backgroundColor$$: { value: &#39;red&#39;, Steps: 100 }, // $$ 推迟执行到前面的同级(width/height) finish done$$() { console.log(&quot;Hello World!&quot;); // 3. $$ 推迟执行直到背景颜色完成 }).mount(&quot;#app&quot;);  $$ 告诉 TargetJS 等待前面的同级目标完成，包括动画、子级和获取操作。 我很好奇开发人员如何找到这个模型。 Github: https://github.com/livetrails/targetjs 示例： https://targetjs.io/examples   由   提交/u/Various-Beautiful417  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1rtt26b/tired_of_syncing_state_and_animations_i_built_a/</guid>
+      <pubDate>Sat, 14 Mar 2026 19:52:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>ContextChat，开源，跨平台，以上下文为中心，AI聊天客户端</title>
+      <link>https://www.reddit.com/r/software/comments/1rtspls/contextchat_open_source_cross_platform_context/</link>
+      <description><![CDATA[我在 GitHub 上发布了一个聊天应用程序，特别专注于处理项目上下文。通过简单的用户体验来管理项目，添加注入到每个新项目和聊天对话中的上下文。 它是开源的，因此欢迎贡献！   由   提交/u/tapeo  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1rtspls/contextchat_open_source_cross_platform_context/</guid>
+      <pubDate>Sat, 14 Mar 2026 19:38:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>在各个显示器上运行不同的屏幕保护程序</title>
+      <link>https://www.reddit.com/r/software/comments/1rtrmjs/run_different_screen_savers_on_individual_monitors/</link>
+      <description><![CDATA[Windows 11 本身不允许您为每个显示器设置不同的屏幕保护程序，或者让一个屏幕在您在另一个屏幕上活动时处于空闲状态，这一直让我感到沮丧。 我组合了一个轻量级应用程序：  单独选择：为每个显示器选择不同的屏幕保护程序文件 独立空闲：允许辅助显示器进入“屏幕保护模式”。当您继续在主屏幕上进行活动时。 开源：这是一个简单的项目，您可以查看代码或在 GitHub 上下载。  很想知道这是否对您的设置有用，或者是否有任何您想看到的特定功能添加！   由   提交/u/Margin-is-too-narrow   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1rtrmjs/run_different_screen_savers_on_individual_monitors/</guid>
+      <pubDate>Sat, 14 Mar 2026 18:56:12 GMT</pubDate>
+    </item>
     <item>
       <title>可通过 iPhone 远程使用笔记本电脑</title>
       <link>https://www.reddit.com/r/software/comments/1rtpkh1/remote_laptop_available_from_iphone/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[有多种工具可用于存档 Reddit 帖子中的文本。同样，有些工具可以让您只需单击一下即可下载帖子中的所有视频和图像，但我还没有见过将所有这些视频和图像合并到一个文件中的工具。有没有任何工具可以让我只需单击一下即可保存文本和图像/视频，以防帖子被删除？   由   提交/u/sifir_hipotezi   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1rth0g8/i_need_help_archiving_reddit_posts/</guid>
       <pubDate>Sat, 14 Mar 2026 11:28:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>[R] 学术调查：从业者如何评估使用法学硕士的环境影响</title>
-      <link>https://www.reddit.com/r/software/comments/1rtgmk2/r_enquête_académique_comment_les_praticiens/</link>
-      <description><![CDATA[ 由   提交 /u/Brilliant_Grab2769   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1rtgmk2/r_enquête_académique_comment_les_praticiens/</guid>
-      <pubDate>Sat, 14 Mar 2026 11:06:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>在使用 Dotpeek 探索冰冷的 Windows 时发现了这张图片，有人知道它是谁吗？</title>
-      <link>https://www.reddit.com/r/software/comments/1rtgjst/found_this_image_while_exploring_chilled_windows/</link>
-      <description><![CDATA[图像（OG 文件名称：ja.png） 我刚刚找到了这张图片以及其他一些文件，（附在下面） 其他文件   由   提交/u/Broad-Seat-80   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1rtgjst/found_this_image_while_exploring_chilled_windows/</guid>
-      <pubDate>Sat, 14 Mar 2026 11:02:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>Netwatch - 一个小型互联网监控实用程序</title>
-      <link>https://www.reddit.com/r/software/comments/1rtfs0q/netwatch_a_small_internet_monitoring_utility/</link>
-      <description><![CDATA[ 由   提交 /u/The_Verbit   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1rtfs0q/netwatch_a_small_internet_monitoring_utility/</guid>
-      <pubDate>Sat, 14 Mar 2026 10:16:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>用于将复杂 XML 转换为关系型数据库的工具</title>
-      <link>https://www.reddit.com/r/software/comments/1rtf5p9/tool_for_converting_complex_xml_to_relational/</link>
-      <description><![CDATA[ 由   提交 /u/Itchy-Macaroon2469   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1rtf5p9/tool_for_converting_complex_xml_to_relational/</guid>
-      <pubDate>Sat, 14 Mar 2026 09:37:30 GMT</pubDate>
     </item>
     </channel>
 </rss>
