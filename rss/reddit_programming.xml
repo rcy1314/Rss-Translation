@@ -4,13 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 14 Mar 2026 09:39:34 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 13:02:38 GMT</lastBuildDate>
     <item>
-      <title>我如何使用 SQLite 全文搜索为 AI 代理提供跨会话内存</title>
-      <link>https://www.reddit.com/r/programming/comments/1rtf5kc/how_i_used_sqlite_fulltext_search_to_give_ai/</link>
-      <description><![CDATA[我一直在解决在多代理设置中使用 AI 编码代理时出现的问题：**它们在会话之间没有记忆**。每个代理都会产生、工作并消失。具有相同角色的下一个代理从零开始。 我构建了一个系统来解决这个问题，并希望分享技术方法，因为即使您没有专门使用 Claude Code，该架构也可能很有趣。 核心思想：在 7 个点（会话开始/结束、代理生成/停止、任务完成、工具使用前、空闲）挂钩到代理生命周期，并使用这些挂钩来构建和查询持久知识库。 存储：SQLite + FTS5 每个项目都有自己的 SQLite 数据库，其中包含会话、任务、决策、文件所有权和知识库的表。该知识库使用 FTS5 和 Porter 词干进行全文搜索。当新代理产生时，系统按角色名称 + 任务描述进行查询，按相关性对结果进行排名，删除重复项，并将顶部结果注入令牌预算（默认 3000 个令牌）内。 相关性评分考虑：FTS5 匹配分数、角色亲和力（相同角色获得提升）、新近度衰减和任务描述相似性。 输出过滤：命令感知令牌减少 其他系统的一半是 shell 命令的输出过滤管道。当每个“git log”、“npm test”或“docker build”转储数千行原始输出时，AI 代理会快速耗尽上下文窗口。 过滤器是一个 8 级管道：  ANSI 转义代码剥离 正则表达式替换（可链接） 短路模式匹配（例如，`git push`成功→`ok main`） 按命令类型通过正则表达式保留/删除行级 每行长度截断 带有省略标记的头/尾 绝对行上限 空输出回退消息  对于特定的命令，有专门的解析器——例如，pytest解析器是一个状态机，它跟踪头→进度→失败→摘要状态，仅提取失败的测试名称+断言行，最多失败5次。 Jest、Cargo 测试、Go 测试和构建工具也存在类似的解析器。 还有一个日志重复数据删除系统，可以在重复数据删除之前对时间戳、UUID、十六进制值和路径进行标准化，然后按严重性级别进行分组。 10,000 行的 kubectl 日志转储可能会以“[x42]”乘数返回为 15 行。 原始输出始终保留在索引知识库中 - 过滤仅影响进入代理上下文窗口的内容。 我为自己设置的约束： - 零外部 Python 依赖项（仅限 stdlib - sqlite3、subprocess、hashlib、 json、pathlib） - 所有钩子都是“即发即忘”，并带有超时 - 钩子失败永远不会使代理会话崩溃 - 完全本地化，无网络调用，无遥测 - 随处优雅降级 - 如果过滤器失败，原始输出将通过 结果： 在实际项目中，输出过滤可将每个命令的令牌消耗减少 80-99%，并且存储器系统消除了“冷启动”。从第二次会议开始就出现问题。最大的胜利在于诸如“npm install”(90%+)和“git push”(98%)之类的嘈杂命令，其中几乎所有输出都是代理不需要的传输统计信息和进度条。 整个过程是约 2500 行 Python + 约 1500 行 JavaScript。  开源 (MIT)：Gr122lyBr/claude-teams-brain：为您的 Claude Code Agent 团队提供记忆。自动将特定于角色的上下文注入每个新队友中 - 您的团队再也不会盲目开始。 好奇是否有人用不同的方法解决了类似的问题，或者看到了我所缺少的明显改进。   由   提交/u/Gr1zzly8ear  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rtf5kc/how_i_used_sqlite_fulltext_search_to_give_ai/</guid>
-      <pubDate>Sat, 14 Mar 2026 09:37:15 GMT</pubDate>
+      <title>微服务：脚上的枷锁</title>
+      <link>https://www.reddit.com/r/programming/comments/1rtgjvz/microservices_shackles_on_your_feet/</link>
+      <description><![CDATA[您不需要微服务。您需要更好的模块边界。仅当团队真正独立、扩展需求日夜不同或您的员工人数超过 150 人时才进行拆分。在执行任何操作之前，修复代码、在整体内部绘制真正的边界、设置跟踪。微服务并不能修复混乱的代码库。他们只是将其传播到网络上，并使其成为其他人凌晨 3 点的问题。当你分裂时，使用绞杀无花果。不是重写。绝不重写。   由   提交/u/Itchy-Warthog8260   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rtgjvz/microservices_shackles_on_your_feet/</guid>
+      <pubDate>Sat, 14 Mar 2026 11:02:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>当您收到“314159”时，2FA 应用程序会告诉您</title>
+      <link>https://www.reddit.com/r/programming/comments/1rtfdul/the_2fa_app_that_tells_you_when_you_get_314159/</link>
+      <description><![CDATA[ 由   提交/u/jacobs-tech-tavern   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rtfdul/the_2fa_app_that_tells_you_when_you_get_314159/</guid>
+      <pubDate>Sat, 14 Mar 2026 09:52:06 GMT</pubDate>
     </item>
     <item>
       <title>路线图不是系统</title>
@@ -34,11 +41,18 @@
       <pubDate>Sat, 14 Mar 2026 06:16:52 GMT</pubDate>
     </item>
     <item>
-      <title>AI 编码代理的安全技能</title>
-      <link>https://www.reddit.com/r/programming/comments/1rtbut2/security_skills_for_ai_coding_agents/</link>
-      <description><![CDATA[ 由   提交 /u/Missics   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rtbut2/security_skills_for_ai_coding_agents/</guid>
-      <pubDate>Sat, 14 Mar 2026 06:14:19 GMT</pubDate>
+      <title>BlazeDB：Swift 原生嵌入式应用数据库</title>
+      <link>https://www.reddit.com/r/programming/comments/1rtat8h/blazedb_a_swiftnative_embedded_application/</link>
+      <description><![CDATA[Swift 原生嵌入式存储引擎架构的技术文章，涵盖基于页面的存储、WAL 持久性、加密持久性 (AES-GCM) 和基准测试。   由   提交 /u/No_Prize_2533   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rtat8h/blazedb_a_swiftnative_embedded_application/</guid>
+      <pubDate>Sat, 14 Mar 2026 05:15:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>JavaScript 中的草书手写</title>
+      <link>https://www.reddit.com/r/programming/comments/1rt7ih1/cursive_handwriting_in_javascript/</link>
+      <description><![CDATA[ 由   提交/u/fpcoder  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rt7ih1/cursive_handwriting_in_javascript/</guid>
+      <pubDate>Sat, 14 Mar 2026 02:29:02 GMT</pubDate>
     </item>
     <item>
       <title>Dijkstra 的危机：Algol 的终结和软件工程的开始 (2010) [pdf]</title>
@@ -57,7 +71,7 @@
     <item>
       <title>重塑 Python 的 AsyncIO</title>
       <link>https://www.reddit.com/r/programming/comments/1rt6jum/reinventing_pythons_asyncio/</link>
-      <description><![CDATA[ 由   提交/u/ketralnis  [link] [评论]]]></description>
+      <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rt6jum/reinventing_pythons_asyncio/</guid>
       <pubDate>Sat, 14 Mar 2026 01:44:49 GMT</pubDate>
     </item>
@@ -85,7 +99,7 @@
     <item>
       <title>条件实现</title>
       <link>https://www.reddit.com/r/programming/comments/1rt18qa/conditional_impls/</link>
-      <description><![CDATA[ 由   提交/u/alilleybrinker  [link] [评论]]]></description>
+      <description><![CDATA[ 由   提交 /u/alilleybrinker   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rt18qa/conditional_impls/</guid>
       <pubDate>Fri, 13 Mar 2026 22:03:27 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[我去年审查过的大多数网络应用程序都存在围绕 LLM 请求的竞争条件。我进行了测试，发现它是系统性的。默认情况下，用于编码的 10 个最流行的 LLM 会产生相同的竞争条件。如果出现提示，他们都可以解决问题。 如果您想验证，这里有完整的文章和 Jupyter Notebook 的链接。   由   提交/u/Appressive-Put-822   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rsx3bo/race_conditions_in_generated_code_tested_across/</guid>
       <pubDate>Fri, 13 Mar 2026 19:27:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>RSL：真正简单的许可</title>
-      <link>https://www.reddit.com/r/programming/comments/1rswtej/rsl_really_simple_licensing/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rswtej/rsl_really_simple_licensing/</guid>
-      <pubDate>Fri, 13 Mar 2026 19:17:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们从 22 天存储错误中学到了什么（以及我们如何修复它）</title>
-      <link>https://www.reddit.com/r/programming/comments/1rstg7m/what_we_learned_from_a_22day_storage_bug_and_how/</link>
-      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rstg7m/what_we_learned_from_a_22day_storage_bug_and_how/</guid>
-      <pubDate>Fri, 13 Mar 2026 17:17:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
