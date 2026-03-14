@@ -4,13 +4,27 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 14 Mar 2026 06:56:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 09:39:34 GMT</lastBuildDate>
     <item>
-      <title>我最终如何组织我所有的副项目文档和任务</title>
-      <link>https://www.reddit.com/r/programming/comments/1rtc97t/how_i_finally_organized_all_my_side_project_docs/</link>
-      <description><![CDATA[我曾经在 GitHub、Google Docs 和随机文本文件中处理代码片段、功能想法和注释，这绝对是混乱的。 然后我开始使用 Notion Business + AI 免费 3 个月，它改变了游戏规则：  在一个地方跟踪任务、功能和错误 存储代码片段和模板 为所有项目保留一个可搜索的知识库  它实际上帮助我保持井然有序并更快地交付，而无需添加额外的工具。   由   提交/u/freebie1234  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rtc97t/how_i_finally_organized_all_my_side_project_docs/</guid>
-      <pubDate>Sat, 14 Mar 2026 06:38:00 GMT</pubDate>
+      <title>我如何使用 SQLite 全文搜索为 AI 代理提供跨会话内存</title>
+      <link>https://www.reddit.com/r/programming/comments/1rtf5kc/how_i_used_sqlite_fulltext_search_to_give_ai/</link>
+      <description><![CDATA[我一直在解决在多代理设置中使用 AI 编码代理时出现的问题：**它们在会话之间没有记忆**。每个代理都会产生、工作并消失。具有相同角色的下一个代理从零开始。 我构建了一个系统来解决这个问题，并希望分享技术方法，因为即使您没有专门使用 Claude Code，该架构也可能很有趣。 核心思想：在 7 个点（会话开始/结束、代理生成/停止、任务完成、工具使用前、空闲）挂钩到代理生命周期，并使用这些挂钩来构建和查询持久知识库。 存储：SQLite + FTS5 每个项目都有自己的 SQLite 数据库，其中包含会话、任务、决策、文件所有权和知识库的表。该知识库使用 FTS5 和 Porter 词干进行全文搜索。当新代理产生时，系统按角色名称 + 任务描述进行查询，按相关性对结果进行排名，删除重复项，并将顶部结果注入令牌预算（默认 3000 个令牌）内。 相关性评分考虑：FTS5 匹配分数、角色亲和力（相同角色获得提升）、新近度衰减和任务描述相似性。 输出过滤：命令感知令牌减少 其他系统的一半是 shell 命令的输出过滤管道。当每个“git log”、“npm test”或“docker build”转储数千行原始输出时，AI 代理会快速耗尽上下文窗口。 过滤器是一个 8 级管道：  ANSI 转义代码剥离 正则表达式替换（可链接） 短路模式匹配（例如，`git push`成功→`ok main`） 按命令类型通过正则表达式保留/删除行级 每行长度截断 带有省略标记的头/尾 绝对行上限 空输出回退消息  对于特定的命令，有专门的解析器——例如，pytest解析器是一个状态机，它跟踪头→进度→失败→摘要状态，仅提取失败的测试名称+断言行，最多失败5次。 Jest、Cargo 测试、Go 测试和构建工具也存在类似的解析器。 还有一个日志重复数据删除系统，可以在重复数据删除之前对时间戳、UUID、十六进制值和路径进行标准化，然后按严重性级别进行分组。 10,000 行的 kubectl 日志转储可能会以“[x42]”乘数返回为 15 行。 原始输出始终保留在索引知识库中 - 过滤仅影响进入代理上下文窗口的内容。 我为自己设置的约束： - 零外部 Python 依赖项（仅限 stdlib - sqlite3、subprocess、hashlib、 json、pathlib） - 所有钩子都是“即发即忘”，并带有超时 - 钩子失败永远不会使代理会话崩溃 - 完全本地化，无网络调用，无遥测 - 随处优雅降级 - 如果过滤器失败，原始输出将通过 结果： 在实际项目中，输出过滤可将每个命令的令牌消耗减少 80-99%，并且存储器系统消除了“冷启动”。从第二次会议开始就出现问题。最大的胜利在于诸如“npm install”(90%+)和“git push”(98%)之类的嘈杂命令，其中几乎所有输出都是代理不需要的传输统计信息和进度条。 整个过程是约 2500 行 Python + 约 1500 行 JavaScript。  开源 (MIT)：Gr122lyBr/claude-teams-brain：为您的 Claude Code Agent 团队提供记忆。自动将特定于角色的上下文注入每个新队友中 - 您的团队再也不会盲目开始。 好奇是否有人用不同的方法解决了类似的问题，或者看到了我所缺少的明显改进。   由   提交/u/Gr1zzly8ear  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rtf5kc/how_i_used_sqlite_fulltext_search_to_give_ai/</guid>
+      <pubDate>Sat, 14 Mar 2026 09:37:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>路线图不是系统</title>
+      <link>https://www.reddit.com/r/programming/comments/1rtetmn/the_roadmap_is_not_the_system/</link>
+      <description><![CDATA[ 由   提交 /u/SpecialistLady   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rtetmn/the_roadmap_is_not_the_system/</guid>
+      <pubDate>Sat, 14 Mar 2026 09:15:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>我在尝试阻止网络抓取和机器人时学到了什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1rte5ui/what_i_learned_trying_to_block_web_scraping_and/</link>
+      <description><![CDATA[ 由   提交 /u/ReditusReditai   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1rte5ui/what_i_learned_trying_to_block_web_scraping_and/</guid>
+      <pubDate>Sat, 14 Mar 2026 08:33:28 GMT</pubDate>
     </item>
     <item>
       <title>红色、绿色、过早重构</title>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rstg7m/what_we_learned_from_a_22day_storage_bug_and_how/</guid>
       <pubDate>Fri, 13 Mar 2026 17:17:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>鸡块| daniel.haxx.se [在 nuget.org 上卷曲]</title>
-      <link>https://www.reddit.com/r/programming/comments/1rst57v/chicken_nuget_danielhaxxse_curl_on_nugetorg/</link>
-      <description><![CDATA[ 由   提交/u/cake-day-on-feb-29   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rst57v/chicken_nuget_danielhaxxse_curl_on_nugetorg/</guid>
-      <pubDate>Fri, 13 Mar 2026 17:06:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>我花了很长时间制作一个 Python 音频均衡器并学到了很多东西 |通过 Keepingupwithriya | 2026 年 3 月</title>
-      <link>https://www.reddit.com/r/programming/comments/1rsr9s8/i_spent_way_too_long_making_a_python_audio/</link>
-      <description><![CDATA[ 由   提交/u/riyaaaaaa_20  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rsr9s8/i_spent_way_too_long_making_a_python_audio/</guid>
-      <pubDate>Fri, 13 Mar 2026 16:00:00 GMT</pubDate>
     </item>
     </channel>
 </rss>

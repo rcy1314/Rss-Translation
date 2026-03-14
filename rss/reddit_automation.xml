@@ -4,7 +4,28 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Sat, 14 Mar 2026 06:55:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 09:37:56 GMT</lastBuildDate>
+    <item>
+      <title>我最终如何使用 Claude 4.6 将 12 年手动 LinkedIn 销售推广自动化（架构和速率限制细分）</title>
+      <link>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</link>
+      <description><![CDATA[      大家好，r/automation， 我从事 B2B 销售工作已有十多年了。在过去的 12 年里，我的日常生活一模一样：醒来，喝咖啡，花几个小时手动点击 LinkedIn 个人资料，发送连接请求，并在凌乱的电子表格中生活，只是为了跟踪后续情况。这很耗精力，但我接受了它作为工作的一部分。 我总是避免使用主流自动化工具，因为我害怕我的帐户受到限制，而且我讨厌听起来像通用的垃圾邮件机器人的想法。最近，我决定将其作为内部工程挑战来解决，以解决我自己的头痛问题。 我想分享我如何构建它的架构，因为它完全让我重新获得了时间。希望这可以帮助其他尝试构建类似内容的人。 1。 “反机器人”引擎 (Claude 4.6) 我没有依赖静态模板（人们一英里外就能看到），而是将 Claude 4.6 集成到后端。  工作原理：在起草任何消息之前，系统会抓取潜在客户的个人资料数据（标题、最近的经历、关于部分）。 提示：我提供该上下文用严格的系统提示进入克劳德，以符合我个人的语气——热情、对话和直接。它起草的信息与个人的确切背景高度相关，所以听起来实际上是我花时间手动编写的。  2。 100% 安全的工程 这是我的首要任务。 LinkedIn 是出了名的严格，因此系统必须完美模仿人类行为。  硬限制：我对系统进行了硬编码，以严格遵守 LinkedIn 的安全帐户限制。我预定义了绝对最高的安全最大值（例如，将每日连接请求和消息限制在远低于雷达的范围）。 精细控制：我内置了手动进一步降低这些每日限制的功能。如果我正在热身一个新帐户，我可以将其设置为每天仅执行几个操作。 随机化：它不会立即触发消息。它在后台安静地运行，操作之间有类似人类的随机延迟。  3.结果 我基本上构建了一个“设置好后就不用管它”的系统。工作流程。我不再每天早上花 3 个小时进行手动数据输入。人工智能负责最初的定制外展和后续工作，只有当潜在客户真正回复时我才会介入。 我只是想与社区分享这一巨大的个人胜利。如果有人试图构建类似的自动化或在逻辑上遇到困难，我很乐意在评论中回答有关我如何构建克劳德提示或处理速率限制数学的任何技术问题！干杯。   由   提交/u/Acute-SensePhil   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</guid>
+      <pubDate>Sat, 14 Mar 2026 09:10:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何自动化 50 多个客户的全球 SERP 监控，而不会遇到“无头浏览器”问题。</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtelan/how_i_automated_global_serp_monitoring_for_50/</link>
+      <description><![CDATA[大家好， 只是想分享一下我几个月来一直在尝试自动化的工作流程的成果。 我正在管理一个项目，我们需要每天早上跟踪竞争对手的定价、广告展示位置以及一组特定关键字在 Google 上的自然排名。 最初，我尝试使用 Python 自己构建一个简单的自动化脚本(Requests/BeautifulSoup) 只需提取 Google 搜索页面并解析它们。在 Google 开始抛出验证码并软禁止我的服务器 IP 之前，这种方法有效了整整两天。我尝试向它添加一些基本代理，但我的自动化不断失败，并将垃圾 HT​​ML 转储到我的数据库中，而不是实际的搜索结果。 我意识到维护 Google 抓取工具是一项全职工作，完全违背了“自动化”的目的。 我最终放弃了抓取逻辑，并用专用的 SERP API 替换它。过去几周我一直在使用 Thordata 的 SERP API，它完全稳定了工作流程。 我当前的堆栈非常简单，实际上现在可以放手：  cron 作业每天触发脚本。 它将目标关键字发送到 Thordata API。 它们处理所有代理旋转、JS 渲染和绕过验证码。 它返回一个完美解析的 JSON，包含准确的广告位置、自然网址和定价片段。 该脚本解析 JSON 并更新客户端检查的 Google Sheet/Airtable 库。  老实说，最大的缓解不是醒来时看到 Slack 警报称抓取工具因布局更改或烧毁 IP 而失败。将实际数据提取转移到 API 只会使自动化变得可靠。 想知道你们如何在自动化中处理搜索引擎数据吗？您是否还在尝试自己构建抓取逻辑，或者都已转向重型网站的 API？   由   提交 /u/Amazing-Hornet4928   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtelan/how_i_automated_global_serp_monitoring_for_50/</guid>
+      <pubDate>Sat, 14 Mar 2026 09:00:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>在过去的一年里，我每周都在构建一个人工智能代理。我最新的一位是 PM 副驾驶，有 18 名客服人员和 6 个工作流程。这是我学到的。</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtd3c2/ive_been_building_an_ai_agent_every_week_for_the/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtd3c2/ive_been_building_an_ai_agent_every_week_for_the/</guid>
+      <pubDate>Sat, 14 Mar 2026 07:27:36 GMT</pubDate>
+    </item>
     <item>
       <title>我构建了一个工具，可以使用 Gemini 2.5 Flash 在 30 秒内将任何 YouTube 视频转换为 Twitter 帖子、LinkedIn 帖子、博客或时事通讯</title>
       <link>https://www.reddit.com/r/automation/comments/1rtcfxw/i_built_a_tool_that_turns_any_youtube_video_into/</link>
@@ -69,32 +90,11 @@
       <pubDate>Fri, 13 Mar 2026 18:28:49 GMT</pubDate>
     </item>
     <item>
-      <title>我构建了一个工具，可以使用简单的语言描述将任何文档转换为任何输出格式。你愿意为此付费吗？</title>
-      <link>https://www.reddit.com/r/automation/comments/1rssnef/i_built_a_tool_that_turns_any_document_into_any/</link>
-      <description><![CDATA[      没有模板。没有字段定义。没有“重命名您的列以匹配我们的格式。” 您上传目标格式的示例，用简单语言描述源数据或上传图像，系统会自行构建整个提取和转换管道。 以下是它今天在实际案例中所做的操作： 我的父母在德国各地经营 200 个地点的自动售货机业务。收入是手动跟踪的——手写笔记，每个地点，每个月。我妈妈多年来一直在 Excel 中手动输入这些内容。 我上传了一个目标 CSV 格式的示例，并输入了以下描述：  “我们需要创建一个像示例一样的自动售货机收入列表。每张手写笔记都包含机器 ID、日期和自上次收集以来的收入。”  这就是系统获得的所有输入。无需字段映射，无需配置，无需设置。 它自主生成的内容：  自动导出 167 个主数据映射 - 正确识别位置、供应商、机器型号 应用语义丰富 - 热/冷/零食收入正确拆分为单独的列 可重复使用的 Jinja2 模板自行生成 执行确定性 DSL 管道 - 每次都可重现，无幻觉 干净的结构化 CSV – 为会计师做好准备  底层的管道：简单的语言描述 → 自主模式推理 → 自生成 DSL → 通过重试循环进行审核员验证 → 结构化输出。 适用于供应商发票、银行对账单、销售报告、手写笔记、专有 Excel 文件、遗留 ERP 导出 - 任何具有足够一致结构的东西，即使完全专有。 诚实问题：您愿意为此付费吗？ 我的目标用例：  使用标准软件无法理解的专有格式的企业 运营团队每天在文档之间手动复制粘贴 任何会计师向他们收取月复一月重新格式化数据费用的人  如果您想尝试，请告诉我。寻找反馈。残酷一点。   由   提交/u/TheExolith  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rssnef/i_built_a_tool_that_turns_any_document_into_any/</guid>
-      <pubDate>Fri, 13 Mar 2026 16:49:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅跟进 20% 的未接电话，必须将其自动化</title>
-      <link>https://www.reddit.com/r/automation/comments/1rss17g/was_only_following_up_on_20_of_unanswered_calls/</link>
-      <description><![CDATA[经营一家小型咨询公司。每天可能会接到 30 个外拨电话。 上个月开始跟踪有多少人在没有接听时我实际跟进过。诚实的数字：也许 20%……其余的我本想回电但没有回电。也许我忘记了，也许我失去了联系，也许我分心了，整个过程还没有正确构建，tbh 我想我可以自动化这个，所以现在如果有人不接电话，他们会立即从我的号码中收到一条短信：“嘿，我只是想联系你。”让我知道什么时候是更好的时间。”虽然才几天，但我已经没有一堆“需要跟进”的联系人了，其中一些人实际上自己回了电话，说他们一开始以为这是一封垃圾邮件！我们将在月底看到它的实际效果。  我知道这不是革命性的，这就是为什么我花了这么长时间才修复才感到尴尬。 还有其他人像这样自动跟进吗？它对你来说效果如何？   由   提交/u/Logical-Nebula-7520   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rss17g/was_only_following_up_on_20_of_unanswered_calls/</guid>
-      <pubDate>Fri, 13 Mar 2026 16:27:22 GMT</pubDate>
-    </item>
-    <item>
       <title>自动发布到 100 多个 Facebook 群组 以下是工作流程的实际运作方式</title>
       <link>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</link>
       <description><![CDATA[开始为我正在运行的 SaaS 进行 Facebook 群组营销。效果很好，我想对其进行扩展，但手动将其扩展到 80-100 个组需要每周花费 4-5 个小时。 构建了一个 Chrome 扩展来处理它。它的基本工作原理如下： 该扩展程序保留一个包含元数据的组列表 - 最后发布日期、发布频率设置、是否跳过（如果在过去 X 天内已发布）。当您启动会话时，它会遍历列表，打开每个组，将帖子内容注入编辑器，提交，记录结果，然后继续。 Facebook 的编辑器是由 React 控制的，因此您不能仅以正常方式设置输入值。标准 DOM 赋值不会触发 React 的状态。必须模拟实际的击键才能正确注册。 组具有不同的编辑器布局，具体取决于它是常规组、具有帖子批准的组还是市场组。在尝试发布之前，必须构建检测逻辑来识别正在处理的类型。 速率限制非常重要。发帖速度太快，Facebook 会标记该帐户。不仅在帖子之间而且在帖子内的各个交互之间内置了操作之间的随机延迟。模仿人类计时缺陷。 Spintax 支持最终也很重要。跨组轮换内容变体，这样您就不会将相同的文本发布 100 次。 该扩展程序最终引起了足够的兴趣，我将其放在 Chrome 网上应用店中。但实际的自动化逻辑是我发现构建起来很有趣的部分 - React 输入注入和避免检测的行为模仿是许多浏览器自动化上下文中出现的问题。 如果有用的话，很乐意深入研究任何技术部分。   由   提交 /u/Constant_Border_8994   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</guid>
       <pubDate>Fri, 13 Mar 2026 14:32:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>WebMCP 备忘单</title>
-      <link>https://www.reddit.com/r/automation/comments/1rsopv9/webmcp_cheatsheet/</link>
-      <description><![CDATA[      由   提交 /u/alvinunreal   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rsopv9/webmcp_cheatsheet/</guid>
-      <pubDate>Fri, 13 Mar 2026 14:24:02 GMT</pubDate>
     </item>
     <item>
       <title>LinkedIn 自动化的聊天机器人 + AI 头像工作流程</title>
