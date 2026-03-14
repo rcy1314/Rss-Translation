@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 14 Mar 2026 04:47:09 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 06:56:32 GMT</lastBuildDate>
+    <item>
+      <title>我构建了一个记录商户 (MoR)，消除了对 Webhooks 和订阅数据同步的需要</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtcgmo/i_built_a_merchant_of_record_mor_that_removes_the/</link>
+      <description><![CDATA[      大家好， 在过去的几个月里，我们一直在构建 Kelviq，终于可以与大家分享了。 Kelviq 是一个记录商户 (MoR)，并且您无需构建自定义 Webhook 到数据库同步层即可集成的盈利平台。  除了处理全球税收、结帐和合规性之外，它还充当用户功能访问和使用积分余额的实时真相来源。 我们为何构建此项目：通过我们的另一个项目 ParityDeals，我们亲眼目睹了创始人在计费基础设施方面遇到的困难。集成支付网关很容易，但实际上构建“货币化”却很困难。是一个巨大的工程时间。 为了控制功能或收取使用费用（例如 API 请求或 LLM 令牌），您通常最终会构建：  一个脆弱的、有状态的 Webhook 侦听器，用于保持本地数据库与 Stripe 同步。 自定义幂等层和针对错过事件的重试队列。 分散在代码库中的硬编码功能标志，以根据 自定义脚本来处理升级、按比例分配和继承旧用户等边缘情况。  由于这种紧密耦合，每次定价变化，无论是将功能转移到新计划还是从固定费率切换到基于使用情况，都需要数据库迁移和代码部署。 我们的方法： 权利优先 大多数计费设置都要求您手动弥合不同级别之间的差距。付款事件和您的产品状态。 Kelviq 通过权利优先模型简化了这一过程。如果需要，您仍然可以使用 Webhooks，但我们的 SDK 允许您的应用程序在运行时简单地向 Kelviq 询问用户当前的访问状态。它消除了仅仅为了控制功能而维护本地订阅表的需要。 工作原理： 零 Webhook 同步：停止维护本地订阅表。在提供请求之前，使用 Kelviq SDK 检查用户是否有权访问某项功能。 实时计量：在原子级别将使用数据推送到我们的 API（例如 1,500 个 AI 代币）。我们立即根据他们的等级进行评估，从信用余额中扣除，或将其添加到月末发票中。 脱钩定价：产品和增长团队可以直接在仪表板中更改定价模型或调整超额上限，而无需工程师接触代码库。 非常感谢任何反馈   由   提交/u/sachinchoolur  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtcgmo/i_built_a_merchant_of_record_mor_that_removes_the/</guid>
+      <pubDate>Sat, 14 Mar 2026 06:50:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能对团队领导的影响</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtcdf4/impact_of_ai_on_team_leads/</link>
+      <description><![CDATA[嗨，我读了很多讨论人工智能将如何影响未来开发者市场的帖子。我想具体问一下，您认为工程团队领导职位会发生什么。 我什至认为，在不久的将来，这个职位的重要性可能会增加，但申请该职位的人数几乎肯定也会增加。 您的领导对当前的发展有何看法？我尝试将当前的规范开发整合到我们的工作流程中，并首先看到非常有希望的结果。这向我表明，我们肯定能够用更少的人员更快地交付更多功能。但仍然需要有人来管理这个。你的想法是什么？   由   提交 /u/Fun-Cryptographer935   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtcdf4/impact_of_ai_on_team_leads/</guid>
+      <pubDate>Sat, 14 Mar 2026 06:45:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建一套完全客户端的PDF工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtbpoe/create_a_set_of_pdf_tools_completely_client_side/</link>
+      <description><![CDATA[过去几周我一直在开发一个小型 PDF 工具包，终于让 4 个工具可以工作了。我想我会分享，因为我总是对使用那些让你将文件上传到某个随机服务器只是为了分割 PDF 的网站感到不安。 所有这些都完全在浏览器中运行，没有任何内容上传到任何地方： PDF Splitter - 如果 PDF 有书签，则按页面范围或按章节分割：https://tools.datmt.com/tools/pdf-splitter PDF 水印 - 通过实时预览添加文本或图像水印：https://tools.datmt.com/tools/pdf-watermark 页面管理器 - 通过拖放重新排序、旋转、删除页面：https://tools.datmt.com/tools/pdf-page-manager PDF 合并 - 合并多个 PDF，可以从每个 PDF 中选择特定页面：https://tools.datmt.com/tools/pdf-merger 使用 React 构建。 如果有任何问题，请告诉我，很高兴获得反馈。   由   提交 /u/datmt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtbpoe/create_a_set_of_pdf_tools_completely_client_side/</guid>
+      <pubDate>Sat, 14 Mar 2026 06:05:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>任何人都可以帮助回程机器吗</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtbe88/can_anyone_help_with_way_back_machine/</link>
+      <description><![CDATA[我正在尝试重新创建我的网站并通过方形空间构建一个小型投资组合/电子商务网站，有人介意帮我从旧网站抓取一些图像。这世界很卑鄙。    由   提交/u/NovaSupply  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtbe88/can_anyone_help_with_way_back_machine/</guid>
+      <pubDate>Sat, 14 Mar 2026 05:47:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>我做了便签。一个匿名板，任何人都可以在这里发帖、点赞和分享笔记。无需登录</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtbbt5/i_made_sticky_notes_an_anonymous_board_where/</link>
+      <description><![CDATA[      希望得到一些反馈！ 🔗 https://sticky-notes.neocities.org/   由   提交/u/spy_antifem   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtbbt5/i_made_sticky_notes_an_anonymous_board_where/</guid>
+      <pubDate>Sat, 14 Mar 2026 05:44:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用过滤器构建一个简单的笔记本电脑查找工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rtb2me/built_a_simple_laptop_finder_tool_using_filters/</link>
+      <description><![CDATA[构建笔记本电脑查找/推荐工具 - 过滤器、比较模式和智能匹配原因 嘿r/webdev！想分享一个我一直在为我的人工智能和人工智能领域迭代的工具。技术博客 - 笔记本电脑查找工具，可帮助用户消除噪音并找到适合其使用案例和预算的合适笔记本电脑。 笔记本电脑查找工具 - 在 2026 年找到您的完美笔记本电脑 | TheAITechPulse 它的作用：  用户类型过滤器 — 学生与企业，更改笔记本电脑池 预算滑块 — 300 美元到 2,500 美元以上，结果实时更新 高级过滤器（默认折叠） — 优先级（电池/便携式/性能/价值）、用例多选（办公、编码、视频编辑、游戏）和操作系统偏好 (macOS / Windows / ChromeOS） 比较模式 - 最多选择 3 台笔记本电脑并获得完整的规格细分：处理器、GPU、存储、端口、RAM、显示屏、重量、电池 匹配原因 - 每张卡准确显示其与您的筛选器匹配的原因（例如“在预算范围内”、“适合：编码、视频编辑”） 按价格排序（低→高，高→低）或名称  Stack：Vanilla JS，无框架——保持精简，因为它存在于内容/博客网站上。整个东西是一个通过 WordPress 嵌入的独立小部件。 目前拥有 17-18 款跨学生和企业类别的最佳笔记本电脑，每周都会添加更多。 🔗 https://www.theaitechpulse.com 希望得到反馈 - 特别是关于过滤器用户体验以及比较模式是否感觉直观。    由   提交 /u/Remarkable-Dark2840   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rtb2me/built_a_simple_laptop_finder_tool_using_filters/</guid>
+      <pubDate>Sat, 14 Mar 2026 05:29:56 GMT</pubDate>
+    </item>
     <item>
       <title>Ffetch v5：具有核心可靠性功能和选择加入插件的获取客户端</title>
       <link>https://www.reddit.com/r/webdev/comments/1rta45p/ffetch_v5_fetch_client_with_core_reliability/</link>
@@ -27,13 +69,6 @@
       <pubDate>Sat, 14 Mar 2026 03:45:53 GMT</pubDate>
     </item>
     <item>
-      <title>我的网站的设计是一流的</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt92t8/the_design_of_my_site_is_top_of_the_line/</link>
-      <description><![CDATA[      由   提交/u/ascendtek   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt92t8/the_design_of_my_site_is_top_of_the_line/</guid>
-      <pubDate>Sat, 14 Mar 2026 03:44:20 GMT</pubDate>
-    </item>
-    <item>
       <title>有没有办法清除 Shopify 上的缓存页面？不紧急只是想知道</title>
       <link>https://www.reddit.com/r/webdev/comments/1rt92j7/is_there_a_way_to_clear_a_cached_page_on_shopify/</link>
       <description><![CDATA[我上周进行了一些性能优化，并决定缓存一些较重的页面，定价页面就是其中之一。 很明显，我们的营销团队在同一天进行了某种内部 A/B 测试，他们将所有价格设置为 0 美元以测试结帐流程。我不知道这一点，也没有人告诉我这一点。显然没有松弛通道 所以我缓存了 $0 版本。太酷了……它已经上线 11 天了 将价格设置为 0 美元的营销人员在 PTO 上工作到周四。无论如何，有谁知道是否有法律先例说明客户是否可以因缓存错误而保留他们以 0 美元购买的产品，或者我即将了解到这一点   由   提交/u/kubrador  [链接] [评论]]]></description>
@@ -43,7 +78,7 @@
     <item>
       <title>构建一个 CLI，以便在开始之前了解您的下一个项目将花费多少 LLM 代币</title>
       <link>https://www.reddit.com/r/webdev/comments/1rt8v9q/built_a_cli_to_know_how_much_your_next_project/</link>
-      <description><![CDATA[曾经用人工智能启动过一个项目，结果却收到了意外的账单吗？ 在您编写一行代码之前，vibe-budget 会估算您的项目在 85 多个模型中的代币成本 。只需描述您正在构建的内容即可： 使用 stripe postgresql 和 docker 的 vibe-budget plan nextjs 应用程序 它会检测任务，分别估计输入/输出令牌，并 并排比较来自 OpenRouter 的实时价格： [BEST] DeepSeek R1 质量：96.1% 成本：0.99 美元 [REC] DeepSeek V3.2 质量：89.6% 成本：0.72 美元 [CHEAP] Gemini 2.5 Flash-Lite 质量：68.0% 成本：0.07 美元 还有一个“scan”命令 - 将其指向现有代码库，它会告诉您使用 AI 重构或扩展它需要多少代币。 使用简单的英语和西班牙语。无需 API 密钥。 npm install -g vibe-budget 文档：https://gaboexe0.github.io/vibe-budget/ 存储库：https://github.com/gaboexe0/vibe-budget   由   提交 /u/HeightBright5763   [链接] [评论]]]></description>
+      <description><![CDATA[曾经用人工智能启动过一个项目，结果却收到了意外的账单吗？ 在您编写一行代码之前，vibe-budget 会估算您的项目在 85 多个模型中的代币成本 。只需描述您正在构建的内容： 使用 stripe postgresql 和 docker 的 vibe-budget plan nextjs 应用程序 它会检测任务，分别估计输入/输出令牌，并 并排比较来自 OpenRouter 的实时价格： [BEST] DeepSeek R1 质量：96.1% 成本：0.99 美元 [REC] DeepSeek V3.2 质量：89.6% 成本：0.72 美元 [CHEAP] Gemini 2.5 Flash-Lite 质量：68.0% 成本：0.07 美元 还有一个“scan”命令 - 将其指向现有代码库，它会告诉您使用 AI 重构或扩展它需要多少代币。 使用简单的英语和西班牙语。无需 API 密钥。 npm install -g vibe-budget 文档：https://gaboexe0.github.io/vibe-budget/ 存储库：https://github.com/gaboexe0/vibe-budget   由   提交 /u/HeightBright5763   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rt8v9q/built_a_cli_to_know_how_much_your_next_project/</guid>
       <pubDate>Sat, 14 Mar 2026 03:33:50 GMT</pubDate>
     </item>
@@ -74,41 +109,6 @@
       <description><![CDATA[      源代码：https://github.com/sengchor/kokraf   由   提交/u/Sengchor  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rt7tm0/working_on_a_new_multisegment_bevel_edge_feature/</guid>
       <pubDate>Sat, 14 Mar 2026 02:43:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想制作一个工程师网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt7k56/i_think_to_make_an_engineer_website/</link>
-      <description><![CDATA[大家好 我是一名硬件和机器人工程师 我计划创建自己的网站来发布书面教程，以补充一些视频、形成课程或个人文章。 我研究了 WordPress，但发现它有点复杂，或者不是我所期望的。我以前使用像 XenForo 这样的脚本来构建一些论坛，它的界面很好并且易于使用。 所以，我可能正在寻找一些特定于我的目的的东西，而不是一般的东西。 我正在考虑一个网站，只有我（也许将来还有一些具有特殊权限的其他人）可以结合 YouTube 视频和网站文章，以清晰的顺序发布文章和创建课程。 将会有文本、图像、视频、代码片段和文件上传到网站，当然还有有助于向收件人传递信息的任何基本元素。 当然，具有用户友好的界面。 我将不胜感激任何指导，并且我已准备好回答任何问题。   由   提交 /u/Ford-X   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt7k56/i_think_to_make_an_engineer_website/</guid>
-      <pubDate>Sat, 14 Mar 2026 02:31:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>您制作这个网站需要多长时间？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt739i/how_long_it_take_you_to_make_this_website/</link>
-      <description><![CDATA[您制作这个网站需要多长时间？ 您好，我对 Web 开发还很陌生， 我想问：您制作一个这样的网站需要多长时间？ https://genshin.guide/genshin-impact 或 https://game8.co/games/Genshin-Impact 这个网站不是我的，我只是好奇。我正在考虑构建这样的东西作为一个业余爱好项目，我试图了解这个项目实际上有多大。 所以我想知道：你是什么级别（初级、中级、高级），你需要多长时间才能完成这样的东西？   由   提交 /u/GrapeCreamBerry275   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt739i/how_long_it_take_you_to_make_this_website/</guid>
-      <pubDate>Sat, 14 Mar 2026 02:09:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们构建了一个开源世界，开发人员在开始编码时就会出现在其中</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt6pzk/we_built_an_opensource_globe_where_developers/</link>
-      <description><![CDATA[      您好！ 👋 我们刚刚为开发人员推出了一个小型免费开源项目：DevGlobe 🌍 想法：当您编码时，您会出现在地球上，这样您就可以：  展示您的项目/GitHub 发现其他开发人员正在做什么 与世界各地的开发人员联系 激励自己编码（排行榜和统计数据） 不要单独编码  隐私至上：  匿名模式 → 您所在国家/地区的随机城市 标准模式 → 仅显示您的城市（绝不显示您的确切位置）  100% 免费 100% 开源 您的个人数据和代码绝不会发送到后端 可用于的扩展：  VS Code 及其分支（Cursor、Windsurf、Antigravity...） Claude Code 插件 JetBrains IDE  内置与：  地球仪在 MapLibre GL JS （开源地图渲染）上运行，底图样式来自 CARTO、深色主题、矢量图块、平滑的 3D 地球仪投影。前端是 Next.js + React + TypeScript，实时更新通过 Supabase Realtime （Postgres 更改流）。无需轮询，无需刷新，当有人开始编码时，他们的标记立即出现。 🌍 Globe：https://devglobe.xyz/explore（使用 GitHub 登录，您将获得简单的安装教程） 💻 源代码：https://github.com/Nako0/devglobe-extension 如果您感兴趣或有任何疑问，网站上已对所有内容进行了解释，但请不要犹豫，询问，我很乐意回答您的问题！   由   提交/u/Fair-Independent-623   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt6pzk/we_built_an_opensource_globe_where_developers/</guid>
-      <pubDate>Sat, 14 Mar 2026 01:52:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>制作了一个小网站，您可以在其中构建和分享花束，希望得到一些反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt6m7m/made_a_little_site_where_you_can_build_and_share/</link>
-      <description><![CDATA[大家好，我制作了这个名为 Snap-Bouquet 的网站作为一个副项目，您可以在其中采摘鲜花并将其放在一起花束，然后下载它或通过链接与他人分享，这只是我构建并想要分享的一个有趣的东西。 很想知道你们的想法 链接：https://snap-bouquet.netlify.app/   由   提交 /u/trcksap   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt6m7m/made_a_little_site_where_you_can_build_and_share/</guid>
-      <pubDate>Sat, 14 Mar 2026 01:47:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>一直在研究网络开发和不同的技术领域，以期最终实现职业转变。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rt50lg/been_researching_web_dev_and_different_areas_of/</link>
-      <description><![CDATA[我确信有各种各样的帖子围绕着这类事情，所以我就长话短说。 我已经在一家钢铁厂工作了 10 年了，我每年的收入约为 11 万，虽然薪水不错，但日程安排让我很苦恼， 轮班 12 小时。（ 1 个工作日，下周晚上，重复一遍，每 4 周后休息一周）我真的认为是时候开始寻找不同的方向，最终脱离这个行业，因为我想再次有一个半正常的时间表。  我的问题是，网络开发适合自由职业吗？  在我当地的城市，我认识一些人，他们可以从为他们制作的网站中受益，我的妻子是一名发型师，所以这也是我可以进入的市场。  或者我应该转向更专注于 IT 的路径，或者更多的编程路径？  我知道无论我选择什么，都需要一段时间来学习，这不是问题，因为我真的很喜欢科技以及所有不同的领域。我只是不想花几年的时间来学习已经过度饱和的东西。如果这有道理吗？  任何提示或建议将不胜感激。    由   提交 /u/LMikeyy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rt50lg/been_researching_web_dev_and_different_areas_of/</guid>
-      <pubDate>Sat, 14 Mar 2026 00:36:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
