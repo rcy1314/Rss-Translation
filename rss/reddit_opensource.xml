@@ -4,7 +4,7 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 13 Mar 2026 21:39:54 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 02:31:06 GMT</lastBuildDate>
     <item>
       <title>kong 开源 vs 企业，实际上锁定了哪些功能？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rslp3x/kong_open_source_vs_enterprise_what_features_are/</link>
@@ -15,7 +15,7 @@
     <item>
       <title>如何正确做开源项目？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</link>
-      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示感谢，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示赞赏，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</guid>
       <pubDate>Thu, 12 Mar 2026 20:33:48 GMT</pubDate>
     </item>
@@ -106,7 +106,7 @@
     <item>
       <title>SLANG – 用于多代理工作流程的声明性语言（类似于 SQL，但用于 AI 代理）</title>
       <link>https://www.reddit.com/r/opensource/comments/1rqryee/slang_a_declarative_language_for_multiagent/</link>
-      <description><![CDATA[构建多代理系统的每个团队都在重新发明同一个轮子。当您选择 LangChain、CrewAI 或 AutoGen 时，您会突然深入了解 Python 装饰器、类型化状态对象、YAML 配置和 50 多个类层次结构。您的产品经理无法读取工作流程。您的代理无法更换提供商。以及“编排逻辑”。隐藏在 SDK 样板文件中，团队之外的任何人都无法理解。 我们没有针对代理工作流程的通用语言。我们有十几个相互竞争的 SDK。 我们的类比：SQL 并没有取代 Java 的业务逻辑。它创建了一个全新的类别，即声明性数据查询，任何人都可以读取，任何数据库都可以执行，任何工具都可以生成。如果我们对代理编排有相同的东西会怎么样？ 这就是 SLANG：用于代理协商和代理的超级语言。治理。它是一种基于三个原语的声明性元语言： stake → 生成内容并将其发送给代理等待 → 阻塞，直到另一个代理向您发送数据提交 → 接受结果并停止  就是这样。每个多代理模式（管道、DAG、审查循环、升级、广播和聚合）都是这三种操作的组合。带有条件的 Writer/Reviewer 循环如下所示： flow &quot;article&quot; { 代理作家 { 股份写入（主题：“...”）-&gt; @Reviewer 等待反馈 &lt;- @Reviewer 当 Feedback.approved { 提交反馈 } 当 Feedback.rejected { 股份修改(反馈) -&gt; @Reviewer } } 代理审阅者 { 等待草稿 &lt;- @Writer 权益审查（草稿）-&gt; @Writer } 收敛于：commited_count &gt;= 1 }  大声朗读。你已经明白了。这就是要点。 关键设计决策：  LLM 是运行时。您可以将 .slang 文件和零设置系统提示符粘贴到 ChatGPT、Claude 或 Gemini 中，然后它就会执行。无需安装，无需 API 密钥，无需依赖项。这是任何 SDK 都无法提供的。 可跨模型移植。相同的 .slang 文件可在 GPT-4o、Claude、Llama（通过 Ollama）或 300 多个模型（通过 OpenRouter）上运行。不同的代理甚至可以在同一流程中使用不同的提供者。 不是图灵完备的 - 这就是重点。 SLANG 是故意受到限制的。它描述了代理应该做什么，而不是如何做。当您需要细粒度控制时，您可以使用 SDK，就像从 SQL 下降到业务逻辑应用程序代码一样。 LLM 本地生成它。就像文本到 SQL 一样，您可以要求 LLM 根据自然语言描述编写 .slang 流程。语法非常简单，模型可以在几秒钟内获取它。  当您需要真正的运行时时，可以使用带有解析器、依赖解析器、死锁检测、检查点/恢复和可插入适配器（OpenAI、Anthropic、OpenRouter、MCP Sampling）的 TypeScript CLI 和 API。但大多数人都是从零设置模式开始的。 我们所处的位置：现在还为时过早。规范已定义，解析器和运行时工作，MCP 服务器已构建。但语言本身需要针对现实世界的工作流程进行压力测试。我们正在寻找这样的人：  构建多代理系统并对当前工具感到沮丧 对 AI 编排的语言设计感兴趣 愿意尝试用 SLANG 编写工作流程并报告出现问题或感觉错误的地方  如果您曾经想过“应该有一个标准方法来描述这些代理正在做什么”，我们很乐意听取您的意见。该项目已获得 MIT 许可，并开放供贡献。 GitHub：https://github.com/riktar/slang   由   提交/u/riktar89  [链接] [评论]]]></description>
+      <description><![CDATA[构建多代理系统的每个团队都在重新发明同一个轮子。当您选择 LangChain、CrewAI 或 AutoGen 时，您会突然深入了解 Python 装饰器、类型化状态对象、YAML 配置和 50 多个类层次结构。您的产品经理无法读取工作流程。您的代理无法更换提供商。以及“编排逻辑”。隐藏在 SDK 样板文件中，团队之外的任何人都无法理解。 我们没有针对代理工作流程的通用语。我们有十几个相互竞争的 SDK。 我们的类比：SQL 并没有取代 Java 的业务逻辑。它创建了一个全新的类别，即声明性数据查询，任何人都可以读取，任何数据库都可以执行，任何工具都可以生成。如果我们对代理编排有相同的东西会怎么样？ 这就是 SLANG：用于代理协商和代理的超级语言。治理。它是一种基于三个原语的声明性元语言： stake → 生成内容并将其发送给代理等待 → 阻塞，直到另一个代理向您发送数据提交 → 接受结果并停止  就是这样。每个多代理模式（管道、DAG、审查循环、升级、广播和聚合）都是这三种操作的组合。带有条件的 Writer/Reviewer 循环如下所示： flow &quot;article&quot; { 代理作家 { 股份写入（主题：“...”）-&gt; @Reviewer 等待反馈 &lt;- @Reviewer 当 Feedback.approved { 提交反馈 } 当 Feedback.rejected { 股份修改(反馈) -&gt; @Reviewer } } 代理审阅者 { 等待草稿 &lt;- @Writer 权益审查（草稿）-&gt; @Writer } 收敛于：commited_count &gt;= 1 }  大声朗读。你已经明白了。这就是要点。 关键设计决策：  LLM 是运行时。您可以将 .slang 文件和零设置系统提示符粘贴到 ChatGPT、Claude 或 Gemini 中，然后它就会执行。无需安装，无需 API 密钥，无需依赖项。这是任何 SDK 都无法提供的。 可跨模型移植。相同的 .slang 文件可在 GPT-4o、Claude、Llama（通过 Ollama）或 300 多个模型（通过 OpenRouter）上运行。不同的代理甚至可以在同一流程中使用不同的提供者。 不是图灵完备的 - 这就是重点。 SLANG 是故意受到限制的。它描述了代理应该做什么，而不是如何做。当您需要细粒度控制时，您可以使用 SDK，就像从 SQL 下降到业务逻辑应用程序代码一样。 LLM 本地生成它。就像文本到 SQL 一样，您可以要求 LLM 根据自然语言描述编写 .slang 流程。语法非常简单，模型可以在几秒钟内获取它。  当您需要真正的运行时时，可以使用带有解析器、依赖解析器、死锁检测、检查点/恢复和可插入适配器（OpenAI、Anthropic、OpenRouter、MCP Sampling）的 TypeScript CLI 和 API。但大多数人都是从零设置模式开始的。 我们所处的位置：现在还为时过早。规范已定义，解析器和运行时工作，MCP 服务器已构建。但语言本身需要针对现实世界的工作流程进行压力测试。我们正在寻找这样的人：  构建多代理系统并对当前工具感到沮丧 对 AI 编排的语言设计感兴趣 愿意尝试用 SLANG 编写工作流程并报告出现问题或感觉错误的地方  如果您曾经想过“应该有一个标准方法来描述这些代理正在做什么”，我们很乐意听取您的意见。该项目已获得 MIT 许可，并开放供贡献。 GitHub：https://github.com/riktar/slang   由   提交/u/riktar89  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rqryee/slang_a_declarative_language_for_multiagent/</guid>
       <pubDate>Wed, 11 Mar 2026 12:07:05 GMT</pubDate>
     </item>
