@@ -4,7 +4,35 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Sat, 14 Mar 2026 13:01:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 15:32:55 GMT</lastBuildDate>
+    <item>
+      <title>我在 n8n 中构建了一个完整的医疗实践操作引擎 — 120 多个节点、8 个模块。医生专注于患者，系统处理其余的事情。</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtl43m/i_built_a_full_medical_practice_operations_engine/</link>
+      <description><![CDATA[   大家好👋 我一直在致力于实现小型医疗机构（3 名提供者，5 名员工）操作的自动化。目标很简单：尽可能消除管理摩擦，不让 AI 触及任何实际的临床决策。 经过 3 个月的绘制流程并处理严格的 HIPAA 限制，我完成了 MedFlow - 一个自托管的 n8n 引擎，可以管理从接收到计费的所有内容。 架构的分解方式如下： 1.患者摄入量和保险 新患者填写表格 ➡️ 保险通过 Availity API 自动验证 ➡️ 生成同意书并通过 DocuSign 发送 ➡️ 在 EMR 中创建记录。 影响：现在大约需要 3 分钟；过去需要 20 多分钟的手动输入和电话。 2.缺席评分器 每天早上 6 点，系统都会计算每次预约的缺席风险评分。它考虑以下因素：  患者病史（过去未出现） 天气预报（OpenWeather API - 雨/雪会增加风险） 通过 Google Maps API 的行程距离  高风险患者会收到额外的短信提醒。如果有人取消预约，智能候补名单会根据紧急程度和邻近程度自动查找下一个最佳患者。 3.分类与通讯中心 入站消息（SMS/WhatsApp）由 AI 分类为 ADMIN / CLINICAL / URGENT。 注意：人工智能永远不会回答医疗问题。它只是路由：管理员前往前台，临床人员前往医生队列，紧急情况立即向工作人员触发 Slack 警报。 4.收入周期与计费访问后，系统会根据提供商的注释建议计费代码 (CPT/ICD-10)。医生必须在提交之前批准或编辑建议。它还检测索赔被拒绝并起草上诉信供计费团队审核。 5.声誉护盾 访问后调查将在预约后 24 小时发送。如果患者评分&lt; 3/5，业务经理收到一条警报，其中包含 AI 投诉摘要。在他们考虑发布 1 星 Google 评论之前，我们就在内部解决了这个问题。 🛡️ 合规层（HIPAA 就绪逻辑） 这是迄今为止最难构建的部分。为了确保其安全：  在安全 VPS（无云）上自托管 n8n。 零 PII（个人身份信息）被发送到公共 AI 端点。 AI 只能看到用于路由和编码建议的去识别化管理元数据。 审计日志记录在安全跟踪中的每个数据访问。 14 个人机交互检查点。系统提供协助，但人总是点击最后一个按钮。  📊 结果（12 周试点）  缺席率： 18.2% ➡️ 6.1% 节省的管理时间： 每周约 22 小时（整个团队总计） Google 评分： 4.1 ➡️ 4.6（主动恢复有效） 每月 API 成本： ~ 45 美元（主要是 OpenAI、Twilio 和 Google 地图）  绘制所有边缘情况和合规性边界非常令人头疼，但这种做法的投资回报率令人难以置信。 关于堆栈、逻辑的 AMA风险评分背后，或者我如何处理数据流！   由   提交/u/Clear-Welder9882   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtl43m/i_built_a_full_medical_practice_operations_engine/</guid>
+      <pubDate>Sat, 14 Mar 2026 14:39:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过语音命令驾驶无人机</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtl29i/flying_a_drone_with_voice_commands/</link>
+      <description><![CDATA[ 由   提交/u/wzx89  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtl29i/flying_a_drone_with_voice_commands/</guid>
+      <pubDate>Sat, 14 Mar 2026 14:37:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪一个：困惑计算机还是克劳德同事？</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtklbj/which_one_perplexity_computer_or_claude_coworker/</link>
+      <description><![CDATA[我正打算从 ChatGPT 转向 Claude，特别是为了使用同事和技能应用程序。但今天我收到一条介绍困惑度计算机的消息，它似乎做同样的事情，显然困惑度和克劳德有不同的优势，所以我很好奇你认为哪一个可能会成为更好的人工智能员工？您希望您的人工智能员工首先做什么？   由   提交/u/BranchDirect6526  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtklbj/which_one_perplexity_computer_or_claude_coworker/</guid>
+      <pubDate>Sat, 14 Mar 2026 14:17:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>NanoClaw 和 Docker 合作，使沙箱成为企业部署 AI 代理的最安全方式</title>
+      <link>https://www.reddit.com/r/automation/comments/1rtj8lx/nanoclaw_and_docker_partner_to_make_sandboxes_the/</link>
+      <description><![CDATA[ 由   提交 /u/Far_Inflation_8799   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1rtj8lx/nanoclaw_and_docker_partner_to_make_sandboxes_the/</guid>
+      <pubDate>Sat, 14 Mar 2026 13:18:56 GMT</pubDate>
+    </item>
     <item>
       <title>我用 n8n 和 python 构建了一个实时 Whatsapp 定价和发票工具</title>
       <link>https://www.reddit.com/r/automation/comments/1rtif85/i_built_a_real_time_whatsapp_pricing_and/</link>
@@ -22,7 +50,7 @@
     <item>
       <title>我最终如何使用 Claude 4.6 将 12 年手动 LinkedIn 销售推广自动化（架构和速率限制细分）</title>
       <link>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</link>
-      <description><![CDATA[      大家好，r/automation， 我从事 B2B 销售工作已有十多年了。在过去的 12 年里，我的日常生活一模一样：醒来，喝咖啡，花几个小时手动点击 LinkedIn 个人资料，发送连接请求，并在凌乱的电子表格中生活，只是为了跟踪后续情况。这很耗精力，但我接受了它作为工作的一部分。 我总是避免使用主流自动化工具，因为我害怕我的帐户受到限制，而且我讨厌听起来像通用的垃圾邮件机器人的想法。最近，我决定将其作为内部工程挑战来解决，以解决我自己的头痛问题。 我想分享我如何构建它的架构，因为它完全让我重新获得了时间。希望这可以帮助其他尝试构建类似内容的人。 1。 “反机器人”引擎 (Claude 4.6) 我没有依赖静态模板（人们一英里外就能看到），而是将 Claude 4.6 集成到后端。  工作原理：在起草任何消息之前，系统会抓取潜在客户的个人资料数据（标题、最近的经历、关于部分）。 提示：我提供该上下文用严格的系统提示进入克劳德，以符合我个人的语气——热情、对话和直接。它起草的信息与个人的确切背景高度相关，所以听起来实际上是我花时间手动编写的。  2。 100% 安全的工程 这是我的首要任务。 LinkedIn 是出了名的严格，因此系统必须完美模仿人类行为。  硬限制：我对系统进行了硬编码，以严格遵守 LinkedIn 的安全帐户限制。我预定义了绝对最高的安全最大值（例如，将每日连接请求和消息限制在远低于雷达的范围）。 精细控制：我内置了手动进一步降低这些每日限制的功能。如果我正在热身一个新帐户，我可以将其设置为每天仅执行几个操作。 随机化：它不会立即触发消息。它在后台安静地运行，操作之间有类似人类的随机延迟。  3.结果 我本质上构建了一个“设置好然后忘记它”的系统。工作流程。我不再每天早上花 3 个小时进行手动数据输入。人工智能负责最初的定制外展和后续工作，只有当潜在客户真正回复时我才会介入。 我只是想与社区分享这一巨大的个人胜利。如果有人试图构建类似的自动化或在逻辑上遇到困难，我很乐意在评论中回答有关我如何构建克劳德提示或处理速率限制数学的任何技术问题！干杯。   由   提交/u/Acute-SensePhil   [链接] [评论] ]]></description>
+      <description><![CDATA[      大家好，r/automation， 我从事 B2B 销售工作已有十多年了。在过去的 12 年里，我的日常生活一模一样：醒来，喝咖啡，花几个小时手动点击 LinkedIn 个人资料，发送连接请求，并在凌乱的电子表格中生活，只是为了跟踪后续情况。这很耗精力，但我接受了它作为工作的一部分。 我总是避免使用主流自动化工具，因为我害怕我的帐户受到限制，而且我讨厌听起来像通用的垃圾邮件机器人的想法。最近，我决定将其作为内部工程挑战来解决，以解决我自己的头痛问题。 我想分享我如何构建它的架构，因为它完全让我重新获得了时间。希望这可以帮助其他尝试构建类似内容的人。 1。 “反机器人”引擎 (Claude 4.6) 我没有依赖静态模板（人们一英里外就能看到），而是将 Claude 4.6 集成到后端。  工作原理：在起草任何消息之前，系统会抓取潜在客户的个人资料数据（标题、最近的经历、关于部分）。 提示：我提供该上下文用严格的系统提示进入克劳德，以符合我个人的语气——热情、对话和直接。它起草的信息与个人的确切背景高度相关，所以听起来实际上是我花时间手动编写的。  2。 100% 安全的工程 这是我的首要任务。 LinkedIn 是出了名的严格，因此系统必须完美模仿人类行为。  硬限制：我对系统进行了硬编码，以严格遵守 LinkedIn 的安全帐户限制。我预定义了绝对最高的安全最大值（例如，将每日连接请求和消息限制在远低于雷达的范围）。 精细控制：我内置了手动进一步降低这些每日限制的功能。如果我正在热身一个新帐户，我可以将其设置为每天仅执行几个操作。 随机化：它不会立即触发消息。它在后台安静地运行，操作之间有类似人类的随机延迟。  3.结果 我基本上构建了一个“设置好后就不用管它”的系统。工作流程。我不再每天早上花 3 个小时进行手动数据输入。人工智能负责最初的定制外展和后续工作，只有当潜在客户真正回复时我才会介入。 我只是想与社区分享这一巨大的个人胜利。如果有人试图构建类似的自动化或在逻辑上遇到困难，我很乐意在评论中回答有关我如何构建克劳德提示或处理速率限制数学的任何技术问题！干杯。   由   提交/u/Acute-SensePhil   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rteqzx/how_i_finally_automated_12_years_of_manual/</guid>
       <pubDate>Sat, 14 Mar 2026 09:10:53 GMT</pubDate>
     </item>
@@ -39,13 +67,6 @@
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rtd3c2/ive_been_building_an_ai_agent_every_week_for_the/</guid>
       <pubDate>Sat, 14 Mar 2026 07:27:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个工具，可以使用 Gemini 2.5 Flash 在 30 秒内将任何 YouTube 视频转换为 Twitter 帖子、LinkedIn 帖子、博客或时事通讯</title>
-      <link>https://www.reddit.com/r/automation/comments/1rtcfxw/i_built_a_tool_that_turns_any_youtube_video_into/</link>
-      <description><![CDATA[不断看到人们每月支付 20 美元购买 AI 内容工具，而这些工具只是免费 API 的基本包装。所以我自己构建了一个。 粘贴任何 YouTube 网址，选择一个平台和语气，它会直接从您的机器上使用 Google Gemini 2.5 Flash 在 30 秒内生成准备发布的内容。 Twitter/X 线程 — 挂钩、编号推文、CTA、主题标签 LinkedIn 帖子 — 为参与度而构建 博客帖子 — 已准备好标题和要点 时事通讯 - 主题行、部分、结束 如果有人想在提交之前查看示例输出，我们很乐意显示它。  链接不在评论中以使模组满意   由   提交 /u/nocodeautomate   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rtcfxw/i_built_a_tool_that_turns_any_youtube_video_into/</guid>
-      <pubDate>Sat, 14 Mar 2026 06:49:13 GMT</pubDate>
     </item>
     <item>
       <title>真正改变您一天感觉的自动化是什么？不是生产力指标。实际感觉如何。</title>
@@ -83,32 +104,11 @@
       <pubDate>Fri, 13 Mar 2026 20:14:04 GMT</pubDate>
     </item>
     <item>
-      <title>有人真正为他们的团队实现视频制作自动化吗？</title>
-      <link>https://www.reddit.com/r/automation/comments/1rswgwm/has_anyone_actually_automated_video_production/</link>
-      <description><![CDATA[在过去的一年里，我已经实现了大部分营销工作流程的自动化 - 潜在客户路由、报告、电子邮件序列、内部警报 - 其中很多现在都通过 n8n、Latenode 和 Cursor 运行。 但视频制作仍然奇怪地是手动的。 每次我们需要产品演练或营销活动视频时，它都会变成一个迷你项目：编写脚本、录制屏幕、编辑、品牌化、发送反馈。本来需要 20 分钟的事情很容易就消耗了半天的时间。 我开始寻找能够将视频视为可重复系统而不是一次性创意的工具。大多数人工智能视频工具似乎都是为社交内容而构建的——短片、影片、影响者风格的剪辑——而不是真正的产品演示或营销资产。 最近测试了一些从文档、脚本或屏幕录制生成视频的工具，感觉这就是事情的发展方向。但仍然没有完全实现。 好奇其他团队如何处理这个问题。 视频仍然是您工作流程中的手动瓶颈，还是您实际上已经自动化了其中的一部分？   由   提交/u/Dailan_Grace  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rswgwm/has_anyone_actually_automated_video_production/</guid>
-      <pubDate>Fri, 13 Mar 2026 19:04:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>这可能是很多“粘土高级用户”成为基础设施人员的时刻</title>
-      <link>https://www.reddit.com/r/automation/comments/1rswepn/this_is_probably_the_moment_a_lot_of_clay_power/</link>
-      <description><![CDATA[奇怪的是，我认为 Clay 的定价更新将创造更多的技术操作员。 因为一旦你意识到： - API 访问价格更高 - 编排是计量的 - 实验成本更高 - 规模改变经济 ...你开始提出不同的问题问题： 我可以自己拥有这个堆栈的哪些部分？ 这就是人们最终学习的方式： - 版本控制 - 直接 API 调用 - 数据存储 - 工作流程编排 - 自动化工具 换句话说，Clay 可能意外地成为基础设施思维的入门药物。 我已经在我的项目中看到了它。自己的堆栈。 更多逻辑移出。 重建更多流程。 在 n8n、Make 和 Latenode 等工具上花费更多时间。 对可移植系统的更多赞赏。 Clay 仍然很重要。很多。 但是从 Clay 获得最大价值的用户从来没有真正购买“具有丰富功能的电子表格”。 他们正在学习现代 GTM 系统的工作原理。 以及知识转移。   由   提交/u/Luran_haniya  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rswepn/this_is_probably_the_moment_a_lot_of_clay_power/</guid>
-      <pubDate>Fri, 13 Mar 2026 19:02:21 GMT</pubDate>
-    </item>
-    <item>
       <title>自动发布到 100 多个 Facebook 群组 以下是工作流程的实际运作方式</title>
       <link>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</link>
       <description><![CDATA[开始为我正在运行的 SaaS 进行 Facebook 群组营销。效果很好，我想对其进行扩展，但手动将其扩展到 80-100 个组需要每周花费 4-5 个小时。 构建了一个 Chrome 扩展来处理它。它的基本工作原理如下： 该扩展程序保留一个包含元数据的组列表 - 最后发布日期、发布频率设置、是否跳过（如果在过去 X 天内已发布）。当您启动会话时，它会遍历列表，打开每个组，将帖子内容注入编辑器，提交，记录结果，然后继续。 Facebook 的编辑器是由 React 控制的，因此您不能仅以正常方式设置输入值。标准 DOM 赋值不会触发 React 的状态。必须模拟实际的击键才能正确注册。 组具有不同的编辑器布局，具体取决于它是常规组、具有帖子批准的组还是市场组。在尝试发布之前，必须构建检测逻辑来识别正在处理的类型。 速率限制非常重要。发帖速度太快，Facebook 会标记该帐户。不仅在帖子之间而且在帖子内的各个交互之间内置了操作之间的随机延迟。模仿人类计时缺陷。 Spintax 支持最终也很重要。跨组轮换内容变体，这样您就不会将相同的文本发布 100 次。 该扩展程序最终引起了足够的兴趣，我将其放在 Chrome 网上应用店中。但实际的自动化逻辑是我发现构建起来很有趣的部分 - React 输入注入和避免检测的行为模仿是许多浏览器自动化上下文中出现的问题。 如果有用的话，很乐意深入研究任何技术部分。   由   提交 /u/Constant_Border_8994   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1rsoxo8/automated_posting_to_100_facebook_groups_heres/</guid>
       <pubDate>Fri, 13 Mar 2026 14:32:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>LinkedIn 自动化的聊天机器人 + AI 头像工作流程</title>
-      <link>https://www.reddit.com/r/automation/comments/1rshcl4/chatbot_ai_headshot_workflow_for_linkedin/</link>
-      <description><![CDATA[构建自动化 LinkedIn 工作流程，将聊天机器人与 AI 头像相结合。使用 AI 头像生成器 Looktara（35 美元）从自拍照中创建专业头像，然后输入聊天机器人提示中以获取个性化 LinkedIn 内容。 聊天机器人提示：“从创始人的角度撰写有关 SaaS 增长的 LinkedIn 帖子。使用这个专业爆头[插入AI爆头]。目标关键词AI头像和专业头像。” 3分钟内生成帖子+视觉效果。每周在创始人帐户上安排 15 个帖子。 2 个月内粉丝数量从 3000 增加到 12000。对于企业客户来说，AI 头像看起来足够逼真，聊天机器人处理消息传递。 有人为个人品牌构建聊天机器人 + AI 头像工作流程吗？用于聊天机器人集成的最佳人工智能爆头生成器？ Looktara 非常适合通过目视检查的 LinkedIn 头像。   由   提交 /u/Grouchy-Frame-7951   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1rshcl4/chatbot_ai_headshot_workflow_for_linkedin/</guid>
-      <pubDate>Fri, 13 Mar 2026 08:04:59 GMT</pubDate>
     </item>
     </channel>
 </rss>
