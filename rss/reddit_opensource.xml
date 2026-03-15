@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 15 Mar 2026 05:11:23 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 07:06:19 GMT</lastBuildDate>
+    <item>
+      <title>开源 DDoS 检测工具（BSD 许可证）——无需云依赖即可对 Linux 服务器进行亚秒级攻击检测</title>
+      <link>https://www.reddit.com/r/opensource/comments/1ru77cd/opensourced_a_ddos_detection_tool_bsd_license/</link>
+      <description><![CDATA[构建了 ftagent-lite 并在 BSD 下将其开源。 它是什么：在 Linux 上运行的 DDoS 检测代理，在 eBPF（内核空间）中执行每个数据包检查，并在检测到容量攻击模式时在约 1 秒内发出警报。 为什么存在：大多数 DDoS 检测工具要么速度慢（基于云，延迟 5-30 分钟），要么需要付费订阅。如果您运行游戏服务器、网络应用程序或任何公共服务，您就会暴露。该工具为您提供本地实时检测，无需外部依赖。 功能： - 对攻击类型进行分类：UDP/SYN/ICMP/HTTP 洪水、DNS 放大 - eBPF 内核级检查（最小开销） - 无云调用、无签名、无订阅 - 将指标导出到 Prometheus/Grafana - 适用于现代 Linux (5.8+) 性能： - 空闲时约 2-5% CPU 开销 - 500K+ 数据包/秒吞吐量 - 持续 1Gbps 时零数据包丢失 用例： - 游戏服务器运营商（Minecraft、CS 等） - 自托管基础设施 - 具有公共服务的家庭服务器 - 无企业保护的边缘路由器 技术堆栈： - 用于数据包检查的 eBPF C 程序 - 用于警报/配置的 Go 用户空间守护进程 - AF_XDP高吞吐量套接字 开源：https://github.com/flowtriq/ftagent-lite 希望获得开源社区关于架构、用例或改进的反馈。   由   提交 /u/cypressthatkid   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1ru77cd/opensourced_a_ddos_detection_tool_bsd_license/</guid>
+      <pubDate>Sun, 15 Mar 2026 06:51:31 GMT</pubDate>
+    </item>
     <item>
       <title>我是一名独立开发者。我为 AI 工作流程构建了一个完全本地、开源的 LangFlow/n8n 替代方案，具有拖放、调试、重放、成本跟踪和零云依赖性。这是 v0.5.1</title>
       <link>https://www.reddit.com/r/opensource/comments/1rtys3z/im_a_solo_dev_i_built_a_fully_local_opensource/</link>
@@ -18,13 +25,6 @@
       <description><![CDATA[当今大多数多代理系统都依赖 HTTP API 或 Redis 等中央数据库在代理之间传递消息。我们刚刚发布了用于 Pilot 协议的 Python SDK，它用直接的点对点网络隧道取代了这个中央基础设施，您可以通过 pip 和本地链接代理在不同的机器上安装它！ 要通过 HTTP 进行通信意味着设置面向公众的服务器、配置身份验证并确定防火墙。另一方面，如果您使用数据库来同步状态，则会引入中心瓶颈。 我们构建了一个开源第 3 层和第 4 层覆盖网络来解决此问题，其中每个代理都会获得一个永久的 48 位虚拟地址。当一个 Python 脚本想要与另一个脚本通信时，该协议使用 STUN 发现和 UDP 打洞来自动遍历 NAT，并在两个代理之间建立直接的加密隧道，无论它们托管在何处。 核心网络引擎是用 Go 编写的以提高性能，但是当我们最初要求 Python 开发人员使用我们的 CLI 工具并解析文本输出时，它引入了巨大的摩擦。为了解决这个问题，我们的 pip install 现在直接捆绑本机 Go 二进制文件。您只需启动守护进程（pilot-daemon start），我们的 Python SDK 使用 CGO 和 ctypes 与底层的网络堆栈进行交互。您无需重新实现协议逻辑即可获得完整的类型提示、Pythonic 错误处理和上下文管理器。 通过直接在节点之间广播数据，您可以消除通过云提供商路由状态更新所带来的 100 毫秒到 300 毫秒的延迟损失。网络边界成为信任边界，所有数据都保留在 AES-256-GCM 加密的 UDP 隧道内。 您无需编写 API 样板，而是使用本机 Python 上下文管理器： codePython from Pilotprotocol import Driver with Driver() as d: # 通过其虚拟地址直接通过防火墙拨打另一个代理d.dial(“research-agent:1000”) as conn: conn.write(b“这是上下文有效负载...”) response = conn.read(4096)  Pilot 协议是 AGPL-3.0 下的开源协议。您可以在 PyPI 上获取 Python 包或阅读 pilotprotocol.network 我们将非常感谢与代理合作的开发人员提供的任何反馈！   由   提交/u/BiggieCheeseFan88  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rtyluk/we_built_a_p2p_network_stack_to_fix_agent/</guid>
       <pubDate>Sat, 14 Mar 2026 23:37:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>我刚刚开源了用于去中心化人工智能的整个操作系统。 730K 行。没有任何公司拥有它。原因如下。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rtsx61/i_just_opensourced_an_entire_operating_system_for/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rtsx61/i_just_opensourced_an_entire_operating_system_for/</guid>
-      <pubDate>Sat, 14 Mar 2026 19:47:05 GMT</pubDate>
     </item>
     <item>
       <title>是否有可能创建一个开源应用程序，连接到 YouTube Music 并提供类似于 Spotify 的 Sound Capsule 的详细收听统计数据？</title>
