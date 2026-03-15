@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 15 Mar 2026 18:48:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 21:34:18 GMT</lastBuildDate>
+    <item>
+      <title>推出 eIOU，一种开源 p2p 支付协议</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rumibz/introducing_eiou_an_open_source_p2p_payment/</link>
+      <description><![CDATA[ 由   提交 /u/boofone   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rumibz/introducing_eiou_an_open_source_p2p_payment/</guid>
+      <pubDate>Sun, 15 Mar 2026 19:01:07 GMT</pubDate>
+    </item>
     <item>
       <title>适用于 Android 的现代、尊重隐私的 IRC 客户端</title>
       <link>https://www.reddit.com/r/opensource/comments/1rulvmn/a_modern_privacyrespecting_irc_client_for_android/</link>
@@ -85,7 +92,7 @@
     <item>
       <title>如何正确做开源项目？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</link>
-      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示赞赏，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示感谢，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</guid>
       <pubDate>Thu, 12 Mar 2026 20:33:48 GMT</pubDate>
     </item>
@@ -97,18 +104,11 @@
       <pubDate>Thu, 12 Mar 2026 17:56:46 GMT</pubDate>
     </item>
     <item>
-      <title>构建高性能多语言框架：Go Core Orchestrator + Node/Python/React 工作人员通过 Unix Sockets 和 Apache Arrow 进行通信。寻找反馈和贡献者！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rrpbh4/building_a_highperformance_polyglot_framework_go/</link>
-      <description><![CDATA[嘿 Reddit， 有一段时间，我一直在思考单体应用和微服务之间的差距，特别是在混合不同技术堆栈时如何管理路由、安全性和进程间通信 (IPC)。  我正在开发一个名为 vyx（以前称为 OmniStack Engine）的开源项目。它是一个围绕非常具体的架构设计的多语言全栈框架：Go Core Orchestrator，通过 Unix 域套接字 (UDS) 和 Apache Arrow 管理独立的工作人员。 Repo：https://github.com/ElioNeto/vyx 它是如何工作的（架构） vyx 使用单个 Go 进程作为核心编排器，而不是传统的反向代理。该核心是暴露于网络的唯一事物。  核心解析传入的 HTTP 请求、处理 JWT 身份验证并进行架构验证。仅当请求经过完全验证和授权后，核心才会通过高度优化的 IPC（Unix 域套接字）将其传递给工作进程（Node.js、Python 或 Go）。对于大型数据集，它使用 Apache Arrow 进行零拷贝数据传输；对于小负载，二进制 JSON/MsgPack。 文本 [HTTP 客户端] → [Core Orchestrator (Go)] ├── 管理工作人员（Node、Python、Go） ├── 验证架构和结构Auth └── 通过 UDS + Apache Arrow 的 IPC ├── Node Worker（SSR React / API）├── Python Worker（API - 非常适合机器学习/数据）└── Go Worker（原生高性能 API）  没有文件系统路由：基于注释的发现 Next.js 普及了文件系统路由，但我想要显式契约。 vyx 使用构建时注释解析。核心静态扫描您的后端/前端代码以构建 route_map.json。 Go Backend: go // @Route(POST /api/users) // @Validate(JsonSchema: &quot;user_create&quot;) // @Auth(roles: [&quot;admin&quot;]) func CreateUser(w http.ResponseWriter, r *http.Request) { ... }  Node.js (TypeScript) 后端： typescript // @Route(GET /api/products/:id) // @Validate( zod ) // @Auth(roles: [&quot;user&quot;, &quot;guest&quot;]) 导出异步函数 getProduct(id: string) { ... }  React 前端(SSR): tsx // @Page(/dashboard) // @Auth(roles: [&quot;user&quot;]) export default function DashboardPage() { ... }  为什么要构建这个？  安全第一： 你的 Python 或 Node 工作线程永远不会接触未经身份验证或格式错误的请求。 Go 核心会在不良流量到达您的业务逻辑之前将其丢弃。 故障隔离：如果 Node Worker 崩溃（OOM 等），Go 核心会中断该特定路由并正常重新启动该 Worker。应用程序的其余部分保持正常运行。 使用最好的工具来完成工作：用于 UI 的 React、用于原始性能的 Go、用于数据/AI 任务的 Python，所有这些都生活在同一个托管生态系统中。  我需要您的帮助！ （当前状态：MVP 阶段） 我目前正在构建第 1 阶段（Go 核心、Node + Go 工作线程、UDS/JSON、JWT）。我希望围绕这个想法建立一个社区。 如果您是对架构、性能或 IPC 感兴趣的 Go、Node、Python 或 React 开发人员： * 反馈： 这种架构对您有意义吗？您认为 UDS/Arrow Web 框架存在哪些缺陷？ * 贡献者：我喜欢 PR、问题中的架构讨论，或者帮助构建 Python Worker 和 Arrow 集成。 * 星星：如果您觉得这个概念有趣，GitHub 上的星星意味着全世界，有助于让该项目出现在更多人的眼前。 在这里查看：https://github.com/ElioNeto/vyx 感谢您的阅读，我会在评论中回答任何问题！   由   提交/u/Emergency_Law_2535   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rrpbh4/building_a_highperformance_polyglot_framework_go/</guid>
-      <pubDate>Thu, 12 Mar 2026 12:23:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fastlytics - 开源 F1 遥测可视化工具（AGPL 许可证）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rrmc37/fastlytics_opensource_f1_telemetry_visualization/</link>
-      <description><![CDATA[我一直在构建一个开源 Web 应用程序，用于轻松可视化一级方程式遥测数据。它被称为 Fastlytics 我真诚地相信每个人都应该可以使用赛车运动分析，而不仅仅是拥有数百万美元预算的团队。通过开源，我希望能够与其他想要添加功能的开发人员合作 为 F1 粉丝社区提供透明的、可定制的工具 向比我了解更多的贡献者（大多数人）学习  它的作用： 会话重播、速度跟踪、位置跟踪、轮胎策略分析、齿轮/油门图 - 基本上将原始计时数据转换为人类实际上可以解释的东西。 技术堆栈：  前端：React + TypeScript、用于可视化的 Recharts 后端：Python (FastAPI)、用于身份验证的 Supabase 数据：用于 F1 计时数据的 FastF1 库  链接：  现场演示：https://fastlytics.app GitHub：https://github.com/Fastlytics/Fastlytics  寻找贡献者！无论您是开发人员、设计师、数据人员，还是只是有意见的 F1 粉丝，我都希望您能提供意见。   由   提交/u/subhashg547  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rrmc37/fastlytics_opensource_f1_telemetry_visualization/</guid>
-      <pubDate>Thu, 12 Mar 2026 09:44:44 GMT</pubDate>
+      <title>托特 - 个人人工智能主权</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rrvh85/thoth_personal_ai_sovereignty/</link>
+      <description><![CDATA[本地优先的人工智能助手，具有 20 个集成工具、长期记忆、语音、视觉、健康跟踪和消息通道 - 全部在您的计算机上运行。您的模型、您的数据、您的规则。   由   提交/u/Suspicious-Point5050  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rrvh85/thoth_personal_ai_sovereignty/</guid>
+      <pubDate>Thu, 12 Mar 2026 16:28:29 GMT</pubDate>
     </item>
     </channel>
 </rss>
