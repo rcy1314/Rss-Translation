@@ -4,7 +4,70 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 15 Mar 2026 15:36:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 18:48:01 GMT</lastBuildDate>
+    <item>
+      <title>您在构建时记录 UI 还是将其留在代码中？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rulzj8/do_you_document_the_ui_as_you_build_or_just_leave/</link>
+      <description><![CDATA[问这个问题是因为我在大多数项目上从未真正拥有过正确的设计流程。只是直接构建了东西，客户很高兴，发货了。但后来它不断引起问题。设计师进来，要求提供figma文件，我没有什么可以给他们的。或者我接手了别人的项目，整个设计都在 CSS 中，没有任何文档。上次发生这种情况时，设计师不得不花几天时间弄清楚存在的内容，然后才能开始任何实际工作。客户不想为那段时间付费 真正好奇 - 大多数开发人员是否考虑过这一点，还是设计文档总是事后才想到？   由   提交/u/yazeerr_  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rulzj8/do_you_document_the_ui_as_you_build_or_just_leave/</guid>
+      <pubDate>Sun, 15 Mar 2026 18:41:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个大型 Next.js 计算器平台，并了解了很多有关 SSG、ISR、包大小和架构的知识</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rulp9y/built_a_large_nextjs_calculator_platform_and/</link>
+      <description><![CDATA[我一直在构建一个计算器平台作为业余项目，它变成了一个比我最初预期大得多的 Next.js 应用程序。 我遇到的一些更有趣的工程问题： • 跨计算器、公式页面、场景、指南和答案页面的数千个内容/工具页面• 决定应静态生成什么与通过ISR 按需生成什么• 点击部署/构建输出预渲染过多时的限制 • 通过共享客户端组件意外地将大型计算器数据传送到客户端包中 • 保持计算器页面交互而不会使 SSR/SSG 输出膨胀 • 避免大规模重复的 JSON-LD 问题 • 保持长尾 SEO 页面可索引，同时仍添加客户端交互性，如逐步输出  Stack • Next.js App Router • TypeScript • Tailwind • 共享动态计算器渲染器 • 服务器端计算器注册表 •主要是 SSG + ISR，具体取决于页面类型 一些具体问题：  预渲染太多  起初我尝试预渲染基本上所有内容。这种方法一直有效，直到构建输出变得太大而无法部署为止。我必须将大量长尾页面移至 ISR，并且仅预渲染最高价值的页面。 实际拆分如下： • 预渲染核心计算器、集线器、指南、静态页面 • 用于大量长尾场景/答案/公式类型页面的 ISR   共享布局意外地使客户端包膨胀  标头中的两个客户端组件正在导入完整的计算器数据集，以进行客户端搜索和小部件选择。这意味着大量的计算器元数据将被发送到每个页面上的浏览器。 解决方法是仅将完整的计算器注册表保留在服务器端，并将轻量级搜索/选择器数据移至服务器路由后面，而不是将完整的对象导入到客户端组件中。  交互式内容而不损害可抓取内容  某些页面现在具有逐步计算输出、粘性结果栏等。我不希望 Google 看到空占位符或重复的客户端生成的文本作为核心页面内容。 因此主页内容仍保留 SSR/SSG： • 标题 • 解释 • 工作示例 • FAQ • 相关页面  动态分步 UI 仅在用户交互后呈现客户端。  结构化数据复制  由于 JSON-LD，我遇到了重复的 FAQPage 问题从同一页面上的多个层发出。当您共享页面模板+可重用组件时，很容易犯错误。修复只是在每页的每种架构类型上强制执行一个架构发射器。  基于注册表的步骤引擎  我不想仅仅为了支持逐步输出而修改每个计算器定义。我最终使用了 slug → 步骤生成器注册表，因此只有某些计算器选择加入。这保持了核心计算器架构的稳定，并使推出增量。 我很好奇其他人如何在较大的 Next.js 应用程序中处理类似问题，特别是： • 在 SSG 和 ISR 之间划清界限• 如何防止共享客户端组件默默地膨胀包大小• 如何跨可重用页面系统组织架构/元数据生成• 如何保持 SEO 页面的交互性不会使客户端负载过重 如果有人感兴趣，很乐意分享更多实现细节。   由   提交/u/ABezzy  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rulp9y/built_a_large_nextjs_calculator_platform_and/</guid>
+      <pubDate>Sun, 15 Mar 2026 18:30:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该避免域名中的数字吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rulgft/should_i_avoid_numbers_in_a_domain_name/</link>
+      <description><![CDATA[我正在创办我的第一个 Web 开发机构并正在寻找域名。我找到了一个我非常喜欢的域名，但它遵循单词 + 数字的格式（例如：hello24.com 或development42.com）。 域名中包含数字会损害 SEO 或使人们更难记住和正确输入吗？ 这里有人使用过包含数字的域名吗？它是否导致了任何问题？   由   提交/u/GladRefrigerator7285   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rulgft/should_i_avoid_numbers_in_a_domain_name/</guid>
+      <pubDate>Sun, 15 Mar 2026 18:21:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要有关数字菜单（包括管理面板）的免费后端托管的建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rul8ju/need_a_advice_for_free_backend_hosting_for_a/</link>
+      <description><![CDATA[所以在我的问题之前有一些背景，我是一个完全的新手，我一生中从未将任何东西投入生产，可以说我是一个新手 所以对于我的问题，我必须向餐厅提供一个数字菜单，该菜单将有一个管理面板，以便他们可以自行更改，但问题是他们还没有准备好支付托管费用，我想知道我是否可以这样做，我到目前为止的计划是 我认为非常清楚的是，菜单 url 永远不应该改变，因为它们会打印 qr 并让 qr 站立，所以如果 url 改变，那将是一团糟，所以我想到了制作一个前端-后端架构，我将在 GitHub 页面上托管前端，我相信在可见的未来和其他地方的后端之前不会关闭，所以即使后端关闭，我也可以启动另一个并将其链接到前端 现在我关心的第二件事是后端，我不认为有太多可靠的免费后端托管选项，到目前为止，我已经提出了渲染，Cloudfare工作人员和Google表格（使用api来存储和检索数据），但对它们中的任何一个都没有信心，直到我会感激如果有足够知识的人可以指导我 TLDR：需要托管一个带有管理面板和0托管成本的数字菜单   由   提交/u/corner_guy0  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rul8ju/need_a_advice_for_free_backend_hosting_for_a/</guid>
+      <pubDate>Sun, 15 Mar 2026 18:12:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>用触发 AI 代理的看板取代了我的整个开发工作流程 - 以下是它的日常工作方式</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ruizno/replaced_my_entire_dev_workflow_with_a_kanban/</link>
+      <description><![CDATA[我一直在测试一种不同的人工智能辅助开发方法。我没有与人工智能聊天或使用自动完成功能，而是构建了一个看板，其中每个列都运行一个专门的代理。工作流程：创建一张描述您想要的内容的卡片 → 拖动到规划（代理将其分解） → 进行中（代理在独立的工作树中编写代码） → 测试（代理运行测试，失败时重试） → 人工审查 → 提交 → QA。有没有其他人采取类似的方法，使用人工智能辅助编码工具获得更具结构化和确定性的输出？   由   提交 /u/Warmaster0010   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ruizno/replaced_my_entire_dev_workflow_with_a_kanban/</guid>
+      <pubDate>Sun, 15 Mar 2026 16:47:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>有什么方法可以将此 Webflow 文本显示动画转换为完全相同的 GSAP 代码吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ruimli/is_there_any_way_i_can_convert_this_webflow_text/</link>
+      <description><![CDATA[这是链接   由   提交 /u/No-Story4783   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ruimli/is_there_any_way_i_can_convert_this_webflow_text/</guid>
+      <pubDate>Sun, 15 Mar 2026 16:33:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>PythonMonkey,嵌入到 Python VM 中的 Mozilla SpiderMonkey JavaScript 引擎,使用 Python 引擎提供 JS 主机环境,下载PythonMonkey的源码_GitHub_帮酷</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rui2gc/github_distributivenetworkpythonmonkey_a_mozilla/</link>
+      <description><![CDATA[       由   提交/u/fagnerbrack  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rui2gc/github_distributivenetworkpythonmonkey_a_mozilla/</guid>
+      <pubDate>Sun, 15 Mar 2026 16:11:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于实时计算器应用程序的 SSG</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ruhgef/ssg_for_live_calculator_apps/</link>
+      <description><![CDATA[所以我用 Jekyll 和 NiceGUI 为各种副业和工作项目制作了一些网站。不过，我希望有一个静态站点生成器，可以用来显示实时计算。我确信这可以用足够的 JS 来完成，但如果有一个框架可以使这变得更容易，那就太酷了。 像这样：https://ohmslawcalculator.com 开始，但想使用 NiceGUI/streamlit 中提供的更多小部件和视觉效果/绘图。 我研究了这些工具的静态部署，它们是有点...很多，一旦编译成本地/可部署的东西。 我承认我一直顽固地想要放弃Python来做到这一点，所以如果我分支到node.js，看起来VitePress可以适合这里。还有其他选择或方法吗？ 谢谢！   由   提交/u/radix07  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ruhgef/ssg_for_live_calculator_apps/</guid>
+      <pubDate>Sun, 15 Mar 2026 15:47:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我与科技行业存在虐待关系</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ruh5re/i_am_in_an_abusive_relationship_with_the/</link>
+      <description><![CDATA[      Kevin Powell 在他的时事通讯中链接到此内容，并鼓励每个人阅读。很好奇社区对此的想法。   由   提交/u/creaturefeature16  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ruh5re/i_am_in_an_abusive_relationship_with_the/</guid>
+      <pubDate>Sun, 15 Mar 2026 15:36:28 GMT</pubDate>
+    </item>
     <item>
       <title>使用 SvelteKit 构建我的开发人员组合 - 寻找有关用户体验、设计和性能的诚实反馈</title>
       <link>https://www.reddit.com/r/webdev/comments/1rugjvi/built_my_developer_portfolio_with_sveltekit/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[      Screen studio 价格昂贵，并且不适用于 Windows 用户。对于那些不想花钱购买屏幕录像机应用程序的人来说，这是一个替代方案，而且它也支持 Windows。 它的构建使用：  Tauri v2 创建本机桌面应用程序 用于鼠标跟踪的 Rust 用于录制的 ffmpeg 用于 UI 的 React 用于预览的 Canvas API 用于拼接和导出的 mediabunny （令人惊叹的库）  功能：  60 fps 导出 免费（无限制导出） 更小的包大小（与其他屏幕录像机相比 - 80mb） 快速导出时间  缺少的功能：  自动缩放（也许我会添加这一点，如果人们感兴趣） 定制（目前非常基本，但肯定也在议程上） 仅支持 Windows  下载链接：https://clipzr.com == 欢迎任何反馈==   由   提交/u/Personal_Cost4756  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rud0fg/showoff_saturday_screen_recorder_with_smooth/</guid>
       <pubDate>Sun, 15 Mar 2026 12:39:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于我来说，制作自己的图像板的最佳课程类型是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rucrcn/whats_the_best_type_of_course_for_me_to_make_my/</link>
-      <description><![CDATA[我今年 16 岁，非常专注于编程（细节：我有自闭症作为支持因素），并且我对名为“imageboards”的网站类型着迷。或“chans”，我的项目叫做 4ever。我打算在互联网上创建第一个健康图像板，这是一个非常酷的地方。我的父母正在考虑给我开设数字游戏创作和一些 HTML 编程课程，但我想专注于我的项目。因此，如果有人可以推荐网站创建课程，尤其是教如何向网站添加图像的课程，我将非常感激。 :)   由   提交 /u/Traditional_Blood799   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rucrcn/whats_the_best_type_of_course_for_me_to_make_my/</guid>
-      <pubDate>Sun, 15 Mar 2026 12:26:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个几乎不执行任何操作的应用程序，这就是人们想要它的原因......</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rucrcm/i_built_an_app_that_does_almost_nothing_and_thats/</link>
-      <description><![CDATA[      我围绕一个我一直遇到的问题构建了一个非常简单的应用程序，奇怪的是我越把它剥离，似乎越多的人想要它。 它几乎什么也不做。 你打开它，它立即显示你的确切街道地址，最近的十字路口、县、GPS 坐标、航向、海拔和精度。没有地图。没有菜单。没有搜索。只是一个问题的答案：我在哪里？ 这就是整个想法。 我最初构建它是为了一个非常特定的用例，其中速度比功能更重要。我认为受众范围会很窄而且很明显。但在分享之后，我开始听到各种各样的人说他们也会使用类似的东西。旅行者。乘车共享用户。送货司机。人们在陌生的地方相遇。人们只是想要比打开地图、放大蓝点、找到他们站在前面的建筑物并放下图钉更快的答案。 这让我感到惊讶。 这款应用程序感觉太简单了，不可能是真正的产品领域，但我认为这正是人们对它做出反应的原因。大型应用程序针对灵活性进行了优化。这个优化了即时性。 这让我意识到，有时机会并不是建立更大的东西。它会删除所有内容，直到价值变得显而易见。 所以我一直倾向于这一点。 它现在支持多种坐标格式，例如 DD、DMS 和 DDM，显示县、航向、海拔和准确度，让您可以立即共享或复制完整的位置详细信息，甚至还有 Apple Watch 伴侣，因此同样的一键式想法也可以在您的手腕上发挥作用。 该应用程序称为 LOC8。 它专为个人而打造事情：给你最快的答案“我在哪里？”如果这听起来对您有用，请查看并告诉我您的想法。 仅限美国和 iOS。   由   提交/u/alion94  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rucrcm/i_built_an_app_that_does_almost_nothing_and_thats/</guid>
-      <pubDate>Sun, 15 Mar 2026 12:26:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站开发提供人工智能？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ruc6gz/website_dev_offering_ai/</link>
-      <description><![CDATA[我最近与一位自由网络开发人员合作，他厌倦了客户要求他没有时间构建的人工智能功能。我们集成了“AI大脑”筛选潜在客户并通过 WhatsApp 将其推送至工作表。开发人员为 AI Power-up 额外收取了 1500 美元的费用，我负责后端工作。这里还有其他人尝试过这样的合作模式吗？有人愿意在网站上提供人工智能服务吗？    由   提交/u/Relative-Mix-5318   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ruc6gz/website_dev_offering_ai/</guid>
-      <pubDate>Sun, 15 Mar 2026 11:56:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>就网络平台提供建议。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rubyaz/advise_on_web_platforms/</link>
-      <description><![CDATA[您好，请告诉我这是否是发布此内容的正确社区，或者我是否需要去个体企业家社区。 我是一名艺术家，我正在寻求升级/巩固我的工作和在线业务。 我的业务分为三个层次：定格动画、fraalance 电影和文化烹饪。 我正在创建一个个人网站作为我的创意工作的登陆页面，主要是自由电影作品，并最终销售数字产品、研讨会和工作簿。我没有任何编码经验，也不想使用一个需要我把主要注意力放在我的艺术活动上的平台。哪些平台或路径最适合我的需求。 我还需要它具有可集成的快捷方式或为其他平台添加功能。因为我将使用 patreon、bigcartel 和 YouTube 来制作定格动画，使用 Circle 和 YouTube 来制作文化烹饪。 有没有办法让我创建一个单一的平台作为我的核心工作的登陆页面：自由电影作品，并允许它从我上面提到的媒体中分支到其他平台和登陆页面的链接。 抱歉，如果这有点松散或没有使用正确的技术语言，这个领域确实不是我的职权范围理解。 任何意见或建议将不胜感激   由   提交/u/OkAnnual1385   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rubyaz/advise_on_web_platforms/</guid>
-      <pubDate>Sun, 15 Mar 2026 11:43:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>大图像的文件大小可以达到多小？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rubiw8/how_small_of_a_file_size_is_achievable_for_large/</link>
-      <description><![CDATA[我为客户创建网站，其中许多人需要高质量的图像，因为这是用于婚礼场地、室内设计等的。他们通常需要全屏图像。因此，对于大型 PC 尺寸，我需要它们至少为 2560x1600。 对于这种尺寸的高质量图像来说，实际的压缩尺寸是多少？我正在使用 xcompress 并以 60% 的质量转换为 jpg。这使得每张图像大约有 500kb。然后我将其转换为 webp。这是我能做的最好的事情吗？我还使用较小的图像尺寸来实现较小的断点。 编辑：我显然是指 500kb 而不是 mb    由   提交 /u/jelery_celery   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rubiw8/how_small_of_a_file_size_is_achievable_for_large/</guid>
-      <pubDate>Sun, 15 Mar 2026 11:19:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>停止仅仅为了向客户展示您的本地应用程序而将损坏的构建推送到暂存阶段</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ruak19/stop_pushing_broken_builds_to_staging_just_to/</link>
-      <description><![CDATA[即将召开客户会议，而我的应用程序仍在本地主机上运行。我没有急于进行部署，而是使用了“cloudflared”获取公共 URL 并将其发送出去。工作得很好。客户看到了该应用程序，会议进展顺利。 如果您定期向客户演示，这一点值得了解。您可以使用自己的域，以便 URL 每次都保持不变。还可以对其进行限制，以便只有某些人可以打开链接。 一直在这样做，而不是每次需要显示某些内容时都部署到暂存区。节省了大量不必要的部署。 与 ngrok 类似，但免费。免费套餐没有硬性带宽限制。   由   提交 /u/mahmudulhturan   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ruak19/stop_pushing_broken_builds_to_staging_just_to/</guid>
-      <pubDate>Sun, 15 Mar 2026 10:22:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年处理意图冲突和链接衰减：深度链接案例研究</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rua00x/handling_intent_collision_and_link_decay_in_2026/</link>
-      <description><![CDATA[我一直在开发一个名为 SportsFlux 的项目，该项目将直播体育元数据映射到本机应用意图 URL。目标是“无头用户界面”，以绕过标准流媒体主屏幕的广告膨胀。技术障碍：我在不同的移动浏览器（特别是 iOS 19/Android 16 上的 Chrome 与 Safari）如何处理意图 URL 回退方面遇到了困难。当用户没有安装本机应用程序时，window.location 重定向通常会挂起或触发 404，而不是回退到商店。我已经实现了一个自定义 JS 桥来在触发之前检查应用程序是否存在，但感觉很糟糕。向开发者社区提出的问题：还有其他人在 2026 年移动浏览器中看到更激进的意图阻止吗？当广播公司每周更改其 URL 方案以防止深层链接时，您如何处理“链接衰减”？如果您想检查网络选项卡并查看我正在使用的重定向逻辑，我已将实时原型链接放在我的简介中。对处理程序脚本的反馈将是巨大的。   由   提交/u/Kind-Information2394   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rua00x/handling_intent_collision_and_link_decay_in_2026/</guid>
-      <pubDate>Sun, 15 Mar 2026 09:47:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>[周六炫耀]如果 GitHub 和线程有一个孩子怎么办——你发布代码，它在提要中实时运行，然后人们重新混合它。这就是我一直在构建的。 ⬇️</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ru85s8/showoff_saturdaywhat_if_github_and_threads_had_a/</link>
-      <description><![CDATA[      大家好，我是 Braden。 我正在构建 https://vibecodr.space - 一个社交网络。帖子是可运行的应用程序。 您发布代码而不是屏幕截图或演示，代码会在提要中实时运行。人们可以打开它、使用它、重新混合它并发布自己的版本。 一切都在沙箱中跨源运行，因此应用程序与平台和彼此保持隔离。 我希望收到这里的人们的反馈，尤其是关于如何让社区感觉像是一个人们想要发布奇怪小东西的地方。项目。 感谢您的浏览:) - Braden   由   提交/u/randomlovebird  [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ru85s8/showoff_saturdaywhat_if_github_and_threads_had_a/</guid>
-      <pubDate>Sun, 15 Mar 2026 07:52:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要全栈开发</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ru80ba/full_stack_dev_required/</link>
-      <description><![CDATA[使用 Supabase 进行全栈开发 构建和部署 RBAC 系统和定制方面的知识和经验 具备 SaaS 知识 最多 1 周任务 DM 可能会根据绩效获得奖励和未来机会 向所有人开放   由   提交/u/Fun_Lie3860   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ru80ba/full_stack_dev_required/</guid>
-      <pubDate>Sun, 15 Mar 2026 07:42:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
