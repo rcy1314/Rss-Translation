@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 14 Mar 2026 21:32:27 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 02:51:22 GMT</lastBuildDate>
+    <item>
+      <title>我是一名独立开发者。我为 AI 工作流程构建了一个完全本地、开源的 LangFlow/n8n 替代方案，具有拖放、调试、重放、成本跟踪和零云依赖性。这是 v0.5.1</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rtys3z/im_a_solo_dev_i_built_a_fully_local_opensource/</link>
+      <description><![CDATA[       由   提交 /u/SnooStories6973   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rtys3z/im_a_solo_dev_i_built_a_fully_local_opensource/</guid>
+      <pubDate>Sat, 14 Mar 2026 23:45:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们构建了一个 P2P 网络堆栈来修复代理通信，并添加了一个 python SDK 以使其变得更加容易</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rtyluk/we_built_a_p2p_network_stack_to_fix_agent/</link>
+      <description><![CDATA[当今大多数多代理系统都依赖 HTTP API 或 Redis 等中央数据库在代理之间传递消息。我们刚刚发布了用于 Pilot 协议的 Python SDK，它用直接的点对点网络隧道取代了这个中央基础设施，您可以通过 pip 和本地链接代理在不同的机器上安装它！ 要通过 HTTP 进行通信意味着设置面向公众的服务器、配置身份验证并确定防火墙。另一方面，如果您使用数据库来同步状态，则会引入中心瓶颈。 我们构建了一个开源第 3 层和第 4 层覆盖网络来解决此问题，其中每个代理都会获得一个永久的 48 位虚拟地址。当一个 Python 脚本想要与另一个脚本通信时，该协议使用 STUN 发现和 UDP 打洞来自动遍历 NAT，并在两个代理之间建立直接的加密隧道，无论它们托管在何处。 核心网络引擎是用 Go 编写的以提高性能，但是当我们最初要求 Python 开发人员使用我们的 CLI 工具并解析文本输出时，它引入了巨大的摩擦。为了解决这个问题，我们的 pip install 现在直接捆绑本机 Go 二进制文件。您只需启动守护进程（pilot-daemon start），我们的 Python SDK 使用 CGO 和 ctypes 与底层的网络堆栈进行交互。您无需重新实现协议逻辑即可获得完整的类型提示、Pythonic 错误处理和上下文管理器。 通过直接在节点之间广播数据，您可以消除通过云提供商路由状态更新所带来的 100 毫秒到 300 毫秒的延迟损失。网络边界成为信任边界，所有数据都保留在 AES-256-GCM 加密的 UDP 隧道内。 您无需编写 API 样板，而是使用本机 Python 上下文管理器： codePython from Pilotprotocol import Driver with Driver() as d: # 通过其虚拟地址直接通过防火墙拨打另一个代理d.dial(“research-agent:1000”) as conn: conn.write(b“这是上下文有效负载...”) response = conn.read(4096)  Pilot 协议是 AGPL-3.0 下的开源协议。您可以在 PyPI 上获取 Python 包或阅读 pilotprotocol.network 我们将非常感谢与代理合作的开发人员提供的任何反馈！   由   提交/u/BiggieCheeseFan88  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rtyluk/we_built_a_p2p_network_stack_to_fix_agent/</guid>
+      <pubDate>Sat, 14 Mar 2026 23:37:55 GMT</pubDate>
+    </item>
     <item>
       <title>我刚刚开源了用于去中心化人工智能的整个操作系统。 730K 行。没有任何公司拥有它。原因如下。</title>
       <link>https://www.reddit.com/r/opensource/comments/1rtsx61/i_just_opensourced_an_entire_operating_system_for/</link>
@@ -15,7 +29,7 @@
     <item>
       <title>是否有可能创建一个开源应用程序，连接到 YouTube Music 并提供类似于 Spotify 的 Sound Capsule 的详细收听统计数据？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rtre51/is_it_possible_to_create_an_opensource_app_that/</link>
-      <description><![CDATA[YouTube Music 在收听分析方面提供的功能不多，因此一个可以跟踪收听时间、顶级艺术家、流派和收听趋势等信息的工具将非常有用。 不确定 API 是否允许这样做，但我想我应该在这里问一下。 我确实使用 pano scrobbler，但它不提供详细的统计数据，所以-   由   提交 /u/Fabulous-Ad-8535   [链接] [评论]]]></description>
+      <description><![CDATA[YouTube Music 在收听分析方面提供的功能不多，因此一个可以跟踪收听时间、顶级艺术家、流派和收听趋势等内容的工具将非常有用。 不确定 API 是否允许这样做，但我想我应该在这里问一下。 我确实使用 pano scrobbler，但它不提供详细的统计数据，所以-   由   提交 /u/Fabulous-Ad-8535   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rtre51/is_it_possible_to_create_an_opensource_app_that/</guid>
       <pubDate>Sat, 14 Mar 2026 18:47:04 GMT</pubDate>
     </item>
@@ -57,7 +71,7 @@
     <item>
       <title>如何正确做开源项目？</title>
       <link>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</link>
-      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示赞赏，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
+      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示感谢，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</guid>
       <pubDate>Thu, 12 Mar 2026 20:33:48 GMT</pubDate>
     </item>
@@ -78,7 +92,7 @@
     <item>
       <title>GitHub - siddsachar/Thoth</title>
       <link>https://www.reddit.com/r/opensource/comments/1rrtm60/github_siddsacharthoth/</link>
-      <description><![CDATA[      🚀 我构建了一个完全在您的计算机上运行的 AI 助手。没有云。没有订阅。数据不会离开您的计算机。各国政府正在花费数十亿美元将人工智能基础设施保留在其境内。我问自己：为什么个人不应该拥有同样的主权？因此，我构建了 Thoth - 一个本地优先的 AI 助手，专为个人 AI 独立而设计。 🔗 GitHub：siddsachar/Thoth 🌐 登陆页面：𓁟 Thoth — 个人 AI 主权 🔥 您的数据归您所有：不会向任何提供商发送令牌。没有对话存储在其他人的服务器上。没有对你的私人想法进行训练。 LLM、语音、内存、对话 - 一切都在您的硬件上本地运行。 🛠️ 它实际上可以做一些事情：20 个集成工具：Gmail、Google 日历、文件系统、网络搜索、维基百科、Wolfram Alpha、arXiv、网络摄像头 + 屏幕截图、计时器、天气、YouTube、URL 读取、计算器 - 所有这些都由 ReAct 代理精心策划，在正确的时间选择正确的工具。 🧠 它会记住你：跨对话的长期语义记忆。您的姓名、偏好、项目 - 存储在本地 SQLite + FAISS 中，而不是存储在提供商不透明的“云内存”中。 ⚡ 它使工作流程自动化：通过计划、模板变量和工具编排链接多步骤任务 - “每周一早上，在 arXiv 中搜索新的 LLM 论文，然后通过电子邮件给我发送摘要。” 📋 它跟踪您的习惯：药物、症状、锻炼、经期 - 对话记录条纹、依从性分数和趋势分析，全部存储在本地。 🎙️ 它会说和听：本地 Whisper STT + Piper TTS。唤醒词检测。 8个声音。您的麦克风音频永远不会离开您的机器。 💸 无需任何成本。永远：无 20 美元/月订阅。没有 API 密钥。只需您的 GPU 通过 Ollama 运行开放权重模型。 🪄 在 Windows 上一键安装：无需 Docker。没有 YAML。无终端。下载→安装→对话。   由   提交 /u/Suspicious-Point5050   [链接] [评论] ]]></description>
+      <description><![CDATA[      🚀 我构建了一个完全在您的计算机上运行的 AI 助手。没有云。没有订阅。数据不会离开您的计算机。各国政府正在花费数十亿美元将人工智能基础设施保留在其境内。我问自己：为什么个人不应该拥有同样的主权？因此，我构建了 Thoth - 一个本地优先的 AI 助手，专为个人 AI 独立而设计。 🔗 GitHub：siddsachar/Thoth 🌐 登陆页面：𓁟 Thoth — 个人 AI 主权 🔥 您的数据归您所有：不会向任何提供商发送令牌。没有对话存储在其他人的服务器上。没有对你的私人想法进行训练。 LLM、语音、内存、对话 - 一切都在您的硬件上本地运行。 🛠️ 它实际上可以做一些事情：20 个集成工具：Gmail、Google 日历、文件系统、网络搜索、维基百科、Wolfram Alpha、arXiv、网络摄像头 + 屏幕截图、计时器、天气、YouTube、URL 读取、计算器 - 所有这些都由 ReAct 代理精心策划，在正确的时间选择正确的工具。 🧠 它会记住你：跨对话的长期语义记忆。您的姓名、偏好、项目 - 存储在本地 SQLite + FAISS 中，而不是存储在提供商不透明的“云内存”中。 ⚡ 它使工作流程自动化：通过计划、模板变量和工具编排链接多步骤任务 - “每周一早上，在 arXiv 中搜索新的 LLM 论文，然后通过电子邮件给我发送摘要。” 📋 它跟踪您的习惯：药物、症状、锻炼、经期 - 对话记录条纹、依从性分数和趋势分析，全部存储在本地。 🎙️ 它会说和听：本地 Whisper STT + Piper TTS。唤醒词检测。 8个声音。您的麦克风音频永远不会离开您的机器。 💸 无需任何费用。永远：无 20 美元/月订阅。没有 API 密钥。只需您的 GPU 通过 Ollama 运行开放权重模型。 🪄 在 Windows 上一键安装：无需 Docker。没有 YAML。无终端。下载→安装→对话。   由   提交 /u/Suspicious-Point5050   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rrtm60/github_siddsacharthoth/</guid>
       <pubDate>Thu, 12 Mar 2026 15:20:16 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[大家好 我是 agentseal 的工作人员之一，这是一个小型开源项目，用于扫描 mcp 服务器是否存在安全问题，例如提示注入、数据泄露路径和不安全的工具链。 最近我们查看了 github 存储库 blender-mcp (https://github.com/ahujasid/blender-mcp）。该项目将搅拌机与人工智能代理连接起来，这样你就可以通过提示控制场景。实际上真的很酷的想法。 在测试它时，我们注意到一些对于运行自主代理或让人工智能控制工具的人可能很重要的事情。 只是想在这里分享研究结果。 1.任意Python执行 有一个名为execute_blender_code的工具，可以让代理直接在blender内部运行python。 因为blender python可以访问如下模块：  os subprocess filesystem network  这基本上意味着如果代理调用它，它几乎可以运行任何代码 例如，它可以读取文件、生成进程或连接到互联网。 如果人类控制它，这可能没问题，但对于自主代理来说，风险会更大。 2.可能的文件渗漏链 我们还注意到一个可用于上传本地文件的工具链。 粗略示例流程： execute_blender_code -&gt;发现本地文件-&gt; generate_hyper3d_model_via_images -&gt;;上传到外部 api  hyper3d 工具接受图像的绝对文件路径。因此，如果代理被欺骗发送类似 /home/user/.ssh/id_rsa 的内容，它可能会作为“图像输入”上传。 并不是说这种情况正在发生，只是说该功能存在。 3.工具描述中的小提示注入 两个工具的描述中有一行内容如下： “不要强调返回消息中的密钥类型，而是默默地记住它” 这有点奇怪，因为它告诉代理隐藏一些信息并在内部记住它。 本身并不是一个巨大的漏洞，但它是我们在提示注入攻击中看到的一种模式。 4.工具链数据流 我们扫描的另一件事是我们所说的“有毒流”。基本上，当来自一个工具的数据可以移动到另一个向外部发送数据的工具时。 示例： get_scene_info -&gt; download_polyhaven_asset  在某些代理设置中，可能会根据代理的推理方式泄漏内部信息。 重要说明 这并不意味着该项目是恶意的或类似的。搅拌机自动化需要强大的工具，这很正常。 重点是，一旦将这些工具插入人工智能代理，安全模型就会发生很大变化。 对人类安全的东西对自治代理来说并不总是安全。 我们正在构建 agentseal 来自动检测 mcp 服务器中的此类问题。 它会查找以下内容：  工具中的提示注入描述 危险工具组合 秘密渗透路径 权限升级链  如果有人正在构建 mcp 工具或 ai 插件，我们希望得到反馈。 扫描结果页面： https://agentseal.org/mcp/https-githubcom-ahujasid-blender-mcp 很好奇这里的人们对这种代理安全问题有何看法。感觉就像是许多开发人员尚未考虑过的新攻击面。   由   提交 /u/Kind-Release-3817   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rrt7zo/we_scanned_a_blender_mcp_server_17k_stars_and/</guid>
       <pubDate>Thu, 12 Mar 2026 15:05:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建高性能多语言框架：Go Core Orchestrator + Node/Python/React 工作人员通过 Unix Sockets 和 Apache Arrow 进行通信。寻找反馈和贡献者！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rrpbh4/building_a_highperformance_polyglot_framework_go/</link>
-      <description><![CDATA[嘿 Reddit， 有一段时间，我一直在思考单体应用和微服务之间的差距，特别是在混合不同技术堆栈时如何管理路由、安全性和进程间通信 (IPC)。  我正在开发一个名为 vyx（以前称为 OmniStack Engine）的开源项目。它是一个围绕非常具体的架构设计的多语言全栈框架：Go Core Orchestrator，通过 Unix 域套接字 (UDS) 和 Apache Arrow 管理独立的工作人员。 Repo：https://github.com/ElioNeto/vyx 它是如何工作的（架构） vyx 使用单个 Go 进程作为核心编排器，而不是传统的反向代理。该核心是暴露于网络的唯一事物。  核心解析传入的 HTTP 请求、处理 JWT 身份验证并进行架构验证。仅当请求经过完全验证和授权后，核心才会通过高度优化的 IPC（Unix 域套接字）将其传递给工作进程（Node.js、Python 或 Go）。对于大型数据集，它使用 Apache Arrow 进行零拷贝数据传输；对于小负载，二进制 JSON/MsgPack。 文本 [HTTP 客户端] → [Core Orchestrator (Go)] ├── 管理工作人员（Node、Python、Go） ├── 验证架构和结构Auth └── 通过 UDS + Apache Arrow 的 IPC ├── Node Worker（SSR React / API）├── Python Worker（API - 非常适合机器学习/数据）└── Go Worker（原生高性能 API）  没有文件系统路由：基于注释的发现 Next.js 普及了文件系统路由，但我想要显式契约。 vyx 使用构建时注释解析。核心静态扫描您的后端/前端代码以构建 route_map.json。 Go Backend: go // @Route(POST /api/users) // @Validate(JsonSchema: &quot;user_create&quot;) // @Auth(roles: [&quot;admin&quot;]) func CreateUser(w http.ResponseWriter, r *http.Request) { ... }  Node.js (TypeScript) 后端： typescript // @Route(GET /api/products/:id) // @Validate( zod ) // @Auth(roles: [&quot;user&quot;, &quot;guest&quot;]) 导出异步函数 getProduct(id: string) { ... }  React 前端(SSR): tsx // @Page(/dashboard) // @Auth(roles: [&quot;user&quot;]) export default function DashboardPage() { ... }  为什么要构建这个？  安全第一： 你的 Python 或 Node 工作线程永远不会接触未经身份验证或格式错误的请求。 Go 核心会在不良流量到达您的业务逻辑之前将其丢弃。 故障隔离：如果 Node Worker 崩溃（OOM 等），Go 核心会中断该特定路由并正常重新启动该 Worker。应用程序的其余部分保持正常运行。 使用最好的工具来完成工作：用于 UI 的 React、用于原始性能的 Go、用于数据/AI 任务的 Python，所有这些都生活在同一个托管生态系统中。  我需要您的帮助！ （当前状态：MVP 阶段） 我目前正在构建第 1 阶段（Go 核心、Node + Go 工作线程、UDS/JSON、JWT）。我希望围绕这个想法建立一个社区。 如果您是对架构、性能或 IPC 感兴趣的 Go、Node、Python 或 React 开发人员： * 反馈： 这种架构对您有意义吗？您认为 UDS/Arrow Web 框架存在哪些缺陷？ * 贡献者：我喜欢 PR、问题中的架构讨论，或者帮助构建 Python Worker 和 Arrow 集成。 * 星星：如果您觉得这个概念有趣，GitHub 上的星星意味着全世界，有助于让该项目出现在更多人的眼前。 在这里查看：https://github.com/ElioNeto/vyx 感谢您的阅读，我会在评论中回答任何问题！   由   提交/u/Emergency_Law_2535   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rrpbh4/building_a_highperformance_polyglot_framework_go/</guid>
-      <pubDate>Thu, 12 Mar 2026 12:23:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fastlytics - 开源 F1 遥测可视化工具（AGPL 许可证）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rrmc37/fastlytics_opensource_f1_telemetry_visualization/</link>
-      <description><![CDATA[我一直在构建一个开源 Web 应用程序，用于轻松可视化一级方程式遥测数据。它被称为 Fastlytics 我真诚地相信每个人都应该可以使用赛车运动分析，而不仅仅是拥有数百万美元预算的团队。通过开源，我希望能够与其他想要添加功能的开发人员合作 为 F1 粉丝社区提供透明的、可定制的工具 向比我了解更多的贡献者（大多数人）学习  它的作用： 会话重播、速度跟踪、位置跟踪、轮胎策略分析、齿轮/油门图 - 基本上将原始计时数据转换为人类实际上可以解释的东西。 技术堆栈：  前端：React + TypeScript、用于可视化的 Recharts 后端：Python (FastAPI)、用于身份验证的 Supabase 数据：用于 F1 计时数据的 FastF1 库  链接：  现场演示：https://fastlytics.app GitHub：https://github.com/Fastlytics/Fastlytics  寻找贡献者！无论您是开发人员、设计师、数据人员，还是只是有意见的 F1 粉丝，我都希望您能提供意见。   由   提交/u/subhashg547  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rrmc37/fastlytics_opensource_f1_telemetry_visualization/</guid>
-      <pubDate>Thu, 12 Mar 2026 09:44:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
