@@ -4,7 +4,7 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 16 Mar 2026 10:10:20 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 13:24:09 GMT</lastBuildDate>
     <item>
       <title>简单的开源图像编辑器？</title>
       <link>https://www.reddit.com/r/opensource/comments/1ruwmxd/simple_open_source_image_editor/</link>
@@ -69,13 +69,6 @@
       <pubDate>Sun, 15 Mar 2026 09:19:25 GMT</pubDate>
     </item>
     <item>
-      <title>我是一名独立开发者。我为 AI 工作流程构建了一个完全本地、开源的 LangFlow/n8n 替代方案，具有拖放、调试、重放、成本跟踪和零云依赖性。这是 v0.5.1</title>
-      <link>https://www.reddit.com/r/opensource/comments/1rtys3z/im_a_solo_dev_i_built_a_fully_local_opensource/</link>
-      <description><![CDATA[       由   提交 /u/SnooStories6973   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1rtys3z/im_a_solo_dev_i_built_a_fully_local_opensource/</guid>
-      <pubDate>Sat, 14 Mar 2026 23:45:14 GMT</pubDate>
-    </item>
-    <item>
       <title>我们构建了一个 P2P 网络堆栈来修复代理通信，并添加了一个 python SDK 以使其变得更加容易</title>
       <link>https://www.reddit.com/r/opensource/comments/1rtyluk/we_built_a_p2p_network_stack_to_fix_agent/</link>
       <description><![CDATA[当今大多数多代理系统都依赖 HTTP API 或 Redis 等中央数据库在代理之间传递消息。我们刚刚发布了用于 Pilot 协议的 Python SDK，它用直接的点对点网络隧道取代了这个中央基础设施，您可以通过 pip 和本地链接代理在不同的机器上安装它！ 要通过 HTTP 进行通信意味着设置面向公众的服务器、配置身份验证并确定防火墙。另一方面，如果您使用数据库来同步状态，则会引入中心瓶颈。 我们构建了一个开源第 3 层和第 4 层覆盖网络来解决此问题，其中每个代理都会获得一个永久的 48 位虚拟地址。当一个 Python 脚本想要与另一个脚本通信时，该协议使用 STUN 发现和 UDP 打洞来自动遍历 NAT，并在两个代理之间建立直接的加密隧道，无论它们托管在何处。 核心网络引擎是用 Go 编写的以提高性能，但是当我们最初要求 Python 开发人员使用我们的 CLI 工具并解析文本输出时，它引入了巨大的摩擦。为了解决这个问题，我们的 pip install 现在直接捆绑本机 Go 二进制文件。您只需启动守护进程（pilot-daemon start），我们的 Python SDK 使用 CGO 和 ctypes 与底层的网络堆栈进行交互。您无需重新实现协议逻辑即可获得完整的类型提示、Pythonic 错误处理和上下文管理器。 通过直接在节点之间广播数据，您可以消除通过云提供商路由状态更新所带来的 100 毫秒到 300 毫秒的延迟损失。网络边界成为信任边界，所有数据都保留在 AES-256-GCM 加密的 UDP 隧道内。 您无需编写 API 样板，而是使用本机 Python 上下文管理器： codePython from Pilotprotocol import Driver with Driver() as d: # 通过其虚拟地址直接通过防火墙拨打另一个代理d.dial(“research-agent:1000”) as conn: conn.write(b“这是上下文有效负载...”) response = conn.read(4096)  Pilot 协议是 AGPL-3.0 下的开源协议。您可以在 PyPI 上获取 Python 包或阅读 pilotprotocol.network 我们将非常感谢与代理合作的开发人员提供的任何反馈！   由   提交/u/BiggieCheeseFan88  [链接] [评论]]]></description>
@@ -109,6 +102,13 @@
       <description><![CDATA[开源版本和企业版本已经存在很大差异，对一个版本进行基准测试并购买另一个版本并不是升级，而是产品转换。 rbac、高级速率限制、在生产中重要的插件、所有企业。 供应商需要收入，这很好。但是测试操作系统并获得企业报价意味着您从未真正评估过您所购买的产品。   由   提交/u/Justin_3486  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1rslp3x/kong_open_source_vs_enterprise_what_features_are/</guid>
       <pubDate>Fri, 13 Mar 2026 12:16:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何正确做开源项目？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</link>
+      <description><![CDATA[嗨，我有一个非常有用的项目的想法，它对我有用，我想对其他人也有用，我决定将它开源，我看到了 openClaw，我想知道如何正确地做到这一点？一个人怎样才能正确开始呢？任何 101 指南或一些相关圣经😅 任何帮助表示赞赏，谢谢！    由   提交 /u/PazCrypt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1rs2cib/how_do_i_do_open_source_projects_correctly/</guid>
+      <pubDate>Thu, 12 Mar 2026 20:33:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
