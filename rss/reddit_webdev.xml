@@ -4,7 +4,91 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 18 Mar 2026 07:08:23 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 10:01:34 GMT</lastBuildDate>
+    <item>
+      <title>我为 React 构建了一个受 shadcn/ui 启发的 PDF 组件库 — pdfx 添加标题（如 shadcn 添加按钮）。寻找诚实的反馈。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwzbs9/i_built_a_shadcnuiinspired_pdf_component_library/</link>
+      <description><![CDATA[      嘿 r/reactjs， 我对 React 中的 PDF 生成感到沮丧有一段时间了。选项基本上是： - 编写原始的`@react-pdf/renderer` JSX（冗长，没有设计系统） - 付费购买将你锁定的 SaaS 工具 - 祈祷有人制作了一个有点合适的模板 所以我构建了 **PDFx** - 一个受 shadcn/ui 启发的复制粘贴 PDF 组件库。 想法：你运行而不是安装包，而是运行`pdfx add header` 并且该组件位于您的代码库中。您拥有它，修改它，设置主题。 --- ## 现在正在运行的内容 (alpha) **CLI 命令：** `pdfx init`、`pdfx add`、`pdfx list`、`pdfx diff`、`pdfx 主题切换` **20 个组件：** 标题、文本、表格、数据表、徽章、卡片、表单、图形、签名、页眉、页脚等等 **主题系统**具有专业、现代、简约预设 **7个模板：** 3种发票样式+4种报告类型 --- ##快速入门 ```bash npx @akii09/pdfx-cli@alpha init pdfx添加标题文本表格 ``` - GitHub：[github.com/akii09/pdfx](https://github.com/akii09/pdfx) ## 我真正想弄清楚的是什么  复制粘贴模型是 PDF 的正确方法吗，还是您更喜欢合适的 npm 包？ 什么模板实际上有用吗？ （发票？简历？报告？还有别的吗？） 对于初次体验来说，CLI 摩擦是否太高？  如果需要的话，可以骂我。 Alpha = 存在粗糙的边缘，我宁愿了解它们。   由   提交/u/Adept-Bid-6304   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwzbs9/i_built_a_shadcnuiinspired_pdf_component_library/</guid>
+      <pubDate>Wed, 18 Mar 2026 09:40:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>经过六个月的大量使用 Copilot 后，拉出了我们的完整依赖关系树，其中有一些我真的无法解释的软件包</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwz98t/pulled_our_full_dependency_tree_after_six_months/</link>
+      <description><![CDATA[有些是我可能会做出的很好、合理的选择。少数我不记得添加过，当我查找它们时，它们来自发布历史记录最少且没有其他包的帐户。最好的猜测是 Copilot 在开发过程中建议了它们，我接受了建议，代码有效，然后我继续前进，而没有查看包的实际来源。 我们谈论了很多关于审查 AI 生成的逻辑，但很少谈论 AI 生成的包决策，也许这种差距比人们意识到的更重要。只是好奇。   由   提交 /u/Old_Inspection1094   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwz98t/pulled_our_full_dependency_tree_after_six_months/</guid>
+      <pubDate>Wed, 18 Mar 2026 09:36:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>React + FastAPI + 一台机器上的 10 个服务，没有容器。它效果很好，我拒绝道歉。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwz8ji/react_fastapi_10_services_on_one_machine_no/</link>
+      <description><![CDATA[我的副业项目与所有“现代”理念背道而驰。部署实践，我玩得很开心。 StellarSnip，视频处理 SaaS。长视频输入，短剪辑输出，人工智能提取、字幕、面部跟踪、音乐。这是它的部署方式。 前端是 React 18 + TypeScript + Vite + Tailwind + shadcn/ui，后端有两个 API 服务器的 FastAPI，Supabase 用于身份验证和数据库，Cloudflare R2 用于零出口存储，FFmpeg + Remotion 用于视频，YOLO 用于面部跟踪，Whisper 用于转录，Nginx 位于前端。 部署是一台机器，没有容器。所有 10 多个进程都在带有 Supervisord 的 RunPod GPU 实例上运行裸机。 nginx 路由流量，斜杠转到 React dist，它只是静态文件，/api/ 转到 8084 上的队列 API，/backend/ 转到 8081 上的主 API，/ws/ 代理 websockets。 为什么这是有效的。共享文件系统是一个超级大国。视频下载一次，然后转录、跟踪、字幕渲染器和 FFmpeg 都从同一路径读取。阶段之间没有上传下载。每个作业可节省几分钟时间。 GPU 共享使裸机更简单。 Whisper 和 YOLO 都需要 GPU。对于容器，您需要 nvidia-container-runtime 和 GPU 调度。裸机？ Python 中的异步信号量。完成。 前端部署是 npm run build。 nginx 已经提供了 dist/ 服务。零停机时间。 supervisord 可以正常工作。 Supervisorctl 重新启动 stellarsnip:worker。无需构建镜像，无需注册，无需滚动部署。 实时进度，每个作业都会经历大约 11 个阶段。前端通过 WebSocket 连接以获取实时更新、百分比、舞台名称、单个剪辑状态。 Supabase Realtime 用于初始作业状态，直接 WebSocket 用于精细进度。 是什么打破了这一点，规模。过去 50 个左右的并发用户我会拆分 GPU 服务。但现在我在基础设施上花费的时间为零，而所有时间都在产品上。这种权衡是值得的。 stellarsnip.com，粘贴任何 YouTube 链接，看看它是否有效。   由   提交 /u/Open_Box_60   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwz8ji/react_fastapi_10_services_on_one_machine_no/</guid>
+      <pubDate>Wed, 18 Mar 2026 09:34:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>你用figma AI做UI吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwz67d/do_you_use_figma_ai_for_ui/</link>
+      <description><![CDATA[我刚开始从事项目管理和全栈开发。没有工作，只是一个从事项目的学生。现在在销售一个应用程序的过程中（基本上我为他们制作了一个应用程序，我在其中自动化了整个工作并使其变得如此容易工作，这之前真是太糟糕了）第一次会议进展顺利，但继续讨论问题。 全栈开发人员是否使用Figma作为UI？我喜欢后端+数据库+前端设置，但不太喜欢花时间让它看起来更漂亮。我刚刚尝试了figma AI；是由一所大学建议的，它对我来说看起来不错，只需提供详细的规格，就花了几分钟完成整个项目。 基本上我想知道开发人员是否也这样做，或者依赖人工智能进行 UI 是否不好，即使人工智能只是一个工具......   由   提交 /u/Professional-Past739   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwz67d/do_you_use_figma_ai_for_ui/</guid>
+      <pubDate>Wed, 18 Mar 2026 09:30:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>上个季度，我为 VC 回顾了 15 个人工智能构建的 MVP。 13 需要完全重写才能扩展。这是模式。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwz5kw/i_reviewed_15_aibuilt_mvps_for_vcs_last_quarter/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwz5kw/i_reviewed_15_aibuilt_mvps_for_vcs_last_quarter/</guid>
+      <pubDate>Wed, 18 Mar 2026 09:29:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 API 时遇到的最烦人的数据问题是什么</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwymbm/whats_the_most_annoying_data_issue_youve_run_into/</link>
+      <description><![CDATA[最近我注意到我遇到的很多问题并不是真正的 API 问题，而是从 API 返回的数据问题。 一开始一切看起来都很好，但随后就会出现问题。响应之间的字段不一致，值在您不期望时显示为空，或者结构稍微偏离，从而导致应用程序出现问题。 我遇到过一些情况，在了解问题所在后，跟踪数据问题比修复数据问题花费的时间更长。 你们遇到过什么样的 API？   由   提交 /u/py_vel26   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwymbm/whats_the_most_annoying_data_issue_youve_run_into/</guid>
+      <pubDate>Wed, 18 Mar 2026 08:57:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>我有轻微色盲，所以我使用我的妻子作为每个重要 UI 的 QA 步骤。您的低技术设计健全性检查是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwxytd/im_slightly_colour_blind_so_i_use_my_wife_as_a_qa/</link>
+      <description><![CDATA[没那么严重。我可以看到颜色，但除非有特殊模式，否则避免玩三排。但我最近才发现，有时颜色的感觉完全不对劲。我只是不能总是相信自己的感觉，判断我的设计是好看还是有毒的彩色用户界面。由于某种原因，与普通人相比，颜色对我来说更加中性。 我在我加入的一家初创公司中发现了这一点。每次当我们投票选出最喜欢的设计时，我的设计几乎从未进入前二名。有趣的是，我在此之前做了一些业余项目，感觉还不错。无法想象如果我的有毒绿色皮卡丘广告即使对我来说也是有毒的，那么在其他人看来会是什么样子。 （转换不错） 所以现在我有一个仪式。在任何东西交给用户/项目或同事之前，我都会向我的妻子展示。她不懂技术。她不知道这个组件的用途。我只是问：“你觉得怎么样？”如果她犹豫了，那就出问题了。如果她问“你应该玩一下颜色吗？”，那就回去。 我知道，这是一个糟糕的质量保证过程。写到这里我有点羞愧。但它使我避免了许多错误。对比度问题、技术上通过但人眼感觉不对的颜色选择。对我来说看起来不错的东西，然后她说“那个绿色有点奇怪” 问题：我不知道我不知道什么。我可以通过对比度检查，我可以通过色盲模拟工具运行它，但我不能完全相信我自己的审美判断。 好奇其他人使用什么。尤其是在没有专门设计师的情况下进行设计工作的开发人员。模拟工具？具体插件？真实的人类？其他配偶或室友？ 如果您也是色盲并构建 UI：您如何补偿？   由   提交 /u/pink-supikoira   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwxytd/im_slightly_colour_blind_so_i_use_my_wife_as_a_qa/</guid>
+      <pubDate>Wed, 18 Mar 2026 08:15:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>辞职创业不知道如何进一步发展</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwxsnx/quit_job_to_start_a_startup_dont_know_how_to_move/</link>
+      <description><![CDATA[我在一家初创公司担任全栈开发人员，有大约 2 年的经验，薪资不错，生活也很舒适 但我不断看到人们推出副业项目，收入也更高，所以我开始思考为什么不是我 尝试寻找想法一段时间，但没有找到任何值得构建的东西 然后在排灯节期间我回家，我父亲说他想要Geeta shloks 的每日消息，以便他可以在工作时阅读或收听，我查了一下，有一些服务，但他们感觉非常垃圾，就像充满了广告，老实说很烦人 所以我随机搜索了一个域名 dailygeeta[.]com，该死的没有人拥有它，感觉这就是我的机会，我可以很好地营销它，购买了该域名并构建了我认为结果相当不错的产品 最初我得到了一些付费用户，这给了我信心，所以我辞去工作全力以赴 现在事情越来越艰难，管理开支很难，我像个疯子一样冷漠地给100个人发邮件，越来越难以维持 现在我正在考虑放弃创业重新工作，感觉我浪费了6个月的黄金时间 有什么建议请帮忙，低调如果有人想看看dailygeeta[.]com，不确定链接规则 谢谢大家   由   提交/u/Icy-Roll-4044   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwxsnx/quit_job_to_start_a_startup_dont_know_how_to_move/</guid>
+      <pubDate>Wed, 18 Mar 2026 08:04:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>第一个管理面板！该做什么和不该做什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwxkru/first_admin_panel_dos_and_donts/</link>
+      <description><![CDATA[制作我的第一个管理面板，我有一些真正的安全问题。 用例： - 管理和支持能够查看和更改订阅状态的用户 - 显示分析 - 需要从多个 IP 地址访问 目前的工作原理： - supabase 具有 MFA - 用户在 supabase 中被授予管理员状态 - 只有该 ID 才能访问它。 - 强密码 - 每次登录时的 MFA TOTP/身份验证应用 - 随机页面名称而不是 /admin.html - 不会向 localStorage 或 sessionStorage - 不依赖 CDN - 速率限制（客户端） - 目前也在查看服务器端。 /edit：另外 - 页面名称是随机的 /ewrgregerg.html 而不是 /admin.html 还有其他吗？ 指定的管理页面是否会给我带来安全问题，或者我是否应该让某些登录电子邮件地址与其他人拥有不同的仪表板？管理员会以通常的方式登录，但仪表板与其他人不同。 或者仅依赖 supabase 来满足所有管理员需求？ 谢谢！   由   提交 /u/TemporaryLevel922   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwxkru/first_admin_panel_dos_and_donts/</guid>
+      <pubDate>Wed, 18 Mar 2026 07:50:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>爱龙</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwxffx/ailone/</link>
+      <description><![CDATA[我写了一些困扰我一段时间的事情——人工智能辅助开发的孤独感，以及当我们用代理取代同事时我们失去的东西。很好奇你是否也有同样的感觉。   由   提交/u/3141592rate  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwxffx/ailone/</guid>
+      <pubDate>Wed, 18 Mar 2026 07:41:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何解除对我的逮捕？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwx7k9/how_to_get_my_arrest_removed/</link>
+      <description><![CDATA[大家好，我真的需要一些建议。 不久前，我因与前任发生关系而被捕。我发现他出轨并试图离开，结果他却试图陷害我家庭暴力。这个案子从来没有任何进展——没有提出任何指控，我也没有上法庭，而是由我的律师处理。 问题是当地的一个城市新闻网站发表了一篇带有我名字的逮捕日志/文章，现在当你用谷歌搜索我时，它就会出现。没有后续或更正，所以它看起来确实具有误导性和破坏性。 这是我迄今为止尝试过的： - 我直接向出版商发送电子邮件，要求他们删除它 → 他们拒绝了，他是一个十足的混蛋。 - 我问他们是否至少可以更新它或添加上下文 → 没有回应 - 我提交了 Google 删除/重新索引请求 → 重新索引有效几天后又回来了。我尝试将 Google 删除并拒绝  - 我已经研究了其他报告/删除选项 → 也拒绝了 我知道他们可以发布逮捕信息，但考虑到实际上没有任何结果，而且情况本身也不像看上去的那样，这感觉真的很不公平。 此时，我不确定我还能实际做些什么。我担心我潜在的求职机会会因此受到影响。另外，如果有人查找我，它就会出现，这让我感到焦虑。 以前有人处理过类似的事情吗？ - 你能将其删除或取消索引吗？ - 是否值得尝试律师，还是太过分了？ （我的律师说任何律师都无能为力） - 有没有真正对你有用的策略？ 我真的很感激任何指导或个人经验。谢谢🙏   由   提交/u/blueberry1237  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwx7k9/how_to_get_my_arrest_removed/</guid>
+      <pubDate>Wed, 18 Mar 2026 07:27:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的经验是完全使用人工智能编写网络应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/1rwx203/my_experience_vibe_coding_a_web_app_completely/</link>
+      <description><![CDATA[我想了解当今可用工具的状态，这给我留下了深刻的印象。该工具的实用价值很低，因为今天的招聘信息很少会导致聘用，但我想看看代理能有多聪明？ 现在我个人认为人工智能只是一个像其他工具一样的工具；方式已经改变，也许我们应该专注于更新我们的心态。  大家觉得怎么样？  这是该项目：https://github.com/Blakeinstein/HuntOS 这是一个简短的文章，reddit 由于某种原因阻止了开发点， https://dev&lt;DOT&gt;to/blainesensei/huntos-an-automated-job-application-tool-and-my-experience-vibe-coding-1ie   由   提交/u/Sigiz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1rwx203/my_experience_vibe_coding_a_web_app_completely/</guid>
+      <pubDate>Wed, 18 Mar 2026 07:17:30 GMT</pubDate>
+    </item>
     <item>
       <title>有人正在学习 React/nextjs 并想保持联系吗？</title>
       <link>https://www.reddit.com/r/webdev/comments/1rwwuej/anyone_learning_reactnextjs_and_would_like_to/</link>
@@ -25,90 +109,6 @@
       <description><![CDATA[ Sandpack：不再主动维护。存储库保持公开状态。 CodeSandbox CI：于 2026 年 4 月 15 日关闭。在此之前迁移到替代 CI 提供商。 CodeSandbox Repos：新存储库导入于 2026 年 4 月 15 日禁用。于 2026 年 7 月 15 日完全关闭。GitHub 迁移指南下面包含代码空间。 浏览器沙箱和 Devbox：没有变化。这些仍然有效并受到支持。  我们想分享一些真正让我们兴奋的东西：我们花了数年时间为 CodeSandbox 构建的基础设施事实证明是人工智能时代近乎完美的基元。快速、隔离、可编程的环境 - 这正是人工智能代理大规模编写、运行和迭代代码时所需要的。 提醒一下，CodeSandbox 于 2024 年底被 Together AI 收购。   由   提交/u/Raz_Aqua  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rwwd0e/codesandbox_deprication_notice_and_focusing_on_ai/</guid>
       <pubDate>Wed, 18 Mar 2026 06:34:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一份我作为自由开发者实际使用的人工智能提示的备忘单，在这里分享</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwuv8b/i_made_a_cheat_sheet_of_ai_prompts_i_actually_use/</link>
-      <description><![CDATA[做了一段时间的自由职业，并开始保留一份提示文档 ，它实际上节省了我的时间，不是通用的 东西，而是针对真实情况的提示，例如向客户解释一个奇怪的错误，在午夜编写范围文档，或者为我没有的代码生成单元测试 想要触摸。 最终将其中的 50 个整理成一个适当的包， 涵盖代码/调试、客户电子邮件、项目规划、 提案和文档。 很高兴在  评论中分享一些示例和链接（如果有用）。   由   提交 /u/Zestyclose_Public609   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwuv8b/i_made_a_cheat_sheet_of_ai_prompts_i_actually_use/</guid>
-      <pubDate>Wed, 18 Mar 2026 05:10:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>定制商店的最佳方法:,)</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwucp7/best_approach_for_custom_store/</link>
-      <description><![CDATA[大家好， 我目前正在为我的棋盘游戏出版初创公司建立一个网站。我有扎实的前端背景，所以我使用经典的 HTML、CSS 和普通 JavaScript 从头开始​​构建 UI，完全避免使用 React 或任何其他重型框架。 我现在的瓶颈是后端架构。我需要构建一个自定义店面，其中包括产品展示、功能性购物车和 Stripe 集成。这也不是基本设置，因为我还需要处理每月订阅付款以及标准购买。我想要控制一切的外观和行为，这正是我避免使用严格的电子商务平台及其模板的原因。 我已经准备好我的网络托管，并且计划在 PythonAnywhere 上运行后端。任何人都可以推荐专注于从头开始实施自定义店面的资源、指南或信息吗？我想学习一些足够强大的东西来处理购物车和定期付款，而不需要“vibe-coding”，但我也想要一些不需要我学习庞大而繁重的后端框架就可以让它工作的东西。 任何关于针对这个特定用例将普通 JS 购物车连接到 Python/Stripe 后端的建议都会很棒。提前致谢！   由   提交/u/goerman64  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwucp7/best_approach_for_custom_store/</guid>
-      <pubDate>Wed, 18 Mar 2026 04:43:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人可以告诉我们这些统计数据在 3 个月内是否良好（从 3 个月前开始）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwuard/can_someone_tells_if_these_stats_are_good_for_3/</link>
-      <description><![CDATA[       由   提交 /u/Proper_Violinist1371   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwuard/can_someone_tells_if_these_stats_are_good_for_3/</guid>
-      <pubDate>Wed, 18 Mar 2026 04:40:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>HTML：完整参考 (1998)</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwtvig/html_the_complete_reference_1998/</link>
-      <description><![CDATA[      我在翻阅一些旧东西时发现了这本 1998 年的 HTML 参考书！我以前也有一本古老的 Dreamweaver 手册..   由   提交/u/3hy_  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwtvig/html_the_complete_reference_1998/</guid>
-      <pubDate>Wed, 18 Mar 2026 04:18:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>标记对于 SEO 到底有多重要？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwslap/how_important_is_markup_really_for_seo/</link>
-      <description><![CDATA[      我可以发现一些标记缺陷，但它仍然在 Google 的“Musk Foundation”排名中名列前茅。  像这样一个非常简单的网站有一些好处。没有分析，没有 js，没有 css，没有图像，没有膨胀，只是一个网站。  （说实话，我认为 Cloudflare 在免费分析方面做得非常出色） 更多网站应该做同样的事情吗？   由   提交/u/avidrunner84  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwslap/how_important_is_markup_really_for_seo/</guid>
-      <pubDate>Wed, 18 Mar 2026 03:16:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>一些免费的SVG品牌图标库供参考</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwsayo/some_free_svg_brand_icon_libraries_for_reference/</link>
-      <description><![CDATA[      我的一个项目需要品牌SVG，找到了一些不错的。放在此处以防有人需要它们  thesvg - thesvg.org (github) - 4,700 多个图标，有颜色 + 单色 + 文字标记变体，还有 AWS 图标。免费 CDN、npm 包 简单图标 - simpleicons.org (github) - 3,100 多个图标，全部单色/单色 Svgl - svgl.app (github) - 较小的集合，干净的 UI Brandfetch - Brandfetch.com - 已完善，但需要 API 密钥，免费层有限制  希望这可以帮助某人   由   提交/u/Familiar-Classroom47  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwsayo/some_free_svg_brand_icon_libraries_for_reference/</guid>
-      <pubDate>Wed, 18 Mar 2026 03:03:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我获得了提名，但我不知道为什么我对此感到不高兴</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwpoq9/i_got_nominated_and_im_not_sure_why_i_dont_feel/</link>
-      <description><![CDATA[      我根本没想到会有回应。第一次申请这个，不确定它是什么，没有做太多研究，我知道有很多人注册了它，但我不知道我猜测的困难或申请这些东西背后的复杂性，这是我应该高兴的事情，还是它只是被高估了，还是完全是别的东西。   由   提交/u/Renomase  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwpoq9/i_got_nominated_and_im_not_sure_why_i_dont_feel/</guid>
-      <pubDate>Wed, 18 Mar 2026 01:07:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>最近编程内容感觉……空虚？还有人厌倦了与人工智能相关的讨论吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwp9qa/programming_content_feels_empty_lately_anyone/</link>
-      <description><![CDATA[免责声明：这不是反人工智能的讨论。  最近，每次我打开 Twitter 或 YouTube 进行编程内容时，一切都好像变成了同一个对话，“编码代理这个，编码代理那个”，“什么技能是面向未来的？”，“上下文自述最佳实践”......一遍又一遍相同的谈话要点。 我明白了，这是一个很大的转变，它是新的，人们正在探索，但已经有一段时间了现在我们仍在探索。但在这一点上，感觉人们只是一遍又一遍地重新表述相同的想法，这甚至不再是关于构建东西，这只是无休止的猜测。 奇怪的是，直到我观看了 tsoding 推荐的关于 3D 图形的视频这个视频，这家伙刚刚打开了一个 html 画布并解释了透视投影方程，我才意识到这有多困扰我。以及它是如何工作的，只是纯粹的好奇心和一步步构建一些东西。 感觉就像我一段时间以来第一次喜欢编程内容。它提醒了我为什么我首先喜欢这些东西。 现在感觉很多内容都针对关注和炒作进行了优化。我并不反对人工智能或我每天使用它的任何东西，我只是怀念当编程内容更多地是关于“看看我构建了什么以及它是如何工作的”时。不管它是如何建造的。 还有其他人有这样的感觉吗？    由   提交 /u/HiddenGriffin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwp9qa/programming_content_feels_empty_lately_anyone/</guid>
-      <pubDate>Wed, 18 Mar 2026 00:49:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该购买什么不太昂贵的 MacBook 来进行网络和反应本机应用程序开发？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwnjua/what_not_too_costly_macbook_should_i_get_for_web/</link>
-      <description><![CDATA[大家好， 我需要将我的 Android 应用程序转换为 iOS，感谢 Apple，我需要购买一台 Apple 电脑（但我有兴趣尝试一下 Mac。尽管如此）。 我对 Apple 产品一无所知，但我正在寻找一台可以轻松构建应用程序的笔记本电脑。 我还读到，我应该留意旧的MacBook 就好像您无法安装最新的操作系统一样，您将无法在其上进行构建... 有人能指出我正确的方向吗？我宁愿买二手的，这样就不用花我的钱了。 哦，如果你也知道便宜的 iPhone，我很感兴趣。 （我只有 2019 年的 iPad Air）。 谢谢！   由   提交/u/bid0u   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwnjua/what_not_too_costly_macbook_should_i_get_for_web/</guid>
-      <pubDate>Tue, 17 Mar 2026 23:39:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建了一个人工智能图标生成器，它接受描述，输出一组精美的图标。现在您可以直接导出为 React 组件。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwmsex/built_an_ai_icon_generator_that_takes_a/</link>
-      <description><![CDATA[我不断遇到相同的墙体建筑副项目，花了太长时间寻找实际上彼此匹配的图标。所以我构建了 Icora。 你用简单的英语描述一个主题（“圆形金融科技仪表板”、“有趣的食品配送应用程序”），它会生成一个完整、一致的图标包，命名和样式相同。不是随机的一次性事件，而是一个实际的系统。 对于开发人员来说，我最自豪的部分是：您可以将整个系统直接导出为 React 或 Vue 组件。将其放入您的项目中即可完成。 如果您想在发货前调整形状、调整笔画粗细或应用神奇的平滑通道，还可以使用浏览器内编辑器 (Icon Studio)。 从每月的积分开始免费。针对更频繁使用和市场的付费计划（您实际上可以在其中出售您生成的包）。 https://icora.io 很想听听您想要导出什么格式或框架，或者当前图标工作流程中存在哪些烦人的问题。   由   提交/u/FellowStadian  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwmsex/built_an_ai_icon_generator_that_takes_a/</guid>
-      <pubDate>Tue, 17 Mar 2026 23:10:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>有使用 Aspire 的非 .NET 开发人员吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwmm27/any_nonnet_devs_using_aspire/</link>
-      <description><![CDATA[我看到很多人说“Aspire 不仅限于 .NET 或 Azure！”这似乎是真的，但是，我还注意到，我几乎只在 .NET 圈子中看到对 Aspire 的讨论。  所以我很想知道是否有不使用 .NET 进行开发的人使用过 Aspire，如果是的话，他们的体验如何。   由   提交 /u/Perfect-Junket-165   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwmm27/any_nonnet_devs_using_aspire/</guid>
-      <pubDate>Tue, 17 Mar 2026 23:04:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>你们使用什么工具为客户开具发票？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rwmg0h/what_tools_are_you_guys_using_for_invoicing_your/</link>
-      <description><![CDATA[我从事自由职业多年，一直困扰我的一件事是发送发票后盲目开票的感觉。 随着时间的推移，我使用了很多工具，它们或多或少都可以帮助您创建和发送发票。但在那之后，我通常只能猜测。客户真的看到了吗？它落入垃圾邮件了吗？他们忽视它吗？我总是在不知道发生了什么的情况下手动跟进。 我一直困扰的另一件事是客户详细信息、付款信息和笔记分散在不同的地方。一部分在电子邮件中，一部分在文档中，一部分在电子表格中。 这种挫败感促使我开始为自己构建一些东西。不过，我不想发表有关该产品的文章。我更好奇这是否只是我的问题，还是其他自由职业者也处理同样的问题。 你们真的知道客户何时看到了您的发票，还是您也只是发送它并希望得到最好的结果？   由   提交 /u/heyitsaif   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rwmg0h/what_tools_are_you_guys_using_for_invoicing_your/</guid>
-      <pubDate>Tue, 17 Mar 2026 22:58:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
