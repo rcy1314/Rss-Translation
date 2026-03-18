@@ -4,13 +4,13 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Wed, 18 Mar 2026 05:00:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 07:07:04 GMT</lastBuildDate>
     <item>
-      <title>TEMM1E v3.0.0 — 用于 AI 代理运行时的群体智能</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtizu/temm1e_v300_swarm_intelligence_for_ai_agent/</link>
-      <description><![CDATA[TL;DR：我们教人工智能代理将复杂的任务分配给多个并行工作人员，这些工作人员通过气味信号进行协调 - 就像蚂蚁，而不是聊天。结果：速度提高 5.86 倍，成本降低 3.4 倍，质量相同。零协调令牌。 研究论文：https://github.com/nagisanzenin/temm1e/blob/main/docs/swarm/RESEARCH_PAPER.md --- 大多数多代理框架（AutoGen、CrewAI、LangGraph）通过让代理相互对话来协调代理。每条协调消息都是一次 LLM 调用。每个 LLM 调用都需要花费代币。协调开销可能超出实际工作量。 我们问：如果代理之间根本不交谈怎么办？ TEMM1E v3.0.0 引入了“Many Tems”功能— 一个群体智能系统，其中多个人工智能代理工作人员通过污名进行协调：通过环境信号进行间接通信。借鉴自蚁群优化，适用于 LLM 代理运行时。 工作原理如下：  您发送一个复杂的请求（“构建 5 个 Python 模块”） Alpha（协调器）将其分解为任务依赖关系图 — 一个 LLM 调用 一组 Tems（工作人员）生成 - 真正的并行 tokio 任务 每个 Tem 通过原子 SQLite 事务声明任务（无分布式锁） Tems 在工作时发出气味信号（时间衰减信息素） - “我完成了”、“我被困住了”、“这很难” 其他Tems 读取这些信号来选择他们的下一个任务 - 纯算术，零 LLM 调用 所有任务完成时结果聚合  关键见解：处理 12 个子任务的单个代理在上下文中携带所有先前的输出。到子任务 12 时，上下文增长了 28 倍。每个额外的子任务成本都会更高，因为 LLM 会读取之前的所有内容 - 二次增长：h*m(m+1)/2。 Pack 工作人员仅携带其任务描述 + 依赖任务的结果。无论存在多少个子任务，上下文都保持在约 190 字节。线性，而非二次。 基准（真实的 Gemini 3 Flash API 调用，非模拟）： 12 个独立函数：单个代理 103 秒，打包 18 秒。速度提高 5.86 倍。 7,379 个代币与 2,149 个代币。便宜 3.4 倍。质量：均 12/12 通过测试。 5 个并行子任务：单个代理 7.9 秒，打包 1.7 秒。速度提高 4.54 倍。相同的令牌（1.01x 比率 - 证明零浪费）。 简单消息（“你好”）：正确打包不会激活。零开销。不可见。 这与其他多代理系统有何不同： 零协调令牌。 AutoGen/CrewAI 使用 LLM 到 LLM 聊天进行协调——每条消息都会产生费用。我们的气味场是算术的（指数衰减、杰卡德相似度、叠加）。数学比单个令牌便宜。 对于简单任务来说是不可见的。分类器（已经在每条消息上运行）决定。如果它说“简单”或“标准” — 单一代理，零开销。 Pack 仅针对真正复杂的多交付任务激活。 任务选择方程是 40 行算术，而不是 LLM 调用： S = 亲和力 ^2.0 * 紧急度 ^1.5 * (1-难度)^1.0 * (1-失败)^0.8 * 奖励 ^1.2 1,535 次测试。仅在 swarm crate 中就有 71 个，其中两个证明了真正的并行性（4 个工作人员在约 200 毫秒内完成 200 毫秒的任务，而不是约 800 毫秒）。 内置 Rust。 17 箱。开源。麻省理工学院许可。该研究论文包含每个基准命令 - 您可以使用 API 密钥自己重现每个数字。 我们了解到： 群对 LLM 处理“做这 7 件事”的单轮任务没有帮助。在一个回应中。没有历史积累需要消除。当任务涉及上下文增长的多轮工具循环时，它会有所帮助 - 这就是真正的代理工作实际发生的方式。 我们在 Gemini Flash Lite（0.075 美元/M 输入）、Gemini Pro 和 GPT-5.2 上运行了基准测试。实验总成本：30 美元预算中的 0.04 美元。完整的实验报告包括群体失败的每个场景，而不仅仅是群体获胜的场景。 https://github.com/nagisanzenin/temm1e   由   提交 /u/No_Skill_8393   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtizu/temm1e_v300_swarm_intelligence_for_ai_agent/</guid>
-      <pubDate>Wed, 18 Mar 2026 04:00:43 GMT</pubDate>
+      <title>即使在人工智能出现之前，开发人员不是总是复制代码吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwuq8i/didnt_developers_always_copy_code_even_before_ai/</link>
+      <description><![CDATA[在围绕 AI 编码工具的所有争论中，我一直在思考人们如何谈论“开发人员现在只是复制 AI 代码。” 但是如果你回顾过去，复制代码一直是工作流程的一部分。在人工智能工具出现之前，大多数人会搜索解决方案、打开 Stack Overflow 线程、检查 GitHub 存储库，或者阅读博客文章并改编其中的片段。很少有人完全从头开始编写所有内容。 现在，Copilot、Cursor、Claude 等工具，甚至 Cosine 或 Continue 等较小的工具都会为您生成起点，而无需您在一堆选项卡中进行搜索。您仍然需要阅读它、修改它并了解它如何适合您的项目。 人工智能生成的代码真的与开发人员多年来重复使用代码示例的方式不同吗？或者它实际上改变了人们编程的方式吗？   由   提交 /u/CarobOk1802   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwuq8i/didnt_developers_always_copy_code_even_before_ai/</guid>
+      <pubDate>Wed, 18 Mar 2026 05:02:53 GMT</pubDate>
     </item>
     <item>
       <title>研究人员希望将人工智能和机器人技术应用于养猪工厂化养殖，作为替代人类工人的一种方式</title>
@@ -62,7 +62,7 @@
       <pubDate>Tue, 17 Mar 2026 18:29:08 GMT</pubDate>
     </item>
     <item>
-      <title>这个 TikTok 有 2600 万浏览量，却没有人说它是人工智能。这才是真正的奇点。</title>
+      <title>这个TikTok有2600万的浏览量，但没有人说它是人工智能。这才是真正的奇点。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwe8hz/this_tiktok_has_26_million_views_and_no_one_is/</link>
       <description><![CDATA[如果你看他的视频，你可以清楚地看到这只是人工智能在宣传它的垃圾应用程序。更可悲的是，评论中没有人提到这一点。   由   提交/u/Grandma-Vibes-Yey   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwe8hz/this_tiktok_has_26_million_views_and_no_one_is/</guid>
