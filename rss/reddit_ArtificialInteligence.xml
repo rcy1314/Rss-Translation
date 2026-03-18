@@ -4,13 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Wed, 18 Mar 2026 02:38:40 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 05:00:37 GMT</lastBuildDate>
     <item>
-      <title>推出世界上第一个用氢思考的人工智能半导体</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwpi5v/introducing_the_worlds_first_ai_semiconductor/</link>
-      <description><![CDATA[韩国研究人员打造了世界上第一个利用氢来控制记忆和学习的两端人工智能芯片。   由   提交/u/Brighter-Side-News  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwpi5v/introducing_the_worlds_first_ai_semiconductor/</guid>
-      <pubDate>Wed, 18 Mar 2026 00:59:59 GMT</pubDate>
+      <title>TEMM1E v3.0.0 — 用于 AI 代理运行时的群体智能</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtizu/temm1e_v300_swarm_intelligence_for_ai_agent/</link>
+      <description><![CDATA[TL;DR：我们教人工智能代理将复杂的任务分配给多个并行工作人员，这些工作人员通过气味信号进行协调 - 就像蚂蚁，而不是聊天。结果：速度提高 5.86 倍，成本降低 3.4 倍，质量相同。零协调令牌。 研究论文：https://github.com/nagisanzenin/temm1e/blob/main/docs/swarm/RESEARCH_PAPER.md --- 大多数多代理框架（AutoGen、CrewAI、LangGraph）通过让代理相互对话来协调代理。每条协调消息都是一次 LLM 调用。每个 LLM 调用都需要花费代币。协调开销可能超出实际工作量。 我们问：如果代理之间根本不交谈怎么办？ TEMM1E v3.0.0 引入了“Many Tems”功能— 一个群体智能系统，其中多个人工智能代理工作人员通过污名进行协调：通过环境信号进行间接通信。借鉴自蚁群优化，适用于 LLM 代理运行时。 工作原理如下：  您发送一个复杂的请求（“构建 5 个 Python 模块”） Alpha（协调器）将其分解为任务依赖关系图 — 一个 LLM 调用 一组 Tems（工作人员）生成 - 真正的并行 tokio 任务 每个 Tem 通过原子 SQLite 事务声明任务（无分布式锁） Tems 在工作时发出气味信号（时间衰减信息素） - “我完成了”、“我被困住了”、“这很难” 其他Tems 读取这些信号来选择他们的下一个任务 - 纯算术，零 LLM 调用 所有任务完成时结果聚合  关键见解：处理 12 个子任务的单个代理在上下文中携带所有先前的输出。到子任务 12 时，上下文增长了 28 倍。每个额外的子任务成本都会更高，因为 LLM 会读取之前的所有内容 - 二次增长：h*m(m+1)/2。 Pack 工作人员仅携带其任务描述 + 依赖任务的结果。无论存在多少个子任务，上下文都保持在约 190 字节。线性，而非二次。 基准（真实的 Gemini 3 Flash API 调用，非模拟）： 12 个独立函数：单个代理 103 秒，打包 18 秒。速度提高 5.86 倍。 7,379 个代币与 2,149 个代币。便宜 3.4 倍。质量：均 12/12 通过测试。 5 个并行子任务：单个代理 7.9 秒，打包 1.7 秒。速度提高 4.54 倍。相同的令牌（1.01x 比率 - 证明零浪费）。 简单消息（“你好”）：正确打包不会激活。零开销。不可见。 这与其他多代理系统有何不同： 零协调令牌。 AutoGen/CrewAI 使用 LLM 到 LLM 聊天进行协调——每条消息都会产生费用。我们的气味场是算术的（指数衰减、杰卡德相似度、叠加）。数学比单个令牌便宜。 对于简单任务来说是不可见的。分类器（已经在每条消息上运行）决定。如果它说“简单”或“标准” — 单一代理，零开销。 Pack 仅针对真正复杂的多交付任务激活。 任务选择方程是 40 行算术，而不是 LLM 调用： S = 亲和力 ^2.0 * 紧急度 ^1.5 * (1-难度)^1.0 * (1-失败)^0.8 * 奖励 ^1.2 1,535 次测试。仅在 swarm crate 中就有 71 个，其中两个证明了真正的并行性（4 个工作人员在约 200 毫秒内完成 200 毫秒的任务，而不是约 800 毫秒）。 内置 Rust。 17 箱。开源。麻省理工学院许可。该研究论文包含每个基准命令 - 您可以使用 API 密钥自己重现每个数字。 我们了解到： 群对 LLM 处理“做这 7 件事”的单轮任务没有帮助。在一个回应中。没有历史积累需要消除。当任务涉及上下文增长的多轮工具循环时，它会有所帮助 - 这就是真正的代理工作实际发生的方式。 我们在 Gemini Flash Lite（0.075 美元/M 输入）、Gemini Pro 和 GPT-5.2 上运行了基准测试。实验总成本：30 美元预算中的 0.04 美元。完整的实验报告包括群体失败的每个场景，而不仅仅是群体获胜的场景。 https://github.com/nagisanzenin/temm1e   由   提交 /u/No_Skill_8393   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtizu/temm1e_v300_swarm_intelligence_for_ai_agent/</guid>
+      <pubDate>Wed, 18 Mar 2026 04:00:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>研究人员希望将人工智能和机器人技术应用于养猪工厂化养殖，作为替代人类工人的一种方式</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtbqu/researchers_look_to_use_ai_and_robotics_into_pig/</link>
+      <description><![CDATA[https://www.mdpi.com/2077-0472/16/3/334 “机器人系统能够进行自主巡检、精准送料和环境清洁，可有效缓解工厂劳动力短缺问题农场。它还在加强生物安全、优化管理流程和确保动物福利方面显示出巨大优势”   由   提交/u/CalpurniaSomaya   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwtbqu/researchers_look_to_use_ai_and_robotics_into_pig/</guid>
+      <pubDate>Wed, 18 Mar 2026 03:51:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能并不能缩小技能差距。它扩大了它。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rws7j4/ai_doesnt_close_the_skill_gap_it_widens_it/</link>
+      <description><![CDATA[民主化争论不断出现。人工智能降低了门槛，更多的人可以做更多的事情。 这在入门级可能是正确的，但我一直在思考进一步发展过程中会发生什么。  拥有强大工具的强大操作员不仅能改进，还能实现复合。训练有素的用户和普通用户之间的差距并没有缩小。它会加速。 工具不是变量。操作员是。 很好奇这里的人们是否也有同样的看法，或者认为随着时间的推移，拉平效应是真实的。您的经历是什么样的？   由   提交 /u/dsolo01   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rws7j4/ai_doesnt_close_the_skill_gap_it_widens_it/</guid>
+      <pubDate>Wed, 18 Mar 2026 02:59:29 GMT</pubDate>
     </item>
     <item>
       <title>我构建了一个可视化拖放式机器学习训练器（无需代码）。免费且开源。</title>
@@ -81,20 +95,6 @@
       <description><![CDATA[我是一名开发人员，在此之前我对 AI 很痴迷，这是一种自卫形式。但在 2025 年 12 月，我购买了 gpt codex 和 claude 的订阅。老实说，影响如此之大，以至于我还没有恢复过来，自从购买订阅以来，我几乎没有手工编写任何代码 而且这并不是说人工智能比我写得更好。关键是人工智能正在取代智力活动本身。这与工厂中的自动化机器取代人类劳动力绝对不一样 神经网络不仅仅是代码自动化，而是整个智能的自动化。这就是人工智能的本质。原则上，出现的任何新任务都可以通过神经网络实现自动化。它不是机器，不是计算器，不是装配线，它是最广泛意义上的智能自动化 最近我一直在考虑放弃编程并进入科学（生物技术），进入大学并作为一名研究员发展，特别是因为我还很年轻。但恐怕我可能是对的。随着时间的推移，人工智能也将实现这一点，甚至对于科学家来说也是如此。尽管人工智能还不能产生真正新颖的想法，但过去几年其发展速度之快让我感到害怕   由   提交/u/kalmankantaja   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rw4nwt/are_we_cooked/</guid>
       <pubDate>Tue, 17 Mar 2026 12:06:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>大英百科全书因人工智能训练起诉 OpenAI</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rw2q4s/encyclopedia_britannica_sues_openai_over_ai/</link>
-      <description><![CDATA[“大英百科全书及其韦氏词典子公司已在曼哈顿联邦法院起诉 OpenAI，指控其滥用其参考资料来训练其人工智能模型。 大英百科全书在周五提交的诉状中表示，打开新选项卡微软支持的 OpenAI 使用其在线文章、百科全书和词典条目来教导其旗舰聊天机器人 ChatGPT 响应人类提示并“蚕食”机器人。大英百科全书的网络流量以及人工智能生成的内容摘要。”  https://www.reuters.com/legal/litigation/encyclopedia-britannica-sues-openai-over-ai-training-2026-03-16/   由   提交/u/talkingatoms  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rw2q4s/encyclopedia_britannica_sues_openai_over_ai/</guid>
-      <pubDate>Tue, 17 Mar 2026 10:26:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何将 5 分钟的 AI 提示变成团队 48 小时的工作</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rw0jvp/how_to_turn_a_5minute_al_prompt_into_48_hours_of/</link>
-      <description><![CDATA[Vibe Coding 太棒了。 我使用 Claude 在短短几分钟内完成了这次重构。 现在我的技术团队可以花整整一周的时间来审查它以确保它有效（现在不起作用） 我正在开发代码并同时创造就业机会   由   提交/u/tiguidoio  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rw0jvp/how_to_turn_a_5minute_al_prompt_into_48_hours_of/</guid>
-      <pubDate>Tue, 17 Mar 2026 08:10:11 GMT</pubDate>
     </item>
     <item>
       <title>人工智能将最颠覆哪些人们尚未关注的行业？</title>
