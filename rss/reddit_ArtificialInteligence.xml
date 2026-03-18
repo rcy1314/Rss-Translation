@@ -4,13 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Wed, 18 Mar 2026 19:07:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 21:39:42 GMT</lastBuildDate>
     <item>
-      <title>开源版本</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rxc0jf/open_source_release/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rxc0jf/open_source_release/</guid>
-      <pubDate>Wed, 18 Mar 2026 18:30:21 GMT</pubDate>
+      <title>我买了 200 美元的 Claude Code，所以你不必这么做！</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rxgy6u/i_bought_200_claude_code_so_you_dont_have_to/</link>
+      <description><![CDATA[我开源了我构建的内容： 免费工具：https://grape-root.vercel.app Github 存储库：https://github.com/kunal12203/Codex-CLI-Compact 加入 Discord（调试/反馈） 过去几个月我一直在大量使用 Claude Code，并且一直比预期更快地达到使用限制。 起初我想：“好吧，也许我的提示是太大” 但后来我开始深入研究令牌的使用。 我注意到的 即使是简单的问题，例如：“为什么身份验证流程取决于此文件？” Claude 会：  grep 跨存储库 打开多个文件 遵循依赖关系 接下来再次重新读取相同的文件转  单个流程花费~20k–30k 代币。 最糟糕的部分：每次后续操作 → 它都会再次执行相同的操作。 我尝试使用 claude.md 花了一整天的调整说明来修复它。 它有帮助......但是：  仍然重新读取很多 不可跨项目重用 切换存储库时重置  所以它没有解决根本问题。 实际问题： 大多数令牌使用都不是推理。这是上下文重建。Claude 每次都会重新发现相同的代码。 因此我构建了一个免费使用的 MCP 工具 GrapeRoot 基本上是您的存储库和 Claude 之间的一层。 它不是让 Claude 每次都进行探索，而是：  构建代码图表（函数、导入、关系） 跟踪已读取的内容 仅将相关文件预加载到提示中 避免再次重新读取相同的内容  结果（我的基准） 比较：  正常的 Claude 基于 MCP/工具的图表（我的早期版本） 预注入上下文（当前）  我所看到的：  平均便宜约 45% 在复杂任务上减少高达 80-85% 的代币 更少的回合（更少的来回搜索） 对更困难的问题有更好的答案  有趣部分 我期望节省成本。 但是，从正确的上下文开始实际上可以提高答案质量。 更少的搜索→更多的推理。 很好奇其他人是否也看到了这一点：  比预期更快地达到限制？ 会话感觉像是在不断重新启动？ 对重复的回购扫描感到恼火？  很想听听其他人是如何处理这个问题的。   由   提交/u/intellinker  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rxgy6u/i_bought_200_claude_code_so_you_dont_have_to/</guid>
+      <pubDate>Wed, 18 Mar 2026 21:28:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>本地法学硕士的记忆架构，通过维度层向上压缩对话——情节→信念→身份→原型。这是它的工作原理。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rxeisy/a_memory_architecture_for_local_llms_that/</link>
+      <description><![CDATA[我一直在为本地 LLM 构建一个名为 EigenFlame 的内存架构，我认为它与标准 RAG 有足够的不同，值得分享。 这解决了什么问题 标准 LLM 内存要么不存在（无状态聊天），要么平坦（将所有内容转储到上下文和希望中）。两者都不会随着时间的推移而积累理解——它们会积累数据。 EigenFlame 是一种更接近理解实际复合方式的尝试：不是通过记住更多，而是通过在每一层将记住的内容提炼成更密集、更稳定的东西。 核心思想 标准 RAG 检索是平坦的 - 每个存储的交换都通过余弦相似度平等竞争，而新近度通常会获胜。 EigenFlame 做了一些不同的事情。经过足够的交换，它运行一个合成级联： 原始对话→信念（跨情节模式） 信念→身份（这个实体已经成为谁） 身份版本→元模式（理解如何转变） 元模式→原型（所有变化背后的不变性） 每一层都使用以下数字进行加权：帕斯卡三角形 - 合成的身份声明胜过原始剧集，不是因为它更旧，而是因为它在压缩中幸存下来并代表了提炼的理解。 还有一个种子 - 您在会话创建时设置的短语，作为向量嵌入，不可变。每个查询在检索之前都会向它倾斜。一旦原型结晶，它就会成为第二个引力锚。该系统被拉向它的起源和它现在的样子。 诚实的警告 Vibe 编码。架构和想法完全是我的； Claude 帮助实施（谢谢！）。 目前仅支持 Ollama（我认为这是一项功能 - 没有任何东西离开您的机器）。 综合质量在很大程度上取决于模型功能。 8B+ 模型产生的结果明显优于 3-4B。我主要使用 Qwem3.5:9b、Ministral-3:8b 和 Gemma3:12b。 这是车库研究。它有效，很有趣，我还不知道它是否可以扩展到我想象的一切。 Stack FastAPI + ChromaDB + Ollama。通过 CDN Babel 进行 Vanilla React — 无需构建步骤。完全在本地运行，没有云依赖性。 下一步是什么 我在相同的架构上构建 EigenResearch - 而不是对话代理，您向它提供注释和问题，它会通过相同的级联综合答案。一旦经过正确测试，将单独发布。 链接 GitHub：https://github.com/latentweb/EigenFlame 个人研究实验室：https://latentweb.com/ 很高兴回答有关架构。特别好奇是否有人尝试过类似的合成级联方法。 我目前正在寻找工作 - 机器学习工程、人工智能系统，以及这个领域的任何东西。如果这与您正在构建的内容产生共鸣，请随时私信或通过 research@latentweb.com 与我联系。   由   提交/u/crazy4donuts4ever  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rxeisy/a_memory_architecture_for_local_llms_that/</guid>
+      <pubDate>Wed, 18 Mar 2026 20:00:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>新闻文章：公司表示“开放”人工智能模型的风险是值得的</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rxdh23/news_article_companies_say_the_risks_of_open/</link>
+      <description><![CDATA[ 由   提交/u/XIFAQ  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rxdh23/news_article_companies_say_the_risks_of_open/</guid>
+      <pubDate>Wed, 18 Mar 2026 19:22:33 GMT</pubDate>
     </item>
     <item>
       <title>停止预售未来。目前的人工智能代理 5% 是技术，95% 是炒作。</title>
@@ -27,13 +41,6 @@
       <pubDate>Wed, 18 Mar 2026 17:26:58 GMT</pubDate>
     </item>
     <item>
-      <title>廉价的人工智能真的有好处吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rx9rbf/is_cheap_ai_actually_any_good/</link>
-      <description><![CDATA[我最近一直在思考这些预算人工智能选项是否值得。有一些疯狂的交易，比如 Blackbox AI，首月仅需 2 美元。 Pro 计划通常为 10 美元，对于顶级型号，他们甚至为您提供 20 美元的积分。能够在一个地方访问这么多不同的模型真是太酷了，这样您就可以在不达到信用限额的情况下进行测试。即使价格回到 10 美元，仍然比单独购买每个高端型号便宜得多。有人认为价格这么低质量就会下降吗？   由   提交 /u/Character_Novel3726   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rx9rbf/is_cheap_ai_actually_any_good/</guid>
-      <pubDate>Wed, 18 Mar 2026 17:09:51 GMT</pubDate>
-    </item>
-    <item>
       <title>杰里米·哈里斯 (Jeremy O. Harris) 在《名利场》奥斯卡派对上喝醉后称 OpenAI 的萨姆·奥尔特曼 (Sam Altman) 为纳粹</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rx9nou/jeremy_o_harris_drunkenly_called_openais_sam/</link>
       <description><![CDATA[周日晚上，在众星云集的《名利场》奥斯卡派对上，著名剧作家杰里米·O·哈里斯 (Jeremy O. Harris) 醉醺醺地与人工智能大亨萨姆·奥尔特曼 (Sam Altman) 发生冲突，第六页获悉，他称 OpenAI 的老板是纳粹分子。萨尔达纳、蔡斯·英菲尼迪、科尔曼·多明戈等人，这位“奴隶游戏”的抄写员直接与 ChatGPT 创始人进行了对话，并就他的公司与战争部的新协议与他对峙。 在超级独家的奥斯卡颁奖典礼后的盛会上，间谍们告诉第六页，哈里斯指责奥特曼是“特朗普政府的[约瑟夫]戈培尔”。 但是周二，哈里斯……通过电子邮件告诉我们：“时间很晚了，我喝了太多马提尼酒，所以当我说戈培尔时我说错了……我应该说弗里德里克·弗里克。” 对于那些历史频道订阅已失效的人来说，弗里克是一位德国实业家，他的企业与纳粹党有共生关系，这使得纳粹的活动更加有效，同时为弗里克赢得了巨额财富。他在纽伦堡审判中被判犯有战争罪和危害人类罪。   由   提交 /u/feellurky   [链接] [评论]]]></description>
@@ -48,6 +55,13 @@
       <pubDate>Wed, 18 Mar 2026 16:52:46 GMT</pubDate>
     </item>
     <item>
+      <title>为什么自动驾驶人工智能如此困难</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rx8mfi/why_selfdriving_ai_is_so_hard/</link>
+      <description><![CDATA[大多数人工智能系统在一切正常时都不会失败；他们在罕见的、不可预测的情况下失败。 在我最近的播客谈话中，有一个想法一直困扰着我：为现实世界构建人工智能并不是让模型变得更智能，而是让系统在出现问题时变得可靠。 有趣的是，大量的工程工作都花在处理边缘情况上，这些情况很少发生，但当它们发生时却是最重要的。它完全改变了你对人工智能的看法。这不仅仅是一个模型问题；这是一个系统问题。 好奇这里的其他人如何看待这个问题： 我们是否过于关注模型性能而对现实世界的可靠性关注不够？   由   提交 /u/vitlyoshin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rx8mfi/why_selfdriving_ai_is_so_hard/</guid>
+      <pubDate>Wed, 18 Mar 2026 16:28:47 GMT</pubDate>
+    </item>
+    <item>
       <title>人工智能正在毁掉很多初学者</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rx25cn/ai_is_ruining_alot_of_begineer_devolpers/</link>
       <description><![CDATA[当你可以使用人工智能在短短几秒钟内编写出一半不错的代码时，学习和掌握你所学习的任何编码语言都非常困难。我并不是说它对于帮助或查找基本问题没有用，而是用它来编写代码没有帮助   由   提交/u/oxidizedfuel12  [链接] [评论]]]></description>
@@ -60,13 +74,6 @@
       <description><![CDATA[而且，在你跳出来说“你研究过人工智能吗？”之前……是的，我确实研究过。而且还是手动的。因此，在发布来源之前，请检查该图表或图表中的数据是否存在于研究论文中。    由   提交/u/jmlusiardo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rx0enx/is_this_fake_data_i_cant_find_the_source_study/</guid>
       <pubDate>Wed, 18 Mar 2026 10:42:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>亚马逊 CEO 预计人工智能到 2036 年将 AWS 销售预测翻倍至 6000 亿美元</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rwzy07/amazon_ceo_sees_ai_doubling_prior_aws_sales/</link>
-      <description><![CDATA[亚马逊 首席执行官安迪·贾西 (Andy Jassy) 在一次内部全体会议上表示，他预计人工智能可以帮助云计算部门亚马逊网络服务 (Amazon Web Services) 实现 6000 亿美元的年销售额，是他之前预估的两倍。 “过去几年我一直在思考，从现在起 10 年后，AWS 的年收入可能约为 3000 亿美元，”路透社对贾西评论的评论显示，贾西表示。 “我认为人工智能领域正在发生的事情，AWS 有机会至少是这个数字的两倍。”  https://www.reuters.com/business/amazon-ceo-sees-ai-doubling-his-prior-aws-sales-projections-600-billion-by-2036-2026-03-17/   由   提交 /u/talkingatoms   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwzy07/amazon_ceo_sees_ai_doubling_prior_aws_sales/</guid>
-      <pubDate>Wed, 18 Mar 2026 10:17:06 GMT</pubDate>
     </item>
     <item>
       <title>即使在人工智能出现之前，开发人员不是总是复制代码吗？</title>
@@ -95,13 +102,6 @@
       <description><![CDATA[ 由   提交/u/forbes  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rwexsz/nvidias_aipowered_photorealistic_gaming/</guid>
       <pubDate>Tue, 17 Mar 2026 18:29:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>埃隆·马斯克 (Elon Musk) 承认 xAI“构建不正确”，因为只剩下 2 名联合创始人，其最大的人工智能赌注也陷入停滞</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1rw867e/elon_musk_admits_xai_wasnt_built_right_as_only_2/</link>
-      <description><![CDATA[埃隆·马斯克 (Elon Musk) 表示，在 SpaceX 收购其人工智能初创公司一个月后，他正在从头开始重建 xAI，这是有史以来最大的并购之一。 在逐渐退出 xAI 后，这位世界首富正试图以更高的野心重新构想这家公司。 这位特斯拉和 SpaceX 首席执行官上周在 X 上的一篇帖子中补充道， xAI 正在经历与特斯拉早期类似的过程，马斯克自 2008 年以来一直担任特斯拉的首席执行官。 “xAI 并不是第一次构建正确，因此正在从基础开始重建，”他在帖子中写道。 马斯克表示 SpaceX 收购的目的是建立“轨道数据中心”，他说这是产生人工智能计算能力的最具成本效益的方式。 然而在地球上，马斯克正在处理一个看似不那么崇高但非常重要的人员配置问题。据 Business Insider 报道，两名 xAI 联合创始人上周离开了公司，另外两人上个月被保释，这意味着自 2024 年以来，最初的 11 名未透露姓名的联合创始人中有 9 名已离开公司。最近的这些离职是在大约 12 名高级工程师离开公司之后进行的。 阅读更多： https://fortune.com/2026/03/16/elon-musk-xai-rebuilding-coFounders-engineers-exodus-macrohard-project-spacex-acquisition/   由   提交/u/fortune  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1rw867e/elon_musk_admits_xai_wasnt_built_right_as_only_2/</guid>
-      <pubDate>Tue, 17 Mar 2026 14:31:42 GMT</pubDate>
     </item>
     <item>
       <title>我们听到了您的声音 - r/ArtificialInteligence 变得更加敏锐</title>
