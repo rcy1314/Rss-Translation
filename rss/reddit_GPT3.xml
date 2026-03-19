@@ -4,7 +4,21 @@
     <title>最新提交：GPT3</title>
     <link>https://www.reddit.com/r/GPT3/new</link>
     <description>AI 文本生成技术的 Reddit 子版块</description>
-    <lastBuildDate>Thu, 19 Mar 2026 09:52:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 13:15:38 GMT</lastBuildDate>
+    <item>
+      <title>我训练了一个模型，它学习了梯度下降。所以我删除了训练过的部分，准确性保持不变。</title>
+      <link>https://www.reddit.com/r/GPT3/comments/1rxzgyf/i_trained_a_model_and_it_learned_gradient_descent/</link>
+      <description><![CDATA[为 NLI 构建了一个系统，其中隐藏状态在分类之前经过几个步骤演变，而不是 h → Linear → logits。三个学习到的锚向量定义了盆地（蕴含/矛盾/中性），状态向适合输入的盆地移动。 令人惊讶的部分是在训练后出现的。 学习的更新折叠成一个封闭式方程 更新规则是一个小型 MLP，在约 550k 示例上进行端到端训练。经过系统消融后，我发现经过训练的动力学可以通过简单的能量函数很好地逼近： V(h) = −log Σ exp(β · cos(h, Aₖ))  用解析梯度替换整个经过训练的 MLP： h_{t+1} = h_t − α∇V(h_t)  → 相同的准确性。 该说法并不是事后看来这个方程令人惊讶。就是不是我设计的。我训练了一个黑盒 MLP，后来发现它已经收敛到这个了。我可以通过完全删除 MLP 来验证它。令人惊讶的不是方程，而是方程根本可以恢复。 三种观察到的模式（不是定律，经验发现）  关系初始化：h₀ = v_hypothesis - v_premise 无需任何学习投影即可进行初始化。这是一个设计选择，而不是发现其他关系编码也应该起作用。 能量结构：表示空间的行为类似于锚余弦相似度上的对数和指数能量。根据经验发现。 动力学（实际发现）：推断对应于该能量的梯度下降。通过烧蚀发现：去掉MLP，代之以封闭形式梯度，没有任何破坏。  每一个单独的部分都不足为奇。值得注意的是，训练有素的系统在没有被告知的情况下收敛到了所有三个，并且收敛可以通过删除来验证，而不仅仅是观察。 失败模式：通用不动点 轨迹分析表明，在~3步之后，大多数输入崩溃到相同的吸引子状态，无论输入如何。这是一个有用的诊断：它准确地解释了为什么中性召回率停留在约 70%，动态在分类之前擦除输入特定信息。具有锚对齐损失的联合再训练将中性召回率提高到了 76.6%。 对于调试对比设置中的类不平衡的人来说，定点查找可能是最实用的部分。 数字（SNLI、BERT 编码器）    旧帖子 现在    准确率 76%（平均池） 82.8% (BERT)   中性召回率 72.2% 76.6%   Grad-V 与训练后的结果MLP — 准确率不变   准确率的跳跃主要是编码器（平均池→BERT），而不是动态，动态的故事在中性召回和最后一行。 📄 论文：https://zenodo.org/records/19092511  📄 论文：https://zenodo.org/records/19099620 💻 代码：https://github.com/chetanxpatil/livnium 仍然需要 arXiv 认可（cs.CL 或 cs.LG）这将是我的第一篇论文。代码：HJBCOM → https://arxiv.org/auth/endorse 欢迎反馈，特别是关于模式1，我知道它是三种模式中最弱的一个。   由   提交 /u/chetanxpatil   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/GPT3/comments/1rxzgyf/i_trained_a_model_and_it_learned_gradient_descent/</guid>
+      <pubDate>Thu, 19 Mar 2026 12:46:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>赫拉里谈人工智能的“外星”智能</title>
+      <link>https://www.reddit.com/r/GPT3/comments/1rxy9yi/harari_on_ais_alien_intelligence/</link>
+      <description><![CDATA[       由   提交/u/EchoOfOppenheimer   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/GPT3/comments/1rxy9yi/harari_on_ais_alien_intelligence/</guid>
+      <pubDate>Thu, 19 Mar 2026 11:50:09 GMT</pubDate>
+    </item>
     <item>
       <title>比较不同的人工智能模型，您认为哪种模型表现最好？</title>
       <link>https://www.reddit.com/r/GPT3/comments/1rxv2rd/comparing_different_ai_models_which_do_you_think/</link>
@@ -71,7 +85,7 @@
     <item>
       <title>我厌倦了 ChatGPT 的幻觉来源，因此我构建了一个 GPT，可以对自己的信心进行评分并对每个声明进行编号</title>
       <link>https://www.reddit.com/r/GPT3/comments/1rvyqhb/i_got_sick_of_chatgpt_hallucinating_sources_so_i/</link>
-      <description><![CDATA[ 由   提交/u/TitanOS_Official  [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交 /u/TitanOS_Official   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/GPT3/comments/1rvyqhb/i_got_sick_of_chatgpt_hallucinating_sources_so_i/</guid>
       <pubDate>Tue, 17 Mar 2026 06:16:43 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[      《纽约杂志》的一篇新文章探讨了 AI 热潮中超现实的新零工经济：下岗科学家、律师和白领专家获得报酬来训练旨在窃取他们职业生涯的 AI 模型。 Mercor 和 Scale AI 等公司正在招聘数十万名受过高等教育的专业人士，甚至是博士和麦肯锡负责人，来进行专门的数据注释并为人工智能输出编写严格的标准。   由   提交/u/EchoOfOppenheimer   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/GPT3/comments/1rv8qsl/the_laidoff_scientists_and_lawyers_training_ai_to/</guid>
       <pubDate>Mon, 16 Mar 2026 12:59:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>GPT 5.4 和 GPT 5.4 Pro + Claude Opus 4.6 和 Sonnet 4.6 + Gemini 3.1 Pro 仅需 5 美元/月（支持 API 访问、AI 代理甚至 Web 应用程序构建）</title>
-      <link>https://www.reddit.com/r/GPT3/comments/1rv731y/gpt_54_gpt_54_pro_claude_opus_46_sonnet_46_gemini/</link>
-      <description><![CDATA[      大家好， 对于 vibe 编码人群，InfiniaxAI 刚刚将 Starter 计划费率限制提高了一倍并解锁了高限制访问Claude 4.6 Opus、GPT 5.4 Pro 和 Gemini 3.1 Pro，价格为 5 美元/月。 这是您在 Starter 上获得的内容：  包含 5 美元的平台积分 访问 120 多个 AI 模型（Opus 4.6、GPT 5.4 Pro、Gemini 3 Pro &amp; Flash、GLM-5 等） 旗舰型号的高速率限制 用于构建应用、游戏、网站和完整存储库的 Agentic Projects 系统 用于高级工作流程的 Nexus 1.7 Core 等自定义架构 使用 Juno v1.2 进行智能模型路由 使用 Veo 3.1 和 Sora 进行视频生成 用于图形和创意资产的 InfiniaxAI Design 保存模式以减少 AI 和API 成本降低高达 90%  我们还推出带有 Build 的 Web Apps v2：  生成多达 10,000 行生产就绪代码 由新的 Nexus 1.8 Coder 架构提供支持 完整的 PostgreSQL 数据库配置 自动云部署，无需单独托管 高速闪存模式编码 超级模式，可连续运行和编码长达 120 分钟 能够构建和发布完整的 SaaS 平台，而不仅仅是模板 如果您需要扩展超出所包含的积分，请购买额外的使用量  一切都通过 OpenAI、Anthropic、Google 等的官方 API 运行。没有重复的试用，没有被盗的密钥，没有神秘的路由。我们这边会适当地支付使用费。 如果您厌倦了订阅并想要一个地方来构建、发布和实验，那么它就是实时的。 https://infiniax.ai   由   提交/u/Substantial_Ear_1131   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/GPT3/comments/1rv731y/gpt_54_gpt_54_pro_claude_opus_46_sonnet_46_gemini/</guid>
-      <pubDate>Mon, 16 Mar 2026 11:40:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>MindTrial：GPT-5.4领先，Mercury 2冲击，Grok 4.20大跃进</title>
-      <link>https://www.reddit.com/r/GPT3/comments/1ruxohy/mindtrial_gpt54_takes_the_lead_mercury_2_shocks/</link>
-      <description><![CDATA[ 由   提交 /u/Correct_Tomato1871   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/GPT3/comments/1ruxohy/mindtrial_gpt54_takes_the_lead_mercury_2_shocks/</guid>
-      <pubDate>Mon, 16 Mar 2026 02:42:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
