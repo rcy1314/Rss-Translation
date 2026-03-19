@@ -4,7 +4,63 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 19 Mar 2026 13:16:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 16:00:25 GMT</lastBuildDate>
+    <item>
+      <title>TIL：VS Code UI 只是沙盒 iframe。用 400 行 Vanilla JS/CS 构建了一个实用的 AI 聊天面板</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry446e/til_vs_code_ui_is_just_sandboxed_iframes_built_a/</link>
+      <description><![CDATA[      希望 VS Code 中有一个侧边栏聊天面板与 AI 模型对话。期望有一些专有的 UI 框架，但 VS Code“webviews”实际上只是沙盒 iframe 中的 HTML/CSS/JS。 UI 是一个纯 HTML 文件，带有  下拉列表、 和消息容器。巧妙的部分是主题。您可以使用 VS Code 的 CSS 自定义属性，它会自动遵循您的主题： body { color: var(--vscode-foreground);背景颜色：var(--vscode-sideBar-background); } 选择 { 背景：var(--vscode-input-background);边框：1px 实心 var(--vscode-input-border); }  深色模式，浅色模式，等等。零额外逻辑。 webview 无法直接调用 Node API，因此与扩展后端的所有通信都通过 postMessage。该扩展进行 API 调用，然后将流式文本块发送回 Web 视图进行渲染。 JS 端在 data-raw 属性中累积原始文本，并在每个块上重新渲染 HTML，以实现逐个令牌的流效果。 整个前端大约有 180 行 JS + 190 行 CSS。我指出 ZenMux，它可以让你通过一个 API 密钥访问 100 多个模型，因此下拉菜单非常丰富。 GPT、Claude、Gemini、DeepSeek，全部在一个列表中。无需离开 VS Code，即可轻松比较不同模型的答案。 Github 存储库：superzane477/vscode-multi-model 如果您做过 Web 前端工作，构建 VS Code Web 视图扩展会感觉非常正常。最大的问题是 postMessage 边界，并且必须使用 webview.asWebviewUri() 作为资源路径而不是相对 URL。   由   提交/u/Ill_Awareness6706  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry446e/til_vs_code_ui_is_just_sandboxed_iframes_built_a/</guid>
+      <pubDate>Thu, 19 Mar 2026 15:50:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>我提示注入了我的 CONTRIBUTING.md – 50% 的 PR 是机器人</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry40vf/i_prompt_injected_my_contributingmd_50_of_prs_are/</link>
+      <description><![CDATA[       由   提交/u/punkpeye  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry40vf/i_prompt_injected_my_contributingmd_50_of_prs_are/</guid>
+      <pubDate>Thu, 19 Mar 2026 15:47:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>CSS 变量可以在 @keyframe 计时中使用吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry3sdo/can_css_variables_be_used_in_keyframe_timing/</link>
+      <description><![CDATA[我环顾四周，发现变量用于在动画期间调整事物的属性，但不调整时间。 示例： :root { --objCountA: 4%; --objCountB: 25; } @keyframes Animation { 0% {left: 0;} var(--objCountA) {left: 50px;} var(--objCountB)% {left: 75px;} 100% {left: 100px;} }  我的基本想法是每个对象在动画中花费的时间百分比取决于有多少个对象。如果能够只更新 ojbCount 变量一次，而不必每次都重新计算关键帧值，那就太好了。 这是 CSS 可以处理的吗？ 我有点业余开发人员，我只从事个人项目，所以我对语言核心功能的理解并不是我关注的内容。 上面变量的变化是我在尝试更复杂的事情后尝试的更简单的事情那不起作用。我可能可以使用 javascript 轻松完成此任务，但我想这样做的原因是： 1. 更少的代码行 2. 将所有内容都放在 1 个文档中更容易，而不是在 js 和 css 之间拆分 3. 如果我能做到，为什么不尝试一下呢？   由   提交/u/icecicle83  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry3sdo/can_css_variables_be_used_in_keyframe_timing/</guid>
+      <pubDate>Thu, 19 Mar 2026 15:38:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>找到一份 React - NodeJS 工作不可能吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry2ky7/is_finding_a_react_nodejs_job_impossible/</link>
+      <description><![CDATA[我看到的只是react + java  或者react + Python  我想为为世界增加一些价值的初创公司工作 这是可能的还是不现实的？   由   提交 /u/Even_Job6933   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry2ky7/is_finding_a_react_nodejs_job_impossible/</guid>
+      <pubDate>Thu, 19 Mar 2026 14:53:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能是在加速你还是在减慢你的速度？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry1yo6/is_ai_speeding_you_up_or_slowing_you_down/</link>
+      <description><![CDATA[现在我们已经这样做了一段时间，并且我们已经感受到了人们的感受的高潮和低谷？我对在大型生产代码库中工作的人非常好奇（首选遗留代码）。无论您使用什么工具（Claude cede、光标、开放代码） 主观感受很好，但如果有人有指标，我会很好奇！   由   提交 /u/parkhs2   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry1yo6/is_ai_speeding_you_up_or_slowing_you_down/</guid>
+      <pubDate>Thu, 19 Mar 2026 14:30:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>EDP​​B 刚刚向 30 个监管机构指出了您的隐私声明。这就是它的意思。 — 同意书简介</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry1hzd/the_edpb_just_pointed_30_regulators_at_your/</link>
+      <description><![CDATA[ 由   提交/u/DrobnaHalota   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry1hzd/the_edpb_just_pointed_30_regulators_at_your/</guid>
+      <pubDate>Thu, 19 Mar 2026 14:12:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 Go 二进制文件 + WASM 在 Drupal 中服务器渲染 Lit Web 组件——不需要 Node.js</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry15r4/i_serverrender_lit_web_components_in_drupal_with/</link>
+      <description><![CDATA[如果您在 Drupal 站点中使用 Lit Web 组件，您可能已经接受了它们在客户端呈现的事实：无样式内容的闪烁、JS 加载之前的空白框、对于禁用 JS 的用户没有任何作用。 我一直在努力解决这个问题。结果就是 Backlit——一个通过二进制文件传输页面 HTML 的 Drupal 模块，该二进制文件在响应到达浏览器之前将声明性 Shadow DOM 注入到响应中。在任何 JavaScript 运行之前，组件在第一次绘制时渲染。 安装只有两行： composer require bennypowers/backlit drush en backlit 没有 Node.js。没有容器。没有边车服务。 Composer 为您的平台（linux/mac/windows、x64/arm64）下载预编译的 Go 二进制文件。该二进制文件嵌入了一个在 QuickJS 中运行 @lit-labs/ssr 的 WASM 模块。每个 PHP-FPM 工作线程冷启动一次约为 350 毫秒；之后每次渲染大约为 0.32 毫秒。 您将组件 JS 文件放入主题的 Components/ 目录中，Backlit 会自动发现它们。如果 SSR 破坏了特定页面，则会有一个针对每个内容的复选框来禁用它。 意外部分：我为一个完全不同的项目构建了 WASM 引擎（在自定义元素开发工具中进行实时预览）。一旦出现，Drupal 集成只需一个下午的工作。标准和互操作性各司其职。  帖子：https://bennypowers.dev/posts/drupal-lit-ssr-wasm/ 模块：https://github.com/bennypowers/backlit 引擎：https://github.com/bennypowers/lit-ssr-wasm    由   提交 /u/benny-powers   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry15r4/i_serverrender_lit_web_components_in_drupal_with/</guid>
+      <pubDate>Thu, 19 Mar 2026 13:59:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>你如何验证后台作业确实做了他们应该做的事情？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ry0i5c/how_do_you_verify_background_jobs_actually_did/</link>
+      <description><![CDATA[这种情况发生过几次，老实说，首先为每个项目处理其配置编写逻辑非常烦人，非常烦人 bg 作业运行良好，没有错误，并且标记为成功......但内部仍然存在一些问题，例如电子邮件实际上没有通过 SMTP 错误？但至少让我知道？有时外部 API 返回一些奇怪的东西，但没有抛出甚至烦人的不相关的 json 响应 确定一切看起来都很稳定，但它不是 ttttt 我通常最终会通过日志进行挖掘，其他开发人员告诉我在这种情况下使用数据库，因为 Redis 作业不会保持永久第二添加更多日志，越来越多，最终重新运行作业并希望我能抓住它 其他开发人员如何调试这种情况？目前有什么解决方案吗？我肯定不会使用 Redis 之类的 PGBOSS 吗？那是可靠的，即使在崩溃后也不会失去工作？您只依赖日志还是有更好的方法来查看工作中实际发生的情况？ 我使用 Azuki 来实现此目的，它在早期阶段效果很好，但我想探索更多   由   提交/u/anthedev   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ry0i5c/how_do_you_verify_background_jobs_actually_did/</guid>
+      <pubDate>Thu, 19 Mar 2026 13:32:29 GMT</pubDate>
+    </item>
     <item>
       <title>PDF 辅助功能修复通常每页的费用是多少？</title>
       <link>https://www.reddit.com/r/webdev/comments/1rxzxoj/how_much_does_pdf_accessibility_remediation/</link>
@@ -53,62 +109,6 @@
       <description><![CDATA[   /u/arti-dokuz   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1rxypjl/so_i_created_this_appwebsite_as_a_solo_dev/</guid>
       <pubDate>Thu, 19 Mar 2026 12:10:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>不受欢迎的观点：chatgpt 编写的文档比大多数开发人员更好</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxy2id/unpopular_opinion_chatgpt_writes_better/</link>
-      <description><![CDATA[我知道这会引起争议。但在使用 chatgpt 起草内部文档一年之后，我认为大多数开发人员（包括我自己）不擅长编写文档，不是因为我们懒，而是因为我们看不到自己的假设。 当我为自己构建的系统编写文档时，我会跳过那些对我来说显而易见但对第一次看到代码库的人来说并不明显的内容。每个开发人员都会这样做。这是知识的诅咒。 chatgpt 没有知识的诅咒。当我粘贴代码并要求它编写文档时，它解释了我会跳过的事情。它阐明了我称之为“显而易见”的组件之间的关系。它定义了我假设读者知道的术语。 上周的例子：我给了它我们的身份验证中间件并要求提供文档。它解释说令牌刷新是静默发生的，并且客户端应该通过清除本地存储和重定向来处理 401。我会记录令牌格式和端点，而不是客户端行为。因为对我来说客户的行为是显而易见的。对于新员工来说，这绝对不是。 我不会在未经编辑的情况下发送 chatgpt 文档。大约 30% 的内容是填充内容或略有错误。但正确的 70% 覆盖了我自己不会覆盖的盲点。 我的工作流程：在记录任何重要的事情之前，我会花 60 秒的时间讲述系统的用途，并使用 Willow Voice（一款语音听写应用程序）。口头解释成为 chatgpt 的提示上下文，并且生成的文档更好，因为它们反映了我如何向某人解释它，而不是我如何为文件编写它。 还有其他人主要使用人工智能来编写文档吗？或者质量不适合您的用例？   由   提交 /u/Randipesa   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxy2id/unpopular_opinion_chatgpt_writes_better/</guid>
-      <pubDate>Thu, 19 Mar 2026 11:39:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么要阻止人工智能机器人？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxxnse/why_blocking_ai_bots/</link>
-      <description><![CDATA[您好，我从未与 AI 机器人打过交道，因为我通常只使用带缓存的 VPS，这样我的网站就可以应对高温。即使速度减慢，我也不会支付额外的钱。  所以我有这个问题，为什么要阻止人工智能机器人阅读您的网站？如果人工智能打开您的网站，则会在其上训练数据。您的网站很有可能会被推荐给使用该人工智能模型的用户。这是一个很好的营销机会。  我在这里遗漏了什么吗？    由   提交/u/goonifier5000  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxxnse/why_blocking_ai_bots/</guid>
-      <pubDate>Thu, 19 Mar 2026 11:17:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>分析初创公司成长的参数</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxxde6/parameters_to_analyse_the_growth_of_a_startup/</link>
-      <description><![CDATA[最近，我收到了 2 份录用通知，一份来自顶级跨国公司，另一份来自 4 年前成立的早期初创公司。  与我选择的跨国公司相比，初创公司的薪酬较低。然而，该跨国公司的文化有毒程度更高。如此之多，以至于对于在那里工作的一些人来说，竞争薪资也不值得。 这就是为什么，我正在考虑加入这家初创公司（位于美国的网络安全初创公司）。现在，我担心加入早期初创公司是否明智，因为不能保证该初创公司是否会成长，或者这场持续的战争是否会影响他们的收入。 我想从该领域的专业人士那里获得一些见解，以评估这家初创公司的成长情况，以及在评估它时我应该寻找哪些参数。 我对公司了解的主要见解： 1）它最近筹集了超过 1500 万美元的种子轮资金美元。  2）公司人数增加。   由   提交 /u/NorthBrave3507   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxxde6/parameters_to_analyse_the_growth_of_a_startup/</guid>
-      <pubDate>Thu, 19 Mar 2026 11:02:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅后端驱动的 websocket 通信是有效的架构吗</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxx8iw/is_backend_driven_websocket_only_communication_a/</link>
-      <description><![CDATA[我是一名经验丰富的普通程序员，但不是网络程序员，所以我的心态可能有点奇怪。 该应用程序是一个迭代计算应用程序，一个任务可能需要 30 秒，如果它有实时进度更新，那就太好了。你可以把它想象成 chatGPT，但有一些图表和东西。 我当前的设计只是 websocket，基本上后端会向前端发送绘制请求来显示东西。前端的唯一逻辑是从后端获取请求并创建或替换组件。    由   提交/u/arstarsta  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxx8iw/is_backend_driven_websocket_only_communication_a/</guid>
-      <pubDate>Thu, 19 Mar 2026 10:54:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>您如何向非技术利益相关者解释您的技术堆栈选择</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxvnd5/how_do_you_explain_your_tech_stack_choices_to/</link>
-      <description><![CDATA[昨天与客户通了电话，我必须证明为什么我们使用 astro 而不是 next。谈话内容类似于“但每个人都使用下一个”，我花了 20 分钟向那些只想知道网站是否会很快的人解释静态网站生成与服务器组件 你真的尝试翻译技术推理还是只是选择“相信我，开发人员”   由   提交 /u/edmillss   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxvnd5/how_do_you_explain_your_tech_stack_choices_to/</guid>
-      <pubDate>Thu, 19 Mar 2026 09:22:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建论文搜索 API 来解决学术搜索数据质量问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxvlu9/built_a_paper_search_api_to_fix_academic_search/</link>
-      <description><![CDATA[我们正在为研究人员构建一个工具，我们面临的一个挑战是在实践中正确进行论文搜索是多么困难。公共数据集作为一个起点很有用，但一堆问题开始快速堆积。 例如：  论文覆盖范围有限 许多论文没有摘要或没有有用的 TL;DR 风格摘要 一些摘要数据显然是错误的，插入了版权文本或开放获取免责声明，而不是实际的摘要 没有有用的排名信号来帮助区分强论文和低质量论文  以及大量其他使搜索变得更糟的数据问题 因此，我们最终构建了自己的论文搜索 API 供内部使用，以便我们能够为我们的产品获得最好的论文和正确的元数据。 希望获得任何人的反馈谁正在构建研究工具！   由   提交 /u/Hot-Avocado-6497   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxvlu9/built_a_paper_search_api_to_fix_academic_search/</guid>
-      <pubDate>Thu, 19 Mar 2026 09:19:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>老师没能推荐 WebSockets 和 TCP 用于聊天应用程序 – 声称只有 PHP 对 Web 开发有效</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxux3a/teacher_failed_me_for_suggesting_websockets_and/</link>
-      <description><![CDATA[大家好！发生这一切之后，我对老师很生气。我只是想和大家分享这个。感谢您的关注！ 我上了网络协议课。我的老师要求我们在 5 分钟内写一篇关于“如何创建聊天应用程序？”的文章。他没有告诉我们任何其他事情。我错过了最后一堂课，但这对我来说并不是一个大问题，因为我从 14 岁开始就一直自学，现在我已经 18 岁了。 我写道，对于聊天应用程序，我们将使用 WebSocket、TCP、HTTP 轮询和 Socket.io 等库。我解释了这些技术。 5分钟内不可能写出更详细的东西。 之后，他给了我一个非常糟糕的分数——在我的国家，大约是2/5。他告诉我这些协议不适合聊天应用程序。他说 WebSocket 和 TCP 不适合这样做。他说，对于聊天应用程序，我应该编写 IRC 和 MSN 等协议。他认为像 Facebook 这样的现代网站正在使用 IRC 进行聊天。他还认为 Node.js 完全没用。他经常告诉我像 Spring Boot、ReactJS 和所有其他框架这样的技术都是垃圾。 根据他的说法，唯一可以用于 Web 开发的东西只有 HTML、CSS、JS 和 PHP。他甚至说 CSS 会减慢网站速度，而且设计毫无用处。他是我们学校的系统管理员——看看他用这种“高超的知识”建立的网站：https://hrbotev.eu/ 请帮忙！！ xd   由   提交/u/MertJS   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxux3a/teacher_failed_me_for_suggesting_websockets_and/</guid>
-      <pubDate>Thu, 19 Mar 2026 08:35:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅 HTML 作品集网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1rxuh74/html_only_portfolio_website/</link>
-      <description><![CDATA[大家好，我正在考虑制作一个纯 HTML 网站作为简约的数字名片。我只需要输入我的 linkedin、电子邮件和几篇关于我过去经历的文章。 你们有任何示例设计吗？ 编辑：我知道纯 HTML 网站的局限性。只是想看看一些突破极限的网站。   由   提交 /u/UltimaTroll   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1rxuh74/html_only_portfolio_website/</guid>
-      <pubDate>Thu, 19 Mar 2026 08:06:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
