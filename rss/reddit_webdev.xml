@@ -4,7 +4,49 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 22 Mar 2026 13:03:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 15:32:56 GMT</lastBuildDate>
+    <item>
+      <title>从数据生成 Web 界面</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0ojah/generate_web_interfaces_from_data/</link>
+      <description><![CDATA[       由   提交 /u/Possible-Session9849   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0ojah/generate_web_interfaces_from_data/</guid>
+      <pubDate>Sun, 22 Mar 2026 15:28:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 FastAPI + 4 个政府 API 构建了一个实时民主健康跟踪器 - 这是架构</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0oe7x/i_built_a_realtime_democracy_health_tracker_using/</link>
+      <description><![CDATA[我构建了 BallotPulse — 一个跟踪所有 50 个州的投票规则变化并对每个州的投票可访问性进行实时评分的平台。该技术的工作原理如下。 问题：投票规则不断变化——新的身份证法、选区关闭、登记清除、截止日期变化。现有平台没有汇总这些变化并实时向受影响的选民发出警报。 数据管道（3 层）：  第 1 层 - API 支持（约 12 个州）： 用于投票地点 + 选举的 Google Civic Information API（25K 请求/天）。来自加利福尼亚州、科罗拉多州、弗吉尼亚州、北卡罗来纳州等州的直接机器可读数据。每 6-12 小时同步一次。 第 2 层 - 网络抓取（约 25 个州）： 每个州选举委员会网站的 BeautifulSoup 抓取工具。每个域的速率限制为每 2 秒 1 个请求，并具有指数退避。针对数据库进行逐字段比较以检测更改。自动对严重性进行分类（严重 = 位置已关闭或新的 ID 法；警告 = 营业时间已更改；信息 = 添加了新位置）。每 24 小时交错同步一次。 第 3 层 - 手动 + 社区（约 13 个州）： 通过 CSV/JSON 管理批量导入。社区提交的内容会经过审核队列。  民主健康评分算法：每个州在 7 个加权维度上获得 0-100 分： - 投票访问 (25%) - 人均地点、平均出行距离、 90 天内关闭 - 等待时间 (15%) - 人群报告 + 历史平均值 - 注册容易度 (15%) - 当日、在线、自动注册 - ID 要求 (15%) - 严格程度 - 提前/缺席访问 (15%) - 提前投票日、无故缺席、邮寄选票 - 无障碍 (10%) - 轮椅 %、多语言 %、停车 % - 稳定性 (5%) - 90 天内规则更改（更少 = 更高） 堆栈： - FastAPI + Jinja2 模板 + vanilla JS（无前端框架） - SQLite 与 aiosqlite（WAL 模式，外键） - Leaflet.js 用于交互式投票地图（OpenStreetMap 磁贴） - Chart.js 用于分数可视化 - GPT-4o-mini 用于 AI 投票助手 + 本地 LLM 后备 - PWA 与用于移动安装的 Service Worker - bcrypt 身份验证、SMTP 电子邮件警报 使用的 API： - Google Civic Information API - Open States API （所有 50 个州的立法） - LegiScan API（182K+ 账单，每月 30K 查询免费） - Congress.gov API（联邦立法） 有趣的挑战： - 抓取 25 个以上不同的州选举委员会网站，其 HTML 结构截然不同 - 字段级比较以准确检测更改的内容（不仅仅是“页面更新”） - 自动分类严重性 - 选区关闭至关重要，新的投递箱是信息 - 历史比较：“您的县在 2020 年有 47 个投票点，现在有 41 个” - 保持评分算法无党派——仅提供可访问性指标，无政治倾向 整个过程旨在全年运行，而不仅仅是在选举季节。仅在 2026 年中期选举之前，就有超过 25 个州颁布了新的投票法。 🔗 ballotpulse.modelotech.com 很高兴深入了解架构的任何部分。   由   提交/u/MoonDensetsu   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0oe7x/i_built_a_realtime_democracy_health_tracker_using/</guid>
+      <pubDate>Sun, 22 Mar 2026 15:22:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>您的 Laravel 项目和 PhpMetrics 报告</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0nz8q/your_laravel_projects_and_phpmetrics_reports/</link>
+      <description><![CDATA[您的 PHP 指标报告有多好？或者你使用 PHP Metrics 吗？   由   提交 /u/Emreyba   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0nz8q/your_laravel_projects_and_phpmetrics_reports/</guid>
+      <pubDate>Sun, 22 Mar 2026 15:05:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>您是否向客户收取网络分析费用？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0nov2/do_you_charge_your_clients_for_web_analytics/</link>
+      <description><![CDATA[如果不使用 Google Analytics，您会使用哪个？   由   提交/u/RaspberrySea9  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0nov2/do_you_charge_your_clients_for_web_analytics/</guid>
+      <pubDate>Sun, 22 Mar 2026 14:54:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>所有的利基市场都基本上被完全“占领”了吗？从哪里开始</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0nj2q/are_all_niche_basically_fully_occupied_where_to/</link>
+      <description><![CDATA[我确实做过自由职业，但它是针对脚本随机的东西，有时是网站，至少我以前做过，但我想完全投入，但很难在网络上找到一个利基，我知道前端、后端或两者，比如我应该关注哪里，显然不是试图找到超级地下利基，也许也更难在这些上找到客户，但我不知道，它只是感觉一切都在完成，登陆页面可以由网站建设者完成因此，需要更少的编码员，有人知道有什么好的起点吗？我不是编码的初学者，我相信如果需要的话，我可以在一周内学习一个新的堆栈。如果这有帮助的话。 编辑：为了添加背景，我不是在寻找一份成熟的工作，仍然想做自由职业，也许只是在一个利基市场上，慢慢建立一个网络。   由   提交 /u/FUS3N   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0nj2q/are_all_niche_basically_fully_occupied_where_to/</guid>
+      <pubDate>Sun, 22 Mar 2026 14:48:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>现在是否有一些不成文的法律规定每个网页都需要一些弹出窗口来打断用户正在尝试执行的操作？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s0l9x8/is_there_some_unwritten_law_now_that_every_single/</link>
+      <description><![CDATA[现在网络上到处都是不间断的。我检查了一个网站或工具，在我有 5 秒钟的时间阅读页面上的内容之前，我点击了每一个东西，更不用说探索它了，有一些弹出窗口要求我注册新闻通讯或尝试他们的人工智能，或者做任何除了我现在真正想探索、阅读、测试之外的事情......还没有提供，因为我什至无法独自在您的主页上花一秒钟的时间！随机咆哮尖叫到虚空，我确信数据表明我错了，这对转化或其他一些指标很有好处，但令人沮丧的感觉是网络上的每个网站或应用程序都在积极抵制，只允许我不间断地探索，哪怕是一分钟的时间。如果这种情况不仅发生在我第一次到达那里，而且发生在我导航到的每个新页面上，那就加分了。 感谢您来到我的 TedTalk，是的，我知道我可能患有未经诊断和未经治疗的 ADD。   由   提交 /u/PossessionConnect963   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s0l9x8/is_there_some_unwritten_law_now_that_every_single/</guid>
+      <pubDate>Sun, 22 Mar 2026 13:11:57 GMT</pubDate>
+    </item>
     <item>
       <title>在 Vibe 编码出现之前</title>
       <link>https://www.reddit.com/r/webdev/comments/1s0ixyg/before_vibe_coding_existed/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[大家好， 我很好奇您是否从以前的堆栈切换，如果是，为什么。到目前为止，您使用 SvelteKit 的体验如何？ 我当前的堆栈是 Node/Express、Handlebars、Alpine、带有原始 SQL 的 Better-SQLite3 和 Tailwind。 我考虑切换的主要原因是避免从头开始构建路由、被迫使用模板以及处理大量样板代码。作为独立开发者，转向 Sveltekit 值得吗？    由   提交/u/drifterpreneurs  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s0evsf/any_fullstack_devs_switch_to_sveltekit/</guid>
       <pubDate>Sun, 22 Mar 2026 06:56:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>[Showoff Saturday] 构建了 Paper Search API，因此开发人员不必从头开始设置所有内容</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0ejnd/showoff_saturday_built_a_paper_search_api_so_devs/</link>
-      <description><![CDATA[Veritus 搜索 API  构建了一个论文搜索 API，可从 2 亿多篇论文中返回最相关的研究论文，以及标题、DOI、摘要、TL;DR、作者、期刊信息、引文指标等。 构建它是因为论文搜索是其中之一构建研究工具中最痛苦的部分，每个开发人员似乎最终都会从头开始重建相同的基础设施。  最近发布。寻求反馈。   由   提交 /u/Hot-Avocado-6497   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0ejnd/showoff_saturday_built_a_paper_search_api_so_devs/</guid>
-      <pubDate>Sun, 22 Mar 2026 06:36:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个小型实用工具，无需 Photoshop 技能即可在线对图像进行像素化</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0e7ws/i_made_a_small_utility_tool_for_pixelating_images/</link>
-      <description><![CDATA[ 由   提交/u/aharvtathe  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0e7ws/i_made_a_small_utility_tool_for_pixelating_images/</guid>
-      <pubDate>Sun, 22 Mar 2026 06:16:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个月前，我发布了关于转型我的初创公司的文章。我刚刚获得了 4,000 个 GitHub star。这是中间发生的事情。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0d6vr/one_month_ago_i_posted_about_pivoting_my_startup/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0d6vr/one_month_ago_i_posted_about_pivoting_my_startup/</guid>
-      <pubDate>Sun, 22 Mar 2026 05:15:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>评价我的食谱网站[周六炫耀]</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0ccqp/rate_my_recipe_website_showoff_saturday/</link>
-      <description><![CDATA[      我创建了一个食谱网站，更多的是为了跟踪我自己已经开始堆积的食谱。我也想开始服用家庭食谱。没有广告，只做真实的自己。我有货币化的想法，所以我在每个食谱前面添加了这篇文章，但我可能会把它去掉，因为与其他食谱网站竞争会很蹩脚。    由   提交 /u/semi-average-writer   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0ccqp/rate_my_recipe_website_showoff_saturday/</guid>
-      <pubDate>Sun, 22 Mar 2026 04:29:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个零依赖性、离线优先的私有日志 PWA。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0byug/i_built_a_private_offlinefirst_journaling_pwa/</link>
-      <description><![CDATA[我厌倦了每个需要帐户和订阅的简单实用程序应用程序。我构建的每日反思恰恰相反。 这是一个“浏览器本地”的应用程序。杂志。它使用清单文件和服务工作人员，因此您可以“安装”它在 iOS/Android 上运行，无需互联网连接即可完美运行。 技术亮点：  无需 React/Vue/Svelte，只需 Vanilla JS。 使用 Canvas API 进行情绪趋势可视化。 用于“低保真”效果的手绘 SVG 插图。美观。 用于持久性的本地存储（使用 .json 导入/导出进行备份）。 每月 PDF 导出，供需要物理副本的用户使用。    由   提交/u/Yanina_Yanina   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0byug/i_built_a_private_offlinefirst_journaling_pwa/</guid>
-      <pubDate>Sun, 22 Mar 2026 04:08:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>[周六炫耀] 快速简单的交易通知，无需域名设置。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s0bw17/showoff_saturday_quick_easy_transactional/</link>
-      <description><![CDATA[      大家好。这项服务已经推出了一段时间，但仅在大约六人之间私下使用。  这个周末，我们清理了它并向任何人提供。  您是否曾经开始为自己设置一些内容，您想要收到通知，但又不想进行整个电子邮件设置/重新发送/更改 mx 记录等？ 只需获取像 notify.diy/[youridhere] 这样的链接，您就可以使用 ?URL 参数或发送 JSON 正文来点击它。接受 HTML 或纯文本。  电子邮件通过我们的通用 sendvia.email 域进行路由，并根据您在 JSON 有效负载或 URL 参数中设置的方式以及您选择的回复进行标记。您可以将它们用于任何类型的事务触发器。您还可以使用它们来发送对 CSV/XLS 或 QR 代码的响应 -&gt;电子邮件作为触发器或二维码 -&gt;捕获表格-&gt;电子邮件。  我最近使用这些链接让代理能够发送电子邮件。他们只需构建链接或通过 CLI 获取即可发送电子邮件。很简单，他们这周只发送了我的社会安全号码两次！  1 个通知挂钩免费，每天最多 10 条消息。 5 个通知挂钩，每天最多 500 条消息，每月 3 美元。 100 个通知挂钩，每天最多 1000 条消息，每月 9 美元。 如果您需要更多...那么是时候设置自己的电子邮件并去其他地方了。  如果你像我一样，每次只想发送一个简单的通知而不是一堆喧嚣时都会叹息，那么这就是为你准备的。  感谢您的浏览！ Notify.DIY Notify.DIY   由   提交 /u/ExistentialConcierge   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s0bw17/showoff_saturday_quick_easy_transactional/</guid>
-      <pubDate>Sun, 22 Mar 2026 04:04:52 GMT</pubDate>
     </item>
     </channel>
 </rss>

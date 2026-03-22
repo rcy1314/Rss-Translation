@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 22 Mar 2026 13:02:55 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 15:32:21 GMT</lastBuildDate>
+    <item>
+      <title>lshaz：用于查找微架构延迟危险的静态分析工具</title>
+      <link>https://www.reddit.com/r/programming/comments/1s0o597/lshaz_a_static_analysis_tool_for_finding/</link>
+      <description><![CDATA[ 由   提交/u/Rugta  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s0o597/lshaz_a_static_analysis_tool_for_finding/</guid>
+      <pubDate>Sun, 22 Mar 2026 15:12:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>WebAssembly 正在突破浏览器。从服务器端计算到边缘部署和插件系统，WASM 正在成为容器承诺但从未完全交付的通用运行时。</title>
+      <link>https://www.reddit.com/r/programming/comments/1s0lwp6/webassembly_is_breaking_out_of_the_browser_from/</link>
+      <description><![CDATA[ 由   提交 /u/Low-Trust2491   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s0lwp6/webassembly_is_breaking_out_of_the_browser_from/</guid>
+      <pubDate>Sun, 22 Mar 2026 13:40:07 GMT</pubDate>
+    </item>
     <item>
       <title>我的第一个 Linux 内核补丁</title>
       <link>https://www.reddit.com/r/programming/comments/1s0kr42/my_first_patch_to_the_linux_kernel/</link>
@@ -25,20 +39,6 @@
       <description><![CDATA[将 Vestron 打造为 Instagram 保存的帖子组织者，上周我们遇到了困难。在没有更改代码的情况下，Firebase 账单一夜之间飙升了 1557%。 以下是到底发生了什么以及我们如何修复它。 **症状** 云函数调用量激增。 Meta 用 webhook 重试淹没了我们的服务器，因为我们的服务器在签名验证时不断返回非 200 响应。 Meta 将其解释为我们的服务器已关闭并以指数退避来打击我们。数千次重复调用。 **根本原因**  我们将 Express 与 body-parser 中间件一起使用，它会在我们的代码运行之前自动将原始 JSON 解析为 JavaScript 对象。 Meta 使用根据消息正文的确切原始字节计算出的 HMAC-SHA256 对其 Webhooks 进行签名。当主体解析器接触数据时，这些原始字节已被修改。即使是一个字符的差异也意味着我们的签名永远不会匹配。我们默默地失败了每一个 Webhook 验证。 **修复** 我们构建了一个专用的独立 Firebase 函数 (`instagramWebhookV2`)，完全绕过 Express：  抓取 `req.rawBody` — 最初发送的确切字节流 Meta 将 HMAC-SHA256 验证作为绝对的第一行代码运行 以毫秒为单位向 Meta 返回“200 OK”  重试次数立即降至零。比尔在同一天正常化。 **意外的奖励** 我们的旧架构：接收 webhook → 保存到数据库 → 触发功能冷启动 → 发送机器人响应。总计：10-15 秒。 新架构：接收 Webhook → 验证签名 → 内联处理 → 响应。总共：不到 2 秒。 用户现在可以实时获取机器人响应，而不是等待 15 秒想知道是否发生了任何事情。 **教训** 对于任何使用原始主体签名验证的 Webhook（Meta、Stripe、GitHub 等）——在验证之前切勿让中间件接触主体。绕过 Express 或将 `express.raw()` 与 `verify` 回调一起使用，以在解析的正文旁边保留原始字节。 如果有人遇到同样的问题，很乐意回答问题。   由   提交/u/Far-Cucumber2287   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1s0dxox/how_a_single_express_middleware_caused_a_1557/</guid>
       <pubDate>Sun, 22 Mar 2026 05:59:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>*帮助*任何人都可以告诉我如何为 Horizo​​n Desk 创建插件。</title>
-      <link>https://www.reddit.com/r/programming/comments/1s0d95s/helpcan_anyone_please_tell_me_how_to_create/</link>
-      <description><![CDATA[我想创建一个插件，并希望在 Horizo​​n Desk 的 Agentic AI 插件商店中列出，但他们的网站上没有那么多数据，所以您能帮助我，让我知道如何制作插件并发布它。    由   提交/u/Pretend_Strike_8021   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1s0d95s/helpcan_anyone_please_tell_me_how_to_create/</guid>
-      <pubDate>Sun, 22 Mar 2026 05:19:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>我可以解决问题，但无法正确解释它们……还有其他人吗？</title>
-      <link>https://www.reddit.com/r/programming/comments/1s0ctg8/i_can_solve_problems_but_cant_explain_them/</link>
-      <description><![CDATA[ 由   提交/u/SachinKaran   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1s0ctg8/i_can_solve_problems_but_cant_explain_them/</guid>
-      <pubDate>Sun, 22 Mar 2026 04:54:56 GMT</pubDate>
     </item>
     <item>
       <title>StackOverflow 编程挑战#17：准确选择</title>
