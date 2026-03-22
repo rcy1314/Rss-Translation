@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 22 Mar 2026 04:58:03 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 06:58:45 GMT</lastBuildDate>
+    <item>
+      <title>我们审核了 30 个 AI 代理框架的授权 — 93% 依赖于未限定范围的 API 密钥</title>
+      <link>https://www.reddit.com/r/programming/comments/1s0etu5/we_audited_authorization_in_30_ai_agent/</link>
+      <description><![CDATA[ 由   提交/u/MousseSad4993  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s0etu5/we_audited_authorization_in_30_ai_agent/</guid>
+      <pubDate>Sun, 22 Mar 2026 06:53:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>单个 Express 中间件如何导致 Firebase 成本飙升 1557% 以及我们如何修复它</title>
+      <link>https://www.reddit.com/r/programming/comments/1s0dxox/how_a_single_express_middleware_caused_a_1557/</link>
+      <description><![CDATA[将 Vestron 打造为 Instagram 保存的帖子组织者，上周我们遇到了困难。在没有更改代码的情况下，Firebase 账单一夜之间飙升了 1557%。 以下是到底发生了什么以及我们如何修复它。 **症状** 云函数调用量激增。 Meta 用 webhook 重试淹没了我们的服务器，因为我们的服务器在签名验证时不断返回非 200 响应。 Meta 将其解释为我们的服务器已关闭并以指数退避来打击我们。数千次重复调用。 **根本原因**  我们将 Express 与 body-parser 中间件一起使用，它会在我们的代码运行之前自动将原始 JSON 解析为 JavaScript 对象。 Meta 使用根据消息正文的确切原始字节计算出的 HMAC-SHA256 对其 Webhooks 进行签名。当主体解析器接触数据时，这些原始字节已被修改。即使是一个字符的差异也意味着我们的签名永远不会匹配。我们默默地失败了每一个 Webhook 验证。 **修复** 我们构建了一个专用的独立 Firebase 函数 (`instagramWebhookV2`)，完全绕过 Express：  抓取 `req.rawBody` — 最初发送的确切字节流 Meta 将 HMAC-SHA256 验证作为绝对的第一行代码运行 以毫秒为单位向 Meta 返回“200 OK”  重试次数立即降至零。比尔在同一天正常化。 **意外的奖励** 我们的旧架构：接收 webhook → 保存到数据库 → 触发功能冷启动 → 发送机器人响应。总计：10-15 秒。 新架构：接收 Webhook → 验证签名 → 内联处理 → 响应。总共：不到 2 秒。 用户现在可以实时获取机器人响应，而不是等待 15 秒想知道是否发生了任何事情。 **教训** 对于任何使用原始主体签名验证的 Webhook（Meta、Stripe、GitHub 等）——在验证之前切勿让中间件接触主体。绕过 Express 或将 `express.raw()` 与 `verify` 回调一起使用，以在解析的正文旁边保留原始字节。 如果有人遇到同样的问题，很乐意回答问题。   由   提交/u/Far-Cucumber2287   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s0dxox/how_a_single_express_middleware_caused_a_1557/</guid>
+      <pubDate>Sun, 22 Mar 2026 05:59:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>*帮助*任何人都可以告诉我如何为 Horizo​​n Desk 创建插件。</title>
+      <link>https://www.reddit.com/r/programming/comments/1s0d95s/helpcan_anyone_please_tell_me_how_to_create/</link>
+      <description><![CDATA[我想创建一个插件，并希望在 Horizo​​n Desk 的 Agentic AI 插件商店中列出，但他们的网站上没有那么多数据，所以您能帮助我，让我知道如何制作插件并发布它。    由   提交/u/Pretend_Strike_8021   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s0d95s/helpcan_anyone_please_tell_me_how_to_create/</guid>
+      <pubDate>Sun, 22 Mar 2026 05:19:28 GMT</pubDate>
+    </item>
     <item>
       <title>我可以解决问题，但无法正确解释它们……还有其他人吗？</title>
       <link>https://www.reddit.com/r/programming/comments/1s0ctg8/i_can_solve_problems_but_cant_explain_them/</link>
@@ -43,7 +64,7 @@
     <item>
       <title>了解 Go 中的享元设计模式：实用指南</title>
       <link>https://www.reddit.com/r/programming/comments/1rzryiw/understanding_the_flyweight_design_pattern_in_go/</link>
-      <description><![CDATA[我最近写了一篇关于 Go 中的 Flyweight 设计模式的详细指南，重点是实践理解，而不仅仅是教科书定义。 文章涵盖：  Flyweight 在实际系统中实际解决了什么 何时应该（和不应该）使用它 清晰解释内在与外部状态 映射到 UML 结构的完整 Go 实现 真实世界的变化（参数化享元、复合享元） 要避免的常见错误 特定于 Go 的最佳实践（不变性、并发性、内存使用）  我没有关注抽象的 UML 解释，而是关注渲染系统、重复对象等实际场景，以及内存密集型应用程序 - 我们在可扩展系统中实际遇到的事情。 如果您正在学习 Go 中的设计模式或尝试优化对象密集型系统中的内存使用，这可能会有所帮助。 在此处阅读：https://medium.com/design-bootcamp/understanding-the-flyweight-design-pattern-in-go-a-practical-guide-78c8fc5cd164   由   提交/u/priyankchheda15  [链接] [评论]]]></description>
+      <description><![CDATA[我最近写了一篇关于 Go 中的 Flyweight 设计模式的详细指南，重点是实践理解，而不仅仅是教科书定义。 文章涵盖：  Flyweight 在实际系统中实际解决的问题 何时应该（和不应该）使用它 清晰解释内在与外部状态 映射到 UML 结构的完整 Go 实现 真实世界的变化（参数化享元、复合享元） 要避免的常见错误 特定于 Go 的最佳实践（不变性、并发性、内存使用）  我没有关注抽象的 UML 解释，而是关注渲染系统、重复对象等实际场景，以及内存密集型应用程序 - 我们在可扩展系统中实际遇到的事情。 如果您正在学习 Go 中的设计模式或尝试优化对象密集型系统中的内存使用，这可能会有所帮助。 在此处阅读：https://medium.com/design-bootcamp/understanding-the-flyweight-design-pattern-in-go-a-practical-guide-78c8fc5cd164   由   提交/u/priyankchheda15  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rzryiw/understanding_the_flyweight_design_pattern_in_go/</guid>
       <pubDate>Sat, 21 Mar 2026 13:49:25 GMT</pubDate>
     </item>
@@ -78,7 +99,7 @@
     <item>
       <title>Trivy 再次受到攻击：广泛的 GitHub Actions 标签泄露暴露了 CI/CD 秘密</title>
       <link>https://www.reddit.com/r/programming/comments/1rzivdh/trivy_under_attack_again_widespread_github/</link>
-      <description><![CDATA[ 由   提交 /u/ScottContini   [链接] [评论]]]></description>
+      <description><![CDATA[ 由   提交 /u/ScottContini   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rzivdh/trivy_under_attack_again_widespread_github/</guid>
       <pubDate>Sat, 21 Mar 2026 05:03:39 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交/u/waozen   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1rzfwwy/rewriting_our_rust_wasm_parser_in_typescript/</guid>
       <pubDate>Sat, 21 Mar 2026 02:31:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>Delve – 虚假合规即服务（SOC 2 自动化初创公司被发现捏造证据）</title>
-      <link>https://www.reddit.com/r/programming/comments/1rze1zs/delve_fake_compliance_as_a_service_soc_2/</link>
-      <description><![CDATA[ 由   提交 /u/one_user   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rze1zs/delve_fake_compliance_as_a_service_soc_2/</guid>
-      <pubDate>Sat, 21 Mar 2026 01:04:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>托尼·霍尔和他对计算机科学的影响</title>
-      <link>https://www.reddit.com/r/programming/comments/1rz98pm/tony_hoare_and_his_imprint_on_computer_science/</link>
-      <description><![CDATA[ 由   提交/u/mttd  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rz98pm/tony_hoare_and_his_imprint_on_computer_science/</guid>
-      <pubDate>Fri, 20 Mar 2026 21:43:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 Plakar 正确完成 Kubernetes 备份</title>
-      <link>https://www.reddit.com/r/programming/comments/1rz6bdd/kubernetes_backup_done_right_with_plakar/</link>
-      <description><![CDATA[ 由   提交/u/huseyinbabal  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rz6bdd/kubernetes_backup_done_right_with_plakar/</guid>
-      <pubDate>Fri, 20 Mar 2026 19:49:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
