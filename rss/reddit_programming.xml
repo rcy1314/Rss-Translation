@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 23 Mar 2026 05:08:42 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2026 07:18:54 GMT</lastBuildDate>
+    <item>
+      <title>人工智能编码工具并不是一个新的抽象层。我认为这就是为什么生产力提升没有显现出来的原因</title>
+      <link>https://www.reddit.com/r/programming/comments/1s19wq4/ai_coding_tools_arent_a_new_abstraction_layer_i/</link>
+      <description><![CDATA[最近的两项研究描绘了人工智能辅助编码的怪异景象： - Anthropic 自己的 RCT 发现，使用人工智能的开发人员在理解他们*刚刚编写的*代码时得分降低了 17%，其中调试能力差距最大。 https://www.anthropic.com/research/AI-assistance-coding-skills - METR 研究发现，经验丰富的开源开发人员在自己的存储库上使用人工智能工具时速度**慢了 19%**，但仍然“相信”人工智能已将他们的速度提高了 20%。 https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ 我认为核心问题是我们将人工智能代码生成视为一种新的方法抽象层（汇编 → C → Python → 英语），但它没有任何使之前的转换起作用的属性：  **没有确定性。** 相同的提示，不同的代码。你无法在你内心变化的事物之上建立一个心理模型。编译器是一个稳定的合约。 LLM 则不然。 **边界处没有验证。**使用编译器，您可以信任输出，因为它已经过验证。使用人工智能，您仍然需要检查每一行，这违背了将其抽象化的全部意义。 **没有可组合性。**良好的抽象可以组合。人工智能世代基本上是无国籍和独立的。如果不检查每个部件，就无法推理由人工智能生成的部件构建的系统。 **没有精确的意图语言。**自然语言太模糊，代码太低级。我们可能会缺少中间层，例如可执行规范或正式约束，它们确实是更高级别的，但足够精确以实现可靠的实现（不确定这一层）。  （可能还有更多） 从这个角度来看，METR 结果是有意义的。经验丰富的开发人员对其代码库有很强的心理模型。当前的工具迫使他们将这些模型转换为提示（有损），然后根据这些模型重新验证输出（冗余）。这不是抽象。 实际的抽象是什么样的？可能更接近：开发人员通过类型、形式约束和测试规范来定义行为。人工智能填充实现。验证层自动检查正确性。人类在“什么”和“为什么”的层面上工作，人工智能处理“如何”，除非验证失败，否则你不必停下来进行审查。 有趣的是，Anthropic 研究发现，使用人工智能进行“概念理解”而不是代码生成的开发人员得分很高，并且几乎与完全委托者一样快。可以说，有人在更高的抽象级别上有效地进行操作，他们只需要通过不是为其设计的聊天界面来做到这一点。 我们可能正处于一个尴尬的中间阶段：人工智能足够强大，足以吸引完全授权，但不够可靠，无法确保该授权的安全。当前的“提示→生成→审查”界面不是一个抽象，而是一个非常有损且没有任何保证的翻译层。下一步可能是构建实际的抽象（具有确定性、可验证性、可组合性和真正的意图语言），以提高复杂工作的生产力。 好奇其他人的想法。   由   提交/u/Balance-  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s19wq4/ai_coding_tools_arent_a_new_abstraction_layer_i/</guid>
+      <pubDate>Mon, 23 Mar 2026 07:07:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>当垃圾收集器和手动内存管理共享同一个对象时——React Native JSI 边界的内存所有权</title>
+      <link>https://www.reddit.com/r/programming/comments/1s18kyb/when_a_garbage_collector_and_manual_memory/</link>
+      <description><![CDATA[这不是伪装成通用编程的 React Native 特定知识。核心问题是普遍的：当两个具有根本不同规则的内存管理系统需要在同一块内存上协作时会发生什么？ JavaScript 的 Hermes GC：非确定性、安全、从不释放活动对象。 C++ shared_ptr：确定性、即时、完全信任程序员。 当您创建 JSI HostObject（JavaScript 作为常规对象保存的 C++ 类）时，两个系统都保存引用。 GC 在 JS 对象的本机支持中保存一个shared_ptr 副本。您的 C++ 代码可能包含其他代码。契约：本机对象一直存在，直到来自任一世界的最后一个引用丢失为止。 第 5 部分介绍了对象模型 - 三个虚拟方法（get、set、getPropertyNames），它们将 C++ 类转变为 JavaScript 可以保存、检查和调用方法的对象。 GC 收集时析构函数运行。 RAII 为您提供自动本机资源清理。 第 6 部分涵盖了困难的部分： - 悬而未决：JS 可以从对象中分离方法（const fn = obj.increment），删除对象，然后调用 fn() — 通过捕获的原始指针进行释放后使用。修复：weak_from_this()。 - 零拷贝二进制数据：ArrayBuffer 让双方读取相同的字节。子类jsi::MutableBuffer，通过shared_ptr将其交给运行时。没有序列化，没有 JSON，没有副本。 - 涵盖每个 JSI 内存问题的三个 bug 类别：释放后使用（存储指针超过同步边界）、循环共享共享指针泄漏和原始分配泄漏。 一般要点：在桥接 GC 和手动内存时，shared_ptr 是通用适配器，weak_ptr 会破坏循环并防止被阻止的清理，并且跨异步边界存储原始指针永远不会安全。 第 5 部分：https://heartit.tech/react-native-jsi-deep-dive-part-5-hostobjects-exusing-c-classes-to-javascript/ 第 6 部分： https://heartit.tech/react-native-jsi-deep-dive-part-6-memory-across-two-worlds-who-owns-the-bytes- Between-js-and-c/   由   提交 /u/tmntxf1sh   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s18kyb/when_a_garbage_collector_and_manual_memory/</guid>
+      <pubDate>Mon, 23 Mar 2026 05:46:05 GMT</pubDate>
+    </item>
     <item>
       <title>现在 93% 的开发人员使用人工智能工具，但我们的速度明显变慢，这是怎么回事</title>
       <link>https://www.reddit.com/r/programming/comments/1s155vp/93_of_devs_use_ai_tools_now_and_were_measurably/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[出于无聊，我花了相当多的时间对罗技鼠标的协议进行逆向工程，看看是否可以在其中存储数据。我最终通过 DPI 寄存器得到了两个字节。 代码：https://github.com/timwehrle/mouse-fs   由   提交 /u/soupgasm   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1s02cq1/storing_2_bytes_of_data_in_your_logitech_mouse/</guid>
       <pubDate>Sat, 21 Mar 2026 20:48:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>jsongrep 比 {jq, jmespath, jsonpath-rust, jql} 更快</title>
-      <link>https://www.reddit.com/r/programming/comments/1rzxlq0/jsongrep_is_faster_than_jq_jmespath_jsonpathrust/</link>
-      <description><![CDATA[ 由   提交 /u/fizzner   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rzxlq0/jsongrep_is_faster_than_jq_jmespath_jsonpathrust/</guid>
-      <pubDate>Sat, 21 Mar 2026 17:38:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>400 MiB 去哪儿了？</title>
-      <link>https://www.reddit.com/r/programming/comments/1rzxhgh/where_did_400_mib_go/</link>
-      <description><![CDATA[ 由   提交/u/andreiross   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1rzxhgh/where_did_400_mib_go/</guid>
-      <pubDate>Sat, 21 Mar 2026 17:34:03 GMT</pubDate>
     </item>
     </channel>
 </rss>
