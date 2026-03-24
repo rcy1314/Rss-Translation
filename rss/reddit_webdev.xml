@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 24 Mar 2026 02:33:59 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 04:58:42 GMT</lastBuildDate>
+    <item>
+      <title>SolidJS 与 Svelte 比较</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s23x8o/solidjs_vs_svelte_comparison/</link>
+      <description><![CDATA[SolidJS 和 Svelte 是新兴的 JavaScript 框架，它们使用编译器而不是像 React 这样的虚拟 DOM。 您更喜欢哪一个，为什么？   由   提交 /u/WhichEdge846   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s23x8o/solidjs_vs_svelte_comparison/</guid>
+      <pubDate>Tue, 24 Mar 2026 04:21:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Devlog #3] 干净的代码每帧花费了 40 毫秒 — 所以我用全局变量替换了它</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s23hpw/devlog_3_clean_code_was_costing_me_40ms_per_frame/</link>
+      <description><![CDATA[演示：3,000 个敌人以 60 TPS 的速度在玩家周围流动，没有聚集 分析器显示仅 AI 分离通道就消耗了每个周期 40 毫秒。在 60 TPS 下，这是在绘制单个子弹之前消耗的整个帧预算。 在开发日志 #2 中，我将渲染循环与物理解耦。但是，由于大约 3,000 个敌人都需要相互推开，CPU 遇到了一个全新的问题。 如果您希望一个巨大的群体看起来像流体而不是塌陷成单个像素，则需要 Boids 分离。每个敌人都会检查与周围每个敌人的距离并推开。 3,000 个敌人天真地这样做，每刻约 900 万个距离检查。 以下是我如何将其杀死到约 2,000 个。 标准网格陷阱 明显的解决方法是将世界划分为 2D 网格并仅检查相邻单元格。 真正的问题不是性能 - 而是我的世界是无界的，而是网格事实并非如此。 如果一个实体被撞到负坐标，或者被炸到远离任何预定义边界的地方，固定网格要么会浪费内存，要么会在边缘崩溃。我不想仅仅为了使数据结构表现出来而建造隐形墙。 无限哈希（零对象） 我扔掉了 2D 数组，并使用素数和按位数学构建了无限空间哈希。它将无限的 2D 空间映射到一组固定的 4,093 个存储桶中。 零对象分配。只是平面内存。 const NUM_BUCKETS = 4093; //素数 → 更少的碰撞 const cellHead = new Int32Array(NUM_BUCKETS).fill(-1); const next = new Int32Array(MAX_ENTITIES);函数插入(id, x, y) { const cx = Math.floor(x / 64); const cy = Math.floor(y / 64);让 hash = Math.imul(cx, 73856093) ^ Math.imul(cy, 19349663);哈希 = 哈希% NUM_BUCKETS； if (hash &lt; 0) hash += NUM​​_BUCKETS; // 平面链表（零分配） next[id] = cellHead[hash]; cellHead[哈希] = id; }  每个存储桶只是一个由类型化数组支持的链接列表。没有堆搅动，没有对象开销。 隐藏的闭包泄漏 这将物理时间从 40 毫秒降低到约 2 毫秒。 然后口吃又回来了。 罪魁祸首是查询函数： grid.query(x, y, radius, (neighborId) =&gt; { ... });  将箭头函数传递到查询中会在每次调用时创建一个新的闭包。 3,000 个敌人以 60Hz 的频率进行查询意味着每秒分配 180,000 个闭包。 GC 正在加班以清理它们。 瓶颈不再是算法，而是分配模式。 丑陋的静态修复 为了保持零 GC 线，我完全停止传递闭包。回调变成了模块级静态函数，上下文通过每次查询之前设置的预分配变量传递。 //预分配一次 let _sepIdx, _sepX, _sepY;让 _sepCount = 0;函数 _separationCb(neighborId) { if (_sepCount &gt;= 6) return true; // 提前退出上限 // 使用 _sepX / _sepY 计算推力 _sepCount++;返回假； } // 主循环 _sepIdx = i; _sepX = swarmPool.x[i]; _sepY = swarmPool.y[i]; _sepCount = 0; swarmGrid.query(_sepX, _sepY, 24, _separationCb);  它打破了干净代码和封装的所有规则。它实际上是全局可变状态。如果有任何异步内容触及此路径，则错误将极难重现。 我接受了这种权衡。 在 JavaScript 中每秒运行数百万次的热路径中，干净的代码绝对会浪费您的帧时间 - 不是因为逻辑很慢，而是因为内存行为很慢。 现实检查 总碰撞检查从每个周期约 150 万次下降到约 2,000 次。物理时间从 40 毫秒缩短到约 2 毫秒。内存配置文件回到平坦线。 哈希并不完美。不同的空间区域可能会碰撞到同一个桶中，这意味着一个实体偶尔会对实际上不在附近的东西做出反应。 在当前密度下，它是不可见的。 模拟在技术上是错误的。它恰好看到了 3,000 个实体。 - PC   由   提交 /u/user11235820   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s23hpw/devlog_3_clean_code_was_costing_me_40ms_per_frame/</guid>
+      <pubDate>Tue, 24 Mar 2026 03:59:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>小型机构是否真的在一个技术堆栈上进行标准化，还是每个人都只是根据项目即兴发挥</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s23fq7/do_small_agencies_actually_standardize_on_one/</link>
+      <description><![CDATA[经营一家小型机构。客户大多是当地的服务企业——清洁工、承包商、顾问。预算从 500 美元到 1,500 美元不等。 每个项目都像是从头开始进行堆栈对话：  小预算 → WordPress 感觉很明显，但维护永远成为我们的头疼 中等预算 → 自定义构建感觉不错，但对于 5 页网站来说太过分了 每个客户 → 快速、移动、显示在 Google 上  查看了 Webflow、Framer、Astro，普通 HTML。每个选项都需要权衡（无论是在维护、客户移交还是搜索引擎优化方面——通常是三者兼而有之）。 我无法弄清楚的是，成功的小型机构是否真的在一个堆栈上进行标准化并使其发挥作用，还是根据范围不断切换。 80% 的小型机构每次都只是做出这个决定，我错了吗？太高了？  是否有一个人们在这种规模上实际使用的决策框架 对你影响最大的是什么 - 维护、移交或 SEO 限制    由   提交/u/theideamakeragency  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s23fq7/do_small_agencies_actually_standardize_on_one/</guid>
+      <pubDate>Tue, 24 Mar 2026 03:56:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何在启动环境中管理数据库操作？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s233am/how_are_you_managing_databases_operations_in/</link>
+      <description><![CDATA[你好👋 想知道当公司太小而无法聘请专门的数据库工程师时，今天的团队如何管理生产中的操作数据库。  我是唯一一个觉得这很耗时的人吗？ 请回答：  您的角色 您所在的行业 您公司的规模 您环境的技术堆栈 您设置的精简内容操作  提前致谢🙏   由   提交/u/datacionados94  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s233am/how_are_you_managing_databases_operations_in/</guid>
+      <pubDate>Tue, 24 Mar 2026 03:39:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>一条 Cloudflare 规则导致我的日本网站每天有 8,000 次机器人访问</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s22kdp/one_cloudflare_rule_killed_8000_bot_visitsday/</link>
+      <description><![CDATA[      我运行日本熊事件地图。主要受众是日本，每月约有 10 万访问者。 GA 国家/地区细分显示新加坡/中国参与率 新加坡和中国是我的第二和第三流量来源。参与率分别为 3.2% 和 6.84%。一到三个第二次会议。所有爬虫。 Bytespider、Baiduspider、PetalBot、ChatGLM-Spider 以及一堆从腾讯和阿里云数据中心涌出的循环垃圾，其中许多都经过新加坡。他们不会索引您的网站。他们不会向您发送流量。它们只会消耗您的资源并使您的分析变得毫无用处。 我尝试阻止单个用户代理。尝试阻止 ASN。不能长期工作，它们只是旋转。 实际修复花了 30 秒。 Cloudflare 仪表板 &gt;安全&gt;安全规则&gt;创建规则： （ip.src.country in {&quot;SG&quot; &quot;CN&quot;} and not cf.client.bot） 操作：托管挑战 挑战来自新加坡和中国的所有流量，让经过验证的机器人（Googlebot、Bingbot 等）自动通过。真正的人类在不知不觉中通过了挑战。抓取工具会默默失败。 Cloudflare 规则触发了 7.99k 事件24 小时 前 24 小时内杀死约 8,000 个机器人访问。 一些注意事项：  cf.client.bot 是 Cloudflare 的经过验证的机器人列表，包括 Google/Bing/etc，因此您的 SEO 很好 托管挑战对真实用户来说是不可见的，没有验证码，机器人无法通过 如果需要，请在大括号中添加更多国家/地区代码 适用于免费的 Cloudflare 计划 如果您的规则仍然使用 ip.geoip.country，请切换到 ip.src.country，旧字段已弃用  如果您的 GA 显示来自您实际未服务的国家/地区的高流量低参与流量，您可能会遇到同样的问题。需要 5 分钟才能修复。   由   提交 /u/Reasonable_Ad_4930   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s22kdp/one_cloudflare_rule_killed_8000_bot_visitsday/</guid>
+      <pubDate>Tue, 24 Mar 2026 03:14:01 GMT</pubDate>
+    </item>
     <item>
       <title>mlssoccer.com API？</title>
       <link>https://www.reddit.com/r/webdev/comments/1s21dg5/mlssoccercom_api/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[      我不知道您是否听说过，但“图像另存为类型”Chrome 扩展程序已被标记为删除，Google 警告用户该扩展程序包含恶意软件。  因此，我构建了将图像另存为任何类型，这是一个简单的扩展，添加了“将图像另存为...”功能到带有 PNG、JPG 和 TIFF 选项的右键单击菜单。 它的工作方式相同：  右键单击网络上的任何图像 选择格式 弹出“另存为”对话框，完成  它处理 WebP、AVIF、SVG、GIF（因此浏览器可以渲染任何内容）。 JPG 转换会自动用白色填充透明区域，这样您就不会得到黑色背景。 它没有数据收集，没有帐户，没有广告。整个转换过程在您的浏览器本地进行。 Chrome 网上应用店：https://chromewebstore.google.com/detail/save-image-as-any-type/jmaiaffmlojlacfgopiochoogcickhfi 如果您尝试一下，希望得到反馈。   由   提交/u/ScientiaOmniaVincit  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s1t0fo/i_built_a_save_image_as_type_replacement_chrome/</guid>
       <pubDate>Mon, 23 Mar 2026 20:45:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>后端工程师角色所需的准备</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s1rk3q/prep_needed_for_a_backend_engineer_role/</link>
-      <description><![CDATA[嗨。我是一名应届毕业生，最近获得了后端工程师的工作机会。我的背景和实习主要与机器学习/数据工程相关，而且我以前没有后端经验。我即将加入的公司使用 Go 作为后端。我不熟悉这种语言，到目前为止我只使用 python 和一点 C++。  距离加入新职位还有两个月的时间，我想利用这段时间熟悉 Go 和后端工程。有人可以给我指出好的资源或给我一个我应该遵循的路线图吗？我想熟悉 Go 以及并发等后端工程概念   由   提交/u/Pyro0023  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s1rk3q/prep_needed_for_a_backend_engineer_role/</guid>
-      <pubDate>Mon, 23 Mar 2026 19:53:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>羽毛球分析理念</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s1r53s/badminton_analytics_idea/</link>
-      <description><![CDATA[我花了几个月的时间构建一个羽毛球分析应用程序......现在我担心没有人需要它 我经常打羽毛球，有一件事总是困扰着我 - 比赛结束后，我永远不知道为什么我输了。 总是一些模糊的东西，比如“错误太多”或“他们打得更好”，但没有真正的故障。 所以我最终构建了构建一个适合我自己的小工具，我可以： 在比赛时实时跟踪比赛 在简单模式（仅得分）和详细模式（非受迫性失误、获胜者、发球成功等）之间切换 赛后获取基本分析（胜率、失误率、发球成功趋势） 返回并查看比赛的逐点历史记录 个人使用它，我开始注意到模式比如： 我因非受迫性失误而丢掉的分数比对手获胜者多 我的发球在压力下下降 某些击球一直让我失分 这部分实际上感觉很有用。 但问题是： 当我向一些人展示它时，他们中的大多数人觉得比赛期间的实时跟踪+详细输入太费力了。 所以现在我正在尝试理解： 这是： 实际上对改进你的游戏有用 或者只是听起来不错但人们不会持续使用的过度杀伤 你： 以任何方式跟踪或分析你的比赛吗？ 关心错误、获胜者、趋势等统计数据？ 或者只是玩然后继续 不试图在这里推销任何东西 - 在我接受之前只是想要诚实的意见   由   提交 /u/Elegant_Link_1551   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s1r53s/badminton_analytics_idea/</guid>
-      <pubDate>Mon, 23 Mar 2026 19:38:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>加载网页时传输到前端的 4.4 MB 数据。对于太多有什么硬性规定吗？我可能会寻找什么样的问题、解决方案或考虑因素。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s1qz70/44_mb_of_data_transfered_to_front_end_of_a/</link>
-      <description><![CDATA[   在我的电脑上，一切运行良好，我的内存甚至没有使用超过 1GB 的 Firefox 内存（甚至还有几个其他选项卡）。然而，从用户的角度来看，我知道这对于某些设备来说可能不太容易访问。在一些渲染此内容的 UI 元素上，加载 oof 需要 3-5 秒。 这意味着它是一个使用 React 的库存管理系统，我可以重构它，以便可能从初始数据传输中删除 3GB 并进行一些后端过滤。 “将所有内容发送到前端并在那里进行过滤”我认为我的心态已经在这个项目中发挥了作用，哈哈。 但我只是有点好奇它们是否是解决此类问题的优雅解决方案或其他可能有用的工具。   由   提交/u/Sad_Spring9182  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s1qz70/44_mb_of_data_transfered_to_front_end_of_a/</guid>
-      <pubDate>Mon, 23 Mar 2026 19:32:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>4 岁了，纯前端还值得吗？还是全栈是现在唯一的方法？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s1qv3o/is_pure_frontend_still_worth_it_at_4_yoe_or_is/</link>
-      <description><![CDATA[我是一名高级 SDE-1，拥有约 4 年的经验，主要是前端 - React、TypeScript、Next.js、Firebase。我还完成了 Node.js API、Cloud Functions、Firestore 架构设计和身份验证系统。无论如何，我不是后端专家，但也不是一无所知。 最近与一位高级开发人员（12 年，主要是前端）交谈，他告诉我不要再定位为纯前端，而转向以前端为中心的全栈。他的论点是： - 招聘人员没有按照应有的方式重视前端复杂性 - 人工智能正在蚕食 UI 工作的商品部分，因此纯前端正在受到挤压（我们知道 FE 比 UI 更重要，但招聘人员并不重视这一点） - 公司希望员工现在能够拥有端到端的功能，而不仅仅是 UI 层 - 即使前端保持强大，拥有后端技能也是一种保障net 他特别说不要去硬核后端，只要了解足够的知识就可以自己构建整个系统。前端保持优势，后端填补空白。 这对我来说是有道理的，但在调整如何为 SDE-2 角色做好准备和定位之前，我需要更多意见。 对于那些在该行业工作 5 年以上的人：  以前端为中心的全栈是 4 岁的正确选择，还是纯前端深度仍然能获得良好的角色？ 您有什么建议吗？超越平常的学习（GFE、DSA、系统设计）实际上为您带来了帮助？  欣赏任何诚实的做法。   由   提交 /u/casual_shutter   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s1qv3o/is_pure_frontend_still_worth_it_at_4_yoe_or_is/</guid>
-      <pubDate>Mon, 23 Mar 2026 19:28:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个微妙的状态错误破坏了我们仪表板中的过滤器、共享链接和多选项卡同步</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s1q59h/a_subtle_state_bug_broke_filters_shared_links_and/</link>
-      <description><![CDATA[我最近在产品仪表板中调试了一个非常令人沮丧的问题，该问题在开发中看起来完全正常。 过滤器起作用了。组件工作了。 API 响应是正确的。 但在生产中，用户会看到损坏的共享链接、选项卡之间的不同结果以及刷新后过滤器重置。 根本原因是我现在认为的“状态漂移”——应用程序的不同层（URL 参数、Zustand/useState 等客户端状态、API 缓存、localStorage 等）最终都保留自己的同一状态版本。 单独来看，一切看起来都是正确的。该应用程序一起提供了不一致的体验。 这让我重新思考一个简单的问题：如果 UI 状态需要在刷新中生存、可共享或在选项卡之间保持一致，那么 UI 状态应该实际存在于哪里？ 文章链接：我的应用程序有 3 个州。我只知道1个|作者：HarshVardhan jain | 2026 年 3 月 |升级编码 分享你的想法   由   提交/u/DecodeBuzzingMedium  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s1q59h/a_subtle_state_bug_broke_filters_shared_links_and/</guid>
-      <pubDate>Mon, 23 Mar 2026 19:03:08 GMT</pubDate>
     </item>
     </channel>
 </rss>

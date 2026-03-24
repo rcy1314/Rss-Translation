@@ -4,7 +4,7 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 24 Mar 2026 02:33:29 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 04:58:18 GMT</lastBuildDate>
     <item>
       <title>孤独的 lisp 中的生成器</title>
       <link>https://www.reddit.com/r/programming/comments/1s2077v/generators_in_lone_lisp/</link>
@@ -97,18 +97,18 @@
       <pubDate>Mon, 23 Mar 2026 11:06:35 GMT</pubDate>
     </item>
     <item>
-      <title>集成测试中的模拟与真实服务——哪个效果更好？</title>
-      <link>https://www.reddit.com/r/programming/comments/1s1bwqz/mocks_vs_real_services_in_integration_testing/</link>
-      <description><![CDATA[最近一直在尝试改进我们的集成测试设置，老实说，这比听起来要困难得多。 单元测试很容易维护，但是当您开始测试服务如何相互通信（API、DB、队列）时，事情很快就会变得混乱。不稳定的测试、环境问题、模拟行为不像真实系统……凡是你能想到的。 我意识到的一件事是，集成测试不仅仅是“连接两个模块并进行测试”。它更多的是验证数据流如何以及组件在真实条件下如何协同工作。 最近在研究时发现了一个非常详细的指南： https://keploy.io/blog/community/integration-testing-a-compressive-guide 它解释了不同的方法（自上而下、自下而上等）以及何时实际模拟与使用真实服务，我发现这很有用。 好奇如何使用其他人处理这个问题：  你更依赖模拟还是真实环境？ 你在 CI 中运行集成测试的频率如何？    由   提交/u/Global-Development56  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1s1bwqz/mocks_vs_real_services_in_integration_testing/</guid>
-      <pubDate>Mon, 23 Mar 2026 09:16:11 GMT</pubDate>
-    </item>
-    <item>
       <title>当垃圾收集器和手动内存管理共享同一个对象时——React Native JSI 边界的内存所有权</title>
       <link>https://www.reddit.com/r/programming/comments/1s18kyb/when_a_garbage_collector_and_manual_memory/</link>
       <description><![CDATA[这不是伪装成通用编程的 React Native 特定知识。核心问题是普遍的：当两个具有根本不同规则的内存管理系统需要在同一块内存上协作时会发生什么？ JavaScript 的 Hermes GC：非确定性、安全、从不释放活动对象。 C++ shared_ptr：确定性、即时、完全信任程序员。 当您创建 JSI HostObject（JavaScript 作为常规对象保存的 C++ 类）时，两个系统都保存引用。 GC 在 JS 对象的本机支持中保存一个shared_ptr 副本。您的 C++ 代码可能包含其他代码。契约：本机对象一直存在，直到来自任一世界的最后一个引用丢失为止。 第 5 部分介绍了对象模型 - 三个虚拟方法（get、set、getPropertyNames），它们将 C++ 类转变为 JavaScript 可以保存、检查和调用方法的对象。 GC 收集时析构函数运行。 RAII 为您提供自动本机资源清理。 第 6 部分涵盖了困难的部分： - 悬而未决：JS 可以从对象中分离方法（const fn = obj.increment），删除对象，然后调用 fn() — 通过捕获的原始指针进行释放后使用。修复：weak_from_this()。 - 零拷贝二进制数据：ArrayBuffer 让双方读取相同的字节。子类jsi::MutableBuffer，通过shared_ptr将其交给运行时。没有序列化，没有 JSON，没有副本。 - 涵盖每个 JSI 内存问题的三个 bug 类别：释放后使用（存储指针超过同步边界）、循环共享共享指针泄漏和原始分配泄漏。 一般要点：在桥接 GC 和手动内存时，shared_ptr 是通用适配器，weak_ptr 会破坏循环并防止被阻止的清理，并且跨异步边界存储原始指针永远不会安全。 第 5 部分：https://heartit.tech/react-native-jsi-deep-dive-part-5-hostobjects-exusing-c-classes-to-javascript/ 第 6 部分： https://heartit.tech/react-native-jsi-deep-dive-part-6-memory-across-two-worlds-who-owns-the-bytes- Between-js-and-c/   由   提交 /u/tmntxf1sh   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1s18kyb/when_a_garbage_collector_and_manual_memory/</guid>
       <pubDate>Mon, 23 Mar 2026 05:46:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>悲观与乐观并发控制</title>
+      <link>https://www.reddit.com/r/programming/comments/1s10x8v/pessimistic_vs_optimistic_concurrency_control/</link>
+      <description><![CDATA[ 由   提交/u/Comfortable-Fan-580   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1s10x8v/pessimistic_vs_optimistic_concurrency_control/</guid>
+      <pubDate>Sun, 22 Mar 2026 23:33:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
