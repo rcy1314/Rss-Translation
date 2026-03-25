@@ -4,11 +4,32 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 25 Mar 2026 16:15:45 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2026 19:03:05 GMT</lastBuildDate>
+    <item>
+      <title>在设计网站时，您如何提出矢量和动画图形的想法？老实说，这是我现在面临的最难的问题，也许对你来说也是如此。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3iphw/how_do_you_come_up_with_ideas_for_vector_and/</link>
+      <description><![CDATA[标题   由   提交/u/lasan0432G   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3iphw/how_do_you_come_up_with_ideas_for_vector_and/</guid>
+      <pubDate>Wed, 25 Mar 2026 18:18:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>以零 API 成本构建药房地图（Leaflet + OpenStreetMap，无 Google Places）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3ifpj/building_a_dispensary_map_with_zero_api_costs/</link>
+      <description><![CDATA[我们正在构建 Aether，一款照片优先的大麻日记应用程序。我们想要的功能之一是“天文台”。药房地图，用户可以在其中找到附近的商店，收藏他们的首选，并将他们记录的会话链接到特定的药房。 最明显的举措是 Google Places API。但 Google 地方信息需要支付押金才能开始使用，我们不希望在现阶段出现这种摩擦。以下是我们免费构建整个系统的方式。 堆栈  地图渲染：Leaflet + CartoDB 暗物质图块（免费，无密钥） 地理编码：Nominatim（OpenStreetMap 的免费地理编码器，无密钥） 数据：存储在我们自己的数据库中的用户提交的药房 框架：Next.js 15 应用路由器  外部 API 总成本：0 美元。 地图 CartoDB Dark Matter 为您提供一张看起来真正像深空的黑色/深灰色地图。无需 API 密钥，只需引用图块 URL： https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png  对于标记，我们使用 Leaflet 的 divIcon 来渲染自定义 HTML — 带有 CSS 框阴影发光的青色点。最喜欢的药房通过关键帧动画获得脉冲环。 Leaflet + Next.js 问题 Leaflet 在导入时访问窗口。 Next.js 可以在不存在 window 的服务器上渲染组件 - 因此导入 Leaflet 通常会导致构建崩溃。修复： const ObservatoryMap =dynamic(() =&gt; import(&#39;@/components/ObservatoryMap&#39;), { ssr: false })  地图组件本身通常在顶层导入Leaflet。该页面通过 dynamic() 和 ssr: false 加载它，以完全跳过服务器渲染。 无需 Google 进行地理编码 Nominatim 是 OpenStreetMap 的免费地理编码 API。无需钥匙。收获是什么？他们的使用策略需要一个有意义的 User-Agent 标头，因此您无法直接从浏览器调用它。通过服务器路由进行代理： const res = wait fetch(`https://nominatim.openstreetmap.org/search?q=${q}&amp;format=json`, { headers: { &#39;User-Agent&#39;: &#39;Your App Name (contact@yourapp.com)&#39; }, })  大约 10 行代码，您就可以了合规。 用户通过抓取的数据提交 药房不是从第三方数据库中提取数据，而是完全由用户提交。用户添加姓名、地址、网站、Instagram。我们通过 Nominatim 对地址进行地理编码并放置 pin。与导入通用业务目录相比，它更适合应用程序的社区驱动感。 完整功能大约需要一个会话：数据库迁移、三个 API 路由、一个 Leaflet 地图组件和一个页面。零新的付费 API。很高兴回答问题。   由   提交 /u/PunchbowlPorkSoda   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3ifpj/building_a_dispensary_map_with_zero_api_costs/</guid>
+      <pubDate>Wed, 25 Mar 2026 18:08:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>建立了一个视频编辑+字幕+多平台发布的SaaS，但14个月后仍然是0用户。你会在哪里攻击这个？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3gwya/built_a_saas_for_video_editing_subtitles/</link>
+      <description><![CDATA[大家好， 我构建一款名为 ClipsOnTime 的 SaaS 已有大约 14 个月的时间。 它旨在帮助创作者和小型团队在一个地方处理更多的短片工作流程：  编辑视频 生成字幕 样式字幕 安排内容 在 YouTube、TikTok、Instagram 和 Facebook 等平台上发布  所以这个想法基本上是：更少的离线工具、更少的手动工作、更快的发布。 问题是我的用户数仍然为 0。 我知道 r/webdev 不是一个营销 subreddit，所以我不会发布此内容来宣传它。我对构建者的角度更感兴趣：  这听起来像是产品问题还是分发问题？ 对于初始楔入来说范围是否太宽？ “一体化工作流程”通常会因为太通用而失败吗？ 如果你是构建这个的人，你会首先削减或缩小什么？  我主要寻找诚实的技术/产品来自已经构建过东西并且知道在正确验证之前过度构建是多么容易的人的反馈。   由   提交/u/larswillems  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3gwya/built_a_saas_for_video_editing_subtitles/</guid>
+      <pubDate>Wed, 25 Mar 2026 17:15:27 GMT</pubDate>
+    </item>
     <item>
       <title>您认为是什么导致了 Medium.com 的“垮台”？您认为竞争对手网站如何从 Medium 的错误和现状中吸取教训，从而打造出“更好”的平台和产品？</title>
       <link>https://www.reddit.com/r/webdev/comments/1s3f14v/what_do_you_think_caused_the_downfall_of/</link>
-      <description><![CDATA[很想了解人们对上述内容的意见...特别是在 Substack 成为所有头条新闻并获得大量在线影响力的时候。    由   提交 /u/prankster999   [链接] [评论]]]></description>
+      <description><![CDATA[很想听听人们对上述内容的看法...尤其是在 Substack 成为所有头条新闻并获得大量在线影响力的时候。 编辑： 有些人认为人工智能是 Medium 陷入困境的一个重要原因... 在阻止（懒惰的）恶意行为者时，如何对抗人工智能？ 在网站上注册关键活动（即用户跟踪、分析和会话记录）是否是阻止人工智能使用的有效方法？   由   提交 /u/prankster999   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s3f14v/what_do_you_think_caused_the_downfall_of/</guid>
       <pubDate>Wed, 25 Mar 2026 16:07:34 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[      我们都经历过。有时你在某件事上花了很长时间，试图找出哪里出了问题，你甚至不知道自己从哪里开始，也不知道它最初的目的是什么。 你需要有人听你解释。你不需要建议。你需要被听到。与鸭子交谈。 在 explainyourbugtotherubberduck.com 向橡皮鸭解释你的错误。   由   提交/u/Link4P  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s3b7th/ever_needed_help_figuring_out_a_tough_bug_or/</guid>
       <pubDate>Wed, 25 Mar 2026 13:47:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>2002年网吧网站。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3atbp/2002_internet_cafe_website/</link>
-      <description><![CDATA[      背后的故事： https://medium.com/@MrTemplar/relationship-of-cmd-b9ffdd56d968   由   提交/u/BrandonLeeOfficial  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3atbp/2002_internet_cafe_website/</guid>
-      <pubDate>Wed, 25 Mar 2026 13:31:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>您最喜欢的静态站点生成器是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3aho0/whats_your_favourite_static_site_generator/</link>
-      <description><![CDATA[寻找静态站点生成器，我曾经使用过 Jekyll，但我认为没有人再使用它了。你有什么建议？拥有良好社区的东西。   由   提交 /u/Ok-Consideration2955   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3aho0/whats_your_favourite_static_site_generator/</guid>
-      <pubDate>Wed, 25 Mar 2026 13:17:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>编码真的死了吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3ad3e/is_coding_really_dead/</link>
-      <description><![CDATA[大家好，我是一名新生，我一直对编码感兴趣并开始学习它，我使用 java + spring bott 并了解一点前端，对于一个大学项目，我必须创建移动应用程序，所以我开始学习 React Native，但截止日期临近，所以我刚刚学习了如何运行 React Native 代码并开始使用 AI 开发应用程序，我使用 claude 和 Replit 以及另一个 AI 来开发 ui ux 设计我能够开发出一个成熟的应用程序，仅仅一天就花了大约 8 个小时，但仍然没有太多工作，应用程序看起来很棒，而且它是动画的。 所以，即使在学习和练习了这么多之后，问题也出现了，我无法创建这样的 Web 应用程序，而人工智能在一天之内就做到了，而且我知道许多开发人员正在使用人工智能来构建东西，但这不是变得太容易了，你们都认为开发已经死了吗？ 我也在想更多地学习 Spring Boot，但在此之后我想我应该开始 DevOps 或 AI/ML。我的问题是，你们对人工智能的看法是，它是好还是它正在蚕食我们的工作。你们都建议我改变我的技术堆栈吗？我还有 3 个月毕业，没有工作。   由   提交/u/ElevatorJust6586  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3ad3e/is_coding_really_dead/</guid>
-      <pubDate>Wed, 25 Mar 2026 13:12:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
