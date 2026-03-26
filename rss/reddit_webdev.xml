@@ -4,13 +4,76 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 26 Mar 2026 16:16:24 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 19:15:22 GMT</lastBuildDate>
     <item>
-      <title>每次我输入“su”时，我都会说SuWoo……我不可能是唯一的一个吧？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s4bhl7/every_time_i_type_su_i_say_suwoo_i_cant_be_the/</link>
-      <description><![CDATA[我只需要知道我是否与其他键盘匪徒在一个帮派中，或者我是否孤身一人，可能很快就会入狱！    由   提交 /u/bccorb1000   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s4bhl7/every_time_i_type_su_i_say_suwoo_i_cant_be_the/</guid>
-      <pubDate>Thu, 26 Mar 2026 15:58:16 GMT</pubDate>
+      <title>我绝对讨厌做 HTML/CSS 布局。你呢？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4gms7/i_absolutely_hate_doing_htmlcss_layout_what_about/</link>
+      <description><![CDATA[我是一名拥有 7 年经验的前端开发人员，但我只花了大约一年的时间来实际处理 HTML/CSS 布局。我的大部分经验都是在业务应用程序中，重点是功能和业务逻辑，而不是构建登陆页面或精美的动画。 我知道我在这方面的经验很少。最近，一些朋友要求我为他们建立一个网站，我经常需要谷歌搜索或询问法学硕士如何实现平滑的逐页滚动和其他现代登陆页面上常见的功能。 即使我是一名前端开发人员，我也确实感觉到自己的技能存在差距。是的，我知道如何使用 CSS 并且可以完成工作，但我可能无法构建一个真正精美的页面，例如 Apple 风格的登陆页面。这让我很烦恼。我喜欢前端开发，但我讨厌做布局，觉得很无聊。 所以我很好奇作为前端开发者，你对 HTML/CSS 布局的掌握程度如何？你真的喜欢它吗？   由   提交 /u/abstrscat   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4gms7/i_absolutely_hate_doing_htmlcss_layout_what_about/</guid>
+      <pubDate>Thu, 26 Mar 2026 19:03:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 React 19 + Vite 6 + Express + Ink CLI 为 LLM 提示构建了“自动调谐器”。这就是我做出这些堆栈选择的原因。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4gcrp/i_built_autotuner_for_llm_prompts_with_react_19/</link>
+      <description><![CDATA[刚刚发布的提示自动调谐器，基本上是 LLM 提示的自动调谐器。它解决的问题很有趣，但我想谈谈堆栈决策，因为我做了一些选择，但没有看到太多讨论。 堆栈： React 19 + TypeScript + Tailwind CDN + Vite 6 + Express 4 + Ink 6 CLI 值得讨论的决策： Tailwind CDN 而不是 PostCSS：这是一个开发工具，而不是面向用户的产品。跳过 CSS 的构建步骤可以加快迭代速度。权衡是你失去了treeshaking，但无论如何，当它在本地运行时，包大小并不重要。 Express + Vite 作为单独的服务器，统一在一个 CLI 命令下：CLI (npx提示自动调谐器) 启动 Express API (3001) 和 Vite 开发服务器 (3000)，然后打开浏览器。我使用 Ink（针对终端的 React）进行交互式设置步骤。检测现有的环境变量，如果缺少则提示输入 API 密钥。 DX 比告诉人们阅读环境变量文档更好。 没有数据库，没有 Redux：会话状态存在于 localStorage 中。每个会话的 eval-refine 循环都是短暂的。这极大地简化了架构。没有令人头疼的迁移问题，没有状态管理仪式。对于不需要跨设备持久性的工具，localStorage 被低估了。 发布自动化：推送到 main、类型检查 + lint + 构建、自动补丁碰撞、npm 发布、GitHub 发布。零手动步骤。我本周不假思索地发布了大约 5 个补丁版本。 为什么该工具存在：您为 LLM 提示编写测试用例，它会运行自动 eval-refine 循环（语义 eval，而不是字符串匹配），直到所有用例都通过。实际的回报是，在调整后，您通常可以降到更便宜的型号级别。我在一项任务上从 Gemini Pro 转到 Flash Lite，输入成本大约便宜 20 倍。 演示视频： https://github.com/kargnas/prompt-autotuner/releases/tag/v0.1.3 npx提示自动调谐器，它安装、构建、服务、打开浏览器。 GitHub：https://github.com/kargnas/prompt-autotuner   由   提交 /u/kargnas2   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4gcrp/i_built_autotuner_for_llm_prompts_with_react_19/</guid>
+      <pubDate>Thu, 26 Mar 2026 18:53:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的想法一团糟 - 然后我开始以“有组织”的方式维护我的法学硕士提示</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4g2ir/my_notion_was_a_mess_then_i_started_maintaining/</link>
+      <description><![CDATA[我是一名软件工程师，我喜欢构建工具。 在过去的一年里，我一直在进行大量人工智能驱动的编码。 随着我开始提示，提示的数量和长度开始增加。 根据我的经验，即使提示中的几个单词发生变化，也可以改变产品的性质。 提示基本上使我使用 Notion 页面来管理我的所有提示——针对我构建的每个功能，并一遍又一遍地迭代它们。但是随着提示的增加（现在超过 125 个），我的 Notion 开始变得一团糟。管理变得困难。 有很多重复的提示。我无法跟踪两个提示有何不同或维护每个提示的注释。 就在那时，我继续为自己构建了一个内部工具来管理我的提示库。它存储、版本和比较提示。 使用几个月后，我意识到其他人可能面临类似的问题。所以我将其投入使用。 现在它已在 PowerPrompt(dot)Tech 上启动并运行 - 您可以去尝试一下。 我愿意接受有关新功能的建议或任何反馈。请告诉我！   由   提交 /u/Who-let-the   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4g2ir/my_notion_was_a_mess_then_i_started_maintaining/</guid>
+      <pubDate>Thu, 26 Mar 2026 18:42:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>MS Clarity 的访客记录报告示例</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4fz2l/example_visitor_recording_report_from_ms_clarity/</link>
+      <description><![CDATA[在听到有关此免费工具的好评后，我最近注册了 Microsoft Clarity。相当惊人的功能，感觉有点令人毛骨悚然。以下是我收到的一个示例记录报告，它链接到完整记录的视频：   访问者从 Reddit 到达，最初登陆有关该网站技术堆栈的博客文章，只花了几秒钟就点击进入博客主页面。 在博客页面上，他们尝试单击“项目”几乎立即 (00:06)，但这导致了死点击，表明该链接或按钮当时不起作用。 不久之后，在 00:08），该页面被隐藏（可能最小化或切换离开），并且在会话的剩余时间内没有发生进一步的交互，直到它在 05:11 结束。  不是非常有用，但我已经几乎没有做任何事情来让这个工作。我认为项目链接可能是一个“新选项卡”点击人工智能将其视为视频中的死链接。    由   提交 /u/AndyMagill   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4fz2l/example_visitor_recording_report_from_ms_clarity/</guid>
+      <pubDate>Thu, 26 Mar 2026 18:39:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>在设计地图标记时，我需要一些关于色盲/可用性的建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4fn4k/i_need_some_advice_for_colorblindnessusability/</link>
+      <description><![CDATA[我正在开发一个应用程序，该应用程序将在地图上显示大量标记。我（必须）依靠颜色来区分代表不同事物的不同类型的标记（因为当有很多标记形状时，除圆形之外的标记形状渲染起来很慢）。但我对如何使其能够防止色盲没有经验。 我认为人工智能可以很容易地向我解释这一点，但它不断给我提供一组“可以安全地在所有色盲类型中使用”的颜色，尽管它们包含一些配对，即使对于我自己来说也很难区分，因为我不是色盲。 我应该如何解决这个问题？一旦我选择了适合常规使用的调色板，我需要采取哪些步骤来确保它在色盲类型中正常工作？我从哪里开始？我认为总共不应该超过 7 种颜色。   由   提交 /u/Fueled_by_sugar   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4fn4k/i_need_some_advice_for_colorblindnessusability/</guid>
+      <pubDate>Thu, 26 Mar 2026 18:27:20 GMT</pubDate>
+    </item>
+    <item>
+      <title>我现在收到的最常见的自由职业请求不是“为我构建一些东西”，而是“将我的东西连接在一起”</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4exdv/the_most_common_freelance_request_i_get_now_isnt/</link>
+      <description><![CDATA[注意到过去一年左右的变化。过去常常受雇从头开始建造东西。现在，我的一半工作只是...将现有工具粘合在一起，为那些甚至不知道自己可以互相交谈的人提供帮助。 仅上个月：将客户的 HubSpot 连接到他们的预约系统，以便自动填充线索，无需手动输入。设置 Zapier 流程​​，当交易在 CRM 中移动时，该流程会触发 SMS 活动。将 Twilio 无环语音邮件链接到房地产经纪人的主要管道（因此，当新列表与已保存的搜索匹配时，语音邮件会自动消失）。将 WooCommerce 商店与 Klaviyo 和评论平台同步，因此购买后序列实际上可以在没有人照顾的情况下运行。 这一切都不需要编写太多代码。主要是 API、Webhooks 和一些逻辑。但客户不知道如何去做，而且老实说也不想学习。他们只是希望他们的工具能够相互对话。 疯狂的部分：其中一些“集成”是由用户自己创建的。需要 3-4 小时，他们支付 500-800 美元的固定费用。客户不再因价格而烦恼，而是松了一口气。因为他们的替代方案是支付 5 个不通信的不同订阅费用，并永远进行手动数据输入。不知道对此有何感受。一方面，客户会为我花费几个小时的工作支付高额费用，而且他们真的很高兴。另一方面，感觉有些不对劲。挑战有点……消失了吗？就像我曾经熬夜调试一些奇怪而烦人的东西，感觉就像真正解决了一个难题一样。现在主要是“找到 webhook，映射字段，测试，完成”。高效的。我猜很无聊？ 这只是我的经验还是“集成自由职业”？悄悄地成为自己的东西？   由   提交/u/CloneFiesta  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4exdv/the_most_common_freelance_request_i_get_now_isnt/</guid>
+      <pubDate>Thu, 26 Mar 2026 18:01:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 webgpu 和基本上所有网络技术创建一个照片编辑器是个好主意吗（一个真正的编辑器，而不是一个基本编辑器）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4epiu/is_it_a_good_idea_to_create_a_photo_editor_using/</link>
+      <description><![CDATA[所以我想构建这个，但目前我不知道它会如何进行，我只通过其他抽象使用过 webgpu，但我希望我能弄清楚，但是，像 React 作为前端和实际编辑图像的绘图，我将使用 webgpu？我确实希望它成为一个真正的照片编辑器，类似于 photopea，但可能具有更多功能。跨平台是必须的，必须在 Linux 上工作。我希望它成为一个桌面应用程序，但经过研究，结果发现 webview 和 webgpu 不太好，所以唯一的选择是使用电子？我的另一个选择是使用 C# 和 avalonia 与 Skia 或其他东西，但我对 C# 知之甚少，从未使用过 avalonia，但愿意学习任何东西来使这成为现实。  我在想它会变得更糟吗？稍后它会变得更重，或者考虑到我正在尝试构建的内容，我可能会面临任何我可能不喜欢的限制，任何一般性建议都值得赞赏，提前致谢   由   提交 /u/FUS3N   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4epiu/is_it_a_good_idea_to_create_a_photo_editor_using/</guid>
+      <pubDate>Thu, 26 Mar 2026 17:54:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮我解决这个问题</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4ei1r/help_me_figure_this_out/</link>
+      <description><![CDATA[      任务是将图像变成可点击的链接。我在 &lt;img&gt; 之前和之后使用了锚标记。标签。我仍然无法通过这个测试。   由   提交/u/Large-Raccoon3767   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4ei1r/help_me_figure_this_out/</guid>
+      <pubDate>Thu, 26 Mar 2026 17:46:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>曾担任自由职业者或与小型企业合作过的开发人员 - 他们遇到的哪些问题让您感到惊讶？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4dpo2/devs_whove_freelanced_or_worked_with_small/</link>
+      <description><![CDATA[我最近一直在与一些企业主交谈，老实说，他们认为自己需要的东西与实际伤害他们的东西之间的差距是巨大的。 有一个人痴迷于建立一个新网站。结果他真正的问题是，他失去了 60% 的销售线索，因为在提交联系表后没有人跟进。该网站很好。 让我意识到我可能也不了解全部情况。 对于那些与非技术企业密切合作的人来说 - 哪些问题不断出现，而客户从未真正大声说出来？您只是在打了几次电话之后，或者在了解他们的日常实际运作方式之后才弄清楚的东西？ 行业、企业规模，任何东西 - 将其放在下面。真诚地试图了解真正的痛苦在哪里。   由   提交 /u/Altruistic-Shape-600   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4dpo2/devs_whove_freelanced_or_worked_with_small/</guid>
+      <pubDate>Thu, 26 Mar 2026 17:18:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于多个服务的 API 端点库，是否存在？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s4da42/api_endpoints_library_for_multiple_services_does/</link>
+      <description><![CDATA[嗨， 我正在寻找一个库，它允许我对许多 API 使用一种单一接口。 比如说，我想将数据发送到 AWS SES，但我不想安装它，并且希望无论如何都能够以编程方式调用它，类似的事情 requests.post(library_endpoint, {vendor: &#39;ses&#39;, params: params}) 对于 mailgun 来说也是如此： requests.post(library_endpoint, {vendor: &#39;mailgun&#39;, params: params}) 重点是能够访问多个来自一个地方具有不同签名的 API。 2 个强制性要求：  REST API 或统一的 PyPi/NPM 端点 库中的统一 API 文档（定期更新）  此外： 可以通过服务器发送请求，但如果该服务器以某种方式接触（存储、缓存等）我的数据，那就不行了。 我希望能够使用 AI 生成函数，但我不想在 Internet 上搜索更新的文档/API 签名，因为 AI 通常没有更新的信息。 它们存在吗？最好有免费/开源选项。 谢谢   由   提交 /u/_SeaCat_   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s4da42/api_endpoints_library_for_multiple_services_does/</guid>
+      <pubDate>Thu, 26 Mar 2026 17:03:13 GMT</pubDate>
     </item>
     <item>
       <title>在 SPA 中首次绘制之前应用动态 CSS 变量的最佳方法？</title>
@@ -46,69 +109,6 @@
       <description><![CDATA[      于是我开始了一个新网站——AI塔罗牌。每天约有 400 名游客，其中大部分是美国和欧洲。我只是在我的 VPS 上设置了适当的日志监控 - 这是我发现接下来发生的事情的唯一原因。  提取我的访问日志。不是香港——阿里云新加坡（GeoIP 只是映射错误）。他们的IP都来自47.82.x.x。每个 IP 都向一个页面发出一个请求。没有CSS，没有JS，没有图像。只是 HTML。然后就一去不复返了。 有人在阿里云内部用 iPhone 浏览塔罗牌。当然。 打地鼠 在 Cloudflare 上屏蔽了阿里巴巴。新流量在几分钟内出现。腾讯云.这些人更聪明——完全无头 Chrome，加载了我的 Service Worker，甚至解决了 Cloudflare 的 JS 挑战。 阻止了腾讯 → 他们转向了我不知道存在的腾讯范围（他们有两个 ASN）。阻止那些→华为云。分钟。故障转移是自动化的，并且在供应商开始之前就已预先安排好。 第 3 天：不再是外科手术。从 ipverse/asn-ip 获取了所有 7 个中国云提供商的完整 IP 列表，并阻止了所有内容。 319 个 Cloudflare 规则 + 161 个 UFW 规则。阿里巴巴、腾讯、华为、百度、字节跳动、金山、UCloud。 紧接着？来自欧洲 DataCamp Ltd 和 OVH 集群的流量。相同的图案。西方代理人。已被屏蔽。 确凿证据  字节跳动的蜘蛛程序在阿里巴巴的基础设施上运行。 IP 在阿里巴巴的 47.128.x.x 范围内，但 UA 表示 spider-feedback@bytedance.com。来自附近 IP 的第三个请求是 Go-http-client/2.0 — 同一个机器人，忘记了掩码。 死亡卡确实暴露了他们的伪装。 ;)来自同一个/24子网的五个IP，每个IP都用不同的浏览器以不同的语言抓取了死亡塔罗牌：   47.82.11.197 /cards/death Chrome/134 47.82.11.16 /blog/death-meaning Chrome/136 47.82.11.114 /de/cards/death Safari/15.5 47.82.11.15 /it/cards/death Safari/15.5 47.82.11.102 /pt/cards/death Firefox/135  一个协调器。五个木偶。五件服装。同样的卡。  他们检查了 robots.txt，然后忽略了它。 腾讯伪装成 Chrome。字节跳动至少使用了他们真正的UA，检查了两次，无论如何都被刮掉了。他们知道规则。没关系。 高峰抓取 = 北京工作日结束（UTC 时间 08-11 = CST 16-19）。有人在回家之前开始批处理作业。  可怕的部分 295 个唯一的 IP，每个都使用一次，在整个 /16 块中循环（每个块 65,536 个地址）。您无法通过租用 VPS 来实现这一点。这就是 BGP 级别的访问 — 他们可以从其池中的任何 IP 获取数据包。该 IP 上的客户不知道它被借用了。 我的网站设计得很小。大约抓取了 375 个页面，16 MB 的 HTML。但我是碰巧注意到的目标之一。这种基础设施不花费他们任何成本——他们的云、IP、零边际成本。他们正在清理整个网络，大多数网站所有者永远不会检查。 哦，还有有趣的细节 - 华为在 8 个以上的欧盟国家运营着数据中心。在我封锁了他们的亚洲范围后，刮擦来自他们的欧洲节点。惊讶吗？不是。 ;) 实际阻止它的方法 CF 访问规则（注意：它们只接受 /16 和 /24 掩码 - 尝试 /17，你会得到“无效子网”，没有在任何地方记录）。 UFW 仅允许来自 CF IP 的 HTTP。 cron 上的自定义检测脚本。额外费用总计：0 美元。 如果您运营内容网站，请检查您的访问日志。寻找在不加载资产的情况下发出一次性请求的数据中心 IP。您可能不喜欢您发现的内容。 很高兴分享检测脚本或比较笔记。   由   提交/u/Secure-Search1091   [link] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s49hi1/your_website_is_being_scraped_for_chinese_ai/</guid>
       <pubDate>Thu, 26 Mar 2026 14:46:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>这次供应链攻击给我们敲响了警钟。检查了我的部门，发现有 3 个包将其拉入</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s496iy/that_litellm_supply_chain_attack_is_a_wake_up/</link>
-      <description><![CDATA[所以，如果你错过了，litellm（半数人工智能工具用来调用模型 API 的 Python 库）受到了供应链攻击。版本 1.82.7 和 1.82.8 包含恶意代码，该代码会在您 pip 安装时运行。不是当你导入它的时候。不是当你调用函数时。从字面上看，只需安装它，攻击者就会获得您的 ssh 密钥、aws 凭证、k8s 秘密、加密钱包、环境变量等一切内容。 Karpathy 发布了有关它的信息，这是大多数人发现的方式。疯狂的部分是攻击者的代码有一个错误，导致了叉子炸弹并导致人们的机器崩溃。这就是它被发现的方式。如果恶意代码运行良好，它可能几周都不会被发现。 我昨天下午审核了我的项目。在我的需求中发现了 3 个依赖于 litellm 的包。一个是我几个月前添加的 langchain 集成，但后来忘记了。另一个是我们的机器学习团队共享的一些内部工具。 在我们的临时服务器上运行 pip show litellm。版本 1.82.7。我的胃一沉。立即轮换该盒子上的所有凭证。 AWS 密钥、数据库密码、openai anthropic 的 API 令牌等一切。 攻击链也很疯狂。他们甚至没有直接破解 Litelm。他们首先入侵了 trivy（一种安全扫描工具，哈哈），从那里窃取了 litellms pypi 发布令牌，然后上传了中毒版本。因此，一个旨在保护您的工具就是入口点。 这会影响下游的 2000 多个包。 dspy、mlflow、开放解释器等等。如果您正在堆栈中运行任何 ai/ml 工具，您应该立即检查。 我做了什么：  pip show litellm 在每台服务器和开发机器上 if version &gt; 1.82.6，将其视为完全泄露 轮换所有秘密，而不仅仅是您认为已暴露的秘密 检查 pip freeze 是否有任何将 litellm 作为 dep 的内容 将 litellm==1.82.6 固定在需求中，直到对其进行排序  这让我重新思考我们如何处理 AI deps。我们只是不假思索地安装东西。我们一半的开发人员使用光标或 verdent 或任何编码工具，并且这些工具始终建议包。没有人审核传递的 deps。 现在我们在 ci 中运行 pip-audit，并添加了一个预提交挂钩，用于标记新的 deps 以便进行手动审核。很久以前就应该这样做了。 .pth 文件技巧是令人讨厌的。大多数人认为“我安装了它，但我没有使用它，所以我很安全。”没有。不管怎样，python 在启动时都会加载 .pth 文件。 检查你的东西。   由   提交 /u/Soggy_Limit8864   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s496iy/that_litellm_supply_chain_attack_is_a_wake_up/</guid>
-      <pubDate>Thu, 26 Mar 2026 14:35:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络效率护栏策略（页面速度相关护栏）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s48sa2/the_networkefficiencyguardrails_policy_page_speed/</link>
-      <description><![CDATA[Chrome 和 Edge 中的新政策。仍处于实验阶段。   由   提交/u/svvnguy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s48sa2/the_networkefficiencyguardrails_policy_page_speed/</guid>
-      <pubDate>Thu, 26 Mar 2026 14:19:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>停止编写正则表达式来修复 Web 应用程序中损坏的 LLM 工具调用，将 OpenClaw 后端路由到 Minimax M2.7 实际上解决了上下文降级。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s47lt9/stop_writing_regex_to_fix_broken_llm_tool_calls/</link>
-      <description><![CDATA[开发人员花费大量时间为 LLM 编写错误处理，这些错误处理会产生幻觉 JSON 负载或忘记 API 参数，这是荒谬的。如果您正在构建自动化 Web 代理或复杂的聊天机器人，那么在引入十多个外部工具时，将标准模型推入后端是打破应用程序状态的保证。 最近，我在为客户端项目调试 OpenClawimplementation 时焦头烂额，标准模型不断在执行循环中途丢弃身份验证标头...深入研究官方文档，我意识到 Peter 专门将 Minimax M2.7 模型硬编码到他们的设置指南中是有原因的。从 MM Claw 基准来看，即使您堆叠 40 个复杂技能，并且每个端点描述膨胀超过 2000 个标记，M2.7 也能达到 97% 的指令遵循率。它实际上读取参数而不是猜测它们。如果您的 Web 应用程序依赖于多步工具执行，那么尝试促使设计一个标准模型使其服从在数学上是愚蠢的。只需将路由交换到他们明确推荐的 Minimax 架构，并从 GitHub 获取他们的开源技能即可。它具有很高的成本效益，并且实际上可以防止后端因格式错误的 API 请求而崩溃。   由   提交 /u/afwaefsegs9397   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s47lt9/stop_writing_regex_to_fix_broken_llm_tool_calls/</guid>
-      <pubDate>Thu, 26 Mar 2026 13:33:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>Canvas2D 与 WebGL：我可以将文本渲染与 GLSL 着色器结合起来吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s46aus/canvas2d_vs_webgl_can_i_combine_text_rendering/</link>
-      <description><![CDATA[大家好，请问您能提供建议吗？有人面临过使用什么来构建应用程序的选择吗？是否可以将 Canvas2D 的便利性（尤其是处理文本）与 GLSL 着色器结合起来？或者这两个世界是分开的，并不真正意味着要合并？我是否必须自己在 WebGL 中实现文本渲染和绘图工具？或者有没有办法在 Canvas2D 中使用 GLSL 或以某种方式混合两者？对于我的 3d 项目，我只需要着色器和 z 深度放置，但总的来说，该应用程序的文本较多，包含一些 ui 元素。   由   提交 /u/bbrother92   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s46aus/canvas2d_vs_webgl_can_i_combine_text_rendering/</guid>
-      <pubDate>Thu, 26 Mar 2026 12:38:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌认证</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s45tv5/google_auth/</link>
-      <description><![CDATA[我已将我的 Web 应用程序连接到 Supabase Auth 和数据库。现在我正在尝试连接一个 Expo 应用程序，但 Supabase 只允许一个 Google 客户端 ID 进行 OAuth。我该如何处理这个问题？   由   提交 /u/No-Call6899   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s45tv5/google_auth/</guid>
-      <pubDate>Thu, 26 Mar 2026 12:17:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hostinger 与 Wix：在哪里购买电子商务域名？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s45f5o/hostinger_vs_wix_where_to_buy_domain_for_ecommerce/</link>
-      <description><![CDATA[大家好， 我正在创建一个新品牌，需要为我的电子商务网站提供一个域名。我还想要自定义电子邮件 - 目前免费转发就可以了。免费隐私保护是必须的。 我主要考虑Hostinger和Wix。从长远来看，哪一个是最好、最便宜的？ 对其域名、电子邮件转发和隐私有任何真实的体验吗？ 此外，还有有关托管和 DNS 设置的提示吗？我希望流量一开始会很低，但会随着时间的推移而增长。 谢谢！   由   提交 /u/Admirable_Gazelle453   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s45f5o/hostinger_vs_wix_where_to_buy_domain_for_ecommerce/</guid>
-      <pubDate>Thu, 26 Mar 2026 11:57:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>油管增强器延伸</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s45ai9/you_tube_enhancer_extension/</link>
-      <description><![CDATA[      这个由我制作的扩展，我想听听您对此的真实评论 以高达 16 倍的速度观看 YouTube、应用视觉滤镜、捕获屏幕截图和循环部分以实现更智能的观看。非常适合学习、学习或节省时间！在这里查看：👉 https://addons.mozilla.org/en-US/firefox/addon/youtube-rabbit-pro/   由   提交/u/UKI_hunter  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s45ai9/you_tube_enhancer_extension/</guid>
-      <pubDate>Thu, 26 Mar 2026 11:51:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>全栈开发者：有专门设计的 Web3 黑客马拉松，因此您无需成为区块链专家即可参加比赛</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s458gb/fullstack_devs_theres_a_web3_hackathon/</link>
-      <description><![CDATA[我知道，如果您没有花几个月时间深入了解 Solidity，Web3 黑客马拉松可能会让您感到害怕。但 QIE 的黑客马拉松有一些类别，其中全栈技能确实比区块链特定知识更重要。 这五个赛道分别是 DeFi 和 DeFi。支付、AI+Web3、游戏&amp;元宇宙、基础设施和工具、社交与社交社区。基础设施和社交轨道特别奖励开发者工具、分析平台、社区平台和创作者经济应用程序。这些是产品问题，而不仅仅是智能合约问题。QIE 有一个钱包、一个 DEX、一个稳定币和一个可以集成的身份系统（QIE Pass）。评委们会对使用现有生态系统组件给予奖励，这样您就可以在现有基础设施之上进行构建，而不是从头开始。 奖金池为 2 万美元。建设阶段为30天（4月16日至5月15日）。获奖者将在黑客马拉松结束后获得资助以及孵化和用户获取支持。他们在 GitHub 上获得了入门模板和 SDK，在构建阶段获得了 Discord 导师办公时间，并录制了 SDK 研讨会。因此，提升还不错。严格的反滥用规则也没有分叉代码，没有回收的项目，没有人工智能生成的提交。他们想要原创作品。老实说，这对于从头开始构建的人来说竞争更加公平。 黑客马拉松，如果你想看看。   由   提交/u/Enlec   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s458gb/fullstack_devs_theres_a_web3_hackathon/</guid>
-      <pubDate>Thu, 26 Mar 2026 11:48:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>有没有免费的 AI 生成图像到 SVG 工具，在让您下载结果进行检查之前不会强制注册或诱骗您订阅？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s44cq9/any_free_ai_generated_image_to_svg_tools_out/</link>
-      <description><![CDATA[是的，完全免费，没有任何字符串，是最免费的东西，它使用经过训练的生成人工智能来将图像跟踪到向量，并且不需要注册或订阅或我的任何详细信息来使用和下载任何人都知道的结果？   由   提交 /u/Abacabb69   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s44cq9/any_free_ai_generated_image_to_svg_tools_out/</guid>
-      <pubDate>Thu, 26 Mar 2026 11:02:45 GMT</pubDate>
     </item>
     </channel>
 </rss>
