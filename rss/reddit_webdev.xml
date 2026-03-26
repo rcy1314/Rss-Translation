@@ -4,9 +4,37 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 26 Mar 2026 02:49:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 05:11:06 GMT</lastBuildDate>
     <item>
-      <title>我正在尝试找到一个代码来模仿这个非常基本的平滑滚动条</title>
+      <title>是否还有其他人进入 Web 开发领域进行设计并最终沉迷于性能？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3xpfx/did_anyone_else_get_into_web_dev_for_the_design/</link>
+      <description><![CDATA[我最初从事网络开发是因为我喜欢让事情看起来不错。 现在我发现自己通过加载速度、流畅度以及是否无缘无故地做太多来判断每个网站。 这有点有趣，因为当我开始时，性能甚至没有在我的关注范围内。 其他人有这种转变吗？您认为您最关心网络开发的哪一部分，以及最终取代了什么？   由   提交/u/EarNo6581  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3xpfx/did_anyone_else_get_into_web_dev_for_the_design/</guid>
+      <pubDate>Thu, 26 Mar 2026 04:29:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我终于发现了导致我们的服务每 72 小时 CPU 利用率飙升至 100% 的错误。我希望答案更有趣。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3x5w5/i_finally_found_the_bug_causing_our_service_to/</link>
+      <description><![CDATA[三个星期，这件事每 72 小时就困扰我一次，就像三个星期一样，就像发条一样，我们的主要 API 服务会慢慢停止，CPU 将固定在 100%，响应时间从 40 毫秒到有时 8 秒，负载平衡器尖叫，待命轮换在凌晨 3 点被唤醒。然后大约 10 到 15 分钟后，它就会……自行恢复完全干净。就像什么都没发生一样，这几乎更糟糕，因为这意味着没有崩溃转储，没有可指出的硬故障，只是每三天出现一次神秘的痛苦窗口，然后就是沉默。 第一周，我确信这是内存泄漏，所以我检查了涉及我们主要工作人员的每一项服务，添加了堆快照，盯着火焰图，直到我的眼睛受伤。第二周我开始怀疑我们的数据库连接池，因为我们之前在那里遇到过问题，重写了我们处理空闲连接的方式，部署它，感到谨慎乐观。  72 小时后，凌晨 3 点，我的手机再次关机，我又回到了原点。 真正难以调试的是，峰值从未由流量触发。我们的一些最严重的峰值发生在周日凌晨 4 点，当时负载基本上没有，所以这不是惊群问题，也不是压力下的缓慢查询，而是完全独立于用户正在做的事情的内部滴答声，排除了大约 80% 的常见嫌疑，让我盯着我们的作业调度逻辑，我一直在避免这种逻辑，因为它是旧的、混乱的，并且是由两年前离开公司的人编写的。 在这一点上我跑了该服务通过我们拥有的测试工具来实现，我们已经打算正确集成该工具一段时间了。我将其指向工作进程，并要求它围绕任何看起来涉及计时或调度的内容生成测试。在几个小时内，它在我们的后台作业运行程序中标记了一些东西，这是一个在每个作业周期中重新创建的计时器，但在周期结束时从未明确清除。老计时器没有把垃圾收集干净，它只是坐在那里。然后下一个循环又创建了另一个。然后是另一个。每个工作周期都会在最后一个计时器之上堆叠一个新计时器，所有计时器都在内存中累积，并且最终以重叠的时间间隔触发。到第 72 小时，同时触发的陈旧计时器的积压足以完全固定 CPU。然后他们完成，队列将耗尽，一切看起来再次正常，直到下一个累积周期达到相同的阈值。 修复实际上是一行。在作业周期结束时的正确位置清除Interval。一行代码从一开始就应该存在，在一个函数中，它的运行时间可能比公司当前团队中任何人运行的时间都长。 我已经这样做了 7 年，但这个错误仍然困扰了我三周。 72 小时的间隔感觉是如此刻意、如此具体，以至于我不断说服自己这必须是某种建筑性的东西。服务之间的一些复杂的交互。值得我花了多长时间才找到的东西。这是一个从未有人清除过的计时器。就是这样。无论如何，如果您目前正在深入进行 CPU 峰值调查并且没有任何意义，请查看您的调度程序以及任何在循环中创建计时器的内容，不客气。   由   提交 /u/Afraid-Bobcat6676   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3x5w5/i_finally_found_the_bug_causing_our_service_to/</guid>
+      <pubDate>Thu, 26 Mar 2026 04:01:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>我应该创办一个“无人工智能”编码俱乐部吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3wa7q/should_i_start_an_no_ai_coding_club/</link>
+      <description><![CDATA[我已经自学编码好几个月了，现在使用免费代码营等免费资源（从数据科学/生物信息学开始，现在是软件/网络开发），通过做项目我学到了很多东西。我从来没有从人工智能中复制和粘贴代码，我只是在遇到困难时使用它来提供建议或帮助，但作为初学者，我有时无处可寻。人工智能可以准确地找到代码中的错误位置或教我新功能，但出于多种原因，我总体上讨厌使用它。它会导致冒名顶替综合症，让我感觉自己没有真正在学习，而且经常出现幻觉。  我发现自己希望认识一位经验丰富的开发人员，我可以向他寻求建议，这让我产生了成立一个“无人工智能”编码小组的想法。就像一群人聚在一起互相学习、协作并在不使用人工智能的情况下开展项目。即使每周只有几个小时，从持续的人工智能中休息一下也是很好的，这会给人们真正学习的机会。  这是一个好主意还是毫无意义，因为不需要使用所有这些人工智能工具来编写代码？    由   提交 /u/Acceptable_Cod_9352   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3wa7q/should_i_start_an_no_ai_coding_club/</guid>
+      <pubDate>Thu, 26 Mar 2026 03:17:01 GMT</pubDate>
+    </item>
+    <item>
+      <title></title>
+      <link>https://www.reddit.com/r/webdev/comments/1s3vpo0/journeyhub_feedback_wanted_on_a_social_media/</link>
+      <description><![CDATA[我一生中最引以为傲的事情就是我经历的起起落落的旅程。所有这些事件都帮助我成长。这种“生命是一场旅程”的概念引起了我的共鸣，我决定创建一个基于尊重“生命是一场旅程”的社交媒体平台。 JourneyHub。 请看一下。注册并登录。看看您的想法并提供反馈！ JOURNEYHUB https://samreedcole.com/community/   由   提交 /u/Effective_Log_6491   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s3vpo0/journeyhub_feedback_wanted_on_a_social_media/</guid>
+      <pubDate>Thu, 26 Mar 2026 02:50:42 GMT</pubDate>
+    </item>
+    <item>
+      <title></title>
       <link>https://www.reddit.com/r/webdev/comments/1s3va9z/i_am_trying_to_find_a_code_to_mimic_this_very/</link>
       <description><![CDATA[我在 https://lumen.styleclouddemo.co 发现了这个非常基本的平滑滚动效果（不是锚链接）。我想复制这种平滑滚动效果并将其代码注入到我在 Squarespace 的网站上，但我很难在这个 subreddit 或 google 上找到代码，甚至它的效果名称，因为每个搜索结果都会返回“滚动行为：平滑”锚链接。 看起来很基本，但很难找到。滚动条上的这个效果有具体的名称吗？   由   提交 /u/MarkAsUnread   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s3va9z/i_am_trying_to_find_a_code_to_mimic_this_very/</guid>
@@ -15,7 +43,7 @@
     <item>
       <title>[帮助] 在具有一/两个站点的所有浏览器上出现无限站点加载循环和 ERR_QUIC_PROTOCOL_ERROR。</title>
       <link>https://www.reddit.com/r/webdev/comments/1s3tmly/help_infinite_site_loading_loop_and_err_quic/</link>
-      <description><![CDATA[大家好，几天来，当我在所有 Chrome、Safari、Brave、Firefox 浏览器上通过提供商的热点（连接到我的 Mac）浏览时，某些网站会进入无限加载循环：页面永远不会加载，浏览器无限期旋转。有时延迟 5 分钟后才会解锁。有时它仅以隐身模式打开，有时它不会完全打开。我注意到它主要发生在 wordpress.org、stackoverflow 等网站上。即使在我用 WordPress 创建的网站上，我也注意到 WordPress 后端目录中的插件图标不会加载：它们间歇性地出现在第一页上，并在后续页面上完全消失。我的共享同一网络的移动设备的 chrome 也会出现此问题。我已尝试以下解决方法，但均无济于事：  禁用 AdBlock 和所有浏览器扩展 清除浏览器缓存 刷新 DNS 缓存 禁用并卸载 VPN 重置我的网络 重新启动我的 Mac、手机和热点+ 删除 cookie 和类似内容 测试在 wordpress 上  在 Chrome 控制台中检测到错误 在加载循环期间，我在两次不同的情况下检测到以下错误： GET https://login.wordpress.org/ net::ERR_QUIC_PROTOCOL_ERROR 200（正常） ERR_QUIC_PROTOCOL_ERROR.QUIC_IETF_GQUIC_ERROR_MISSING ERR_QUIC_PROTOCOL_ERROR.QUIC_TOO_MANY_RTOS 还出现警告：某些资源加载请求被限制... （链接到 ChromeStatus）。 目前唯一有效的方法是：  从 Chrome 标志中禁用 Quic 协议 使用 cloudflare 的免费 VPN WARP 进行浏览1.1.1.1 隐身模式（只有几次，十分之 3 完全随机）  您认为这取决于什么？是我的网络提供商有问题吗？我一直使用同一个网络管理器，它从未出现过这些问题。预先感谢所有回复的人。   由   提交 /u/Nemesi_361   [链接] [评论]]]></description>
+      <description><![CDATA[大家好，几天来，当我在所有 Chrome、Safari、Brave、Firefox 浏览器上通过提供商的热点（连接到我的 Mac）浏览时，某些网站会进入无限加载循环：页面永远不会加载，浏览器无限期旋转。有时延迟 5 分钟后才会解锁。有时它仅以隐身模式打开，有时它不会完全打开。我注意到它主要发生在 wordpress.org、stackoverflow 等网站上。即使在我用 WordPress 创建的网站上，我也注意到 WordPress 后端目录中的插件图标不会加载：它们间歇性地出现在第一页上，并在后续页面上完全消失。我的共享同一网络的移动设备的 chrome 也会出现此问题。我已尝试以下解决方法，但均无效：  禁用 AdBlock 和所有浏览器扩展 清除浏览器缓存 刷新 DNS 缓存 禁用并卸载 VPN 重置我的网络 重新启动我的 Mac、手机和热点+ 删除 cookie 和类似内容 测试在 wordpress 上  在 Chrome 控制台中检测到错误 在加载循环期间，我在两次不同的情况下检测到以下错误： GET https://login.wordpress.org/ net::ERR_QUIC_PROTOCOL_ERROR 200（正常） ERR_QUIC_PROTOCOL_ERROR.QUIC_IETF_GQUIC_ERROR_MISSING ERR_QUIC_PROTOCOL_ERROR.QUIC_TOO_MANY_RTOS 还出现警告：某些资源加载请求被限制... （链接到 ChromeStatus）。 目前唯一有效的方法是：  从 Chrome 标志中禁用 Quic 协议 使用 cloudflare 的免费 VPN WARP 进行浏览1.1.1.1 隐身模式（只有几次，十分之 3 完全随机）  您认为这取决于什么？是我的网络提供商有问题吗？我一直使用同一个网络管理器，它从未出现过这些问题。预先感谢所有回复的人。   由   提交 /u/Nemesi_361   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s3tmly/help_infinite_site_loading_loop_and_err_quic/</guid>
       <pubDate>Thu, 26 Mar 2026 01:17:59 GMT</pubDate>
     </item>
@@ -81,34 +109,6 @@
       <description><![CDATA[在我的最后三个职位中，我从事的是解决方案架构师的工作，但没有人敢这样称呼我：我需要有足够多年的经验。 在过去的 3 年里，我一直与利益相关者（C 级管理层）打交道，了解他们的需求，然后设计一个解决方案架构并构建它。 - 我与利益相关者交谈 - 设计解决方案 - 构建它 在过去 3 年里我做了 3 次，并且能够构建处理数百万个请求的系统（一个服务器每月可以处理 1 亿个请求！）并完美满足业务需求。这些成就之后我的头衔是什么？ 高级全栈！ 我正在努力成为一名解决方案架构师，但因为我只有6年的经验，没有人能承认，我们正处于人工智能时代，我们可以快速学习很多东西，但人们仍然用时间来衡量标题。 我感到沮丧有错吗？    由   提交 /u/No-Initial-5768   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s3mqfj/i_do_the_job_but_never_get_the_title/</guid>
       <pubDate>Wed, 25 Mar 2026 20:44:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>特工：你听得懂我嘴里说的话吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3mjpe/agent_do_you_understand_the_words_coming_out_of/</link>
-      <description><![CDATA[通过添加一些静态文件（llms.txt、每个帖子的 Markdown 文件、JSON feed）和一些 HTML 标签（Schema.org JSON-LD、hreflang 链接、站点地图发现），您可以使 AI 代理轻松发现、解析和引用您的内容。它们都不需要框架或第三方服务 - 只需要运行一次并涵盖未来所有帖子的模板即可。   由   提交 /u/pablooliva   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3mjpe/agent_do_you_understand_the_words_coming_out_of/</guid>
-      <pubDate>Wed, 25 Mar 2026 20:36:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>技术研究生和 MBA</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3lhbm/pós_graduação_e_mba_em_tecnologia/</link>
-      <description><![CDATA[各位，我想攻读技术领域的研究生或 MBA。更具体地说是全栈、前端或人工智能。然而，嗯，我希望它是面对面的，这样我就可以学习。首都圣保罗有没有一所有知识的大学？   由   提交 /u/BernardoPereiraDev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3lhbm/pós_graduação_e_mba_em_tecnologia/</guid>
-      <pubDate>Wed, 25 Mar 2026 19:58:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>打造你自己的闪光骨架，永远不会失去同步</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3l6az/build_your_own_shimmer_skeleton_that_never_goes/</link>
-      <description><![CDATA[      就像标题所说的那样。关于闪光以及如何使用 React 创建一个动态闪光的快速教程，该动态闪光总是在组件更新时更新。 + 当然，要权衡执行此操作的性能成本   由   提交 /u/cresta29   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3l6az/build_your_own_shimmer_skeleton_that_never_goes/</guid>
-      <pubDate>Wed, 25 Mar 2026 19:47:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>指导原则无法扩展。模式确实如此。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s3ko78/guidelines_dont_scale_patterns_do/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s3ko78/guidelines_dont_scale_patterns_do/</guid>
-      <pubDate>Wed, 25 Mar 2026 19:29:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
