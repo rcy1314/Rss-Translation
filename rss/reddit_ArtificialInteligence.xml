@@ -4,7 +4,21 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Thu, 26 Mar 2026 07:16:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 10:03:54 GMT</lastBuildDate>
+    <item>
+      <title>自动研究 + PromptFoo = 自动提示器。用于闭环提示优化的开源工具。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s41acd/autoresearch_promptfoo_autoprompter_open_source/</link>
+      <description><![CDATA[“测量的提示性能”与“测量的提示性能”之间的差距和“系统地改进提示”这是大多数团队陷入困境的地方。 PromptFoo 为您提供测量结果。自动研究为您提供迭代模式。 AutoPrompter 将两者结合起来。 为了解决这个问题，我构建了一个自主提示优化系统，将 PromptFoo 式验证与 AutoResearch 式迭代改进相结合。 Optimizer LLM 根据任务描述生成合成数据集，根据当前提示评估 Target LLM，根据准确性、F1 或语义相似性对输出进行评分，分析失败案例，并生成完善的提示。持久性账本可以防止重复实验，并在迭代过程中维护优化历史记录。 优化技术博客写作提示的使用示例： python main.py --config config_blogging.yaml  这实际上为严肃的工作解锁了什么：提示质量成为可重现、可追踪的工件。您可以在部署之前验证接近最优性，而不是在生产中发现回归。 GitHub 上的开源： https://github.com/gauravvij/AutoPrompter 详细工作原理： 系统在连续循环中运行，其中 Optimizer LLM 优化提示基于经验性能数据的目标 LLM。  数据集生成：优化器 LLM（Gemini 3.1 Flash - 可通过 config.yaml 自定义）根据任务描述生成输入/输出对的综合数据集。 迭代改进： 目标 LLM (Qwen 3.5 9b) 进行了测试使用生成的数据集显示当前提示。 使用定义的指标（准确性、F1、语义相似性等）衡量性能。 优化器 LLM 分析失败和成功，以生成精炼的提示。  实验分类帐：每次迭代都记录在持久分类帐中，以防止重复实验并跟踪进度。 上下文管理：系统管理实验历史记录，为 Optimizer LLM 提供相关上下文，而不会超出窗口限制。  仅供参考：一个可供贡献的开放领域：数据集质量取决于 Optimizer LLM 功能。 想知道其他从事自动提示优化工作的人是如何实现这一目标的吗？    由   提交 /u/gvij   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s41acd/autoresearch_promptfoo_autoprompter_open_source/</guid>
+      <pubDate>Thu, 26 Mar 2026 07:59:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>没有令牌护栏的代理工作流程将默默地破坏您的云预算 - 这是为我们修复它的架构模式</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s40zxm/agentic_workflows_without_token_guardrails_will/</link>
+      <description><![CDATA[要分享一些几乎杀死生产部署的东西，因为我在这里的线程中不断看到同样的错误。 我们为金融科技客户端提供了代理聊天机器人功能。通过了每项测试。在模拟负载下的分阶段工作完美。上线。 六周后，API 账单到了。每个企业客户每天 400 美元。该功能消耗的代币成本超过了它产生的收入。没有人对运行成本进行建模。没有人设置护栏。三个月后，当客户的财务团队标记云支出时，我们发现了这一点。 出了什么问题（技术上）： 单轮 LLM 通话是可以预测的。代理循环则不然。当人工智能采取连续行动、调用工具、修改其方法时，每一步都会燃烧代币。如果没有每个工作流程的预算，它会默默地消耗，直到您的云账单令人惊讶。 架构修复：  每个工作流程的令牌预算在检索层而不是在模型层强制执行。当模型正在处理时，上下文构建已经消耗了令牌。您需要在上游控制它。 提示缓存高频上下文模式。如果将相同的系统上下文添加到会话中的每个调用之前，则对其进行缓存可显着减少令牌消耗，在我们的示例中，高频工作流程可减少 40-60%。 域限制检索。仅检索与特定任务类别相关的上下文块，而不是对所有内容进行广泛的相似性搜索，可以减少上下文窗口宽度，从而减少每次调用的令牌消耗。 使用断路器进行成本上限监控。每个工作流程类型的每日成本的硬性限制。当上限达到 70% 时，请发出警报。当达到 100% 时，暂停执行并通知。   原则： 令牌优化不是启动后的清理任务。在编写一行生产代码之前，它就属于您的架构规范。将其视为“我们稍后会调整它”关心的是您如何获得 400 美元/天的账单。     由   提交 /u/Individual-Bench4448   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s40zxm/agentic_workflows_without_token_guardrails_will/</guid>
+      <pubDate>Thu, 26 Mar 2026 07:40:10 GMT</pubDate>
+    </item>
     <item>
       <title>我们已经听到了有关中国机器人有多先进的新闻，但这个 Unitree 机器人却表现出相反的情况</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s3yjwv/weve_been_fed_with_news_about_how_advanced/</link>
@@ -13,18 +27,11 @@
       <pubDate>Thu, 26 Mar 2026 05:13:43 GMT</pubDate>
     </item>
     <item>
-      <title>受感染的 LiteLLM 版本暴露了人工智能开发工作流程中的风险</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s3wzzn/compromised_litellm_releases_expose_risks_in_ai/</link>
-      <description><![CDATA[LiteLLM 广泛用于 LLM 管道、代理框架和多模型路由设置，这使得这种供应链攻击与 AI 生态系统特别相关。 在这种情况下，受损的 CI/CD 凭证被用来发布 LiteLLM 的恶意版本，有效地将可信依赖项转变为从运行时环境提取 API 密钥、云凭证和其他敏感数据的向量。 是什么使得对于 AI 工作负载来说，这一点尤其令人担忧，因为像 LiteLLM 这样的工具位于堆栈中，通常充当中央代理层，可以访问多个模型提供程序（OpenAI、Anthropic 等）、内部服务和编排逻辑。与典型的库妥协相比，这显着增加了潜在的爆炸半径。 它还凸显了人工智能开发中的一个更广泛的问题：严重依赖默认情况下可以深度访问秘密的上游包，加上对版本控制之外的版本的有限验证。   由   提交/u/raptorhunter22  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s3wzzn/compromised_litellm_releases_expose_risks_in_ai/</guid>
-      <pubDate>Thu, 26 Mar 2026 03:52:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>法学硕士可以写一篇天体物理学研究论文——但它能否通过同行评审（我们尝试了裁判式的拆解）？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s3s1bp/llms_can_write_an_astrophysics_research_paper_but/</link>
-      <description><![CDATA[晚上好r/artificialIntelligence， 我和我的一个朋友在 YT 上共同经营一个相当小众的天文学频道（我们都是天体物理学博士），我们正在尝试播客、普通天文学教育，以更少的炒作/更科学严谨的格式。 我们频道的一位观众 (@Astraveo) 向我们发送了一份人工智能生成的天体物理学手稿，希望它具有足够高的质量和兴趣，可以提交给领先的天体物理学期刊。因此，我们没有将其分解为公民科学家提交的研究论文，而是尝试对其进行同行评审，就像我们正式审阅职业天体物理学家的论文一样。以下是我们的标准： -- 引言是否描述了该领域的历史基础，并描述了其进展？ -- 核心科学主张是什么，它是原创的，什么会证伪它？ -- 所描述的科学方法和过程是否达到了足够高的水平，以使实验具有可重复性？ -- 引文和参考文献是否真正支持所做出的科学陈述？ --结果、解释和推测之间是否有明显的区别？ 最让我们惊讶的不是法学硕士能够写出连贯的东西（当然他们现在可以），而是这样的研究论文可以轻松地“感受到”它的意义。严格但难以审计，除非专家真正深入挖掘并检查论证链中的每个主张。  那么，我的讨论问题是： 如果你是类似期刊研究论文的编辑或审稿人，人工智能辅助稿件的最低标准应该是什么？ 一些讨论想法： -- 人工智能辅助的披露是否应该是强制性的？ -- 是否应该对引文完整性进行自动检查？ -- 法学硕士是否只是另一种研究工具？免除（或更“放松”）科学再现性规则？ 我很乐意分享我们的审稿人清单，并总结论文的失败点 - 不会对观众提交的内容进行人肉搜索或扣篮。 （如果有人想查看我们的评审理由，这就是视频所在的位置 - 一位公民科学家对 AI 天体物理学论文的评论 本文的高级草稿已通过 M365 Copilot（版本号：2.20260319.58.0）运行，以提高其可读性。   提交者 /u/Doppler_kid   [链接]   href=&quot;https://www.reddit.com/r/ArtificialInteligence/comments/1s3s1bp/llms_can_write_an_astrophysicals_research_paper_but/&quot;&gt;[评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s3s1bp/llms_can_write_an_astrophysics_research_paper_but/</guid>
-      <pubDate>Thu, 26 Mar 2026 00:08:43 GMT</pubDate>
+      <title>我很蠢，但我正在构建创世思维，一种像孩子一样学习的发展型人工智能。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s3vnl7/i_am_stupid_and_i_am_building_genesis_mind_a/</link>
+      <description><![CDATA[艾伦·图灵在 1950 年问道：“为什么不尝试制作一个模拟孩子思维的程序？” 我一直在默默地寻找答案。它被称为 Genesis Mind，现在还为时过早。 这不是产品发布。这是一个正在积极开发的研究项目，我分享它是因为我相信构建人工智能未来的人们应该公开进行。 Genesis 不是法学硕士。它不在互联网上进行训练。它从新生儿零知识、零重量、零理解开始。 你教它。一字一句。带有网络摄像头和麦克风。 举起一个苹果。说“苹果”。它将图像、声音和上下文结合在一起，就像孩子一样。权重就是个性。数据就是你。 今天的情况： → ~600K 可训练参数，在没有 GPU 的笔记本电脑上运行 → 4 阶段睡眠与 REM 梦，产生新的关联 → 一个元控制器，学习如何思考，而不仅仅是思考什么 → 神经化学（多巴胺、皮质醇、血清素）会发生变化自主 →发展阶段：新生儿→婴儿→幼儿→儿童→成人 但是前面还有很多路。 这就是为什么我认为这超出了代码的重要性： 真正的人工智能真正能够理解，而不仅仅是预测——不能被锁定在公司内部。塑造数十亿人思考、沟通和决策方式的模型由少数没有公共责任的实验室控制。 开源不仅仅是许可证。这是一种哲学。这意味着研究是可审计的。该架构是有争议的。方向是由多个房间的人决定的。 如果我们要培养思想，我们应该一起培养它们。 创世记还很早。很粗糙。它需要贡献者、研究人员和对人工智能应该是什么有不同看法的好奇者。 如果你就是这样，那就来构建它吧。 https://github.com/viralcode/genesis-mind   由   提交 /u/IngenuityFlimsy1206   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s3vnl7/i_am_stupid_and_i_am_building_genesis_mind_a/</guid>
+      <pubDate>Thu, 26 Mar 2026 02:48:05 GMT</pubDate>
     </item>
     <item>
       <title>人工智能的承诺与其交付的成果之间的差异</title>
@@ -34,7 +41,7 @@
       <pubDate>Wed, 25 Mar 2026 22:57:03 GMT</pubDate>
     </item>
     <item>
-      <title>英国政府正在进行数百项人工智能实验。没有人存钱。</title>
+      <title>英国政府正在进行数百项人工智能实验。没有人存过钱。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s3mp87/the_uk_government_is_running_hundreds_of_ai/</link>
       <description><![CDATA[德勤刚刚发布了 2026 年国家状况报告。一项引人注目的发现：英国公共部门正在各政府部门进行数百项人工智能实验，但无法指出哪一项实验改变了其成本基础。 与此同时，37% 的公众认为公共服务中的人工智能主要是一种风险。只有 23% 的人认为这是一个机会。 政府继续将人工智能描述为其核心增长战略。由于经济紧缩，今年早些时候，它取消了 13 亿英镑的实际人工智能和技术融资，同时庆祝了数十亿美元的“投资承诺”。事实证明，这些来自私营公司的合同是不具约束力的意图，而不是合同。 令我印象深刻的并不是人工智能项目正在失败。问题是似乎没有人在衡量成功。数百个实验没有机制来确定其中任何一个是否有效，这不是创新。  这是被误认为进展的活动。 完整报告：https://www.deloitte.com/uk/en/issues/generative-ai/state-of-ai-in-enterprise.html   由   提交/u/calliope_kekule  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s3mp87/the_uk_government_is_running_hundreds_of_ai/</guid>
@@ -81,13 +88,6 @@
       <description><![CDATA[ 由   提交/u/playboy  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s3b0cx/she_has_1_million_followers_and_photos_with/</guid>
       <pubDate>Wed, 25 Mar 2026 13:38:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>让候选人感觉他们是经过严格考虑的，即使他们没有经过严格考虑</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s34ppy/make_candidate_fell_like_they_were_stringly/</link>
-      <description><![CDATA[ 由   提交/u/vaitko  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s34ppy/make_candidate_fell_like_they_were_stringly/</guid>
-      <pubDate>Wed, 25 Mar 2026 08:10:00 GMT</pubDate>
     </item>
     <item>
       <title>似乎没有人关心“现实”即将结束？</title>
