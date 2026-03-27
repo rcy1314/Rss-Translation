@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 27 Mar 2026 09:59:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 13:17:55 GMT</lastBuildDate>
+    <item>
+      <title>使用 Blazor 服务器作为客户端安全存储刷新令牌的位置</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s53te2/where_to_safely_store_refresh_token_with_blazor/</link>
+      <description><![CDATA[您好， 我们是三个学生，开发一个 Web 应用程序作为课程项目。 我们的堆栈由作为后端的 Asp.Net Core Web API 和作为前端的 Blazor Server 组成。 该应用程序使用短期访问令牌作为 JWT 令牌，并使用长期刷新令牌来更新访问令牌。 我们是目前正在尝试找出如何存储我们的刷新令牌以及存储它的首选方式是什么。最佳实践是什么？ 我们有几个问题，很想听听您的建议和意见！ 存储在 ProtectedLocalStorage 中是否足够安全？ ProtectedLocalStorage 是否能安全抵御 XSS？ XSS 是我们应该计划防范的吗？这是非常常见且易于提取的东西吗？ 如果攻击者掌握了加密的刷新令牌，攻击者是否能够使用它来获取新的访问令牌？ 我知道 React 和其他框架也存在加密的本地存储，但 cookie 也是存储刷新令牌的首选方式吗？ 这是我们练习的要求之一： 7.6 防止跨站脚本(XSS) 清理或编码返回给用户的输出。 从 .dotnet 交叉发布   由   提交 /u/magee94   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s53te2/where_to_safely_store_refresh_token_with_blazor/</guid>
+      <pubDate>Fri, 27 Mar 2026 13:16:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>iPad 键盘上的 Google Chrome 隐藏时会留下空格</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s53s0j/google_chrome_on_ipads_keyboard_leaves_a_space/</link>
+      <description><![CDATA[      Chrome v147.0.7727.22 iPadOS v26.1 复制步骤：  在 iPad 版 Chrome 中，将焦点放在网站底部附近的任何表单上，这应该会显示虚拟页面键盘 隐藏虚拟键盘  当前行为： 在 google chrome 中，它会留下一个与键盘一样高的空白区域。我附上了屏幕录制内容。 预期： 隐藏键盘时，空白区域将被删除，因为我认为他们添加空白区域只是为了即使显示键盘也可以访问页面的底部部分。 在safari，奇怪的是，该空间并没有持续存在，并且它的行为符合预期。 更多细节： 我正在制作一个网络应用程序，需要在桌面和平板电脑的外形尺寸上做出响应。此问题会干扰 Web 应用程序的用户体验，因为页面滚动和 Web 应用程序的内容重叠。我无能为力，有人可以帮忙吗？谢谢   由   提交/u/Noop___   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s53s0j/google_chrome_on_ipads_keyboard_leaves_a_space/</guid>
+      <pubDate>Fri, 27 Mar 2026 13:15:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>请帮助我无法完成这项工作。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s51ofc/please_help_i_cant_make_this_work/</link>
+      <description><![CDATA[我正在使用 Electron + React 构建一个视频编辑器。 预览播放器使用 WebCodecs `VideoDecoder` 进行按需字节提取： - 用于解复用的 `mp4box.js` - 示例数据的 HTTP 范围请求 - 带有 `ImageBitmap` 的 LRU 帧缓存 搜索管道在功能上是正确的：单击时间轴上的不同位置会显示正确的帧。 问题在于性能。 每次搜索大约需要 7-27 毫秒，并且通过拖动播放头进行拖动仍然感觉不像 CapCut 或其他现代编辑器那样光滑。 当前搜索流程：  中止任何后台推测解码 `decoder.reset()` + `decoder.configure()`  这是必需的，因为推测解码可能会留下未刷新的帧  查找目标之前最近的关键帧 从关键帧 → 目标提供样本 `await Decoder.flush()` `onDecoderOutput` 绘制目标帧，并与顺序计数器匹配  分析显示的内容： - 仅 `flush()` 就需要 5-25 毫秒，即使对于单个关键帧也是如此。这个 GPU 解码器往返似乎是主要瓶颈。 - 在清理期间帧缓存几乎总是空的，因为推测解码会提前缓存约 30 帧，在每次搜索之前都会中止，因此它永远没有时间填充缓存。 - 向前继续，意味着在向前搜索时跳过“reset()”，可能会有所帮助，但它是不安全的，因为推测解码共享相同的解码器实例并且可能已经调用了`flush()`，使解码器状态不确定。 我尝试过但不起作用： - 基于时间戳的匹配 + 即发即忘 `flush()` 我在没有 `await` 的情况下调用了 `flush()`，并通过 `onDecoderOutput` 中的 `frame.timestamp` 匹配了目标帧。理论上，这应该使寻道几乎立即返回，并且帧异步出现。实际上，以前搜索的帧会泄漏到新的搜索会话中，并导致显示不正确的帧。 - 使用“decoderClean”标志向前继续 我跟踪了解码器是否处于干净的后刷新状态。如果干净并向前寻找，我跳过“reset()”并只提供增量帧。与“即发即忘”刷新相结合，该标志变得不可靠。 - 用于关键帧预解码的单独解码器 我还尝试了一个后台“VideoDecoder”实例，该实例仅在加载期间解码关键帧以填充缓存。这是上述同一批失败更改的一部分。 重要细节： 所有三个实验都一起应用，因此我还没有单独测试它们。 核心张力： - 推测性解码和主查找管道当前共享相同的“VideoDecoder”实例 - 每次查找都必须中止推测性解码以避免竞争条件 - 但中止推测性解码可防止缓存填充 - 这意味着大多数搜索会退回到完整解码路径： `重置→关键帧查找→样本馈送→刷新→ 7–27ms` 我怀疑真正的解决方案可能是： -一个完全独立的解码器实例，仅专用于后台缓存填充，因此它永远不会干扰搜索解码器 -或者是一种实现“即发即忘”的强大方法`flush()` 可靠，因为基于时间戳的匹配在理论上似乎仍然有效 问题：  基于 Web 的生产编辑器如何使用 WebCodec 实现平滑的逐帧清理？单独的后台解码器是标准模式吗？ 有什么方法可以减少“flush()”延迟吗？即使使用硬件加速，每次刷新 5-25 毫秒也感觉很高。 这里有人让“flush()”通过时间戳匹配可靠地工作吗？如果是这样，什么可以防止跨搜索会话的陈旧帧污染？  技术堆栈： - Electron 35 - Chromium 最新 - H.264 基线 - 启用硬件解码 - 用于解复用的“mp4box.js” - 通过以下方式预览使用密集关键帧编码的文件FFmpeg   由   提交 /u/CreativeGPT   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s51ofc/please_help_i_cant_make_this_work/</guid>
+      <pubDate>Fri, 27 Mar 2026 11:41:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>当您或您的团队遇到错误或技术问题，甚至人工智能工具也无济于事时，您会怎么做？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s5180i/what_do_you_do_when_you_or_your_team_are_stuck_on/</link>
+      <description><![CDATA[我对团队如何处理这种情况感兴趣。 您或您的团队遇到了阻碍，并且：  通常处理该问题的人无法工作或超负荷 这超出了您通常的堆栈或经验 人工智能工具无法帮助您实现目标 根本原因并不明显 它涉及一个复杂的问题或遗留代码库  你通常的做法是什么？  继续挖掘自己 引入外部帮助 延迟工作 如果有其他问题，请评论    由   提交 /u/frontendstoryteller   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s5180i/what_do_you_do_when_you_or_your_team_are_stuck_on/</guid>
+      <pubDate>Fri, 27 Mar 2026 11:17:54 GMT</pubDate>
+    </item>
     <item>
       <title>停止使用 JavaScript：现代 HTML 和 CSS 交互模式</title>
       <link>https://www.reddit.com/r/webdev/comments/1s4yqrt/stop_reaching_for_javascript_modern_html_css/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[我有一个 pwa，在一个页面上我使用 markdown 和一些代码块/栅栏。我希望它们具有颜色语法，所以我正在尝试 shiki。 当我设置它时，由于某种原因，页面上没有加载 css。在我的终端中，我得到：`[GET 404] &#39;/learn/service-worker.ts&#39;`（learn 是 markdown 所在的页面） 出于某种原因，shiki 无法与我的服务工作者一起工作。顺便说一句，我的网站是用 sveltekit 制作的，所以它是 SSR。 ai告诉我shiki适合SSR。我已经尝试了好几天，试图在我的 Markdown 代码块上获取颜色语法。 还有其他人在尝试使用 Service Worker 的项目上的 Markdown 代码块获取颜色语法时遇到此问题吗？   由   提交 /u/gatwell702   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s4ud3n/shiki_markdown_color_syntax/</guid>
       <pubDate>Fri, 27 Mar 2026 04:34:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>技术面试问题</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s4stic/technical_interview_questions/</link>
-      <description><![CDATA[大家好， 我目前在一家小公司工作，我从头开始领导创建了我们的 SDET 团队，考虑到我的职业生涯到目前为止是多么短暂，我感到非常自豪。尽管我在目前的职位上取得了成就，但我的目标从一开始就是 Web 开发。 现在，我安排下周在一家相当小型/中型的公司（约 150 人左右）进行 SE1 职位的第一轮面试。从我的学习和现在的编程职业来看，我对自己解决问题的能力并不缺乏信心，但我确实在处理有关 Web 开发（至少是 JS/前端）中不常用的特定数据结构和算法的常见 leetcode/hackerrank 问题时遇到了很多困难。  我想知道这里是否有人有任何想法/经验，对于小公司的早期职业SE来说，什么样的技术问题/编码挑战是相当标准的？这个角色主要是使用 vue（这是我首选的框架）的前端，所以我不担心实用/框架知识，所以我希望我的准备工作能够专注于 leetcode 风格的问题，以确保我最薄弱的领域是优先考虑的，因为这是我真正想担任的角色。我基本上想衡量我是否应该合理地期待一些比我担心的更容易的事情（嘶嘶作响的垃圾，基本上给我问题），或者我是否会被一些 DP 的东西或其他东西弄得措手不及。  预先感谢任何愿意花时间提供帮助的人。    由   提交 /u/Awkward_Standard9521   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s4stic/technical_interview_questions/</guid>
-      <pubDate>Fri, 27 Mar 2026 03:18:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>也许是一个愚蠢的问题，但我记得很久以前每个人都使用`onclick =“window.open（this.href）”而不是`target =“_blank”` - 但我不记得为什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s4srer/maybe_a_silly_question_but_i_remember_a_long_time/</link>
-      <description><![CDATA[标题。   由   提交 /u/Fueled_by_sugar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s4srer/maybe_a_silly_question_but_i_remember_a_long_time/</guid>
-      <pubDate>Fri, 27 Mar 2026 03:15:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>您的 AI 编码助手刚刚建议的 npm 包可能会引入凭据窃取程序。花了3个小时清理一次。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s4sl95/that_npm_package_your_ai_coding_assistant_just/</link>
-      <description><![CDATA[并不是危言耸听，但这件事上周发生在我身上，我觉得我需要发布它。 正在使用光标来搭建一个新项目。它建议使用一个实用程序包来处理 openai 流响应。看起来不错，每周下载 4 万次，自述文件不错。我不假思索地安装了它。 两天后，我们的哨兵开始从本应闲置的服务器中抛出奇怪的身份验证错误。开始挖掘。该软件包有一个安装后脚本，该脚本向外部域发出出站请求。不是包的域。不是 npm 的域。一些随机的 vps。 我检查了软件包的 github。维护者帐户在 6 周前就已被泄露。恶意 postinstall 是在 2.3.1 版本中添加的。干净之前的版本。 它实际上在做什么：在安装时读取 process.env 并提取任何看起来像 api 密钥或秘密的内容。它足够聪明，仅在检测到未设置 ci 环境变量时才运行，因此不会在可能记录输出的管道中触发。 我立即做了什么：  轮换在本地环境中设置的每个秘密 审核了过去 2 个月添加的所有包 运行 npm 审核（错过了，顺便说一句，不在咨询数据库中）  将 ignore-scripts=true 添加到 .npmrc 作为默认  ignore-scripts 的事情是我希望有人早点告诉我的。安装后脚本默认运行，大多数合法包不需要它们。您可以在实际需要时为每个包启用它们。 ai 编码助手会根据流行度和相关性而不是安全历史记录来建议包。他们无法知道上个月维护者帐户是否遭到泄露。这是我们需要检查的。 在安装任何新内容之前验证维护者帐户是否仍然有效。检查上次发布的时间相对于可疑活动可能开始的时间。需要 30 秒。 检查你的东西。   由   提交/u/bobupuhocalusof   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s4sl95/that_npm_package_your_ai_coding_assistant_just/</guid>
-      <pubDate>Fri, 27 Mar 2026 03:07:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>在澳大利亚哪里可以找到开发商</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s4r991/where_to_find_developers_in_australia/</link>
-      <description><![CDATA[除了像 Seek 这样的传统地点之外，在澳大利亚雇用开发人员的最佳地点是哪里？正在寻找一个伟大的人，但不确定去哪里寻找！    由   提交 /u/Unlucky-Ad-8835   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s4r991/where_to_find_developers_in_australia/</guid>
-      <pubDate>Fri, 27 Mar 2026 02:07:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
