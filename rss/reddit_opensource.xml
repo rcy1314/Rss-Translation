@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Tue, 31 Mar 2026 05:14:42 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 07:23:59 GMT</lastBuildDate>
+    <item>
+      <title>为代理操作系统构建了一个在负载下进行协调的事件内核：实时事件、可重播日志、TTL subs、无死锁</title>
+      <link>https://www.reddit.com/r/opensource/comments/1s8ge1l/built_an_event_kernel_for_agent_oses_that/</link>
+      <description><![CDATA[代理系统运行在过时的基础设施、手动状态检查、无休止的轮询和脆弱的日志上。每一种解决方法都会修补另一种低效率，并且在真正的协调下会崩溃。 因此，我构建了事件内核： 现在，代理操作系统可以由事件驱动： * ﻿﻿27 个实时事件，如 task.started、agent.termerated 和budget.warning。 * ﻿﻿每个事件都会被记录下来，以实现完全透明、完整的历史记录，甚至在重新启动时也是如此。 *﻿﻿TTL 订阅可阻止过时的侦听器内存膨胀。 * ﻿﻿通过设计防死锁：每个保护措施都融入到核心中。 发生了什么： 我从轮询和日志切换到事件，系统就正常工作了： * ﻿﻿工作流程运行得更干净，调试起来更容易 10 倍。 * ﻿﻿死锁完全消失消除了。 * ﻿﻿在不中断的情况下进行扩展。 * ﻿﻿TTL 订阅可以防止过时的侦听器内存膨胀。 * ﻿﻿设计上防死锁：每个保护措施都融入到核心中。 发生了什么： 我从轮询和日志切换到事件，系统就正常工作了： * ﻿﻿工作流程运行得更干净，并且调试起来容易 10 倍。 * ﻿﻿死锁被完全消除。 * ﻿﻿无需中断即可扩展。 很简单：事件改变代理的反应、扩展和协调方式。这就像 Android 坐在 Linux 上一样，代理完全从系统中抽象出来。没有 shell 调用或错过的状态。它提供实时更新。 很想知道是否有其他人尝试过代理的事件驱动架构，这是我使用过的最干净的系统。 https://github.com/ninjahawk/hollow-agentOS   由   提交 /u/TheOnlyVibemaster   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1s8ge1l/built_an_event_kernel_for_agent_oses_that/</guid>
+      <pubDate>Tue, 31 Mar 2026 07:12:04 GMT</pubDate>
+    </item>
     <item>
       <title>厌倦了“通用 HID”抖动器被标记？我构建了一个开源的、无法检测的 Pi Zero 模拟器。需要阿尔法测试员！</title>
       <link>https://www.reddit.com/r/opensource/comments/1s8b6ce/tired_of_generic_hid_jigglers_getting_flagged_i/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[分享一个我晚上/周末一直在做的项目。我到了这个阶段，它确实可能需要更多的打磨，但我正在短暂休息，我想我不妨让它在世界上自由发挥。我将其命名为 Open Riff Box，它是一个适用于 Windows 的实时吉他效果处理器（独立 + VST3 插件）。就像卧室吉他手不能/不会支付 100 美元以上来购买更严肃的解决方案一样思考。 它是在 GPLv3 下使用 JUCE 8、C++17 构建的。便携，无需安装程序，无运行时依赖性（静态 CRT）。 里面有什么：  3 个放大器模拟引擎（从简单/CPU 强度较低到电路建模程度更高的类型），具有 14 个嵌入式驾驶室 IR + 自定义 IR 加载 TS808 型驱动器，带 Newton-Raphson 二极管解算器 具有 4 种模式、BBD 模拟延迟、弹簧和板混响 合唱、镶边、移相器、颤音（可能是最薄弱的环节，我自己不太玩调制） 可重新排序的信号链、预设系统和调谐器  我试图确保 DSP 层与 UI 完全解耦，因此读取/调整应该非常简单。效果通过准备/处理/重置从基类继承，因此添加任何新内容都是完全独立的。 目前仅适用于 Windows（我知道..）。我正在努力完善它的 VST3 插件部分，作为其中的一部分，我希望 Linux 和 Mac 构建也能正常工作。 GitHub：https://github.com/dlujic/open-riff-box 欢迎提出问题，但不欢迎 PR（没有时间处理它），所以如果您想更改内容，请叉子。    由   提交 /u/Daex33   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1s5otj7/open_riff_box_free_guitar_effects_processor_gplv3/</guid>
       <pubDate>Sat, 28 Mar 2026 02:54:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>我猜是他妈的到处找时间！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1s5lase/i_guess_its_fuck_around_and_find_out_time/</link>
-      <description><![CDATA[       由   提交 /u/indolering   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1s5lase/i_guess_its_fuck_around_and_find_out_time/</guid>
-      <pubDate>Sat, 28 Mar 2026 00:12:11 GMT</pubDate>
     </item>
     </channel>
 </rss>
