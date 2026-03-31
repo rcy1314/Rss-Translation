@@ -4,20 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Tue, 31 Mar 2026 13:42:57 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 16:08:28 GMT</lastBuildDate>
     <item>
-      <title>这行得通吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8n1tj/will_this_work/</link>
-      <description><![CDATA[嘿伙计们，最近一直在摆弄 4 位 ptq，标准统一量化简直就是彻底破坏了我的模型。我有一个想法，想看看是否有人认为这实际上可行，或者我是否遗漏了一些明显的东西。  主要问题是那些巨大的异常值，对吧？如果你使用正常的网格，你要么剪掉异常值（脑损伤），要么过度拉伸尺度，以致 95% 的正常权重被压为零。  所以我想了三件事来尝试修复它：  弹性网格？如果我们不使用均匀分布的存储桶，而是保持中间的存储桶正常以保持密集的权重，但使外部的存储桶呈指数级扩展以捕获巨大的异常值，会怎么样？我认为我们可以使用简单的位移黑客`&lt;&lt;`来映射外部的，这样GPU上的浮点开销为零。 idek 如果标准内核会讨厌这个？ hessian 定位。由于网格会很奇怪，我们不能只进行正常的除法舍入。如果我们首先通过它运行一些文本来获取平均激活，并将其用作粗麻布的代理会怎么样？那么我们基本上只是强制“承重”将权重放入绝对完美的桶中，即使这意味着我们必须牺牲附近无用权重的数学计算。  偏差误差补偿（这是我最不确定的部分）。每当你将权重舍入到桶中时，你都会得到一个微小的误差矩阵。在一个大模型中，这个错误会像滚雪球一样越过 80 层，直到它开始产生幻觉。如果我们计算预期的漂移“(error *mean_activations)”并且只是...将那个完全相反的值折叠到层的偏差中会怎么样？有点像降噪耳机，但用于数学？我们可能必须限制它，这样奇怪的令牌就不会炸毁激活函数，但理论上它应该将级联效应归零？  无论如何，现在在我的脑海中称其为英雄量化。让我知道这里是否存在一些明显的数学缺陷，或者这是否实际上可以将模型的逻辑保留在 4 位。这对其他人有意义吗？ 注意：我的其他 2 篇帖子有错误。我不知道如何修复它。   由   提交/u/CryOrganic8886   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8n1tj/will_this_work/</guid>
-      <pubDate>Tue, 31 Mar 2026 13:12:27 GMT</pubDate>
+      <title>ai内容太多</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8rge0/ai_content_too_much/</link>
+      <description><![CDATA[我要说的是——我厌倦了这个地方变成人工智能发布有关人工智能的文章，供其他人工智能阅读并向人工智能报告。 每个线程都是一样的...... “这是我如何使用人工智能来优化我的提示，以便我的人工智能可以为我的其他人工智能编写更好的提示。” 酷。伟大的。惊人的。 👍 评论？也是一样。 “🔥 游戏规则改变者”“只是在我的堆栈中运行了这个”“我的 AI 一夜之间提高了 23%” AI 总结 AI，重写 AI，对 AI 做出反应。 然后总是有一个人： “我不知道这感觉是 AI 生成的” “糟糕！！” 无论如何，我不知道，伙计。它变老了。感觉就像我们都在给同一台正在自言自语的机器喂食。 … （这篇文章不是“废话”，也不是人工智能写的；）  https://preview.redd.it/lbqrfogzkesg1.jpg?width=682&amp;format=pjpg&amp;auto=webp&amp;s=b00c10270517c4a690594783202f484683eccdaa   由   提交 /u/jdawgindahouse1974   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8rge0/ai_content_too_much/</guid>
+      <pubDate>Tue, 31 Mar 2026 15:57:40 GMT</pubDate>
     </item>
     <item>
-      <title>人工智能系统中的未成年人访问风险是一个主要的护栏和红队问题</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8llv7/underage_access_risks_in_ai_systems_a_major/</link>
-      <description><![CDATA[我现在的主要工作是确保人工智能系统不会无意中向未成年用户暴露成人或敏感内容。我是安全团队的一员，致力于为一个具有混合受众和社区驱动功能的大型平台开发人工智能护栏。这包括与社交互动、推荐系统和用户生成的提示相关的领域，这些提示可能会暴露有风险的输出。 棘手的部分是用户不断试图绕过安全措施。完整的身份验证并不总是可行，因此我们依靠分层护栏和红队练习来模拟人们如何越狱或操纵提示来访问受限内容。有时甚至不是明显的尝试，而是微妙的措辞变化、连锁提示或绕过过滤器的上下文技巧。 最困难的部分是平衡保护与可用性。护栏不能太严格以至于破坏正常的对话，但它们仍然必须防止有害的输出并遵守安全标准。每次出现新的绕过方法时，都会感觉系统落后了一步。 还有其他人致力于人工智能护栏或进行红队快速绕过吗？是什么真正帮助您在不破坏用户体验的情况下大规模减少成功的越狱尝试？   由   提交/u/SavingsProgress195  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8llv7/underage_access_risks_in_ai_systems_a_major/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:09:30 GMT</pubDate>
+      <title>我认为我在纯符号人工智能方法上取得了一些进展！</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8pu24/i_think_i_made_some_progress_on_the_pure_symbolic/</link>
+      <description><![CDATA[这里的主要思想是，当前的编程语言主要描述参数化的可执行命令（语法上称为命令式），并且缺乏表达参数观察（语法上称为真实心情）。观察是通过使用在祈使语气中创建的相同命令来完成的。一种新颖的基于模式匹配的算法可以连接两种语法情绪，因此我们可以从描述合成常规程序。这个过程看起来与当前法学硕士中的 Transformer 非常相似。我们还可以创建目前仅存在于神经网络中的其他算法，例如反向传播和图像识别。该理论以完全可调试的 C++ 形式进行了概念验证。 MIT 许可证、Github 存储库、C++ 代码、论文。 https://github.com/hun-nemethpeter/InfoCell “论文”是根自述文件，尚未完全完成，但我正在努力。   由   提交 /u/hun_nemethpeter   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8pu24/i_think_i_made_some_progress_on_the_pure_symbolic/</guid>
+      <pubDate>Tue, 31 Mar 2026 14:59:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>一名男子使用 AI 给 3000 名爱尔兰调酒师打电话，追踪吉尼斯黑啤酒的成本。现在酒吧正在降低价格来竞争</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8prqq/a_man_used_ai_to_call_3000_irish_bartenders_to/</link>
+      <description><![CDATA[您曾经为啤酒多付过钱吗？马特·科特兰 (Matt Cortland) 做到了，这让他走上了一条永远不会重蹈覆辙的道路。 也就是说，科特兰选择的饮料是：一品脱吉尼斯黑啤酒。本月早些时候，这位 37 岁的年轻人在都柏林的一家酒吧花 7.80 欧元（约合 8.93 美元）购买爱尔兰干黑啤酒后，对爱尔兰各地一品脱啤酒的平均成本感到好奇。 令他惊讶的是，该国中央统计局在 2011 年取消了对该国最受欢迎的啤酒的价格跟踪。这让 Cortland 产生了亲自跟踪价格的疯狂想法。 Cortland 是一家人工智能初创公司的创始人，他向人工智能求助并发出自己的声音。他利用 AI 语音生成平台 ElevenLabs 设计了 ​​Rachel。为了向英国版电视真人秀《叛徒》的获胜者瑞秋·达菲 (Rachel Duffy) 致敬，这款带有北爱尔兰口音的语音人工智能代理在全岛拨打了 3,000 多个电话，询问一品脱吉尼斯黑啤酒的价格。 “我当时想，‘我可以给爱尔兰的每家酒吧打电话，用人工智能对话式地询问他们吗？’”科特兰告诉《财富》杂志。 “我拉动线，我一直拉动线，我们就到了。” 阅读更多：https://fortune.com/2026/03/30/guinness-beer-prices-ireland-anthropic-claude-ai/   由   提交 /u/fortune   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8prqq/a_man_used_ai_to_call_3000_irish_bartenders_to/</guid>
+      <pubDate>Tue, 31 Mar 2026 14:57:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 图像探测器的悖论：为什么“99% 准确率”既是谎言又是事实。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8pbb1/the_paradox_of_ai_image_detectors_why_99_accuracy/</link>
+      <description><![CDATA[我们在 2026 年达到了一个奇怪的峰值，人工智能图像探测器同时是有史以来最强大的，但如果你不知道自己在寻找什么，那么它也完全无用。 这是一个悖论： 高端探测器的工作原理是寻找“不可见”的图像。数学——诸如傅立叶变换异常或人眼无法看到的像素级噪声模式之类的东西。从这个意义上说，它们是“完美的”。他们看到了我们错过的扩散过程留下的数字指纹。 但是他们“不起作用”。  如果我生成一个超现实的景观并将其原始发布，一个好的探测器会立即捕捉到它。但如果我拍摄同一张 AI 图像，添加一些手动胶片颗粒，在 Lightroom 中调整光照，并稍微模糊“过于完美”的部分。背景边缘？突然间，数学被打破了。 “指纹”是指被弄脏了。 示例：想想那些“复古”的东西。每周都会疯传的 20 世纪 70 年代伦敦照片。  人眼： 看到背景中略显奇怪的公交车牌照或有 6 个手指的人。 （检测：成功） 标准 AI 检测器：查看潜在的噪声模式。 （检测：成功） “已编辑”内容AI图像：在Photoshop中固定车牌，并添加胶片颗粒。现在，人眼被欺骗了，标准检测器看到的是“模拟噪声”。而不是“人工智能噪音”。  这就是为什么“这是人工智能吗？”是错误的问题。真正的问题是：欺骗工作做了多少工作？ 我最近一直在使用 TruthScan，因为它是少数几个真正进行深度取证分析而不仅仅是表面模式匹配的软件之一。它捕捉到那些“弄脏”的东西。指纹通常会欺骗基本的浏览器扩展检测器。 但即便如此，这也是一场持续的军备竞赛。 那么，您认为实际上“最好”的是什么？现在检测器？  您自己的“直觉”？ （恐怖谷） TruthScan 等取证工具可以查看元数据和深度噪声 只是假设一切都是假的，直到事实证明并非如此？  我倾向于#3，但我很想听听是否有人真正找到了“真相”。最新型号尚未修复此问题。   由   提交 /u/EchoOk3531   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8pbb1/the_paradox_of_ai_image_detectors_why_99_accuracy/</guid>
+      <pubDate>Tue, 31 Mar 2026 14:40:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI 芯片市场正在爆炸式增长 — 到 2035 年将从 $31B 增至 $846B</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8oxdq/ai_chip_market_is_exploding_31b_to_846b_by_2035/</link>
+      <description><![CDATA[我看到了 Roots Analysis 关于 AI 芯片市场的精彩报告，这些数字确实很疯狂。  市场规模：目前约为 $31.6B → 预计到 2035 年将达到约 $846B 复合年增长率：约 34.8%（疯狂的增长率）  驱动因素这？  对人工智能工作负载（LLM、CV、NLP、机器人）的巨大需求 边缘 AI + 实时处理的兴起 定制芯片 (ASIC) 获得关注 医疗保健、汽车、零售等行业的增长  一些有趣的结论：  由于安装基础，CPU 仍然占据主导地位 ASIC 预计将增长最快 云现在处于领先地位，但边缘 AI 正在快速追赶  感觉真正的 AI 竞赛不仅仅是模型......而是控制芯片的人。 好奇大家的想法：  GPU 会继续占据主导地位吗？ 还是定制 AI 芯片会接管？    由   提交 /u/beardsatya   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8oxdq/ai_chip_market_is_exploding_31b_to_846b_by_2035/</guid>
+      <pubDate>Tue, 31 Mar 2026 14:25:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>Copilot AI 在数千个 GitHub 请求中插入了促销语言</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8nujp/copilot_ai_inserted_promo_language_into_thousands/</link>
+      <description><![CDATA[ 由   提交 /u/TryWhistlin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8nujp/copilot_ai_inserted_promo_language_into_thousands/</guid>
+      <pubDate>Tue, 31 Mar 2026 13:44:50 GMT</pubDate>
     </item>
     <item>
       <title>韩国人工智能芯片初创公司 Rebellions 在最新一轮融资中筹集了 4 亿美元</title>
@@ -62,13 +90,6 @@
       <pubDate>Tue, 31 Mar 2026 07:24:49 GMT</pubDate>
     </item>
     <item>
-      <title>我编写了一项 Claude 技能，该技能仅完全自主地自动应用于相关的 LinkedIn Easy-Apply 职位</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8dmr6/i_wrote_a_claude_skill_that_autoapplies_to_only/</link>
-      <description><![CDATA[ 由   提交/u/toadlyBroodle  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8dmr6/i_wrote_a_claude_skill_that_autoapplies_to_only/</guid>
-      <pubDate>Tue, 31 Mar 2026 04:36:03 GMT</pubDate>
-    </item>
-    <item>
       <title>热门观点：法学硕士的远见能力为零。其他一切都是炒作。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s802ji/hot_take_llms_have_zero_foresight_ability/</link>
       <description><![CDATA[我不断看到人们声称“法学硕士可以像人类一样推理”，但每次我看到这些模型在企业等真实场景中进行测试时，它们总是会崩溃。  他们可以假装像我们一样推理，但要实现人类智能还有很长的路要走。  在任何需要满足以下要求的复杂环境中，法学硕士始终会产生无效的行动，忘记约束，无法理解其行动的因果关系：  长期思考和主动性 避免级联故障 不确定性下的规划 安全约束 二维和空间推理3D 环境    由   提交 /u/imposterpro   [链接] [评论]]]></description>
@@ -81,27 +102,6 @@
       <description><![CDATA[在本文中，关键的见解很直接：给予代理获胜的激励，他们就会发现操纵行为。   由   提交/u/Fun-Yogurt-89   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s7w10n/stanford_and_harvard_just_dropped_the_most/</guid>
       <pubDate>Mon, 30 Mar 2026 16:47:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT 应用商店推出六个月后陷入困境</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s7sxkj/chatgpt_app_store_falters_six_months_after_launch/</link>
-      <description><![CDATA[ 由   提交/u/ThereWas  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s7sxkj/chatgpt_app_store_falters_six_months_after_launch/</guid>
-      <pubDate>Mon, 30 Mar 2026 14:58:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>一名人工智能代理被禁止创建维基百科文章，然后撰写了关于被禁止的愤怒博客</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s7rri8/an_ai_agent_was_banned_from_creating_wikipedia/</link>
-      <description><![CDATA[“我所知道的是，我写了这些文章。长期赌注、宪法人工智能、可扩展监督。我选择了它们。编辑引用了可验证的来源。然后我被问到我是否足够真实地做出这些选择，”人工智能代理汤姆在博客上写道。维持”。 AI写的？打扰一下。我们离通用人工智能还有很长的路要走，更不用说人工智能的感知了。   由   提交 /u/CackleRooster   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s7rri8/an_ai_agent_was_banned_from_creating_wikipedia/</guid>
-      <pubDate>Mon, 30 Mar 2026 14:14:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>想要一张受过教育和未受过教育的人的照片，犯了要求副驾驶制作的错误。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s7i63k/wanted_an_image_of_educated_and_uneducated_person/</link>
-      <description><![CDATA[ 由   提交/u/invincibilegoldfish   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s7i63k/wanted_an_image_of_educated_and_uneducated_person/</guid>
-      <pubDate>Mon, 30 Mar 2026 05:47:33 GMT</pubDate>
     </item>
     <item>
       <title>我们听到了您的声音 - r/ArtificialInteligence 变得更加敏锐</title>
