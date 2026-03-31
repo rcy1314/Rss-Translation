@@ -4,13 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Tue, 31 Mar 2026 10:08:53 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 13:42:57 GMT</lastBuildDate>
     <item>
-      <title>为什么你的人工智能代理可能是你最糟糕的投资</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8iyoz/why_your_ai_agent_might_be_your_worst_investment/</link>
-      <description><![CDATA[这不是关于人工智能代理的促销研究/生产力黑客帖子或炒作。 这是对为什么人工智能系统中的“代理规划”会悄然成为一种负担而不是优势的关键看法。   由   提交 /u/Wizard_AI   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8iyoz/why_your_ai_agent_might_be_your_worst_investment/</guid>
-      <pubDate>Tue, 31 Mar 2026 09:50:40 GMT</pubDate>
+      <title>这行得通吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8n1tj/will_this_work/</link>
+      <description><![CDATA[嘿伙计们，最近一直在摆弄 4 位 ptq，标准统一量化简直就是彻底破坏了我的模型。我有一个想法，想看看是否有人认为这实际上可行，或者我是否遗漏了一些明显的东西。  主要问题是那些巨大的异常值，对吧？如果你使用正常的网格，你要么剪掉异常值（脑损伤），要么过度拉伸尺度，以致 95% 的正常权重被压为零。  所以我想了三件事来尝试修复它：  弹性网格？如果我们不使用均匀分布的存储桶，而是保持中间的存储桶正常以保持密集的权重，但使外部的存储桶呈指数级扩展以捕获巨大的异常值，会怎么样？我认为我们可以使用简单的位移黑客`&lt;&lt;`来映射外部的，这样GPU上的浮点开销为零。 idek 如果标准内核会讨厌这个？ hessian 定位。由于网格会很奇怪，我们不能只进行正常的除法舍入。如果我们首先通过它运行一些文本来获取平均激活，并将其用作粗麻布的代理会怎么样？那么我们基本上只是强制“承重”将权重放入绝对完美的桶中，即使这意味着我们必须牺牲附近无用权重的数学计算。  偏差误差补偿（这是我最不确定的部分）。每当你将权重舍入到桶中时，你都会得到一个微小的误差矩阵。在一个大模型中，这个错误会像滚雪球一样越过 80 层，直到它开始产生幻觉。如果我们计算预期的漂移“(error *mean_activations)”并且只是...将那个完全相反的值折叠到层的偏差中会怎么样？有点像降噪耳机，但用于数学？我们可能必须限制它，这样奇怪的令牌就不会炸毁激活函数，但理论上它应该将级联效应归零？  无论如何，现在在我的脑海中称其为英雄量化。让我知道这里是否存在一些明显的数学缺陷，或者这是否实际上可以将模型的逻辑保留在 4 位。这对其他人有意义吗？ 注意：我的其他 2 篇帖子有错误。我不知道如何修复它。   由   提交/u/CryOrganic8886   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8n1tj/will_this_work/</guid>
+      <pubDate>Tue, 31 Mar 2026 13:12:27 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能系统中的未成年人访问风险是一个主要的护栏和红队问题</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8llv7/underage_access_risks_in_ai_systems_a_major/</link>
+      <description><![CDATA[我现在的主要工作是确保人工智能系统不会无意中向未成年用户暴露成人或敏感内容。我是安全团队的一员，致力于为一个具有混合受众和社区驱动功能的大型平台开发人工智能护栏。这包括与社交互动、推荐系统和用户生成的提示相关的领域，这些提示可能会暴露有风险的输出。 棘手的部分是用户不断试图绕过安全措施。完整的身份验证并不总是可行，因此我们依靠分层护栏和红队练习来模拟人们如何越狱或操纵提示来访问受限内容。有时甚至不是明显的尝试，而是微妙的措辞变化、连锁提示或绕过过滤器的上下文技巧。 最困难的部分是平衡保护与可用性。护栏不能太严格以至于破坏正常的对话，但它们仍然必须防止有害的输出并遵守安全标准。每次出现新的绕过方法时，都会感觉系统落后了一步。 还有其他人致力于人工智能护栏或进行红队快速绕过吗？是什么真正帮助您在不破坏用户体验的情况下大规模减少成功的越狱尝试？   由   提交/u/SavingsProgress195  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8llv7/underage_access_risks_in_ai_systems_a_major/</guid>
+      <pubDate>Tue, 31 Mar 2026 12:09:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>韩国人工智能芯片初创公司 Rebellions 在最新一轮融资中筹集了 4 亿美元</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8jcv4/south_koreas_ai_chip_startup_rebellions_raises/</link>
+      <description><![CDATA[&quot;韩国 Rebellions 周一表示，在最新一轮融资中筹集了 4 亿美元，随着该人工智能芯片初创公司加速向美国扩张，其估值约为 23.4 亿美元 Rebellions 表示，本轮融资由 Mirae Asset Financial Group 和韩国国家增长基金领投，继 9 月份和 2019 年 2 月进行了 2.5 亿美元的 C 轮融资后，使其筹集的总资本达到 8.5 亿美元。”   https://www.reuters.com/business/media-telecom/south-koreas-ai-chip-startup-rebellions-raises-400-million-latest-funding-round-2026-03-30/   由   提交 /u/talkingatoms   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8jcv4/south_koreas_ai_chip_startup_rebellions_raises/</guid>
+      <pubDate>Tue, 31 Mar 2026 10:12:59 GMT</pubDate>
     </item>
     <item>
       <title>你选择了什么型号？</title>
@@ -48,13 +62,6 @@
       <pubDate>Tue, 31 Mar 2026 07:24:49 GMT</pubDate>
     </item>
     <item>
-      <title>深度优先剪枝传输：GPT-2 → TinyLlama 具有稳定的增益和最小的损失</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8ethd/depthfirst_pruning_transfers_gpt2_tinyllama_with/</link>
-      <description><![CDATA[TL;DR: 删除正确的层（而不是缩小所有层）使变压器模型小约 8–12%，质量损失仅约 6–8%，而且现在可以跨架构（GPT-2 + TinyLlama）工作，方差接近于零。 我一直在进行实验使用深度优先剪枝 - 根据敏感性删除整个层，而不是缩小模型宽度。 从 GPT-2 开始...刚刚在 TinyLlama 1.1B 上进行了完整的 3 种子复制验证。 结果 (TinyLlama 1.1B) 深度优先剪枝（3 种子）配置层缩减测试 PPL 比率 ------------------------- ---------- ---------- -------------- ------ 基线 (22L) 22 0% 9.19 1.000 20L（删除 L4 + L11） 20 8.0% 9.72 ± 0.01 1.057 19L（分阶段剪枝） 19 12.0% 9.94 ± 0.01 1.081  有趣之处  极其稳定 → 种子之间的 PPL ±0.01 在GPT-2 和 Llama 家族模型之间转移 在减小尺寸的同时将质量保持在 ~6–8% 范围内 产生真实的结果推理加速，而不仅仅是参数节省  关键洞察 并非所有转换器层都同等重要。 删除最不重要的层：  保留有用的结构 避免降低所有层的性能 击败均匀宽度修剪  外卖 结构&gt;统一缩放 而不是：“让每一层更小” 做：“删除最不重要的层” 注释  不是一个新架构 不声称 SOTA 只是一个干净、可重复的效率方法  更大图片 这是我正在探索的更广泛方向的一部分：  种子→架构发现（找到有效的模型） Magnus→内存优先推理系统  目标：更小的结构化系统而不是更大的模型 好奇人们的想法，特别是如果你尝试过类似的修剪方法并且你的模型结果。   由   提交 /u/califalcon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s8ethd/depthfirst_pruning_transfers_gpt2_tinyllama_with/</guid>
-      <pubDate>Tue, 31 Mar 2026 05:39:31 GMT</pubDate>
-    </item>
-    <item>
       <title>我编写了一项 Claude 技能，该技能仅完全自主地自动应用于相关的 LinkedIn Easy-Apply 职位</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s8dmr6/i_wrote_a_claude_skill_that_autoapplies_to_only/</link>
       <description><![CDATA[ 由   提交/u/toadlyBroodle  [链接] [评论]]]></description>
@@ -62,16 +69,9 @@
       <pubDate>Tue, 31 Mar 2026 04:36:03 GMT</pubDate>
     </item>
     <item>
-      <title>“你无法击败机器人！”：棒球的人工智能打击区是必看电视</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s81yqi/you_cant_defeat_the_robots_baseballs_ai_strike/</link>
-      <description><![CDATA[ 由   提交/u/404mediaco  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s81yqi/you_cant_defeat_the_robots_baseballs_ai_strike/</guid>
-      <pubDate>Mon, 30 Mar 2026 20:15:40 GMT</pubDate>
-    </item>
-    <item>
       <title>热门观点：法学硕士的远见能力为零。其他一切都是炒作。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s802ji/hot_take_llms_have_zero_foresight_ability/</link>
-      <description><![CDATA[我不断看到人们声称“法学硕士可以像人类一样推理”，但每次我看到这些模型在企业等真实场景中进行测试时，它们总是会崩溃。  他们可以假装像我们一样推理，但要实现人类智能还有很长的路要走。  在任何需要满足以下要求的复杂环境中，法学硕士始终会产生无效的行动，忘记约束，无法理解其行动的因果关系：  长期思考和主动性 避免级联故障 不确定性下的规划 安全约束 2D和空间推理3D 环境    由   提交 /u/imposterpro   [链接] [评论]]]></description>
+      <description><![CDATA[我不断看到人们声称“法学硕士可以像人类一样推理”，但每次我看到这些模型在企业等真实场景中进行测试时，它们总是会崩溃。  他们可以假装像我们一样推理，但要实现人类智能还有很长的路要走。  在任何需要满足以下要求的复杂环境中，法学硕士始终会产生无效的行动，忘记约束，无法理解其行动的因果关系：  长期思考和主动性 避免级联故障 不确定性下的规划 安全约束 二维和空间推理3D 环境    由   提交 /u/imposterpro   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s802ji/hot_take_llms_have_zero_foresight_ability/</guid>
       <pubDate>Mon, 30 Mar 2026 19:07:59 GMT</pubDate>
     </item>
