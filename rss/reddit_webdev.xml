@@ -4,13 +4,69 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 31 Mar 2026 16:10:21 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 19:09:22 GMT</lastBuildDate>
     <item>
-      <title>这些较新的一体化工具在实际项目中真的有用吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8rqyr/are_these_newer_allinone_tools_actually_useful_in/</link>
-      <description><![CDATA[最近一直在尝试不同的工具，注意到更多的平台试图处理所有事情，不仅仅是构建，还包括部署、自动化，甚至内置了一些分发/增长功能。 我遇到过一些像 Bubble、Webflow  和 衍生，甚至出现了一些新的 AI 重磅产品。这让我想知道这种“一体式”方法在实践中是否真的有效，或者只是有点限制。 大多数时候，我都根据项目坚持使用更加模块化的设置，这感觉更灵活，但管理工作也更多。 很好奇这里的人是如何处理这个问题的：您实际上在实际项目中使用这样的工具，还是更喜欢将东西分开？   由   提交 /u/Pleasant_Delay_1432   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8rqyr/are_these_newer_allinone_tools_actually_useful_in/</guid>
-      <pubDate>Tue, 31 Mar 2026 16:08:00 GMT</pubDate>
+      <title>JetStream 3 基准套件简介</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8w953/introducing_the_jetstream_3_benchmark_suite/</link>
+      <description><![CDATA[       由   提交/u/feross  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8w953/introducing_the_jetstream_3_benchmark_suite/</guid>
+      <pubDate>Tue, 31 Mar 2026 18:47:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个用于语义文档搜索的 API — 上传 PDF，获取引用的答案。免费套餐，BYOK。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8w50j/i_built_an_api_for_semantic_document_search/</link>
+      <description><![CDATA[在构建文档较多的应用程序时，我一直遇到同样的问题：搜索要么返回错误的块，要么返回正确的单词，但无法追溯到源头。嵌入固定大小块的标准方法抛弃了文档结构，最终得到的答案看似合理，但没有根据。 所以我构建了 Dewey。您上传文档（PDF、DOCX、HTML、纯文本），API 将它们解析为结构化层次结构（部分、标题、块），而不是扁平的文本包。这个结构就是使检索真正发挥作用的原因。 TypeScript SDK 只需几行即可开始： import Dewey from &#39;@meetdewey/sdk&#39; const dewey = new Dewey({ apiKey: &#39;dwy\_live\_...&#39; }) // 上传文档 wait dewey.documents.upload(collectionId, file) // 提出问题，获取引用的答案 const result = wait dewey.research(collectionId, { query: &#39;主要发现是什么？&#39;, height: &#39;彻底&#39;, }) console.log(result.answer) // 散文回答 console.log(result.itations) // 带有源文档 + 部分的精确段落  如果您只想在没有 AI 层的情况下进行语义检索，还有一个 /search 端点。自带 OpenAI 密钥，生成时无标记。深度是一种质量设置，而不是计费设置。其中包括人工智能图像字幕，因此图形和图表可以与文本一起搜索。 REST API、TypeScript SDK、Python SDK 和 MCP 已上线。 免费套餐，无需信用卡：https://meetdewey.com。很高兴回答问题。   由   提交/u/climbingontherocks  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8w50j/i_built_an_api_for_semantic_document_search/</guid>
+      <pubDate>Tue, 31 Mar 2026 18:42:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>CRT 文本效果（纯 CSS/SVG）...想法/建议/替代方案</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8vqyc/crt_text_effects_pure_csssvg/</link>
+      <description><![CDATA[      一时兴起，我想为统计仪表板创建一个超级复古的类似 CRT 的效果。当然，我还不知道如何在视觉上整合它，但那是另一天的战斗...... 无论如何，这是完全可定制的，包括“像素”尺寸、网格尺寸、颜色等...如果放大（第二张照片显示得更近），它甚至会出现来自 CRT 过冲/未对准的模拟 RGB 雾度。如果您看到像色差这样模糊的东西，您就看到了。 我的问题有几个：  您认为整体效果如何？我错过了一些关键的东西吗？我怎样才能以纯 CSS/过滤器的方式改善效果？ 您知道有更好的替代方案可以以超级干净的方式实现这一点，同时又超轻？很确定我可以将其打包到 1-2kB 以下。 我是否应该将这样的东西发布为一个简单的组件（可能只是针对 Svelte 目标）？我通常只发布 utils 或偶尔的组件操作，但 FE 组件我倾向于留给其他更专业的作者...  编辑： - 忘记提及它已经内置了用于微妙背景屏幕脉冲/闪烁等的动画循环   由   提交/u/kevin_whitley  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8vqyc/crt_text_effects_pure_csssvg/</guid>
+      <pubDate>Tue, 31 Mar 2026 18:29:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的网站今天受到攻击</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8vkhj/my_website_is_under_attack_today/</link>
+      <description><![CDATA[      今天早上 6 点醒来，发现我的网站承受着极大的压力。花了一个小时在 Cloudflare 上配置规则，“受到攻击”模式挽救了局面！  我把它放在这里的长篇故事：https://pnl.dev/topic/1091/pnl-website-is-under-attack 我们生活在一个多么美好的时代🤪。   由   提交/u/river_yang  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8vkhj/my_website_is_under_attack_today/</guid>
+      <pubDate>Tue, 31 Mar 2026 18:22:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>在这个新环境中找到真正的全栈开发人员的最佳方法是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8v21y/best_way_to_find_a_true_full_stack_developer_in/</link>
+      <description><![CDATA[我个人创立了三个成功的公司。问题是，我一直在业务的财务方面/不需要发展。当我创立一家“科技”公司时我的另一位创始合伙人是一位才华横溢的开发人员。他现在已经退休了。我知道在我们出售公司之前的一两年里，他遇到了麻烦，试图聘请一名优秀的开发人员，而不是过度依赖人工智能的人。 他很成功，但如果一个在该行业工作了 20 年以上的人怀疑自己的能力，我确信这对我来说几乎是不可能的，因为我在该领域拥有一些但有限的人才。 我正在尝试构建另一个 SaaS（我知道市场已经饱和），但在另一个相信是服务不足的市场。我有资金付给开发商。这是一个相当复杂的构建。我假设至少需要 2 到 3 个月的全职工作才能有一个初始版本 - 希望有才华的人能少花点时间。我只是不希望它看起来或操作起来像市场上所有其他人工智能构建的 SaaS。对于完成这个初始步骤有什么建议吗？   由   提交 /u/RelativeSalad1409   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8v21y/best_way_to_find_a_true_full_stack_developer_in/</guid>
+      <pubDate>Tue, 31 Mar 2026 18:04:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找真正构建人工智能代理的人（合同）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8ukcv/looking_for_someone_whos_actually_built_ai_agents/</link>
+      <description><![CDATA[我们正在开发一个基于网络的项目，正在寻找一个人来工作约 3 个月，帮助我们组织和构建系统。 这不是典型的 PM 角色 - 我们需要一个了解开发并尝试过 AI 代理/自动化（OpenAI、工作流程等）的人。 您将与一个小团队密切合作，帮助构建事物、实现想法并移动快。 不要过于公司化——我们更关心你实际构建的东西，而不是你的简历。 如果你从事过任何有趣的事情（代理、自动化、奇怪的副项目），请给我发消息或将其放在下面。   由   提交 /u/stew_4_U   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8ukcv/looking_for_someone_whos_actually_built_ai_agents/</guid>
+      <pubDate>Tue, 31 Mar 2026 17:47:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何建立一个具有这种 UI 的网站？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8tj2e/how_to_build_a_website_with_this_kind_of_ui/</link>
+      <description><![CDATA[我看到了这个 YouTube Short 视频，我真的很好奇如何构建这样的网站： https://www.youtube.com/shorts/mJF_lJ_wl1w 设计看起来非常有趣且具有互动性（有点像滑动/扩展面板）。 这种类型的 UI 叫什么？我如何构建这样的东西？ 有推荐的库或教程吗？   由   提交 /u/Pristine_Date_6039   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8tj2e/how_to_build_a_website_with_this_kind_of_ui/</guid>
+      <pubDate>Tue, 31 Mar 2026 17:11:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>自动化自定义网络应用程序的 SEO 设置：实际上值得，或者只是昂贵的忙碌工作</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8szam/automating_seo_setup_for_custom_web_apps_actually/</link>
+      <description><![CDATA[最近一直在讨论这个问题。构建一些自定义 Web 应用程序，并想知道每月 100-300 美元购买 Ahrefs 或 Alli AI 之类的应用程序是否真的有回报，或者对于非企业规模的任何东西来说是否太过分了。听起来不错（自动审核、实时页面编辑、异常检测），但我也看到人们说，您最终花在管理工具上的时间与手动完成工作的时间一样多。对于不在 WordPress 或标准 CMS 上的自定义应用程序，自动化实际上是否有效？或者您是否仍然最终编写了一堆自定义脚本以使其与您的堆栈一起工作？热衷于听取任何实际完成非标准构建设置过程的人的意见。   由   提交 /u/resbeefspat   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8szam/automating_seo_setup_for_custom_web_apps_actually/</guid>
+      <pubDate>Tue, 31 Mar 2026 16:52:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于 Navigation API 构建的强类型 React 路由器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1s8spcm/stronglytyped_react_router_built_on_the/</link>
+      <description><![CDATA[      嘿 👋 我一直在开发一个名为 Wayfinder 的小型开源项目： https://github.com/Wildhoney/Wayfinder 这是一种轻量级的、与框架无关的方式来处理路由/导航，而无需引入繁重或过于固执己见的东西。 还处于早期阶段，但我一直在自己的项目中使用它并希望分享它。 希望得到任何反馈 - 特别是关于 API 以及是否这是您实际使用的东西。 谢谢！   由   提交 /u/EnchantedSalvia   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1s8spcm/stronglytyped_react_router_built_on_the/</guid>
+      <pubDate>Tue, 31 Mar 2026 16:42:31 GMT</pubDate>
     </item>
     <item>
       <title>Palmarés - 我的第一个网站！场地自行车比赛等</title>
@@ -53,62 +109,6 @@
       <description><![CDATA[       由   提交/u/Dapper-Window-4492   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s8ot92/the_ultimate_irony_claude_code_just_leaked_its/</guid>
       <pubDate>Tue, 31 Mar 2026 14:21:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在 Facebook 上进行推广而不被垃圾邮件过滤器击中？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8o21f/how_to_do_outreach_on_facebook_and_not_hit_the/</link>
-      <description><![CDATA[我是一名自由网络开发者，Facebook 是我联系的最佳方式 - 但过去几个月我一直在追求流量，我想最终还是被垃圾邮件过滤器绊倒了。我每天发大约 200 个群组帖子。最后被垃圾邮件过滤器击中。我的帐户仅被群组暂停两周。但我希望能够继续在 Facebook 上进行推广，而不被标记为垃圾邮件 - 我怎样才能躲在雷达之下？   由   提交 /u/JungGPT   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8o21f/how_to_do_outreach_on_facebook_and_not_hit_the/</guid>
-      <pubDate>Tue, 31 Mar 2026 13:53:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>我如何使用 AI + Excalidraw 从意大利面条混乱变成干净的图表</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8np9t/how_i_went_from_spaghetti_mess_to_a_clean_diagram/</link>
-      <description><![CDATA[      我一直在从事一个业余项目，该项目使用 AI 从纯文本生成架构图。 上面的图表是当您要求“电子商务微服务架构”时大多数 AI 工具生成的结果。底部是通过我的工具进行的相同提示。 主要见解：不要让人工智能生成坐标。法学硕士在空间推理方面很糟糕。相反，我让它输出基于文本的图形描述（仅结构 - 节点、边、组），然后布局引擎自动处理定位。 这可以让您完成 60% 的工作。另外 40% 是嵌入到系统提示中的一组规则，指导 AI 以布局引擎实际上可以很好处理的方式构建图形。这部分需要数周的迭代才能完成。 仍在完善它，但如果人们想尝试它，很乐意分享。   由   提交/u/palmieri28  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8np9t/how_i_went_from_spaghetti_mess_to_a_clean_diagram/</guid>
-      <pubDate>Tue, 31 Mar 2026 13:38:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找伴侣</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8n4yc/looking_for_mates/</link>
-      <description><![CDATA[嘿，我是在 js 上工作，正在寻找同伴，我一个人很难做到这一点，想要一些学习伙伴，也许我们可以创建一个不和谐服务器，如果有兴趣，请在 dms 中告诉我  再见，上帝保佑你们   由   提交/u/Feeling-Context5217   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8n4yc/looking_for_mates/</guid>
-      <pubDate>Tue, 31 Mar 2026 13:15:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>您使用哪个搜索引擎？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8mpa1/which_search_engine_do_you_use/</link>
-      <description><![CDATA[Web 开发之外？    由   提交/u/KevinIdkk   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8mpa1/which_search_engine_do_you_use/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:58:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>Axios npm 帐户被盗，RAT 部署到每周 8300 万用户</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8mn5l/axios_npm_account_compromised_rat_deployed_to_83m/</link>
-      <description><![CDATA[      两个中毒的 Axios 版本注入了一个虚假依赖项，在 39 分钟内在 macOS、Windows 和 Linux 上悄悄安装了跨平台远程访问木马。   由   提交/u/hayrimavi1   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8mn5l/axios_npm_account_compromised_rat_deployed_to_83m/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:56:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>语义元素太少？我需要卡片、容器等</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8mkdf/too_few_semantic_elements_i_need_card_container/</link>
-      <description><![CDATA[我想要评论、网格、卡片、英雄、选项卡、消息、交互、bg。 也许不是全部，而是更多几个来替换这么多 div   由   提交 /u/Standard_Addition896   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8mkdf/too_few_semantic_elements_i_need_card_container/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:52:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>制作内部工具。我应该使用ts还是js？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8lsvo/making_an_internal_tool_should_i_use_ts_or_js/</link>
-      <description><![CDATA[大家好，我是 js/ts 的新手。我将制作一个简单的内部工具。我应该使用 js 还是 ts.我将在其中大量使用人工智能。显然 ts 有助于清除错误等，并使事情变得更干净。是不是太有进取心，会减慢你的速度？  我是这个项目的单一开发者。我不想为了它而遵循最佳实践。但是你们有什么建议？   由   提交/u/Concient_Tutor_597   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8lsvo/making_an_internal_tool_should_i_use_ts_or_js/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:18:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了无广告、最小的 YouTube 下载器（cobalt.tools 替代品）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s8lqou/i_made_ad_free_minimal_youtube_downloader/</link>
-      <description><![CDATA[最近，许多 YouTube 下载器都崩溃了，包括我最喜欢的 cobalt 工具。 还有其他一些选项，其中许多都充斥着 nsfw 弹出广告和重定向，这非常烦人。 所以我构建了这个名为 ghostdl.site 的工具。 它支持多种流行格式的短视频和长视频。 与其他让您等待转换的下载器不同，我的工具可以动态执行此操作。 （直接流式传输转换后的块） 您可以将此添加为书签以供将来使用并提供反馈。 我也计划添加其他平台，例如 Instagram、tiktok 等。   由   提交/u/Broad_Forever_4515   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s8lqou/i_made_ad_free_minimal_youtube_downloader/</guid>
-      <pubDate>Tue, 31 Mar 2026 12:15:42 GMT</pubDate>
     </item>
     </channel>
 </rss>
