@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 02 Apr 2026 05:08:11 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 07:21:10 GMT</lastBuildDate>
+    <item>
+      <title>Cloudflare 刚刚发布了 EmDash</title>
+      <link>https://www.reddit.com/r/webdev/comments/1saa2if/cloudflare_just_released_emdash/</link>
+      <description><![CDATA[Cloudflare 今天悄悄发布了一些有趣的内容。 EmDash 是一个基于 Astro 构建的全栈 TypeScript CMS，在 D1 + R2 + Workers 上运行。  核心思想：利用 WordPress 的主导地位（可扩展性、管理用户体验、插件生态系统），并在无服务器、类型安全的基础上重建它。  引起我注意的是： **插件安全模型。** WordPress 插件具有完整的数据库访问权限 - 一个易受攻击的插件会危害整个网站（96% 的 WP 漏洞来自插件）。 EmDash 插件在隔离的 V8 Worker 沙箱中运行，并具有声明的功能清单。请求“read:content”和“email:send”的插件可以做到这一点，除此之外什么也做不了。  **结构化内容。** WordPress 将富文本存储为 HTML，并嵌入块注释。 EmDash 使用可移植文本（结构化 JSON）。相同的内容呈现为 Web、移动设备、电子邮件或 API，无需解析 HTML。  **数据库中的架构，而不是代码中。**非开发人员通过管理 UI 创建和修改内容类型。每个集合都有一个带有类型化列的真实 SQL 表。开发人员运行“npx emdash types”以从实时模式生成 TypeScript。  **专为代理打造。** 配备 7 种代理技能、用于编程管理的 CLI 和内置 MCP 服务器，以便 AI 工具可以直接与您的站点交互。  缺少什么：生态系统是空的。零第三方插件、零主题、零社区内容。这既是机遇，也是风险。  它已获得 MIT 许可，可在 Cloudflare 或任何带有 SQLite 的 Node.js 服务器上运行，并且处于 Beta 预览阶段。  仓库：https://github.com/emdash-cms/emdash  过去几个小时我一直在挖掘源代码。很高兴回答有关架构的问题。  ---  **代码中的关键架构细节：**  - Kysely for SQL（适用于 SQLite、D1、Turso、PostgreSQL） - S3 兼容的存储抽象（R2、AWS S3、本地文件系统） - 具有可移植文本存储的 TipTap 编辑器 - 20 个插件生命周期挂钩，11 种功能类型 -具有 OAuth 和魔术链接回退功能的密钥优先身份验证 (WebAuthn) - 内置 WordPress 导入向导 + 古腾堡到可移植文本转换器（30 多种块类型） - 具有自动 Workers AI 代码审核的市场 - 整个基于光标的键集分页 - 通过 FTS5 进行全文搜索  插件 API 确实经过精心设计。这是一个完整的插件： ```typescript导出默认definePlugin({ id: &quot;notify-on-publish&quot;, Capability: [&quot;read:content&quot;, &quot;email:send&quot;], hooks: { &quot;content:afterSave&quot;: async (event, ctx) =&gt; { if (event.content.status !== &quot;已发布&quot;) return; wait ctx.email.send({ to: &quot;editors@example.com&quot;, subject: `新帖子: ${event.content.title}`, }) }, }, }); ```  每个插件获取：管理页面、仪表板小部件、API 路由、KV 存储、类型化存储集合、cron 调度、自定义可移植文本块类型以及带有主机白名单的网络获取。  问题是 WordPress 开发者世界是否准备好从 PHP 切换到 TypeScript。架构决策是合理的，但生态系统差距巨大。没有页面构建器。没有视觉主题定制器。没有一键托管。在一个历来都是所有人优先的市场中，它是开发者优先的。   由   提交 /u/Future-Zone2872   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1saa2if/cloudflare_just_released_emdash/</guid>
+      <pubDate>Thu, 02 Apr 2026 06:51:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>对我的开发人员设置的微小补充</title>
+      <link>https://www.reddit.com/r/webdev/comments/1saa244/tiny_addition_to_my_developer_setup/</link>
+      <description><![CDATA[      刚刚为我的工作设置添加了一个小功能 一个小型数字板 方便快速写作和思维导图   由   提交/u/ConsiderationOne3421   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1saa244/tiny_addition_to_my_developer_setup/</guid>
+      <pubDate>Thu, 02 Apr 2026 06:50:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了在你的网站上爬行的小网络宠物</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sa9v8d/i_made_tiny_web_pets_that_crawl_around_your/</link>
+      <description><![CDATA[      我记得oneko是一只老linux猫，它曾经追逐你的光标。所以我尝试重新创建它，但针对网络。现在它只是一只在您的网站上爬行的小宠物。它也会跟随您的鼠标 站点：https://webpets-flame.vercel.app/ 存储库：链接   由   提交/u/Ok-Programmer6763   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sa9v8d/i_made_tiny_web_pets_that_crawl_around_your/</guid>
+      <pubDate>Thu, 02 Apr 2026 06:39:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个开源后端，以跳过每次重建 RAG 管道 - 开放以获取反馈和协作</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sa9rl8/built_an_opensource_backend_to_skip_rebuilding/</link>
+      <description><![CDATA[      我不断为不同的项目重建相同的 RAG 管道（分块 -&gt; 嵌入 -&gt; 检索 -&gt; 提示注入），因此我尝试将其变成可重用的后端。 最终构建了 IntelliChat — 一个开源的异步 FastAPI 后端启动 RAG 系统，无需从头开始连接所有内容。 我将其构建为 SaaS 平台，主要是为了探索多租户架构（每个聊天机器人向量隔离、API 密钥加密等）。很好奇我的设计是否真的对协作聊天机器人开发有影响。 核心思想：  定义聊天机器人 - 上传 LLM + 嵌入模型 API 密钥 上传文档 使用 AI 助手构建提示 它处理索引、检索和提示注入 您只需调用 API  堆栈：  FastAPI（异步优先）并最大化后台任务的异步 LangChain - 主要用于编排对其正确客户端 SDK 的 AI 调用 官方 LLM 和嵌入模型 SDK（优于 LangChain 的） 用于矢量搜索的 Qdrant 用于缓存的 Redis BYOK（OpenAI/其他提供商）  平台：  Google Cloud Run - 部署的服务器实例 Google Cloud Tasks - 可重试的后台任务 Google Cloud Storage - 存储文件bytes Supabase - 使用 RLS 存储用户数据和身份验证  我关注的一些事情：  隔离每个聊天机器人的矢量集合（多租户设置） 提示 AI 为其他聊天机器人构建系统提示的系统提示 上下文工程（最近+摘要内存注入到提示中） 上下文窗口预算，以便检索不会超出令牌限制 检索和过滤策略（动态文档得分阈值过滤）  比预期更难的事情：  多租户优先架构 - 因为这对我来说是全新的 决定块大小与检索质量 上下文窗口预算 - LLM 每个模型有不同的 CW 限制，因此我将其设计为动态 构建提示来为其他聊天机器人构建系统提示  当前限制：  冷启动会减慢第一个请求（在免费层基础设施上运行） 不支持 websocket（我仍在研究如何使用 WS 端点部署服务器）  存储库：IntelliChat 存储库 应用程序：IntelliChat 开放征求反馈和建议，但我不会承诺实施所有这些，因为我现在在学校很忙：&gt; 如果有人想贡献或破坏，也开放   由   提交/u/Imperial_Benji   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sa9rl8/built_an_opensource_backend_to_skip_rebuilding/</guid>
+      <pubDate>Thu, 02 Apr 2026 06:32:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人知道这个“抄写影子”代码来自哪里吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sa8t08/anyone_know_where_this_scribeshadow_code_comes/</link>
+      <description><![CDATA[我发现此代码被插入到我管理的一个网站（众多网站中）的富文本编辑器窗口中： &lt;scribe-shadow id=&quot;crxjs-ext&quot; data-crx=“okfkdaglfjjjfefdcppliegebpoegaii”样式=“位置：固定；宽度：0 像素；高度：0 像素；顶部：0px；左：0px； z 索引：2147483647；溢出：可见；可见性：可见；&gt;&gt;&lt;/scribe-shadow&gt;  一开始我担心自己被黑客入侵，但现在我认为它可能来自有问题的浏览器插件或有问题的网站插件，但它没有在我管理的任何其他网站上重新创建，而且有很多。 有一个我从未听说过的人工智能翻译服务，名为“ScribeShadow”，但我很确定它根本没有连接到我的网站，而且我以前也不熟悉它。 我确实使用了一个偶尔名为 Scribe 的浏览器插件 - 这是一项用于创建网络教程的 Google 服务。但是，我不明白为什么该 chrome 扩展程序只会打扰这个网站（我从未在其中使用过此扩展程序），而没有其他许多运行相同软件且通常通过同一浏览器进行管理的网站。 我还在 google 上搜索了“scribe-shadow id”并发现大量网站在论坛帖子中添加了类似的代码。所以这不仅仅是我。这到底是什么？   由   提交/u/dasfoo  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sa8t08/anyone_know_where_this_scribeshadow_code_comes/</guid>
+      <pubDate>Thu, 02 Apr 2026 05:36:52 GMT</pubDate>
+    </item>
     <item>
       <title>我构建的每个项目最终都会出现不一致的 UI</title>
       <link>https://www.reddit.com/r/webdev/comments/1sa6c49/every_project_i_build_ends_up_with_inconsistent_ui/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[       由   提交/u/BrilliantWaltz6397  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1s9utce/anthropic_accidentally_leaked_claude_codes_entire/</guid>
       <pubDate>Wed, 01 Apr 2026 19:31:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>离线优先 MDN Web 文档 RAG-MCP 服务器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s9uqfz/offlinefirst_mdn_web_docs_ragmcp_server/</link>
-      <description><![CDATA[      嗨。 在修改 RAG 想法的同时，我彻底处理了整个 MDN Web Docs 原始内容，将其预先提取到 LanceDB 中，将 50k 多行数据集上传到 HuggingFace，并且发布了一个 RAG-MCP 服务器，准备使用混合向量 (1024-d) 和全文 (BM25) 检索进行语义搜索。 屏幕截图相当于一千字，请参阅两个存储库以了解更多详细信息。   由   提交 /u/dpswt   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s9uqfz/offlinefirst_mdn_web_docs_ragmcp_server/</guid>
-      <pubDate>Wed, 01 Apr 2026 19:28:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>Cloudflare 发布 EmDash — 人工智能开发的 WordPress 精神继承者</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s9ubc7/cloudflare_releases_emdash_an_ai_developed/</link>
-      <description><![CDATA[      https://github.com/emdash-cms/emdash 愚人节？老实说我不知道​​。   由   提交/u/xkey  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s9ubc7/cloudflare_releases_emdash_an_ai_developed/</guid>
-      <pubDate>Wed, 01 Apr 2026 19:13:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>以清晰、负责任的方式可视化复杂的冲突（以色列-巴勒斯坦）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s9ssvn/visualizing_complex_conflicts_israelpalestine_in/</link>
-      <description><![CDATA[[https://israel-hamas-conflict.vercel.app\](https://israel-hamas-conflict.vercel.app) 目前仅适用于桌面设备。移动版本将根据您的反馈进行构建。 大家好， 我目前正在构建一个网站，旨在直观地解释涉及以色列、巴勒斯坦和哈马斯的冲突。我们的目标不是采取政治立场，而是通过设计（时间线、地图、数据视觉效果等）使复杂的信息更容易理解。 我尝试以以下方式解决此问题： • 基于事实 • 平衡和尊重 • 对于没有先验知识的人来说易于理解 在进一步讨论之前，我非常重视来自这个社区的意见： •什么样的视觉效果可以帮助您更好地理解这个主题？ • 您见过哪些好的（或坏的）冲突可视化示例？ • 为了防止偏见或过于简单化，应该绝对避免什么？ • 您会相信哪些来源或数据集来处理此类问题？ 我对有关清晰度、中立性和道德表述的反馈特别感兴趣。   由   提交 /u/princessinsomnia   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s9ssvn/visualizing_complex_conflicts_israelpalestine_in/</guid>
-      <pubDate>Wed, 01 Apr 2026 18:21:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的基于浏览器的代码游乐场。尝试构建移动代码查看器。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s9sjid/my_browserbased_code_playground_trying_to_build/</link>
-      <description><![CDATA[嘿大家，我想分享一个我一直在做的副项目。我经常使用 CodePen 等工具，但我想看看是否可以构建一些具有一些额外功能的东西，让我们的生活变得更轻松。 到目前为止，我已经得到了：  通过 esm.sh 导入 NPM 包 内置响应式视口切换 入门模板和资产管理 集成控制台和可自定义编辑器设置  下一步：它仍在进行中。我现在的主要关注点是打造绝对无缝的移动体验。我希望它成为在通勤或远离笔记本电脑时查看代码或快速思考想法的首选应用程序。 查看视频并让我知道您的第一印象！是什么让您想要在现有选项中使用这样的工具？   由   提交 /u/Dimention_less   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s9sjid/my_browserbased_code_playground_trying_to_build/</guid>
-      <pubDate>Wed, 01 Apr 2026 18:13:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>获取个人身份信息的分析解决方案值得吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1s9rnj1/are_the_analytics_solutions_that_get_personally/</link>
-      <description><![CDATA[我从来没有过多关注过分析，所以我正在寻找一些关于分析的见解。我很快就会推出一个应用程序，我认为一些分析会对我有所帮助。 如果我要添加像 Google Analytics 这样的东西，那么我就必须成为要求用户接受 cookie 的烦人的人。但是，还有其他分析方法甚至不收集任何个人身份信息，因此即使在 GDPR（或其他严格）领域内，我也不需要同意。 所以我的问题是，采用非 PII 分析解决方案会损失什么吗？或者，换句话说，PII 分析向我显示哪些非 PII 没有显示的额外信息？   由   提交 /u/Fueled_by_sugar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1s9rnj1/are_the_analytics_solutions_that_get_personally/</guid>
-      <pubDate>Wed, 01 Apr 2026 17:43:28 GMT</pubDate>
     </item>
     </channel>
 </rss>

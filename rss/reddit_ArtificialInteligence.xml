@@ -4,13 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Thu, 02 Apr 2026 05:07:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 07:19:45 GMT</lastBuildDate>
     <item>
-      <title>AI 代理实际失败案例 — 我应该添加什么？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sa6p2j/ai_agent_failure_cases_in_the_wild_what_should_i/</link>
-      <description><![CDATA[跟踪真实世界的 AI 代理故障 - 我错过了什么？ 我一直在深入研究 AI 代理的故障模式（例如，工具使用、MCP 式设置等）。 我遇到的一些模式：  遵循工具输出中嵌入的说明 未对齐的行为在工具使用期间（意外或不安全的操作）  我在这里收集事件和相关论文： https://github.com/h5i-dev/awesome-ai-agent-incidents 希望听到其他使用人工智能代理的人的意见！   由   提交/u/Living_Impression_37   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sa6p2j/ai_agent_failure_cases_in_the_wild_what_should_i/</guid>
-      <pubDate>Thu, 02 Apr 2026 03:46:06 GMT</pubDate>
+      <title>构建 10 多个生产 AI 系统后 - 诚实的微调与即时的工程框架（具有真实的阈值）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8yfr/after_building_10_production_ai_systems_the/</link>
+      <description><![CDATA[我经常被问到这个问题。这是实际答案，而不是教程答案。 提示工程在以下情况下是正确的： - 任务是通用的（支持、总结、跨不同主题的问答） - 训练数据频繁更改、新闻、实时产品数据、用户生成的内容 - 您的高质量标记对少于约 500 个 - 您需要根据实际使用情况快速交付和迭代，而不是假设 - 您尚未测量生产中的特定故障模式。这是最重要的。 在以下情况下进行微调是正确的： - 格式或语气需要绝对一致，并且提示在边缘情况下不断漂移 - 领域足够专业，基础模型始终会错过术语（监管、临床、高科技产品文档） - 您每月有超过 500K 次调用，并且希望将行为提炼为更小/更便宜的模型来削减推理成本 - 硬延迟约束和提示变得足够长，足以影响响应时间 - 您有 1,000 多个可信的高质量标记示例，这些示例来自真实的生产数据，而不是合成生成 我不断看到的错误： 团队决定在项目的第 2 周进行微调，因为“我们知道该领域是专业的。”然后，他们根据对失败案例的假设构建了一个综合训练数据集。 问题：实际生产使用情况与假设使用情况不同。几乎每次。合成数据集与真实分布不匹配。经过微调的模型在重要的模式上失败了。 我们的实际流程： 从即时工程开始。总是。运送它。从生产交互中收集真实的失败案例。确定失败的具体模式。使用生产数据以及实际代表问题的示例对特定故障模式进行微调。 为什么顺序很重要（具体示例）： 客户通过在分类任务上微调 GPT-3.5 而不是调用 GPT-4，每月节省了 18000 美元：同样的精度，成本只有 1/8。 但是这些训练示例仅在 3 个月的生产数据后才存在。如果他们在第 1 个月对合成示例进行微调，训练分布就会错误，模型也会针对错误的故障模式进行优化。 3 个月的等待产生了一个实际有效的模型。急于进行微调会产生技术债务。 在多大的调用量下，微调对您来说值得承担这些开销？好奇 50 万/月的门槛是否符合其他人的经验。   由   提交 /u/Individual-Bench4448   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8yfr/after_building_10_production_ai_systems_the/</guid>
+      <pubDate>Thu, 02 Apr 2026 05:45:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>让人工智能更加人性化（或不人性化）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8y2x/making_ai_more_human_or_not/</link>
+      <description><![CDATA[文章中的某个地方说“人工智能在政治和法律中可能非常危险”。嗯，整篇文章正是我认为危险的地方，将算法人性化。它是一个工具，一个辅助，而不是自动驾驶的东西。在我看来，我不是替代者，而且我在 IT 行业已经有 30 多年的经验了。  我发现整个立场和文章非常认知失调，极其矛盾。 人性化界面 - 还可以，欢迎，但人性化人工“人文学科”纯粹是无稽之谈，不可行，完全是妄想。欢迎分享您的观点。   由   提交/u/udontask   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8y2x/making_ai_more_human_or_not/</guid>
+      <pubDate>Thu, 02 Apr 2026 05:44:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>让 LLMS 读和写音乐</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8cp5/letting_llms_read_and_write_music/</link>
+      <description><![CDATA[标准法学硕士无法阅读乐谱，因为音符不是单词。我们构建了自定义标记化，以人工智能可以实际理解和操作的方式表示音乐符号。结果是一个人工智能，你可以上传任何乐谱并与之进行真正的对话。重新排列不同的乐器，简化乐段，解释理论，一切都以实际乐谱为基础。 playvirtuoso.app 好奇人工智能社区对特定领域标记化与微调通用模型的看法，以及我们可以在哪里提高模型的输出质量，这只是一个提示 + 标记化 rn   由   提交 /u/Huddy_Man   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sa8cp5/letting_llms_read_and_write_music/</guid>
+      <pubDate>Thu, 02 Apr 2026 05:11:30 GMT</pubDate>
     </item>
     <item>
       <title>我们完全用 Python 重新实现了 Claude Code——开源，适用于本地模型</title>
@@ -39,20 +53,6 @@
       <description><![CDATA[ 由   提交 /u/arstechnica   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s9tq9f/grok_degrades_women_with_vulgar_roasts_swiss_govt/</guid>
       <pubDate>Wed, 01 Apr 2026 18:53:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>Perplexity AI 被指控与 Meta 和谷歌共享用户个人数据</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s9redx/perplexity_ai_accused_of_sharing_users_personal/</link>
-      <description><![CDATA[因此，Perplexity 被发现与 Meta 和 Google 共享您的聊天数据。现在有一场诉讼。从“我将使用 Perplexity 代替”到“等待，同样的事情”的流程显然非常短。   由   提交 /u/Playful-Bonus2268   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s9redx/perplexity_ai_accused_of_sharing_users_personal/</guid>
-      <pubDate>Wed, 01 Apr 2026 17:34:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果“AI代理”是当前趋势，那么从用户角度来看，下一步的转变是什么？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1s9q7xj/if_ai_agents_are_the_current_trend_whats_the_next/</link>
-      <description><![CDATA[感觉每个产品都在向人工智能代理工具发展，这些工具不仅提供帮助，而且实际上在整个工作流程中采取行动。 但是从用户（而不是构建者）的角度来看，这之后会发生什么？ 事情会走向更加自主的系统，还是我们已经达到了人们真正想要更少自动化和更多控制的地步？ 好奇其他人的情况如何？超越当前的炒作周期来思考这个问题。   由   提交 /u/Overall_Zombie5705   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1s9q7xj/if_ai_agents_are_the_current_trend_whats_the_next/</guid>
-      <pubDate>Wed, 01 Apr 2026 16:53:40 GMT</pubDate>
     </item>
     <item>
       <title>雷·库兹韦尔的预测正确吗？</title>
