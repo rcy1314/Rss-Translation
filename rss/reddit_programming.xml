@@ -4,7 +4,42 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 03 Apr 2026 21:39:49 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 02:36:04 GMT</lastBuildDate>
+    <item>
+      <title>构建了一个工具来跟踪加密货币影响者信号/希望获得反馈</title>
+      <link>https://www.reddit.com/r/programming/comments/1sbwy7v/built_a_tool_to_track_crypto_influencer_signals/</link>
+      <description><![CDATA[大家好， 我真的很喜欢这个社区对我一直在构建的东西的看法。 我在加密领域一直遇到的一个挫折是，在 X 上将真实信号与噪音分开是多么困难。你看到到处都提到代币，但通常不清楚谁实际上早在先，谁只是重复了这一举动，以及哪些账户真正重要。 这就是推动我的动力。  整个想法是为了更容易地跟踪谁提到了什么，他们何时提到，以及之后是否有任何真正的市场反应。 我发布此消息并不是为了强行推销/老实说，我更感兴趣的是听听这里的人们如何看待这个问题。 加密货币影响者的电话对你来说仍然很重要，还是你现在大多忽略他们？ 如果你想检查一下，这里是链接： https://apps.apple.com/us/app/ithac/id6755703974 如果您私信我，我还可以为您提供比正常试用时间更长的免费访问权限。 非常感谢社区提供的任何诚实反馈。   由   提交 /u/XavierDiY   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sbwy7v/built_a_tool_to_track_crypto_influencer_signals/</guid>
+      <pubDate>Sat, 04 Apr 2026 02:14:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>youtube 可玩游戏保存数据只是普通的 json，您可以对其进行编辑</title>
+      <link>https://www.reddit.com/r/programming/comments/1sbvamk/youtube_playables_games_save_data_is_just_plain/</link>
+      <description><![CDATA[所以我很无聊，决定在其中一款 YouTube 可玩游戏的开发工具中闲逛（就像超市闲置游戏一样），并意外地发现你可以......编辑你的保存数据。没有加密，什么都没有，只是原始的 json 坐在那里。 花了我大约 1 个小时才弄清楚，但基本上游戏是统一构建的，并在 iframe 中运行，所以首先你必须将控制台上下文切换到 iframe（chrome 控制台顶部的下拉菜单，显示“顶部”，单击它），否则 ytgame 就是未定义的，你会像我一样困惑很长时间 无论如何，一旦你处于正确的上下文中，你就可以执行以下操作，您的整个保存文件就会以纯文本形式打印出来。现金、宝石、升级、解锁，一切。我没想到 ytgame.game.loadData().then(data =&gt; console.log(data)) 要注入你自己的保存，你只需运行： // 在游戏读取之前拦截loadData const originLoadData = ytgame.game.loadData.bind(ytgame.game)ytgame.game.loadData = function() { return OriginalLoadData().then(data =&gt; { let saveData = JSON.parse(data) letplayerIndex = saveData.Key.indexOf(&quot;Player_Chef&quot;) let playerData = JSON.parse(saveData.Value[playerIndex])console.log(&quot;拦截！原始现金：&quot;,playerData.cashAmount) playerData.cashAmount = 999999playerData.gemAmount = 999999playerData.goldAmount = 999999playerData.couponAmount = 999999saveData.Value[playerIndex] = JSON.stringify(playerData) console.log(“注入修改值！”) returnJSON.stringify(saveData) }) } console.log(“拦截就绪！”)  重要的是你有在游戏处于加载屏幕时粘贴该内容。不是在加载之前，也不是之后，而是在加载期间。然后，它会在游戏读取保存数据时拦截保存数据并交换到您的修改版本中。游戏加载了 999999 现金 此外，location.reload() 不起作用。在粘贴拦截代码后，您实际上必须自己手动重新加载页面。 不知道为什么他们不验证此服务器端或至少对其进行加密。这是一款单人闲置游戏，因此不会影响其他任何人，但仍然很有趣 证明：https://imgur.com/a/n1bC1gN   由   提交/u/The_Crowned_King   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sbvamk/youtube_playables_games_save_data_is_just_plain/</guid>
+      <pubDate>Sat, 04 Apr 2026 00:57:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何编写难以维护的代码 (1999)</title>
+      <link>https://www.reddit.com/r/programming/comments/1sbuv3p/how_to_write_unmaintainable_code_1999/</link>
+      <description><![CDATA[ 由   提交/u/Ordinary_Leader_2971   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sbuv3p/how_to_write_unmaintainable_code_1999/</guid>
+      <pubDate>Sat, 04 Apr 2026 00:37:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>提高我们的不可变 blob 存储 Magic Pocket 的存储效率</title>
+      <link>https://www.reddit.com/r/programming/comments/1sbritr/improving_storage_efficiency_in_magic_pocket_our/</link>
+      <description><![CDATA[ 由   提交 /u/laluser   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sbritr/improving_storage_efficiency_in_magic_pocket_our/</guid>
+      <pubDate>Fri, 03 Apr 2026 22:13:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>PostgresBench：Postgres 服务的可重复基准</title>
+      <link>https://www.reddit.com/r/programming/comments/1sbr2xp/postgresbench_a_reproducible_benchmark_for/</link>
+      <description><![CDATA[ 由   提交/u/saipeerdb   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sbr2xp/postgresbench_a_reproducible_benchmark_for/</guid>
+      <pubDate>Fri, 03 Apr 2026 21:55:03 GMT</pubDate>
+    </item>
     <item>
       <title>网络应用程序真的比原生应用程序慢吗？这是默认问题，而不是速度问题</title>
       <link>https://www.reddit.com/r/programming/comments/1sblmfz/are_web_apps_really_slower_than_native_its_a/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[ 由   提交/u/self  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1sb5xqx/idiomatic_lisp_and_the_nbody_benchmark/</guid>
       <pubDate>Fri, 03 Apr 2026 06:33:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>SQL 笔记本变成开源数据库客户端</title>
-      <link>https://www.reddit.com/r/programming/comments/1sb510k/sql_notebooks_into_an_open_source_database_client/</link>
-      <description><![CDATA[ 由   提交/u/debba_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sb510k/sql_notebooks_into_an_open_source_database_client/</guid>
-      <pubDate>Fri, 03 Apr 2026 05:40:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>什么是 MPP？ Tempo 的机器支付协议解释</title>
-      <link>https://www.reddit.com/r/programming/comments/1sb3iaq/what_is_mpp_the_machine_payments_protocol_by/</link>
-      <description><![CDATA[ 由   提交 /u/yosriady   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sb3iaq/what_is_mpp_the_machine_payments_protocol_by/</guid>
-      <pubDate>Fri, 03 Apr 2026 04:18:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>受 Brainf**k 启发的最小基础</title>
-      <link>https://www.reddit.com/r/programming/comments/1sayicg/a_minimal_basic_inspired_by_brainfk/</link>
-      <description><![CDATA[ 由   提交/u/AndrewDavison2562   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sayicg/a_minimal_basic_inspired_by_brainfk/</guid>
-      <pubDate>Fri, 03 Apr 2026 00:22:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>600 多个 Python 并发教程存档</title>
-      <link>https://www.reddit.com/r/programming/comments/1saw9bi/archive_of_600_python_concurrency_tutorials/</link>
-      <description><![CDATA[ 由   提交/u/jasonb   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1saw9bi/archive_of_600_python_concurrency_tutorials/</guid>
-      <pubDate>Thu, 02 Apr 2026 22:45:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>事件事后分析：2026 年 1 月服务中断</title>
-      <link>https://www.reddit.com/r/programming/comments/1sauknr/incident_postmortem_january_2026_service/</link>
-      <description><![CDATA[ 由   提交 /u/Digitalunicon   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sauknr/incident_postmortem_january_2026_service/</guid>
-      <pubDate>Thu, 02 Apr 2026 21:37:49 GMT</pubDate>
     </item>
     </channel>
 </rss>
