@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 05 Apr 2026 02:54:17 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 05:19:17 GMT</lastBuildDate>
+    <item>
+      <title>语法高亮是浪费信息渠道</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scuq6q/syntax_highlighting_is_a_waste_of_an_information/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scuq6q/syntax_highlighting_is_a_waste_of_an_information/</guid>
+      <pubDate>Sun, 05 Apr 2026 04:56:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了 git-syncr 来在我的台式机和笔记本电脑上保持 25 个以上的存储库同步</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scu2by/i_built_gitsyncr_to_keep_25_repos_in_sync_across/</link>
+      <description><![CDATA[我在办公桌上使用 Mac Mini 并在旅途中使用 MacBook Air 工作。每次我切换机器时，我都会坐下来，打开一个存储库，然后意识到我忘记提取最新的更改。将其乘以 25 个以上的存储库，它就会很快变旧。 因此，我构建了 git-syncr — 一个在两台计算机上运行并自动在后台提取远程更改的 CLI 工具。 它的工作原理：  全局安装：npm install -g git-syncr 运行 git-syncr — 交互式设置允许您选择开发目录、设置同步间隔并启用通知 它会安装一个后台服务（macOS 上为 launchd，Linux 上为 systemd），按计划检查所有存储库 当你的笔记本电脑从睡眠中唤醒时，它会赶上所有错过的同步 使用 git pull --ff-only — 如果存在冲突或脏工作树，它会跳过存储库并记录下来  结果：我从 Mac Mini 上推送，当天关闭它，打开我的咖啡店里的 MacBook Air，一切都已经是最新的。 使用 TypeScript 构建，所需的资源最少。带有 Ranger 风格目录浏览器的交互式 CLI。 GitHub：https://github.com/Darren-A11att/git-sync npm：https://www.npmjs.com/package/git-syncr 第二阶段将添加本地到远程推送，使两台机器的工作流程完全自动化。欢迎反馈。   由   提交 /u/Darren-A   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scu2by/i_built_gitsyncr_to_keep_25_repos_in_sync_across/</guid>
+      <pubDate>Sun, 05 Apr 2026 04:21:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Showoff Saturday]mockd - 多协议模拟服务器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scszve/showoff_saturday_mockd_multiprotocol_mock_server/</link>
+      <description><![CDATA[构建这个模拟服务器已经有一段时间了。开始是因为我需要模拟 MCP，然后不断添加协议，因为每个项目都有一些新的东西需要模拟以进行早期测试或 ci/cd。 是否支持 HTTP、GraphQL、gRPC、WebSocket、MQTT、SSE 和 SOAP。用 Go 编写它主要是因为我想要一个干净的交叉编译的二进制文件，并且并发性非常适合同时处理一堆协议。从 OpenAPI、Postman、HAR、WireMock、curl 导入。 使其对前端工作真正有用的部分是有状态资源，您设置种子数据，它为您提供真正的 CRUD，因此您的 UI 实际上可以针对它工作，而不是仅在我的原型设计和演示中返回静态 JSON，而无需在后端进行粗略处理。一直在使用它进行演示，我希望事情感觉真实，并且用于 AI 代理集成测试，您希望它们击中实际端点，而不是通过进程内模拟进行作弊。 UI 都是 Svelte 5，嵌入在二进制文件中，因此当您启动服务器时，仪表板默认位于 localhost:4290。使用 Wails 开发桌面应用程序，该应用程序与本机应用程序共享相同的 Svelte 前端。 curl -sSL https://get.mockd.io | sh mockd start  https://github.com/getmockd/mockd 刚刚超过 100 颗星，但还没有真正得到任何真正的反馈，但真的很好奇人们的想法。不确定是否值得投入更多精力，或者它的位置是否良好。开放思想。   由   提交 /u/zakodiac   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scszve/showoff_saturday_mockd_multiprotocol_mock_server/</guid>
+      <pubDate>Sun, 05 Apr 2026 03:26:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>我将 Claude Code 的 /buddy 变成了一个具有竞争力的排行榜，其中包含交易卡、稀有度等级和 BuddyDex</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scsvlv/i_turned_claude_codes_buddy_into_a_competitive/</link>
+      <description><![CDATA[      如果您使用 Claude Code，您可能见过 /buddy — 它为您提供了一个具有 ASCII 艺术和个性的随机 AI 伴侣。 我为其构建了一个排行榜。这只是今天早上制作的一个有趣的项目。 npx buddy-board 会读取您的 Claude 配置，确定性地计算您好友的统计数据，然后提交到 buddyboard.xyz 上的全球排名。 您将获得： 包含 18 种 ASCII 物种之一的交易卡 5 种统计数据：调试、耐心、混乱、智慧、蛇蝎 稀有度从普通 (60%) 到传奇 (1%) — 传奇获得全息闪光 CSS BuddyDex 跟踪所有 1,728 种可能的物种/眼睛/帽子组合 组织团队仪表板（如果您想作为一个团队竞争） 可嵌入您的 GitHub 个人资料自述文件的卡片 好友数据是确定性的 — 与 Claude Code 使用的算法相同（Mulberry32 PRNG 从您的帐户哈希中播种）。所以你的好友才是真正属于你的。 网站：https://buddyboard.xyz GitHub：https://github.com/TanayK07/buddy-board   由   提交/u/Content-Berry-2848   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scsvlv/i_turned_claude_codes_buddy_into_a_competitive/</guid>
+      <pubDate>Sun, 05 Apr 2026 03:20:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>[周六展示] 在网站上寻找反馈，看看它是否使用起来令人困惑。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scsu0h/showoff_saturday_looking_for_feedback_on_site_i/</link>
+      <description><![CDATA[自从我把它放到网上（大约两周前）以来，我已经有一些加入，但我不想使用他们的电子邮件来获取未经请求的反馈。希望能找到一个人（不在我的圈子里）环顾四周并给出诚实的意见。  https://bingewithme.com/ 社交电视跟踪器；制作节目列表，查找新节目，查找具有相似品味的用户..    由   提交 /u/rekaviles   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scsu0h/showoff_saturday_looking_for_feedback_on_site_i/</guid>
+      <pubDate>Sun, 05 Apr 2026 03:17:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>人们说“人工智能不会取代你”是完全错误的</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scsk5w/people_saying_ai_will_not_replace_you_are/</link>
+      <description><![CDATA[每个线程的响应相同 “你仍然需要有人调试” “将会有很多人工智能代码需要修复” 直到它不需要调试。 直到它不需要修复。 孩子们在一个段落中提示应用程序，这需要高年级学生才能完成。开发人员需要花费数月的时间才能完成。 应对措施太疯狂了。您可以在一个正确的提示中一次性拍摄应用程序。人工智能只会变得更好。 技能并没有改变。你没有适应科技。你正在被取代。 高级工程师每年通过运行提示赚取 200-50 万美元。几乎不编码。大部分时间都在开会。那些日子已经结束了。他们会意识到在亚马逊仓库工作 40 小时的劳动比他们以前的工作更值得获得更高的报酬。   由   提交 /u/Ok_Passion295   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scsk5w/people_saying_ai_will_not_replace_you_are/</guid>
+      <pubDate>Sun, 05 Apr 2026 03:04:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Showoff Saturday] 为 AWS、MongoDB、GCP 构建了一个免费的 IP 白名单配置生成器 — 欢迎反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1scsd24/showoff_saturday_built_a_free_ip_whitelist_config/</link>
+      <description><![CDATA[在 Showoff Saturday 上分享此内容 - 构建此内容是为了解决我自己的问题。 每次我切换网络或 ISP 更改我的 IP 时，我都必须：  Google“我的 IP 是什么” 复制它 打开 AWS 控制台 / MongoDB Atlas / GCP 导航到安全规则 以 CIDR 格式 (/32) 粘贴 IP 对每个服务重复此操作  这种 5 分钟的烦恼经常发生。因此，我构建了 **ipwhitelist.dev** 来解决这个问题。 **它的作用：** - 立即检测您的公共 IP - 显示 CIDR 表示法、城市、ISP 和延迟 - 为 AWS CLI、Terraform、MongoDB Atlas CLI、GCP 防火墙规则、iptables、UFW 和 nginx 生成可直接粘贴的配置 - IP指纹检查（代理/VPN/数据中心检测） - 可共享“将此 IP 列入白名单”队友卡 **还在同一网站上构建了这些免费工具：** - 端口检查器 - DNS 查找（A、AAAA、MX、CNAME、TXT、NS，通过 Google DoH） - WHOIS 查找 - 带有到期警告的 SSL 证书检查器 - IP 位置地图 - HTTP 标头检查器安全分析 - 对 6 个 AWS 区域进行延迟测试 - 用户代理解析器 - IPv6 检测器 所有客户端，无后端，无登录，不存储数据。 希望获得反馈 - 特别是如果我缺少云提供商或配置格式。 **https://ipwhitelist.dev\*\*   由   提交/u/kioferito  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1scsd24/showoff_saturday_built_a_free_ip_whitelist_config/</guid>
+      <pubDate>Sun, 05 Apr 2026 02:54:49 GMT</pubDate>
+    </item>
     <item>
       <title>我们正在举办为期 4 周的在线黑客马拉松系列，奖金为 4,000 美元，向所有技能水平开放！</title>
       <link>https://www.reddit.com/r/webdev/comments/1scscdy/were_running_an_online_4week_hackathon_series/</link>
@@ -22,7 +71,7 @@
     <item>
       <title>盲品测试公告</title>
       <link>https://www.reddit.com/r/webdev/comments/1scs839/blind_taste_test_announcement/</link>
-      <description><![CDATA[我的确定性标题评分器的评分引擎是实时且稳定的，但权重是根据平台文档而不是真实的参与数据进行校准的。所以我正在举办一场公共校准挑战。  提交 10 个历史帖子（5 个获胜者，5 个失败者），但不加标签。我会给他们盲打分，然后告诉你哪个是哪个。如果 ContentForge 正确排名前 5 名，您将获得 500 个免费 API 积分。  详细信息和提交模板：https://github.com/CaptainFredric/ContentForge/discussions/4  如果引擎出错，它会准确地告诉我哪些启发式信号校准错误，这比正确校准更有价值。公共校准&gt;私人测试。 无论如何，这也会严重帮助我和你！   由   提交/u/CaptainFred246  [链接] [评论]]]></description>
+      <description><![CDATA[我的确定性标题评分器的评分引擎是实时且稳定的，但权重是根据平台文档而不是真实的参与数据进行校准的。因此，我正在开展一项公开校准挑战。 提交 10 篇您的历史帖子（5 个获胜者，5 个失败者），但不给它们贴上标签。我会给他们盲打分，然后告诉你哪个是哪个。如果 ContentForge 正确排名前 5 名，您将获得 500 个免费 API 积分。 详细信息和提交模板：https://github.com/CaptainFredric/ContentForge/discussions/4 如果引擎出错，它会准确告诉我哪些启发式信号校准错误，这更有价值比把事情做对更重要。公共校准&gt;私人测试。 无论如何，这也会认真帮助我并帮助你！   由   提交/u/CaptainFred246  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1scs839/blind_taste_test_announcement/</guid>
       <pubDate>Sun, 05 Apr 2026 02:48:02 GMT</pubDate>
     </item>
@@ -57,58 +106,9 @@
     <item>
       <title>构建了一个本地优先的简历生成器，因为我厌倦了为每份工作编辑简历</title>
       <link>https://www.reddit.com/r/webdev/comments/1scmrqs/built_a_localfirst_resume_generator_because_i_got/</link>
-      <description><![CDATA[申请职位=编辑同一份简历20次。累了，构建了这个。 我使用 Claude 生成不同的简历变体（Flutter、WordPress、fullstack、Python 后端，甚至一些 AI/RAG 的东西）。它运作得很好，但我不断达到极限——无论是在控制方面还是在积分方面。也不喜欢在针对特定职位进行定制时会出现不一致的情况。 这是一个小型 React PWA，其中：  您保留一份结构化的“主”简历 从中创建变体（每个角色或每个工作） 立即导出干净的 PDF 一切都在浏览器中运行（无后端，离线工作）  实时：https://resume.journy.live 仓库：https://github.com/qmanas/resume-builder-react Live Loom 演示：http://loom.com/share/b008eed1ce294a74b2ba4f9a30d07ac6 还有一个使用 AI → JSON 的简单导入流程，因此您不必在应用程序内手动重建简历。 无需登录，不会有数据离开您的浏览器。 想知道其他人是否在做类似的事情，或者只是每次都强制恢复编辑。   由   提交/u/Aqrasil   [链接] [评论]]]></description>
+      <description><![CDATA[申请职位=编辑同一份简历20次。累了，构建了这个。 我使用 Claude 生成不同的简历变体（Flutter、WordPress、fullstack、Python 后端，甚至一些 AI/RAG 的东西）。它运作得很好，但我不断达到极限——无论是在控制方面还是在积分方面。也不喜欢在针对特定职位进行定制时会出现不一致的情况。 这是一个小型 React PWA，其中：  您保留一份结构化的“主”简历 从中创建变体（每个角色或每个工作） 立即导出干净的 PDF 一切都在浏览器中运行（无后端，离线工作）  实时：https://resume.journy.live 仓库：https://github.com/qmanas/resume-builder-react Live Loom 演示：http://loom.com/share/b008eed1ce294a74b2ba4f9a30d07ac6 还有一个使用 AI → JSON 的简单导入流程，因此您不必在应用程序内手动重建简历。 无需登录，不会有任何数据离开您的浏览器。 想知道其他人是否在做类似的事情，或者只是每次都强制恢复编辑。   由   提交/u/Aqrasil   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1scmrqs/built_a_localfirst_resume_generator_because_i_got/</guid>
       <pubDate>Sat, 04 Apr 2026 22:31:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>建立了一个网站，您只需搜索报价即可找到并下载任何电影或电视剪辑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1scmacx/built_a_site_where_you_can_find_and_download_any/</link>
-      <description><![CDATA[      进行了大量编辑，并不断浪费时间擦洗整集以找到一个特定场景。构建 watchpeak.app/clips 来解决这个问题 - 您输入引言或节目名称，它会找到确切的时刻，您可以直接下载剪辑。 还计划直接在应用程序中构建 Reels 和 meme 编辑器，以便您无需离开网站即可从剪辑转到准备发布的内容。 如果有人尝试，很高兴听到反馈。   由   提交 /u/Free-Raspberry-9541   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1scmacx/built_a_site_where_you_can_find_and_download_any/</guid>
-      <pubDate>Sat, 04 Apr 2026 22:10:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>gcannon - Extreme Linux H1 负载生成器，速度快，不花哨</title>
-      <link>https://www.reddit.com/r/webdev/comments/1scl20f/gcannon_extreme_linux_h1_load_generator_going/</link>
-      <description><![CDATA[ 由   提交/u/MDA2AV   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1scl20f/gcannon_extreme_linux_h1_load_generator_going/</guid>
-      <pubDate>Sat, 04 Apr 2026 21:18:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个带有实时预览的简单代码片段生成器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sckle2/i_made_a_simple_code_snippet_generator_with_live/</link>
-      <description><![CDATA[      我制作了一个代码片段生成器，我知道这种工具已经存在，但我为 Snipzy 和开发人员构建了一个，并认为我会分享它。 现在它有：  按钮生成器 | https://snipzy.dev/generator/button-generator.html 卡片生成器 | https://snipzy.dev/generator/card-generator.html 加载器生成器 | https://snipzy.dev/generator/loader-generator.html  您可以自定义所有内容，实时查看更新，并立即复制干净的 HTML + CSS。 它全部使用普通 HTML、CSS 和 JavaScript 构建，没有框架或后端。我想保持简单并与网站的其他部分相匹配。 我计划很快添加更多生成器，整个事情仍处于测试阶段，因此任何反馈、建议、建议将不胜感激。 snipzy.dev   由   提交/u/triple6dev  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sckle2/i_made_a_simple_code_snippet_generator_with_live/</guid>
-      <pubDate>Sat, 04 Apr 2026 21:00:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>我优化了我的个人网站，加载 <512kb</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sck297/i_optimized_my_personal_site_to_load_in_512kb/</link>
-      <description><![CDATA[      https://jotalea.com.ar/read.php?entry=KBojOqSWHyZPMYCf 这有点过时了，因为我还没有机会在此发布   由   提交/u/OptimalAnywhere6282   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sck297/i_optimized_my_personal_site_to_load_in_512kb/</guid>
-      <pubDate>Sat, 04 Apr 2026 20:39:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>网络开发新手。需要有经验的人的诚实反馈。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1scjkpl/new_to_web_dev_need_honest_feedback_from/</link>
-      <description><![CDATA[      我是一名数据工程师，但是我咬了禁果，开始玩人工智能，需要您对我的登陆页面的反馈。 长话短说，做一些可以被其他人视觉感知的事情似乎很有趣，所以我冒险进入网络开发/应用程序创建。 不会用我生活中的任何其他细节让您感到厌烦故事。只是真的很想得到一些关于我的第一个登陆页面的诚实反馈。 由于我不是领域专家，所以我不觉得我有“品味”。还没有，因此我真的需要对我今天的处境进行现实检查。 我是否在设计、功能或其他方面完全不认同某些东西。我这里没有内心指南针。 不要求你注册、下载或其他任何事情。如果您能抽出 20 秒时间查看我的网站（登陆页面就足够了）并给出您诚实的第一想法。 链接：nourli.health mods，如果这违反规则，请告诉我，我将删除此帖子。   由   提交/u/marciuz777  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1scjkpl/new_to_web_dev_need_honest_feedback_from/</guid>
-      <pubDate>Sat, 04 Apr 2026 20:19:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>(Ab)使用 HDR 图像进行营销</title>
-      <link>https://www.reddit.com/r/webdev/comments/1scivw8/abuse_hdr_images_for_marketing/</link>
-      <description><![CDATA[嘿大家，我陷入了 LinkedIn 上一张过于明亮的图像的兔子洞。最终得到了一个可以用来自己创建这些的工具。   由   提交 /u/T_N1ck   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1scivw8/abuse_hdr_images_for_marketing/</guid>
-      <pubDate>Sat, 04 Apr 2026 19:52:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在哪里可以出售我的 PHP 脚本？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1scinic/where_can_i_sell_my_php_scripts/</link>
-      <description><![CDATA[我想知道销售网站脚本是否是一门好生意。我尝试过在 CodeGrape 和 Codester 上出售模板，但总共只卖出了 5 份。我想在 CodeCanyon 上销售，但他们太严格了，我是一个普通的程序员和设计师。 我正在考虑在自己的网站上销售我的脚本，但我不知道这是否值得。 此外，Google 上网站脚本的搜索量非常低。人们以非常低的价格出售这些脚本。我不想仅以 30 美元的价格出售我一个月构建的脚本。 我不知道如何为我的脚本定价。我想让你看一下我的一个脚本，然后告诉我你的想法... Google：ReviewMyLink 我花了一个月的时间来构建这个脚本，我想以 99 美元的价格出售每个副本 我只想卖掉这个脚本的第一个副本。 由于这是一个 Web 开发 subreddit，我想根据你的经验询问你... 我应该在哪里出售我的脚本？   由   提交 /u/FarrisFahad   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1scinic/where_can_i_sell_my_php_scripts/</guid>
-      <pubDate>Sat, 04 Apr 2026 19:42:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
