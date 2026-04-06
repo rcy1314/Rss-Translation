@@ -4,7 +4,28 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Mon, 06 Apr 2026 15:53:08 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 19:07:54 GMT</lastBuildDate>
+    <item>
+      <title>在大多数平台上，退款自动化仍然需要手动操作</title>
+      <link>https://www.reddit.com/r/automation/comments/1se5auk/chargeback_automation_still_requires_manual_work/</link>
+      <description><![CDATA[注册了所宣传的全自动退款处理功能。结果我仍然需要在提交之前手动批准证据包，检查每个案例的准确性，并上传系统无法访问的支持文件。自动化基本上只是将内容格式化为模板。我仍然在每个争议上花费 25 分钟，而不是 45 分钟。总比没有好，但不是我期望的不干涉解决方案。实际上是否有解决方案可以端到端处理所有事情，或者总是需要一些手动参与？   由   提交/u/adayjimnz28  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1se5auk/chargeback_automation_still_requires_manual_work/</guid>
+      <pubDate>Mon, 06 Apr 2026 17:23:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>以大约 15 美元/月的价格构建了一个完全自动化的 B2B 冷电子邮件系统 — AI 模板选择、6 帐户 Gmail 轮换、基于意图的跟进和 WhatsApp 转化跟踪</title>
+      <link>https://www.reddit.com/r/automation/comments/1se3wdu/built_a_fully_automated_b2b_cold_email_system_for/</link>
+      <description><![CDATA[      我们在外展工具上投入了大量资金，但仍然需要手动完成太多工作，因此我将工作流程重建为自托管自动化堆栈。 目标很简单： 采取主导输入 → 个性化消息传递 → 大规模发送 → 跟踪实际意图 → 触发更智能的后续行动 无需支付完整的外展 SaaS 堆栈费用。 其工作原理如下。 ⸻ 系统的功能 潜在客户通过 Airtable 进入。 对于每个潜在客户，人工智能步骤会读取以下信息： • 公司规模 • 部门 • 角色/头衔  基于它会从小模板集中选择最适合的电子邮件模板，以及最相关的客户证明/推荐块。 然后，电子邮件将呈现为 HTML 并自动发送，其中包括消息中的 WhatsApp CTA。 一旦潜在客户进入管道，其余部分就会自动运行。 ⸻ 发送设置（6 个帐户 Gmail 轮换） 而不是使用专用外展服务平台上，我将其设置为在 6 个 Google Workspace 帐户之间轮流发送。 哈希步骤每次都会将每个潜在客户映射到同一个发件人帐户，以便该潜在客户的发件人身份保持一致。然后，交换机通过正确的 Gmail 凭据路由发送。 这可以保持流量分布，并使设置出人意料地可用，而无需在顶部添加其他付费层。 ⸻ WhatsApp 转化跟踪 每封电子邮件都包含一条预填充的 WhatsApp 消息，其中包含与该潜在客户相关的唯一参考。 如果有人点击并实际发送该消息，Webhook 会捕获它并更新潜在客户记录Supabase。 这使得可以区分： • 打开/点击的人 • 显示出实际购买意图的人 这种区别最终比基本的“电子邮件参与度”指标更有用。 ⸻ 基于意图的后续行动 这是我最关心的部分。 而不是发送按固定时间表对每个人进行跟进，跟进逻辑基于行为。 示例： • 如果潜在客户点击 WhatsApp CTA • 但未在 \~48 小时内完成对话  ...系统只会针对该细分触发跟进。 因此，它不会再次轰炸整个列表，而只会推动那些已经表现出一定水平的人 这是一个比标准序列逻辑更清晰的信号，并且减少了不必要的发送。 ⸻ 基础设施/成本 整个事情非常轻量。 • AWS EC2 t3a.small (ap-south-1)：\~12 美元/月• n8n 自托管（Docker + Nginx + SSL）：免费• Supabase：免费套餐 • Airtable：免费套餐 • Gmail API：免费 • OpenAI：每个潜在客户大约 \~$0.001–0.003 美元，具体取决于提示使用情况  总计：基础架构中大约 ~$12–15/月 与此类工作流程的通常堆栈成本相比，它比我预期的要便宜得多。 ⸻ Stack • n8n — 编排 • OpenAI — 模板/消息选择 • Airtable — 潜在客户输入 • Supabase — 事件 + 转化跟踪 • Gmail API — 发送 • WhatsApp Business API — 入站归因  ⸻ 我发现有趣的内容 最大的收获并不是真正的发送部分。 而是，一旦正确跟踪意图，后续逻辑就会变得更加有用比通用的“3 天后发送电子邮件 2 次”自动化。 仅此部分就使系统感觉比典型的爆炸式设置更加高效。 ⸻   由   提交/u/Mandyhiten   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1se3wdu/built_a_fully_automated_b2b_cold_email_system_for/</guid>
+      <pubDate>Mon, 06 Apr 2026 16:33:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>帮助我设置 runLobster OpenClaw？ cron 调度让我发疯</title>
+      <link>https://www.reddit.com/r/automation/comments/1se32eh/help_with_my_runlobster_openclaw_setup_cron/</link>
+      <description><![CDATA[已经使用这个大约 3 周了，老实说我遇到了困难。代理本身在运行时工作正常，但调度部分让我想扔掉我的笔记本电脑。 这是我的设置：我有一个代理，可以从 stripe 中获取收入，检查 Google 广告上的广告支出，并从 hubspot 获取管道数据。格式化早上的总结并发布到松弛。当它工作时它很棒。 问题： 条带数据总是陈旧的。我将其设置为早上 7 点运行，但收入数据却晚了 12 个小时。周一的报告显示截至周日下午 6 点的 stripe 数据。 hubspot 和 google ads 数据始终是最新的，只是 stripe 数据滞后。尝试在凌晨 5 点运行它，但认为它需要时间来处理。同样的问题。 代理有时会停止任务。没有错误，没有通知。我只是没有得到我的早晨总结，直到上午 10 点左右我才意识到我从来没有得到它。三周内发生了 3 次。 我想要有条件的警报，而不仅仅是完整的每日摘要。例如，仅当广告支出超出目标 15% 以上或退款超过 200 美元时才通知我。现在我每天都能得到一切，这很好，但大多数时候没有什么可操作的，我只是无缘无故地阅读数字。 这是一个 stripe api 限制还是我做错了什么？有没有人想出用 openclaw 代理进行条件警报，或者这不是他们的工作方式？ 准备回去手动执行此操作，这违背了整个目的。   由   提交/u/LuciferBhai007  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1se32eh/help_with_my_runlobster_openclaw_setup_cron/</guid>
+      <pubDate>Mon, 06 Apr 2026 16:03:20 GMT</pubDate>
+    </item>
     <item>
       <title>哪些日常任务可以自动化</title>
       <link>https://www.reddit.com/r/automation/comments/1se2i7u/what_are_the_daily_tasks_that_can_be_automated/</link>
@@ -62,25 +83,11 @@
       <pubDate>Mon, 06 Apr 2026 08:16:59 GMT</pubDate>
     </item>
     <item>
-      <title>自动化 Facebook 广告创意</title>
-      <link>https://www.reddit.com/r/automation/comments/1sdsay0/automating_facebook_ads_creative/</link>
-      <description><![CDATA[你好&amp;祝那些庆祝的人复活节快乐。我看到很多广告试图推销自动化“秘密”，在几秒钟内创建数百张图像（Facebook 广告）。 其中一个似乎使用 Gemini/Nano-Banana 和 Airtable，尽管该广告被明确标记为广告。 我还看到另一个帐户说你不需要 Airtable，它可以通过 Google 表格完成。 我正在尝试学习自动化，但我没有那么，任何人都可以提供一些简单的步骤来基本上连接生成式 Ai 工具吗？ 工作流程似乎是： 在 Airtable 或 Google Sheets 的 A1 列中，编写提示。 B 列具有所需资源的尺寸。 C 列具有放置位置。 D 列具有任何参考图像（例如，您想要将一罐啤酒插入到生成）。 E 列：可下载的输出 我想，如果使用 Google Sheets 路线，我需要一个付费的 Google Gemini 计划，如果我也使用该工具，则需要一个付费的 Airtable 计划。 这些视频中的大多数都解释了它的工作原理，但没有告诉您所涉及的成本或如何设置它，因此，虽然我对这些课程持怀疑态度，但我希望从这次聊天中获得一些专业知识。 谢谢。    由   提交 /u/TodayImALittleThor   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sdsay0/automating_facebook_ads_creative/</guid>
-      <pubDate>Mon, 06 Apr 2026 07:43:23 GMT</pubDate>
-    </item>
-    <item>
       <title>最令您惊讶的是，自动化实际上节省了多少时间？</title>
       <link>https://www.reddit.com/r/automation/comments/1sdrxf0/whats_the_automation_that_surprised_you_the_most/</link>
       <description><![CDATA[对我来说，它是自动跟踪线索。我以为它每天可能会节省 30 分钟，但最终节省了近 2 个小时，因为我还花时间在 crm 选项卡之间进行上下文切换、编写个性化电子邮件以及跟踪谁回复 另一个令人惊讶的是，自动版本实际上比我手动执行的效果更好，因为时间更加一致 很好奇你的版本是什么。不必是任何奇特的东西   由   提交/u/treysmith_  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1sdrxf0/whats_the_automation_that_surprised_you_the_most/</guid>
       <pubDate>Mon, 06 Apr 2026 07:19:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年看着你的机构陷入困境是什么感觉</title>
-      <link>https://www.reddit.com/r/automation/comments/1sdrpzx/what_its_like_to_watch_your_agency_grind_in_2026/</link>
-      <description><![CDATA[       由   提交/u/ZiradielR13  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sdrpzx/what_its_like_to_watch_your_agency_grind_in_2026/</guid>
-      <pubDate>Mon, 06 Apr 2026 07:07:49 GMT</pubDate>
     </item>
     <item>
       <title>你几乎没有构建什么自动化，因为它看起来太简单了——但结果却是你整个堆栈中最有用的东西？</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[   大家好！ 我是一名计算机科学二年级学生，我构建了一个完整打包的桌面应用程序来自动获取 Microsoft 奖励积分。我想制作一些实际上可以避免检测并具有干净 UI 的东西，而不仅仅是一个基本脚本。 我知道那里有很多基本的自动点击器，但我想制作一些实际上可以避免检测并具有干净 UI 的东西。 技术堆栈和技术堆栈功能： - 核心逻辑：Python + Selenium。 UI：使用 pywebview (HTML/CSS/JS) 构建，具有原生桌面感觉。包括实时日志和历史记录选项卡。  算法：克隆本地 Edge 配置文件，以随机的类人延迟逐字输入查询，滚动页面以模拟阅读，并每 5 次搜索进行长时间休息。 真实搜索数据：本地数据库使用从 Google 趋势中提取的 3,428 个独特的真实搜索查询，使历史记录对于 Microsoft 的算法来说看起来 100% 自然 实时日志和历史记录：用户界面具有实时系统日志，以便您可以准确地看到机器人正在做什么，还有一个内置的历史记录选项卡，用于跟踪状态、日期和时间以及每次搜索的查询。 后台执行（隐藏浏览器模式）：您可以切换“隐藏浏览器”模式或“隐藏浏览器模式”。在 UI 中切换。该机器人将完全在后台运行，不会弹出窗口，因此不会中断您的实际工作。 测试：我已经在我的个人主帐户上运行了 6 个月，零问题。我还在多个替代帐户上进行了测试，只有一个帐户受到了临时限制，这证明隐形逻辑在实践中确实有效。 打包：编译为 Inno Setup 安装程序以绕过 Python 环境设置和 Windows 阻止。  要查看代码、更多信息、UI 演示和安装程序，只需直接在 GitHub 上搜索所有者：safarsin AutoRewarder。 我会很高兴听到您对代码架构或 UI 的反馈！让我知道你的想法。   由   提交/u/18safarov  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1sdc0u2/i_got_tired_of_doing_microsoft_rewards_manually/</guid>
       <pubDate>Sun, 05 Apr 2026 19:03:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>您最大的自动化失败是什么</title>
-      <link>https://www.reddit.com/r/automation/comments/1sd8lnq/whats_your_biggest_automation_fail/</link>
-      <description><![CDATA[我构建了一些完美运行的东西...... 然后一个小小的改变悄无声息地破坏了一切。 好几天都没有注意到。 好奇你在自动化方面遇到的最大失败是什么？   由   提交/u/Solid_Play416  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sd8lnq/whats_your_biggest_automation_fail/</guid>
-      <pubDate>Sun, 05 Apr 2026 16:51:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
