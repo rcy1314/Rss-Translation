@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 06 Apr 2026 05:30:50 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 07:52:24 GMT</lastBuildDate>
+    <item>
+      <title>一个可以在浏览器中运行 Python、Java、Rust、Bash、Node.js Lua、Go 等的编辑器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sds712/a_editor_that_runs_python_java_rust_bash_nodejs/</link>
+      <description><![CDATA[      尝试一下： 8gwifi.org/math/editor.jsp   由   提交/u/anish2good  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sds712/a_editor_that_runs_python_java_rust_bash_nodejs/</guid>
+      <pubDate>Mon, 06 Apr 2026 07:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>您对自主创业有何看法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sdru7w/what_are_your_thoughts_on_self_employment/</link>
+      <description><![CDATA[我是一名软件工程师，在前端和后端方面拥有近 7 年的经验。我从事过各种工作，从一家只有 3 人的小型初创公司到一家拥有 4 万工程师的大型公司。 现在我想与家人一起搬迁，因此我正在考虑继续采用更传统/安全的就业路线或尝试自营职业。 但我对这两种选择有点分歧。 有人可以分享一些观点吗？   由   提交/u/BroaxXx   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sdru7w/what_are_your_thoughts_on_self_employment/</guid>
+      <pubDate>Mon, 06 Apr 2026 07:14:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 OpenAI 使用开始变得很快变得混乱——构建这个来控制它（速率限制、使用跟踪）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sdrl15/my_openai_usage_started_getting_messy_fast_built/</link>
+      <description><![CDATA[一旦有多个用户或端点访问 OpenAI，事情很快就会变得混乱： - 没有明确的每个用户使用情况 - 成本很难跟踪 - 很容易达到速率限制或意外峰值 我在构建时遇到了这个问题，所以我在 API 前面制作了一个小型网关： - 基本费率限制 - 每个用户的使用情况跟踪 - 简单的成本估算 没什么花哨的，但它有助于控制事情而不是猜测。 很好奇——一旦你的应用程序超出了单个用户的规模，你们如何处理这个问题？ （repo： https://github.com/amankishore8585/dnc-ai-gateway)   由   提交/u/carlpoppa8585  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sdrl15/my_openai_usage_started_getting_messy_fast_built/</guid>
+      <pubDate>Mon, 06 Apr 2026 06:59:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个工具来查找您的哪些 GCP API 密钥现在具有 Gemini 访问权限</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sdr8qg/built_a_tool_to_find_which_of_your_gcp_api_keys/</link>
+      <description><![CDATA[回调到 https://news.ycombinator.com/item?id=47156925 在最近 Google 悄悄地在现有 API 密钥上启用 Gemini 事件之后，我构建了 keyguard。 keyguard 审核通过 Cloud Resource Manager、服务使用情况和 API 密钥 API 连接到您的 GCP 项目，检查每个项目是否启用了 generativelanguage.googleapis.com，然后标记：不受限制的密钥（关键：无提示的 Maps→Gemini 场景）和明确允许 Gemini API 的密钥（高：有意但可能嵌入到客户端代码中）。如果您想检查代码库中实际存在哪些密钥，还可以扫描源文件和 git 历史记录。 https://github.com/arzaan789/keyguard   由   提交 /u/arzaan789   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sdr8qg/built_a_tool_to_find_which_of_your_gcp_api_keys/</guid>
+      <pubDate>Mon, 06 Apr 2026 06:39:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>无需触及应用程序代码、与模型无关的 AI 设计即可为客户每月节省 9,000 美元的架构模式</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sdqhsw/architecture_pattern_that_saved_a_client_9kmonth/</link>
+      <description><![CDATA[这是我在代码库中不断看到的问题： openai.chat.completions.create() 分散在 40 多个文件中。每个调用都被硬编码为特定模型。每次调用都直接导入 OpenAI SDK。 当 Claude 3.5 Sonnet 以相当低的成本推出且质量相当时，处于这种情况的团队必须：找到所有 40 多个调用站点，更新每个调用站点的模型参数，重新测试所有内容，并管理整个代码库的迁移。对于某些团队来说，这需要数周的工作。 从第一天起就考虑模型不可知论的团队：更新单个配置文件。 2 小时内完成。 模式： 第 1 层：抽象接口 所有 AI 调用都通过您控制的单个函数，而不是直接通过提供商 SDK。类似于： ``` callAI(prompt, context, { task: &#39;classification&#39;,priority: &#39;cost&#39;, // or &#39;quality&#39; or &#39;speed&#39; maxTokens: 500 }) ``` 应用程序代码从不直接导入 OpenAI、Anthropic 或任何其他提供商。 第 2 层：配置驱动的路由 模型选择位于配置文件中，而不是应用程序代码中。路由配置将任务类型+优先级映射到特定模型。改变模型=改变配置。无需部署代码。 第 3 层：响应规范化 不同的提供程序返回不同的 JSON 形状。构建一个规范化层，将每个提供商的响应转换为您的内部模式。无论哪个模型生成应用程序，应用程序始终会看到相同的结构。 第 4 层：后备路由 速率受限？停电？自动路由到定义的后备链中的下一个提供商。对于企业正常运行时间 SLA 至关重要。 具体结果： 当 Anthropic 降价后，一位客户希望将 60% 的调用转移到 Claude 3.5 Sonnet，这是一项配置更改。两个小时的测试。零应用程序代码更改。每月节省 9,200 美元。 此架构增加了大约 3-5 天的初始工程工作。在当前的人工智能市场中，模型和定价不断变化，您需要在第一次更改提供商时就可以收回投资。 有人使用类似的抽象模式进行构建吗？很好奇你的标准化层是什么样的，特别是对于流响应，提供者之间的响应形状差异更大。   由   提交 /u/Individual-Bench4448   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sdqhsw/architecture_pattern_that_saved_a_client_9kmonth/</guid>
+      <pubDate>Mon, 06 Apr 2026 05:55:48 GMT</pubDate>
+    </item>
     <item>
       <title>HTML 或操作系统</title>
       <link>https://www.reddit.com/r/webdev/comments/1sdpgte/html_or_os/</link>
@@ -15,7 +50,7 @@
     <item>
       <title>我的队友向我展示了这个安全包，说实话，它非常好</title>
       <link>https://www.reddit.com/r/webdev/comments/1sdp10h/my_teammate_showed_me_this_security_package_and/</link>
-      <description><![CDATA[所以我正在做一个班级项目，我们计划托管它，我的队友正在查看后端，然后说“安全性怎么样，这里什么都没有设置”并向我发送了他找到的这个名为 Arcis 的软件包。 尝试了一下，实际上非常简单。只需一行，您就可以获得 XSS、CSRF、速率限制、SQL 注入保护，所有这些内容都刚刚处理完毕。我不需要配置任何东西就可以开始。 零依赖关系才是让我着迷的原因。随着最近供应链攻击（litellm，axios 的事情）发生的一切，零依赖实际上很重要。没有什么需要审计的，没有什么可以在你的控制下受到损害的。 我将它与 Express 一起使用，但显然它也适用于 Python 和 Go，具有相同的 API，这有点疯狂。 github：github.com/Gagancm/arcis npm：npm install @arcis/node PyPI： pip install arcis 只是想分享，因为我的队友让我使用它，并在我们托管之前节省了我们大量的设置时间。   由   提交 /u/TheHeartChill   [链接] [评论]]]></description>
+      <description><![CDATA[我正在做一个班级项目，我们计划托管它，安全设置为零。队友推荐了这个叫Arcis的包。 尝试了一下，其实很简单。只需一行，您就可以获得 XSS、CSRF、速率限制、SQL 注入保护，所有这些内容都刚刚处理完毕。我不需要配置任何东西就可以开始。 零依赖关系才是让我着迷的原因。随着最近供应链攻击（litellm，axios 的事情）发生的一切，零依赖实际上很重要。没有什么需要审计的，没有什么可以在你的控制下受到损害的。 我正在将它与 Express 一起使用，但显然它也适用于 Python 和 Go，并且使用相同的 API，这有点疯狂。 github：github.com/Gagancm/arcis 只是想分享，因为我的队友让我使用它，并在我们托管之前为我们节省了很多设置时间。   由   提交 /u/TheHeartChill   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1sdp10h/my_teammate_showed_me_this_security_package_and/</guid>
       <pubDate>Mon, 06 Apr 2026 04:33:58 GMT</pubDate>
     </item>
@@ -74,41 +109,6 @@
       <description><![CDATA[Zentra 建设，第一周完成。 我的观察：金融科技初创公司的分析师一直在问同样的有关财务的问题。收入报告、交易、利润率？每次他们提出问题时，都必须有人进入数据库才能找到答案。 如何让系统变得更智能？ 我构建了一个解决方案，使用 Claude AI 以自然语言给出财务数据问题的答案。然而，有一个重要的特征：系统会学习！因此，当用户询问“我们第一季度的收入是多少？”时现在，他收到了答案，而明天他会在 50 毫秒内从记忆中得到完全相同的答案！ 这周我致力于开发引擎。引擎连接到您的数据库（只读），但是，用户不与数据库交互 - 他与引擎交互，引擎足够智能，可以记住一切。 但是，缓存层是真正的游戏规则改变者。虽然大多数其他解决方案每次都会重新创建答案，消耗您的所有 API 成本，但我们会缓存所有内容！您的数据库仅在需要时更新，但我们知道哪些数据是最新的，哪些数据已经过时。快速、准确并节省 AI API 成本！ 这是第一周，接下来还会有更多精彩内容。目前，我们只实现了它的后端部分。用户界面将于下周上线。 欢迎提出任何建议！   由   提交/u/Most_Cardiographer313   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1sddtf3/i_built_a_system_that_answers_financial_queries/</guid>
       <pubDate>Sun, 05 Apr 2026 20:14:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>作为一名入门级工程师，尤其是在网络开发领域，从哪里开始志愿服务和建立人际网络？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sdc4yh/where_to_start_volunteering_and_networking_as_an/</link>
-      <description><![CDATA[我会坦白地说，我不擅长社交，而且我很笨拙，所以与其疯狂地申请并轰炸我做过的几次面试，我想免费贡献我的努力，这样我就可以帮助、建立网络并学会更好地与陌生人沟通。我正在为个人项目 Web 应用程序学习 MVC 中的 C#/.net 编码，但我觉得自己缺乏动力，所以与其浪费时间失去动力，不如在学习的同时为其他人付出一些努力，并尝试弄清楚我想用我的学位做什么。 如果有人对我如何自愿、学习、展示自己的方法或保持动力的方法有任何建议，我很想听听，因为我做得不好？  我显然对人类如何运作缺乏了解。   由   提交 /u/TerySchmerples   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sdc4yh/where_to_start_volunteering_and_networking_as_an/</guid>
-      <pubDate>Sun, 05 Apr 2026 19:08:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>沉没还是游泳，您的网络机构如何度过人工智能寒冬</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sdag0r/sink_or_swim_how_is_your_web_agency_surviving_ai/</link>
-      <description><![CDATA[我已经兼职经营一家代理机构 8 年了。标准的网络开发、应用程序、设计等​​。我注意到，现在随着振动编码和人工智能生成的网站，呼叫已经慢慢停止了。我的时间太宝贵了，不能以 500 美元的价格进行推销。网站。  这感觉就像一场逐底竞争。 我知道自己的价值，也很好奇其他机构所有者这次是如何应对的？   由   提交/u/Army_77_badboy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sdag0r/sink_or_swim_how_is_your_web_agency_surviving_ai/</guid>
-      <pubDate>Sun, 05 Apr 2026 18:02:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个静态站点生成器，可在 4 秒内根据应用程序的数据生成 2,500 个 SEO 优化页面</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sdaaec/i_built_a_static_site_generator_that_produces/</link>
-      <description><![CDATA[我有一个移动应用程序，其中包含 7 种语言的 300 多种纸牌游戏。我没有使用 Next.js 或 Astro，而是编写了一个 TypeScript 构建脚本，用于读取游戏数据并将静态 HTML/CSS 输出到 docs/ 文件夹中。 一些数字：  2,549 个页面（347 个游戏 x 7 种语言 + 类别 + 集合） 每个游戏页面有 4 个 JSON-LD 架构（游戏、HowTo、FAQPage、BreadcrumbList） 在所有游戏中实现完整的 hreflang 7 种语言 具有跨语言替代的 30,000 行站点地图 在大约 4 秒内构建 游戏页面上的零客户端 JS（纯 CSS 手风琴） 通过 GitHub Actions + SCP 部署到运行 Caddy 的 VPS  为什么没有框架？内容纯静态，没有交互性（主页搜索除外）。具有辅助函数的模板字符串比向项目添加第二个框架更简单。 https://cardrulesplus.com/games/poker/（示例游戏页面） 很高兴回答有关该方法的问题。   由   提交 /u/bramp0wnd   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sdaaec/i_built_a_static_site_generator_that_produces/</guid>
-      <pubDate>Sun, 05 Apr 2026 17:56:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>Cloudflare/Cloud Run/Webflow 设置中静态资产的根路径或子域？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sd9gqq/root_path_or_subdomain_for_static_assets_in/</link>
-      <description><![CDATA[我正在尝试为托管资产、图像做出长期架构决策，并且我希望能够一起处理 Cloudflare、Cloud Run 和 Webflow 的人们提供意见。目前，我的流量通过 Cloudflare，应用程序端位于 Cloud Run 上，但后来我预计营销/前端端将转移到 Webflow，而应用程序则单独托管在 GCP 上。我希望签名图像 URL 保留在主域路径上，例如“domain.com/mail-assets/signatures/logo.png”，而不是将它们移动到“assets.domain.com”之类的路径。我认为这可能会影响路由复杂性、未来的迁移以及这些文件与服务于根域的任何内容的紧密耦合程度。 我不确定的是，从安全或操作的角度来看，与将静态资产隔离在子域上相比，将静态资产保留在根域路径上实际上是否是一个坏主意。我的理解是，子域提供了更清晰的分离，并且可能更容易推理 cookie、策略和爆炸半径，但它也意味着另一个主机名、更多的 DNS/TLS 配置以及长期维护的稍微复杂性。另一方面，保留“/mail-assets/*”在“domain.com”上从 URL 和连续性的角度来看，感觉更干净，特别是如果我稍后更改托管提供商，但现在可能需要 Cloudflare 中基于边缘/路径的路由逻辑，并且一旦 Webflow 加入其中，可能需要更加小心。对于这样的设置，您会选择子域以实现隔离和简单性，还是保留根域路径以实现长期灵活性？   由   提交/u/aki45_  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sd9gqq/root_path_or_subdomain_for_static_assets_in/</guid>
-      <pubDate>Sun, 05 Apr 2026 17:25:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>检查 CI/CD 管道是否存在意外安装</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sd98ir/check_your_cicd_pipelines_for_unexpected_installs/</link>
-      <description><![CDATA[      刚刚发现 2 个受影响的客户端存储库。    由   提交/u/princessinsomnia  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sd98ir/check_your_cicd_pipelines_for_unexpected_installs/</guid>
-      <pubDate>Sun, 05 Apr 2026 17:16:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
