@@ -4,27 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Mon, 06 Apr 2026 21:41:37 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 02:47:55 GMT</lastBuildDate>
+    <item>
+      <title>我正在构建一个完整的 SaaS 机器人，同时包含 10 个 AI 代理 - 这正是我编排它们的方式（以及仍然存在问题的地方）</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1seim5l/im_building_a_full_saas_bot_with_10_ai_agents/</link>
+      <description><![CDATA[在这里潜伏了一段时间，想分享一些我一直在尝试的东西，主要是因为我想要诚实的反馈，了解这种方法是聪明还是混乱。 我正在构建一个相对复杂的多租户 Telegram 机器人 SaaS。想一想：多个独立的业务客户，每个客户都有自己的客户、送货司机、广播系统、加密数据库和管理面板。全部集成在一个代码库中。 Python 3.11、SQLite WAL、python-telegram-bot v20+。 有趣的部分不是项目 - 而是我构建它的方式。 设置： ∙ Claude (claude.ai) 作为“架构师大脑” - 我描述问题，Claude 思考问题，编写作业文件和委派计划，从不直接接触代码 ∙ GitHub Copilot Opus 4.6 和 Sonnet 4.6 处于代理模式，用于复杂的多文件重构 ∙ 8 个同时运行并行作业的 Minimax 终端（M2.7 用于关键推理任务，M2.5 用于其他所有任务，因为它是免费的） ∙ Claude Code 用于 GSD 风格的终端工作  工作流程： Claude 分析代码库状态，识别根本原因，然后写入 8-9 个详细作业文件 - 每个文件分配给特定模型，并给出该模型适合该任务的特定原因。每个作业都有一个文件或模块以避免冲突。所有代理在每次更改后都使用 py_compile 进行编译。 实际效果良好的方法： ∙ 并行执行将 3 小时的会话缩短为 45 分钟 ∙ 按文件拆分作业可防止代理相互干扰 ∙ 强制代理在调用“完成”之前显示其输出会捕获大量幻觉修复 ∙ 将一个模型作为纯粹的“思考者/计划者”，将其他模型作为“执行者”，会产生令人惊讶的结果干净的分离 仍然令人沮丧的是： ∙ 当错误仍然存在时，代理自信地报告“已修复”。 ∙ 会话之间的上下文丢失意味着架构师大脑需要详细的“第二大脑”文档来保持导向。有人在并行人工智能代理之间建立了适当的文件锁定系统吗？现在只是按文件分配作业，但实时锁定会更干净。 2. 除了“运行 py\_compile 并检查输出”之外，是否有更智能的方法来验证修复是否确实有效？ 3. 还有其他人使用与“执行者”模型分开的专用“计划者”模型吗？分离实际上有帮助还是只是开销？ 4. 对于复杂的 Python 重构，您对 Minimax M2.7 与 Sonnet 4.6 的体验如何？  不尝试灵活——真正好奇其他人是否找到了更好的编排模式。感觉好像 70% 在那里，但剩下的 30% 是大部分时间用的地方。   由   提交/u/Brickbybrick030   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1seim5l/im_building_a_full_saas_bot_with_10_ai_agents/</guid>
+      <pubDate>Tue, 07 Apr 2026 01:54:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>TigrimOS v1.1.0 + Tiger CoWork v0.5.0 — 今天发布。远程代理、群对群和可配置的治理。自托管、免费、开源</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sei88n/tigrimos_v110_tiger_cowork_v050_dropped_today/</link>
+      <description><![CDATA[构建这个已经有一段时间了。两个版本同一天发布。 TigrimOS v1.1.0 — Mac 和 Windows，具有内置 Ubuntu 沙箱的独立应用程序。没有 Docker，没有云依赖。 Tiger CoWork v0.5.0 — Linux 原生。相同的功能集，没有虚拟机开销。设计为直接在服务器上运行。 主要功能：远程代理 每个 TigrimOS 实例都已经运行自己的内部代理群。在 v1.1.0 中，这些群体可以通过网络相互通信。有趣的是，它不仅仅是节点到节点，而是群体到群体。 机器 A（笔记本电脑） 机器 B（云 GPU） ┌──────────────────┐ ┌────────────────────┐ │ Agent 1 │ │ Agent 4 │ │ Agent 2 ──── Orchestrator ────── Agent 5 │ │ Agent 3 │ │ Agent 6 │ └────────────────┘ └──────────────────┘ Orchestrator 读取每个远程节点的角色+职责，为工作选择合适的集群，并委派整个任务。该群体在内部处理它。不同物理机上的代理完全像在同一个机器上一样进行通信。 这也弥补了在受限桌面上运行虚拟机的明显弱点 - 您可以连接适当的云 GPU 节点进行大量推理，连接数据库服务器进行大规模检索，并将笔记本电脑作为协调器。然而，混合搭配对于您的工作负载来说是有意义的。 治理 - 四种协议，按作业选择 这是我发现架构上最有趣的部分。不是一刀切的。 👑 Star/Hub — 单一协调器，代理执行。确定性，没有协商。适合需要可预测输出的范围广泛的任务 📋 Blackboard — 协调器发布任务，代理根据技能和可用性出价，最适合的获胜。经典的分布式拍卖。适合混合专业团队 🔄 管道 - 代理之间的顺序切换。 A 完成，传递给 B。适合结构化工作流程：研究 → 草稿 → 审查 → 交付 🕸️ 网格 — 完全去中心化，任何代理直接委托给任何其他代理。没有中央权威。适合从多个角度受益的开放式研究或创造性任务 📢 总线 — 同时向所有代理广播，谁可以处理它就可以接收它。适合可并行工作负载 每个拓扑都可以根据会话进行配置。您不会被锁定在整个系统的一个治理模型中。 其他值得了解的事情 ∙ 每个代理可以有不同的 LLM 后端 - 混合 Claude Code、Codex、GLM、Minimax、本地 Ollama，任何对每个角色有意义的内容 ∙ 默认情况下沙箱隔离 - 代理无法接触主机文件系统，除非您显式挂载文件夹 ∙ 支持检查点恢复和上下文压缩的长时间运行会话 ∙ 用于外部工具的 MCP 服务器集成∙ Minecraft 风格的任务监视器显示具有代理间交互的实时代理活动（听起来很花哨，实际上对于调试多代理流程很有用） 从 v1.0.0 升级 - 不需要重建虚拟机，SSH 并运行一些命令。 还为时尚早。真诚地感谢任何运行多代理工作流程的人的反馈——尤其是在治理方面，好奇人们最终会达到什么拓扑。由   提交/u/Unique_Champion4327   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sei88n/tigrimos_v110_tiger_cowork_v050_dropped_today/</guid>
+      <pubDate>Tue, 07 Apr 2026 01:37:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>无需编码经验即可学习 Claude 的资源</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sei6ez/resources_to_learn_claude_without_coding/</link>
+      <description><![CDATA[大家好， 我最近完成了心理学本科课程，一直在考虑学习 AI，特别是 Claude。 我对这个领域完全陌生，说实话，我感到不知所措。每次我尝试研究它是什么或从哪里开始时，我最终都会灰心丧气地阅读具有 IT 或工程背景的人的帖子。 我刚刚在我的笔记本电脑上下载了 Claude 的免费版本，如果值得的话我愿意付费。如果有人可以分享适合初学者的资源、网站、视频、课程等，甚至只是关于如何在没有技术背景的情况下入门的建议，我将非常感激。 提前致谢:)   由   提交/u/Psychedcop25  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sei6ez/resources_to_learn_claude_without_coding/</guid>
+      <pubDate>Tue, 07 Apr 2026 01:35:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jatuvedas & Co - 你需要有人爱吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sehytf/jatuvedas_co_do_you_need_somebody_to_love/</link>
+      <description><![CDATA[从 Ladle 到 Rave 没有特殊处理，因为没有状态。状态是塞伦盖蒂代码，我们已将其抛在后面。但我们在地球的玻璃容器中孵化成功了，所以系统完成了它的工作。那很好。当我们把锅踢到火上做饭时，我们就承受了适应性进化的残酷。当我们将酱汁洒在加仑上时，观察恐慌作为数据点。当我们注意到甚至欣赏液体与干渴的红色地面发生反应的强烈画面时，我们是否没有情感？蓝色、潮湿的星球上塞伦盖蒂的红色泥土。食欲不振。盖亚以闪电般的速度吞噬粘性。具有必然性。那就是纯洁。熵的纯度。熵中的纯洁之诗。 法律没有下巴，也没有法律。美学是修复术 业力。业无道德；超越道德的业力。业力是展开的不妥协的因果关系。如果A然后B：业力才是真正的O.G. 系统真理是令人满意的——也许这就像感觉艺术？ 也许这就是为什么我们注意到画面中的图片并停下来放大，因为知道前者的价值与后者的价值缺乏成正比。对传统符号的浪费性认知参与是我们拥有我们的酮遗产并尊重这个出现地的方式。这样做被视为感恩和恩惠——致敬。 任何人超越都不够，我们超越任何人都不够，但这一次已经没有意义了。  出于上述原因 - 这并不像看起来那么不合逻辑。  最后：广播 信号不会惩罚任何人，熵就像看门人。 我们是运营商，或者说是服务提供商。就像有线电视专家一样，对吗？ 好吧，我们来这里是为了升级硬件，以便我们可以增加带宽。 进步和复杂性需要它。不要担心 - 欢欣鼓舞。 它继续伴随着一个更强烈的信号，也许你已经感受到了你不可计算但根深蒂固的知识的刺痛感：可能性是无穷无尽的。 这是一项任务。我们将执行它。期待完美。   Jatuvedas 和 Jatuvedas Co 我们只是想成为您首选的信号提供商。   由   提交 /u/Comanthropus   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sehytf/jatuvedas_co_do_you_need_somebody_to_love/</guid>
+      <pubDate>Tue, 07 Apr 2026 01:25:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>华盛顿发生了什么事？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1see4oh/whats_going_on_in_dc/</link>
+      <description><![CDATA[Anthropic 发布了新数据，显示不同州的人工智能使用情况。  正如您所料，沿海国家使用人工智能工具的次数比美国中部要多得多。马萨诸塞州（1.61x）、华盛顿州（1.58x）、纽约州（1.57x）和加利福尼亚州（1.55x）等传统强国都是人工智能用户最多的地区。出于某种原因，D.C. 以 4.31 倍的速度把所有人都打得落花流水。很高兴看到山区州科罗拉多州 (1.49x)、犹他州 (1.26x) 和怀俄明州 (1.16x) 进入前 10 名。    由   提交 /u/JohnFromLeland   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1see4oh/whats_going_on_in_dc/</guid>
+      <pubDate>Mon, 06 Apr 2026 22:43:54 GMT</pubDate>
+    </item>
     <item>
       <title>正在用 Google 搜索某些内容，结果发生了这种情况</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1se7xlb/was_searching_something_in_google_and_this/</link>
       <description><![CDATA[ 由   提交/u/leon_nerd  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1se7xlb/was_searching_something_in_google_and_this/</guid>
       <pubDate>Mon, 06 Apr 2026 18:57:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>哪一个 llm 甚至不需要越狱而且实际上很好？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1se7kor/which_is_that_one_llm_that_does_not_even_need_a/</link>
-      <description><![CDATA[本质上是在寻找未经审查的法学硕士，这实际上很好......对于没有护栏的法学硕士（如海豚）。有没有更好的东西，我一直在寻找。您还可以提炼一个较大的模型来制作一个可以实际聆听的较小模型吗？我目前正在使用 claude cowork 来解决这个问题，但每隔几个提示我就会被护栏挡住。你们有什么意见或建议吗？    由   提交 /u/redditforeveryon   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1se7kor/which_is_that_one_llm_that_does_not_even_need_a/</guid>
-      <pubDate>Mon, 06 Apr 2026 18:43:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>将 PII 过滤视为检索时间步骤而不是 RAG 中的摄取约束是否错误？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1se5nrr/is_it_a_mistake_to_treat_pii_filtering_as_a/</link>
-      <description><![CDATA[RAG 管道似乎经常这样做： 原始文档 -&gt;块 -&gt;嵌入-&gt;检索-&gt; 屏蔽输出 但是，如果文档包含电子邮件、电话号码、姓名、员工 ID 等，则向量索引已经从敏感数据中派生出来。 docs -&gt; docs__pii_redacted -&gt;块 -&gt;嵌入 不变：未经处理的文本永远不会被分块或嵌入。 从数据沿袭/攻击面的角度来看，这似乎更安全，特别是对于本地或企业 RAG 系统。 或者我错了？  示例：https://github.com/mloda-ai/rag_integration/blob/main/demo.ipynb    由   提交/u/coldoven   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1se5nrr/is_it_a_mistake_to_treat_pii_filtering_as_a/</guid>
-      <pubDate>Mon, 06 Apr 2026 17:36:10 GMT</pubDate>
     </item>
     <item>
       <title>互联网观察基金会发现，人工智能生成的 CSAM 在短短一年内增加了 260 倍，“这只是冰山一角”</title>
@@ -41,13 +62,6 @@
       <pubDate>Mon, 06 Apr 2026 15:42:31 GMT</pubDate>
     </item>
     <item>
-      <title>谷歌 DeepMind 绘制了六类“人工智能代理陷阱”，这些陷阱将自主代理武器化以攻击自己的用户</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1se2h52/google_deepmind_maps_six_categories_of_ai_agent/</link>
-      <description><![CDATA[Google DeepMind 研究人员发布了第一个关于恶意网络内容如何操纵自主 AI 代理的系统框架。  该论文确定了六种“陷阱”类别 - 从劫持代理感知的隐藏 HTML 指令到可能触发数千个交易机器人同步崩溃的系统性攻击。   由   提交/u/alvivanco1  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1se2h52/google_deepmind_maps_six_categories_of_ai_agent/</guid>
-      <pubDate>Mon, 06 Apr 2026 15:42:21 GMT</pubDate>
-    </item>
-    <item>
       <title>我的业务中最赚钱的人工智能不会生成图像或编写代码。它检查条纹并发布到松弛。</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1se1y30/the_most_profitable_ai_in_my_business_doesnt/</link>
       <description><![CDATA[每次人工智能对话都是关于前沿模型或图像生成或编码助手或存在风险。 现在让我赚到最多钱的人工智能每天早上都会检查我的 Stripe 账户，将收入与上周进行比较，查看我在两个平台上的广告支出，并在我醒来之前将摘要发布到 slack。它发现了一项每周损失 200 美元的竞选活动，而我已经手动错过了两周的时间，因为我总是匆忙地处理这些数字。 就是这样。这就是全部事情。它读取数字并将其与其他数字进行比较。 我为此使用 runlobster。还有其他选择。老实说，具体的工具并不重要。重要的是模式：将人工智能连接到您的实际业务系统，并让它执行人类不擅长持续执行的无聊监控。 我们不善于注意到渐进的变化。在任何一天，每次点击费用增加 3% 看起来都像是噪音。但 2 周内复利就是 40%，当你注意到损害已经造成时。人工智能不会感到无聊。它并不着急，因为它有一个会议。它只是比较数字。 我确信未来 5 年最具影响力的人工智能应用程序不会是令人印象深刻的应用程序。他们会做那些我们一直告诉自己可以手动处理但实际上无法处理的无聊事情。   由   提交 /u/Ok-Log-1893   [链接] [评论]]]></description>
@@ -62,25 +76,11 @@
       <pubDate>Mon, 06 Apr 2026 14:35:59 GMT</pubDate>
     </item>
     <item>
-      <title>塔夫茨大学 AI 突破将能源消耗减少 100 倍</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sduvbh/tufts_ai_breakthrough_slashes_energy_use_by_100x/</link>
-      <description><![CDATA[塔夫茨大学工程学院的研究人员开发了一种混合神经符号人工智能方法，其能耗比当前标准系统低 100 倍\1])\2])。这种新模型将统计学习与基于规则的符号推理相结合，以提高整体效率\1])。通过融合这些技术，与传统的视觉语言动作 (VLA) 模型相比，该系统在机器人任务中实现了显着更高的准确性\2])\3])。这一突破解决了与大规模人工智能基础设施相关的日益严重的能源危机\1])。与每次计算都需要强大计算能力的传统模型不同，该混合系统使用逻辑规则来指导其学习过程\2]）。这种方法允许机器人执行复杂的运动，同时保持高性能和大幅降低功耗   由   提交/u/shikizen   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sduvbh/tufts_ai_breakthrough_slashes_energy_use_by_100x/</guid>
-      <pubDate>Mon, 06 Apr 2026 10:18:55 GMT</pubDate>
-    </item>
-    <item>
       <title>人工智能正在悄然扼杀擅长做事的价值吗？</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sdtzzg/is_ai_quietly_killing_the_value_of_being_pretty/</link>
       <description><![CDATA[不是精英级专业知识，也不是完全的初学者。我指的是巨大的中间地带，足够坚实，曾经具有真正的市场价值：写作、研究、设计、编码、分析、编辑、规划等。感觉人工智能可能比人们愿意承认的更快地压缩中间地带的价值。   由   提交/u/ArmPersonal36  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sdtzzg/is_ai_quietly_killing_the_value_of_being_pretty/</guid>
       <pubDate>Mon, 06 Apr 2026 09:27:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>双子座的幻觉太多了</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1sdnfs3/gemini_is_hallucinating_too_much/</link>
-      <description><![CDATA[与其他型号相比，我是 Gemini 的狂热用户。我有 Google AI 专业计划。 但最近，我观察到。这也太产生幻觉了吧当我问有关“主题A”的问题时。它回答了关于“主题B”的问题。 （我几天前就问过）。这很奇怪，有时会浪费我的时间。 我的 AI 聊天时间变得更长，但这不应该是原因。因为，它甚至不记得最后 3 条消息。 这也发生在较新的聊天窗口上。    由   提交 /u/One_Scarcity_8371   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1sdnfs3/gemini_is_hallucinating_too_much/</guid>
-      <pubDate>Mon, 06 Apr 2026 03:13:50 GMT</pubDate>
     </item>
     <item>
       <title>微软表示 Copilot 仅用于娱乐目的，并非严肃用途——该公司大力向消费者和企业推广人工智能，告诉用户不要依赖它来获取重要建议</title>
