@@ -4,7 +4,35 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Wed, 08 Apr 2026 19:23:17 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 21:47:34 GMT</lastBuildDate>
+    <item>
+      <title>使用严格的关系数据库突变而不是 RAG 来保持 LLM 代理在会话之间保持一致</title>
+      <link>https://www.reddit.com/r/automation/comments/1sg6hut/used_strict_relational_db_mutations_instead_of/</link>
+      <description><![CDATA[RAG 非常适合回答有关静态文档的问题，但当您尝试运行持久状态机超过数百次迭代时，它就会崩溃。上下文窗口最终会被污染，法学硕士会忘记谁拥有什么，模拟不可避免地会衰退。 我去年花了一年时间构建了一个持久的生命模拟引擎（Altworld），但遇到了同样的困境。我的解决方案是停止将法学硕士视为数据库。我没有解析聊天历史记录，而是构建了一个完全依赖于显式关系数据库突变的循环。 这是我们用来保持状态防弹的精确回合推进管道：  获取处理锁，以便并发请求不会破坏状态。 直接从 PostgreSQL 加载规范状态。在我们的系统中，“规范的运行状态存储在结构化表和 JSON blob 中”，这意味着出于逻辑目的，LLM 之前的叙述输出完全被忽略。 以编程方式推进世界系统（经济、天气、稀缺性、旅行条件）。 根据有限的本地知识而不是全知的提示注入来模拟 NPC 决策。 针对严格的数据库状态解决用户操作。 撰写叙述，这是关键部分。叙述文本是在状态改变之后而不是之前生成的。 LLM 纯粹充当数据库事务的渲染器。 以事务方式将所有状态更改保留到 Postgres。  通过将模拟模型与叙述层分离，我们可以支持无限运行长度、分支保存和手动快照，而 AI 不会丢失情节。如果 LLM 调用失败，规范数据层（GameRun、WorldState、Character 等）将保持完好无损。 如果您正在构建任何类型的代理工作流程或长时间运行的自动化，我强烈建议翻转架构：使您的 DB 成为事实来源，并将 LLM 视为 UI/渲染层。   由   提交/u/Dace1187  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sg6hut/used_strict_relational_db_mutations_instead_of/</guid>
+      <pubDate>Wed, 08 Apr 2026 21:42:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>说实话——有人真的使用人工智能创造了被动收入吗？</title>
+      <link>https://www.reddit.com/r/automation/comments/1sg4cv1/real_talk_has_anyone_actually_built_passive/</link>
+      <description><![CDATA[​ 不是理论，不是课程推介。  只是好奇现在什么对人们真正有效。”   由   提交 /u/FrostyBother3984   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sg4cv1/real_talk_has_anyone_actually_built_passive/</guid>
+      <pubDate>Wed, 08 Apr 2026 20:22:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>尝试找出在哪里使用 GumLoop 这样的软件而不是常规的 n8n 流程</title>
+      <link>https://www.reddit.com/r/automation/comments/1sg4br0/trying_to_figure_out_where_to_use_software_like/</link>
+      <description><![CDATA[我为不同的业务构建自动化大约有六个月的时间。 我已经学习了 n8n 和其他工具，并且显然自从 Claude 代码出现以来我已经学习了 Claude 代码 但自从 GumLoop 或类似工具问世以来我还没有使用过它们。  我想弄清楚：为什么我应该学习它们？  我应该在哪里实现它们？他们为谁工作？我正在查看我的流程，我想，我不知道我是否会切换到 Gumloop，不确定这是否有意义？ 我正在努力继续学习并弄清楚它   由   提交 /u/rastize   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sg4br0/trying_to_figure_out_where_to_use_software_like/</guid>
+      <pubDate>Wed, 08 Apr 2026 20:21:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>紧急需求：Facebook 帐户反检测</title>
+      <link>https://www.reddit.com/r/automation/comments/1sg3dvw/urgent_need_antidetect_for_facebook_account/</link>
+      <description><![CDATA[大家好，最近我被 Facebook 永久禁止，他们跟踪了一切，所以现在每次我创建新帐户时他们都会禁止我。我是新来的，迫切需要有人可以向我推荐一个可靠的反检测工具或任何可以帮助他们成功创建新帐户并最终投放广告的系统，因为这是我的工作，他们无缘无故地禁止了我。我怀疑这是因为我使用了 VPN，但谁知道呢？请帮助一个女孩 🙂   由   提交/u/Crazy-Rent-6484  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sg3dvw/urgent_need_antidetect_for_facebook_account/</guid>
+      <pubDate>Wed, 08 Apr 2026 19:46:24 GMT</pubDate>
+    </item>
     <item>
       <title>您将如何设计一个人工智能+人工评审系统来进行投标响应？</title>
       <link>https://www.reddit.com/r/automation/comments/1sg1zjn/how_would_you_design_an_ai_human_review_system/</link>
@@ -13,25 +41,11 @@
       <pubDate>Wed, 08 Apr 2026 18:56:22 GMT</pubDate>
     </item>
     <item>
-      <title>根据职位描述自动筛选候选人入围——最大的瓶颈发生在哪里？</title>
-      <link>https://www.reddit.com/r/automation/comments/1sg1hna/automating_candidate_shortlisting_from_a_job/</link>
-      <description><![CDATA[      最近，我一直在思考有多少候选人招聘实际上可以通过职位描述实现自动化。 如果你把它分解一下，这个过程看起来像这样：  从 JD 中提取要求 搜索相关个人资料 过滤基本适合的内容 比较候选人 将他们列入候选名单  我尝试手动检查在伦敦担任高级产品经理的职位，最突出的是“评估+排名”步骤是多么不一致。 之前的一切都感觉有点结构化。但是比较候选人并确定谁实际上更好？这就是事情变得混乱的地方。 以下是一个更结构化的候选列表的示例：从系统/自动化的角度来看很好奇：  https://preview.redd.it/98n6em3wg0ug1.png?width=1577&amp;format=png&amp;auto=webp&amp;s=0d87872a3cff63ee78bbf3aa25572a2de403256f 👉 此管道的哪一部分最难实现自动化？ 👉 通常在哪里出现故障？ 👉 这里有人尝试过围绕此构建一些东西吗？ 很想听听其他人如何看待这个问题。   由   提交/u/YKA_6789  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sg1hna/automating_candidate_shortlisting_from_a_job/</guid>
-      <pubDate>Wed, 08 Apr 2026 18:38:12 GMT</pubDate>
-    </item>
-    <item>
       <title>到 2026 年，还有人真的靠销售自动化赚钱吗？</title>
       <link>https://www.reddit.com/r/automation/comments/1sfzkib/is_anyone_actually_making_money_selling/</link>
       <description><![CDATA[看到很多关于“人工智能自动化机构”的炒作最近。除了大多数企业现在可以自己做的简单的 Zapier/Make 东西之外，这还有真正的市场吗？ 如果你真的这样做：  你发现它有利可图还是一场逐底竞争？ 客户现在实际上付钱解决什么样的问题？ 它是一次性构建还是你会得到定期保留？  只是尝试看看这是否是一项可行的业务，或者只是另一个“大师”趋势。谢谢！   由   提交 /u/Inevitable_Island984   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1sfzkib/is_anyone_actually_making_money_selling/</guid>
       <pubDate>Wed, 08 Apr 2026 17:29:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>您如何处理丢失的数据</title>
-      <link>https://www.reddit.com/r/automation/comments/1sfz51j/how_do_you_deal_with_missing_data/</link>
-      <description><![CDATA[有时工作流程会因为数据不完整而失败。 我最初没有考虑到这些情况。 现在添加后备逻辑，但它变得混乱。 如何处理丢失的数据？   由   提交/u/Solid_Play416  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sfz51j/how_do_you_deal_with_missing_data/</guid>
-      <pubDate>Wed, 08 Apr 2026 17:14:34 GMT</pubDate>
     </item>
     <item>
       <title>构建了一个自动创建和发送个性化邀请卡的 Python 工具</title>
@@ -43,16 +57,9 @@
     <item>
       <title>我构建了一个桌面工作区，让您的代理可以继续执行长期任务，而且它是免费的</title>
       <link>https://www.reddit.com/r/automation/comments/1sfv7l0/i_built_a_desktop_workspace_that_lets_your_agent/</link>
-      <description><![CDATA[      我已经为此工作了一段时间，终于将 OSS 桌面/运行时路径形成了我感觉很好的形状，在这里分享。它绝对有助于自动化您的工作流程。 它被称为 Holaboss。基本上，它是一个桌面工作区加上运行时，让代理可以进行正在进行的工作，而不仅仅是回答提示。因此，您不仅可以与本地模特聊天，还可以执行以下操作： 收件箱管理  端到端运行您的收件箱 草稿、回复、跟进 随着时间的推移不断发现和培育新的潜在客户  销售 CRM  摆脱您的联系人电子表格 管理对话 更新 CRM 状态 保持出站和后续持续运行  DevRel  读取您的 GitHub 活动、提交、PR、发布 不断用您的声音发布更新 让您专注于构建  社交运营商  运营您的 Twitter、LinkedIn、Reddit 编写内容 分析绩效 随着时间的推移迭代您的内容策略  它还可以让您随工作空间移动员工的设置，以便环境、工具和技能随工作一起移动。 重点是本地模型推理只是一层。 Holaboss 处理其周围的工作层，规则所在的位置、未完成的工作所在的位置、可重用过程所在的位置以及本地设置明天可以返回而不会丢失线程的位置。 设置现在很简单： 设置步骤  启动并拉取一个小模型，例如 qwen2.5:0.5b 运行npm rundesktop:install 复制desktop/.env.example到desktop/.env 运行npm rundesktop:dev 在Settings to Models中，将其指向http://localhost:11434/v1  现在是OSS桌面路径首先是 macOS，然后是 Windows 和 Linux。 希望这里的人们能够尝试一下。如果感觉有用，那就意义重大。 很高兴回答有关连续性、会话恢复和自动化的问题。   由   提交/u/aloo__pandey   [链接] [评论] ]]></description>
+      <description><![CDATA[      我已经为此工作了一段时间，终于将 OSS 桌面/运行时路径形成了我感觉很好的形状，在这里分享。它绝对有助于自动化您的工作流程。 它被称为 Holaboss。基本上，它是一个桌面工作区加上运行时，让代理可以进行正在进行的工作，而不仅仅是回答提示。因此，您不仅可以与本地模特聊天，还可以执行以下操作： 收件箱管理  端到端运行您的收件箱 草稿、回复、跟进 随着时间的推移不断发现和培育新的潜在客户  销售 CRM  摆脱您的联系人电子表格 管理对话 更新 CRM 状态 保持出站和后续持续运行  DevRel  读取您的 GitHub 活动、提交、PR、发布 不断用您的声音发布更新 让您专注于构建  社交运营商  运营您的 Twitter、LinkedIn、Reddit 编写内容 分析绩效 随着时间的推移迭代您的内容策略  它还可以让您随工作空间移动员工的设置，以便环境、工具和技能随工作一起移动。 重点是本地模型推理只是一层。 Holaboss 处理其周围的工作层，规则所在的位置、未完成的工作所在的位置、可重用过程所在的位置以及本地设置明天可以返回而不会丢失线程的位置。 设置现在很简单： 设置步骤  启动并拉取一个小模型，例如 qwen2.5:0.5b 运行npm rundesktop:install 复制desktop/.env.example到desktop/.env 运行npm rundesktop:dev 在Settings to Models中，将其指向http://localhost:11434/v1  现在是OSS桌面路径首先是 macOS，Windows 和 Linux 正在进行中。 希望这里的人们能够尝试一下。如果感觉有用，那就意义重大。 很高兴回答有关连续性、会话恢复和自动化的问题。   由   提交/u/aloo__pandey   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1sfv7l0/i_built_a_desktop_workspace_that_lets_your_agent/</guid>
       <pubDate>Wed, 08 Apr 2026 14:55:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于那些管理团队，您通过自动化哪些流程来提高效率或减少来回？</title>
-      <link>https://www.reddit.com/r/automation/comments/1sftgaj/for_those_managing_teams_what_processes_have_you/</link>
-      <description><![CDATA[哪一项自动化能够真正改善您的工作与生活平衡？  您在工作中成功实现自动化的最耗时的任务是什么？ 诸如任务分配、报告、跟踪等之类的事情 如果有人将其用于营销或内容工作流程？   由   提交 /u/iamlvpreet   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sftgaj/for_those_managing_teams_what_processes_have_you/</guid>
-      <pubDate>Wed, 08 Apr 2026 13:51:21 GMT</pubDate>
     </item>
     <item>
       <title>失去了一笔交易，因为 zap 没有运行并且没有人注意到</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[嗨， 最近，我一直在深入研究项目的自动化工作流程，因为我曾经使用 Bubble 和 retool，但希望对后端自动化任务有更多控制。我最终在手动执行重复性管理工作方面遇到了突破点，因此我决定认真投入时间来构建一些合适的系统。 我一直在尝试设置多个自动化，从自动化客户端登录序列到跨不同应用程序同步内部任务流。我决定使用 n8n，因为它具有灵活性（并且可以避免 Zapier 的定价等级），并且当工作流程实际完美运行时，感觉就像魔法一样。过去需要数小时运行的流程几乎免提，这真是太棒了。 但我必须说实话：作为一个初学者，我发现 n8n 的学习曲线非常陡峭。 就上下文而言，我不是技术人员，并且从基本的“如果-这-那么-那”转向了“如果-这-那么-那”。突然需要理解 JSON 结构、映射数组和调试这些超级不清楚的错误消息的逻辑有点伤害我的大脑。我可以清楚地看到该工具的巨大潜力，但现在，我认为需要 20 分钟的设置通常最终会花费我 6 个小时的反复试验。我知道我还是个初学者，但说实话，不应该有这样的感觉。 我只是想了解一下其他人在做什么，我想了解一下你们现在的自动化首选工具是什么？  你们都主要坚持使用 n8n 并只是通过技术部分来实现吗？ 你们更喜欢 Make 的视觉布局吗？ 或者你们只是在吃 Zapier 的成本，因为它更容易维护？  对于那些 n8n 信徒，你们是如何克服最初的初学者障碍的？您有什么建议、最喜欢的适合初学者的设置，或者“我希望我开始时就知道这一点”吗？您可以分享哪些经验教训？ 我很想听听其他人现在如何简化他们的工作，也许还可以得到一些建议，这样我就不会在下一个项目中费尽心思。   由   提交 /u/Flimsy-Leg6978   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1sfmp7t/state_of_automation_in_2026_are_you_powering/</guid>
       <pubDate>Wed, 08 Apr 2026 08:12:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解机器人流程自动化平台在现代工作流程中的作用</title>
-      <link>https://www.reddit.com/r/automation/comments/1sflcuu/understanding_the_role_of_robotic_process/</link>
-      <description><![CDATA[机器人流程自动化平台已成为现代业务运营不可或缺的一部分，特别是在重复性、基于规则的任务很常见的环境中。这些平台使组织能够实现数据输入、报告和系统集成等流程的自动化，从而提高效率并减少错误。 RPA 平台的主要优势之一是能够跨多个系统进行操作，而无需深度集成。这使得它们对于拥有遗留系统或分散技术堆栈的组织特别有用。 但是，实施 RPA 平台需要仔细规划。必须明确定义流程，并考虑潜在的例外情况。如果没有适当的设计，自动化可能会导致不一致或需要频繁调整。 另一个考虑因素是治理。随着自动化变得越来越普遍，组织需要建立明确的指导方针来管理和维护工作流程。这包括监控性能、处理错误以及确保符合业务要求。 RPA 平台提供了显着的优势，但其成功取决于深思熟虑的实施和持续管理。 使用机器人流程自动化平台时如何进行治理和监督？   由   提交 /u/im04p   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sflcuu/understanding_the_role_of_robotic_process/</guid>
-      <pubDate>Wed, 08 Apr 2026 06:49:37 GMT</pubDate>
     </item>
     </channel>
 </rss>
