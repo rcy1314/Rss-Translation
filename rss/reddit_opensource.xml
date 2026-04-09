@@ -4,20 +4,20 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 09 Apr 2026 10:17:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 13:53:55 GMT</lastBuildDate>
+    <item>
+      <title>Show & Tell：开源 RAG 管道，其中每个阶段都是可交换插件</title>
+      <link>https://www.reddit.com/r/opensource/comments/1sgnsdk/show_tell_opensource_rag_pipeline_where_every/</link>
+      <description><![CDATA[我们开源了一个围绕一个想法构建的 RAG 管道：每个阶段（分块、PII 编辑、去重、嵌入、索引、检索）都是一个独立的插件，您可以在不接触管道其余部分的情况下进行交换。 results = mlodaAPI.run_all( features=[“docs__pii_redacted__chunked__deduped__embedded”], ... )  想要停止分块吗？  `“docs__pii_redacted__chunked”`。  想要跳过重复数据删除吗？  `“docs__pii_redacted__chunked__embedded”`。  想要添加评估吗？ `“docs__pii_redacted__chunked__embedded_evaluation”`。  动机来自于调试。我将词块划分器从固定大小改为基于句子，检索召回率下降了 15%。端到端评估只是告诉我“情况更糟”。没有帮助。我需要知道哪个阶段坏了。动机来自调试。我将词块划分器从固定大小改为基于句子，检索召回率下降了 15%。端到端评估只是告诉我“情况更糟”。  因此管道的结构为一系列命名阶段： 每个阶段都是其自己的插件。您可以交换任何阶段并在链中的该点重新运行 eval。这使得调试成为一个单变量问题，而不是“更改分块器、重新嵌入、重新索引、重新检索、希望最好的结果”。情况。每个阶段都有自己的插件。您可以交换任何阶段并在链中的该点重新运行 eval。这使得调试成为一个单变量问题，而不是“更改分块器、重新嵌入、重新索引、重新检索、希望最好的结果”。情况。 还有一个具有相同结构的图像管道：预处理、PII 编辑（模糊/像素化/填充）、用于重复数据删除的感知哈希、CLIP 嵌入。 内置 eval 运行 Recall@K、Precision、NDCG 和 MAP 对照 BEIR 基准 (SciFact)，因此您得到的是数字，而不是振动。内置 eval 运行 Recall@K，精度、NDCG 和 MAP 与 BEIR 基准 (SciFact) 相比较，因此您得到的是数字，而不是振动。 并非此处介绍的所有内容都有效，但大部分都有效。我们正在弄清楚这是否有趣或者不值得阅读/讨论。我们将不胜感激这方面的任何反馈。 https://github.com/mloda-ai/rag_integration   由   提交 /u/coldoven   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1sgnsdk/show_tell_opensource_rag_pipeline_where_every/</guid>
+      <pubDate>Thu, 09 Apr 2026 12:09:08 GMT</pubDate>
+    </item>
     <item>
       <title>OSS-Health-Monitor：简单的 Github 徽章，可让您轻松显示存储库中的工作量。</title>
       <link>https://www.reddit.com/r/opensource/comments/1sgke6d/osshealthmonitor_simple_github_badge_that_allows/</link>
       <description><![CDATA[最近，OOS 世界中开始出现很多“hit and go”项目。他们通常会很快在某些承诺上获得很多星星，然后作者很快就会消失，这实际上损害了其他没有那么多宣传的替代方案的可发现性。 为了帮助更轻松地区分您的项目，我制作了一个简单的徽章，可以一目了然地显示投入的实际努力。  它不会判断存储库，而只是提供对一些重要指标的快速访问：存储库的年龄、提交总数、提交之间的平均时间以及自上次提交以来的时间。就是这样。结论留给观众做出。 要显示您的存储库的徽章，只需将所有者/存储库路径替换为您自己的 GitHub 用户名和存储库名称。例如，对于 ffmpeg/ffmpeg： [![FFmpeg Health](https://oss-health-monitor.vercel.app/api/badge/ffmpeg/ffmpeg)](https://github.com/volotat/OSS-Health-Monitor)  源代码： https://github.com/volotat/OSS-Health-Monitor   由   提交 /u/Another__one   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1sgke6d/osshealthmonitor_simple_github_badge_that_allows/</guid>
       <pubDate>Thu, 09 Apr 2026 09:05:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为我的 50 多个死亡 github 存储库构建了一个开源死亡证明生成器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1sgkauq/i_built_an_opensource_death_certificate_generator/</link>
-      <description><![CDATA[       您粘贴公共存储库 URL，它： - 分析存储库活动 - 指定死亡原因 - 将最后一次提交作为其“遗言” - 生成可共享的死亡证明  实时： https://commitmentissues.dev 代码：https://github.com/dotsystemsdevs/commitmentissues   由   提交/u/Ecstatic-Basil-4059   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1sgkauq/i_built_an_opensource_death_certificate_generator/</guid>
-      <pubDate>Thu, 09 Apr 2026 09:00:13 GMT</pubDate>
     </item>
     <item>
       <title>从头开始构建哈维式表格审查，但更好</title>
@@ -78,7 +78,7 @@
     <item>
       <title>开源感谢日</title>
       <link>https://www.reddit.com/r/opensource/comments/1sf4s1o/open_source_appreciation_day/</link>
-      <description><![CDATA[最后一刻提醒：不久前，有人谈到宣布设立一个日子来庆祝开源软件，并向最喜欢的软件项目捐赠一点东西。这一天（07.04.）很合适，因为它标志着 Linus Torvalds 发布了 Git。去支持你最喜欢的开源项目吧！让我们开始一个好习惯吧！ p.s.我今年很欣赏 tzapu 的 WifiManager，但找不到捐赠方式🫠   由   提交/u/recursive_knight   [链接] [评论]]]></description>
+      <description><![CDATA[最后一刻提醒：不久前，有人谈到宣布设立一个日子来庆祝开源软件，并向最喜欢的软件项目捐赠一点东西。这一天（07.04.）很合适，因为它标志着 Linus Torvalds 发布了 Git。去支持你最喜欢的开源项目吧！让我们开始一个好习惯吧！ p.s.我今年很欣赏 tzapu 的 WifiManager，但找不到捐赠方式🫠   由   提交 /u/recursive_knight   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1sf4s1o/open_source_appreciation_day/</guid>
       <pubDate>Tue, 07 Apr 2026 18:41:19 GMT</pubDate>
     </item>
