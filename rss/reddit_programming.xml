@@ -4,7 +4,14 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 08 Apr 2026 21:49:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 02:45:07 GMT</lastBuildDate>
+    <item>
+      <title>Pizza Tycoon (1994) 如何在 25 MHz CPU 上模拟流量</title>
+      <link>https://www.reddit.com/r/programming/comments/1sg6y9x/how_pizza_tycoon_1994_simulated_traffic_on_a_25/</link>
+      <description><![CDATA[ 由   提交 /u/Optdev   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sg6y9x/how_pizza_tycoon_1994_simulated_traffic_on_a_25/</guid>
+      <pubDate>Wed, 08 Apr 2026 22:00:30 GMT</pubDate>
+    </item>
     <item>
       <title>荒谬的工作流程：仅使用 Postgres 即可实现持久执行</title>
       <link>https://www.reddit.com/r/programming/comments/1sg5koq/absurd_workflows_durable_execution_with_just/</link>
@@ -34,11 +41,25 @@
       <pubDate>Wed, 08 Apr 2026 19:08:00 GMT</pubDate>
     </item>
     <item>
+      <title>用纯 C 实现 C++ STL 容器——我学到了什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1sg1apu/implementing_c_stl_containers_in_pure_c_what_i/</link>
+      <description><![CDATA[我一直在尝试使用 C99 宏和可变分派将 C++ STL 样式容器（向量、列表、双端队列、集合、映射、堆栈、队列、priority_queue、unordered_set、unordered_map）实现为单头 C 库。 目标是看看您可以在纯 C 中实现与 C++ STL 接口的接近程度 — 相同的函数名称例如 push_back、insert、erase、find、begin/end - 不需要 C++ 编译器。 出现了一些有趣的设计挑战： 1.括号访问 (v[i]) 对于 VECTOR 和 DEQUE，句柄只是指向数据区域的 *，因此 v[i] 自然地用作指针算术。元数据（大小、容量）存储在指针地址之前。这也意味着您可以直接将向量传递给 qsort 或 bsearch 而无需包装器。 ```c VECTOR(int) v = new_vector(int); for (int i = 0; i &lt; 10; i++) Push_back(v, i); qsort(v, size(v), sizeof(int), my_cmp); // 正常 printf(&quot;%d&quot;, v[3]); // 括号访问 destroy(v); ```` 2. C 中的变量重载 使用宏参数计数，不同的参数计数分派到不同的行为： c insert(v, v + 3, 777); // 在位置插入单个值 insert(v, v + 5, 3, 999); // 在位置插入 N 个副本 这模仿了本身没有 _Generic 的 C++ 重载 - 它纯粹是基于参数计数的预处理器驱动的调度。 3.跨容器类型的统一 API 相同的 insert、erase、find 名称适用于所有容器类型。单个宏根据容器的内部标记路由到正确的实现。基于节点的容器（列表、集合、映射）使用 next(it) / prev(it) 进行迭代，而不是 it++。 ```c // Dijkstra with VECTOR + PRIORITY_QUEUE typedef struct { int cost, to; } Edge; int Compare_edge(const void a, const void *b) { return ((Edge)a)-&gt;cost &gt;; ((Edge)b)-&gt;成本？ -1 : ((Edge)a)-&gt;成本&lt; ((Edge*)b)-&gt;成本； } int dijkstra(Edge *graph, int src) { VECTOR(int) dist = new_vector(int);队列（边缘） pq = new_priority_queue（边缘，compare_edge）;分配（距离，大小（图），99999）；距离[源] = 0; Push(pq, (Edge){0, src}); while (!empty(pq)) { Edge e = top(pq);弹出（pq）； for (int i = 0; i &lt; size(graph[e.to]); i++) { int next_to = graph[e.to][i].to; } int new_cost = dist[e.to] + graph[e.to][i].cost; if (dist[next_to] &gt; new_cost) { dist[next_to] = new_cost; }推（pq，（边缘）{new_cost，next_to}）; } } } 销毁（pq）；返回距离；  } ``` 编译器兼容性是另一个兔子洞 - 让它在 MSVC、GCC、Clang、MinGW64、icx-cc 和 TCC 上工作需要相当多的条件预处理，特别是在 __VA_ARGS__ 处理差异方面。 如果有人想查看宏内部结构，源代码在这里：https://github.com/springkim/OpenCSTL 好奇人们对这种方法的看法。有没有其他人尝试过用 C 语言构建类似 STL 的抽象？你做了什么权衡？我对关于括号访问的指针前元数据技巧的意见特别感兴趣 - 它工作得很好，但感觉有点被诅咒。   由   提交/u/springnode  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sg1apu/implementing_c_stl_containers_in_pure_c_what_i/</guid>
+      <pubDate>Wed, 08 Apr 2026 18:31:09 GMT</pubDate>
+    </item>
+    <item>
       <title>Rust CLI 的技术拆解使我们的测试速度提高了 6 倍</title>
       <link>https://www.reddit.com/r/programming/comments/1sfxtj7/technical_teardown_of_the_rust_cli_that_speeds_up/</link>
       <description><![CDATA[我们的实习生 Jacob 描述了 Offload 的内部架构，这是一个开源工具，用于在商用远程沙箱上运行集成测试套件。通过为每次测试运行并行分配多个沙箱，我们可以大大缩短测试运行时间，但代价是主机上的管理成本。 本文详细介绍了该工具的架构。   由   提交 /u/nvader   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1sfxtj7/technical_teardown_of_the_rust_cli_that_speeds_up/</guid>
       <pubDate>Wed, 08 Apr 2026 16:28:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>深入研究 Turso，“用 Rust 重写 SQLite”</title>
+      <link>https://www.reddit.com/r/programming/comments/1sfxc3r/deep_dive_into_turso_the_sqlite_rewrite_in_rust/</link>
+      <description><![CDATA[ 由   提交/u/awesomePop7291   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sfxc3r/deep_dive_into_turso_the_sqlite_rewrite_in_rust/</guid>
+      <pubDate>Wed, 08 Apr 2026 16:11:17 GMT</pubDate>
     </item>
     <item>
       <title>为 Typescript 构建 Rust 运行时</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[我认为这是一个看似有争议的观点，但它追溯了一个相当可共享的历史先例（Joda-Time 案例）以及如何将其应用于正则表达式世界，有点像随着 jOOQ 的出现从手动 SQL 和原始字符串的过渡。   由   提交 /u/Mirko_ddd   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1sfnk1y/regex_are_not_the_problem_strings_are/</guid>
       <pubDate>Wed, 08 Apr 2026 09:05:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>C++26 中的散列</title>
-      <link>https://www.reddit.com/r/programming/comments/1sfmt0l/hashing_in_c26/</link>
-      <description><![CDATA[ 由   提交/u/Krystian-Piekos   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sfmt0l/hashing_in_c26/</guid>
-      <pubDate>Wed, 08 Apr 2026 08:19:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>[arXiv] 行业中的 REST API 模糊测试：必要的功能和未解决的问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1sfm5e0/arxiv_fuzzing_rest_apis_in_industry_necessary/</link>
-      <description><![CDATA[这是一篇技术学术文章，介绍了如何引入 REST API 的开源模糊器并开始在大众汽车使用    由   提交/u/arcuri82  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sfm5e0/arxiv_fuzzing_rest_apis_in_industry_necessary/</guid>
-      <pubDate>Wed, 08 Apr 2026 07:38:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>超越索引：开放表格式如何优化查询性能 — Jack Vanlightly</title>
-      <link>https://www.reddit.com/r/programming/comments/1sfm3hs/beyond_indexes_how_open_table_formats_optimize/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sfm3hs/beyond_indexes_how_open_table_formats_optimize/</guid>
-      <pubDate>Wed, 08 Apr 2026 07:35:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
