@@ -4,20 +4,97 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 10 Apr 2026 10:10:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 21:38:51 GMT</lastBuildDate>
     <item>
-      <title>你的人工智能代理记得昨天。</title>
-      <link>https://www.reddit.com/r/programming/comments/1shh0k0/your_ai_agents_remember_yesterday/</link>
-      <description><![CDATA[AIPass 您的 AI 代理会记得昨天。 本地多代理框架，您的 AI 助手在会话之间保留记忆，在同一代码库上协同工作，并且永远不会要求您重新解释   由   提交 /u/Input-X   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1shh0k0/your_ai_agents_remember_yesterday/</guid>
-      <pubDate>Fri, 10 Apr 2026 08:52:22 GMT</pubDate>
+      <title>在 AWS 工作了 20 年，但从来都不是我的工作</title>
+      <link>https://www.reddit.com/r/programming/comments/1sipvi3/20_years_on_aws_and_never_not_my_job/</link>
+      <description><![CDATA[ 由   提交 /u/Successful_Bowl2564   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sipvi3/20_years_on_aws_and_never_not_my_job/</guid>
+      <pubDate>Sat, 11 Apr 2026 17:52:14 GMT</pubDate>
     </item>
     <item>
-      <title>我用 Rust 从头开始​​构建了一个微内核（系列 5 部分：启动、IPC、抢占、虚拟内存）</title>
-      <link>https://www.reddit.com/r/programming/comments/1sh6n4d/i_built_a_microkernel_from_scratch_in_rust_5part/</link>
-      <description><![CDATA[我在工作之间有一些空闲时间，终于做了多年来我想做的事情：从头开始构建操作系统内核。 这些天我主要从事 AI/ML 工作，但我想重新审视基础知识，更好地理解我们每天使用的抽象背后的内容。 因此，我用 Rust 构建了一个小型微内核并记录了整个过程。在模拟 ARM 机器上启动，处理任务通信，支持带中断的抢占式调度，并使用页表 + MMU 启用虚拟内存。 对我来说最有趣的收获是：现代系统概念感觉“神奇”，直到您自己构建一个最小版本。然后你意识到它们只是精心设计和权衡的层层。 从这里开始（第 0 部分）：[https://blog.desigeek.com/post/2026/02/building-microkernel-part0-why-build-an-os/](vscode-file://vscode-app/c:/Users/Amit/AppD ata/Local/Programs/Microsoft%20VS%20Code/e7fb5e96c0/resources/app/out/vs/code/electron-browser/workbench/workbench.html) GitHub 存储库：https://github.com/bahree/rust-microkernel  如果您想了解从启动到虚拟内存的整个构建过程，第 0 部分在顶部和底部提供了完整的 5 部分系列的链接。 我不是操作系统专家，只是分享我学到的知识，以防它对其他好奇的开发人员有用。 😊   由   提交/u/amitbahree  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sh6n4d/i_built_a_microkernel_from_scratch_in_rust_5part/</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:42 GMT</pubDate>
+      <title>将运行时行为注入现有代码而不修改源代码</title>
+      <link>https://www.reddit.com/r/programming/comments/1sijqm5/injecting_runtime_behavior_into_existing_code/</link>
+      <description><![CDATA[我一直在尝试一种在运行时将行为注入现有代码而不修改原始源代码的模式。 该方法将执行分为两层： • 第 1 层：原始代码（未更改，字节相同） • 第 2 层：添加行为的运行时包装器  实现 每个函数在运行时动态包装： function wrap(targetFn) { return (...args) =&gt;; { // 执行前行为 const result = targetFn(...args) // 执行后行为 返回结果 } } 包装器根据行为类型组成： • 拦截→ 输入验证/阻塞• 状态→ 捕获并持久输出• 执行→ 重试/失败处理 • 分析 → 执行计时 + 异常检测  ⸻ 关键属性 原始文件保持完全不变。 所有行为均在执行时从外部应用。 ⸻ 权衡 此模式的行为与中间件或 AOP 类似，但有一些区别： • 改为运行后构建集成点 • 不需要修改或分叉源代码 • 引入可能使调试更加困难的间接性 • 严重依赖于对函数边界的运行时控制  什么地方有用 • 对第三方代码进行改进行为 • 在不修改源代码的情况下添加可观察性 • 在大型系统中强制执行横切关注点  限制 • 如果函数签名发生变化，则很脆弱 • 更难比显式代码路径的原因 • 在内部状态无法从外部访问的情况下受到限制    由   提交/u/KennethSweet   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sijqm5/injecting_runtime_behavior_into_existing_code/</guid>
+      <pubDate>Sat, 11 Apr 2026 13:54:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建隐私优先的应用程序时缺少什么？</title>
+      <link>https://www.reddit.com/r/programming/comments/1sijeo8/what_is_missing_when_building_privacyfirst_apps/</link>
+      <description><![CDATA[许多开发人员了解静态和传输中加密数据的需求。因此，当有人构建声称隐私优先的产品时，他们会引用在后端的这些端点处对数据进行加密的情况。但是，当需要处理应用程序的数据时，一切都以明文形式完成，直到需要传输或不需要为止。数据处理是开发人员当前构建应用程序的方式中存在差距的地方。 我写了一篇简短的文章，介绍多方计算如何帮助保护正在使用的数据。  我很好奇其他程序员在构建隐私优先的应用程序时如何处理数据。我也很想知道隐私优先的应用程序对您意味着什么！ TIA！   由   提交/u/badcryptobitch  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sijeo8/what_is_missing_when_building_privacyfirst_apps/</guid>
+      <pubDate>Sat, 11 Apr 2026 13:40:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建可视化 EXPLAIN 以更快地理解数据库查询计划</title>
+      <link>https://www.reddit.com/r/programming/comments/1sib0bn/building_a_visual_explain_to_understand_database/</link>
+      <description><![CDATA[ 由   提交/u/debba_  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sib0bn/building_a_visual_explain_to_understand_database/</guid>
+      <pubDate>Sat, 11 Apr 2026 06:06:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>为 GitHub 的正常运行时间不佳辩护</title>
+      <link>https://www.reddit.com/r/programming/comments/1si6bvi/in_defense_of_githubs_poor_uptime/</link>
+      <description><![CDATA[ 由   提交/u/Ok-Squirrel8537   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1si6bvi/in_defense_of_githubs_poor_uptime/</guid>
+      <pubDate>Sat, 11 Apr 2026 02:10:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何与播客嘉宾 Gwen Shapira 从 Oracle 转到 Postgres（绕了一个很大的 NoSQL 弯路）</title>
+      <link>https://www.reddit.com/r/programming/comments/1si4gj5/how_i_went_from_oracle_to_postgres_with_a_big/</link>
+      <description><![CDATA[ 由   提交 /u/clairegiordano   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1si4gj5/how_i_went_from_oracle_to_postgres_with_a_big/</guid>
+      <pubDate>Sat, 11 Apr 2026 00:44:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>从头开始浮点：硬模式</title>
+      <link>https://www.reddit.com/r/programming/comments/1shxle1/floating_point_from_scratch_hard_mode/</link>
+      <description><![CDATA[ 由   提交/u/NXGZ   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shxle1/floating_point_from_scratch_hard_mode/</guid>
+      <pubDate>Fri, 10 Apr 2026 20:05:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用 XSLT 分析大型 XML 数据集</title>
+      <link>https://www.reddit.com/r/programming/comments/1shu7ta/using_xslt_to_analyse_large_xml_datasets/</link>
+      <description><![CDATA[ 由   提交/u/13utters  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shu7ta/using_xslt_to_analyse_large_xml_datasets/</guid>
+      <pubDate>Fri, 10 Apr 2026 18:03:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>在没有 CGO 的情况下用纯 Go 解析 11 种语言：用树托管运行时替换正则表达式</title>
+      <link>https://www.reddit.com/r/programming/comments/1shroof/parsing_11_languages_in_pure_go_without_cgo/</link>
+      <description><![CDATA[ 由   提交/u/Familiar-Classroom47  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shroof/parsing_11_languages_in_pure_go_without_cgo/</guid>
+      <pubDate>Fri, 10 Apr 2026 16:34:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用便捷方法装饰 Promise，无需子类化、包装或更改等待返回的内容</title>
+      <link>https://www.reddit.com/r/programming/comments/1sho9px/decorating_a_promise_with_convenience_methods/</link>
+      <description><![CDATA[ 由   提交 /u/OtherwisePush6424   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1sho9px/decorating_a_promise_with_convenience_methods/</guid>
+      <pubDate>Fri, 10 Apr 2026 14:33:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用模型检查器重现 AWS 中断竞争条件</title>
+      <link>https://www.reddit.com/r/programming/comments/1shmtl3/reproducing_the_aws_outage_race_condition_with_a/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shmtl3/reproducing_the_aws_outage_race_condition_with_a/</guid>
+      <pubDate>Fri, 10 Apr 2026 13:38:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netflix 大规模安全自动化的秘密 • Aubrey Chipman 和 Roberto Perez Alcolea</title>
+      <link>https://www.reddit.com/r/programming/comments/1shkw31/netflixs_secret_to_safe_automation_at_scale/</link>
+      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shkw31/netflixs_secret_to_safe_automation_at_scale/</guid>
+      <pubDate>Fri, 10 Apr 2026 12:18:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>试衣间类比解释平衡括号问题</title>
+      <link>https://www.reddit.com/r/programming/comments/1shjwrh/fitting_room_analogy_to_explain_the_balanced/</link>
+      <description><![CDATA[学习编程时，经常出现的一个问题是检查一系列括号（允许的任何类型()[]{}）是否平衡。 例如： (())()  是有效的，但是 ())(  不是。 如果我们使用一个类比，这个问题很容易解决。想象一下有人正在试衣服的试衣间。  每个 (、[ 或 { 意味着穿上一件衣服 每个 )、] 或 } 意味着脱下一件衣服  符合现实生活的三个简单规则：  你不能脱掉你从未穿过的衣服。 如果你上面有东西，你就不能脱掉它。 当你离开试衣间时，你不应该仍然穿着你试穿的衣服。  这基本上就是堆栈数据结构背后的整个想法，在这篇文章中，我将详细介绍它。 一步一步，交互式示例，遵循我第一次遇到这个问题时的相同思路（不是思路；）。  /u/guiferviz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1shjwrh/fitting_room_analogy_to_explain_the_balanced/</guid>
+      <pubDate>Fri, 10 Apr 2026 11:32:23 GMT</pubDate>
     </item>
     <item>
       <title>构建我的游戏引擎的五年泰勒</title>
@@ -32,83 +109,6 @@
       <description><![CDATA[ 由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1sh4li2/one_method_was_using_71_of_cpu_heres_the_flame/</guid>
       <pubDate>Thu, 09 Apr 2026 22:34:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>我写了一个 PostgreSQL 补丁来使物化视图刷新 O(delta) 而不是 O(total)</title>
-      <link>https://www.reddit.com/r/programming/comments/1sh4ehp/i_wrote_a_postgresql_patch_to_make_materialized/</link>
-      <description><![CDATA[ 由   提交 /u/Inkbot_dev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sh4ehp/i_wrote_a_postgresql_patch_to_make_materialized/</guid>
-      <pubDate>Thu, 09 Apr 2026 22:26:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>AWS Lambda“死亡之吻”</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgzwez/the_aws_lambda_kiss_of_death/</link>
-      <description><![CDATA[ 由   提交/u/tkyjo​​nathan  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgzwez/the_aws_lambda_kiss_of_death/</guid>
-      <pubDate>Thu, 09 Apr 2026 19:37:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>Typescript 的 6 大想法</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgx97c/the_6_big_ideas_of_typescript/</link>
-      <description><![CDATA[ 由   提交/u/hallettj   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgx97c/the_6_big_ideas_of_typescript/</guid>
-      <pubDate>Thu, 09 Apr 2026 18:03:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>Tailslayer：针对 DRAM 刷新延迟的对冲读取解决方案</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgtkdf/tailslayer_a_hedged_reads_solution_for_dram/</link>
-      <description><![CDATA[ 由   提交/u/mennydrives  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgtkdf/tailslayer_a_hedged_reads_solution_for_dram/</guid>
-      <pubDate>Thu, 09 Apr 2026 15:53:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>多少线性内存访问就足够了？ （可能小于 128 kB）</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgqbl6/how_much_linear_memory_access_is_enough_probably/</link>
-      <description><![CDATA[内存访问模式的典型性能建议是“保持数据连续”。仔细想想，这肯定会带来收益递减。 我尝试通过实验找到可推广的准则，看来 128 kB 对于大多数情况来说就足够了。我找不到真正需要超过 1 MB 的任何内容（在规则范围内）。   由   提交 /u/PhilipTrettner   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgqbl6/how_much_linear_memory_access_is_enough_probably/</guid>
-      <pubDate>Thu, 09 Apr 2026 13:55:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>环境变量是一个遗留的混乱：让我们深入研究它们</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgpy96/environment_variables_are_a_legacy_mess_lets_dive/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgpy96/environment_variables_are_a_legacy_mess_lets_dive/</guid>
-      <pubDate>Thu, 09 Apr 2026 13:40:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rust 中的 HTTP 服务器（适用于 JavaScript 开发人员）</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgpom9/http_server_in_rust_for_javascript_developers/</link>
-      <description><![CDATA[ 由   提交/u/apatheticonion  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgpom9/http_server_in_rust_for_javascript_developers/</guid>
-      <pubDate>Thu, 09 Apr 2026 13:30:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>Unity 2026 中的 C#：大多数开发人员仍然不使用的功能</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgp9d2/c_in_unity_2026_features_most_developers_still/</link>
-      <description><![CDATA[ 由   提交 /u/KwonDarko   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgp9d2/c_in_unity_2026_features_most_developers_still/</guid>
-      <pubDate>Thu, 09 Apr 2026 13:13:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>NASA 如何构建 Artemis II 的容错计算机</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgnbec/how_nasa_built_artemis_iis_faulttolerant_computer/</link>
-      <description><![CDATA[ 由   提交 /u/Successful_Bowl2564   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgnbec/how_nasa_built_artemis_iis_faulttolerant_computer/</guid>
-      <pubDate>Thu, 09 Apr 2026 11:47:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>面向软件开发人员的 USB</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgmxq2/usb_for_software_developers/</link>
-      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgmxq2/usb_for_software_developers/</guid>
-      <pubDate>Thu, 09 Apr 2026 11:28:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>信号不能保证 - e2e 测试所说的内容与实际检查的内容之间不匹配</title>
-      <link>https://www.reddit.com/r/programming/comments/1sgkrif/signals_are_not_guarantees_the_mismatch_between/</link>
-      <description><![CDATA[一个月前，我开源了一个 Playwright 辅助库。它上线了大约两周，下载了 300 次 - 全部都是我下载的 😅  r/Playwright 社区是公平的：框架太多了。我花了几个星期的时间思考什么才是真正重要的，我真正想表达的是什么。它归结为一个想法、一个小助手和这篇文章。 tldr：大多数 e2e 测试对行为的当前 UI 表示进行编码，而不是行为本身。它们检查信号（可见性、文本内容、启用状态），而不是测试实际上承诺保护的事实。我认为信号、状态和承诺之间存在有用的区别，这使得测试更安静、更有弹性。 如果您有兴趣，请阅读它，我将不胜感激。如果没有，也许让我知道我可以做得更好！感谢任何反馈，并乐意参与讨论:) 我将在评论中删除帮助程序的要点。   由   提交/u/TranslatorRude4917   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sgkrif/signals_are_not_guarantees_the_mismatch_between/</guid>
-      <pubDate>Thu, 09 Apr 2026 09:28:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
