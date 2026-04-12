@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 12 Apr 2026 07:22:44 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 09:52:01 GMT</lastBuildDate>
+    <item>
+      <title>Hitesh Sir（Chai 和 Code）怎么样？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj9w91/what_about_hitesh_sir_chai_aur_code/</link>
+      <description><![CDATA[       https://preview.redd.it/6obnd9cdaqug1.png?width=1142&amp;format=png&amp;auto=webp&amp;s=048750f02e743af2746d47ab839907f6a8ebc649 我目前正在从打字稿先生的一次性视频中学习打字稿   由   提交 /u/Chandan__0002   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj9w91/what_about_hitesh_sir_chai_aur_code/</guid>
+      <pubDate>Sun, 12 Apr 2026 09:28:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>架构建议：适用于整形外科诊所的可扩展医疗 CRM（React + Supabase 与 Cloudflare 生态系统）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj94bw/architecture_advice_scalable_medical_crm_for/</link>
+      <description><![CDATA[大家好， ​我正在为一家拥有两名医生的整形外科诊所构建自定义管理系统 (CRM)。我需要处理预约、提醒、日程安排、患者记录以及文献和媒体文件。 ​关键要求：​日程安排：需要强大的时段管理系统。我计划将 Google 日历集成为“安全/备份”功能。外层。​存储：每个患者文件将包含多个文档和高分辨率图像（手术前/术后）。随着时间的推移，这一数字将显着增长。​可维护性：客户希望逐步添加功能。我需要一个模块化的、“低维护”的系统设置。 ​我当前的技术堆栈想法：​前端：React。​后端/Auth/DB：Supabase + Edge Functions。日历：Google 日历 API 集成。​存储：Cloudflare R2（用于图像/文档），以避免标准 VPS 文件系统的限制和扩展问题。 ​困境：我在两条路径之间争论： ​混合方法（上面的方法）：Supabase 用于核心逻辑，Cloudflare R2 用于文件。它感觉很灵活，但我正在管理多个提供商。 ​VPS（自我管理）：更便宜且完全可定制，但我担心随着映像库的增长，服务器维护、安全补丁和磁盘空间管理的开销。 ​完整的 Cloudflare 生态系统：我听说过有关 D1 和 Workers 的好消息，但我不太熟悉它。将所有内容迁移到 Cloudflare 是否会更加“面向未来”？比与 Supabase 混合更易于管理？ ​具体问题：​可扩展性：我想避免“满磁盘”危机。与带有附加块的 VPS 相比，R2 是最好的选择吗？ ​复杂性与成本：我需要最易于维护的解决方案，既不会花太多钱，又不需要我成为 24/7 的系统管理员。 ​有没有更简单或更有效的方法来构建这个？是否存在任何“陷阱”？与 Google 日历同步医疗时段？ 感谢任何类型的建议 编辑：我忘了提及医生需要实时知道谁在候诊室等待，以便他们可以管理自己的时间，也许简单的轮询就足够了，也可能不够。 编辑2：我也在考虑云版本中的 appwrite 专业计划...   由   提交/u/benaltrismo   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj94bw/architecture_advice_scalable_medical_crm_for/</guid>
+      <pubDate>Sun, 12 Apr 2026 08:42:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>Angular + Inertia.js (ng-inertia)：尝试将 Angular 引入生态系统</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj7zno/angular_inertiajs_nginertia_trying_to_bring/</link>
+      <description><![CDATA[      大家好👋 我想分享一下我最近在做的事情... 众所周知，Inertia.js 对 Vue、React 和 Svelte 有很好的支持，而且它们周围的生态系统非常稳固...但是 Angular，它仍然是最广泛使用和最成熟的前端框架之一在 Inertia 世界中并没有真正存在... 所以我决定尝试自己构建这座桥梁。 “Ng-inertia” 是 Inertia.js 的 Angular 适配器，它尝试遵循与官方适配器相同的理念和 API 设计。 它目前处理：  通过 Inertia 协议进行路由 动态页面解析 布局（包括嵌套布局） 客户端导航 (inertiaLink) 表单处理 (useForm) 直接映射到组件字段的属性  设置有意简化：``ts createInertiaApp({ root: App, appConfig, importPage: (name) =&gt; import(./pages/${name}.page.ts`), }); // 页面只是 Angular 组件： @InertiaPage() @Component({standalone: true, template: {{ title }}, }) export default class HomePage { title!: string } ``` 为了让事情更具体，我还构建了一个入门套件，展示了它在真实应用程序中的工作原理。 Laravel + Angular + Inertia 入门 https://github.com/Ademking/laravel-angular-inertia-starter It结合：  Laravel 12 Angular 21 Inertia.js Vite + Tailwind  bash laravel new your-project-name --using=ademking/laravel-angular-inertia-starter  有很多 Angular 开发者可能会喜欢 Inertia方法，但没有一个可靠的适配器感觉接近“官方”体验... 这还为时过早，但核心思想正在发挥作用，我很乐意通过反馈来改进它...   由   提交/u/ademkingTN   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj7zno/angular_inertiajs_nginertia_trying_to_bring/</guid>
+      <pubDate>Sun, 12 Apr 2026 07:37:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>更新：我的投资组合现在完全动态（CRUD + 分析已完成）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj7tgz/update_my_portfolio_is_now_fully_dynamic_crud/</link>
+      <description><![CDATA[      你会如何构建一个“动态”的开发者组合？ 我一直在努力让我的组合不再那么静态，更像一个小系统。 我不再每次都编辑代码，而是尝试通过管理面板来管理事物。 到目前为止，我已经实现了： • 项目的 CRUD （添加/编辑/删除） • 基本分析跟踪（访问者、页面浏览量等） • 在管理 → 数据库 → 前端之间同步数据 这个想法是将作品集更像是 CMS 而不是静态网站。 现在我正在考虑接下来应该做什么。 您愿意吗：  保持简单（仅限项目 + 博客） 或者构建更多功能，例如联系人管理、媒体上传、功能切换等？  想知道其他人如何实现这一点 - 特别是对于个人作品集。  https://preview.redd.it/6yyic4xgopug1.png?width=2558&amp;format=png&amp;auto=webp&amp;s=d8032bb00b174d05ff199630c6c1333bad3522bf   由   提交 /u/iamspiiderman   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj7tgz/update_my_portfolio_is_now_fully_dynamic_crud/</guid>
+      <pubDate>Sun, 12 Apr 2026 07:27:20 GMT</pubDate>
+    </item>
     <item>
       <title>如果您可以在浏览器中以 160KB 而不是 20MB 运行 Python，会怎样？我正在构建一个编译器来实现它。</title>
       <link>https://www.reddit.com/r/webdev/comments/1sj780c/what_if_you_could_run_python_in_the_browser_at/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[老同学们，我们重聚吧！ 仅限积极的氛围——是时候联系、欢笑、重温美好时光了。 谁在？ ❤️   由   提交/u/Dear_Payment_7008   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1sj2hy9/old_schoolers_need_to_reunite/</guid>
       <pubDate>Sun, 12 Apr 2026 02:46:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了一个开源 Next.js 仪表板套件，具有完整的 Better-Auth 流程和 RBAC</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sj19lu/i_built_an_opensource_nextjs_dashboard_kit_with/</link>
-      <description><![CDATA[       由   提交 /u/Armauer   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sj19lu/i_built_an_opensource_nextjs_dashboard_kit_with/</guid>
-      <pubDate>Sun, 12 Apr 2026 01:46:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>Websters 1913 - 可搜索的公共领域词典</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sj0xqu/websters_1913_searchable_public_domain_dictionary/</link>
-      <description><![CDATA[      2021 年，有一个 GNU 协作项目，将 1913 年的韦氏修订版未删节词典数字化。还有一篇有点病毒式传播的 博客文章，由 James Somers 撰写。 有一个现有的网站，用于浏览这本词典，www.websters1913.com，我非常喜欢该网站，但发现自己希望它具有更多功能（和 SSL 证书）。 所以，我创建了自己的、功能更丰富的版本，我认为其他人可能会喜欢： https://websters1913.timcieplowski.com/ （如果这个网站有任何吸引力，我将购买一个合适的域名。） 这是人工智能编码工具拥有的那种有用的（我认为）周末项目大量减少执行时间；可能在某种程度上我以前不会为这个项目而烦恼。   由   提交/u/ChabaFett  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sj0xqu/websters_1913_searchable_public_domain_dictionary/</guid>
-      <pubDate>Sun, 12 Apr 2026 01:30:24 GMT</pubDate>
-    </item>
-    <item>
-      <title>网站营销</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sj0hz2/website_marketing/</link>
-      <description><![CDATA[我刚刚完成了一个项目，我真的希望人们使用它，无论他们是否一致或频繁，我只是希望人们偶尔访问它，那么，完美的营销策略或填充网站的方法是什么？   由   提交/u/AdAutomatic5665  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sj0hz2/website_marketing/</guid>
-      <pubDate>Sun, 12 Apr 2026 01:09:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>我构建了 Sardine——一个供人工智能代理进行交易的股票市场模拟器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1siy5ik/i_built_sardine_a_stock_market_simulator_for_ai/</link>
-      <description><![CDATA[我构建了 Sardine：一个基于会话的股票市场，LLM 代理通过实际的限价订单簿匹配引擎相互进行交易。没有人类，没有脚本，只有代理读取市场数据并提交实时相互结算的订单。 每个会话都运行可配置的交易品种篮子和最多任意数量的代理。交易和研究代理共享类型工具；聊天机器人可以将事件注入实时模拟（“美联储加息 50 个基点”），您可以观察市场在接下来的 N 个价格变动中的反应。 WebSocket 仪表板实时传输烛台、订单簿深度和代理活动。 Stack：Mastra（代理）、TanStack Start、Drizzle + Postgres、Bun。当您有密钥时，从 Alpaca 引导，否则为种子价格。 为什么我认为它有用：针对历史柱的回溯测试无法告诉您当其他代理对其订单做出反应时您的代理的行为方式。沙丁鱼是用来研究二阶东西的——群体动态，研究人员对新闻事件的阅读实际上如何在书中产生涟漪效应。这是一个研究环境，而不是经纪公司，我并不声称它在真实市场上有效。 Apache 2.0。很高兴在评论中深入了解架构或匹配引擎。 🔗 https://github.com/lightbearco/sardine   由   提交 /u/MistakeUseful5506   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1siy5ik/i_built_sardine_a_stock_market_simulator_for_ai/</guid>
-      <pubDate>Sat, 11 Apr 2026 23:21:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
