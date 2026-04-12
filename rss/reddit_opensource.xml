@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 12 Apr 2026 19:01:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 21:41:36 GMT</lastBuildDate>
+    <item>
+      <title>在千钧一发之后，您如何处理对开源依赖项的信任？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1sjo4az/how_do_you_handle_trust_in_opensource/</link>
+      <description><![CDATA[我最近遇到了一种情况，我维护的一个项目引入了一个小型的、广泛使用的依赖项，该依赖项在维护者移交后突然改变了行为，并且在我们在登台中发现它之前，它在生产中短暂地引入了意外的网络调用。它让我意识到我们有多么依赖传递依赖，而没有真正验证它们超出初始选择的持续完整性。对于那些使用大量第三方软件包维护生产系统的人来说，如何随着依赖关系随着时间的推移不断发展而不断评估信任并降低风险，同时又不会过多地减慢开发速度？   由   提交 /u/Abelmageto   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1sjo4az/how_do_you_handle_trust_in_opensource/</guid>
+      <pubDate>Sun, 12 Apr 2026 19:32:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>有没有适合初学者的 c++ 开放式项目（如果有指导的话我会很喜欢）？我想探索开源，并且我说我处于 C++ 的中级水平。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1sjnn0t/any_c_open_siurce_projects_for_beginnersid_love/</link>
+      <description><![CDATA[各位，你们如何找到可以从事的开源项目？你如何选择？    由   提交 /u/Mysterious_Guava3663   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1sjnn0t/any_c_open_siurce_projects_for_beginnersid_love/</guid>
+      <pubDate>Sun, 12 Apr 2026 19:14:43 GMT</pubDate>
+    </item>
     <item>
       <title>Lustra：开源政府问责平台。现场直播美国国会和人民议会。更多即将推出。</title>
       <link>https://www.reddit.com/r/opensource/comments/1sjjgpp/lustra_open_source_governments_accountability/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[我们已经为此工作了一段时间，并认为 r/opensource 会欣赏这种方法。 Locally Uncensored 是一款用于在本地运行 AI 的桌面应用程序 - 聊天、图像生成、视频生成，所有这些都无需依赖云。人们真正感兴趣的是技术堆栈和许可决策。 使用 Tauri v2（Rust 后端）而不是 Electron 构建它。区别是白天和黑夜——整个应用程序大约是 15MB，而不是 200MB+，RAM 更少，Rust 处理后端的东西，否则 Node.js 会变得一团糟。没有捆绑 chromium，只是您的系统 webview。 它连接到 12 个不同的后端（ollama、llama.cpp、koboldcpp、vllm、tabbyapi 等），并具有用于图像和视频生成的即插即用 ComfyUI 集成。基本上是试图让本地人工智能的设置变得不那么痛苦。 在 AGPL-3.0 下获得许可，因为我想确保任何修改都保持开放。如果有人在此基础上进行构建，他们必须分享回来。麻省理工学院对于那些可以轻易融入专有产品的东西感到过于宽容。 AGPL 确保社区从任何改进中受益。 v2.3.0 刚刚发布，带有 ComfyUI 集成、图像到图像、图像到视频（在 6GB VRAM 上运行）以及对 GLM、Qwen、Gemma 4 等较新模型的支持。 欢迎贡献 - 还存在很多粗糙的边缘，我宁愿听取社区的意见，而不是孤立地构建所有内容。 github: https://github.com/PurpleDoubleD/locally-uncensored   由   提交/u/GroundwritingMall54  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1shlwut/locally_uncensored_agpl30_local_ai_app_built_with/</guid>
       <pubDate>Fri, 10 Apr 2026 13:01:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>“人们如何在不紧密耦合的情况下跨本地工具处理上下文共享？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1sh3yzk/how_are_people_handling_context_sharing_across/</link>
-      <description><![CDATA[在使用多个本地工具和服务时，我遇到了一个反复出现的问题： 一旦有多个系统进行交互，一切就开始支离破碎。 即使在自托管设置中，您最终也会得到： – 单独的接口 – 工具之间没有共享上下文 – 工具之间的手动切换步骤 我开始尝试使用轻量级编排层来尝试统一其中的一些内容，但有趣的挑战并不是任务路由。 更困难的部分是：  – 在工具之间传递有意义的状态而不紧密耦合它们  – 保持执行可预测（避免黑盒行为）  – 设计不会变成“又一个仪表板”的界面 现在我倾向于：  – 保持工具隔离  – 使用薄协调层进行路由  – 添加显式执行门而不是完全自动化 在我进一步沿着这条道路走下去之前，我很好奇： 是否有现有的开源项目或模式可以很好地解决这个问题？ 对以下方面特别感兴趣：  – 之间的上下文/状态共享工具  – 跨服务的松散耦合  – 本地优先的编排方法   由   提交 /u/New-Time-8269   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1sh3yzk/how_are_people_handling_context_sharing_across/</guid>
-      <pubDate>Thu, 09 Apr 2026 22:09:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>ISO 跨平台食谱应用程序</title>
-      <link>https://www.reddit.com/r/opensource/comments/1sh3rh2/iso_cross_platform_recipe_app/</link>
-      <description><![CDATA[我正在寻找一个跨平台食谱管理器（或者非常好的笔记应用程序也可以使用（就像以前的 Evernote 一样）。 可以在本地自行托管的东西会很好，最好具有自动同步功能。 即在我的手机上离线时仍然可用，但重新上线时更改会自动同步。 我的 plex 和有声书架都在 Windows 11 micro 上运行pc，所以这就是我想要托管它的地方。 Windows、android 和 Linux 客户端，或者至少一个 Web 客户端会很好。 以上是我的完美愿望清单，但不确定有什么可用，所以任何建议将不胜感激。 /u/botlehewer   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1sh3rh2/iso_cross_platform_recipe_app/</guid>
-      <pubDate>Thu, 09 Apr 2026 22:01:09 GMT</pubDate>
     </item>
     </channel>
 </rss>
