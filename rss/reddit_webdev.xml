@@ -4,20 +4,83 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 12 Apr 2026 03:19:37 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 07:22:44 GMT</lastBuildDate>
+    <item>
+      <title>如果您可以在浏览器中以 160KB 而不是 20MB 运行 Python，会怎样？我正在构建一个编译器来实现它。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj780c/what_if_you_could_run_python_in_the_browser_at/</link>
+      <description><![CDATA[嘿 reddit， 在解释之前先问一个问题：对于非 JS 前端运行时，您接受的最大包大小是多少？ 500KB？ 1MB？因为这正是我想要弄清楚的。 我正在构建 Edge Python，这是一个用 Rust 编写的针对 WebAssembly 的 Python 编译器。没有 CPython，没有解释器包，没有 Pyodide。从头开始编译为 ~160KB .wasm 二进制文件的词法分析器、解析器和 VM。 当今浏览器中 Python 的问题 PyScript 和 Pyodide 证明 Python 可以在浏览器中运行。但交付 20MB+ 运行时会扼杀任何实际用例。您的用户不会等待这一点，您的 Lighthouse 分数也不会等待。 DOM 问题 捆绑包大小只是故事的一半。另一个杀手是 DOM 访问。当前的解决方案序列化 Python 和 JavaScript 之间的每次交互，其中每个 document.getElementById、每个事件处理程序、每个状态更新都会跨越一座破坏性能的桥梁。 我的方法：Python 和 JS 之间的共享内存区域。 Python 直接通过共享缓冲区读取和写入 DOM 状态，没有序列化往返。 Python 的 DOM 操作接近原生速度。 有多快？ WASM 二进制文件已经运行核心 Python（函数、闭包、循环、类、大整数）和基准测试：   Task CPython 3.13 Edge Python    1M 循环迭代 120ms 95ms   我想从你那里了解什么  包大小是真正的阻碍，或者即使在160KB？ Python 需要通过 JS/TS 提供什么来证明向堆栈中添加 WASM 运行时是合理的？ 共享内存 DOM 方法听起来可行，还是有我没有看到的更好的模式？  我真的想弄清楚这是否有真正的市场，或者 JS/TS 是否太有市场了？根深蒂固。烤我或说服我......都有帮助。 GitHub： https://github.com/dylan-sutton-chavez/edge-python/tree/main/compiler   由   提交 /u/Healthy_Ship4930   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj780c/what_if_you_could_run_python_in_the_browser_at/</guid>
+      <pubDate>Sun, 12 Apr 2026 06:54:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>周六炫耀：我构建了这个免费且设计精美的分析 shadcn 仪表板 shell</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj7222/showoff_saturday_i_built_this_free_beautifully/</link>
+      <description><![CDATA[      开始免费使用 - https://shadcnspace.com/blocks/dashboard-ui/dashboard-shell Github：https://github.com/shadcnspace/shadcnspace   由   提交/u/suniljoshi19  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj7222/showoff_saturday_i_built_this_free_beautifully/</guid>
+      <pubDate>Sun, 12 Apr 2026 06:44:48 GMT</pubDate>
+    </item>
+    <item>
+      <title>制作了一个我在航班上发现的益智游戏 - HueDrops！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj6brv/made_a_puzzlegame_i_found_on_a_flight_huedrops/</link>
+      <description><![CDATA[      这是一款洪水填充游戏，但有一个额外的规则：在最后一步或跑动结束之前，你无法吸收目标颜色。听起来很简单，但确实给游戏添加了一些策略，因为如果目标颜色消失了，你就输了。 在飞机上发现了这个游戏，后来在网上找不到它，所以自己做了一个。 直接在浏览器中玩。有3种模式，每日关卡模式，无尽随机和手工制作的经典关卡。每日模式没有移动限制（只有移动建议限制），而其他两种模式则有严格的移动限制。 前端完全由 Vue.js 和 Composition API 制成。任何服务器上都不会存储任何数据，仅在浏览器中存储一些设置和日常进度。 欢迎任何反馈并好奇您的想法！如果您发现错误，请告诉我！ https://www.huedrops.io/   由   提交/u/henkdegrasmaaier   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj6brv/made_a_puzzlegame_i_found_on_a_flight_huedrops/</guid>
+      <pubDate>Sun, 12 Apr 2026 06:03:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的第一个严肃的网站/工具</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj5s8o/my_first_serious_websitetool/</link>
+      <description><![CDATA[周六，即将上线，请提供任何反馈/建议和建设性批评。    由   提交/u/LettersFromTheSky  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj5s8o/my_first_serious_websitetool/</guid>
+      <pubDate>Sun, 12 Apr 2026 05:33:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 AI 聊天界面中构建了 30 多个实时画布动画作为壁纸 - 没有 WebGL，没有 Three.js，纯 2D API</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj5cf4/built_30_live_canvas_animations_as_wallpapers/</link>
+      <description><![CDATA[       https://preview.redd.it/t6yyozf40pug1.png?width=2930&amp;format=png&amp;auto=webp&amp;s=3c8a27c9de4ad4a340d3ec2167a76f032457965e 我是 AskSary (asksary.com) 背后的独立开发人员 - 完全披露，这是我自己的项目。我想当我构建自己的平台时，我会尝试一些与其他平台不同的东西。我想要一些视觉上看起来不错并且在某些情况下代表人工智能的东西。我还没有遇到过其他聊天平台这样做。该界面还以 26 种语言显示，并支持 RTL 和完整的 UI 翻转机制。 回到壁纸。这个想法是。让人们调节心情。通常人们喜欢自定义他们的桌面主题或喜欢改变手机主屏幕的外观等，所以我想他们的聊天界面怎么样。一天结束时，人们可以花几个小时进行研究或聊天，这就是我的想法的来源。 它可能不适合我所知道的一切，不用担心，有一个选项可以将其关闭，并拥有完全没有壁纸的纯暗/亮模式主题，但对于那些感兴趣的人来说。这就是我构建的。 UI 有 30 多个实时动画壁纸作为聊天界面后面的画布元素运行。我想记录技术方法，因为我还没有看到其他人在聊天平台上下文中这样做。 它是如何工作的： 每个壁纸都是一个 HTML5 画布元素，位于聊天容器后面的固定位置。它们通过 CSS 可见性而不是 DOM 插入/删除进行切换，以避免在每次切换时重新初始化动画循环。每个动画都有一个成对的开始和停止函数，用于管理自己的 requestAnimationFrame ID、调整侦听器大小和清理。 更复杂的动画使用实际物理原理。粒子网络具有鼠标斥力 - 它每帧计算光标位置和每个粒子之间的矢量，并应用与接近度成比例的反力。 Cyber​​ Orb 使用手动 3D 旋转矩阵和透视投影来渲染陀螺环，无需任何 WebGL 依赖。 对于视频壁纸，我通过自己的平台使用 Kling 和 Veo 生成源剪辑，使用 Handbrake 将它们压缩到每个剪辑 2MB 以下，然后本地循环它们。雨林视频是三个 8 秒的剪辑，用 iMovie 交叉淡入淡出拼接，以避免出现可见的循环点。 我在第一个版本中遇到的限制： 4K 视频壁纸杀死了中档 Android 设备。我有 16 个视频壁纸准备发货，在我的用户群（中东/南亚流量大）的真实硬件上进行测试后，我不得不将它们全部评论出来。画布动画可以完美地缩放到任何屏幕尺寸，因为它们是按程序生成的 - 65 英寸电视的渲染效果与手机相同。 壁纸在附近的粒子之间绘制线条。问题是每个粒子都必须检查其他所有粒子，看看它们是否足够接近以进行连接。因此，如果有 100 个粒子，则每帧检查 10,000 次。粒子越多，速度就越慢。为了保持流畅，我只是根据屏幕的大小计算屏幕可以处理的粒子数量，并且永远不会超过该值。 Stack： Next.js，适用于 iOS/Android/Mac/Vision Pro、Firebase、Vercel 的 Capacitor。没有 WebGL，没有 Three.js - 整个都是纯画布 2D API。 Apple Vision Pro 是我唯一没有测试过的东西。不幸的是，Xcode 没有 Vision Pro 模拟器，但功能等应该像 Mac 桌面应用程序一样工作，我已经确认它可以工作。如果有人拥有 Vision Pro，很想知道它的外观。 演示：asksary.com   由   提交 /u/Beneficial-Cow-7408   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj5cf4/built_30_live_canvas_animations_as_wallpapers/</guid>
+      <pubDate>Sun, 12 Apr 2026 05:09:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>入选总决赛 - Meta X Scaler 黑客马拉松！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj53ru/selected_for_grand_finale_meta_x_scaler_hackathon/</link>
+      <description><![CDATA[      🚀 入选 Meta x Scaler 黑客马拉松总决赛！ 大家好， 我很高兴与大家分享，我已入选 Meta x Scaler 黑客马拉松总决赛！ 🙌 最近，我在 Reddit 上发帖寻找真正对学习和构建感兴趣的人。一些人伸出了援手，但许多人在基本交谈后失去了兴趣。现在，在这次选择之后，我收到了很多寻求帮助、存储库和提交详细信息的消息 - 特别是因为这是第二阶段的最后一天。 所以我只想澄清一件事： 👉 我来这里是为了帮助 - 但只为那些真正认真学习和成长的人。 如果你是这样的人： * 想要实际构建项目（不仅仅是询问和提出）离开） * 对黑客马拉松和解决实际问题感兴趣 * 能够保持一致并付出努力 然后让我们联系🤝 我们可以： * 一起学习 * 构建真正的项目 * 参加黑客马拉松 * 并争取与我们的职业生涯相符的绝佳机会🚀 我也在学习 - 所以让我们作为一个团队成长。 如果你是认真的，请留言或评论💬   由   提交/u/VacationFancy8697  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj53ru/selected_for_grand_finale_meta_x_scaler_hackathon/</guid>
+      <pubDate>Sun, 12 Apr 2026 04:57:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>上下文切换会降低测试期间的生产力。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj4kbw/context_switching_kills_productivity_during/</link>
+      <description><![CDATA[​ 对我有帮助的是使用一个在测试时而不是测试后捕获日志/屏幕截图的工具。错误报告变得更快。   由   提交/u/alright85  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj4kbw/context_switching_kills_productivity_during/</guid>
+      <pubDate>Sun, 12 Apr 2026 04:28:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>我建立了一个关于 GPS 如何工作的交互式解释器（评论中的链接）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj4esi/i_built_an_interactive_explainer_about_how_gps/</link>
+      <description><![CDATA[      实时链接：https://perthirtysix.com/how-does-gps-work 我一直觉得 GPS 技术非常酷，并且认为 ThreeJS 将是探索该主题的一种很酷的方式！希望您喜欢它。 技术堆栈：用于实时数据的 Nuxt.js、Three.js、satellite.js   由   提交/u/Shriracha  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj4esi/i_built_an_interactive_explainer_about_how_gps/</guid>
+      <pubDate>Sun, 12 Apr 2026 04:20:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 AI 网络抓取工具困在无尽的毒坑中</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj476g/trap_ai_web_scrapers_in_an_endless_poison_pit/</link>
+      <description><![CDATA[   人工智能公司不断大规模地抓取互联网，吞噬其所有内容，用作下一代模型的训练数据。如果您有一个公共网站，他们已经在窃取您的作品了。 瘴气让我们反击吧！启动服务器并将任何恶意流量指向它。 Miasma 将从毒泉 发送有毒的训练数据以及多个自引用链接。对于污水处理机来说，这是无尽的污水自助餐。   由   提交/u/250call  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj476g/trap_ai_web_scrapers_in_an_endless_poison_pit/</guid>
+      <pubDate>Sun, 12 Apr 2026 04:09:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>我与 Claude 一起使用了我的第一个作品集，欢迎诚实的反馈（我是网页设计的新手）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sj3vwr/i_vibecoded_my_first_portfolio_with_claude_honest/</link>
+      <description><![CDATA[嘿 我已经潜伏这个子有一段时间了，保存我喜欢的投资组合，并尝试逆向工程让它们感觉正确。这是我第一次尝试为自己构建一个。 完全披露：我与 Claude 对此进行了 vivicode。我不是一名前端开发人员——我是一名教师，后来成为一名自学成才的构建者，致力于游戏（Godot）、神话目录和一些人工智能代理的工作。我手写了零 CSS。我指挥，克劳德执行。我预先分享这一点是因为我知道它可能会显示出来，这就是我想从中学习的内容。 我真正希望的是：我是网络视觉设计的新手。完全。我可以在其他媒介中保持自己的风格——GIMP、Photoshop、Procreate，以及画布/塑料上的水彩画和丙烯酸树脂等物理材料——但将眼睛转化为网站是另一回事，我觉得我错过了一些东西。 链接：https://hyphysaurus.github.io/Portfolio/ 快速了解内容那里： - 4页：主页、工作、关于、图库 - GitHub Pages上的普通 HTML/CSS/JS（无框架，无构建步骤） - 我一直在迭代的一些动画画布场景（海岸、丛林、城市） - 深色模式、PST 时钟、一些光标跟踪的照片散点 具体来说，我希望获得反馈on：  视觉方向是否有凝聚力，或者是否试图做得太多？ （画布场景构建起来很有趣，但我不知道它们是否有帮助或分散注意力。）我还觉得它们看起来太振动编码了。 排版 - Instrument Serif + DM Sans。它能工作吗？ 移动设备上有任何损坏或不舒服的地方 - 我怀疑有很多。 如果你必须剪掉一件东西，它会是什么？  我不执着于任何东西。如果它看起来像一个教程项目，请告诉我！恐怕当前的艺术演示虽然有些渐变不错，但仍然有点基础。 提前致谢🙏   由   提交/u/Hyphysaurusrex   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sj3vwr/i_vibecoded_my_first_portfolio_with_claude_honest/</guid>
+      <pubDate>Sun, 12 Apr 2026 03:54:14 GMT</pubDate>
+    </item>
     <item>
       <title>老学生需要团聚</title>
       <link>https://www.reddit.com/r/webdev/comments/1sj2hy9/old_schoolers_need_to_reunite/</link>
       <description><![CDATA[老同学们，我们重聚吧！ 仅限积极的氛围——是时候联系、欢笑、重温美好时光了。 谁在？ ❤️   由   提交/u/Dear_Payment_7008   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1sj2hy9/old_schoolers_need_to_reunite/</guid>
       <pubDate>Sun, 12 Apr 2026 02:46:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>今天刚开始学习，遇到这个问题需要帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sj1jdf/i_just_started_learning_today_need_help_with_this/</link>
-      <description><![CDATA[      我正在尝试制作一个假拉伸窗口。我将窗口的图像分为三个部分：上半部分、下半部分和中间部分，当我向其中添加文本时，中间部分应该会拉伸，添加的文本越多，窗口应该越长。我已经尝试了几个小时、几个小时、几个小时，但没有任何进展。至少直接引导我去看一个我可以观看的好教程。我真的不知道要搜索什么。我没有 HTML 经验。我今天刚刚开始在 NeoCities 上创建这个网站。   由   提交/u/mohamedekbal2008   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sj1jdf/i_just_started_learning_today_need_help_with_this/</guid>
-      <pubDate>Sun, 12 Apr 2026 01:59:22 GMT</pubDate>
     </item>
     <item>
       <title>我构建了一个开源 Next.js 仪表板套件，具有完整的 Better-Auth 流程和 RBAC</title>
@@ -46,69 +109,6 @@
       <description><![CDATA[我构建了 Sardine：一个基于会话的股票市场，LLM 代理通过实际的限价订单簿匹配引擎相互进行交易。没有人类，没有脚本，只有代理读取市场数据并提交实时相互结算的订单。 每个会话都运行可配置的交易品种篮子和最多任意数量的代理。交易和研究代理共享类型工具；聊天机器人可以将事件注入实时模拟（“美联储加息 50 个基点”），您可以观察市场在接下来的 N 个价格变动中的反应。 WebSocket 仪表板实时传输烛台、订单簿深度和代理活动。 Stack：Mastra（代理）、TanStack Start、Drizzle + Postgres、Bun。当您有密钥时，从 Alpaca 引导，否则为种子价格。 为什么我认为它有用：针对历史柱的回溯测试无法告诉您当其他代理对其订单做出反应时您的代理的行为方式。沙丁鱼是用来研究二阶东西的——群体动态，研究人员对新闻事件的阅读实际上如何在书中产生涟漪效应。这是一个研究环境，而不是经纪公司，我并不声称它在真实市场上有效。 Apache 2.0。很高兴在评论中深入了解架构或匹配引擎。 🔗 https://github.com/lightbearco/sardine   由   提交 /u/MistakeUseful5506   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1siy5ik/i_built_sardine_a_stock_market_simulator_for_ai/</guid>
       <pubDate>Sat, 11 Apr 2026 23:21:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>刷新我的网络开发技能</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sixdc5/refreshing_my_skills_in_web_development/</link>
-      <description><![CDATA[嘿，我想再次刷新我在 Web 开发方面的知识和技能，更准确地说是 TypeScript、React 和 Next。有什么好的资源可以做到这一点？最好是免费的，也许有一些互动元素。我不太喜欢 YouTube 教程之类的资源   由   提交/u/woidthevoid   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sixdc5/refreshing_my_skills_in_web_development/</guid>
-      <pubDate>Sat, 11 Apr 2026 22:47:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>你为色盲者设计/编码吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1six1ti/do_you_design_code_for_the_colorblind/</link>
-      <description><![CDATA[      我出于需要创建了一个工具，并相信它对很多人有用。它被称为 colorcheck.dev - 扫描、上传等。 我的问题是 Excel 工作表、演示文稿等，这比大多数人想象的要大。 作为开发人员，您怎么看？   由   提交/u/Realistic_Respect914   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1six1ti/do_you_design_code_for_the_colorblind/</guid>
-      <pubDate>Sat, 11 Apr 2026 22:33:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>TimeIt - 我做了一个日常小游戏，测试你的时间感</title>
-      <link>https://www.reddit.com/r/webdev/comments/1six11q/timeit_i_made_a_small_daily_game_that_tests_your/</link>
-      <description><![CDATA[       由   提交/u/thepelipeli   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1six11q/timeit_i_made_a_small_daily_game_that_tests_your/</guid>
-      <pubDate>Sat, 11 Apr 2026 22:32:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>ApiArk -> 开源本地首个API</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sivabk/apiark_open_source_local_first_api/</link>
-      <description><![CDATA[      没有云，无需登录，无需遥测 - 只是一个不妨碍您的桌面应用程序。 ApiArk 的下载量约为 15 MB，空闲时使用约 60 MB RAM，并在 2 秒内启动。 使用 Tauri (Rust + React) 构建。比较仪表板从 GitHub 实时获取安装程序大小。 GitHub：github.com/berbicanes/apiark 站点：apiark.dev 好奇你们都怎么想 - 特别是如果您最近抛弃了 Postman。   由   提交/u/ScarImaginary9075  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sivabk/apiark_open_source_local_first_api/</guid>
-      <pubDate>Sat, 11 Apr 2026 21:19:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>请求：我正在为我的个人电子邮件域寻找登陆页面的愚蠢想法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1siuxw6/request_im_looking_for_silly_ideas_for_a_landing/</link>
-      <description><![CDATA[我希望这是允许的。我知道周六是反馈的日子。  无论如何，多年来，我的个人电子邮件地址只是：first_name@last_name .fun 我一直在考虑制作一个有趣的登陆页面，以防有人无聊到真正去last_name .fun 我觉得我还没有想出任何足够好的想法，值得这么麻烦。目前我的想法就是放一本90年代风格的留言簿。  无论如何，我很想听听您是否有任何有趣的想法。    由   提交/u/CaliforniEcosse   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1siuxw6/request_im_looking_for_silly_ideas_for_a_landing/</guid>
-      <pubDate>Sat, 11 Apr 2026 21:05:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为您的浏览器提供的简单的基于图像的测量工具</title>
-      <link>https://www.reddit.com/r/webdev/comments/1siurjb/my_simple_imagebased_measurement_tool_for_your/</link>
-      <description><![CDATA[      这是我今天开发的一个小网络应用程序，可帮助从照片中获得准确的测量值。 您可以在此处使用它https://chrismofer.github.io/Dimensioner/ 工作流程很简单：  加载已存在至少一个维度的图像已知， 在该已知特征上画一条线并输入其真实世界尺寸以“校准”已知特征。比例。 在您想要测量的任何其他物体上画线，以查看其真实世界的尺寸。  自述文件/操作指南和源代码位于：https://github.com/Chrismofer/Dimensioner 我希望它有用。大多数 CAD 和3D 软件能够添加图像作为参考并在其上绘制线条，但如果您只想标记和测量绘图或图片，那么它会更加复杂和复杂。   由   提交 /u/chrismofer   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1siurjb/my_simple_imagebased_measurement_tool_for_your/</guid>
-      <pubDate>Sat, 11 Apr 2026 20:58:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>花了一天时间从零开始连接质量保证自动化，一些诚实的笔记</title>
-      <link>https://www.reddit.com/r/webdev/comments/1siunzr/spent_a_day_wiring_up_qa_automation_from_zero/</link>
-      <description><![CDATA[已经推迟了几个月了。我们在 CI 中进行了零测试，每次回归都被客户捕获，我一直向自己保证我们会在“下一个冲刺”中修复它。 真正推动变革的是致力于一项测试。只有一个。不是一个计划，不是一个测试策略文档，只是一个剧作家对主页进行的冒烟测试，该测试在 github 操作中运行并阻止了合并。从头到尾花了大约 40 分钟，说实话，这感觉很愚蠢，因为它只验证了 h1 是可见的。但管道是真实的，大门也是真实的，从那时起一切都变得更容易。 三周后，我们可能进行了 20 次测试。最困难的部分出乎我的意料。我认为编写测试会很辛苦。事实证明，编写它们很容易，保持它们不不稳定才是真正的工作。我们隔离了两个间歇性失败的测试，而不是添加重试注释，这在当时感觉很痛苦，但老实说是巨大的解锁。套件现在感觉值得信赖。 我会做的与第一天不同的事情是：我不会手写每一个测试。对于长尾（设置页面、表单错误状态、没有人实际查看的东西），现在有一些工具可以从正在运行的应用程序生成真正的剧作家代码。 diff 仍然可以审查，测试仍然存在于 git 中，您只需跳过无聊的创作部分。我不会相信它的关键路径测试，这些测试需要人工判断来断言什么，但其他一切都是非常明显的胜利。 最近还有其他人经历过质量保证自动化的从零到一吗？很好奇人们如何处理脆弱性与覆盖率的权衡，因为感觉你不能同时拥有两者，而我读到的每一篇文章都假装你可以。   由   提交/u/Deep_Ad1959  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1siunzr/spent_a_day_wiring_up_qa_automation_from_zero/</guid>
-      <pubDate>Sat, 11 Apr 2026 20:54:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人建立了一个看起来不错的牙科网站吗？我见过的大多数都是无聊的蓝色和白色。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sitpsh/anyone_built_a_dental_website_that_actually_looks/</link>
-      <description><![CDATA[真的很好奇是否有人构建了一些脱颖而出的东西。希望看到一些示例。   由   提交 /u/memayankpal   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sitpsh/anyone_built_a_dental_website_that_actually_looks/</guid>
-      <pubDate>Sat, 11 Apr 2026 20:17:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>我讨厌汤姆·克鲁斯，所以我开发了一个网络应用程序</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sitp7x/i_hate_tom_cruise_so_i_built_a_web_app/</link>
-      <description><![CDATA[我看到汤姆·克鲁斯的一次采访，他在其中大肆谈论心理学，我非常讨厌这个人，我想一定还有其他人有同样的感觉。我什至买了域名，并开始计划如何构建应用程序，但后来 Hater 应用程序真正推出了，我以为我错过了机会，所以我放弃了这个想法。 那是 10 年前，今天我终于推出了 Lovinghate 来分享你喜欢和讨厌的东西。 技术堆栈：Cloudflare 工人、D1、R2 和 Turnstile。 Sveltekit、Tailwind 和 Better-Auth。 我很乐意阅读您的意见和建议。让我知道您对该应用程序或技术堆栈的看法。   由   提交/u/Goshua   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sitp7x/i_hate_tom_cruise_so_i_built_a_web_app/</guid>
-      <pubDate>Sat, 11 Apr 2026 20:16:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
