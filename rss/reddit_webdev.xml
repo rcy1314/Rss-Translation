@@ -4,13 +4,104 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 28 Apr 2026 11:08:54 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 14:24:44 GMT</lastBuildDate>
     <item>
-      <title>我将工作流程中的 json-server 替换为 10 秒的替代方案 - 这就是原因</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxy41l/i_replaced_jsonserver_in_my_workflow_with_a/</link>
-      <description><![CDATA[每个新项目都有相同的隐藏税：在编写一行实际代码之前需要 15 分钟设置本地模拟服务器。 npm install -g json-server # create db.json # 弄清楚为什么端口 3000 已被占用 # 编写一个代理配置，以便 React 可以访问它 对于模拟，我将在 2 天内删除。荒谬。 我尝试了其他选择 - Beeceptor 需要注册，Mockoon 是本地的，所以 Postman 无法点击它，RequestBin 是只读的。 所以我构建了 MockBolt。粘贴 JSON → 获取实时 HTTPS URL → 立即使用它： const res = wait fetch(&#39;https://mockbolt.com/b/your-id&#39;); const 数据 = 等待 res.json(); // → { &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot;, &quot;active&quot;: true }  我添加的内容，因为我个人需要它：  实时请求检查器 - 您的应用程序创建的每个 fetch() 都会显示完整的请求正文、标头、IP 和响应时间。不再需要通过 console.log 查看您实际发送的内容。 错误模拟 - 随机失败 X% 的请求并带有配置的状态代码。最后是一种在不破坏代码的情况下测试错误边界的简单方法。 动态变量 - {{uuid}}、{{timestamp}}、{{randomInt}} 在每次请求时都会被替换。当 ID 需要看起来真实时很有用。 响应延迟 - 设置 800 毫秒延迟来测试加载状态，无需 setTimeout hack。 请求重播 - 只需单击一下即可重新发送任何记录的请求。在调试您的应用 10 分钟前发送的内容时很有用。  24 小时免费，无需帐户。一次性 2 美元，使其永久化。 后端使用 FastAPI + PostgreSQL，前端使用 React + Tailwind 构建。 评论中的链接 - 好奇你的模拟 API 工作流程中缺少什么。   由   提交 /u/Massive-Ad2753   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxy41l/i_replaced_jsonserver_in_my_workflow_with_a/</guid>
-      <pubDate>Tue, 28 Apr 2026 11:02:49 GMT</pubDate>
+      <title>被人工智能申请人跟踪系统自动拒绝是令人心碎的。我们构建了一个应用程序来修复它。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy2sz9/getting_autorejected_by_ai_applicant_tracking/</link>
+      <description><![CDATA[现在申请工作感觉就像一个黑洞。您在申请上花费了一个小时，只是为了人工智能申请人跟踪系统将其丢弃，因为您与他们的确切关键字标准不符。 我在一家初创公司工作，我的团队希望创造公平的竞争环境。我们构建了 Covrd，这是一款应用程序，可以分析职位描述并自动定制您的简历和求职信，以便它们真正通过 ATS 过滤器。 我正在尝试为我的团队负责人收集一些原始反馈。如果你厌倦了找工作的苦差事，请尝试一下，并诚实地告诉我你的想法！   由   提交/u/Yazzer5  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy2sz9/getting_autorejected_by_ai_applicant_tracking/</guid>
+      <pubDate>Tue, 28 Apr 2026 14:19:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个本地 GitHub 仪表板，因为管理许多公共/私人存储库变得很混乱。值得开源吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy2l5p/i_built_a_local_github_dashboard_because_managing/</link>
+      <description><![CDATA[      我管理着相当多的 GitHub 存储库，包括公共和私有的，但我一直遇到同样的问题：GitHub 拥有我需要的所有数据，但在许多存储库中快速访问它意味着要跳过很多页面。 因此，我为自己构建了一个小型本地 Web 应用程序：一个 GitHub 仪表板，可以从 GitHub API 中提取数据，为我提供了一个过滤、排序和检查所有内容的地方。 它使用 GitHub 的 REST 和 GraphQL API 来执行以下操作：  存储库、问题和拉取请求 存储库元数据、语言、贡献者、提交和发布 观星者和分叉 GitHub Actions 工作流程运行 流量视图、克隆、引荐来源网址和流行路径 外部提及的代码/问题搜索 可用的依赖项和存储库关系  应用程序将 GitHub API 访问保持在服务器端，因此令牌不会在浏览器中公开。 目标不是取代 GitHub，而是让它更快地回答以下问题： 哪些存储库需要注意？哪些 PR 正在等待？哪些问题已经过时？最近发生了什么变化？哪些存储库正在获得流量、星号、分叉、发布或提及？ 它还有一个存储库详细视图，其中包含操作、PR、问题、发布、分叉、流量、提及和依赖项的选项卡，以及简单的趋势和流量图表。 我最初只是为了自己的工作流程构建了这个，但现在我想知道它是否对其管理许多存储库的其他人也有用。 是否值得清理它并将其发布到 GitHub 上，还是这对于我自己的用例来说可能过于具体？   由   提交/u/debba_  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy2l5p/i_built_a_local_github_dashboard_because_managing/</guid>
+      <pubDate>Tue, 28 Apr 2026 14:11:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>分享我的最小开发 AI 工作流程 Claude Code 代理，它通过 GitHub 问题将 PR 与 3 个人工门合并</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy2jd8/sharing_my_minimal_dev_ai_workflow_claude_code/</link>
+      <description><![CDATA[共享工作流程，以防它对探索代理编码循环的其他人有用。 设置是一个端到端处理 GitHub 问题的协调器代理（问题解决器）。它为每个作业生成子代理，并为我的输入暂停三次： 流程： → 获取问题 → 探索代码库，编写架构文档 → 起草计划 🟡 我审查该计划。添加注释。批准。 → 实施计划 → 在其自己的差异上运行 /ultrareview 🟡 我查看结果。接受真实的，跳过我不同意的。 → 应用已接受的修复，运行测试 🟡 我在推送前检查最终差异。 → 推送，打开 PR。 我在我构建的一个名为 LinkStash（具有 API 密钥速率限制 + 链接过期的 URL 缩短器）的小型 Spring Boot 演示项目中展示了它。 人性门很重要。代理人在规划过程中标记了两个真实的工程决策 -&gt;令牌桶与固定窗口的速率限制，以及是否在过去的到期时间戳上返回 400，而不是猜测。 “我不知道，你决定”方法使得这个更加可靠。 当你观看它时，三个门感觉很多。但对于我实际发布的任何内容，我宁愿花额外的时间，也不愿推送我没有读过的代码 我使用自己的 MCP 服务器来获取问题（为早期项目构建），但官方 GitHub MCP 服务器有一个“gh_get_issue”工具可以执行相同的操作。或者您可以使用适合您工作流程的技能选择。 我确信有更好的方法来构建它。真正好奇其他人如何运行他们的代理工作流程。什么对你有用？ （如果有人想要链接，可以查看完整的演示视频和 Medium 文章 - 很乐意在评论中分享，只是不想将它们放在正文中。）   由   提交 /u/OrewaDeveloper   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy2jd8/sharing_my_minimal_dev_ai_workflow_claude_code/</guid>
+      <pubDate>Tue, 28 Apr 2026 14:09:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于 Vibe 编码的调查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy2isn/survey_about_vibe_coding/</link>
+      <description><![CDATA[大家好， 我们是阿尔比大学（法国）的 6 名人体工程学硕士生。  作为我们学术计划的一部分，我们正在进行 Vibe 编码研究。 我们诚邀您填写随附的调查问卷。  本调查问卷适用于培训学生以及计算机科学/信息技术领域的专业人士。  感谢您对我们的研究感兴趣，并愿意花时间填写这份调查问卷。   由   提交/u/Legitimate-Shallot52   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy2isn/survey_about_vibe_coding/</guid>
+      <pubDate>Tue, 28 Apr 2026 14:09:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>推销电话有效吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy2gfo/do_cold_calling_works/</link>
+      <description><![CDATA[标题所说的.. 真的很好奇开发人员是否真的这样做是为了让小企业让他们开发/重新创建他们的登陆页面，甚至创建一个内部工具。如果这有效，是否意味着每个人都已经这样做了，并且我的目标小型企业客户很有可能已经获得了与我将提供的相同的报价？我自己没有这样做过，想尝试一下。    由   提交/u/Aggravating-Suit2628   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy2gfo/do_cold_calling_works/</guid>
+      <pubDate>Tue, 28 Apr 2026 14:06:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个网络应用程序，用于跟踪限时免费的付费电脑游戏</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy1ecs/i_built_a_web_app_that_tracks_paid_pc_games_that/</link>
+      <description><![CDATA[大家好！ 我最近构建了一个名为 Loot PC 的小项目，这是一个网络应用程序，用于跟踪暂时免费的付费 PC 游戏，并直接链接到官方商店页面。 这个想法来自一个个人问题：我厌倦了开设多个商店只是为了检查是否有任何限时免费游戏。 现在，该项目的重点是从像这样的商店收集优惠Steam、Epic Games 和 GOG，并以简单、快速和干净的界面呈现它们。 我仍在改进它，但这个项目帮助我了解了很多： - 构建完整的 Web 应用程序 - 使用 API 和抓取 - 组织报价数据 - 部署前端和后端 - 改进用户体验以实现快速操作 我没有试图将其货币化，并且没有广告。这主要是一个学习项目，最终对我和一些朋友也很有用。 我非常感谢任何有关用户体验、代码结构、性能或未来功能想法的反馈。 链接：https://loot-pc.vercel.app   由   提交 /u/ReiterZince   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy1ecs/i_built_a_web_app_that_tracks_paid_pc_games_that/</guid>
+      <pubDate>Tue, 28 Apr 2026 13:25:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我失去了交易，因为我的自定义报价花了太长时间，所以我构建了一个估算器，只需几分钟即可完成</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy1dzw/i_was_losing_deals_because_my_custom_quotes_took/</link>
+      <description><![CDATA[      创始人在这里运行一个开源交付平台。我的大部分入站客户都是想要定制版软件的潜在客户，多年来我的报价流程一直是导致交易失败的瓶颈。 问题很简单。潜在客户会通过电子邮件询问定制版本的报价。我会立即接听电话，做笔记，然后让项目经理和技术负责人来确定范围。当我们发回号码时，已经过去三到七天了。这些线索中的很大一部分在那个窗口里都变冷了。有些人已经更快地与某人签约。有些人失去了内在动力。我正在观察管道从我自己建造的洞中泄漏。 所以我做了一个内部估算器。它将潜在客户的需求作为输入，根据我们的模块库运行它们，并在几分钟而不是几天内给出范围内的报价。有两股气流流入其中。一种是针对从头开始构建的客户，它会评估完整的定制构建。另一种是针对使用我们现有平台作为基础的客户，它仅估计顶部的增量。 它并不完美。我还没有解决的问题是范围蔓延。估算人员在第一天给出了一个干净的数字，但当客户在第二周添加了三个“小”东西时，原始报价不再反映现实。现在，我通过更改请求流程手动处理该问题，但我很想听听其他人如何处理它。您会重建报价，按小时收费，还是在原始范围上大力推回？ 也很好奇是否有其他人自动报价，以及您这样做时发生了什么问题。我的第一个版本在时间安排上过于慷慨，因为我在我们快乐的道路项目上训练它，而不是在混乱的项目上。   由   提交 /u/sharan_dev   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy1dzw/i_was_losing_deals_because_my_custom_quotes_took/</guid>
+      <pubDate>Tue, 28 Apr 2026 13:25:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>车辆/汽车 API，欧盟特定集合</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy16r0/vechiclecar_api_eu_specific_collectiom/</link>
+      <description><![CDATA[是的，我知道有汽车 api 集合，但其中 90% 是美国的。这里的目标是收集在欧盟运行良好的所有相关 API。免费和付费选项。 Thnaks。   由   提交/u/National-Ad-9305  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy16r0/vechiclecar_api_eu_specific_collectiom/</guid>
+      <pubDate>Tue, 28 Apr 2026 13:17:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>适用于 JavaScript 开发人员的 5 个最佳桌面应用程序框架</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy11hb/top_5_desktop_app_frameworks_for_javascript/</link>
+      <description><![CDATA[      如果您是一名正在考虑构建桌面应用程序（甚至可能是跨平台应用程序）的 JavaScript 开发人员，您的第一直觉可能是选择 Electron。但它不再是唯一的选择。 现在有几个可靠的框架，每个框架在性能、捆绑包大小、本机集成和整体开发人员体验方面都有不同的权衡。 我为 JavaScript 开发人员编写了 5 个现代桌面应用程序框架的快速细分，比较了每个选项何时真正有意义（何时没有意义）。 如果您想弄清楚下一个桌面应用程序使用什么，或者想知道是否有更好的替代方案Electron，这可能会节省你一些时间。   由   提交 /u/Ikryanov   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy11hb/top_5_desktop_app_frameworks_for_javascript/</guid>
+      <pubDate>Tue, 28 Apr 2026 13:11:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>老年人/技术主管 - 您如何处理在最少监督的情况下依赖人工智能的初级人员？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy0r0d/seniors_tech_leads_how_are_you_dealing_with/</link>
+      <description><![CDATA[标题，我已经经历过好几次了，当高级领导离开房间时，更多初级开发人员基本上会转变所有形式的批判性思维。  除了明显的人力资源/人事问题之外，有没有人找到一种方法来指导初级人员如何实际使用人工智能？ 我自己也使用它，但作为一个备用合作伙伴，不要给它一个计划，让它启动，承诺并公开公关，所有这些都在一种类型的交易上。   由   提交/u/oulaa123  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy0r0d/seniors_tech_leads_how_are_you_dealing_with/</guid>
+      <pubDate>Tue, 28 Apr 2026 13:00:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>是的 哪个人工智能具有实际潜力？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sy06tp/iyo_which_ai_has_actual_potential/</link>
+      <description><![CDATA[我们很可能都在某种程度上受到了人工智能的负面影响。无论是被硬塞进不需要它的流程，还是被用来贬低我们专业知识的价值，人工智能都会让我们的工作变得更加困难。  但是……它也可能非常有用（只要有耐心）。它已经“进化”到足以在我们的工具箱中赢得永久地位的那一天很快就要到来了。  那么，对于我的问题：您认为哪些最有可能首先到达那里？让我们按目的将其分解（此列表不包含任何内容）： - 最全面 - 应用程序构建/调试 - 集成 - 自动化 - CSS/样式表和设计 - 文档 - 团队/用户角色定义和权限 - 网络安全/数据隐私/等。 - 构建 Web 编辑器 UI 和工具 - 所有 JS 内容 - 添加您自己的！   由   提交/u/Meghstar  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sy06tp/iyo_which_ai_has_actual_potential/</guid>
+      <pubDate>Tue, 28 Apr 2026 12:37:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>GPT-5.5 刚刚发布，基准测试看起来与 GLM-5.1 几乎相同。公司基准还重要吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sxzbbg/gpt55_just_dropped_and_the_benchmarks_look_almost/</link>
+      <description><![CDATA[我的老老板上个月解雇了他的整个前端团队，因为他看到了一些人工智能演示，并认为一个后端开发人员可以处理所有事情。三周后，我收拾残局。网站在移动设备上损坏，可访问性为零，没有任何流程 看着他根据他实际上并不理解的华而不实的数字拨打电话。因为如果我对自己诚实的话，当我选择自己的编码模型时，我做了类似的事情。我在 4.7 上切换回 GLM 并不是因为我测试了所有内容并且它获胜了，而是因为它是最便宜的选择，但并不糟糕。它工作得很好所以我从来没有质疑过它。然后5.1出来了，升级感觉是真实的，留在生态系统中 但最近glm-5.1和西方型号之间的价格差距一直在缩小。然后 GPT-5.5 下降，我出于好奇检查了 SWE-Bench Pro（GPT-5.5 为 58.6，GLM-5.1 为 58.4。这基本上是相同的分数）这两个数字都直接来自公司，所以谁知道什么是真实的 所以现在我坐在这里想知道，我坚持使用 glm-5.1 是因为它实际上对我的工作更好还是只是因为它是我习惯的。我的前老板从另一个方向陷入了同样的陷阱 对于那些在实际项目中使用其中任何一个的人来说，这些公司基准与您在实践中看到的相符吗？如果现在价格基本相同，您会坚持还是切换   由   提交/u/microhan20  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sxzbbg/gpt55_just_dropped_and_the_benchmarks_look_almost/</guid>
+      <pubDate>Tue, 28 Apr 2026 12:00:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们如何在 Drupal 中使用低代码自动化 + AI</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sxz4n0/how_were_using_lowcode_automation_ai_in_drupal/</link>
+      <description><![CDATA[我们一直在尝试如何让 Drupal “更智能”。而不增加大量的维护负担。我们刚刚组织了这个网络研讨会，展示了 ECA 模块 - 它本质上是 Drupal 的可视化逻辑构建器。 我们在这里展示的最酷的部分是如何将 AI 插入到这些工作流程中。想一想：“当用户上传文件时，让 AI 代理自动生成元数据和分类”。全部通过 UI 配置。 视频链接： https://youtu.be/uSEYJ5TiCcE 这有点深入（大约 15 分钟），但它涵盖了实际的配置和设置。如果您正在研究低代码解决方案或 Drupal AI 的当前状态，希望您会发现这很有帮助！   由   提交 /u/Familiar-Ad-2878   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sxz4n0/how_were_using_lowcode_automation_ai_in_drupal/</guid>
+      <pubDate>Tue, 28 Apr 2026 11:51:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>使用Claude通过提示设计网站，并在元素构建Wordpress主题中实现它？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1sxyp7z/using_claude_to_design_website_through_prompts/</link>
+      <description><![CDATA[嗨！  我从事网页设计和营销很多年了，主要是作为一种爱好。从现在开始的三周内，我将完成数字内容制作和制作方面的学位。营销。  由于早期对创建有吸引力和转换网站的热情，我希望将 Claude 应用于更快的“生产”方式。  我的受众和客户都是相当小的公司，缺乏托管和创建内容的经验。我已经有几个项目正在进行中，随着人工智能的发展，我正在尝试实现 Claude 生成代码的能力，以减少我的工作量。 我已经尝试过 Divi、Elementor 和我的付费主题“Themify Ultra”。它们允许导入和导出由代码制作的代码/设计。  使用 Wordpress 和主题的原因是让我的客户自己编辑自己的页面、插入图像等。因此，我制作了块、颜色主题、图形的 css/javascript，并允许客户编辑文本、插入图像等。 我遇到了一些错误，写这篇文章是为了看看其他人是否有这样的字流经验，老实说......我希望我可以直接进入 html 编码，专注于制作他们想要的东西并完成它。 事情是，我即将创办自己的公司，我想在那里更大规模地做我今天正在做的事情，我正在寻找更简单的工作流程。    由   提交/u/Zehhtra  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1sxyp7z/using_claude_to_design_website_through_prompts/</guid>
+      <pubDate>Tue, 28 Apr 2026 11:31:35 GMT</pubDate>
     </item>
     <item>
       <title>这些私人推特个人资料查看器真的有用吗？</title>
@@ -18,97 +109,6 @@
       <description><![CDATA[长话短说，找到了我伴侣的 alt acc，我很好奇里面有什么，因为她从未告诉过我。所以我一直在试图找到一个网站，让你无需关注即可查看私人 twitter 个人资料。 我一直很想看看有哪些帖子...我知道有无头浏览器或带有 Twitter 旧 API 的东西可以让你这样做，因为几个月前有一个网站可以使用。 在搜索时，我遇到了 Twee͏tgoon，但我还没有使用过它。这里有人尝试过吗？ 不想做任何奇怪的事情，希望得到任何诚实的反馈或建议。 谢谢！   由   提交 /u/Historical-Doubt9091   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1sxy1zj/do_these_private_twitter_profile_viewers_actually/</guid>
       <pubDate>Tue, 28 Apr 2026 11:00:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>可扩展性？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxx0j3/scalability/</link>
-      <description><![CDATA[问候网络大师！我谦虚地询问您对代码方式的见解。 所以我有 5 年以上使用 JS、TS、React 和 Next 编写应用程序的经验。在我之前的工作中，我做了很多项目，最终通过云提供商作为 Docker 容器启动。 问题是这些项目的用户从未超过 20 个，我们也从未遇到任何问题。 现在我计划制作一个网络画廊，任何人都可以通过画廊上展示的一系列艺术品来跟随科幻故事，我主要有 3 个问题困扰着我：  我将如何准备我的画廊它可以支持更多的用户，而不会影响潜在用户。 （附带 Stripe 或类似产品以及附加的网上商店）。 如何确保我不会在推出服务后收到数千美元的云服务提供商费用？ 因此，从本质上讲，我如何确保我的应用程序能够支持许多用户，并且不会在推出的第一个月让我破产？  如果您能提供任何见解，我将有数千辆坦克经验！   由   提交/u/Secret_Mulberry_8043   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxx0j3/scalability/</guid>
-      <pubDate>Tue, 28 Apr 2026 10:04:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>良好的 OIDC 合规 IdP 产品和免费套餐</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxwans/good_oidc_compliant_idp_offerings_with_free_tiers/</link>
-      <description><![CDATA[我对此感到沮丧很长时间，所以我很好奇 - 人们在他们的项目中使用什么 IdP？ 在人们说之前，我不想构建自己的。那就是疯狂所在。当它应该作为我可以按原样使用的支持域轻松提供时，这样做的复杂性和风险太大了。 我个人有一个相对较短的功能愿望清单。大多数/所有这些似乎只是最低要求。我还没有找到能够满足所有要求的服务！  免费套餐 - 至少在开发过程中。  启动时如果不是免费套餐，价格也很实惠。  完全符合 OIDC 托管登录 UI 本地登录支持 社交登录支持 MFA 支持  包括逐步身份验证，而不仅仅是登录流程的一部分。 说真的 - 它是2026。应该包括 MFA。  用户配置文件管理支持  就是这样。这是我的清单。我能接受的唯一东西不仅仅是免费套餐和社交登录支持...... 我以前使用过 Cognito。它在大多数选项上都做得很好。但它的 MFA 支持刚刚被打破。 （不支持备份代码，如果您将用户池配置为需要 MFA，那么对于丢失身份验证器的用户来说，补救路径为零。该帐户将被永久锁定。） 我目前正在使用 Clerk。但是，如果您想使用 OIDC，而不是深度集成其前端 SDK，那么您无法执行电子邮件验证、确定密码有效性规则或注销等操作。我不确定还有什么是后端 API 不支持的。 （是的，您没看错。OIDC 流程和后端 API 不支持注销） 我之前也研究过 Auth0，但它们昂贵。 （最便宜的计划是 500 名用户每月 35 美元。职员 50,000 名用户每月 20 美元。在 Auth0 上最接近的计划是 30,000 名用户每月 2,100 美元！）并且除非您采用付费计划，否则无法使用 MFA 支持，因此在付款之前您甚至无法尝试。所以我不知道它是否能实现我想要的功能。 而且我已经了解了一大堆 IdP - 我不会在这里列出所有内容，但列表大约有 30 个！ - 所有这些都只是以某种方式失败 - 主要是缺乏 MFA 支持，或者开始成本太高...... 那么人们为此使用什么？有没有我忽略的符合我标准的不错的选择？ 干杯   由   提交/u/sazzer  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxwans/good_oidc_compliant_idp_offerings_with_free_tiers/</guid>
-      <pubDate>Tue, 28 Apr 2026 09:24:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>自定义网站的 WebDev</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxw537/webdev_for_custom_websites/</link>
-      <description><![CDATA[您好，我是一名初级程序员，正在帮助一组开发人员进行自定义网站开发。我们主要去当地的餐馆、零售店等，向他们推荐定制的网站。现在我有几个问题/问题，因为我不确定开发团队是否已做好一切准备（即我必须对他们不了解的东西进行基础研究）。我们的网站并不是很贵。在一个功能非常好的网站上，它的最高价是 1.5k-2k，因为它是一家初创公司：  我看到其他人为某些在互联网上没有相关性的公司制作了一些网站，在这种情况下，SEO（搜索引擎优化）在自定义网站上有多重要，我们是否有必要参与这项服务，还是公司自己为自己做广告？我们该如何解决这个问题？ 如果涉及 GDPR 或任何法律相关主题，我们在发货时是否必须在自定义网站上应用隐私政策等？ 我还想谈谈维护问题，除了保持域处于活动状态之外，是否还需要进行部署后维护？我知道我们确实会提供诸如在将来需要时添加功能之类的东西，但这并不能回答我的问题。 如果要保留客户数据，是否需要保留客户数据？对于交通流组织，也许他们会要求基于连接的系统，但在任何其他情况下，我们是否需要或必须这样做？   这些是我想谈的要点。我担心我们发货的产品交付不足，因此我正在尝试了解有关自定义网站建设的更多信息。如果我有更多问题，我可以提出，我会将它们发布在这里。 如果有任何我需要知道的事情，我可以与团队讨论，请发表评论！谢谢！   由   提交 /u/NeatDesign9142   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxw537/webdev_for_custom_websites/</guid>
-      <pubDate>Tue, 28 Apr 2026 09:14:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>在我发布的网站上因可访问性问题而被叫醒……不知道如何处理</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxvyjp/got_called_out_for_accessibility_issues_on_a_site/</link>
-      <description><![CDATA[几个月前我推出了一个小型企业网站，并认为一切都很好。没什么花哨的，只是一个相当标准的营销网站。 最近有人伸出援手，指出了一系列可访问性问题，例如键盘导航不佳、表单上缺少标签以及一些对比度问题。 我自己检查过，是的......他们没有错。这只是我当时没有真正考虑过基础知识之外的事情。 现在我处于一个尴尬的境地，该项目在技术上已经完成，但我也觉得保持原样不太好。同时，这不是原始范围的一部分，我不确定如何向客户提出它而不使其成为一个整体。 好奇其他人如何处理这个问题。您通常会自己回去修复此类问题，还是将其视为新范围？   由   提交 /u/Fantastic_Run2955   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxvyjp/got_called_out_for_accessibility_issues_on_a_site/</guid>
-      <pubDate>Tue, 28 Apr 2026 09:03:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何跨设备管理环境变量？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxuuxo/how_do_you_manage_env_vars_across_devices/</link>
-      <description><![CDATA[在设备之间切换时，我总是遇到同样的问题，我经常忘记将环境文件或其他敏感文件保存到云驱动器，这导致我花时间找出丢失的内容。所以我想知道其他人如何处理这个问题以及是否有任何工具可以解决这个问题   由   提交/u/ClumsyBean03  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxuuxo/how_do_you_manage_env_vars_across_devices/</guid>
-      <pubDate>Tue, 28 Apr 2026 07:58:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>supabase auth：如果有人直接卷曲端点，您的验证码、速率限制和电子邮件验证将毫无用处。经过惨痛的教训才知道这一点</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxubmv/supabase_auth_your_captcha_rate_limiting_and/</link>
-      <description><![CDATA[构建了我的 SaaS。添加了十字转门验证码。添加了电子邮件验证。添加了速率限制。感到安全。 然后有人通过使用我的匿名密钥卷曲 supabase 的 /auth/v1/signup 创建了 200 个帐户。这是公开的。在我的前端 JS 中。我的任何保护措施都没有被触发。因为它们都是客户端或后端。 SUPABASE 身份验证端点不知道它们存在。 修复：在仪表板中启用 SUPABASE 验证码。但这感觉像是错误的架构。为什么身份验证端点一开始就暴露？目前正在评估 descope 和 auth0。至少在专用身份验证的情况下，机器人保护和速率限制发生在身份验证层，而不是在其后面。 顺便说一句，公开的匿名密钥是设计使然。这不是一个错误。这就是 SUPABASE 的工作原理。这就是可怕的部分。   由   提交/u/Legal_case16  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxubmv/supabase_auth_your_captcha_rate_limiting_and/</guid>
-      <pubDate>Tue, 28 Apr 2026 07:26:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>Web 项目中的哪些早期决策往往会产生最大的长期影响？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxtw2m/which_early_decisions_in_a_web_project_tend_to/</link>
-      <description><![CDATA[根据我的经验，结构和数据流之类的东西以后很难改变。 在您的项目中哪些决策最重要？   由   提交 /u/Gullible_Prior9448   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxtw2m/which_early_decisions_in_a_web_project_tend_to/</guid>
-      <pubDate>Tue, 28 Apr 2026 07:01:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>.mp3 扩展名呈现为 html 文件</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxtm6n/mp3_extension_is_rendered_as_html_file/</link>
-      <description><![CDATA[这里是链接：https://dailyrosary.cf/audio/monday_joyful_mysteries.mp3 /// 我对 .htaccess 做了一些更改 /// 我需要帮助来解决这个问题。我希望人们能够下载该文件并在网络浏览器中播放。  感谢您的帮助🙏   由   提交/u/By_EK  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxtm6n/mp3_extension_is_rendered_as_html_file/</guid>
-      <pubDate>Tue, 28 Apr 2026 06:46:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>我想为移动设备构建浏览器扩展，所以我最终构建了这个可以嵌入任何内容的超级 iframe</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxt22w/i_wanted_to_build_browser_extensions_for_mobile/</link>
-      <description><![CDATA[      普通的 iframe 工作得很好，直到您尝试将其用于真实网站。 然后您遇到了 X-Frame-Options、严格的 CSP、奇怪的身份验证流程、登录状态问题、机器人检查和企业 SSO 怪异。基本上，现代网络不想想要嵌入的所有原因。 但开发人员仍然不断需要这个原语：“将此网站放入我的应用程序中。”  支持工具需要它，内部仪表板需要它，QA 工作流程依赖它，现在人工智能/浏览器代理肯定需要它。 因此，不要在客户端中对抗浏览器安全策略（或尝试构建脆弱的反向代理），我走了另一个方向。 我构建了  - 一个由真正的远程浏览器会话而不是传统 iframe 支持的自定义 HTML 元素。 链接： hyper-frame.art 它是如何工作的 页面在内部运行一个隔离的、实时的远程浏览器会话（由 BrowserBox 提供支持）。您的嵌入应用程序获得受控的浏览器界面+ API，而不是直接 DOM 访问。  这意味着通常在 iframe 中主动拒绝加载的页面仍然可以在您自己的应用程序中完全安全地查看、控制和自动化。 非常小的示例： ```html ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxt22w/i_wanted_to_build_browser_extensions_for_mobile/</guid>
-      <pubDate>Tue, 28 Apr 2026 06:14:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个开源招聘平台，可以观看工程师在真实的 CAD 工具中工作</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxse26/an_open_source_hiring_platform_that_watches/</link>
-      <description><![CDATA[      使用应用程序：https://ai-eval-lab.janardan.xyz/ 一个平台，可通过 VNC 将 KiCad（一种 PCB 设计工具）传输到浏览器，实时跟踪用户在电路板上的操作，并使用 LLM最后评估他们的流程。 想法：编码评估无处不在，但对于 EE/硬件人员来说却没有这样的评估。想看看你是否可以通过观察工程师的工作来评估他们。 完整细分：https://www.janardan.xyz/writing/deconstructing-ai-eval-lab-workings   由   提交/u/mind_uncapped  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxse26/an_open_source_hiring_platform_that_watches/</guid>
-      <pubDate>Tue, 28 Apr 2026 05:38:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>PyPI 供应链通过 GitHub Actions 进行妥协 → 使用 .pth infostealer 进行后门的基本数据（在解释器启动时执行）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxr5o6/pypi_supply_chain_compromise_via_github_actions/</link>
-      <description><![CDATA[      最近的一次供应链攻击针对 PyPI 上的基本数据 Python 包，攻击者利用 GitHub Actions 脚本注入漏洞滥用存储库的 GITHUB_TOKEN 并推送在不修改主分支的情况下伪造版本。恶意版本 (0.23.3) 已发布到 PyPI 和容器注册表，嵌入了一个 .pth 文件，该文件在 Python 解释器启动时自动执行，无需显式导入。有效负载经过混淆（base64 编码），旨在在安装受感染软件包的任何环境中安静地运行，从而有效地将例行依赖项安装转变为远程代码执行。此事件之所以引人注目，是因为它通过利用合法的 CI/CD 管道而不是误植或流氓软件包来绕过传统的信任信号，并且它还影响了默认为最新的未固定的 Docker 拉取。   由   提交/u/raptorhunter22  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxr5o6/pypi_supply_chain_compromise_via_github_actions/</guid>
-      <pubDate>Tue, 28 Apr 2026 04:33:11 GMT</pubDate>
-    </item>
-    <item>
-      <title>Markdown 是新浪潮吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxq6xx/is_markdown_the_new_wave/</link>
-      <description><![CDATA[我在 Markdown 上看到了很多项目 - 有哪些值得关注。   由   提交 /u/Successful_Bowl2564   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxq6xx/is_markdown_the_new_wave/</guid>
-      <pubDate>Tue, 28 Apr 2026 03:46:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lightport – 使 LLM 提供商与 OpenAI 兼容的 AI 网关</title>
-      <link>https://www.reddit.com/r/webdev/comments/1sxodbh/lightport_ai_gateway_that_makes_llm_providers/</link>
-      <description><![CDATA[      我们正在将 Lightport 开源 – 它是一直为 Glama AI Gateway 提供支持的 AI 网关。 GitHub：https://github.com/glama-ai/lightport 为什么？ 我们将全力投入 MCP 生态系统 - 这是我们最擅长的。开源网关既是对帮助我们成长的社区的感谢，也是让我们保持专注的一种方式。 简短的背景故事： Lightport 最初是 Portkey 的一个分支。我们需要一种方法来使各种 LLM 提供商与 OpenAI 兼容，而 Portkey 提供了坚实的基础。但它还附带了许多我们认为不属于这一层的更高级别的功能（护栏、计费等），这使得迭代提供商兼容性变得困难。因此，我们对其进行了精简，修复了错误，为 80 多个提供商添加了集成测试，并将其塑造成一件事：一个可靠、轻量级的层，使任何 LLM 提供商都与 OpenAI 兼容。 下一步是什么： 更多模块将随之而来 - 护栏、计费、重试、遥测 - 每个模块都作为独立中间件开源。我们将继续保持 Lightport 的开放性，重点关注 LLM 提供商之间的 OpenAI 兼容性。 对于 Glama 用户： Glama AI 网关将继续充当隐私优先网关，但我们将仅支持一组精选的提供商（OpenAI、Anthropic、Google、Grok、Groq、DeepSeek、阿里巴巴、Moonshot 等）。对于其他一切，OpenRouter 是一个很好的选择。 尝试它，打破它，用它构建。我迫不及待地想看看你做了什么。   由   提交/u/punkpeye  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1sxodbh/lightport_ai_gateway_that_makes_llm_providers/</guid>
-      <pubDate>Tue, 28 Apr 2026 02:22:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
