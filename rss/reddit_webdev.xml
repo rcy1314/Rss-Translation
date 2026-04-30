@@ -4,13 +4,55 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 30 Apr 2026 14:10:14 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 16:25:24 GMT</lastBuildDate>
     <item>
-      <title>我构建了一个工具，使 QR 码看起来像 URL 的图标</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szx0eg/i_built_a_tool_that_makes_qr_codes_look_like_the/</link>
-      <description><![CDATA[      我痴迷二维码有一段时间了，真的不喜欢中间有空白标志的二维码。我构建了一个生成器，可以获取 URL 的图标，然后将图像合并到 QR 代码布局中。 它现在位于 MosaicQR.com   由   提交 /u/thermist-MJ   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szx0eg/i_built_a_tool_that_makes_qr_codes_look_like_the/</guid>
-      <pubDate>Thu, 30 Apr 2026 14:03:13 GMT</pubDate>
+      <title>TIL：像 LogRocket 这样的会话记录器默认捕获表单输入值。使用 Web Workers 构建修复程序。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szzws8/til_session_recorders_like_logrocket_capture_form/</link>
+      <description><![CDATA[我将 LogRocket 添加到医疗保健表格中。去配置字段排除并意识到 - 如果您没有明确配置它，它会记录所有内容。 SSN、出生日期、保险 ID。所有这一切。每次击键时都会以明文形式发送到 LogRocket 的服务器。 供应商选择退出（CSS 类或属性）适用于 LogRocket。它对以下内容没有任何作用： 您以后可能添加的其他会话记录器 Microsoft Clarity（它有一个单独的 data-clarity-unmask，很容易在另一个方向上错误配置） 具有 DOM 访问权限的浏览器扩展 Chrome 或 Copilot Vision 中的 Gemini - 都直接读取呈现的页面，并且不会被任何记录器配置拦截 共同点：所有这些都读取来自 DOM 的 input.value。 input.value 始终保存标准 React 控制输入中的实际值。屏蔽库没有帮助——我检查了react-input-mask 和 IMask 源代码。两者都将明文写入 DOM。屏蔽只是视觉上的。 实际的修复是将真实值完全保留在 DOM 之外。 Web Workers 在设计上没有 DOM 访问——平台保证，而不是配置。因此，我构建了一个钩子，在 DOM 更新之前拦截击键，将它们路由到工作线程，并仅将加扰掩码写入 DOM。会话记录器、AI 屏幕阅读器和扩展程序都会读取掩码。 事实证明，以前没有专门针对表单输入执行过此操作。普林斯顿大学在 2017 年发表了一篇关于会话重放 PHI 捕获的论文，并明确表示浏览器层缓解措施不可行。这种方法有所不同 - 不限制 DOM 访问，只是确保 DOM 中没有任何有用的内容可供读取。 库称为 FieldShield，MIT 许可，在 npm 上：npm install fieldshield 演示：fieldshield-demo.vercel.app 很高兴回答有关 Worker 隔离架构的问题或我一路上遇到的五个真正烦人的错误（CSS 继承间隙、光标从等宽字体漂移）不匹配，浏览器撤消堆栈破坏工作线程状态）。   由   提交/u/notSceredNotALoser   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szzws8/til_session_recorders_like_logrocket_capture_form/</guid>
+      <pubDate>Thu, 30 Apr 2026 15:40:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何创建多人游戏（演示）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szzftm/how_to_create_a_multiplayer_gamedemo/</link>
+      <description><![CDATA[我正在创建一个类似国际象棋的网页游戏，我在 VSCode 中使用 html、css、js 完成了代码。但我现在陷入困境的是多人游戏，就像一个玩家在另一台电脑上与另一个玩家一起玩，你使用 6 位生成的代码进入游戏。 我尝试了 GitHub 页面，它适合本地多人游戏，但我无法用它进行在线多人游戏。 firebase 是一个很好的平台吗？或者还有更好的吗？   由   提交 /u/LIGHT-Y2K6   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szzftm/how_to_create_a_multiplayer_gamedemo/</guid>
+      <pubDate>Thu, 30 Apr 2026 15:27:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 Bing 搜索发现了一个非常好的网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szz02y/нашел_очень_хороший_сайт_с_поиском_bing/</link>
+      <description><![CDATA[&lt;表&gt;      您好！我找到了一个好网站。它提供了完整的定制，包括超过 5 个漂亮的主题、单独更改搜索结果的能力（无需更改主要语言）等等。设计本身非常漂亮，赏心悦目。  该网站使用 Bing 和 AI Copilot 进行搜索 - 这使得搜索非常方便。在浏览器中，您可以禁用搜索提示等 如果您愿意，请尝试 - https://bingxai.netlify.app/ （照片中 - 我在该产品的 telegram 频道中看到的屏幕截图）   由   提交/u/AFUMNPIJBZ   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szz02y/нашел_очень_хороший_сайт_с_поиском_bing/</guid>
+      <pubDate>Thu, 30 Apr 2026 15:15:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI帖子充斥着潜艇，而且比以前更糟糕。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szymyz/ai_posts_are_flooding_the_sub_and_its_worse_than/</link>
+      <description><![CDATA[一开始，vibe 编码员只是发表了一些言论并发布了相关内容，我们每天收到几篇帖子，对它们投反对票，然后继续前进。 但现在我们收到的帖子会自动被点赞，评论赞扬 OP，评论也被点赞... 目前这是难以忍受的，需要采取一些措施...   由   提交 /u/iSpaYco   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szymyz/ai_posts_are_flooding_the_sub_and_its_worse_than/</guid>
+      <pubDate>Thu, 30 Apr 2026 15:03:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>OAuth登录后如何处理会话管理？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szycx2/how_do_you_handle_session_management_after_oauth/</link>
+      <description><![CDATA[我正在构建一个小型副项目，刚刚实现了 Google OAuth 登录。它工作正常，但现在我陷入了 OAuth 握手后该做什么的困境。现在，我正在后端生成 JWT 并将其发送回前端以存储在 localStorage 中。然后我将其附加到每个 API 请求中。这感觉很标准，但我一直读到 localStorage 容易受到 XSS 攻击。有些人说使用 httpOnly cookie，但是你如何处理移动设备或者你的前端位于不同的域上？ 我只是一名开发人员，我不想对此进行过度设计，但我也不想发布不安全的东西。我的应用程序不处理任何超级敏感的内容，例如银行或医疗数据。它基本上是一个带有一些共享功能的待办事项列表。 localStorage 中的 JWT 适合这个用例吗？还是我应该费尽心思去设置一个基于 cookie 的会话？还有刷新令牌呢？我真的需要它们来构建一个简单的应用程序吗？ 很好奇其他独立开发人员实际上在小型项目的生产中做了什么。不寻求企业级建议。   由   提交 /u/TariqKhalaf   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szycx2/how_do_you_handle_session_management_after_oauth/</guid>
+      <pubDate>Thu, 30 Apr 2026 14:53:22 GMT</pubDate>
+    </item>
+    <item>
+      <title>有没有人发现或创建过高性能、流畅的 WebGPU 游戏？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szxmbs/has_anyone_ever_found_or_created_a_performant/</link>
+      <description><![CDATA[您知道哪些可以在浏览器中玩的在线游戏的示例，这些游戏使用网络技术堆栈，不会出现倾斜和卡顿、模糊和滞后的图形？就像一个带有 React 界面和 WebGPU 渲染的游戏。或者热路径生锈。或者甚至是真正融合并为玩家提供良好体验的旧技术。  我一直在寻找，但找不到一个完全流畅的体验。我并不是说 AAA 游戏体验，我什至不寻找任何接近的东西，只是一些流畅且优化且运行良好的东西。    由   提交 /u/oooofukkkk   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szxmbs/has_anyone_ever_found_or_created_a_performant/</guid>
+      <pubDate>Thu, 30 Apr 2026 14:26:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>最后集中了我的开发任务和 SEO。希望帮助反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1szx99g/finally_centralized_my_dev_tasks_seo_want_helps/</link>
+      <description><![CDATA[      每次我管理网站时，可能会丢失或忘记一些细节，或者如果开发人员某些任务、电子邮件和帐户无法处理，请使用多种服务，例如服务器正常运行时间监控、反向链接构建等 这是我的应用程序的内容 服务器正常运行时间监控电子邮件/松弛 反向链接构建跟踪器和管理DB 域过期提醒 跟踪和编写每个项目的任务 帐户仪表板/凭证跟踪 启动清单 收入报告 搜索控制台集成 我想获得一些想法或功能建议   由   提交/u/Insanony_io  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1szx99g/finally_centralized_my_dev_tasks_seo_want_helps/</guid>
+      <pubDate>Thu, 30 Apr 2026 14:12:30 GMT</pubDate>
     </item>
     <item>
       <title>克劳德·科德最近怎么了？！！</title>
@@ -29,7 +71,7 @@
     <item>
       <title>使用基于使用情况的计费将每个事件从中间件发送到条带是否很糟糕？</title>
       <link>https://www.reddit.com/r/webdev/comments/1szvabj/is_it_terrible_to_send_every_event_to_stripe_from/</link>
-      <description><![CDATA[大家好，有什么问题吗？以异步甚至同步的方式。我听说现在条带计量计费处理量&gt; 10k 事件/秒。是否需要使用openmeter之类的第三方工具？   由   提交/u/Concient_Tutor_597   [链接] [评论]]]></description>
+      <description><![CDATA[大家好，有什么问题吗？以异步甚至同步的方式。我听说现在条带计量计费处理量&gt; 10k 事件/秒。是否需要使用openmeter之类的第三方工具？   由   提交/u/Consistent_Tutor_597   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1szvabj/is_it_terrible_to_send_every_event_to_stripe_from/</guid>
       <pubDate>Thu, 30 Apr 2026 12:55:13 GMT</pubDate>
     </item>
@@ -50,7 +92,7 @@
     <item>
       <title>这很可能是我认为我曾经参加过的最悲惨的 Reddit 子版块。</title>
       <link>https://www.reddit.com/r/webdev/comments/1szt3x7/this_is_quite_possibly_the_most_miserable_sub/</link>
-      <description><![CDATA[编辑：显然这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，让我们来做一个现场网络开发和设计挑战吧。  我看到人们发布了真正有用、很酷或有趣的东西，但它却被否决了。所有的负面评论都来自于那些没有胆量发表自己言论却会抓住机会撕毁别人作品的人。我可以说更多，但我将把它留在那里。 编辑：显然这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，让我们来做一个现场网络开发和设计挑战吧。    由   提交/u/Icy-War-5197   [链接] [评论]]]></description>
+      <description><![CDATA[编辑2：被U/strictwelder骚扰，浏览我帐户上的所有帖子并在那里评论仇恨，哈哈..我认为我的观点已经得到证明 编辑1：显然在这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，那就让我们来做一个现场网络开发和设计挑战吧。 我看到人们发布了真正有用、很酷或有趣的东西，但它却被否决了。所有的负面评论都来自于那些没有胆量发表自己言论却会抓住机会撕毁别人作品的人。我可以说更多，但我将把它留在那里。 编辑：显然这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，让我们来做一个现场网络开发和设计挑战吧。   由   提交/u/Icy-War-5197   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1szt3x7/this_is_quite_possibly_the_most_miserable_sub/</guid>
       <pubDate>Thu, 30 Apr 2026 11:16:46 GMT</pubDate>
     </item>
@@ -67,48 +109,6 @@
       <description><![CDATA[我一直遇到的问题是，与我一起工作的许多开发人员确实关心理论上的可访问性，但在实践中仍然难以一致地应用它。它通常最终成为人们计划“稍后再回来”的东西。 我最近读了Web Accessibility Cookbook，并认为它真的很棒。非常实用，有很多具体例子。困难的部分是让同事真正阅读它。即使人们同意可访问性很重要，要求他们在日常工作之外阅读一本书也很少会坚持下去。 作为一个小实验，我尝试将书中的一些想法转化为一组可以在工作时使用的小型人工智能“技能”，更像是开发过程中的参考或推动，而不是你事先学习的东西。如果有人好奇，我将它们放在这里： https://github.com/klovaaxel/web-a11y-agent-skills 这并不是灵丹妙药。这似乎有助于让可访问性思考更接近编码过程，而不是最后的清单。 我很想听听对其他人来说哪些有效（或失败）：  有任何真正帮助团队内化可访问性的资源吗？ 您如何成功地将可访问性尽早引入开发周期？ 长期坚持的良好习惯或工作流程？  主要是希望向遇到同样问题的其他人学习。   由   提交 /u/klovaaxel1000   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1szqpy1/how_do_you_get_teams_to_actually_care_about_web/</guid>
       <pubDate>Thu, 30 Apr 2026 09:05:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌刚刚正式宣布代理技能，我认为即时工程时代即将结束</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szqfaf/google_just_made_agent_skills_official_and_i/</link>
-      <description><![CDATA[Google 接下来在云端推出了官方代理技能存储库。十三个技能涵盖alloydb、bigquery、cloud run、firebase、gemini api、gke。加上安全性、可靠性、成本优化三大支柱。 这与几周前下降的 addy osmanis 技能不同。 osmanis 回答如何正确构建。规范在代码之前，测试在合并之前，测量在优化之前。谷歌回答要构建什么以及如何操作它。两者都是技能，但处于不同的层次。 这就是我真正想到的。技能正在成为标准的抽象。我们从原始提示转变为结构化提示，到现在为止。技能基本上是打包的机构知识，以便代理可以使用它。代理不需要了解 bigquery。它需要 bigquery 技能。 我尝试通过 npx 安装一些。它们插入克劳德代码、光标、反重力。我们承诺，当谷歌更新云 API 时，技能也会更新。您停止维护适配器样板。 一些编码代理已经支持技能组合。 verdent 有一个技能市场，直到现在我基本上都忽略了。为我的项目约定设置一些，区别在于代理不再询问它应该已经知道的基本问题。它只是应用了模式。 即时工程人群不会喜欢这个。但技能基本上是大规模的快速工程、可重用、版本化、可共享。单独的提示调整始终是一种黑客行为。这感觉就像真正的基础设施。   由   提交 /u/Unique_Reputation568   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szqfaf/google_just_made_agent_skills_official_and_i/</guid>
-      <pubDate>Thu, 30 Apr 2026 08:48:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>当本地应用程序在生产中出现故障时，您首先检查什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szq1ik/what_do_you_check_first_when_a_local_app_breaks/</link>
-      <description><![CDATA[我正在尝试更好地调试部署问题，而不仅仅是更改随机内容和重新部署（我还是个新手）。 我最近第一次部署时遇到的问题是一些基本问题，例如 env、db url 问题、构建/启动混乱以及不应该硬编码的硬编码内容。但我花了一段时间才弄清楚。我想如果它在我的笔记本电脑上运行，那么当我把它放在网上时它也会运行。我错了，哈哈。 我也有一些东西在视觉上被破坏了，而且......部署后工作方式不同，这让我更加困惑，因为......这是相同的代码。  我读过一些关于检查构建日志、环境变量、端口以及确保生产数据库 URL 实际上是正确的内容，但我仍然没有真正的心理清单。 此外，对于初学者友好的部署平台，该平台对于调试此类内容是否有很大影响，或者一旦您了解了基础知识，它们都几乎相同吗？ 我试图了解心理清单应该是什么样子？就像本地工作但生产不工作时一样。   由   提交/u/themostunknownowl   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szq1ik/what_do_you_check_first_when_a_local_app_breaks/</guid>
-      <pubDate>Thu, 30 Apr 2026 08:25:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>学习面试算法，忘记工作中的算法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szpf2f/learn_algorithms_for_interviews_forget_them_for/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szpf2f/learn_algorithms_for_interviews_forget_them_for/</guid>
-      <pubDate>Thu, 30 Apr 2026 07:48:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>前后端协调最大的挑战是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szmgd1/whats_the_biggest_challenge_in_frontend_and/</link>
-      <description><![CDATA[跨前端和后端工作通常需要不断调整 API、数据流和时间线。 但在实际项目中，这种协调可能会成为瓶颈。 同步前后端工作时遇到哪些问题？   由   提交/u/prowesolution123  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szmgd1/whats_the_biggest_challenge_in_frontend_and/</guid>
-      <pubDate>Thu, 30 Apr 2026 05:03:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建了一个简单的数字花束制作器 - 寻找类似的小而可共享的想法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szmf2b/built_a_simple_digital_bouquet_maker_looking_for/</link>
-      <description><![CDATA[我最近构建了一个小型网络项目，您可以在其中创建数字花束并与他人分享。它非常简单，只需几秒钟，更多的是感觉而不是功能。 现在我正在尝试构建更多这样的项目。 我特别寻找以下想法： •快速使用（无需登录，低摩擦） •有点个人或情感 •易于作为链接分享 如果您看到过类似的内容，我很乐意听听这个，或者任何适合这个空间的想法。   由   提交/u/TimeDeep1497  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szmf2b/built_a_simple_digital_bouquet_maker_looking_for/</guid>
-      <pubDate>Thu, 30 Apr 2026 05:02:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>GraphQL 曾经很流行，但现在似乎不再如此了......</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szk144/graphql_used_to_be_popular_but_that_doesnt_seem/</link>
-      <description><![CDATA[很想知道人们的立场。我曾经很喜欢 GraphQL，但似乎很多 REST API 都解决了获取不足和过度获取的问题，甚至可以让你选择要填充和返回的数据。   由   提交 /u/codingafterthirty   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szk144/graphql_used_to_be_popular_but_that_doesnt_seem/</guid>
-      <pubDate>Thu, 30 Apr 2026 03:03:16 GMT</pubDate>
     </item>
     </channel>
 </rss>
