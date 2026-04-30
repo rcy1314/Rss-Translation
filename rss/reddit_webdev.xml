@@ -4,13 +4,69 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 30 Apr 2026 16:25:24 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 19:40:58 GMT</lastBuildDate>
     <item>
-      <title>TIL：像 LogRocket 这样的会话记录器默认捕获表单输入值。使用 Web Workers 构建修复程序。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szzws8/til_session_recorders_like_logrocket_capture_form/</link>
-      <description><![CDATA[我将 LogRocket 添加到医疗保健表格中。去配置字段排除并意识到 - 如果您没有明确配置它，它会记录所有内容。 SSN、出生日期、保险 ID。所有这一切。每次击键时都会以明文形式发送到 LogRocket 的服务器。 供应商选择退出（CSS 类或属性）适用于 LogRocket。它对以下内容没有任何作用： 您以后可能添加的其他会话记录器 Microsoft Clarity（它有一个单独的 data-clarity-unmask，很容易在另一个方向上错误配置） 具有 DOM 访问权限的浏览器扩展 Chrome 或 Copilot Vision 中的 Gemini - 都直接读取呈现的页面，并且不会被任何记录器配置拦截 共同点：所有这些都读取来自 DOM 的 input.value。 input.value 始终保存标准 React 控制输入中的实际值。屏蔽库没有帮助——我检查了react-input-mask 和 IMask 源代码。两者都将明文写入 DOM。屏蔽只是视觉上的。 实际的修复是将真实值完全保留在 DOM 之外。 Web Workers 在设计上没有 DOM 访问——平台保证，而不是配置。因此，我构建了一个钩子，在 DOM 更新之前拦截击键，将它们路由到工作线程，并仅将加扰掩码写入 DOM。会话记录器、AI 屏幕阅读器和扩展程序都会读取掩码。 事实证明，以前没有专门针对表单输入执行过此操作。普林斯顿大学在 2017 年发表了一篇关于会话重放 PHI 捕获的论文，并明确表示浏览器层缓解措施不可行。这种方法有所不同 - 不限制 DOM 访问，只是确保 DOM 中没有任何有用的内容可供读取。 库称为 FieldShield，MIT 许可，在 npm 上：npm install fieldshield 演示：fieldshield-demo.vercel.app 很高兴回答有关 Worker 隔离架构的问题或我一路上遇到的五个真正烦人的错误（CSS 继承间隙、光标从等宽字体漂移）不匹配，浏览器撤消堆栈破坏工作线程状态）。   由   提交/u/notSceredNotALoser   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szzws8/til_session_recorders_like_logrocket_capture_form/</guid>
-      <pubDate>Thu, 30 Apr 2026 15:40:34 GMT</pubDate>
+      <title>有什么简单的方法可以在不安装应用程序的情况下测试 m3u/IPTV 链接吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t06nt5/any_simple_way_to_test_m3uiptv_links_without/</link>
+      <description><![CDATA[一直在尝试找到一种简单的方法来快速检查 m3u 或 IPTV 链接，而无需每次都设置完整的应用程序。 在测试时遇到了一个名为 i-player.live 的东西，它直接在浏览器中运行，这使得快速检查变得更加容易。没什么高级的，但如果您只想查看流是否加载，则很有用。 并不是真正的完整设置的替代品，只是更多的快速测试选项。 你们通常使用什么来实现此目的？   由   提交 /u/Designer-Glass838   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t06nt5/any_simple_way_to_test_m3uiptv_links_without/</guid>
+      <pubDate>Thu, 30 Apr 2026 19:39:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了一个网站，可以将 Reddit 子版块变成不间断的广播</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t06cg5/i_made_a_website_that_turns_subreddits_into_non/</link>
+      <description><![CDATA[       由   提交/u/cantFindValidNam   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t06cg5/i_made_a_website_that_turns_subreddits_into_non/</guid>
+      <pubDate>Thu, 30 Apr 2026 19:28:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>大多数网站都不知道人工智能代理正在访问它们并跳出。以下是其技术原因，以及 MCP 生态系统正在采取的措施。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t069qi/most_websites_have_no_idea_ai_agents_are_visiting/</link>
+      <description><![CDATA[如果您专业构建或维护网站，值得考虑的事情： 人工智能代理、Claude、具有浏览功能的 ChatGPT、基于这些模型构建的自定义代理，越来越多地代表要求其完成任务的用户访问网站。预定一件事。比较计划。  查找并联系服务。 这些代理的行为与人类用户不同。  它们不滚动。  它们不会解释不明确的导航。  他们寻找结构化的、可调用的端点，以及可以调用以获得结果的东西。 大多数网站都没有这些。 结果：代理读取公共页面上的所有内容，在操作层遇到死胡同，向用户返回摘要，并告诉他们自己访问该网站。  网站所有者在他们的分析中看不到任何内容。  没有推荐。  没有会话。  代理无声地弹起。 MCP（模型上下文协议）生态系统正在构建基础设施来解决此问题。该模型大致为：  网站将其功能（预订、搜索、结帐、潜在客户捕获）公开为具有定义的输入和输出的结构化、可调用工具 兼容 MCP 的 AI 代理可以发现这些工具、读取其定义并直接调用它们 网站执行操作。代理得到结果。用户无需手动访问页面即可获得结果。  这就是 WebMCP 所指向的目标，网站即服务，而不仅仅是文档。 当今的技术差距在于实施。  大多数企业没有工程资源来从头开始构建与现有站点一起的 MCP 兼容端点。 很好奇这里是否有人从开发角度考虑过这个问题，特别是围绕站点如何将现有表单/预订/结帐流程公开为可调用工具而无需完全重建。   由   提交 /u/pystar   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t069qi/most_websites_have_no_idea_ai_agents_are_visiting/</guid>
+      <pubDate>Thu, 30 Apr 2026 19:25:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>JavaScript 中的快速网格布尔值</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t05nye/fast_mesh_booleans_in_javascript/</link>
+      <description><![CDATA[      我们编写了一个关于使用 trueform 在 JavaScript 中执行网格布尔运算（并集、交集、差集）的教程。该引擎在 WebAssembly 中运行并支持异步执行。 javascript const { mesh, labels, faceLabels } = wait tf.async.booleanUnion(dragon, returned);  本教程涵盖了加载网格、变换、移动几何体上重复布尔值的预计算结构以及 Three.js 集成。 如果您想在浏览器中使用它：https://trueform.polydera.com/live-examples/boolean   由   提交 /u/Separate-Summer-6027   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t05nye/fast_mesh_booleans_in_javascript/</guid>
+      <pubDate>Thu, 30 Apr 2026 19:03:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我将整个 LLM 管道从同步 HTTP 处理程序移至作业队列，以及最终推动我的 502 错误</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t05mtc/why_i_moved_my_entire_llm_pipeline_from_sync_http/</link>
+      <description><![CDATA[分享我花了太长时间才完成的架构迁移的事后分析，以防有人仍在其 HTTP 处理程序中直接运行 AI 管道。 设置 我运行一个 AI 管道，该管道执行多步骤 LLM 工作：声明提取、跨多个提供商的 Web 搜索、源评分，然后是最终综合步骤。端到端运行时间范围为 5 到 35 秒，具体取决于缓存命中和涉及的源数量。 在最初的几个月里，我很天真。请求进来，处理程序运行整个管道，响应出去。在开发中工作得很好。对于前十几个用户来说工作得很好。 哪里出了问题 同时发生了两件事。 首先，我的反向代理 (Nginx) 和我的 Node 运行时有不同的超时设置。我将 Node 设置为 60 秒，因为我的管道有时会达到 35 秒。Nginx 默认情况下为 30 秒。当作业即将完成时提示无提示的 502 错误。用户收到错误，工作还是完成了，然后你花了一周的时间来追踪看似后端错误但实际上是层不匹配的问题。 其次，当并发量上升时（大约 50 个并行请求的批量测试），整个流程开始锁定。连接保持打开状态，事件循环阻塞，新请求超时。我在该批次中丢失了大约 4% 的请求。 修复 迁移到基于队列的架构。 BullMQ 位于 Redis 之上。现在的流程如下所示： API 接收请求、验证、在 Redis 中删除作业、立即返回作业 ID（不到 100 毫秒）。前端轮询状态端点或通过 SSE 订阅。单独的工作进程从队列中提取作业，运行管道，将结果写回数据库。用户通过作业 ID 获取最终结果。 相同的代码，完全不同的运行时配置文件。 发生了什么变化 502 错误一夜之间消失了。没有减少，消失了。 HTTP 层现在与作业持续时间完全解耦。 并发性受工作人员数量限制，而不是受 HTTP 请求数量限制。我可以独立扩展工作人员。如果某个作业需要 90 秒，它不会阻塞 API。 重试变得微不足道。 BullMQ 具有开箱即用的指数退避功能。不稳定的外部 API 调用不再破坏用户体验，作业只是重试。 可观察性变得更好。每个作业都有明确的生命周期（等待、活动、已完成、失败），我可以根据需要重放失败的作业。 我从第一天起就应该做的事情 从一开始就将其构建在队列上。 “当我规模扩大时，我会稍后迁移”的本能让我从症状出现到发布修复程序之间花费了大约三周的时间。迁移本身花了两天时间。拒绝比工作花费的时间更长。 如果您正在运行任何单个用户请求触发超过 5 秒的后端工作的内容，尤其是链中的外部 API 调用，请立即将其解耦。该模式很好理解，库也很成熟（用于 Node 的 BullMQ、用于 Python 的 Celery、用于更轻量级 Python 使用的 RQ），并且在第一次达到实际负载时您会感谢自己。 问题 您正在用简单性换取弹性。队列增加了操作表面（用于监控的 Redis、用于部署的工作人员、用于管理的 DLQ）。对于有 5 个用户的业余爱好项目，同步处理程序就可以了。对于您不想在凌晨 2 点在负载下调试的任何内容，队列不是可选的。 这是在构建事实检查产品的过程中学到的，但该模式是通用的。  如果有人正在迁移，很高兴回答有关 BullMQ 配置或 SSE 方面的细节。   由   提交 /u/jonathancheckwise   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t05mtc/why_i_moved_my_entire_llm_pipeline_from_sync_http/</guid>
+      <pubDate>Thu, 30 Apr 2026 19:02:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fedora 44 有什么新功能？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t02ufl/fedora_44_whats_new/</link>
+      <description><![CDATA[      Fedora 44 终于登陆了，虽然它是一个“改进”发布后，进行了一些巨大的底层更改，使其成为迄今为止最快速的版本之一。以下是新内容的 TL;DR： 🖥️ 桌面环境  GNOME 50： 设置中的本机家长控制、改进的色彩管理以及更流畅的远程桌面处理。 KDE Plasma 6.6： 具有新的 Plasma 登录管理器和非常酷的 QR 码 Wi-Fi 共享 Budgie：现在默认为 Wayland。  ⚙️ 性能和性能核心  内核 6.19： 随 6.19.14 一起发布（内核 7.0 预计很快会出现在更新存储库中）。 DNF5 在这里： 它现在是 PackageKit 的默认后端。元数据同步明显更快。 NTSYNC 支持：使用 Wine/Steam/Proton 的游戏玩家获得巨大胜利。 更快的启动：优化了 CA 证书的 OpenSSL 处理。  🛠️ 对于开发人员  Native Nix：您现在可以安装直接从官方仓库获取 Nix 包管理器。 更新的堆栈：Go 1.26、Ruby 4.0、PHP 8.5 和 MariaDB 11.8。    由   提交/u/Party-Tension-2053   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t02ufl/fedora_44_whats_new/</guid>
+      <pubDate>Thu, 30 Apr 2026 17:23:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>诚实的比较：我在 React 项目上测试了 ChatGPT、Claude 和自定义提示的 Gemini 进行代码审查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t02coj/honest_comparison_i_tested_chatgpt_claude_and_a/</link>
+      <description><![CDATA[上周末做了一个并行。相同的代码库（我正在重构的一个小型 Next.js 应用程序），关于相同文件的相同问题。分享我的发现，因为“人工智能编码”空间变得无法导航。 设置：  相同的 3 个提示：“查找错误”、“建议重构”、“解释此使用效果” ChatGPT 5 (Plus)、Claude Sonnet 4.5 和带有我构建的自定义系统提示的 Gemini 2.5/3 （Kody，位于 codemasterip.com）  发现：  ChatGPT 在一次性错误检测方面表现最好，但过于冗长 Claude 进行了最简洁的重构，但错过了一个微妙的竞争条件 自定义提示的 Gemini 在原始输出方面处于中间位置，但在“停止到”方面表现更好问”在重构之前 - 这实际上使我避免了一次错误的方向 自定义工具还可以更好地为后续操作保留会话上下文（这是有道理的，它会提示这样做）  警告：我构建了这三个工具之一。所以我试着对自己严厉一些。不过，对我来说，要点是：对于学习/教学用例，提示比模型更重要。 还有其他人进行这种比较吗？很好奇您的代码审查堆栈是什么样的。   由   提交/u/OnlySaas  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t02coj/honest_comparison_i_tested_chatgpt_claude_and_a/</guid>
+      <pubDate>Thu, 30 Apr 2026 17:05:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>名字是你读到的第一件事，也是你记住的最后一件事</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t01jdj/names_are_the_first_thing_you_read_and_the_last/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t01jdj/names_are_the_first_thing_you_read_and_the_last/</guid>
+      <pubDate>Thu, 30 Apr 2026 16:36:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果我们的客户不断改变需求，我们的开发团队应该有额外的时间来实施这些改变，对吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t01exs/if_our_client_keeps_changing_requirements_our/</link>
+      <description><![CDATA[所以我有点压力和恼火。也许是因为我不知道应该如何处理不断变化的需求以及什么对我们开发人员公平。我还想知道为什么有些客户在开始订购东西之前不坐下来思考一下，甚至不知道自己想要什么。 我们的客户不断改变需求，所以我必须不断删除许多小时的工作，因为这些新的改变使旧代码变得毫无用处，包括所有的集成和单元测试。老实说，我也是一个在客户对话中容易情绪化的人，所以如果没有某种框架可以依靠，我可能不是处理这些讨论的最佳人选。 我的问题是，如果我们给客户提供了初步估计，但由于客户不断改变需求而开始耗尽时间，那么我们应该为这些改变获得更多带薪工作时间，对吧？因为我们必须一次又一次地重新实现这些功能，比如删除代码、重写代码、重写新的测试来覆盖新的案例等。我们在最初的估算中不可能预见到未来客户不知道他们想要什么，并且会不断改变主意。 你如何处理这个？ 谢谢！   由   提交/u/OkSun4925   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t01exs/if_our_client_keeps_changing_requirements_our/</guid>
+      <pubDate>Thu, 30 Apr 2026 16:31:53 GMT</pubDate>
     </item>
     <item>
       <title>如何创建多人游戏（演示）</title>
@@ -53,62 +109,6 @@
       <description><![CDATA[      每次我管理网站时，可能会丢失或忘记一些细节，或者如果开发人员某些任务、电子邮件和帐户无法处理，请使用多种服务，例如服务器正常运行时间监控、反向链接构建等 这是我的应用程序的内容 服务器正常运行时间监控电子邮件/松弛 反向链接构建跟踪器和管理DB 域过期提醒 跟踪和编写每个项目的任务 帐户仪表板/凭证跟踪 启动清单 收入报告 搜索控制台集成 我想获得一些想法或功能建议   由   提交/u/Insanony_io  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1szx99g/finally_centralized_my_dev_tasks_seo_want_helps/</guid>
       <pubDate>Thu, 30 Apr 2026 14:12:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>克劳德·科德最近怎么了？！！</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szvtx3/whats_wrong_with_claude_code_lately/</link>
-      <description><![CDATA[克劳德代码出了什么问题？！！ 在过去的一个月里，我的布局和组件充其量只是中等水平。它曾经可以一次性烹饪干净、像素完美的 Tailwind + 响应式内容。现在它需要永远的时间，做出微小的无用的改变，而且我必须照顾每一次迭代。 我想知道它是否至少能在这次降级之前达到与前一个版本相同的性能!! Anthropic 刚刚放弃了事后分析，承认这是“三个独立的工程失误”（降级的推理工作、及时的更改和一些缓存错误）。兄弟，下次就告诉我们，而不是让整个开发社区持续数周😂 还有其他人仍在受苦吗？或者回滚是否真的为你解决了这个问题？   由   提交 /u/West-Yogurt-161   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szvtx3/whats_wrong_with_claude_code_lately/</guid>
-      <pubDate>Thu, 30 Apr 2026 13:17:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅使用 CSS 的动画渐变边框</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szvfua/animated_gradient_borders_with_css_only/</link>
-      <description><![CDATA[      我一直很喜欢在精美的登陆页面上看到的那些发光的动画边框效果。 但很长一段时间，我避免使用它们，因为它们常常感觉有点太老套了。要么你必须堆叠奇怪的额外标记，使用SVG技巧，要么使用JavaScript来进行渐变移动。 所以我尝试仅使用现代CSS重建效果。 最终版本使用： 边框层的伪元素颜色的conic-gradient() @属性使角度可动画第二个用于发光的模糊层和一个更喜欢减少运动后备，因此它不会强制每个人都使用动画 我喜欢这种方法的原因是 HTML 几乎保持无聊。只是一张卡。所有的视觉工作都发生在 CSS 中。 并不是说你应该把它放在任何地方。它可以很快地在视觉上变得响亮。但对于特色卡片、定价块、英雄部分或小的“看这里”UI 时刻，我认为这是一个很好的小模式。 我确信还有其他方法可以做到这一点，所以我很好奇这里的人们如何构建相同的效果。   由   提交 /u/Blozz12   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szvfua/animated_gradient_borders_with_css_only/</guid>
-      <pubDate>Thu, 30 Apr 2026 13:01:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用基于使用情况的计费将每个事件从中间件发送到条带是否很糟糕？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szvabj/is_it_terrible_to_send_every_event_to_stripe_from/</link>
-      <description><![CDATA[大家好，有什么问题吗？以异步甚至同步的方式。我听说现在条带计量计费处理量&gt; 10k 事件/秒。是否需要使用openmeter之类的第三方工具？   由   提交/u/Consistent_Tutor_597   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szvabj/is_it_terrible_to_send_every_event_to_stripe_from/</guid>
-      <pubDate>Thu, 30 Apr 2026 12:55:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>是我一个人的问题还是授权提供商的文档特别糟糕</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szur6o/is_it_just_me_or_are_auth_provider_docs_uniquely/</link>
-      <description><![CDATA[我已经集成了 stripe、twilio、sendgrid、datadog 以及其他一些工具，文档大多都很好。你读过它们，你发布了，但我接触过的每一个身份验证/身份提供商（不是指名道姓，但你可以猜测）都感觉像是一个不同的故事。 文档读起来就像是由已经知道答案并且只是想自己确认的人编写的 一半的示例是针对已弃用 3 年的 v1 sdks。 搜索返回 40 个“webhook”结果，其中没有一个是关于“webhook”的你的 webhook 上周我花了一整个下午的时间试图找出会话刷新时返回哪些字段。 最终通过控制台回答了我自己的问题。记录响应 😭 不是文档 Flex，而是 descope 的文档是我选择它们的原因。流程构建器具有可视化示例和 api 参考   由   提交/u/Tr0jAn14  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szur6o/is_it_just_me_or_are_auth_provider_docs_uniquely/</guid>
-      <pubDate>Thu, 30 Apr 2026 12:32:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果您必须在无法访问代码的情况下进行 SEO，您会怎么做？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szuqh8/what_would_you_do_if_you_had_to_do_seo_without/</link>
-      <description><![CDATA[所以我现在的处境非常奇怪。我有一个经营旅行社的客户，我被要求处理他们网站的搜索引擎优化。问题是，该网站是基于 Joomla 构建的，而我对此的经验为零。 最初，我认为我需要访问源代码才能进行页面 SEO。我的客户（像往常一样）不是技术人员，他将我与最初构建该网站的供应商联系起来。这就是事情开始变得复杂的地方。 供应商解释说，该网站在他们自己的预订引擎上运行，并且他们使用同一系统管理大约 400 个网站。因此，他说他不能分享源代码，但他可以代表我进行更改。 我做了一些挖掘，发现了基于此引擎构建的其他网站。它们都有相同的主题以及相同的设计和结构问题。最重要的是，供应商很难合作。他说得好像他理解技术概念，但当我深入细节时，他似乎并没有听懂我在说什么。 例如，有一个图像替代文本写为“deluxroomsinmountain”，没有空格。我要求他将其分成适当的单词，以便搜索引擎可以正确解释它。他说他的系统不可能做到这一点。我还注意到一个 ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szuqh8/what_would_you_do_if_you_had_to_do_seo_without/</guid>
-      <pubDate>Thu, 30 Apr 2026 12:31:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>这很可能是我认为我曾经参加过的最悲惨的 Reddit 子版块。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szt3x7/this_is_quite_possibly_the_most_miserable_sub/</link>
-      <description><![CDATA[编辑2：被U/strictwelder骚扰，浏览我帐户上的所有帖子并在那里评论仇恨，哈哈..我认为我的观点已经得到证明 编辑1：显然在这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，那就让我们来做一个现场网络开发和设计挑战吧。 我看到人们发布了真正有用、很酷或有趣的东西，但它却被否决了。所有的负面评论都来自于那些没有胆量发表自己言论却会抓住机会撕毁别人作品的人。我可以说更多，但我将把它留在那里。 编辑：显然这里激怒了很多人。如果你们中的任何一个人准备好迎接挑战，让我们来做一个现场网络开发和设计挑战吧。   由   提交/u/Icy-War-5197   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szt3x7/this_is_quite_possibly_the_most_miserable_sub/</guid>
-      <pubDate>Thu, 30 Apr 2026 11:16:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>简单的 html 页面</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szr8ug/simple_html_page/</link>
-      <description><![CDATA[当您想要托管一个简单的 html 页面时，您会做什么？    由   提交/u/thegonelf   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szr8ug/simple_html_page/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:36:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何让团队真正关心网络可访问性？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1szqpy1/how_do_you_get_teams_to_actually_care_about_web/</link>
-      <description><![CDATA[我一直遇到的问题是，与我一起工作的许多开发人员确实关心理论上的可访问性，但在实践中仍然难以一致地应用它。它通常最终成为人们计划“稍后再回来”的东西。 我最近读了Web Accessibility Cookbook，并认为它真的很棒。非常实用，有很多具体例子。困难的部分是让同事真正阅读它。即使人们同意可访问性很重要，要求他们在日常工作之外阅读一本书也很少会坚持下去。 作为一个小实验，我尝试将书中的一些想法转化为一组可以在工作时使用的小型人工智能“技能”，更像是开发过程中的参考或推动，而不是你事先学习的东西。如果有人好奇，我将它们放在这里： https://github.com/klovaaxel/web-a11y-agent-skills 这并不是灵丹妙药。这似乎有助于让可访问性思考更接近编码过程，而不是最后的清单。 我很想听听对其他人来说哪些有效（或失败）：  有任何真正帮助团队内化可访问性的资源吗？ 您如何成功地将可访问性尽早引入开发周期？ 长期坚持的良好习惯或工作流程？  主要是希望向遇到同样问题的其他人学习。   由   提交 /u/klovaaxel1000   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1szqpy1/how_do_you_get_teams_to_actually_care_about_web/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:05:35 GMT</pubDate>
     </item>
     </channel>
 </rss>
