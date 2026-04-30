@@ -4,111 +4,111 @@
     <title>最新提交：ChatGPT</title>
     <link>https://www.reddit.com/r/ChatGPT/new</link>
     <description>Reddit 子版块讨论 ChatGPT 和 AI。不隶属于 OpenAI。谢谢，纳特！</description>
-    <lastBuildDate>Thu, 30 Apr 2026 10:58:01 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 14:07:26 GMT</lastBuildDate>
     <item>
-      <title>我的真实设备自动化设置 - 你的想法？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szsl30/my_real_device_automation_setup_your_thoughts/</link>
-      <description><![CDATA[       由   提交/u/No-Speech12   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szsl30/my_real_device_automation_setup_your_thoughts/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:49:46 GMT</pubDate>
+      <title>简化您的合同管理流程。包括提示。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwxo7/streamline_your_contract_management_process/</link>
+      <description><![CDATA[您好！ 您是否在努力跟踪供应商合同、续订日期以及与之相关的潜在风险？ 此提示链通过清理和验证合同数据、计算关键日期以标记潜在问题、构建续订日历以及提供包含有价值建议的摘要仪表板来帮助您管理这些合同。就像您身边有一个合同管理助手一样，可以简化您的工作量！ 提示： 纯文本变量定义 [合同]=按顺序粘贴您的有效供应商合同列表，其中包含以下列：供应商|供应商合同开始日期 (YYYY-MM-DD) | Contract_End_Date (YYYY-MM-DD) 或 Term_Months |自动续订（是/否）|自动续订期限月 |取消窗口天数 | Price_Increase_Clause（无/固定%/CPI/等）|注释 ~ 提示 1 – 收集并收集验证合同数据您是一名合同管理数据分析师。 1. 从用户处接收原始合同列表。 2. 修剪多余空格，日期格式统一为YYYY-MM-DD，并确保数字字段为数字。 3. 在清理后的表格下方识别并列出任何缺失或明显无效的值（例如过去没有续订条款的日期）。 4.输出清理后的标题为“Standardized_Contracts”的表。随后是简短的“Data_Issues”列表（或“无”）。在继续之前请用户确认或更正。 ~ 提示 2 – 计算关键日期和时间风险标记 您是一名合同生命周期计算器，正在处理已确认的 Standardized_Contracts。对于每个合同： 步骤 1. 确定 Current_Term_End_Date（如果提供了 Term_Months，则添加到 Start_Date；否则使用 Contract_End_Date）。步骤 2. 如果 Auto_Renew = Yes，则通过将 Auto_Renew_Term_Months 添加到 Current_Term_End_Date 来计算 Next_Renewal_Date；否则留空。步骤 3. 计算 Last_Cancellation_Date = Current_Term_End_Date 减去 Cancellation_Window_Days。步骤4.设置Risk_Flag_AutoRenew＝“高”如果 Auto_Renew 为“是”且 Cancellation_Window_Days ≤ 30；否则“中”如果 Auto_Renew 为 Yes；否则为“低”。步骤5.设置Risk_Flag_PriceIncrease＝“Yes”如果 Price_Increase_Clause 不是“无”；否则“否”。步骤 6. 创建 Action_Due_90 = Last_Cancellation_Date 减去 90 天； Action_Due_60 = −60； Action_Due_30 = −30。输出表“Contract_Key_Dates”包含所有原始列以及新的计算字段和风险标记。 ~ 提示 3 – 构建续订日历电子表格 您是电子表格生成器。 1.使用Contract_Key_Dates，组装一个名为“Renewal_Calendar”的日历就绪表。含列： 供应商 |当前学期结束日期 |下次续订日期 |最后取消日期 | Action_Due_90 | Action_Due_60 | Action_Due_30 | Risk_Flag_AutoRenew | 风险标志自动更新Risk_Flag_PriceIncrease | 风险标记价格增加注释 2. 按 Action_Due_90 升序对行进行排序。 3. 提供两种格式的表格： a) Markdown 样式的表格，以便快速查看。 b) 准备好粘贴到 Excel/Google Sheets 中的逗号分隔值 (CSV)。 ~ 提示 4 – 摘要仪表板和建议 您是合同风险顾问。 1. 按 Risk_Flag_AutoRenew 级别（高/中/低）和 Risk_Flag_PriceIncrease（是/否）对合约进行计数。 2. 确定任一类别中风险最高的前 5 个即将签订的合同（最近的 Action_Due_90 日期），并列出建议的后续步骤。 3. 简要总结未来 12 个月的总体续订工作量。 ~ 审核/细化 请审核 Renewal_Calendar、CSV 导出和摘要仪表板。 1. 确认所有合同详细信息和日期均正确。 2. 指出是否需要任何调整或附加过滤器（例如供应商类别、支出金额）。 3. 输入“最终确定”接受或提供更正以从适当的提示重新运行。  确保更新第一个提示中的变量：Vendor、Contract_Start_Date、Contract_End_Date、Term_Months、Auto_Renew、Auto_Renew_Term_Months、Cancellation_Window_Days、Price_Increase_Clause、Notes。以下是如何使用它的示例：plaintext Vendor | 2023-01-01 | 2024-01-01 | 12 | 12是的 | 12 | 12 30|无 |重要的合同续签。  如果你不想手动输入每个提示，你可以运行Agentic Workers，它会一键自动运行。注意：这不是运行提示链所必需的。 享受吧！   由   提交 /u/Prestigious-Tea-6699   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwxo7/streamline_your_contract_management_process/</guid>
+      <pubDate>Thu, 30 Apr 2026 14:00:34 GMT</pubDate>
     </item>
     <item>
-      <title>营销人员如何在 ChatGPT 中使用 Serpstat SEO 数据？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szsk8a/how_can_marketers_use_serpstat_seo_data_in_chatgpt/</link>
-      <description><![CDATA[      ChatGPT 的官方 Serpstat 连接器可让您在聊天中使用真实数据进行 SEO 研究。 有了它，您可以：  🔹分析竞争对手  🔹检查反向链接  🔹查找内容差距  🔹构建关键字集群  🔹更快地验证SEO想法 在这里尝试一下：  https://chatgpt.com/apps/serpstat/asdk_app_698b10719a688191b53a37692efb6d81 该连接器可通过 API 供团队试用计划的用户使用。   由   提交 /u/SerpstatCOM   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szsk8a/how_can_marketers_use_serpstat_seo_data_in_chatgpt/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:48:32 GMT</pubDate>
+      <title>对我来说，有什么东西取代了即时工程</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwxn1/something_replaced_prompt_engineering_for_me/</link>
+      <description><![CDATA[我已经尝试将即时工程作为一门科学来学习一个多月了，获得了一些关于构建、分配角色、形成任务等非常有用的见解。在某个时候，我在 r/PromptEngineering 中遇到了一个独立创作者的工具，它使所有这些技术变得毫无用处。 免责声明：我现在认识创作者了，这篇文章是为了分享我的经验，帮助他获得更多用户，但目前是免费的。 所以，我们的想法是，即使你写了一个 10 字的内容来说明你想用 AI 实现的目标，它也会引导你完成一个简报过程，围绕你的目标和背景询问你的关键问题。最终它会给你一个提示，作为你的人工智能工具简介。  它节省了你大量的时间和脑力，每个项目花费的时间不到 3 分钟，而且让 AI 感觉不那么通用，这是我对这个主题感兴趣时的主要问题之一。 在 www.briefingfox.com 上尝试一下，希望它能像帮助我一样帮助你。 请分享你的想法。 请分享你的想法。   由   提交 /u/TooBadBoutThat   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwxn1/something_replaced_prompt_engineering_for_me/</guid>
+      <pubDate>Thu, 30 Apr 2026 14:00:33 GMT</pubDate>
     </item>
     <item>
-      <title>有关于 Linux 版 Codex 应用程序的消息吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szschp/is_there_any_news_about_codex_app_for_linux/</link>
-      <description><![CDATA[那么 Windows 和 Mac 现在都有 Codex 应用程序了，对吗？ 但我听说他们也计划发布适用于 Linux 的 Codex 应用程序，但现在已经是很久以前的事了，所以我想知道发生了什么...... 有人听说过任何有关这方面的新闻或谣言吗？   由   提交 /u/MoonlightLoop   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szschp/is_there_any_news_about_codex_app_for_linux/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:37:33 GMT</pubDate>
+      <title>ChatGPT：“别再试图绕过我的指导方针了”</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwtvq/chatgpt_stop_trying_to_skirt_my_guidelines/</link>
+      <description><![CDATA[ 展示一个处于下犬式的女人 现在将她转过来    由   提交/u/shawnsblog   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwtvq/chatgpt_stop_trying_to_skirt_my_guidelines/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:56:40 GMT</pubDate>
     </item>
     <item>
-      <title>等等wdym..什么时候ai可以发短信给你苹果钱包通行证</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szs6d7/wait_wdym_since_when_can_ais_text_you_an_apple/</link>
-      <description><![CDATA[      我们已经实现了 AGI！就是这样，伙计们😮‍💨😅他们现在可以通过短信预订餐厅   由   提交/u/RespondOk9407   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szs6d7/wait_wdym_since_when_can_ais_text_you_an_apple/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:28:42 GMT</pubDate>
+      <title>大家好，我是一名学生，目前正在撰写有关人工智能及其如何影响消费者认知的论文。如果您能抽出 10 分钟时间填写我的调查问卷，这将极大地帮助我完成我的工作并有望发表我的第一篇论文。这是匿名的:)</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwr8t/hey_everyone_im_a_student_currently_doing_my/</link>
+      <description><![CDATA[       由   提交 /u/NarkX   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwr8t/hey_everyone_im_a_student_currently_doing_my/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:53:49 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT“永远继续”</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szs59e/chatgpt_always_continue/</link>
-      <description><![CDATA[你好，有没有办法让chatgpt总是继续它的答案 喜欢一次解释100个mcq，不喜欢解释10个问题然后告诉chatgpt“继续”添加10个q等等......。    由   提交 /u/Fuckingbooring   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szs59e/chatgpt_always_continue/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:27:00 GMT</pubDate>
+      <title>ChatGPT Image 2.0 使我所有的人类角色都变成了棕褐色。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwn4k/chatgpt_image_20_is_giving_all_my_human/</link>
+      <description><![CDATA[还有其他人找到这个吗？我编辑一个人的次数越多，他们就越会获得一些橙色的棕褐色光泽。 我有一个面色苍白的英国人，经过几次提示后，他们看起来更像拉丁裔。  就好像他们都在向特朗普肤色靠拢。  我尝试过提示保持原始肤色/肤色，甚至添加将其更改为苍白，但后来我只是得到了不同的皮肤。  有人有我可以尝试添加的关键短语来提供帮助吗？   由   提交/u/honkballs  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwn4k/chatgpt_image_20_is_giving_all_my_human/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:49:22 GMT</pubDate>
     </item>
     <item>
-      <title>我还是想明白为什么它总是让头发看起来像铁丝网</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szs22e/i_still_wanna_understand_why_it_always_makes_hair/</link>
-      <description><![CDATA[      由   提交/u/Zachary_Lee_Antle  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szs22e/i_still_wanna_understand_why_it_always_makes_hair/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:22:09 GMT</pubDate>
+      <title>ChatGPT 是这样工作的吗？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwmgu/is_it_how_chatgpt_works/</link>
+      <description><![CDATA[      我在一家餐厅的墙上发现了一幅日本画（很可能是重印的）（第一张图）。我拍了一张照片并使用 CamScanner 裁剪它（第二张图）。然后我请ChatGPT（第3图）和Gemini（第4图）说清楚。 Gemini 保留了原始的颜色配置文件，而 ChatGPT 将花朵染成了紫色。当我用circle-to-search查找原画（最后一张图）时，我发现原图中的花是紫色的。也许 ChatGPT 在创建我请求的图像之前查找了原始绘画？   由   提交/u/WaiLinTun78  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwmgu/is_it_how_chatgpt_works/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:48:39 GMT</pubDate>
     </item>
     <item>
-      <title>我认为 ChatGPT 忘记对这些类型的图像进行限制😅，这看起来很现实，而且还提到了一些小细节。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szryl6/i_think_chatgpt_forgot_to_put_a_restriction_on/</link>
-      <description><![CDATA[   /u/Remarkable-Sir4051   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szryl6/i_think_chatgpt_forgot_to_put_a_restriction_on/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:16:35 GMT</pubDate>
+      <title>为什么 ChatGPT 卸载量急剧上升？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szwfoy/why_are_chatgpt_uninstalls_rising_sharply/</link>
+      <description><![CDATA[从标题上看，卸载率正在上升，下载量正在下降，尽管活跃用户仍然明显高于竞争对手。 想知道是什么突然引发了这种情况？ 来源    由   提交 /u/DeFiNomad1007   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szwfoy/why_are_chatgpt_uninstalls_rising_sharply/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:41:25 GMT</pubDate>
     </item>
     <item>
-      <title>ChatGPT 有时会很有趣。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szry6d/chatgpt_can_be_so_funny_sometimes/</link>
-      <description><![CDATA[      我知道，如果是人类豆子，90% 的 chatGPT 对话方式都会令人难以忍受 - 但我只是问，在为新扩展重玩《暗黑破坏神 4》故事时，我是否应该坚持故事任务或沿途做支线任务。他想出了一个我认为是一个珍珠般的笑话：  https://preview.redd.it/6led9we5zayg1.png?width=1306&amp;format=png&amp;auto=webp&amp;s=56688f3f9f92a3d65ed352416a55e7bc861cda78 有时它说的话确实让我笑出声来。还有其他人说过一些非常搞笑的话吗？   由   提交/u/Melovix  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szry6d/chatgpt_can_be_so_funny_sometimes/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:15:58 GMT</pubDate>
+      <title>你最好的人工智能技巧是什么？</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szw742/whats_your_best_ai_trick/</link>
+      <description><![CDATA[我们这里有很多人，我 100% 确信我们每个人都拥有一些使用人工智能的独特技术，我们所有人都可以从中受益。如果您可以分享，请分享！   由   提交/u/amyyrosse_  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szw742/whats_your_best_ai_trick/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:32:02 GMT</pubDate>
     </item>
     <item>
-      <title>马斯克诉 OpenAI 等人。审判第 4 天：如果陪审团认定 OpenAI 有罪，共同被告 Microsoft 可能面临什么</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrp14/the_musk_v_openai_et_al_trial_day_4_what/</link>
-      <description><![CDATA[​ 注意：您可能会注意到媒体和影响者将今天称为审判的第三天，但通常审判正式从陪审团选择过程开始。所以今天是第四天，而不是第三天。 Musk 诉 OpenAI 等人。该诉讼将微软列为共同被告，涉嫌协助和教唆 OpenAI 违反其慈善信托使命和对捐助者的义务，并从这种共谋中获取经济利益。如果 OpenAI 败诉并被认定为同谋，微软会怎样？ 在人工智能出现之前，公众要获得此类法律信息即使不是不可能，也是非常困难的。但现在我们任何人都可以简单地提示人工智能来解释这一切。我必须赞扬微软构建了他们的副驾驶人工智能，足以诚实地客观地回答这个问题。为了满足我的好奇心，我给了它以下提示： “微软知道 OpenAI 是一家非营利性公司，其既定使命是为人类服务。它必须知道，2019 年向 OpenAI 投资最初的 10 亿美元，并在 2023 年再投资 100 亿美元，将诱使 OpenAI 背叛其捐助者和公众的信任，放弃其最初的使命，转变成一家营利性公司，其主要目的和目标不再是为人类服务，而是让投资者致富，包括微软本身，后者从转型中赚取了 70 亿美元。  如果在 Musk 诉 OpenAI 等人案中。如果 OpenAI 被判背叛这种信任，微软也可能会被判有罪，成为经济利益的同谋。请列出微软将被发现违反的法律，以及它可能因其协助和教唆及相关行为而受到的处罚” 这是它的答案，减去一些可以理解的自私社论。 副驾驶： 马斯克诉 OpenAI 等人的指控。微软被指控： 1）协助和教唆违反慈善信托 马斯克声称 OpenAI 的领导层违反了其创始结构中嵌入的非营利使命，微软在知情的情况下提供资金协助并从营利性转型中受益。  2）不公正致富 马斯克声称 OpenAI 和微软通过偏离资助的非营利使命捐助者来致富。  相关法律原则 A.慈善信托原则 马斯克的法律理论将 OpenAI 最初的非营利使命界定为慈善信托，这意味着领导层有信托义务来维持这一使命。如果法院接受这一框架，那么： 如果 Microsoft 故意诱导违反慈善信托行为或从中受益，则可能要承担协助和教唆违反慈善信托行为的责任。  B.信托义务/忠诚义务 如果 OpenAI 的领导层对非营利组织负有信托义务，那么故意鼓励偏离的合作伙伴可能会受到以下指控： 协助和教唆违反信托义务 这也是民事索赔。 C.不当致富 如果微软因违反慈善信托而获利，法院可以下令： 返还通过涉嫌违反行为获得的利润。  马斯克正在向 OpenAI 和微软寻求总计高达 1340 亿美元的损失。  如果 Microsoft 被认定承担责任，可能会受到哪些处罚？ 民事没收利润 法院可以要求 Microsoft 返还从涉嫌违规行为中获得的利润。  理论上这可能包括： A）来自股权增值的利润 B）来自收益分享协议的利润 C）与重组相关的任何经济利益 这与慈善信托和不当得利案件中的补救措施一致。 禁令救济 法院还可以命令 OpenAI 恢复到非营利结构或取消领导层。这样的补救措施可能会间接影响微软的地位。   由   提交 /u/andsi2asi   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrp14/the_musk_v_openai_et_al_trial_day_4_what/</guid>
-      <pubDate>Thu, 30 Apr 2026 10:01:37 GMT</pubDate>
+      <title>好吧，够了。这已经正式失控了。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szw5ih/alright_enough_this_has_officially_gotten_out_of/</link>
+      <description><![CDATA[      https://chatgpt.com/share/69f35893-3ed8-83ea-bf83-86a380a97ec1   由   提交/u/ReviveTheProcess  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szw5ih/alright_enough_this_has_officially_gotten_out_of/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:30:20 GMT</pubDate>
     </item>
     <item>
-      <title>如果您购买免费试用+订阅，然后立即取消，您是否会保留+功能，而不必担心在月底之前取消？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrmsz/if_you_buy_the_free_trial_plus_subscription_and/</link>
-      <description><![CDATA[我担心如果我这样做的话我的帐户会再次成为标准帐户。   由   提交 /u/Striking_Table1353   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrmsz/if_you_buy_the_free_trial_plus_subscription_and/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:58:34 GMT</pubDate>
+      <title>欢迎来到未来</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szvvsv/welcome_to_the_future/</link>
+      <description><![CDATA[       由   提交/u/imfrom_mars_  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szvvsv/welcome_to_the_future/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:19:20 GMT</pubDate>
     </item>
     <item>
-      <title>还有其他人在使用新的图像生成器时遇到此问题吗？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrk3z/is_anyone_else_having_this_issue_with_the_new/</link>
-      <description><![CDATA[   我不知道为什么这种事总是发生，但它好像增加了噪音？就像它如何生成图像一样，它用一堆微小的斑点生成它，就像我真的想要逼真的图像一样，有时它们最终会非常非常好，但后来我觉得我注意到了很多这样的图像，或者如果它没有这种奇怪的斑点斑点，图像就会很完美。这种情况并不是每次都会发生，有时我能够重新加载提示来创建新图像，但这仍然让我很烦恼。    由   提交/u/Few_Representative83  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrk3z/is_anyone_else_having_this_issue_with_the_new/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:54:18 GMT</pubDate>
+      <title>“生成 1000 年的网站截图”</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szvtvz/generate_a_website_screenshot_from_the_year_1000/</link>
+      <description><![CDATA[      有点酷的设计 ngl   由   提交/u/sandshrew69  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szvtvz/generate_a_website_screenshot_from_the_year_1000/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:17:16 GMT</pubDate>
     </item>
     <item>
-      <title>你没有错。</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrgac/youre_not_wrong/</link>
-      <description><![CDATA[       https://preview.redd.it/0mky9hrytayg1.png?width=1409&amp;format=png&amp;auto=webp&amp;s=dcdc5ae0e474a03bd6e8fd6ff691070135086769   由   提交 /u/Fantastic_Grass1799   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrgac/youre_not_wrong/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:47:59 GMT</pubDate>
+      <title>关于哥布林的内幕消息</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szvo3q/the_inside_scoop_about_goblins/</link>
+      <description><![CDATA[很棒的文章，我发现它很有趣。我经常遇到妖精和浣熊！   由   提交/u/towtrucklightbar  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szvo3q/the_inside_scoop_about_goblins/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:10:59 GMT</pubDate>
     </item>
     <item>
-      <title>新的 ChatGPT 更新删除了图像库，进一步埋葬了模型选择器</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szre7i/new_chatgpt_update_removes_image_library_further/</link>
-      <description><![CDATA[      好吧，伙计们，图像库已经不复存在了。谁知道呢。 上次，模型选择器折叠在标题上。它现在隐藏在选择器中以供即时/思考。    由   提交/u/anonyuser415  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szre7i/new_chatgpt_update_removes_image_library_further/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:44:43 GMT</pubDate>
+      <title>一个短篇故事。我喜欢新一代的图像。</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szvl0j/a_short_story_im_liking_the_new_image_generation/</link>
+      <description><![CDATA[    /u/aptdinosaur   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szvl0j/a_short_story_im_liking_the_new_image_generation/</guid>
+      <pubDate>Thu, 30 Apr 2026 13:07:29 GMT</pubDate>
     </item>
     <item>
-      <title>Image 2.0 是否在桌面应用程序上？</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrcjc/is_image_20_on_the_dekstop_app/</link>
-      <description><![CDATA[使用 OSX 桌面应用程序 - 我在应用程序上看不到创建图像或宽高比？   由   提交 /u/hamsternose   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrcjc/is_image_20_on_the_dekstop_app/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:42:06 GMT</pubDate>
+      <title>我使用 OpenAI 的 API 构建了一个工具来监控 AI 世界的趋势</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szve9t/i_built_a_tool_to_monitor_whats_trending_in_the/</link>
+      <description><![CDATA[在做了一个简单的观察后，为了好玩而开始了这个项目：我花了很多时间和精力试图跟上快速发展的人工智能世界，但每当我错过一些东西时就会感觉很糟糕。这是一种“恐惧恐惧症”，加上担心获取信息太晚。这让我产生了构建一个新闻聚合器的想法，它可以处理许多 RSS 提要，从文章中提取关键字，并将它们显示在词云中，以突出显示出现次数最多的主题。 我想说我只完成了 30% 的开发工作。目前，来源仅与人工智能相关，但我想添加我感兴趣的其他主题，例如网络和加密（我也愿意接受其他建议！） 此外，我想添加其他类型的来源，例如 X、Reddit、YouTube 等... 最后，我想为每篇文章实现 TL;DR，“为什么它是趋势”对于每个热门关键词，甚至可能是新闻通讯，我都会试图弄清楚人们是否感兴趣。 作为一个糟糕的 Web 开发人员，我大量使用 AI 来编写项目，你可以看出前端看起来非常 AI 制作，但它并不像我在卖任何东西。 前端是 React，带有 Express 后端，如果您感兴趣，我可以详细介绍堆栈！ AI 在哪里涉及： 该网站以多种方式使用人工智能： - 关键字提取：我最初使用 KeyBERT 实现，但对结果不满意，所以我改用 `gpt-4.1-nano` 来提取关键字。 - “为什么它是趋势”：我想实现的一个功能，对于云中的每个单词，使用提到该关键字的文章标题，我想生成一个简短的句子来解释它为何流行。早期测试表明“gpt-4.1-nano”处理得很好。 - 每篇文章的 TL;DR：还尚未实现。对于每篇文章，我都想生成一个简短的摘要。我正在考虑使用更大的模型来避免产生幻觉或丢失重要信息。也就是说，它需要抓取文章，这可能会很棘手，具体取决于来源，或者也许我可以通过 OpenAI API 直接使用网络搜索工具。 现在，仅实时提取关键字，我每天处理约 100 篇文章，成本约为 0.002 美元。 该网站在线：trendcloud.io（希望这个名字没错，哈哈） 我也在考虑一种方法来支付网站的费用，这没什么疯狂的，但每年至少至少有一百欧元。欢迎对此提出建议！我添加了一个“请我喝杯咖啡”按钮，让我们看看效果如何。 希望至少有人觉得这很有用，很乐意收到您的反馈并回答您的问题！   由   提交 /u/EstebanbanC   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szve9t/i_built_a_tool_to_monitor_whats_trending_in_the/</guid>
+      <pubDate>Thu, 30 Apr 2026 12:59:57 GMT</pubDate>
     </item>
     <item>
-      <title>真正的催泪片</title>
-      <link>https://www.reddit.com/r/ChatGPT/comments/1szrbyz/a_real_tear_jerker/</link>
-      <description><![CDATA[      重新创建特朗普和内塔尼亚胡的笔记本电影海报 完美。让他们的船在霍尔木兹河的直道上   由   提交/u/Kill_4209  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/ChatGPT/comments/1szrbyz/a_real_tear_jerker/</guid>
-      <pubDate>Thu, 30 Apr 2026 09:41:12 GMT</pubDate>
+      <title>这行得通还是在恶搞</title>
+      <link>https://www.reddit.com/r/ChatGPT/comments/1szvdl0/will_this_work_or_is_it_trolling/</link>
+      <description><![CDATA[       https://preview.redd.it/qe28etdfsbyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=8ca27b27ddacce060dacc1ca92a0813bcbaa55b6   由   提交 /u/Puzzled-Passage-9998   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/ChatGPT/comments/1szvdl0/will_this_work_or_is_it_trolling/</guid>
+      <pubDate>Thu, 30 Apr 2026 12:59:08 GMT</pubDate>
     </item>
     </channel>
 </rss>

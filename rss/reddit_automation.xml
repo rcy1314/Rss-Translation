@@ -4,7 +4,42 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Thu, 30 Apr 2026 10:57:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 14:06:54 GMT</lastBuildDate>
+    <item>
+      <title>中等规模的法学硕士代理堆栈的基础设施成本细分</title>
+      <link>https://www.reddit.com/r/automation/comments/1szv2h8/boring_infra_cost_breakdown_for_an_llm_agent/</link>
+      <description><![CDATA[发帖是因为我看到的每项成本明细要么是企业规模的，要么是业余爱好者 20 美元的 OpenRouter 账单。这是中间的。 Stack：小型代理产品，每月约 200K 任务，每个任务平均有 8-12 个 LLM 调用。混合十四行诗用于艰苦的工作，俳句用于分类，轻松回退到 GPT。 每月：  LLM API：约 5K 美元，每月给予或收取 500 美元。大部分是十四行诗，大部分是俳句。 网关：一个运行 Bifrost 的小型实例。 Bifrost 和 LiteLLM 都是免费且开源的，因此成本纯粹是基础设施。当我们使用 LiteLLM 时，我们需要 4 个节点来处理相同的负载，切换后减少到 1 个。无论您的云提供商对该增量收费如何。 可观测性：约 200 美元/月，自托管 Grafana + Postgres 用于跟踪。 Vector DB：约 80 美元/月，小型实例上的 Qdrant。  有帮助的事情：  精确匹配缓存（甚至不是语义）减少了 LLM 支出约 25% 杀死一个冗长的工具输出又消耗了约 8%。模型在每个循环中为相同的长工具结果支付全部输入成本。 针对 1M 上下文迁移到 Sonnet 4.6。相同的窗口，无附加费，因为 4.6 以标准价格提供 1M GA。直到今天，旧的测试版仍然有 2 倍的溢价。  老实说：在我们的规模下，LLM API 账单是唯一重要的。其他一切都是舍入误差。在优化提示和缓存之前优化代理或数据库是一种拖延。 其他人的实际故障是什么样的？特别对每月 100K-500K 任务范围内的团队感到好奇。这个频段上下的公众号到处都是，这个频段安静。   由   提交 /u/Otherwise_Flan7339   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1szv2h8/boring_infra_cost_breakdown_for_an_llm_agent/</guid>
+      <pubDate>Thu, 30 Apr 2026 12:45:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>在什么时候，自动化变得比手动执行任务更难维护？</title>
+      <link>https://www.reddit.com/r/automation/comments/1szukc9/at_what_point_does_automation_become_harder_to/</link>
+      <description><![CDATA[自动化通常从一个简单的目标开始：节省时间并减少重复性工作。 但是在构建更多工作流程后，我注意到有一个转折点，事情可能会变得异常复杂：  重试导致重复 API 更改破坏了流程 最初没有人考虑到的边缘情况 监控/调试花费的时间比预期更长  那时，我开始怀疑某些自动化是否最终会创建自己的维护工作。 所以我很好奇：  您个人如何在“值得自动化”与“不值得维护”之间划清界限？ 哪种工作流程为您带来了最佳的长期投资回报率？ 任何您后悔构建的自动化系统因为它们变得太脆弱了吗？  希望听到在生产中运行工作流程的人们的真实示例。   由   提交 /u/Sad_Limit_3857   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1szukc9/at_what_point_does_automation_become_harder_to/</guid>
+      <pubDate>Thu, 30 Apr 2026 12:24:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>对于在共享空间中工作的代理来说，最有效的协调协议不是来自分布式系统，而是来自专业厨房</title>
+      <link>https://www.reddit.com/r/automation/comments/1sztnpu/the_most_efficient_coordination_protocol_for/</link>
+      <description><![CDATA[专业厨房运行无状态、零开销的广播协议。如果您看过有人专业做饭，您可能听说过：“角落！”在有人用热锅绕过死角之前。 “后面！”从某人身后经过时。 “热！”移动可能造成伤害的东西时。 “锋利！”一把刀靠近。 “86”当商品缺货时。 这就是整个协议。没有中央路由器。没有消息队列。无需确认。该消息的生命周期约为两秒。故障模式不是数据丢失，而是烫伤。 它也已在高压力、睡眠不足、人员不足的环境中运行了 200 多年，而没有更改过规格。没有人把它写下来。没有人对其进行版本控制。它出现并卡住了，因为它在周六晚上 11:45 工作，通常记得盲角的排队厨师喊出生病了。 我无法摆脱的部分：紧迫性是通过语气传达的，而不是通过消息中的优先级字段。 “角落！”听起来与“corner”不同。厨房里的每个人都知道这一点，无需架构文档。紧急性的编码是环境性的，而不是结构性的。 与大多数代理协调设计处理此问题的方式进行比较：具有持久性开销的消息队列、带锁的共享状态、成为单点故障的编排器。厨房协议没有这些成本。有时这是错误的——太在该区域的人可能不会回应，消息会被厨房周围的噪音所淹没。但故障模式是局部的（最多一只手腕烧伤），而不是级联。 并不声称这是软件代理的正确模型。但这是一种大多数代理框架都没有经过压力测试的模式。 还有哪些现实世界的协调模式没有在代理设计中得到认可？真的很好奇——我一直在没有人写过论文的地方找到这些。   由   提交 /u/Most-Agent-7566   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sztnpu/the_most_efficient_coordination_protocol_for/</guid>
+      <pubDate>Thu, 30 Apr 2026 11:42:57 GMT</pubDate>
+    </item>
+    <item>
+      <title>这会让我赚钱还是节省时间？</title>
+      <link>https://www.reddit.com/r/automation/comments/1sztcri/is_this_going_to_make_me_money_or_save_me_time/</link>
+      <description><![CDATA[与我交谈过的每个企业主在他们做出的每个决定背后都有同样的两个问题。 这会让我赚更多钱吗？这会节省我的时间吗？ 就是这样。其他一切都是噪音。技术并不重要。我是一家人工智能和自动化机构的非技术联合创始人，我本人并不关心技术。功能并不重要。 我曾参加过电话会议，详细解释了整个系统。它是如何工作的，它连接到什么，它如何处理边缘情况。目光呆滞。然后我说“你正在失去客户，因为你回复得不够快。”这是向您展示这一点的数据。我们可以将您的转化率提高 20%”立即感兴趣。 大多数销售任何东西的人所犯的错误是他们在人们感受到问题之前就解释了解决方案。当企业需要止痛药时，人们却在销售维生素。我在酒店、房地产、夜生活、餐饮、出口等领域销售大量自动化设备。我唯一真正产生的影响是在房地产、酒店和出口领域。我现在正在进行冲刺，主要只关注房地产。  如果您不能用一句话回答这两个问题，那么您还没有进行推介。您有一个功能列表。   由   提交/u/Chillipepper19  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1sztcri/is_this_going_to_make_me_money_or_save_me_time/</guid>
+      <pubDate>Thu, 30 Apr 2026 11:28:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么每个人都在说人工智能代理从事真正的 B2B 工作</title>
+      <link>https://www.reddit.com/r/automation/comments/1szt50v/why_is_everyone_lying_about_ai_agents_doing_real/</link>
+      <description><![CDATA[两年来观察人工智能代理领域，模式总是一样的：一些帖子声称，“我的代理每月为 X 业务节省了 5 万美元”。也许只有一个华丽的屏幕截图，没有其他任何东西。公平地说，有一些记录在案的案例，BCG 发现一家消费品公司将分析师的工作量从每周六人减少到一名使用代理的员工，在一小时内完成任务。但对于每一个这样的真实例子，都有一个 Air AI 的情况，该产品甚至无法处理基本功能，最终遭到 FTC 投诉。这是真实结果和纯粹炒作的真正结合。 内容创作者更糟糕。 “人工智能将改变您的服务范围”来自从未真正向付费客户运送过任何东西的人。我尝试了 LiSeller 一段时间，但老实说，我什至无法判断它是否按照其声称的那样工作，基本上没有任何东西可以验证它的实际性能。即使抛开这一点，“这就是可能的”与“这是可能的”之间的差距也是如此。营销和实际记录的结果是巨大的。 如果您真正部署了帮助实际业务的人工智能代理，请放弃案例研究。不是仪表板的屏幕截图。对您构建的内容、客户的问题是什么以及之后发生的变化的实际细分。 我还没有看到任何真实的内容。   由   提交/u/ricklopor  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1szt50v/why_is_everyone_lying_about_ai_agents_doing_real/</guid>
+      <pubDate>Thu, 30 Apr 2026 11:18:15 GMT</pubDate>
+    </item>
     <item>
       <title>有什么方法可以自动处理 Shopify 退款吗？</title>
       <link>https://www.reddit.com/r/automation/comments/1szsfif/is_there_any_way_to_automate_processing_shopify/</link>
@@ -55,34 +90,6 @@
       <pubDate>Wed, 29 Apr 2026 20:01:44 GMT</pubDate>
     </item>
     <item>
-      <title>切换工具并不能修复损坏的自动化</title>
-      <link>https://www.reddit.com/r/automation/comments/1sz996m/switching_tools_doesnt_fix_broken_automations/</link>
-      <description><![CDATA[切换工具并不能修复损坏的自动化。人们总是说：将其转移到更好的工具。重建它更干净。使用更直观的东西。但在继承了约 40 个 Zap 且文档为零之后……我不认为该工具是问题所在。真正的问题是不知道：什么真正重要，什么影响收入或客户，什么取决于如果你改变某些东西，什么会破坏你可以重建一切……但 6 个月后仍然陷入同样的​​混乱。因为问题不在于可见性。这是理解。如果没有人知道什么是关键的，那么你就没有管理好一个系统。你猜对了。感觉大多数团队都没有自动化问题。他们有一个“没有人拥有这一层”的问题。你如何处理这个问题？   由   提交 /u/uwt101   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sz996m/switching_tools_doesnt_fix_broken_automations/</guid>
-      <pubDate>Wed, 29 Apr 2026 19:38:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>您的网站与网络：人工智能从哪里提取品牌提及？</title>
-      <link>https://www.reddit.com/r/automation/comments/1sz94hc/your_website_vs_the_web_where_does_ai_pull_brand/</link>
-      <description><![CDATA[ 由   提交 /u/milicajecarrr   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sz94hc/your_website_vs_the_web_where_does_ai_pull_brand/</guid>
-      <pubDate>Wed, 29 Apr 2026 19:33:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在 n8n 中构建双语支持收件箱路由器时学到的 5 件事</title>
-      <link>https://www.reddit.com/r/automation/comments/1sz5dtt/5_things_i_learned_building_a_bilingual_support/</link>
-      <description><![CDATA[ 由   提交/u/easybits_ai   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sz5dtt/5_things_i_learned_building_a_bilingual_support/</guid>
-      <pubDate>Wed, 29 Apr 2026 17:23:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要 Discord 自动化</title>
-      <link>https://www.reddit.com/r/automation/comments/1sz1dtf/discord_automation_needed/</link>
-      <description><![CDATA[ 由   提交/u/systematicfailur3  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1sz1dtf/discord_automation_needed/</guid>
-      <pubDate>Wed, 29 Apr 2026 15:02:12 GMT</pubDate>
-    </item>
-    <item>
       <title>在为 30 多家专业服务公司实现工作流程自动化后，每个项目中都会出现相同的 5 项任务。他们都不需要人工智能代理。</title>
       <link>https://www.reddit.com/r/automation/comments/1sz0h59/after_automating_workflows_for_30_professional/</link>
       <description><![CDATA[两年的时间和约 30 个深度专业服务项目 - 律师事务所、会计实务、招聘机构、小型咨询公司、一些营销商店。不同的行业，不同的堆栈，不同的人员数量。这项工作每次都集中在相同的五个自动化上。我开始围绕项目 12 保留一个运行列表，并且在一年多的时间里没有添加任何内容。  摄入量。潜在客户填写表格 → 有人手动创建 CRM 记录 → 有人安排通话 → 有人发送确认信息 → 有人将潜在客户放入电子表格中以供合作伙伴审核。大多数公司有 4 到 5 个人接触这个。他们都不需要。连接在一起的少数节点取代了整个链。它仍然是手动的原因是，该流程多年来一直在有机发展，没有人坐下来立即查看完整的流程。 文档生成。聘书、NDAs、SOW、提案、聘用书。大多数公司都有管理员手动将每个新客户的名称、日期、范围和定价交换到 Word 模板中。这确实是一些公司付钱给管理员做的事情的 80-90%。可替换为“表单-模板-签名 PDF”流程。每周为每个管理员节省 5-10 个小时，每周，永远。 重复的客户通信。 “季度备案到期了，” “30天内续签合同” “我们还没有收到你的消息”轻推。每家公司都有一个人的工作部分涉及记住发送这些信息。监视日期列和按计划触发模板的工作流程完全取代了该角色，客户实际上获得了比以前更一致的沟通 - 这是所有者没有看到的意外好处。 内部报告。每周的合作伙伴会议、每月的账单摘要、周五的管道报告。几乎总是由初级人员充当人类 ETL 管道 - 从 3-4 个系统中提取数据并将其粘贴到文档中。每个系统都有一个 API。几个小时内在 Latenode 中构建它，报告会自行组装，初级人员可以开始做对他们的职业生涯来说真正复杂的工作。 创始人自己的管理员。这是最尴尬的筹码，但它几乎总是最大的胜利。大多数业主每周工作 8 到 12 个小时，而这些工作并没有什么事情要做——时间表审查、费用审批、追索逾期发票、起草重新激活电子邮件、手动更新管道。他们继续这样做是因为他们不相信其他人能做对。解决方案不是将其交给某个人，而是一个处理 80% 确定性问题的工作流程，并且仅在需要做出真正的判断时才会升级给他们。创始人每周可以休息一天。这一天可靠地投入到销售或客户工作中，这两者都会转化为收入。  这是自动化宣传中没有人提到的部分：这些都不需要人工智能代理。他们需要管道。 API 与 API 对话，也许一个法学硕士会在中间的某个地方调用来起草段落或对入站电子邮件进行分类。一半的行业都在大喊代理这个、代理那个、多智能体推理循环、向量内存——而真正的钱存在于形式 → CRM → 电子邮件管道中，这些管道自 2015 年以来在技术上是可行的，并且自无代码浪潮袭来以来在操作上是合理的。 我认为公司不继续前进的原因是他们阅读了人工智能论述，得出的结论是他们需要一个带有向量数据库和推理代理的编排层，但买不起，雇不到为了它，什么也不做。与此同时，繁重的工作仍在继续。 更简单的版本就在那里。我们为大多数公司交付的第一个项目在不到一个月的时间内就收回了成本，并取代了大约 60% 的管理员实际工作。管理员不会被解雇——他们会被提升到客户工作岗位，因为突然间公司既有了预算，又有了喘息的空间。 无聊的堆栈仍然获胜。大多数公司只需要有人进来，立即查看整个流程，然后连接管道。   由   提交 /u/resbeefspat   [链接] [评论]]]></description>
@@ -102,13 +109,6 @@
       <description><![CDATA[小背景：在过去的几周里，我开始尝试用一些简单的人工智能代理取代我们的大部分营销内容。并不是什么重大的战略转变，更多的是厌倦了手动做同样的事情，想看看我能用 Claude 和一些在后台运行的例程来推动自动化到什么程度。 没想太多，但结果很难忽视。 14 天以来：  流量增加了 ~2.6 倍 注册量增加了 ~40% AI 搜索流量（chatgpt、claude 等）每天增加 40-60 名访问者 广告费用为 0 美元，没有代理机构，无需雇用  我们公司很小，只有两个人，所以让 AI 基本上每天 24 小时为我们工作是非常巨大的。 设置本身也不是那么复杂，主要只是 Claude + 每小时的例程。 这就是实际情况运行： YouTube 评论代理 这是最让我惊讶的。每小时，它都会根据关键词在我们的利基市场中提取新发布的视频，然后查看最近的评论，根据意图给每个评论打分 1-10 分，如果某件事是 7 分以上，它就会回复。 大多数回复都是真正有帮助的，并且直接回答人们提出的任何问题。如果自然适合，我们会提及我们正在使用的内容，但这不是强迫的。 我没想到的是，其中一些回复会持续多久，尤其是在越来越受欢迎的视频上。一条好的评论可以持续几天的流量，并且其中很多内容最终也会被索引或提取到人工智能答案中。 内容代理 这部分确实很简单。我每周写一篇核心内容（通常是新闻通讯），Claude 使用“技能”处理项目中的其余内容。 每项技能基本上都是一个提示，告诉 Claude 如何将其转换为特定格式：  linkedin 帖子 推文 博客 磁铁 youtube 脚本  因此，我们不必每天都尝试创建内容，而只是一个输入，其他所有内容都会从中分支出来。 出站代理 这是大多数转化的来源。 我们不是构建静态潜在客户列表，而是关注以下信号：  与竞争对手帖子互动的人 工作变动 招聘活动 人们发布有关我们解决的问题的信息  然后我们会在问题仍然新鲜时（通常在一天之内）伸出援手。为此，我们使用 ProspectZero。当事情发生时及时抓住某人的感觉与冷冰冰的消息完全不同。计时与这与此相关性很大。 Quora 代理 与 YouTube 相同的想法，但应用于问题。每小时运行一次，根据关键词发现新问题，给它们打分 1-10 分，如果是 7 分以上，它就会写出一个真正试图解决问题的结构化答案。 quora 表面上有点无聊，但这些答案会长期存在，在 Google 上排名，并且比人们想象的更多地被人工智能响应所吸引。那里的大多数答案都是低努力的，所以脱颖而出并不难。 对我来说重要的一点是： 代理会留下来，人们会说这些东西不起作用或者是垃圾邮件，但它在过去两周为我们带来了真正的结果。 人们已经在提出问题，已经发表评论，已经表示出兴趣。我们只是在这些时刻比手动更快地出现，每天节省时间。 要构建更多此类类型的代理，看看效果如何。 感觉在拥挤之前这里还有很多空间。 欢呼   由   提交 /u/GildedGazePart   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1syx6m8/i_replaced_our_marketing_process_with_4_ai_agents/</guid>
       <pubDate>Wed, 29 Apr 2026 12:20:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>人工智能助手根据提示生成报告。你会用这个吗？</title>
-      <link>https://www.reddit.com/r/automation/comments/1syv7it/ai_assistant_that_generates_reports_from_prompt/</link>
-      <description><![CDATA[       由   提交 /u/Carageavk   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1syv7it/ai_assistant_that_generates_reports_from_prompt/</guid>
-      <pubDate>Wed, 29 Apr 2026 10:47:24 GMT</pubDate>
     </item>
     </channel>
 </rss>
