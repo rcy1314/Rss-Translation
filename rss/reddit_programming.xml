@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 01 May 2026 08:21:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 10:26:32 GMT</lastBuildDate>
+    <item>
+      <title>使用特定类别的 BERT 模型构建投诉情报管道——这就是为什么一个模型是不够的</title>
+      <link>https://www.reddit.com/r/programming/comments/1t0ph3h/built_a_complaint_intelligence_pipeline_using/</link>
+      <description><![CDATA[嘿r/programming， 分享我在构建人工智能投诉分析系统时做出的一个有趣的工程决策。 **简单的方法：** 根据所有 51,000 条评论训练一个 BERT 模型。简单的。干净的。一种模型可以统治所有这些。 **问题：** 有关设备的投诉： “电机在 3 个月后发出磨擦噪音。压缩机似乎有故障。” 关于时尚的投诉： “第一次洗涤后颜色褪色。缝合线破裂了。” 有关电子产品的投诉： “屏幕随机闪烁。电池在 2 小时内耗尽。” 这些是完全不同的词汇、故障模式和投诉模式。对所有这些数据进行训练的单一模型会得出一个模糊的平均值。特定于类别的模型学习每个领域的实际语言。 **我构建的内容：** 7 个独立的 BERT 模型 - 每个产品类别一个。 ```python # 每个类别的简化训练循环 类别中的类别： df_cat = df[df[&#39;category&#39;] ==category] df_balanced = Balance_classes(df_cat) model = BertForSequenceClassification.from_pretrained(&#39;bert-base-uncased&#39;) train(model, df_balanced) model.save_pretrained(f&#39;models/{category}_bert&#39;) ``` **结果：** - 电子 — 100% 准确度（5,870 行） - 电器 — 99% 准确度（27,314 行） - 家居 — 100% 准确度（2,720 行） - 时尚 — 96% 准确度（2,244 行） **有趣的工程挑战：**  类别不平衡 — 大多数评论都是正面的。修复了训练前每类均等采样的问题。 Mac CPU 上的内存 — 27K 行设备模型花费了 45 分钟。批量大小为 16 是最佳位置。 意外键警告 - 加载 bert-base-uncased 进行分类时正常。预训练 MLM 头被分类头取代。可以安全地忽略。 保存中期 - 使用验证准确性保存每个时期的最佳模型，而不仅仅是最后一个时期。  **下一步：** 顶部的 CrewAI 多代理层 - 分类器代理、模式代理、优先级代理、解析代理。 **GitHub:** github.com/niteshnankani-svg 很高兴讨论特定类别与单一模型的权衡或 BERT 微调管道。   由   提交/u/Serious_Damage5274   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t0ph3h/built_a_complaint_intelligence_pipeline_using/</guid>
+      <pubDate>Fri, 01 May 2026 10:24:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>Linux VPS 上的 yt-dlp 可使用新的 YouTube cookie，但 cookie 轮换速度很快，视频下载开始失败。有稳定的解决方案吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1t0pcbs/ytdlp_on_linux_vps_works_with_fresh_youtube/</link>
+      <description><![CDATA[我正在 Linux VPS 上运行一个小应用程序，该应用程序使用 [yt-dlp](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/10c8e557c8/resources/app/out/vs/code/electron-browser/workbench/workbench.html) 来：  获取 YouTube 文字记录 下载源视频 使用 ffmpeg 剪短视频  我的大部分工作都正常，但 YouTube cookie 经常出现问题。 当前设置：  Linux VPS [yt-dlp](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/10c8e557c8/resources/app/out/vs/code/electron-browser/workbench/workbench.html) ffmpeg 节点 22 --js-runtimes &quot;node&quot; --remote-components &quot;ejs:github&quot; 从本地浏览器导出的 cookie 并以 cookies.txt 的形式上传到服务器  我观察到的情况：  新的 cookie 可以工作 脚本提取通常比完整视频下载更容易 完整视频下载有时会失败，并出现以下错误： 登录以确认您不是机器人 提供的 YouTube 帐户 Cookie 不再有效。作为一项安全措施，它们可能已在浏览器中轮换 仅图像可供下载 请求的格式不可用   这样的手动命令可以在我上传新的 cookie 后立即运行： /usr/local/bin/yt-dlp -v \ --cookies “/root/youtube-cookies.txt” \ --js-runtimes“节点” \ --remote-components “ejs:github” \ --list-formats \ “https://www.youtube.com/watch?v=VIDEO_ID”  但是一段时间后，相同的 cookie 停止工作，我需要再次导出/上传它们。 我也尝试过：  将 Node 更新到 v22 启用 --remote-components &quot;ejs:github&quot; 使用受支持的 JS 运行时 新鲜的 cookie 导出 直接在服务器上的 shell 中进行测试  问题：  是否有任何可靠的方法可以避免在 VPS 上不断刷新 YouTube cookie？ 在此设置中 cookie 轮换是不可避免的吗？ 如果 cookie 轮换不可避免，是否有办法使其自动化？     由   提交 /u/vazhadval   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t0pcbs/ytdlp_on_linux_vps_works_with_fresh_youtube/</guid>
+      <pubDate>Fri, 01 May 2026 10:17:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>GitHub 不一定是你唯一的锻造基地</title>
+      <link>https://www.reddit.com/r/programming/comments/1t0on62/github_does_not_have_to_be_your_only_forge/</link>
+      <description><![CDATA[ 由   提交 /u/HiPhish   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t0on62/github_does_not_have_to_be_your_only_forge/</guid>
+      <pubDate>Fri, 01 May 2026 09:38:46 GMT</pubDate>
+    </item>
     <item>
       <title>日志结构合并 (LSM) 树</title>
       <link>https://www.reddit.com/r/programming/comments/1t0n4oe/logstructured_merge_lsm_tree/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[根据标题，经过 6 个多月的时间，我们终于发布了新的 0.6.0 版本！ 在此版本中，我们投入了大量精力来查看 Fosdem 演讲和社交媒体接待后的反馈。 此版本带来了多 shell 支持（Bash、Zsh、Ksh，甚至 Bash 3.2），使跨不同环境部署脚本变得更加容易UNIX 环境。主要新增内容包括递归函数、联合类型和公共 (pub) 变量，以实现更好的模块化。 该语言还引入了带有断言和断言_eq 的内置测试套件，以及对可失败函数和变量使用的更严格验证。 通过用于整数运算的本机 Bash 算术提高了性能，减少了对 bc/sed 的依赖。 新的内置函数，如用于 HTTP 请求的 fetch()、touch()、rm() 和 ls() Expand Amber 的功能，而许可证切换到 LGPL 使其对专有项目更加友好。 重大更改包括内置函数的强制括号（例如 echo(“text”)）以及对越界数组访问进行更严格的错误处理。 包括 Debian/RPM 软件包、通过夜间构建改进 CI/CD 以及更好的 shellcheck 集成。标准库随着文件系统、环境和文本操作的帮助程序而不断发展。 我们还有很多事情要做，但随着我们获得更多贡献者，我们的进展速度会更快:-D   由   提交/u/Mte90  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1szqpxo/amberlang_060_new_release_bash_transpiler/</guid>
       <pubDate>Thu, 30 Apr 2026 09:05:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>学习面试算法，忘记工作中的算法</title>
-      <link>https://www.reddit.com/r/programming/comments/1szmnmb/learn_algorithms_for_interviews_forget_them_for/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1szmnmb/learn_algorithms_for_interviews_forget_them_for/</guid>
-      <pubDate>Thu, 30 Apr 2026 05:14:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>了解 CORS：实际上是什么阻止了您的 API 请求</title>
-      <link>https://www.reddit.com/r/programming/comments/1szmg7e/understanding_cors_what_actually_blocks_your_api/</link>
-      <description><![CDATA[ 由   提交 /u/lactranandev   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1szmg7e/understanding_cors_what_actually_blocks_your_api/</guid>
-      <pubDate>Thu, 30 Apr 2026 05:03:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>完美的代码审查：如何在提高质量的同时减少认知负荷</title>
-      <link>https://www.reddit.com/r/programming/comments/1sz97hf/the_perfect_code_review_how_to_reduce_cognitive/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1sz97hf/the_perfect_code_review_how_to_reduce_cognitive/</guid>
-      <pubDate>Wed, 29 Apr 2026 19:36:23 GMT</pubDate>
     </item>
     </channel>
 </rss>
