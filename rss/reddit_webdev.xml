@@ -4,13 +4,62 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 01 May 2026 19:19:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 21:58:36 GMT</lastBuildDate>
     <item>
-      <title>您在后端开发中面临哪些痛点？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t12ruc/what_are_some_pain_points_you_guyz_facefaced_in/</link>
-      <description><![CDATA[嘿伙计们。我想知道，如果你曾经做过后端开发，你通常会遇到哪些问题，你希望让它解决这些问题。  我正在写一些观点，如果您也考虑这些问题，请从您的角度提及。   架构：是项目的架构吗？我发现，即使使用人工智能，当他们不断扩展项目时，也很难在项目中保持一致并强制执行正确的架构。这对于您的项目来说应该是正确的决定。  代码一致性：许多人工智能工具能够快速构建和生成代码/项目，但它也带来了可扩展性、代码质量的成本，更重要的一个方面是您对代码的控制。许多平台会锁定并阻止您对生成的代码进行更改（除非进行订阅。）。  本地与生产：有时您的项目在您的系统上运行良好，但当涉及到生产时，它不起作用，可能是因为生产测试所需的测试没有正确完成，或者很难做到。  数据库和身份验证：- 在项目中添加数据库和身份验证层时，有时很难在层中为数据库和身份验证设置正确的设置。   你们对这些问题有何看法，您认为哪个问题对您来说是最痛苦的并且您希望它得到解决。  或者还有其他你认为存在的问题，并且你认为这是后端开发的痛点。    由   提交 /u/Fit_Fly_5140   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t12ruc/what_are_some_pain_points_you_guyz_facefaced_in/</guid>
-      <pubDate>Fri, 01 May 2026 19:07:15 GMT</pubDate>
+      <title>我单独构建了一个自托管的 Slack + Notion 克隆。以下是我处理实时 WebRTC、Y.js CRDT 和本地 AI 的方法。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t16b1j/i_built_a_selfhosted_slack_notion_clone_solo/</link>
+      <description><![CDATA[嘿 r/webdev， 在过去的几个月里，我一直在构建一个开源前端和一个自托管工作区，它基本上将聊天、看板和协作文档合并到一个 Docker 部署中。 我想分享我在构建过程中遇到的一些最大的架构挑战这个单独的，因为将这些特定技术结合在一起是一个巨大的头痛。  双数据库头痛（Postgres + Dgraph） 我最初只使用 Postgres，但是对复杂关系（用户 -&gt; 团队 -&gt; 通道 -&gt; 线程）的建模很快就变得混乱。我最终将所有关系密集的图形数据移至 Dgraph，同时将 Auth、Config 和 Users 保留在 Postgres 中。保持它们同步需要在 Go 后端进行严格的领域驱动设计。 与 Y.js 的协作文档我想要 Notion 风格的文档。我最终将 Tiptap 与 Y.js CRDT（无冲突复制数据类型）和 Hocuspocus 服务器一起使用。最困难的部分是处理离线状态并解决用户离线输入后重新连接时的合并冲突。 视频通话（LiveKit + WebRTC） 我为 WebRTC 层集成了 LiveKit。设置 TURN/STUN 服务器以便视频通话能够跨越严格的企业防火墙进行工作是残酷的。 本地 AI 我将 Ollama 融入到 Docker compose 中，以便团队可以拥有“第二大脑”。搜索他们的聊天和文档，而不向 OpenAI 发送数据。  堆栈：  前端：Next.js  后端：Go（Chi Router） 实时：EMQX（MQTT 代理）  如果有人想查看代码或使用 UI 组件，我开源了整个 Next.js 前端。一切已在 https://github.com/OneMana-Soft/OneCamp-fe 结束。 对于后端，我决定尝试一种不同的模型：前端是开放的，但我以 19 美元的一次性费用出售可用于生产的后端二进制文件，以保持正常运行。 希望获得有关架构的任何反馈，或者是否有其他人提供反馈这里有与 Postgres 一起扩展 Dgraph 的经验！   由   提交 /u/False_Staff4556   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t16b1j/i_built_a_selfhosted_slack_notion_clone_solo/</guid>
+      <pubDate>Fri, 01 May 2026 21:19:09 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 OPFS（零 DB）构建了一个开源 GPT 图像和视频生成器 Web 客户端</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t15msv/i_built_an_opensource_gpt_image_video_generator/</link>
+      <description><![CDATA[大家好， 我是一名法国前端开发人员，也是一名开源极客。我喜欢为特定的技术领域构建核心工具，但最近我只是想要一种更干净、更快速的方式来生成 AI 媒体，而无需处理繁重的 UI 或昂贵的订阅锁定。因此，我构建了 GPT-Images。 它是一个用于图像和视频生成的完全开源的 Web 界面。您只需插入自己的 OpenAI API 密钥，应用程序就会处理其余的事情。 该架构是我最喜欢的：  技术堆栈： Svelte 5、SvelteKit 和 Tailwind 4。整个东西托管在 Cloudflare Workers 上，我使用 Bun pm，因为它安装速度更快，而且对于我的情况来说非常稳定。 零数据库：我使用 Origin 私有文件系统 (OPFS) 直接在浏览器中处理所有媒体存储。它完全本地化，并 100% 尊重您的隐私。 功能：安全 API 密钥管理、无缝媒体生成（图像和视频）以及用于管理输出的干净网格/灯箱 UI。  我尝试尽可能保持代码库干净且严格键入。如果只是想为您的 AI 世代提供一个凉爽的本地 UI，请随时查看并分叉它。 存储库：https://github.com/Ayfri/GPT-Images 站点：gpt-images.ayfri.com   由   提交 /u/Ayfri   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t15msv/i_built_an_opensource_gpt_image_video_generator/</guid>
+      <pubDate>Fri, 01 May 2026 20:53:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>上传徽标 → 获取完整的品牌套件（SVG、图标、OG 图像）。希望反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t15e4a/upload_a_logo_get_a_full_brand_kit_svgs_favicons/</link>
+      <description><![CDATA[我刚刚推出了 LogoNuri，这是一个基于浏览器的工具，可将徽标文件转换为可用于生产的品牌资产。我不是在炫耀，而是真诚地向每天需要这个的人寻求建议。 我构建它是因为“准备好制作徽标”需要我 3-5 个工具。该项目旨在减轻追逐文件、修复格式、调整内容大小以及猜测缺少什么的情况。 这意味着将所有这些都折叠到一个流程中。 主要焦点是界面。我不希望它感觉像是一个你上传一些东西并希望得到最好结果的工具。它应该给人一种被引导、快速、明确下一步该做什么的感觉。其中包括一个网站 URL 搜索功能，可以直接从现有网站中提取徽标来使用，并内置于 AI Upscale 中。 希望得到实际构建或交付产品的人的真实反馈，因为这是我第一次。 如果您可以向这样的一体化工具添加一个东西，它会是什么？ 我正在开发一些测试版功能，例如： 直接导出/导入到 Canva 以及Figma，更无缝的 CLI 体验，水印去除器。   由   提交/u/josephdc18  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t15e4a/upload_a_logo_get_a_full_brand_kit_svgs_favicons/</guid>
+      <pubDate>Fri, 01 May 2026 20:44:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建人工智能驱动的 SaaS 已经有两年了。以下是我在几乎所有人工智能应用程序中看到的 3 个安全错误。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t14v9m/ive_been_building_aipowered_saas_for_2_years_here/</link>
+      <description><![CDATA[此处为 CISSP 认证工程师。不卖任何东西。只是分享我不断发现的内容。 1.几乎从未处理过提示注入 大多数创始人都会添加人工智能聊天机器人，为其提供系统上下文，然后就大功告成。 恶意用户可以覆盖您的系统提示并在几秒钟内提取您的整个知识库。 将提示视为 SQL 查询。假设他们是敌对的。在获得法学硕士之前对所有内容进行消毒。 2.通过 LLM 响应实现多租户数据泄露 如果您的 AI 具有数据库访问权限并且您有多个客户...测试客户 A 是否可以通过巧妙的提示提取客户 B 的数据。 您会惊讶地发现这种方法的工作频率有多高。 将 AI 的数据库访问权限严格限制在经过身份验证的用户组织内。切勿授予其全局读取权限。 3. OAuth 令牌存储不安全 本地存储中的令牌。 URL 中的令牌。控制台日志中的令牌。 全部可利用。所有常见的。 HTTPOnly cookie。服务器端会话。切勿将令牌暴露给客户端 JavaScript。 乐于回答问题。在这个空间中构建已经有一段时间了。`   由   提交 /u/Wise-Cardiographer-31   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t14v9m/ive_been_building_aipowered_saas_for_2_years_here/</guid>
+      <pubDate>Fri, 01 May 2026 20:24:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么网站开始这样做？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t14h5d/why_do_websites_started_to_do_this/</link>
+      <description><![CDATA[嘿，我不知道这个东西叫什么，但让我解释一下。我在谷歌上搜索了一些内容并打开了图像部分，有很多我搜索的结果，它们都是低分辨率或模糊的。要查看图像，您必须单击链接并输入该站点。右键单击“在新选项卡中打开图像”也不起作用，因为它要么显示低分辨率版本，要么显示模糊版本，您看不到或读不到任何内容&quot;我知道 Instagram 或 Twitter 或任何大型网站都会这样做，并迫使您创建一个帐户才能查看图片，但为什么其他较小的网站（甚至博客）会这样做？他们的网站上并没有获得 insta 或 twitter 级别的活动。   由   提交 /u/diomedes-on-rampage   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t14h5d/why_do_websites_started_to_do_this/</guid>
+      <pubDate>Fri, 01 May 2026 20:10:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>正在寻找类似 Tufte 的 CSS 的东西，但是是颜色</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t14etr/looking_for_something_like_tuftes_css_but_for/</link>
+      <description><![CDATA[ Tufte CSS 提供了使用 Edward Tufte 的书籍和讲义所展示的想法来设计 Web 文章样式的工具。 Tufte 的风格以其简单性、大量使用旁注、图形与文本的紧密结合以及精心选择的版式而闻名。  我正在做一个对我来说非常重要的个人项目，但我在选择颜色时遇到了一些麻烦。 我希望有类似 Tufte CSS 的东西，但它不会专注于版式，而是专注于版式颜色。 我的网站本质上是一本书，所以我正在寻找一种资源，可以告诉我为标题、副标题、引文、段落、注释......分配什么颜色。   由   提交 /u/Wise_Stick9613   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t14etr/looking_for_something_like_tuftes_css_but_for/</guid>
+      <pubDate>Fri, 01 May 2026 20:07:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能编码工具正在悄然削弱我们的技能，航空业 30 年前就发现了这一点</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t13zls/ai_coding_tools_are_quietly_atrophying_our_skills/</link>
+      <description><![CDATA[       由   提交/u/walden99  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t13zls/ai_coding_tools_are_quietly_atrophying_our_skills/</guid>
+      <pubDate>Fri, 01 May 2026 19:52:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>我创建了这个网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t133oj/i_created_this_website/</link>
+      <description><![CDATA[      https://everycinematicuniverse.com/ 提供我可以在此处添加的反馈和宇宙，以及如何改进它。尽管我试图将其保持在最低限度 在下次更新中我将添加全局过滤器   由   提交/u/darkarrow_sh   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t133oj/i_created_this_website/</guid>
+      <pubDate>Fri, 01 May 2026 19:19:18 GMT</pubDate>
     </item>
     <item>
       <title>用于重构 Playwright 测试自动化代码的 AI</title>
@@ -22,7 +71,7 @@
     <item>
       <title>您是否能够跟上人工智能的代码更改？</title>
       <link>https://www.reddit.com/r/webdev/comments/1t11hx9/do_you_manage_keep_up_with_the_code_changes_from/</link>
-      <description><![CDATA[我以为我已经牢牢掌握了我的前端项目，但在今天的代码审查中，我意识到我不再理解它的某些部分是如何或为什么工作的。  现在这种情况很常见吗？   由   提交/u/ThanosDi   [link] [评论]]]></description>
+      <description><![CDATA[我以为我已经牢牢掌握了我的前端项目，但是在今天的代码审查中，我意识到我不再理解其中的某些部分是如何或为什么工作的。  现在这种情况很常见吗？   由   提交/u/ThanosDi   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t11hx9/do_you_manage_keep_up_with_the_code_changes_from/</guid>
       <pubDate>Fri, 01 May 2026 18:21:14 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[大家好， 当我的节目（例如《龙之屋》或《熊》）实际在我所在时区播出时，我花了太多时间寻找，而且我讨厌在观看节目之前就在 Twitter 上看到剧透而毁了结局。 我构建了 TVTRACK 来解决这个问题。这是一个 React + Supabase 工具，可以： * 与美国实时日程同步。 * 显示实时倒计时。 * 我目前正在对 Google 日历同步和智能提醒等 Pro 功能进行原型设计。  https://preview.redd.it/i2uny2pq7kyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=f7ac8dcf7152d6503bd675d55da957d3273e837c &lt;一href=&quot;https://preview.redd.it/19oeo7kd7kyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=981fb1d3dea72d3919c842f97fe4b51dffaa8993&quot;&gt; https://preview.redd.it/19oeo7kd7kyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=981fb1d3dea72d3919c842f97fe4b51dffaa8993 &lt;一href=&quot;https://preview.redd.it/uvtpm2nv7kyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=c161d76aa4ba34e68bb1b7e8dd7c0dc00c783255&quot;&gt; https://preview.redd.it/uvtpm2nv7kyg1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=c161d76aa4ba34e68bb1b7e8dd7c0dc00c783255 如果您有时间，我很想知道：您目前使用任何东西来跟踪您的节目吗？您希望存在的功能是什么？ 不是在寻找任何东西，只是想看看这是否真的对社区有用。   由   提交 /u/subooom   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t0ztlw/i_got_tired_of_googling_release_dates_so_i_built/</guid>
       <pubDate>Fri, 01 May 2026 17:21:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>View Transitions 跨文档终于可以在 2026 年 5 月发布，下面是实际的效果</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0xx0u/view_transitions_cross_document_is_finally/</link>
-      <description><![CDATA[跨文档视图转换终于可以在 2026 年 5 月为 Chromium 和 Safari 用户在生产中使用。Firefox 仍然是部分的。这是事情的实际状态。 自 Chrome 126 和 Safari 18.2 以来，相同的文档转换（即在单页应用程序内交换状态）一直保持稳定。跨文档转换（即您实际从一个 URL 导航到另一个 URL 并以动画方式呈现更改）是更重要的事情。它们消除了大多数人首先使用客户端路由器的全部原因。 如今的跨文档支持。 Chrome 126 plus、Edge 126 plus、Safari 18.2 plus、Opera 112 plus、Chrome Android 147 plus、Safari iOS 18.2 plus。 Firefox 是顽固分子。火狐142不支持。 Firefox 143 默认禁用它。 Firefox 144 到 153 具有部分支持。如果您正在为 Firefox 的大量用户进行构建，那么您还没有完成。 这实际上意味着什么。您可以编写 CSS 来表示当用户从页面 A 导航到页面 B 时，对旧页面进行快照，对新页面进行快照，并在它们之间进行动画处理。浏览器处理快照、DOM 交换、动画，并且优先考虑减少运动。没有 barba，没有转换库，没有路由器状态技巧。 设置很小。您添加一个元指令，将页面选择为跨文档转换。然后，您可以编写 CSS 规则，通过为元素提供视图转换名称来匹配跨页面的元素。列表页面上的英雄图像和详细信息页面上的英雄图像都具有相同的名称，浏览器会自动对它们进行补间。 人们在生产中会错过的三件事。您需要同一站点才能进行跨文档转换，跨源导航始终会进行常规加载。查看转换类是 Chromium 126 中的新增功能，可让您使用单个规则来定位整组节点，而不是为每个节点命名。有一个用于方向的 JS 钩子，因此后退导航可以向右滑动，前进导航可以向左滑动，而无需您自己跟踪历史记录。 它所取代的内容。典型的 Next 或 Remix 应用程序附带 30 到 60 KB 的客户端路由以及一个转换库。实际上不需要单页行为的网站可以删除两者并收回捆绑空间。 它不取代的内容。如果您需要乐观的 UI 更新、部分页面重新加载或应用程序 shell 行为，您仍然需要客户端路由。 如果您首先针对 Chromium 加 Safari 进行构建并接受 Firefox 用户获得不带动画的常规页面导航，那么您今天就可以发货。上个月在一些生产版本中使用此功能后的诚实看法。   由   提交/u/studiomeyer_io   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0xx0u/view_transitions_cross_document_is_finally/</guid>
-      <pubDate>Fri, 01 May 2026 16:13:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>每个员工每月花费 1-2,000 美元购买 AI 订阅？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0xcd7/spending_12k_a_month_per_employee_on_ai/</link>
-      <description><![CDATA[人们实际上正在谈论这个。显然，公司每个员工每月花费 2000 美元用于人工智能订阅。我看过很多关于它的帖子。 这是真的吗？您确定您确实在雇用软件工程师吗？我为 Cursor 支付了 20 美元，几乎只使用 Composer 2，在积极构建 4 个单独的项目时几乎没有达到我的限制的 50%。 我真的很好奇，这个预算到底是用来做什么的？如果你每头投入 2 块钱，那么你可能就不会雇佣开发人员。   由   提交/u/KustheKus  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0xcd7/spending_12k_a_month_per_employee_on_ai/</guid>
-      <pubDate>Fri, 01 May 2026 15:53:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>网页游戏中的 Transformers.js</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0x6pl/transformersjs_in_web_games/</link>
-      <description><![CDATA[       由   提交/u/110_percent_wrong  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0x6pl/transformersjs_in_web_games/</guid>
-      <pubDate>Fri, 01 May 2026 15:47:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>违规后终于离开维塞尔</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0vub6/finally_moving_off_vercel_after_the_breach/</link>
-      <description><![CDATA[使用 Vercel 已近 4 年了。个人项目、客户工作、变成真正产品的副项目，一切都在某个时刻通过了 Vercel 最近的泄露是最后一根稻草，但老实说它已经建立了一段时间 客户越来越多地询问他们的数据存放在哪里、谁有权访问、记录了什么。当您使用 Vercel、Netlify、Railway 或任何这些托管平台时，诚实的答案是“我真的不知道，也无法控制它”。这变得越来越难推销 上周的 OAuth 令牌事件让它变得不可否认。这并不是 Vercel 不好，而是模型的问题。您距离失去对整个部署管道的控制只有一个第三方集成 花了一周时间迁移所有内容。不会回去.. 编辑：有几个人问我迁移到了什么。使用 privatealps.net，他们拥有自己的硬件，因此堆栈中没有第三方依赖项。将 Coolify 放在部署界面的顶部，基本上与 Vercel 相同的推送部署工作流程，但在我实际控制的基础设施上。 （与两者都没有隶属关系，希望我有一个诚实的哈哈）   由   提交/u/Wrong_Connection_138   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0vub6/finally_moving_off_vercel_after_the_breach/</guid>
-      <pubDate>Fri, 01 May 2026 14:59:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>是什么阻止您构建您心目中的网络产品？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0tord/what_stops_you_from_building_the_web_product_that/</link>
-      <description><![CDATA[与一些拥有清晰的产品创意但在执行时遇到困难的人交谈。显然，自从无代码网站构建器出现以来，一切都变得非常容易。我只是想知道，无论是技术还是非技术的网站构建器，您认为您每天面临的问题是什么？   由   提交 /u/GrandEmbarrassed3528   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0tord/what_stops_you_from_building_the_web_product_that/</guid>
-      <pubDate>Fri, 01 May 2026 13:37:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>智能合约安全蓝图|开发者必备</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0tfqj/smart_contract_security_blueprint_must_have_for/</link>
-      <description><![CDATA[2026 年第一季度损失了 8600 万美元 - 增长了 213%，主要是由于团队之间重复出现的相同设计差距。 Hacken 刚刚发布了智能合约安全蓝图，该蓝图映射了从威胁建模到 24/7 监控的开发生命周期。它可以处理大约 80% 的基础风险，因此您可以专注于复杂的逻辑。 check X   由   提交/u/Hacken_io  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0tfqj/smart_contract_security_blueprint_must_have_for/</guid>
-      <pubDate>Fri, 01 May 2026 13:27:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>当您忘记 Git 命令时，如何避免破坏流程？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t0sz8z/how_do_you_avoid_breaking_flow_when_you_forget/</link>
-      <description><![CDATA[大家好，好奇每次我忘记 git 命令时你们都是如何处理这个问题的，我最终会打破流程并陷入兔子洞只是为了找到正确的语法 你们依赖内存、别名、内置帮助还是某种备忘单吗？ 还想知道是否有某些命令或工作流程，无论您使用了多久，您仍然会定期查找git 尝试了解在实际开发工作流程中什么最有效   由   提交 /u/Obvious-Treat-4905   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t0sz8z/how_do_you_avoid_breaking_flow_when_you_forget/</guid>
-      <pubDate>Fri, 01 May 2026 13:08:50 GMT</pubDate>
     </item>
     </channel>
 </rss>
