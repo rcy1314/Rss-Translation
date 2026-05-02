@@ -4,111 +4,111 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 02 May 2026 15:54:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2026 19:08:37 GMT</lastBuildDate>
     <item>
-      <title>PostPilot 1.5.0：MongoDB 写入支持和 JSON 比较</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1tk1c/postpilot_150_mongodb_write_support_json/</link>
-      <description><![CDATA[嗨，redditors， 我最近更新了 PostPilot，一个本地优先的 API 客户端、数据库客户端和 JSON 检查器。 1.4.9 和 1.5.0 中的新增功能： MongoDB (v1.5.0)  写入操作：完全支持 insertOne、updateMany、deleteMany 等。 方法链接：直接在查询上链接 .limit()、.sort() 和 .skip()。 编辑器支持：自动完成集合名称/方法和查询优化警告。 安全：检测到破坏性（删除）操作时，运行按钮会变成红色。  常规改进 (v1.4.9)  比较模式：对任何响应进行并排 JSON 比较。 SSL 设置：支持自签名证书（桌面）。 组织：拖放工具包重新排序和数据库搜索。 最近添加了安全概述白皮书。  我为何构建此内容 我使用 REST + DB 工作流程，发现在单独的 API 工具、数据库客户端和 JSON 之间进行切换检查员效率低下。 PostPilot 将这些功能合并到一个本地工作区中以维护数据流。 链接： https://www.postpilot.dev 我很想听听反馈：  哪些功能对您的工作流程有用？ 哪些功能感觉不必要？ 哪些具体功能会让您从哪些功能切换您当前的工具集？    由   提交 /u/lactranandev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1tk1c/postpilot_150_mongodb_write_support_json/</guid>
-      <pubDate>Sat, 02 May 2026 15:51:08 GMT</pubDate>
+      <title>Nautilus-ORM：围绕 Rust 查询引擎构建的模式优先的 ORM 工具包。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1yl5e/nautilusorm_a_schemafirst_orm_toolkit_built/</link>
+      <description><![CDATA[我使用 Prisma（Python 和 TypeScript）已经有一段时间了。当 Prisma 核心团队决定将其核心重写为另一种语言，从而放弃该项目时，我找不到任何其他 ORM 可以满足我的需求。这就是为什么我和几个朋友一直致力于 Nautilus。 Nautilus 是一个围绕 Rust 查询引擎构建的模式优先 ORM 工具包，并为 Python、TypeScript 和 Rust 生成了客户端。 您在 .nautilus 文件中定义数据库模式，Nautilus 会生成一个可以直接在应用程序中使用的类型化客户端，类似于Prisma 曾经这样做过。 其主要功能是：  模式优先设计 - 您的数据库结构是单一事实来源 Rust 驱动的引擎 - 通过 JSON-RPC 快速执行查询 客户端生成 - Python、TypeScript 和 Rust 多数据库支持 - PostgreSQL、 MySQL、SQLite 迁移和迁移内置架构比较 CLI 工具 – 生成、数据库推送、迁移等。 LSP + VSCode 扩展架构语言 Studio – 使用 Next 编写的现代而强大的本地数据库编辑器  这是一个Nautilus 模式的虚拟示例 生成器客户端 {provider = “nautilus-client-py”; // 或“nautilus-client-rs”、“nautilus-client-js”输出=“db”； // 可选 } type Address { street String city String zip String Country String } model User { id Uuid (uuid()) email String username VarChar(30) name String Balance Decimal(10, 2) (balance &gt; 0) bio String?标签 String[] 地址 地址？ createAt DateTime (now()) (&quot;created_at&quot;) UpdatedAt DateTime (&quot;updated_at&quot;) @@index([email], type: Hash) @@index([createdAt], type: Brin, map: &quot;idx_users_created&quot;) @@map(&quot;users&quot;) } nautilusgenerate import asyncio from db import Nautilus # from output,如果省略，默认为 nautilus async def main(): async with Nautilus() as client: user = wait client.user.create({ &quot;email&quot;: &quot;alice@example.com&quot;, &quot;username&quot;: &quot;alice&quot;, &quot;name&quot;: &quot;Alice&quot;, }) find = wait client.user.find_unique( where={“email”: “alice@example.com”} ) asyncio.run(main()) nautilus generated  与 Prisma 相比：  共享相似的工作流程和理念 但是 Nautilus 的设计是与语言无关，而不是 JS 优先 Nautilus 基准测试在 python 客户端上击败 prisma-python  可以在此处找到存储库（引擎 + studio + 文档）：https://github.com/nautilus-env/nautilus   由   提交 /u/False-Marketing-5663   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1yl5e/nautilusorm_a_schemafirst_orm_toolkit_built/</guid>
+      <pubDate>Sat, 02 May 2026 19:01:30 GMT</pubDate>
     </item>
     <item>
-      <title>[Showoff Saturday] 构建了一个足球运动员数据 API，用于构建应用程序（具有结构化统计数据）</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1tib6/showoff_saturday_built_a_football_player_data_api/</link>
-      <description><![CDATA[大家好， 我一直在研究一些与足球相关的项目（球队构建器、比较工具、仪表板），但我一直遇到同样的问题： 获取干净、结构化的球员数据非常困难。 因此，我构建了一个 API 来解决我自己的用例的问题，并决定将其公开。 它提供： - 结构化球员卡数据 - 多个版本（卡/升级） - 分类统计数据（速度、投篮、传球等） - 过滤和分页 我关注的一件事是使数据易于在前端使用，特别是用于构建统计比较或仪表板等 UI 组件。 示例结构： { “姓名”：“罗纳尔多”， “全名”：“C.罗纳尔多·多斯·桑托斯·阿威罗”， “出生日期”：“1985-02-05”， “总体指数”：99， “位置”：“ST”， “脚”：“右”， “俱乐部”：“皮埃蒙特足球”， “联赛”：“意甲 TIM”， “国家”：“葡萄牙”， “版本”：“TOTS”， “技能”： 5、 “weak_foot”：4、 “身高”：“187cm | ” 6&#39;2\&quot;&quot;， “体重”：“83KG”， “speed_indexOverallStat”：98， “speed_indexStats”：[ { “加速度”：96， “最高速度”：99 } ]， “shooting_scoreOverallStat”：99， “shooting_scoreStats”：[ { “定位”：99， “射门”：99， “射击威力”：99， “射击距离”：99， “空中打击”：92， “罚球”：90 } ], “passing_indexOverallStat”：92， “passing_indexStats”：[ { “视力”：92， “交叉”：94， “freeKickAccuracy”： 85， “短分布”：93， “长分布”：86， “曲线”：90 } ]， “dribble_indexOverallStat”：99， “dribble_indexStats”：[ { “敏捷性”：96， “平衡”：78， “反应”：99， “球控制”：99， “运球”： 99， “冷静”：99 } ]， “defense_indexOverallStat”：43， “defense_indexStats”：[ { “拦截”：35， “headingAccuracy”：99， “marking”：34， “standingTackle”：39， “slidingTackle”：29 } ]， “physical_indexOverallStat”： 94， “物理指数统计”：[ { “跳跃”：99， “耐力”：99， “力量”：94， “攻击性”：75 } ] } 到目前为止，我已经将其用于： - 玩家比较工具 - 小型分析仪表板 - 内部实验 希望获得构建类似事物的其他开发人员的反馈： - 这种结构对于前端使用有意义吗？ - 您有什么需要改进或重新设计的地方吗？ 如果有人的话想要查看： API：https://rapidapi.com/ultimate-football-data-api-ultimate-football-data-api-default/api/ultimate-football-data-api   由   提交/u/RelationNo8685  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1tib6/showoff_saturday_built_a_football_player_data_api/</guid>
-      <pubDate>Sat, 02 May 2026 15:49:19 GMT</pubDate>
+      <title>创建了一个二十一点训练器来帮助教授完美的基本策略和算牌。大约一周内玩了超过 40,000 手牌！寻找反馈！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1ycbr/created_a_blackjack_trainer_to_help_teach_perfect/</link>
+      <description><![CDATA[       由   提交/u/TheFissureMan   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1ycbr/created_a_blackjack_trainer_to_help_teach_perfect/</guid>
+      <pubDate>Sat, 02 May 2026 18:52:15 GMT</pubDate>
     </item>
     <item>
-      <title>我不久前制作了有趣的小开源游戏。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1tes1/fun_little_open_source_game_i_made_a_while_back/</link>
-      <description><![CDATA[所有代码都是由人类（我）编写的。 最后一次更新是在设计中引入了独角兽，其灵感来自于我女儿的画作。  它是免费的，没有跟踪。托管在 cloudflare 页面上。页面上的 GitHub 链接。    由   提交/u/kunalkhatri   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1tes1/fun_little_open_source_game_i_made_a_while_back/</guid>
-      <pubDate>Sat, 02 May 2026 15:45:27 GMT</pubDate>
+      <title>供开发人员连接 Instagram 帐户并从专业/商业帐户返回关注者的元数据</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1ybb7/meta_for_developers_connecting_instagram_account/</link>
+      <description><![CDATA[当前正在尝试设置沙箱用于连接 Instagram 帐户并返回关注者，但我似乎无法在任何地方找到正确的用例。有人告诉我，我可能需要进行企业验证，但我需要注册企业并报税才能获得沙箱设置，这似乎很疯狂。我做错了什么吗？   由   提交 /u/More-Intention-2525   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1ybb7/meta_for_developers_connecting_instagram_account/</guid>
+      <pubDate>Sat, 02 May 2026 18:51:13 GMT</pubDate>
     </item>
     <item>
-      <title>开发人员：在部署到生产环境之前如何获得客户批准？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1t8m5/developers_how_do_you_get_client_approval_before/</link>
-      <description><![CDATA[我对开发团队的工作流程感到好奇。 在部署之前，你们都是如何处理让客户在登台上签字的？  现在，我向他们发送了一个暂存链接并请求反馈，但批准总是含糊其辞（“看起来不错”），当稍后出现问题时，客户拒绝批准该版本。 你们有正式的流程吗？使用任何工具吗？或者只是电子邮件+希望？ 真诚地询问，因为我觉得应该有更好的方法。   由   提交 /u/Used-Dealer7924   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1t8m5/developers_how_do_you_get_client_approval_before/</guid>
-      <pubDate>Sat, 02 May 2026 15:38:45 GMT</pubDate>
+      <title>你并不像你想象的那么落后</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1xts8/youre_not_as_behind_as_you_think_you_are/</link>
+      <description><![CDATA[很容易感觉您需要跟上每个新框架、人工智能工具或趋势才能保持相关性。但软件中发生的大部分实际工作并不是建立在上周发布的任何内容的基础上的。 该行业的很大一部分仍然运行在已经存在多年的稳定、较旧的技术上。维护、改进和扩展这些系统是许多开发人员的支出。 您已经完成了最困难的部分，学习如何从头开始像程序员一样思考。现在学习新东西远没有那么困难。 如果你喜欢的话，探索新工具并没有什么错，但把它当作一场比赛会导致倦怠。 专注于打好基础知识。当您真正需要时，其余部分会变得更容易获取   由   提交/u/praneethb7  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1xts8/youre_not_as_behind_as_you_think_you_are/</guid>
+      <pubDate>Sat, 02 May 2026 18:32:52 GMT</pubDate>
     </item>
     <item>
-      <title>Dograh (1.27.0 )-免费开源语音代理平台</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1t87h/dograh_1270_a_free_opensource_voice_agent_platform/</link>
-      <description><![CDATA[大家好， 我们本周刚刚发布了新功能，并希望分享其中的内容。 快速回顾：Dograh 是一个开源语音 AI 代理平台 - 一个类似于 n8n 的可视化工作流程构建器，但用于语音。您可以通过拖放来设计对话流，连接您自己的 LLM、TTS 和 STT 提供商，并部署处理真实电话呼叫的代理。入站、出站、呼叫转移给人类、语音邮件检测、知识库、变量提取、Web 小部件、对 CRM、n8n、WhatsApp、SMS、电子邮件、Calendly 的工具调用 - 任何具有 API 的东西。  1.27.0 中的新增功能：  MCP 功能，可使用自然语言指令创建新工作流程 ⁠电话支持多租户 - 您可以为不同提供商（Plivo、Telnyx、Vobiz、Vonage、Cloudonix、Twilio）创建多个电话配置 通过与电话更深入的 API 集成，使设置电话变得更容易提供商  Github： https://github.com/dograh-hq/dograh  很高兴获得反馈和贡献者。一颗星意味着很多   由   提交 /u/Slight_Republic_4242   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1t87h/dograh_1270_a_free_opensource_voice_agent_platform/</guid>
-      <pubDate>Sat, 02 May 2026 15:38:19 GMT</pubDate>
+      <title>最好的方法是什么？继续阅读</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1xr9r/what_is_the_best_way_to_do_this_read_on/</link>
+      <description><![CDATA[我和我的朋友想从我们学院学习一些课程。它们的资源价值（录像、作业、模型）巨大。但我们的教授是一位非常友善且奇特的人。  他认为教育是每个人的权利，每个人都应该接受优质教育，无论其社会和经济背景如何。这并没有什么问题。这是一个非常崇高的想法 因此，当我们要求他向我们提供材料时，他让我们承诺我们会将其上传到网上，而不是上传到 YouTube 上，比如没有广告的地方，这样其他人也可以访问它，他可能会赢得一些好感。  我向大家提出的问题是：我想完成这个挑战，因为谁不想要一些祝福和美好的祝愿。现在有什么免费、无麻烦的方法可以做到这一点吗？？   由   提交 /u/Kindly_Jump_7642   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1xr9r/what_is_the_best_way_to_do_this_read_on/</guid>
+      <pubDate>Sat, 02 May 2026 18:30:20 GMT</pubDate>
     </item>
     <item>
-      <title>crit.md - 像 PR 一样审查计划和代码</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1t1nn/critmd_review_plans_code_like_you_do_prs/</link>
-      <description><![CDATA[       https://preview.redd.it/em9mx8cstqyg1.png?width=2400&amp;format=png&amp;auto=webp&amp;s=b61374e6e084cf6cbf03c62ebdc581632d9c2fa2 嘿！在过去的几个月里，我在努力在终端中审查 AI 生成的计划后，利用业余时间构建了 https://crit.md。 Crit 为您提供了一个呈现精美的 Markdown 浏览器 UI，您可以在其中像在 PR 上一样对每一行进行评论。然后，一旦您完成，代理将进行更改并开始第二轮，您可以看到差异并确认更改是否符合您的预期。继续，直到获得批准。 相同的流程适用于实际代码，让您有机会在提交 PR 之前在本地审查工作。 这是其核心，但还有更多 - 您可以分享计划以从团队获取反馈。希望击败使用 Google Docs 进行 Markdown 😅 这一切都是开源、免费、本地优先。 主页：https://crit.md GitHub：https://github.com/tomasz-tomczyk/crit 2 分钟演示视频：https://www.youtube.com/watch?v=LHwfdvePf5A   由   提交 /u/ThisIsTomTom   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1t1nn/critmd_review_plans_code_like_you_do_prs/</guid>
-      <pubDate>Sat, 02 May 2026 15:31:09 GMT</pubDate>
+      <title>像 8ration 这样的机构真的能提供比自由职业者更好的网络应用程序吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1xqo7/do_agencies_like_8ration_actually_deliver_better/</link>
+      <description><![CDATA[我一直在比较构建网络应用程序的不同方法，最近发现了 8ration。 他们将自己定位为一家数字化转型公司，似乎提供包括 UI/UX、后端系统和部署在内的全栈开发。 结构化方法听起来不错，尤其是他们在发布后进行测试和优化的部分。但我想知道与雇用一些熟练的自由职业者相比，这是否真的能带来更好的结果。 我见过双方，流程完善的机构和超级灵活的自由职业者。  好奇这里的人怎么想……代理路线真的值得还是更贵？   由   提交 /u/Acrobatic_Cow_1476   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1xqo7/do_agencies_like_8ration_actually_deliver_better/</guid>
+      <pubDate>Sat, 02 May 2026 18:29:44 GMT</pubDate>
     </item>
     <item>
-      <title>对于人工智能来说，免费抓取人们分享的博客文章并从中获利而不产生任何后果是否合法？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1t1l7/how_is_it_legal_for_ais_to_scrape_blog_posts/</link>
-      <description><![CDATA[我记得在美好的“博客”时代复制粘贴别人的博客文章并不是一件好事，而且会损害你的信誉。尽管那是在主要是“人”的时候。那些上网并阅读博客文章的人，而不是人工智能机器人 为什么所有这些人工智能都会抓取人们“免费”公开撰写和分享的这些博客文章？并从中获利，并且如此大规模地进行，并且不承担任何后果？ 我曾经有一些博客，我可以在其中分享我的知识、想法和经验。显然，它们都不是付费阅读的，因为我写和出版它们有两个原因。为了在帖子评论中获得其他人的意见，并为自己出名。 现在，任何人工智能都可以访问您的博客，总结您的帖子，并将其展示给用户。如果您幸运的话，它会向您提供一个链接，我怀疑大多数人都不会点击该链接。 这有点像开源许可；是的，我写了这些并公开分享，但这是否意味着我也允许一家价值十亿美元的公司将它们全部抓取并用于盈利？   由   提交 /u/mekmookbro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1t1l7/how_is_it_legal_for_ais_to_scrape_blog_posts/</guid>
-      <pubDate>Sat, 02 May 2026 15:31:04 GMT</pubDate>
+      <title>[星期六炫耀]我建立了 bantr.live 聊天室，零摩擦！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1x3n9/show_off_saturday_i_built_bantrlive_a_chat_of/</link>
+      <description><![CDATA[       https://preview.redd.it/blgkkko0iryg1.png?width=2872&amp;format=png&amp;auto=webp&amp;s=17d52ca180d3747239bc2fc10e02d16c1e8a12f6 大家好， 我构建了 bantr.live，它是一种全球社交聊天。它具有全球性的、直接的聊天功能。您还可以安全地进行视频聊天或共享图像。它目前可用于网络和 Android，因为它已因“社交发现”而从 iOS 商店中删除。应用程序，我正在努力让它恢复正常。如果您愿意，请看一下，用户不多，但请给我一些反馈，或者如果您想知道如何工作，请告诉我。 周末快乐！   由   提交 /u/BantrChat   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1x3n9/show_off_saturday_i_built_bantrlive_a_chat_of/</guid>
+      <pubDate>Sat, 02 May 2026 18:05:27 GMT</pubDate>
     </item>
     <item>
-      <title>[周六炫耀] 大多数 SaaS 网站看起来都一样。我刚刚重建了我的模板，使其看起来不像 Vercel 模板。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1sukr/showoff_saturday_most_saas_sites_all_look_the/</link>
-      <description><![CDATA[我几个月来一直盯着 SaaS 登陆页面，它们都模糊在一起。相同的英雄、相同的三列特征、相同的渐变斑点、相同的可信徽标条、相同的 CTA 框。即使是好的，看起来也像相同的 Tailwind 模板涂有四种颜色。 因此，我将整个登陆 (visualsentinel.com) 重建为一系列艺术指导的部分，而不是对它们进行模板化。每个部分都有自己的排版规模、自己的网格、自己的叙事节奏。整篇文章读起来更像是一篇长篇文章，而不是登陆页面。 一些技术细节，因为这是r/webdev： 每个部分使用clamp()的流畅排版。在大多数部分上显示标题使用clamp(32px, 4.2vw, 56px)，放大到clamp(40px, 5.5vw，72px）在结束 CTA 上。英雄的感觉与身体的感觉不同，而身体的感觉与近距离的感觉不同。版式告诉您在页面中的位置。 OKLab 颜色混合随处可见。每个软边框、状态脉冲和微妙的色调都使用 color-mix(in oklab, var(--accent) 20%,透明) 而不是直接的 rgba。当数学在感知上统一时，更容易在浅色和深色主题中保持颜色视觉上的一致性。 Chrome/Safari/Firefox 现在都支持它。 CSS 自定义属性中的微型设计令牌系统。 --fg、--fg-dim、--fg-mute、--bg、--bg-2、--bg-3、--accent、--line、--ok。这就是整个调色板。浅色和深色主题是一种可变的交换。没有实用程序级的地狱。 杂志风格的紧凑版式。显示标题上的字母间距为 -0.025em 到 -0.03em。行高 1.02 到 1.05。大多数 SaaS 网站在标题上使用行高 1.4，因为这是 Tailwind 的默认设置。看起来很臃肿。更严格的行距读起来更像是一本杂志，更像是专门构建的东西。 每个部分的内联样式。是的，真的。这个问题我反复讨论过。 Tailwind 涵盖了 95% 的实用性，但每个艺术指导部分可能需要 20% 的定制 CSS，这些 CSS 不能概括。我没有对抗 Tailwind 配置或添加 80 个一次性类，而是内联编写了特定于部分的样式。差异与组件一起存在，页面仍然很快，因为 Next.js 将它们内联到文档中，并且编辑一个部分是一个文件。我预计这是有争议的部分。 没有动画库。 一个@keyframes 用于实时状态脉冲点。其余部分采用悬停过渡和纯 CSS 运动。重新设计后，即使通过 next/font 加载三个自定义字体系列，页面重量仍保持平稳。 编辑副本与版式一样重要。每个部分的标题都是一个片段，可分解为下一个想法（“200 OK 不是……”、“六层胜过一个 ping”、“您的网站值得……”）。它会像一篇文章一样让您在页面上慢慢浏览，而不是立即转储所有内容。 如果您想滚动浏览，则站点位于 Visualsentinel.com。对于这个帖子来说，对排版和节奏的反馈比对产品本身更感兴趣。真正愿意将其拆解。 如果有人有一个干净的模式来处理每个部分的定制 CSS，而且感觉不像 2003 PHP，我洗耳恭听。 — Rai   由   提交/u/raiansar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1sukr/showoff_saturday_most_saas_sites_all_look_the/</guid>
-      <pubDate>Sat, 02 May 2026 15:23:37 GMT</pubDate>
+      <title>使用 Claude 插件的默认设置，我在一小时内就花费了 40 美元。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1x1ad/i_managed_to_spent_40_using_the_default_settings/</link>
+      <description><![CDATA[我尝试不再使用 Cursor 的 Claude API 密钥来降低成本，因此我从市场安装了 Claude 插件。一个小时后，我检查了我的使用情况……已经收取了 40 美元的费用。 我曾经使用 Cursor 的 20 美元/月计划，但几乎无法达到限额。最近到底发生了什么？ 还有任何降低成本的替代方案或技巧吗？    由   提交 /u/ThanosDi   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1x1ad/i_managed_to_spent_40_using_the_default_settings/</guid>
+      <pubDate>Sat, 02 May 2026 18:03:07 GMT</pubDate>
     </item>
     <item>
-      <title>如何从 Squarespace 资源库获取自定义 HTML 的直接视频链接？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1sf1g/how_do_you_get_a_direct_video_link_from/</link>
-      <description><![CDATA[我正在尝试在自定义 HTML  中使用视频Squarespace 上的标签，但我一直在寻找可用的链接。我将视频上传到资源库，但 Squarespace 似乎没有提供可以插入到 source&gt; 的直接 .mp4 URL，而且通过 Inspect/Network 进行挖掘也没有多大帮助。看起来 squarespace 不喜欢我这样做。实际上有没有办法从 Squarespace 中提取正确的视频文件 URL，或者大多数人只是为此在其他地方（Vimeo、S3 等）托管视频？感觉这应该很简单，但我错过了一些东西。   由   提交/u/maskarzadeh  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1sf1g/how_do_you_get_a_direct_video_link_from/</guid>
-      <pubDate>Sat, 02 May 2026 15:07:17 GMT</pubDate>
+      <title>静态微博生成器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1x0nb/static_microblog_generator/</link>
+      <description><![CDATA[我用 Python 和 Perl 制作了一个小型（大约 1000 行代码）静态微博生成器。示例网站是 [Plurrrr](https://plurrrr.com/)。该代码可在 [GitHub](https://github.com/john-bokma/tumblelog) 上获取。   由   提交 /u/johnbokma   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1x0nb/static_microblog_generator/</guid>
+      <pubDate>Sat, 02 May 2026 18:02:30 GMT</pubDate>
     </item>
     <item>
-      <title>在审计之前继承了混乱的依赖关系树。你如何优先考虑这个？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1seye/inherited_a_messy_dependency_tree_right_before_an/</link>
-      <description><![CDATA[最近继承了一个代码库并进行了适当的依赖审核。 乍一看，一切看起来都很好。大约 70 到 80 个直接依赖项，大部分都得到了维护。 然后我检查了完整的树。 它爆炸了多达 1000 多个传递包。许多多年来未曾触及。有些实际上已被放弃，有些存在已知漏洞且没有修复。 为了让它更有趣，我们将在几周内进行合规性审查，并需要生成 SBOM。 问题在于工具。所有内容都会以类似的严重程度进行标记，没有关于应用程序中实际可访问的内容与仅存在于树深处的内容的上下文。因此，我得到的不是清晰的信息，而是一大堆我无法及时解决的问题。 这也不是一个干净的绿地设置。这是多年来不断发展的事情。 试图弄清楚： 在时间压力下如何解决这个问题？ 您只关注可触及的漏洞吗？ 如何呈现 SBOM，而不显得一切都着火了？ 非常感谢其他人如何处理类似情况。   由   提交 /u/Appropriate_Flow9789   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1seye/inherited_a_messy_dependency_tree_right_before_an/</guid>
-      <pubDate>Sat, 02 May 2026 15:07:11 GMT</pubDate>
+      <title>💊专注于言论自由的匿名图片板。 （西班牙语）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1wc11/an_anonymous_imageboard_focused_on_free_speech/</link>
+      <description><![CDATA[      V O X I NGA 什么是 VOXINGA？ 这是一款专为鄙视算法的人设计的下一代图像板。我们不是社交网络；我们是社交网络。我们是一个智力战场（有时不那么智力，哈哈）。在这里，内容的价值在于内容本身，而不在于签名者。没有个人资料，没有自我，只有纯粹的混乱和自由。 💎 VOXCOINS 的力量 厌倦了“喜欢”！那些一文不值？在 Voxina，我们有 VoxCoins。  赚取：发布优质内容或赢得游戏。 投注：在 AVSA Hub 中挑战其他匿名者。 统治：使用您的硬币来证明谁是真正的棋盘 alpha。  🎮 AVSA 中心：ANON VS ANON 我们皇冠上的宝石。直接集成到棋盘中的实时游戏空间。和某人有牛肉关系吗？像有文化的人一样解决问题：  空气曲棍球：霓虹灯反射和纯粹的实时物理。 战舰：经典策略，击沉下一个富家子。 乒乓球：经典。 石头、剪刀、布：不需要简介。 国际象棋：回合制战术对决。将死或优雅的羞辱。  📂内容架构 我们提供超过 50 个有条理的类别，这样您就不会浪费时间：  X 档案： 多元宇宙中的超自然现象和最疯狂（（阴谋））。 技术： 人工智能（SFW/NSFW）、编程、科学和加密。 文化：电影、电视、文学、音乐和传奇的 Morfi（食品）部分。 娱乐：游戏、Putaku（动漫）、体育和顶级幽默。 黑暗面： NSFW部分，Trapitos，以及奇怪的Mogoverso。    由   提交/u/Z3ROCOOL22  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1wc11/an_anonymous_imageboard_focused_on_free_speech/</guid>
+      <pubDate>Sat, 02 May 2026 17:37:03 GMT</pubDate>
     </item>
     <item>
-      <title>一个最小的飞行前检查清单网站，让您在飞行前不会忘记任何事情</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1rxg4/a_minimal_preflight_checklist_website_so_you_dont/</link>
-      <description><![CDATA[在飞行之前，我总是会在纸上写下清单，并在心里勾选它们，以免忘记任何事情。 市场上现有的每个工具都会让你填写大量配置或下载一些我每隔几个月才会使用一次的东西。我只想打开一个 URL，查看一个列表，勾选一些内容，然后忘记它，直到我的下一次航班，而不占用任何存储空间。 Bavul 很简单：点击一次进行检查，点击两次以标记为不适用于本次旅行（删除线），再次点击以重置。这样，相同的列表适用于国内周末和国际搬家，无需任何配置。 为我飞往阿姆斯特丹的航班构建它，可能对你们中的一些人有用，所以我决定也发布它。欢迎提出建议。   由   提交/u/yagellaaether  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1rxg4/a_minimal_preflight_checklist_website_so_you_dont/</guid>
-      <pubDate>Sat, 02 May 2026 14:48:35 GMT</pubDate>
+      <title>Devforms - 零后端表单基础设施</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1vxzn/devforms_zero_backend_form_infrastructure/</link>
+      <description><![CDATA[      在必须为每个联系表单和其他表单添加后端之后，我决定建立自己的平台来解决问题，而无需不断地为其他服务付费。没有高级套餐，只有免费套餐，其限制足以满足大多数需求。   由   提交/u/thelegend_200  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1vxzn/devforms_zero_backend_form_infrastructure/</guid>
+      <pubDate>Sat, 02 May 2026 17:22:21 GMT</pubDate>
     </item>
     <item>
-      <title>代理网站调试器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1rkf9/agentic_website_debugger/</link>
-      <description><![CDATA[      tldr: 制作了一个自动修复网站中的错误的调试器 大家好， 旨在衡量我一直在开发的调试器的兴趣并获得一些反馈。不确定是否有市场，因为网络开发人员是一群富有创造力的人，但当我必须优化一个有 10 多人参与的网站时，我就产生了这个想法。 https://buggerd.com 是登陆页面，下面是其工作原理的顶级概述的屏幕截图。  https://preview.redd.it/8pzlv9ruiqyg1.png?width=2018&amp;format=png&amp;auto=webp&amp;s=e2058ef0ee4ad1a2dadfd8b24e881f1dedbdad4a 让我知道你的想法！   由   提交/u/collegefishies  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1rkf9/agentic_website_debugger/</guid>
-      <pubDate>Sat, 02 May 2026 14:34:36 GMT</pubDate>
+      <title>我们构建了一个 3D 地球仪，您在编码时会实时出现在其中（与 WakaTime 兼容）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1vt53/we_built_a_3d_globe_where_you_appear_in_realtime/</link>
+      <description><![CDATA[      您好！ 👋 在过去的几个月里，我们一直在构建 DevGlobe：一个为开发者提供的免费开源项目。 🌍 最近发布了很多内容（完整的编码统计跟踪、WakaTime 兼容性、私人排行榜……），所以感觉是在这里分享的好时机。 想法：当你编码时，你会出现在地球仪上，这样你就可以：  展示您的项目/GitHub 了解其他开发人员正在做什么 与世界各地的开发人员联系 跟踪您的编码统计数据（每个存储库、每个文件、每个分支的细分） 激励自己编码（目标、徽章、与朋友一起的私人排行榜） 不要单独编码  已经在使用WakaTime？该端点与 WakaTime 兼容：只需将您现有的扩展程序指向该端点，您就会出现在地球仪上，无需安装新的扩展程序。 隐私至上：  匿名模式 → 您所在国家/地区的随机城市 标准模式 → 仅显示您的城市（而不是您的确切位置） 隐私模式 → 完全远离地球（您的统计数据保持私密，您只是不出现）  100% 免费 100% 开源 您的个人数据和代码永远不会发送到后端 可用的扩展：  VS Code 及其分支（光标、Windsurf、Antigravity…） JetBrains IDE NeoVim Zed Claude Code、Codex、OpenCode 等（支持 26 多个编辑器和 AI 工具）  底层：地球仪运行于 MapLibre GL JS （开源地图渲染），具有来自 CARTO 的底图样式、深色主题、矢量图块、平滑的 3D 地球仪投影。前端是 Next.js + React + TypeScript。无需轮询，无需刷新，当有人开始编码时，他们的标记立即出现。 🌍 Globe：https://devglobe.xyz/space 💻源代码：https://github.com/Nako0/devglobe-extension 如果您有兴趣或有任何疑问，网站上已对所有内容进行了解释，但请随时提问，我很乐意回答您的问题！   由   提交/u/Fair-Independent-623   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1vt53/we_built_a_3d_globe_where_you_appear_in_realtime/</guid>
+      <pubDate>Sat, 02 May 2026 17:17:26 GMT</pubDate>
     </item>
     <item>
-      <title>我为我和我的朋友构建了一个无广告的世界杯预测应用程序。没有广告，只有足球乐趣。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1re1a/i_built_an_adfree_world_cup_prediction_app_for_me/</link>
-      <description><![CDATA[大家好！ 几个月前，我在这里分享了我的项目的早期版本，经过一些调整和反馈后，我想展示进展情况，特别是现在 2026 年世界杯周期正在升温。 它被称为替补投注（https://bench-bets.com/)。 这是一个 100% 自由激情的项目。没有广告，没有订阅，没有“专业版”。层。我只是想要一个干净的工具供社区和我自己的团队使用。 我很想听听您对 UX/UI 的想法 - 或者如果您对堆栈有任何疑问！干杯! 🍻 技术堆栈：  前端/后端： Nuxt 4 &amp; VueJS（DX 非常棒） 样式： Tailwind CSS 数据库/ORM： Drizzle ORM + SQLite 身份验证：更好的身份验证（出色的 DX！） 我刚刚添加了 Nuxt i18n 模块的区域设置支持    由   提交/u/kovadom  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1re1a/i_built_an_adfree_world_cup_prediction_app_for_me/</guid>
-      <pubDate>Sat, 02 May 2026 14:27:29 GMT</pubDate>
+      <title>集思广益，选择一个检查链接、二进制文件和移动应用程序的系统</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1uyn9/brainstorming_my_options_for_a_system_that/</link>
+      <description><![CDATA[嘿，我正在寻找一些强大的开发人员，他们致力于基于用户的系统，在该系统中用户交互并共享链接、二进制文件等，保护他们免受恶意内容的侵害至关重要。  我运行一个系统，人们可以提交内容以供行业专家进行专业评审。在当前的人工智能浪潮中，我获得了大量人工智能生成的流量，对此我没有任何疑虑。  我担心的问题是如何让我的评论者接触这些产品。网站、链接、代码库、二进制文件、应用程序等。  是否有任何高级开发人员遇到过类似的问题，您不能只是告诉用户使用最佳判断，而是需要对二进制文件、网站和应用程序进行推理，并说这肯定不是恶意的？  我想我想探索的是，我的选择是什么？ 我考虑过按需托管虚拟机或他们可以访问的东西，但是天哪，这对我来说听起来很麻烦，而且可能要花很多钱。 我考虑过培训他们在他们的机器上使用 Virtualbox，但有些专业人员绝对没有那种技术水平。 （但我不在那个领域工作，所以如果有一个没有真正虚拟机知识的 50 岁老人可以设置的解决方案，我会洗耳恭听） 我还考虑过首先通过网络安全漏斗、Virus Total、URLHaus 等运行链接、应用程序、二进制文件，但这也有点碰运气。  想法？只是集思广益不一定是最好或完美的解决方案，只是想要想法。   由   提交/u/bccorb1000  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1uyn9/brainstorming_my_options_for_a_system_that/</guid>
+      <pubDate>Sat, 02 May 2026 16:45:19 GMT</pubDate>
     </item>
     <item>
-      <title>一个简单的盲打导师</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1qj5q/a_simple_touch_typing_tutor/</link>
-      <description><![CDATA[ 由   提交 /u/susam   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1qj5q/a_simple_touch_typing_tutor/</guid>
-      <pubDate>Sat, 02 May 2026 13:53:09 GMT</pubDate>
+      <title>构建所见即所得编辑器：第 2 轮，采用上周的反馈并重建侧边栏</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1uvr6/building_a_wysiwyg_editor_round_2_took_last_weeks/</link>
+      <description><![CDATA[      上周在此发布，询问模板设计者（Framer / Webflow / Bricks / Elementor 人员）对我正在构建的无代码编辑器 (PageHub) 的残酷反馈。得到了很多。最主要的抱怨是：属性侧边栏是一堵手风琴墙。每个动作、条件、动画、数据绑定都内联填充，永远滚动。 登陆 Chip + Popover 系统。现在，您可以控制侧边栏中显示的内容，并且重型/多属性设置（操作、条件、动画、图标、颜色、文本样式）位于专用的可拖动弹出窗口中。多点击几下就可以到达某个东西，但使用一段时间后，它的流动性更好，滚动更少，噪音更少。 你觉得怎么样？有改进的余地吗？芯片/弹出模型在哪里对您来说是错误的，或者什么会促使您实际尝试在这里编写模板？  编辑器正在走向开源，致力于公开发布，因此现在的反馈实际上决定了发布的内容。 pagehub.dev，在任何模板上打开编辑器并烤我:P   由   提交 /u/gcphost   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1uvr6/building_a_wysiwyg_editor_round_2_took_last_weeks/</guid>
+      <pubDate>Sat, 02 May 2026 16:42:11 GMT</pubDate>
     </item>
     <item>
-      <title>ServerMonitor：使用自定义验证器的灵活 Node.js 正常运行时间监视器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t1qirx/servermonitor_a_flexible_nodejs_uptime_monitor/</link>
-      <description><![CDATA[      大家好，我最近开源了一个我一直在自己的项目中使用的监控工具。它是用 Node.js 编写的，设计为高度模块化。  https://preview.redd.it/qeen87ttbqyg1.png?width=2731&amp;format=png&amp;auto=webp&amp;s=c17ad5f2efe60ca287c837c4f954c8363a8e382d 主要思想是在 JS 文件中定义测试，允许您为每个端点链接诸如 IsStatusCode、HasText 和 HasLoadedWithinMs 之类的验证器。 我为什么构建它：我想要一些比基于 GUI 的工具更容易进行版本控制的东西，我可以在其中提交我的 /tests/ 目录并拥有所有内容已同步。 堆栈：  Node.js（ES 模块） 用于流程管理的 PM2 与 Slack、Discord 和 Telegram 集成  在此处查看：https://github.com/AlexeyPlodenko/server-monitor   由   提交 /u/Hour_Interest_5488   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t1qirx/servermonitor_a_flexible_nodejs_uptime_monitor/</guid>
-      <pubDate>Sat, 02 May 2026 13:52:43 GMT</pubDate>
+      <title>为卡尼政府构建公共政策仪表板 - 寻找有关信任、清晰度和移动用户体验的前端反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t1ui37/built_a_public_policy_dashboard_for_the_carney/</link>
+      <description><![CDATA[大家好！  我建立了一个公共仪表板，跟踪加拿大联邦政府卡尼政府的 11 个政策领域，住房、气候、国防、道德、负担能力和移民等方面的评分为 A-F。 实时站点：https://sawatter.github.io/canada-under-carney/ 我不是真的在这里寻找党派反应。我想要的是关于仪表板是否确实感觉清晰、可检查和值得信赖的前端/产品反馈，尤其是在移动设备上。 最有用的反馈是： 1。移动或响应式布局中什么感觉令人困惑或过于密集？ 2.打开记分卡和阅读方法的交互模型是否感觉清晰，还是太隐晦？ 3. UI 的哪些部分使评分感觉值得信赖，而不是过度编辑？ 4.如果你首先要改进一个前端/用户体验，那会是什么？ 我已经根据早期反馈收紧了方法论和透明度表面，但我真的很重视 Webdev 对结构、可读性和信任架构的直接关注。 感谢您的帮助和反馈！   由   提交/u/sawatter  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t1ui37/built_a_public_policy_dashboard_for_the_carney/</guid>
+      <pubDate>Sat, 02 May 2026 16:27:19 GMT</pubDate>
     </item>
     </channel>
 </rss>
