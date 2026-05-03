@@ -4,11 +4,39 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 03 May 2026 03:42:07 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 08:08:32 GMT</lastBuildDate>
+    <item>
+      <title>我使用 Vite + Supabase 为我的大学构建了一个现代化的就业门户。这是我学到的。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t2fb5l/i_built_a_modern_placement_portal_for_my_college/</link>
+      <description><![CDATA[    由   提交 /u/vermaaaditya   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t2fb5l/i_built_a_modern_placement_portal_for_my_college/</guid>
+      <pubDate>Sun, 03 May 2026 08:02:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个打字稿分析器来自动生成那些讨厌的零拷贝 ffi 布局。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t2dctw/ive_built_a_typescript_analyzer_to_generate_those/</link>
+      <description><![CDATA[      好吧，开门见山：我构建了一个工具，允许您基于 openapi 模式和内置元数据定义严格的内存布局。您可以使用 arktype 定义类型（您也可以使用其他库，但 schema-pop 在下面使用 arktype）。这个想法是使用数值约束来决定数据将占用的大小。  例如，如果您有如下内容：  age: &quot;0 &lt;= number &lt;= 255&quot;， 分析器将知道该值将适合单个字节，并自动将其映射到 Rust/C/Zig 中的 `u8`，处理所有对齐和填充 (`_pad_x`) 以严格匹配 C-ABI（或 GPU） `std140`/`std430` 布局）。  **为什么它很酷：** * **零复制：**生成的 Rust/C/Zig 代码具有零运行时依赖项。它只是 `#[repr(C)]` 结构。您投射指针并读取数据。 * **硬核 ABI 测试：** 测试套件为 Rust、C、C++ 和 Zig 编译实际的本机二进制文件，从生成器向它们提供随机字节，并证明所有语言之间的字节对字节相等。 * **自动迁移：** 如果您更改版本，它会生成快速失败迁移。如果类型缩小（例如 `u32` -&gt; `u16`），则在您显式提供转换逻辑之前，代码将不会编译/链接。无静默数据损坏。 * **GPU 支持：** 对 WebGL/WebGPU `std140` 和 `std430` 打包规则的初始支持。  我为什么要构建它？我实际上只是想要一种更简单的方法来编写 ESP32 固件，现在我有了:)。希望它对您也有一些用处。 GLHF  查看 github 上的手册、示例生成器，或者继续 `bun install schema-pop schema-pop-import`   由   提交/u/kostrubaty  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t2dctw/ive_built_a_typescript_analyzer_to_generate_those/</guid>
+      <pubDate>Sun, 03 May 2026 06:12:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>个人开发设置：本地计算机与云虚拟机？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t2d64c/personal_dev_setup_local_machine_vs_cloud_vm/</link>
+      <description><![CDATA[您的个人开发设置是什么？ 我很好奇现在人们在个人项目中使用什么。 在工作中我有一台 M3 Max，但我真的不想将它用于个人项目。与此同时，我不喜欢购买一台个人笔记本电脑只是为了让它坐在家里收集灰尘。 我一直在考虑是否可以使用云虚拟机/远程开发环境，并在那里进行开发（SSH、VS Code 远程等）。 这里有人实际上长期走这条路吗？ 与本地计算机相比，感觉如何？ 很想听听您的设置和情况权衡。   由   提交/u/Worried_Lab0   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t2d64c/personal_dev_setup_local_machine_vs_cloud_vm/</guid>
+      <pubDate>Sun, 03 May 2026 06:02:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个全栈动漫跟踪器，带有推荐引擎（无 AI）、多提供商故障转移和 Chrome 扩展。方法如下</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t2bl7g/i_built_a_fullstack_anime_tracker_with_a/</link>
+      <description><![CDATA[]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t2bl7g/i_built_a_fullstack_anime_tracker_with_a/</guid>
+      <pubDate>Sun, 03 May 2026 04:36:06 GMT</pubDate>
+    </item>
     <item>
       <title>从头开始构建了我自己的 Material 3 富有表现力的个人网站。是的，它都是开源的:)</title>
       <link>https://www.reddit.com/r/webdev/comments/1t2afxe/built_my_own_material_3_expressive_personal/</link>
-      <description><![CDATA[      是什么让我这么做的？ 我跳过了规范。自定义近复制 material 3expressive shell，使用 React 19、vite 6 和 tailwind 4 构建。 里面有什么？： 博客引擎、照片库、网址缩短器和“自述文件”页面（基本上是通用生物） 通过设计可大量配置。可能设置太多，但这很好。 stack： tailwind适合大多数样式，全面最新版本。合作起来很有趣。 gpl-3.0 因为专有的东西是中等的。源代码应该是开放的。 存储库：github 和站点：virex.lol github 页面上有更多屏幕截图！ 欢迎贡献、反馈和加星❤️很想听听您的想法！   由   提交/u/Vivid-Champion-1367  [链接] [评论] ]]></description>
+      <description><![CDATA[      是什么让我这么做的？ 我跳过了规范。自定义近复制 material 3expressive shell，使用 React 19、vite 6 和 tailwind 4 构建。 里面有什么？： 博客引擎、照片库、网址缩短器和“自述文件”页面（基本上是通用生物） 通过设计可大量配置。可能设置太多，但这很好。 stack： tailwind适合大多数样式，全面最新版本。合作起来很有趣。 gpl-3.0 因为专有的东西是中间的。源代码应该是开放的。 存储库：github 和站点：virex.lol github 页面上有更多屏幕截图！ 欢迎贡献、反馈和加星❤️很想听听您的想法！   由   提交/u/Vivid-Champion-1367  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t2afxe/built_my_own_material_3_expressive_personal/</guid>
       <pubDate>Sun, 03 May 2026 03:37:31 GMT</pubDate>
     </item>
@@ -64,7 +92,7 @@
     <item>
       <title>为他人构建定制软件作为一项工作很棒，但作为一项业务却很糟糕。</title>
       <link>https://www.reddit.com/r/webdev/comments/1t25jhl/building_custom_software_for_others_is_great_as_a/</link>
-      <description><![CDATA[您需要收集需求、设计它、编码它、测试它、维护它、保持它的活力并保证它的安全。 作为一名受雇的开发人员？太好了，工作有保障。 作为企业主？可怕。没有其他企业需要如此多的努力才能赚到一美元。从字面上看，没有别的。 问题是，软件与其他业务非常不同，因为软件是“活的”，与您可以销售的其他服务或产品不同。 我宁愿销售实体产品。简单得多，扩展性更好，压力减轻了 95%。 现在 SaaS 就是这样。因为你基本上是在产品化你的努力，现在客户适应了你，而不是相反。规模要大得多。 SaaS 是软件企业的方式，而不是为其他人构建定制软件。因为它实际上可以让所有的努力和压力得到回报。为客户定制的东西有一个你无法超越的上限。   由   提交 /u/Individual-Shame6481   [链接] [评论]]]></description>
+      <description><![CDATA[您需要收集需求、设计它、编码它、测试它、维护它、保持它的活力并保证它的安全。 作为一名受雇的开发人员？太好了，工作有保障。 作为企业主？可怕。没有其他企业需要如此多的努力才能赚到一美元。从字面上看，没有别的。 问题是，软件与其他业务非常不同，因为软件是“活的”，与您可以销售的其他服务或产品不同。 我宁愿销售实体产品。简单得多，扩展性更好，压力减轻了 95%。 现在 SaaS 就是这样。因为你基本上是在产品化你的努力，现在客户适应了你，而不是相反。规模要大得多。 SaaS 是软件企业的方式，而不是为其他人构建定制软件。因为它实际上可以让所有的努力和压力得到回报。为客户定制的东西在这些方面有一个你无法超越的上限。   由   提交 /u/Individual-Shame6481   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t25jhl/building_custom_software_for_others_is_great_as_a/</guid>
       <pubDate>Sat, 02 May 2026 23:45:20 GMT</pubDate>
     </item>
@@ -76,39 +104,11 @@
       <pubDate>Sat, 02 May 2026 22:12:00 GMT</pubDate>
     </item>
     <item>
-      <title>WooCommerce 与 Shoptimizer 主题。</title>
+      <title>具有 Shoptimizer 主题的 WooCommerce。</title>
       <link>https://www.reddit.com/r/webdev/comments/1t234n3/woocommerce_with_the_shoptimizer_theme/</link>
-      <description><![CDATA[我当前的项目之一是一家在线商店 为销售优质接发的客户提供服务 - 夹子、胶带、纬纱、马尾辫，凡是你能想到的。 商店：samshairextensions.nl 我们正在 WordPress 上构建它+ WooCommerce 与 Shoptimizer 主题。客户之前使用过 Shopify，因此 工作的一部分是迁移所有内容并重新思考整个过程中的结构。 这仍然是一项正在进行的工作 - 产品页面需要更多的关注，我们正在设置 SEO，拨入结账流程，并致力于整体外观和感觉。 由于我现在深陷其中，我真的很感激一些外部的帮助观点： - 当您第一次登陆商店时，感觉如何？ - 布局或导航中是否有任何问题？ - 对美容/美发领域的 WooCommerce 商店有什么建议吗？ - 如果这是您的构建，您会优先考虑哪些事情？ 我定期为客户构建 WooCommerce 商店，但当您距离项目太近时，您总是会错过一些东西。 诚实的反馈比礼貌的反馈更有用 - 不要犹豫。   由   提交 /u/Successful-Ad-5576   [链接] [评论]]]></description>
+      <description><![CDATA[我当前的项目之一是一家在线商店 为销售优质接发的客户提供服务 - 夹子、胶带、纬纱、马尾辫，凡是你能想到的。 商店：samshairextensions.nl 我们正在 WordPress 上构建它+ WooCommerce 与 Shoptimizer 主题。客户之前使用过 Shopify，因此 工作的一部分是迁移所有内容并重新思考整个过程中的结构。 这仍然是一项正在进行的工作 - 产品页面需要更多的关注，我们正在设置 SEO、拨入结帐流程，并致力于整体外观和感觉。 由于我现在深陷其中，所以我真的很感激一些外部的帮助观点： - 当您第一次登陆商店时，感觉如何？ - 布局或导航中是否有任何问题？ - 对美容/美发领域的 WooCommerce 商店有什么建议吗？ - 如果这是您的构建，您会优先考虑哪些事情？ 我定期为客户构建 WooCommerce 商店，但当您距离项目太近时，您总是会错过一些东西。 诚实的反馈比礼貌的反馈更有用 - 不要犹豫。   由   提交 /u/Successful-Ad-5576   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t234n3/woocommerce_with_the_shoptimizer_theme/</guid>
       <pubDate>Sat, 02 May 2026 21:59:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>反馈</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t22yfp/feedback/</link>
-      <description><![CDATA[我可以得到一些关于 liveframe.app 的反馈吗？ 我在 2021 年为我的婚礼制作了它，当我意识到它解决了我正在合作的非营利组织遇到的问题时，我把它变成了现实。但通过市场研究，似乎还有很多其他事情在做非常相似的事情，而且有了人工智能，现在似乎不难编写代码。 你们对此有何看法？定价是否荒谬？您认为我可以添加一些实际上值得付费的东西吗？ 我应该将其称为学习经历，而更多地关注我正在做的其他事情吗？ 我已经投入了很多时间，但已经太接近它太久了，我不知道它是否值得继续，或者我是否陷入了沉没成本谬论   由   提交/u/Odama666   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t22yfp/feedback/</guid>
-      <pubDate>Sat, 02 May 2026 21:52:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么现在有这么多网站要求“访问您的本地网络”？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t22lta/why_are_so_many_websites_now_asking_to_access/</link>
-      <description><![CDATA[      我注意到这种情况最近发生得越来越多，今天早上轮到 YouTube 了。我总是点击“现在不”。还有其他人注意到发生这种情况吗？他们想通过此权限实现什么目的？   由   提交/u/OutrageousAardvark2   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t22lta/why_are_so_many_websites_now_asking_to_access/</guid>
-      <pubDate>Sat, 02 May 2026 21:38:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>我讨厌转换 webp 图像，所以我做了这个工具</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t22g1t/i_hated_converting_webp_images_so_i_made_this_tool/</link>
-      <description><![CDATA[一年多前，我在 Reddit 上发帖说我非常讨厌不断转换 .webp 图像，所以我制作了一个完全静态的工具来处理这个问题。 原始帖子 我有一段时间忘记了这篇帖子。最近我检查了分析，发现我的网站仍然有几千次重复访问。 因此我决定对其进行清理并添加最需要的格式：iPhone 照片的 HEIC、AVIF 以及其他一些改进。 如果有人也发现它有用（它完全本地化、免费且没有任何盈利）：https://morpha.app   由   提交/u/Plane_System_5070   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t22g1t/i_hated_converting_webp_images_so_i_made_this_tool/</guid>
-      <pubDate>Sat, 02 May 2026 21:31:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个名为 Tunes 的音乐视频播放器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t2201s/i_built_a_music_video_player_called_tunes/</link>
-      <description><![CDATA[      您可以在此处查看https://tunes.blue/video-channels/ 源代码在 Github 上开源https://github.com/alflennik/tunes 。我用 vanilla JS 手工编写了它。 我确保它可以在智能电视和 Quest VR 耳机内置的旧浏览器上运行。 VR 是一种观看音乐视频的绝佳方式。 我有点沉迷于亚洲音乐，所以里面有很多这样的内容。感谢您查看😜   由   提交/u/amazingatomic  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t2201s/i_built_a_music_video_player_called_tunes/</guid>
-      <pubDate>Sat, 02 May 2026 21:13:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
