@@ -4,7 +4,56 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 03 May 2026 13:23:33 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 08:41:30 GMT</lastBuildDate>
+    <item>
+      <title>基于 chromium 配置文件的自排名 sqlite：hit_rate 作为管理信号（MIT）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t32szn/selfranking_sqlite_over_chromium_profile_files/</link>
+      <description><![CDATA[花了几个周末将 ~/Library/Application Support 中的 Web 数据、登录数据、历史记录和书签文件转换为单个 sqlite 知识库。完全存在于磁盘上，堆栈中的任何位置都没有网络调用，获得 MIT 许可。 有趣的部分不是提取器，而是排名。每行跟踪两个计数器：appeared_count（在重新提取中看到该值的次数）和accessed_count（查询返回该值的次数）。 hit_rate = 访问次数/出现次数成为相关性分数。无需手动管理，无需 LLM 标记步骤。 对于语义去重，它通过 onnxruntime 使用 nomic-embed-text-v1.5，全部是本地的。任何与现有键前缀余弦相似度 &gt;= 0.92 的内容都会被取代而不是重复。单值键（full_name、first_name）自动取代，多值键（email、account:github.com、tool:vscode）共存。 hit_rate 方法可以在没有人参与循环的情况下处理 50% 的噪声问题。随着旧数据的陈旧，它是否在几个月内仍然有用仍然是一个悬而未决的问题，但对于新鲜的提取来说，它比平面关键字搜索有了显着的改进。由   提交/u/Deep_Ad1959  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t32szn/selfranking_sqlite_over_chromium_profile_files/</guid>
+      <pubDate>Mon, 04 May 2026 00:50:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建并开源了自己的 React 设计系统：Kiln</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t31p4k/i_built_and_open_sourced_my_own_react_design/</link>
+      <description><![CDATA[每次开始新项目时，我都厌倦了重建相同的按钮、输入、卡片和模式。所以我构建了 Kiln 并于本周发货。 28 个组件。 gzip 压缩后小于 26 KB。零依赖。 MIT 许可。 我最关心的三件事： 可访问性第一。每个组件都符合 WCAG AA 开箱即用的要求。每个组件都内置键盘导航、焦点管理、焦点环和 ARIA。不是事后诸葛亮。 性能第一。该文档网站在 Lighthouse 上的性能得分为 99，可访问性得分为 100。每次交互时布局均为零。所有动画均经过 GPU 加速。捆绑包大小经过测量和预算。 设置非常简单。 npm install，导入 CSS 一次，然后发货。没有配置文件，没有主题提供程序，没有设置向导。深色模式通过设置 data-theme=&quot;dark&quot; 来工作。在 HTML 上。就是这样。 麻省理工学院许可并欢迎贡献。如果您想参与其中，只需添加 CONTRIBUTING.md。 现场演示：kiln-ui.com  GitHub：github.com/Aldentec/kiln  npm：npmjs.com/package/@doriansmith/kiln   由   提交/u/dorianite  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t31p4k/i_built_and_open_sourced_my_own_react_design/</guid>
+      <pubDate>Mon, 04 May 2026 00:00:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源能否帮助欧洲初创企业建立技术主权？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2tij9/can_opensource_help_european_startups_build_tech/</link>
+      <description><![CDATA[       由   提交/u/Some-Technology4413   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2tij9/can_opensource_help_european_startups_build_tech/</guid>
+      <pubDate>Sun, 03 May 2026 18:34:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 Electron 和 Kotlin 构建了 DroidCam/iVCam 的开源替代方案（GPL 许可）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2q8mp/i_built_an_opensource_alternative_to/</link>
+      <description><![CDATA[您好r/opensource， 我最近需要为我的桌面安装一个网络摄像头，但由于我的手机摄像头已经支持 4K，所以不想购买新硬件。我研究了流行的解决方案（DroidCam、iVCam、Camo），但我对常见的“免费增值”解决方案感到沮丧。模式：水印、低分辨率限制、广告和闭源二进制文件。 因此，我决定构建 AWA，一个完全免费、开源且保护隐私的替代方案。 该项目：它允许您将 Android 相机流式传输到 Windows PC，并将其用作 OBS、Zoom 和 Discord 等应用程序中的本机输入。 技术堆栈（有趣的内容）部分）：  Android 应用程序（服务器）： 使用 Camera2 API 和 MediaCodec 编码硬件 MPEG（将来将添加对 h.264 的支持）流。您还可以通过浏览器访问它以获得远程仪表板。 Windows 客户端（接收器）：使用 Electron。 （可用安装程序） 用于远程控制的浏览器仪表板：支持预览和每个控件。 Mac 和 Linux（客户端）：没有预构建的安装程序，但您只需一个命令即可构建一个*。 （我不想在未经测试的情况下发布某些东西，而且我没有任何 Mac 或 Linux 机器） 虚拟驱动程序：实现 DirectShow 过滤器（基于 Softcam），将视频流注册为系统范围的虚拟设备。 传输： 支持标准 Wi-Fi 或 USB 隧道 （通过 ADB 端口转发）实现无延迟有线连接。  为什么我在这里分享它：  无膨胀： 无广告、无跟踪、无“Pro”功能订阅。 仅限本地：视频流永远不会离开您的本地网络（或 USB 电缆）。 GPL 许可证：您可以分叉、破坏它或在其基础上构建。  我目前正在寻找有关虚拟网络摄像头、其性能以及不同设备上的延迟性能的反馈。如果您有 C++（用于 DirectShow）或 Android 经验，我很乐意看到一些 PR。 Repo： https://github.com/soubhagyajit/Mobile-Webcam   由   提交/u/Electronic_Picture42  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2q8mp/i_built_an_opensource_alternative_to/</guid>
+      <pubDate>Sun, 03 May 2026 16:33:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找贡献者将开放边缘路由器发展为去中心化边缘网络</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2pohn/looking_for_contributors_to_evolve_an_open_edge/</link>
+      <description><![CDATA[我一直在深入研究这个项目： github 项目 它本质上是提供商边缘路由器的开放实现，可以在 Linux 上运行并集成到 Kubernetes 等现代环境中，公开与传统基础设施类似的网络接口。 () 这让我开始思考更大的事情。 如果我们将其发展为分布式、用户驱动的边缘网络会怎样？ 概念方向： • 将边缘节点转变为在用户设备上运行的轻量级“微型 CDN” • 使用 WebRTC 或类似技术进行点对点块分发 • 分层多个 CDN 和回退路径以实现弹性 •添加分布式信令和房间分区 • 基于带宽和延迟构建自适应对等调度 • 通过媒体源播放和 ABR 启用实时流媒体 • 集成 BGP 式路由逻辑或覆盖路由以实现动态路径 这个想法基本上是： 网络不再依赖 Cloudflare 等集中式提供商，而是随着更多用户的活跃而增强。 我想要的一些特定领域输入或帮助： • 对等网状架构设计 • WebRTC 分块协议优化 • 大规模分布式信令策略 • 对等点之间的负载平衡与后备CDN • 不可信边缘参与者的安全模型 • 激励模型或被动贡献系统 • 这是否也应该扩展到边缘计算 我不要试图盲目地重新发明网络理论。我想构建一些可以在生产环境和规模中实际运行的实用工具。 如果您使用过： • WebRTC • P2P 系统 • CDN 或边缘网络 • Kubernetes 网络或 BGP • 流媒体管道 我非常重视您的想法或贡献。 即使您只是想批评架构，这很有帮助。 如果这个方向可行，我计划将其形式化为具有模块化层的适当存储库： 网格、信号、传输、播放、编排。 好奇这是否值得推进，或者是否有现有项目我应该首先深入研究。   由   提交 /u/DeerSpotter   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2pohn/looking_for_contributors_to_evolve_an_open_edge/</guid>
+      <pubDate>Sun, 03 May 2026 16:12:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了 DropImg，这是一个 Docker 优先的自托管图像托管应用程序，具有拖放上传、S3/Garage 存储和 SQLite</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2pf2e/i_built_dropimg_a_dockerfirst_selfhosted_image/</link>
+      <description><![CDATA[      我构建了 DropImg，因为我一直对同样的小工作流程问题感到恼火：我需要一种快速方法来为我的 Markdown 博客上传图像、获取干净的公共 URL、调整图像大小或转换图像需要时，并保持所有内容自托管。 所以我构建了自己的。 DropImg 是一个轻量级的 Docker 优先图像托管应用程序。它有一个 React 前端、一个 Hono API、用于元数据的 SQLite 以及使用 Garage 的 S3 兼容存储。您可以通过从剪贴板拖、放、浏览或粘贴来上传图像。 目前的主要功能是：  使用公共 URL 即时上传图像 Markdown 片段复制 JPG 压缩 PNG 到 JPG 转换 响应式图像变体 删除带有秘密令牌的链接 通过代理服务支持私有 S3 存储桶 包含 Garage 的 Docker Compose 设置  目标不是成为一个庞大的媒体管理器。它旨在成为一个干净、专注的图像托管服务，适合那些想要简单、快速和自托管的人。   由   提交/u/matija2209  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2pf2e/i_built_dropimg_a_dockerfirst_selfhosted_image/</guid>
+      <pubDate>Sun, 03 May 2026 16:02:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否有欧洲制造的开源智能手机可以在美国移动网络上运行？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2p556/are_there_any_european_made_open_source/</link>
+      <description><![CDATA[ 由   提交/u/ferriematthew   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2p556/are_there_any_european_made_open_source/</guid>
+      <pubDate>Sun, 03 May 2026 15:52:07 GMT</pubDate>
+    </item>
     <item>
       <title>iwakura：用纯 C 语言编写的无头个人仪表板</title>
       <link>https://www.reddit.com/r/opensource/comments/1t2jiyx/iwakura_a_headless_personal_dashboard_written_in/</link>
@@ -50,7 +99,7 @@
     <item>
       <title>我构建了 xyOps，一个完全开源的操作自动化平台：寻求反馈！</title>
       <link>https://www.reddit.com/r/opensource/comments/1t1algf/i_built_xyops_a_fully_open_source_ops_automation/</link>
-      <description><![CDATA[您好r/opensource，我想分享 xyOps，这是我一直在构建的开源操作自动化平台。 在产品方面，xyOps 结合了：  作业调度 可视化工作流程 服务器监控 警报 快照 票务 秘密 网络挂钩 任何语言的插件（基于 STDIO 的 JSON）  它是完全开源的（BSD 3-Clause），不附加任何条件：  所有功能都是开源的（包括 SSO），并且始终会 没有封闭的企业分支 没有功能门控 整个产品是可自托管的  我构建它是因为我想要一个系统可以同时处理计划作业、操作工作流程、服务器监控、警报和事件响应，而无需强迫用户跳过多个工具。 GitHub：https://github.com/pixlcore/xyops 文档：https://docs.xyops.io 如果您喜欢 OSS 操作/工作流程工具，我希望您能提供有关该应用程序的反馈。   由   提交 /u/cgijoe_jhuckaby   [链接] [评论]]]></description>
+      <description><![CDATA[您好r/opensource，我想分享 xyOps，这是我一直在构建的开源操作自动化平台。 在产品方面，xyOps 结合了：  作业调度 可视化工作流程 服务器监控 警报 快照 票务 秘密 网络挂钩 任何语言的插件（基于 STDIO 的 JSON）  它是完全开源的（BSD 3-Clause），不附加任何条件：  所有功能都是开源的（包括 SSO），并且始终会 没有封闭的企业分支 没有功能门控 整个产品是可自托管的  我构建它是因为我想要一个可以同时处理计划作业、操作工作流程、服务器监控、警报和事件响应的系统，而无需强迫用户跳过多个工具。 GitHub：https://github.com/pixlcore/xyops 文档：https://docs.xyops.io 如果您喜欢 OSS 操作/工作流程工具，我希望您能提供有关该应用程序的反馈。   由   提交 /u/cgijoe_jhuckaby   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t1algf/i_built_xyops_a_fully_open_source_ops_automation/</guid>
       <pubDate>Sat, 02 May 2026 00:19:34 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[嘿， 我目前正在将消息传递系统（带有持久对话的实时聊天）集成到我的一个应用程序中，并围绕它构建了一个框架...   抽象出聊天逻辑（消息、反应、对话、输入指示符、回复、邀请......） 与您的数据库配合使用 与您的传输配合使用层 与您的身份验证系统配合使用  它基本上是“核心”层。融入您现有模式的逻辑。它有点固执己见，但为大多数操作提供了很多事件回调的自定义功能。 您需要提供传输函数以及数据库 CRUD 调用，其余的则通过合理的默认值、速率限制、可选清理等来处理。 https://github.com/therealPaulPlay/headless-chat 获得许可麻省理工学院   由   提交 /u/therealPaulPlay   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t17h1e/headless_chat_framework_in_typescript/</guid>
       <pubDate>Fri, 01 May 2026 22:05:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>[Beta] 为 sts2 制作了一个免费（开源）的合作匹配器和运行历史记录导出器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t14orc/beta_made_a_free_open_source_coop_matchmaker_and/</link>
-      <description><![CDATA[       由   提交/u/Ccc35  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t14orc/beta_made_a_free_open_source_coop_matchmaker_and/</guid>
-      <pubDate>Fri, 01 May 2026 20:17:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建了一个轻量级批量文件重命名器（寻求反馈）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t0xx3x/built_a_lightweight_bulk_file_renamer_looking_for/</link>
-      <description><![CDATA[我构建了一个小型开源文件重命名器，专注于快速、简单的批量编辑，而不是复杂的规则或繁重的设置。 目标是制作一些可以立即打开并使用的东西，例如清理下载、照片或杂乱的文件夹。 它有意定位为轻量级替代品，而不是高级重命名器等更高级工具的替代品。 存储库： https://github.com/mik3br7/easyedits-file-renamer 可在“发布”部分进行下载。 注意：Windows 可能会标记 .bat 文件，因为它未签名 — 如果出现提示，请单击“更多信息”→“运行”无论如何。” 希望得到任何反馈，尤其是：  感觉缺少什么 与您当前的工具相比，它在哪里崩溃 什么会让您真正使用这样的东西    由   提交 /u/mik3br   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t0xx3x/built_a_lightweight_bulk_file_renamer_looking_for/</guid>
-      <pubDate>Fri, 01 May 2026 16:13:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>Nyno 7.0 版本（OSS n8n altnernative）：Rust WASM 支持等</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t0sb6d/nyno_70_release_oss_n8n_altnernative_rust_wasm/</link>
-      <description><![CDATA[ 由   提交/u/EveYogaTech   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t0sb6d/nyno_70_release_oss_n8n_altnernative_rust_wasm/</guid>
-      <pubDate>Fri, 01 May 2026 12:40:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>Phosphene — Apple Silicon 的本地视频和音频生成 (LTX2.3)</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t0k816/phosphene_local_video_and_audio_generation_for/</link>
-      <description><![CDATA[       由   提交 /u/Opening-Ad5541   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t0k816/phosphene_local_video_and_audio_generation_for/</guid>
-      <pubDate>Fri, 01 May 2026 05:28:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>PocketHost — 用于自托管 Minecraft 服务器的开源 Android 应用程序 (AGPL-3.0)</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t0jrmk/pockethost_opensource_android_app_for_selfhosting/</link>
-      <description><![CDATA[内容：将您的 Android 手机变成 Minecraft Java 版服务器。 AGPL-3.0 许可。 功能：  PaperMC 1.19.4 服务器执行 Playit.gg 隧道集成（公共地址，无需端口转发） 具有回滚安全性的世界备份/恢复 Google Drive 云备份 播放器管理、插件系统、YAML 配置编辑器 实时监控和分析  寻找贡献者：  React Native / TypeScript Android 原生模块开发 (Java) PaperMC / Bukkit 插件生态系统知识 技术写作/文档  GitHub： https://github.com/Zendevve/PocketHost 文档： docs/API-REFERENCE.md、docs/ARCHITECTURE.md、docs/SETUP-GUIDE.md、 docs/TROUBLESHOOTING.md 47 项测试，严格的 TypeScript、GSD 项目规划方法。初学者友好 - 问题和讨论是开放的。   由   提交/u/ZenpaiiiGamingYT   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t0jrmk/pockethost_opensource_android_app_for_selfhosting/</guid>
-      <pubDate>Fri, 01 May 2026 05:04:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>您将如何通过开放式对等发现网络货币化？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t0fxo2/how_would_you_monetize_an_open_chorded_peer/</link>
-      <description><![CDATA[我正在开发一个开源对等发现网络，其中有一组任何人都可以启动的服务器，并且客户端可以在所述服务器上注册。 该网络与协议无关。基本上，您可以在其中一台服务器上注册您的公钥，然后其他人可以抓取网络，直到找到您。 您注册的服务器将促进您和寻找您的客户端之间的 UDP 打孔。 它是一个 16 个字符的十六进制用户空间。 这本质上可用于 IoT、MeshTastic 和 MeshCore、打印和文件共享等远程服务、VoIP 和消息传递，  这方面有哪些盈利策略？   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t0fxo2/how_would_you_monetize_an_open_chorded_peer/</guid>
-      <pubDate>Fri, 01 May 2026 02:00:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>什么是餐厅评论应用程序的开源替代方案？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1szybdd/what_is_an_open_source_alternative_to_review_apps/</link>
-      <description><![CDATA[我不喜欢网络效应将太多的市场力量授予领先的评论网站，因此寻找基于社区的替代方案。    由   提交 /u/victornielsendane   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1szybdd/what_is_an_open_source_alternative_to_review_apps/</guid>
-      <pubDate>Thu, 30 Apr 2026 14:51:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
