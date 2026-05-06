@@ -4,14 +4,7 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 06 May 2026 11:11:16 GMT</lastBuildDate>
-    <item>
-      <title>程序员离开 GitHub 的指南</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t564yk/a_programmers_guide_to_leaving_github/</link>
-      <description><![CDATA[ 由   提交/u/esiy0676  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t564yk/a_programmers_guide_to_leaving_github/</guid>
-      <pubDate>Wed, 06 May 2026 07:47:22 GMT</pubDate>
-    </item>
+    <lastBuildDate>Wed, 06 May 2026 14:25:48 GMT</lastBuildDate>
     <item>
       <title>这怎么能被接受呢？</title>
       <link>https://www.reddit.com/r/opensource/comments/1t55go4/how_is_this_even_accepted/</link>
@@ -109,6 +102,13 @@
       <description><![CDATA[您好r/opensource， 我最近需要为我的桌面安装一个网络摄像头，但由于我的手机摄像头已经支持 4K，所以不想购买新硬件。我研究了流行的解决方案（DroidCam、iVCam、Camo），但我对常见的“免费增值”解决方案感到沮丧。模式：水印、低分辨率限制、广告和闭源二进制文件。 因此，我决定构建 AWA，一个完全免费、开源且保护隐私的替代方案。 该项目：它允许您将 Android 相机流式传输到 Windows PC，并将其用作 OBS、Zoom 和 Discord 等应用程序中的本机输入。 技术堆栈（有趣的内容）部分）：  Android 应用程序（服务器）： 使用 Camera2 API 和 MediaCodec 编码硬件 MPEG（将来将添加对 h.264 的支持）流。您还可以通过浏览器访问它以获得远程仪表板。 Windows 客户端（接收器）：使用 Electron。 （可用安装程序） 用于远程控制的浏览器仪表板：支持预览和每个控件。 Mac 和 Linux（客户端）：没有预构建的安装程序，但您只需一个命令即可构建一个*。 （我不想在未经测试的情况下发布某些东西，而且我没有任何 Mac 或 Linux 机器） 虚拟驱动程序：实现 DirectShow 过滤器（基于 Softcam），将视频流注册为系统范围的虚拟设备。 传输： 支持标准 Wi-Fi 或 USB 隧道 （通过 ADB 端口转发）实现无延迟有线连接。  为什么我在这里分享它：  无膨胀： 无广告、无跟踪、无“Pro”功能订阅。 仅限本地：视频流永远不会离开您的本地网络（或 USB 电缆）。 GPL 许可证：您可以分叉、破坏它或在其基础上构建。  我目前正在寻找有关虚拟网络摄像头、其性能以及不同设备上的延迟性能的反馈。如果您有 C++（用于 DirectShow）或 Android 经验，我很乐意看到一些 PR。 Repo： https://github.com/soubhagyajit/Mobile-Webcam   由   提交/u/Electronic_Picture42  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t2q8mp/i_built_an_opensource_alternative_to/</guid>
       <pubDate>Sun, 03 May 2026 16:33:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>寻找贡献者将开放边缘路由器发展为去中心化边缘网络</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t2pohn/looking_for_contributors_to_evolve_an_open_edge/</link>
+      <description><![CDATA[我一直在深入研究这个项目： github 项目 它本质上是提供商边缘路由器的开放实现，可以在 Linux 上运行并集成到 Kubernetes 等现代环境中，公开与传统基础设施类似的网络接口。 () 这让我开始思考更大的事情。 如果我们将其发展为分布式、用户驱动的边缘网络会怎样？ 概念方向： • 将边缘节点转变为在用户设备上运行的轻量级“微型 CDN” • 使用 WebRTC 或类似技术进行点对点块分发 • 分层多个 CDN 和回退路径以实现弹性 •添加分布式信令和房间分区 • 基于带宽和延迟构建自适应对等调度 • 通过媒体源播放和 ABR 启用实时流媒体 • 集成 BGP 式路由逻辑或覆盖路由以实现动态路径 这个想法基本上是： 网络不再依赖 Cloudflare 等集中式提供商，而是随着更多用户的活跃而增强。 我想要的一些特定领域输入或帮助： • 对等网状架构设计 • WebRTC 分块协议优化 • 大规模分布式信令策略 • 对等点之间的负载平衡与后备CDN • 不可信边缘参与者的安全模型 • 激励模型或被动贡献系统 • 这是否也应该扩展到边缘计算 我不要试图盲目地重新发明网络理论。我想构建一些可以在生产环境和规模中实际运行的实用工具。 如果您使用过： • WebRTC • P2P 系统 • CDN 或边缘网络 • Kubernetes 网络或 BGP • 流媒体管道 我非常重视您的想法或贡献。 即使您只是想批评架构，这很有帮助。 如果这个方向可行，我计划将其形式化为具有模块化层的适当存储库： 网格、信号、传输、播放、编排。 好奇这是否值得推进，或者是否有现有项目我应该首先深入研究。   由   提交 /u/DeerSpotter   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t2pohn/looking_for_contributors_to_evolve_an_open_edge/</guid>
+      <pubDate>Sun, 03 May 2026 16:12:33 GMT</pubDate>
     </item>
     </channel>
 </rss>

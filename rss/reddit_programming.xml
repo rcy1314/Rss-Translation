@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 06 May 2026 11:10:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2026 14:25:13 GMT</lastBuildDate>
+    <item>
+      <title>我在制作家庭应用程序时学到了什么</title>
+      <link>https://www.reddit.com/r/programming/comments/1t5dqg4/what_i_learned_making_an_app_for_family/</link>
+      <description><![CDATA[ 由   提交/u/chabad360  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t5dqg4/what_i_learned_making_an_app_for_family/</guid>
+      <pubDate>Wed, 06 May 2026 13:58:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>适用于命令式（类似 JS/Python）语言的简单且安全的隐式异步编程模型</title>
+      <link>https://www.reddit.com/r/programming/comments/1t5d19t/simple_and_safe_implicit_async_programming_model/</link>
+      <description><![CDATA[一篇关于类似 JavaScript/Python 的命令式语言的隐式异步编程模型的文章：普通的顺序代码可以同时运行独立的操作，无需特殊语法：没有 等待、承诺或手动任务编排。使用 CascadaScript（一种类似 JavaScript/Python 的实验性语言）实现。无限制的 JavaScript 和 Python 将无法做到这一点，但只要有合理的限制，它们有一天也可能做到这一点。 CascadaScript 挑战了该模型的极限。   由   提交/u/thegeleto   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t5d19t/simple_and_safe_implicit_async_programming_model/</guid>
+      <pubDate>Wed, 06 May 2026 13:31:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>复制失败：每个主要 Linux 发行版上的 root 需要 732 字节。</title>
+      <link>https://www.reddit.com/r/programming/comments/1t5d19g/copy_fail_732_bytes_to_root_on_every_major_linux/</link>
+      <description><![CDATA[ 由   提交/u/Dear-Economics-315   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t5d19g/copy_fail_732_bytes_to_root_on_every_major_linux/</guid>
+      <pubDate>Wed, 06 May 2026 13:31:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>您认为不需要关心的事情 • Holly Cummins • GOTO 2025</title>
+      <link>https://www.reddit.com/r/programming/comments/1t5c805/things_you_thought_you_didnt_need_to_care_about/</link>
+      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t5c805/things_you_thought_you_didnt_need_to_care_about/</guid>
+      <pubDate>Wed, 06 May 2026 13:00:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>设计存储库感知的秘密同步，无需将秘密提交给 Git</title>
+      <link>https://www.reddit.com/r/programming/comments/1t5c3qn/designing_repoaware_secret_sync_without/</link>
+      <description><![CDATA[我一直在思考围绕团队 .env 工作流程的 CLI 设计问题。 目标工作流程是： git clone repo login pull  问题是： CLI 应该如何知道哪个秘密保管库属于克隆的存储库，而不需要开发人员粘贴保管库 ID，以及不向 Git 提交实际机密？ 一种方法是提交一个小型项目元数据文件： # .meowpass.yaml version: 1Vault:  default_env：开发 此文件不包含秘密值。它仅将存储库映射到远程保管库和默认环境。 CLI 解析顺序为：  显式 --vault 标志 最近的 .meowpass.yaml，通过遍历父目录找到 全局用户配置 因面向修复的错误而失败  这使得 CLI行为更像 Git。 示例： repo/ .meowpass.yaml apps/web/packages/api/ 如果从 apps/web 运行 CLI，它仍然会从 repo 根解析项目配置。 我正在考虑的一些设计选择：  项目配置可以安全提交，因为它包含仅元数据 显式标志始终覆盖项目配置 version允许稍后进行架构迁移 default_env使常用命令具有确定性，无需额外标志 差异输出应显示已更改/丢失的键，但绝不透露值  差异输出示例： 仅限本地： - DEBUG_TOKEN Remote仅： - STRIPE_SECRET_KEY 更改： - DATABASE_URL  权衡是，这比将加密的 .env 文件提交到 Git 的本地优先性要低，但它改进了入门，因为存储库可以指向正确的保管库而无需嵌入机密。 该模型基本上是： Git CLI 之外的 Git 机密值中的存储库元数据会自动解析项目上下文 我仍在争论的问题：  default_env 应该存在于存储库配置中，还是应该保留在每个开发人员的本地？ 父目录发现是否应该停止在 Git 根目录？ 如果配置文件中出现 API_KEY 或 DATABASE_URL 等可疑密钥，CLI 是否应该发出警告？ 如果身份验证和加密仍然控制访问，提交保管库 ID 是否可以接受？ 这比提交加密的 .env 文件更好还是更差？  好奇其他人会如何设计这个。 对于团队秘密同步，您会使用提交的元数据文件、Git 中的加密 env 文件还是完全其他方法？   由   提交/u/Adventurous-While685   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t5c3qn/designing_repoaware_secret_sync_without/</guid>
+      <pubDate>Wed, 06 May 2026 12:56:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>端到端平台工程</title>
+      <link>https://www.reddit.com/r/programming/comments/1t59vwd/platform_engineering_endtoend/</link>
+      <description><![CDATA[平台工程不仅仅是带有门户的 DevOps。这篇文章从头到尾地讲述了该学科的完整弧线：为什么平台存在，如何构建和运营它们，如何管理混乱的利益相关者政治，以及成功实际上是什么样子。以 Fournier 和 Nowland 的书为基础，并在真实系统上进行了几年的实践。   由   提交/u/lucavallin   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t59vwd/platform_engineering_endtoend/</guid>
+      <pubDate>Wed, 06 May 2026 11:19:07 GMT</pubDate>
+    </item>
     <item>
       <title>使用 VOMPECCC 的 Emacs 完成展示（视频）</title>
       <link>https://www.reddit.com/r/programming/comments/1t57k5j/emacs_completion_showcase_with_vompeccc_video/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[大家好！ 四月份，我们尝试完全禁止 LLM 相关内容。今天，我们寻求反馈，了解事情的进展情况，以及更广泛的我们想对此类内容采取什么措施。请在下面发表评论，但如果您只想说“我喜欢/讨厌它”，请也表明您已阅读下面的细微差别。 需要明确的是，我们一直并将继续禁止法学硕士生成的内容。如果你不想写，我们就不想读。我们也确实并将继续禁止与编程无关但与诸如编程相关的内容。 AI 哲学或越狱 chatgpt。 （非编程人工智能文章占据了我们看到的大部分人工智能相关内容，我们删除了相当多的内容。这与 4 月份的审判无关。） 因此，细微差别是，我们在 4 月份的审判中禁止并在此询问的唯一附加类别内容是与 AI 相关的编程内容。范围包括：  机器学习中的数学技术（“使用 Transformer 技术进行序列预测”） 在小型代码库中运行时使用 LLM 的技术 生产模型部署和测试架构 使用 Cursor 的经验报告或配置提示 提示的最佳实践 我们如何保护生成的 AI代码库 嘿，我刚刚发现vibe编码将人工智能取代程序员，我肯定是第一个问这个问题的人 如何将LLM与您的业务数据粘合 在移动社交本地世界中协同代理区块链：在最后一张幻灯片上展示一行代码的tedx演讲  您可以看到我们有一段时间纠结于如何处理各种类别，并在我们的方法中进行了调整，我们可能会这样做一段时间。我不想禁止所有短暂流行而令人烦恼的流行事物，但我们也需要谨慎对待我们允许的内容，因为它是驱动未来提交者的动力，因此它可以自我喂养。这个话题也引发了狂热的粉丝和批评者，因此很容易迷失在少数派的声音中。 （出于这个原因，我不会假装这是一个完全民主的决定，我们会增加投票数或其他东西：人们太愿意在这些东西上大肆宣传，我们将保留一些主观性来避免这种情况。）在某些时候，我相信这些工具将像我们讨论编译器或 OOP 或 GC 或 VX 模块一样简单地讨论，但目前的炒作和厄运论党派之争如此强烈，以至于很难找到诚实的例子。 请注意，一个令人困惑的影响是，在上个月左右的时间里，新模组确实得到了加强。我之前曾删除过类似的内容，但延迟了很长时间，而现在我们能够更好地执行我们已有的规则。因此，如果您对“人工智能会取代程序员吗？”感到恼火，请注意这对此没有影响。我们已经删除了它。 总而言之，我们希望收集关于如何最好地处理这些类别的内容的想法和反馈，以及如何划定界限的建议，以便我们能够实现我们的使命：成为提供最高质量编程内容的地方，我每天都可以在那里阅读有趣的内容并学习新的东西。   由   提交/u/ketralnis  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1t4odyl/looking_for_feedback_on_ai_content_in/</guid>
       <pubDate>Tue, 05 May 2026 18:41:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>代码覆盖率告诉您哪些内容没有测试，而不是您的测试是否良好</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4luwo/code_coverage_tells_you_what_you_didnt_test_not/</link>
-      <description><![CDATA[了解覆盖率指标在 CI/CD 中的工作原理、为什么它们被误解，以及如何在不激励浅层测试的情况下强制执行它们。    由   提交 /u/indy2kro   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4luwo/code_coverage_tells_you_what_you_didnt_test_not/</guid>
-      <pubDate>Tue, 05 May 2026 17:14:37 GMT</pubDate>
-    </item>
-    <item>
-      <title>隐藏在 Cloud Run 计费设置中的性能错误</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4kvb1/the_performance_bug_hiding_in_our_cloud_run/</link>
-      <description><![CDATA[我们如何花了两个月的时间调试 Cloud Run 延迟，一路构建跟踪，并了解到修复方法是一行 YAML。   由   提交/u/ericchiang  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4kvb1/the_performance_bug_hiding_in_our_cloud_run/</guid>
-      <pubDate>Tue, 05 May 2026 16:40:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建包含大量 HTML 小页面的网站</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4gubp/building_websites_with_lots_of_little_html_pages/</link>
-      <description><![CDATA[ 由   提交/u/ForgotMyPassword17  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4gubp/building_websites_with_lots_of_little_html_pages/</guid>
-      <pubDate>Tue, 05 May 2026 14:18:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>Figma 构建内部 Redis 代理以达到六个九的正常运行时间</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4efi2/figma_builds_inhouse_redis_proxy_to_hit_six_nines/</link>
-      <description><![CDATA[ 由   提交/u/kingsaso9  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4efi2/figma_builds_inhouse_redis_proxy_to_hit_six_nines/</guid>
-      <pubDate>Tue, 05 May 2026 12:46:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>OpenCL 3.1 已经到来</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4dws2/opencl_31_is_here/</link>
-      <description><![CDATA[ 由   提交 /u/jlpcsl   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4dws2/opencl_31_is_here/</guid>
-      <pubDate>Tue, 05 May 2026 12:24:38 GMT</pubDate>
-    </item>
-    <item>
-      <title>消除条件迷宫：从 If 语句重构到规则管道</title>
-      <link>https://www.reddit.com/r/programming/comments/1t4dchp/kill_the_conditional_maze_refactoring_from/</link>
-      <description><![CDATA[ 由   提交 /u/nephrenka   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t4dchp/kill_the_conditional_maze_refactoring_from/</guid>
-      <pubDate>Tue, 05 May 2026 12:00:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
