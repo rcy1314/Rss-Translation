@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 06 May 2026 19:53:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2026 22:02:17 GMT</lastBuildDate>
+    <item>
+      <title>service-lookup v0.3.0 - 轻松在本地运行 Spring 微服务 [GPL-3.0]</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t5r2pn/servicelookup_v030_run_your_spring_microservices/</link>
+      <description><![CDATA[service-lookup 可让您自动转发本地测试所需的所有 Kubernetes Pod，并递归更新属性 YAML 文件中的 URI。 它现在也是可配置的，允许您在清理后自动恢复文件，并缓存命名空间以提高性能。   由   提交/u/iByteABit   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t5r2pn/servicelookup_v030_run_your_spring_microservices/</guid>
+      <pubDate>Wed, 06 May 2026 21:49:29 GMT</pubDate>
+    </item>
     <item>
       <title>Inkscape 1.4.4 现已推出</title>
       <link>https://www.reddit.com/r/opensource/comments/1t5jnrj/inkscape_144_now_available/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[我最近买了一台小型热敏袖珍打印机，用于打印标签、贴纸和列表。它是重新命名的 DP-L1S；几个品牌以不同的名称销售相同硬件的变体。 有趣的小设备，但配套应用程序（“Luck Jingle”）需要位置权限、强制互联网连接以及一堆其他东西，这些东西不需要在打印机上使用，只需要通过蓝牙从 30 厘米外接收图像。 因此，我使用 JADX 反编译了 APK，对 BLE 协议进行了逆向工程，并构建了一些可以让您直接从打印机进行打印的东西。浏览器或命令行。没有应用程序，没有帐户，没有云。 完全免费使用，整个项目都是开源的。 网络应用程序（无需安装，只需在 Chrome/Edge/Opera 中打开）： https://chiaracannolee.github.io/ Thermal-pocket-printer-basic/ GitHub仓库： https://github.com/ChiaraCannolee/Thermal-pocket-printer-basic 它的作用  打印图像、文本和测试图案 实时预览打印机输出的内容 三种密度级别 Floyd-Steinberg 照片抖动 反转模式（黑白交换） 带间隙检测的贴纸标签模式 通过 BLE 通知显示电池电量  可选： 用于自动化和批处理作业的 Python CLI (pip install bleak Pillow) 它是如何工作的（对于好奇的人来说） 打印机在 LuckPrinter SDK 上运行，超过 159 种打印机型号使用该 SDK。 BLE 协议是 ESC/POS 变体：您打开服务 ff00，写入特征 ff02，监听 ff01，发送一些启用命令，然后发送 GS v 0 光栅图像（1 位、384 像素宽、MSB 优先）和馈送/停止命令。完整的命令参考位于 PROTOCOL.md 中。 由于 Web 蓝牙的 MTU 限制，Web 版本使用 100 字节块，延迟 50 毫秒。 Python CLI 使用 512 字节块，延迟 10 毫秒，速度明显更快。 即将推出 我正在开发扩展的 Web 版本，其中：  带预设的可调整标签尺寸（29×12 毫米、40×12 毫米、50×30 毫米、40×30 毫米、48 毫米圆形和自定义尺寸） 在浏览器中本地保存和加载模板 直接在预览上拖动文本以自由定位 撤消/重做 打印预览屏幕，可调整： 阈值 打印数量 密度覆盖 打印后进纸（额外进纸以毫米为单位）   基础知识在上面的网络应用程序中工作并且稳定，所以我已经发布了这个版本。一旦扩展版本准备好，我将分享它。 兼容性 macOS 和 Linux。 Windows 正在等待更好的网络蓝牙支持。 LuckPrinter 系列中的其他打印机（DP-/LuckP-/MiniPocketPrinter 系列）可能也可以工作，但打印宽度可能不同。 基于与 u/OilTechnical3488 的 fichero-printer，它对 Fichero D11 执行相同的操作（不同的设备类别，相同的 SDK）。 有关协议、逆向工程过程或针对其他 LuckPrinter 型号进行调整的问题：请自行询问:)   由   提交 /u/ChiaraCannolee   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t3es4z/printing_without_the_luck_jingle_app_for_thermal/</guid>
       <pubDate>Mon, 04 May 2026 11:21:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>基于 chromium 配置文件的自排名 sqlite：hit_rate 作为管理信号（MIT）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t32szn/selfranking_sqlite_over_chromium_profile_files/</link>
-      <description><![CDATA[花了几个周末将 ~/Library/Application Support 中的 Web 数据、登录数据、历史记录和书签文件转换为单个 sqlite 知识库。完全存在于磁盘上，堆栈中的任何位置都没有网络调用，获得 MIT 许可。 有趣的部分不是提取器，而是排名。每行跟踪两个计数器：appeared_count（在重新提取中看到该值的次数）和accessed_count（查询返回该值的次数）。 hit_rate = 访问次数/出现次数成为相关性分数。无需手动管理，无需 LLM 标记步骤。 对于语义去重，它通过 onnxruntime 使用 nomic-embed-text-v1.5，全部是本地的。任何与现有键前缀余弦相似度 &gt;= 0.92 的内容都会被取代而不是重复。单值键（full_name、first_name）自动取代，多值键（email、account:github.com、tool:vscode）共存。 hit_rate 方法可以在没有人参与循环的情况下处理 50% 的噪声问题。随着旧数据的陈旧，它是否在几个月内仍然有用仍然是一个悬而未决的问题，但对于新鲜的提取来说，它比平面关键字搜索有了显着的改进。由   提交/u/Deep_Ad1959  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t32szn/selfranking_sqlite_over_chromium_profile_files/</guid>
-      <pubDate>Mon, 04 May 2026 00:50:28 GMT</pubDate>
     </item>
     </channel>
 </rss>
