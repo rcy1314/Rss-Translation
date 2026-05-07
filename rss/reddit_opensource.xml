@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 06 May 2026 22:02:17 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 03:37:19 GMT</lastBuildDate>
+    <item>
+      <title>AGPLv3§7¶4 使用户能够阻止徽章软件 - SFC</title>
+      <link>https://www.reddit.com/r/opensource/comments/1t5ym28/agplv374_empowers_users_to_thwart_badgeware_sfc/</link>
+      <description><![CDATA[       由   提交/u/esiy0676  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1t5ym28/agplv374_empowers_users_to_thwart_badgeware_sfc/</guid>
+      <pubDate>Thu, 07 May 2026 03:14:33 GMT</pubDate>
+    </item>
     <item>
       <title>service-lookup v0.3.0 - 轻松在本地运行 Spring 微服务 [GPL-3.0]</title>
       <link>https://www.reddit.com/r/opensource/comments/1t5r2pn/servicelookup_v030_run_your_spring_microservices/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[我们正在构建一个点对点系统，其中没有中央服务器，也没有永久的中介。节点（包括网络浏览器）直接传播数据，内容被设计为在网络上持久且防篡改。 与 IPFS、ActivityPub 或 Nostr 等系统不同，我们的重点是应用程序层的直接点对点传播，浏览器充当一流节点，而不是依赖长期存在的基础设施或中继式中介。 我们发布了早期协议设计和 PoC： 仓库：https://github.com/theendless11/decentralized 白皮书：https://github.com/theEndless11/decentralized/blob/master/docs/protocol-whitepaper.md PoC：https://endless.sbs 在此阶段，我们主要寻找技术批评和意见反馈，特别是在： 协议设计（一致性、传播模型、故障模式） 密码学假设/安全审查 女巫抵抗/信任模型弱点 基于浏览器的网络约束 数据持久性和防篡改权衡 我们还没有尝试“推出产品”，目标是在进一步扩展之前对这种方法是否合理进行压力测试。 如果您对这种方法的缺陷或我们缺少什么有想法，那么特别有价值。   由   提交 /u/Vegetable_Prompt_583   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t3n9n6/experimenting_with_browsernative_peertopeer/</guid>
       <pubDate>Mon, 04 May 2026 16:46:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>不使用 Luck Jingle 应用程序进行打印（适用于袖珍热敏打印机）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t3es4z/printing_without_the_luck_jingle_app_for_thermal/</link>
-      <description><![CDATA[我最近买了一台小型热敏袖珍打印机，用于打印标签、贴纸和列表。它是重新命名的 DP-L1S；几个品牌以不同的名称销售相同硬件的变体。 有趣的小设备，但配套应用程序（“Luck Jingle”）需要位置权限、强制互联网连接以及一堆其他东西，这些东西不需要在打印机上使用，只需要通过蓝牙从 30 厘米外接收图像。 因此，我使用 JADX 反编译了 APK，对 BLE 协议进行了逆向工程，并构建了一些可以让您直接从打印机进行打印的东西。浏览器或命令行。没有应用程序，没有帐户，没有云。 完全免费使用，整个项目都是开源的。 网络应用程序（无需安装，只需在 Chrome/Edge/Opera 中打开）： https://chiaracannolee.github.io/ Thermal-pocket-printer-basic/ GitHub仓库： https://github.com/ChiaraCannolee/Thermal-pocket-printer-basic 它的作用  打印图像、文本和测试图案 实时预览打印机输出的内容 三种密度级别 Floyd-Steinberg 照片抖动 反转模式（黑白交换） 带间隙检测的贴纸标签模式 通过 BLE 通知显示电池电量  可选： 用于自动化和批处理作业的 Python CLI (pip install bleak Pillow) 它是如何工作的（对于好奇的人来说） 打印机在 LuckPrinter SDK 上运行，超过 159 种打印机型号使用该 SDK。 BLE 协议是 ESC/POS 变体：您打开服务 ff00，写入特征 ff02，监听 ff01，发送一些启用命令，然后发送 GS v 0 光栅图像（1 位、384 像素宽、MSB 优先）和馈送/停止命令。完整的命令参考位于 PROTOCOL.md 中。 由于 Web 蓝牙的 MTU 限制，Web 版本使用 100 字节块，延迟 50 毫秒。 Python CLI 使用 512 字节块，延迟 10 毫秒，速度明显更快。 即将推出 我正在开发扩展的 Web 版本，其中：  带预设的可调整标签尺寸（29×12 毫米、40×12 毫米、50×30 毫米、40×30 毫米、48 毫米圆形和自定义尺寸） 在浏览器中本地保存和加载模板 直接在预览上拖动文本以自由定位 撤消/重做 打印预览屏幕，可调整： 阈值 打印数量 密度覆盖 打印后进纸（额外进纸以毫米为单位）   基础知识在上面的网络应用程序中工作并且稳定，所以我已经发布了这个版本。一旦扩展版本准备好，我将分享它。 兼容性 macOS 和 Linux。 Windows 正在等待更好的网络蓝牙支持。 LuckPrinter 系列中的其他打印机（DP-/LuckP-/MiniPocketPrinter 系列）可能也可以工作，但打印宽度可能不同。 基于与 u/OilTechnical3488 的 fichero-printer，它对 Fichero D11 执行相同的操作（不同的设备类别，相同的 SDK）。 有关协议、逆向工程过程或针对其他 LuckPrinter 型号进行调整的问题：请自行询问:)   由   提交 /u/ChiaraCannolee   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t3es4z/printing_without_the_luck_jingle_app_for_thermal/</guid>
-      <pubDate>Mon, 04 May 2026 11:21:33 GMT</pubDate>
     </item>
     </channel>
 </rss>
