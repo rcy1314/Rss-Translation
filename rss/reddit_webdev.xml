@@ -4,7 +4,63 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 07 May 2026 14:27:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 16:56:22 GMT</lastBuildDate>
+    <item>
+      <title>我构建了一个库，允许将 JSON 转换为视频（开源）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6fso3/i_built_a_library_that_allows_converting_json/</link>
+      <description><![CDATA[      大家好，我刚刚启动了 VideoFlow（我 2026 年的第 11 个项目）。 这是一个用于从代码创建视频的开源工具包。最简单的比较可能是Remotion，但VideoFlow采用了不同的方法：视频不是将视频主要视为React组件树，而是表示为可移植的JSON。 这个想法是视频可以是数据：  场景 层 计时 过渡 效果 关键帧 渲染设置  然后可以在不同的位置渲染该 JSON：  在浏览器中 在服务器上 在 React 预览/播放器内 在可视化编辑器内  我构建它是因为我认为将生成更多视频而不是手动编辑：个性化营销剪辑、产品演示、AI 生成的解释器、社交模板、报告等。 当前功能：  Apache-2.0 开源 TypeScript 构建器 API 便携式 VideoJSON 27 种过渡 42 GLSL 效果 图层组 浏览器/服务器/实时预览渲染路径 React 视频编辑器组件  我特别希望获得有关定位的反馈。   由   提交/u/ybouane  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6fso3/i_built_a_library_that_allows_converting_json/</guid>
+      <pubDate>Thu, 07 May 2026 16:35:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建了一个统一 REST、SSE 和 WebSockets 的开源 API 引擎</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6fnzt/built_an_opensource_api_engine_that_unifies_rest/</link>
+      <description><![CDATA[构建一个开源 API 引擎，将 REST、SSE 和 WebSocket 统一到单个客户端界面中。 GitHub：API 引擎 GitHub 存储库 我在厌倦了分别管理不同的通信层后构建了这个引擎前端应用程序。 大多数项目最终都会混合：  REST 的 fetch/axios SSE 的 EventSource 包装器 自定义 WebSocket 处理 重复的连接逻辑 跨传输的 API 不一致  APIEngine 使用 YAML 驱动的清单来解决这个问题，该清单生成一致的 API 通信层。 示例： 版本：“1.0” baseUrl：“https://api.example.com”端点：get_post：协议：“REST”路径：“/posts/:id”方法：“GET” live_logs：协议：“SSE”路径：“/logs” realtime_chat：协议：“WS”路径：“wss://example.com/chat”  用法： 从&#39;./api.yml&#39;导入清单； const api = 等待 APIEngine.init(manifest); // 休息等待 api.call(&#39;get_post&#39;, { params: { id: 1 } }); // SSE const Stream = api.watch(&#39;live_logs&#39;); const unsubscribe = stream.subscribe((log) =&gt; { console.log(“新服务器日志：”, log.message); }); // WebSocket const socket = api.watch(&#39;realtime_chat&#39;); socket.subscribe((msg) =&gt; { console.log(“传入消息：”, msg.text); }); // 2. 发回消息 socket.send({ message: &quot;Hi&quot;, });  功能：  统一 REST、SSE 和 WebSocket 处理 基于 YAML 的 API 配置 智能 URL + 路径参数解析 自动 WebSocket 重新连接支持 浏览器优先架构 兼容 React/Vue/Vanilla JS 动态清单加载  希望得到反馈，如果您发现该项目有用，GitHub 之星确实有助于提高知名度和未来发展🙌   由   提交/u/sandeshnaroju   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6fnzt/built_an_opensource_api_engine_that_unifies_rest/</guid>
+      <pubDate>Thu, 07 May 2026 16:30:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>自托管博客教会了我比任何课程更多的网络开发知识</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6f97y/selfhosting_a_blog_taught_me_more_webdev_than_any/</link>
+      <description><![CDATA[      我在 2014 年开始托管个人网站，因为我使用的 WordPress 主题没有联系表单。十二年后，同一个网站（现在在小型 VPS 上的 Ghost 上）仍然是我听过的最好的 Webdev 课程。 托管迫使您学习任何教程都无法学到的五件事：  前端 - 最终您在午夜重新设计导航，构建管道就变成了您的 网页设计 - 风险为零，因此您实际上可以迭代 可靠性和可观察性 - 如果它失败了，你从朋友发短信给你的消息中得知 安全性 - 一旦你的网站有了真实的 URL，TLS 和管理身份验证就不再是可选的 可访问性 - 替代文本和对比度很便宜，跳过它们是粗鲁的  在博客上写下这个案例（以及管理的诚实反例）：https://starikov.co/host-a-website/ 哪个项目教会了你最多的 webdev 知识？   由   提交/u/iGotYourPistola   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6f97y/selfhosting_a_blog_taught_me_more_webdev_than_any/</guid>
+      <pubDate>Thu, 07 May 2026 16:15:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>知道这是什么 vscode 主题吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6f2qj/any_idea_what_vscode_theme_this_is/</link>
+      <description><![CDATA[       由   提交/u/qua-z   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6f2qj/any_idea_what_vscode_theme_this_is/</guid>
+      <pubDate>Thu, 07 May 2026 16:09:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>评价我的 NestJS 后端</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6ex8l/rate_my_nestjs_backend/</link>
+      <description><![CDATA[您好！ 我即将成为全栈开发人员，并且构建了一个后端。您能给它评分吗？我很感激您的反馈。也许您可以提出改进方法，并让我知道我是否走在正确的轨道上。 存储库 - https://github.com/Roderen/task-manager-nest-api   由   提交/u/Roderen   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6ex8l/rate_my_nestjs_backend/</guid>
+      <pubDate>Thu, 07 May 2026 16:04:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>我一直在与 Vibe Coder 合作，这是我的经验</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6eupy/ive_been_working_with_a_vibe_coder_and_this_has/</link>
+      <description><![CDATA[过去两个月，我加入了一家美国大公司，担任后端开发人员。我一年前曾工作过的一家公司 在我的团队中，有一些移动开发人员、我们的主管和另一位比我早一周开始工作的后端开发人员。  我开始注意到另一个后端使用 Claude。很多克劳德。他会开始研究一个功能，生成一个关于使用克劳德实现的会议文档，然后要求克劳德做代码并让我们修改整个事情。  我们正在合作集成一个新的通知系统，该系统的设置需要提交 3 个不同的存储库。我在一个存储库中做了我的部分，看到了他在另一个存储库中所做的事情，他想坚持一个解决方案，对于每个新通知，都需要我们对这 3 个存储库进行另一次提交。那么所有这些都需要获得 2 份批准。一个存储库甚至需要另一个团队的批准 我发送了一条消息，要求我们遵循另一种模式，这将使我们只需要在一个存储库中为每个新通知创建一个提交。然后他收到了我的消息，发送给克劳德，然后粘贴了与我的解决方案相反的克劳德回复。我很生气，但过了一会儿我说服他的克劳德会话遵循我的方法，他同意了更改。  我们改用新方法，获得批准、合并并取得成功。几天后，他开始处理新的通知，在日报中他提到这需要一段时间，因为它需要对 3 个存储库进行提交... 我在日报本身中提出了疑问，然后在消息中他表示他会告诉 Claude 更改此设置，这样就不会再建议旧的解决方案了。  这总结了我的经验。我必须照顾他，因为他的克劳德总是提出必须改变很多东西或不遵循公司标准的解决方案。当我尝试与他讨论任何事情时，我必须认为我正在与机器人讨论。  但他最大的节省是，他比我更懂得如何玩企业游戏。 他总是生成那些巨大的 Confluence 文档，没有人读，但人们喜欢拥有它，这向别人表明他很努力。 我们也是离岸开发者，英语不是我们的母语，所以他可以说他只是用 AI 格式化这些文本来帮助他提高英语 而且在会议上，他确实吹嘘自己的能力。正在做的同时也增加了任务的难度，所以看起来他做了很多 我试图和我的老板谈论这件事，但他说由于我在那里工作的时间比其他开发人员长，他确实希望我在这些架构决策上提供帮助，并完全相信其他开发人员做得很好。我的老板也是 Claude 爱好者，所以有这样的此外，现在我们的任务相互依赖，希望在不久的将来我们每个人都可以从事一项独立的任务，我会更快乐 所以，是的，我看到氛围编码确实增加了简单审查其他人和人工智能工作所需的工作量。    由   提交 /u/WJMazepas   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6eupy/ive_been_working_with_a_vibe_coder_and_this_has/</guid>
+      <pubDate>Thu, 07 May 2026 16:02:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>关键的 vm2 沙箱逃逸漏洞可让攻击者突破 Node.js 沙箱</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6dw2c/critical_vm2_sandbox_escape_bugs_let_attackers/</link>
+      <description><![CDATA[如果您的应用通过 vm2 运行不受信任的 JavaScript，则值得关注。本周披露了多个关键沙箱逃逸漏洞，其中包括 CVE-2026-26956，攻击者可以利用该漏洞逃逸 vm2 沙箱，并通过 Node.js 25 + WebAssembly 异常处理实现主机级 RCE。 更多信息和深入分析：https://thecybersecguru.com/news/vm2-sandbox-escape-vulnerability-cve-2026-26956/   由   提交 /u/raptorhunter22   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6dw2c/critical_vm2_sandbox_escape_bugs_let_attackers/</guid>
+      <pubDate>Thu, 07 May 2026 15:28:31 GMT</pubDate>
+    </item>
+    <item>
+      <title>欢迎提出想法：需要一个引人注目的实时演示:)</title>
+      <link>https://www.reddit.com/r/webdev/comments/1t6cjub/ideas_welcome_need_a_compelling_realtime_demo/</link>
+      <description><![CDATA[嘿大家！ 我有一个实时服务（免费，前面提到过，否则将不命名），并且一直在努力想出一个引人注目的演示，可以让人们产生“哇哦”的感觉。片刻。我的总体目标是极度简化实时功能，让人们能够玩起来。因此，演示需要：  引人入胜。如果它不有趣/有趣，就没有人会玩/分享它，所以它实际上毫无用处。 微小/简单。如果演示代码太复杂而难以解释或太长而难以阅读，那么它就毫无用处。越短越好。 应该激发创造力。理想情况下，这就是创造“哇”的感觉。时刻...某人了解这些简单概念如何真正帮助他们自己的项目的部分。 不应该与聊天相关。因为很少有人需要这种功能，而且它会分散人们对更好用例的注意力。  我在网站上已经有简单的聊天和状态示例，但这实际上甚至没有开始触及消息传递层的用途 - 跨客户端/服务器数据传输无限地更适用于几乎任何 我认为，当人们想到 Websocket 时，他们会想到聊天或多人/协作等东西。但它确实可以用来改善各种体验（例如事件的实时通知、流式更新、更快的数据传输等）。 无论如何，很想听听您的想法！它可以用于实际演示，甚至只是集思广益如何在应用程序中（轻松/简单地）利用实时性来改进:)   由   提交 /u/kevin_whitley   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1t6cjub/ideas_welcome_need_a_compelling_realtime_demo/</guid>
+      <pubDate>Thu, 07 May 2026 14:41:21 GMT</pubDate>
+    </item>
     <item>
       <title>您目前在 2026 年进行图像优化的方法是什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1t6btak/whats_your_current_approach_to_image_optimization/</link>
@@ -53,62 +109,6 @@
       <description><![CDATA[对我来说，这种风格给人的印象是质量低、工作量低，尽管与 UI 的其他部分相比，除了看起来“格格不入”之外，UX 或代码没有任何问题。 在这种情况下你会怎么做？   由   提交 /u/Plenty_Line2696   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1t66jy6/pr_review_of_ui_element_which_screams_llm/</guid>
       <pubDate>Thu, 07 May 2026 10:31:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>有像 Linktree 这样的免费作品集网站吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t66hid/any_free_portfolio_sites_like_linktree/</link>
-      <description><![CDATA[寻找一些干净简单的东西，我可以在其中展示我的工作、链接和社交，而无需按月付费。   由   提交/u/Afsheen_dev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t66hid/any_free_portfolio_sites_like_linktree/</guid>
-      <pubDate>Thu, 07 May 2026 10:27:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>警告：诈骗者利用 uspacsun.com 冒充 PacSun 寻找开发人员</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t66eyp/warning_scammers_posing_as_pacsun_using/</link>
-      <description><![CDATA[我想知道这些骗子是否与 Shave Lounge 骗子相同。这是新鲜的，如果是的话，域名已经存在一天了。 如果您收到此优惠，请不要回复。如果像之前的骗局一样，他们会尝试让您登录“Google”。使用网络钓鱼 SSO 模式。 不要参与。 已将注册商 Hostinger 报告为网络钓鱼。 姓名：Laura Scott 电子邮件：laura.scott@uspacsun.com 网站：http://www.pacsun.com IP 地址：209.92.184.32 您好，我是从 PacSun 联系的，PacSun 是一家以它与青年文化、街头服饰和生活方式趋势有着密切的联系。您可以在这里探索我们的品牌：pacsun.com 随着我们继续扩大在美国的业务，我们正在寻找战略合作伙伴 - 一家对当地市场有深入了解并在开展有影响力的活动方面拥有良好记录的广告公司。鉴于您在美国市场的经验，我们相信将您的本地专业知识与我们的品牌相结合，有巨大的潜力来推动有意义的增长和长期成果。请随时通过电子邮件回复，以便我们更详细地讨论策略、预算和时间表。谨致问候，   由   提交 /u/exitof99   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t66eyp/warning_scammers_posing_as_pacsun_using/</guid>
-      <pubDate>Thu, 07 May 2026 10:24:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于代码审查的两章值得您花一个下午的时间</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t668xy/two_chapters_on_code_reviews_worth_your_afternoon/</link>
-      <description><![CDATA[       由   提交/u/ablx0000  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t668xy/two_chapters_on_code_reviews_worth_your_afternoon/</guid>
-      <pubDate>Thu, 07 May 2026 10:15:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>在生产中基于 Twilio Whatsapp、Stripe webhooks 和 Claude API 构建，奇怪的东西没有人正确记录</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t64xnt/built_on_twilio_whatsapp_stripe_webhooks_and/</link>
-      <description><![CDATA[过去几年一直在跨几个不同的 API 构建生产系统。这些内容仅在真实用户触摸时才会显示。 Twilio Whatsapp，消息状态 Webhooks 在某些印度电信网络中不可靠。消息显示为在 Twilio 端发送，用户从未收到它们。不是代码问题。运营商级别的问题需要两周的时间来诊断，并需要 3 年历史的 Stack Overflow 线程来解决。 相同的 API，电话号码格式会悄悄地破坏您的用户记录。带国家/地区代码、不带国家/地区代码、带空格、带加号的号码，Twilio 会根据您呼叫的端点对其中一些号码进行标准化，而不对其他号码进行标准化。在我们发现该用户之前的几个月里，同一用户的重复记录已经存在。 Stripe webhook、测试模式和生产模式在重要方面的行为有所不同。特别是关于失败的付款重试和订阅状态更改。我们的计费流程在数周的测试中完美运行。在生产中，客户降级其计划同时触发了三个单独的计费事件。花了几天时间才理清思路。 Claude API，长时间运行任务下的上下文窗口管理是文档所掩盖的内容。代理在测试中工作良好。在生产过程中，由于上下文臃肿，具有三年交易历史的财务报告任务在中途悄然降级。没有错误，只是输出逐渐变差。如果没有适当的输出验证，很难捕获。 所有这些的模式都是相同的，快乐的路径有很好的记录。边缘案例出现在三年前的论坛帖子中，或者您自己在生产中找到它们。 始终在需要之前构建日志记录层。以后再也不会了。 还有其他人遇到这些 API 上未记录的边缘情况吗？真诚地愿意交换意见。   由   提交 /u/Excellent_Poetry_718   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t64xnt/built_on_twilio_whatsapp_stripe_webhooks_and/</guid>
-      <pubDate>Thu, 07 May 2026 09:01:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为一家创意机构制作网站，我绝对无法忍受我们所做的网站</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t64pbi/i_make_websites_for_a_creative_agency_and_i/</link>
-      <description><![CDATA[不会透露太多细节，因为我会自己进行人肉搜索。但我已经在一家创意机构工作了三年，天哪，我们发布的网站太荒谬了。我们对一个网站收取大约 30k 的费用，为了证明这一点，设计师加载了我们声称“CMS 可管理”的精美部分，但如果你甚至尝试移动一个部分，该网站看起来很糟糕，因为它不是设计来移动并融入其他部分的，因为设计师认为他们正在设计小册子而不是网站。一致，所有内容都必须是动画的，甚至是 Markdown 中链接上的悬停状态。 所有内容都必须有预加载器、页面转换、动画动画。这绝对是可怕的，我为那些为这些垃圾付钱的客户感到难过。 我希望我能回去建立良好的正版网站，提供良好的用户体验，并且可靠、简单且易于使用。但每次我找工作，寻找他们建立的网站，都是一样的。 我不知道，我只是想找个地方咆哮。   由   提交/u/BigGaryGilmour   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t64pbi/i_make_websites_for_a_creative_agency_and_i/</guid>
-      <pubDate>Thu, 07 May 2026 08:47:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>您通常在哪里分享您的工作？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t64h6b/where_do_you_typically_share_your_work/</link>
-      <description><![CDATA[我正在和我的一位视频编辑朋友谈论作品集和规范工作。在与他交谈时，我注意到几乎所有其他设计师/编辑/动画师等在展示他们的作品时几乎总是说同样的话：“哦，是的，我只使用 Dribbble 或 Behance。”这让我开始思考，开发者是否有自己的网站，可以与前两个网站分享他们的创意项目？第一个想到的是 Awwwards，但那是一个付费网站。所以我决定在这里提出我的问题。您在哪里分享您的作品以影响更大的社区？   由   提交/u/chute_mi334  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t64h6b/where_do_you_typically_share_your_work/</guid>
-      <pubDate>Thu, 07 May 2026 08:34:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>投资组合博客 - CMS 支持的投资组合</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t63usl/portfolio_blog_cms_powered_portfolio/</link>
-      <description><![CDATA[      组合博客是一个开源、可用于生产的组合和项目博客平台，专为重视开发过程透明度的开发人员而构建。该平台不仅展示已完成的项目，还允许工程师通过专用的“项目博客”系统记录他们的开发历程。  由现代无头 CMS Sanity 提供支持，该平台遵循解耦架构，将内容管理与前端分开，以实现更好的可扩展性、可维护性和性能。该界面特意采用轻量级设计，动画最少，以确保快速流畅的用户体验。  该项目专为想要一个可重用且专业的产品组合平台的开发人员而设计，该平台不仅突出最终产品，还突出每个项目背后的技术决策、挑战和学习经验。  Github 存储库：https://github.com/BenjiBenji20/portfolio-blog  我的个人作品集：https://benjineer.vercel.app   由   提交/u/Imperial_Benji   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t63usl/portfolio_blog_cms_powered_portfolio/</guid>
-      <pubDate>Thu, 07 May 2026 07:56:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>为我的“堆栈”寻找用户帐户（身份验证）想法</title>
-      <link>https://www.reddit.com/r/webdev/comments/1t63rpj/looking_for_user_accounts_auth_ideas_for_my_stack/</link>
-      <description><![CDATA[大家好！ 长话短说： 我从未构建过内容门禁解决方案、身份验证等。但是，我当前的客户需要它，我正在寻找如何有效地实现它的想法。  问题是我想要适合我的“堆栈”的解决方案。虽然有些人可能会说我使用 Webflow（基本上是一个可视化代码生成器）不适合这个 Reddit 子版块，我应该 GTFO，但我希望其他人能够理解，至少 Webflow 是学习 Webdev 和代码同时快速获得结果的好方法。  我还没有“正确”地学习代码，但我只是通过慢慢练习来做到这一点。虽然我无法从头开始编写网站，但我至少可以理解代码并使用它：无论是通过谷歌搜索、我自己的经验还是使用法学硕士（尽管没有vibecoding）。 我的情况是这样的： 我最近将我的客户端从Airtable切换到Baserow - 虽然Baserow不如Airtable功能丰富，但它是一个很好的选择。而且，最重要的是，它可以自托管（核心功能的 MIT 许可证）。我的客户使用 Baserow 作为 CMS、CRM、发票管理等。他们在 Webflow 上制作了网站，我使用 Make 将数据从 Baserow 同步到 Webflow CMS。 Baserow 非常好，但它还有应用程序生成器，可用于创建用户帐户并将 Baserow 表中的各种数据附加到其中。  问题是，虽然它是目前最简单、最直接的解决方案，但每个用户的费用为 4 美元（根据 MA​​U 定价）——在我看来，这令人难以置信。它现在是免费的，因为它处于测试阶段，我会向客户推荐它，但我认为至少对于他们的汽车来说这不是一个合理的定价。  因此，这种背景促使我发表这篇文章，向社区征求意见： 您推荐什么解决方案？ 同样，重点不是从头开始创建解决方案，手动编码和自托管很多东西只是为了使其发挥作用。它应该与当前的“堆栈”“集成”——我不一定需要在 Webflow 中使用它，但它应该从 Baserow 获取相关数据（嗯，它应该有一个 API，这样我就可以通过 Make 连接它）。 __ 我自己正在做研究，我已经有了一些想法，比如使用 MemberStack——我想 Outsetta 也不错，但它更贵，而且有更多可能没有的工具。老实说，我的简短研究仅限于此，除了上述工具之外，我想到的唯一解决方案是创建身份验证“我自己”，又名使用 Supabase 之类的东西 - 但是虽然这样做非常有趣，而且我今天正在开发一个个人项目，可能会使用 Supabase，但我真的不想将其提供给客户，因为我认为这将是大量工作并且需要大量时间，因此该解决方案的成本将非常大（所以他们可能会拒绝，但是，这只是其中的一个选项）。 非常重要的是，该解决方案将具有电子邮件和密码登录和/或 Magic Link（又名将代码获取到您的电子邮件并输入它进行登录）。社交登录很酷，但它们不适合这个项目的需求。 __ 提前感谢大家的回复！ P.S: 顺便说一句，学习代码真的很有趣，虽然我确实因为很多原因讨厌人工智能公司，但法学硕士是学习代码的一个很好的工具：他们可以向你解释任何事情，你可以一步步了解为什么有些东西不起作用，而这个东西将会是，嗯，为你策划的（？）。 P.P.S： 抱歉，如果这篇文章有点乱，我是不久前在手机上醒来后写的，哈哈。另外，很抱歉没有包含除段落之外的任何文本格式 - 引人注目的 Reddit 应用程序在移动设备上没有“精美的编辑器”，而且我不熟悉 Markdown。   由   提交 /u/BlackHazeRus   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1t63rpj/looking_for_user_accounts_auth_ideas_for_my_stack/</guid>
-      <pubDate>Thu, 07 May 2026 07:51:39 GMT</pubDate>
     </item>
     </channel>
 </rss>
