@@ -4,7 +4,49 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Thu, 07 May 2026 11:12:30 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 14:27:21 GMT</lastBuildDate>
+    <item>
+      <title>Michael Abrash 如何将 Quake 帧速率提高一倍</title>
+      <link>https://www.reddit.com/r/programming/comments/1t6axgh/how_michael_abrash_doubled_quake_framerate/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t6axgh/how_michael_abrash_doubled_quake_framerate/</guid>
+      <pubDate>Thu, 07 May 2026 13:42:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>实验：通过蓝牙网状网络进行离线数字支付</title>
+      <link>https://www.reddit.com/r/programming/comments/1t69zbf/experiment_offline_digital_payments_over/</link>
+      <description><![CDATA[我使用蓝牙网状网络构建了一个离线 UPI 支付原型。 这个想法始于一个简单的问题： 当 UPI 完美运行时会发生什么……但互联网却不能？ 印度拥有 6 亿多 UPI 用户，但连接性仍然不断下降：  地铁隧道 拥挤事件 农村地区 移动网络薄弱  因此，我尝试构建一个系统，支付数据包可以通过蓝牙在手机之间传输，直到链中的任何设备接入互联网。 工作原理：  发送方使用 RSA-OAEP + AES-256-GCM 加密支付负载 加密数据包传播使用八卦式网状协议跨附近设备 中间设备可以转发数据包，但无法解密它们 一旦任何节点到达互联网，它就会将数据包上传到后端 后端处理一次事务并安全地删除重复项  我喜欢研究的一些安全/设计细节：  使用随机数 + 新鲜度窗口来预防重放攻击 AES-GCM 身份验证标签自动检测篡改 基于密文哈希而不是数据包 ID 的幂等性 乐观锁定以避免竞争条件双花  使用以下内容构建演示：Spring Boot 3、H2、蓝牙网状网络模拟、RSA-2048、AES-256-GCM 以及显示数据包在 5 个虚拟网络中跳跃的实时仪表板 这显然不是生产就绪的 UPI 基础设施😄 但这是一个有趣的系统/安全实验，探索：  离线优先支付 网状网络 加密数据包路由 分布式系统权衡  希望获得有关我可能错过的协议设计或边缘情况的反馈。 https://www.linkedin.com/feed/update/urn:li:activity:7458085814191804417/    由   提交/u/dev-dp24  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t69zbf/experiment_offline_digital_payments_over/</guid>
+      <pubDate>Thu, 07 May 2026 13:05:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>理清 React Router 中的对话框</title>
+      <link>https://www.reddit.com/r/programming/comments/1t69njw/untangling_dialogs_in_react_router/</link>
+      <description><![CDATA[多年来，我一直在努力确定如何在 React Router 应用程序中最好地实现对话框：  useState 来控制其打开状态 用于数据提交的表单与 fetchers 用于表单数据的资源路由（ 选项） useEffect 用于侦听操作数据以关闭对话框 useEffect 用于列出 toast 消息  有很多事情需要考虑。然而，如果您将对话移至其自己的专用路径中，大量这些问题就会消失。但这也面临着一系列挑战。 我编写了一份关于如何实现对话框并保持理智的指南。希望它有帮助🤘   由   提交 /u/dadamssg   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t69njw/untangling_dialogs_in_react_router/</guid>
+      <pubDate>Thu, 07 May 2026 12:52:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>超越基础：极端规模的生产无服务器模式 • Janak Agarwal</title>
+      <link>https://www.reddit.com/r/programming/comments/1t68rc7/beyond_the_basics_production_serverless_patterns/</link>
+      <description><![CDATA[ 由   提交 /u/goto-con   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t68rc7/beyond_the_basics_production_serverless_patterns/</guid>
+      <pubDate>Thu, 07 May 2026 12:14:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>箭头谜题逃脱关卡生成</title>
+      <link>https://www.reddit.com/r/programming/comments/1t67tsj/arrow_puzzle_escape_level_generation/</link>
+      <description><![CDATA[大家好， 我目前正在开发一款名为“Arrow Puzzle Escape”的游戏。这是一种益智/迷宫游戏，您可以通过“拉出”箭头链并弄清楚它们如何相互作用来完成谜题来解决关卡。 现在我正在为游戏开发一个程序关卡生成器。这个想法是，生成器在网格上选择用户选择的区域，并用基于箭头的结构填充它，以创建一个可玩的谜题。 生成器分两个主要阶段工作：  它首先将所选区域分割成“单元链”，有点类似于俄罗斯方块的形状。 然后它尝试为这些形状分配方向，有效地将它们变成形成可解关卡的箭头。  我遇到的主要问题是，第一阶段目前不包含任何防止“死锁”的逻辑 - 箭头最终以某种方式相互阻塞，导致关卡无法解决。 对于小型网格（如 10x10 或 30x30），一切正常。然而，对于较大的网格（40x40、50x50 及以上），生成时间呈指数增长，并且无效布局的数量显着增加。到那时，生成实际上变得无法使用。 我觉得问题不仅仅是优化，更多的是算法本身的结构。我正在寻找如何重新设计这种方法的想法，以便它能够可靠地生成更大的可解级别，而不会出现指数重试或死锁情况。 此外，退后一步 - 我开始怀疑这种方法是否具有根本上的可扩展性。实际上是否有可能设计一个这样的程序系统，能够可靠地产生有效的 50×50+ 可解关卡，而不会陷入指数级的故障率？ 我附上了一个视频，快速演示了生成器当前在 Unity 中的工作原理。如果有人有兴趣深入挖掘或尝试想法，我也可以分享该项目的源代码。 任何建议或反馈将不胜感激。另外，我非常乐意感谢任何对改进或解决游戏内的算法有重大帮助的人。   由   提交 /u/custybeam   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t67tsj/arrow_puzzle_escape_level_generation/</guid>
+      <pubDate>Thu, 07 May 2026 11:33:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Visual Studio：对扩展项目的新 SDK 样式支持</title>
+      <link>https://www.reddit.com/r/programming/comments/1t67k3c/visual_studio_new_sdkstyle_support_for_extension/</link>
+      <description><![CDATA[ 由   提交/u/piotrkarczmarz   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t67k3c/visual_studio_new_sdkstyle_support_for_extension/</guid>
+      <pubDate>Thu, 07 May 2026 11:21:06 GMT</pubDate>
+    </item>
     <item>
       <title>只需 9 个简单步骤即可从 Radix UI 迁移到 Base UI</title>
       <link>https://www.reddit.com/r/programming/comments/1t66hmi/migrate_from_radix_ui_to_base_ui_in_9_easy_steps/</link>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交/u/Tight_Cow_5438  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1t5oxd5/last_mile_routing_1m_delivery_stops_in_20_minutes/</guid>
       <pubDate>Wed, 06 May 2026 20:30:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>全职致力于开源</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5ok5q/going_full_time_on_open_source/</link>
-      <description><![CDATA[ 由   提交/u/Either_Collection349   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5ok5q/going_full_time_on_open_source/</guid>
-      <pubDate>Wed, 06 May 2026 20:17:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>默认签署营地</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5nik6/signed_by_default_camp/</link>
-      <description><![CDATA[ 由   提交 /u/gingerbill   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5nik6/signed_by_default_camp/</guid>
-      <pubDate>Wed, 06 May 2026 19:40:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>更快的时间序列聚合</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5lh79/faster_timeseries_aggregations/</link>
-      <description><![CDATA[ 由   提交 /u/NoPercentage6144   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5lh79/faster_timeseries_aggregations/</guid>
-      <pubDate>Wed, 06 May 2026 18:28:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>实施服务器驱动的 UI</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5j7s8/implementing_serverdriven_ui/</link>
-      <description><![CDATA[我在伦敦 CityJS 就这一确切模式进行了演讲后写下了这篇文章。  好奇这里的人怎么想它，它还有用吗？我一生建造了两次，我不知道是否还会有第三次   由   提交/u/cresta29  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5j7s8/implementing_serverdriven_ui/</guid>
-      <pubDate>Wed, 06 May 2026 17:12:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS 中的多笔画文字效果</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5is63/multistroke_text_effect_in_css/</link>
-      <description><![CDATA[ 由   提交/u/Either_Collection349   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5is63/multistroke_text_effect_in_css/</guid>
-      <pubDate>Wed, 06 May 2026 16:57:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>Netflix 如何在不缓冲的情况下流式传输视频</title>
-      <link>https://www.reddit.com/r/programming/comments/1t5hobo/how_netflix_streams_video_without_buffering/</link>
-      <description><![CDATA[ 由   提交/u/Comfortable-Fan-580   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t5hobo/how_netflix_streams_video_without_buffering/</guid>
-      <pubDate>Wed, 06 May 2026 16:19:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
