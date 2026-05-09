@@ -4,7 +4,21 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Sat, 09 May 2026 19:08:52 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2026 21:51:18 GMT</lastBuildDate>
+    <item>
+      <title>需要帮助；复述人工智能</title>
+      <link>https://www.reddit.com/r/automation/comments/1t8n472/need_help_retell_ai/</link>
+      <description><![CDATA[嘿伙计们。我面临着一个奇怪的问题。  我有一个非常基本的设置，只有一个提示代理，只有内置的 Cal 功能和结束呼叫功能。 它过去可以工作并显示在我的 Google 日历上，但现在，无论我要求它进行测试预订的日期和时间，它都会告诉我空位已满。我已经对复述（代理设置和提示）和校准的时区以及函数的事件 ID 和 API 密钥进行了四次检查。 有人遇到过这种情况吗？如果是，我该怎么解决这个问题。我可能搞乱了 retell 或 cal 中的设置，但不确定是什么导致了这样的问题。 没有任何 n8n 工作流程或 webhook 或任何类似的东西，所以我不知道还有什么可能是这个问题的根源。 任何帮助将不胜感激！！   由   提交 /u/TheColdSparrow   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1t8n472/need_help_retell_ai/</guid>
+      <pubDate>Sat, 09 May 2026 21:07:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>将 4 个代理缝合在一起后，我将周一的趋势研究从 3 小时缩短到 10 分钟，这是构建过程</title>
+      <link>https://www.reddit.com/r/automation/comments/1t8evck/cut_my_monday_trend_research_from_3_hours_to_10/</link>
+      <description><![CDATA[我是一家小型户外装备品牌的营销主管。每个星期一早上都会从 3 到 4 小时的手动趋势研究开始。 TikTok 主题标签页面、IG 创建者表现、通过 rss 发布的 6 个竞争对手博客，全部都转储到一个文档中，团队的其他成员只会读一半，因为它落地时已经是星期二了。 上个月花了 2 个周末重建这个，最终得到了 4 个代理设置，每周一早上 6 点运行，这样团队在 9 点站会之前就有了可读的东西。分享是因为构建过程让我使用了比预期更多的工具。 品牌和 n8n。要把它们分组，因为我和它们都撞到了同一堵墙。非常适合缝合我实际上拥有的 api。 “在浏览器中打开此页面，滚动，抓取最上面的帖子”是很痛苦的。 tiktok 和 Instagram 部分是问题所在。这两个平台都需要干净的 API，而这些 API 的公共数据大多位于登录墙后面或受到速率限制。我知道其中一些有社区节点，但我不想在别人的代码损坏时维护它。如果您的数据源都是 API 友好的，那么其中任何一个都可以很好地为您服务。我的不是。 巴丁。浏览器本机，正是我所需要的刮擦部分。设置非常简单，只需指出您想要的内容即可。但预定的运行受到我的计划的限制，我无法按照我想要的方式将其链接到单个输出中。此外，输出位于不同的地方，这意味着我仍然手动将东西缝合在一起。更接近，但不完全。 MuleRun。设置每周一上午 6 点运行的多代理工作流程。代理 A 在 tiktok 上打开 5 个主题标签页面并提取前 50 个帖子。代理 B 通过浏览器扩展程序登录我的 IG，该扩展程序使用我现有的会话并抓取表现最好的创作者帖子。特工 C 拉取了 8 个竞争对手博客 rss。特工 D 将摘要编译成我的团队在上午 9 点打开的可共享页面。在此之前，我每个星期一早上都会花 3 到 4 个小时，但仍然错过了利基趋势。现在浏览自动摘要需要 10 分钟。值得标记的缺点是，当算法发生变化时（例如，tiktok 隐藏某些区域的主题标签视图计数），我必须重新调整哪些信号重要，否则摘要会变得嘈杂。已经发生过一次，我花了半个上午的时间来修复它。 最终堆栈是 mulerun，用于完整的周一摘要，n8n 用于命中干净 api 的长期活动报告，以及两者都写入的共享驱动器。 构建中真正重要的是什么，以防您正在重建类似的东西。  在定义代理之前定义输出。我浪费了一周的时间试图设计完美的管道，直到我意识到我的团队需要按类别列出要点，而不是 6 个选项卡的电子表格。输出第一，代理第二。 登录状态比抓取能力更重要。我需要的一半数据需要登录。驱动实际浏览器会话的工具可以避免整个验证码和机器人检测混乱。 计划 + 恢复 + 差异。时间表一目了然。恢复意味着如果一个代理发生故障，系统会做什么。 Diff 意味着告诉我与上周相比有什么新变化，而不仅仅是现有的内容。没有 diff，它只是噪音。 一个可共享的页面。该团队没有打开概念数据库。该团队正在打开 1 个链接。确保最终输出位于 1 个网址。  如果有一些热门创作者与我们的品牌保持一致，请考虑接下来添加第五位影响者推广代理。还没有提交。   由   提交 /u/After-Condition4007   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1t8evck/cut_my_monday_trend_research_from_3_hours_to_10/</guid>
+      <pubDate>Sat, 09 May 2026 19:12:31 GMT</pubDate>
+    </item>
     <item>
       <title>免费获得两个月的 Littlebird！</title>
       <link>https://www.reddit.com/r/automation/comments/1t8aiys/get_two_months_of_littlebird_for_free/</link>
@@ -88,20 +102,6 @@
       <description><![CDATA[Zapier 最近对我来说变得相当昂贵，因此我一直在寻找其他自动化平台，它们可以处理类似的工作流程，而成本不会攀升得那么快。 我听说像 Make、n8n 甚至 wrk 这样的工具被提到作为替代品，但很好奇这里的人们最终会转向什么，以及这种转变是否值得长期使用。 主要是在寻找可靠、灵活的工具，一旦自动化开始堆积起来，维护就不是一场噩梦。   由   提交 /u/BoldElara92   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1t78cd0/what_are_people_switching_to_instead_of_zapier/</guid>
       <pubDate>Fri, 08 May 2026 13:42:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>构建一个可以取代朋友工作的人工智能工具……不知道该怎么做</title>
-      <link>https://www.reddit.com/r/automation/comments/1t77ygo/building_an_ai_tool_that_could_replace_a_friends/</link>
-      <description><![CDATA[嘿伙计们，在这里寻找一些诚实的建议。 我从事技术工作，多年来一直从事自动化工作。随着人工智能的兴起，我对这个领域产生了真正的兴趣，并开始构建一个客户支持自动化工具（主要是处理电子邮件、电话、客户的 WA 等）。 最近，我参加了一个健康/精神静修会。老实说，这是一次奇妙的经历，结识了很棒的人，建立了真正的联系，包括与那里的一位瑜伽老师。 快进一点：这个人现在更多地参与静修，并承担管理职责（组织旅行、回复电子邮件、处理后勤等）。 这就是事情变得棘手的地方。 我开始与静修所有者讨论我的工具，他非常兴奋。从他的角度来看，它可以：  节省时间 降低成本 简化操作  这完全有道理。 但后来我和我的朋友（瑜伽老师）进行了适当的交谈。她问我在做什么，我解释了一下，她觉得这听起来很棒…… 只是我不认为她完全意识到这种工具可以直接取代她目前正在做的大部分工作。 困难的部分是：她现在确实需要这份工作。从经济上来说，这对她来说很重要，但 80% 的工作是处理基本的电子邮件。 所以现在我有点陷入困境。 一方面：  我正在构建 SaaS 我需要更多用户 这是一个完美的用例，所有者非常兴奋  另一方面：  这可能会直接影响我关心的人 而且不是一个好的方式  我已经开始与业主进行对话，他很感兴趣，所以我不能假装什么都没发生。 我正在尝试找出“正确”的举动是什么。 我应该：  继续推动并把它当作生意吗？ 暂停/ 避免这种特定情况？ 对她完全透明？ 尝试将工具重新定位为提供帮助而不是替代的东西？  很好奇你会如何处理这个问题。 非常感谢你的想法。   由   提交 /u/EmbarrassedEgg1268   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1t77ygo/building_an_ai_tool_that_could_replace_a_friends/</guid>
-      <pubDate>Fri, 08 May 2026 13:27:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们为实际工作构建了人工智能代理，但它们在生产中都在同一时刻失败了</title>
-      <link>https://www.reddit.com/r/automation/comments/1t76f88/we_built_ai_agents_for_real_work_but_they_all/</link>
-      <description><![CDATA[ 如果您一直在为真实工作流程构建 AI 代理，您最终会遇到相同的硬限制。从纸面上看，一切看起来都很干净：模型理解任务，将其分解为步骤，并生成正确的计划。但是，一旦将其连接到真正的工具，一切就会停止可靠地工作。 无论是初创公司内部工具还是财富 500 强 SaaS 堆栈，故障点总是相同的。 我们不断看到的模式：  关键工具不存在 API，只有 UI 访问 登录流程（SSO、MFA）立即中断自动化 会话在任务和工作流程中过期重置 UI 更改会默默地破坏脚本和选择器 某些操作仅存在于仪表板内，而不是 API 机器人检测会阻止任何行为与真实用户不同的行为  因此，实践中发生的情况很简单：代理可以思考，但无法在真实的 Web 环境中执行任何操作。这感觉就像是在构建一个强大的东西，但每次都在终点线前被卡住。 更深层次的问题不是人工智能本身，而是假设 API 足以覆盖现实世界的软件。事实上，最重要的工作流程仍然存在于浏览器界面中，而这些界面从来都不是为自动化而设计的。因此，团队最终陷入了同一个循环：  构建代理 在受控环境中进行测试 连接到真实工具 浏览器层的一切都中断了 花费数周时间修补边缘情况 仍然无法达到生产可靠性  真正的瓶颈不是推理或规划。它是在混乱的现实浏览器环境中执行的。有多少人工智能系统受到智能的限制，而不是仅仅被它们应该运行的浏览器层阻止？   由   提交 /u/Head-Opportunity-885   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1t76f88/we_built_ai_agents_for_real_work_but_they_all/</guid>
-      <pubDate>Fri, 08 May 2026 12:26:21 GMT</pubDate>
     </item>
     <item>
       <title>我的整个创意部门正在被克劳德管道取代，我可能也被淘汰了</title>
