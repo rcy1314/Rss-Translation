@@ -4,20 +4,20 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Sat, 09 May 2026 03:29:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2026 08:01:24 GMT</lastBuildDate>
     <item>
-      <title>我将一个混乱的电子表格上传到克劳德并要求它修复。在 90 秒内恢复了干净、格式正确的 .xlsx 文件。大多数用户没有意识到这是有效的。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t7rbnr/i_uploaded_a_chaotic_spreadsheet_into_claude_and/</link>
-      <description><![CDATA[多年来我一直在手动清理电子表格。客户数据导出。从会计软件下载。承包商发票以难以阅读的 CSV 形式出现。每一个都需要半小时重新格式化才能真正使用。 上个月，出于沮丧，我把一个扔给了 Claude，然后输入“修复此问题”。没想到太多。 它返回了一个格式正确的 .xlsx 文件。标题对齐。日期标准化。显示为货币的货币列。删除了空白行。修复了拼写不一致的问题。曾经有斑点的可排序表。相同的数据，终于可以使用了。像任何其他文件一样在 Excel 中打开。 这是可靠工作的提示： 我正在上传一个存在以下问题的文件：[描述混乱情况 - 格式不一致、分散的空白行、三种不同格式的日期、没有清晰的标题等等] 我希望清理后的版本为： - [具体内容 #1，例如“YYYY-MM-DD 格式的每个日期”] - [特定事物#2，例如“货币为带有两位小数的 $”] - [特定事物 #3，例如“删除空白行，按日期降序排序”] 将清理后的版本作为可下载的 .xlsx 文件返回。如果您发现任何看起来像数据错误的内容（重复、不可能的值、缺少必填字段），请在修复之前单独标记它。不要默默地纠正可能是真实的事情。文件已附上。  最后一段是值得保留的。没有它，克劳德就会默默地“修复”你不想修复的事情。有了它，您可以在信任输出之前获得要验证的项目列表。 如果您尝试的话，值得了解的事情：  适用于 .xlsx、.xls、.csv、.docx、.pptx 和 .pdf。输出是一个真实的文件，而不是您粘贴回的文本。 特别是对于电子表格，Claude 可以添加工作公式、条件格式和多个工作表 - 不仅仅是数据清理，如果您需要的话，还可以添加实际的电子表格逻辑。 预计一轮编辑。第一次通过并不总是完美的。仍然比手动操作快 10 倍。 对于非常大的文件（数千行），请要求 Claude 分段工作或使用其分析工具。大文件可以工作，但分块后会更可靠。 不要上传尚未清除的敏感数据。标准规则适用。  重构使这对我有用：大多数用户仍然将 Claude 视为文本工具。文本输入，文本输出。解锁实际价值的心智模型是克劳德作为文档操作员 - 文件输入，转换后的文件输出。工作流程中稍微错误、稍微混乱、稍微过时或格式错误的每个文档都可以在一个提示中修复，而不是手动重建。 我写了 10 个在弄清楚这一点后取消的特定工具，以及替换每个工具的确切提示，这里如果有帮助的话。 如果您本周只在一个文件上测试这一点，在您一直避免使用的最混乱的电子表格上尝试一下。在 90 秒内第一次返回格式正确的文件时，思维模型就会发生转变。   由   提交 /u/Professional-Rest138   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t7rbnr/i_uploaded_a_chaotic_spreadsheet_into_claude_and/</guid>
-      <pubDate>Sat, 09 May 2026 01:48:13 GMT</pubDate>
+      <title>写下了不断破坏我的 RAG 系统的故障模式：分块、陈旧索引、混合搜索、工作原理</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t7vvcd/wrote_up_the_failure_modes_that_kept_breaking_my/</link>
+      <description><![CDATA[所以，在花了很长时间调试一个不断给出错误答案的 RAG 系统后，我终于坐下来，实际上绘制出了它损坏的每个地方。 事实证明，我的大部分问题都归结为分块，而我确实低估了这一点。我正在做固定大小的分割，并没有考虑太多。 问题： 块太小，没有上下文存在。检索到“5天内处理退款”周围信息为零。法学硕士回答了，但错过了周围句子中的所有细微差别。 块太大，检索到了正确的部分，但实际答案被隐藏在太多不相关的文本下，导致质量下降，成本上升。 切换到重叠的滑动窗口，情况明显好转。语义分块给出了最好的结果，但每次索引运行的成本上升了，所以我只将它用于最重要的文档。 其他让我感动的事情： 过时的索引很狡猾，文档正在更新，但我没有设置自动重新索引。旧信息不断被检索，我无法弄清楚为什么答案会发生变化。 语义搜索在精确字符串上完全失败。产品代码、型号、特定 ID。必须在语义旁边添加关键字搜索并合并结果。事后看来这是显而易见的，但直到用户开始抱怨时我才想到这一点。 即使答案不在您的文档中，LLM 也会从最近的块中产生幻觉。必须在系统提示中非常明确，如果答案不在检索到的上下文中，就说你不知道。如果没有这条指令，它只会重复它发现的任何内容。 除了分块之外，最有帮助的是上下文检索，在生成其上下文前缀时将每个块与完整文档一起传递，而不是仅仅单独总结块。对较长的文档产生有意义的影响，因为块带有它的位置和用途。 无论如何，好奇其他人是否遇到了这些相同的事情或找到了不同的修复，特别是在过时的索引问题上。我当前的解决方案感觉有点笨拙。   由   提交 /u/SilverConcient9222   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t7vvcd/wrote_up_the_failure_modes_that_kept_breaking_my/</guid>
+      <pubDate>Sat, 09 May 2026 05:30:35 GMT</pubDate>
     </item>
     <item>
-      <title>我采用了 Meta 的 TRIBE v2 大脑模型并让它实时观看 YouTube</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t7lyus/i_took_metas_tribe_v2_brain_model_and_made_it/</link>
-      <description><![CDATA[TLDR： 我采用了 Meta 的 TRIBE v2 大脑模型（根据视频/音频/文本预测 fMRI 类型的大脑活动），围绕它构建了一个实时管道，并为其赋予了声音和 3D 面孔。结果是一个实时的人工智能角色，可以观看 YouTube（就像野兽先生）并根据预测的大脑活动做出反应。使用 Codex 在数天内构建完成。它不是读取真实的大脑，但信号是真实的，整个工作有点疯狂。  披露：这是我的构建，不是产品发布，没有候补名单，没有订阅推介。我只是想展示我所做的事情，因为这真的让我大吃一惊，这现在成为可能。 Meta 发布了 TRIBE v2，它可以根据视频、音频和文本预测功能磁共振成像 (fMRI) 式的大脑活动。仅此一点就已经是疯狂的研究了。但它基本上是一个研究模型。你不只是把它指向 YouTube，然后突然有一个人工智能大脑观察事物并对事物做出反应。 所以我尝试构建它。 不知怎的，它实际上起作用了。 我在 TRIBE v2 周围连接了一个实时管道，系统在视频播放时观看视频，处理预测的大脑反应流，并将其用作实时人工智能评论的核心信号。然后它将其变成一个有声的动画 3D 角色，可以对剪辑做出反应、讲笑话、暂停、评论特定时刻，并解释为什么某些事情看起来引人注目或奇怪。 让我大吃一惊的是，它感觉不像一个正常的 LLM 反应机器人。这不仅仅是阅读文字记录并编造一些东西。评论与大脑模型输出相关，因此其下方有额外的信号。预测的皮层反应成为角色感知的一部分。 粗略架构：  TRIBE v2 处理视频/音频/文本流，并随着时间的推移产生预测的皮层活动 实时反应层将信号转化为即时评论 更深层次的上下文层跟踪正在发生的事情及其重要性 幽默/个性层让它感觉像是一个角色，而不是仪表板 语音 + 3D 化身层为大脑提供了一张可以说话和反应的面孔  最后一部分很重要。如果你已经投入研究，神经预测数据流会很酷，但对于普通人来说它是抽象的。给它一个粗糙、有趣的 3D 面孔突然让它变得可以理解。你正在观看一个角色的反应，但在幕后，该反应是由大脑预测模型决定的。 我知道这听起来很荒谬。这就是我感到兴奋的原因。 我可以采用已发布的大脑模型，将其连接到 Codex 的实时媒体系统中，赋予它声音和面孔，突然间，我就可以让这个活生生的角色通过预测的神经活动对互联网做出反应。几天后。 仍然让我困惑的是，它确实感觉像是在观看内容。您可以看到它处理病毒式剪辑、对特定时刻做出反应、暂停，并根据预测的大脑反应信号解释为什么它认为某件事引人注目。 需要明确的是：我并不是说这是在读取任何人的实际大脑。它是预测的平均受试者皮质活动，用作信号层。有趣的信号，而不是魔法。但这是一个非常真实的信号，整个事情一起工作对我来说确实有点疯狂。能够将已发布的大脑模型转变为实时反应的 3D 角色，感觉就像看到了一种全新的创意格式。 我不断回到的问题： 当我们获得足够的大脑数据来实际连接人工智能并模拟我们真实的大脑时，会发生什么？我们已经快到了吗？ 很好奇这里的人是如何阅读它的，特别是如果其他人已经在 TRIBE v2 之上进行构建。 演示视频：https://youtu.be/I4oGPLMVoC0?si=8bz4bFf5tjdMfhRx   由   提交 /u/MerlinMimer   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t7lyus/i_took_metas_tribe_v2_brain_model_and_made_it/</guid>
-      <pubDate>Fri, 08 May 2026 21:55:18 GMT</pubDate>
+      <title>MaGi 更新 - 说话、玩 Atari、翻阅照片、可以控制 SO101 手臂、可以控制云台相机...哦，它可以管理自己的内存！</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t7tk0u/magi_update_talks_play_atari_flips_through_photos/</link>
+      <description><![CDATA[ 由   提交/u/ibstudios  [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t7tk0u/magi_update_talks_play_atari_flips_through_photos/</guid>
+      <pubDate>Sat, 09 May 2026 03:33:44 GMT</pubDate>
     </item>
     <item>
       <title>“它会非常糟糕，非常好或者介于两者之间”</title>
