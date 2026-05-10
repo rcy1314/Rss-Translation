@@ -4,13 +4,27 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sun, 10 May 2026 03:43:46 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2026 08:13:15 GMT</lastBuildDate>
     <item>
-      <title>我通过使测试数据声明化，从测试套件中删除了 5 个辅助函数</title>
-      <link>https://www.reddit.com/r/programming/comments/1t8vhzo/i_deleted_5_helper_functions_from_my_test_suite/</link>
-      <description><![CDATA[我在几乎每个测试套件中都看到过一种模式：create_test_user() 函数。它构建了一个具有合理默认值的结构，因此测试不必从头开始构建一个结构。 它从小处开始。然后它就会生长。一年后，它有 7 个参数，您必须阅读其定义才能理解调用它的任何测试 - 因为您无法从调用站点判断哪些参数重要，哪些只是噪音。  // 什么是 arg 3？参数5？这个测试关心created_at吗？ // 你必须检查一下。让 user = create_test_user(1, “alice”, “admin”, true,created_at, ...);  我找到的修复方法：使设置成为声明式的并将其放在调用站点。仅声明测试实际依赖的内容。让其他一切都随机生成。  fn role_based_access( admin: User { role: &quot;admin&quot;, ...everything else random },viewer: User { role: &quot;viewer&quot;, ...everything else random }, ) { // 测试只关心角色 - 现在很明显 }  这就是 Fixtura 对 Rust 所做的事情。这是一个建立在 fake-rs 之上的小型库，可以连接随机结构生成，并让您仅覆盖对给定测试重要的字段。 迁移 CILens（我构建的 CI 分析工具）后的收益： - 完全删除了 5 个辅助函数 - 测试套件缩小了 25% - 约 120 个无缘无故硬编码的结构字段现在可以自由伪造 - 测试读起来就像规范：如果一个字段不在参数列表中，则测试不依赖于它 更广泛的原则适用于任何语言：测试设置应该声明意图，而不是构造。测试在助手中隐藏得越多，就越难理解测试实际验证的内容。 https://github.com/dsalaza4/fixturaa（Rust 特定的，但想法不是）   由   提交 /u/BrumaRaL   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t8vhzo/i_deleted_5_helper_functions_from_my_test_suite/</guid>
-      <pubDate>Sun, 10 May 2026 03:24:37 GMT</pubDate>
+      <title>wgs​​l.run - 具有实时 WebGPU 预览的 WGSL 沙箱</title>
+      <link>https://www.reddit.com/r/programming/comments/1t8zlr8/wgslrun_a_wgsl_sandbox_with_live_webgpu_preview/</link>
+      <description><![CDATA[WGSL 的实时编辑器，下方有 WebGPU 画布：输入着色器，点击运行，查看它的绘制。多文件项目、通过 URL 共享、主机 JS 覆盖、OPFS 持久化。 下面：libwgsl — 一个从头开始的 C99 WGSL 前端（lex / parse / resolve / const-eval / typecheck / validate）。 ~0.37 ms / Kloc 热解析，无依赖项，MIT。 沙箱：https://wgsl.run 来源：https://github.com/toprakdeviren/libwgsl VS 代码：https://marketplace.visualstudio.com/items?itemName=toprakdeviren.wgsl-run   由   提交/u/BigAd4703  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t8zlr8/wgslrun_a_wgsl_sandbox_with_live_webgpu_preview/</guid>
+      <pubDate>Sun, 10 May 2026 06:57:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>为开发人员和深度工作提供 24/7 编程工具流</title>
+      <link>https://www.reddit.com/r/programming/comments/1t8z3ls/247_programming_instrumental_stream_for/</link>
+      <description><![CDATA[ 由   提交/u/harrison2020   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t8z3ls/247_programming_instrumental_stream_for/</guid>
+      <pubDate>Sun, 10 May 2026 06:29:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>我们会很好的</title>
+      <link>https://www.reddit.com/r/programming/comments/1t8wanu/well_be_good/</link>
+      <description><![CDATA[ 由   提交/u/rybarix  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t8wanu/well_be_good/</guid>
+      <pubDate>Sun, 10 May 2026 04:03:37 GMT</pubDate>
     </item>
     <item>
       <title>反对基于查询的编译器</title>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交/u/swdevtest  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1t7lwwp/how_discord_automates_scylladb_clusters_at_scale/</guid>
       <pubDate>Fri, 08 May 2026 21:53:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>Mozilla：强化 Firefox 的幕后故事</title>
-      <link>https://www.reddit.com/r/programming/comments/1t7it4t/mozilla_behind_the_scenes_hardening_firefox/</link>
-      <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t7it4t/mozilla_behind_the_scenes_hardening_firefox/</guid>
-      <pubDate>Fri, 08 May 2026 19:56:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>你的入职是一种欺凌仪式，你称之为敏捷</title>
-      <link>https://www.reddit.com/r/programming/comments/1t7bxls/your_onboarding_is_a_hazing_ritual_and_you_call/</link>
-      <description><![CDATA[ 由   提交/u/ImTheRealDh   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t7bxls/your_onboarding_is_a_hazing_ritual_and_you_call/</guid>
-      <pubDate>Fri, 08 May 2026 15:51:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
