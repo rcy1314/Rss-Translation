@@ -4,13 +4,20 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Sat, 09 May 2026 21:52:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2026 03:43:46 GMT</lastBuildDate>
     <item>
-      <title>开发商薪资问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1t8naq1/developer_salary_problem/</link>
-      <description><![CDATA[我是一名开发人员，我知道由于当前的劳动力市场，普通开发人员（不是专业开发人员，他们像一些汽车驱动程序、引擎、着色器或微控制器一样从事枯燥的数学工作）的工资上限非常低。找工作非常困难，因为有太多人愿意“为了经验”而工作。  但我经常听说有人用一个汉堡包的价格推出了一款初创应用程序，解决了 10 万人的问题，现在为他们的余生赚取收入。 我想知道这些人是否提出了自己的想法，或者他们是否从其他地方复制了他们的想法？如果他们正在抄袭他们的想法，那么他们在哪里？毕竟，有一些想法，例如“一个网络应用程序，可以显示谁在美国拥有土地。”来吧，我什么都没有。我没有任何“富人的问题”。我永远不会想到这样的事情。我所有的问题都太平凡、太普通，而且我没有任何问题是别人用他们的酷启动解决不了的。但客观地说，如果你不解决这些问题，它们仍然存在，并且它们有可能通过订阅系统产生一些收入。但问题是，是否有可能在不成为其中一部分的情况下了解它们？没有遇到他们？  有人知道如何找到对某人有用的项目创意吗？   由   提交 /u/ZeroThreads   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t8naq1/developer_salary_problem/</guid>
-      <pubDate>Sat, 09 May 2026 21:14:59 GMT</pubDate>
+      <title>我通过使测试数据声明化，从测试套件中删除了 5 个辅助函数</title>
+      <link>https://www.reddit.com/r/programming/comments/1t8vhzo/i_deleted_5_helper_functions_from_my_test_suite/</link>
+      <description><![CDATA[我在几乎每个测试套件中都看到过一种模式：create_test_user() 函数。它构建了一个具有合理默认值的结构，因此测试不必从头开始构建一个结构。 它从小处开始。然后它就会生长。一年后，它有 7 个参数，您必须阅读其定义才能理解调用它的任何测试 - 因为您无法从调用站点判断哪些参数重要，哪些只是噪音。  // 什么是 arg 3？参数5？这个测试关心created_at吗？ // 你必须检查一下。让 user = create_test_user(1, “alice”, “admin”, true,created_at, ...);  我找到的修复方法：使设置成为声明式的并将其放在调用站点。仅声明测试实际依赖的内容。让其他一切都随机生成。  fn role_based_access( admin: User { role: &quot;admin&quot;, ...everything else random },viewer: User { role: &quot;viewer&quot;, ...everything else random }, ) { // 测试只关心角色 - 现在很明显 }  这就是 Fixtura 对 Rust 所做的事情。这是一个建立在 fake-rs 之上的小型库，可以连接随机结构生成，并让您仅覆盖对给定测试重要的字段。 迁移 CILens（我构建的 CI 分析工具）后的收益： - 完全删除了 5 个辅助函数 - 测试套件缩小了 25% - 约 120 个无缘无故硬编码的结构字段现在可以自由伪造 - 测试读起来就像规范：如果一个字段不在参数列表中，则测试不依赖于它 更广泛的原则适用于任何语言：测试设置应该声明意图，而不是构造。测试在助手中隐藏得越多，就越难理解测试实际验证的内容。 https://github.com/dsalaza4/fixturaa（Rust 特定的，但想法不是）   由   提交 /u/BrumaRaL   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t8vhzo/i_deleted_5_helper_functions_from_my_test_suite/</guid>
+      <pubDate>Sun, 10 May 2026 03:24:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>反对基于查询的编译器</title>
+      <link>https://www.reddit.com/r/programming/comments/1t8oq9k/against_query_based_compilers/</link>
+      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t8oq9k/against_query_based_compilers/</guid>
+      <pubDate>Sat, 09 May 2026 22:13:54 GMT</pubDate>
     </item>
     <item>
       <title>Bun 从 Zig 重写为 Rust 通过了 99.8% 的测试套件</title>
@@ -18,20 +25,6 @@
       <description><![CDATA[per @jarredsumner:  bun 现有测试套件的 99.8% 在 rust 重写中通过了 Linux x64 glibc 它基本上是相同的代码库，只不过现在我们可以让编译器强制类型的生命周期，并且在需要时获得析构函数。丑陋的部分看起来更丑（不安全），这鼓励了重构。 为什么：我厌倦了担心 &amp; 问题。花费大量时间修复内存泄漏、崩溃和稳定性问题。如果语言提供更强大的工具来防止这些事情，那就太好了。  但是编译需要多长时间？  这与使用我们更快的 zig 编译器的 zig 基本相同。如果我们使用上游 zig 编译器，rust port 编译速度会更快    由   提交/u/read_volatile  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1t8n0vl/buns_rewrite_from_zig_to_rust_passes_998_of/</guid>
       <pubDate>Sat, 09 May 2026 21:04:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zig 0.16 重新发明了异步 I/O，避开了函数着色</title>
-      <link>https://www.reddit.com/r/programming/comments/1t8m67e/zig_016_reinvented_async_io_that_sidesteps/</link>
-      <description><![CDATA[ 由   提交 /u/Affectionate_Dot442   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t8m67e/zig_016_reinvented_async_io_that_sidesteps/</guid>
-      <pubDate>Sat, 09 May 2026 20:47:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>制作了一个动画工具——希望得到反馈</title>
-      <link>https://www.reddit.com/r/programming/comments/1t8iifa/made_an_animation_tool_would_love_feedback/</link>
-      <description><![CDATA[ 由   提交/u/ObligationUnlikely42  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1t8iifa/made_an_animation_tool_would_love_feedback/</guid>
-      <pubDate>Sat, 09 May 2026 19:59:38 GMT</pubDate>
     </item>
     <item>
       <title>JavaScript 在 ES2015 中指定了尾部调用优化。大多数引擎从未实现过它，并且您的尾递归代码仍然可能会破坏堆栈。</title>
@@ -109,6 +102,13 @@
       <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1t7it4t/mozilla_behind_the_scenes_hardening_firefox/</guid>
       <pubDate>Fri, 08 May 2026 19:56:46 GMT</pubDate>
+    </item>
+    <item>
+      <title>你的入职是一种欺凌仪式，你称之为敏捷</title>
+      <link>https://www.reddit.com/r/programming/comments/1t7bxls/your_onboarding_is_a_hazing_ritual_and_you_call/</link>
+      <description><![CDATA[ 由   提交/u/ImTheRealDh   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1t7bxls/your_onboarding_is_a_hazing_ritual_and_you_call/</guid>
+      <pubDate>Fri, 08 May 2026 15:51:57 GMT</pubDate>
     </item>
     </channel>
 </rss>
