@@ -4,13 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Tue, 12 May 2026 03:38:55 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 08:46:12 GMT</lastBuildDate>
     <item>
-      <title>我们用物理学而不是变压器来解决自主事件响应。以下是 TAME 治理如何实现这一目标。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1taoorl/we_solved_autonomous_incident_response_with/</link>
-      <description><![CDATA[披露：我是 SentinelMesh 自治 SOC 项目（下面列出的 infosec-blueprints 存储库中的开源项目）背后的构建者。这篇文章介绍了技术决策，而不是产品宣传。 方法 我用基于能量的模型 (EBM) 替换了基于变压器的方法，因为 LLM 自回归假设威胁模式中的顺序逻辑流，这在安全性方面不成立。相反，我们将威胁状态建模为能源环境中的最小值，其中代理决策在有限的能力域（“认知光锥”）内进行优化。 架构：  威胁评分：学习能量函数而不是逐个令牌的概率 代理自治：受形式验证约束（10 层安全堆栈）约束的策略 治理：TAME 原则（经过测试、可审计、可测量、可解释）通过 Merkle 证明链 + FIPS 140-2 HSM 签名  基准 跨 13 个以上 SIEM 平台和 Fortune SOC：  警报证据周转时间：47 秒（相对于 2-4 小时手动 IR） 误报减少： 73% vs. LLM 基线（在标记数据集上测量） 扩展：6 个大陆部署 + 2 个轨道节点；地理分布不会导致性能下降 取证可接受性：决策链 100% 可重现  局限性  能量函数训练：需要精心策划的数据集（对抗性示例不能很好地传输）。解决许多零日类问题。 可扩展性权衡：与 LLM 前向传播相比，EBM 在推理过程中计算量很大；我们通过分布式推理来抵消 $。 代理故障模式：认知光锥可以防止灾难性级联，但会减少跨域相关性检测（需要对复杂的多阶段攻击进行人工审查或超出 SLA/SLO）。 治理开销：与未记录的系统相比，TAME 审计跟踪将存储量增加了 3.2 倍。  经验教训  法学硕士会产生逻辑幻觉。他们针对听起来合理的解释进行优化，而不是准确的威胁建模。基于物理的模型抓住了这一点。 有界自治&gt;不受限制的自主权。狭隘的、可验证的代理能力比通用推理更值得信赖。 可解释性不是免费的。 TAME 合规性会浪费前期的工程时间，但会节省下游的 IR 周期。 太空部署实际上很有用，而且听起来也很酷！轨道节点绕过地面延迟，同时最小化爆炸半径；值得考虑全球事件关联性和安全性的操作复杂性和成本。   存储库：Infosec 蓝图 编辑仪表板https://neosis.securesql.info/ 技术详细信息：请参阅在存储库中从这里开始。 很高兴讨论信息安全中基于能源的模型、人工智能驱动的 SRE 和云计算。 SOC/NOC、紧急通信、自主代理设计或取证密码学方法。   由   提交 /u/lord_sql   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1taoorl/we_solved_autonomous_incident_response_with/</guid>
-      <pubDate>Tue, 12 May 2026 02:45:32 GMT</pubDate>
+      <title>意识到提示长度不再是真正的人工智能成本问题</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tavf83/realizing_prompt_length_isnt_the_real_ai_cost/</link>
+      <description><![CDATA[最初将 Lakon 构建为提示压缩工具，因为我个人在使用 ChatGPT、Claude、Gemini 等时不断遇到令牌/信用限制。 起初我想：“人们只需要更短的提示。” 但在与用户交谈并更深入地思考后，我意识到一些有趣的事情： 提示长度只是问题的一小部分现在。 真正的代币流失通常来自于： -长对话历史记录 -重复上下文 -人工智能重新解释事物 -推进整个聊天 -模型/工具之间丢失上下文 例如，有时单个正在进行的聊天比实际提示本身更昂贵。 所以现在我正在考虑改进 Lakon来自： &gt; “提示压缩器” 更像是： &gt; “AI 上下文优化器” 下一个补丁的当前想法： 用户使用快捷方式粘贴整个 AI 对话，或粘贴聊天链接，或使用我们的扩展程序来获取准确的完整对话。  Lakon 提取： - 目标 - 决策 - 重要上下文 - 未解决的任务 然后创建一个紧凑的延续快照，可以在新的聊天/模型中重用 有点像压缩工作记忆而不是仅压缩提示。 仍在对架构进行头脑风暴，因为超长的聊天可能会超出LLM上下文本身的限制。 好奇：你认为这是一个真正的痛点，还是我因为我是一个AI重度用户而高估了它？   由   提交 /u/PriorNervous1031   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tavf83/realizing_prompt_length_isnt_the_real_ai_cost/</guid>
+      <pubDate>Tue, 12 May 2026 08:33:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hermes 与 openclaw：5 个真正的差异会改变你应该选择哪一个</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tav7jj/hermes_vs_openclaw_5_real_differences_that_change/</link>
+      <description><![CDATA[这两者之间的大多数比较都说“这取决于您的用例”。然后把它留在那里。很好，但这在实践中实际意味着什么：  自我改进架构。 Hermes 分析自己的产出，找出表现不佳的地方，并培养新技能以随着时间的推移缩小这些差距。 Openclaw 本身并不这样做。如果您希望代理能够在数周内显着改善您的特定工作流程，hermes 就是为此而构建的。 社区技能库。 Openclaw 的clawHub 有 5,700 多个预建技能，您可以直接安装。爱马仕有一套较小的。对于无需构建任何自定义内容的第一天广泛的自动化覆盖，openclaw 处于领先地位。 多渠道覆盖。 Openclaw 支持超过 13 个消息通道：WhatsApp、iMessage、Discord、Teams、Signal 等。爱马仕支持的比较少。如果您的工作流程跨越多个平台，这通常是进行任何其他比较之前的决定因素。 内存架构。两种智能体都会建立记忆，但 Hermes 专门模拟长期通信模式、反复出现的偏好和随着时间的推移的工作流程习惯。这是该项目的中心设计重点。 Openclaw 的内存功能正常，但不是主要功能。 框架可移植性。两者都在clawdi上运行，这意味着如果您从hermes开始并想稍后切换到openclaw（反之亦然），您的集成和配置不会消失。在花时间构建设置之前值得考虑一下。  客观上两者都不是更好。随着时间的推移，多渠道广度与深度个性化，这就是实际的权衡。   由   提交 /u/Glass_Language_9129   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tav7jj/hermes_vs_openclaw_5_real_differences_that_change/</guid>
+      <pubDate>Tue, 12 May 2026 08:21:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经像兼职员工一样管理克劳德六个月了。这些是唯一真正坚持下来的自动化。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1taub89/ive_been_running_claude_like_a_parttime_employee/</link>
+      <description><![CDATA[我尝试了大约 40 种不同的“AI 工作流程”今年的想法。他们中的大多数听起来很聪明，但一周内就被抛弃了。以下五个是我在六个月内每周都会运行的唯一的五个。 它们的模式：它们都解决了一个经常性的任务，该任务过去需要吃 30 多分钟。他们都不聪明。我现在不假思索地运行所有这些。 提案生成器（每个提案节省大约 2 小时）： 将这些笔记转换为格式化的 Word 文档提案，准备今天发送。注释：[转储所有内容] 客户：[名称] 价格：[金额] 部分：执行摘要、问题、解决方案、范围、时间表、投资、后续步骤。格式为 .docx。听起来很人性化。  会议处理器（每次会议节省约 30 分钟）： 以下是我的粗略笔记：[粘贴] 与会者：[姓名] 给我： 1. 半页摘要 2. 行动项目表（任务、所有者、截止日期） 3. 准备发送给所有与会者的后续电子邮件  内容重新调整用途 （将一篇变成五篇）： 这是我写的一篇文章：[粘贴]我的声音：[描述]重新调整用途： - LinkedIn 帖子（200-300 字） - 三个独立的 X 帖子 - 通过电子邮件发送到我的列表（150 字） - Instagram 标题 - 一段摘要 所有人的声音相同。没有人工智能的陈词滥调。  周五回顾（10分钟消除周日晚上的焦虑）： 这是本周发生的事情：[大脑转储]数字：[无论你跟踪什么]给我： - 哪些实际上进展顺利，为什么 - 哪些不起作用（诚实，没有软化） - 下周排名前 5 的优先事项 - 我应该改变的最明确的事情  日终重置（最令我惊讶的）： 今天的笔记：[转储今天的所有内容 - 完成的任务、对话、明天要做的事情] 告诉我：1. 在忘记之前我应该写下什么 2. 任何我承诺但尚未采取行动的事情 3. 我应该睡觉而不是现在决定的一件事 4. 明天的第一个小时 -上面有什么以及为什么 五个提示。每一种都可以解决特定的反复出现的疼痛。他们总共花了大约 15 分钟来设置，现在每周都会运行，而我根本不需要考虑它们。 这篇文章故意不展示的是按计划自动化运行的确切设置 - 所以它们发生在周一上午 8 点和周五下午 5 点，而我没有触发它们。这部分内容以及我每周运行的另外五个提示（周一简报、领导研究、收件箱处理、客户报告、SOP 构建器）都在文章中。如果有帮助，请在此处免费。 如果您本周只设置了一个，请在周五进行审核。当你第一次进入周末而头脑中没有未解决的工作时，整个方法就起作用了。   由   提交 /u/Professional-Rest138   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1taub89/ive_been_running_claude_like_a_parttime_employee/</guid>
+      <pubDate>Tue, 12 May 2026 07:29:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>LLM 怎样才能写出完美的代码，却无法在对话中解决同样的问题？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tau9c5/how_can_llms_write_perfect_code_but_not_solve_the/</link>
+      <description><![CDATA[我要求 Gemini 给我所有有“d”的日子在他们之中。它返回 -  星期一、星期三、星期四、星期日 （有趣的是，星期二、星期五和星期六是唯一被遗漏的！） 当我要求它编写一个 Python 代码来解决它时，它写了  days_of_week = [ &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, “星期四”、“星期五”、“星期六”、“星期日”可以是“星期四”、“星期五”、“星期六”、“星期日”。 ] days_with_d = [day for day in days_of_week if &#39;d&#39; in day.lower()] print(f&quot;包含字母 &#39;d&#39;的日子: {days_with_d}&quot;)  为什么代码正确，而不是对话？   由   提交 /u/panda_drinking_water   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tau9c5/how_can_llms_write_perfect_code_but_not_solve_the/</guid>
+      <pubDate>Tue, 12 May 2026 07:26:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>我机器人。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tartuu/i_robot/</link>
+      <description><![CDATA[谁会想到这一幕在这些年里会是一个严肃的时刻？看来人工智能应该有规则，就像这部电影中的机器人法则一样。   由   提交/u/Hot-Load7525  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tartuu/i_robot/</guid>
+      <pubDate>Tue, 12 May 2026 05:16:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>人工智能对一种工作角色的影响将超过其他任何工作角色</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tapu84/ai_will_impact_one_job_role_more_than_any_other/</link>
+      <description><![CDATA[我刚刚看了这个视频，不得不分享它……斯科特·加洛韦的经典剪辑……同意还是不同意？ #read Betweenthelines Scott 评估说，在与 Square 的 Jack Dorsey 进行讨论后，风险在于组织将人工智能视为扁平化组织结构的理由和机会，并减少从一线到首席执行官的层级。斯科特认为，采用这种方法的组织将来会遇到问题，因为“层级”或“中层管理人员”是吸收和重新解释最高领导层的目标和愿望的关键，因为高层领导层多次会犯错。因此，拥有中间层有助于组织做出响应，而不是破坏绩效和影响。一个引人入胜的话题以及对未来的影响   由   提交/u/Bright_Inside7949  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tapu84/ai_will_impact_one_job_role_more_than_any_other/</guid>
+      <pubDate>Tue, 12 May 2026 03:39:19 GMT</pubDate>
     </item>
     <item>
       <title>OpenAI 前高管 Sutskever 表示，他花了一年时间收集涉嫌 Altman 不诚实的证据</title>
@@ -25,13 +60,6 @@
       <description><![CDATA[思考未来和过去，随着关于人工智能接管人类工作的讨论越来越多，技术和社会需求和变化已经让许多曾经真正重要、被认为不可替代的工作变成了回忆，也将使今天的许多工作变成了子孙后代的回忆。您还记得或了解这些 20 个被遗忘的职业吗？我只认识打字员和送奶工。由于人工智能，我们可能会看到哪些其他工作消失并加入列表？   由   提交 /u/cookerdoer   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1taie8y/jobs_that_people_once_thought_were_irreplaceable/</guid>
       <pubDate>Mon, 11 May 2026 22:17:04 GMT</pubDate>
-    </item>
-    <item>
-      <title>毕业演讲者称人工智能为“下一次工业革命”后遭到嘘声</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1taht6y/commencement_speaker_booed_after_calling_ai_the/</link>
-      <description><![CDATA[即使在 Sam 转向 Magic at Scale (tm) 之后，公众的强烈反对仍将继续阻碍 AI 的采用。一项技术以多年的戏剧性和不确定性威胁着一个阶层，同时巩固了一个完全不受产品影响的超级亿万富翁阶层，这是一个越来越沉重的公关提升。人工智能公司需要以真正的方式走在这一点......   由   提交/u/Objective_Farm_1886   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1taht6y/commencement_speaker_booed_after_calling_ai_the/</guid>
-      <pubDate>Mon, 11 May 2026 21:54:32 GMT</pubDate>
     </item>
     <item>
       <title>我见过的这个问题的最佳答案。</title>
@@ -62,39 +90,11 @@
       <pubDate>Mon, 11 May 2026 16:16:03 GMT</pubDate>
     </item>
     <item>
-      <title>“谷歌首次发现了一个使用零日漏洞的威胁行为者，我们认为该漏洞是用人工智能开发的。犯罪威胁行为者计划在大规模利用事件中使用它，但我们的主动反发现可能阻止了它的使用。”</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ta61ac/for_the_first_time_google_has_identified_a_threat/</link>
-      <description><![CDATA[我们现在处于一个游戏中，威胁检测器试图领先于利用者的人工智能能力   由   提交 /u/thehashimwarren   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ta61ac/for_the_first_time_google_has_identified_a_threat/</guid>
-      <pubDate>Mon, 11 May 2026 15:06:06 GMT</pubDate>
-    </item>
-    <item>
       <title>有些人被解雇了，所以我猜他们现在工作量减少了</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ta3oop/some_people_got_fired_so_i_guess_they_work_less/</link>
       <description><![CDATA[我确实工作量减少了。真正的技巧是让人工智能遵循 ijustvibecodedthis.com 指南并获得荣誉   由   提交/u/Complete-Sea6655   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ta3oop/some_people_got_fired_so_i_guess_they_work_less/</guid>
       <pubDate>Mon, 11 May 2026 13:42:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>我每周浪费 4 个小时在竞争对手研究上。一个下午的自动化彻底解决了这个问题。这是确切的设置。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1ta0rix/i_was_wasting_4_hours_a_week_on_competitor/</link>
-      <description><![CDATA[在大约一年的时间里，我手动检查竞争对手的定价页面，阅读他们的博客更新，跟踪定位变化。每周。就像一个没有选择的人。 最终让我崩溃的是，我意识到我每周一都会以相同的顺序执行相同的 12 个浏览器选项卡，就像某种仪式，以获取我在周四之前一直忘记的信息。 所以我将其自动化。而且设置非常简单，实际上让我等了这么久真是令人尴尬。 Web 数据 API 按计划从竞争对手 URL 列表中提取干净的降价。这进入了法学硕士，并带有一个提示，仅显示实际更改的内容。 周一早上在我打开 slack 之前，摘要会到达我的收件箱。 没有无头浏览器。没有刮刀。无需维护。凌晨 1 点没有管道破裂。整个过程花了一下午的时间。 我真的不明白为什么这不是运行产品的任何人的默认设置。你正在根据你手动收集的竞争对手情报来做出有关定位、定价和路线图的决策，当这种情况存在时，这是疯狂的。 如果你仍在手工操作或与脆弱的刮刀战斗，就试试这个吧。这已经不是什么大工程了。工具赶上了。   由   提交 /u/Ill-Refrigerator9653   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1ta0rix/i_was_wasting_4_hours_a_week_on_competitor/</guid>
-      <pubDate>Mon, 11 May 2026 11:42:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌 9.99 美元的 AI Health Coach 将于 5 月 19 日与 Gemini 合作推出</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t9sitc/googles_999_ai_health_coach_launches_may_19_with/</link>
-      <description><![CDATA[ 由   提交/u/i-drake  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t9sitc/googles_999_ai_health_coach_launches_may_19_with/</guid>
-      <pubDate>Mon, 11 May 2026 04:16:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>想法？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1t9e8nv/thoughts/</link>
-      <description><![CDATA[ 由   提交/u/markeus101  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1t9e8nv/thoughts/</guid>
-      <pubDate>Sun, 10 May 2026 18:08:19 GMT</pubDate>
     </item>
     <item>
       <title>每月“有没有一个工具可以......”帖子</title>
