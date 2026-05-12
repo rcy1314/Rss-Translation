@@ -4,20 +4,48 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 12 May 2026 08:48:45 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 11:25:49 GMT</lastBuildDate>
+    <item>
+      <title>花了数年时间将相同的 React 设置复制粘贴到每个新项目中。最后把它变成了 CLI，好奇其他开发人员如何处理这个</title>
+      <link>https://www.reddit.com/r/webdev/comments/1taxw0u/spent_years_copypasting_the_same_react_setup_into/</link>
+      <description><![CDATA[不确定这是否只是我的问题，但我在过去几年启动的每个前端项目都有相同的 45 分钟设置仪式。 TypeScript 配置。维特设置。路由器。 ESLint。路径别名，所以我不再到处写 ../../components 。然后下一个项目开始，我再次做同样的事情，略有不同，因为我忘记了上次选择的内容。 最糟糕的部分是团队漂移。 一个项目有 Prettier，一个没有。一个使用 React Router 6，另一个迁移到 7。文件夹结构慢慢变得完全不同，即使它们都是从“标准设置”开始的。 厌倦了重复它，所以我为自己的默认值构建了一个 CLI： npx create-modern-react my-app cd my-app yarn dev  默认堆栈是：  React 19 TypeScript strict Vite + SWC Tailwind 4 shadcn/ui 类型化 Axios 包装器 ~/ 导入  然后它会询问你还想要什么：  Redux Toolkit + Persist React Hook Form + Zod Ant Design Husky + lint-staged  除非您选择它，否则不会安装任何东西。 一直在跨项目使用它，说实话，最大的胜利是一致性。新的开发人员已经认识到了结构，而不是每个存储库都感觉略有不同。 存储库：https://github.com/abhay-rana/create-modern-react 好奇其他人用于项目启动的内容。自定义内部模板？投票模板？还是每次都重建设置？   由   提交 /u/warofarrows   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1taxw0u/spent_years_copypasting_the_same_react_setup_into/</guid>
+      <pubDate>Tue, 12 May 2026 10:47:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>财政文件上的这种“快照”模式是有效的方法还是只是噪音？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tax2l6/is_this_snapshot_pattern_on_a_fiscal_document_a/</link>
+      <description><![CDATA[      我正在开发一个用于财务合规性的 Spring Boot 应用程序，在保存预扣税文档（法语中的 Retenue 意思是扣除）时，我有一个在实体持久化之前运行的方法（如图所示）。 它做了两件事：从数据库重新加载完整的实体（因为前端发送 { “id”: 123 } shell 对象），并将字段从 Client 直接复制到 Retenue 行以在创建时冻结它们。 它存在是因为“retenue”存在是合法的财政文件。如果客户下个月更改了姓名或税号，则文档需要反映签名时的数据，而不是当前状态，与辅助表中的预扣税率相同。 真正困扰我的是，它感觉含蓄且脆弱，代码中没有明确的信号表明这些非规范化列是有意的快照，而不是有人只是懒惰地复制字段。如果阅读本文的中小企业不知道为什么raisonSociale（就像公司或客户的法定名称）同时存在于Client和Retenue上。 所以我的问题是：这种快照模式是财务/法律文件的合法方法还是有更简洁的设计？有没有更好的方法来处理 JPA 代理问题（来自前端的 shell 对象），而无需重新加载完整实体来复制 6 个字段？ 对于上下文 2 YOE（尽力理解问题并提出一个好的解决方案）   由   提交/u/MousTN   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tax2l6/is_this_snapshot_pattern_on_a_fiscal_document_a/</guid>
+      <pubDate>Tue, 12 May 2026 10:05:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>规范化，不要记住 — Kotlin 中的智能构造函数 · cekrem.github.io</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tawf8c/canonicalise_dont_remember_smart_constructors_in/</link>
+      <description><![CDATA[       由   提交 /u/cekrem   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tawf8c/canonicalise_dont_remember_smart_constructors_in/</guid>
+      <pubDate>Tue, 12 May 2026 09:29:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>哪种高性能 F-OSS Web 框架适用于内部应用程序？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tawc94/which_performant_foss_web_framework_for_internal/</link>
+      <description><![CDATA[我的任务是设置开发一些内部应用程序，并且可以完全自由地使用我想要的任何内容。上次我使用 Next.js 执行此操作，并取得了良好的结果，但托管在 Vercel 上。这次托管仅限于我们自己的数据中心。我有点想全力以赴，使用一些较新的堆栈，例如面包，只是为了获得一些乐趣并使用一些较新的东西。我很高兴至少有一个跨框架身份验证库（better-auth），这使得选择框架变得更加容易。另外，我并不是真正的 Web 开发人员（数据工程师），所以我可能会使用 shadcn 之类的东西，但对于法学硕士，我不太担心让它看起来漂亮。   Next.js 但包相当大，而且不是很有趣。理论上是开源的，但在自己的硬件上托管似乎是第二公民（Opennext）。  SvelteKit，看起来就像 Next，但使用起来更快。 Tanstack Start，开发人员在 Reddit 上非常活跃，但目前可能还太新。 Astro 看起来工作起来很有趣，而且性能非常好，但每日更新对于某些人来说可能可能变得太慢。    由   提交 /u/ReindeerOk9768   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tawc94/which_performant_foss_web_framework_for_internal/</guid>
+      <pubDate>Tue, 12 May 2026 09:25:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>National-park-service/fonts：受美国国家公园管理局启发的开源字体</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tavu3o/nationalparkservicefonts_us_national_park_service/</link>
+      <description><![CDATA[      受 SIL 开放字体许可证 1.1 发布的美国国家公园管理局标牌、海报和步道标记启发的六种开源字体   由   提交/u/freb97  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tavu3o/nationalparkservicefonts_us_national_park_service/</guid>
+      <pubDate>Tue, 12 May 2026 08:57:00 GMT</pubDate>
+    </item>
     <item>
       <title>与本地企业竞争</title>
       <link>https://www.reddit.com/r/webdev/comments/1taupwf/competing_against_local_business/</link>
-      <description><![CDATA[I&#39;ve been a developer professionally for 7 years with a variety of experience, but mostly in front end (React) with some back end supporting. I&#39;ve noticed that all of the businesses in my local area have all used the same local developer for their websites, and having used a few of the websites myself, I&#39;ve noticed things I would do differently and things I&#39;d change to improve the user experience.  The local developer seems pretty well established in the area and has over 25 years of experience, along with plenty of testimonials and a large portfolio.是否值得尝试通过创办自己的企业来竞争？    由   提交 /u/MrCuddles9896   [link] [评论]]]></description>
+      <description><![CDATA[我已经成为一名专业开发人员 7 年了，拥有各种经验，但主要是在前端（React），并有一些后端支持。我注意到我当地的所有企业都使用相同的本地开发人员来开发他们的网站，并且我自己使用了一些网站，我注意到我会做不同的事情以及我会改变的事情以改善用户体验。  当地开发商似乎在该地区颇有建树，拥有超过 25 年的经验，以及大量的推荐和庞大的产品组合。是否值得尝试通过创办自己的企业来竞争？    由   提交 /u/MrCuddles9896   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1taupwf/competing_against_local_business/</guid>
       <pubDate>Tue, 12 May 2026 07:53:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>元应用程序审核过去需要 48 小时。现在他们需要两周的时间。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tatf1a/meta_app_reviews_used_to_take_48_hours_now_they/</link>
-      <description><![CDATA[2026 年发生了明显的变化。 过去几年，大多数元应用审核都是可预测的： 提交 → 等待 1-3 天 → 批准/拒绝。 现在？ 许多应用正在等待9-12 个工作日的审核。 据我所知在200多次提交之后看到，这正在成为新常态。 令人沮丧的是，即使是微小的错误现在也会带来巨大的成本：  错误的测试凭据 不清楚的截屏 请求您实际上不需要的权限 不完整的应用程序设置  一次拒绝可以轻松地将您的启动时间推迟2次几周。 队列本身最近似乎超载。 我们现在可以做的一些事情： • 保持审稿人的指示非常清晰 • 避免反复试验的方法，而是选择专业服务或阅读。 • 让测试万无一失 • 对待每一次提交都像只有一次机会一样  老实说，我们无法加快这个过程，无论如何，我们只能做到完美我们的提交。 审阅者正在处理未完成的应用程序、复制的项目、损坏的测试流程、模糊的审阅说明或随机的权限请求...因此每个人最终都会等待更长时间！ 在这一点上，元审阅准备几乎与实际的应用程序构建一样重要。  很好奇这里的其他开发人员最近是否也遇到了同样的延迟。   由   提交 /u/MetaAPIExpert   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tatf1a/meta_app_reviews_used_to_take_48_hours_now_they/</guid>
-      <pubDate>Tue, 12 May 2026 06:40:26 GMT</pubDate>
     </item>
     <item>
       <title>我们如何处理长期运行的人工智能代理中的上下文窗口膨胀，生产中的经验教训</title>
@@ -81,34 +109,6 @@
       <description><![CDATA[       https://preview.redd.it/xzxqqpqvgl0h1.png?width=596&amp;format=png&amp;auto=webp&amp;s=4554a742c1da521708c6a2406cc41080e8df1722 API测试工具“Postmate Client”哪个徽标更好？ ?   由   提交 /u/Bitter-Apple-7929   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1take6a/need_help_in_choosing_right_logo_for_my_product/</guid>
       <pubDate>Mon, 11 May 2026 23:38:32 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该为 webdev 烦恼还是因为 AI 接管而存在风险？如果是的话你还有什么推荐</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tajx45/should_i_bother_with_webdev_or_is_it_risky_due_to/</link>
-      <description><![CDATA[这个子项目看起来对人工智能很陌生，所以我不知道这是否是现在开始学习的最佳举措，那么你还有什么建议我投入时间并确保我的工作？    由   提交 /u/noforgive02   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tajx45/should_i_bother_with_webdev_or_is_it_risky_due_to/</guid>
-      <pubDate>Mon, 11 May 2026 23:18:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>开发人员失踪了，我需要建议。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tajdsn/developer_disappeared_and_i_need_advice/</link>
-      <description><![CDATA[大家好， 经过多年使用 Fiverr 并花费了数千美元之后，我遇到了第一个重大问题。 我聘请了一位全栈开发人员为我构建一个网站（项目价值超过 3,000 美元）。订单已完成，但协议的一部分包括额外付费 6 个月的持续支持。 最近需要一些小错误/修复，而且我们也正在将基础设施的全部所有权迁移给我。值得庆幸的是，我几天前收到了源代码，两天前，开发人员向我发送了有关设置 MongoDB 的说明，以便将数据库迁移到我自己的帐户。 昨天我进入聊天室组织会议，突然我无法再联系卖家了。我创建了一个备用 Fiverr 帐户，但也找不到他们的个人资料或演出。我也直接给他们发了电子邮件，但没有收到回复。 我联系 Fiverr 解释了情况，他们建议他们将尝试联系自由职业者，了解剩余的支持工作和数据库迁移事宜。 Fiverr 还提供了大约 1,000 美元的补偿。 我技术不太熟练，所以我想我正在寻求比我更有经验的人的建议和保证。 现阶段我拥有： - 完整源代码 - AWS 访问 - 域访问 - 电子邮件访问 剩下的问题似乎是： - 迁移 MongoDB 所有权 - 修复几个错误 如果原始开发人员从未回复，这实际上是其他开发人员可以介入并完成的事情，而无需从头开始重建整个平台吗？ 感谢任何建议，目前对这种情况有点压力。   由   提交 /u/Affectionate-Fly5770   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tajdsn/developer_disappeared_and_i_need_advice/</guid>
-      <pubDate>Mon, 11 May 2026 22:57:06 GMT</pubDate>
-    </item>
-    <item>
-      <title>中文网站流量</title>
-      <link>https://www.reddit.com/r/webdev/comments/1taiem9/chinese_website_traffic/</link>
-      <description><![CDATA[      过去两周我收到了大量来自中国的流量。我以前从未获得过来自中国的流量。我可以看出他们去了不同的页面。具体城市我不知道。我的猜测是他们正在复制内容。有人注意到同样的事情吗？   由   提交/u/No_Statement_3317   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1taiem9/chinese_website_traffic/</guid>
-      <pubDate>Mon, 11 May 2026 22:17:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何从银行账户读取数据？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tahwed/how_to_read_data_from_bank_account/</link>
-      <description><![CDATA[所以我正在构建一个应用程序来管理租金，我想从我的银行帐户读取租金数据（付款直接发送到银行，不通过应用程序）。 我需要一些至少可以与 Mediolanum 配合使用的东西，如果它像一个与更多银行的接口就更好了。 然后另一个问题：如何过滤银行的响应？发件人的姓名是否足够好？或者我应该按 IBAN 过滤？   由   提交/u/elecim91  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tahwed/how_to_read_data_from_bank_account/</guid>
-      <pubDate>Mon, 11 May 2026 21:57:55 GMT</pubDate>
     </item>
     </channel>
 </rss>
