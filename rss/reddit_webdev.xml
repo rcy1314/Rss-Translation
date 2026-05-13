@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Wed, 13 May 2026 08:51:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 11:34:54 GMT</lastBuildDate>
+    <item>
+      <title>我在 48 小时内将 AI 聊天机器人的 OpenAI 账单削减了 60%。这是 4 步审核</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbw25t/i_cut_my_ai_chatbots_openai_bill_60_in_48_hours/</link>
+      <description><![CDATA[我为商业网站运行一个人工智能聊天机器人。上个月，我打开了 openai 仪表板，意识到我一直处于自动驾驶状态。我的每月账单已经涨到了 ${X} 左右，而且我已经好几个月没有对其中的任何一个符号提出质疑了。 花了 48 个小时逐行查看它。结束于 ${Y} 左右。在相同的聊天量上，这是 {Z}% 的削减。 这正是我所做的： 第 1 步：阅读我自己的系统提示。 我打开了机器人每次使用的系统提示。大约有 3,200 个代币。其中一半是过去一年的教学之上的教学。 “记住...”、“始终确保...”、“如果用户说X，则执行Y，但如果用户说Z，则执行W...”。其中大部分是多余的或与其他规则相矛盾。 从头开始重写每个提示。最终收于800个代币左右。相同的行为，相同的评估分数。仅这一更改就将每轮的输入令牌减少了 75%。 第 2 步：停止通过大模型发送每轮。 每条用户消息都会影响完整模型。但也许 30% 的传入消息是 1 行事实查找，例如“你什么时间开门”等或“您的退款政策是什么”。这些不需要前沿模型。 添加了一个路由器：首先是简单的意图分类器（纳米层模型，便宜），将事实查找路由到纳米，将复杂或多步骤或生成查询路由到完整模型。路由器需要大约 50 个令牌来决定。 Nano 答案的成本约为完整模型成本的 10%。对于实际上符合简单标准的卷，这是最大的绝对节省。 第 3 步：缓存确定性内容。 机器人每轮都会重新运行 file_search，即使是针对同一主题的同一对话中的后续问题。添加了每个会话缓存：会话中相同的检索查询，重复使用块。主题转移无效（通过新查询和前一个查询之间的廉价嵌入距离检查来检测）。 将检索调用减少约 40%。 第 4 步：截断对话历史记录。 机器人每次都会传递完整的对话历史记录。到了第 8 回合，已经有数千个陈旧上下文标记了。添加了一个滑动窗口：最后 4 个回合以及模型生成的所有旧内容的摘要。摘要 每次对话需要一次 Nano 调用，这是值得的。 在长时间会话中，每回合的输入令牌又减少了 30%。 结果：账单从约 120 美元降至约 80 美元。在我的评估集中，聊天质量保持平稳（租户中约有 120 个问题）。第一个用户投诉：零。 元教训：随着时间的推移，每个 llm 应用程序都会趋向最大代币。你在这里添加系统提示指令，在那里传递更多历史记录，忘记在一代上设置 max_tokens，一年后你的账单是应有的 3 倍，没有任何改善。 今天要在你自己的应用程序上审核四件事：  你的系统提示有多长？ （可能太长） 您是否使用最大的模型来处理所有事情？ （可能是） 您是否对相同的查询重新运行检索？ （可能是的） 当摘要就可以时，您是否传递了完整的历史记录？ （可能是的）  大多数团队发现 2-3 小时的工作可以节省 30-50% 的费用。说服自己去做比实际去做要花更长的时间。   由   提交/u/FinanceSenior9771   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbw25t/i_cut_my_ai_chatbots_openai_bill_60_in_48_hours/</guid>
+      <pubDate>Wed, 13 May 2026 10:52:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>“正确”使用法学硕士？ （我可能没有充分利用：浏览器中的克劳德+光标）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbuwsq/proper_use_of_llm_i_might_be_underusing_claude_in/</link>
+      <description><![CDATA[大家好， 所以我一次只使用 Cursor（作为高级自动完成）处理 1-6 行代码，并在浏览器中使用 Claude 我尝试了 Claude Code，似乎每个人都认为它更好......而且速度太慢了。  我猜是因为它试图与整个上下文一起工作。但对我来说等待这么久没有意义，而且我更喜欢浏览器，顺便说一句，它给了我很好的结果...我做错了什么？ 此外，有没有一种方法可以先编写一个计划/架构，并带有精确的“合同”？ （也许是测试？）对于每个组件，然后让模型正确定义明确的组件（它不需要那么多上下文？）   由   提交/u/permaro   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbuwsq/proper_use_of_llm_i_might_be_underusing_claude_in/</guid>
+      <pubDate>Wed, 13 May 2026 09:50:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>二年级学生，关于为公司创建网络应用程序</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbuku7/2nd_year_students_about_creating_a_webapp_for_a/</link>
+      <description><![CDATA[你好， 我和来自 EPFL（瑞士）的另外 2 位计算机科学二年级学生正在尝试与一家棋盘游戏公司合作，将他们的游戏实现为网络应用程序，最初的游戏称为 Smile Life，它与生命游戏非常相似，作为软件工程项目的一部分，我们已经开发了一个“原型”  我们每个人都花了大约 20 个小时来实现 Scala 3 中的逻辑，课程向我们提供了 Web 应用程序的原始框架。 这里是该应用程序的链接（如果这里的版主对我分享链接不满意，我可能会删除它） https://smilelife.pommier.dev/ 我们正处于需要“展示”的时刻。我们向公司提出了这个项目，但是我们不知道如何设计它，特别是在薪酬方面。这就是为什么我想知道这里的一些人是否可以帮助我解决以下问题：  如何在保持合理的情况下正确估计项目的价值（因为我们还是二年级学生）， 如何区分功能/基础设施/维护之间的定价， 通常如何构建这样的软件协作交易。  如果公司接受我们，与他们的合作基本上包括从完整游戏的原型。 一些背景信息：  原型在大约 2 周内构建， 我们每个人花了大约 20 个小时， 部分网络基础设施/模板由我们的教授提供， 一些原始游戏机制仍然缺失， 目前没有生产基础设施， 目前仅支持私人游戏。  我们不想要求太多，但我们也不想严重低估这项工作。 如果这里有人有任何这些方面的经验。同样，如果您有任何资源让我自己理解这一点，我将不胜感激。 我们非常感谢建议或反馈。 非常感谢您的帮助   由   提交 /u/Itchy-Entertainer-87   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbuku7/2nd_year_students_about_creating_a_webapp_for_a/</guid>
+      <pubDate>Wed, 13 May 2026 09:31:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>图片存储桶</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbujft/image_storage_bucket/</link>
+      <description><![CDATA[大家好，我需要一些指导/建议。我正在构建一个媒体密集型网络应用程序，目前我已将 SUPABASE 链接到我的存储桶。我尝试过让用户上传图像时，照片自动压缩为 webp，但我发现图像在 200-500KB 时质量不佳。我正在寻找一种具有慷慨免费套餐的替代方案。我不介意支付订阅费用（一旦我的用户开始积累）我很乐意接受任何建议或建议。提前致谢。    由   提交 /u/sighqoticc   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbujft/image_storage_bucket/</guid>
+      <pubDate>Wed, 13 May 2026 09:29:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>没有网站的企业与网站过时的企业</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbuao2/business_without_website_vs_business_with/</link>
+      <description><![CDATA[我和我的合作伙伴一起经营一家网络代理机构已经大约 4 年了。在大部分时间里，我们都是通过电子邮件自动化来吸引客户的。我们在营销活动中使用了 Mailchimp，说实话，它效果非常好。我们拥有一个可靠的系统，主要针对根本没有网站的企业。 不过，大约一年前，我们决定转移注意力，开始针对拥有过时网站的企业。这时我们遇到了一个大问题。 当每个网站都需要首先进行审核时，如何自动进行外展？我们需要一种方法来确定企业是否确实符合重新设计的条件，最重要的是，我们希望每封电子邮件都能根据其网站的问题而感到个性化。 手动完成所有这些工作是无法扩展的。 因此我们从 Mailchimp 切换到 Swokei。对我们来说，它的不同之处在于我们可以上传潜在客户列表并设置质量阈值，因此它会自动跳过已经足够好的网站。然后，它会分析剩余的网站，并根据 SEO、设计、布局、速度和移动优化等因素对其进行评分。 最好的部分是，它根据每个企业的实际改进机会生成个性化的外展消息。 现在，我们在那里开展常规活动和网站分析活动，说实话，我们以前从未见过如此高的回复率。 我认为对我们来说最大的教训是认识到并非每个工具都是针对您正在尝试的特定问题而构建的来解决。就我们而言，这为我们的机构解决了一个非常具体的问题，这使一切变得不同。   由   提交/u/Murky_Explanation_73   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbuao2/business_without_website_vs_business_with/</guid>
+      <pubDate>Wed, 13 May 2026 09:16:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>没有人会阅读代码</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbuaa4/nobody_is_going_to_read_the_code/</link>
+      <description><![CDATA[       由   提交/u/rag1987  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbuaa4/nobody_is_going_to_read_the_code/</guid>
+      <pubDate>Wed, 13 May 2026 09:15:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>从 Typescript 开发人员的角度来看 Python</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tbu981/python_from_a_typescript_developers_perspective/</link>
+      <description><![CDATA[我使用 Typescript 已有多年，并从同事和课程中慢慢学习了 Python。我认为我的观点对于其他主要了解 Javascript/Typescript 的开发人员来说可能会很有趣 - 希望您会发现它很有趣！ （文章都是手写的）   由   提交 /u/SchartHaakon   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tbu981/python_from_a_typescript_developers_perspective/</guid>
+      <pubDate>Wed, 13 May 2026 09:14:07 GMT</pubDate>
+    </item>
     <item>
       <title>使用 SHIFT ALT D 获取新 Vue 项目的概述</title>
       <link>https://www.reddit.com/r/webdev/comments/1tbtivx/get_an_overview_of_a_new_vue_project_with_shift/</link>
@@ -43,7 +92,7 @@
     <item>
       <title>上周我大量退订了所有人工智能时事通讯，我的大脑终于又开始工作了</title>
       <link>https://www.reddit.com/r/webdev/comments/1tbnifi/i_massunsubscribed_from_every_ai_newsletter_last/</link>
-      <description><![CDATA[过去两年深入研究小型团队的 AI 自动化。构建工作流程，在每个新工具发布后对其进行测试，像某种疯狂的业余爱好者一样熬夜阅读变更日志。我为此感到自豪了一段时间。 然后在三月份左右，我意识到我实际上在六周内没有发货任何新东西。我刚刚迁移。从一种工具转向另一种工具，因为播客上的某个人说旧工具已经死了。每个月重复冲洗一次。 整个生态系统的运行让您感觉落后。每一次发布都是“改变一切的一次”三周后就没有人再谈论这件事了。我批量退订了大约 40 份时事通讯，将一堆 Discord 服务器静音，然后就坐在我已有的堆栈上。 事实证明，我在 2023 年末构建的无聊设置仍然运行良好。我的客户并不关心下面运行的是什么模型。他们关心的是线索的进来和内容的出去。就是这样。 我并不是说完全忽略人工智能，那是愚蠢的。但不断重组的压力是由销售课程和订阅的人制造的。实际工作并没有改变那么多。 无论如何，我利用空闲时间最终调整了我的睡眠时间表，所以，我想，净积极。   由   提交 /u/Pristine_Rest_7912   [链接] [评论]]]></description>
+      <description><![CDATA[过去两年深入研究小型团队的 AI 自动化。构建工作流程，在每个新工具发布后对其进行测试，像某种疯狂的业余爱好者一样熬夜阅读变更日志。我为此感到自豪了一段时间。 然后在三月份左右，我意识到我实际上在六周内没有发货任何新东西。我刚刚迁移。从一种工具转向另一种工具，因为播客上的某个人说旧工具已经死了。每个月重复冲洗一次。 整个生态系统的运行让您感觉落后。每一次发布都是“改变一切的一次”三周后就没有人再谈论这件事了。我批量退订了大约 40 份时事通讯，将一堆 Discord 服务器静音，然后就坐在我已有的堆栈上。 事实证明，我在 2023 年末构建的无聊设置仍然运行良好。我的客户并不关心下面运行的是什么模型。他们关心的是线索的进来和内容的出去。就是这样。 我并不是说完全忽略人工智能，那是愚蠢的。但不断重组的压力是由销售课程和订阅的人制造的。实际工作并没有改变那么多。 无论如何，我利用空闲时间最终调整了我的睡眠时间表，所以我想，净积极。   由   提交 /u/Pristine_Rest_7912   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tbnifi/i_massunsubscribed_from_every_ai_newsletter_last/</guid>
       <pubDate>Wed, 13 May 2026 03:13:36 GMT</pubDate>
     </item>
@@ -60,55 +109,6 @@
       <description><![CDATA[在金钱方面找到满足感并没有什么错，我只是想知道你们在工作之外在哪里找到成就感。  最终，我试图找到一种继续前进的方法，并希望从别人那里得到灵感。我对开发的热情已经完全消退，我彻底精疲力尽了。不是在寻找怜悯聚会，只是在寻找新的视角或心态来帮助我继续前进，甚至重拾我的激情。   由   提交/u/mark_hor  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tbcyo1/where_do_you_find_fulfillment_in_your_work/</guid>
       <pubDate>Tue, 12 May 2026 20:01:36 GMT</pubDate>
-    </item>
-    <item>
-      <title>创建博客来记录我的家庭实验室学习过程</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tbbzvj/creating_a_blog_to_document_my_homelab_learning/</link>
-      <description><![CDATA[TL/DR;我想建立一个极其简单的博客，但工具、方法和行动过程对我的豌豆大脑来说太空灵了。我也害怕安全隐患，希望得到专业社区的建议 所以我正在部署我的第一个家庭实验室，并意识到我有很多东西没有使用它。最大的担忧是，我似乎无法读到“Wordpress”这个名字，除非它后面跟着“妥协”，而且我不想让自己面临这种程度的风险。所以我向专家寻求替代方案。请使用简短的文字和初学者级别的解释，因为除了 Linux 文件系统导航和使用 AI 训练轮编辑 .yml 文件之外的任何内容对我来说基本上都是巫术。  所以对于这个博客我会倾向于极简主义。足以让我熟悉 Web 开发的概念、语言、术语和流程。它还有第三个功能，也许可以向招聘人员展示我的工作，希望将职业转变为入门级 IT。由于我的年龄是进入这个领域的人的两倍，所以我想把自己展示为一个自动启动者，从头到尾了解事物是如何工作的。 以下是我（认为）我想要的东西：  初学者可以破译的绝对轻量级和成熟的过程。 免费或接近托管。  防呆和防弹安全。自托管是一种选择，但我有一个最小的安全堆栈，如果我的十年前的 PC 服务器上出现了某些问题，我的解决方案包括擦除操作系统并从头开始，因为我很无知。  除了一堆过时的文本帖子和偶尔的图片之外，我不会有任何其他东西。就我的目的而言，它不必是最先进的。事实上，越简单越好，但我确实想擅长设计一个具有一定视觉吸引力的布局，比如背景颜色、标题等，你知道的，基础知识。  与企业相关的工作流程和可转移技能。我知道这可能与我刚才所说的一切相矛盾，而且它不太重要，所以我把它放在最后。但如果我不必学习民用流程，那就太好了，然后如果我的梦想成真并且我找到了一份 IT 工作，就必须克服习得的习惯才能完成这份工作。   就是这样，真的。到目前为止，在我的粗略搜索中，我知道我会从 Cloudflare 获取该域名，因为它具有安全优势，但我不知道还需要什么才能将这个难题拼凑起来。  谢谢！   由   提交/u/Junction91NW   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tbbzvj/creating_a_blog_to_document_my_homelab_learning/</guid>
-      <pubDate>Tue, 12 May 2026 19:28:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>目前哪些人工智能概念和工具确实值得学习？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb9x8n/what_ai_concepts_and_tools_are_actually_worth/</link>
-      <description><![CDATA[嘿大家， ​现在涌现的大量人工智能工具和概念让我感到有点不知所措。我来自旧的开发时代，我们只是手工完成工作或使用正常的传统设置。 ​我并不打算追逐 Twitter 上发布的每一个闪亮的新工具。我只是想确保我了解最新情况，并且不会错过那些可以合理地提高我日常工作流程效率的事情。 ​当我坐下来列出要学习的内容以升级我的工具箱时，我完全陷入了困境。最近出现了很多术语，例如 mcps、克劳德代码、克劳德技能等等。 ​有人能给我一个高级概述或一个简单的要点清单，列出我应该实际学习并放入工具箱的基本概念和工具吗？我只是想把时间集中在那些经过验证、能增加实际价值的东西上。 ​提前感谢您的帮助。   由   提交/u/neuralandmad   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb9x8n/what_ai_concepts_and_tools_are_actually_worth/</guid>
-      <pubDate>Tue, 12 May 2026 18:16:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我在使用 Next.js、Socket.io 和 Flutter 构建实时系统时学到的一些东西</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb8nqr/some_things_i_learned_building_realtime_systems/</link>
-      <description><![CDATA[最近我花了很多时间尝试实时通信系统和工作流程繁重的应用程序。 令我惊讶的一件事是，一旦多个客户端同时交互，状态同步就会变得多么困难。很多工作最终都不是与 UI 相关的，而是处理： - 重新连接行为， - 重复事件， - 不一致的客户端状态， - 乐观更新， - 快速交互过程中的类似竞争条件的问题。 我还花了很多时间改进： - 上传响应能力， - API/状态一致性， - 随着项目的发展，前端结构， - 跨多个设备调试实时流。 大部分堆栈都是围绕以下构建的： - Next.js， - Node.js + Socket.io， - MongoDB， - 和用于移动实验的 Flutter。 很好奇这里的其他开发人员如何处理实时同步和大量通信工作流程，特别是当项目开始扩展到简单演示之外时。   由   提交 /u/MathiRaja   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb8nqr/some_things_i_learned_building_realtime_systems/</guid>
-      <pubDate>Tue, 12 May 2026 17:34:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么一些大网站（例如 YouTube）从不要求进行人类验证码验证，而另一些网站（例如 Google）则要求进行验证？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb7yzn/why_some_big_sites_youtube_for_example_never_asks/</link>
-      <description><![CDATA[我经常在非 google-chrome 浏览器上使用匿名选项卡进行基本网络搜索（google 搜索、duckduckgo 以及搜索产生的许多较小网站），并且经常要求我解决验证码问题，通常是在非专有时使用 cloudfare 验证。但这种情况永远不会发生在 youtube.com 上，当然也不会发生在其他流量较大的网站（twitch、microsoft.com 等）上。 YouTube 和 google 之所以不同，是因为它们是同一家公司，但肯定还有很多其他例子。 TL;DR;为什么一些流量很大的网站从不使用验证码/人工验证，而其他网站却这样做？   由   提交/u/NaoVouNao   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb7yzn/why_some_big_sites_youtube_for_example_never_asks/</guid>
-      <pubDate>Tue, 12 May 2026 17:10:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>找到一个网站，你可以在其中粘贴 GitHub 存储库，获取人工智能尝试运行它的视频，甚至可以烘烤它，哈哈。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb6ys3/found_a_website_where_you_just_paste_a_github/</link>
-      <description><![CDATA[   我一直在尝试一种工具，可以将 GitHub 存储库转换为人工智能代理试图运行它们的解说视频。你输入一个存储库 URL，它会在沙箱中启动一个代理，然后你会看到整个过程的简短视频：克隆、npm install 痛苦、框架 CLI、浏览器输出、错误、重试等。 我在一个随机的 GitHub 存储库上测试了它，“请残酷地烘烤这个存储库”，代理仅根据它实际经历的内容来进行设置和 DX。它出人意料地擅长揭示“在我的机器上运行”的假设，而您在自己的项目中不会注意到这些假设。 如果您想了解您的网络存储库对新机器+半脾气暴躁的机器人的感觉如何，请访问以下网站：https://go.videodb.io/TryMyRepoRe。   由   提交 /u/CallmeAK__   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb6ys3/found_a_website_where_you_just_paste_a_github/</guid>
-      <pubDate>Tue, 12 May 2026 16:36:10 GMT</pubDate>
-    </item>
-    <item>
-      <title>每次人工智能碰壁时，我们都会从代码质量和基础知识开始得到这些“也许质量不重要”，还记得“你不需要学习基础知识......”吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb3h8q/every_time_the_ais_hit_a_wall_we_get_these_maybe/</link>
-      <description><![CDATA[    /u/HiddenGriffin   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb3h8q/every_time_the_ais_hit_a_wall_we_get_these_maybe/</guid>
-      <pubDate>Tue, 12 May 2026 14:35:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Tanstack 遭到破坏：检查您现在是否受到影响</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tb2wmz/tanstack_getting_wrecked_check_if_youre_affected/</link>
-      <description><![CDATA[另一个很好的 ol NPM 供应链黑客。最近这种情况越来越多地发生——节点世界的可怕时刻。  https://thehackernews.com/2026/05/mini-shai-hulud-worm-compromises.html https://www.youtube.com/watch?v=cUSKmWK5peA   由   提交 /u/StrictWelder   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tb2wmz/tanstack_getting_wrecked_check_if_youre_affected/</guid>
-      <pubDate>Tue, 12 May 2026 14:14:10 GMT</pubDate>
     </item>
     </channel>
 </rss>
