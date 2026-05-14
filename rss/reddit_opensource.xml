@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Thu, 14 May 2026 14:25:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 17:04:50 GMT</lastBuildDate>
+    <item>
+      <title>boxpdf：小型开源布局 DSL，用于在 JS 运行时生成 PDF</title>
+      <link>https://www.reddit.com/r/opensource/comments/1td2y44/boxpdf_tiny_opensource_layout_dsl_for_generating/</link>
+      <description><![CDATA[我发布了 boxpdf，这是一个 MIT 许可的小型 TypeScript 库，用于在 pdf-lib 之上使用简单的 box-layout DSL 生成 PDF。 它解决的问题：pdf-lib 非常适合服务器端/边缘 PDF 生成，但是使用原始坐标编写 PDF 很快就会过时，而且机器人不擅长。  boxpdf 为您提供 PDF 的 Flexbox-lite 原语： - vstack / hstack 布局 - 真正的文字换行 - 图像、水平/垂直线、链接 - 带页眉/页脚的分页 - keepTogether 块 - 可重用主题 - 复制粘贴收据、发票、简历、证书、登机牌模板，等 - CLI 脚手架：npx boxpdf initreceipt --out src/pdf/receipt.ts 专为 JS 运行时和边缘函数而构建，其中无头浏览器或本机 PDF 工具很烦人/不可能：  Node 18+ - Cloudflare Workers Deno 浏览器 Supabase边缘 核心路径不需要 Chromium、没有本机依赖、不需要 WASM。输出只是一个 Uint8Array，因此您可以将其写入磁盘、R2/S3，或从响应返回它。 安装： npm install boxpdf pdf-lib Repo：https://github.com/earonesty/boxpdf 实时画廊/模板：https://earonesty.github.io/boxpdf/ 我特别希望得到在无服务器/边缘环境中生成 PDF 的人们的反馈，因为这就是推动我做到这一点的原因。    由   提交/u/earonesty   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1td2y44/boxpdf_tiny_opensource_layout_dsl_for_generating/</guid>
+      <pubDate>Thu, 14 May 2026 16:14:21 GMT</pubDate>
+    </item>
     <item>
       <title>对于开源工具的预算，我有哪些代码签名选项？</title>
       <link>https://www.reddit.com/r/opensource/comments/1tcz5fk/what_are_my_options_for_code_signing_on_a_budget/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[大家好， 我们刚刚发布了LyteNyte Grid v2.1。虽然这在技术上是一个次要版本，但它为网格引入了一些非常重要的补充。 新增内容  表达式：我们添加了一个通用表达式引擎和一个专用表达式编辑器组件。表达式可用于高级过滤、计算单元格公式和其他动态逻辑。虽然它们与 LyteNyte Grid 无缝集成，但表达式是独立的，可以在整个应用程序中重复使用。 单元格范围选择现在免费：根据社区反馈，单元格范围选择已移至免费的核心版本中。我们感谢迄今为止收到的所有反馈，并且始终愿意听取更多反馈。 代理编码技能支持：随着人工智能辅助开发变得越来越普遍，我们在 Core 和 PRO 版本中添加了对 LyteNyte Grid 的官方技能支持。现在，您可以使用代理编码工具更快地搭建和构建复杂的网格实现，而 LyteNyte Grid 则负责处理性能、状态管理和可访问性方面的繁重工作。  此版本中没有重大更改，而且我们已经在开发更多功能。 我们最近还通过了npm 每周下载量达到 10,000 次，这对我们来说是一个巨大的里程碑。感谢所有尝试过网格、分享反馈、报告问题或贡献想法的人。微小的互联网号码。人类实现的现代替代品。 我们所有的源代码都可以在 GitHub 上公开获取。如果您觉得这有帮助并且喜欢我们正在构建的内容，GitHub 星星会为您提供帮助。随时欢迎提供功能建议和代码贡献。 https://github.com/1771-Technologies/lytenyte 您还可以在此处尝试现场演示： https://www.1771technologies.com/demo   由   提交/u/After_Medicine8859  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1t904dk/lytenyte_grid_21_out_expressions_ai_skills_and/</guid>
       <pubDate>Sun, 10 May 2026 07:25:46 GMT</pubDate>
-    </item>
-    <item>
-      <title>reddirect - 无需 API 密钥即可工作的 Reddit MCP 服务器（MIT、TypeScript）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1t8xp6w/reddirect_reddit_mcp_server_that_works_without/</link>
-      <description><![CDATA[我开源了一个不需要 API 密钥或应用程序注册的 Reddit MCP 服务器。 所有其他 Reddit MCP 服务器都要求您在 Reddit 上注册应用程序，获取客户端 ID 和密钥，并配置 OAuth。这个跳过了所有这些。 工作原理：  读取使用 Reddit 的公共匿名 OAuth 授权。零配置。 写入使用一次性 Chrome 登录。服务器使用调试端口启动 Chrome，您登录后，它会通过 Chrome DevTools 协议提取会话 JWT。没有浏览器自动化框架，没有扩展。  统计：  19 个 MCP 工具（浏览、搜索、发布、回复、投票、保存、收件箱、订阅） 2 个运行时依赖项 TypeScript，MIT 许可 没有 Playwright，没有 Puppeteer，没有可供下载的 Chromium 二进制文件  回购： https://github.com/jeebus87/reddirect 欢迎提供反馈，特别是关于身份验证方法。 Reddit 主动阻止非浏览器 HTTP 客户端的登录 API（返回 403），因此找到一种无需 Playwright 或注册应用程序即可进行身份验证的方法是主要的工程挑战。   由   提交/u/jeebus87  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1t8xp6w/reddirect_reddit_mcp_server_that_works_without/</guid>
-      <pubDate>Sun, 10 May 2026 05:15:27 GMT</pubDate>
     </item>
     </channel>
 </rss>
