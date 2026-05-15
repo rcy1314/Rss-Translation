@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 15 May 2026 16:55:21 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 19:47:11 GMT</lastBuildDate>
+    <item>
+      <title>拆分和清理具有混乱命名和库覆盖的 15k 行 SCSS 文件的最佳方法？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te5o84/best_way_to_split_and_clean_a_15k_line_scss_file/</link>
+      <description><![CDATA[大家好， 我需要一些关于如何清理和拆分大型 15,000 行 SCSS 设置的建议。 我正在开发一个巨大的 React 应用程序，该应用程序有一个经过多年构建的 15,000 行 SCSS 文件。它把所有东西混合在一起——页面样式、共享样式、PrimeReact 覆盖、实用程序类、旧的遗留代码、大量嵌套类、重复项等。一些 PrimeReact 覆盖嵌套在随机父类中，而另一些则是全局的。 现在命名也很混乱。泛型类已在完全不相关的地方重用，因此类名本身不再可靠，并且重构感觉有风险。我也很确定存在大量无效 CSS，但我不知道如何在这么大的应用程序中安全地识别它。 该项目太大，无法为每个组件突然重写或拆分为单独的 SCSS 文件，因此我试图在不破坏 UI 的情况下找出现实的清理策略。对于大型 Web 应用程序来说，逐页拆分似乎不是一个好主意，而且在这种情况下也非常困难。 以前有人处理过类似的事情吗？你会如何开始处理它？请各位高手指导一下，如何分割以及取出什么。    由   提交 /u/AromaticCitron7440   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te5o84/best_way_to_split_and_clean_a_15k_line_scss_file/</guid>
+      <pubDate>Fri, 15 May 2026 18:58:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>NGINX 代理管理器背后的 WordPress</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te4spp/wordpress_behind_nginx_proxy_manager/</link>
+      <description><![CDATA[      大家好。有人使用 NGINX 代理管理器配置过 WordPress 吗？ 我和我的团队正在尝试向我们的网站添加博客。我们已经有一个在“domain.com”上运行的 NextJS 页面。并希望将博客添加到“domain.com/blog”。 我们使用 Docker Compose 安装了 WordPress，并尝试使用代理管理器对其进行配置。 我们在 NGINX 上创建了自定义位置，以便 /blog/ 为我们的 WordPress 容器提供服务，但在尝试访问该路由时收到错误请求。 我们还添加了“定义”路由docker-compose.yml 中容器声明的规则。 ``` docker-compose.yml services: wordpress: image: wordpress restart: always ports: - &quot;8080:80&quot;环境： WORDPRESS_DB_HOST：db WORDPRESS_DB_USER：dbuser WORDPRESS_DB_PASSWORD：&#39;pass&#39; WORDPRESS_DB_NAME：db WORDPRESS_CONFIG_EXTRA：|定义(&#39;WP_HOME&#39;, &#39;https://domain.com/blog&#39;);定义(&#39;WP_SITEURL&#39;, &#39;https://domain.com/blog&#39;); if (isset($_SERVER[&#39;HTTP_X_FORWARDED_PROTO&#39;]) &amp;&amp; $_SERVER[&#39;HTTP_X_FORWARDED_PROTO&#39;] === &#39;https&#39;) { $_SERVER[&#39;HTTPS&#39;] = &#39;on&#39;; } 网络: - 默认卷: - wordpress:/var/www/html - ./wordpress.htaccess:/var/www/html/.htaccess db: image: mysql:8.0 restart: 总是环境: MYSQL_DATABASE: db MYSQL_USER: dbuser MYSQL_PASSWORD: &#39;pass&#39; MYSQL_RANDOM_ROOT_PASSWORD: &#39;1&#39; 网络: - 默认卷: - db:/var/lib/mysql nginx: 容器名称: nginx 镜像: jc21/nginx-proxy-manager:最新重启: 除非停止端口: - &#39;80:80&#39; - &#39;81:81&#39; - &#39;443:443&#39; 网络: - 默认卷: - ./data:/data - ./letsencrypt:/etc/letsencrypt 网络: 默认: 外部: false 卷：wordpress：db：```` ``` .htaccess 开始 WordPress ; RewriteEngine On RewriteBase /blog/ RewriteRule index.php$ - [L] RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule 。 /blog/index.php [L]  END WordPress ```   由   提交 /u/gawr-fiude   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te4spp/wordpress_behind_nginx_proxy_manager/</guid>
+      <pubDate>Fri, 15 May 2026 18:26:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>我痴迷于拥有一个干净的代码库，即使人工智能也对我没有多大帮助。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te3ktg/im_obsessed_about_having_a_clean_codebase_that/</link>
+      <description><![CDATA[我想我一直遇到这个问题。我将从事一个项目，最初的目标是“好吧，让我们构建一个 MVP”，但是当我构建它时，我发现事情开始看起来很混乱，所以我会花一两天的时间重构一些东西，并确保布局干净且易于理解。因此，我最初认为可以在几周内完成原型设计，结果变成了几个月。 现在我已将人工智能融入到我的工作流程中。我不会让它盲目地添加自己的代码，我有一个非常具体的规则集，我会审查所有内容，然后再次重构。我认为与人工智能合作会极大地改善我的工作流程，但说实话，就我的接线方式而言，事实并非如此。我必须以非常具体的方式完成事情，并且我必须测试 100 次之类的事情，边缘情况可能是不可能的，但即使发生了 0.5%，我也会想“是的，这还不够好，我需要以一种考虑到这一点的方式来构建它”。 我希望我的心态不是这样的，因为我能够运送更多的东西，即使只用AI，我就是无法让自己去运送垃圾！或者我认为是狗屎。 我讨论这个话题的原因是几周前我从另一家公司接手了一个代码库，这家公司让我的客户陷入了困境。半完整的 CMS，到处都是错误，我的客户每天都在赔钱，我只是不明白怎么有人能提供这些狗屎。代码库的状态令人难以置信，而且我认为一半只是人工智能生成的。人们对自己的工作没有自豪感吗？我知道我们这样做都是为了获得报酬，但我仍然很难理解如何有人能够交付我正在开发的这个项目并认为它已经完成。   由   提交/u/artFlix  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te3ktg/im_obsessed_about_having_a_clean_codebase_that/</guid>
+      <pubDate>Fri, 15 May 2026 17:44:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>需要帮助构建电影网站 API、数据库和自动电影列表</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te34jr/need_help_building_a_movie_website_api_database/</link>
+      <description><![CDATA[大家好， 我正在构建一个电影网站作为个人项目，但我一直困惑于如何正确扩展和自动化它。我希望这里有人能引导我走向正确的方向。 我正在创建一个像 moviebox,123movies 这样的电影网站，用户可以在其中浏览电影、查看详细信息和观看。 到目前为止我所做的： - 学习如何使用 TMDB 等 API 来获取电影数据 - 了解如何嵌入 YouTube 预告片 我在哪里卡住了： 大型电影网站如何自动获取数千部电影并不断更新它们？ 构建或同步电影数据库的最佳方式是什么（API、抓取与自动化）？ 这些网站如何管理如此多数据的快速加载？ 此类项目通常使用哪些工具或后端系统？ 我不明白： 它们如何自动填充和更新大型电影数据库？ 他们只使用 API、抓取还是自定义后端？ 他们如何在如此多的数据下保持一切快速？ 这种系统通常使用什么架构？ 我并不是想复制任何东西 - 只是了解这些系统实际上是如何大规模构建的。 任何解释或指导都会真正有帮助   由   提交/u/Jontentet  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te34jr/need_help_building_a_movie_website_api_database/</guid>
+      <pubDate>Fri, 15 May 2026 17:28:39 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们也避免周五发货吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te2oo9/do_u_avoid_shipping_on_fridays_too/</link>
+      <description><![CDATA[我是工程师，通常尽量不在周四/周五推送任何代码更改，以避免周末产品问题带来的噩梦....但有时产品时间表并不关心..哈哈..工程师哈哈..所以想知道作为开发人员最糟糕的噩梦是什么？   由   提交 /u/Common_Dream9420   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te2oo9/do_u_avoid_shipping_on_fridays_too/</guid>
+      <pubDate>Fri, 15 May 2026 17:13:34 GMT</pubDate>
+    </item>
     <item>
       <title>我正在构建可能是下一个大型人工智能节点网站制作者</title>
       <link>https://www.reddit.com/r/webdev/comments/1te1kgn/i_am_building_probably_the_next_big_ai_node/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[我正在处理一个项目，该项目专注于使通信 API 更简单、更实惠，一个用于 Whatsapp、SMS 和电子邮件的 API。 我很想听听其他创始人和开发人员的意见： -您使用 API（尤其是消息/通信 API）的真实经验是什么？ -您不断遇到哪些挑战、集成难题、文档差距、定价、可靠性？ -如果您可以改变一件事以使 API 提供最大的满意度，那会是什么？   由   提交 /u/Amifidele   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tdqas4/whats_been_your_toughest_challenge_with_apis_and/</guid>
       <pubDate>Fri, 15 May 2026 08:40:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>CSS 中的表格数字</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdkuo0/tabular_numbers_in_css/</link>
-      <description><![CDATA[      默认情况下，许多字体使用比例数字：1 较窄，8 较宽，并且当值更改时整个数字会发生变化。  tabular-nums 使每个数字占据相同的水平空间，因此数字保持其形状并且右边缘保持稳定。 遗憾的是，我无法上传视频来展示差异，但您可以在此处播放我创建的一个小演示。   由   提交/u/wanoo21  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdkuo0/tabular_numbers_in_css/</guid>
-      <pubDate>Fri, 15 May 2026 03:52:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>我应该使用人工智能建立我的作品集网站吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdkdfk/should_i_build_my_portfolio_website_using_ai/</link>
-      <description><![CDATA[嘿，所以我（20M）是一名市场营销专业的学生，我并不是真的想从事网络开发工作，我只是想知道建立我自己的投资组合网站的最佳行动方案，我将在其中出售我自己的视频编辑预设，因为我做自由职业，我想让我的页面和品牌随着时间的推移而成长，我定期获得客户，我想了解如何使用人工智能构建和维护网站的基础知识只是，我还没有考虑雇用一个免费的编码员来建立我的网站，因为我认为它可能会很昂贵，所以我想自己学习这个，因为暑假我有足够的时间来研究这个，只是不知道从哪里开始 我的网站可以是超级极简主义，并且用户友好，所以这里和那里有一些吸引人的动画，这将是最重要的，只是一些垂直展示我自己的工作，以前的客户以及支付网关人们购买产品   由   提交/u/JIGSAW_OP   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdkdfk/should_i_build_my_portfolio_website_using_ai/</guid>
-      <pubDate>Fri, 15 May 2026 03:29:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>“人工智能”对软件工程行业的危险</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdk871/the_perils_of_ai_to_the_software_engineering/</link>
-      <description><![CDATA[ 由   提交/u/abednego-gomes   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdk871/the_perils_of_ai_to_the_software_engineering/</guid>
-      <pubDate>Fri, 15 May 2026 03:22:45 GMT</pubDate>
-    </item>
-    <item>
-      <title>数字资产管理平台？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdi0zc/digital_asset_management_platforms/</link>
-      <description><![CDATA[有人遇到过新的数字资产管理系统吗？我在 Box、Google Drive、Sharepoint、Canto 上有客户。我更喜欢标签、过滤器和集合的想法（类似于 Shopify 产品）。有一个客户使用我喜欢的 Bynder，但价格昂贵，每年约 2 万美元以上。 Frontify 看起来也处于类似的情况。在开源方面，ResourceSpace 看起来像是一个选择，只是不太现代。看起来每个人和他们的兄弟都在编写 CRM 代码，但没有看到很多经济实惠的 DAM 系统的选择，我可以在其中连接到自己的服务器或将内容存储在 R2 上。    由   提交/u/mlphoto   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdi0zc/digital_asset_management_platforms/</guid>
-      <pubDate>Fri, 15 May 2026 01:44:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>有人有需要帮助的项目吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdhsox/anyone_have_a_project_they_need_help_on/</link>
-      <description><![CDATA[我每天都会为某人的新项目完成 1 或 2 个任务。    由   提交 /u/Competitive_Guess552   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdhsox/anyone_have_a_project_they_need_help_on/</guid>
-      <pubDate>Fri, 15 May 2026 01:33:46 GMT</pubDate>
     </item>
     </channel>
 </rss>
