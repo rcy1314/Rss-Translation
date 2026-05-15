@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 15 May 2026 19:47:11 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 22:03:11 GMT</lastBuildDate>
+    <item>
+      <title>发布了实时复制交易平台（Next.js 15 + FastAPI + Polygon） - 这是架构</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te9or1/shipped_a_realtime_copytrading_platform_nextjs_15/</link>
+      <description><![CDATA[刚刚推出了针对 Polymarket 预测市场的复制交易平台 v2。认为该架构可能很有趣：  前端：Next.js 15 App Router，服务器/客户端组件拆分用于即时加载.tsx 骨架，直接来自 Polymarket CLOB 的 WebSocket 实时价格 后端：具有后台数据构建器的 FastAPI（Redis 中的预计算提要 + 排行榜，端点是在 &lt;200 毫秒内响应的瘦读者） 钱包：Privy 嵌入式钱包TEE 安全密钥、EIP-712 订单签名、通过桥 API 进行多链存款 复制引擎：每 4 秒轮询领导者活动、根据领导者的实际投资组合价值按比例调整规模、通过 Privy Signer 进行服务器端签名  真正的挑战是保持实时价格准确 - Polymarket 的 Gamma API 明显落后于他们的 CLOB，因此我们构建了一个 3 层定价系统（WebSocket 中点 → CLOB 书本步行 → Gamma 回退）。 https://www.polyman.fun   由   提交/u/polymanAI   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te9or1/shipped_a_realtime_copytrading_platform_nextjs_15/</guid>
+      <pubDate>Fri, 15 May 2026 21:24:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建需要基本交互式地图的网站：我应该在 S3 存储桶中自行托管地图图块数据，还是应该使用一些现有的地图图块数据提供程序？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te96mu/building_a_website_that_needs_a_basic_interactive/</link>
+      <description><![CDATA[这是我第一次参与使用交互式地图的项目。这对我来说完全是陌生的领域，但我的理解是你需要 2 个核心组件：  实际的“地图渲染”和JS 小部件； “地图图块”您输入此地图渲染小部件的数据。  我检查了大约六家主要/最受欢迎的地图图块数据提供商的定价，对我来说，与我实际的简单需求相比，定价似乎贵得离谱。我不需要任何高级功能，例如 GPS 路线功能、计算自行车道长度的功能 - 我只需要一个基本的交互式地图，我将在其上叠加一些内容。 我的“地图渲染”计划是：一方面是只使用免费的开源提供商，例如 Leaflet 或 MapLibre（我可能会选择后者，因为它似乎更“现代”/功能丰富的选项）。 对于“地图图块”，它的价格令人难以置信。我能找到的最便宜的供应商大约是每 1000 个瓷砖 0.04 美元。问题是……即使是单个用户的一次会话也很容易消耗 1000 个图块：如果一个人在交互式地图上放大、缩小、移动，则消耗的图块数量很容易达到 1000 个 - 这意味着我们正在讨论每个高度参与的会话潜在的美元成本为 0.05 美元 - 0.10 美元，这是疯狂的。 从“第一原则”来看它。从我的角度来看，这种基本地图数据似乎不应该这么昂贵。特别是对于像我自己这样的非常简单的用例，我不明白为什么存储/交付它的美元成本应该远远高于仅存储/传输简单图像数据的成本 - 事实上，我的使用非常简单，我可能可以使项目仅使用每个地图图块的纯图像快照即可工作。 在我看来，只要我能够在 S3 存储桶内以所需的格式下载和存储所需的图块......数据”不应该太大，特别是因为我的项目总共只需要 7 或 8 个缩放级别。因此，如果我们谈论的是所有地图数据的 100 GB 存储成本，那么唯一真正的美元成本是下载每个会话所需的任何图块的传输成本（这里我们谈论的是，从 S3 到网站的每 GB 传输成本为 0.10 美元。） 只要我能够以所需的格式有效下载和存储所需的地图数据，然后能够将其输入到其中一个地图渲染中提供商......以邪恶的上帝的名义，为什么任何企业都会花这么多钱来使用这些地图数据瓦片提供商，因为与自我托管和自我交付这些东西相比，它们的价格如此之高？   由   提交/u/the_king_of_goats  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te96mu/building_a_website_that_needs_a_basic_interactive/</guid>
+      <pubDate>Fri, 15 May 2026 21:05:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>我使用 Claude 在 2 天内构建了一个实时选举仪表板。它在不花钱的情况下处理了 24K 访客的 430K 请求</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te8jnu/i_used_claude_to_build_a_live_election_dashboard/</link>
+      <description><![CDATA[      泰米尔纳德邦于 5 月 4 日举行州选举。我想看看是否可以建立一个比现有网站更好的结果网站（那里的所有内容都充满广告、速度缓慢且无法在移动设备上使用）。 于 5 月 2 日开始建设，Claude 作为我的编码伙伴。约束条件：不花任何钱。零托管、零域、零数据库。 解决方案最终变得非常简单。我笔记本电脑上的 Python 脚本从选举委员会抓取所有 234 个选区页面（他们没有 API，只有原始 HTML 页面），将数据拼接在一起，并将其推送到 Cloudflare 的免费键值存储。他们的 CDN 为全球每个人提供服务。浏览器每 30 秒刷新一次。 在选举日，它的流量比我预期的要多得多。 24K 访客、430K 请求、8.7 GB 带宽、24 个国家/地区。我的爬虫使用997那天写道。免费套餐限额为 1,000。剩余三笔写入。 最疯狂的部分是实时发布功能。人们在统计过程中不断询问，“你能显示势均力敌的比赛吗？”，“统计了多少百分比？”，我会在 5 分钟内部署它。当天有 60 多次提交。克劳德编写了代码，我决定要构建什么以及推送是否安全。 如果有人感兴趣，可以在博客中写下整个故事。评论中的链接。   由   提交/u/Naive-Performance-18  [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te8jnu/i_used_claude_to_build_a_live_election_dashboard/</guid>
+      <pubDate>Fri, 15 May 2026 20:41:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果你想要振动，帮自己一个忙</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te8hfu/if_you_are_gonna_vibe_do_yourself_a_favor/</link>
+      <description><![CDATA[我们有一个为期 1 年的 vivi 编码代码库，它最初是作为一个业余爱好项目，并在这一年中不断发展。现在没有正确的类型定义，没有正确的结构，如果你问另一个开发人员数据如何流动，他们不知道，事情是多余的。当你想修复某些东西时，以后调试会变得非常困难。添加功能实在是太难了  如果你的代码库结构正确，如果你在代码库中有固执己见的模式，那么使用代理进行结对编程就可以很好地工作，但如果你不这样做，那就会很麻烦 如果你想在编写代码时给自己一个帮助，至少让自己做出这些设计决策，了解数据在代码库中如何流动，决定使用什么模式。    由   提交 /u/Ok-Programmer6763   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te8hfu/if_you_are_gonna_vibe_do_yourself_a_favor/</guid>
+      <pubDate>Fri, 15 May 2026 20:39:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>创意开发者路径建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1te7uym/creative_developer_path_advice/</link>
+      <description><![CDATA[大家好， 我目前正在努力弄清楚我的 Web 开发职业生涯的下一步 - 在过去的两年里我一直在前端 Web 开发中学习/工作。完成了 6 个月的强化课程，此后完成了一些自由职业，但一直没能找到一份全职工作（仅仅一年多的搜索、数百份申请、10-20 次面试） 我的背景是动画/动态图形，这是我真正喜欢融入网络项目的东西，通常更多是在创意方面。鉴于我对此的兴趣和热情，我一直在努力发展自己和作为“创意开发人员”的技能 - 学习 Three.js、gsap 和其他运动/创意代码库。我认为创意开发人员最理想的职位似乎是数字/设计机构的职位，但由于经验很少，很难获得这些职位。  与此同时，我觉得我的一般软件工程基础比应有的要弱。在编码面试中，我往往会遇到困难，而且我发现学习更高级的 JavaScript/React/TypeScript 概念有时相当困难。 我希望得到一些建议：  “创意开发人员”在 2026 年仍然是一条现实的道路，还是对初级人员来说太小众？ 对于代理/创意开发工作来说，您的核心 CS/工程技能实际上需要多强？ 当事情不再适合初学者时，是什么帮助您在 JavaScript/React 方面做得更好？ 您会专注于构建出色的作品集项目，还是优先考虑面试式学习 + 基础知识？  感谢您的阅读！   由   提交/u/tacoman756  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1te7uym/creative_developer_path_advice/</guid>
+      <pubDate>Fri, 15 May 2026 20:16:19 GMT</pubDate>
+    </item>
     <item>
       <title>拆分和清理具有混乱命名和库覆盖的 15k 行 SCSS 文件的最佳方法？</title>
       <link>https://www.reddit.com/r/webdev/comments/1te5o84/best_way_to_split_and_clean_a_15k_line_scss_file/</link>
@@ -62,13 +97,6 @@
       <pubDate>Fri, 15 May 2026 14:48:38 GMT</pubDate>
     </item>
     <item>
-      <title>r/webdev 和 tech twitter 目前的绝对状态</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdwrtd/the_absolute_state_of_rwebdev_and_tech_twitter/</link>
-      <description><![CDATA[      由   提交/u/Happy_Macaron5197  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdwrtd/the_absolute_state_of_rwebdev_and_tech_twitter/</guid>
-      <pubDate>Fri, 15 May 2026 13:42:51 GMT</pubDate>
-    </item>
-    <item>
       <title>作为高级前端开发人员感到沮丧，下一步应该做什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1tdvgx8/feeling_down_as_senior_frontend_dev_what_should/</link>
       <description><![CDATA[最近我们公司在工作场所引入了人工智能，它正在完成我大约 60% 的日常工作。现在我看不到前端开发的任何未来，并且对整个事情感到非常沮丧。 我正在寻找通过自我提升来前进的建议，但我不确定我应该采取什么方向... 任何有类似状态的人都可以提出建议吗？ 谢谢   由   提交 /u/nofaceD3   [链接] [评论]]]></description>
@@ -81,34 +109,6 @@
       <description><![CDATA[我不是在谈论编码本身，而是在多年的现场团队问题、不断变化的技术、倦怠、糟糕的架构决策、管理压力等之后真正令人沮丧的事情。好奇随着经验的积累，什么会变得更困难而不是更容易。   由   提交/u/BizAlly  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tdrud7/for_those_with_10_years_in_software_engineering/</guid>
       <pubDate>Fri, 15 May 2026 10:07:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>研究人工智能对经验较少和经验丰富的开发人员的影响的调查</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdropz/survey_for_researching_the_effects_that_ai_has/</link>
-      <description><![CDATA[您好！我正在瑞典完成系统开发学士学位论文，我需要一些开发人员（初级或高级）来回答我的调查！任何答案都会有很大帮助！提前致谢 :) https://forms.gle/yb7bc4DSbou4xdac7 此外，如果有人对发布调查的任何其他合适位置有任何提示，请与我分享该信息。将会非常有帮助！   由   提交/u/Linky97  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdropz/survey_for_researching_the_effects_that_ai_has/</guid>
-      <pubDate>Fri, 15 May 2026 09:59:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>我做了一件事</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdrlcy/i_did_a_thing/</link>
-      <description><![CDATA[我一直对新西兰的财富不平等感到沮丧，所以我制作了一个信息图表网站。我用克劳德聊天来帮助组织和设计东西，但我觉得我终于成功地使用了人工智能作为一种工具。无论如何，仍在解决一些问题，尤其是在移动设备上。    由   提交/u/Quiet_Drummer669988  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdrlcy/i_did_a_thing/</guid>
-      <pubDate>Fri, 15 May 2026 09:54:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>.md 还是 .html？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdqzr0/md_or_html/</link>
-      <description><![CDATA[看到越来越多的人转向使用 HTML 来查看文档、笔记、博客和静态网站，而其他人仍然坚持使用 Markdown 以方便使用。 那么您会选择什么？   由   提交/u/sanki_hacker  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdqzr0/md_or_html/</guid>
-      <pubDate>Fri, 15 May 2026 09:19:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>您在 API 方面遇到的最严峻的挑战是什么？什么可以让它们变得更好？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tdqas4/whats_been_your_toughest_challenge_with_apis_and/</link>
-      <description><![CDATA[我正在处理一个项目，该项目专注于使通信 API 更简单、更实惠，一个用于 Whatsapp、SMS 和电子邮件的 API。 我很想听听其他创始人和开发人员的意见： -您使用 API（尤其是消息/通信 API）的真实经验是什么？ -您不断遇到哪些挑战、集成难题、文档差距、定价、可靠性？ -如果您可以改变一件事以使 API 提供最大的满意度，那会是什么？   由   提交 /u/Amifidele   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tdqas4/whats_been_your_toughest_challenge_with_apis_and/</guid>
-      <pubDate>Fri, 15 May 2026 08:40:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
