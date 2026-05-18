@@ -4,7 +4,35 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sun, 17 May 2026 22:02:53 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 04:06:38 GMT</lastBuildDate>
+    <item>
+      <title>告诉我值得吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgbbp1/tell_me_its_worth_it/</link>
+      <description><![CDATA[      有人告诉我，我这样做的方式是正确的，这比“我告诉克劳德给我做一个超级酷的网站，拥有所有最新的 React 功能，然后把它卖给当地企业，赚了 20000 美元，现在和女性一起参加派对”要好。社交媒体帖子。    由   提交/u/roylost1129  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgbbp1/tell_me_its_worth_it/</guid>
+      <pubDate>Mon, 18 May 2026 04:02:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>我停止构建“WordPress 网站”并开始构建 API 优先后端</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgager/i_stopped_building_wordpress_sites_and_started/</link>
+      <description><![CDATA[我一直在重新思考作为一名独立开发人员如何构建 WordPress 项目，我很好奇这里的其他人是如何实现这一目标的。 上下文： 我为动物收容所和救援建立网站。最初，我正在构建传统的 WordPress 网站，其主题与后端紧密耦合。我构建的项目越多，我就越发现同样的问题： * 后端逻辑基本保持不变 * 前端需求不断变化 * 每次重新设计都会成为部分重建 因此，我开始尝试将 WordPress 视为一个应用程序后端，而不是“网站”。 当前架构： * TrueNAS 服务器 * Docker + Docker在监狱内撰写 * 一个用于路由的全局 Traefik 实例 * 每个项目都隔离在自己的存储库 + 撰写堆栈中 * VS Code 从我的 Mac 远程 SSH（在家 + 通过 Tailscale 随时随地） * WordPress 充当无头/API 优先后端 * React/Next.js 前端使用自定义 REST API 而不是公开原始数据WP post结构，我正在构建一个专用的API层： /wp-json/shelter/v1/animals /wp-json/shelter/v1/animals/{id} 该插件包含： * CPT + 分类 * 生命周期/业务逻辑 * 转换器/视图模型 * 查询层 * REST 控制器 前端仅使用稳定的 JSON 合约。 这意味着： * 我可以在不接触后端逻辑的情况下交换前端 * 为同一个后端构建多个前端设计 * 最终将插件发展为 SaaS/API 产品 我现在也在积极地分离存储库： ```txt /workspace/projects/ ├──animal-shelter-plugin/ ├──shell-backend/ ├──shell-next-frontend/ ├──client-a/ └──client-b/ ``` 可重用插件独立于客户端项目。 最令我惊讶的是： 一旦你不再将其视为渲染引擎并开始将其视为基础设施，WordPress 实际上会变得更加干净。 好奇： * 这里的其他人也是这样使用 WP 的吗？ * 你是如何构建多项目 Docker 开发环境的？ * 你会保持 REST 优先还是立即转向 WPGraphQL？ * 在使用 WordPress 时，您遇到过 API 优先的任何重大陷阱吗？ 真诚地希望得到这条道路上的人们的反馈。   由   提交 /u/Ok-Nerve7307   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgager/i_stopped_building_wordpress_sites_and_started/</guid>
+      <pubDate>Mon, 18 May 2026 03:20:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>直接在 PDF.js 中进行实验性本机文本编辑</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tg6az1/experimental_native_text_editing_directly_inside/</link>
+      <description><![CDATA[大家好， 我一直在 PDF.js 中尝试本机文本编辑： https://rewirepdf.com/web/viewer.html?file=/web/demo/tracemonkey.pdf 存储库： https://github.com/RabbitHols/pdf.js 这个想法是从实际的 PDF 内容流中编辑文本，使用 PDF.js 作为查看器和交互层，而不是在页面顶部放置视觉叠加层。 原型目前非常有限。它主要在捆绑的 Tracemonkey PDF 上进行了测试，支持保守的单行/源支持的编辑，并在无法证明底层 PDF 源可安全编辑时拒绝编辑。 这不是一个完整的 PDF 编辑器。它更像是一个研究原型，旨在探索 PDF.js 是否可以公开足够的源/布局信息来支持浏览器中的真实文本编辑。   由   提交/u/pucyta   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tg6az1/experimental_native_text_editing_directly_inside/</guid>
+      <pubDate>Mon, 18 May 2026 00:10:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>你们在后端监控哪些核心指标？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tg4d1f/what_core_metrics_do_you_guys_monitor_in_the/</link>
+      <description><![CDATA[嗨，我正在研究后端，你们在 Datadog、Grafana 等中监控哪些核心指标？比如端点的速度、死锁等？   由   提交 /u/badboyzpwns   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tg4d1f/what_core_metrics_do_you_guys_monitor_in_the/</guid>
+      <pubDate>Sun, 17 May 2026 22:46:21 GMT</pubDate>
+    </item>
     <item>
       <title>实现成为全栈 Web 开发人员的梦想的下一步是什么？</title>
       <link>https://www.reddit.com/r/webdev/comments/1tg25i2/what_are_the_next_steps_toward_the_dream_of/</link>
@@ -69,13 +97,6 @@
       <pubDate>Sun, 17 May 2026 13:29:43 GMT</pubDate>
     </item>
     <item>
-      <title>正在做一个迷你项目，想知道这个设计/它们叫什么？老实说，我不知道我是否喜欢它，因为它实际上看起来不错，或者因为它很容易制作</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tfodce/was_working_on_a_mini_project_and_wondered_what/</link>
-      <description><![CDATA[       由   提交/u/Accurate-Custard7232   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tfodce/was_working_on_a_mini_project_and_wondered_what/</guid>
-      <pubDate>Sun, 17 May 2026 12:37:06 GMT</pubDate>
-    </item>
-    <item>
       <title>客户想要一个栗色、黄色、白色、绿色托盘的场地。我怎样才能让它看起来好看？</title>
       <link>https://www.reddit.com/r/webdev/comments/1tfnvju/client_wants_a_site_in_maroon_yellow_white_green/</link>
       <description><![CDATA[我目前正在为人力资源公司的客户构建一个网站，他们希望它看起来很专业，有干净的动画等。我用白色和黑色交替的背景制作了它，文本为黑色、白色和金色，它看起来像咨询网站一样优质。客户之前没有告诉我颜色，所以我做了我认为看起来不错的颜色。  现在客户想要使用栗色、黄色、白色和绿色调色板，但无论我尝试哪种色调，看起来都不太好。有什么办法可以让它看起来好看吗？或者我应该实现他想要的东西并向他展示它看起来有多糟糕哈哈。   由   提交 /u/Lone_Lunatic   [链接] [评论]]]></description>
@@ -88,27 +109,6 @@
       <description><![CDATA[又一个没有展示我的大项目的周末.. 我已经在某件事上工作了几年，但我害怕展示它。我构建了一些自定义开发工具来帮助构建我的大项目，我认为开发工具最终可能比我的项目更令人印象深刻，idk。我正在寻找建议来测试我的工具，看看我是否真的拥有某些东西。我了解规则，现​​在不会链接任何内容，我可能会做几个视频，或者可能只是写一篇关于我能够完成的事情的好论文类型的帖子。我能够构建我想要构建的东西，并对我想要构建的东西进行逆向工程，嗯？什么？不，我没有这么说......:) 那么......你的测试是什么？    由   提交/u/mr_happy_nice  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tfntoo/challenges_for_next_showoff_saturday_test_my_tools/</guid>
       <pubDate>Sun, 17 May 2026 12:12:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>完全定制的高性能堆栈有市场吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tfnjl3/any_market_for_a_fully_custom_highperformance/</link>
-      <description><![CDATA[对于一家初创公司，我需要一个具有基本前端的高性能市场模拟器的概念验证。我对 Web 开发一无所知，所以我只是用我所知道的 C++ 来完成整个事情。 所以整个后端是一个带有我自己的内存数据库的 C++ Web 服务器。前端做了一些最小的 HTML+CSS+javascript 的东西。重点是，作为一个 1 人团队，我能够在 3-4 周内快速启动一个复杂概念的工作原型。 显然，这是一个高度非标准的解决方案，没有人希望在产品环境中使用它，但我正在研究以某种方式重用它的想法。也许另一家初创公司也需要一个快速而肮脏的原型？我知道人工智能改变了游戏规则，所以快速原型设计现在几乎不存在了。  你们觉得怎么样？   由   提交 /u/CaptainCheckmate   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tfnjl3/any_market_for_a_fully_custom_highperformance/</guid>
-      <pubDate>Sun, 17 May 2026 12:00:08 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果没有补偿/引用模型，谷歌如何期望开放网络能够在人工智能概述中生存下来？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tfm3et/how_does_google_expect_the_open_web_to_survive_ai/</link>
-      <description><![CDATA[最近的数据显示，由于人工智能概述，有机点击率直线下降（一些报告称，顶级位置的点击率高达 58%），网络的核心激励正在崩溃。 是否有关于抓取内容的“按引用付费”或收入分享模式的认真讨论？因为我绝对不会仅仅为了作为免费的训练数据和 Gemini 的基础而构建原创的网络工具或编写深入的技术内容。 Google 正在投资数十亿美元的基础设施来综合我们的工作，同时却缺乏资源。如果他们不开始分享广告收入或支付引用费用，那么独立网络开发还有什么意义呢？你们是在转向封闭内容，还是只是转变您的项目？   由   提交 /u/chiqui3d   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tfm3et/how_does_google_expect_the_open_web_to_survive_ai/</guid>
-      <pubDate>Sun, 17 May 2026 10:48:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>大多数不懂技术的人是否认为 Al 生成的网站看起来不错，或者 Al-fatigue 还没有赶上他们吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tflbfd/do_most_non_tech_savvy_people_think_algenerated/</link>
-      <description><![CDATA[你甚至不需要有 webdev 的背景就可以立即识别 Al 生成的。我相信你们大多数人已经知道我在说什么了。这就引出了一个问题，为什么现在有这么多人。  为什么餐馆或水管工要为看起来“现代”的网站付费。 SaaS 哈哈？   由   提交 /u/crashoutvalid   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tflbfd/do_most_non_tech_savvy_people_think_algenerated/</guid>
-      <pubDate>Sun, 17 May 2026 10:06:02 GMT</pubDate>
     </item>
     </channel>
 </rss>
