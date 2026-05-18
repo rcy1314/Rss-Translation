@@ -4,7 +4,77 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Mon, 18 May 2026 10:14:48 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 15:44:18 GMT</lastBuildDate>
+    <item>
+      <title>GitHub 有一个严重的虚假参与问题，我想通过公共 API 看看它实际上有多明显，它比我掉进兔子洞后想象的更糟糕......</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgqe45/github_has_a_serious_fake_engagement_problem_and/</link>
+      <description><![CDATA[结果：非常明显。昨天的扫描发现，单个存储库的 185 名参与者中有 185 名是机器人。不是90%。不是“大部分可疑”。每一个。该存储库的合法星星数为零。 我构建的内容 phantomstars 是一个每天通过 GitHub Actions 运行的 Python 工具（免费，无服务器）：  抓取 GitHub 趋势并搜索过去 7 天内创建的带有突然星星峰值的存储库 从每个存储库的过去 24 小时中提取星星和分叉事件 通过 GraphQL API 批量获取每个参与者的个人资料（帐户创建日期、关注者计数、回购历史记录） 根据加权模型对每个帐户进行评分：帐户年龄 (35%)、个人资料完整性 (30%)、回购模式 (25%)、活动历史记录 (10%) 使用时间戳聚类和并集查找来检测协调的活动：在某个活动中参与活动的 4 个以上可疑帐户组成的组3 小时窗口 直接在目标存储库上提出问题，以便维护人员知道发生了什么  活动 ID 是排序成员集的确定性 SHA-256 指纹，因此同一组机器人在运行中获得相同的 ID。即使个人帐户被暂停，您也可以在多天内跟踪农场。 模式实际上是什么样的 它非常一致。原始数据中的虚假参与活动：  40-200 个帐户，全部在同一个 1-2 周的窗口内创建 零个原始存储库，或者只有他们从未接触过的分支 没有简介，没有位置，没有关注者，没有关注 所有这些帐户都在 90 分钟的窗口内以同一个存储库为主角 目标存储库通常有一个暗示其名称的名称工具、黑客、执行者或生成器  今天的扫描：分析了 3,560 个帐户中的 53 个活跃活动。第798章 被归类为likely_fake。目标回购大多是低质量的人工智能工具和“执行器”。需要快速制造可信度的软件。 通知受影响的存储库 当存储库达到 40% 以上的虚假参与率或检测到活动时，phantomstars 会在该存储库上打开一个问题，并提供完整的可疑表：帐户登录、创建日期、综合分数、活动成员资格。维护者可以在自己的问题跟踪器中看到它，而不必先找到这个项目。 值得注意的是：很多这些存储库都禁用了问题，这本身就是一个危险信号。这些都会被默默地跳过。 我为什么要构建这个 星星是开发人员决定评估什么、依赖什么、推荐什么的方式。当该信号被购买时，它会影响下游的实际决策。一开始是出于对这个问题的可衡量性的好奇。答案比我预期的更容易衡量。 这是 JS Labs 对 AI slop 分布进行更广泛研究的一部分：https://labs.jamessawyer.co.uk/ai-slop-intelligence-dashboards/ 虚假参与问题和AI内容质量问题确实是同一个问题。假明星是在真实用户面前获取垃圾的分发层。 全部开源。每次运行后，数据都是仅追加的 JSONL 提交回存储库，可使用 jq 进行查询。 存储库： https://github.com/tg12/phantomstars 结果是概率性的，存在误报，自述文件解释了完整的评分模型。如果您的帐户出现并且您是真人，则存在误报过程。 欢迎就检测方法、GraphQL 批处理或活动 ID 稳定性提出问题。   由   提交 /u/SyntaxOfTheDamned   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgqe45/github_has_a_serious_fake_engagement_problem_and/</guid>
+      <pubDate>Mon, 18 May 2026 15:40:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人通过加密货币获得报酬吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgphry/anyone_getting_paid_by_crypto/</link>
+      <description><![CDATA[计划接受来自世界各地的客户的加密付款。 有什么建议吗？    由   提交 /u/East-Armadillo-1166   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgphry/anyone_getting_paid_by_crypto/</guid>
+      <pubDate>Mon, 18 May 2026 15:09:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个爬虫来检查导航标签是否与页面内容匹配 - 寻找技术反馈</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgpav3/i_built_a_crawler_that_checks_whether_nav_labels/</link>
+      <description><![CDATA[我正在测试一个小型网络质量检查想法，希望获得技术反馈。 大多数工具都会检查损坏的链接、SEO、Lighthouse 分数或可访问性等内容。 我想检查一些不同的内容： 当用户单击导航项时，目标页面是否确实与标签匹配？ 示例： - “日历”可能应该包含日历/日期/事件相关的 UI -“账单”可能应该包含发票、计划、付款方式或账单历史记录 -“员工”可能应该包含员工记录、角色、状态或联系方式 -“文档”可能应该包含文件、文件夹、上传/下载操作等。 所以我构建了 TemplateQA。 它抓取网站导航，扫描最多 10 个同域页面，提取标题/按钮/表单/表格/文本，然后使用 AI 将每个页面分类为： - 好 - 弱 - 损坏 - 重复 它还会为每个弱/损坏页面生成建议的修复提示。 免费 v1： https://template-qa.vercel.app/ 我正在寻找有关该方法的 sp,e amswers：  将导航标签与页面内容进行比较实际上有用吗？ 什么边缘情况会使这种方法不可靠？ 您会在启动前质量检查或客户交接？ 您希望报告显示什么内容才能使其值得信赖？    由   提交/u/TacticianTFT   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgpav3/i_built_a_crawler_that_checks_whether_nav_labels/</guid>
+      <pubDate>Mon, 18 May 2026 15:02:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个 Chrome 扩展程序来同时预览多个设备</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgnhtx/i_built_a_chrome_extension_to_preview_multiple/</link>
+      <description><![CDATA[      大家好， 在处理我的一个项目时，我一次又一次地遇到同样的问题：检查多个设备上的响应性花费了太多时间。 我会进行一个小的 UI 更改，它在桌面上看起来很好，但在移动设备上会出现问题。然后我会修复手机，平板电脑就会失效。它变成了调整浏览器大小、切换设备模式和一次测试一个屏幕尺寸的循环。 我尝试寻找可以让这一切变得更容易的工具，但大多数工具要么一次只显示一台设备，要么不太符合我想要查看 UI 的方式。 因此我构建了多设备查看器，这是一款 Chrome 扩展程序，可让您在一个视图中并排预览多个设备。 它有助于：  同时查看多个设备 测试移动设备、平板电脑、桌面和自定义屏幕尺寸 更快地发现响应式布局问题 无需不断调整大小或切换选项卡即可查看 UI 更改  如果您尝试一下，我很乐意听到您的反馈。  https://preview.redd.it/xcmut88gjw1h1.png?width=2048&amp;format=png&amp;auto=webp&amp;s=12ae7f192ffd867547b4a942c39f637ee1de578e https://chromewebstore.google.com/detail/multi-device-viewer/jfcnekmenjickfihkniaoaklehjmdhdb?authuser=0&amp;hl=en-GB   由   提交/u/StrangeRevolution604  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgnhtx/i_built_a_chrome_extension_to_preview_multiple/</guid>
+      <pubDate>Mon, 18 May 2026 13:58:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>Next.js 遭到破坏；我如何适应最近的网络开发安全形势。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgmlj1/nextjs_got_wrekt_how_im_adapting_to_recent_web/</link>
+      <description><![CDATA[就个人而言 -- 我已经不再使用框架了。我已经改变了我的堆栈（希望）能给我完全的可见性和控制力。我最近的构建方式绝对是对老派的颂歌。 我一直很喜欢——Go、Gomponents、http/net、redis、postrgreql，具有渐进增强策略和非常防御性的编程。 我不相信任何魔法，也不认为“它更容易”。值得了。你不同意吗？您正在使用什么进行构建，最近是否遇到过恐慌时刻？ https://www.youtube.com/watch?v=y5tlwWVYPek   由   提交 /u/StrictWelder   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgmlj1/nextjs_got_wrekt_how_im_adapting_to_recent_web/</guid>
+      <pubDate>Mon, 18 May 2026 13:25:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果您正在运行 Claude 代码，请在框中运行它 · cekrem.github.io</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tglzi4/if_youre_running_claude_code_please_run_it_in_a/</link>
+      <description><![CDATA[       由   提交 /u/cekrem   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tglzi4/if_youre_running_claude_code_please_run_it_in_a/</guid>
+      <pubDate>Mon, 18 May 2026 13:02:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>浏览器选项卡中类似 Linux 的内核 - 深入探讨 BrowserPod 架构</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgknp4/a_linuxlike_kernel_in_a_browser_tab_deep_dive_in/</link>
+      <description><![CDATA[       由   提交/u/alexp_lt  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgknp4/a_linuxlike_kernel_in_a_browser_tab_deep_dive_in/</guid>
+      <pubDate>Mon, 18 May 2026 12:08:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>电子邮件发送服务</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgj42p/email_sender_services/</link>
+      <description><![CDATA[亲爱的网络开发人员，您好！想问一下你们的电子邮件发送服务是什么？目前使用 Sendgrid(Twillio)，无法准确解释我的感受。听说了一些关于 Resend 的好消息   由   提交/u/Greedy-University-79   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgj42p/email_sender_services/</guid>
+      <pubDate>Mon, 18 May 2026 10:59:40 GMT</pubDate>
+    </item>
+    <item>
+      <title>我已经厌倦了使用 Shopify/Webflow/Woo 进行客户端构建。有人找到更好的东西了吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgihui/im_so_done_with_shopifywebflowwoo_for_client/</link>
+      <description><![CDATA[咆哮传入。我经营一家小型电子商务机构（只有我+一名开发人员+一名设计师），我对当前的选择失去了理智。 Shopify：我建立了一个漂亮的商店，将其移交给客户，客户会说“酷，谢谢，我们将从这里管理它。” 20%的合伙人佣金也是个笑话？我需要 600 多个推荐客户才能使这一目标变得有意义。与此同时，Shopify 的品牌无处不在，客户在下次网站更新时忘记了我的存在。  Webflow： 在一个月内达到 CMS 限制。老实说，这不是电子商务的最佳选择。这对于登陆页面等营销网站来说很好，但当你尝试对产品做任何实际的事情时，它就会崩溃。 WooCommerce：插件更新轮盘赌。周六凌晨 2 点，主题在结帐时中断，客户尖叫，我正在免费调试别人的意大利面条代码，因为“它昨天还可以工作”。当然，我开始收取维护费，但这对于花很少的钱来说太方便了。  Duda：尝试过白标角度。然后他们在零警告的情况下提高了每个站点的定价。而且布局系统是如此严格，你无法做任何看起来实际上是定制的事情。而且他们的商业功能充其量只是中等。 --- 我真正想要的是：我可以将我的品牌放在上面，保持运营控制，并真正建立经常性收入，而不是一劳永逸的项目费用。基本上，我控制的基础设施不会让我看起来像别人平台的经销商。 有人找到适合这个的东西吗？   - 理想情况下是由独立黑客或真正关心的小团队构建的东西。  -我并不是在寻找另一个由风险投资资助的平台，该平台将在两年内变得更加强大，并且只会考虑股东价值。   - 预算也很友好。我不想为 3 人代理机构支付企业定价。 接受奇怪的答案。自托管、无头、白标等等。我厌倦了每次交付项目时都感觉自己在打造别人的品牌。   由   提交/u/khalilliouane  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgihui/im_so_done_with_shopifywebflowwoo_for_client/</guid>
+      <pubDate>Mon, 18 May 2026 10:29:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何跟踪扩展程序的免费试用？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tgi8rb/how_do_you_keep_track_of_free_trials_on_extensions/</link>
+      <description><![CDATA[我要求用户在安装我的扩展程序后登录，以便我可以启动 30 天的试用期，但我相信必须登录才能使用/探索他们刚刚安装的东西的这种摩擦会导致人们放弃。 我不确定纯本地的东西是否有效，因为删除扩展程序时所有本地存储都会被擦除，因此他们只需删除并重新安装扩展程序即可获得另外 30 天的试用期。 有办法解决这个问题吗？   由   提交 /u/abimon123   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tgi8rb/how_do_you_keep_track_of_free_trials_on_extensions/</guid>
+      <pubDate>Mon, 18 May 2026 10:16:25 GMT</pubDate>
+    </item>
     <item>
       <title>iOS Safari：以网络表单拍摄多张照片不断取代第一张照片</title>
       <link>https://www.reddit.com/r/webdev/comments/1tghpp6/ios_safari_taking_multiple_photos_in_a_web_form/</link>
@@ -39,76 +109,6 @@
       <description><![CDATA[      我今天在铁路部署中遇到了一个奇怪的问题，经过几个小时的调试后，看起来问题实际上可能是 JioFiber DNS。 我的应用程序域： `https://Z****i-production.up.railway.app` 问题： * Railway 仪表板显示域正确 * 部署正常 * 公共 DNS 解析器工作 * 但 JioFiber 上的浏览器 + 系统 DNS 失败 此失败： ```powershell nslookup Z****i-production.up.railway.app ``` 输出： ```powershell *** reliance.reliance 找不到 Z****i-Production.up.railway.app：查询被拒绝 ``` 但是这些工作完美： ```powershell nslookup Z****i-Production.up.railway.app 1.1.1.1 nslookup Z****i-Production.up.railway.app 8.8.8.8 ``` 两者都正确解析为铁路 IP。 第二次我启用 Cloudflare WARP 时，一切立即开始工作。 所以现在我想知道： * JioFiber 是否过滤/阻止铁路域？ * 这是 Reliance DNS 上的 IPv6 解析器问题吗？ * 铁路的 DNS 传播吗与某些印度 ISP 不兼容？ * 还有其他人在使用 Railway.app、Vercel、Render、Fly.io 等时遇到此问题吗？ 很想知道印度的其他人是否也遇到同样的问题。 更新：还通过屏幕截图、PowerShell DNS 测试和 X/Twitter 上的网络比较记录了该问题： https://x.com/frpboy/status/2056270368458121371?s=20 如果 JioFiber + Railway 上的其他人可以测试并确认他们是否看到相同的行为，将会很有帮助。   由   提交/u/Dazzling_Kangaroo_69   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tgd4ks/is_jiofiber_blocking_or_breaking_railwayapp_paas/</guid>
       <pubDate>Mon, 18 May 2026 05:32:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>嘿！我很抱歉也不好意思问这个问题，但如果您愿意为任何空缺的 APM/PM 职位提供工作推荐，请私信我。非常迫切地寻找 APM 工作。 🙏🏻</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tgc4t1/hey_im_sorry_and_embarrassed_to_ask_this_but_if/</link>
-      <description><![CDATA[刚刚完成二级学院的 MBA 课程，急需尽快寻找 AssociatePM 职位。有人愿意为我提供 Associate ProdMan 职位的推荐和/或线索吗？ 伙计们，距离我完成产品管理和产品管理 MBA 课程已经三周了。业务分析，说实话，寻找工作的压力越来越大。  我有不错的个人资料，包括 B2B 客户交付背景、共同创办 B2C 初创公司、独立构建 AI 产品（面试教练（PayPal 旗下）、临床副驾驶、自动化代理）。  我很有能力，我知道我能胜任这份工作；我只需要射击。如果您所在的公司正在招聘 APM，或者您认识可能会招聘 APM 的人，请私信我。我会立即把我的简历投过去。  说真的，任何线索都有帮助。 🙏  提前谢谢大家！   由   提交/u/krakakhed712   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tgc4t1/hey_im_sorry_and_embarrassed_to_ask_this_but_if/</guid>
-      <pubDate>Mon, 18 May 2026 04:42:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>迷失并寻求帮助。</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tgbrdd/lost_and_seeking_help/</link>
-      <description><![CDATA[我是前端开发新手。我已经学习了 GSAP 和 Three.js 的基础知识，并且还尝试过使用着色器。 现在我想开始自己构建项目，但我不知道如何继续。每当我试图思考构建什么或如何分解东西时，我就是想不出任何东西。 感觉我在学习时过于依赖教程，结果变成了这样。 我觉得我现在可能无法自己创建项目，我感觉有点失落。 有人可以帮助我吗？我该怎么办？   由   提交 /u/Stock-Scallion2271   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tgbrdd/lost_and_seeking_help/</guid>
-      <pubDate>Mon, 18 May 2026 04:23:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>告诉我值得吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tgbbp1/tell_me_its_worth_it/</link>
-      <description><![CDATA[      有人告诉我，我这样做的方式是正确的，这比“我告诉克劳德给我做一个超级酷的网站，拥有所有最新的 React 功能，然后把它卖给当地企业，赚了 20000 美元，现在和女性一起参加派对”要好。社交媒体帖子。    由   提交/u/roylost1129  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tgbbp1/tell_me_its_worth_it/</guid>
-      <pubDate>Mon, 18 May 2026 04:02:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>我停止构建“WordPress 网站”并开始构建 API 优先的后端</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tgager/i_stopped_building_wordpress_sites_and_started/</link>
-      <description><![CDATA[我一直在重新思考作为一名独立开发人员如何构建 WordPress 项目，我很好奇这里的其他人是如何实现这一目标的。 上下文： 我为动物收容所和救援建立网站。最初，我正在构建传统的 WordPress 网站，其主题与后端紧密耦合。我构建的项目越多，我就越发现同样的问题： * 后端逻辑基本保持不变 * 前端需求不断变化 * 每次重新设计都会成为部分重建 因此，我开始尝试将 WordPress 视为一个应用程序后端，而不是“网站”。 当前架构： * TrueNAS 服务器 * Docker + Docker在监狱内撰写 * 一个用于路由的全局 Traefik 实例 * 每个项目都隔离在自己的存储库 + 撰写堆栈中 * VS Code 从我的 Mac 远程 SSH（在家 + 通过 Tailscale 随时随地） * WordPress 充当无头/API 优先后端 * React/Next.js 前端使用自定义 REST API 而不是公开原始数据WP post结构，我正在构建一个专用的API层： /wp-json/shelter/v1/animals /wp-json/shelter/v1/animals/{id} 该插件包含： * CPT + 分类 * 生命周期/业务逻辑 * 转换器/视图模型 * 查询层 * REST 控制器 前端仅使用稳定的 JSON 合约。 这意味着： * 我可以在不接触后端逻辑的情况下交换前端 * 为同一个后端构建多个前端设计 * 最终将插件发展为 SaaS/API 产品 我现在也在积极地分离存储库： ```txt /workspace/projects/ ├──animal-shelter-plugin/ ├──shell-backend/ ├──shell-next-frontend/ ├──client-a/ └──client-b/ ``` 可重用插件独立于客户端项目。 最令我惊讶的是： 一旦你不再将其视为渲染引擎并开始将其视为基础设施，WordPress 实际上会变得更加干净。 好奇： * 这里的其他人也是这样使用 WP 的吗？ * 你是如何构建多项目 Docker 开发环境的？ * 你会保持 REST 优先还是立即转向 WPGraphQL？ * 在使用 WordPress 时，您遇到过 API 优先的任何重大陷阱吗？ 真诚地希望得到这条道路上的人们的反馈。   由   提交 /u/Ok-Nerve7307   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tgager/i_stopped_building_wordpress_sites_and_started/</guid>
-      <pubDate>Mon, 18 May 2026 03:20:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>你们在后端监控哪些核心指标？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tg4d1f/what_core_metrics_do_you_guys_monitor_in_the/</link>
-      <description><![CDATA[嗨，我正在研究后端，你们在 Datadog、Grafana 等中监控哪些核心指标？比如端点的速度、死锁等？   由   提交 /u/badboyzpwns   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tg4d1f/what_core_metrics_do_you_guys_monitor_in_the/</guid>
-      <pubDate>Sun, 17 May 2026 22:46:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>实现成为全栈 Web 开发人员的梦想的下一步是什么？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tg25i2/what_are_the_next_steps_toward_the_dream_of/</link>
-      <description><![CDATA[我最近在 Udemy 上完成了 Angela Yu 的全栈 Web 开发训练营。我认为这对于从头开始的人来说是一门很好的课程，这正是我的情况。 在整个课程中，我了解了以下技术和概念：HTML、CSS、Flexbox、Grid、Bootstrap、JavaScript、DOM、jQuery、Unix 命令行、Node.js、Express、EJS、Git 和 GitHub、REST API、SQL、PostgreSQL、身份验证和安全性 — 包括使用 bcrypt、Google OAuth、会话和 cookie 进行哈希和加盐 —最后是 React。 我已经利用从训练营获得的知识成功构建了一些自己的项目，但我想继续学习和进步。我相信课程中涵盖的大部分内容都停留在初级和中级水平之间。尤其是 React，我觉得这种方法更具介绍性。 这一点变得更加明显，因为训练营没有深入解释如何将 React 与课程中涵盖的其他技术集成，例如 Node.js/Express 后端、REST API 和 PostgreSQL 数据库。 无论如何，我想在学习中不断进步。我打算更多地了解 React、Next.js（这似乎与 React 一起很有意义）以及测试和部署。我的目标是获得构思和开发完整 Web 应用程序的能力，从最初的想法一直到在云中的生产环境中运行它。 我的问题如下：  为了实现掌握使用 React、Next.js、测试和部署进行全栈开发的目标，我的下一步可能是什么？参加全栈开放、学习几门前端大师课程或走另一条路会更值得吗？我愿意接受建议。 我对如何使用我在训练营中获得的知识来实现​​全栈应用程序有疑问：React + Node.js + Express + PostgreSQL。前端使用React时，后端如何与前端通信？我是否需要知道如何使用 React 中的 Fetch API 来处理与 Express/Node.js 中内置的 API 的通信？我的印象是训练营中缺少这部分。    由   提交 /u/Reasonable_Ninja6455   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tg25i2/what_are_the_next_steps_toward_the_dream_of/</guid>
-      <pubDate>Sun, 17 May 2026 21:17:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>对域名购买有点困惑</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tg1511/a_little_confused_on_domain_purchasing/</link>
-      <description><![CDATA[你好，我一直在想建立一个网站，只是我和朋友之间的一个玩笑，域名不是除了我之外任何人都想要的，所以我并不着急 但是我困惑的是，购买域名如何运作？你可以直接购买它们吗？或者您租用域名吗？您需要自己托管网站吗？ 也欢迎推荐网站创建工具（对任何与人工智能相关的东西不感兴趣）   由   提交 /u/Sansational-user   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tg1511/a_little_confused_on_domain_purchasing/</guid>
-      <pubDate>Sun, 17 May 2026 20:39:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>DDD 和六边形架构困境</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tg10ol/ddd_hexagonal_architecture_dilemma/</link>
-      <description><![CDATA[嘿！我开始学习六角架构和 DDD，并决定从理论跳到实践。 到目前为止，我已经开发了一个微服务，并将其分为三层：域、应用程序和基础设施。在域方面，我创建了聚合及其实体和值对象。据我了解，端口应该是处理与域通信的接口，它们有两种类型：输入（驱动程序）和输出（驱动）。用例应该充当实现输入端口并使用输出端口来使操作成为可能的端到端，而不会扰乱域逻辑（我读过贫乏域模型）。 对我来说似乎很奇怪的一件事是在输入端口方面，许多开发人员为每个操作创建一个单独的接口。我理解接口隔离原则，但这种实现感觉有点极端。我更愿意将所有相关操作分组到一个接口中，就像在控制器中所做的那样。 另一个令人困惑的地方与 DTO（数据传输对象）有关。首先，许多验证变得多余，因为它已经在域实体/VO 级别进行了处理。其次，在 DTO 中不使用值对象感觉很奇怪。尽管人工智能建议这可能会导致序列化问题，但我不认为仅仅在其中添加属性并手动重复所有内容有什么意义。 适配器部分对我来说很有意义，尽管我不同意“实现端口”的定义，除了输出端。在输入方面，我将它们更多地视为适配器模式，它基本上使两个不兼容的事物兼容，充当REST、DB等的翻译器。 此外，基础设施实体是否应该简单地引用VO和其他基础设施实体，对吗？很多东西，比如地址，现在都将在实体级别引入冗余。通常如何处理？ 此外，在应用程序层，端口实际上应该按域分组还是混合在一起？ DTO 也有同样的问题。 考虑到与我在文章/书籍/教程中读到的内容的差异，也许你们中的一些人有更多的实践经验，可以告诉我您如何看到这些场景在生产中正确且可扩展地实现。 谢谢！   由   提交 /u/FooBarBuzzBoom   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tg10ol/ddd_hexagonal_architecture_dilemma/</guid>
-      <pubDate>Sun, 17 May 2026 20:34:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>我的 Chrome 扩展程序在 3 天内从每周 200 个用户增加到 1,500 个，安装量、页面浏览量、展示次数都正常。这是怎么回事？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tfwsfs/my_chrome_extension_went_from_200_to_1500_weekly/</link>
-      <description><![CDATA[   大约 2.5 个月前，我构建了一个小型标签吊带 Chrome 扩展。有机增长稳定在每天 5-8 次安装，总用户数约为 200 名。 然后在 3 天内：200 → 520 → 999 → 1,511 周用户。其他一切都没有改变。安装量图表仍然显示 5-8 个/天。页面浏览量正常。印象正常。谷歌分析正常。没有新的流量来源。无广告。 Chrome 网上应用店将每周用户定义为“过去 7 天内加载该项目的 Chrome 浏览器的大致数量，包括启用、禁用和未知状态。” 我唯一的理论是组织/学校通过 Google 管理控制台强制安装，因为这些绕过了商店安装流程。 ChromeOS 确实在同一时间从 10% 跃升至 27%。但对于一个有 2 条评论的扩展来说，1,300 台设备似乎太大了。 有人经历过这种情况吗？ CWS 仪表板有时会出现这样的故障吗？我应该预期会回落吗？  https://preview.redd.it/fa0ggl8slq1h1.png?width=1354&amp;format=png&amp;auto=webp&amp;s=c3ae4820c67b53914353f4ce925b3e474af2edba   由   提交 /u/Puzzleheaded-Map1757   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tfwsfs/my_chrome_extension_went_from_200_to_1500_weekly/</guid>
-      <pubDate>Sun, 17 May 2026 18:00:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>Tarweb - io_uring、无系统调用、内核 TLS 静态 Web 服务器</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tfwgip/tarweb_the_io_uring_no_syscalls_kernel_tls_static/</link>
-      <description><![CDATA[       由   提交/u/Wise_Stick9613   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tfwgip/tarweb_the_io_uring_no_syscalls_kernel_tls_static/</guid>
-      <pubDate>Sun, 17 May 2026 17:47:56 GMT</pubDate>
     </item>
     </channel>
 </rss>
