@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 20 May 2026 22:26:32 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2026 04:09:19 GMT</lastBuildDate>
+    <item>
+      <title>用 Rust 制作了一个小型的可定制常规自动化引擎</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tj8t22/made_a_small_customisable_regular_automation/</link>
+      <description><![CDATA[嗨，我制作这个工具是因为我真的很喜欢自动化。我也不太喜欢电子应用程序，AHK 对我来说不适合这份工作。我已经厌倦了与 Windows 进行基本的系统自动化。 AHK 脚本在窗口失去焦点的那一刻就崩溃了，调度程序有时管理起来就是一场噩梦。  我称之为项目仲裁器，它基本上只是一个系统托盘应用程序，打开 api 并监听输入或文件，根据我的经验，它消耗大约 6-14 MB 的 RAM。 Arbiter 还有一个 forge ui 可执行文件，基本上允许用户起草和创建规则（法令）。还有许多其他上下文变量和安全相关的裁决。很高兴我启动并运行了这个应用程序，很想听听你们会说什么。 仓库：[Sid-352/Project-Arbiter：用 rust 编写的自动化引擎](https://github.com/Sid-352/Project-Arbiter)  许可证：MIT   由   提交/u/Tech_dude9133  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tj8t22/made_a_small_customisable_regular_automation/</guid>
+      <pubDate>Thu, 21 May 2026 03:49:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个开源气候数据浏览器，用于了解全球历史气温和降雨趋势</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tj5w67/i_built_an_opensource_climate_data_explorer_for/</link>
+      <description><![CDATA[我构建了一个免费的开源气候数据浏览器，可让您查找全球城市的长期温度、降雨量和气候趋势。 https://climateexplorer.net/ 它的一些功能：  显示每个城市的气候条纹、地图和图表位置 允许您选择并比较不同的数据集 搜索城市/位置（或浏览所有位置：https://climateexplorer.net/locations） “前 100 名”显示最强烈的变暖/变冷/降雨变化的图表 区域和全球观点，而不仅仅是本地观点：https://climateexplorer.net/regionalandglobal 开源：https://github.com/ledpup/ClimateExplorer  希望得到喜欢数据可视化、绘图和探索工具的人们的反馈。   由   提交/u/ledpup  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tj5w67/i_built_an_opensource_climate_data_explorer_for/</guid>
+      <pubDate>Thu, 21 May 2026 01:40:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Edge Core：用于分布式 Linux 队列的自托管代理优先控制平面</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tj1u2z/edge_core_a_selfhostable_agentfirst_control_plane/</link>
+      <description><![CDATA[嘿伙计们！我们终于开放了我们已经工作了一年多的东西的代码库。 我加入了一家公司，该公司花了 3 年（并且还在继续）尝试在锁定的边缘硬件上发布产品。每个产品都遇到同样的问题：部署和监控是一个黑匣子，同一 LAN 上的机器无法可靠地找到彼此，每个新应用程序都必须重新实现相同的 WS/MQTT 逻辑才能与云保持联系。 因此，我们构建了 Edge Core 来解决这些痛点。在 V1 中，我们使用 Headscale/Tailscale 作为 VPN。它主要用于我们想要的功能（远程执行、SSH、指标聚合等），但无法扩展到超过约 100 个节点（O(n2) 的网格爆炸），并且不同项目之间没有隔离（每个项目必须启动自己的核心，尽管 ACL 存在）。在 V2（当前版本）中，我们转向 Netmaker 以获得适当的网状/网络分段解决方案，添加了用于云到边缘通信的正向代理 + 动态代理链，并在顶部构建了整个编排层。 您可能感兴趣的一些内容： - API 优先控制平面和镜像完整 REST API 的 MCP 服务器，基本上每个 API 端点也是 AI 代理可以驱动整个队列的 MCP 工具。 - 集群 HTTP/SOCKS5 管理代理服务器允许通过简单的旧 HTTP 进行云到边缘的通信。 WS/MQTT 现在可以作为一个选项，而不是默认选项。您甚至可以代理链请求以到达 LAN 中的任何设备，甚至根本不参与系统。 - 通过管理员通过与 Prometheus 兼容的发现和抓取实现一流的队列指标聚合。 - 使用 7 个适配器实现异步事件的 Webhook 和事件代理集成：NATS、Kafka、AMQP 0.9.1/RabbitMQ、Redis、MQTT、AWS SNS 和 GCP Pub/Sub。 -控制平面的无主集群：没有（强）领导者选举，没有 Raft 共识。管理员通过内存注册表和 Postgres 进行协调。每个管理员运行相同的确定性分片算法并独立收敛。我们确实支持 Sqlite 进行小型部署，但当您稍后需要扩展时，它将无法集群。 - 代理和共享库是 Apache 2.0。管理员版本为 ELv2。 链接： - 仓库：https://github.com/wenet-ec/edge-core - 文档：https://wenet-ec.github.io/edge-core/ - 了解 Edge核心概念：https://wenet-ec.github.io/edge-core/guide/ - 架构：https://wenet-ec.github.io/edge-core/architecture/   由   提交 /u/Best_Recover3367   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tj1u2z/edge_core_a_selfhostable_agentfirst_control_plane/</guid>
+      <pubDate>Wed, 20 May 2026 22:49:21 GMT</pubDate>
+    </item>
     <item>
       <title>以下是开放交叉网络的发展历程</title>
       <link>https://www.reddit.com/r/opensource/comments/1tizkg9/heres_how_the_open_cross_network_is_coming_along/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[Radicle 是一个构建在 Git 之上的去中心化锻造，但它不是联合的，而是完全点对点的，即几乎无服务器。反过来，这也意味着它是本地优先的：只有检索或发送更改等操作才需要网络访问。存储库与签名密钥相关联，无论其存储在何处，都可以对其身份进行身份验证。除了您自己之外，没有人可以控制您的 Radicle 节点，任何第三方都无法从您的节点中删除存储库。 Radicle 已获得 MIT/Apache 许可，源代码可在以下位置找到：https://radicle.network 这篇文章是 2024 年发布的，您可以在以下位置找到更多文档：https://radicle.dev/guides （虽然资助机构是 Radworks（RAD 代币持有者可以参与治理，运营商可以质押代币并从网络用户那里获得补偿），但 Radicle 本身不使用任何区块链或加密货币技术。）   由   提交/u/esiy0676  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tgbwfs/radicle_peertopeer_collaboration_with_git/</guid>
       <pubDate>Mon, 18 May 2026 04:30:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了 cli 工具，用于搭建各种 js/ts 框架（如 vite/express/next），并配置其他工具，只需单击一下即可。</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tgbjz9/i_made_to_cli_tool_for_scaffolding_various_jsts/</link>
-      <description><![CDATA[      使用 pnpm 用 Nodejs 编写 通过运行尝试一下： npx rebar-js init Github npm 包链接   由   提交/u/_Introvert_boi   [link] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tgbjz9/i_made_to_cli_tool_for_scaffolding_various_jsts/</guid>
-      <pubDate>Mon, 18 May 2026 04:13:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>嘿伙计们！我创建了 Pixora，这是一款 Pixiv 桌面应用程序，是一款用于查看 Pixiv 收藏的一体化查看器！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tg7xmv/hey_folks_i_created_pixora_a_desktop_app_for/</link>
-      <description><![CDATA[大家好， 我一直在开发 Pixora，这是一个用于管理 Pixiv 艺术品收藏的桌面应用程序。它是免费、开源且独立的（无需 .NET 安装）。 它的作用： - 浏览您的提要、书签、关注的艺术家和排名 - 批量下载整个艺术家画廊 - 使用内容过滤器安排定期自动下载 - 多帐户支持 - 从侧边栏切换帐户 - 每个帐户下载设置（每个帐户不同的文件夹/模板） - 自动更新程序 - 检查新版本并一键安装 - FANBOX 支持 - 浅色/深色主题 使用 .NET 10 + Avalonia UI（跨平台）构建。 GitHub：https://github.com/pikura-app/pixora 最新版本：https://github.com/pikura-app/pixora/releases/latest 希望获得反馈 - 尤其是您下一步想要的功能。 一些屏幕截图： https://ibb.co/ynFxzy2N https://ibb.co/Hf805Chx https://ibb.co/ZzHFBShB https://ibb.co/VZ41n7x   由   提交/u/ThePokeMaster100  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tg7xmv/hey_folks_i_created_pixora_a_desktop_app_for/</guid>
-      <pubDate>Mon, 18 May 2026 01:24:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>去中心化网络的新设计</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tfxjzb/new_design_for_decentralised_network/</link>
-      <description><![CDATA[之前想到了一种去中心化网络的新设计，以减少查找其他节点信息所需的跳数。计算出每个节点应在网络中存储至少约 2 * ✓（总节点），这平均需要 2-3 跳才能在网络中查找另一个节点信息 我已将详细信息与 Rust 中的模拟代码一起放在 GitHub 存储库上，以演示其工作原理（如果运行它，请确保编译为发布模式） https://github.com/ybot01/lapapo-design 尝试自己实现它，但网络很痛苦，UDP、TLS、加密等，也许其他人想尝试在真实网络中实现它，而不仅仅是模拟网络 想法是让每个节点要么端口转发，要么可以选择将其他节点信息列为自己的，它们是您接收的代理如果无法进行端口转发，则为 UDP 数据包。仍然需要初始引导来获取初始节点信息 基本想法是使其像网络层一样，以便应用程序可以像 API 一样调用它在网络上的其他节点之间发送/接收数据，它将处理： -查找其他节点信息 -向它们发送数据 -在传输过程中加密的数据 -使用数字签名确认传送 -接收数据并确认传送 - 保持存储的节点信息最新 - 响应来自其他节点的节点信息搜索请求 Etc   由   提交/u/ybot01  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tfxjzb/new_design_for_decentralised_network/</guid>
-      <pubDate>Sun, 17 May 2026 18:27:48 GMT</pubDate>
     </item>
     </channel>
 </rss>
