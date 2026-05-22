@@ -4,7 +4,42 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 22 May 2026 09:37:15 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 14:49:11 GMT</lastBuildDate>
+    <item>
+      <title>我构建了一个免费的审核工具，在一次扫描中将 SEO/AEO/GEO 可见性与安全分析结合起来</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tkkczu/i_built_a_free_audit_tool_that_combines_seoaeogeo/</link>
+      <description><![CDATA[      我已经开发和测试了几个月，终于准备好分享了。 作为我日常工作的一部分，我为客户进行网络审核，而总是让我沮丧的是需要三到四个不同的工具才能获得完整的情况。一个用于 SEO 基础知识，一个用于安全标头，一个用于结构化数据，并且它们都不会相互通信。 所以我构建了 Canopy Guard。它针对任何域运行一次扫描，并对四个层进行评分：SEO（可抓取性、H1s、元、规范）、AEO（架构标记、常见问题解答 JSON-LD、问答密度）、GEO（AI 模型如何分块和引用您的内容、llms.txt 状态）和安全性（TLS、所有六个关键标头、AI 抓取策略、公开端点）。 我对反馈最感兴趣的部分是交叉参考情报部分。它将可见性侧的发现与安全性侧进行映射，并显示仅存在于重叠中的间隙。例如，如果您的 robots.txt 是允许的，但您没有 llms.txt，则 AI 抓取工具会在没有任何引用指导的情况下提取您的内容。 SEO 工具和安全工具都不会单独标记这一点。 技术堆栈：Vercel 上的 React 前端、Railway 上的 Node.js/Express/TypeScript 后端、线索存储概念、通过 Promise.all 并行运行的 12 个扫描模块。 DM 链接 很想听听您的想法，特别是关于 GEO 和 AEO 评分，因为这些是大多数工具尚未触及的较新概念。   由   提交/u/Wise-Cardiographer-31   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tkkczu/i_built_a_free_audit_tool_that_combines_seoaeogeo/</guid>
+      <pubDate>Fri, 22 May 2026 14:18:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>有人让 Mac 上的 Safari 在每次重新加载时停止重新下载 serviceWorker js 文件吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tkhdep/anyone_got_safari_on_mac_to_stop_redownloading/</link>
+      <description><![CDATA[我发送这些标头： &#39;Cache-Control&#39;: &#39;public, max-age=31536000, immutable&#39;  注册如下： await navigator .serviceWorker.register(&#39;/serviceWorker.js&#39; , { type: &#39;module&#39; , updateViaCache: &quot;all&quot; })  但是每次在新选项卡中加载站点或重新加载时，都会检索服务工作线程文件（在页面完全加载之后）。  有人能做到这一点吗？或者这个错误（？）没有人关心吗？  我想要这个固定原因： 1）不需要无意义的http流量（所有其他资源都被缓存） 2）服务器现在知道您何时打开/刷新选项卡（我不想知道） 3）服务器（或中间人黑客）现在可以在未经用户同意的情况下向用户推送新的网络应用程序 我的用例是尝试使用以下方式从任何网络浏览器提供文件webRTC 以服务器无法访问任何数据的方式进行。因此，随时推送新的 Web 应用程序的能力似乎在一定程度上破坏了这种安全性。    由   提交/u/seweso   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tkhdep/anyone_got_safari_on_mac_to_stop_redownloading/</guid>
+      <pubDate>Fri, 22 May 2026 12:22:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>是否可以根据用户输入将 jQuery 自动完成调整为不同的行为？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tkh46d/is_it_possible_to_tweak_jquery_autocomplete_into/</link>
+      <description><![CDATA[我有一个搜索输入字段，用户可以在其中输入搜索字符串。如果用户选择一个结果，无论是使用向下箭头并输入或单击鼠标，它都会跳转到该页面。 但是，如果用户按 Enter 键而不选择任何内容，我希望它将用户发送到搜索结果页面。我是这样做的： $(&quot;#searchcamp&quot;).autocomplete({ source: &quot;searchCamp.php&quot;, minLength: 2, response: function( event, ui ) { // 如果未登录，则将用户重定向到登录页面 if( ui.content[0].id == &quot;logout&quot; ) { window.location.href=&quot;login.php&quot; } }, select: function( event, ui ) { location.href=&quot;showCamp.php?id=&quot;+ui.item.id; $(“#searchcamp”).keydown(function(event) { if (event.keyCode == 13) { location.href=&#39;showCamps.php?s=&#39;+document.getElementById(“searchcamp”).value; } });  但是，这个 keydown 部分显然否决了“选择”选项。规则上面的规则，并将用户发送到搜索结果页面，即使已使用向下箭头键突出显示了建议。 如何使 Enter 按“选择”中指定的行为？如果突出显示了建议，但如果没有突出显示建议，则将用户发送到 showCamps.php 页面？   由   提交 /u/oz1sej   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tkh46d/is_it_possible_to_tweak_jquery_autocomplete_into/</guid>
+      <pubDate>Fri, 22 May 2026 12:11:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 WebAuthn 在网络上进行 Touch ID/Face ID，生产过程中出现了什么问题？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tkg3dz/touch_id_face_id_on_web_via_webauthn_what_breaks/</link>
+      <description><![CDATA[下周在网络上发送密钥/生物识别登录。开发环境运行良好，演示运行良好，文档使其看起来像是 2 小时的集成。我不相信这些。一旦真正的用户点击它，实际上会破坏什么？   由   提交/u/Exact_Importance_507   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tkg3dz/touch_id_face_id_on_web_via_webauthn_what_breaks/</guid>
+      <pubDate>Fri, 22 May 2026 11:24:35 GMT</pubDate>
+    </item>
+    <item>
+      <title>我开源了自己的 saas 代码。所以你可以分叉它。 （非促销）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tke5ur/i_opensourced_my_own_saass_code_so_you_can_fork/</link>
+      <description><![CDATA[      TLDR：我的 saas 有效。停止为样板/网络构建器付费，免费使用它。 我采用了为自己的项目构建的样板，将其剥离到核心，然后将其开源。 它称为Velobase。免费，麻省理工学院，没有广告，没有追加销售，随心所欲地进行分叉 它与通常的入门套件的不同之处在于：大多数都停留在 auth + Stripe + 登陆页面。 Velobase 保留来自工作产品的发布后收入基础设施。 我认为营销 &gt;一直在构建。 老实说权衡：它比其他一些样板重得多，因为它来自我的生产代码。如果您在本周末快速发布 MVP，那就有点过分了。 Repo 已开放。真的很喜欢这个子程序的反馈：您希望样板能够处理哪些您目前无法处理的内容？？   由   提交 /u/Unlikely_Diamond424   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tke5ur/i_opensourced_my_own_saass_code_so_you_can_fork/</guid>
+      <pubDate>Fri, 22 May 2026 09:47:52 GMT</pubDate>
+    </item>
     <item>
       <title>为什么这么多平台仍然使用电子邮件代码/魔术链接而不是基于设备的东西？</title>
       <link>https://www.reddit.com/r/webdev/comments/1tkdcfs/why_do_so_many_platforms_still_use_email/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[我正在将内容从旧域移动到新域，但有一些问题。我希望旧域的主页转到新域上的特定页面。我希望旧域上特定文件夹中的所有内容都转到新的子域。我也希望页面和查询字符串能够传达，这样访问站点 A 的人几乎不会注意到它们已被转发到站点 B。  其他所有内容都可以转发（我已经弄清楚了那部分！）  我尝试了很多不同的想法，但没有一个有效，所以我已经没有选择了。这是我所拥有的，或者最想要的：  RewriteEngine On # If / or /index.php 重定向到 newsite.org/index-alt.php （然后停止！[END]） # 第一个挑战 # If /directory[/whatever] 重定向到 subdomain.newsite.org[/whatever]（然后停止！[END]） # 第二个挑战 # 或者将其他所有内容重定向到 newsite.org[/everythingelse?etc] # 这可行，但这是最好的解决方案吗？ RewriteRule .* https://newsite.org%{REQUEST\_URI} [R=302,L] &lt;/IfModule&gt;   由   提交/u/blargy-blargy   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tjzeb0/htaccess_help/</guid>
       <pubDate>Thu, 21 May 2026 22:00:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>DEV 工具：将样式面板中的更改写入源代码</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tjxogt/dev_tools_writing_changes_in_the_styles_panel_to/</link>
-      <description><![CDATA[我正在尝试将对象与模板对齐，并在样式面板中使用鼠标滚轮来推动周围的事物。有没有办法将这些样式面板更改保存到源代码中的 CSS 中？   由   提交/u/mapsedge  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tjxogt/dev_tools_writing_changes_in_the_styles_panel_to/</guid>
-      <pubDate>Thu, 21 May 2026 20:56:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用 wordexpress 对媒体（如 letterboxd）进行速率和存档？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tjwftn/rate_and_archive_of_media_like_letterboxd_with/</link>
-      <description><![CDATA[我正在考虑一个与 letterboxd 具有相同逻辑但适用于其他类型媒体的网站。我对代码非常菜鸟（只知道应用于neocities的html和css），所以我对后端一无所知，这就是为什么我认为wordexpress是解决方案。 你们认为可以使用那里可用的插件做类似的事情吗？比如拥有可以与 itens 以及彼此交互的用户配置文件？   由   提交/u/lisbethkarnstein   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tjwftn/rate_and_archive_of_media_like_letterboxd_with/</guid>
-      <pubDate>Thu, 21 May 2026 20:12:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>除非您准备好失去对自己网站的访问权限，否则不要在 Netlify 上托管您的项目</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tjv4ae/dont_host_your_projects_on_netlify_unless_youre/</link>
-      <description><![CDATA[从我的错误中吸取教训。 我在 Netlify 上运行了 2 个项目。部署积分用完了，好吧，这种情况确实发生了。但他们不仅暂停了部署，还关闭了我的整个网站。不是“你不能推动新的改变”，而是“你不能推动新的改变”。实时网站刚刚消失。没有任何关于网站将关闭的警告。 计费周期本来应该在昨天更新。事实并非如此。网站仍然关闭。更重要的是 - 您无法在免费套餐中购买积分。解决这个问题的唯一方法是升级到付费计划。没有其他选择。 所以我想，好吧，我就把所有东西都迁移出去。尝试登录，他们向我发送了验证码。输入了它。被拒绝了。尝试了我的备份代码也被拒绝。我现在完全无法访问自己的帐户，无法返回。 客户支持呢？除非您使用付费计划，否则不存在。 总结一下： - 当您达到信用额度时，网站会关闭（不仅仅是部署） - 计费未按预期自动续订 - 不升级到计划就无法购买信用 - 2FA 已损坏，将我完全锁定 - 免费层提供零支持 如果您正在托管您真正关心的任何内容，请使用 VPS+Coolify。不要让他们劫持您的项目。 还有其他人处理过这个问题吗？我很想知道是否有任何方法可以恢复帐户   由   提交 /u/darkarrow_sh   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tjv4ae/dont_host_your_projects_on_netlify_unless_youre/</guid>
-      <pubDate>Thu, 21 May 2026 19:26:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>第一次使用 AWS S3 和 Clerk - 老实说没有我想象的那么可怕</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tjuyhn/first_time_using_aws_s3_and_clerk_honestly_not_as/</link>
-      <description><![CDATA[我已经推迟学习 AWS 好几个月了，因为它让人感到不知所措。今天开始构建我的 SaaS 项目并强迫自己去做。  S3 — 用于直接浏览器上传的预签名 URL 可能需要 2 个小时才能理解和实现。 AWS 文档很丰富，但一旦你拿到 SDK，它实际上是干净的。  Clerk — 确实是我做过的最快的身份验证设置。后端中间件和前端组件在一小时内即可运行。  还有很长的路要走，但今天的胜利向我自己证明，我几个月来一直回避的基础设施实际上是可以实现的。   由   提交 /u/Impossible_Fee_6217   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tjuyhn/first_time_using_aws_s3_and_clerk_honestly_not_as/</guid>
-      <pubDate>Thu, 21 May 2026 19:21:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>无能的管理者比大肆宣传人工智能的首席执行官更糟糕</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tjsw2t/incompetent_managers_are_worse_than_aihyped_ceos/</link>
-      <description><![CDATA[我在一家拥有超过 5000 名员工的科技公司工作。我从经理和工程师那里看到的绝对胡说八道的数量令人震惊。自动化包升级、linting、测试、自动化、漏洞扫描等的脚本正在被 Claude Skills 取代。  因此，他们正在用非确定性人工智能取代确定性、高效、现有且可信的系统，这些系统可能会出现停机时间或 API 限制，从而让我们陷入困境。在最好的情况下，他们将现有的 CLI 包装在 Claude Skills 中，以获得双重打击。 没有人反对这一点。没有一个中层管理人员。没有一个高层。没有一个工程师。年增长率超过 15 的人一头扎进这些废话中，把人工智能强加给每个人，即使客观上情况更糟。  还有其他人也遇到过这种情况吗？    由   提交/u/Shiedheda  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tjsw2t/incompetent_managers_are_worse_than_aihyped_ceos/</guid>
-      <pubDate>Thu, 21 May 2026 18:11:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
