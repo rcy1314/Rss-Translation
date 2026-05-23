@@ -4,7 +4,28 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Fri, 22 May 2026 22:12:16 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2026 03:40:51 GMT</lastBuildDate>
+    <item>
+      <title>在 Raspberry Pi 400 上进行 Amazon 规模的大批量 VRP 优化</title>
+      <link>https://www.reddit.com/r/programming/comments/1tkyr2r/highvolume_vrp_optimization_at_amazon_scale_on_a/</link>
+      <description><![CDATA[大家好， 我在物理 Raspberry Pi 400 (4GB RAM) 上本地执行了整个 Amazon Last-Mile Routing Challenge 数据集（约 100 万次停靠点、250 万个包裹）。   由   提交/u/Tight_Cow_5438   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tkyr2r/highvolume_vrp_optimization_at_amazon_scale_on_a/</guid>
+      <pubDate>Fri, 22 May 2026 22:55:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>我如何构建 Confluence 爬虫</title>
+      <link>https://www.reddit.com/r/programming/comments/1tkxx4e/how_i_built_a_confluence_crawler/</link>
+      <description><![CDATA[关于构建 confluence2md 的文章，这是一个将 Confluence wiki 转换为 Markdown 的 Go CLI 工具，以及在此过程中令人惊讶的深层次技术挑战。 文章涵盖：  两阶段爬行：第 1 阶段获取并转换具有原始 URL 的页面，第 2 阶段在了解完整页面图后重写链接（因此没有任何中断） 为什么转换 Confluence 存储格式很痛苦（XML 宏、链接重写、分页） 基于检查点的增量更新而不丢失进度 使用 GitHub Actions + GoReleaser 实现跨平台发布自动化  该工具是开源的，随时可以使用。如果您曾经需要迁移 Confluence 或构建 wiki 数据，可能会很有用：https://github.com/gaborkoos/confluence2md   由   提交 /u/OtherwisePush6424   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tkxx4e/how_i_built_a_confluence_crawler/</guid>
+      <pubDate>Fri, 22 May 2026 22:21:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 Excel 文件中编写 VBA 模块比我想象的要奇怪得多</title>
+      <link>https://www.reddit.com/r/programming/comments/1tkxs4c/writing_vba_modules_inside_excel_files_is_much/</link>
+      <description><![CDATA[将 VBA 写回 Excel 文件并不是“只是编辑 zip 文件中的文本” 我深入探索了 VBA 模块如何存储在 Office 文件中，而且格式比我预想的要奇怪得多。 最令人惊讶的部分是涉及多少层。 对于现代 .xlsm 文件，路径看起来大致如下： text Excel workbook -&gt; ZIP / Open XML 包 -&gt; xl/vbaProject.bin -&gt; Microsoft 复合文件二进制 -&gt; VBA 项目流 -&gt;压缩模块源  因此，替换 VBA 模块不仅仅是： 文本打开文件替换文本保存文件  它更接近于： 文本保留工作簿容器提取 vbaProject.bin 解析复合文件解压缩 VBA 流找到真正的源偏移量仅替换源正文重新压缩它正确使 Office 缓存失效丢弃陈旧的编译缓存流避免破坏受保护或签名项目将所有内容放回原处，而不触及不相关的字节 一些细节使这比预期更有趣：  dir 流本身是压缩的 模块源并不总是从字节零开始 VBA 源使用项目代码页，而不是 UTF-8 短的最终压缩块不能写入原始块 Office 存储不应该被编译的缓存流重写的数字签名在源代码更改后变得无效 真正的测试是“Excel 是否会在没有提示“您的工作簿已损坏”的情况下重新打开它？”  主要教训： 在 Office 文件中编辑 VBA 不仅仅是编辑 zip 文件中的脚本文件。情况要复杂得多。您必须同时维护一个小型文件系统、一种压缩格式、一个项目清单和一组特定于 Office 的安全规则。 实施指南： https://github.com/WilliamSmithEdward/pyOpenVBA/blob/main/docs/ms-ovba-implementation-guide_v2.md 参考文献：  Microsoft MS-OVBA规范 Microsoft 复合文件二进制格式 Office Open XML 包结构 针对 Excel for Microsoft 365 测试的真实 Excel 工作簿    由   提交 /u/MultiUserDungeonDev   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tkxs4c/writing_vba_modules_inside_excel_files_is_much/</guid>
+      <pubDate>Fri, 22 May 2026 22:16:06 GMT</pubDate>
+    </item>
     <item>
       <title>Apple corecrypto 形式化验证蓝图</title>
       <link>https://www.reddit.com/r/programming/comments/1tkxgmb/a_blueprint_for_formal_verification_of_apple/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[ 由   提交 /u/mastabadtomm   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1tkdn9i/nvcf_is_now_open_source_inside_nvidias_gpu/</guid>
       <pubDate>Fri, 22 May 2026 09:19:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>Clojure 可变参数函数</title>
-      <link>https://www.reddit.com/r/programming/comments/1tkbx3y/clojure_variadic_function/</link>
-      <description><![CDATA[ 由   提交/u/Efficient-Public-551   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tkbx3y/clojure_variadic_function/</guid>
-      <pubDate>Fri, 22 May 2026 07:41:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>实用的后端工程路线图</title>
-      <link>https://www.reddit.com/r/programming/comments/1tk9kj7/a_practical_back_end_engineering_roadmap/</link>
-      <description><![CDATA[ 由   提交/u/nulless  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tk9kj7/a_practical_back_end_engineering_roadmap/</guid>
-      <pubDate>Fri, 22 May 2026 05:35:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>npm 包的分阶段发布 | npm 文档</title>
-      <link>https://www.reddit.com/r/programming/comments/1tk9iww/staged_publishing_for_npm_packages_npm_docs/</link>
-      <description><![CDATA[npm 包的分阶段发布 | npm 文档 这有望减少最近 Shai Hulud 对 npm 的攻击的传播，但它们依赖于您捕获传输中的错误，这意味着您仍然需要假设软件包已受到损害（我知道，无赖）。更多地将其视为治疗或治愈的传播率降低。   由   提交/u/qwertydiy  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tk9iww/staged_publishing_for_npm_packages_npm_docs/</guid>
-      <pubDate>Fri, 22 May 2026 05:33:21 GMT</pubDate>
     </item>
     </channel>
 </rss>
