@@ -4,13 +4,20 @@
     <title>最新提交：编辑</title>
     <link>https://www.reddit.com/r/editors/new</link>
     <description>这个 Reddit 子版块面向的是后专业人士。您想成为职业选手吗？请随意使用我们的“询问专业人士”主题。副业？使用“询问专业人士”主题。爱好？为了好玩？我们的姐妹子/视频编辑正是您想要的！</description>
-    <lastBuildDate>Sun, 24 May 2026 08:35:57 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 10:45:17 GMT</lastBuildDate>
     <item>
-      <title>如何在 Windows 中使用 MacBook 作为显示器和第二屏幕？</title>
-      <link>https://www.reddit.com/r/editors/comments/1tm5ve2/how_to_use_your_macbook_as_a_monitor_and_second/</link>
-      <description><![CDATA[ 由   提交 /u/Electronic_Bug4101   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1tm5ve2/how_to_use_your_macbook_as_a_monitor_and_second/</guid>
-      <pubDate>Sun, 24 May 2026 08:02:10 GMT</pubDate>
+      <title>修复 DaVinci Resolve Linux 上的 Silent-audio-on-AAC 错误（这次没有 FLAC 同级文件）</title>
+      <link>https://www.reddit.com/r/editors/comments/1tm8ovp/fix_for_the_silentaudioonaac_bug_on_davinci/</link>
+      <description><![CDATA[如果您已经在 DaVinci Resolve Linux 上编辑了一段时间，您就会知道 AAC 上的无声音​​频错误 - 将电话剪辑或 yt-dlp 下载放在时间轴上，没有波形，没有音频。大约 8 年来，BMD 的官方答案一直是“许可”。社区的解决方法是在每个源剪辑旁边添加一个 ffmpeg AAC→FLAC 同级文件。 我构建了一个不同的修复程序：一个 LD_PRELOAD 填充程序，它在启动时对 Resolve 进行内存中字节修补，以便 Resolve 自己捆绑的 libavcodec 可以本地解码 AAC。没有 FLAC 同级文件，源文件夹中没有混乱，没有 /opt/resolve/bin/resolve 修改（主机二进制 md5 保持原始状态）。 Repo： https://github.com/geekzeino/davinci-resolve-linux-aac-fix 安装（一行）： git clone --depth 1 https://github.com/geekzeino/davinci-resolve-linux-aac-fix.git /tmp/davinci-resolve-linux-aac-fix &amp;&amp; bash /tmp/davinci-resolve-linux-aac-fix/install.sh  安装后，从终端通过新的应用程序菜单条目 DaVinci Resolve (Native AAC) 或 davinci-resolve-native 启动。首次 AAC 导入会立即显示波形。 测试环境： DaVinci Resolve Studio 20.3.2 Linux（Ubuntu 26.04、Rocky 8.6）。其他版本：当指纹不匹配时，垫片完全不执行任何操作，您将恢复到原始的无声音频行为 - 永远不会使 Resolve 崩溃。 法律： Apache-2.0，根据 17 U.S.C. 发布。 §1201(f) 作为互操作性研究。没有从 BMD 的二进制文件中提取代码（仅用于版本检测的补丁站点指纹字节）。 边缘情况：内存中补丁无法安全处理少数 AAC 变体（紧凑长度 esds AAC、真正的 HE-AAC SBR）。对于那些垫片显然会落入 ~/.cache/resolve-aac/ 中的一次性 ffmpeg → FLAC 兄弟（集中式缓存，不在您的源旁边）。 欢迎问题 + PR。   由   提交 /u/LivingIsUnhealthy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1tm8ovp/fix_for_the_silentaudioonaac_bug_on_davinci/</guid>
+      <pubDate>Sun, 24 May 2026 10:40:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>达芬奇可以搜索所有的文字记录吗？这个设置有意义/有任何危险信号吗？</title>
+      <link>https://www.reddit.com/r/editors/comments/1tm8c9w/can_davinci_search_all_transcripts_and_does_this/</link>
+      <description><![CDATA[基本上是标题，寻找像 avid 那样的功能（或据我所知），您可以在其中搜索所有文字记录中的短语。  我正在建立一个项目，该项目正在争取文档资金（他们有开发资金），就其基础设施而言，我希望我们可以建立一个达芬奇项目来进行初始推介。这样做的最终目标是组织镜头并制作一个品尝者，也许是一两个场景。  接下来，如果需要资金，请使用该项目将所有内容转码为 avid，以进行完整的文档编辑。然后回到达芬奇进行整理。  唯一阻止我扣动扳机的是搜索所有脚本。  一些注意事项： 我从一开始就不使用avid的原因主要是时间，我们有2个月的时间，想要制作成品，不想来回跳跃，而我们的第二个编辑对davinci更强。请记住，其中一个完成的作品是一个可以理解的项目，分解了大约 200-300 小时的镜头（我想说他们有这么多，我认为现实是他们的镜头要少得多，因为它有 6 TB，所以除非它非常压缩，否则我们可能会看到 100-150 小时加上这几个月里完成的任何拍摄。） 我对在达芬奇上进行整个编辑感到担心，因为我没有真正见过它如何处理具有多个编辑器的更大项目（我确实设法在我的个人服务器上设置项目服务器，但还没有真正有机会进行压力测试）。  团队中没有人真的太喜欢首映，所以我们还没有真正考虑过。除了其内部运作之外，这是由于定价，达芬奇我们可以毫不费力地给团队留下工作许可证，Adobe将继续从紧张的预算中耗尽资源，而没有明显的收益。  达芬奇编辑服务器将在 nas 上运行，是的，安装起来很痛苦，是的，我已经设法做到了，是的，使用 mac mini 或小型 Windows PC 作为服务器更容易，但是仅用于服务器的 mac mini 有点太多了。正如我所说，我还没有进行压力测试，所以在成为压力测试之前我很想知道恐怖故事。  喜欢这个社区，对长消息表示歉意:)   由   提交 /u/Tupan_Chorra   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1tm8c9w/can_davinci_search_all_transcripts_and_does_this/</guid>
+      <pubDate>Sun, 24 May 2026 10:21:30 GMT</pubDate>
     </item>
     <item>
       <title>工作切换</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[在学校的艺术课上，我们目前以电影制作（或多或少严肃）为主题。我们使用 iMovie。考试应该是实践性的。我们得到了一些视频剪辑，并打算用它制作一个短视频。 我是 Premiere Pro 用户，当我第一次使用 iMovie 时，感觉我不得不呕吐。就像到底是什么。严重地。那个软件是什么垃圾堆，毫无用处。 时间线。剪辑之间的垂直线间隙到底是什么？为什么它们只用于视频？如果我在其下方添加音乐，则不会出现间隙。我该如何将我的剪辑与歌曲同步？ 为什么我不能将一个剪辑与另一个剪辑分开以在它们之间创建空白空间？该剪辑始终会弹回到前一个剪辑的旁边。 当我在将剪辑放入时间线之前在剪辑上设置入点和出点并意外单击另一个剪辑时，我的入点和出点消失了？为什么？ 我可以继续抱怨（缺少功能、不精确的编辑工具...），但我想听听您对 iMovie 的所有不满。我是唯一一个有这些问题的人吗？   由   提交 /u/Puzzleheaded-Bet5302   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/editors/comments/1tjuolp/all_your_frustration_about_imovie/</guid>
       <pubDate>Thu, 21 May 2026 19:11:50 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们专业人士的定期 Mod 请求：请签到并向在“询问任何事情”和“职业”主题上发帖的人提供建议。</title>
-      <link>https://www.reddit.com/r/editors/comments/1tjqp6n/regular_mod_request_of_our_professionals_please/</link>
-      <description><![CDATA[我们有大量专业人士访问此 Reddit 子版块 - 还有许多人试图成为该领域的专业人士。 我们要求我们的专业人士每周一次查看我们的“有问题”主题并提供帮助！ https://www.reddit.com/r/editors/about/sticky?num=1  这些可以在新 Reddit 子版块的菜单区域或通过官方客户端找到。 需要明确的是 - 我们正在从顶部的每周链接进行讨论。  https://i.imgur.com/I19zmc2.png 我们的想法是，你进入那里并提供有用的建议：  “问任何问题”人群 寻求职业建议的人们。  谢谢（不在这里，请那些帖子！） 询问任何帖子 你知道/r/editors 有不和谐？ https://discord.gg/hhuZFq2PZZ   由   提交 /u/AutoModerator   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1tjqp6n/regular_mod_request_of_our_professionals_please/</guid>
-      <pubDate>Thu, 21 May 2026 17:00:04 GMT</pubDate>
     </item>
     </channel>
 </rss>
