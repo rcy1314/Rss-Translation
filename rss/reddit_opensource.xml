@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 24 May 2026 16:04:46 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 19:24:54 GMT</lastBuildDate>
+    <item>
+      <title>PyIcon Editor 和 Creator 制作 .ico 和 .icns 文件。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tmkxa7/pyicon_editor_and_creator_makes_ico_and_icns_files/</link>
+      <description><![CDATA[      这是我组装的一个基于 Python 的图标编辑器。 加载现有图像（PNG、JPG、BMP、GIF、TIFF、WebP、ICO） 保存：将当前复合画布另存为平面 PNG 导出 ICO：导出多分辨率 Windows带预览的图标 导出 ICNS：使用基于 Pillow 的 .icnsexport 导出 macOS 图标 我目前正在添加应用程序和 exe 支持，以便它可以从应用程序或程序中获取图标集。欢迎任何其他想法或改进以及任何拉取请求。    由   提交/u/Sniper666hell   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tmkxa7/pyicon_editor_and_creator_makes_ico_and_icns_files/</guid>
+      <pubDate>Sun, 24 May 2026 18:58:07 GMT</pubDate>
+    </item>
+    <item>
+      <title>超越“巨型提示”：我们向代理微服务的转变</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tmi6xk/moving_past_the_megaprompt_our_shift_toward/</link>
+      <description><![CDATA[过去几个月我一直在努力解决整体提示的局限性。和大多数人一样，我们一开始有一个巨大的系统提示，试图处理我们的数据摄取管道的边缘情况。调试是一场噩梦，更改一个句子，输出格式就会在其他三个地方中断。 我们最近决定将其彻底摧毁，转向更加模块化、更加代理的架构。我们没有用一个提示来统治所有这些，而是​​将逻辑分解为离散的、专门的工作人员。 堆栈转移 我们研究了一些框架来协调这一点。当每个人都在谈论 LangChain 时，我们发现它对于我们的需求来说有点过于抽象。我们最终在编排层使用了 Lyzr AI，因为它处理“代理到代理”的交互。交接更具确定性，这让我们的高级基础设施人员更加高兴。 我们了解到： 状态管理才是真正的杀手：这不是 LLM 的难点；而是 LLM 的难点。它在五个不同的代理之间维护状态，而上下文窗口不会变成沼泽。 现在实际上可以进行测试：通过将逻辑隔离为较小的代理（例如，一个用于 PII 清理，一个用于模式映射），我们可以对特定的 LLM 输出而不是“基于振动”的输出运行单元测试。在 2,000 字的提示上进行测试。 延迟与准确性：是的，4 个代理调用需要的时间超过 1 个。但对于我们的用例（异步后台处理），可靠性提升 15% 值得 3 秒的延迟。 您是在构建自定义状态机，还是依靠这些较新的编排框架来处理粘合代码？   由   提交 /u/Ok_Commission_8260   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tmi6xk/moving_past_the_megaprompt_our_shift_toward/</guid>
+      <pubDate>Sun, 24 May 2026 17:18:05 GMT</pubDate>
+    </item>
+    <item>
+      <title>Perseus — 用于 AI 助手的实时上下文引擎：MIT，一个依赖项，您可以将单个文件拖放到任何地方</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tmgix2/perseus_a_live_context_engine_for_ai_assistants/</link>
+      <description><![CDATA[我刚刚开源了 Perseus - 一个预处理器，可以在 AI 助手读取之前将实时工作区状态（git 状态、正在运行的服务、会话检查点、团队收件箱）解析为简单的 Markdown。没有插件。没有 SDK。它会写入您的助手已打开的任何文件。 开源角度：  MIT 许可证 - 在任何地方使用它，自由修改 单个文件插入：perseus.py（约 12,000 行，从模块化 src/ 树编译） 一个依赖项：pyyaml pip install perseus-ctx 或 curl 单个文件 - 您的选择 20 个指令、近 600 个测试、33 个边缘情况测试 包含 MCP 服务器外观（perseus mcpserve - 13 个指令工具）  它解决了什么问题： 每个人工智能编码会话都是冷启动的。助理会轮流检查您所在的分支、正在运行哪些服务以及您离开的位置。静态 Markdown 文件会立即腐烂。 Perseus 预先呈现实时事实，因此助手开始时已经进行了简报。 没有 Perseus 有 Perseus ──────────────────────────────── ──────────────────────────── “端口为 3001（检查 .env）” → 端口：3001“47 次测试（可能已过时）” → 测试：597 通过（8 秒前运行） “首先检查 docker ps” → mongo-dev：提高 4h 12m 基准（可重现，全部在存储库中）：  使用 u/cache 实现 40 倍热渲染加速 ttl=300 0.36 秒内 10,000 个指令 120 个代理群：150 9.7 秒内写入，零冲突 benchmark/edge-bench/ 中的所有基准测试脚本  我正在寻找：  贡献者 - 新指令、辅助集成、文档 关于编译前上下文方法与 MCP 工具调用的反馈 感受过冷启动痛苦，想尝试一下  站点： https://perseus.observer Repo： https://github.com/tcconnally/perseus PyPI： https://pypi.org/project/perseus-ctx/ 很高兴回答有关架构、构建系统（Python 源代码树 → 单文件工件）或其他任何问题的问题。   由   提交/u/formula420  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tmgix2/perseus_a_live_context_engine_for_ai_assistants/</guid>
+      <pubDate>Sun, 24 May 2026 16:15:43 GMT</pubDate>
+    </item>
     <item>
       <title>Firefox 和 DuckDuckGo 2026 现在是一个很好的选择</title>
       <link>https://www.reddit.com/r/opensource/comments/1tm7ud7/firefox_and_duckduckgo_2026_now_it_is_a_great/</link>
@@ -88,27 +109,6 @@
       <description><![CDATA[我总是低估“构建某些东西”的不同之处。来自“保持某种东西多年健康”。 技术方面是可以管理的。令人惊讶的部分是：  问题分类 向后兼容性 文档漂移 社区期望 您意外地永远对随机边缘情况负责  希望听到维护其他人所依赖工具的人们的故事。   由   提交/u/Bladerunner_7_   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tkasx0/whats_the_opensource_project_youve_maintained/</guid>
       <pubDate>Fri, 22 May 2026 06:40:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>KillerPDF v1.4.1：性能修复、快捷方式等</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tjzck9/killerpdf_v141_performance_fixes_shortcuts_and/</link>
-      <description><![CDATA[KillerPDF 是一款适用于 Windows 的免费、仅限本地的 PDF 编辑器，完全离线运行，无需订阅、无需帐户，也无需遥测。  自从我在这里发帖以来已经有一段时间了。 v1.4.1 今天发布，做了很多改进：  工具栏中的页码跳转框，输入数字并按 Enter 鼠标中键平移 页面之间的箭头键导航 Ctrl+S 直接保存，Ctrl+Shift+S 另存为 裁剪工具改进：角落拖动手柄可调整选区大小、按 Enter 键应用、删除裁剪/删除全部按钮 键盘快捷键覆盖：按 Ctrl+?获取完整参考 缩放至宽度/适合页面现在在您调整窗口大小时重新应用 签名在放置后自动选择，以便您可以立即重新定位  还修复了：保存后签名漂移、图像较多的 PDF 上的内存峰值、大型文档上的页面延迟以及 HiDPI 显示器上的模糊渲染。 下载：https://pdf.killertools.net 错误和请求：https://github.com/SteveTheKiller/KillerPDF/issues 源代码位于 GitHub 上，遵循 GPLv3，只要您的版本可以免费使用、分叉和修改保持开源。 哦，您现在可以使用 winget install Killerpdf 下载最新版本！   由   提交 /u/smilaise   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tjzck9/killerpdf_v141_performance_fixes_shortcuts_and/</guid>
-      <pubDate>Thu, 21 May 2026 21:59:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>个人财务应用程序项目（也许更多）</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tjy1iw/personal_finances_app_project_and_maybe_more/</link>
-      <description><![CDATA[概述 您好！我想启动一个 FOSS 项目，制作一个专注于个人财务的应用程序，然后扩展到专注于帮助人们在个人层面上管理事物的应用程序生态系统，最多它会帮助一家小公司。这些应用程序不会为较大的公司或其他活动提供帮助。 Cascades Financial System 个人理财应用程序将使用我称为 Cascade Financial Method 的方法。 该方法的简短说明如下： 您对您获得的每笔收入（即使是贷款的结果）进行求和 您对每项成本进行求和（成本的定义是您需要支付的所有费用，例如账单或您需要的东西）尽快修复） 收入和成本之间的差异称为可用余额（我们称之为 AB） 然后您创建级联，级联是 AB 的百分比配额 级联可以在其中包含其他级联。这种级联（级联有多种类型）称为容器级联。因此，如果第一级有 4 个级联：A、B、C、D 和 E，每个级联占 20% 配额，级联 A 以下有级联 X 和 Y，X 占 80%，Y 占 20%。 我们的 AB 为 1000，A/B/C/D/E = 200； X= 160，Y = 40。 如果你获得任何新的收入或成本，每个 Cascade 的价值都会改变。 还有其他概念，但我会将其放在一个专门的地方来讨论该项目 个人应用程序生态系统 另一个项目与 Cascade 金融系统相关，但比它高一级。 我的想法是建立一个可以连接的 FOSS 应用程序的生态系统举个例子，假设有人制作了一个应用程序来帮助管理自由艺术家的工作。该应用程序可能具有收入功能，并且这些收入可以与级联金融系统连接。然后，第三个人在同一生态系统中创建另一个金融系统，另一位艺术家可以使用该应用程序来帮助他们管理自己的工作并使用替代金融应用程序；或者也许有人制作一个购物清单应用程序，并且该列表可以作为财务应用程序中的成本输入。可能某些连接需要库，但应用程序的架构需要以集成的方式进行。会很容易，最终用户可以以模块化的方式使用应用程序。 结论 目前，级联方法仅以电子表格的形式存在（实际上是多个连接的电子表格），在我有了稳定的解决方案后，我将开始制作应用程序，如果有人对上述任何项目感兴趣，可以在这里私信我或在这里发表评论，然后我们可以决定我们要做什么以及更好的路线，因为我没有开始开发，所以我愿意接受建议更好的开发途径（语言、数据库等）。这是我的第一个 FOSS 应用程序项目（也是我的第一个应用程序项目之一）   由   提交 /u/draxdeveloper   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tjy1iw/personal_finances_app_project_and_maybe_more/</guid>
-      <pubDate>Thu, 21 May 2026 21:10:27 GMT</pubDate>
-    </item>
-    <item>
-      <title>一个异常快速的开源 React 数据网格，具有大量的功能集！</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tjv1m9/a_freakishly_fast_open_source_react_data_grid/</link>
-      <description><![CDATA[大家好， 想要分享 LyteNyte Grid Core，这是一个零依赖的 React 数据网格。它可以免费使用并且开源（Apache 2.0 许可证）。希望它能让您的开发变得更加轻松，并为您节省大量时间。 我们目前使用的是 v.2.1（所有代码均在 GitHub 上公开），我们计划在下个月放弃 v2.2。 简而言之，您为什么要尝试 LyteNyte Grid Core？  疯狂的性能： 40kb（gzip 压缩）并且速度非常快。它可以处理数百万行和每秒 10,000 多次更新。 功能丰富： 具有全面的功能集。免费包含单元格范围选择、行主详细信息和行分组等功能。这是我们感到非常自豪的事情，我们将继续在此基础上发展，计划提供更多免费功能。 无样式权衡：您可以选择是无头还是有样式。样式选择基本上没有权衡。另外，如果您使用 shadcn，您可以通过 shadcn CLI 添加 LyteNyte Grid。 完全 Prop 驱动：您可以从您的状态以声明方式配置它，无论是 URL 参数、服务器状态、Redux 还是您可以想象的任何其他内容，这意味着零同步麻烦。这是我们网格独有的架构。 独特的 DX 体验：我们的网格是在 React for React 中构建的，并具有干净的声明式 API，消除了尴尬的配置解决方法。  我们最近还放弃了 LyteNyte Grid AI Skills。如果您使用人工智能编码代理，这是一个非常好的功能。它可以让您描述高级数据网格实现，您的 AI 代理会为您编码。 我们一直在使用日益复杂的网格实例对此进行测试，结果非常棒。我希望您尝试一下并让我知道您的想法。 很高兴回答您可能有的任何问题。 如果您觉得这有帮助并且喜欢我们正在构建的内容，GitHub 星星会为您提供帮助。随时欢迎功能建议和代码贡献。  GitHub 实时演示 网站    由   提交 /u/After_Medicine8859   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tjv1m9/a_freakishly_fast_open_source_react_data_grid/</guid>
-      <pubDate>Thu, 21 May 2026 19:24:08 GMT</pubDate>
     </item>
     </channel>
 </rss>

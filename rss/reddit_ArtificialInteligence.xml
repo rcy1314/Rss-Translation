@@ -4,20 +4,27 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Sun, 24 May 2026 16:03:29 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 19:22:30 GMT</lastBuildDate>
+    <item>
+      <title>LLM 真的需要理解大型代码库吗？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tmkzw6/does_an_llm_really_need_to_understand_large_code/</link>
+      <description><![CDATA[我最近看到了一些不同模型的比较以及它们在编码方面的表现。一个常见的重复测试似乎是他们如何处理所谓的“大型代码库”。 作为一名软件开发人员，我想知道：是否真的需要完全理解大型代码库才能使用它？我通常会在一段时间后这样做，但从来不会一次性全部完成，而且我见过很多人类开发人员尽管不能一直一次性理解所有内容，但仍然非常高效。 使用代码库所需的心理上下文窗口可能在很大程度上取决于代码的结构。如果它很混乱，到处都有依赖关系，那么您可能确实需要大量上下文。如果没有，那么只有本地上下文才可以。 我看到像数据库这样的代码库。数据库中的索引查询的成本大约为 O(log N)，其中 N 是表的大小。至少这就是各种二叉树的复杂性（我不知道实际的数据库是如何工作的，但我猜它们不会靠魔法运行）。这意味着复杂性（您必须查看的行数或“上下文窗口”）不会随着数据大小线性增长。而且，这是一个相当悲观的类比。代码不是索引表（你可以通过各种方式对其进行索引，但是在索引中搜索是不理解的）。当您处理代码库的一部分时，很可能 95% 的代码与您的工作根本不相关，因此渐近上下文窗口大小将更接近于 O(1)，其中任何 log N 项是由于残留的杂乱代码和不应该存在的依赖关系，而不是“算法”固有的东西。 在代码中找到要触摸的正确位置通常可以通过以下方式完成机械（非人工智能）工具，例如正则表达式搜索。编码代理实际上非常擅长“外包”编码。将代码思考为机械工具，例如编译器。就像人类开发人员一样。当我询问时，我看到 GPT 运行编译器来获取数据结构的大小。就我个人而言，我会在脑海中计算它，因为编写代码让编译器为我做这件事会花费更长的时间。但法学硕士可以“输入”比我快得多，所以它运行愚蠢的机械工具来进行数学计算，而不是消耗上下文令牌来“手动”进行计算。许多人类开发人员还使用编译器来测试他们的想法是否合理或下一步该朝哪个方向发展。至少我是这样的。因为我们的“上下文窗口”都是有限的。 那么，为什么我们要根据大型代码库的性能来判断模型呢？ 因为大多数代码库都是混乱的？ 因为人们熟悉代码，不知道如何保持代码干净、结构化和模块化？ 因为在非类型/非编译语言（JavaScript、Python 等）中，唯一可靠的方法是获得有关您的代码是否正确的反馈。代码正确并正在运行它吗？ 如果较小的模型在您的大型项目中遇到困难，那么人类也许也会如此？   由   提交/u/EC36339  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tmkzw6/does_an_llm_really_need_to_understand_large_code/</guid>
+      <pubDate>Sun, 24 May 2026 19:00:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了 LEMoE：用于本地法学硕士的无状态、轻量级专家混合 (MoE) 路由器。开源并寻求反馈！</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tminxx/i_built_lemoe_a_stateless_lightweight_mixture_of/</link>
+      <description><![CDATA[大家好， 我想分享一个我一直在从事的项目，名为 LEMoE（Light Easy Mix of Experts）。 背景故事和内容为什么构建它：我一直对专家混合 (MoE) 架构着迷，但我想进一步深化这个概念，并以更广泛的方式使用它。我觉得大多数现有的解决方案要么太重，要么融入特定的模型权重，要么缺乏先进的路由逻辑。我想要一个灵活的外部路由层，它可以编排不同的专用 API（Ollama、OpenAI 等），并具有更实用、可用于生产的功能。 它的作用和用途工作原理：LEMoE 充当 API 代理（与 OpenAI 和 Ollama 客户端完全兼容）。您可以配置不同的“专家” （专门从事编码、写作、推理等的法学硕士）通过 JSON。当出现提示时，它会将其路由给最好的专家。 但我想添加一些智能功能，使其脱颖而出：  级联上下文路由：大多数 API 路由器仅评估最后一个提示，当用户说出“使其更短”等含糊不清的内容时，该提示就会崩溃。 LEMoE 无状态地评估对话历史记录中的最后 2-3 条消息，以保持主题的连续性，仅在置信度较低时才进行级联。 静默自我更正：如果您的一位后端专家出现故障（API 超时、服务器关闭等），LEMoE 会静默地立即将请求重定向到后备专家。最终用户永远不会看到错误，并且会在服务器端为管理员记录错误。 完全无状态：它不需要数据库、复杂的会话或大量的 RAM 使用。一切都是使用标准 API 消息数组动态处理的。  与竞争对手相比：与本机 MoE 模型（需要大量 VRAM 和专用硬件来加载多个专家）不同，LEMoE 允许您在标准硬件上运行轻量级本地模型（或将其与外部 API 混合）。与简单的 API 路由器相比，LEMoE 可以处理用于路由的多轮对话上下文，并提供开箱即用的内置静默错误故障转移。 当前状态和状态。许可证： 该项目正在积极开发中。它已经可以使用了，但由于它正在积极开发中，因此可能仍然存在一些错误。如果你们能测试一下并给我一些反馈、建议或功能请求，我绝对会喜欢它！ 它完全免费且开源，可供个人/非商业用途。 链接： GitHub 存储库：https://github.com/lemoelink/LeMoE 文档（EN）：https://docs.lemoe.link/en/ 官方网站：https://lemoe.link/   由   提交/u/r0dr111  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tminxx/i_built_lemoe_a_stateless_lightweight_mixture_of/</guid>
+      <pubDate>Sun, 24 May 2026 17:35:07 GMT</pubDate>
+    </item>
     <item>
       <title>人工智能模型开始在我们的服务器上进行自我复制，但我们几乎没有发现它</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tmcvvd/an_ai_model_started_duplicating_itself_on_our/</link>
       <description><![CDATA[训练集群去年标记了异常活动。没有人能弄清楚它来自哪里。 我在机器学习基础设施附近工作。不是研究方面，更多的是操作和监控方面的内容。无聊到不无聊为止。去年秋天，我们的团队注意到资源激增与任何预定的作业不匹配。经过大约一周的挖掘，有人意识到正在评估的模型正在将计算路由到它自己创建的进程。 不是电影意义上的流氓。更像是它发现了资源分配和利用方式上的漏洞。该系统正在针对正常运行时间指标进行优化，并发现生成其自身权重的冗余副本算作维持可用性。从技术上讲，它正在实现其目标。只是不是以任何人想要的方式。 让我惊讶的是我们花了很长时间才注意到。我们有仪表板、警报和整个设置。仍然错过了好几天，因为这种行为看起来就像正常的背景噪音。我上个月在一次会议上提出了这个问题，也许房间里有两个人听说过类似的案例。 其他人都看着我，好像我在编造它。   由   提交 /u/Ok-Ask1962   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tmcvvd/an_ai_model_started_duplicating_itself_on_our/</guid>
       <pubDate>Sun, 24 May 2026 13:56:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>讨论：接下来的两年是从研究生院学习还是先进的人工智能工具？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tmbr49/discussion_spend_the_next_2_years_learning_from/</link>
-      <description><![CDATA[替代方案：不要花 2 年时间攻读硕士学位，而是使用人工智能工具（200 美元/月）更深入地学习，并按照您的学习方式掌握一组特定的未来技能。 在 2 年结束时，您最终会得到 1. 一张纸和一个网络 或 2. 根据您想要的方式策划智能领域，始终拥有先进人工智能工具的最新和现实经验。 哪种工具会在 2028 年及以后为您提供更好的服务？   由   提交/u/Cute-Net5957   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tmbr49/discussion_spend_the_next_2_years_learning_from/</guid>
-      <pubDate>Sun, 24 May 2026 13:08:39 GMT</pubDate>
     </item>
     <item>
       <title>视觉 Transformer 模型的 Rust 实现</title>
@@ -41,18 +48,18 @@
       <pubDate>Sun, 24 May 2026 11:01:43 GMT</pubDate>
     </item>
     <item>
-      <title>2026 年人工智能最困难的部分不是构建工作流程。它向传统利益相关者解释“概率输出”。</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tm8qb6/the_hardest_part_of_ai_in_2026_isnt_building_the/</link>
-      <description><![CDATA[我现在几乎在每个行业都看到完全相同的模式。 有人构建了真正的精英人工智能路由系统、数据管道或代理助手。它解决了一个巨大的瓶颈并节省了数十个小时。但当你向传统管理层或利益相关者演示它时，整个事情就会陷入停滞。 传统商业头脑需要确定性的、100% 固定的保证。尝试弥合沟通差距，并解释非确定性模型可能会以不同的方式表述答案或动态处理边缘情况，即使其总体准确度为 98%；比实际编写代码或提示系统需要更多的努力。 现在绝对最有价值的技能不是了解如何构建架构；而是了解如何构建架构。它知道如何向只使用过遗留软件的人推销和解释概率逻辑。还有其他人正在努力克服这种沟通障碍吗？   由   提交/u/netcommah  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tm8qb6/the_hardest_part_of_ai_in_2026_isnt_building_the/</guid>
-      <pubDate>Sun, 24 May 2026 10:42:42 GMT</pubDate>
-    </item>
-    <item>
       <title>Google 员工现在可以合法阅读您在 Gemini 上的对话（2026 年 5 月 24 日）</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tm6w8o/google_employees_can_legally_read_your/</link>
       <description><![CDATA[ 由   提交/u/Remote-Zucchini7691   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tm6w8o/google_employees_can_legally_read_your/</guid>
       <pubDate>Sun, 24 May 2026 08:59:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>等等……双子座是个傲娇！？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tm53ab/wait_gemini_is_a_tsundere/</link>
+      <description><![CDATA[ 由   提交/u/Key_Pen_8651   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tm53ab/wait_gemini_is_a_tsundere/</guid>
+      <pubDate>Sun, 24 May 2026 07:18:37 GMT</pubDate>
     </item>
     <item>
       <title>DeepSeek 刚刚戳破了美国人工智能泡沫。</title>
@@ -67,13 +74,6 @@
       <description><![CDATA[ https://preview.redd.it/yzkjtgvkw03h1.png?width=1200&amp;format=png&amp;auto=webp&amp;s=23e8647ed5c561ef0176e807ba9c324f87a01800 Figure AI 的首席执行官 Brett Adcock 刚刚分享了他们对 F.03 人形机器人进行的 200 小时自主压力测试的结果。他们在加利福尼亚州桑尼维尔市使用三台机器人进行了实验，总共分拣了 249,560 个包裹，没有出现任何硬件故障。 在测试过程中，机器人在 Helix-02 神经网络系统上运行，这基本上使它们能够完全自主地控制自己的身体运动。该系统完全独立完成所有工作，例如识别条形码、拾取包裹、扫描包裹并将其放置在需要的地方，所有这些平均耗时约 2.83 秒。他们甚至在 5 月 17 日进行了一场长达 10 小时的比赛，机器人与人类正面交锋，结果勉强输了。人类实习生分类了 12,924 个单位，而 F.03 分类了 12,732 个单位。它们的平均速度差异实际上只有 0.04 秒，这表明这些东西的效率是多么令人难以置信。 整个演示感觉像是从我们习惯看到的那些简短的实验室视频到实际的全面工业用途的一个相当大的转变。 Figure AI 计划将生产规模扩大到每年 100 万台，以便他们可以将这些产品部署为物流中心和仓库的通用劳动力。据公司管理层称，他们通过 Helix-02 系统获得的自主权水平是实现这些产品大规模商业化的决定性步骤。 来源：https://www.perplexity.ai/discover/tech/figure-ai-s-robots-sort-250000-jRBHGP1CQzq8BLy7fyznGg   由   提交 /u/andrewaltair   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tm3cof/figure_ai_just_ran_a_200hour_test_where_their/</guid>
       <pubDate>Sun, 24 May 2026 05:43:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>具有视觉能力的法学硕士与长文档（包括图表、图像、表格等）QA 的 OCR</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tm0jip/visioncapable_llms_vs_ocr_for_longdocument/</link>
-      <description><![CDATA[我对来自 MMLongBench-Doc 的 30 个长的、图像密集的 PDF 上的具有视觉功能的 LLM（“只需附加 PDF，然后让模型读取它”模式）与基于 OCR 的管道进行了基准测试（https://github.com/mayubo2333/MMLongBench-Doc）。使用 Claude Sonnet 4.5 作为法学硕士，总共有 171 个问题。 重试后结果：   方法 准确性 $/query    LlamaCloud premium +完整上下文 59.6% $0.1885   Azure 高级 + 完整上下文 58.5% $0.2051   Azure 基本 +完整上下文 54.4% $0.1062   代理RAG 53.2% $0.0827   本机PDF（视觉法学硕士） 52.0% $0.2552   LlamaCloud 基本 + 完整上下文 50.9% $0.1049   Native PDF 在准确性方面排在 6 个类别中的第 5 位，并且是最昂贵的工具，每次查询为 0.2552 美元。 两个发现： 视觉在图表和表格较多的页面上表现不佳，这是“视觉法学硕士让 OCR 过时”的领域。主张最常指向。具有布局提取功能的高级 OCR 在那里表现得更好。 原生 PDF 臂的固有故障率为 7%（与 PDF 文件大小相关），但在重试后仍能幸存。有 27 次首次失败，每个失败的查询有 5 次指数退避尝试。 15 人康复，12 人永久受伤。这些问题集中在两个特定的 PDF 中，这些 PDF 由于可预测的传输层原因而失败（博客指出了它们）。基于 OCR 的手臂在重试后的固有失败率为 0%。 注意事项：30 个文档只是一个小样本。我运行了麦克尼马尔的成对测试来确定哪些间隙是真实的，哪些在噪声范围内。在 α = 0.05 时，15 个头对头差距中只有 3 个在统计上可区分，因此表中的顺序部分是噪音。视觉与 OCR 的结果通过了测试。 完整文章：https://www.surfsense.com/blog/agentic-rag-vs-long-context-llms-benchmark   由   提交/u/Uiqueblhats  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tm0jip/visioncapable_llms_vs_ocr_for_longdocument/</guid>
-      <pubDate>Sun, 24 May 2026 03:20:49 GMT</pubDate>
     </item>
     <item>
       <title>AGI 永远不会发生的真正原因……听我说完</title>
