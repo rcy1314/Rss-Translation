@@ -4,13 +4,20 @@
     <title>最新提交：编辑</title>
     <link>https://www.reddit.com/r/editors/new</link>
     <description>这个 Reddit 子版块面向的是后专业人士。您想成为职业选手吗？请随意使用我们的“询问专业人士”主题。副业？使用“询问专业人士”主题。爱好？为了好玩？我们的姐妹子/视频编辑正是您想要的！</description>
-    <lastBuildDate>Sun, 24 May 2026 10:45:17 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 13:46:50 GMT</lastBuildDate>
     <item>
-      <title>修复 DaVinci Resolve Linux 上的 Silent-audio-on-AAC 错误（这次没有 FLAC 同级文件）</title>
-      <link>https://www.reddit.com/r/editors/comments/1tm8ovp/fix_for_the_silentaudioonaac_bug_on_davinci/</link>
+      <title>周日“展示你的作品”。</title>
+      <link>https://www.reddit.com/r/editors/comments/1tm924t/show_your_work_sunday/</link>
+      <description><![CDATA[这与我们的“卷轴审核”交替进行。 以下是您发布此内容之前要做的关键事情 标题： 长度： 目的：您为什么发布此内容？  这可能是： 我做了一些很酷的事情 客户获胜 或者是的，甚至是反馈。  如果是反馈，你必须找到另外两个想要反馈的帖子并给出注释。如果您不这样做，模组将访问您的房子 您可以从YT发帖，但我们更喜欢更专业的着陆点（包括frame.io） ----复制此部分---- 标题： 长度： 目的：   由   提交 /u/AutoModerator   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/editors/comments/1tm924t/show_your_work_sunday/</guid>
+      <pubDate>Sun, 24 May 2026 11:00:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>修复 DaVinci Resolve Linux 上的 AAC 静音音频错误</title>
+      <link>https://www.reddit.com/r/editors/comments/1tm91ev/fix_for_the_silentaudioonaac_bug_on_davinci/</link>
       <description><![CDATA[如果您已经在 DaVinci Resolve Linux 上编辑了一段时间，您就会知道 AAC 上的无声音​​频错误 - 将电话剪辑或 yt-dlp 下载放在时间轴上，没有波形，没有音频。大约 8 年来，BMD 的官方答案一直是“许可”。社区的解决方法是在每个源剪辑旁边添加一个 ffmpeg AAC→FLAC 同级文件。 我构建了一个不同的修复程序：一个 LD_PRELOAD 填充程序，它在启动时对 Resolve 进行内存中字节修补，以便 Resolve 自己捆绑的 libavcodec 可以本地解码 AAC。没有 FLAC 同级文件，源文件夹中没有混乱，没有 /opt/resolve/bin/resolve 修改（主机二进制 md5 保持原始状态）。 Repo： https://github.com/geekzeino/davinci-resolve-linux-aac-fix 安装（一行）： git clone --depth 1 https://github.com/geekzeino/davinci-resolve-linux-aac-fix.git /tmp/davinci-resolve-linux-aac-fix &amp;&amp; bash /tmp/davinci-resolve-linux-aac-fix/install.sh  安装后，从终端通过新的应用程序菜单条目 DaVinci Resolve (Native AAC) 或 davinci-resolve-native 启动。首次 AAC 导入会立即显示波形。 测试环境： DaVinci Resolve Studio 20.3.2 Linux（Ubuntu 26.04、Rocky 8.6）。其他版本：当指纹不匹配时，垫片完全不执行任何操作，您将恢复到原始的无声音频行为 - 永远不会使 Resolve 崩溃。 法律： Apache-2.0，根据 17 U.S.C. 发布。 §1201(f) 作为互操作性研究。没有从 BMD 的二进制文件中提取代码（仅用于版本检测的补丁站点指纹字节）。 边缘情况：内存中补丁无法安全处理少数 AAC 变体（紧凑长度 esds AAC、真正的 HE-AAC SBR）。对于那些垫片显然会落入 ~/.cache/resolve-aac/ 中的一次性 ffmpeg → FLAC 兄弟（集中式缓存，不在您的源旁边）。 欢迎问题 + PR。   由   提交 /u/LivingIsUnhealthy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1tm8ovp/fix_for_the_silentaudioonaac_bug_on_davinci/</guid>
-      <pubDate>Sun, 24 May 2026 10:40:32 GMT</pubDate>
+      <guid>https://www.reddit.com/r/editors/comments/1tm91ev/fix_for_the_silentaudioonaac_bug_on_davinci/</guid>
+      <pubDate>Sun, 24 May 2026 10:59:35 GMT</pubDate>
     </item>
     <item>
       <title>达芬奇可以搜索所有的文字记录吗？这个设置有意义/有任何危险信号吗？</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[最近开始从事一些新项目，并开始遇到一些问题，几乎每个免版税音乐平台都在向人们推送生成音频。我试图避免陷入版权盗窃的世界，所以我正在寻找与艺术家站在一起的替代品，即使他们只是制作库存音乐。  有人推荐一些拥有非生成技术制作的免版税库存音乐的网站吗？    由   提交 /u/EasterlyArt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/editors/comments/1tjvr37/request_royalty_free_stock_music_websites_that/</guid>
       <pubDate>Thu, 21 May 2026 19:48:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>您对 iMovie 的所有不满</title>
-      <link>https://www.reddit.com/r/editors/comments/1tjuolp/all_your_frustration_about_imovie/</link>
-      <description><![CDATA[在学校的艺术课上，我们目前以电影制作（或多或少严肃）为主题。我们使用 iMovie。考试应该是实践性的。我们得到了一些视频剪辑，并打算用它制作一个短视频。 我是 Premiere Pro 用户，当我第一次使用 iMovie 时，感觉我不得不呕吐。就像到底是什么。严重地。那个软件是什么垃圾堆，毫无用处。 时间线。剪辑之间的垂直线间隙到底是什么？为什么它们只用于视频？如果我在其下方添加音乐，则不会出现间隙。我该如何将我的剪辑与歌曲同步？ 为什么我不能将一个剪辑与另一个剪辑分开以在它们之间创建空白空间？该剪辑始终会弹回到前一个剪辑的旁边。 当我在将剪辑放入时间线之前在剪辑上设置入点和出点并意外单击另一个剪辑时，我的入点和出点消失了？为什么？ 我可以继续抱怨（缺少功能、不精确的编辑工具...），但我想听听您对 iMovie 的所有不满。我是唯一一个有这些问题的人吗？   由   提交 /u/Puzzleheaded-Bet5302   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/editors/comments/1tjuolp/all_your_frustration_about_imovie/</guid>
-      <pubDate>Thu, 21 May 2026 19:11:50 GMT</pubDate>
     </item>
     </channel>
 </rss>
