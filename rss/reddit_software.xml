@@ -4,7 +4,21 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Sun, 24 May 2026 19:23:52 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 21:59:35 GMT</lastBuildDate>
+    <item>
+      <title>构建了一个开源 Postman 替代方案，可与您的后端自动同步 + 自动测试您的端点的 AI 代理 - 寻找反馈</title>
+      <link>https://www.reddit.com/r/software/comments/1tmnupr/built_an_open_source_postman_alternative_that/</link>
+      <description><![CDATA[嘿， 我对同样的工作流程问题感到沮丧一段时间，并决定构建一些东西。 问题： ``` 后端完成一个新端点 → 通过 Slack 告诉前端 → 前端手动将其复制到 Postman → 身份验证失败→ 再次询问后端 → 端点第二天发生变化→ 没有人通知 → 事情发生了→ 责任开始 ``` 我交谈过的每个团队都有这个。 Postman、Bruno、Insomnia、Hopscotch — 都需要您手动维护集合。后端发生变化。该工具不知道。 所以我正在构建 **Agrzam** - 一个开源协作 API 工作区，通过 OpenAPI 自动与您的后端同步。 工作原理： - 安装一个软件包：`@agrzam/apiwatch` - 运行一次 `agrzam connect` 进行身份验证 - 运行 `agrzam link` 将您的存储库连接到项目 - 包会自动监视服务器上的 OpenAPI JSON 启动 - 您的工作区在您编写代码时实时更新 - 准备好与团队成员共享时运行 `agrzam Push` 在工作区内进行测试的三种方法： **快速** — 一键点击，立即完成 GET 端点。无需设置。 **手动** — 粘贴您的令牌，编辑有效负载，然后发送。与 Postman 类似，但在整个团队实时共享的工作空间内。 **Vibe Test** - 这是有趣的。你知道振动编码吗？相同的想法，但用于 API 测试。你什么也没碰。向 AI 提供您的身份验证令牌，它会读取您的 OpenAPI 架构，生成有效负载，发送请求，读取响应，并准确告诉您通过的内容和原因。你只要看着。没有编写 JSON。无需手动设置。只是结果。 将其视为一个人工智能代理，可以像 QA 工程师一样自动、彻底地测试您的端点，而无需您解释任何内容。 可与任何生成 OpenAPI 的框架配合使用：NestJS、Express、FastAPI、Django、Laravel、Rails、Spring Boot。 还构建一个 Electron 桌面应用程序，使其像 Postman 一样离线工作。 目前处于架构验证阶段 - 无代码还没写。在开始之前寻求诚实的反馈。 **三个问题：**  本地优先模型（私下测试，准备好后推送）实际上有用还是只是额外的摩擦？ 自动 OpenAPI 同步会实时节省您的时间吗？ 您实际上会使用 Vibe Test 还是更喜欢完全手动控制？  具有完整架构的仓库：github.com/MrAboubakr/agrzam 欢迎严厉的反馈 - 我宁愿现在知道出了什么问题，也不愿在构建 6 个月后才知道。   由   提交/u/agh_98  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmnupr/built_an_open_source_postman_alternative_that/</guid>
+      <pubDate>Sun, 24 May 2026 20:50:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>用 Go 构建实时协作应用程序 (CRDT in Go)</title>
+      <link>https://www.reddit.com/r/software/comments/1tmmdk2/built_a_realtime_collaborative_app_in_go_crdt_in/</link>
+      <description><![CDATA[我了解到 Go 是一种非常强大的语言，可以在创建实时协作应用程序的同时进行大量数据同步。因此，基本上，使用 y-crdt 库，我放弃了文本字符串的概念，而是将数据表示为独立编辑的仅附加日志。 我不会通过网络发送整个文件，以尽可能保持性能。使用 WebSockets 加入我的服务器的用户发送一个“状态向量” （一个极小的数字列表，代表他们已经看到的最新编辑）。当我在其上安装 Go 后端时，它会将摘要与其主操作日志进行匹配，并仅返回缺失的增量。 数千个输入事件是 Go 真正为我提供行进命令的地方。我创建了一个中央路由中心，它使用 Go 的本机 Goroutines 和 Channels 来安全地路由用户之间的并发编辑，而不会出现数据损坏或线程锁定的危险，这在此类实时协作应用程序中可能是一个大问题。   由   提交 /u/pirinihacodes   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmmdk2/built_a_realtime_collaborative_app_in_go_crdt_in/</guid>
+      <pubDate>Sun, 24 May 2026 19:53:43 GMT</pubDate>
+    </item>
     <item>
       <title>Google Chrome 现在支持牛津拼写</title>
       <link>https://www.reddit.com/r/software/comments/1tmkn3k/google_chrome_now_has_oxford_spelling/</link>
@@ -32,13 +46,6 @@
       <description><![CDATA[所以我一直在做一个项目，我希望 AI AGENT IDE 可以连接到它，所以我尝试了 MCP（模型上下文协议），但我在过去的 10 多个小时里一直在尝试，但它不起作用。我尝试了 HTTP、SSE 和 STDIO，但没有任何效果。 IDE 无法向我的后端发送 cmd，我的后端也无法读取它或任何内容。我的应用程序在本地主机上启动，因此我将其添加到 MCP 配置文件中，但 IDE 仍然无法连接到我的后端或我的后端连接到 IDE。如果有人使用过 MCP，我将非常感谢您的帮助。 提前谢谢您。   由   提交/u/Disastrous_Donut_  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1tmiupo/how_to_make_mcp/</guid>
       <pubDate>Sun, 24 May 2026 17:42:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>我为 Windows 制作了一个人工智能驱动的诊断工具（PCCheckr） - 专注于隐私和“简单的英语”修复。</title>
-      <link>https://www.reddit.com/r/software/comments/1tmiqj5/i_made_an_aipowered_diagnostic_tool_for_windows/</link>
-      <description><![CDATA[大家好， 我想分享一个我一直在开发的工具：https://www.pccheckr.com/ 它专为那些想知道“为什么”他们的电脑运行缓慢或崩溃而不使用“一键修复”的用户而设计。可能存在风险的工具。  **主要功能：** * **只读扫描仪：** 它是便携式的（无需安装）并且仅收集系统元数据。 * **人工智能诊断：** 使用人工智能将神秘的错误日志和 BSOD 转储翻译成简单的英语。 * **手动修复指南：** 它不会更改您的注册表；它准确地告诉您如何自行解决问题。 我希望获得有关该工具的任何反馈！   由   提交 /u/LopsideDriver3499   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tmiqj5/i_made_an_aipowered_diagnostic_tool_for_windows/</guid>
-      <pubDate>Sun, 24 May 2026 17:37:48 GMT</pubDate>
     </item>
     <item>
       <title>安全字幕生成（无人工智能）</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[Windows 桌面似乎是直观地组织和简化文件的最佳场所，尤其是临时文件（例如您需要大约一周的文件），但由于此桌面变得混乱，它变得更加紧张而不是帮助。 我希望有一个程序可以像桌面一样工作，但允许您以思维导图的方式组织文件夹和文件。您可以创建文件（包括快捷方式）和文件夹的可视组（集），并自由移动每个元素，您还可以绘制连接线，或为元素创建下拉结构。您只需要拖放任何文件夹或单个文件，它就会自动索引文件夹结构，并像文件资源管理器一样运行，如果您想打开它，它会将您重定向到任何文件。也许有一个单独的选项来显示 pdf（第一页）和图像等文件的实际外观（仍然只是在默认程序中打开文件的快捷方式。还可以选择在画布上粘贴注释/注释和标签或将它们直接附加到元素上。 即使只有 Windows 为每个桌面提供单独的桌面目录，它也使您能够在专用桌面中组织快捷方式和文件，这样就不会混乱，但更改桌面不会更改其上的内容。 与此相关的东西是 Stardock Fences 提供的，但它是付费的，看起来不太现代，但我认为它解决了这种困境。    提交/&gt; [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1tma7m3/software_idea/</guid>
       <pubDate>Sun, 24 May 2026 11:58:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用代理管理软件3个月。</title>
-      <link>https://www.reddit.com/r/software/comments/1tm8s2n/using_an_agency_management_software_for_3_months/</link>
-      <description><![CDATA[ 由   提交/u/rohang57  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tm8s2n/using_an_agency_management_software_for_3_months/</guid>
-      <pubDate>Sun, 24 May 2026 10:45:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
