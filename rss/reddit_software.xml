@@ -4,7 +4,42 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Sun, 24 May 2026 21:59:35 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 04:13:58 GMT</lastBuildDate>
+    <item>
+      <title>Windows 10 上的 LDAC 通过 WSL2</title>
+      <link>https://www.reddit.com/r/software/comments/1tmx312/ldac_on_windows_10_via_wsl2/</link>
+      <description><![CDATA[嗨！这是我的第一篇文章，因为我说西班牙语，所以我使用翻译来写它。我想分享这个是因为我无法找到一种在不购买商业驱动程序的情况下在 Windows 10 上将我的耳机与 LDAC 连接的免费方法，并且由于我没有看到任何有关此确切解决方法的帖子，所以我认为在这里分享它会很酷。 我有一些使用 Linux 的基本经验，但我以前从未使用过 WSL2，而且我没有太多编程知识。为了构建这一切，我使用了 Antigravity 和 Gemini 的 vivi 编码。 最初的一些命令行脚本现在已经成为一个从 Windows 系统托盘运行的简单 Python 应用程序。 它的工作方式是，我将 WSL2 与非常轻的 Alpine Linux 安装和启用了蓝牙和 USBIP 的自定义内核结合使用。 使用 USBIPD-Win，该脚本需要我的 PC 的蓝牙卡（Intel AX210）并暂时将其传递给 Alpine VM。在 Alpine 内部，它运行 BlueZ、Pipewire 和 Wireplumber，对 LDAC 中的音频进行编码。 在 Windows 端，后台 Python 脚本使用 WASAPI 实时捕获系统音频，缩放声音数字样本以跟随 Windows 主音量滑块，并通过 UDP 将其流式传输到 Alpine，后者直接将其馈送到耳机。 我们还使用 Tkinter 构建了一个简单的界面，让我可以从系统托盘完成所有操作。我们添加的一些功能使其更易于使用：  基本的蓝牙管理器，您可以在其中扫描附近的设备、配对并连接。它可与 LDAC 耳机和 JBL Charge 5 等常规扬声器配合使用。 一个简单的监视器窗口，显示活动设备、当前音量、流媒体速度以及从 Pipewire 动态读取的实际协商 LDAC 比特率（990 kbps、660 kbps 或自适应）。 质量选择器，您可以在极端质量 (990 kbps) 和更稳定的模式 (660 kbps) 之间切换，以避免避免干扰或自动模式。 热切换：如果一台设备已连接并且您想切换到另一台设备，应用程序会首先自动断开活动设备以释放物理卡，然后连接新设备，然后一键自动重新启动音频流。  一切都是通过桌面批处理文件自动完成的。当我双击它时，它会绑定蓝牙卡，启动 Alpine，连接耳机，然后启动音频流。 目前此设置唯一的缺点是，由于 WSL2 保留内存的方式，它在运行时使用大约 1GB 的 RAM。然而，一旦我关闭应用程序，它就会干净地分离卡，关闭虚拟机以释放 100% 的 RAM，并将蓝牙适配器返回给 Windows，以便我可以正常使用它。 我不知道这是否有什么新鲜事，但这是一个非常有趣的项目，很高兴您可以通过这种方式完全免费获得高质量的 LDAC 音频。   由   提交 /u/Tiny-Carrot-7708   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmx312/ldac_on_windows_10_via_wsl2/</guid>
+      <pubDate>Mon, 25 May 2026 03:29:56 GMT</pubDate>
+    </item>
+    <item>
+      <title>相当于 Google Photos，无需设置服务器，不用于备份照片。</title>
+      <link>https://www.reddit.com/r/software/comments/1tmvk79/google_photos_equivalent_no_server_setup_required/</link>
+      <description><![CDATA[正如标题所说，我需要像 Google 照片一样的软件，但只是为了：  干净的界面 相册、标签或一些简单的文件夹（理想情况下可以将 1 张照片放在 2 个以上的位置） 可以自动按确切的拍摄日期或事件对照片进行分组，创建时间线。  我只是想要这个用于我硬盘上的照片。   我不需要将它们备份到任何服务器 我也没有能力设置自托管服务器的知识、精力或材料（如果有）。   除非我误解了像 Immich 或 Ente 这样的选项，尽管我没有仔细研究过，但对于我的特定用例来说，这似乎不是一个好的选择。 我在 Windows 上使用默认文件资源管理器的问题在于它的局限性以及组织文件夹是多么烦人。很难看出我到底什么时候拍摄了某些照片，或者只是看到照片本身，而谷歌照片则没有这个问题。但现在我所有的驱动器空间都被大公司服务器上的冗余照片备份占用了，天知道在哪里。   由   提交/u/sourcegear420  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmvk79/google_photos_equivalent_no_server_setup_required/</guid>
+      <pubDate>Mon, 25 May 2026 02:19:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于 iOS 26，我应该了解哪些一般信息？</title>
+      <link>https://www.reddit.com/r/software/comments/1tmro0f/what_should_i_know_about_ios_26_in_general/</link>
+      <description><![CDATA[我的 iPhone 目前运行的是 iOS 18.6.2。我只是想知道安装 iOS 26（更具体地说，iOS 26.5）的潜在利弊。   由   提交/u/Guest281  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmro0f/what_should_i_know_about_ios_26_in_general/</guid>
+      <pubDate>Sun, 24 May 2026 23:25:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gilbert Codex v0.8.0 已发布：我的本地优先桌面 AI 工作区现在拥有 macOS 和 Linux alpha 版本</title>
+      <link>https://www.reddit.com/r/software/comments/1tmpxnu/gilbert_codex_v080_is_here_my_localfirst_desktop/</link>
+      <description><![CDATA[ 由   提交/u/Elegant_Associate889  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmpxnu/gilbert_codex_v080_is_here_my_localfirst_desktop/</guid>
+      <pubDate>Sun, 24 May 2026 22:13:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>创建快节奏内容的最佳屏幕录像机是什么？操作系统：Win 11</title>
+      <link>https://www.reddit.com/r/software/comments/1tmpw3i/whats_the_best_screen_recorder_for_creating/</link>
+      <description><![CDATA[ 由   提交 /u/mohitaksh   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tmpw3i/whats_the_best_screen_recorder_for_creating/</guid>
+      <pubDate>Sun, 24 May 2026 22:11:42 GMT</pubDate>
+    </item>
     <item>
       <title>构建了一个开源 Postman 替代方案，可与您的后端自动同步 + 自动测试您的端点的 AI 代理 - 寻找反馈</title>
       <link>https://www.reddit.com/r/software/comments/1tmnupr/built_an_open_source_postman_alternative_that/</link>
@@ -74,41 +109,6 @@
       <description><![CDATA[感觉每次更新应用程序时都会出现问题。这次，目标已经实现了一半，代理不断询问我何时我的配置允许在不询问我的情况下执行某些操作，我所有的子代理都回来了（现在我有 100 个东西）并且应用程序变慢了。 我再也不会更新它了。或者这对你们中的任何人来说也是一个问题吗？ 此时，我可能会切换到 CLI。   由   提交/u/BritishDudeGuy   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1tme7ot/for_anyone_using_chatgpt_codex_gui_dont_update/</guid>
       <pubDate>Sun, 24 May 2026 14:48:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>Windows 11 上还有比 Realtek 更好的吗？</title>
-      <link>https://www.reddit.com/r/software/comments/1tmcbe9/anything_better_than_realtek_for_windows_11/</link>
-      <description><![CDATA[我希望能够通过软件更改我的 PC 音频输入/输出。我可以使用瑞昱来做到这一点，但我想尝试一些更好的替代方案。有什么建议吗？   由   提交/u/AetherealSpaces  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tmcbe9/anything_better_than_realtek_for_windows_11/</guid>
-      <pubDate>Sun, 24 May 2026 13:32:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>WIN 10 最好的 RAR fie 打开软件是什么？</title>
-      <link>https://www.reddit.com/r/software/comments/1tmcbcu/what_is_the_best_rar_fie_opening_software_for_win/</link>
-      <description><![CDATA[ 由   提交 /u/Nervous-Tree-6474   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tmcbcu/what_is_the_best_rar_fie_opening_software_for_win/</guid>
-      <pubDate>Sun, 24 May 2026 13:32:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>cs 学位值得你花时间吗？</title>
-      <link>https://www.reddit.com/r/software/comments/1tmay3d/is_cs_degree_even_worth_your_time/</link>
-      <description><![CDATA[我知道你已经听过很多次了，但我只是想把我的心吐出来... 亲爱的朋友们，我去年刚刚毕业，我现在即将入读大学...我一直在想，你认为我是选择土木之类的工程课程更好，还是应该遵循我的愿望去选择计算机科学。因为最近，我所看到的都是计算机科学学位很难找到工作的人，我还听说你需要自己做一些项目的工作才能获得招聘人员的批准……所以我问你，我是否应该继续攻读计算机科学学士学位，希望我能找到一份软件工程师的工作，甚至成为一名网络安全人员？或者最好选择土木工程。 主要目标是找到一份软件工程师的工作。或者至少是一份网络安全工作。   由   提交/u/OkPut3309  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tmay3d/is_cs_degree_even_worth_your_time/</guid>
-      <pubDate>Sun, 24 May 2026 12:32:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>Spectrum XC - 实时协作艺术软件</title>
-      <link>https://www.reddit.com/r/software/comments/1tmadk1/spectrum_xc_realtime_collaboration_art_software/</link>
-      <description><![CDATA[频谱 XC 开启Windows 我想和我的朋友一起制作漫画，但我是一个生育用户。 Procreate 太棒了。它不允许多个艺术家同时在同一画布的不同层上绘画。因此我制作了一个提供上述功能的软件。  现在我一有时间就和朋友们一起画漫画。我让它干净、简单、可靠，在 Windows 上表现良好。与您使用的图形输入板兼容。如果您热衷于艺术，您就不必再独自完成了。  我的软件对我很有帮助，如果您发现自己处于类似情况，我希望它也能对您有所帮助。 它在 Microsoft Store 上的名称为 Spectrum XC。  https://apps.microsoft.com/store/detail/9PFB17KRKV21?cid=DevShareMCLPCS 非常感谢。    由   提交/u/MostCycle5815   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tmadk1/spectrum_xc_realtime_collaboration_art_software/</guid>
-      <pubDate>Sun, 24 May 2026 12:06:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件理念</title>
-      <link>https://www.reddit.com/r/software/comments/1tma7m3/software_idea/</link>
-      <description><![CDATA[Windows 桌面似乎是直观地组织和简化文件的最佳场所，尤其是临时文件（例如您需要大约一周的文件），但由于此桌面变得混乱，它变得更加紧张而不是帮助。 我希望有一个程序可以像桌面一样工作，但允许您以思维导图的方式组织文件夹和文件。您可以创建文件（包括快捷方式）和文件夹的可视组（集），并自由移动每个元素，您还可以绘制连接线，或为元素创建下拉结构。您只需要拖放任何文件夹或单个文件，它就会自动索引文件夹结构，并像文件资源管理器一样运行，如果您想打开它，它会将您重定向到任何文件。也许有一个单独的选项来显示 pdf（第一页）和图像等文件的实际外观（仍然只是在默认程序中打开文件的快捷方式。还可以选择在画布上粘贴注释/注释和标签或将它们直接附加到元素上。 即使只有 Windows 为每个桌面提供单独的桌面目录，它也使您能够在专用桌面中组织快捷方式和文件，这样就不会混乱，但更改桌面不会更改其上的内容。 与此相关的东西是 Stardock Fences 提供的，但它是付费的，看起来不太现代，但我认为它解决了这种困境。    提交/&gt; [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tma7m3/software_idea/</guid>
-      <pubDate>Sun, 24 May 2026 11:58:47 GMT</pubDate>
     </item>
     </channel>
 </rss>
