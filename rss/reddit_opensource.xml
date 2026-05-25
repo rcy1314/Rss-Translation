@@ -4,11 +4,25 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 25 May 2026 04:14:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 10:19:26 GMT</lastBuildDate>
+    <item>
+      <title>Anagnorisis 的新稳定版本 (v0.4.0) - 本地媒体推荐系统，可以了解您的品味，从而更有效地查找、搜索和过滤数据。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tn3oyz/new_stable_release_v040_of_anagnorisis_local/</link>
+      <description><![CDATA[      我构建这个项目已经有一段时间了（超过两年半），v0.4.0 对我来说感觉像是一个重要的里程碑，该项目实际上变得足够有用且方便日常使用。 简短的版本：它是一个自托管应用程序，利用您的 GPU 来了解您真正喜欢的内容。你将它指向你的音乐、图像、视频或文档，对其中一些进行评分，它会训练一个小模型来预测你的品味，并对其他所有内容进行相应的排序。一切都是本地的，没有任何东西离开你的机器。 这个版本对我来说特别的地方在于，许多粗糙的基础设施工作终于整合在一起了。 ML 模型现在在独立的子进程中运行，因此应用程序在空闲时不再占用您的 VRAM。有一个适当的后台作业系统，可以随着时间的推移自动对您的文件进行评级和描述，因此当您浏览到文件夹时，事情已经被描述和评估了。 还有一个新的外部模块系统，其中有两个实验性模块已经可用：一个用于索引和搜索网站，另一个用于将 YouTube 视为媒体源，同时保持推荐本地化。 该项目仍然有一些粗糙的地方，特别是在视频支持和低端硬件上的描述生成速度方面。但与一两年前相比，这是一次真正不同的体验。 如果这听起来很有趣，它完全通过 Docker 运行，因此设置只需使用文件夹路径编辑 yaml 文件即可。如果有人有任何关于该项目的问题，我很乐意回答。   由   提交 /u/Another__one   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tn3oyz/new_stable_release_v040_of_anagnorisis_local/</guid>
+      <pubDate>Mon, 25 May 2026 09:11:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>我厌倦了 Teams，所以我构建了自己的 Teams</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tn31vr/i_got_tired_of_teams_so_i_built_my_own/</link>
+      <description><![CDATA[大约 9 个月前，我休息了一天，并在 Teams 中经历了太多糟糕的经历。电话掉线、更新导致我的电脑崩溃，而且有一天，我的电脑被强制喂食，经历了太多次的糟糕经历。所以我回家开始建立自己的。 现在这已经变成了利润。一个开源的、端到端加密的团队沟通平台。全部在欧洲托管，不依赖美国基础设施（目前很流行）。不一定是因为意识形态，而是因为每个欧洲组织都在谈论 GDPR 和数字主权，然后无论如何都通过 Microsoft 来管理一切，这感觉很奇怪。 在建立它的同时，还有一份全职工作和两个孩子。它的边缘很粗糙，但它可以工作，而且我刚刚进入公开测试版。 关于技术，我在 Spring Boot + Java 25 中构建了整个后端，并使用嵌入式 Netty 服务器直接处理 WebSocket 层，而不是通过 Spring 的 WebSocket 抽象。主要原因是控制，因为 Netty 直接为您提供事件循环，这在您同时处理实时消息传递和调用时很重要。代价是 Netty 是一个普通的 Java 类，而不是 Spring bean，因此您会失去处理程序中的自动依赖注入。尝试使用基于处理器的策略模式来解决这个问题，其中每个 WebSocket 消息类型都是其自己的 Spring 组件，在启动时自动发现，在运行时通过映射查找进行分派。 早期让我困扰的一件事是在 Netty 事件循环线程上运行的 hibernate。阻止事件循环上的数据库调用将绑架线程并备份其后面的所有内容。通过将所有处理器调用卸载到专用执行器池并让 Netty 异步处理写回来修复。 桌面/Web 客户端是 Svelte + Electron。 1 对 1 呼叫是 P2P，通道呼叫（群组呼叫）通过 mediasoup SFU 处理。直接消息的端到端加密。 该应用程序目前由我托管和维护。从技术上讲，自行托管它是可行的，但有点乏味，所以我想添加专用脚本和文档，以便将来自行托管它。 代码：https://codeberg.org/margin 尝试一下：https://margin.chat 很高兴讨论任何架构决策。   由   提交/u/monsieur_ramboz  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tn31vr/i_got_tired_of_teams_so_i_built_my_own/</guid>
+      <pubDate>Mon, 25 May 2026 08:36:03 GMT</pubDate>
+    </item>
     <item>
       <title>福克斯有用吗？</title>
       <link>https://www.reddit.com/r/opensource/comments/1tmxrba/does_fauxx_work/</link>
-      <description><![CDATA[https://github.com/digital-grease/fauxx 这真的会毒害你的数据吗？   由   提交/u/ki4jgt   [链接] [评论]]]></description>
+      <description><![CDATA[https://github.com/digital-grease/fauxx 这真的会毒害你的数据吗？   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tmxrba/does_fauxx_work/</guid>
       <pubDate>Mon, 25 May 2026 04:02:04 GMT</pubDate>
     </item>
@@ -95,20 +109,6 @@
       <description><![CDATA[所以我遇到了 Malus，坦率地说，我无法判断这是否是纯粹的邪恶，背后是讽刺或激进主义，通过稻草人动员人们反对那些真正有恶意的人。但这确实引起了我的思考。  类似的“ai洁净室”可以吗？设置为处理后编译代码以生成“合法的独特开源代码”？不是作为一种真正丰富开源存储库的方式，而是作为一种被现存最大的公司起诉到地狱的方式，树立一个绝对可靠的先例，然后保护开源免受相反过程的影响？    由   提交 /u/Xhosant   [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tlanyb/malus_a_weird_idea_and_me_being_late_to_the_party/</guid>
       <pubDate>Sat, 23 May 2026 08:26:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>confluence2md - 开源 CLI 将 Confluence 空间导出到本地 Markdown</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tkwcw5/confluence2md_open_source_cli_to_export/</link>
-      <description><![CDATA[      我刚刚开源了 confluence2md，这是一个用于将 Confluence 空间导出到本地 Markdown 文件的 Go CLI。 它的作用： - 从种子页面抓取 Confluence，跟踪链接至可配置的深度 - 使用稳定的文件名写入干净的 Markdown（包括用于跟踪重命名的页面 ID） - 将内部链接重写为相对本地路径，保留外部 URL - 下载附件并重写引用 - 支持具有双检查点可靠性的增量更新 - 输出带有页面元数据和双向链接图的 metadata.json 为什么开源： Confluence 导出问题是真实存在的，影响着很多团队。现有工具要么已经过时，要么被锁定在特定的工作流程中，要么根本不起作用。我想要一些简单的东西，只需干净地导出您的文档，这样您就可以： - 在 Git 中版本化您的知识 - 将文档输入 RAG/AI 管道 - 在您喜欢的 Markdown 编辑器中离线浏览 - 构建本地全文搜索 技术： - Pure Go（零 CGO），跨平台 - 完整的测试套件 - 带有自动发布和预构建二进制文件的 GitHub Actions CI/CD - MIT 许可，欢迎贡献 链接： - GitHub：https://github.com/gkoos/confluence2md - 版本：https://github.com/gkoos/confluence2md/releases 寻找早期反馈、错误报告和贡献。如果您以前处理过 Confluence 导出，我很想知道是什么让这个工具对您的工作流程更有用。   由   提交/u/OtherwisePush6424   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tkwcw5/confluence2md_open_source_cli_to_export/</guid>
-      <pubDate>Fri, 22 May 2026 21:20:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>JobOps v0.8.0 正式上线。 6 个月后，势头强劲</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tkn5j9/jobops_v080_is_officially_live_6_months_in_and/</link>
-      <description><![CDATA[此版本的主要功能是观察列表，这是因为用户厌倦了跟踪特定公司职业委员会的手动工作而构建的。您现在可以固定目标招聘来源并从一个仪表板刷新所有内容，而不是每天打开 20 个选项卡来查看职业页面是否发生变化并尝试记住昨天的内容。 对于第一个版本，该应用程序支持 BambooHR 和 Workday（通过内置 URL 或自定义配置）。如果您的目标公司使用其他东西，请随时打开 PR！它的设计可扩展且易于理解！ 还有什么新功能： • Z.AI / GLM 提供商支持（向为此打开 PR 的贡献者表示感谢） • 新的简历渲染主题和内容部分重新排序• 在入职期间反应式恢复JSON 导入• 更好的适合评估准确性• 入职和离线错误修复 在过去的半年里，这一理念没有改变：JobOps 不会试图为您喷洒和祈祷应用程序。它旨在显着减少求职的管理工作，以便您可以专注于申请您关心的职位 v0.8.0 现已发布。让我知道你的想法 https://github.com/DaKheera47/job-ops   由   提交 /u/DaKheera47   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tkn5j9/jobops_v080_is_officially_live_6_months_in_and/</guid>
-      <pubDate>Fri, 22 May 2026 15:57:07 GMT</pubDate>
     </item>
     </channel>
 </rss>
