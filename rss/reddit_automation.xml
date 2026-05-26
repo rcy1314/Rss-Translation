@@ -4,7 +4,42 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Tue, 26 May 2026 15:47:57 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 20:12:34 GMT</lastBuildDate>
+    <item>
+      <title>为自动化构建者构建了实用的 Discord</title>
+      <link>https://www.reddit.com/r/automation/comments/1toi9pu/built_a_practical_discord_for_automation_builders/</link>
+      <description><![CDATA[从我之前的文章中快速更新，Discord 上的自动化构建器社区现已启动并运行。 目标仍然是相同的：围绕工作流程、调试、边缘案例、AI/无代码系统、客户端自动化和操作思维进行实际讨论，而无需通常的大师废话。 在下面评论，我将亲自向您发送 Discord 链接。   由   提交 /u/CryptographerOwn4806   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1toi9pu/built_a_practical_discord_for_automation_builders/</guid>
+      <pubDate>Tue, 26 May 2026 19:56:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>为 n8n 上的本机 .docx 修订和多轮 AI 代理工作流程构建了“n8n-nodes-adeu”</title>
+      <link>https://www.reddit.com/r/automation/comments/1toery5/built_n8nnodesadeu_for_native_docx_redlining_and/</link>
+      <description><![CDATA[我们构建了一个名为 n8n-nodes-adeu 的 n8n 社区节点，为 n8n 带来了原生 Microsoft Word (.docx) 修订和跟踪功能。  该节点已经过正式验证，现在应该会出现在 n8n Cloud 社区搜索栏上。同时，或者如果您是自托管，则可以使用 npm 软件包名称安装它：n8n-nodes-adeu。 源代码托管在 GitHub 上。规则不允许我在此处添加指向存储库的链接。 NPM：n8n-nodes-adeu 我们可能是平台上第一个提供本机 .docx 修订的节点。这为法律、采购和文档密集型操作工作流程开辟了新的可能性。 节点的用途 该节点公开了直接在工作流程中操作 .docx 文件的四个主要操作：   提取 Markdown：使用 CriticMarkup 格式将 .docx 文件转换为 Markdown，这允许 AI 模型读取并推理现有跟踪的更改。  应用编辑：将一批编辑（修改、接受/拒绝更改、回复注释、插入/删除表格行）作为本机跟踪更改和注释气泡直接应用到 Word 文件。  生成差异：比较两个 Word 文档并输出字补丁差异。  最终化文档：清理元数据，解决未完成的更改，并可以应用本机只读保护。   绕过 AI Agent 工具和文件系统限制 如果您想在 n8n 的 AI Agent 节点内使用文件修改工具，则会遇到两个主要平台限制：   二进制剥离包装器：n8n 的 AI 工具包装器会从 n8n 的 AI 工具包装器中剥离所有二进制数据工具响应。 AI可以读取并输出文本，但物理文件在被下游节点处理之前就丢失了。  验证节点沙箱约束：为了通过验证，社区节点需要遵守严格的安全规则。至关重要的是，它们在执行期间不允许读取或写入主机文件系统上的本地文件。这意味着您不能简单地将中间文档写入本地临时目录（如 /tmp）以在连续工具调用之间保留状态。  为了解决这两个限制，同时保持完全符合 n8n 的验证节点标准，我们开发了一个状态水合侧通道：   保存到兼容存储：当 applyEdits 工具运行时，它将修改后的文档缓冲区直接写入 n8n 的内部二进制存储管理器，并向 LLM 返回唯一的 redlinedBinaryId。   多轮状态推断：对于顺序、多轮编辑，AI 代理会在后续工具调用中将此 ID 传回。节点使用它从存储中检索活动中间文件，而不是从画布源节点重新启动。  下游水化：最终存储句柄保存在工作流的全局静态数据中（这是 AI 包装器不会拦截的 JSON 存储）。一旦AI Agent完成整个执行，下游水合节点就会从静态数据中读取最终ID，并将二进制文件重新附加到主画布分支。  这种设计使节点后端保持无状态，符合经过验证的节点安全沙箱，并允许LLM通过自己的聊天记录自然地管理文档状态。 安装   n8n Cloud：注意一旦索引同步，就会在社区节点搜索面板中显示 n8n-nodes-adeu。  自托管：通过 UI 安装或在您的实例上运行 npm i n8n-nodes-adeu。  如果您正在 n8n 上构建法律技术或合同自动化工作流程，我们将感谢您的反馈，并很乐意回答有关   由   提交 /u/Tangoua   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1toery5/built_n8nnodesadeu_for_native_docx_redlining_and/</guid>
+      <pubDate>Tue, 26 May 2026 17:58:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI记忆并没有被破坏。这只是永久的乐观。</title>
+      <link>https://www.reddit.com/r/automation/comments/1tocvgb/ai_memory_isnt_broken_its_just_permanently/</link>
+      <description><![CDATA[它假设存储的所有内容稍后仍然重要。 这一设计选择就是为什么大多数智能体随着时间的推移慢慢变成自信的噪音。   由   提交/u/riddlemewhat2  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tocvgb/ai_memory_isnt_broken_its_just_permanently/</guid>
+      <pubDate>Tue, 26 May 2026 16:54:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何实现 Web+Excel+AI 的自动化？</title>
+      <link>https://www.reddit.com/r/automation/comments/1tobs0u/how_can_i_automate_webexcelai/</link>
+      <description><![CDATA[我有商业背景。我没有 Agentic AI、自动化或编码方面的经验。所以，我想知道如何实现 Web+Excel+AI 的自动化，以及需要哪些技能来实现这一点，例如编码或 n8n。 这就是我的工作流程：  自动从 Web 中提取 PDF，并将文件中给出的数据转换为 Excel 创建一个 AI，它充当自动化的大脑，并执行我想让它们执行的操作，例如求和，将不同的公式和函数按照要求。  这是基本工作流程。那么，请告诉我如何做到这一点以及我需要学习哪些技能（VBA、Python、Power Query）以及我应该使用哪种自动化工具来完成上述操作，例如 MS Power Automate？给我一个路线图，告诉我应该从哪里开始我的技术技能。如果您可以提供播放列表的视频链接，这将是一个加分。 感谢您的帮助提前！   由   提交 /u/Stunning_Capital_354   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tobs0u/how_can_i_automate_webexcelai/</guid>
+      <pubDate>Tue, 26 May 2026 16:17:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>自动奖励器 v3.3 来了！现在具有系统托盘支持、扩展点收集和新的自动化模式。</title>
+      <link>https://www.reddit.com/r/automation/comments/1tob543/autorewarder_v33_is_here_now_with_system_tray/</link>
+      <description><![CDATA[      大家好！ 首先，感谢您对之前版本的支持。 AutoRewarder 已在 GitHub 上获得+1.4k 下载量和+127 颗星 几天前，AutoRewarder v3.3 发布。此版本主要关注生活质量的改进，让您对应用程序有更多的控制权，并帮助您获得更多积分。 v3.3 中的新增功能：  扩展积分收集： 机器人现在可以处理“更多活动”部分，自动捕获之前被忽略的 15-20 张额外赚取积分的卡片。 系统托盘和系统托盘停止按钮：应用程序现在可以优雅地最小化到系统托盘。我们还添加了一个“停止”按钮，可以安全地中断运行，而不会在后台留下隐藏的浏览器进程。 高级调度和优化新模式：您现在可以在指定的时间内进行手动 GUI 搜索。如果您想在不执行 Bing 搜索的情况下处理卡片，还有一个新的“仅限每日任务”模式。 更智能的自动化：改进的完成检测以消除“一切都已完成”的情况。误报，并修复了无提示点击，以便在点击之前正确滚动到屏幕外的卡片。 在引擎盖下和文档：为开发人员提供更好的诊断日志记录、扩展的文档和预提交挂钩。  该项目仍然 100% 开源。 GitHub 上的更多信息、屏幕截图、演示和代码： repo:safarsin/AutoRewarder 我很乐意听到您的反馈、错误报告或对下一次更新的想法！   由   提交/u/18safarov  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tob543/autorewarder_v33_is_here_now_with_system_tray/</guid>
+      <pubDate>Tue, 26 May 2026 15:55:38 GMT</pubDate>
+    </item>
     <item>
       <title>我询问了 7 位创始人，为什么他们的自动化工作流程失败了</title>
       <link>https://www.reddit.com/r/automation/comments/1toaftw/i_asked_7_founders_why_their_automation_workflows/</link>
@@ -62,13 +97,6 @@
       <pubDate>Tue, 26 May 2026 07:48:49 GMT</pubDate>
     </item>
     <item>
-      <title>请求帮助构建 iMessage 联系人拦截器</title>
-      <link>https://www.reddit.com/r/automation/comments/1tnw4p4/request_for_help_in_building_an_imessage_contact/</link>
-      <description><![CDATA[我在此发布此个人请求，看看你们中是否有聪明人对我有任何想法！感谢您的浏览。    由   提交 /u/double_e_waterfall   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tnw4p4/request_for_help_in_building_an_imessage_contact/</guid>
-      <pubDate>Tue, 26 May 2026 04:25:35 GMT</pubDate>
-    </item>
-    <item>
       <title>自动化了我的工作，现在怎么办？</title>
       <link>https://www.reddit.com/r/automation/comments/1tnm85t/automated_my_job_now_what/</link>
       <description><![CDATA[我 23 名女性，在大多伦多地区的一家非政府组织工作，我的职责包括创建财务模型以对业务的财务方面进行预测、监控并向外部资助者推销发展。  我计划每周工作 40 小时，但有了人工智能，我发现我的工作时间不会超过 10-15 小时。  我担心我的职位会因自动化而失去价值，并且我不确定如何创造足够的价值来证明 40 小时的自动化是合理的。我想搬出父母的家，而我目前不到 40 小时的工资不足以让我开始我的生活。  还有其他人经历过这种情况吗？你的情况如何。    由   提交 /u/Equivalent_Bad_6643   [链接] [评论]]]></description>
@@ -76,39 +104,11 @@
       <pubDate>Mon, 25 May 2026 21:18:03 GMT</pubDate>
     </item>
     <item>
-      <title>防止您的自动化工作流程在 API 中断期间中断</title>
-      <link>https://www.reddit.com/r/automation/comments/1tnittu/preventing_your_automated_workflows_from_breaking/</link>
-      <description><![CDATA[提供商中断现在直接影响生产应用程序。如果没有后备路由，工作流程就会失败，代理会中断，自动化链也会停止运行。我们发现将我们的工作流程绑定到单个提供商会导致严重的单点故障，因此我们集成了 mixroute 来处理我们的编排。现在，如果延迟高峰或提供商失败，请求会自动重新路由并通过备用提供商重试。工作流程继续进行，不会出现应用程序级故障。您的自动化后备策略是什么？   由   提交/u/IllAd3302  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tnittu/preventing_your_automated_workflows_from_breaking/</guid>
-      <pubDate>Mon, 25 May 2026 19:12:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>建立自动化构建者社区。</title>
-      <link>https://www.reddit.com/r/automation/comments/1tnhka6/making_a_community_of_automation_builders/</link>
-      <description><![CDATA[大家好， 我对自动化领域相当陌生，最近开始使用 Make、Airtable、Tally、Gmail、Slack、AI 工具等工具构建实用的工作流程。 在学习过程中，我意识到一件事：当你有人集思广益、调试问题、分享工作流程想法并讨论如何实际打包和销售这些构建时，自动化变得更加容易 因此，我为自动化构建者创建了一个小型 Discord 社区（给 L1nk 发送消息给我）。 目标很简单：  分享自动化想法 寻求调试帮助 讨论 Make/Zapier/n8n/Airtable/AI 工作流程 展示我们正在构建的内容 谈论客户获取、优惠、定价和投资组合构建 帮助初学者，而不是将空间变成大师的废话  欢迎初学者和经验丰富的构建者。我努力保持实用、尊重和注重价值，没有虚假收入截图，没有垃圾邮件，没有“利用人工智能致富”的炒作。   由   提交 /u/CryptographerOwn4806   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tnhka6/making_a_community_of_automation_builders/</guid>
-      <pubDate>Mon, 25 May 2026 18:27:13 GMT</pubDate>
-    </item>
-    <item>
       <title>建立了一个洗车提醒系统，不小心让回头客翻了一番</title>
       <link>https://www.reddit.com/r/automation/comments/1tn94cr/built_a_reminder_system_for_a_car_wash_and_it/</link>
       <description><![CDATA[​ 当地的洗车店老板告诉我，大多数顾客来过一次就永远消失了。 所以我建立了一个超级基本的短信和电子邮件提醒系统。 没什么激进的。 只是： - 你的车可能又脏了 - 下雨后续 - 每月会员资格提醒 90天内，重复访问量几乎翻了一番。 车主说了一些有趣的话： “人们不会停止关心清洁汽车。 他们只是会分心。” 这让我很困惑。 很多企业实际上并没有获取问题。 他们有记忆问题。   由   提交/u/SMBowner_  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1tn94cr/built_a_reminder_system_for_a_car_wash_and_it/</guid>
       <pubDate>Mon, 25 May 2026 13:25:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>自动化很容易演示。更难信任。</title>
-      <link>https://www.reddit.com/r/automation/comments/1tn7pk8/automation_is_easy_to_demo_harder_to_trust/</link>
-      <description><![CDATA[当一切顺利时，很多自动化看起来都很棒。 干净的输入。 预期的触发。 完美的 API 响应。 没有重复的事件。 没有奇怪的客户消息。 但真正的工作流程很少那么干净。 真正的价值不只是构建运行一次的东西。它正在构建一种在输入混乱、API 变慢或人类在不告诉任何人的情况下更改流程时仍能继续工作的东西。 我开始认为最好的自动化并不是最令人印象深刻的自动化。他们是那些团队不需要照顾的人。 在您见过的自动化中，通常最先出现问题的是什么？   由   提交 /u/Alpertayfur   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tn7pk8/automation_is_easy_to_demo_harder_to_trust/</guid>
-      <pubDate>Mon, 25 May 2026 12:28:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我接触过的每家公司都希望人工智能取代员工人数，但没有一家公司会大声说出来</title>
-      <link>https://www.reddit.com/r/automation/comments/1tn05fn/every_company_i_talk_to_wants_ai_to_replace/</link>
-      <description><![CDATA[我为小型团队构建自动化工作流程。主要是潜在客户开发和内容。在过去的一年里，我与创始人和运营经理的对话发生了巨大的变化，几乎很有趣。 曾经是关于效率的。节省时间，减少错误，让人们有时间从事更高价值的工作。现在就直接砍人了。他们显然不会这么说。它总是被描述为重组或重新分配资源或其他一些公司的废话。但当你深入研究他们真正想要构建的东西时，你会发现它是一个可以完成三个人目前正在做的事情的系统。 最疯狂的部分是这些公司发布了博客文章，讲述他们对团队的重视程度。人工智能如何只是赋予员工权力的工具。与此同时，在实际会议中，他们问我，一旦工作流程上线，他们能以多快的速度取消两个角色。 我想我是从业务角度来看的。但是，当每个人都假装发生其他事情时，从内部看到它发生确实令人不安。公司公开表达的内容与私下要求的内容之间的差距不断扩大，但似乎没有人关心。   由   提交 /u/Pristine_Rest_7912   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tn05fn/every_company_i_talk_to_wants_ai_to_replace/</guid>
-      <pubDate>Mon, 25 May 2026 06:01:12 GMT</pubDate>
     </item>
     </channel>
 </rss>
