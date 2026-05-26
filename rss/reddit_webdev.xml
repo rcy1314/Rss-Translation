@@ -4,13 +4,48 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Tue, 26 May 2026 04:00:03 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 10:05:38 GMT</lastBuildDate>
     <item>
-      <title>Tailwind 并未被打破，但人工智能打破了围绕它的社会契约</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tntgf0/tailwind_isnt_broken_but_ai_broke_the_social/</link>
-      <description><![CDATA[我在审查 AI 生成的代码时经常遇到这样的情况：乍一看 CSS 看起来不错，但当你实际检查时却崩溃了。 你可能见过这样的东西（别让任何人感到羞耻）： p-4 pt-4 pb-4 px-4 mt-2 mb-2 本来应该是 p-4 my-2。它通过了审查，因为它看起来似乎合理。 在 Tailwind 时代的大部分时间里，类名都是由人类编写的。有一个隐性的社会契约：你保持在间距范围内，你不会无缘无故地使用任意值，你会注意到字符串何时变得荒谬。该框架从未强制执行任何这些。它只是信任你。 人工智能没有社会契约。它生成看似合理的实用程序字符串，通过一目了然的审查，然后突破视口，或复制自身，或悄悄地偏离比例。 我不断看到的两种模式： 任意值默认值。 p-[17px] 当高级开发人员推迟审查时是可以容忍的。现在这是代码生成器的默认行为，并且没有任何人可以指出的合同。 “使用秤”是一种氛围，而不是规则。 看起来系统化的字符串。 p-[var(--spacing-3)] 看起来遵循系统。那里有一个象征性的名称，审阅者挥手就通过了。但扫描步骤不明白。 var 位于字符串片段内。您可以输入错误的变量名称并发送它。没有什么能捕捉到这一点。 是的，有缓解措施：[at]apply 和针对 grep 问题的组件提取，针对超范围问题的 ESLint 插件和仅主题配置。他们帮忙。但它们是顶层的外部约束，而不是构建强制执行的合同。可以在每行禁用的 linter 是工具约定，而不是拒绝发出无效输出的编译器。 该修复不会禁止 CSS 中的 AI。它为代码库提供了一个人工智能可以在其中运行的合同：构建可以验证的键入输入，超范围值可见，而不是被洗成与超范围值相同的语法。 好奇其他人是如何处理这个问题的。您在审查中发现人工智能漂移了吗？为它整理代码？只是忍受它吗？   由   提交/u/Oddball7478  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tntgf0/tailwind_isnt_broken_but_ai_broke_the_social/</guid>
-      <pubDate>Tue, 26 May 2026 02:23:15 GMT</pubDate>
+      <title>谷歌新闻 API 与直接抓取结果</title>
+      <link>https://www.reddit.com/r/webdev/comments/1to2fnd/google_news_api_vs_scraping_results_directly/</link>
+      <description><![CDATA[这开始感觉像是浪费时间。我建立了一个谷歌新闻抓取器来跟踪提及，它有效，但有时返回空结果或比预期更少的文章，没有改变任何东西，只是开始发生。是否值得切换到 Google 新闻 api 还是有同样的问题？   由   提交 /u/Easy-Scratch9521   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1to2fnd/google_news_api_vs_scraping_results_directly/</guid>
+      <pubDate>Tue, 26 May 2026 10:04:45 GMT</pubDate>
+    </item>
+    <item>
+      <title>部署我的网站的最佳选择</title>
+      <link>https://www.reddit.com/r/webdev/comments/1to153u/best_options_to_deploy_my_website/</link>
+      <description><![CDATA[大家好！ 我正在开发一个网站，我使用 Astro 作为前端，使用 Strapi 作为 CMS。 该客户端目前有大约 200 个条目，但预计随着时间的推移它会不断增长。我试图为他寻找最便宜的部署选项。 你有什么建议？ 我在考虑前端使用 Vercel，也是因为网页没有那么多流量，但我不确定如何处理数据库和 Strapi 平台。你怎么认为？他的想法是尽可能多地省钱   由   提交/u/guantesdepobre2  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1to153u/best_options_to_deploy_my_website/</guid>
+      <pubDate>Tue, 26 May 2026 08:54:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>用于跟踪 Panini 贴纸相册的本地优先 PWA — IndexedDB / Dexie / Vite / Workbox，低于 50 毫秒的离线查找</title>
+      <link>https://www.reddit.com/r/webdev/comments/1to0ytk/localfirst_pwa_for_tracking_a_panini_sticker/</link>
+      <description><![CDATA[个人学习项目我刚刚开源。简介：我和我的儿子希望在交换活动中通过手机离线获取即时HAVE / NEED / DUPE答案。查找延迟合约（按键后 50 毫秒以下）驱动每个架构调用：  通过 Dexie 的 IndexedDB，code 上的主索引（O(1) 哈希查找，无扫描） 在构建时捆绑目录，而不是在运行时获取 Workbox 预缓存应用程序 shell + 目录块 Zustand 用于 UI 状态；没有 Redux，没有服务器状态库 Vite + React 18 + TS + Tailwind  捆绑目录（1,034 个贴纸、代码 + 名称 + 团队）是一个单独的 value-prop - 如果您要在相同数据上构建不同的内容，请将其作为 JSON 文件选择。 https://github.com/danieltartaro/sticker-swap 很高兴回答有关 Dexie / Workbox / PWA 安装位的问题。被 IndexedDB 不允许布尔索引所困扰 - 如果您需要详细信息，日志中会有一条注释。   由   提交/u/dnerito  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1to0ytk/localfirst_pwa_for_tracking_a_panini_sticker/</guid>
+      <pubDate>Tue, 26 May 2026 08:43:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>如何保护您的代码库免受 AI 影响？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tnzyp5/how_do_you_protect_your_codebase_from_ai_slop/</link>
+      <description><![CDATA[我不断遇到的一个简单问题： 您如何处理对代码库进行草率更改的非技术用户（营销人员、首席执行官、经理）？  显然 git 是不容协商的，但我不想花一天时间运行 git revert，因为一个无能的营销人员想与 Claude 进行一个字的更改，最终为 global.css 添加了 58 个新的 CSS 类   由   提交/u/StunningBreadfruit30  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tnzyp5/how_do_you_protect_your_codebase_from_ai_slop/</guid>
+      <pubDate>Tue, 26 May 2026 07:47:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>在 vue 项目中实现预定义主题和自定义用户定义主题的正确方法是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tnw4fp/whats_the_proper_way_to_implement_predefined/</link>
+      <description><![CDATA[总的来说，我对 vue 和 Web 开发还比较陌生，&amp;据我所知，动态生成主题的方法有很多，应用它们的方法也有多种，从似乎是预定义主题最简单、最合适的方法，即在根元素上设置数据属性，或者仅使用 css 文件中提供的活动预定义主题类的名称设置文档元素，但在尝试动态用户可自定义主题时，情况会变得更加复杂，到目前为止，我的选择似乎是使用自定义主题注入 css，或设置属性的值 document.documentElement.style.setProperty( `--${key}`, value )  或使用 vue 的反应性，如下所示： 在 approot 元素上 其中 themeVars 如下： const themeVars = Reactor({ &#39;--app-background&#39;: &#39;#FF00FF&#39;, &#39;--app-color&#39;:&#39;#FFFFFF&#39; }) 并根据本地存储的预定义主题或用户定义的主题修改 themeVars &amp;等等，或者也许应该以完全不同的方式完成，我只是想要知道拥有多个预定义主题的最有效方法，以及根据用户喜欢的主题切换它们的能力，以及用户设计自己的主题的能力（主要只是表面颜色，文本颜色，边框厚度等，没有像重新定义不同组件（如按钮等）的样式那样超级花哨的东西）让主题编辑器中所做的更改立即即时显示&amp;然后让用户能够保存它们&amp;如果用户激活了自定义主题，则在下次加载网站时立即加载它们   由   提交 /u/SussyPookie   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tnw4fp/whats_the_proper_way_to_implement_predefined/</guid>
+      <pubDate>Tue, 26 May 2026 04:25:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>PSA 诈骗警报 - 虚假日历链接</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tnw29j/psa_scam_alert_fake_calendly_link/</link>
+      <description><![CDATA[      我收到了一封看似来自一家企业的电子邮件，要求重新设计网站。乍一看一切似乎都是合法的。该网站是合法的，因为它是一家真正的公司，但该人并不在那里工作。发件人的电子邮件有点可疑，因为它不是域电子邮件，而是 emma.companyname@gmail.com。  您回复后，他们会发送一封后续电子邮件，要求您在他们的日历上安排时间。这是屏幕截图：  https://preview.redd.it/fjqmwpsbre3h1.jpg?width=637&amp;format=pjpg&amp;auto=webp&amp;s=72114d4e53d7a18e35b795472fffe78f215dcf98 但我最初错过的一个线索是时间戳处的俄语文本。如果您单击“日历”链接它会打开一个日历，如下所示：  https://preview.redd.it/llb5ip7gre3h1.jpg?width=1100&amp;format=pjpg&amp;auto=webp&amp;s=876613e41eb2389194675c557526858f0a7371de 非常有说服力，但你会发现该网址不是日历。这是一个附有日历的网址。当您尝试预约时，您会看到以下内容：  https://preview.redd.it/3vnr00zjre3h1.jpg?width=610&amp;format=pjpg&amp;auto=webp&amp;s=896a00cbe40ff8f104c1d43c1eb13fb84af2d65a 只有在您“使用 Google 登录”后，表单才会提交。此时我停下来，因为我自己使用calendly并且知道它不需要登录。不幸的是其他人可能不知道。  对我来说，主要的触发因素是，为什么安排约会需要这么多步骤？作为支票，我通过电子邮件发送了“emma”并告诉她我可以安排星期四 2:30 的时间，但链接已损坏。当然，她没有为我安排，而是说该链接有效，请在那里注册。  小心！   由   提交/u/theideamakeragency  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tnw29j/psa_scam_alert_fake_calendly_link/</guid>
+      <pubDate>Tue, 26 May 2026 04:22:20 GMT</pubDate>
     </item>
     <item>
       <title>用于对丑陋的网络应用程序页面进行完全视觉重新设计的最佳人工智能工具？ （无需代码）</title>
@@ -74,41 +109,6 @@
       <description><![CDATA[最近在这里看到一位 LinkedIn 员工的帖子，谈论大部分工作在发布之前就已经被抢走了，是伪造的，而且现在的申请完全没有任何作用。  我很好奇你们到底去哪里寻找职位空缺。 与一两年前相比，现在的市场怎么样？    由   提交 /u/IAmRules   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tnempu/where_are_you_guys_looking_for_jobs_now_a_days/</guid>
       <pubDate>Mon, 25 May 2026 16:43:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>持久的多人游戏状态，没有混乱</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tne7an/persistent_multiplayer_state_without_chaos/</link>
-      <description><![CDATA[       由   提交/u/der_gopher  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tne7an/persistent_multiplayer_state_without_chaos/</guid>
-      <pubDate>Mon, 25 May 2026 16:28:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要从头开始的建议</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tn99ou/need_advice_on_starting_over_from_scratch/</link>
-      <description><![CDATA[几年前我曾经有一个小型网络和移动应用开发工作室。我本人是一名拥有 10 年经验的全栈开发人员。长话短说，几年前我不得不搬到其他国家并找到了一份解决方案架构师的工作。  我现在来到了一个新的国家，在那里我并没有真正的客户网络，并且希望从头开始。  我不知道如何在我居住的地方（魁北克）找到客户，来构建或维护他们的项目。在我看来，要么都是企业级的，要么什么都没有。  你们现在如何寻找客户？   由   提交/u/ContributionSea1225  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tn99ou/need_advice_on_starting_over_from_scratch/</guid>
-      <pubDate>Mon, 25 May 2026 13:30:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要投入2-3个月的时间进行数据分析</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tn8wwv/need_to_dive_into_data_analysis_into_23_months/</link>
-      <description><![CDATA[大家好。 立即请求真诚但不刺耳或粗鲁的评论。 我需要推荐好的免费（首选）资源，在那里我可以通过尽可能多的练习来学习数据分析（Python、SQL、Numpy、数学等）。我也可以接受非免费但非消耗性的学习资源。 您可以向我推荐什么？ 您还会推荐哪些组织学习和日常活动的方法？ 是的，我知道并理解每个人都有自己的方式，但仍然如此。 我不是最快的学习者，但我可以中等速度学习。我每天还有大约4-5个小时的空闲时间。    由   提交/u/Weeds_or_Wildflowers  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tn8wwv/need_to_dive_into_data_analysis_into_23_months/</guid>
-      <pubDate>Mon, 25 May 2026 13:17:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>需要验证：面向开发人员的纯文本、零登录中心，您会使用它吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tn8eoe/validation_needed_a_textonly_zerologin_hub_for/</link>
-      <description><![CDATA[大家好，我对主流平台的臃肿和严格监管感到沮丧。  我正在构建一个专为开发人员量身定制的开源、仅包含文本和链接的平台。 核心概念如下： 零登录：没有电子邮件，没有个人信息。它使用浏览器指纹来识别用户，因此您仍然可以编辑帖子、设置快速别名/昵称并跟踪您的历史记录，而无需放弃个人数据。 用户名和用户名密码：将用户名和密码与使用用户名和密码的浏览器指纹登录连接起来，系统在后端检查指纹。 恢复帐户：如果您更换设备或忘记密码，可以使用唯一的短语密钥恢复帐户。 无膨胀：没有图像、没有视频、没有算法提要。只是原始文本、链接和降价。 智能审核：系统专注于域级过滤（自动信任/禁止列表），以消除垃圾邮件，同时保持讨论自由，而不是激进的用户禁令。 我的目标是快速、类似 Reddit 的体验，但纯粹的技术/开发讨论没有噪音。 作为开发人员，您实际上会使用这样的平台来分享链接和想法吗？  “通过指纹零登录”是否有效？诉诸您的隐私方面，还是破坏交易？ 很想听听您对可行性的诚实反馈！ 我编辑帖子以添加第一个版本中不清楚的一些观点   由   提交/u/tentoftech  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tn8eoe/validation_needed_a_textonly_zerologin_hub_for/</guid>
-      <pubDate>Mon, 25 May 2026 12:57:13 GMT</pubDate>
-    </item>
-    <item>
-      <title>Webhook/API Trello 集成帮助 - 随机字符？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1tn8bge/webhookapi_trello_integration_assistance_random/</link>
-      <description><![CDATA[      嗨，提前感谢您的帮助，以防有人知道该怎么做。 学区技术部门。我们都不是网络开发人员。有新东西让我学习。我们的票务系统使用事件 IQ 网站。我最近按照我发现的一些在线指示进行操作，基本上我们的目标是通过 Web hook/API 将票证信息发送到特定列表上的 Trello 卡。当事件 IQ 端满足特定规则时触发。很抱歉，我不知道术语 webhook/api 之间的确切区别。我们已经正确设置了它并制作了正确的 URL（获取 api 密钥和令牌），以便它实际上发布到 Trello。是的！ * 然而，问题在于格式，我们不确定问题是否出现在我在 IIQ 端编写的代码中，无论是在 Trello 上发布的内容，还是在他们尝试对来自 IIQ 帖子的数据进行编码时。 “日期”参数添加随机百分号和数字。您可以看到我们需要的实际数字，包括出票的确切时间（“17041”）。在“请求者电子邮件”中，它使用百分号和数字而不是“@”符号。  我们尝试使用 json 代码格式和“原始正文”，很抱歉，我不知道每种格式到底意味着什么，但我知道 ai 为我制作的代码，它是 json 格式，但包含 iiq 可以从票证中提取的变量参数。在 trello 上发送/显示时，原始正文文本无法正常工作。  对于哪一方出了问题以及是否有任何修复有什么建议吗？ （我是否应该继续使用 json？）（想到了一个解决方法，可以在 trello 上使用“开始日期”自动化。但很想解决这个问题）。预先感谢您！！   由   提交/u/jelemeno   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1tn8bge/webhookapi_trello_integration_assistance_random/</guid>
-      <pubDate>Mon, 25 May 2026 12:53:40 GMT</pubDate>
     </item>
     </channel>
 </rss>
