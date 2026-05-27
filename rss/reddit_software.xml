@@ -4,7 +4,49 @@
     <title>最新提交：软件</title>
     <link>https://www.reddit.com/r/software/new</link>
     <description>任何与软件相关的东西。请遵守我们的规则，以免受到惩罚。</description>
-    <lastBuildDate>Wed, 27 May 2026 20:24:59 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 22:44:54 GMT</lastBuildDate>
+    <item>
+      <title>互联网变得更糟，所以我构建了一些扩展来修复它。周三自我推销</title>
+      <link>https://www.reddit.com/r/software/comments/1tpku1z/the_internet_got_worse_so_i_built_some_extensions/</link>
+      <description><![CDATA[我是一名独立开发者，说实话，这整件事都是出于挫败感而开始的。浏览互联网过去感觉很简单。现在是 cookie 横幅、装扮成结果的广告、让你冲动购物的广告、消耗你时间的厄运滚动。 所以我一直在开发一套 Chrome 扩展。它们都有可爱的像素艺术吉祥物。 CookieTin - 自动拒绝 cookie 横幅（是的，即使是那些将三个菜单深埋在深色图案中的横幅）。额外福利：如果弹出窗口中隐藏有折扣代码，它即将关闭，它会先为您保存。 https://chromewebstore.google.com/detail/cookietin/nfmieembiihdamflajcgaiodgbabgnca LinkyLink - 将 Google 搜索剥离回实际结果。没有广告，没有人工智能概述（除非您需要），没有“人们也问”垃圾邮件。只是链接。 https://chromewebstore.google.com/detail/linkylink/hahpbkleegklohlcebbilbgfhfemooic Usure - 拦截冲动购买。在您添加到购物车之前，它会询问您的感受。听起来很烦人，但如果您曾经在半夜买了一些令您后悔的东西，那么它实际上非常有用。  https://chromewebstore.google.com/detail/usure-stop-impulse-buying/aegmbkffmcmnflkcbpggnidiepndhaed?utm_source=item-share-cb 接下来将推出一款末日卷轴游戏 衷心感谢您的反馈 - 我只是一个构建这些游戏的人。   由   提交/u/Novel-Put-1672   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tpku1z/the_internet_got_worse_so_i_built_some_extensions/</guid>
+      <pubDate>Wed, 27 May 2026 22:28:44 GMT</pubDate>
+    </item>
+    <item>
+      <title>watchwhere — CLI 用于检查您的哪个流媒体订阅者有电影</title>
+      <link>https://www.reddit.com/r/software/comments/1tpjx3q/watchwhere_cli_to_check_which_of_your_streaming/</link>
+      <description><![CDATA[ 由   提交/u/kvothhee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tpjx3q/watchwhere_cli_to_check_which_of_your_streaming/</guid>
+      <pubDate>Wed, 27 May 2026 21:53:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建了一个 cli，用于减少 claude 代码/codex 工作流程中的令牌浪费</title>
+      <link>https://www.reddit.com/r/software/comments/1tpjnj7/i_built_a_cli_for_reducing_token_waste_in_claude/</link>
+      <description><![CDATA[诸如claude code、codex和cursor之类的ai编码代理可能会消耗大量对您没有帮助的内容的上下文：生成的工件、锁定文件、重复的文件读取、超大的指令文件、广泛的存储库探索、陈旧的会话状态、巨大的命令输出和命令循环。 我构建了prismodev，一个用于ai编码可观察性的开源本地node.js cli。它读取存储库文件以及可用的本地克劳德代码/codex/光标会话数据，然后显示进入上下文的内容、重复的内容、泄漏的内容、失败的指令以及下次以不同的方式范围的内容。没有 API 密钥，无需登录，没有任何东西离开您的计算机。 工作流程分为编码会话之前、期间和之后。 在会话之前，“npx getprismo doctor”会扫描您的存储库，标记缺少“.claudeignore”/“.cursorignore”、超大“claude.md”/“agents.md”、暴露的构建/日志工件，并生成紧凑的“.prismo/”上下文包。 `npx getprismo firewall auth-bug` 创建任务范围的允许/阻止上下文策略，以便代理在较小的边界内启动。 在会话期间，`npx getprismo watch --agents` 监视上下文压力、重复文件读取、生成的工件泄漏、工具输出洪水、命令循环和多代理重叠。 `npx getprismoshield -- npm test` 运行嘈杂的命令，而不将完整的 stdout/stderr 转储到代理上下文中；完整输出保留在本地，稍后可以使用“npx getprismoshield search“auth_failure”`进行搜索。 会话结束后，“npx getprismoreceipt”会生成一个运行收据，显示重复读取、输出洪水、工件泄漏、可能的影响和下次运行范围。 “npx getprismo 时间线 --last 20” 展示了跨会话重复出现的浪费模式。 `npx getprismo replay` 重建了会话横向移动的原因并打印恢复提示。 我还添加了指令审核，因为大量持久的上下文浪费来自于每轮都会加载的 `claude.md` / `agents.md` 中的规则。 “npx getprismo 指令审核”将有用的护栏、可观察到的违规、部分合规、重复、修剪候选者和影响未知的规则分开。 `npx getprismo instructions ablate --dry-run` 为指令规则创建保守的消融计划，无需编辑文件。 还有 `npx getprismo mcp`，它启动本地 mcp 服务器，以便兼容的代理可以直接调用 prismodev，而不是将大量日志粘贴到聊天中。 一切都在本地运行。该软件包在 npm 上发布为“getprismo”，因此您可以尝试使用： `npx getprismo doctor` 希望获得有关误报、缺少上下文浪费模式以及指令审核/运行接收方向是否有用的反馈。    由   提交 /u/Sad_Source_6225   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tpjnj7/i_built_a_cli_for_reducing_token_waste_in_claude/</guid>
+      <pubDate>Wed, 27 May 2026 21:43:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>达米恩 |/|>-<([(未知的电视人)])>-<|\|</title>
+      <link>https://www.reddit.com/r/software/comments/1tpiros/damien_the_unknown_tv_man/</link>
+      <description><![CDATA[ 由   提交/u/MoistBaby3677  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tpiros/damien_the_unknown_tv_man/</guid>
+      <pubDate>Wed, 27 May 2026 21:10:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>我为 Windows 构建了一个开源“Google Lens”，WinLens。它可以就地翻译您的整个屏幕</title>
+      <link>https://www.reddit.com/r/software/comments/1tpimon/i_built_an_opensource_google_lens_for_windows/</link>
+      <description><![CDATA[我一直很喜欢 Android 可以触发所有内容的全屏翻译，因此我构建了一个桌面版本。 浏览器扩展仅翻译网页。 WinLens 运行 OCR，因此它可以翻译它们无法翻译的内容： - 图像内的文本、屏幕截图、信息图表（对于您在网站中找到的图像非常有用） - 游戏菜单和对话（包括未翻译的导入） - 外国应用程序 UI、安装程序、错误对话框 - 任何阅读器中的 PDF 它是 .NET 8 / WPF，使用内置Windows OCR（约 100 种语言），单文件 exe，MIT 许可。目前翻译通过在线端点进行；离线已在路线图上。  还为时过早，所以如果出现问题请告诉我，非常感谢任何反馈:) 仓库：https://github.com/marco-beltrame/WinLens   由   提交/u/Regular_Garlic_5734  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tpimon/i_built_an_opensource_google_lens_for_windows/</guid>
+      <pubDate>Wed, 27 May 2026 21:05:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>变声器+录音机建议</title>
+      <link>https://www.reddit.com/r/software/comments/1tphx7k/voice_changer_recorder_suggestions/</link>
+      <description><![CDATA[ 由   提交/u/Feisty_Limit_9428   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/software/comments/1tphx7k/voice_changer_recorder_suggestions/</guid>
+      <pubDate>Wed, 27 May 2026 20:39:28 GMT</pubDate>
+    </item>
     <item>
       <title>构建了一个 Windows 游戏启动器，可在您启动游戏时回收 RAM — 免费使用</title>
       <link>https://www.reddit.com/r/software/comments/1tph68d/built_a_windows_game_launcher_that_reclaims_ram/</link>
@@ -55,13 +97,6 @@
       <pubDate>Wed, 27 May 2026 17:09:01 GMT</pubDate>
     </item>
     <item>
-      <title>Youtube Angel - 我用我的第一个 chrome 扩展修复了 Youtube</title>
-      <link>https://www.reddit.com/r/software/comments/1tpatdg/youtube_angel_i_fixed_youtube_with_my_first/</link>
-      <description><![CDATA[大家好👋 我意识到我的大部分“YouTube 会话”根本不是故意的。 我会打开 YouTube 观看我真正关心的创作者，然后很长一段时间陷入推荐循环甚至没有注意到。我之前尝试过拦截器，但大多数都觉得过于激进，或者让平台难以使用。 因此，我用不同的方法构建了一个名为 YouTube Angel 的小型 Chrome 扩展程序： 它不是阻止 YouTube，而是试图让体验更平静、更有目的性 其核心理念是为您真正信任或积极的频道建立个人白名单想要关注的视频仍然可以访问。 该列表之外的视频仍然可以访问，但视觉效果不再突出，因此您有意选择的内容更加突出。 当前功能：  喜爱频道的白名单系统 白名单之外的首页 + 侧边栏推荐会变灰 对来自非白名单频道的视频进行温和叠加 一键添加按钮 将白名单导入/导出为 JSON 随时轻松切换以禁用扩展  没有帐户，没有分析，没有数据离开您的计算机并在本地运行。 这仍处于早期阶段，但它已经改变了我个人使用 YouTube 的方式。 我花更少的时间被拖入算法兔子洞，同时在我真正想要的时候仍然可以访问该平台 我真诚地希望得到这里的人们的反馈，因为这个社区可能最接近该项目背后的理念🙌 我的网站 Chrome 扩展程序   由   提交/u/Open_Crab_2895   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tpatdg/youtube_angel_i_fixed_youtube_with_my_first/</guid>
-      <pubDate>Wed, 27 May 2026 16:32:44 GMT</pubDate>
-    </item>
-    <item>
       <title>哪个软件完全没有理由设计得那么好？</title>
       <link>https://www.reddit.com/r/software/comments/1tpap4o/what_piece_of_software_had_absolutely_no_reason/</link>
       <description><![CDATA[可以是 UI、声音设计、动画、工作流程、整体感觉等。    由   提交/u/WolfPspecial2348  [链接] [评论]]]></description>
@@ -74,41 +109,6 @@
       <description><![CDATA[大家好。 最初，我将此作为学习 Rust 的一个业余爱好项目，但很快它就成为一个真正的工作时间，具有许多方便的功能和出色的性能。 它是免费且开源的，安全且现代，具有对 Let&#39;s Encrypt 的本机支持，包括 HTTP-01 挑战、速率限制、H2 自动协议发现， Websocket、gRPC 等等。  GitHUB 主页：https://github.com/sadoyan/aralez 文档：https://aralez.rs  未振动编码。 不是 AI 坡度。   由   提交/u/sadoyan  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/software/comments/1tpaoxi/opensource_modern_reverse_proxy_load_balancer/</guid>
       <pubDate>Wed, 27 May 2026 16:28:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>您使用过的最糟糕的软件是什么？为什么？</title>
-      <link>https://www.reddit.com/r/software/comments/1tp9hqg/what_was_the_worst_software_youve_ever_used_and/</link>
-      <description><![CDATA[我想知道您使用过或测试过的最糟糕的软件是什么，以及为什么它如此糟糕。也许是用户界面、缺乏用户友好性、更新或其他原因。我这样问是为了让我们改进它，我非常感谢您的反馈。诚挚的问候   由   提交 /u/Violet_Iana   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tp9hqg/what_was_the_worst_software_youve_ever_used_and/</guid>
-      <pubDate>Wed, 27 May 2026 15:46:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于Mac（个人使用）的远程桌面应用程序有什么建议吗？</title>
-      <link>https://www.reddit.com/r/software/comments/1tp94hr/any_recommendations_on_a_remote_desktop_app_for/</link>
-      <description><![CDATA[我需要一个相对独立的远程桌面应用程序供个人使用。 我有一台无头 Mac mini（HDMI 虚拟插头哈哈），我可以从全国各地远程访问它。我一直在使用 teamviewer，它很不错，但我发现即使关闭了 firevault 并将 teamviewer 设置为启动时自动打开，它有时也不会在 Mac 或 Teamviewer 本身的自动软件更新后自动重新初始化。 在这种情况下，我会失去访问权限，直到我亲自回到 Mac Mini 前（每月只有一次）并且可以再次登录。 还有其他更强大的功能吗？   由   提交 /u/churningaccount   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tp94hr/any_recommendations_on_a_remote_desktop_app_for/</guid>
-      <pubDate>Wed, 27 May 2026 15:33:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>仅在特定程序运行时适用的键盘重新映射</title>
-      <link>https://www.reddit.com/r/software/comments/1tp7wl4/keyboard_remapping_that_only_applies_when/</link>
-      <description><![CDATA[基本上，我最近开始玩的一款视频游戏在一个键盘按钮上有一个愚蠢的硬编码，我想解决这个问题，所以基本上我正在寻找一种可以检测特定 EXE 何时运行并在运行时交换 B 和 I 的东西，然后在游戏关闭时停止执行操作。我确实尝试过谷歌搜索，但没有一个结果清楚地表明他们具有我正在寻找的特定应用程序反应功能。有人知道有什么可以用的吗？ （如果你好奇的话，有问题的游戏是《战锤 40k 审判官烈士》，我刚刚在 Steam 上以 11 美元的额外等级 DLC 买到了它，税后总额改变了，我很喜欢它，但它有一个愚蠢的记分板硬绑定到 B，我讨厌它，因为我这些天习惯使用 B 来库存，尤其是在使用 wasd 运动时，是的，我在游戏中重新映射了它那）   由   提交 /u/Avigorus   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tp7wl4/keyboard_remapping_that_only_applies_when/</guid>
-      <pubDate>Wed, 27 May 2026 14:51:56 GMT</pubDate>
-    </item>
-    <item>
-      <title>大多数 Windows 自动化工具都假设您可以编写脚本，因此构建了一个不能编写脚本的工具。</title>
-      <link>https://www.reddit.com/r/software/comments/1tp7hrt/most_windows_automation_tools_assume_you_can/</link>
-      <description><![CDATA[我在伦敦经营一家小型土木工程公司，与 Claude 一起为我的办公室构建了一个桌面软件，这样我们就可以替换我们使用的 AutoHotkey 和文本扩展应用程序，主要是因为没有人会学习 AHK 语法，所以从不制作自己的宏/脚本。因此，我构建了 Trigr ，这是一种可视化 UI 优先方法，无需编写脚本，位于系统托盘中，提供热键、宏、文本扩展和剪贴板管理器 它的作用：  热键：分配任意组合键来启动应用程序、打开 URL、聚焦窗口、运行宏 宏：可视化生成器，无需编写脚本。击键、鼠标点击、延迟、文本输入 文本扩展：键入触发词，在 Windows 中的任何位置获取完整代码段 快速搜索叠加：用于模糊搜索和启动任何内容的全局热键 径向菜单：按住某个键，获取您分配给它的操作的径向菜单 剪贴板管理器：可搜索历史记录、固定项目、OCR 文本提取 填写提示：宏可以在运行中暂停并要求输入 应用程序特定配置文件：每个应用程序自动激活不同的热键 按住和重复模式：按住时触发操作，或每隔一段时间重复 本地所有内容：没有帐户，没有云，没有数据离开您的机器。只有 Teams 层才会具备所需功能。  它具有一些我们将在未来推向市场的专业功能，但对于 90% 的用例和人们的日常工作，它完全免费，并且是一个强大的功能，到目前为止，我的 10 名工程师团队已经使用它几个月了。 我们的工程师使用它的一些日常小示例：  一键触发包含项目编号和标准问题模板电子邮件的模板电子邮件，并将文件粘贴到电子邮件中，自动填充主要客户的客户电子邮件。 Ctrl+Shift+D 打开我们的绘图 OneDrive 共享，跳转到活动项目文件夹，并聚焦文件资源管理器 通过我们的 AutoHotkey 运行程序运行签入/签出脚本，自动将文件复制和移动到用户工作文件和取代的文件夹中 以热键作为鼠标侧按钮的径向菜单用于快速访问最常用的 AutoCAD 宏和快捷方式（旋转、镜像、操作、UCS 更改等）  使用 Tauri (Rust + React) 构建，因此它的大小约为 15MB，并且在内存较低时空闲。代码至少在我的土木工程师公司下签名以确保合法性，因此安装时不会弹出未知发布者。 站点：usetrigr.com 真诚地寻求来自尝试过 AutoHotkey 或 PowerToys 的人的建设性反馈，任何让您放弃的用例或者寻找其他东西？ 谢谢大家，希望它对任何人都有用！   由   提交/u/endangeredirish  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tp7hrt/most_windows_automation_tools_assume_you_can/</guid>
-      <pubDate>Wed, 27 May 2026 14:36:59 GMT</pubDate>
-    </item>
-    <item>
-      <title>WorkTop - Windows 桌面配置文件。现在有了行动。</title>
-      <link>https://www.reddit.com/r/software/comments/1tp65bm/worktop_desktop_profiles_for_windows_now_with/</link>
-      <description><![CDATA[您的桌面是否凌乱？或者您只是想按项目或上下文来区分您的工作？自从微软决定推出“多个桌面”以来，实际上只是虚拟桌面，而不是具有不同文件的单独桌面，这里有一个应用程序可以填补这一空白。 WorkTop 为 Windows 提供实际多个桌面。或桌面配置文件，或任何您想称呼它以避免混淆的名称。它可以让您轻松地使用热键交换桌面文件夹，循环切换桌面，就像使用 alt+tab 访问应用程序一样。您还可以通过托盘或右键单击桌面进行切换。 通过最新更新，您现在可以在切换时触发命令。 Actions 可让您启动或关闭应用程序、在不同应用程序中加载配置文件（例如 Rainmeter）、更改设置，真正任何您能想到的内容。 功能：  多个桌面，每个桌面不同的文件。 免费版本最多允许 3 个桌面（操作系统默认值 + 2） 维护每个桌面的布局，包括在多个显示器上的布局。 通过托盘、热键、右键单击，无论您喜欢什么。 免费版本获得 1 个操作（但通过一些脚本，“在任何开关上”触发器可以让您做几乎任何您想做的事情。） 将 WorkTop 桌面链接到虚拟桌面，以将文件和布局耦合到您的工作区。 与 OneDrive 桌面文件夹备份兼容  购买 Pro 许可证（一次性付款）即可解锁：  无限桌面 无限操作 计划切换 每个桌面壁纸  适用于：https://worktop.dev 以及 Microsoft商店 为了纪念另一个应用里程碑，我们在 6 月 6 日之前提供折扣。  3 台设备许可证价格为 4.99 美元，而不是 14.99 美元。代码：IXNDIYOA 10 台设备许可证价格为 9.99 美元，而不是 19.99 美元。代码：Q3NZK2NW    由   提交 /u/M4dmaddy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/software/comments/1tp65bm/worktop_desktop_profiles_for_windows_now_with/</guid>
-      <pubDate>Wed, 27 May 2026 13:49:00 GMT</pubDate>
     </item>
     </channel>
 </rss>
