@@ -4,7 +4,42 @@
     <title>ChatGPT、人工智能和自动化</title>
     <link>https://www.reddit.com/r/automation</link>
     <description>您是否对自动化的奇迹着迷，对 ChatGPT 的强大功能着迷，或者对人工智能和自动化的无限可能性感兴趣？别再犹豫了！我们充满活力的 Reddit 社区是像您这样的爱好者的完美中心。作为我们社区的成员，您将获得丰富的资源，包括： 🔬 关于自动化、ChatGPT 和 AI 的发人深省的讨论。 🌟 独家洞察最新进展和行业新闻</description>
-    <lastBuildDate>Thu, 28 May 2026 16:07:55 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 20:29:00 GMT</lastBuildDate>
+    <item>
+      <title>你们的 GTM 策略是什么？</title>
+      <link>https://www.reddit.com/r/automation/comments/1tq9ulp/what_is_your_gtm_strategy/</link>
+      <description><![CDATA[       由   提交 /u/thecontentengineer   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tq9ulp/what_is_your_gtm_strategy/</guid>
+      <pubDate>Thu, 28 May 2026 17:12:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建实时意图监控管道，而不依赖于基本关键字警报</title>
+      <link>https://www.reddit.com/r/automation/comments/1tq9i25/building_a_realtime_intent_monitoring_pipeline/</link>
+      <description><![CDATA[关键字提醒对于高容量的 Reddit 子版块来说几乎毫无用处，因为你最终会收到太多噪音而信号不足。我花了几个月的时间试图为我自己的项目解决这个问题。我从简单的 PRAW 脚本和正则表达式开始，但我很快意识到，寻求软件推荐的人并不总是使用您期望的特定单词。它们描述的是问题，而不是解决方案。 我将工作流程转变为使用向量嵌入和专用向量数据库，特别是 Qdrant。通过将用户帖子转换为向量并使用余弦相似度将其与特定客户意图陈述进行比较，准确性显着提高。该系统现在不再只是寻找自动化这样的词，而是标记有人发泄手动数据输入或重复任务的帖子。我将其直接推送到 Discord Webhook，这样我就可以实时查看信号，而无需刷新浏览器。 为了防止事情变得混乱，我添加了一个融合不同搜索向量的逻辑层，在决定发送通知之前分别查看产品描述和特定买家角色。这基本上是我在 Purplefree 中构建的核心内容，旨在帮助其他创始人找到潜在客户。如果您正在构建类似的东西，请关注语义意图而不是特定的词汇。它可以在手动过滤方面节省大量时间，并防止您错过关键字过滤器会忽略的实际机会。   由   提交 /u/Less-Bite   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tq9i25/building_a_realtime_intent_monitoring_pipeline/</guid>
+      <pubDate>Thu, 28 May 2026 17:00:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过并行座席，将 35 分钟的会后忙碌工作缩短至 90 秒</title>
+      <link>https://www.reddit.com/r/automation/comments/1tq9eux/cut_35_minutes_of_post_meeting_busywork_to_90/</link>
+      <description><![CDATA[我公司的每次站立都会产生相同的三个后续任务：写一封回顾电子邮件、更新项目跟踪器以及为每周的幻灯片起草一份快速幻灯片。每次会议结束后，我都会花 30 到 40 分钟手动完成所有这些工作。会议持续了 15 分钟，但之后的繁忙工作却花了两倍的时间。 我首先尝试使用 n8n 自动化此操作。构建了一个工作流程，可以获取脚本、解析它，并触发电子邮件、跟踪器更新和幻灯片的单独操作。无法在步骤之间进行切换以可靠地工作。脚本解析节点会成功，但下游节点在输出格式上一直卡住，并且调试 7 节点流，其中节点 4 默默地破坏了节点 6 的数据，这让我想把我的笔记本电脑扔出窗外，我真的一晚上坐在那里两个小时，只是盯着日志试图找出为什么电子邮件节点不断从幻灯片模板注入 HTML 标签，那时我什至不再调试了，我只是很生气。花了两个晚上，然后放弃了。 然后我在 MuleRun 上设置了并行代理，整个事情在第一次尝试时就成功了，老实说，考虑到我在 n8n 方法上浪费了多少时间，这让我很恼火。我在聊天中打开协作模式，描述三项工作，然后每个代理都会选择一项。重述代理会提取文字记录，删除填充内容，格式化干净的摘要电子邮件。跟踪代理打开我们的项目板并更新状态字段和截止日期。幻灯片代理从我们的仪表板中获取关键指标并构建单页摘要。 这三个操作都在我的下一次会议开始之前完成。我这边的设置时间为 90 秒。每次运行的总信用成本约为 0.80 美元，回顾采用了重型模型，因为语气对于面向客户的电子邮件很重要，而幻灯片和快速格式化则得到了快速的效果。一个多月的每日站立会议可能花费 17 美元。 我第一次尝试此操作时，跟踪器代理不断覆盖其他团队成员当天早上更新的字段。从那以后，我学会了告诉它只更新与记录中特定票证 ID 匹配的行。我想我的咖啡快凉了   由   提交 /u/Additional-Engine402   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tq9eux/cut_35_minutes_of_post_meeting_busywork_to_90/</guid>
+      <pubDate>Thu, 28 May 2026 16:57:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>我测试了 3 个 Instagram DM 自动化工具，用于潜在客户开发和客户参与工作流程 - 以下是细分</title>
+      <link>https://www.reddit.com/r/automation/comments/1tq9dm2/i_tested_3_instagram_dms_automation_tools_for/</link>
+      <description><![CDATA[在过去的几个月里，我一直在测试不同的 DM 自动化工具，同时管理潜在客户生成工作流程、客户参与系统以及创作者品牌和小型企业的评论到 DM 渠道。 主要用例：  Instagram DM 自动化 自动潜在客户捕获 评论触发工作流程 客户查询自动化 网络研讨会/注册渠道 入站销售资格 减少手动收件箱管理  许多“最佳自动化工具”在线列表感觉很大程度上是由联盟驱动的，因此我想分享使用这些工具实际构建工作流程和运行营销活动的实际利弊。 对我来说，最重要的是：  工作流程可靠性 设置速度 可扩展性 自动化灵活性 集成支持 操作简单性 以及该工具是否真正减少了手动工作  详细信息如下： 1.Zapify： 优点  快速设置 经济实惠 简单的工作流程构建 简洁的界面 轻松实现对DM的评论自动化 降低操作摩擦  缺点  较小的平台/社区 当前可用的教程/资源较少  2.ManyChat 优点  极其灵活的自动化构建器 强大的集成 非常适合高级潜在客户培育 对于大型活动而言可靠 成熟的生态系统，有大量教程  缺点  定价快速扩展 工作流程构建器可能会让人感到不知所措 简单的设置太过分了  3.Chatfuel 优点  更快的入门 更清晰的工作流程设置 更容易的学习曲线 适合标准DM自动化  缺点  复杂工作流程的灵活性较低 较小的生态系统/社区 有限的高级自定义  测试所有 3 项后的最大收获 我认为自动化空间开始分为两类：  具有深度自定义和高级自动化的企业工作流程系统逻辑 专注于快速部署、潜在客户生成和操作简单性的精益自动化工具  老实说，对于许多企业来说，减少操作摩擦可能比拥有无尽的高级功能更有价值。 好奇这里每个人都在使用什么：  DM 自动化 对话式营销 潜在客户生成工作流程 客户参与自动化 社交媒体工作流程自动化  很想知道人们认为哪些平台能够长期扩展且不会变得过于复杂或昂贵。   由   提交/u/rainbow_dude98  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tq9dm2/i_tested_3_instagram_dms_automation_tools_for/</guid>
+      <pubDate>Thu, 28 May 2026 16:56:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于为客户构建自动化，没有人告诉我的一件事是，交接比构建更难。</title>
+      <link>https://www.reddit.com/r/automation/comments/1tq9854/one_thing_nobody_told_me_about_building/</link>
+      <description><![CDATA[您可以制作出完美运行的东西，但如果客户无法理解它在做什么或为什么会出现问题，您将永远在晚上 11 点接到支持电话。开始向每个工作流程添加一个简单的错误通知节点，发送一条简单的英语消息，解释失败的原因以及如何处理。客户喜欢它，我的支持负担减轻了很多。 您如何使自动化对于非技术客户来说更易于维护？   由   提交/u/RoadFew6394  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/automation/comments/1tq9854/one_thing_nobody_told_me_about_building/</guid>
+      <pubDate>Thu, 28 May 2026 16:50:47 GMT</pubDate>
+    </item>
     <item>
       <title>在自动化流程中，您会在哪里让 Ring 首先说“停止”：批准、异常分类或实时数据编辑？</title>
       <link>https://www.reddit.com/r/automation/comments/1tq6439/where_would_you_let_ring_say_stop_first_in_an/</link>
@@ -55,25 +90,11 @@
       <pubDate>Thu, 28 May 2026 07:58:50 GMT</pubDate>
     </item>
     <item>
-      <title>自动将收到的发票（附件和正文）以 PDF 形式保存到 google 驱动器的最佳方法是什么？</title>
-      <link>https://www.reddit.com/r/automation/comments/1tpwwjf/what_is_the_best_way_to_automate_saving_incoming/</link>
-      <description><![CDATA[ 由   提交 /u/Toobrish   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tpwwjf/what_is_the_best_way_to_automate_saving_incoming/</guid>
-      <pubDate>Thu, 28 May 2026 07:57:34 GMT</pubDate>
-    </item>
-    <item>
       <title>您仍然无法自动化哪些任务？</title>
       <link>https://www.reddit.com/r/automation/comments/1tpwo91/what_tasks_have_you_still_not_been_able_to/</link>
       <description><![CDATA[现在我主要尝试小型管理工作流程。例如，Creao 工作流程将会议摘要转换为 Notion 中的 Slack 操作项和客户注释。对于内容工作，另一个工作流程会收集保存的材料并将其转换为草稿，然后我使用 Chatgpt 进行最终清理。 令我困扰的是上下文管理，尤其是内容分发。每个渠道都有自己的背景环境，比如以前有效的渠道、感觉过于促销的渠道、最近改变的规则以及已经讨论过的渠道。我可以为人工智能提供这样的背景，但仍然需要有人保持新鲜感。自动化工作流程可以准备帖子并提醒我要做什么，但最终的决定仍然需要一个人。 那么哪些工作你仍然希望能够自动化，但还没有找到好的方法来处理？您是否遇到了相同的上下文问题？   由   提交 /u/Haunting_Month_4971   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1tpwo91/what_tasks_have_you_still_not_been_able_to/</guid>
       <pubDate>Thu, 28 May 2026 07:44:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>我研究了 8 个可以控制手机的 AI 代理，真正的用例都是重复性任务</title>
-      <link>https://www.reddit.com/r/automation/comments/1tpw2mc/i_looked_at_8_ai_agents_that_can_control_phones/</link>
-      <description><![CDATA[我一直在研究可以在手机上运行的人工智能代理，我想看看这个方向到底走了多远。因此，我在 Reddit 上收集了 8 个最常被提及的可以控制手机的工具。   工具 平台 定位    Claude 计算机使用 / MobAI Android（PC控制）开发者首选：支持点击、滑动和文本输入；与所有主要法学硕士具有高度适应性。   Google Gemini + Android Native Android 本机系统级代理：具有深度操作系统集成，可实现最大程度的系统级访问和控制。   DroidRun Android/ iOS 开源基准测试和培训环境：专为开发人员和研究人员在真实设备和模拟器上测试代理而设计。   AirTap Android 无 API 接口代理：直接操作应用程序 UI，并原生支持云手机环境。   AgentBlue Android 轻量级极客控制台：使用自然语言从 PC 终端直接控制 Android 设备。   ChatGPT 操作员模式 Web/桌面 Web 自动化专家：专注于深度、端到端自动化工作流程   Apple Shortcuts + Siri iOS 官方 iOS 自动化：通过 Siri 和 Shortcuts 利用 Apple 生态系统，提供高度自动化潜力。   AI 代理助理 (Agent AI) 仅限 iOS 垂直工作空间助手：专注于电子邮件、日历和会议的高度完善、专业的工作流程。   我还研究了人们实际使用它们的用途。最常见的用例非常具体且非常日常，例如接听电话和拨打预订电话、自动执行重复的应用操作、智能排序通知、购物、比价和点餐、QA 测试自动化、餐厅预订、跟踪订单和提醒以及日常社交媒体操作。 这些任务本身看起来并不复杂，但一旦你必须每天重复它们，它们很快就会耗尽你的耐心。 所以从需求角度来看，AI 手机控制确实可以做到这一点。感觉很有吸引力。它真正解决的通常不是最难的任务，而是最烦人的部分。但真正的问题不仅仅是它是否有用。无论是什么样的解决方案，最终都会遇到同样的问题：人们愿意真正让AI控制他们的手机吗？ 如果你要交出整个手机的控制权，那么对AI代理的期望就完全不同了。 所以我真正想问的是：你愿意让AI代理对你的手机有多大的控制权？如果您不愿意，您最关心的是可靠性、隐私还是权限边界？   由   提交/u/Ok-Insurance-6313   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tpw2mc/i_looked_at_8_ai_agents_that_can_control_phones/</guid>
-      <pubDate>Thu, 28 May 2026 07:10:06 GMT</pubDate>
     </item>
     <item>
       <title>用于自动化客户端管理任务的最佳轻量级设置？</title>
@@ -83,32 +104,11 @@
       <pubDate>Thu, 28 May 2026 06:43:16 GMT</pubDate>
     </item>
     <item>
-      <title>强大的自动化课程推荐功能？</title>
-      <link>https://www.reddit.com/r/automation/comments/1tptfzy/power_automate_course_recommendation/</link>
-      <description><![CDATA[我需要学习 Power Automate 只是为了技能吗？ 我认为使用 AI 和自动化的方式是 AI 是大脑，自动化是身体...它可以顺利执行任务，如果完全依赖 AI，错误可以最小化... 有人可以推荐我应该从哪里学习 Power Automate，因为我没有任何技术背景？还告诉我在哪个行业的力量自动化是使用最多的还是它已经过时了，我对集成和使用人工智能和自动化的意识形态很模糊？   由   提交 /u/Stunning_Capital_354   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tptfzy/power_automate_course_recommendation/</guid>
-      <pubDate>Thu, 28 May 2026 04:49:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何在不花太多钱的情况下自动执行视频处理任务</title>
-      <link>https://www.reddit.com/r/automation/comments/1tpp4ye/how_are_you_automating_video_processing_tasks/</link>
-      <description><![CDATA[我收集的视频文件越来越多，需要一致的处理，例如格式转换、压缩和缩略图生成。手动执行此操作会占用太多时间。我一直在研究不同的自动化方法，但大多数解决方案对于我的需要来说似乎要么过于复杂，要么过于昂贵。您发现哪些方法或工作流程可以有效地自动执行重复视频处理，而不需要大量预算或技术开销？   由   提交 /u/signalsrobot   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1tpp4ye/how_are_you_automating_video_processing_tasks/</guid>
-      <pubDate>Thu, 28 May 2026 01:30:06 GMT</pubDate>
-    </item>
-    <item>
       <title>2026 年最佳人工智能工作流程自动化平台 - 经过测试和排名（无附属链接）</title>
       <link>https://www.reddit.com/r/automation/comments/1tpc4cb/best_ai_workflow_automation_platforms_in_2026/</link>
       <description><![CDATA[]]></description>
       <guid>https://www.reddit.com/r/automation/comments/1tpc4cb/best_ai_workflow_automation_platforms_in_2026/</guid>
       <pubDate>Wed, 27 May 2026 17:17:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们的团队刚刚被告知要减少人工智能的使用，因为成本增加了两倍</title>
-      <link>https://www.reddit.com/r/automation/comments/1totlcq/our_team_just_got_told_to_cut_back_on_ai_usage/</link>
-      <description><![CDATA[今天早上开了一个会议，感觉与平常的站立会议不同。经理打开了使用仪表板，基本上说我们需要停止像免费一样对待人工智能。在大约两个月的时间里，成本从可控变成真正令人担忧。 令我震惊的是它发生的速度有多快。我们用它来做一切事情。草稿、代码审查、电话总结，甚至格式化电子邮件。没有人质疑它，因为它有效。然后账单来了，突然就开​​始讨论哪些任务实际上证明了成本的合理性。 现在我们正在进行这种奇怪的分类，您必须考虑某些事情是否值得通过模型运行，或者您是否应该自己做。老实说，感觉就像倒退一样。一些初级开发人员有点迷失，因为他们围绕它构建了整个工作流程。 我了解了成本规模，但它从将其用于所有事情到真正快速地证明每个查询的合理性。没有过渡期，只是一条宽松消息和一项新政策。   由   提交 /u/bejusorixo   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/automation/comments/1totlcq/our_team_just_got_told_to_cut_back_on_ai_usage/</guid>
-      <pubDate>Wed, 27 May 2026 03:30:31 GMT</pubDate>
     </item>
     </channel>
 </rss>
