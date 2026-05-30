@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Fri, 29 May 2026 22:40:54 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 03:51:56 GMT</lastBuildDate>
+    <item>
+      <title>Titan - 用于服务和动态管道的单二进制分布式编排器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tro08t/titan_a_singlebinary_distributed_orchestrator_for/</link>
+      <description><![CDATA[大家好， 我想看看是否可以从头开始构建一个分布式编排器，而不依赖于 Postgres、Redis 或 Kafka 等繁重的外部基础设施。严格的规则是：一切都必须从单个二进制文件运行。核心引擎是零依赖单jar。 UI和其他部分是flask，仅此而已。 结果是一个我称之为Titan的开源项目。 在深入研究之前，这是我想提出的基本比较以避免混淆 Titan是一个零依赖分布式执行运行时。它假设您的计算基础设施已经存在，并通过协调动态 DAG、管理长时间运行的分离进程以及共享跨节点状态而充当其之上的应用程序层，而无需外部数据库。 它像 Kubernetes 吗？ 不。Kubernetes 提供虚拟网络并编排 Docker 容器。泰坦不知道容器是什么；它协调主机级流程。 ​它像 Terraform/Ansible 吗？ 不。Terraform 提供物理/虚拟服务器。 Titan 等待 Terraform 完成，然后在这些服务器上运行实际的应用程序工作负载。 ​它像 Nomad 或 PM2 吗？ 是的。它是流程管理器的分布式版本。它使长时间运行的服务保持活动状态，并跨可用节点安排批处理任务。 ​它像 Airflow 吗？ 是的，但更加动态。 Airflow 安排静态数据图。 Titan 使用更轻的占用空间来调度动态图（其中一个任务可以在执行过程中生成 50 个新任务）。 架构：  单个 JAR： 主调度程序、Workers 和状态管理都从单个 Java 17 进程运行。使用自定义二进制协议 (TITAN_PROTO) 而不是 HTTP/JSON 通过原始 TCP 套接字进行通信。 嵌入式 KV 存储：为了在不需要外部数据库的情况下处理共享的跨节点状态，我将一个多线程、RESP 兼容的键值存储直接写入引擎中，并由用于崩溃恢复的仅附加文件 (AOF) 支持。 动态 Python SDK：我构建了一个 Python 客户端，以便运行任务可以以编程方式注入新作业、附加子 DAG 或基于中间输出的循环。 DAG 不必是静态的。您也可以通过 YAML 或 Visual Builder 提交作业。 混合工作负载：它与计划的批处理作业一起处理持久服务（具有自动重启功能的后台守护进程）。 AOF 崩溃恢复：主节点现在将关键状态转换记录到仅附加文件中。重新启动时，它会重播 AOF 以重建 DAG 状态并恢复正在进行的作业。 能力感知路由和功能。扩展：添加了自定义优先级队列调度程序。 Worker 通告标签（例如，GPU、HIGH_MEM），Master 保留作业，直到匹配的节点空闲。如果队列饱和，工作人员还可以反应性地生成子 JVM 进程。 可选 UI：包括用于实时远程日志流的 Flask 仪表板和可视化 DAG 构建器。  这在很大程度上是一个 v1.0 系统工程副项目（进程级隔离，目前是单主 SPOF）。从头开始构建并发系统是一项艰巨的工程挑战，我知道这是重新发明轮子的经典案例。我并不声称自己制作了一些突破性的软件，我只是想拥有一些非常轻量级和零依赖性的东西，并且想在构建时学习。 一个小的背景故事是，由于 RAM 限制，我想构建一些东西，将所有计算委托给我的个人辅助笔记本电脑。这是用 Java 完成的，因为我喜欢这种语言，并且我正在修改它以适应面试。随着我的构建，它不断增长，最初它是一个简单的任务编排器，后来扩展到了这个。我很想得到您对体系结构的批评，或者对系统设计的一般性评价。我想知道您的尝试经验，因为这将对我进一步的工作有很大帮助。 由于这是一个独立项目，因此在边缘情况下失败的可能性很大，我现在已尽力填补所有空白。 （我已在下面的评论中删除了 GitHub 存储库和架构文档的链接！）   由   提交/u/rando512  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tro08t/titan_a_singlebinary_distributed_orchestrator_for/</guid>
+      <pubDate>Sat, 30 May 2026 03:05:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>开源浏览器插件，用于过滤 Reddit 和其他社交媒体平台上的机器人/AI 垃圾邮件</title>
+      <link>https://www.reddit.com/r/opensource/comments/1trifj3/open_source_browser_plugin_to_filter_botai_spam/</link>
+      <description><![CDATA[大家好！ 我不知道你是否像我一样，但我厌倦了社交媒体上的人工智能垃圾邮件，特别是在 reddit 上。 因此，我计划利用周末时间构建一个 chrome 和 firefox 插件，该插件将过滤垃圾邮件并删除来自这些机器人的帖子和评论。 如果你想参与其中有关如何解决此问题的讨论，您可以在此处的评论中发表您的想法。我还会在今晚晚些时候或明天早上编辑这篇文章，并添加一个不和谐的链接，以便在周末讨论这个问题。 如果您是一名开发人员（前端使用 javascript/typescript，进入后端），并且本周末或下周晚些时候有时间帮助解决该问题，请在此处发表评论或为该文章添加书签。一旦我在周末开始项目，我就会用 github 链接更新这篇文章。 我厌倦了那些垃圾邮件，我们需要尽快找到一个开源解决方案来解决这个问题。 我现在发布这篇文章，以便我们作为一个社区，开始讨论如何解决这个问题并执行解决方案。 谢谢大家，如果你能提供帮助！ 史蒂夫 编辑：我刚刚打开了 github存储库：https://github.com/steve-rodrigue/aabs  如果您有需要讨论的问题/解决方案想法，您可以在存储库中提出问题。我将非常积极地与社区交谈并开发此内容，以便在周末解决该问题。预先感谢大家！   由   提交/u/steve-rodrigue  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1trifj3/open_source_browser_plugin_to_filter_botai_spam/</guid>
+      <pubDate>Fri, 29 May 2026 22:54:35 GMT</pubDate>
+    </item>
     <item>
       <title>用于评估开源 npm 包的清单：出处、维护者信号、CI 质量和安全策略</title>
       <link>https://www.reddit.com/r/opensource/comments/1trf8wf/a_checklist_for_evaluating_open_source_npm/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[我最近一直在研究 Notion 和 Trello 的一堆开源替代品，我注意到一个奇怪的悖论。 显然，每个人都想要隐私和本地优先的数据所有权，但实际实现这一点的架构复杂性变得有点荒谬。 不仅仅是使用轻量级数据库进行简单的 docker-composeup，还有很多新的项目要求您配置复杂的同步服务器、边缘运行时或处理繁重的 CRDT 逻辑，只是为了保持笔记本电脑和手机同步。感觉就像你需要一个 DevOps 学位只是为了在廉价的 VPS 上运行一个私人笔记应用程序而不丢失你的数据。或者你花了一半的周末时间扮演系统管理员的角色来获得一个基本的实用工具。 这里是否有开发人员在构建开源工具，他们故意避免大量的本地优先炒作，只是为了保持自托管方面的简单？或者我只是高估了普通用户管理这些东西的难度？   由   提交 /u/Ok_Commission_8260   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tpj4af/is_localfirst_architectural_complexity_killing/</guid>
       <pubDate>Wed, 27 May 2026 21:23:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>平面文件内存问题：我构建了一个内存层来学习要保留什么</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tp7jdf/the_flatfile_memory_problem_i_built_a_memory/</link>
-      <description><![CDATA[ 由   提交 /u/jari_mustonen   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tp7jdf/the_flatfile_memory_problem_i_built_a_memory/</guid>
-      <pubDate>Wed, 27 May 2026 14:38:35 GMT</pubDate>
-    </item>
-    <item>
-      <title>寻找一个开源应用程序来下载和浏览音乐</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tp3zhz/looking_for_an_open_source_app_to_download_and/</link>
-      <description><![CDATA[如果它有不同的算法来推荐音乐那就更好了   由   提交 /u/shervvin   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tp3zhz/looking_for_an_open_source_app_to_download_and/</guid>
-      <pubDate>Wed, 27 May 2026 12:23:42 GMT</pubDate>
     </item>
     </channel>
 </rss>

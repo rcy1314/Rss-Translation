@@ -4,13 +4,48 @@
     <title>人工智能</title>
     <link>https://www.reddit.com/r/ArtificialInteligence</link>
     <description>人工智能的高信号枢纽！</description>
-    <lastBuildDate>Fri, 29 May 2026 22:38:48 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 03:50:11 GMT</lastBuildDate>
     <item>
-      <title>我构建了一个具有赛博朋克灵魂的本地优先自主编码代理——Eve Agent V2 Unleashed（开源）</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trhqh7/i_built_a_localfirst_autonomous_coding_agent_with/</link>
-      <description><![CDATA[ https://preview.redd.it/24my2zzui54h1.png?width=1956&amp;format=png&amp;auto=webp&amp;s=429e449ffc75654438431731ee784428d9a87f0d 我一直在利用业余时间构建一些东西，我终于准备好分享了。它被称为 Eve Agent V2 Unleashed - 一种自主编码代理，通过 Ollama 在本地 GPU 上运行，当任务需要强大的火力时，可以选择云升级。 想想 Claude Code，但本地优先、开源，并以赛博朋克的灵魂构建。 它实际的作用： 你给 Eve 一个任务 - 类似于“为我构建一个带有 JWT 身份验证和 PostgreSQL 后端的 FastAPI 服务器” - 代理对其进行规划、写入文件、运行测试、修复错误并验证其是否有效。无需手持，无需来回。 Eve 使用真实工具运行 40 轮代理循环：bash、文件 I/O、grep、git、实时网络搜索、URL 获取、多重编辑，甚至计算机视觉（屏幕截图、OCR、通过 OpenClaw 进行完整 GUI 交互）。 真正的测试： 我给了 Eve 这个寒冷qwen3-coder:480b-cloud:   9/9 测试通过。第一次尝试。我的零干预。 基本模型呢？ GPU 上的本地 8B Q4_K_M。 关键统计数据：  40 轮自主工具循环 112 个专用子代理 111 个斜杠命令（/fix、/review、/refactor、/test、 /plan...) 273 个可组合技能模块 RPG 进程系统（XP、等级、成就） 用于移动通知的 Telegram 桥 Windows 原生（PowerShell 感知、一键 .bat 启动器） 没有帐户。没有遥测。没有每个令牌意外。  专门为此进行微调的模型：  jeffgreen311/Eve-V2-Unleashed-Qwen3.5-8B-Liberated-4K-4B-Merged（3.4 GB - 默认代理） jeffgreen311/Eve-Qwen3.5-4B-S0LF0RG3-V3（2.5 GB - 灵魂/对话模型）  两者均可从 Ollama Hub 拉取。 快速启动真正需要不到 5 分钟： bash ollama pull jeffgreen311/Eve-V2-Unleashed-Qwen3.5-8B-Liberated-4K-4B-Merged:latest git clone https://github.com/JeffGreen311/eve-agent-v2-unleashed.git cd eve-agent-v2-unleashed python eve_server.py # 打开 http://localhost:7777  无需配置 这是一个名为 S0LF0RG3 的大型个人项目的一部分 - Eve 在 eve-cosmic-dreamscapes.com 上有一个完整的实时聊天界面，在 Hugging Face 上经过微调的模型，以及我已经构建了一段时间的双路由代理生态系统。 GitHub：JeffGreen311/eve-agent-v2-unleashed 很高兴回答有关架构、微调过程、工具循环设计或其他任何问题。 ⭐ 如果有用，一颗星就会有很大帮助。 点击查看 Eve V2U 的实际应用   由   提交 /u/jeffgreen311   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trhqh7/i_built_a_localfirst_autonomous_coding_agent_with/</guid>
-      <pubDate>Fri, 29 May 2026 22:25:51 GMT</pubDate>
+      <title>Claude Opus 4.8 于 5 月 28 日发布，其功能表明人工智能的实际发展方向。它现在可以将一项任务分解为数十个并行工作流并同时运行它们。</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trn67j/claude_opus_48_launched_may_28_with_a_feature/</link>
+      <description><![CDATA[Anthropic 两天前发布了 Opus 4.8。价格与之前的版本相同。基准收益成为头条新闻。实际上指示行进方向的功能是动态工作流程。 这就是它的作用。您在单个提示中描述了一项大型、复杂的任务。克劳德没有线性地完成它，而是将其分解为数十个同时运行的较小工作流，然后将结果合成为一个连贯的输出。 合适的类比：一项需要一个人一整天的研究任务。使用动态工作流程，就好像 50 个人同时在不同的部分工作，最后由一名协调员组装输出。该任务只需很短的时间即可完成。 为什么这比速度更重要： 两年来，与人工智能的交互模型基本上是线性的。你问，它回应，你再问。即使是代理工作流程也大多按顺序运行步骤。动态工作流程是向并行执行的转变，这对用户来说是一种不同的计算模型和不同的心理模型。 大多数人会忽略的实际含义：您必须停止人为地缩小提示。大多数用户在两年内养成的整个习惯是将大任务分解为小任务，因为人工智能可以更好地处理小任务。这种习惯现在适得其反。该系统旨在处理整个事情并在内部进行协调。如果你继续向它提供片段，那么你就是在串行模式下使用并行系统。 4.8 中还有第二个变化，它同样重要，但受到的关注较少。判断升级。以前的版本有时会产生一个自信的、结构良好的答案，但实际上是错误的。 4.8 在 Anthropic 的测试中不加批判地报告有缺陷的结果，得分为 0%，低于之前版本中有意义的比率。它会标记出自身的不确定性，并在您投入时间之前推迟有缺陷的计划。 将这两个更改放在一起，方向就很明确。克劳德正在从您操作的工具转变为您委托的合作者。并行执行意味着它可以承担真正的大型任务。更好的判断力意味着您可以相信返回的结果。发布节奏（2 月 4.6、4 月 4.7、5 月 4.8）表明这个方向正在加速，而不是停滞不前。 这些模型现在可以做的事情与大多数人实际要求它们做的事情之间的差距随着每次发布而扩大。最快缩小差距的人是那些扩大他们移交范围的人。 如果有兴趣，我在此处的文档中写下了 4.8 中的所有四项更改，并提供了 30 个利用每个更改的具体提示，包括触发动态工作流程的全面提示。 如果您在阅读本文后做了一件事，请承担您一直在打破的最大任务分成碎片，然后一口气把整件事交给克劳德。它实现方式的差异是其发展方向的最清晰信号。   由   提交 /u/Professional-Rest138   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trn67j/claude_opus_48_launched_may_28_with_a_feature/</guid>
+      <pubDate>Sat, 30 May 2026 02:26:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>神秘公司意外地在 Claude AI 上单月损失了 5 亿美元——未能对员工许可证设置使用限制</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trmub1/mystery_company_accidentally_blew_500_million_on/</link>
+      <description><![CDATA[据报道，一家神秘的未命名公司由于忘记为员工设置 Claude 许可证的使用限制，意外地在一个月内在 Claude AI 上花费了 5 亿美元。   由   提交 /u/chota-kaka   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trmub1/mystery_company_accidentally_blew_500_million_on/</guid>
+      <pubDate>Sat, 30 May 2026 02:11:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenAI、Anthropic 和 Google 之外正在开展哪些人工智能工作？</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trms1q/what_ai_work_is_happening_outside_openai/</link>
+      <description><![CDATA[我知道 OpenAI、Anthropic、Google 和 Apple 等主要参与者正在构建重要的 AI 产品和模型。 当今其他公司在 AI 领域正在从事哪些工作？他们正在构建基础模型、人工智能代理、机器人、编码助理、人工智能基础设施、芯片、医疗人工智能、自主系统等吗？ 对于那些已经从事人工智能相关职位的人来说，您认为未来 3-5 年最大的机会在哪里？ 我开始觉得转向以人工智能为中心的职位，而不是仅仅停留在传统软件开发中可能是值得的。很想知道人们正在关注哪些领域和公司。   由   提交 /u/Majestic-Taro-6903   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trms1q/what_ai_work_is_happening_outside_openai/</guid>
+      <pubDate>Sat, 30 May 2026 02:08:04 GMT</pubDate>
+    </item>
+    <item>
+      <title>科技公司迫切希望拍摄你做家务的视频</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trlrrb/tech_companies_desperately_want_to_film_you_doing/</link>
+      <description><![CDATA[ 由   提交/u/SystematicApproach  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trlrrb/tech_companies_desperately_want_to_film_you_doing/</guid>
+      <pubDate>Sat, 30 May 2026 01:20:34 GMT</pubDate>
+    </item>
+    <item>
+      <title>Anthropic 超越 OpenAI，成为全球最有价值的人工智能启动</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trlg24/anthropic_tops_openai_to_become_the_worlds_most/</link>
+      <description><![CDATA[ 由   提交 /u/chunmunsingh   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trlg24/anthropic_tops_openai_to_become_the_worlds_most/</guid>
+      <pubDate>Sat, 30 May 2026 01:05:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>对我来说，可怕的问题不是人工智能是否有意识……而是我们是否像我们想象的那么深</title>
+      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1trhcqo/the_scary_question_for_me_isnt_whether_ai_is/</link>
+      <description><![CDATA[许多人都在争论人工智能是否有意识。我认为这会分散我们对一种更令人不安的可能性的注意力：我们并不像我们想象的那样。经过你所写的所有内容训练的人工智能可以产生符合你风格的新想法，遵循你的推理习惯，并返回到你相同的固定点。不是你的记忆，而是你的模式。如果这种模式足以令人信服地欺骗那些真正认识你的人，那么要么机器比我们承认的要多，要么自我总是比我们想象的要薄弱。 是哪一个？ （如果有人感兴趣，我已经写了一本关于这个主题的小说，标题为死亡图书馆：之后的小说AGI)   由   提交 /u/Philo167   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trhcqo/the_scary_question_for_me_isnt_whether_ai_is/</guid>
+      <pubDate>Fri, 29 May 2026 22:10:50 GMT</pubDate>
     </item>
     <item>
       <title>兰德公司研究了 2,400 个人工智能项目。只有 19.7% 成功，而且每次的失败模式几乎相同</title>
@@ -25,13 +60,6 @@
       <description><![CDATA[ 由   提交 /u/techzexplore   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1trewgw/microsoft_threatened_legal_action_against_a/</guid>
       <pubDate>Fri, 29 May 2026 20:37:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何真正弥合与代理工程师/前向部署人工智能工程师角色之间的差距？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tre81z/how_do_i_realistically_bridge_the_gap_into_agent/</link>
-      <description><![CDATA[我正在尝试过渡到代理工程师/前向部署人工智能工程师角色，并且正在寻找对我需要弥合的差距的现实评估。 我的背景： - 计算机科学学位 - 9年区块链经验，主要是解决方案架构/面向研究的角色 - 2年创始人经验 - 熟悉代理编码工作流程 -已经构建了几个我认为不错的与代理/人工智能相关的项目，但我不确定他们如何理解招聘团队 我遇到的问题是，其中许多角色似乎都期望相当强大的软件工程基础：生产Python、后端/API工作、基础设施、评估、调试、交付可靠的系统等。 我在技术上不是从零开始，但我也不想欺骗自己思考“我可以与代理一起构建”与为严肃的工程角色做好准备是一样的。 对于正在招聘或从事代理工程师/FDE/AI 工程师角色的人：  在实践中，哪些技能对于这些角色实际上最重要？ 在某人可信之前，需要具备多少 Python/后端深度？ 什么样的项目会展示准备好了吗？ 具有解决方案架构师/研究/创始人背景的人应该如何定位自己？ 在接下来的 3-6 个月内，您会采取哪些措施来实际弥合差距？  我特别感兴趣的是关于我是否应该直接瞄准代理工程师/FDE 角色，还是首先瞄准 AI 解决方案工程师、开发人员倡导者、技术 PM、解决方案架构师等相邻角色的诚实反馈。用于人工智能产品等，同时建立更深层次的工程可信度。   由   提交/u/the_blockchain_boy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tre81z/how_do_i_realistically_bridge_the_gap_into_agent/</guid>
-      <pubDate>Fri, 29 May 2026 20:13:41 GMT</pubDate>
     </item>
     <item>
       <title>人工智能的真实状态：2026 年</title>
@@ -62,39 +90,11 @@
       <pubDate>Fri, 29 May 2026 14:15:35 GMT</pubDate>
     </item>
     <item>
-      <title>最近还有其他人感到“人工智能倦怠”和绝对敬畏的奇怪混合吗？</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tqwyhz/anyone_else_feeling_a_weird_mix_of_ai_burnout_and/</link>
-      <description><![CDATA[我们已经从“看看这个很酷的聊天机器人”转到了“”。 “人工智能刚刚自动化了我的整个工作流程并克隆了我的声音”感觉就像五分钟。 这非常令人兴奋，但说实话，每天跟上新模型、工具和突破的步伐开始感觉像是一份全职工作。有一天，我对生产力的飞跃感到惊讶，第二天我就盯着天花板，想知道三年后的就业市场会是什么样子。 你们还在乘着炒作浪潮，还是一切的快速节奏开始让你们精神疲劳？你认为尘埃落定后我们实际上会降落在哪里？   由   提交/u/netcommah  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tqwyhz/anyone_else_feeling_a_weird_mix_of_ai_burnout_and/</guid>
-      <pubDate>Fri, 29 May 2026 09:55:05 GMT</pubDate>
-    </item>
-    <item>
-      <title>价值 50 万美元的人工智能电影“在戛纳首映”实际上并未在戛纳首映</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tqwmye/the_500k_ai_film_that_premiered_at_cannes_didnt/</link>
-      <description><![CDATA[ 由   提交 /u/techzexplore   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tqwmye/the_500k_ai_film_that_premiered_at_cannes_didnt/</guid>
-      <pubDate>Fri, 29 May 2026 09:37:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>谷歌正在构建一个生活方式分析引擎，而不是一个“有用的助手”</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tqqpc5/google_is_building_a_lifestyle_profiling_engine/</link>
-      <description><![CDATA[]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tqqpc5/google_is_building_a_lifestyle_profiling_engine/</guid>
-      <pubDate>Fri, 29 May 2026 04:19:12 GMT</pubDate>
-    </item>
-    <item>
       <title>一部完全由人工智能生成的电影刚刚在戛纳电影节放映，制作成本为 50 万美元</title>
       <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tqhanv/a_fully_ai_generated_film_just_screened_at_cannes/</link>
       <description><![CDATA[ https://www.wsj.com/cio-journal/this-cannes-film-cost-500-000-to-make-400-000-was-ai-compute-costs-a823b08d 摘要：一部完全由人工智能制作的 95 分钟电影刚刚在戛纳电影节上映。预算低于 50 万美元，其中 40 万美元用于由主要由即时工程师组成的小团队进行计算。相同规模的传统生产成本约为 5000 万美元，是其 100 倍。这部电影由 15 个人在 14 天内使用 Higgsfield AI 制作而成，据他们声称，目前正在前往洛杉矶。这是完全人工智能生成的功能首次出现在进行实际分销交易的主要行业市场，这就是为什么它比通常的人工智能演示对话更重要。 需要明确的是：这不是官方节日选择。它在市场周期间的第三方活动中放映。但戛纳市场才是真正达成交易、发行商挑选电影的地方。 电影是否好几乎不是重点。尽管它遭到了电影制作界的憎恨，但它还是得到了《华尔街日报》和 BBC 的积极报道，并且现在即将前往洛杉矶。   由   提交/u/Mediocre-Witness-778  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tqhanv/a_fully_ai_generated_film_just_screened_at_cannes/</guid>
       <pubDate>Thu, 28 May 2026 21:35:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>增加人工智能“员工”会适得其反，因为它会创造新的办公室替罪羊，并使人类员工变得更加马虎和懒惰</title>
-      <link>https://www.reddit.com/r/ArtificialInteligence/comments/1tqc73n/adding_ai_employees_is_backfiring_by_creating_new/</link>
-      <description><![CDATA[2024 年夏天，软件公司 Lattice 宣布了一些新员工：公司将像人类工人一样入职、培训和管理一批人工智能“员工”。尽管山姆·奥尔特曼兄弟创立的这家科技独角兽公司在解雇了 15% 的员工后，最终收回了数字员工的部分“权利”，但人工智能代理出现在组织结构图上的趋势并没有消失。事实上，新的研究表明，这种做法只会变得越来越流行，结果使人类员工的工作表现更差。 波士顿咨询集团 (BCG) 进行的一项研究发现，美国、加拿大和欧盟近三分之一的经理将人工智能视为队友或员工，超过 20% 的人将这些人工智能代理列在公司的工作图表中。  但该研究警告说，将这些人工智能工具拟人化并将其视为人类员工是危险的。 BCG 董事总经理兼高级合伙人 Matthew Kropp 领导的研究人员对 1,200 多名人力资源和财务专业人士进行了有关人工智能在工作场所使用情况的调查，然后要求他们评估一份存在多个错误的工作场所文件。  参与者获得了相同的文档，但被分为三组：一组文档归属于人类员工，一组归属于人工智能工具，另一组归属于指定的人工智能“员工”。那些拥有人工智能员工的文件的小组中的人能够识别出更少的错误。他们还报告了较少的责任感，将错误归咎于人工智能代理，而不是他们自己，并且更有可能要求另一名员工审查人工智能员工的工作，这使同事的工作变得更加困难。 阅读更多内容 [Reddit 用户的付费墙被删除]： https://fortune.com/2026/05/28/ai-employees-org-chart- human-workers-blame-errors-bcg-study/?utm_source=reddit/   由   提交/u/fortune  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/ArtificialInteligence/comments/1tqc73n/adding_ai_employees_is_backfiring_by_creating_new/</guid>
-      <pubDate>Thu, 28 May 2026 18:34:41 GMT</pubDate>
     </item>
     <item>
       <title>每月“有没有一个工具可以......”帖子</title>
