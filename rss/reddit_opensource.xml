@@ -4,14 +4,7 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sat, 30 May 2026 13:51:04 GMT</lastBuildDate>
-    <item>
-      <title>[VinMail] Bash-ing out emails：为多个电子邮件帐户构建了一个基于 Bash 的终端邮件管理器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1trxg0u/vinmail_bashing_out_emails_built_a_bashbased/</link>
-      <description><![CDATA[我最近构建了 VinMail，这是一个完全用 Bash 编写的交互式 CLI 邮件管理器，位于 msmtp 之上。 它允许您从终端界面管理多个电子邮件帐户、撰写带有附件的电子邮件、立即切换帐户以及可选的GPG 签名邮件。该应用程序本身构建 MIME 消息，并直接通过 msmtp 发送它们，无需图形邮件客户端或邮件守护程序。 界面支持箭头键和 j/k 导航，并且使用您首选的 $EDITOR 编辑电子邮件正文。 GitHub repo：https://github.com/VintellX/vinmail 如果这看起来很有趣，请尝试一下，让我知道您的想法。欢迎提供反馈、错误报告、功能请求和贡献。感谢您查看！ :)   由   提交 /u/VintellX   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1trxg0u/vinmail_bashing_out_emails_built_a_bashbased/</guid>
-      <pubDate>Sat, 30 May 2026 11:31:06 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sat, 30 May 2026 16:09:50 GMT</lastBuildDate>
     <item>
       <title>LLM Wiki 的“云与本地”之争是错误的二分法吗？摄取管道是真正值得关注的问题。</title>
       <link>https://www.reddit.com/r/opensource/comments/1trtsgg/is_the_cloud_vs_local_fight_for_llm_wikis_a_false/</link>
@@ -25,13 +18,6 @@
       <description><![CDATA[       由   提交/u/Domipro143  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1trpjnh/a_cool_app/</guid>
       <pubDate>Sat, 30 May 2026 04:20:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>Titan - 用于服务和动态管道的单二进制分布式编排器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tro08t/titan_a_singlebinary_distributed_orchestrator_for/</link>
-      <description><![CDATA[大家好， 我想看看是否可以从头开始构建一个分布式编排器，而不依赖于 Postgres、Redis 或 Kafka 等繁重的外部基础设施。严格的规则是：一切都必须从单个二进制文件运行。核心引擎是零依赖单jar。 UI和其他部分是flask，仅此而已。 结果是一个我称之为Titan的开源项目。 在深入研究之前，这是我想提出的基本比较以避免混淆 Titan是一个零依赖分布式执行运行时。它假设您的计算基础设施已经存在，并通过协调动态 DAG、管理长时间运行的分离进程以及共享跨节点状态而充当其之上的应用程序层，而无需外部数据库。 它像 Kubernetes 吗？ 不。Kubernetes 提供虚拟网络并编排 Docker 容器。泰坦不知道容器是什么；它协调主机级流程。 ​它像 Terraform/Ansible 吗？ 不。Terraform 提供物理/虚拟服务器。 Titan 等待 Terraform 完成，然后在这些服务器上运行实际的应用程序工作负载。 ​它像 Nomad 或 PM2 吗？ 是的。它是流程管理器的分布式版本。它使长时间运行的服务保持活动状态，并跨可用节点安排批处理任务。 ​它像 Airflow 吗？ 是的，但更加动态。 Airflow 安排静态数据图。 Titan 使用更轻的占用空间来调度动态图（其中一个任务可以在执行过程中生成 50 个新任务）。 架构：  单个 JAR： 主调度程序、Workers 和状态管理都从单个 Java 17 进程运行。使用自定义二进制协议 (TITAN_PROTO) 而不是 HTTP/JSON 通过原始 TCP 套接字进行通信。 嵌入式 KV 存储：为了在不需要外部数据库的情况下处理共享的跨节点状态，我将一个多线程、RESP 兼容的键值存储直接写入引擎中，并由用于崩溃恢复的仅附加文件 (AOF) 支持。 动态 Python SDK：我构建了一个 Python 客户端，以便运行任务可以以编程方式注入新作业、附加子 DAG 或基于中间输出的循环。 DAG 不必是静态的。您也可以通过 YAML 或 Visual Builder 提交作业。 混合工作负载：它与计划的批处理作业一起处理持久服务（具有自动重启功能的后台守护进程）。 AOF 崩溃恢复：主节点现在将关键状态转换记录到仅附加文件中。重新启动时，它会重播 AOF 以重建 DAG 状态并恢复正在进行的作业。 能力感知路由和功能。扩展：添加了自定义优先级队列调度程序。 Worker 通告标签（例如，GPU、HIGH_MEM），Master 保留作业，直到匹配的节点空闲。如果队列饱和，工作人员还可以反应性地生成子 JVM 进程。 可选 UI：包括用于实时远程日志流的 Flask 仪表板和可视化 DAG 构建器。  这在很大程度上是一个 v1.0 系统工程副项目（进程级隔离，目前是单主 SPOF）。从头开始构建并发系统是一项艰巨的工程挑战，我知道这是重新发明轮子的经典案例。我并不声称自己制作了一些突破性的软件，我只是想拥有一些非常轻量级和零依赖性的东西，并且想在构建时学习。 一个小的背景故事是，由于 RAM 限制，我想构建一些东西，将所有计算委托给我的个人辅助笔记本电脑。这是用 Java 完成的，因为我喜欢这种语言，并且我正在修改它以适应面试。随着我的构建，它不断增长，最初它是一个简单的任务编排器，后来扩展到了这个。我很想得到您对体系结构的批评，或者对系统设计的一般性评价。我想知道您的尝试经验，因为这将对我进一步的工作有很大帮助。 由于这是一个独立项目，因此在边缘情况下失败的可能性很大，我现在已尽力填补所有空白。 （我已在下面的评论中删除了 GitHub 存储库和架构文档的链接！）   由   提交/u/rando512  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tro08t/titan_a_singlebinary_distributed_orchestrator_for/</guid>
-      <pubDate>Sat, 30 May 2026 03:05:01 GMT</pubDate>
     </item>
     <item>
       <title>开源浏览器插件，用于过滤 Reddit 和其他社交媒体平台上的机器人/AI 垃圾邮件</title>
@@ -109,6 +95,20 @@
       <description><![CDATA[对于开源社区，我真正欣赏的一件事是，与在线其他地方的大多数人工智能讨论相比，诚实的人是多么的诚实。没有人一直假装一切都是革命性的。 人们公开谈论生产中出现的问题、哪些工具变得无法维护以及最初看起来令人兴奋但后来变得痛苦的事情。老实说，我从维护人员随意谈论失败和权衡中学到的东西比从 LinkedIn 或 Twitter 上最精美的 AI 内容中学到的更多。   由   提交/u/Bladerunner_7_   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tptus1/open_source_discussions_feel_way_more_real_than/</guid>
       <pubDate>Thu, 28 May 2026 05:10:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>我构建的开源远足路线规划器是因为导出 GPX 不需要订阅。</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tplzja/opensource_hiking_route_planner_i_built_because/</link>
+      <description><![CDATA[我是一名学生建筑 Crest，这是一款免费的开源远足路线规划器，专为那些只想计划步行并下载路线而无需付费的人而设计。 大多数远足应用程序（OS Maps、AllTrails、Komoot）都将 GPX 导出锁定在订阅后面。我想要一些简单的东西：  选择一个起点和终点 生成一条真正的基于人行道的路线 查看海拔剖面图 下载 GPX/GeoJSON  无需订阅，也无需跟踪。 Crest 使用 OpenStreetMap 数据（一个自定义的 A* 路由引擎），现在通过 Chart.js 包含海拔剖面图。 我&#39;d喜欢任何人对地图、路线算法或开源户外工具的反馈。 存储库：https://github.com/abdlfc11/Crest-Hiking-App   由   提交 /u/abdul_Ss   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tplzja/opensource_hiking_route_planner_i_built_because/</guid>
+      <pubDate>Wed, 27 May 2026 23:15:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>我刚刚找到了🎶THE WAAAAAY🎶</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tpjgpj/i_just_found_the_waaaaay/</link>
+      <description><![CDATA[为了免费保存 f-droid 和手机中用于 yeet 的所有东西，我们可以运行一个非常简单的 PC 环境来在本地下载 apk，并使用 ZArchiver 从 termux 安装它（可能会捐赠一杯咖啡）。为了抵消 slopcorp 的钱，我们可以改变我们共享链接的方式，而不是通常的方式，我们可以使用静态链接来 sudo rm rf 价格，然后只使用 termux 来卷曲，为了共享它们，我们使用 (空格键)DOT(空格键) 而不是标准链接来保持页面静态，并且无法跟踪可以修补他们的东西，但他们无法修补人类创造力🗿   由   提交/u/rafoz03  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tpjgpj/i_just_found_the_waaaaay/</guid>
+      <pubDate>Wed, 27 May 2026 21:36:13 GMT</pubDate>
     </item>
     </channel>
 </rss>
