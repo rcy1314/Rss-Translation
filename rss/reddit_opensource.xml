@@ -4,7 +4,21 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 03 Jun 2026 11:09:27 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 16:59:43 GMT</lastBuildDate>
+    <item>
+      <title>[反馈请求] DrakoFlow – 一种无服务器、开源文本到图表工具，具有拖动到文本序列化功能</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tvqamj/feedback_request_drakoflow_a_serverless/</link>
+      <description><![CDATA[大家好，我想分享一个我一直在做的项目，名为 DrakoFlow。  很长一段时间以来，我一直有构建一个文本转图表工具的想法。我经常使用 PlantUML 等工具来编写文档，但我一直想要一些感觉更现代、更具交互性和优雅的东西。我想要一个工具，其中的图表不仅仅是静态输出图像，而是与代码保持紧密联系的高度交互的画布。我的日常工作是后端开发人员（主要是编写 Java），因此构建高度交互的客户端 Web 应用程序与我通常的舒适区有很大的不同。我决定使用这个项目作为学习 TypeScript 的实用方法。 由于我的前端和 UI/UX 知识有限，所以我使用 AI 作为协作伙伴。它帮助我弥补了 TypeScript 技能不足的差距（主题、UI/UX、优化一些更复杂的布局/渲染算法以及我的软件工程技能不够好的地方） 是什么让 DrakoFlow 与众不同？ DrakoFlow 完全在客户端运行。没有后端服务器，这意味着您的数据和图表永远不会离开您的机器 - 使其完全隐私优先。 以下是我迄今为止已成功实现的关键功能：  双向同步和同步拖放：您可以编写声明性 DSL 来生成形状，但您也可以在画布上手动拖动组件。引擎会自动将这些新坐标（x 和 y）实时舍入并序列化回代码编辑器中。 装订线突出显示：将鼠标悬停在 SVG 中的某个组件上，会在代码编辑器中突出显示其确切的定义行，从而使大图表中的导航速度非常快。 PlantUML 转换器（测试版）：您可以将现有 PlantUML 代码直接粘贴到导入器中，将其转换为DrakoFlow 的本机 DSL。 多种导出选项，包括交互式 HTML 播放器导出：您可以将图表导出为独立的 .html 文件，而不仅仅是导出静态 PNG 或 SVG。这个单一文件可以在任何地方打开，并保留平移、缩放、标签过滤、小地图和只读代码查看器。 无服务器共享：由于没有数据库，因此您可以通过复制 URL 来共享图表。该应用程序压缩整个图表状态并将其直接编码到 URL 哈希参数中。 对齐网格：具有可调节的对齐网格，以保持手动移动的元素干净和对齐。 子系统和子系统嵌套：支持使用标准 UML Package 文件夹块或 VerticalContainer 结构对微服务和组件进行分组。  Stack  语言：纯 TypeScript，编译为纯 JS（可离线运行，直接从本地文件）。 UI/渲染： Vanilla DOM 和 SVG API（无繁重的外部渲染）框架）。  该项目完全免费且开源。由于 PlantUML 翻译器仍处于测试阶段，一些复杂的结构可能需要手动调整，但我正在积极努力改进它。 我很乐意获得您对 DSL 语法、可用性或您认为会使该工具对日常文档工作流程更有用的任何功能的反馈！ 实时站点（您可以直接在浏览器中尝试）：https://pazvanti.github.io/DrakoFlow/   由   提交/u/pazvanti2003  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tvqamj/feedback_request_drakoflow_a_serverless/</guid>
+      <pubDate>Wed, 03 Jun 2026 14:02:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>我编写了“idb-ts”，一个以声明式方式使用的 IndexedDB 包装器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tvnokx/i_wrote_idbts_an_indexeddb_wrapper_to_be_used_in/</link>
+      <description><![CDATA[IndexedDB 功能强大，但我总是发现该 API 对于日常使用来说非常冗长。由于我的心态主要集中在后端，所以有时我发现做事很困难。然后我就想，为什么不解决这个问题呢？然后我写了这个库。如果您是从后端团队转为全栈团队，您就会感受到这种氛围。现在我们可以很容易地声明实体、版本、增删改查调用以及其他重复的事情。 快速浏览： @DataClass(“users”) class User { @KeyPath() id!: string; }名称！：字符串；电子邮件！：字符串； } ...等待 db.create(用户);等待db.read（用户，“123”）；等待 db.update(用户);等待db.delete(用户,“123”);  它还支持许多复杂的查询。例如：  const users = wait db.User.query() .where(&#39;age&#39;) .gte(20) .and(&#39;status&#39;) .equals(&#39;active&#39;) .orderBy(&#39;age&#39;, &#39;asc&#39;) .execute(); const users = wait db.User.query() .orderBy(&#39;createdAt&#39;, &#39;asc&#39;) .offset(1) .limit(2) .execute();  它还具有字段级别验证支持：  @Validate((value: string) =&gt; value.length &gt; 0, &#39;ID 不能为空&#39;) id!: string; @Validate((value: string) =&gt; value.includes(&#39;@&#39;), &#39;无效电子邮件&#39;) @Index({ unique: true }) email!: string; @Validate((value: number) =&gt; value &gt;= 0 &amp;&amp; value &lt;= 150, &#39;年龄必须为 0-150&#39;)age!: number;  它有更酷的功能，例如数据保留策略、自动清理、模式版本控制、回滚、原子事务 我只有不到五年的全职经验，但我正在努力学习。所以我绝对愿意接受评论和建议。  源代码可以在这里找到：https://github.com/maifeeulasad/idb-ts.git npm 包在这里：https://www.npmjs.com/package/idb-ts  希望得到经常使用 IndexedDB 和不经常使用 IndexedDB 的人的反馈。你现在会用它吗？它缺少什么。它是否过度设计？ 任何意见也会有帮助。期待您的来信。祝您度过愉快的夜晚！！   由   提交/u/maifee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tvnokx/i_wrote_idbts_an_indexeddb_wrapper_to_be_used_in/</guid>
+      <pubDate>Wed, 03 Jun 2026 12:21:03 GMT</pubDate>
+    </item>
     <item>
       <title>您是否曾见过一个很酷的独立项目，但当开发商以 ARR 或付费方式将其开发出来时，您会感到非常沮丧？</title>
       <link>https://www.reddit.com/r/opensource/comments/1tvcbbd/you_ever_see_a_cool_independent_project_and/</link>
@@ -25,13 +39,6 @@
       <description><![CDATA[想到了一个网站的想法，但除了广告之外无法想出从中赚钱的方法，所以将其发布在这里 Idea 是一个跟踪“抵制”的网站。人们可以添加公司名称以及为什么要抵制它们，标记国家/地区，然后人们可以对它们进行投票并进行讨论等 不要认为在 Reddit 子版块中坚持下去会更好，直到原始发帖者标记为不再相关或在一定时间后超时   由   提交/u/ybot01  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1tuxa6o/idea_for_website/</guid>
       <pubDate>Tue, 02 Jun 2026 17:07:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>我制作了一个快速且可配置的媒体播放器多画面播放器</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tuvpyn/i_made_a_fast_configurable_media_player/</link>
-      <description><![CDATA[      大家好，我制作了这个 C 项目来同时观看多个 Twitch 流（和其他媒体）。有一些网站可以这样做，但这种方法是无浏览器的（使用 mpv 和 Chatterino），并添加了大量的 QoL 功能和配置。 有很多组件是从头开始编写的：命令预览 (REPL)、自动完成、布局、标签、宏、配置文件、通过后缀数组和文件搜索的文件。 LCP 来自 libsais，许多数据结构。所有 MIT 许可的、纯 C11。 我最近将其移植到 posix（在带有 Windows 主机的 Arch Linux 虚拟机上进行了测试），并且似乎运行良好（有些东西仅限于 X11）。我没有 Mac 机器，所以我不允许让它在那里工作。 如果您发现任何令人困惑或缺少功能的内容，请告诉我，我会查看。这个项目背后的主要思想是拥有极小的摩擦（很多时候，您可能只运行一次可执行文件并用宏设置所有内容）。 非常感谢您检查它！   由   提交/u/Avioa  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tuvpyn/i_made_a_fast_configurable_media_player/</guid>
-      <pubDate>Tue, 02 Jun 2026 16:14:29 GMT</pubDate>
     </item>
     <item>
       <title>我开源了 Provenant：用于编码代理的自我修复架构内存层</title>
@@ -102,13 +109,6 @@
       <description><![CDATA[在这里发表的第一篇文章，我真的很想避免被禁止进入 Reddit 子版块。我已阅读规则，但我在 Reddit 自我推销的第 2 点中没有找到任何有用的信息。如果不好，我会立即删除它！ 我是一名 Web 开发人员，在过去的几个月里，我一直在构建 RE-KORD，这是一个开源本地音乐中心，专注于真正拥有自己音乐收藏的人。 产生这个想法是因为我对流媒体平台的方向感到沮丧：订阅、消失的曲目、支离破碎的库以及对我自己的收藏的控制很少。 RE-KORD 完全在您自己的计算机上运行，让您： • 在网络上的设备上流式传输您的本地音乐库 • 组织和编辑元数据、封面和歌词 • 直接从应用程序内下载曲目、专辑和播放列表 • 跟踪收听统计数据和成绩 • 使用实时音频可视化工具 • 玩内置节奏游戏 (Plectr)，该游戏会自动根据您的音乐生成级别 该项目已完全开放来源和设计的理念是您的音乐应该属于您。 我仍在积极开发它，我希望得到自托管和音乐囤积社区中的人们的反馈。 网站：https://re-kord.com/ 存储库：https://github.com/Creiv/RE-KORD 欢迎提出问题、批评和功能请求。任何评论和建议都会对我有很大帮助！！   由   提交 /u/After-Lawativity9794   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1ttu6cj/i_built_an_opensource_selfhosted_music_hub_after/</guid>
       <pubDate>Mon, 01 Jun 2026 14:36:25 GMT</pubDate>
-    </item>
-    <item>
-      <title>AutoCAD 的替代品？</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tt9dub/alternatives_to_autocad/</link>
-      <description><![CDATA[我是一名建筑系学生，自 2022 年以来一直在使用 AutoCAD 学生许可证，现在我厌倦了在我的许可证过期期间乞求 Autodesk 不要忽视我一个月，我尝试过 LibreCAD 和 FreeCAD，发现它们大多笨重且不直观，我不想从头开始学习所有内容。    由   提交 /u/MenoryEstudiante   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tt9dub/alternatives_to_autocad/</guid>
-      <pubDate>Sun, 31 May 2026 22:22:25 GMT</pubDate>
     </item>
     </channel>
 </rss>
