@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Wed, 03 Jun 2026 04:44:12 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 11:08:42 GMT</lastBuildDate>
+    <item>
+      <title>用 C++17 编写自定义 SQL 数据库引擎：实现 MVCC、WAL 和具有零外部依赖性的位掩码 DP 连接优化器</title>
+      <link>https://www.reddit.com/r/programming/comments/1tvm07w/writing_a_custom_sql_database_engine_in_c17/</link>
+      <description><![CDATA[ 由   提交/u/Effective-Hurry436  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tvm07w/writing_a_custom_sql_database_engine_in_c17/</guid>
+      <pubDate>Wed, 03 Jun 2026 11:04:55 GMT</pubDate>
+    </item>
+    <item>
+      <title>超越 ICR：在 Emacs 中增量“建议”阅读</title>
+      <link>https://www.reddit.com/r/programming/comments/1tvjpxy/beyond_icr_incremental_suggesting_read_in_emacs/</link>
+      <description><![CDATA[&quot;这是我关于 Emacs 补全的系列文章中的第六篇文章......这个文章为一种特殊情况创造了一个术语，即增量建议读取 (ISR)，其中由增量键入的输入生成的候选集是一个建议，而不是该输入的字面补全。除了文字匹配之外，生成推断匹配的能力极大地扩展了“完成”系统的功能范围。两个概念来源提供了建议：1) 语义检索和 2) 生成综合。 这篇文章的推测性多于实用性，因此在观看视频或阅读本文时请保留一点盐。”   由   提交/u/misterchiply  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tvjpxy/beyond_icr_incremental_suggesting_read_in_emacs/</guid>
+      <pubDate>Wed, 03 Jun 2026 09:04:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Björn Fahller：我说得太多了</title>
+      <link>https://www.reddit.com/r/programming/comments/1tvipbl/björn_fahller_i_talk_too_much/</link>
+      <description><![CDATA[ 由   提交 /u/_a4z   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tvipbl/björn_fahller_i_talk_too_much/</guid>
+      <pubDate>Wed, 03 Jun 2026 08:05:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>通过 VSCode Bug 一键窃取 GitHub 令牌</title>
+      <link>https://www.reddit.com/r/programming/comments/1tvftne/1click_github_token_stealing_via_a_vscode_bug/</link>
+      <description><![CDATA[ 由   提交/u/nicovank13  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tvftne/1click_github_token_stealing_via_a_vscode_bug/</guid>
+      <pubDate>Wed, 03 Jun 2026 05:26:28 GMT</pubDate>
+    </item>
     <item>
       <title>默认 SaaS 的终结</title>
       <link>https://www.reddit.com/r/programming/comments/1tv6kio/the_end_of_default_saas/</link>
@@ -48,6 +76,13 @@
       <pubDate>Tue, 02 Jun 2026 16:15:13 GMT</pubDate>
     </item>
     <item>
+      <title>奇异的 CRTP：使用 C++23 显式对象参数在没有友元的情况下执行严格的接口</title>
+      <link>https://www.reddit.com/r/programming/comments/1tuv9ju/exotic_crtp_enforcing_strict_interfaces_without/</link>
+      <description><![CDATA[我一直在尝试 CRTP，最终得到了一个变体，它强制执行严格的接口/实现边界，而无需友元声明。目标是消除我在尝试封装派生类方法时经常遇到的样板文件。 关键思想是使用 C++23 显式对象参数 this + 一个小型访问包装类型，因此只能通过接口层调用实现。 那是大约两个半月前的事情。从那时起，我花了时间更好地理解它并写了一篇关于它的文章，您可以在下面找到它。正如那里所解释的，我将这种方法称为 Exotic CRTP。  示例 ```cpp // 模式的参考示例 // 请参阅： https://medium.com/@felixolivierdumas/exotic-crtp-rethinking-static-polymorphism-with-c-23-89f9e75e8ffd 包括 包括  包括  命名空间奇异{ 模板 struct crtp_access ：来自... {}; template; constexpr decltype(auto) as_crtp(T&amp;&amp; obj) noexcept { 使用 crtp_access_t = crtp_access&gt;;返回 static_cast } struct Base { void 接口(this auto&amp;&amp; self) { 异国情调::as_crtp(self).implementation(); } }; struct Derived : Base { voidimplementation(thisotic::crtp_access&lt;Derived&gt; self) { std::cout &lt;&lt; “派生实现” &lt;&lt; std::endl; } }; int main() { 派生 d; d.interface(); // 完美运行 // d.implementation(); -&gt;不起作用，Derived 只允许 .interface()  } ```  还不确定这在实际情况中是否真正有用，或者只是构建 CRTP 的不同方式，但它似乎确实很强大。 此处完整撰写：https://medium.com/@felixolivierdumas/exotic-crtp-rethinking-static-polymorphism-with-c-23-89f9e75e8ffd 好奇这是怎么回事与真实代码库中的传统 CRTP + 好友模式进行比较:)   由   提交 /u/Mysticatly   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tuv9ju/exotic_crtp_enforcing_strict_interfaces_without/</guid>
+      <pubDate>Tue, 02 Jun 2026 15:59:24 GMT</pubDate>
+    </item>
+    <item>
       <title>多租户的数学</title>
       <link>https://www.reddit.com/r/programming/comments/1tuus4d/the_mathematics_of_multitenancy/</link>
       <description><![CDATA[ 由   提交 /u/NoPercentage6144   [链接] [评论]]]></description>
@@ -74,41 +109,6 @@
       <description><![CDATA[ 由   提交/u/chkas  [link] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1tupr5n/branchless_quicksort_faster_than_stdsort_and/</guid>
       <pubDate>Tue, 02 Jun 2026 12:40:18 GMT</pubDate>
-    </item>
-    <item>
-      <title>Bug 搜寻：为什么你只需要巴黎就能打败披萨大亨 (1994)</title>
-      <link>https://www.reddit.com/r/programming/comments/1tumfhb/bug_hunt_why_you_only_need_paris_to_beat_pizza/</link>
-      <description><![CDATA[ 由   提交 /u/Optdev   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tumfhb/bug_hunt_why_you_only_need_paris_to_beat_pizza/</guid>
-      <pubDate>Tue, 02 Jun 2026 10:05:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sanglard 分析了 Silpheed 的视频压缩技术（Sega CD，1993）</title>
-      <link>https://www.reddit.com/r/programming/comments/1tujc4v/sanglard_analyzes_the_video_compression/</link>
-      <description><![CDATA[ 由   提交/u/r_retrohacking_mod2   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tujc4v/sanglard_analyzes_the_video_compression/</guid>
-      <pubDate>Tue, 02 Jun 2026 07:11:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>编程作为理论构建，Naur (1985)。 PDF链接</title>
-      <link>https://www.reddit.com/r/programming/comments/1tuha5f/programming_as_theory_building_naur_1985_pdflink/</link>
-      <description><![CDATA[ 由   提交/u/patrixxxx  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tuha5f/programming_as_theory_building_naur_1985_pdflink/</guid>
-      <pubDate>Tue, 02 Jun 2026 05:20:12 GMT</pubDate>
-    </item>
-    <item>
-      <title>github 和针对软件的犯罪</title>
-      <link>https://www.reddit.com/r/programming/comments/1tu6ayj/github_and_the_crime_against_software/</link>
-      <description><![CDATA[ 由   提交 /u/CackleRooster   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tu6ayj/github_and_the_crime_against_software/</guid>
-      <pubDate>Mon, 01 Jun 2026 21:24:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>将微格式标签添加到我的网站 - 实现开放、分散的网络</title>
-      <link>https://www.reddit.com/r/programming/comments/1tu463t/adding_microformat_tags_to_my_website_enabling_an/</link>
-      <description><![CDATA[ 由   提交 /u/SwoopsFromAbove   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tu463t/adding_microformat_tags_to_my_website_enabling_an/</guid>
-      <pubDate>Mon, 01 Jun 2026 20:09:19 GMT</pubDate>
     </item>
     </channel>
 </rss>
