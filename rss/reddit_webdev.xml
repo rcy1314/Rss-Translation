@@ -4,13 +4,34 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Fri, 05 Jun 2026 15:15:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 20:03:10 GMT</lastBuildDate>
     <item>
-      <title>我写了一本关于身份验证的免费在线书</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txnphs/i_wrote_a_free_online_book_on_auth/</link>
-      <description><![CDATA[       由   提交/u/pilcrowonpaper  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txnphs/i_wrote_a_free_online_book_on_auth/</guid>
-      <pubDate>Fri, 05 Jun 2026 15:10:36 GMT</pubDate>
+      <title>在构建更好的用户体验时，意外地将数据库写入减少了约 95%</title>
+      <link>https://www.reddit.com/r/webdev/comments/1txsgft/when_building_for_better_ux_accidentally_cuts/</link>
+      <description><![CDATA[一些背景信息：我很高兴构建我的应用程序。我正在尝试构建一些真正适合监控的东西。我在几个 VPS 上运行一个工作池，并以每 15 秒一次的紧密循环探测大约 10k 个端点。 悄然浪费金钱的部分是，每个探测结果都写入我们的文档数据库，并且所有仪表板都通过实时侦听器 (onSnapshot) 订阅这些文档。在 Firestore 中，这是构建实时仪表板的明显方法，并且在您绘制出实际数据流之前它实际上效果很好：  工作人员在每个周期写入 每次写入都会扇出到运行仪表板的每个浏览器进行读取 因此成本只会随着周期数量和打开仪表板而变化  数据库悄悄地变成了一条消息总线，对每条消息进行计费。 我想这个这就是你如何以艰难的方式学习正确的架构。 😄 一个美好的周五晚上，喝着一杯威士忌，我决定做点酷的东西。我希望直接在网站上为用户提供真实的实时体验。基本上是直接查看 VPS 的东西。 所以我翻转了它。  WebSocket 是实时字段的真相来源 数据库降级为配置 + 状态转换 “仍然存在”心跳被批量处理，而不是写“200 OK”在所有循环中，我们切换到转换模型并按间隔刷新无变化  结果：  数据库写入减少约 95% 实时状态读取为零 从探测到像素的时间从 1-3 秒变为 &lt;300ms (p90)  感觉有点像作弊。使产品变得更加酷和有用，同时还削减成本，而且不仅仅是削减直接成本。这东西疯狂地扩展。基本上，唯一真正需要的是大量的内存。如今内存并不便宜，但它绝对比连续实时数据库读写便宜。 一些值得一提的权衡。 如果套接字丢失，我将数据库侦听器作为后备。 UI 会降级而不是破坏。 Websockets 是真正的运维工作。维护变得有点困难，如果有任何东西掉落，效果会更直接。一个例子是，当我部署新版本时，之前基本上是完全静默处理的。但现在每个人都可以立即看到它。 我想我在这里写这篇文章是因为我着迷、兴奋，同时又有点目瞪口呆。当你不断探索和开发时，你就会遇到这样的事情，而我只是期待着我会遇到的下一个事情。 不把一切都交给人工智能，这绝对是有回报的。 😄   由   提交/u/PR4DE   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1txsgft/when_building_for_better_ux_accidentally_cuts/</guid>
+      <pubDate>Fri, 05 Jun 2026 18:00:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>如果客户问您为什么他们不能一次性使用该应用程序？您如何通过解释软件开发过程来反驳？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1txpvdz/if_a_client_asks_you_why_they_cant_just_oneshot/</link>
+      <description><![CDATA[由于围绕人工智能的所有炒作和营销，我觉得这可能会变得更加普遍。似乎很多人都相信任何人都可以一次性构建一个应用程序，我们不再需要经验丰富的工程师。 当他们问“为什么我们不能一次性构建应用程序”之类的问题时，你就处于尴尬的境地，向他们解释整个开发过程，以及获得生产质量应用程序所需的所有步骤。人工智能可以用来协助和增强这个过程，但你需要一个人在循环中知道和理解他们在做什么。您会如何回应，而不是只是告诉他们“自己尝试一下”？您如何解释为什么人工智能不能制作整个应用程序？您将如何分解构建整个应用程序的逐步过程？ 谢谢   由   提交 /u/throtaway0134hdj   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1txpvdz/if_a_client_asks_you_why_they_cant_just_oneshot/</guid>
+      <pubDate>Fri, 05 Jun 2026 16:28:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>您如何看待用于生成超类型安全 HTML 的 OCaml tyxml？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1txphoj/what_do_you_think_of_ocamls_tyxml_for_generating/</link>
+      <description><![CDATA[我正在开发一个个人单人项目。 非常简单：它是一个由存储在 JSON 文件中的一些数据生成的静态网站。我有一个用 TypeScript/TSX 编写的原型，由不到 10 个文件（视图）组成，每个文件平均包含不到 50 行代码。只有两个页面从 JSON 检索数据；其余的都是描述项目的简单 TSX 文件（诸如“关于”或“隐私”页面之类的页面）。 考虑到它是如此简单，我想我应该加倍努力，重点关注确保整个代码（从构建过程到分发）1000% 正确，例如：  疯狂类型安全 逻辑和一致性错误的可能性为 0% 根据架构验证 JSON 符合规范的 HTML（和属性）（跨度内没有主线，hrefs 内没有布尔值...）  我开始探索各种编程语言，这些语言允许我同时完成所有这些事情，然后我发现了 OCaml。它：  是静态类型的 有yojson来解析JSON并转换为嵌套的OCaml树数据结构 有tyxml来构建有效的HTML。如果我理解正确的话，它的一个显着特点是对（HTML）元素的属性进行严格检查，而其他语言的库只接受任何字符串  说实话，我还研究了Elm，它在错误处理方面似乎更加宽松；然而，它的 HTML 生成库似乎对属性没有严格的控制，远不如 tyxml 严格。 是否有更强大的东西可以让我实现我想要的（代码安全且无错误），还是 OCaml 已经是最好的了？如果是这样，您对此有什么经验？有什么建议吗？ 我再说一遍：这个项目非常简单，你可以在一个小时内用任何编程语言重写它，这对我来说没有问题。这是一个学习新东西的机会。 提前致谢。   由   提交 /u/Wise_Stick9613   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1txphoj/what_do_you_think_of_ocamls_tyxml_for_generating/</guid>
+      <pubDate>Fri, 05 Jun 2026 16:14:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>我编写的代码越多，我就越难以处理页面构建器项目。还有其他人吗？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1txojb1/the_more_i_code_the_more_i_struggle_with_page/</link>
+      <description><![CDATA[我编写的代码越多，我与构建器项目的关系就越差。这就是现实。 这些天我将很多网站迁移到 VPS。大大降低了客户的托管成本，老实说我已经非常擅长了。如果有人这样做，很好奇您是否也遇到过这种情况。 问题是，大多数这些项目都已经有构建器就位。主要是 Elementor，一些 Bricks，一些旧的东西，这完全是一场灾难。核心问题始终是相同的：这些工具是在数据库中设计的。不在代码中。 因此，在实时电子商务网站上，您可以进行付款、电子邮件、交易内容、聊天集成。所有这些都在开发人员上被禁用。美好的。但是当你需要将某些东西推回主线程时，特别是如果涉及到构建器，事情就会变得一团糟。登台数据库和生产数据库存在分歧，并且没有干净的方法来合并它们。 我当前的方法：停止与混乱作斗争，用一种方法将其加入。我在登台时执行的每个数据库操作都会记录为 WP-CLI 命令。这些命令位于迁移脚本中。当需要推送时，我会在备份后在生产环境中运行脚本。它并不神奇，但它有效、可读，并且存在于 git 中。但不确定这是否是正确的方法。 同时，当设计存在于代码中（自定义主题、古腾堡块、PHP 模板）时，整个问题就消失了。 Git 处理它。部署是干净的。 你们在实践中都是如何处理这个问题的？您是否让客户远离建筑商？您是否找到了可以很好地进行正确部署的构建器？或者您只是接受构建器网站需要不同的、更仔细的工作流程？   由   提交 /u/Substantial_Word4652   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1txojb1/the_more_i_code_the_more_i_struggle_with_page/</guid>
+      <pubDate>Fri, 05 Jun 2026 15:40:43 GMT</pubDate>
     </item>
     <item>
       <title>我很确定没有学位的时代已经结束了。还有其他人注意到这一点吗？</title>
@@ -88,27 +109,6 @@
       <description><![CDATA[据我所知，客户端 ID 是随机分配的，人们声称生日悖论可以防止在状态向量中堆积无休止的新客户端 ID，但我不明白这是怎么可能的。 该设计似乎要么最终保证对世界上的某个人来说发生碰撞，如果随机位的数量很小，或者它会无限期地使状态向量膨胀到数十亿个条目（如果它很大）。 如果您有 32 位状态和 10 亿个条目，那么一半以上的新随机客户端 ID 应该未使用，对吧？他们不会在状态向量中添加另一个条目吗？  是否有一些未记录的清理方法实际上可以删除旧的客户端 ID？他们只是依赖大多数应用程序定期重新创建整个事情吗？   由   提交 /u/EternityForest   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1tx1kk1/how_does_yjs_actually_handle_client_id_reuse/</guid>
       <pubDate>Thu, 04 Jun 2026 21:44:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>最佳实践和邮递员/curl</title>
-      <link>https://www.reddit.com/r/webdev/comments/1twvruj/best_practice_and_postmancurl/</link>
-      <description><![CDATA[在 vsCode 中使用 Postman 扩展时，我想知道所有集合凭据和令牌都存储在哪里。它们安全吗？其使用的最佳实践是什么？我应该改用卷曲吗？我可以使用像curl这样的环境变量吗？ postman文档只讨论了如何使用postman库，但没有说明它们的存储位置以及如果您不使用它的话安全性如何。   由   提交/u/ElectricYFronts  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1twvruj/best_practice_and_postmancurl/</guid>
-      <pubDate>Thu, 04 Jun 2026 18:14:14 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于单人游戏与多人游戏（同一游戏）的网络托管拆分问题 - 请参阅说明</title>
-      <link>https://www.reddit.com/r/webdev/comments/1twvqx6/question_about_web_hosting_split_for_solo_play_vs/</link>
-      <description><![CDATA[TLDR：我已经构建了一个单人浏览器游戏，它是静态资产且 0 成本，我计划发布多人游戏，这将花费我 - 你可以分成 2 个不同的 URL，例如“multi.myurl.gg”与“myurl.gg”等（占位符 URL） 嘿 reddit，我在业余时间构建了一个浏览器游戏，并有一个关于可能在 2 个不同的主机上托管的问题网址。 我的具体问题是 - 目前游戏只有单人游戏 + 机器人，而且从成本角度来看，由于我构建单人游戏的方式，大部分游戏对于我来说都是免费的，可以以任何规模托管。这包括共享功能和观看重播之类的事情，我实际上可以拥有 10 亿用户，并且仍然支付与 1 个用户相同的费用。这太棒了！ 但是，一旦我引入多人游戏，我就必须为这些相同的共享和重播功能支付 Cloudflare 工作人员、存储、出口费用等费用。我估计这些成本即使在规模上也相当低，但我非常节俭，并且希望始终保持单人游戏体验的活力。多人游戏体验更多地取决于它在公众中的表现。 因此，我正在考虑在“myurl.gg”之类的地方托管单人游戏，在“multi.myurl.gg”之类的地方托管多人游戏，以便完全分离关注点。 我在这里过度设计了吗？ @mods 这不是自我推销，我使用了占位符 URL 等   由   提交 /u/ComfortablePeace8859   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1twvqx6/question_about_web_hosting_split_for_solo_play_vs/</guid>
-      <pubDate>Thu, 04 Jun 2026 18:13:17 GMT</pubDate>
-    </item>
-    <item>
-      <title>我需要 ssl 帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1twu4cw/i_need_so_help_ssl/</link>
-      <description><![CDATA[我正在尝试为共享 cPanel 托管帐户上新添加的域设置 SSL。 该域已添加到 cPanel 内并显示在 SSL/TLS 部分下，但证书状态显示已安装的证书不涵盖新域。现有证书似乎已旧/已过期，并且不是由 AutoSSL 颁发的。 当我转到 SSL/TLS 向导时，它会显示： “目前没有可用的 SSL/TLS 产品。服务器管理员可以启用 SSL/TLS 提供程序。” 我在 cPanel 中的任何位置都没有看到清晰的“运行 AutoSSL”按钮。 这是我可以从 cPanel 自行修复的问题吗？提供商需要在服务器端启用 AutoSSL / SSL 提供商吗？ 我主要是尝试让 SSL 在主域和 www 版本的域中工作。   由   提交/u/PersonalityLife6196  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1twu4cw/i_need_so_help_ssl/</guid>
-      <pubDate>Thu, 04 Jun 2026 17:17:05 GMT</pubDate>
     </item>
     </channel>
 </rss>
