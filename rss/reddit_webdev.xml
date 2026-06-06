@@ -4,7 +4,70 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Sat, 06 Jun 2026 03:54:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 08:42:29 GMT</lastBuildDate>
+    <item>
+      <title>6 个月后：VPS 和专用服务器的比较网站</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tybtln/6_months_later_a_comparison_site_for_vps_and/</link>
+      <description><![CDATA[      自从我 6 个月前发布此文以来，发生了很多变化。 serverlist.dev 是 VPS、专用服务器和 GPU 服务器的比较工具。我每天多次获取数据并公平地呈现它，没有优先级或隐藏的广告。您可以决定要排序的列、要过滤的值以及对您最重要的产品。 当我上次在 r/webdev 上发布此内容时，我收到了五个主要反馈：  我们想要一个“紧凑视图”选项--&gt;完成 一些 CTA 和其他字符串看起来很咄咄逼人（“Claim Deal”）--&gt;已改进 该站点除了作为数据目录之外缺乏任何附加价值 --&gt;请阅读下面的更多内容 过滤器需要去抖，并且整个表的性能非常糟糕 --&gt;我通过使用 tanstack 虚拟化显着提高了表性能。现在可以即时对任何内容进行排序和过滤！ 我们想要 cPanel、Plesk、托管属性 --&gt;仍在努力。我也在考虑“支持 IaC”还有哪些其他信息可能与您相关？  自上次我还致力于许多新功能以来： 每小时定价（如果适用）我现在显示产品的每小时价格。您还可以筛选“每小时可用价格” 表内比较（仅限桌面版本），当您选择左侧复选框的一种产品时，所有其他产品的值将显示为绿色或红色，具体取决于其相对性能。帮助您快速确定是否有您忽略的更划算的交易。 产品特定页面现在，单击产品上的比较按钮或单击其名称，您将进入更详细的页面，显示该产品的历史价格变化以及两个类别“以相似价格获得什么”和“以相似价格获得什么”。和“按规格划分的类似服务器”其中差异也以绿色或红色标记。 价格指数 除了产品特定的历史数据之外，我还收集整个行业的平均值，以便您可以立即比较所有提供商。现在我有“每 1 欧元的 RAM”、“每 1 欧元的 CPU 核心数”和“每 1 欧元的 RAM”。以及 4GB RAM、8GB RAM 等通用 SKU 级别的平均价格...在这里，我非常乐意就哪种数据对您有用提供反馈 帐户、书签和价格警报 我使用 Discord OAuth 实现了一个简单的帐户系统，我称之为“serverlist.dev Workspaces”。您可以创建自己的工作区（基本上只是一个小帐户），您可以在其中订阅产品的价格变化、为您的过滤器添加书签或永久保存您的增值税和货币偏好。所有这些都可以通过网站或 Discord 机器人来完成。  将来我还想在这里添加更多功能，例如愿望清单、更多警报（不仅仅是价格）和更多通知目标（目前仅限 Discord DM）。正如您可能知道的那样，这是最大的功能。我对此感到非常自豪，但它还很年轻，我对任何类型的反馈都持开放态度。  我面临的一个重大挑战是将基于帐户的可能性集成到完全未经授权的现有网站中。我认为桌面版本进展顺利。但移动版还是有点混乱。让我知道你的想法。   由   提交/u/FastBreakfast5799  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tybtln/6_months_later_a_comparison_site_for_vps_and/</guid>
+      <pubDate>Sat, 06 Jun 2026 08:39:28 GMT</pubDate>
+    </item>
+    <item>
+      <title>理解一致性哈希如果我错了请纠正我</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tyb0ue/understanding_consistent_hashing_correct_me_if_im/</link>
+      <description><![CDATA[为什么我们需要它？ 假设我们有多个数据库并希望在它们之间分发数据。 当我们需要某些数据时，我们不是搜索每个数据库，而是使用一个规则来准确地告诉我们哪个数据库应该存储特定记录。 方法 1：基于模的分布 假设我们有 3 个数据库 DB-A 、 DB-B 、DB-C 每条记录都有一个唯一的ID。现在我们使用 ID % Number_of_Databases 来决定数据库，例如16 % 3 = 1 因此记录 16 转到数据库索引 1 (DB-B)。在我们添加另一个数据库之前，这一切正常。相同的记录变为 16 % 4 = 0 现在记录 16 应该存储在 DB-A 而不是 DB-B 中。问题在于，当数据库数量发生变化时，大量数据会重新映射到不同的数据库。这会导致大量数据迁移，增加CPU和网络使用量 方法2：一致性哈希 不要使用模，想象一个编号从0到99的圆环。我们将数据库放在环上： DB-A -&gt;DB-A -&gt; 0 DB-B-&gt; 25DB-C-&gt; 50DB-D-&gt; 75 现在我们通过哈希函数传递数据唯一 ID，它将给出该数据在环上的位置，例如用户 ID = 12345 hash(12345) = 42 现在我们得到了顺时针移动的位置。将数据存储在您遇到的第一个数据库中 这意味着我们将 42 个位置的数据存储在 DB-C 中 现在当我们添加新数据库时会发生什么？ 假设我们添加 DB-E -&gt; 37 现在只有26到37之间的数据需要从DB-C移动到DB-E。其余数据保持原样。这是一致性哈希的最大优点，更少的数据迁移，更容易扩展，更低的运营成本 现在这种方法中还有一件事，那就是虚拟节点 一个问题是某些数据库可能会比其他数据库接收更多的流量。为了平衡负载，同一个数据库可以在环上出现多次。 DB-A -&gt; 0、40、80DB-B-&gt; 25, 65DB-C -&gt; 25, 65 13、50、90DB-D-&gt; 75 这些额外的位置称为虚拟节点。 有任何更正吗？关于这个主题还有什么我应该知道的吗？请告诉我。   由   提交 /u/No-Resolution-4054   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tyb0ue/understanding_consistent_hashing_correct_me_if_im/</guid>
+      <pubDate>Sat, 06 Jun 2026 07:52:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>我用 C 语言构建了一个微服务，因为为什么不呢！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tyasdb/i_built_a_microservice_in_c_because_why_not/</link>
+      <description><![CDATA[我接受了一家大型可观测性公司的面试，我想给面试官留下深刻的印象，由于我最近对 C 语言开发感兴趣，我使用 golang 构建了一个简单的微服务项目，并创建了一个完全可用的 C 微服务，其中包含 Redis 和 HTTP 服务器等。 看到 C 的这一面并了解我的个人极限并挑战它们是非常有趣的。 这是一个很酷的过程项目，我学到了很多:) 顺便说一句；我被拒绝了，甚至没有机会在面试中展示我的项目:( 您可以在 github 上查看该项目：https://github.com/AhmedAbouelkher/micro_market/tree/main/invoice-service 很高兴听到您的反馈    提交者 /u/AhmedMahmoud201   [链接]   href=&quot;https://www.reddit.com/r/webdev/comments/1tyasdb/i_built_a_microservice_in_c_because_why_not/&quot;&gt;[评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tyasdb/i_built_a_microservice_in_c_because_why_not/</guid>
+      <pubDate>Sat, 06 Jun 2026 07:38:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>我制作了一个黑白电子墨水显示屏，这样我就不再每天查看手机 60 次</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tyabcg/i_built_a_blackandwhite_eink_display_so_id_stop/</link>
+      <description><![CDATA[      我每天解锁手机 60 次，只是为了查看我的待办事项、日历和未读计数。 每次解锁都会让我从正在做的事情中解脱出来。 因此，我制作了一个黑白显示屏，以一目了然。 它像相框一样放在我的桌子上。 没有背光。没有通知。没有声音。 工作原理：  Raspberry Pi 驱动 7.5&quot; 驱动器Waveshare 电子墨水面板 服务器将整个屏幕渲染为带有节点画布的 800×480 1 位 PNG Pi 只是获取图像并绘制它（电子墨水讨厌快速刷新，因此这会使其消耗电量） 从 Todoist、Google 日历、天气和 RSS 中提取 每 30 分钟更新一次  现在，手机解锁次数从每天 60 次下降到大约 15 次。 信息没有传播到任何地方，它只是不再存在于锁屏后面。 它是完全免费且开源的（仍在 wip 中） https://quietdash.com 编辑：标题错误，我没有构建eink 显示屏，我构建了位于其上的仪表板   由   提交/u/InnerPhilosophy4897  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tyabcg/i_built_a_blackandwhite_eink_display_so_id_stop/</guid>
+      <pubDate>Sat, 06 Jun 2026 07:10:59 GMT</pubDate>
+    </item>
+    <item>
+      <title>[Showoff Saturday] 构建了一个带有动画 Clockwork Orbit 的圆形习惯跟踪器</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tya8bn/showoff_saturday_built_a_circular_habit_tracker/</link>
+      <description><![CDATA[      嘿 r/webdev， 我最近构建了 Cyclic Habits，这是一个习惯追踪器，它用一个活生生的圆形钟面取代了传统的清单，你的习惯在其中显示为发光的轨道环。这可以让您以更直观、可视化的方式一目了然地看到您每天的动力和平衡。它具有身临其境的聚焦模式、令人满意的触觉、清晰的分析、完整的离线支持。  网络应用程序已上线：https://cyclhabits.vercel.app   由   提交/u/A_J07  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tya8bn/showoff_saturday_built_a_circular_habit_tracker/</guid>
+      <pubDate>Sat, 06 Jun 2026 07:06:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>拥有小型企业客户的自由职业者 - 您的堆栈是什么？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1tya16g/freelancers_with_small_business_clients_whats/</link>
+      <description><![CDATA[我是一名前端开发人员 (react)，在设计系统、组件库和与 CMS 集成的静态站点生成器方面拥有大约 7 年的经验。 我已经失业好几个月了，发现很难获得面试，更不用说工作机会了，我正在考虑成为自由职业者，目标是为小型企业构建基本网站。我将针对理疗/健康业务，因此连接联系我们表格和集成预订系统在技术层面上是非常复杂的。客户应该能够进行基本的内容更新，例如添加博客文章或在“与团队见面”页面上更新员工资料。页面。 即使我设法吸引客户，我也想做对他们有利的事情，所以虽然我最擅长使用 Astro 构建一个网站并将其连接到 Contentful，但我怀疑这是否是最适合客户的产品。我一直在尝试使用 WordPress，但第一印象是它非常麻烦。因此，这让我思考其他自由开发人员使用并认为对他们和他们的客户有效的东西。   由   提交/u/TheCowardlyPickle  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1tya16g/freelancers_with_small_business_clients_whats/</guid>
+      <pubDate>Sat, 06 Jun 2026 06:55:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>stripeek：实时记录和检查 Stripe API 流量的 TUI</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ty9pg7/stripeek_a_tui_to_record_and_inspect_stripe_api/</link>
+      <description><![CDATA[      如果您曾经使用过复杂的 Stripe 集成，这将为您节省花费在梳理多层 JSON 有效负载和跟踪 Stripe 库发出的请求序列上的时间。适用于任何后端，无需更改应用程序代码。 Webhook 支持即将推出！   由   提交 /u/progapandist   [link] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ty9pg7/stripeek_a_tui_to_record_and_inspect_stripe_api/</guid>
+      <pubDate>Sat, 06 Jun 2026 06:36:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>更新了动态图像处理的 imagor 1.9.1 基准测试结果</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ty8mwh/updated_imagor_191_benchmark_results_for_dynamic/</link>
+      <description><![CDATA[我一直在改进 imagor 对流式图像源及其 libvips 图像加载路径的处理，并使用当前版本更新了基准页面。 如果您在 Web 堆栈中从事图像交付、动态调整大小或基于 URL 的图像处理，则更新的基准摘要如下： 基准页面： https://docs.imagor.net/benchmarks imagor 存储库： https://github.com/cshum/imagor 这些结果使用 imagor、imgproxy 和thumor 的发布版本。基准测试页面包含摘要图表，基准测试存储库包含提交的结果摘要，供任何想要更仔细地检查设置的人使用。 很高兴讨论实现更改、基准设置或哪些其他可用于测量的场景。   由   提交/u/cshum  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ty8mwh/updated_imagor_191_benchmark_results_for_dynamic/</guid>
+      <pubDate>Sat, 06 Jun 2026 05:37:53 GMT</pubDate>
+    </item>
+    <item>
+      <title>【Showoff Saturday】分享我的德雷克方程互动探索：3D星系、实时滑块、vanilla JS</title>
+      <link>https://www.reddit.com/r/webdev/comments/1ty7eig/showoff_saturday_sharing_my_drake_equation/</link>
+      <description><![CDATA[      只是想分享我一直在研究的德雷克方程探索。您调整参数，它会立即更新文明计数，并提供您可以探索的 3D 银河系、图表、NASA 系外行星数据和双语 EN/ES。 使用普通 JS + Three.js 构建，无框架。 https://mendiak.github.io/drake.equation/   由   提交/u/mendiak_81  [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1ty7eig/showoff_saturday_sharing_my_drake_equation/</guid>
+      <pubDate>Sat, 06 Jun 2026 04:33:13 GMT</pubDate>
+    </item>
     <item>
       <title>针对大量顶点进行了优化。近 400 人提交里程碑。🚩</title>
       <link>https://www.reddit.com/r/webdev/comments/1ty481u/optimized_for_large_numbers_of_vertices_nearly/</link>
@@ -46,69 +109,6 @@
       <description><![CDATA[多年来第一次不得不做我的作品集。以前我必须使用 Photoshop 来完成此操作。现在人们有专门用于此目的的工具吗？我不介意付钱。或者我需要重新安装 Photoshop。   由   提交 /u/DatabaseMammoth9986   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1ty1l85/is_there_a_tool_that_will_easily_let_me_show_my/</guid>
       <pubDate>Fri, 05 Jun 2026 23:54:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>免费 DNS 健康检查器，一次查询即可完成全面审核</title>
-      <link>https://www.reddit.com/r/webdev/comments/1ty0ag4/free_dns_health_checker_full_audit_in_one_query/</link>
-      <description><![CDATA[我整合了一个 DNS 审核工具，可以在单个查询中检查 NS 冗余、MX、SPF、DMARC、DKIM、DNSSEC 链、DNSBL 黑名单、SSL 证书和 HTTP/2-3 支持。结果是可视化的，无需深入研究命令行输出。无需帐户。 https://yenidns.com 欢迎提供反馈，什么会让这对您的工作流程更有用？   由   提交/u/Acceptable_Voice500   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1ty0ag4/free_dns_health_checker_full_audit_in_one_query/</guid>
-      <pubDate>Fri, 05 Jun 2026 22:59:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>战争拥有</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txztyg/war_owned/</link>
-      <description><![CDATA[嗨！ 我刚刚创建了一个项目，人们可以在其中与经历过乌克兰战争影响的人进行互动。该项目包括采访在战争期间遭受苦难的不同家庭，以从情感和日常层面了解情况。 然后，利用这些信息，我创建了一个人工智能代理，其唯一目的是讨论在冲突中生活的感受。 目标是接触那些可能已经忘记冲突的人，让他们对正在进行的战争更加敏感。 您可以在此处找到该项目的访问权限： 战争拥有的项目 请您分享一下您的想法吗？ 谢谢您以及来自巴塞罗那的热烈问候！   由   提交/u/Budget-Cheesecake-19   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txztyg/war_owned/</guid>
-      <pubDate>Fri, 05 Jun 2026 22:40:15 GMT</pubDate>
-    </item>
-    <item>
-      <title>为什么像 AMC 这样的网站会在访问者到达主页之前对其进行排队？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txz9fx/why_would_a_site_like_amc_queue_visitors_before/</link>
-      <description><![CDATA[注意到今天 AMC 影院网站的排队时间已经超过一个小时……只是为了进入主页。这有点奇怪，对吧？ AMC 在美国拥有约 650 个分支机构。假设每个地点约 10 个屏幕，每天每个屏幕约 5 场放映，每个礼堂约 300 个座位（可能是一个慷慨的估计），那么每天大约有 1000 万个可用座位。 即使网站流量比实际门票销售量高 5 倍，我们仍然在谈论每天 5000 万游客的大致情况。 这显然不是什么，但它看起来也不是一个荒谬的流量。对于这么大的公司来说。我很好奇技术/商业理由是什么？    由   提交 /u/u16scharpf   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txz9fx/why_would_a_site_like_amc_queue_visitors_before/</guid>
-      <pubDate>Fri, 05 Jun 2026 22:16:44 GMT</pubDate>
-    </item>
-    <item>
-      <title>对于 Web 开发来说，转向本地 AI 值得吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txz221/is_switching_to_local_ai_worth_it_for_web/</link>
-      <description><![CDATA[我是一名专门从事类似仪表板的 Web 应用程序的 Web 开发人员。由于最近 GitHub Copilot 的价格上涨，我一直在考虑运行本地模型来帮助调试、多文件编辑、了解代码库和中小型任务。我打算继续使用 GitHub Copilot 或 Claude Code 来完成更高级的任务，但我想最大限度地降低代币成本。 我现在无法自己测试本地模型，因为我缺乏这样做的硬件，这就是我在这里提问的原因。如果我决定使用本地模型，我可能需要将显卡从 3080 升级到 3090。 这里有人尝试过运行本地 AI 模型吗？您使用的是哪一款？与 Claude Sonnet 4.5 或其他 AI 模型相比，它的效果如何？  如果有任何建议或反馈，我将不胜感激。   由   提交 /u/Various-Complex-1582   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txz221/is_switching_to_local_ai_worth_it_for_web/</guid>
-      <pubDate>Fri, 05 Jun 2026 22:08:09 GMT</pubDate>
-    </item>
-    <item>
-      <title>如何保护自己免受意外使用费用的影响 - 想想 aws/netlify？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txy05w/how_do_you_protect_yourself_from_unexpected_usage/</link>
-      <description><![CDATA[下班后，我一直在尝试使用 aws cloud 启动我自己的应用程序和网站（主要是为了业余爱好/为了好玩，并不是真正期望收入，但也许有一天） 无论如何，几个月前我的一个网站受到机器人攻击，导致我的 netlify 每月账单在一天内从 20 美元涨到 140 美元 这吓坏了我不会撒谎。我对 DevOps 的了解非常有限，以至于我不得不求助于人工智能来帮助调试。我们发现有 800 万个僵尸请求发送到我的前端网站，并且在我的 .netify.app 链接上，netlify 不会为您提供 DDoS 保护，除非您支付额外费用。我的实际域名受到 cloudfare 速率限制的保护，我什至不知道我有该网站的辅助域名。不管怎样，这是有用的发现，现在我至少对 netlify 感到更安全了。 我真的不想放弃这个爱好。无论如何，是否可以获得可预测的计费，我什至不介意他们是否会在超出使用量时关闭我的应用程序。我读到，fly.io 是基于信用使用的。这对后端有好处吗？   由   提交 /u/Ok_Inspiration_3656   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txy05w/how_do_you_protect_yourself_from_unexpected_usage/</guid>
-      <pubDate>Fri, 05 Jun 2026 21:26:02 GMT</pubDate>
-    </item>
-    <item>
-      <title>WordPress 网站帮助</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txxsaa/help_with_wordpress_site/</link>
-      <description><![CDATA[大家好， 我一直在为我即将开展的害虫防治小企业建立自己的网站。我的设置是用于域的 cloudflare、用于托管的 Hostinger 以及用于 CMS 的 WordPress。我有相当多的编码和技术知识（用不同的语言编写简单的东西，并且对编码有足够的了解，以理解大多数不健壮的代码；还在 WordPress 中构建了几个简单的网站）并且真的想把事情做好。我的问题是，有哪些工具、选择或实践是试图研究该领域的人无法轻易找到的，可以提供高价值？范围更深入的事情不仅仅是使用自定义块构建页面、使用插件和调整设置。从本质上讲，在这个领域现有的数以百万计的工具和实现中，一个想要从业余到高级但不是职业网络开发人员的人应该看哪里？这些工具或选择的价值是什么？此外。除了页面速度洞察之外，哪些审核实际上值得进行，以确保一切安全并尽可能顺利运行，而不会累积大量成本？如果您是一个单身人士，希望在合理的时间表（一两个月）内建立尽可能专业的网站，您真正会关注哪些事情？我的总体目标是让一切都尽可能接近专业，所以如果你们能提供帮助，我将非常感激！提前致谢   由   提交 /u/ChestnetR   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txxsaa/help_with_wordpress_site/</guid>
-      <pubDate>Fri, 05 Jun 2026 21:17:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 年现代 PHP 的地位：部署、架构、类型和并发性</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txw35f/where_modern_php_stands_in_2026_deployment/</link>
-      <description><![CDATA[大家好， PHP 时不时会出现在这里，我注意到讨论通常是基于该语言 5 年前的样子。由于我每天都在使用它并且真正喜欢它，所以我写了一篇简短的文章回顾了它今天的实际情况。 它涵盖了现代部署（FrankenPHP、Docker）、软件架构（模块化单体、Symfony 内核、代理）、类型系统及其工具（PHPStan、PHP CS Fixer）以及并发状态（ReactPHP、Swoole、True Async RFC）。 完整文章： https://morice.live/posts/your-next-project-will-run-on-php/ 如果我错过了什么，或者如果您希望我更深入地讨论某个特定主题，请告诉我！   由   提交/u/andre_ange_marcel  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txw35f/where_modern_php_stands_in_2026_deployment/</guid>
-      <pubDate>Fri, 05 Jun 2026 20:12:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>在构建更好的用户体验时，意外地将数据库写入减少了约 95%</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txsgft/when_building_for_better_ux_accidentally_cuts/</link>
-      <description><![CDATA[一些背景信息：我很高兴构建我的应用程序。我正在尝试构建一些真正适合监控的东西。我在几个 VPS 上运行一个工作池，并以每 15 秒一次的紧密循环探测大约 10k 个端点。 悄然浪费金钱的部分是，每个探测结果都写入我们的文档数据库，并且所有仪表板都通过实时侦听器 (onSnapshot) 订阅这些文档。在 Firestore 中，这是构建实时仪表板的明显方法，并且在您绘制出实际数据流之前它实际上效果很好：  工作人员在每个周期写入 每次写入都会扇出到运行仪表板的每个浏览器进行读取 因此成本只会随着周期数量和打开仪表板而变化  数据库悄悄地变成了一条消息总线，对每条消息进行计费。 我想这个这就是你如何以艰难的方式学习正确的架构。 😄 一个美好的周五晚上，喝着一杯威士忌，我决定做点酷的事情。我希望直接在网站上为用户提供真实的实时体验。基本上是直接查看 VPS 的东西。 所以我翻转了它。  WebSocket 是实时字段的真相来源 数据库降级为配置 + 状态转换 “仍然存在”心跳被批量处理，而不是写“200 OK”在所有循环中，我们切换到转换模型并按间隔刷新无变化  结果：  数据库写入减少约 95% 实时状态读取为零 从探测到像素的时间从 1-3 秒变为 &lt;300ms (p90)  感觉有点像作弊。使产品变得更加酷和有用，同时还削减成本，而且不仅仅是削减直接成本。这东西疯狂地扩展。基本上，唯一真正需要的是大量的内存。如今内存并不便宜，但它绝对比连续实时数据库读写便宜。 一些值得一提的权衡。 如果套接字丢失，我将数据库侦听器作为后备。 UI 会降级而不是破坏。 Websockets 是真正的运维工作。维护变得有点困难，如果有任何东西掉落，效果会更直接。一个例子是，当我部署新版本时，之前基本上是完全静默处理的。但现在每个人都可以立即看到它。 我想我在这里写这篇文章是因为我着迷、兴奋，同时又有点目瞪口呆。当你不断探索和开发时，你就会遇到这样的事情，而我只是期待着我会遇到的下一个事情。 不把一切都交给人工智能，这绝对是有回报的。 😄   由   提交/u/PR4DE   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txsgft/when_building_for_better_ux_accidentally_cuts/</guid>
-      <pubDate>Fri, 05 Jun 2026 18:00:28 GMT</pubDate>
-    </item>
-    <item>
-      <title>如果客户问您为什么他们不能一次性使用该应用程序？您如何通过解释软件开发过程来反驳？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1txpvdz/if_a_client_asks_you_why_they_cant_just_oneshot/</link>
-      <description><![CDATA[由于围绕人工智能的所有炒作和营销，我觉得这可能会变得更加普遍。似乎很多人都相信任何人都可以一次性构建一个应用程序，我们不再需要经验丰富的工程师。 当他们问“为什么我们不能一次性构建应用程序”之类的问题时，你就处于尴尬的境地，向他们解释整个开发过程，以及获得生产质量应用程序所需的所有步骤。人工智能可以用来协助和增强这个过程，但你需要一个人在循环中知道和理解他们在做什么。您会如何回应，而不是只是告诉他们“自己尝试一下”？您如何解释为什么人工智能不能制作整个应用程序？您将如何分解构建整个应用程序的逐步过程？ 谢谢   由   提交 /u/throtaway0134hdj   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1txpvdz/if_a_client_asks_you_why_they_cant_just_oneshot/</guid>
-      <pubDate>Fri, 05 Jun 2026 16:28:01 GMT</pubDate>
     </item>
     </channel>
 </rss>
