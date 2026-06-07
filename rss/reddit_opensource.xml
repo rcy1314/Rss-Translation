@@ -4,7 +4,14 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Sun, 07 Jun 2026 04:21:10 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2026 09:22:12 GMT</lastBuildDate>
+    <item>
+      <title>RFC：开源 LoRa Mesh</title>
+      <link>https://www.reddit.com/r/opensource/comments/1tz67jt/rfc_open_source_lora_mesh/</link>
+      <description><![CDATA[无论您是 Meshcore 还是 Meshtastic 的粉丝，这两种协议最近都变得最糟糕。 Meshtastic 的路由很糟糕。 Meshcore 已经以金钱为中心，以至于 MeshCore 应用程序几乎被剥夺了所有有用的工具。 我尝试在其中一个社区发帖，看看如何解决这个问题，但我得到的只是粉丝。 开源 LoRa 网格实际上是什么样子？ --- 我在想。 。 . I 消息类型  正常消息 SOS 消息 路由消息  正常消息是用户与用户之间的通信。 SOS 消息是紧急消息，由用户 ID 和用户位置组成。向每个人开放。 路由消息将在网络内建立路径。 II 节点类型  客户端 路由器 混合  客户端是公钥端点。它们的节点不会重复消息，除了 SOS 消息。 路由器是网络内的中继节点。它们不建立自己的路径，而是为客户端提供通过它们创建路径的方法。 混合在没有路由器的情况下建立，并重复所有客户端消息。在偏远地区很有用，例如洞穴探险。 终端设备应该能够在所有 3 个设备之间即时切换。因此，如果用户需要专用路由器，他们可以调整设备来实现该目的。 应该可以从任何 UI 的主菜单中更改节点类型。 并且在熟悉的路由器存在的情况下，设备应该可以从客户端和混合自动切换。 III 路由 路由器节点应在启动时分配一个随机字母。寻求建立到另一个客户端的路径的客户端将首先检查客户端是否可以直接到达，然后广播跟踪请求[路由]消息。 对于每个消息跃点，接收路由器都会将自己的字母添加到消息中，直到最终到达接收站。它将向发送站发送回​​复，并附上到其当前位置的路径。 路由器可能应该定期广播它们的信件[路由消息]。为了匿名，客户端不必公开自己的身份。 混合节点有点欺骗性。它们不是路由节点和客户端节点的混合体——外行人更容易理解这些术语。然而，它们确实具有重复和发送/接收的功能。基本上，混合设备可以让家庭在树林里徒步旅行或探索洞穴系统，而不必担心断线。每个节点都会中继它收到的每条消息，以便组中的所有成员都能听到。 客户端节点除了发送和接收消息之外没有其他目的。他们向路由器发送跟踪数据包，并确认对网络中自己位置的跟踪。但是，他们会重复 SOS 消息。 路由器模式下的设备也可以配置为客户端（对于需要两者的用户），但这种设置并不理想，因为客户端大多是移动的。客户端 + 路由。 IV 通道 网络内的客户端可能应该通过其公钥的 4 个字符散列来了解。频道应由 4 个字符的频道 ID 引用。 由于频道需要在网络中构建多个路径，我仍在努力解决这个问题。 感谢您在百忙之中抽出时间来阅读这篇蹩脚的帖子。我期待阅读你们可能有的任何其他想法。   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1tz67jt/rfc_open_source_lora_mesh/</guid>
+      <pubDate>Sun, 07 Jun 2026 08:11:54 GMT</pubDate>
+    </item>
     <item>
       <title>开源倡议组织称，欧盟技术主权一揽子计划包括 29 页有关开源的内容</title>
       <link>https://www.reddit.com/r/opensource/comments/1tyw0qz/eus_tech_sovereignty_package_includes_29_pages_on/</link>
@@ -102,13 +109,6 @@
       <description><![CDATA[记录算法毒性的扩展，以便用户可以集体将自己的曝光数据货币化 文本：我刚刚启动了 Metric-Mint 的存储库，这是一个开源的客户端浏览器扩展框架 (Manifest V3)，旨在跟踪、记录和审计强加到社交媒体源上的令人痛苦的图像、暴力内容和负面刺激的数量。 核心策略：而不是战斗Metric-Mint 通过阻止连接（这会触发反机器人安全和帐户禁令）在网络层平台上运行，Metric-Mint 完全在接口层 (DOM) 上运行。它在您的计算机上 100% 本地运行，出站网络请求为零。它使用通过 Transformers.js 和 ONNX 在本地运行的轻量级量化机器学习模型，在加载时剥离文本和图像节点，对负面刺激进行分类，并将数量记录到设备上的分类帐中。该平台的服务器认为他们的参与陷阱正在发挥作用，而您的本地机器则构建了他们为您服务的心理概况的可验证记录。 目标：旨在为去中心化的消费者数据联盟奠定框架​​。平台通过故意提供高唤醒的负面刺激（愤怒诱饵、创伤）来货币化我们的注意力，因为它延长了用户的停留时间。 Metric-Mint 让用户拥有这种利用的数学证明。 最终目标是构建一个本地 API，用户可以通过差异隐私安全地集体汇集这些匿名暴露指标，将它们直接出售给品牌安全广告商，后者支付数十亿美元以避免将广告放置在有毒内容旁边。这完全消除了平台数据垄断，为消费者提供了直接的经济杠杆。 寻找开源贡献者： • 主要动态源（X、Instagram、TikTok）的 Manifest V3 MutationObserver 循环。 • 设备上多模式分类优化（100MB RAM 占用空间以下）。 • 本地仪表板 UI 和离线数据导出脚本。 规范和代码在GPL-3.0 许可证。 存储库：https://github.com/clownsh0e22/Metrc_Mint   由   提交 /u/neverenoughammo   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1txej78/project_metricmint_an_opensource/</guid>
       <pubDate>Fri, 05 Jun 2026 08:06:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>自动关闭氛围问题</title>
-      <link>https://www.reddit.com/r/opensource/comments/1txeiro/auto_closure_of_vibe_issues/</link>
-      <description><![CDATA[我运行一个小型开源项目，在世界各地拥有数千名用户。它具有 LLM 功能，吸引了大量的 vivi 编码员，导致低质量的 PR 和臃肿的问题。 这些问题总是通过 API 创建，并且通常是四个寻呼机，其中包含问题描述、重现步骤、预期行为、实际行为和建议修复等部分。然而，由于文本量庞大，这些问题有时需要几个小时才能破译。 为了防止这种情况，我开始改进我的问题模板（版本、复制和详细信息），并在不遵循模板的情况下自动关闭问题。这合理吗，还是说我小气？   由   提交 /u/darkshifty   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1txeiro/auto_closure_of_vibe_issues/</guid>
-      <pubDate>Fri, 05 Jun 2026 08:05:58 GMT</pubDate>
     </item>
     </channel>
 </rss>
