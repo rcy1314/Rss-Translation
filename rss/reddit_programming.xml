@@ -4,7 +4,63 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 08 Jun 2026 11:05:29 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 16:01:55 GMT</lastBuildDate>
+    <item>
+      <title>为什么编译器工程师很少使用 Strassen 的算法进行快速矩阵乘法</title>
+      <link>https://www.reddit.com/r/programming/comments/1u09rah/why_compiler_engineers_rarely_use_strassens/</link>
+      <description><![CDATA[ 由   提交/u/DataBaeBee  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u09rah/why_compiler_engineers_rarely_use_strassens/</guid>
+      <pubDate>Mon, 08 Jun 2026 14:36:19 GMT</pubDate>
+    </item>
+    <item>
+      <title>穷人的时间机器：JavaScript 和 Haskell 中的惰性求值</title>
+      <link>https://www.reddit.com/r/programming/comments/1u09npb/poor_mans_time_machine_lazy_evaluation_in/</link>
+      <description><![CDATA[ 由   提交 /u/sayyadirfanali   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u09npb/poor_mans_time_machine_lazy_evaluation_in/</guid>
+      <pubDate>Mon, 08 Jun 2026 14:32:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于电子邮件地址我们对自己说的谎言</title>
+      <link>https://www.reddit.com/r/programming/comments/1u098uy/lies_we_tell_ourselves_about_email_addresses/</link>
+      <description><![CDATA[ 由   提交 /u/theghostofm   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u098uy/lies_we_tell_ourselves_about_email_addresses/</guid>
+      <pubDate>Mon, 08 Jun 2026 14:17:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VS Code 添加 2 小时扩展自动更新延迟以限制供应链攻击</title>
+      <link>https://www.reddit.com/r/programming/comments/1u089ai/vs_code_adds_2hour_extension_autoupdate_delay_to/</link>
+      <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u089ai/vs_code_adds_2hour_extension_autoupdate_delay_to/</guid>
+      <pubDate>Mon, 08 Jun 2026 13:40:51 GMT</pubDate>
+    </item>
+    <item>
+      <title>布隆过滤器技巧将 170 个对象存储读取变成 1 个（2.6 秒 → 89 毫秒）</title>
+      <link>https://www.reddit.com/r/programming/comments/1u07axu/the_bloom_filter_trick_that_turned_170/</link>
+      <description><![CDATA[我们尝试使用布隆过滤器加速随机trace_id查找，发现它使一些查询的速度提高了29倍，而另一些查询则变慢，而您获得的查询完全取决于ID的生成方式。 TL;DR：  在对象存储中的170个索引文件中查找随机trace_id花费了2,584毫秒。 Tantivy 按最小/最大项修剪文件，但随机的 16 字节 ID 分散在整个 128 位空间中，因此每个文件的范围是 [0, 2^2⁸]，没有任何修剪，并且所有 170 个文件都被打开。在对象存储上，其中每一个都是一次网络往返，这就是 2.6 秒的所在。 布隆过滤器是明显的解决方案。不明显的部分是你放置它的地方。每个文件的Blooms = 170个小读取，对象存储对此惩罚最严重，因此它几乎不比什么都不做。 技巧：每个文件的Bloom使用相同的块计数，因此查询值映射到每个文件中的相同块索引。存储绽放块优先而不是文件优先，并且“跨所有170个文件的块7”成为一个连续的 5,440 字节行。一个范围请求，170 次检查，往返次数减少约 170 倍。查找时间下降到 89 毫秒。 但这会使按时间排序的 ID 变慢。 UUIDv7 已经在 154 毫秒内免费进行范围修剪；绽放层增加了大约 42 毫秒，而 Tantivy 仍然在幸存者上增加了 154 毫秒，净增加了大约 196 毫秒的纯开销。 UUIDv4 赢了 29 倍，UUIDv7 输了 1.3 倍。 所以我们不会自动检测要开花的字段（采样有一半时间会猜错）。仅当所有三个条件都成立时，操作员才选择加入每个字段：高基数、随机分布、每小时许多文件。 我捍卫的一个设计选择：每个绽放故障模式都会降级为“保留文件”。它可能会很慢；它永远不会丢失一行。  我们在我们的博客上写下了完整的图表和 SBBF 详细信息，很高兴在这里回答问题。 免责声明：我是 OpenObserve（开源可观察性，用 Rust 编写），作者是我们的创始工程师。这是我们自己的基准测试，单个查询器，S3 后端，无磁盘缓存。很高兴分享测试设置，以便任何人都可以研究它。   由   提交/u/Gorakhnathy7   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u07axu/the_bloom_filter_trick_that_turned_170/</guid>
+      <pubDate>Mon, 08 Jun 2026 13:03:54 GMT</pubDate>
+    </item>
+    <item>
+      <title>捍卫 YAML :: Posit Open Source</title>
+      <link>https://www.reddit.com/r/programming/comments/1u072zj/in_defense_of_yaml_posit_open_source/</link>
+      <description><![CDATA[ 由   提交 /u/Successful_Bowl2564   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u072zj/in_defense_of_yaml_posit_open_source/</guid>
+      <pubDate>Mon, 08 Jun 2026 12:55:15 GMT</pubDate>
+    </item>
+    <item>
+      <title>系统动力学课程|第 16 章：离散时间和采样数据系统动力学</title>
+      <link>https://www.reddit.com/r/programming/comments/1u06nad/system_dynamics_course_chapter_16_discretetime/</link>
+      <description><![CDATA[本课程使用了 5 种不同的编程语言。  GitHub 存储库链接： https://github.com/mohammadijoo/Control_and_Robotics_Tutorials    由   提交/u/abolfazl1363  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u06nad/system_dynamics_course_chapter_16_discretetime/</guid>
+      <pubDate>Mon, 08 Jun 2026 12:36:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>热路径优化。当浮点除法胜过整数除法时</title>
+      <link>https://www.reddit.com/r/programming/comments/1u06itn/hot_path_optimization_when_float_division_beats/</link>
+      <description><![CDATA[我已经开始撰写一系列有关热路径优化的简短博客文章。第一个涵盖了违反直觉的优化：用浮点除法 (DIVSD) 替换整数除法 (IDIVQ)。   由   提交/u/watman12  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u06itn/hot_path_optimization_when_float_division_beats/</guid>
+      <pubDate>Mon, 08 Jun 2026 12:30:52 GMT</pubDate>
+    </item>
     <item>
       <title>Native Elm（这次是真正的那种）·cekrem.github.io</title>
       <link>https://www.reddit.com/r/programming/comments/1u04bdc/native_elm_the_real_kind_this_time_cekremgithubio/</link>
@@ -20,25 +76,11 @@
       <pubDate>Mon, 08 Jun 2026 07:40:03 GMT</pubDate>
     </item>
     <item>
-      <title>打开克隆的存储库不再安全</title>
-      <link>https://www.reddit.com/r/programming/comments/1u00xhc/opening_a_cloned_repo_is_no_longer_safe/</link>
-      <description><![CDATA[Miasma 蠕虫一次提交的可靠分解，相同的释放器连接到 VS Code、Claude Code、Gemini、Cursor、npm、Composer 和 Bundler 的 7 个配置文件中。不需要恶意 dep，只需克隆 + 打开即可。 没有人在 PR 中审查这些文件。 https://safedep.io/config-files-that-run-code/ 有人真正将点文件差异视为代码吗？   由   提交/u/No_Plan_3442   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1u00xhc/opening_a_cloned_repo_is_no_longer_safe/</guid>
-      <pubDate>Mon, 08 Jun 2026 07:29:41 GMT</pubDate>
-    </item>
-    <item>
       <title>构建一个实时适应用户节奏的间隔重复系统 (Kotlin/Compose)</title>
       <link>https://www.reddit.com/r/programming/comments/1tzxrpz/building_a_spaced_repetition_system_that_adapts/</link>
       <description><![CDATA[我构建了一个用于面试准备的抽认卡应用程序，并想分享我遇到的一些更有趣的技术问题。该应用程序有 1500 多个涉及 DSA 和系统设计的问题，核心挑战是：如何智能地订购卡片而不感觉机械化？ 问题 1：间隔重复的插槽分配 标准 SR（如 Anki）接下来只显示最迟过期的卡片。这对于词汇量有效，但对于算法来说感觉很糟糕，因为你连续遇到 3 个难题并想退出。 我的方法：根据 40/40/20 分布生成目标难度模式（简单、中等、简单、中等、困难、重复），然后将到期卡片分配到匹配难度槽。最逾期的卡将被放置在其等级中的第一位。未见的卡片填满剩余的插槽。 这意味着过期的硬卡仍然落在硬插槽中，而不是位置 1。您会获得难度变化，同时仍然在正确的时间看到过期的卡片。 fun allocateSlots(pool: List, dueCards: List): List { valpattern =generatePattern(size = pool.size, distribution = &quot;40/40/20&quot;) val dueByDifficulty = dueCards.groupBy { it.difficulty } val result = Array(pattern.size) { null } // 将到期卡放入匹配的槽位中，最逾期的首先放置 for ((difficulty, cards) in dueByDifficulty) { val Sorted =cards.sortedBy {it.nextReviewDate}valavailableSlots=pattern.indices.filter{pattern[it]==难度&amp;&amp; result[it] == null }sorted.zip(availableSlots).forEach { (card, slot) -&gt;; result[slot] = findQuestion(card, pool) } } // 用看不见的内容填充剩余的 // ... }  问题 2：每次滑动后重新排名，不卡顿 每次滑动后，牌组需要重新排名。但顶部可见的卡片（位置 0）已经动画进入视图，因此您无法移动它。解决方案：锁定位置 0，重新排列位置 1+，然后检查边界上的约束违规情况（例如，如果锁定的卡是 Hard，而新的位置 1 也是 Hard，则将位置 1 与牌组中更深的第一张非 Hard 卡交换）。 这会在每次滑动时运行，因此需要快速。对于 1000 张卡片，贪婪评分 + 约束检查在 Pixel 6 上需要 &lt;2 毫秒。 问题 3：在没有启动延迟的情况下加密 1500 个问题 题库在 APK 中采用 AES-256-CBC 加密（防止简单提取）。首次加载时会解密 1.2MB。在较旧的设备上，这需要 400 毫秒，这会阻塞 UI。使用加载框架将其移动到 Dispatchers.IO 。密钥在代码中分为 4 个字节数组，使静态分析变得更加困难（不是万无一失，而是提高了 APK 上字符串的标准）。 问题 4：共享进度的两层模式切换 该应用将 DSA 和系统设计作为单独的层。两者共享相同的 Room 进度数据库（相同的 ProgressEntity 表，ID 只是具有不同的前缀）。切换模式时，当前的牌组状态会缓存在内存中，以便您可以返回到上次中断的位置。棘手的一点是：每日目标和连胜数从两个牌组中滑动，但每个牌组的排名器独立运行。 问题 5：与代码同步的动画草图 每个问题都可以有多步骤视觉效果（数组状态更改、图形遍历）。步骤被定义为数据（带有单元格状态、突出显示、指针的 JSON）并由自定义 Compose 画布呈现。代码行通过每个步骤的 codeLines 映射与每个步骤同步突出显示。渲染器使用按类型分派的单个可组合项处理 6 种可视化类型（数组、树、链表、矩阵、图形、字符串）。 堆栈：Kotlin、Jetpack Compose（材料 3）、Room、Firebase、自定义间隔重复 + 排名引擎。 应用程序：https://play.google.com/store/apps/details?id=com.pixelcraftlabs.algoscroll 如果有人对排名算法详细信息或草图渲染系统感兴趣，很乐意深入了解。   由   提交/u/No-Position-7728   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1tzxrpz/building_a_spaced_repetition_system_that_adapts/</guid>
       <pubDate>Mon, 08 Jun 2026 04:33:49 GMT</pubDate>
-    </item>
-    <item>
-      <title>标签真空 - 单击一次即可删除每个重复的 Chrome 标签，并按网站自动对其余标签进行分组</title>
-      <link>https://www.reddit.com/r/programming/comments/1tzx350/tab_vacuum_click_once_to_remove_every_duplicate/</link>
-      <description><![CDATA[我有 4 个 Chrome 窗口，每个窗口有大约 80 个选项卡，大部分是同一个 Stack Overflow 页面的重复项。尝试过 OneTab（保存到列表 - 不是我想要的）和 Workona（云同步，过度杀伤力）。 所以我写了大约 50 行普通 JS。单击工具栏图标 → 每个窗口中的每个重复选项卡都会被删除（通过 URL 匹配）→ 幸存者合并到一个窗口 → 剩余选项卡按主机名自动分组（折叠）。 两种权限：选项卡、选项卡组。没有后台活动，没有服务器，没有分析。完整源代码位于自述文件中，因此您可以在安装前对其进行审核。 Chrome 网上应用店：https://chromewebstore.google.com/detail/tab-vacuum/apdjhdjcejehjiomcolfgfgjhaedoieb GitHub：https://github.com/mayhsundar/tab-vacuum 请发表您的意见   由   提交 /u/mayhsundar   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tzx350/tab_vacuum_click_once_to_remove_every_duplicate/</guid>
-      <pubDate>Mon, 08 Jun 2026 03:58:56 GMT</pubDate>
     </item>
     <item>
       <title>拥有你的依赖项</title>
@@ -67,48 +109,6 @@
       <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1tzaugj/to_my_students/</guid>
       <pubDate>Sun, 07 Jun 2026 12:29:22 GMT</pubDate>
-    </item>
-    <item>
-      <title>对 Creative Katana V2X soundbar 进行逆向工程，以便能够从 Linux 控制它</title>
-      <link>https://www.reddit.com/r/programming/comments/1tz9cp7/reverse_engineering_the_creative_katana_v2x/</link>
-      <description><![CDATA[ 由   提交/u/throtaway16830261   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tz9cp7/reverse_engineering_the_creative_katana_v2x/</guid>
-      <pubDate>Sun, 07 Jun 2026 11:13:31 GMT</pubDate>
-    </item>
-    <item>
-      <title>停止使用传统提交</title>
-      <link>https://www.reddit.com/r/programming/comments/1tydqbt/stop_using_conventional_commits/</link>
-      <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tydqbt/stop_using_conventional_commits/</guid>
-      <pubDate>Sat, 06 Jun 2026 10:32:53 GMT</pubDate>
-    </item>
-    <item>
-      <title>《C++：编程语言》的封面提出了封面未回答的问题</title>
-      <link>https://www.reddit.com/r/programming/comments/1tybuv7/the_cover_of_c_the_programming_language_raises/</link>
-      <description><![CDATA[ 由   提交 /u/lelanthran   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tybuv7/the_cover_of_c_the_programming_language_raises/</guid>
-      <pubDate>Sat, 06 Jun 2026 08:41:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>SQLite 中 UUID 主键的危险</title>
-      <link>https://www.reddit.com/r/programming/comments/1tyalr6/the_perils_of_uuid_primary_keys_in_sqlite/</link>
-      <description><![CDATA[ 由   提交/u/andersmurphy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tyalr6/the_perils_of_uuid_primary_keys_in_sqlite/</guid>
-      <pubDate>Sat, 06 Jun 2026 07:27:40 GMT</pubDate>
-    </item>
-    <item>
-      <title>配置标志是软件崩溃的地方</title>
-      <link>https://www.reddit.com/r/programming/comments/1txlq6l/configuration_flags_are_where_software_goes_to_rot/</link>
-      <description><![CDATA[ 由   提交 /u/Expurple   [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1txlq6l/configuration_flags_are_where_software_goes_to_rot/</guid>
-      <pubDate>Fri, 05 Jun 2026 13:57:30 GMT</pubDate>
-    </item>
-    <item>
-      <title>JPEG 压缩深入探讨</title>
-      <link>https://www.reddit.com/r/programming/comments/1txhxly/jpeg_compression_deep_dive/</link>
-      <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1txhxly/jpeg_compression_deep_dive/</guid>
-      <pubDate>Fri, 05 Jun 2026 11:14:26 GMT</pubDate>
     </item>
     </channel>
 </rss>
