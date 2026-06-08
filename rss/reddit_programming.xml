@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 08 Jun 2026 04:24:54 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 11:05:29 GMT</lastBuildDate>
+    <item>
+      <title>Native Elm（这次是真正的那种）·cekrem.github.io</title>
+      <link>https://www.reddit.com/r/programming/comments/1u04bdc/native_elm_the_real_kind_this_time_cekremgithubio/</link>
+      <description><![CDATA[ 由   提交 /u/cekrem   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u04bdc/native_elm_the_real_kind_this_time_cekremgithubio/</guid>
+      <pubDate>Mon, 08 Jun 2026 10:45:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>我决定不再学习 Python 的那一天</title>
+      <link>https://www.reddit.com/r/programming/comments/1u013qa/the_day_i_decided_never_to_learn_python/</link>
+      <description><![CDATA[ 由   提交/u/Active-Fuel-49  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u013qa/the_day_i_decided_never_to_learn_python/</guid>
+      <pubDate>Mon, 08 Jun 2026 07:40:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>打开克隆的存储库不再安全</title>
+      <link>https://www.reddit.com/r/programming/comments/1u00xhc/opening_a_cloned_repo_is_no_longer_safe/</link>
+      <description><![CDATA[Miasma 蠕虫一次提交的可靠分解，相同的释放器连接到 VS Code、Claude Code、Gemini、Cursor、npm、Composer 和 Bundler 的 7 个配置文件中。不需要恶意 dep，只需克隆 + 打开即可。 没有人在 PR 中审查这些文件。 https://safedep.io/config-files-that-run-code/ 有人真正将点文件差异视为代码吗？   由   提交/u/No_Plan_3442   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u00xhc/opening_a_cloned_repo_is_no_longer_safe/</guid>
+      <pubDate>Mon, 08 Jun 2026 07:29:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>构建一个实时适应用户节奏的间隔重复系统 (Kotlin/Compose)</title>
+      <link>https://www.reddit.com/r/programming/comments/1tzxrpz/building_a_spaced_repetition_system_that_adapts/</link>
+      <description><![CDATA[我构建了一个用于面试准备的抽认卡应用程序，并想分享我遇到的一些更有趣的技术问题。该应用程序有 1500 多个涉及 DSA 和系统设计的问题，核心挑战是：如何智能地订购卡片而不感觉机械化？ 问题 1：间隔重复的插槽分配 标准 SR（如 Anki）接下来只显示最迟过期的卡片。这对于词汇量有效，但对于算法来说感觉很糟糕，因为你连续遇到 3 个难题并想退出。 我的方法：根据 40/40/20 分布生成目标难度模式（简单、中等、简单、中等、困难、重复），然后将到期卡片分配到匹配难度槽。最逾期的卡将被放置在其等级中的第一位。未见的卡片填满剩余的插槽。 这意味着过期的硬卡仍然落在硬插槽中，而不是位置 1。您会获得难度变化，同时仍然在正确的时间看到过期的卡片。 fun allocateSlots(pool: List, dueCards: List): List { valpattern =generatePattern(size = pool.size, distribution = &quot;40/40/20&quot;) val dueByDifficulty = dueCards.groupBy { it.difficulty } val result = Array(pattern.size) { null } // 将到期卡放入匹配的槽位中，最逾期的首先放置 for ((difficulty, cards) in dueByDifficulty) { val Sorted =cards.sortedBy {it.nextReviewDate}valavailableSlots=pattern.indices.filter{pattern[it]==难度&amp;&amp; result[it] == null }sorted.zip(availableSlots).forEach { (card, slot) -&gt;; result[slot] = findQuestion(card, pool) } } // 用看不见的内容填充剩余的 // ... }  问题 2：每次滑动后重新排名，不卡顿 每次滑动后，牌组需要重新排名。但顶部可见的卡片（位置 0）已经动画进入视图，因此您无法移动它。解决方案：锁定位置 0，重新排列位置 1+，然后检查边界上的约束违规情况（例如，如果锁定的卡是 Hard，而新的位置 1 也是 Hard，则将位置 1 与牌组中更深的第一张非 Hard 卡交换）。 这会在每次滑动时运行，因此需要快速。对于 1000 张卡片，贪婪评分 + 约束检查在 Pixel 6 上需要 &lt;2 毫秒。 问题 3：在没有启动延迟的情况下加密 1500 个问题 题库在 APK 中采用 AES-256-CBC 加密（防止简单提取）。首次加载时会解密 1.2MB。在较旧的设备上，这需要 400 毫秒，这会阻塞 UI。使用加载框架将其移动到 Dispatchers.IO 。密钥在代码中分为 4 个字节数组，使静态分析变得更加困难（不是万无一失，而是提高了 APK 上字符串的标准）。 问题 4：共享进度的两层模式切换 该应用将 DSA 和系统设计作为单独的层。两者共享相同的 Room 进度数据库（相同的 ProgressEntity 表，ID 只是具有不同的前缀）。切换模式时，当前的牌组状态会缓存在内存中，以便您可以返回到上次中断的位置。棘手的一点是：每日目标和连胜数从两个牌组中滑动，但每个牌组的排名器独立运行。 问题 5：与代码同步的动画草图 每个问题都可以有多步骤视觉效果（数组状态更改、图形遍历）。步骤被定义为数据（带有单元格状态、突出显示、指针的 JSON）并由自定义 Compose 画布呈现。代码行通过每个步骤的 codeLines 映射与每个步骤同步突出显示。渲染器使用按类型分派的单个可组合项处理 6 种可视化类型（数组、树、链表、矩阵、图形、字符串）。 堆栈：Kotlin、Jetpack Compose（材料 3）、Room、Firebase、自定义间隔重复 + 排名引擎。 应用程序：https://play.google.com/store/apps/details?id=com.pixelcraftlabs.algoscroll 如果有人对排名算法详细信息或草图渲染系统感兴趣，很乐意深入了解。   由   提交/u/No-Position-7728   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1tzxrpz/building_a_spaced_repetition_system_that_adapts/</guid>
+      <pubDate>Mon, 08 Jun 2026 04:33:49 GMT</pubDate>
+    </item>
     <item>
       <title>标签真空 - 单击一次即可删除每个重复的 Chrome 标签，并按网站自动对其余标签进行分组</title>
       <link>https://www.reddit.com/r/programming/comments/1tzx350/tab_vacuum_click_once_to_remove_every_duplicate/</link>
@@ -81,34 +109,6 @@
       <description><![CDATA[ 由   提交/u/fagnerbrack  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1txhxly/jpeg_compression_deep_dive/</guid>
       <pubDate>Fri, 05 Jun 2026 11:14:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>使用本地ClickHouse进行数据处理</title>
-      <link>https://www.reddit.com/r/programming/comments/1txh6as/using_local_clickhouse_for_data_processing/</link>
-      <description><![CDATA[ 由   提交/u/f311a  [link] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1txh6as/using_local_clickhouse_for_data_processing/</guid>
-      <pubDate>Fri, 05 Jun 2026 10:36:01 GMT</pubDate>
-    </item>
-    <item>
-      <title>你还不够喜欢 systemd 定时器</title>
-      <link>https://www.reddit.com/r/programming/comments/1txf7qk/you_dont_love_systemd_timers_enough/</link>
-      <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1txf7qk/you_dont_love_systemd_timers_enough/</guid>
-      <pubDate>Fri, 05 Jun 2026 08:47:26 GMT</pubDate>
-    </item>
-    <item>
-      <title>更快的 Rust 凹凸分配器</title>
-      <link>https://www.reddit.com/r/programming/comments/1txe9b5/a_faster_bump_allocator_for_rust/</link>
-      <description><![CDATA[ 由   提交 /u/Successful_Bowl2564   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1txe9b5/a_faster_bump_allocator_for_rust/</guid>
-      <pubDate>Fri, 05 Jun 2026 07:50:21 GMT</pubDate>
-    </item>
-    <item>
-      <title>我们如何将运行测试的时间从几小时缩短到几分钟</title>
-      <link>https://www.reddit.com/r/programming/comments/1twxhjy/how_we_reduced_the_time_to_run_tests_from_hours/</link>
-      <description><![CDATA[ 由   提交/u/henk53  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1twxhjy/how_we_reduced_the_time_to_run_tests_from_hours/</guid>
-      <pubDate>Thu, 04 Jun 2026 19:13:44 GMT</pubDate>
     </item>
     </channel>
 </rss>
