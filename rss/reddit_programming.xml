@@ -4,7 +4,35 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Mon, 08 Jun 2026 16:01:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 20:24:37 GMT</lastBuildDate>
+    <item>
+      <title>如何从高级工程师成长为高级工程师</title>
+      <link>https://www.reddit.com/r/programming/comments/1u0jddt/how_to_grow_from_senior_to_staff_engineer/</link>
+      <description><![CDATA[ 由   提交 /u/gregorojstersek   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u0jddt/how_to_grow_from_senior_to_staff_engineer/</guid>
+      <pubDate>Mon, 08 Jun 2026 20:12:58 GMT</pubDate>
+    </item>
+    <item>
+      <title>使 numpy-ts 与原生一样快</title>
+      <link>https://www.reddit.com/r/programming/comments/1u0epy6/making_numpyts_as_fast_as_native/</link>
+      <description><![CDATA[我去年开始从事 numpy-ts 工作，并于 2 月份开始认真进行性能优化。这些是该项目的一些挑战和教训。一些/全部可能是显而易见的 - lmk 你的想法！ 免责声明：numpy-ts 是在一些人工智能帮助下编写的。请阅读我的 AI 披露了解更多详细信息。   由   提交/u/dupontcyborg  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u0epy6/making_numpyts_as_fast_as_native/</guid>
+      <pubDate>Mon, 08 Jun 2026 17:32:41 GMT</pubDate>
+    </item>
+    <item>
+      <title>你可以分叉一个包，但你能拥有它吗？</title>
+      <link>https://www.reddit.com/r/programming/comments/1u0epow/you_can_fork_a_package_but_can_you_own_it/</link>
+      <description><![CDATA[ 由   提交 /u/Adventurous-Salt8514   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u0epow/you_can_fork_a_package_but_can_you_own_it/</guid>
+      <pubDate>Mon, 08 Jun 2026 17:32:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>在区块链上存储加密哈希以确保数据集完整性</title>
+      <link>https://www.reddit.com/r/programming/comments/1u0d6hc/storing_cryptographic_hashes_on_the_blockchain/</link>
+      <description><![CDATA[本文介绍了我和我的团队用于跨组织处理版本化数据集（团队 A 处理功能，团队 B）处理其他功能的技术。这对我们来说非常宝贵，因为我们没有共享的基础设施，因此我们始终可以通过在链上存储最新的哈希值来验证最新版本。  它在完整性或不变性至关重要的其他方面可能很有用，例如模型版本、模型权重等。无需共享对中央密钥管理服务器的访问，每个人都可以简单地验证它。   由   提交 /u/Nice-Dragonfly-4823   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u0d6hc/storing_cryptographic_hashes_on_the_blockchain/</guid>
+      <pubDate>Mon, 08 Jun 2026 16:38:49 GMT</pubDate>
+    </item>
     <item>
       <title>为什么编译器工程师很少使用 Strassen 的算法进行快速矩阵乘法</title>
       <link>https://www.reddit.com/r/programming/comments/1u09rah/why_compiler_engineers_rarely_use_strassens/</link>
@@ -32,13 +60,6 @@
       <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1u089ai/vs_code_adds_2hour_extension_autoupdate_delay_to/</guid>
       <pubDate>Mon, 08 Jun 2026 13:40:51 GMT</pubDate>
-    </item>
-    <item>
-      <title>布隆过滤器技巧将 170 个对象存储读取变成 1 个（2.6 秒 → 89 毫秒）</title>
-      <link>https://www.reddit.com/r/programming/comments/1u07axu/the_bloom_filter_trick_that_turned_170/</link>
-      <description><![CDATA[我们尝试使用布隆过滤器加速随机trace_id查找，发现它使一些查询的速度提高了29倍，而另一些查询则变慢，而您获得的查询完全取决于ID的生成方式。 TL;DR：  在对象存储中的170个索引文件中查找随机trace_id花费了2,584毫秒。 Tantivy 按最小/最大项修剪文件，但随机的 16 字节 ID 分散在整个 128 位空间中，因此每个文件的范围是 [0, 2^2⁸]，没有任何修剪，并且所有 170 个文件都被打开。在对象存储上，其中每一个都是一次网络往返，这就是 2.6 秒的所在。 布隆过滤器是明显的解决方案。不明显的部分是你放置它的地方。每个文件的Blooms = 170个小读取，对象存储对此惩罚最严重，因此它几乎不比什么都不做。 技巧：每个文件的Bloom使用相同的块计数，因此查询值映射到每个文件中的相同块索引。存储绽放块优先而不是文件优先，并且“跨所有170个文件的块7”成为一个连续的 5,440 字节行。一个范围请求，170 次检查，往返次数减少约 170 倍。查找时间下降到 89 毫秒。 但这会使按时间排序的 ID 变慢。 UUIDv7 已经在 154 毫秒内免费进行范围修剪；绽放层增加了大约 42 毫秒，而 Tantivy 仍然在幸存者上增加了 154 毫秒，净增加了大约 196 毫秒的纯开销。 UUIDv4 赢了 29 倍，UUIDv7 输了 1.3 倍。 所以我们不会自动检测要开花的字段（采样有一半时间会猜错）。仅当所有三个条件都成立时，操作员才选择加入每个字段：高基数、随机分布、每小时许多文件。 我捍卫的一个设计选择：每个绽放故障模式都会降级为“保留文件”。它可能会很慢；它永远不会丢失一行。  我们在我们的博客上写下了完整的图表和 SBBF 详细信息，很高兴在这里回答问题。 免责声明：我是 OpenObserve（开源可观察性，用 Rust 编写），作者是我们的创始工程师。这是我们自己的基准测试，单个查询器，S3 后端，无磁盘缓存。很高兴分享测试设置，以便任何人都可以研究它。   由   提交/u/Gorakhnathy7   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1u07axu/the_bloom_filter_trick_that_turned_170/</guid>
-      <pubDate>Mon, 08 Jun 2026 13:03:54 GMT</pubDate>
     </item>
     <item>
       <title>捍卫 YAML :: Posit Open Source</title>
@@ -83,32 +104,11 @@
       <pubDate>Mon, 08 Jun 2026 04:33:49 GMT</pubDate>
     </item>
     <item>
-      <title>拥有你的依赖项</title>
-      <link>https://www.reddit.com/r/programming/comments/1tzue6m/owning_your_dependencies/</link>
-      <description><![CDATA[去年发生了很多供应链攻击。虽然到目前为止我认为 NeoVim 本身还没有被提及，但我还是担心我的设置，尤其是我办公室笔记本电脑上的设置。我认为这是一个学习如何自己编写插件的好机会，但我也知道自己编写所有内容并不理想。按照这个速度，我还不如编写自己的内核和操作系统，因为 sudo pacman -Syu 也存在供应链风险。  您处理这个问题的方法是什么？   由   提交/u/Full-Ad4541   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tzue6m/owning_your_dependencies/</guid>
-      <pubDate>Mon, 08 Jun 2026 01:46:03 GMT</pubDate>
-    </item>
-    <item>
       <title>C 变得愚蠢，部分 &((int*)-8)[3]</title>
       <link>https://www.reddit.com/r/programming/comments/1tzfefn/getting_silly_with_c_part_int83/</link>
       <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1tzfefn/getting_silly_with_c_part_int83/</guid>
       <pubDate>Sun, 07 Jun 2026 15:38:07 GMT</pubDate>
-    </item>
-    <item>
-      <title>#JavaNext 语言特性</title>
-      <link>https://www.reddit.com/r/programming/comments/1tzeb9a/javanext_language_features/</link>
-      <description><![CDATA[ 由   提交/u/joemwangi  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tzeb9a/javanext_language_features/</guid>
-      <pubDate>Sun, 07 Jun 2026 14:55:55 GMT</pubDate>
-    </item>
-    <item>
-      <title>致我的学生</title>
-      <link>https://www.reddit.com/r/programming/comments/1tzaugj/to_my_students/</link>
-      <description><![CDATA[ 由   提交/u/f311a  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1tzaugj/to_my_students/</guid>
-      <pubDate>Sun, 07 Jun 2026 12:29:22 GMT</pubDate>
     </item>
     </channel>
 </rss>

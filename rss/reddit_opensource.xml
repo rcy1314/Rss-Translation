@@ -4,13 +4,13 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Mon, 08 Jun 2026 16:02:38 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 20:25:18 GMT</lastBuildDate>
     <item>
-      <title>分享我如何在 React / Electron 上构建 Wispr Flow 的浮动药丸</title>
-      <link>https://www.reddit.com/r/opensource/comments/1u096bx/sharing_how_i_built_wispr_flows_floating_pill_on/</link>
-      <description><![CDATA[嘿，大家好，就上下文而言，我和我的朋友 Aditya 一直在开发一种名为 Freestyle 的 Wispr Flow 替代方案。我们都是 Wispr Flow 的瘾君子，但觉得语音听写是一种商品，首先应该是免费的、本地化的。 项目进行两周后，我们想分享一些经验，并介绍我们如何构建“漂浮药丸”。事情： 药丸是它自己的 Electron 窗口 我们在 Electron 中构建了 Freestyle，这个框架允许我们在 Chromium 窗口内的 React 中构建桌面应用程序。在 Wispr Flow 和 Freestyle 中，药丸是一个小胶囊，当您说话时会弹出，显示波形，然后消失。 渲染药丸的技巧在于它不是应用程序的一部分。该药丸是一个独立的浮动BrowserWindow。 BrowserWindow 是 Electron API 的一部分。如果您有兴趣了解更多信息，请参阅以下文档。 ```tspilWindow = new BrowserWindow({ width: 260, height: 90,frame: false,transparent: true, hasShadow: false, resizing: false,alwaysOnTop: true,skipTaskbar: true, focusable: false, ...(process.platform === &quot;darwin&quot; ? { type: &quot;panel&quot; } : {}), }); pillWindow.setAlwaysOnTop(true, &quot;屏幕保护程序&quot;); pilWindow.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen: true }); ``` 让药丸的波形感觉生动 构建药丸的有趣部分是创建其反应波形。 药丸本身就是激活麦克风的窗口。由于它是 Chromium 窗口，因此它通过 getUserMedia() API 获取麦克风。 从那里，它将一个 AnalyserNode 附加到麦克风，分析音频并返回频率和强度的快照。正是这些频率成为了条形。 ```ts const stream = wait navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false, }, }); const ctx = new AudioContext(); const 源 = ctx.createMediaStreamSource(stream); const 分析器 = ctx.createAnalyser();分析器.fftSize = 256;源.connect(分析器); `` 每一帧，我们都会拍摄该频率快照，将其分成 14 个桶，每条一个，并对每个桶中的能量进行平均以获得目标高度。 ```ts const BARS = 14;常量上升= 0.55； const FALL = 0.22; function smoothBars(current: number[], target: number[]): number[] { return current.map((now, i) =&gt; { const goal = target[i] ?? 0; const speed = goal &gt; now ? RISE : FALL; return now + (goal - now) * speed; }); } function nextFrame(analysisr: AnalyserNode, bar: number[]): number[] { const Spectrum = new Uint8Array(analysisr.FrequencyBinCount); analysisr.getByteFrequencyData(spectrum); const binsPerBar = Math.floor(spectrum.length / BARS); const target = Array.from({ length: BARS }, (_, i) =&gt; { let sum = 0; for (let j = 0; j &lt; binsPerBar; j++) sum += Spectrum[i * binsPerBar + j]; return sum / binsPerBar / 255; }); return smoothBars(bars, target); } ``` smoothBars 中的不对称性赋予其平滑、声音感，并随着衰减而稳定下来。最后，这些都是通过纯 SVG 线渲染的，并且 requestAnimationFrame 循环驱动运动。这比依赖 React 的重新渲染要有效得多，后者会丢帧。   由   提交 /u/matt8p   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1u096bx/sharing_how_i_built_wispr_flows_floating_pill_on/</guid>
-      <pubDate>Mon, 08 Jun 2026 14:14:35 GMT</pubDate>
+      <title>我制作了一个画廊应用程序，因为没有好的选择，而且我喜欢拍照</title>
+      <link>https://www.reddit.com/r/opensource/comments/1u0dxbc/i_made_a_gallery_application_because_no_good/</link>
+      <description><![CDATA[图库绝对是最被低估和经常被忽视的应用程序，几乎在所有设备和每个操作系统上都能找到，但其中几乎没有几个可以正常工作或根本无法工作。大多数时候，它们只是打包在 Electron.js 中的基于云的服务。 因此，在对几种替代方案感到烦恼之后，我在过去的一年里开发了 Miscible - 一个本地优先的、现代的、高性能的画廊应用程序。它仍处于 alpha 阶段，但大部分核心功能已完成。 关键细节： - 技术堆栈：使用 Dear ImGui 进行 UI 从头开始​​构建于本机 C++ 中。没有 Electron 或嵌入式 Web 视图。 - 占用空间小：整个二进制文件仅约 8MB。 （我也很惊讶） - 它有人工智能功能（已售出！😂） - 不是人工智能编码的废话。 我很想听听您的反馈、错误报告或功能想法！ GitHub 链接：https://github.com/mdhvg/miscible Gitlab 链接：https://gitlab.com/mdhvg/miscible   由   提交 /u/WittyWithoutWorry   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1u0dxbc/i_made_a_gallery_application_because_no_good/</guid>
+      <pubDate>Mon, 08 Jun 2026 17:05:13 GMT</pubDate>
     </item>
     <item>
       <title>Golang PKCS12 前叉</title>
@@ -64,7 +64,7 @@
     <item>
       <title>地理定位 - 开源项目</title>
       <link>https://www.reddit.com/r/opensource/comments/1txzgj5/geolocation_open_source_projects/</link>
-      <description><![CDATA[我正在寻找基于非常准确的地理定位的开源项目。这主要针对个人门牌号。我目前同时使用提名和立交桥。你们还有什么推荐的吗？   由   提交/u/alion94  [链接] [评论]]]></description>
+      <description><![CDATA[我正在寻找基于非常准确的地理定位的开源项目。这主要针对个人门牌号码。我目前同时使用提名和立交桥。你们还有什么推荐的吗？   由   提交/u/alion94  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1txzgj5/geolocation_open_source_projects/</guid>
       <pubDate>Fri, 05 Jun 2026 22:24:42 GMT</pubDate>
     </item>
