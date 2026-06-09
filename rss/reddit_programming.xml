@@ -4,7 +4,21 @@
     <title>最新提交：编程</title>
     <link>https://www.reddit.com/r/programming/new</link>
     <description>计算机编程</description>
-    <lastBuildDate>Tue, 09 Jun 2026 20:12:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 22:26:53 GMT</lastBuildDate>
+    <item>
+      <title>最好的内部开发者平台可能是没有人开放的平台</title>
+      <link>https://www.reddit.com/r/programming/comments/1u1jv1f/the_best_internal_developer_platform_might_be_the/</link>
+      <description><![CDATA[ 由   提交 /u/wineandcode   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u1jv1f/the_best_internal_developer_platform_might_be_the/</guid>
+      <pubDate>Tue, 09 Jun 2026 22:22:32 GMT</pubDate>
+    </item>
+    <item>
+      <title>为什么我选择 AOT code-gen 而不是 C 配置文件的 JSON/INI 解析（cfgsafe）</title>
+      <link>https://www.reddit.com/r/programming/comments/1u1ghlg/why_i_chose_aot_codegen_over_jsonini_parsing_for/</link>
+      <description><![CDATA[大家好， 我厌倦了 C 语言中常见的配置混乱——手动编写繁琐的样板文件来遍历通用 JSON/YAML 节点，将字符串转换为整数，并编写十几个 if 语句来处理超出范围的端口或丢失的环境变量。更糟糕的是，管理跨嵌套配置对象的字符串生命周期。 为了解决这个问题，我构建了 cfgsafe，这是一个针对 C99 的提前 (AOT) 模式驱动的配置引擎。它不是在运行时处理原始文件，而是采用一个简单的架构文件并生成一个类型安全的单头库。 我在这里编写了一份深入的工程分解，详细说明了其背后的原理、内存模型和设计选择： C99 中的类型安全配置：为什么我更喜欢 Code-Gen解析 github 存储库：CfgSafe 工作原理：  定义架构： 您使用简单的 DSL 来声明字段、默认值、约束（范围、正则表达式模式）和源（Env、 CLI 标志）。 生成：cfg-gen 工具输出一个本机 C struct，并直接内置匹配的验证原语。 原子加载：在启动时，您可以调用一次 Config_load。如果某个字段无效或丢失，它甚至在应用程序的热路径执行之前就会快速失败。  我做出的一些具体架构选择：  原子内存池：为了防止碎片堆分配和内存泄漏，生成器将所有传入的字符串/数组值捆绑到单个连续的内存块中。释放整个配置减少为对 Config_free() 的一次调用。 零开销查找：由于它编译为本机 C 结构，因此查找设置只是基本内存偏移量，而不是 $O(\log N)$ 哈希映射查找或字符串比较。 编译时安全性和安全性IDE 自动完成：如果您输入 cfg.db.prt 而不是 cfg.db.port，编译器将拒绝构建应用程序，并且您的编辑器确切地知道存在哪些字段及其数据类型。 严格分层和数据类型。安全性：它将严格的优先级链（CLI 参数 &gt; 环境变量 &gt; INI 文件 &gt; 架构默认值）直接写入生成的代码中，并自动编辑自动生成的日志中标记为 secret 的字段。  我很想听听您对采用 AOT 代码生成方法进行应用程序配置与传统运行时解析器（如 libconfig 或json-c!   由   提交/u/Creative-Cup-6326  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/programming/comments/1u1ghlg/why_i_chose_aot_codegen_over_jsonini_parsing_for/</guid>
+      <pubDate>Tue, 09 Jun 2026 20:16:21 GMT</pubDate>
+    </item>
     <item>
       <title>用 Python 和 C 推理文本扩散模型</title>
       <link>https://www.reddit.com/r/programming/comments/1u1ahi4/inferencing_text_diffusion_models_in_python_and_c/</link>
@@ -95,20 +109,6 @@
       <description><![CDATA[ 由   提交 /u/sayyadirfanali   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/programming/comments/1u09npb/poor_mans_time_machine_lazy_evaluation_in/</guid>
       <pubDate>Mon, 08 Jun 2026 14:32:41 GMT</pubDate>
-    </item>
-    <item>
-      <title>关于电子邮件地址我们对自己说的谎言</title>
-      <link>https://www.reddit.com/r/programming/comments/1u098uy/lies_we_tell_ourselves_about_email_addresses/</link>
-      <description><![CDATA[ 由   提交 /u/theghostofm   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1u098uy/lies_we_tell_ourselves_about_email_addresses/</guid>
-      <pubDate>Mon, 08 Jun 2026 14:17:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VS Code 添加 2 小时扩展自动更新延迟以限制供应链攻击</title>
-      <link>https://www.reddit.com/r/programming/comments/1u089ai/vs_code_adds_2hour_extension_autoupdate_delay_to/</link>
-      <description><![CDATA[ 由   提交 /u/CircumspectCapybara   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/programming/comments/1u089ai/vs_code_adds_2hour_extension_autoupdate_delay_to/</guid>
-      <pubDate>Mon, 08 Jun 2026 13:40:51 GMT</pubDate>
     </item>
     </channel>
 </rss>
