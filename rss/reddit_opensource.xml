@@ -4,7 +4,28 @@
     <title>最新提交：开源</title>
     <link>https://www.reddit.com/r/opensource/new</link>
     <description>与开源相关的所有内容的 Reddit 子版块（对于此上下文，我们在此不再定义开源的定义 http://en.wikipedia.org/wiki/Open_source）</description>
-    <lastBuildDate>Wed, 10 Jun 2026 15:49:14 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 20:37:24 GMT</lastBuildDate>
+    <item>
+      <title>Neutrino — 一个端到端加密的、基于浏览器的信使，具有可审核的客户端源（寻求批评）</title>
+      <link>https://www.reddit.com/r/opensource/comments/1u2dcyf/neutrino_an_endtoend_encrypted_browserbased/</link>
+      <description><![CDATA[我一直在构建 Neutrino，一个完全在浏览器中运行的端到端加密信使，我想在这里分享它以获取反馈。这是一个独立的项目 - 非商业项目 - 设计目标是在技术上尽可能少地信任服务器：没有帐户，没有电话号码，没有电子邮件，没有元数据收集。 我认为与此子相关的内容：整个客户端源代码是可审计的，每个文件都有 SHA-256 哈希值，因此您可以验证浏览器中运行的内容是否与源代码匹配。 - 实时实例：https://neutrino-chat.org - 浏览器内源代码视图：https://neutrino-chat.org/code 目前仍处于测试阶段，因此代码暂时仅存在于网站上 - 一旦稳定，我将在 GitHub 上正确发布它在开源许可证下。 **身份是一个 12 字种子短语** 身份不是登录服务器或用户数据库，而是 BIP-39 种子短语。密钥、路由ID和加密备份都源自它。要添加联系人，您需要交换一个简短的一次性会合短语或 ID，无需发现电话号码联系人，也无需服务器端地址簿。缺点：丢失短语并且无法恢复。 **服务器看到的** 这意味着盲中继：它通过路由 ID 转发密文，而不是其他任何东西。零保留、无 IP 日志记录、在反向代理处禁用访问日志记录。老实说这些限制：像任何中继一样，它会实时在路由 ID 之间路由帧，因此即使它没有保留任何内容，计时和路由 ID 对它来说也是可见的 - 并且路由 ID 不与现实世界的身份绑定。 **加密选择（故意无聊，没有任何手动滚动）** - X3DH + 双棘轮，用于前向保密/妥协后安全（与Signal） - SPAKE2 通过 Ristretto255 进行配对 - ML-KEM-768 (FIPS 203) 混合到握手中以进行后量子 - AES-256-GCM 用于消息和文件加密 **其他设计决策** - 仅 RAM 客户端 - 所有状态都位于选项卡中；关闭它，它就消失了。没有 localStorage，严格的 CSP，一切都是自托管的（没有 CDN，没有 Google 字体）。 - 针对流量分析的流量填充（随机间隔的虚拟数据包）。 - 带外 MITM 验证、消失消息、自动锁定和服务器无法读取的加密跨设备备份的安全号码。 这是一个独立项目，尚未经过专业审核，我我不是密码学家——所以我明确不向任何具有严重威胁模型的人推荐它（使用 Signal 来实现）。我分享它是因为我希望人们阅读代码并找出其中的漏洞。   由   提交 /u/fechyyy   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1u2dcyf/neutrino_an_endtoend_encrypted_browserbased/</guid>
+      <pubDate>Wed, 10 Jun 2026 20:07:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>用Python编写的开源CBZ/CBR漫画阅读器</title>
+      <link>https://www.reddit.com/r/opensource/comments/1u29cz8/opensource_cbzcbr_comic_reader_written_in_python/</link>
+      <description><![CDATA[大家好 =) 我一直在开发一个名为 PANEL 的小型开源漫画阅读器。 它是一个用 Python 编写的桌面应用程序，用于在本地读取 CBZ 和 CBR 文件，无需涉及帐户、订阅或云服务。 目标是提供简单、轻量级的阅读体验，同时让一切都在用户的控制之下。 该项目仍在积极开发中，因此我正在寻求社区的反馈、想法和功能请求。 GitHub： https://github.com/lucrazy-fn/PANEL-ComicBookReader 谢谢 =)   由   提交 /u/Middle-Income1105   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1u29cz8/opensource_cbzcbr_comic_reader_written_in_python/</guid>
+      <pubDate>Wed, 10 Jun 2026 17:45:14 GMT</pubDate>
+    </item>
+    <item>
+      <title>当训练代码和数据集仍处于锁定状态时，开源意味着什么？</title>
+      <link>https://www.reddit.com/r/opensource/comments/1u27h38/what_does_open_source_mean_when_training_code_and/</link>
+      <description><![CDATA[发货内容： 模型权重：MIT 许可证（8B MoT + A3B MoT 变体） 训练代码：Apache-2.0，基于 InternEvo 框架，支持 5 种任务类型（文本转图像、图像编辑、交错生成、交错理解、通用多模态） 序列打包FlexAttention 块掩码、ISP 并行性 + FSDP 权重分片 + ZeRO-1  具有可配置噪声调度的流匹配调度、CFG 丢弃概率  检查点转换工具（internevo 格式 → HF 安全张量） HF 上的示例数据集（约 680 MB，涵盖所有任务类型） 具有环境变量驱动配置的详细 shell 启动器训练所需的硬件（来自启动器）： 8B 密集：1 个节点 × 8 H800（每个 80 GB），seq_len=28672，num_imgs=144  A3B MoE：2 个节点 × 8 H800，需要 16 个 ISP 等级 它不是完全开放的（完整训练数据）仍然是内部的），但它比大多数“开源”更透明。 AI 版本只会卸载重量。  训练自述文件：https://github.com/OpenSenseNova/SenseNova-U1/blob/main/training/README.md  权重+代码：https://github.com/OpenSenseNova/SenseNova-U1    由   提交 /u/Local-Lake-7602   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/opensource/comments/1u27h38/what_does_open_source_mean_when_training_code_and/</guid>
+      <pubDate>Wed, 10 Jun 2026 16:39:46 GMT</pubDate>
+    </item>
     <item>
       <title>正在寻找如何做</title>
       <link>https://www.reddit.com/r/opensource/comments/1u1uubb/looking_for_how_to_do_it/</link>
@@ -50,7 +71,7 @@
     <item>
       <title>我构建了一个工具，可以分析任何网站并提取其完整的设计系统（Tailwind、React 组件、设计令牌）</title>
       <link>https://www.reddit.com/r/opensource/comments/1u1c19x/i_built_a_tool_that_analyzes_any_website_and/</link>
-      <description><![CDATA[嘿 Reddit！ 我想分享一个我一直在做的项目。它是一个网站分析器，旨在拆除任何实时网站并提取其设计 DNA：颜色、排版、间距、组件和用户体验模式。 主要功能：   无缝导出到完整的 Tailwind 配置  根据提取的模式生成 React 组件  设计标记提取  完成结构化DESIGN.md报告中的细分  技术堆栈： Next.js、TailwindCSS、FastAPI 和用于提取逻辑的 Playwright。 该项目完全开源，我正在寻找反馈、功能创意或贡献者！ 🔗 GitHub存储库： https://github.com/jomvick/design-oracle.git 如果您发现它有用，请随意投星⭐️或提出问题！   由   提交 /u/Substantial_Swim8440   [链接] [评论]]]></description>
+      <description><![CDATA[嘿 Reddit！ 我想分享一个我一直在做的项目。它是一个网站分析器，旨在拆除任何实时网站并提取其设计 DNA：颜色、排版、间距、组件和用户体验模式。 主要功能：   无缝导出到完整的 Tailwind 配置  根据提取的模式生成 React 组件  设计令牌提取  完成结构化DESIGN.md报告中的细分  技术堆栈： Next.js、TailwindCSS、FastAPI 和用于提取逻辑的 Playwright。 该项目完全开源，我正在寻找反馈、功能创意或贡献者！ 🔗 GitHub存储库： https://github.com/jomvick/design-oracle.git 如果您发现它有用，请随意投星⭐️或提出问题！   由   提交 /u/Substantial_Swim8440   [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1u1c19x/i_built_a_tool_that_analyzes_any_website_and/</guid>
       <pubDate>Tue, 09 Jun 2026 17:38:02 GMT</pubDate>
     </item>
@@ -88,27 +109,6 @@
       <description><![CDATA[      大家好，我正在分享我最近从 SSLMate/go-pkcs12 分叉的 Golang 包。由于 SSLMate 存储库多年来一直不接受社区请求的扩展，因此我决定创建一个分支，以便在处理 pkcs12 时拥有更大的自由度（SSLMate 存储库有许多限制）。 我目前添加了一个生成器，它允许创建组合证书 + 私钥和信任证书的 pkcs12 包，所有这些都带有友好名称（别名）（SSLMate 存储库不允许这样做）。我还允许将密码作为字节切片参数而不是字符串传递，从而提高安全性。 如果您认为它可能有用，请查看它。   由   提交/u/zusycyvyboh  [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/opensource/comments/1u03x0l/golang_pkcs12_fork/</guid>
       <pubDate>Mon, 08 Jun 2026 10:23:58 GMT</pubDate>
-    </item>
-    <item>
-      <title>无人机群模拟变得简单：开源 PyBullet 框架</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tzgeoy/drone_swarm_simulation_made_easy_opensource/</link>
-      <description><![CDATA[我在 PyBullet 上构建了一个开源 Python 模拟器，用于多代理机器人和强化学习研究。它可以让您在几秒钟内旋转出飞行的蜂群。 项目链接 功能：  真实蜂群模拟：以精确的物理原理飞行数十架无人机。 10 种内置行为：开箱即用的集群、编队和搜索算法。 RL 友好：可用于训练自定义 AI 代理的现成环境。 实时 3D 仪表板：在浏览器中观看集群飞行并跟踪指标。 集群战斗 ⚔️：无人机对无人机的有趣竞争模式 轻量级和测试。可扩展：轻松添加您自己的场景和控制器。  从社区寻找反馈、贡献者和有趣的用例！    由   提交/u/DolphinSyndrome   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tzgeoy/drone_swarm_simulation_made_easy_opensource/</guid>
-      <pubDate>Sun, 07 Jun 2026 16:16:34 GMT</pubDate>
-    </item>
-    <item>
-      <title>RFC：开源 LoRa Mesh</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tz67jt/rfc_open_source_lora_mesh/</link>
-      <description><![CDATA[无论您是 Meshcore 还是 Meshtastic 的粉丝，这两种协议最近都变得最糟糕。 Meshtastic 的路由很糟糕。 Meshcore 已经以金钱为中心，以至于 MeshCore 应用程序几乎被剥夺了所有有用的工具。 我尝试在其中一个社区发帖，看看如何解决这个问题，但我得到的只是粉丝。 开源 LoRa 网格实际上是什么样子？ --- 我在想。 。 . I 消息类型  正常消息 SOS 消息 路由消息  正常消息是用户与用户之间的通信。 SOS 消息是紧急消息，由用户 ID 和用户位置组成。向每个人开放。 路由消息将在网络内建立路径。 II 节点类型  客户端 路由器 混合  客户端是公钥端点。它们的节点不会重复消息，除了 SOS 消息。 路由器是网络内的中继节点。它们不建立自己的路径，而是为客户端提供通过它们创建路径的方法。 混合在没有路由器的情况下建立，并重复所有客户端消息。在偏远地区很有用，例如洞穴探险。 终端设备应该能够在所有 3 个设备之间即时切换。因此，如果用户需要专用路由器，他们可以调整设备来实现该目的。 应该可以从任何 UI 的主菜单中更改节点类型。 并且在熟悉的路由器存在的情况下，设备应该可以从客户端和混合自动切换。 III 路由 路由器节点应在启动时分配一个随机字母。寻求建立到另一个客户端的路径的客户端将首先检查客户端是否可以直接到达，然后广播跟踪请求[路由]消息。 对于每个消息跃点，接收路由器都会将自己的字母添加到消息中，直到最终到达接收站。它将向发送站发送回​​复，并附上到其当前位置的路径。 路由器可能应该定期广播它们的信件[路由消息]。为了匿名，客户端不必公开自己的身份。 混合节点有点欺骗性。它们不是路由节点和客户端节点的混合体——外行人更容易理解这些术语。然而，它们确实具有重复和发送/接收的功能。基本上，混合设备可以让家庭在树林里徒步旅行或探索洞穴系统，而不必担心断线。每个节点都会中继它收到的每条消息，以便组中的所有成员都能听到。 客户端节点除了发送和接收消息之外没有其他目的。他们向路由器发送跟踪数据包，并确认对网络中自己位置的跟踪。但是，他们会重复 SOS 消息。 路由器模式下的设备也可以配置为客户端（对于需要两者的用户），但这种设置并不理想，因为客户端大多是移动的。客户端 + 路由。 IV 通道 网络内的客户端可能应该通过其公钥的 4 个字符散列来了解。频道应由 4 个字符的频道 ID 引用。 由于频道需要在网络中构建多个路径，我仍在努力解决这个问题。 感谢您在百忙之中抽出时间来阅读这篇蹩脚的帖子。我期待阅读你们可能有的任何其他想法。   由   提交 /u/ki4jgt   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tz67jt/rfc_open_source_lora_mesh/</guid>
-      <pubDate>Sun, 07 Jun 2026 08:11:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>开源倡议组织称，欧盟技术主权一揽子计划包括 29 页有关开源的内容</title>
-      <link>https://www.reddit.com/r/opensource/comments/1tyw0qz/eus_tech_sovereignty_package_includes_29_pages_on/</link>
-      <description><![CDATA[       由   提交/u/gadgetygirl  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/opensource/comments/1tyw0qz/eus_tech_sovereignty_package_includes_29_pages_on/</guid>
-      <pubDate>Sat, 06 Jun 2026 23:24:00 GMT</pubDate>
     </item>
     </channel>
 </rss>
