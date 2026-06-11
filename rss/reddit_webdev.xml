@@ -4,7 +4,56 @@
     <title>最新提交：webdev</title>
     <link>https://www.reddit.com/r/webdev/new</link>
     <description>致力于所有 Web 开发的社区：前端和后端。有关更多与设计相关的问题，请尝试 /r/web_design。</description>
-    <lastBuildDate>Thu, 11 Jun 2026 10:46:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 16:12:15 GMT</lastBuildDate>
+    <item>
+      <title>如何为负担不起太多托管费用的客户部署小型企业 Web 应用程序（Next.js + Bun API + PostgreSQL）？</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u32swy/how_do_you_deploy_a_small_business_web_app_nextjs/</link>
+      <description><![CDATA[为茶叶经销商构建了经销商管理系统（基本上是计费/会计应用程序）。技术堆栈是： 前端：Next.js 15（应用程序路由器） 后端：在 Bun 上运行的 Hono 框架 数据库：带有 Drizzle ORM 的 PostgreSQL Auth：更好的身份验证（基于会话、基于角色的访问） 关于业务： ~400 名客户（茶叶供应商） 最多 5-10 名员工用户 每日数据输入（茶叶采集权重），每月扣款计费 数据库很小 - 纯文本数据可能为 15 MB/年 他们希望它感觉像一个桌面应用程序，但数据安全存储在云中 预算非常紧张 - 最好是免费或低于 5 美元/月 我所拥有的考虑： 免费层堆栈（Vercel + Render + Neon） - 0 美元，但渲染免费层在 15 分钟后休眠，冷启动很烦人 VPS（Hetzner/DigitalOcean ~$5/月） -  Hostinger Node.js 托管 - 不支持 Bun 或 PostgreSQL “桌面应用程序”的 PWA感觉 - 似乎是正确的选择 我的问题： 对于为发展中国家的小型企业构建应用程序的开发人员 - 您的首选部署策略是什么？免费层堆栈（Vercel + Render + Neon）对于生产来说足够可靠吗？ 您会从 Bun 切换到 Node.js 只是为了拥有更多托管选项吗？ Bun 锁定正变得很痛苦。 我没有看到更好的方法吗？介于“在本地 PC 上运行”和“在本地 PC 上运行”之间的内容。和“支付 VPS 费用”？ 您如何为无法管理自己的基础设施的客户处理备份？ 任何建议表示赞赏。这是我第一次为真正的企业部署生产应用程序，我希望把它做好 - 它可以处理他们的财务数据。   由   提交 /u/Iamxv   [link] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u32swy/how_do_you_deploy_a_small_business_web_app_nextjs/</guid>
+      <pubDate>Thu, 11 Jun 2026 15:48:03 GMT</pubDate>
+    </item>
+    <item>
+      <title>可视化 HTML 生成器的建议</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u31shx/recommendations_for_a_visual_html_builder/</link>
+      <description><![CDATA[tl;dr：我正在寻找一个可视化 HTML 构建器 - 不是设计工具，而是专门构建代码的东西 大家好，我觉得有必要在做任何事情之前解释一下，为什么我正在寻找这个。请在来找我之前先阅读解释“你为什么不正常地编写 HTML 和 CSS，你出了什么问题”。 我已经做了 12 年多的开发人员，主要专注于复杂的软件。给我一个设计系统、业务需求（甚至不是一个充实的计划），我会给你一些可行的、面向未来的东西，就像我可以预测未来一样。综上所述，我一直在努力使用 HTML 和 CSS 编写完整的页面。我发现很难记住整个背景，而且我从未想出一种合理地构建它的方法。像 Tailwind CSS 这样的框架让我抓狂，因为为什么我需要记住特定的类而不是仅仅编写 CSS？无论如何，这不是重点。 最近我意识到我需要使我的服务产品多样化，因此开始提供更多此类定制网站。但现在我遇到了我个人的局限性，在 HTML/CSS 方面是垃圾。 AI 在这里没有多大帮助，因为 Claude Code 在实现设计方面绝对是垃圾，而且我不会为 3 个不同的 AI 订阅付费 - 这将违背我赚钱的目标。 所以现在我正在寻找一个更可视化的 HTML 和 CSS 编辑器。像 Figma 这样的设计工具是一回事，但我希望有一些东西是为那些了解 HTML 但又不想自己编写 HTML 的人设计的。我想象的工作流程是这样的：  我从一张白纸开始。它提示我添加字体、颜色和其他基本设计系统元素。这将设置 CSS 变量。 从这里我可以继续创建页面或使用其他组件（按钮、输入等）完成设计系统 每个页面都包含常用元素（页眉、页脚、侧边栏等）+ 一个供我拖放元素的空白区域。当我使用元素时，我应该能够在每个元素上设置类、id 和/或内联样式。对于块，我不想在“div”、“section”或其他任何内容之间进行选择。如果一个元素是一个块，我应该能够选择它是哪个块，而不必替换它。 最后我可以导出 HTML 和 HTML。 CSS。能够导出到特定工具/框架的奖励积分，但老实说，我可以自己管理转换。  一些很酷但不是必需的附加功能：  实时协作。会很酷，但如果不可能，我们可以随时协作处理它生成的 HTML/CSS 代码，提交到 git。 AI 集成，特别是与您已经安装的工具集成。我希望能够将 Claude Code 添加到其中，并告诉它获取某些组件并在我现在正在使用的任何内容中实现它们。 导出到多个框架/工具，但如果人工智能集成良好，则没有必要。  基于此有什么建议吗？我可能会尝试所有这些，因为此时我什至已经准备好自己编写一些东西。显然，我已经在 Google 上搜索了一些工具，但我希望看到人们会推荐的工具。   由   提交/u/jaffparker  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u31shx/recommendations_for_a_visual_html_builder/</guid>
+      <pubDate>Thu, 11 Jun 2026 15:10:50 GMT</pubDate>
+    </item>
+    <item>
+      <title>我得到了我的第一份自由职业：我需要你的帮助！</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u2zkl8/i_got_my_first_freelance_gig_i_need_your_help/</link>
+      <description><![CDATA[你好r/webdev，我得到了我的第一份自由职业=D！我很幸运能够在正确的时间出现在正确的地点，提到我正在攻读 IT 学位，专门从事 Web 开发和设计，并被要求为他们的新业务制作电子商务网站。我很高兴，很兴奋，但我也有我的担忧。 我担心我搞砸了一些事情，尤其是在支付处理和数据隐私方面。您可以给新手，特别是正在做第一个委托网站的新手，有什么建议吗？我只是太焦虑了，以至于泄露了用户数据，没有提出正确的法律内容（例如隐私政策等），弄乱了店面，所有这些爵士乐。有人可以给我一些有用的建议吗？ 如果有帮助的话，我住在南非。   由   提交 /u/dvjar   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u2zkl8/i_got_my_first_freelance_gig_i_need_your_help/</guid>
+      <pubDate>Thu, 11 Jun 2026 13:47:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>有谁见过更多合作伙伴的 cookie 同意消息吗？如果可以的话，可以留个网址吗</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u2z91a/has_anyone_seen_a_cookie_consent_message_with/</link>
+      <description><![CDATA[       由   提交/u/magenta_placenta   [链接] [评论] ]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u2z91a/has_anyone_seen_a_cookie_consent_message_with/</guid>
+      <pubDate>Thu, 11 Jun 2026 13:34:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>制作网站后我们需要做哪些检查</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u2xw7u/what_are_the_checks_we_need_to_do_after_making_a/</link>
+      <description><![CDATA[嗨，创建网站后我们需要做哪些检查，我不知道有什么类型的检查，我使用 claude 和 lovable 制作了一个网站，后端使用了两者的免费版本，我现在使用了 supabase，我想检查我的网站是否一切正常，以便我可以将其添加到我的投资组合中，我是一名 btech 一年级学生，具有非常基本的编码水平    由   提交 /u/Shivansh_Yadav07   [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u2xw7u/what_are_the_checks_we_need_to_do_after_making_a/</guid>
+      <pubDate>Thu, 11 Jun 2026 12:38:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>谷歌发布了关于被人工智能引用的官方指南，有趣的部分与 GEO 机构销售的内容相矛盾（会让很多人感到不安）</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u2w59t/google_published_its_official_guide_on_getting/</link>
+      <description><![CDATA[免责声明：是的，我从事人工智能可见性工作，所以我对此肯定有偏见。但我想要进入的内容实际上与我自己的行业销售的内容有所不同，所以我认为它在这里有一席之地。 早在五月中旬，谷歌就发布了第一个关于如何出现在人工智能答案中的真正指南（人工智能概述、人工智能模式）。我看到了一堆关于它的评论，它总是同一首歌，构建你的标题，添加架构，通常的废话。除非有一个“流言”。文档中的部分我还没有看到有人接受，这是最有趣的部分。谷歌简单地说，著名的 llms.txt 文件没有任何作用，你应该停止沉迷于 Schema.org，而且分块是烟雾和镜子。让我笑了一下，因为这基本上是一些“GEO”的包装。代理机构现在正在收费。 他们所推动的其实是显而易见的。他们谈论“商品”与“非商品”内容。就像，如果人工智能可以自己写你的文章，它永远不会引用你，这是有道理的，它已经有了答案，为什么还要去找你。被引用的是对模型所没有的东西的满足。你实际测量的数字，你真正运行的测试，基本上是生活经验。 让我印象深刻的例子（不是在谷歌的指南中，在其他地方）是一个专门研究机器人吸尘器、垃圾领域权威的小博客，它在人工智能答案方面的排名超过了《纽约时报》。 《纽约时报》的域名强度比《纽约时报》强三倍。除了《纽约时报》发布了任何人都可以复制的附属列表文章之外，博客作者还用真实的测量结果拍摄了他的实际测试。猜猜谁被引用了。 我认为这就是它对你有用的地方。这意味着在大多数情况下您既不需要工具也不需要代理。拿你最通用的页面来说，问问自己“任何人都可以准确地写出这个”，如果答案是肯定的，请添加一些只有你知道的内容。您甚至不需要数据。一个简单的“每个客户问我的第一个问题就是这个”而你已经脱颖而出了。它是免费的，而且比所有技术调整的总和还要重要。 仍然让我困惑的一件事是测量。为什么法学硕士选择一个来源而不是另一个来源仍然相当不透明，而且它会随着每次更新而变化。很好奇是否有人真正看到来自 ChatGPT 或 Perplexity 的真实流量，因为到目前为止，每个月通常有 3 个访问者，即使这样，您也很难分辨出它登陆的是哪个页面。   由   提交/u/didiTonic  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u2w59t/google_published_its_official_guide_on_getting/</guid>
+      <pubDate>Thu, 11 Jun 2026 11:16:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agent、Claude CLI 和 Linear 一起工作。</title>
+      <link>https://www.reddit.com/r/webdev/comments/1u2vroo/ai_agent_claude_cli_and_linear_all_working/</link>
+      <description><![CDATA[我在 Google Cloud VM 实例上设置了 Claude CLI 实例，克隆了我的所有项目存储库（我们运营一个开发机构），并将 Webhook 连接到 Linear。当工单被标记时，CLI 会自动审查相关的存储库，了解需要做什么，并将详细的技术故障直接放入工单中。 这缩短了工单完成时间，因为开发人员现在有更多的上下文可以输入 Claude 代码或游标并开始构建。 下一步：我试图让 Claude 根据该评估实际创建工作 PR，并端到端地淘汰整个工单。仍在弄清楚循环是否可以完全关闭。 有人研究过这样的系统吗？很想听听您的方法。   由   提交/u/theTbling  [链接] [评论]]]></description>
+      <guid>https://www.reddit.com/r/webdev/comments/1u2vroo/ai_agent_claude_cli_and_linear_all_working/</guid>
+      <pubDate>Thu, 11 Jun 2026 10:57:17 GMT</pubDate>
+    </item>
     <item>
       <title>对于长时间在家编码的开发人员来说，工作环境有多重要？</title>
       <link>https://www.reddit.com/r/webdev/comments/1u2vi9z/how_important_is_the_work_environment_for_a/</link>
@@ -18,13 +67,6 @@
       <description><![CDATA[让我们假设我们能够使用 CSS/HTML/JS 做任何可能的事情。 （由于托管限制，没有 typescript 或 node.js） 如何将其用于动画/故事板组合，与制作展示艺术墙之类的东西不同，如何以专业的方式使其具有交互性？  我对利用网络本身力量的想法更感兴趣，而不仅仅是装饰效果   由   提交/u/Enc7  [链接] [评论]]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1u2ttxu/how_can_i_creatively_use_csshtmljs_for_a/</guid>
       <pubDate>Thu, 11 Jun 2026 09:07:33 GMT</pubDate>
-    </item>
-    <item>
-      <title>不要偷懒——重构你的前端，现在很容易</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u2trhe/dont_be_lazy_refactor_your_frontend_its_easy_now/</link>
-      <description><![CDATA[       由   提交/u/Impressive_Layer_867   [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u2trhe/dont_be_lazy_refactor_your_frontend_its_easy_now/</guid>
-      <pubDate>Thu, 11 Jun 2026 09:03:19 GMT</pubDate>
     </item>
     <item>
       <title>Claude Desktop 在每次启动时都会生成 1.8 GB Hyper-V 虚拟机，甚至仅用于聊天用途</title>
@@ -67,48 +109,6 @@
       <description><![CDATA[       https://preview.redd.it/tj6mb8uzxj6h1.png?width=2336&amp;format=png&amp;auto=webp&amp;s=5576f4c3bcfb905fdc0154b5c45a46316be880dd 我直接向 Apple 询问当前推荐的引导用户从 iOS 上的 Safari 安装渐进式 Web 应用程序的方法。 我的问题被驳回。与此相关的所有其他问题在发布后都被驳回或隐藏。 我问的原因是因为 iOS 上 PWA 的安装流程越来越难向普通用户解释。在最新的 iOS 开发者测试版中，路径看起来类似于： 3 条垂直线 分享按钮 向下滚动 添加到主屏幕 没有明显的安装提示，没有明确的浏览器级别可供性，也没有简单的语言来映射人们听到“安装此应用程序”时所期望的内容。 我知道 Apple 有自己的平台激励措施，但这会影响真正的网络产品。适合构建网络优先工具的开发人员。  令人沮丧的不仅仅是流量不好。 Apple 似乎并没有兴趣在直接询问时承认这个问题。 我在这里遗漏了什么吗？ 其他 Web 开发人员目前如何在 iOS 上处理 PWA 入门？ 您是否正在构建自定义说明屏幕？完全避免 PWA？将用户转至 App Store？或者只是接受下车？ 我附上了屏幕截图，因为我认为这值得更公开地讨论。   由   提交/u/Jacoby_Broadnax   [链接] [评论] ]]></description>
       <guid>https://www.reddit.com/r/webdev/comments/1u2klur/apple_keeps_making_pwas_harder_to_install_on_ios/</guid>
       <pubDate>Thu, 11 Jun 2026 01:04:20 GMT</pubDate>
-    </item>
-    <item>
-      <title>您目前解决“AI 内存问题”的方法是什么？您将如何将其改进 10 倍？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u2jeka/what_is_your_current_way_of_tackling_the_ai/</link>
-      <description><![CDATA[我最近解决了“AI 内存”问题其他 Reddits 子版块和这个子版块上的兔子洞，我发现人们有不同的方法来解决这个问题。最值得注意的是：  - 注释 - Git 树 所以我的问题是： 如何管理 AI 内存以及如何使其变得更好？   由   提交 /u/Haunting-Bother7723   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u2jeka/what_is_your_current_way_of_tackling_the_ai/</guid>
-      <pubDate>Thu, 11 Jun 2026 00:08:57 GMT</pubDate>
-    </item>
-    <item>
-      <title>厌倦了 WordPress</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u2iwoa/tired_of_wordpress/</link>
-      <description><![CDATA[如果您有一家本地企业，并且希望不再使用 Wordpress 构建企业网站，您会采取什么路线，会使用什么软件来构建新网站？也就是说，如果共享服务器上的 Web 主机是 Cloudways。   由   提交 /u/innomind   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u2iwoa/tired_of_wordpress/</guid>
-      <pubDate>Wed, 10 Jun 2026 23:47:39 GMT</pubDate>
-    </item>
-    <item>
-      <title>WebKit 终于获​​得了对完全可定制选择元素的支持</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u278z1/webkit_finally_gets_support_for_fully/</link>
-      <description><![CDATA[作为 Apple 全球开发者大会 (WWDC) 的一部分，他们宣布了 WebKit 和 Safari 27 中的一些新功能。其中包括 Google Chrome 在去年 4 月获得的一项功能：完全可自定义的选择元素。作为一名无障碍专业人士，我非常兴奋。但令我失望的是，Firefox 还没有这个功能。  您可以在此处找到有关新功能的会议：https://developer.apple.com/videos/play/wwdc2026/204   由   提交 /u/ThatBlindSwiftDevGuy   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u278z1/webkit_finally_gets_support_for_fully/</guid>
-      <pubDate>Wed, 10 Jun 2026 16:31:48 GMT</pubDate>
-    </item>
-    <item>
-      <title>找到一支友好的工程师团队很罕见吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u26bfk/is_finding_a_team_of_friendly_engineers_rare/</link>
-      <description><![CDATA[我不想刻板印象所有开发人员，但他们中的很多人似乎都有不好的性格。我注意到的事情是自鸣得意/傲慢/精英主义、守门/知识囤积、偏袒/派系、排斥和围攻。有些人非常刻薄，态度恶劣，他们需要不断地提醒你他们有多聪明。所以他们利用一切机会在管理层面前炫耀和抬高你。 很多人并不把这当成一份工作，这就像他们的整个个性。然后你就会遇到这些孤独的狼或极其不善于社交的人，你几乎无法与之交谈。 我认为很难找到一群正常的、冷静友好的工程师一起工作。 有什么想法吗？   由   提交 /u/throtaway0134hdj   [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u26bfk/is_finding_a_team_of_friendly_engineers_rare/</guid>
-      <pubDate>Wed, 10 Jun 2026 15:59:23 GMT</pubDate>
-    </item>
-    <item>
-      <title>软件工程的不成文法则</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u23cmg/the_unwritten_laws_of_software_engineering/</link>
-      <description><![CDATA[       由   提交/u/fagnerbrack  [链接] [评论] ]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u23cmg/the_unwritten_laws_of_software_engineering/</guid>
-      <pubDate>Wed, 10 Jun 2026 14:12:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>adidas.com 不就是一个纯粹的垃圾网站吗？</title>
-      <link>https://www.reddit.com/r/webdev/comments/1u229og/is_adidascom_not_just_the_absolute_garbage_of_a/</link>
-      <description><![CDATA[在阿迪达斯网站购物是错误的，现在我后悔了。我应该留意大量页面闪烁、抖动、随机滚动、弹出窗口以及它完全冻结了一台相当新的 iPhone 的事实所发出的警告信号。就是这么重。过滤和搜索只是调用一个随机生成器，它会输出您没有搜索到的任何内容。登录强制使用密钥而不是简单密码。哦，它也无法登录。跟踪您的订单只是他们用文字描述的海市蜃楼，但尚未进行振动编码。 您认为这种类型的网站是内部开发的还是外包的？   由   提交/u/GrumpyBitFlipper  [链接] [评论]]]></description>
-      <guid>https://www.reddit.com/r/webdev/comments/1u229og/is_adidascom_not_just_the_absolute_garbage_of_a/</guid>
-      <pubDate>Wed, 10 Jun 2026 13:29:36 GMT</pubDate>
     </item>
     </channel>
 </rss>
