@@ -10,7 +10,7 @@
 
 </div>
 
-## 🎯 What is this?
+## 🎯 What is this? ([OPML](rss/trans.opml))
  - source001 [https://rsshub.app/telegram/channel/Artificial_intelligence_in](https://rsshub.app/telegram/channel/Artificial_intelligence_in) -> [Artificial_intelligence_in](rss/Artificial_intelligence_in.xml)
  - source002 [https://www.reddit.com/r/automation.rss](https://www.reddit.com/r/automation.rss) -> [reddit_automation](rss/reddit_automation.xml)
  - source003 [https://huggingface.co/blog/feed.xml](https://huggingface.co/blog/feed.xml) -> [huggingface_blog](rss/huggingface_blog.xml)
