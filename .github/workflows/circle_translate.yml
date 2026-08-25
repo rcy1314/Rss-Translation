@@ -1,5 +1,9 @@
 name: circle_translate
 
+env:
+  OPML_XML_URL_USE_PAGE: ${{ vars.OPML_XML_URL_USE_PAGE || 'false' }}
+  OPML_XML_URL_ANCHOR: ${{ vars.OPML_XML_URL_ANCHOR || '' }}
+
 # Controls when the workflow will run
 on:
 
@@ -42,6 +46,7 @@ jobs:
       - name: ls_show
         run: |
           python my-mtranslate.py
+          python opml-generate.py --repo-slug "${{ github.repository }}" --use-github-pages "${{ env.OPML_XML_URL_USE_PAGE }}" --xml-url-anchor "${{ env.OPML_XML_URL_ANCHOR }}"
           ls -al rss/
              
       - name: Push changes to remote repository
